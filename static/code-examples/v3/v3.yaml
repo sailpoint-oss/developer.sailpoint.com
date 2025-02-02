@@ -1427,7 +1427,7 @@ paths:
         - SOURCE_SUBADMIN
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $ForSubadmin = "8c190e6787aa4ed9a90bd9d5344523fb" # String | If provided, filters the returned list according to what is visible to the indicated ROLE_SUBADMIN or SOURCE_SUBADMIN identity. The value of the parameter is either an identity ID, or the special value **me**, which is shorthand for the calling identity's ID.  A 400 Bad Request error is returned if the **for-subadmin** parameter is specified for an identity that is not a subadmin. (optional)
             $Limit = 50 # Int32 | Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 50)
@@ -1501,7 +1501,7 @@ paths:
         - SOURCE_SUBADMIN
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $AccessProfile = @"
             {
@@ -1655,7 +1655,7 @@ paths:
         - SOURCE_SUBADMIN
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "2c9180837ca6693d017ca8d097500149" # String | ID of the Access Profile
 
@@ -1854,7 +1854,7 @@ paths:
         - SOURCE_SUBADMIN
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "2c91808a7813090a017814121919ecca" # String | ID of the Access Profile to patch
             # JsonPatchOperation[] | 
@@ -1978,7 +1978,7 @@ paths:
         - SOURCE_SUBADMIN
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "2c91808a7813090a017814121919ecca" # String | ID of the Access Profile to delete
 
@@ -2129,7 +2129,7 @@ paths:
         - SOURCE_SUBADMIN
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $AccessProfileBulkDeleteRequest = @"
             {
@@ -2338,7 +2338,7 @@ paths:
         - SOURCE_SUBADMIN
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "2c91808a7813090a017814121919ecca" # String | ID of the access profile containing the entitlements.
             $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -2529,7 +2529,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $AccessRequest = @"
             {
@@ -2677,7 +2677,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $CancelAccessRequest = @"
             {
@@ -2813,7 +2813,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
 
             # Get Access Request Configuration
@@ -2870,7 +2870,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $AccessRequestConfig = @"
             {
@@ -3562,7 +3562,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $RequestedFor = "2c9180877b2b6ea4017b2c545f971429" # String | Filter the results by the identity the requests were made for. *me* indicates the current user. Mutually exclusive with *regarding-identity*. (optional)
             $RequestedBy = "2c9180877b2b6ea4017b2c545f971429" # String | Filter the results by the identity who made the requests. *me* indicates the current user. Mutually exclusive with *regarding-identity*. (optional)
@@ -3843,7 +3843,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $OwnerId = "2c91808568c529c60168cca6f90c1313" # String | If present, the value returns only pending approvals for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN users can also fetch all the approvals in the org, when owner-id is not used.    * Non-ORG_ADMIN users can only specify *me* or pass their own identity ID value. (optional)
             $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -4100,7 +4100,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $OwnerId = "2c91808568c529c60168cca6f90c1313" # String | If present, the value returns only completed approvals for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN users can also fetch all the approvals in the org, when owner-id is not used.    * Non-ORG_ADMIN users can only specify *me* or pass their own identity ID value. (optional)
             $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -4203,7 +4203,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $ApprovalId = "2c91808b7294bea301729568c68c002e" # String | Approval ID.
             $CommentDto = @"
@@ -4277,7 +4277,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $ApprovalId = "2c91808b7294bea301729568c68c002e" # String | Approval ID.
             $CommentDto = @"
@@ -4367,7 +4367,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $ApprovalId = "2c91808b7294bea301729568c68c002e" # String | Approval ID.
             $ForwardApprovalDto = @"
@@ -4464,7 +4464,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $OwnerId = "2c91808568c529c60168cca6f90c1313" # String | The ID of the owner or approver identity of the approvals. If present, the value returns approval summary for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN user can also fetch all the approvals in the org, when owner-id is not used.    * Non ORG_ADMIN users can only specify *me* or pass their own identity ID value. (optional)
             $FromDate = "from-date=2020-03-19T19:59:11Z" # String | This is the date and time the results will be shown from. It must be in a valid ISO-8601 format. (optional)
@@ -4738,7 +4738,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
             $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -4842,7 +4842,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $AccountAttributesCreate = @"
             {
@@ -4921,7 +4921,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Account ID.
 
@@ -5030,7 +5030,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Account ID.
             $RequestBody =  # SystemCollectionsHashtable[] | A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
@@ -5123,7 +5123,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Account ID.
             $AccountAttributes = @"
@@ -5204,7 +5204,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Account ID.
 
@@ -5332,7 +5332,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The account id
             $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -5402,7 +5402,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The account id
 
@@ -5485,7 +5485,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The account id
             $AccountToggleRequest = @"
@@ -5566,7 +5566,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The account id
             $AccountToggleRequest = @"
@@ -5663,7 +5663,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The account ID.
             $AccountUnlockRequest = @"
@@ -5749,7 +5749,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $SearchAttributeConfig = @"
             {
@@ -5812,7 +5812,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
 
             # List Extended Search Attributes
@@ -5880,7 +5880,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Name = "newMailAttribute" # String | Name of the extended search attribute configuration to retrieve.
 
@@ -5939,7 +5939,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Name = "newMailAttribute" # String | Name of the extended search attribute configuration to delete.
 
@@ -6025,7 +6025,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Name = "promotedMailAttribute" # String | Name of the search attribute configuration to patch.
             # JsonPatchOperation[] | 
@@ -6227,7 +6227,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $RequestedFor = "2c91808568c529c60168cca6f90c1313" # String | The identity that the activity was requested for. *me* indicates the current user. Mutually exclusive with *regarding-identity*. (optional)
             $RequestedBy = "2c91808568c529c60168cca6f90c1313" # String | The identity that requested the activity. *me* indicates the current user. Mutually exclusive with *regarding-identity*. (optional)
@@ -6293,7 +6293,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The account activity id
 
@@ -6370,7 +6370,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
 
             # Get security network configuration.
@@ -6434,7 +6434,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $NetworkConfiguration = @"
             {
@@ -6521,7 +6521,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             # JsonPatchOperation[] | A list of auth org network configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Ensures that the patched Network Config conforms to certain logical guidelines, which are:   1. Each string element in the range array must be a valid ip address or ip subnet mask.   2. Each string element in the geolocation array must be 2 characters, and they can only be uppercase letters.
             $JsonPatchOperation = @"{
@@ -6596,7 +6596,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
 
             # Get Auth Org Lockout Configuration.
@@ -6673,7 +6673,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             # JsonPatchOperation[] | A list of auth org lockout configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Ensures that the patched Lockout Config conforms to certain logical guidelines, which are:   `1. maximumAttempts >= 1 && maximumAttempts <= 15   2. lockoutDuration >= 5 && lockoutDuration <= 60   3. lockoutWindow >= 5 && lockoutDuration <= 60`
             $JsonPatchOperation = @"{
@@ -6889,7 +6889,7 @@ paths:
         - userAuth: []
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
 
             # Get Service Provider Configuration.
@@ -7004,7 +7004,7 @@ paths:
         - userAuth: []
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             # JsonPatchOperation[] | A list of auth org service provider configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Note: /federationProtocolDetails/0 is IdpDetails /federationProtocolDetails/1 is SpDetails Ensures that the patched ServiceProviderConfig conforms to certain logical guidelines, which are:   1. Do not add or remove any elements in the federation protocol details in the service provider configuration.   2. Do not modify, add, or delete the service provider details element in the federation protocol details.   3. If this is the first time the patched ServiceProviderConfig enables Remote IDP sign-in, it must also include IDPDetails.   4. If the patch enables Remote IDP sign in, the entityID in the IDPDetails cannot be null. IDPDetails must include an entityID.   5. Any JIT configuration update must be valid.  Just in time configuration update must be valid when enabled. This includes:   - A Source ID   - Source attribute mappings   - Source attribute maps have all the required key values (firstName, lastName, email)
             $JsonPatchOperation = @"{
@@ -7079,7 +7079,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
 
             # Get Auth Org Session Configuration.
@@ -7158,7 +7158,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             # JsonPatchOperation[] | A list of auth org session configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Ensures that the patched Session Config conforms to certain logical guidelines, which are:   `1. maxSessionTime >= 1 && maxSessionTime <= 10080 (1 week)   2. maxIdleTime >= 1 && maxIdleTime <= 1440 (1 day)   3. maxSessionTime must have a greater duration than maxIdleTime.` 
             $JsonPatchOperation = @"{
@@ -7321,7 +7321,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Identity ID
 
@@ -7402,7 +7402,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Identity ID
             # JsonPatchOperation[] | A list of auth user update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
@@ -7505,7 +7505,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
 
             # List of branding items
@@ -7601,7 +7601,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Name = "MyName" # String | name of branding item
             $ProductName = "MyProductName" # String | product name
@@ -7674,7 +7674,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Name = "default" # String | The name of the branding item to be retrieved
 
@@ -7746,7 +7746,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Name = "default" # String | The name of the branding item to be retrieved
             $Name2 = "Name_example" # String | name of branding item
@@ -7815,7 +7815,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Name = "default" # String | The name of the branding item to be deleted
 
@@ -8448,7 +8448,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Detail = "SLIM" # String | Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior. (optional)
             $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -8755,7 +8755,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Campaign = @"
             {
@@ -8992,7 +8992,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "2c91808571bcfcf80171c23e4b4221fc" # String | ID of the campaign to be retrieved.
             $Detail = "SLIM" # String | Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior. (optional)
@@ -9102,7 +9102,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "2c91808571bcfcf80171c23e4b4221fc" # String | ID of the campaign template being modified.
             # JsonPatchOperation[] | A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The fields that can be patched differ based on the status of the campaign.  When the campaign is in the *STAGED* status, you can patch these fields: * name * description * recommendationsEnabled * deadline * emailNotificationEnabled * autoRevokeAllowed  When the campaign is in the *ACTIVE* status, you can patch these fields: * deadline 
@@ -9286,7 +9286,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The certification campaign ID
             $AdminReviewReassign = @"
@@ -9372,7 +9372,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Campaign ID.
             $ActivateCampaignOptions = @"
@@ -9464,7 +9464,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Campaign ID.
             $CampaignCompleteOptions = @"
@@ -9538,7 +9538,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $CampaignsDeleteRequest = @"
             {
@@ -9606,7 +9606,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "2c91808571bcfcf80171c23e4b4221fc" # String | ID of the campaign the remediation scan is being run for.
 
@@ -9698,7 +9698,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "2c91808571bcfcf80171c23e4b4221fc" # String | ID of the campaign whose reports are being fetched.
 
@@ -9774,7 +9774,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "2c91808571bcfcf80171c23e4b4221fc" # String | ID of the campaign the report is being run for.
             $Type = "CAMPAIGN_COMPOSITION_REPORT" # ReportType | Type of the report to run.
@@ -9840,7 +9840,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
 
             # Get Campaign Reports Configuration
@@ -9900,7 +9900,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $CampaignReportsConfig = @"
             {
@@ -10059,7 +10059,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $CampaignFilterDetails = @"
             {
@@ -10196,7 +10196,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
             $Start = 0 # Int32 | Start/Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -10260,7 +10260,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "e9f9a1397b842fd5a65842087040d3ac" # String | The ID of the campaign filter to be retrieved.
 
@@ -10326,7 +10326,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $FilterId = "e9f9a1397b842fd5a65842087040d3ac" # String | The ID of the campaign filter being modified.
             $CampaignFilterDetails = @"
@@ -10408,7 +10408,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $RequestBody = "MyRequestBody" # String[] | A json list of IDs of campaign filters to delete.
             $RequestBody = @""@ 
@@ -10795,7 +10795,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $CampaignTemplate = @"
             {
@@ -11176,7 +11176,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
             $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -11283,7 +11283,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "2c9180835d191a86015d28455b4a2329" # String | ID of the campaign template being modified.
             # JsonPatchOperation[] | A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * deadlineDuration * campaign (all fields that are allowed during create) 
@@ -11370,7 +11370,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "2c9180835d191a86015d28455b4a2329" # String | Requested campaign template's ID.
 
@@ -11431,7 +11431,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "2c9180835d191a86015d28455b4a2329" # String | ID of the campaign template being deleted.
 
@@ -11655,7 +11655,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "04bedce387bd47b2ae1f86eb0bb36dee" # String | ID of the campaign template whose schedule is being fetched.
 
@@ -11788,7 +11788,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "04bedce387bd47b2ae1f86eb0bb36dee" # String | ID of the campaign template being scheduled.
             $Schedule = @"
@@ -11870,7 +11870,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "04bedce387bd47b2ae1f86eb0bb36dee" # String | ID of the campaign template whose schedule is being deleted.
 
@@ -11943,7 +11943,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "2c9180835d191a86015d28455b4a2329" # String | ID of the campaign template to use for generation.
 
@@ -12109,7 +12109,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $ReviewerIdentity = "me" # String | Reviewer's identity. *me* indicates the current user. (optional)
             $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -12178,7 +12178,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The certification id
 
@@ -12351,7 +12351,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The identity campaign certification ID
             $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -12489,7 +12489,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the identity campaign certification on which to make decisions
             # ReviewDecision[] | A non-empty array of decisions to be made.
@@ -12587,7 +12587,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The identity campaign certification ID
             $ReviewReassign = @"
@@ -12665,7 +12665,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The identity campaign certification ID
 
@@ -12821,7 +12821,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The certification ID
             $Filters = "identitySummary.id eq "ef38f94347e94562b5bb8424a56397d8"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **identitySummary.id**: *eq, in* (optional)
@@ -12946,7 +12946,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The identity campaign certification ID
             $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -13413,7 +13413,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The identity campaign certification ID
             $Type = "ROLE" # String | The type of access review item to retrieve summaries for
@@ -13491,7 +13491,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The identity campaign certification ID
             $IdentitySummaryId = "2c91808772a504f50172a9540e501ba8" # String | The identity summary ID
@@ -13609,7 +13609,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $CertificationId = "ef38f94347e94562b5bb8424a56397d8" # String | The certification ID
             $ItemId = "2c91808671bcbab40171bd945d961227" # String | The certification item ID
@@ -13712,7 +13712,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The certification ID
             $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -13794,7 +13794,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The identity campaign certification ID
             $ReviewReassign = @"
@@ -13873,7 +13873,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "63b32151-26c0-42f4-9299-8898dc1c9daa" # String | The task ID
 
@@ -13957,7 +13957,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $ReviewerIdentity = "Ada.1de82e55078344" # String | The ID of reviewer identity. *me* indicates the current user. (optional)
             $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -14107,7 +14107,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $SourceOrg = "source-org" # String | The name of the source org.
 
@@ -14248,7 +14248,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $SourceOrg = "source-org" # String | The name of the source org.
             $ObjectMappingRequest = @"
@@ -14326,7 +14326,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $SourceOrg = "source-org" # String | The name of the source org.
             $ObjectMappingId = "3d6e0144-963f-4bd6-8d8d-d77b4e507ce4" # String | The id of the object mapping to be deleted.
@@ -14444,7 +14444,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $SourceOrg = "source-org" # String | The name of the source org.
             $ObjectMappingBulkCreateRequest = @"
@@ -14589,7 +14589,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $SourceOrg = "source-org" # String | The name of the source org.
             $ObjectMappingBulkPatchRequest = @"
@@ -14838,7 +14838,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Filters = "status eq "COMPLETE"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq* (optional)
 
@@ -14996,7 +14996,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Data =  # System.IO.FileInfo | JSON file containing the objects to be imported.
             $Name = "MyName" # String | Name that will be assigned to the uploaded configuration file.
@@ -15075,7 +15075,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "3d0fe04b-57df-4a46-a83b-8f04b0f9d10b" # String | The id of the uploaded configuration.
 
@@ -15136,7 +15136,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "3d0fe04b-57df-4a46-a83b-8f04b0f9d10b" # String | The id of the uploaded configuration.
 
@@ -15355,7 +15355,7 @@ paths:
         - SOURCE_SUBADMIN
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $ScriptName = "aScriptName" # String | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
             $Locale = "de" # String | The locale to apply to the config. If no viable locale is given, it will default to ""en"" (optional)
@@ -15419,7 +15419,7 @@ paths:
         - SOURCE_SUBADMIN
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $ScriptName = "aScriptName" # String | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
 
@@ -15509,7 +15509,7 @@ paths:
         - SOURCE_SUBADMIN
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $ScriptName = "aScriptName" # String | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
             # JsonPatchOperation[] | A list of connector detail update operations 
@@ -15684,7 +15684,7 @@ paths:
         - SOURCE_SUBADMIN
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Filters = "directConnect eq "true"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *sw, co*  **type**: *sw, co, eq*  **directConnect**: *eq*  **category**: *eq*  **features**: *ca*  **labels**: *ca* (optional)
             $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -15780,7 +15780,7 @@ paths:
         - SOURCE_SUBADMIN
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $V3CreateConnectorDto = @"
             {
@@ -15857,7 +15857,7 @@ paths:
         - SOURCE_SUBADMIN
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $ScriptName = "aScriptName" # String | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
 
@@ -15962,7 +15962,7 @@ paths:
         - SOURCE_SUBADMIN
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $ScriptName = "aScriptName" # String | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
             $File =  # System.IO.FileInfo | connector source config xml file
@@ -16058,7 +16058,7 @@ paths:
         - SOURCE_SUBADMIN
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $ScriptName = "aScriptName" # String | The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
             $Locale = "de" # String | The locale to apply to the config. If no viable locale is given, it will default to ""en""
@@ -16159,7 +16159,7 @@ paths:
         - SOURCE_SUBADMIN
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $ScriptName = "aScriptName" # String | The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
             $Locale = "de" # String | The locale to apply to the config. If no viable locale is given, it will default to ""en""
@@ -16228,7 +16228,7 @@ paths:
         - SOURCE_SUBADMIN
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $ScriptName = "aScriptName" # String | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
 
@@ -16308,7 +16308,7 @@ paths:
         - SOURCE_SUBADMIN
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $ScriptName = "aScriptName" # String | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
             $File =  # System.IO.FileInfo | connector source template xml file
@@ -16388,7 +16388,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $IdentityId = "2c9180857893f1290178944561990364" # String | ID of the identity to update.
             $SetLifecycleStateRequest = @"
@@ -16561,7 +16561,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $IdentityProfileId = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | Identity profile ID.
             $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -16635,7 +16635,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $IdentityProfileId = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | Identity profile ID.
             $LifecycleState = @"
@@ -16735,7 +16735,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $IdentityProfileId = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | Identity profile ID.
             $LifecycleStateId = "ef38f94347e94562b5bb8424a56397d8" # String | Lifecycle state ID.
@@ -16853,7 +16853,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $IdentityProfileId = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | Identity profile ID.
             $LifecycleStateId = "ef38f94347e94562b5bb8424a56397d8" # String | Lifecycle state ID.
@@ -16950,7 +16950,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $IdentityProfileId = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | Identity profile ID.
             $LifecycleStateId = "ef38f94347e94562b5bb8424a56397d8" # String | Lifecycle state ID.
@@ -17113,7 +17113,7 @@ paths:
         - ORG_ADMIN
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
             $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -17175,7 +17175,7 @@ paths:
         - ORG_ADMIN
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $IdentityProfile = @"
             {
@@ -17332,7 +17332,7 @@ paths:
         - ORG_ADMIN
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $RequestBody = "MyRequestBody" # String[] | Identity Profile bulk delete request body.
             $RequestBody = @""@ 
@@ -17471,7 +17471,7 @@ paths:
             - idn:identity-profile:read
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
             $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -17606,7 +17606,7 @@ paths:
             - idn:identity-profile:manage
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             # IdentityProfileExportedObject[] | Previously exported Identity Profiles.
             $IdentityProfileExportedObject = @"{
@@ -17774,7 +17774,7 @@ paths:
         - ORG_ADMIN
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $IdentityPreviewRequest = @"
             {
@@ -17870,7 +17870,7 @@ paths:
         - ORG_ADMIN
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $IdentityProfileId = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | The Identity Profile ID.
 
@@ -17940,7 +17940,7 @@ paths:
         - ORG_ADMIN
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $IdentityProfileId = "ef38f94347e94562b5bb8424a56397d8" # String | The Identity Profile ID.
 
@@ -18039,7 +18039,7 @@ paths:
         - ORG_ADMIN
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $IdentityProfileId = "ef38f94347e94562b5bb8424a56397d8" # String | The Identity Profile ID
             # JsonPatchOperation[] | A list of Identity Profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
@@ -18112,7 +18112,7 @@ paths:
         - ORG_ADMIN
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $IdentityProfileId = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | The Identity Profile ID.
 
@@ -18181,7 +18181,7 @@ paths:
         - ORG_ADMIN
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $IdentityProfileId = "ef38f94347e94562b5bb8424a56397d8" # String | The Identity Profile ID to be processed
 
@@ -18402,7 +18402,7 @@ paths:
         - ORG_ADMIN
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
             $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -18487,7 +18487,7 @@ paths:
         - ORG_ADMIN
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $ManagedClientRequest = @"
             {
@@ -18562,7 +18562,7 @@ paths:
         - ORG_ADMIN
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7" # String | Managed client ID.
 
@@ -18635,7 +18635,7 @@ paths:
         - ORG_ADMIN
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7" # String | Managed client ID.
             # JsonPatchOperation[] | JSONPatch payload used to update the object.
@@ -18699,7 +18699,7 @@ paths:
         - ORG_ADMIN
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7" # String | Managed client ID.
 
@@ -18830,7 +18830,7 @@ paths:
             - idn:managed-client-status:read
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "aClientId" # String | Managed client ID to get status for.
             $Type = "CCG" # ManagedClientType | Managed client type to get status for.
@@ -19078,7 +19078,7 @@ paths:
         - ORG_ADMIN
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
             $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -19165,7 +19165,7 @@ paths:
         - ORG_ADMIN
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $ManagedClusterRequest = @"
             {
@@ -19243,7 +19243,7 @@ paths:
         - ORG_ADMIN
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "2c9180897de347a2017de8859e8c5039" # String | Managed cluster ID.
 
@@ -19316,7 +19316,7 @@ paths:
         - ORG_ADMIN
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "2c9180897de347a2017de8859e8c5039" # String | Managed cluster ID.
             # JsonPatchOperation[] | JSONPatch payload used to update the object.
@@ -19388,7 +19388,7 @@ paths:
         - ORG_ADMIN
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "2c9180897de347a2017de8859e8c5039" # String | Managed cluster ID.
             $RemoveClients = $false # Boolean | Flag to determine the need to delete a cluster with clients. (optional) (default to $false)
@@ -19500,7 +19500,7 @@ paths:
         - ORG_ADMIN
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | ID of managed cluster to get log configuration for.
 
@@ -19637,7 +19637,7 @@ paths:
         - ORG_ADMIN
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | ID of the managed cluster to update the log configuration for.
             $PutClientLogConfigurationRequest = @"
@@ -19725,7 +19725,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
 
             # Configuration of Okta MFA method
@@ -19794,7 +19794,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $MfaOktaConfig = @"
             {
@@ -19898,7 +19898,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
 
             # Configuration of Duo MFA method
@@ -19973,7 +19973,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $MfaDuoConfig = @"
             {
@@ -20089,7 +20089,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $AllLanguages = $false # Boolean | Indicator whether the question text should be returned in all configured languages    * If true, the question text is returned in all languages that it is configured in.    * If false, the question text is returned in the user locale if available, else for the default locale.     * If not passed, it behaves the same way as passing this parameter as false (optional)
 
@@ -20199,7 +20199,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             # KbaAnswerRequestItem[] | 
             $KbaAnswerRequestItem = @"{
@@ -20287,7 +20287,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Method = "okta-verify" # String | The name of the MFA method. The currently supported method names are 'okta-verify' and 'duo-web'.
 
@@ -20357,7 +20357,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Method = "okta-verify" # String | The name of the MFA method. The currently supported method names are 'okta-verify' and 'duo-web'.
 
@@ -20447,7 +20447,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $OktaVerificationRequest = @"
             {
@@ -20529,7 +20529,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $DuoVerificationRequest = @"
             {
@@ -20622,7 +20622,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Method = "okta-verify" # String | The name of the MFA method. The currently supported method names are 'okta-verify', 'duo-web', 'kba','token', 'rsa'
             $VerificationPollRequest = @"
@@ -20728,7 +20728,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             # KbaAnswerRequestItem[] | 
             $KbaAnswerRequestItem = @"{
@@ -20833,7 +20833,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $TokenAuthRequest = @"
             {
@@ -20941,7 +20941,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $SendTokenRequest = @"
             {
@@ -21119,7 +21119,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $NonEmployeeRequestBody = @"
             {
@@ -21218,7 +21218,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
             $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -21280,7 +21280,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Non-Employee record id (UUID)
 
@@ -21353,7 +21353,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Non-employee record id (UUID)
             $NonEmployeeRequestBody = @"
@@ -21449,7 +21449,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Non-employee record id (UUID)
             # JsonPatchOperation[] | A list of non-employee update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
@@ -21510,7 +21510,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Non-Employee record id (UUID)
 
@@ -21572,7 +21572,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $DeleteNonEmployeeRecordsInBulkRequest = @"
 
@@ -21789,7 +21789,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $NonEmployeeRequestBody = @"
             {
@@ -21897,7 +21897,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $RequestedFor = "e136567de87e4d029e60b3c3c55db56d" # String | The identity for whom the request was made. *me* indicates the current user.
             $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -21968,7 +21968,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "ac110005-7156-1150-8171-5b292e3e0084" # String | Non-Employee request id (UUID)
 
@@ -22025,7 +22025,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "ac110005-7156-1150-8171-5b292e3e0084" # String | Non-Employee request id in the UUID format
 
@@ -22109,7 +22109,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $RequestedFor = "2c91808280430dfb0180431a59440460" # String | The identity (UUID) of the non-employee account manager for whom the summary is being retrieved. Use ""me"" instead to indicate the current user.
 
@@ -22211,7 +22211,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $NonEmployeeSourceRequestBody = @"
             {
@@ -22335,7 +22335,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $RequestedFor = "me" # String | The identity for whom the request was made. *me* indicates the current user.
             $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -22439,7 +22439,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $SourceId = "2c91808b7c28b350017c2a2ec5790aa1" # String | Source Id
 
@@ -22514,7 +22514,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $SourceId = "e136567de87e4d029e60b3c3c55db56d" # String | Source Id
             # JsonPatchOperation[] | A list of non-employee source update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
@@ -22573,7 +22573,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $SourceId = "e136567de87e4d029e60b3c3c55db56d" # String | Source Id
 
@@ -22633,7 +22633,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "e136567de87e4d029e60b3c3c55db56d" # String | Source Id (UUID)
 
@@ -22744,7 +22744,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "e136567de87e4d029e60b3c3c55db56d" # String | Source Id (UUID)
             $Data =  # System.IO.FileInfo | 
@@ -22818,7 +22818,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "e136567de87e4d029e60b3c3c55db56d" # String | Source ID (UUID)
 
@@ -22876,7 +22876,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Source Id (UUID)
 
@@ -22987,7 +22987,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $RequestedFor = "2c91808280430dfb0180431a59440460" # String | The identity for whom the request was made. *me* indicates the current user. (optional)
             $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -23145,7 +23145,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "e136567de87e4d029e60b3c3c55db56d" # String | Non-Employee approval item id (UUID)
             $IncludeDetail = $true # Boolean | The object nonEmployeeRequest will not be included detail when set to false. *Default value is true* (optional)
@@ -23216,7 +23216,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "e136567de87e4d029e60b3c3c55db56d" # String | Non-Employee approval item id (UUID)
             $NonEmployeeApprovalDecision = @"
@@ -23294,7 +23294,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "e136567de87e4d029e60b3c3c55db56d" # String | Non-Employee approval item id (UUID)
             $NonEmployeeRejectApprovalDecision = @"
@@ -23378,7 +23378,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $RequestedFor = "2c91808280430dfb0180431a59440460" # String | The identity (UUID) of the approver for whom for whom the summary is being retrieved. Use ""me"" instead to indicate the current user.
 
@@ -23497,7 +23497,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | The Source id
 
@@ -23589,7 +23589,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | The Source id
             $NonEmployeeSchemaAttributeBody = @"
@@ -23651,7 +23651,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | The Source id
 
@@ -23717,7 +23717,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $AttributeId = "ef38f94347e94562b5bb8424a56397d8" # String | The Schema Attribute Id (UUID)
             $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | The Source id
@@ -23801,7 +23801,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $AttributeId = "ef38f94347e94562b5bb8424a56397d8" # String | The Schema Attribute Id (UUID)
             $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | The Source id
@@ -23871,7 +23871,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $AttributeId = "ef38f94347e94562b5bb8424a56397d8" # String | The Schema Attribute Id (UUID)
             $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | The Source id
@@ -24074,7 +24074,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Filters = "lastUsed le 2023-02-05T10:59:27.214Z" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **lastUsed**: *le, isnull* (optional)
 
@@ -24331,7 +24331,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $CreateOAuthClientRequest = @"
             {
@@ -24413,7 +24413,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The OAuth client id
 
@@ -24469,7 +24469,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The OAuth client id
 
@@ -24563,7 +24563,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The OAuth client id
             # JsonPatchOperation[] | A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * tenant * businessName * homepageUrl * name * description * accessTokenValiditySeconds * refreshTokenValiditySeconds * redirectUris * grantTypes * accessType * enabled * strongAuthSupported * claimsSupported 
@@ -24664,7 +24664,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
             $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -24737,7 +24737,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $PasswordSyncGroup = @"
             {
@@ -24818,7 +24818,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "6881f631-3bd5-4213-9c75-8e05cc3e35dd" # String | The ID of password sync group to retrieve.
 
@@ -24902,7 +24902,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "6881f631-3bd5-4213-9c75-8e05cc3e35dd" # String | The ID of password sync group to update.
             $PasswordSyncGroup = @"
@@ -24969,7 +24969,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "6881f631-3bd5-4213-9c75-8e05cc3e35dd" # String | The ID of password sync group to delete.
 
@@ -25218,7 +25218,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "ff808081838d9e9d01838da6a03e0005" # String | The ID of password policy to retrieve.
 
@@ -25352,7 +25352,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "ff808081838d9e9d01838da6a03e0007" # String | The ID of password policy to update.
             $PasswordPolicyV3Dto = @"
@@ -25447,7 +25447,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "ff808081838d9e9d01838da6a03e0002" # String | The ID of password policy to delete.
 
@@ -25541,7 +25541,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $PasswordPolicyV3Dto = @"
             {
@@ -25697,7 +25697,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
             $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -25836,7 +25836,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $OwnerId = "2c9180867b50d088017b554662fb281e" # String | The identity ID of the owner whose personal access tokens should be listed.  If ""me"", the caller should have the following right: 'idn:my-personal-access-tokens:read' If an actual owner ID or if the `owner-id` parameter is omitted in the request,  the caller should have the following right: 'idn:all-personal-access-tokens:read'.  If the caller has the following right, then managed personal access tokens associated with `owner-id`  will be retrieved: 'idn:managed-personal-access-tokens:read' (optional)
             $Filters = "lastUsed le 2023-02-05T10:59:27.214Z" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **lastUsed**: *le, isnull* (optional)
@@ -25970,7 +25970,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $CreatePersonalAccessTokenRequest = @"
             {
@@ -26064,7 +26064,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The Personal Access Token id
             # JsonPatchOperation[] | A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * scope 
@@ -26129,7 +26129,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The personal access token id
 
@@ -26341,7 +26341,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
             $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -26422,7 +26422,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
 
             # Get the Public Identities Configuration
@@ -26478,7 +26478,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $PublicIdentityConfig = @"
             {
@@ -26668,7 +26668,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $IdentityId = "e7eab60924f64aa284175b9fa3309599" # String | If present, the value returns only requestable objects for the specified identity.  * Admin users can call this with any identity ID value.  * Non-admin users can only specify *me* or pass their own identity ID value.  * If absent, returns a list of all requestable objects for the tenant. Only admin users can make such a call. In this case, the available, pending, assigned accesses will not be annotated in the result. (optional)
             $Types = "ACCESS_PROFILE" # RequestableObjectType[] | Filters the results to the specified type/types, where each type is one of ROLE or ACCESS_PROFILE. If absent, all types are returned. Support for additional types may be added in the future without notice. (optional)
@@ -27179,7 +27179,7 @@ paths:
         - ROLE_SUBADMIN
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $ForSubadmin = "5168015d32f890ca15812c9180835d2e" # String | If provided, filters the returned list according to what is visible to the indicated ROLE_SUBADMIN Identity. The value of the parameter is either an Identity ID, or the special value **me**, which is shorthand for the calling Identity's ID. A 400 Bad Request error is returned if the **for-subadmin** parameter is specified for an Identity that is not a subadmin. (optional)
             $Limit = 50 # Int32 | Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 50)
@@ -27251,7 +27251,7 @@ paths:
         - ROLE_SUBADMIN
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Role = @"
             {
@@ -27479,7 +27479,7 @@ paths:
         - ROLE_SUBADMIN
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "2c91808a7813090a017814121e121518" # String | ID of the Role
 
@@ -27649,7 +27649,7 @@ paths:
         - ROLE_SUBADMIN
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "2c91808a7813090a017814121e121518" # String | ID of the Role to patch
             # JsonPatchOperation[] | 
@@ -27719,7 +27719,7 @@ paths:
         - ROLE_SUBADMIN
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "2c91808a7813090a017814121e121518" # String | ID of the Role
 
@@ -27851,7 +27851,7 @@ paths:
         - ROLE_SUBADMIN
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $RoleBulkDeleteRequest = @"
             {
@@ -27976,7 +27976,7 @@ paths:
             - idn:role-checked:read
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "2c91808a7813090a017814121e121518" # String | ID of the Role for which the assigned Identities are to be listed
             $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -28068,7 +28068,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $CreateSavedSearchRequest = @"
 
@@ -28147,7 +28147,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
             $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -28223,7 +28223,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document.
             $SavedSearch = @"
@@ -28324,7 +28324,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document.
 
@@ -28372,7 +28372,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document.
 
@@ -28464,7 +28464,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document.
             $SearchArguments = @"
@@ -28682,7 +28682,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $CreateScheduledSearchRequest = @"
             {savedSearchId=9c620e13-cd33-4804-a13d-403bd7bcdbad, schedule={type=DAILY, hours={type=LIST, values=[9]}}, recipients=[{type=IDENTITY, id=2c9180867624cbd7017642d8c8c81f67}]}
@@ -28763,7 +28763,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
             $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -28828,7 +28828,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document.
             $ScheduledSearch = @"
@@ -28926,7 +28926,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document.
 
@@ -28974,7 +28974,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document.
 
@@ -29023,7 +29023,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/404.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document.
             $TypedReference = @"
@@ -29833,7 +29833,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Search = @"
             {
@@ -30017,7 +30017,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Search = @"
             {
@@ -30398,7 +30398,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Search = @"
             {
@@ -30837,7 +30837,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Index = "accessprofiles" # String | The index from which to fetch the specified document.  The currently supported index names are: *accessprofiles*, *accountactivities*, *entitlements*, *events*, *identities*, and *roles*. 
             $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document.
@@ -31007,7 +31007,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Segment = @"
             {
@@ -31097,7 +31097,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
             $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -31167,7 +31167,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The segment ID to retrieve.
 
@@ -31229,7 +31229,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The segment ID to delete.
 
@@ -31333,7 +31333,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The segment ID to modify.
             $RequestBody =  # SystemCollectionsHashtable[] | A list of segment update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * owner * visibilityCriteria * active 
@@ -31511,7 +31511,7 @@ paths:
         - ORG_ADMIN
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
             $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -31577,7 +31577,7 @@ paths:
         - ORG_ADMIN
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $ServiceDeskIntegrationDto = @"
             {
@@ -31680,7 +31680,7 @@ paths:
         - ORG_ADMIN
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "anId" # String | ID of the Service Desk integration to get
 
@@ -31753,7 +31753,7 @@ paths:
         - ORG_ADMIN
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "anId" # String | ID of the Service Desk integration to update
             $ServiceDeskIntegrationDto = @"
@@ -31850,7 +31850,7 @@ paths:
         - ORG_ADMIN
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "anId" # String | ID of Service Desk integration to delete
 
@@ -31942,7 +31942,7 @@ paths:
         - ORG_ADMIN
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "anId" # String | ID of the Service Desk integration to update
             $PatchServiceDeskIntegrationRequest = @"
@@ -32020,7 +32020,7 @@ paths:
         - ORG_ADMIN
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
 
             # List Service Desk integration types
@@ -32110,7 +32110,7 @@ paths:
         - ORG_ADMIN
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $ScriptName = "aScriptName" # String | The scriptName value of the Service Desk integration template to get
 
@@ -32178,7 +32178,7 @@ paths:
         - ORG_ADMIN
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
 
             # Get the time check configuration
@@ -32239,7 +32239,7 @@ paths:
         - ORG_ADMIN
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $QueuedCheckConfigDetails = @"
             {
@@ -32350,7 +32350,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $PasswordInfoQueryDTO = @"
             {
@@ -32464,7 +32464,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $PasswordChangeRequest = @"
             {
@@ -32564,7 +32564,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "089899f13a8f4da7824996191587bab9" # String | Password change request ID
 
@@ -32647,7 +32647,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
 
             # Get Password Dictionary
@@ -32737,7 +32737,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $File =  # System.IO.FileInfo |  (optional)
 
@@ -32818,7 +32818,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
 
             # Get Password Org Config
@@ -32884,7 +32884,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $PasswordOrgConfig = @"
             {
@@ -32961,7 +32961,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $PasswordOrgConfig = @"
             {
@@ -33104,7 +33104,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $TaskResultId = "ef38f94347e94562b5bb8424a56397d8" # String | Unique identifier of the task result which handled report
             $Completed = $true # Boolean | state of task result to apply ordering when results are fetching from the DB (optional) (default to $false)
@@ -33530,7 +33530,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $ReportDetails = @"
             {
@@ -33596,7 +33596,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "a1ed223247144cc29d23c632624b4767" # String | ID of the running Report to cancel
 
@@ -33707,7 +33707,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $TaskResultId = "ef38f94347e94562b5bb8424a56397d8" # String | Unique identifier of the task result which handled report
             $FileFormat = "csv" # String | Output format of the requested report file
@@ -34078,7 +34078,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $SodPolicy = @"
             {
@@ -34286,7 +34286,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
             $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -34421,7 +34421,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The ID of the SOD Policy to retrieve.
 
@@ -34615,7 +34615,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The ID of the SOD policy to update.
             $SodPolicy = @"
@@ -34740,7 +34740,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The ID of the SOD Policy to delete.
             $Logical = $true # Boolean | Indicates whether this is a soft delete (logical true) or a hard delete.  Soft delete marks the policy as deleted and just save it with this status. It could be fully deleted or recovered further.  Hard delete vise versa permanently delete SOD request during this call. (optional) (default to $true)
@@ -34915,7 +34915,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "2c918083-5d19-1a86-015d-28455b4a2329" # String | The ID of the SOD policy being modified.
             # JsonPatchOperation[] | A list of SOD Policy update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * ownerRef * externalPolicyReference * compensatingControls * correctionAdvice * state * tags * violationOwnerAssignmentConfig * scheduled * conflictingAccessCriteria 
@@ -35016,7 +35016,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The SOD policy ID to run.
 
@@ -35133,7 +35133,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The ID of the SOD policy schedule to retrieve.
 
@@ -35198,7 +35198,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The ID of the SOD policy to update its schedule.
             $SodPolicySchedule = @"
@@ -35295,7 +35295,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The ID of the SOD policy the schedule must be deleted for.
 
@@ -35362,7 +35362,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The SOD policy ID to run.
 
@@ -35429,7 +35429,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The ID of the violation report to retrieve status for.
 
@@ -35496,7 +35496,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $ReportResultId = "2e8d8180-24bc-4d21-91c6-7affdb473b0d" # String | The ID of the report reference to retrieve.
 
@@ -35696,7 +35696,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $IdentityWithNewAccess = @"
             {
@@ -35836,7 +35836,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $IdentityWithNewAccess1 = @"
             {identityId=2c91808568c529c60168cca6f90c1313, accessRefs=[{type=ENTITLEMENT, id=2c918087682f9a86016839c050861ab1, name=CN=Information Access,OU=test,OU=test-service,DC=TestAD,DC=local}, {type=ENTITLEMENT, id=2c918087682f9a86016839c0509c1ab2, name=CN=Information Technology,OU=test,OU=test-service,DC=TestAD,DC=local}], clientMetadata={additionalProp1=string, additionalProp2=string, additionalProp3=string}}
@@ -35913,7 +35913,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $MultiPolicyRequest = @"
             {
@@ -35972,7 +35972,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
 
             # Get multi-report run task status
@@ -36033,7 +36033,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $ReportResultId = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the report reference to download.
 
@@ -36102,7 +36102,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $ReportResultId = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the report reference to download.
             $FileName = "custom-name" # String | Custom Name for the  file.
@@ -36547,7 +36547,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
             $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -36621,7 +36621,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Source = @"
             {
@@ -36773,7 +36773,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
 
@@ -36857,7 +36857,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
             $Source = @"
@@ -37088,7 +37088,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
             # JsonPatchOperation[] | A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Any password changes are submitted as plain-text and encrypted upon receipt in Identity Security Cloud (ISC).
@@ -37184,7 +37184,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
 
@@ -37272,7 +37272,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id
 
@@ -37413,7 +37413,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id
             $ProvisioningPolicyDto = @"
@@ -37546,7 +37546,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source ID.
             $UsageType = "CREATE" # UsageType | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to 'Create Account Profile', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to 'Update Account Profile', the provisioning template for the 'Update' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to 'Enable Account Profile', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner's account is created.  DISABLE - This usage type relates to 'Disable Account Profile', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs. 
@@ -37642,7 +37642,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source ID.
             $UsageType = "CREATE" # UsageType | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to 'Create Account Profile', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to 'Update Account Profile', the provisioning template for the 'Update' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to 'Enable Account Profile', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner's account is created.  DISABLE - This usage type relates to 'Disable Account Profile', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs. 
@@ -37798,7 +37798,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
             $UsageType = "CREATE" # UsageType | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to 'Create Account Profile', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to 'Update Account Profile', the provisioning template for the 'Update' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to 'Enable Account Profile', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner's account is created.  DISABLE - This usage type relates to 'Disable Account Profile', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs. 
@@ -37884,7 +37884,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source ID.
             $UsageType = "CREATE" # UsageType | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to 'Create Account Profile', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to 'Update Account Profile', the provisioning template for the 'Update' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to 'Enable Account Profile', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner's account is created.  DISABLE - This usage type relates to 'Disable Account Profile', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs. 
@@ -37962,7 +37962,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
             # ProvisioningPolicyDto[] | 
@@ -38212,7 +38212,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
             $IncludeTypes = "group" # String | If set to 'group', then the account schema is filtered and only group schemas are returned. Only a value of 'group' is recognized presently.  Note: The API will check whether include-types is group or not, if not, it will list schemas based on include-names, if include-names is not provided, it will list all schemas. (optional)
@@ -38283,7 +38283,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
             $Schema = @"
@@ -38388,7 +38388,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
             $SchemaId = "2c9180835d191a86015d28455b4a2329" # String | The Schema id.
@@ -38472,7 +38472,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
             $SchemaId = "2c9180835d191a86015d28455b4a2329" # String | The Schema id.
@@ -38629,7 +38629,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
             $SchemaId = "2c9180835d191a86015d28455b4a2329" # String | The Schema id.
@@ -38699,7 +38699,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
             $SchemaId = "2c9180835d191a86015d28455b4a2329" # String | The Schema id.
@@ -38815,7 +38815,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
 
@@ -38877,7 +38877,7 @@ paths:
             - idn:source-schema:read
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
 
@@ -38952,7 +38952,7 @@ paths:
             - idn:source-schema:manage
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
             $File =  # System.IO.FileInfo |  (optional)
@@ -39022,7 +39022,7 @@ paths:
             - idn:source-schema:read
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
             $SchemaName = "?schemaName=group" # String | Name of entitlement schema (optional)
@@ -39104,7 +39104,7 @@ paths:
             - idn:source-schema:manage
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
             $SchemaName = "?schemaName=group" # String | Name of entitlement schema (optional)
@@ -39177,7 +39177,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
             $File =  # System.IO.FileInfo |  (optional)
@@ -39388,7 +39388,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
 
@@ -39501,7 +39501,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
             $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -39558,7 +39558,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $TaggedObject = @"
             {
@@ -39661,7 +39661,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Type = "ACCESS_PROFILE" # String | The type of tagged object to retrieve.
             $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -39741,7 +39741,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Type = "ACCESS_PROFILE" # String | The type of tagged object to retrieve.
             $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the object reference to retrieve.
@@ -39823,7 +39823,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Type = "ACCESS_PROFILE" # String | The type of tagged object to update.
             $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the object reference to update.
@@ -39904,7 +39904,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Type = "ACCESS_PROFILE" # String | The type of object to delete tags from.
             $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the object to delete tags from.
@@ -40012,7 +40012,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $BulkAddTaggedObject = @"
             {
@@ -40104,7 +40104,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $BulkRemoveTaggedObject = @"
             {
@@ -40237,7 +40237,7 @@ paths:
         - ORG_ADMIN
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
             $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -40429,7 +40429,7 @@ paths:
         - ORG_ADMIN
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Transform = @"
             {
@@ -40519,7 +40519,7 @@ paths:
         - ORG_ADMIN
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "2cd78adghjkja34jh2b1hkjhasuecd" # String | ID of the transform to retrieve
 
@@ -40605,7 +40605,7 @@ paths:
         - ORG_ADMIN
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "2cd78adghjkja34jh2b1hkjhasuecd" # String | ID of the transform to update
             $Transform = @"
@@ -40689,7 +40689,7 @@ paths:
         - ORG_ADMIN
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "2cd78adghjkja34jh2b1hkjhasuecd" # String | ID of the transform to delete
 
@@ -40839,7 +40839,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
             $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -40905,7 +40905,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $OwnerId = "1211bcaa32112bcef6122adb21cef1ac" # String | The id of the owner of the work item list being requested.  Either an admin, or the owning/current user must make this request. (optional)
             $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -40967,7 +40967,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $OwnerId = "ef38f94347e94562b5bb8424a56397d8" # String | ID of the work item owner. (optional)
 
@@ -41022,7 +41022,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $OwnerId = "1211bcaa32112bcef6122adb21cef1ac" # String | ID of the work item owner. (optional)
 
@@ -41089,7 +41089,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $OwnerId = "1211bcaa32112bcef6122adb21cef1ac" # String | ID of the work item owner. (optional)
 
@@ -41145,7 +41145,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "2c9180835d191a86015d28455b4a2329" # String | ID of the work item.
 
@@ -41203,7 +41203,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
 
@@ -41280,7 +41280,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
             $WorkItemForward = @"
@@ -41354,7 +41354,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
             $ApprovalItemId = "1211bcaa32112bcef6122adb21cef1ac" # String | The ID of the approval item.
@@ -41421,7 +41421,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
             $ApprovalItemId = "1211bcaa32112bcef6122adb21cef1ac" # String | The ID of the approval item.
@@ -41481,7 +41481,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
 
@@ -41540,7 +41540,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
 
@@ -41609,7 +41609,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
             $RequestBody = @{ key_example =  } # System.Collections.Hashtable | Account Selection Data map, keyed on fieldName
@@ -41724,7 +41724,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
 
             # List Workflows
@@ -42034,7 +42034,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $CreateWorkflowRequest = @"
             {name=Send Email, owner={type=IDENTITY, id=2c91808568c529c60168cca6f90c1313, name=William Wilson}, description=Send an email to the identity who's attributes changed., definition={start=Send Email Test, steps={Send Email={actionId=sp:send-email, attributes={body=This is a test, from=sailpoint@sailpoint.com, recipientId.$=$.identity.id, subject=test}, nextStep=success, selectResult=null, type=action}, success={type=success}}}, enabled=false, trigger={type=EVENT, attributes={id=idn:identity-attributes-changed, filter=$.changes[?(@.attribute == 'manager')]}}}
@@ -42097,7 +42097,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow
 
@@ -42163,7 +42163,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the Workflow
             $WorkflowBody = @"
@@ -42315,7 +42315,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the Workflow
             # JsonPatchOperation[] | 
@@ -42378,7 +42378,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the Workflow
 
@@ -42482,7 +42482,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow
             $TestWorkflowRequest = @"
@@ -42613,7 +42613,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Workflow ID.
             $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -42681,7 +42681,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Workflow execution ID.
 
@@ -42776,7 +42776,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow execution
 
@@ -42835,7 +42835,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | The workflow execution ID
 
@@ -43223,7 +43223,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
             $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -43296,7 +43296,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
             $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -43370,7 +43370,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
             $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -43424,7 +43424,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
 
             # List Workflow Library Operators
@@ -43495,7 +43495,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow
 
@@ -43576,7 +43576,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow
             $CreateExternalExecuteWorkflowRequest = @"
@@ -43656,7 +43656,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow
             $TestExternalExecuteWorkflowRequest = @"
@@ -43730,7 +43730,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $SourceId = "2c9180835d191a86015d28455b4a2329" # String | ID of IDN source
 
@@ -43817,7 +43817,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $SourceId = "2c9180835d191a86015d28455b4a2329" # String | ID of IDN source
             $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -43908,7 +43908,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $AccountId = "ef38f94347e94562b5bb8424a56397d8" # String | ID of IDN account
             $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -43976,7 +43976,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
 
             # Download CSV Template for Discovery
@@ -44038,7 +44038,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $File =  # System.IO.FileInfo | The CSV file to upload containing `application_name` and `description` columns. Each row represents an application to be discovered.
 
@@ -44347,7 +44347,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
             $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -44535,7 +44535,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
 
             # List Vendor Connector Mappings
@@ -44594,7 +44594,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $VendorConnectorMapping = @"
             {
@@ -44683,7 +44683,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/500.yaml
       x-codeSamples:
         - lang: PowerShell
-          label: PowerShell SDK
+          label: SDK
           source: |
             $VendorConnectorMapping = @"
             {

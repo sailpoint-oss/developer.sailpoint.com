@@ -2,7 +2,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Key = "iscPrivacy" # String | Technical name of the Attribute.
 
@@ -22,7 +22,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Key = "iscPrivacy" # String | Technical name of the Attribute.
         $Value = "public" # String | Technical name of the Attribute value.
@@ -43,7 +43,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Filters = "name eq "Privacy"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq*  **type**: *eq*  **status**: *eq*  **objectTypes**: *eq*  Supported composite operators: *and* (optional)
 
@@ -63,7 +63,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Key = "iscPrivacy" # String | Technical name of the Attribute.
 
@@ -83,7 +83,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $AccessProfile = @"
         {
@@ -190,7 +190,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "2c91808a7813090a017814121919ecca" # String | ID of the Access Profile to delete
 
@@ -210,7 +210,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $AccessProfileBulkDeleteRequest = @"
         {
@@ -236,7 +236,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "2c9180837ca6693d017ca8d097500149" # String | ID of the Access Profile
 
@@ -256,7 +256,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "2c91808a7813090a017814121919ecca" # String | ID of the access profile containing the entitlements.
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -281,7 +281,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $ForSubadmin = "8c190e6787aa4ed9a90bd9d5344523fb" # String | If provided, filters the returned list according to what is visible to the indicated ROLE_SUBADMIN or SOURCE_SUBADMIN identity. The value of the parameter is either an identity ID, or the special value **me**, which is shorthand for the calling identity's ID.  A 400 Bad Request error is returned if the **for-subadmin** parameter is specified for an identity that is not a subadmin. (optional)
         $Limit = 50 # Int32 | Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 50)
@@ -308,7 +308,7 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "2c91808a7813090a017814121919ecca" # String | ID of the Access Profile to patch
         # JsonPatchOperation[] | 
@@ -336,7 +336,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         # AccessProfileBulkUpdateRequestInner[] | 
         $AccessProfileBulkUpdateRequestInner = @"[{id=464ae7bf-791e-49fd-b746-06a2e4a89635, requestable=false}]"@ 
@@ -359,7 +359,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $ApprovalId = "2c91808b7294bea301729568c68c002e" # String | Approval ID.
         $CommentDto = @"
@@ -391,7 +391,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $ApprovalId = "2c91808b7294bea301729568c68c002e" # String | Approval ID.
         $ForwardApprovalDto = @"
@@ -418,7 +418,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $OwnerId = "2c91808568c529c60168cca6f90c1313" # String | The ID of the owner or approver identity of the approvals. If present, the value returns approval summary for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN user can also fetch all the approvals in the org, when owner-id is not used.    * Non ORG_ADMIN users can only specify *me* or pass their own identity ID value. (optional)
         $FromDate = "from-date=2020-03-19T19:59:11Z" # String | This is the date and time the results will be shown from. It must be in a valid ISO-8601 format. (optional)
@@ -439,7 +439,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $OwnerId = "MyOwnerId" # String | If present, the value returns only completed approvals for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN users can also fetch all the approvals in the org, when owner-id is not used.    * Non-ORG_ADMIN users can only specify *me* or pass their own identity ID value. (optional)
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -464,7 +464,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $OwnerId = "MyOwnerId" # String | If present, the value returns only pending approvals for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN users can also fetch all the approvals in the org, when owner-id is not used.    * Non-ORG_ADMIN users can only specify *me* or pass their own identity ID value. (optional)
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -489,7 +489,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $ApprovalId = "2c91808b7294bea301729568c68c002e" # String | Approval ID.
         $CommentDto = @"
@@ -521,7 +521,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $IdentityId = "7025c863-c270-4ba6-beea-edf3cb091573" # String | Manager's identity ID.
         $RequestedObjectId = "2db501be-f0fb-4cc5-a695-334133c52891" # String | Requested access item's ID.
@@ -543,7 +543,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $CancelAccessRequest = @"
         {
@@ -569,7 +569,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $CloseAccessRequest = @"
         {
@@ -597,7 +597,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $AccessRequest = @"
         {
@@ -673,7 +673,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
 
         # Get Access Request Configuration
@@ -692,7 +692,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $RequestedFor = "2c9180877b2b6ea4017b2c545f971429" # String | Filter the results by the identity the requests were made for. *me* indicates the current user. Mutually exclusive with *regarding-identity*. (optional)
         $RequestedBy = "2c9180877b2b6ea4017b2c545f971429" # String | Filter the results by the identity who made the requests. *me* indicates the current user. Mutually exclusive with *regarding-identity*. (optional)
@@ -721,7 +721,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $AccessRequestConfig = @"
         {
@@ -769,7 +769,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The account activity id
 
@@ -789,7 +789,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $RequestedFor = "MyRequestedFor" # String | The identity that the activity was requested for. *me* indicates the current user. Mutually exclusive with *regarding-identity*. (optional)
         $RequestedBy = "MyRequestedBy" # String | The identity that requested the activity. *me* indicates the current user. Mutually exclusive with *regarding-identity*. (optional)
@@ -817,7 +817,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "2c91808477a6b0c60177a81146b8110b" # String | The account aggregation id
 
@@ -837,7 +837,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $AccountAttributesCreate = @"
         {
@@ -869,7 +869,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Account ID.
 
@@ -889,7 +889,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "c350d6aa4f104c61b062cb632421ad10" # String | The account id
 
@@ -909,7 +909,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The account id
         $AccountToggleRequest = @"
@@ -936,7 +936,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "2c91808384203c2d018437e631158309" # String | The identity id.
 
@@ -956,7 +956,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $IdentitiesAccountsBulkRequest = @"
         {
@@ -981,7 +981,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The account id
         $AccountToggleRequest = @"
@@ -1008,7 +1008,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "2c91808384203c2d018437e631158309" # String | The identity id.
 
@@ -1028,7 +1028,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $IdentitiesAccountsBulkRequest = @"
         {
@@ -1053,7 +1053,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Account ID.
 
@@ -1073,7 +1073,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The account id
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -1096,7 +1096,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $DetailLevel = "SLIM" # String | This value determines whether the API provides `SLIM` or increased level of detail (`FULL`) for each account in the returned list. `FULL` is the default behavior. (optional)
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -1121,7 +1121,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Account ID.
         $AccountAttributes = @"
@@ -1153,7 +1153,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The account id
 
@@ -1173,7 +1173,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The account ID.
         $AccountUnlockRequest = @"
@@ -1201,7 +1201,7 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Account ID.
         $RequestBody =  # SystemCollectionsHashtable[] | A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
@@ -1225,7 +1225,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $AccountId = "ef38f94347e94562b5bb8424a56397d8" # String | ID of IDN account
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -1249,7 +1249,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "123e4567-e89b-12d3-a456-426655440000" # String | Discovered application's ID.
 
@@ -1269,7 +1269,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -1293,7 +1293,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
 
         # Download CSV Template for Discovery
@@ -1312,7 +1312,7 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "123e4567-e89b-12d3-a456-426655440000" # String | Discovered application's ID.
         # JsonPatchOperations[] |  (optional)
@@ -1339,7 +1339,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $File =  # System.IO.FileInfo | The CSV file to upload containing `application_name` and `description` columns. Each row represents an application to be discovered.
 
@@ -1359,7 +1359,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "38453251-6be2-5f8f-df93-5ce19e295837" # String | ID of the approval that to be returned.
 
@@ -1379,7 +1379,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Mine = $true # Boolean | Returns the list of approvals for the current caller. (optional)
         $RequesterId = "17e633e7d57e481569df76323169deb6a" # String | Returns the list of approvals for a given requester ID. (optional)
@@ -1401,7 +1401,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $SourceAppCreateDto = @"
         {
@@ -1433,7 +1433,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "2c91808a7813090a017814121e121518" # String | ID of the source app
         $RequestBody = "MyRequestBody" # String[] | 
@@ -1458,7 +1458,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "2c9180835d191a86015d28455b4a2329" # String | source app ID.
 
@@ -1478,7 +1478,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "2c91808a7813090a017814121e121518" # String | ID of the source app
 
@@ -1498,7 +1498,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "2c91808a7813090a017814121e121518" # String | ID of the source app
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -1521,7 +1521,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
@@ -1545,7 +1545,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Filters = "name eq "user app name"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **ownerId**: *eq*  **ownerName**: *eq, sw*  **ownerAlias**: *eq, sw*  **accountId**: *eq*  **sourceAppId**: *eq*
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -1568,7 +1568,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
@@ -1592,7 +1592,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "2c91808a7813090a017814121e121518" # String | ID of the user app
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -1615,7 +1615,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
@@ -1639,7 +1639,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
@@ -1662,7 +1662,7 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "2c91808a7813090a017814121e121518" # String | ID of the source app to patch
         # JsonPatchOperation[] |  (optional)
@@ -1689,7 +1689,7 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "2c91808a7813090a017814121e121518" # String | ID of the user app to patch
         # JsonPatchOperation[] |  (optional)
@@ -1716,7 +1716,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $SourceAppBulkUpdateRequest = @"
         {
@@ -1749,7 +1749,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "2c91808a7813090a017814121919ecca" # String | ID of the Auth Profile to get.
 
@@ -1769,7 +1769,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
 
         # Get list of Auth Profiles.
@@ -1788,7 +1788,7 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "2c91808a7813090a017814121919ecca" # String | ID of the Auth Profile to patch.
         # JsonPatchOperation[] | 
@@ -1816,7 +1816,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Campaign ID.
         $CompleteCampaignOptions = @"
@@ -1841,7 +1841,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Campaign = @"
         {
@@ -1972,7 +1972,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $CampaignTemplate = @"
         {
@@ -2118,7 +2118,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "2c9180835d191a86015d28455b4a2329" # String | ID of the campaign template being deleted.
 
@@ -2138,7 +2138,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "04bedce387bd47b2ae1f86eb0bb36dee" # String | ID of the campaign template whose schedule is being deleted.
 
@@ -2158,7 +2158,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $DeleteCampaignsRequest = @"
         {
@@ -2183,7 +2183,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Detail = "SLIM" # String | Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior. (optional)
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -2208,7 +2208,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "2c91808571bcfcf80171c23e4b4221fc" # String | ID of the campaign to be retrieved.
 
@@ -2228,7 +2228,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "2c91808571bcfcf80171c23e4b4221fc" # String | ID of the campaign whose reports are being fetched.
 
@@ -2248,7 +2248,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
 
         # Get Campaign Reports Configuration
@@ -2267,7 +2267,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "2c9180835d191a86015d28455b4a2329" # String | Requested campaign template's ID.
 
@@ -2287,7 +2287,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "04bedce387bd47b2ae1f86eb0bb36dee" # String | ID of the campaign template whose schedule is being fetched.
 
@@ -2307,7 +2307,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -2331,7 +2331,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The certification campaign ID
         $AdminReviewReassign = @"
@@ -2362,7 +2362,7 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "2c9180835d191a86015d28455b4a2329" # String | ID of the campaign template being modified.
         # JsonPatchOperation[] | A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * deadlineDuration * campaign (all fields that are allowed during create) 
@@ -2390,7 +2390,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $CampaignReportsConfig = @"
         {
@@ -2415,7 +2415,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "04bedce387bd47b2ae1f86eb0bb36dee" # String | ID of the campaign template being scheduled.
         $Schedule = @"
@@ -2457,7 +2457,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Campaign ID.
         $ActivateCampaignOptions = @"
@@ -2482,7 +2482,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "2c91808571bcfcf80171c23e4b4221fc" # String | ID of the campaign the remediation scan is being run for.
 
@@ -2502,7 +2502,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "2c91808571bcfcf80171c23e4b4221fc" # String | ID of the campaign the report is being run for.
         $Type = "CAMPAIGN_COMPOSITION_REPORT" # ReportType | Type of report to run.
@@ -2523,7 +2523,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "2c9180835d191a86015d28455b4a2329" # String | ID of the campaign template to use for generation.
 
@@ -2543,7 +2543,7 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "2c91808571bcfcf80171c23e4b4221fc" # String | ID of the campaign being modified.
         $RequestBody =  # SystemCollectionsHashtable[] | A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The fields that can be patched differ based on the status of the campaign.  When the campaign is in the *STAGED* status, you can patch these fields: * name * description * recommendationsEnabled * deadline * emailNotificationEnabled * autoRevokeAllowed  When the campaign is in the *ACTIVE* status, you can patch these fields: * deadline 
@@ -2567,7 +2567,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $CertificationId = "ef38f94347e94562b5bb8424a56397d8" # String | The certification ID
         $ItemId = "2c91808671bcbab40171bd945d961227" # String | The certification item ID
@@ -2592,7 +2592,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "MyId" # String | The identity campaign certification ID
 
@@ -2612,7 +2612,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "MyId" # String | The identity campaign certification ID
         $TaskId = "MyTaskId" # String | The certification task ID
@@ -2633,7 +2633,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The certification ID
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -2658,7 +2658,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The identity campaign certification ID
         $ReviewReassign = @"
@@ -2692,7 +2692,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $ConnectorRuleCreateRequest = @"
         {
@@ -2740,7 +2740,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | ID of the connector rule to delete
 
@@ -2760,7 +2760,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | ID of the connector rule to retrieve
 
@@ -2780,7 +2780,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
 
         # List Connector Rules
@@ -2799,7 +2799,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | ID of the connector rule to update
         $ConnectorRuleUpdateRequest = @"
@@ -2848,7 +2848,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $SourceCode = @"
         {
@@ -2874,7 +2874,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Filters = "directConnect eq "true"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *sw*  **type**: *eq*  **directConnect**: *eq*  **category**: *eq*  **features**: *ca* (optional)
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -2898,7 +2898,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $CreateFormDefinitionRequest = @"
         {
@@ -3030,7 +3030,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $CreateFormDefinitionRequest = @"
         {
@@ -3162,7 +3162,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Body = @"
         {
@@ -3192,7 +3192,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $FormDefinitionID = "00000000-0000-0000-0000-000000000000" # String | FormDefinitionID  String specifying FormDefinitionID
         $File =  # System.IO.FileInfo | File specifying the multipart
@@ -3213,7 +3213,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Body = @"
         {
@@ -3255,7 +3255,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $FormDefinitionID = "00000000-0000-0000-0000-000000000000" # String | Form definition ID
 
@@ -3275,7 +3275,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Offset = 0 # Int64 | Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0. (optional) (default to 0)
         $Limit = 250 # Int64 | Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used. (optional) (default to 250)
@@ -3298,7 +3298,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $FormDefinitionID = "00000000-0000-0000-0000-000000000000" # String | FormDefinitionID  Form definition ID
         $FileID = "00000031N0J7R2B57M8YG73J7M.png" # String | FileID  String specifying the hashed name of the uploaded file we are retrieving.
@@ -3319,7 +3319,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $FormDefinitionID = "00000000-0000-0000-0000-000000000000" # String | Form definition ID
 
@@ -3339,7 +3339,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $FormInstanceID = "00000000-0000-0000-0000-000000000000" # String | Form instance ID
 
@@ -3359,7 +3359,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $FormInstanceID = "00000000-0000-0000-0000-000000000000" # String | FormInstanceID  Form instance ID
         $FileID = "00000031N0J7R2B57M8YG73J7M.png" # String | FileID  String specifying the hashed name of the uploaded file we are retrieving.
@@ -3380,7 +3380,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         # ImportFormDefinitionsRequestInner[] | Body is the request payload to import form definitions (optional)
         $Body = @"[{version=1, self={name=All fields not required, id=05ed4edb-d0a9-41d9-ad0c-2f6e486ec4aa, type=FORM_DEFINITION}, object={id=05ed4edb-d0a9-41d9-ad0c-2f6e486ec4aa, name=All fields not required, description=description, owner={type=IDENTITY, id=3447d8ec2602455ab6f1e8408a0f0150}, usedBy=[{type=WORKFLOW, id=5008594c-dacc-4295-8fee-41df60477304}, {type=WORKFLOW, id=97e75a75-c179-4fbc-a2da-b5fa4aaa8743}], formInput=[{type=STRING, label=input1, description=A single dynamic scalar value (i.e. number, string, date, etc) that can be passed into the form for use in conditional logic}], formElements=[{id=3069272797630701, elementType=SECTION, config={label=First Section, formElements=[{id=3069272797630700, elementType=TEXT, key=firstName, config={label=First Name}}, {id=3498415402897539, elementType=TEXT, key=lastName, config={label=Last Name}}]}}], formConditions=[{ruleOperator=AND, rules=[{sourceType=INPUT, source=Department, operator=EQ, valueType=STRING, value=Sales}], effects=[{effectType=HIDE, config={element=2614088730489570}}]}], created=2022-10-04T19:27:04.456Z, modified=2022-11-16T20:45:02.172Z}}]"@ 
@@ -3402,7 +3402,7 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $FormDefinitionID = "00000000-0000-0000-0000-000000000000" # String | Form definition ID
         $Body = @{ key_example =  } # Map[] | Body is the request payload to patch a form definition, check: https://jsonpatch.com (optional)
@@ -3425,7 +3425,7 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $FormInstanceID = "00000000-0000-0000-0000-000000000000" # String | Form instance ID
         $Body = @{ key_example =  } # Map[] | Body is the request payload to patch a form instance, check: https://jsonpatch.com (optional)
@@ -3448,7 +3448,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Offset = 250 # Int64 | Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0. (optional) (default to 0)
         $Limit = 250 # Int64 | Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used. (optional) (default to 250)
@@ -3471,7 +3471,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $FormInstanceID = "00000000-0000-0000-0000-000000000000" # String | Form instance ID
         $FormElementID = "1" # String | Form element ID
@@ -3495,7 +3495,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
 
         # List form instances by tenant.
@@ -3514,7 +3514,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
 
         # List predefined select options.
@@ -3533,7 +3533,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $FormDefinitionID = "00000000-0000-0000-0000-000000000000" # String | Form definition ID
         $Limit = 10 # Int64 | Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used. (optional) (default to 10)
@@ -3569,7 +3569,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $CustomPasswordInstruction = @"
         {
@@ -3596,7 +3596,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $PageId = "change-password:enter-password" # String | The page ID of custom password instructions to delete.
         $Locale = "MyLocale" # String | The locale for the custom instructions, a BCP47 language tag. The default value is \""default\"". (optional)
@@ -3617,7 +3617,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $PageId = "change-password:enter-password" # String | The page ID of custom password instructions to query.
         $Locale = "MyLocale" # String | The locale for the custom instructions, a BCP47 language tag. The default value is \""default\"". (optional)
@@ -3638,7 +3638,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "2c91808c74ff913f0175097daa9d59cd" # String | The entitlement id.
         $AttributeKey = "iscPrivacy" # String | Technical name of the Attribute.
@@ -3660,7 +3660,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "2c91808c74ff913f0175097daa9d59cd" # String | The entitlement id.
         $AttributeKey = "iscPrivacy" # String | Technical name of the Attribute.
@@ -3682,7 +3682,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "2c91808874ff91550175097daaec161c" # String | The entitlement ID
 
@@ -3702,7 +3702,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "2c91808874ff91550175097daaec161c" # String | Entitlement Id
 
@@ -3722,7 +3722,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Source Id
         $CsvFile =  # System.IO.FileInfo | The CSV file containing the source entitlements to aggregate. (optional)
@@ -3743,7 +3743,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "2c91808874ff91550175097daaec161c" # String | Entitlement Id
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -3768,7 +3768,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "2c91808c74ff913f0175097daa9d59cd" # String | Entitlement Id
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -3793,7 +3793,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $AccountId = "ef38f94347e94562b5bb8424a56397d8" # String | The account ID. If specified, returns only entitlements associated with the given Account. Cannot be specified with the **filters**, **segmented-for-identity**, **for-segment-ids**, or **include-unsegmented** param(s). This parameter is deprecated. Please use [Account Entitlements API](https://developer.sailpoint.com/apis/beta/#operation/getAccountEntitlements) to get account entitlements. (optional)
         $SegmentedForIdentity = "me" # String | If present and not empty, additionally filters Entitlements to those which are assigned to the Segment(s) which are visible to the Identity with the specified ID. By convention, the value **me** can stand in for the current user's Identity ID. Cannot be specified with the **account-id** or **for-segment-ids** param(s). It is also illegal to specify a value that refers to a different user's Identity. (optional)
@@ -3821,7 +3821,7 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "2c91808a7813090a017814121e121518" # String | ID of the entitlement to patch
         # JsonPatchOperation[] |  (optional)
@@ -3848,7 +3848,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "2c91808a7813090a017814121e121518" # String | Entitlement ID
         $EntitlementRequestConfig = @"
@@ -3884,7 +3884,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "2c91808a7813090a017814121919ecca" # String | ID of source for the entitlement reset
 
@@ -3904,7 +3904,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $EntitlementBulkUpdateRequest = @"
         {
@@ -3938,7 +3938,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $WorkgroupDto = @"
         {
@@ -3976,7 +3976,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "2c9180837ca6693d017ca8d097500149" # String | ID of the Governance Group
 
@@ -3996,7 +3996,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $WorkgroupId = "2c91808a7813090a017814121919ecca" # String | ID of the Governance Group.
         # BulkWorkgroupMembersRequestInner[] | List of identities to be removed from  a Governance Group members list.
@@ -4020,7 +4020,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $WorkgroupBulkDeleteRequest = @"
         {
@@ -4045,7 +4045,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "2c9180837ca6693d017ca8d097500149" # String | ID of the Governance Group
 
@@ -4065,7 +4065,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $WorkgroupId = "2c91808a7813090a017814121919ecca" # String | ID of the Governance Group.
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -4089,7 +4089,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $WorkgroupId = "2c91808a7813090a017814121919ecca" # String | ID of the Governance Group.
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -4113,7 +4113,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         $Limit = 50 # Int32 | Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 50)
@@ -4137,7 +4137,7 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "2c9180837ca6693d017ca8d097500149" # String | ID of the Governance Group
         # JsonPatchOperation[] |  (optional)
@@ -4164,7 +4164,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $WorkgroupId = "2c91808a7813090a017814121919ecca" # String | ID of the Governance Group.
         # BulkWorkgroupMembersRequestInner[] | List of identities to be added to a Governance Group members list.
@@ -4188,7 +4188,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $AccessRequestRecommendationActionItemDto = @"
         {
@@ -4217,7 +4217,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $AccessRequestRecommendationActionItemDto = @"
         {
@@ -4246,7 +4246,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $AccessRequestRecommendationActionItemDto = @"
         {
@@ -4275,7 +4275,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         # AccessRequestRecommendationActionItemDto[] | The recommended access items that were viewed for an identity.
         $AccessRequestRecommendationActionItemDto = @"{
@@ -4304,7 +4304,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $IdentityId = "2c91808570313110017040b06f344ec9" # String | Get access request recommendations for an identityId. *me* indicates the current user. (optional) (default to "me")
         $Limit = 56 # Int32 | Max number of results to return. (optional) (default to 15)
@@ -4330,7 +4330,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -4354,7 +4354,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -4378,7 +4378,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -4402,7 +4402,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $CommonAccessItemRequest = @"
         {
@@ -4435,7 +4435,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -4459,7 +4459,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         # CommonAccessIDStatus[] | Confirm or deny in bulk the common access ids that are (or aren't) common access
         $CommonAccessIDStatus = @"{
@@ -4485,7 +4485,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $CatalogId = "recommender" # String | The ID of the message catalog.
 
@@ -4505,7 +4505,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Type = "LOW_SIMILARITY" # String | Type of the identity outliers snapshot to filter on (optional)
 
@@ -4525,7 +4525,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -4549,7 +4549,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -4574,7 +4574,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Type = "LOW_SIMILARITY" # String | Type of the identity outliers snapshot to filter on (optional)
 
@@ -4594,7 +4594,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $OutlierFeatureId = "04654b66-7561-4090-94f9-abee0722a1af" # String | Contributing feature id
 
@@ -4614,7 +4614,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $OutlierId = "2c918085842e69ae018432d22ccb212f" # String | The outlier id
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -4639,7 +4639,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $RequestBody = "MyRequestBody" # String[] | 
         $RequestBody = @""@ 
@@ -4662,7 +4662,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $OutlierId = "2c918085842e69ae018432d22ccb212f" # String | The outlier id
         $ContributingFeatureName = "radical_entitlement_count" # String | The name of contributing feature
@@ -4688,7 +4688,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $RequestBody = "MyRequestBody" # String[] | 
         $RequestBody = @""@ 
@@ -4711,7 +4711,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Strategy = "entitlement" # String | The strategy used to create peer groups. Currently, 'entitlement' is supported.
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -4734,7 +4734,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $RecommendationRequestDto = @"
         {
@@ -4775,7 +4775,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
 
         # Get certification recommendation config values
@@ -4794,7 +4794,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $RecommendationConfigDto = @"
         {
@@ -4822,7 +4822,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining session id
         $PotentialRoleId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | A potential role id in a role mining session
@@ -4854,7 +4854,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $RoleMiningSessionDto = @"
         {
@@ -4908,7 +4908,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining session id
         $PotentialRoleId = "278359a6-04b7-4669-9468-924cf580964a" # String | A potential role id in a role mining session
@@ -4930,7 +4930,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining session id
         $PotentialRoleId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | A potential role id in a role mining session
@@ -4951,7 +4951,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining session id
         $PotentialRoleId = "278359a6-04b7-4669-9468-924cf580964a" # String | A potential role id in a role mining session
@@ -4978,7 +4978,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining session id
         $PotentialRoleId = "278359a6-04b7-4669-9468-924cf580964a" # String | A potential role id in a role mining session
@@ -5000,7 +5000,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Sorters = "createdDate" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **createdDate, identityCount, entitlementCount, freshness, quality** (optional)
         $Filters = "(createdByName co "int") and (createdById sw "2c9180907") and (type eq "COMMON") and ((name co "entt") or (saved eq true))" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **createdById**: *eq, sw, co*  **createdByName**: *eq, sw, co*  **description**: *sw, co*  **endDate**: *le, lt*  **freshness**: *eq, ge, gt, le, lt*  **name**: *eq, sw, co, ge, gt, le, lt*  **quality**: *eq, ge, gt, le, lt*  **startDate**: *ge, gt*  **saved**: *eq*  **type**: *eq, ge, gt, le, lt*  **scopingMethod**: *eq*  **sessionState**: *eq*  **identityAttribute**: *co* (optional)
@@ -5024,7 +5024,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining session id
         $PotentialRoleId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | A potential role id in a role mining session
@@ -5046,7 +5046,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining session id
         $PotentialRoleId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | A potential role id in a role mining session
@@ -5073,7 +5073,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining session id
         $PotentialRoleId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | A potential role id in a role mining session
@@ -5099,7 +5099,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining session id
         $PotentialRoleId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | A potential role id in a role mining session
@@ -5125,7 +5125,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining session id
         $PotentialRoleId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | A potential role id in a role mining session
@@ -5146,7 +5146,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining session id
         $PotentialRoleId = "62f28d91-7d9f-4d17-be15-666d5b41d77f" # String | A potential role id in a role mining session
@@ -5171,7 +5171,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining session id
         $PotentialRoleId = "62f28d91-7d9f-4d17-be15-666d5b41d77f" # String | A potential role id in a role mining session
@@ -5196,7 +5196,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $PotentialRoleId = "e0cc5d7d-bf7f-4f81-b2af-8885b09d9923" # String | A potential role id
         $SourceId = "2c9180877620c1460176267f336a106f" # String | A source id
@@ -5221,7 +5221,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining session id
         $Sorters = "createdDate" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **createdDate** (optional)
@@ -5246,7 +5246,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $PotentialRoleId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | A potential role id
 
@@ -5266,7 +5266,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining session id to be retrieved.
 
@@ -5286,7 +5286,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining session id
 
@@ -5306,7 +5306,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Filters = "saved eq "true" and name sw "RM Session"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **saved**: *eq*  **name**: *eq, sw* (optional)
         $Sorters = "createdBy,createdDate" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **createdBy, createdDate** (optional)
@@ -5330,7 +5330,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Sorters = "modified" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters/) Sorting is supported for the following fields: **modified** (optional)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -5353,7 +5353,7 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining session id
         $PotentialRoleId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The potential role summary id
@@ -5378,7 +5378,7 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $PotentialRoleId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The potential role summary id
         # PatchPotentialRoleRequestInner[] | 
@@ -5402,7 +5402,7 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining session id to be patched
         # JsonPatchOperation[] | Replace pruneThreshold and/or minNumIdentitiesInPotentialRole in role mining session. Update saved status or saved name for a role mining session.
@@ -5430,7 +5430,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining session id
         $PotentialRoleId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | A potential role id in a role mining session
@@ -5458,7 +5458,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $ObjectType = "application" # String | Object type
         $ObjectId = "a291e870-48c3-4953-b656-fb5ce2a93169" # String | Object id.
@@ -5479,7 +5479,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $ObjectType = "application" # String | Object type
         $ObjectId = "a291e870-48c3-4953-b656-fb5ce2a93169" # String | Object id.
@@ -5501,7 +5501,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Identity Id
 
@@ -5521,7 +5521,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Identity Id
 
@@ -5541,7 +5541,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $IdentityId = "ff8081814d2a8036014d701f3fbf53fa" # String | Identity ID.
 
@@ -5561,7 +5561,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $IdentityId = "ef38f94347e94562b5bb8424a56397d8" # String | Identity Id
         $AssignmentId = "1cbb0705b38c4226b1334eadd8874086" # String | Assignment Id
@@ -5582,7 +5582,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $IdentityId = "ef38f94347e94562b5bb8424a56397d8" # String | Identity Id to get the role assignments for
         $RoleId = "e7697a1e96d04db1ac7b0f4544915d2c" # String | Role Id to filter the role assignments with (optional)
@@ -5604,7 +5604,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Filters = "id eq "6c9079b270a266a60170a2779fcb0006" or correlated eq false" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **alias**: *eq, sw*  **firstname**: *eq, sw*  **lastname**: *eq, sw*  **email**: *eq, sw*  **cloudStatus**: *eq*  **processingState**: *eq*  **correlated**: *eq*  **protected**: *eq* (optional)
         $Sorters = "name,-cloudStatus" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, alias, cloudStatus** (optional)
@@ -5629,7 +5629,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $IdentityId = "ef38f94347e94562b5bb8424a56397d8" # String | Identity Id
 
@@ -5649,7 +5649,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Identity ID
         $SendAccountVerificationRequest = @"
@@ -5676,7 +5676,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $InviteIdentitiesRequest = @"
         {
@@ -5702,7 +5702,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $ProcessIdentitiesRequest = @"
         {
@@ -5727,7 +5727,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $IdentityId = "MyIdentityId" # String | The Identity id
 
@@ -5747,7 +5747,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $IdentityAttribute = @"
         {
@@ -5791,7 +5791,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Name = "displayName" # String | The attribute's technical name.
 
@@ -5811,7 +5811,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $IdentityAttributeNames = @"
         {
@@ -5836,7 +5836,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Name = "displayName" # String | The attribute's technical name.
 
@@ -5856,7 +5856,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $IncludeSystem = $false # Boolean | Include 'system' attributes in the response. (optional) (default to $false)
         $IncludeSilent = $false # Boolean | Include 'silent' attributes in the response. (optional) (default to $false)
@@ -5879,7 +5879,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Name = "displayName" # String | The attribute's technical name.
         $IdentityAttribute = @"
@@ -5924,7 +5924,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The identity id
         $Snapshot1 = "2007-03-01T13:00:00Z" # String | The snapshot 1 of identity (optional)
@@ -5952,7 +5952,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The identity id
         $AccessType = "accessProfile" # String | The specific type which needs to be compared
@@ -5979,7 +5979,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The identity id
 
@@ -5999,7 +5999,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The identity id
         $From = "2024-03-01T13:00:00Z" # String | The optional instant until which access events are returned (optional)
@@ -6029,7 +6029,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The identity id
         $Date = "2007-03-01T13:00:00Z" # String | The specified date
@@ -6050,7 +6050,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The identity id
         $Before = "2007-03-01T13:00:00Z" # String | The date before which snapshot summary is required (optional)
@@ -6076,7 +6076,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The identity id
 
@@ -6096,7 +6096,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $StartsWithQuery = "Ada" # String | This param is used for starts-with search for first, last and display name of the identity (optional)
         $IsDeleted = $true # Boolean | Indicates if we want to only list down deleted identities or not. (optional)
@@ -6120,7 +6120,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The identity id
         $Type = "account" # String | The type of access item for the identity. If not provided, it defaults to account.  Types of access items: **accessProfile, account, app, entitlement, role** (optional)
@@ -6147,7 +6147,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | Identity ID.
         $Date = "2007-03-01T13:00:00Z" # String | Specified date.
@@ -6169,7 +6169,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The identity id
         $Start = "2007-03-01T13:00:00Z" # String | The specified start date (optional)
@@ -6194,7 +6194,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $IdentityProfile = @"
         {
@@ -6265,7 +6265,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $IdentityProfileId = "ef38f94347e94562b5bb8424a56397d8" # String | The Identity Profile ID.
 
@@ -6285,7 +6285,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $RequestBody = "MyRequestBody" # String[] | Identity Profile bulk delete request body.
         $RequestBody = @""@ 
@@ -6308,7 +6308,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -6332,7 +6332,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $IdentityProfileId = "ef38f94347e94562b5bb8424a56397d8" # String | The Identity Profile ID
 
@@ -6352,7 +6352,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $IdentityProfileId = "ef38f94347e94562b5bb8424a56397d8" # String | The Identity Profile ID
 
@@ -6372,7 +6372,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         # IdentityProfileExportedObject[] | Previously exported Identity Profiles.
         $IdentityProfileExportedObject = @"{
@@ -6451,7 +6451,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -6475,7 +6475,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $IdentityPreviewRequest = @"
         {
@@ -6524,7 +6524,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $IdentityProfileId = "ef38f94347e94562b5bb8424a56397d8" # String | The Identity Profile ID to be processed
 
@@ -6544,7 +6544,7 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $IdentityProfileId = "ef38f94347e94562b5bb8424a56397d8" # String | The Identity Profile ID
         # JsonPatchOperation[] | A list of Identity Profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
@@ -6572,7 +6572,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $LauncherRequest = @"
         {
@@ -6605,7 +6605,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $LauncherID = "e3012408-8b61-4564-ad41-c5ec131c325b" # String | ID of the Launcher to be deleted
 
@@ -6625,7 +6625,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $LauncherID = "e3012408-8b61-4564-ad41-c5ec131c325b" # String | ID of the Launcher to be retrieved
 
@@ -6645,7 +6645,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Filters = "disabled eq "true"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **description**: *sw*  **disabled**: *eq*  **name**: *sw* (optional)
         $Next = "eyJuZXh0IjoxMjN9Cg==" # String | Pagination marker (optional)
@@ -6667,7 +6667,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $LauncherID = "e3012408-8b61-4564-ad41-c5ec131c325b" # String | ID of the Launcher to be replaced
         $LauncherRequest = @"
@@ -6701,7 +6701,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $LauncherID = "e3012408-8b61-4564-ad41-c5ec131c325b" # String | ID of the Launcher to be launched
 
@@ -6721,7 +6721,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $IdentityProfileId = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | Identity Profile ID.
         $LifecycleStateId = "ef38f94347e94562b5bb8424a56397d8" # String | Lifecycle State ID.
@@ -6742,7 +6742,7 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $IdentityProfileId = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | Identity Profile ID.
         $LifecycleStateId = "ef38f94347e94562b5bb8424a56397d8" # String | Lifecycle State ID.
@@ -6771,7 +6771,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "aClientId" # String | ID of the Managed Client Status to get
         $Type = "CCG" # ManagedClientType | Type of the Managed Client Status to get
@@ -6792,7 +6792,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "aClientId" # String | ID of the Managed Client Status to update
         $ManagedClientStatus = @"
@@ -6841,7 +6841,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "aClusterId" # String | ID of ManagedCluster to get log configuration for
 
@@ -6861,7 +6861,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "aClusterId" # String | ID of the ManagedCluster to get
 
@@ -6881,7 +6881,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -6904,7 +6904,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "aClusterId" # String | ID of ManagedCluster to update log configuration for
         $ClientLogConfiguration = @"
@@ -6933,7 +6933,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Method = "okta-verify" # String | The name of the MFA method. The currently supported method names are 'okta-verify' and 'duo-web'.
 
@@ -6953,7 +6953,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
 
         # Configuration of Duo MFA method
@@ -6972,7 +6972,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $AllLanguages = $false # Boolean | Indicator whether the question text should be returned in all configured languages    * If true, the question text is returned in all languages that it is configured in.    * If false, the question text is returned in the user locale if available, else for the default locale.     * If not passed, it behaves the same way as passing this parameter as false (optional)
 
@@ -6992,7 +6992,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
 
         # Configuration of Okta MFA method
@@ -7011,7 +7011,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $MfaDuoConfig = @"
         {
@@ -7044,7 +7044,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         # KbaAnswerRequestItem[] | 
         $KbaAnswerRequestItem = @"{
@@ -7070,7 +7070,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $MfaOktaConfig = @"
         {
@@ -7099,7 +7099,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Method = "okta-verify" # String | The name of the MFA method. The currently supported method names are 'okta-verify' and 'duo-web'.
 
@@ -7119,7 +7119,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $SendTokenRequest = @"
         {
@@ -7145,7 +7145,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Method = "okta-verify" # String | The name of the MFA method. The currently supported method names are 'okta-verify', 'duo-web', 'kba','token', 'rsa'
         $VerificationPollRequest = @"
@@ -7171,7 +7171,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $DuoVerificationRequest = @"
         {
@@ -7197,7 +7197,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         # KbaAnswerRequestItem[] | 
         $KbaAnswerRequestItem = @"{
@@ -7223,7 +7223,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $OktaVerificationRequest = @"
         {
@@ -7248,7 +7248,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $TokenAuthRequest = @"
         {
@@ -7275,7 +7275,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $MultiHostIntegrationsCreate = @"
         {
@@ -7323,7 +7323,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "2c91808568c529c60168cca6f90c1326" # String | ID of the Multi-Host Integration.
         # MultiHostIntegrationsCreateSources[] | The specifics of the sources to create within Multi-Host Integration.
@@ -7358,7 +7358,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "2c91808568c529c60168cca6f90c1326" # String | ID of Multi-Host Integration to delete.
 
@@ -7378,7 +7378,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $MultiHostId = "aMultiHostId" # String | ID of the Multi-Host Integration to update
 
@@ -7398,7 +7398,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $MultiHostId = "aMultiHostId" # String | ID of the Multi-Host Integration to update
 
@@ -7418,7 +7418,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "2c91808568c529c60168cca6f90c1326" # String | ID of the Multi-Host Integration.
 
@@ -7438,7 +7438,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -7463,7 +7463,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $MultiHostId = "004091cb79b04636b88662afa50a4440" # String | ID of the Multi-Host Integration
 
@@ -7483,7 +7483,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
 
         # List Multi-Host Integration Types
@@ -7502,7 +7502,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -7526,7 +7526,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $MultihostId = "2c91808568c529c60168cca6f90c1324" # String | ID of the Multi-Host Integration
 
@@ -7546,7 +7546,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $MultihostId = "2c91808568c529c60168cca6f90c1326" # String | ID of the Multi-Host Integration
         $SourceId = "2c91808568c529f60168cca6f90c1324" # String | ID of the source within the Multi-Host Integration
@@ -7567,7 +7567,7 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $MultihostId = "anId" # String | ID of the Multi-Host Integration to update.
         # UpdateMultiHostSourcesRequestInner[] | This endpoint allows you to update a Multi-Host Integration. 
@@ -7591,7 +7591,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "MyId" # String | Non-Employee approval item id (UUID)
         $NonEmployeeApprovalDecision = @"
@@ -7617,7 +7617,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $NonEmployeeRequestBody = @"
         {
@@ -7653,7 +7653,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $NonEmployeeRequestBody = @"
         {
@@ -7689,7 +7689,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $NonEmployeeSourceRequestBody = @"
         {
@@ -7737,7 +7737,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $SourceId = "2c91808b6ef1d43e016efba0ce470904" # String | The Source id
         $NonEmployeeSchemaAttributeBody = @"
@@ -7768,7 +7768,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "2c91808b6ef1d43e016efba0ce470904" # String | Non-Employee record id (UUID)
 
@@ -7788,7 +7788,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $DeleteNonEmployeeRecordInBulkRequest = @"
         
@@ -7811,7 +7811,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "2c91808b6ef1d43e016efba0ce470904" # String | Non-Employee request id in the UUID format
 
@@ -7831,7 +7831,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $AttributeId = "2c91808b6ef1d43e016efba0ce470904" # String | The Schema Attribute Id (UUID)
         $SourceId = "2c91808b6ef1d43e016efba0ce470904" # String | The Source id
@@ -7852,7 +7852,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $SourceId = "2c91808b6ef1d43e016efba0ce470904" # String | Source Id
 
@@ -7872,7 +7872,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $SourceId = "2c91808b6ef1d43e016efba0ce470904" # String | The Source id
 
@@ -7892,7 +7892,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "2c918085842e69ae018432d22ccb212f" # String | Source Id (UUID)
 
@@ -7912,7 +7912,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "2c918085842e69ae018432d22ccb212f" # String | Source Id (UUID)
 
@@ -7932,7 +7932,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "ac10d20a-841e-1e7d-8184-32d2e22c0179" # String | Non-Employee approval item id (UUID)
         $IncludeDetail = "include-detail=false" # String | The object nonEmployeeRequest will not be included detail when set to false. *Default value is true* (optional)
@@ -7953,7 +7953,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $RequestedFor = "ac10d20a-841e-1e7d-8184-32d2e22c0179" # String | The identity (UUID) of the approver for whom for whom the summary is being retrieved. Use ""me"" instead to indicate the current user.
 
@@ -7973,7 +7973,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "2c918085842e69ae018432d22ccb212f" # String | Source ID (UUID)
 
@@ -7993,7 +7993,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "2c91808b6ef1d43e016efba0ce470904" # String | Non-Employee record id (UUID)
 
@@ -8013,7 +8013,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "2c91808b6ef1d43e016efba0ce470904" # String | Non-Employee request id (UUID)
 
@@ -8033,7 +8033,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $RequestedFor = "ac10d20a-841e-1e7d-8184-32d2e22c0179" # String | The identity (UUID) of the non-employee account manager for whom the summary is being retrieved. Use ""me"" instead to indicate the current user.
 
@@ -8053,7 +8053,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $AttributeId = "2c918085842e69ae018432d22ccb212f" # String | The Schema Attribute Id (UUID)
         $SourceId = "2c918085842e69ae018432d22ccb212f" # String | The Source id
@@ -8074,7 +8074,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $SourceId = "2c91808b7c28b350017c2a2ec5790aa1" # String | Source Id
 
@@ -8094,7 +8094,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $SourceId = "2c918085842e69ae018432d22ccb212f" # String | The Source id
 
@@ -8114,7 +8114,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "e136567de87e4d029e60b3c3c55db56d" # String | Source Id (UUID)
         $Data =  # System.IO.FileInfo | 
@@ -8135,7 +8135,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $RequestedFor = "ac10d20a-841e-1e7d-8184-32d2e22c0179" # String | The identity for whom the request was made. *me* indicates the current user. (optional)
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -8160,7 +8160,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -8184,7 +8184,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $RequestedFor = "me" # String | The identity for whom the request was made. *me* indicates the current user.
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -8209,7 +8209,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $RequestedFor = "me" # String | The identity for whom the request was made. *me* indicates the current user.
         $NonEmployeeCount = $false # Boolean | The flag to determine whether return a non-employee count associate with source.
@@ -8234,7 +8234,7 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "2c91808b6ef1d43e016efba0ce470904" # String | Non-employee record id (UUID)
         # JsonPatchOperation[] | A list of non-employee update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
@@ -8262,7 +8262,7 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $AttributeId = "2c91808b6ef1d43e016efba0ce470904" # String | The Schema Attribute Id (UUID)
         $SourceId = "2c91808b6ef1d43e016efba0ce470904" # String | The Source id
@@ -8291,7 +8291,7 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $SourceId = "2c91808b6ef1d43e016efba0ce470904" # String | Source Id
         # JsonPatchOperation[] | A list of non-employee source update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
@@ -8319,7 +8319,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "MyId" # String | Non-Employee approval item id (UUID)
         $NonEmployeeRejectApprovalDecision = @"
@@ -8345,7 +8345,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "2c91808b6ef1d43e016efba0ce470904" # String | Non-employee record id (UUID)
         $NonEmployeeRequestBody = @"
@@ -8382,7 +8382,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $DomainAddress = @"
         {
@@ -8407,7 +8407,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $TemplateDto = @"
         {
@@ -8447,7 +8447,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $EmailStatusDto = @"
         {
@@ -8475,7 +8475,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         # TemplateBulkDeleteDto[] | 
         $TemplateBulkDeleteDto = @"{
@@ -8502,7 +8502,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "MyId" # String | 
 
@@ -8522,7 +8522,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
 
         # Get DKIM Attributes
@@ -8541,7 +8541,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "bobsmith@sailpoint.com" # String | Returns the MX and TXT record to be put in your DNS, as well as the MAIL FROM domain status
 
@@ -8561,7 +8561,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the Notification Template
 
@@ -8581,7 +8581,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
 
         # Get Notification Template Context
@@ -8600,7 +8600,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -8624,7 +8624,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
 
         # List Notification Preferences for tenant.
@@ -8643,7 +8643,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -8665,7 +8665,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -8687,7 +8687,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $MailFromAttributesDto = @"
         {
@@ -8713,7 +8713,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $SendTestNotificationRequestDto = @"
         {
@@ -8740,7 +8740,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $CreateOAuthClientRequest = @"
         {
@@ -8779,7 +8779,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The OAuth client id
 
@@ -8799,7 +8799,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The OAuth client id
 
@@ -8819,7 +8819,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Filters = "lastUsed le 2023-02-05T10:59:27.214Z" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **lastUsed**: *le, isnull* (optional)
 
@@ -8839,7 +8839,7 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The OAuth client id
         # JsonPatchOperation[] | A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * tenant * businessName * homepageUrl * name * description * accessTokenValiditySeconds * refreshTokenValiditySeconds * redirectUris * grantTypes * accessType * enabled * strongAuthSupported * claimsSupported 
@@ -8867,7 +8867,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
 
         # Get Org configuration settings
@@ -8886,7 +8886,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
 
         # Get list of time zones
@@ -8905,7 +8905,7 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         # JsonPatchOperation[] | A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
         $JsonPatchOperation = @"{
@@ -8932,7 +8932,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $PasswordOrgConfig = @"
         {
@@ -8960,7 +8960,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
 
         # Get Password Org Config
@@ -8979,7 +8979,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $PasswordOrgConfig = @"
         {
@@ -9007,7 +9007,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
 
         # Get Password Dictionary
@@ -9026,7 +9026,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $File =  # System.IO.FileInfo |  (optional)
 
@@ -9046,7 +9046,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $PasswordDigitTokenReset = @"
         {
@@ -9073,7 +9073,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "MyId" # String | 
 
@@ -9093,7 +9093,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $PasswordInfoQueryDTO = @"
         {
@@ -9119,7 +9119,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $PasswordChangeRequest = @"
         {
@@ -9148,7 +9148,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $PasswordPolicyV3Dto = @"
         {
@@ -9203,7 +9203,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "ff808081838d9e9d01838da6a03e0002" # String | The ID of password policy to delete.
 
@@ -9223,7 +9223,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "ff808081838d9e9d01838da6a03e0005" # String | The ID of password policy to retrieve.
 
@@ -9243,7 +9243,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -9265,7 +9265,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "ff808081838d9e9d01838da6a03e0007" # String | The ID of password policy to update.
         $PasswordPolicyV3Dto = @"
@@ -9321,7 +9321,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $PasswordSyncGroup = @"
         {
@@ -9351,7 +9351,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "6881f631-3bd5-4213-9c75-8e05cc3e35dd" # String | The ID of password sync group to delete.
 
@@ -9371,7 +9371,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "6881f631-3bd5-4213-9c75-8e05cc3e35dd" # String | The ID of password sync group to retrieve.
 
@@ -9391,7 +9391,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -9413,7 +9413,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "6881f631-3bd5-4213-9c75-8e05cc3e35dd" # String | The ID of password sync group to update.
         $PasswordSyncGroup = @"
@@ -9444,7 +9444,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $CreatePersonalAccessTokenRequest = @"
         {
@@ -9471,7 +9471,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The personal access token id
 
@@ -9491,7 +9491,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $OwnerId = "2c9180867b50d088017b554662fb281e" # String | The identity ID of the owner whose personal access tokens should be listed.  If ""me"", the caller should have the following right: 'idn:my-personal-access-tokens:read' If an actual owner ID or if the `owner-id` parameter is omitted in the request,  the caller should have the following right: 'idn:all-personal-access-tokens:read'.  If the caller has the following right, then managed personal access tokens associated with `owner-id` will be retrieved: 'idn:managed-personal-access-tokens:read' (optional)
         $Filters = "lastUsed le 2023-02-05T10:59:27.214Z" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **lastUsed**: *le, isnull* (optional)
@@ -9512,7 +9512,7 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The Personal Access Token id
         # JsonPatchOperation[] | A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * scope 
@@ -9540,7 +9540,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
 
         # Get Public Identity Config
@@ -9559,7 +9559,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $PublicIdentityConfig = @"
         {
@@ -9596,7 +9596,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $IdentityId = "e7eab60924f64aa284175b9fa3309599" # String | If present, the value returns only requestable objects for the specified identity.  * Admin users can call this with any identity ID value.  * Non-admin users can only specify *me* or pass their own identity ID value.  * If absent, returns a list of all requestable objects for the tenant. Only admin users can make such a call. In this case, the available, pending, assigned accesses will not be annotated in the result. (optional)
         $Types = "ACCESS_PROFILE" # RequestableObjectType[] | Filters the results to the specified type/types, where each type is one of ROLE or ACCESS_PROFILE. If absent, all types are returned. Support for additional types may be added in the future without notice. (optional)
@@ -9628,7 +9628,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
 
         # Generate insights for roles
@@ -9647,7 +9647,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $InsightId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role insight id
         $Sorters = "identitiesWithAccess" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **identitiesWithAccess**  The default sort is **identitiesWithAccess** in descending order. (optional)
@@ -9669,7 +9669,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $InsightId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role insight id
         $EntitlementId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The entitlement id
@@ -9696,7 +9696,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $InsightId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role insight id
 
@@ -9716,7 +9716,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -9740,7 +9740,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $InsightId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role insight id
         $Filters = "name sw "r"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *sw*  **description**: *sw* (optional)
@@ -9761,7 +9761,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $InsightId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role insight id
         $Sorters = "MySorters" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **identitiesWithAccess, name** (optional)
@@ -9783,7 +9783,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role insights request id
 
@@ -9803,7 +9803,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
 
         # Get role insights summary information
@@ -9822,7 +9822,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Role = @"
         {
@@ -10002,7 +10002,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $RoleBulkDeleteRequest = @"
         {
@@ -10027,7 +10027,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "2c91808a7813090a017814121e121518" # String | ID of the Role
 
@@ -10047,7 +10047,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "2c91808a7813090a017814121e121518" # String | ID of the Role
 
@@ -10067,7 +10067,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "2c91808a7813090a017814121e121518" # String | ID of the Role for which the assigned Identities are to be listed
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -10092,7 +10092,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "2c91808a7813090a017814121919ecca" # String | ID of the containing role
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -10117,7 +10117,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $ForSubadmin = "5168015d32f890ca15812c9180835d2e" # String | If provided, filters the returned list according to what is visible to the indicated ROLE_SUBADMIN Identity. The value of the parameter is either an Identity ID, or the special value **me**, which is shorthand for the calling Identity's ID. A 400 Bad Request error is returned if the **for-subadmin** parameter is specified for an Identity that is not a subadmin. (optional)
         $Limit = 50 # Int32 | Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 50)
@@ -10144,7 +10144,7 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "2c91808a7813090a017814121e121518" # String | ID of the Role to patch
         # JsonPatchOperation[] | 
@@ -10172,7 +10172,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $SearchAttributeConfig = @"
         {
@@ -10202,7 +10202,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Name = "newMailAttribute" # String | Name of the extended search attribute configuration to delete.
 
@@ -10222,7 +10222,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
 
         # List Extended Search Attributes
@@ -10241,7 +10241,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Name = "newMailAttribute" # String | Name of the extended search attribute configuration to get.
 
@@ -10261,7 +10261,7 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Name = "promotedMailAttribute" # String | Name of the extended search attribute configuration to patch.
         # JsonPatchOperation[] | 
@@ -10289,7 +10289,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Segment = @"
         {
@@ -10335,7 +10335,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The segment ID to delete.
 
@@ -10355,7 +10355,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The segment ID to retrieve.
 
@@ -10375,7 +10375,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -10397,7 +10397,7 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The segment ID to modify.
         $RequestBody =  # SystemCollectionsHashtable[] | A list of segment update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * owner * visibilityCriteria * active 
@@ -10421,7 +10421,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $ServiceDeskIntegrationDto = @"
         {
@@ -10474,7 +10474,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "anId" # String | ID of Service Desk integration to delete
 
@@ -10494,7 +10494,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "anId" # String | ID of the Service Desk integration to get
 
@@ -10514,7 +10514,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -10538,7 +10538,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $ScriptName = "aScriptName" # String | The scriptName value of the Service Desk integration template to get
 
@@ -10558,7 +10558,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
 
         # List Service Desk integration types
@@ -10577,7 +10577,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
 
         # Get the time check configuration
@@ -10596,7 +10596,7 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "anId" # String | ID of the Service Desk integration to update
         $PatchServiceDeskIntegrationRequest = @"
@@ -10620,7 +10620,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "anId" # String | ID of the Service Desk integration to update
         $ServiceDeskIntegrationDto = @"
@@ -10674,7 +10674,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $QueuedCheckConfigDetails = @"
         {
@@ -10700,7 +10700,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $SimIntegrationDetails = @"
         {
@@ -10740,7 +10740,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "12345" # String | The id of the integration to delete.
 
@@ -10760,7 +10760,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "12345" # String | The id of the integration.
 
@@ -10780,7 +10780,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
 
         # List the existing SIM integrations.
@@ -10799,7 +10799,7 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "12345" # String | SIM integration id
         $JsonPatch = @"
@@ -10823,7 +10823,7 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "12345" # String | SIM integration id
         $JsonPatch = @"
@@ -10847,7 +10847,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "12345" # String | The id of the integration.
         $SimIntegrationDetails = @"
@@ -10888,7 +10888,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $SodPolicy = @"
         {
@@ -10966,7 +10966,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the SOD Policy to delete.
         $Logical = $true # Boolean | Indicates whether this is a soft delete (logical true) or a hard delete. (optional) (default to $true)
@@ -10987,7 +10987,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the SOD policy the schedule must be deleted for.
 
@@ -11007,7 +11007,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $ReportResultId = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the report reference to download.
         $FileName = "custom-name" # String | Custom Name for the  file.
@@ -11028,7 +11028,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $ReportResultId = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the report reference to download.
 
@@ -11048,7 +11048,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
 
         # Get multi-report run task status
@@ -11067,7 +11067,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the object reference to retrieve.
 
@@ -11087,7 +11087,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the object reference to retrieve.
 
@@ -11107,7 +11107,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $ReportResultId = "2e8d8180-24bc-4d21-91c6-7affdb473b0d" # String | The ID of the report reference to retrieve.
 
@@ -11127,7 +11127,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the object reference to retrieve.
 
@@ -11147,7 +11147,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -11171,7 +11171,7 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "2c9180835d191a86015d28455b4a2329" # String | The ID of the SOD policy being modified.
         $RequestBody =  # SystemCollectionsHashtable[] | A list of SOD Policy update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * ownerRef * externalPolicyReference * compensatingControls * correctionAdvice * state * tags * violationOwnerAssignmentConfig * scheduled * conflictingAccessCriteria 
@@ -11195,7 +11195,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the SOD policy to update its schedule.
         $SodPolicySchedule = @"
@@ -11304,7 +11304,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the SOD policy to update.
         $SodPolicy = @"
@@ -11383,7 +11383,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $MultiPolicyRequest = @"
         {
@@ -11407,7 +11407,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The SOD policy ID to run.
 
@@ -11427,7 +11427,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $IdentityWithNewAccess = @"
         {
@@ -11461,7 +11461,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id
         $ProvisioningPolicyDto = @"
@@ -11524,7 +11524,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Source = @"
         {
@@ -11630,7 +11630,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
         $Schema = @"
@@ -11687,7 +11687,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
 
@@ -11707,7 +11707,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "ebbf35756e1140699ce52b233121384a" # String | The source id
 
@@ -11727,7 +11727,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "2c9180835d191a86015d28455b4a2329" # String | The source id
 
@@ -11747,7 +11747,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source ID.
         $UsageType = "CREATE" # UsageType | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to 'Create Account Profile', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to 'Update Account Profile', the provisioning template for the 'Update' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to 'Enable Account Profile', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner's account is created.  DISABLE - This usage type relates to 'Disable Account Profile', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs. 
@@ -11768,7 +11768,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source ID.
         $SchemaId = "2c9180835d191a86015d28455b4a2329" # String | The Schema ID.
@@ -11789,7 +11789,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "2c9180835d191a86015d28455b4a2329" # String | The source id
 
@@ -11809,7 +11809,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "2c9180835d191a86015d28455b4a2329" # String | The source id
 
@@ -11829,7 +11829,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source ID.
         $UsageType = "CREATE" # UsageType | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to 'Create Account Profile', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to 'Update Account Profile', the provisioning template for the 'Update' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to 'Enable Account Profile', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner's account is created.  DISABLE - This usage type relates to 'Disable Account Profile', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs. 
@@ -11850,7 +11850,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
 
@@ -11870,7 +11870,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
 
@@ -11890,7 +11890,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "2c9180835d191a86015d28455b4a2329" # String | The source id
 
@@ -11910,7 +11910,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "MyId" # String | The Source id
         $Locale = "de" # String | The locale to apply to the config. If no viable locale is given, it will default to ""en"" (optional)
@@ -11931,7 +11931,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
 
         # Get Source Entitlement Request Configuration
@@ -11950,7 +11950,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
         $SchemaName = "?schemaName=group" # String | Name of entitlement schema (optional)
@@ -11971,7 +11971,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source ID.
         $SchemaId = "2c9180835d191a86015d28455b4a2329" # String | The Schema ID.
@@ -11992,7 +11992,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
         $IncludeTypes = "group" # String | If set to 'group', then the account schema is filtered and only group schemas are returned. Only a value of 'group' is recognized presently.  Note: The API will check whether include-types is group or not, if not, it will list schemas based on include-names, if include-names is not provided, it will list all schemas. (optional)
@@ -12014,7 +12014,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Source Id
         $File =  # System.IO.FileInfo | The CSV file containing the source accounts to aggregate. (optional)
@@ -12036,7 +12036,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Source Id
         $File =  # System.IO.FileInfo | The CSV file containing the source entitlements to aggregate. (optional)
@@ -12057,7 +12057,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
         $File =  # System.IO.FileInfo |  (optional)
@@ -12078,7 +12078,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $SourceId = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
         $File =  # System.IO.FileInfo |  (optional)
@@ -12099,7 +12099,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
         $SchemaName = "?schemaName=group" # String | Name of entitlement schema (optional)
@@ -12121,7 +12121,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "75dbec1ebe154d5785da27b95e1dd5d7" # String | Source Id
         $File =  # System.IO.FileInfo |  (optional)
@@ -12142,7 +12142,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id
 
@@ -12162,7 +12162,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -12188,7 +12188,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $SourceId = "cef3ee201db947c5912551015ba0c679" # String | The ID of the Source
         $ResourceObjectsRequest = @"
@@ -12215,7 +12215,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $SourceId = "cef3ee201db947c5912551015ba0c679" # String | The ID of the Source
 
@@ -12235,7 +12235,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "2c9180835d191a86015d28455b4a2329" # String | The source id
         $CorrelationConfig = @"
@@ -12279,7 +12279,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "2c9180835d191a86015d28455b4a2329" # String | The source id
         $NativeChangeDetectionConfig = @"
@@ -12310,7 +12310,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source ID.
         $UsageType = "CREATE" # UsageType | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to 'Create Account Profile', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to 'Update Account Profile', the provisioning template for the 'Update' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to 'Enable Account Profile', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner's account is created.  DISABLE - This usage type relates to 'Disable Account Profile', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs. 
@@ -12374,7 +12374,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
         $Source = @"
@@ -12480,7 +12480,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "2c9180835d191a86015d28455b4a2329" # String | The source id
         $AttrSyncSourceConfig = @"
@@ -12521,7 +12521,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source ID.
         $SchemaId = "2c9180835d191a86015d28455b4a2329" # String | The Schema ID.
@@ -12579,7 +12579,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "MyId" # String | The Source id
 
@@ -12599,7 +12599,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $SourceId = "cef3ee201db947c5912551015ba0c679" # String | The ID of the Source
 
@@ -12619,7 +12619,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $SourceId = "cef3ee201db947c5912551015ba0c679" # String | The ID of the Source.
 
@@ -12639,7 +12639,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
         # ProvisioningPolicyDto[] | 
@@ -12702,7 +12702,7 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
         $UsageType = "CREATE" # UsageType | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to 'Create Account Profile', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to 'Update Account Profile', the provisioning template for the 'Update' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to 'Enable Account Profile', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner's account is created.  DISABLE - This usage type relates to 'Disable Account Profile', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs. 
@@ -12731,7 +12731,7 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
         # JsonPatchOperation[] | A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Any password changes are submitted as plain-text and encrypted upon receipt in Identity Security Cloud (ISC).
@@ -12759,7 +12759,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $SourceEntitlementRequestConfig = @"
         {
@@ -12794,7 +12794,7 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
         $SchemaId = "2c9180835d191a86015d28455b4a2329" # String | The Schema id.
@@ -12823,7 +12823,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $SourceId = "2c9180835d191a86015d28455b4a2329" # String | ID of IDN source
 
@@ -12843,7 +12843,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $SourceId = "2c9180835d191a86015d28455b4a2329" # String | ID of IDN source
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -12867,7 +12867,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $ExportPayload = @"
         {
@@ -12892,7 +12892,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the export job whose results will be downloaded.
 
@@ -12912,7 +12912,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the export job whose status will be returned.
 
@@ -12932,7 +12932,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the import job whose results will be downloaded.
 
@@ -12952,7 +12952,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the import job whose status will be returned.
 
@@ -12972,7 +12972,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Data =  # System.IO.FileInfo | JSON file containing the objects to be imported.
         $Preview = $true # Boolean | This option is intended to give the user information about how an import operation would proceed, without having any effect on the target tenant. If this parameter is ""true"", no objects will be imported. Instead, the import process will pre-process the import file and attempt to resolve references within imported objects. The import result file will contain messages pertaining to how specific references were resolved, any errors associated with the preprocessing, and messages indicating which objects would be imported.  (optional) (default to $false)
@@ -12995,7 +12995,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
 
         # Get config object details
@@ -13014,7 +13014,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $BatchId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | Batch Id
 
@@ -13034,7 +13034,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
 
         # List Sed Batch Request
@@ -13053,7 +13053,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Limit = limit=25 # Int64 | Integer specifying the maximum number of records to return in a single API call.  The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used. (optional)
         $Filters = "displayName co "Read and Write"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **batchId**: *eq, ne*  **displayName**: *eq, ne, co*  **sourceName**: *eq, ne, co*  **sourceId**: *eq, ne*  **status**: *eq, ne*  **fullText**: *co* (optional)
@@ -13079,7 +13079,7 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "ebab396f-0af1-4050-89b7-dafc63ec70e7" # String | id is sed id
         # SedPatch[] | Sed Patch Request
@@ -13107,7 +13107,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         # SedApproval[] | Sed Approval
         $SedApproval = @"{
@@ -13132,7 +13132,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $SedAssignment = @"
         {
@@ -13161,7 +13161,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $SedBatchRequest = @"
         {
@@ -13186,7 +13186,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Type = "ACCESS_PROFILE" # String | The type of object to delete tags from.
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the object to delete tags from.
@@ -13207,7 +13207,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $BulkTaggedObject = @"
         {
@@ -13242,7 +13242,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Type = "ACCESS_PROFILE" # String | The type of tagged object to retrieve.
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the object reference to retrieve.
@@ -13263,7 +13263,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -13286,7 +13286,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Type = "ACCESS_PROFILE" # String | The type of tagged object to retrieve.
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -13310,7 +13310,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Type = "ACCESS_PROFILE" # String | The type of tagged object to update.
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the object reference to update.
@@ -13342,7 +13342,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $TaggedObject = @"
         {
@@ -13372,7 +13372,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $BulkTaggedObject = @"
         {
@@ -13407,7 +13407,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Tag = @"
         {
@@ -13444,7 +13444,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "329d96cf-3bdb-40a9-988a-b5037ab89022" # String | The ID of the object reference to delete.
 
@@ -13464,7 +13464,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "329d96cf-3bdb-40a9-988a-b5037ab89022" # String | The ID of the object reference to retrieve.
 
@@ -13484,7 +13484,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -13508,7 +13508,7 @@
   method: HEAD
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -13530,7 +13530,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -13552,7 +13552,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "00eebcf881994e419d72e757fd30dc0e" # String | Task ID.
 
@@ -13572,7 +13572,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -13596,7 +13596,7 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "00eebcf881994e419d72e757fd30dc0e" # String | Task ID.
         # JsonPatchOperation[] | The JSONPatch payload used to update the object.
@@ -13624,7 +13624,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
 
         # Get Tenant Information.
@@ -13643,7 +13643,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Transform = @"
         {
@@ -13686,7 +13686,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "2cd78adghjkja34jh2b1hkjhasuecd" # String | ID of the transform to delete
 
@@ -13706,7 +13706,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "2cd78adghjkja34jh2b1hkjhasuecd" # String | ID of the transform to retrieve
 
@@ -13726,7 +13726,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -13750,7 +13750,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "2cd78adghjkja34jh2b1hkjhasuecd" # String | ID of the transform to update
         $Transform = @"
@@ -13793,7 +13793,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde" # String | The ID of the invocation to complete.
         $CompleteInvocation = @"
@@ -13823,7 +13823,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $SubscriptionPostRequest = @"
         {
@@ -13870,7 +13870,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde" # String | Subscription ID
 
@@ -13890,7 +13890,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -13914,7 +13914,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -13938,7 +13938,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -13962,7 +13962,7 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde" # String | ID of the Subscription to patch
         # SubscriptionPatchRequestInner[] | 
@@ -13986,7 +13986,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $TestInvocation = @"
         {
@@ -14018,7 +14018,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $ValidateFilterInputDto = @"
         {
@@ -14046,7 +14046,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde" # String | Subscription ID
         $SubscriptionPutRequest = @"
@@ -14093,7 +14093,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
 
         # Get a tenant UI metadata
@@ -14112,7 +14112,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $TenantUiMetadataItemUpdateRequest = @"
         {
@@ -14139,7 +14139,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $VendorConnectorMapping = @"
         {
@@ -14184,7 +14184,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $VendorConnectorMapping = @"
         {
@@ -14229,7 +14229,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
 
         # List Vendor Connector Mappings
@@ -14248,7 +14248,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | The workflow execution ID
 
@@ -14268,7 +14268,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $CreateWorkflowRequest = @"
         {name=Send Email, owner={type=IDENTITY, id=2c91808568c529c60168cca6f90c1313, name=William Wilson}, description=Send an email to the identity who's attributes changed., definition={start=Send Email Test, steps={Send Email={actionId=sp:send-email, attributes={body=This is a test, from=sailpoint@sailpoint.com, recipientId.$=$.identity.id, subject=test}, nextStep=success, selectResult=null, type=action}, success={type=success}}}, enabled=false, trigger={type=EVENT, attributes={id=idn:identity-attributes-changed, filter=$.changes[?(@.attribute == 'manager')]}}}
@@ -14291,7 +14291,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the Workflow
 
@@ -14311,7 +14311,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow
 
@@ -14331,7 +14331,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Workflow execution ID.
 
@@ -14351,7 +14351,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow execution
 
@@ -14371,7 +14371,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Workflow ID.
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -14395,7 +14395,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -14416,7 +14416,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -14438,7 +14438,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
 
         # List Workflow Library Operators
@@ -14457,7 +14457,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -14479,7 +14479,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
 
         # List Workflows
@@ -14498,7 +14498,7 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the Workflow
         # JsonPatchOperation[] | 
@@ -14526,7 +14526,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow
         $PostExternalExecuteWorkflowRequest = @"
@@ -14549,7 +14549,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow
 
@@ -14569,7 +14569,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow
         $TestExternalExecuteWorkflowRequest = @"
@@ -14592,7 +14592,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow
         $TestWorkflowRequest = @"
@@ -14616,7 +14616,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the Workflow
         $WorkflowBody = @"
@@ -14677,7 +14677,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
         $ApprovalItemId = "1211bcaa32112bcef6122adb21cef1ac" # String | The ID of the approval item.
@@ -14698,7 +14698,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
 
@@ -14718,7 +14718,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
 
@@ -14738,7 +14738,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
         $WorkItemForward = @"
@@ -14766,7 +14766,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $OwnerId = "MyOwnerId" # String | The id of the owner of the work item list being requested.  Either an admin, or the owning/current user must make this request. (optional)
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -14789,7 +14789,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $OwnerId = "MyOwnerId" # String | ID of the work item owner. (optional)
 
@@ -14809,7 +14809,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $OwnerId = "MyOwnerId" # String | ID of the work item owner. (optional)
 
@@ -14829,7 +14829,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "MyId" # String | ID of the work item.
         $OwnerId = "MyOwnerId" # String | ID of the work item owner. (optional)
@@ -14850,7 +14850,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $OwnerId = "MyOwnerId" # String | ID of the work item owner. (optional)
 
@@ -14870,7 +14870,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -14893,7 +14893,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
         $ApprovalItemId = "1211bcaa32112bcef6122adb21cef1ac" # String | The ID of the approval item.
@@ -14914,7 +14914,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
 
@@ -14934,7 +14934,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
         $RequestBody = @{ key_example =  } # System.Collections.Hashtable | Account Selection Data map, keyed on fieldName
@@ -14956,7 +14956,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $ConfigurationItemRequest = @"
         {
@@ -14985,7 +14985,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $IdentityId = "2c91808781a71ddb0181b9090b5c504e" # String | unique identity id
         $ConfigType = "ACCESS_REQUESTS" # ConfigTypeEnum | 
@@ -15006,7 +15006,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $IdentityId = "2c91808781a71ddb0181b9090b5c504e" # String | unique identity id
         $ConfigType = "ACCESS_REQUESTS" # ConfigTypeEnum | Reassignment work type
@@ -15030,7 +15030,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
 
         # List Reassignment Config Types
@@ -15049,7 +15049,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $IdentityId = "2c91808781a71ddb0181b9090b5c504f" # String | unique identity id
 
@@ -15069,7 +15069,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
 
         # Get Tenant-wide Reassignment Configuration settings
@@ -15088,7 +15088,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
 
         # List Reassignment Configurations
@@ -15107,7 +15107,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $IdentityId = "2c91808781a71ddb0181b9090b5c504e" # String | unique identity id
         $ConfigurationItemRequest = @"
@@ -15137,7 +15137,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: PowerShell SDK
+      label: SDK
       source: |
         $TenantConfigurationRequest = @"
         {

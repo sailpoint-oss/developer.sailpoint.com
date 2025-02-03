@@ -136,6 +136,7 @@ function TabList({
   };
 
   return (
+    
     <ul
       role="tablist"
       aria-orientation="horizontal"
@@ -209,7 +210,6 @@ function TabContent({
 function TabsComponent(props: CodeTabsProps & Props): React.JSX.Element {
   const tabs = useTabs(props);
   const { className } = props;
-
   return (
     <div
       className={clsx("tabs-container openapi-tabs__code-container", className)}

@@ -5,23 +5,23 @@
  * LICENSE file in the root directory of this source tree.
  * ========================================================================== */
 
-import React, { useState, useEffect } from "react";
+import React, {useState, useEffect} from 'react';
 
-import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
-import ApiCodeBlock from "@theme/ApiExplorer/ApiCodeBlock";
-import buildPostmanRequest from "@theme/ApiExplorer/buildPostmanRequest";
-import CodeTabs from "@theme/ApiExplorer/CodeTabs";
-import { useTypedSelector } from "@theme/ApiItem/hooks";
-import codegen from "postman-code-generators";
-import sdk from "postman-collection";
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import ApiCodeBlock from '@theme/ApiExplorer/ApiCodeBlock';
+import buildPostmanRequest from '@theme/ApiExplorer/buildPostmanRequest';
+import CodeTabs from '@theme/ApiExplorer/CodeTabs';
+import {useTypedSelector} from '@theme/ApiItem/hooks';
+import codegen from 'postman-code-generators';
+import sdk from 'postman-collection';
 
-import { CodeSample, Language } from "./code-snippets-types";
+import {CodeSample, Language} from './code-snippets-types';
 import {
   getCodeSampleSourceFromLanguage,
   mergeArraysbyLanguage,
   mergeCodeSampleLanguage,
   generateLanguageSet,
-} from "./languages";
+} from './languages';
 
 export const languageSet: Language[] = generateLanguageSet();
 
@@ -30,16 +30,16 @@ export interface Props {
   codeSamples: CodeSample[];
 }
 
-function CodeTab({ children, hidden, className }: any): JSX.Element {
+function CodeTab({children, hidden, className}: any): JSX.Element {
   return (
-    <div role="tabpanel" className={className} {...{ hidden }}>
+    <div role="tabpanel" className={className} {...{hidden}}>
       {children}
     </div>
   );
 }
 
-function CodeSnippets({ postman, codeSamples }: Props) {
-  const { siteConfig } = useDocusaurusContext();
+function CodeSnippets({postman, codeSamples}: Props) {
+  const {siteConfig} = useDocusaurusContext();
 
   const contentType = useTypedSelector((state: any) => state.contentType.value);
   const accept = useTypedSelector((state: any) => state.accept.value);
@@ -69,13 +69,13 @@ function CodeSnippets({ postman, codeSamples }: Props) {
   // Merge user-defined langs into languageSet
   const mergedLangs = mergeCodeSampleLanguage(
     mergeArraysbyLanguage(userDefinedLanguageSet, filteredLanguageSet),
-    codeSamples
+    codeSamples,
   );
 
   // Read defaultLang from localStorage
   const defaultLang: Language[] = mergedLangs.filter(
     (lang) =>
-      lang.language === localStorage.getItem("docusaurus.tab.code-samples")
+      lang.language === localStorage.getItem('docusaurus.tab.code-samples'),
   );
   const [selectedVariant, setSelectedVariant] = useState<string | undefined>();
   const [selectedSample, setSelectedSample] = useState<string | undefined>();
@@ -87,7 +87,7 @@ function CodeSnippets({ postman, codeSamples }: Props) {
     // Fall back to language in localStorage or first user-defined language
     return defaultLang[0] ?? mergedLangs[0];
   });
-  const [codeText, setCodeText] = useState<string>("");
+  const [codeText, setCodeText] = useState<string>('');
   const [codeSampleCodeText, setCodeSampleCodeText] = useState<
     string | (() => string)
   >(() => getCodeSampleSourceFromLanguage(language));
@@ -119,17 +119,17 @@ function CodeSnippets({ postman, codeSamples }: Props) {
             return;
           }
           setCodeText(snippet);
-        }
+        },
       );
     } else if (language && !language.options) {
       const langSource = mergedLangs.filter(
-        (lang) => lang.language === language.language
+        (lang) => lang.language === language.language,
       );
 
       // Merges user-defined language with default languageSet
       // This allows users to define only the minimal properties necessary in languageTabs
       // User-defined properties should override languageSet properties
-      const mergedLanguage = { ...langSource[0], ...language };
+      const mergedLanguage = {...langSource[0], ...language};
       const postmanRequest = buildPostmanRequest(postman, {
         queryParams,
         pathParams,
@@ -152,10 +152,10 @@ function CodeSnippets({ postman, codeSamples }: Props) {
             return;
           }
           setCodeText(snippet);
-        }
+        },
       );
     } else {
-      setCodeText("");
+      setCodeText('');
     }
   }, [
     accept,
@@ -195,7 +195,7 @@ function CodeSnippets({ postman, codeSamples }: Props) {
             return;
           }
           setCodeText(snippet);
-        }
+        },
       );
     }
   });
@@ -211,7 +211,7 @@ function CodeSnippets({ postman, codeSamples }: Props) {
       selectedSample !== language.sample
     ) {
       const sampleIndex = language.samples.findIndex(
-        (smp) => smp === selectedSample
+        (smp) => smp === selectedSample,
       );
       setCodeSampleCodeText(language.samplesSources[sampleIndex]);
     }
@@ -233,8 +233,7 @@ function CodeSnippets({ postman, codeSamples }: Props) {
         }}
         languageSet={mergedLangs}
         defaultValue={defaultLang[0]?.language ?? mergedLangs[0].language}
-        lazy
-      >
+        lazy>
         {mergedLangs.map((lang) => {
           return (
             <CodeTab
@@ -243,23 +242,24 @@ function CodeSnippets({ postman, codeSamples }: Props) {
               key={lang.language}
               attributes={{
                 className: `openapi-tabs__code-item--${lang.logoClass}`,
-              }}
-            >
-              {/* Inner x-codeSamples tabs */}
-              {lang.samples && (
-                <CodeTabs
-                  className="openapi-tabs__code-container-inner"
-                  action={{
-                    setLanguage: setLanguage,
-                    setSelectedSample: setSelectedSample,
-                  }}
-                  includeSample={true}
-                  currentLanguage={lang.language}
-                  defaultValue={selectedSample}
-                  languageSet={mergedLangs}
-                  lazy
-                >
-                  {lang.samples.map((sample, index) => {
+              }}>
+              {/* Merged CodeTabs for both samples and variants */}
+              <CodeTabs
+                className="openapi-tabs__code-container-inner"
+                action={{
+                  setLanguage: setLanguage,
+                  setSelectedSample: setSelectedSample,
+                  setSelectedVariant: setSelectedVariant,
+                }}
+                includeSample={true}
+                includeVariant={true}
+                currentLanguage={lang.language}
+                defaultValue={selectedSample || selectedVariant} // Set default value based on whichever is selected
+                languageSet={mergedLangs}
+                lazy>
+                {/* Render Sample Tabs */}
+                {lang.samples &&
+                  lang.samples.map((sample, index) => {
                     return (
                       <CodeTab
                         value={sample}
@@ -268,59 +268,42 @@ function CodeSnippets({ postman, codeSamples }: Props) {
                             ? lang.samplesLabels[index]
                             : sample
                         }
-                        key={`${lang.language}-${lang.sample}`}
+                        key={`${lang.language}-sample-${index}`} // Unique key for each sample
                         attributes={{
                           className: `openapi-tabs__code-item--sample`,
-                        }}
-                      >
+                        }}>
                         {/* @ts-ignore */}
                         <ApiCodeBlock
                           language={lang.highlight}
                           className="openapi-explorer__code-block"
-                          showLineNumbers={true}
-                        >
+                          showLineNumbers={true}>
                           {codeSampleCodeText}
                         </ApiCodeBlock>
                       </CodeTab>
                     );
                   })}
-                </CodeTabs>
-              )}
 
-              {/* Inner generated code snippets */}
-              <CodeTabs
-                className="openapi-tabs__code-container-inner"
-                action={{
-                  setLanguage: setLanguage,
-                  setSelectedVariant: setSelectedVariant,
-                }}
-                includeVariant={true}
-                currentLanguage={lang.language}
-                defaultValue={selectedVariant}
-                languageSet={mergedLangs}
-                lazy
-              >
-                {lang.variants.map((variant, index) => {
-                  return (
-                    <CodeTab
-                      value={variant.toLowerCase()}
-                      label={variant.toUpperCase()}
-                      key={`${lang.language}-${lang.variant}`}
-                      attributes={{
-                        className: `openapi-tabs__code-item--variant`,
-                      }}
-                    >
-                      {/* @ts-ignore */}
-                      <ApiCodeBlock
-                        language={lang.highlight}
-                        className="openapi-explorer__code-block"
-                        showLineNumbers={true}
-                      >
-                        {codeText}
-                      </ApiCodeBlock>
-                    </CodeTab>
-                  );
-                })}
+                {/* Render Variant Tabs */}
+                {lang.variants &&
+                  lang.variants.map((variant, index) => {
+                    return (
+                      <CodeTab
+                        value={variant.toLowerCase()}
+                        label={variant.toUpperCase()}
+                        key={`${lang.language}-variant-${index}`} // Unique key for each variant
+                        attributes={{
+                          className: `openapi-tabs__code-item--variant`,
+                        }}>
+                        {/* @ts-ignore */}
+                        <ApiCodeBlock
+                          language={lang.highlight}
+                          className="openapi-explorer__code-block"
+                          showLineNumbers={true}>
+                          {codeText}
+                        </ApiCodeBlock>
+                      </CodeTab>
+                    );
+                  })}
               </CodeTabs>
             </CodeTab>
           );

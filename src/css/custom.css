@@ -224,6 +224,7 @@
 
 :root {
   font-family: Poppins !important;
+  --doc-sidebar-width: 445px !important;
 }
 
 :root {
@@ -338,7 +339,7 @@
   margin-right: 0.5rem;
 }
 
-@media only screen and (max-width: 1291px) {
+@media only screen and (max-width: 1450px) {
   .navbar__logo {
     content: var(--dev-sailpoint-small-logo);
   }

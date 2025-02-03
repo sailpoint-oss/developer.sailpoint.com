@@ -8,8 +8,6 @@ function SecuritySchemes(props: any) {
   const selected = useTypedSelector((state: any) => state.auth.selected);
   const infoAuthPath = `/${props.infoPath}#authentication`;
 
-  console.log(props)
-
   if (selected === undefined) return null;
 
   if (options[selected]?.[0]?.type === undefined) {
@@ -182,7 +180,6 @@ function SecuritySchemes(props: any) {
         }
 
         if (isOauth2) {
-          console.log(auth)
           const { name, key, type, scopes, flows, ...rest } = auth;
           return (
             <React.Fragment key={selected}>

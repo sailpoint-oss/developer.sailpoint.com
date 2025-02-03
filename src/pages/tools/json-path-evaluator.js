@@ -57,25 +57,31 @@ export default function JsonPathEvaluator() {
       let tempResult;
       const parsedJson = JSON.parse(json);
 
-      switch (implementation) {
-        case 'Workflows':
-          tempResult = await evaluateJSONPathGo(siteConfig.customFields.CMS_APP_API_ENDPOINT, jsonPath, parsedJson);
-          if(tempResult.result) {
-            result = tempResult.result;
-          } else {
-            result = tempResult.error;
-          }
-          break;
-        case 'EventTrigger':
-          tempResult = await evaluateJSONPathJava(siteConfig.customFields.CMS_APP_API_ENDPOINT, jsonPath, parsedJson);
-          if(tempResult.result) {
-            result = tempResult.result;
-          } else {
-            result = tempResult.error;
-          }
-          break;
-      }
+      try {
+        switch (implementation) {
+          case 'Workflows':
+            tempResult = await evaluateJSONPathGo(siteConfig.customFields.CMS_APP_API_ENDPOINT, jsonPath, parsedJson);
+            if (tempResult.error) {
+              result = tempResult.error;
+            } else {
+              result = tempResult.result;
+            }
+            break;
+          case 'EventTrigger':
 
+            tempResult = await evaluateJSONPathJava(siteConfig.customFields.CMS_APP_API_ENDPOINT, jsonPath, parsedJson);
+            if (tempResult.error) {
+              result = tempResult.error;
+            } else {
+              result = tempResult.result;
+            }
+
+            break;
+        }
+      } catch (error) {
+        result = error.message;
+      }
+      
       setResult((result.length > 0 || typeof result === 'number' || typeof result === 'object' || typeof result === 'boolean') ? JSON.stringify(result, null, 2) : 'No match');
       setQueryParseError('');
       setJsonParseError(false);

@@ -1,3 +1,4 @@
+
 ---
 id: v2024-notifications
 title: Notifications
@@ -8,7 +9,6 @@ keywords: ['powershell', 'PowerShell', 'sdk', 'Notifications', 'V2024Notificatio
 slug: /tools/sdk/powershell/v2024/methods/notifications
 tags: ['SDK', 'Software Development Kit', 'Notifications', 'V2024Notifications']
 ---
-
 
 # Notifications
    
@@ -34,9 +34,7 @@ Method | HTTP request | Description
 [**Send-V2024MailFromAttributes**](#put-mail-from-attributes) | **PUT** `/mail-from-attributes` | Change MAIL FROM domain
 [**Send-V2024TestNotification**](#send-test-notification) | **POST** `/send-test-notification` | Send Test Notification
 
-
 ## create-domain-dkim
-
 Create a domain to be verified via DKIM (DomainKeys Identified Mail)
 
 ### Parameters 
@@ -46,7 +44,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | DomainAddress | [**DomainAddress**](../models/domain-address) | True  | 
 
 ### Return type
-
 [**DomainStatusDto**](../models/domain-status-dto)
 
 ### Responses
@@ -61,7 +58,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -71,7 +67,9 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 $DomainAddress = @"{
   "domain" : "sailpoint.com"
 }"@
+
 # Verify domain address via DKIM
+
 try {
     $Result = ConvertFrom-JsonToDomainAddress -Json $DomainAddress
     New-V2024DomainDkim-V2024XSailPointExperimental $XSailPointExperimental -V2024DomainAddress $Result
@@ -83,11 +81,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## create-notification-template
-
 This creates a template for your site. 
 
 You can also use this endpoint to update a template.  First, copy the response body from the [get notification template endpoint](https://developer.sailpoint.com/idn/api/beta/get-notification-template) for a template you wish to update and paste it into the request body for this endpoint.   Modify the fields you want to change and submit the POST request when ready.
@@ -99,7 +94,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | TemplateDto | [**TemplateDto**](../models/template-dto) | True  | 
 
 ### Return type
-
 [**TemplateDto**](../models/template-dto)
 
 ### Responses
@@ -113,7 +107,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -138,7 +131,9 @@ $TemplateDto = @"{
   "id" : "c17bea3a-574d-453c-9e04-4365fbf5af0b",
   "key" : "cloud_manual_work_item_summary"
 }"@
+
 # Create Notification Template
+
 try {
     $Result = ConvertFrom-JsonToTemplateDto -Json $TemplateDto
     New-V2024NotificationTemplate-V2024XSailPointExperimental $XSailPointExperimental -V2024TemplateDto $Result
@@ -150,11 +145,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## create-verified-from-address
-
 Create a new sender email address and initiate verification process.
 
 ### Parameters 
@@ -164,7 +156,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | EmailStatusDto | [**EmailStatusDto**](../models/email-status-dto) | True  | 
 
 ### Return type
-
 [**EmailStatusDto**](../models/email-status-dto)
 
 ### Responses
@@ -178,7 +169,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -191,7 +181,9 @@ $EmailStatusDto = @"{
   "id" : "id",
   "email" : "sender@example.com"
 }"@
+
 # Create Verified From Address
+
 try {
     $Result = ConvertFrom-JsonToEmailStatusDto -Json $EmailStatusDto
     New-V2024VerifiedFromAddress-V2024XSailPointExperimental $XSailPointExperimental -V2024EmailStatusDto $Result
@@ -203,11 +195,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## delete-notification-templates-in-bulk
-
 This lets you bulk delete templates that you previously created for your site. Since this is a beta feature, please contact support to enable usage.
 
 ### Parameters 
@@ -217,7 +206,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | TemplateBulkDeleteDto | [**[]TemplateBulkDeleteDto**](../models/template-bulk-delete-dto) | True  | 
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -231,21 +219,21 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
- # TemplateBulkDeleteDto[] | 
  $TemplateBulkDeleteDto = @"{
   "medium" : "EMAIL",
   "locale" : "en",
   "key" : "cloud_manual_work_item_summary"
-}"@ 
+}"@ # TemplateBulkDeleteDto[] | 
+ 
 
 # Bulk Delete Notification Templates
+
 try {
     $Result = ConvertFrom-JsonToTemplateBulkDeleteDto -Json $TemplateBulkDeleteDto
     Remove-V2024NotificationTemplatesInBulk-V2024XSailPointExperimental $XSailPointExperimental -V2024TemplateBulkDeleteDto $Result
@@ -257,11 +245,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## delete-verified-from-address
-
 Delete a verified sender email address
 
 ### Parameters 
@@ -271,7 +256,6 @@ Path   | Id | **String** | True  |
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -286,7 +270,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -294,7 +277,9 @@ Code | Description  | Data Type
 ```powershell
 $Id = "MyId" # String | 
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
 # Delete Verified From Address
+
 try {
     Remove-V2024VerifiedFromAddress-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
     
@@ -305,11 +290,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-dkim-attributes
-
 Retrieve DKIM (DomainKeys Identified Mail) attributes for all your tenants' AWS SES identities. Limits retrieval to 100 identities per call.
 
 ### Parameters 
@@ -318,7 +300,6 @@ Param Type | Name | Data Type | Required  | Description
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-
 [**DkimAttributes[]**](../models/dkim-attributes)
 
 ### Responses
@@ -332,14 +313,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
 # Get DKIM Attributes
+
 try {
     Get-V2024DkimAttributes-V2024XSailPointExperimental $XSailPointExperimental 
     
@@ -350,11 +332,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-mail-from-attributes
-
 Retrieve MAIL FROM attributes for a given AWS SES identity.
 
 ### Parameters 
@@ -364,7 +343,6 @@ Param Type | Name | Data Type | Required  | Description
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-
 [**MailFromAttributes**](../models/mail-from-attributes)
 
 ### Responses
@@ -378,7 +356,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -386,7 +363,9 @@ Code | Description  | Data Type
 ```powershell
 $Id = "bobsmith@sailpoint.com" # String | Returns the MX and TXT record to be put in your DNS, as well as the MAIL FROM domain status
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
 # Get MAIL FROM Attributes
+
 try {
     Get-V2024MailFromAttributes-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
     
@@ -397,11 +376,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-notification-template
-
 This gets a template that you have modified for your site by Id.
 
 ### Parameters 
@@ -411,7 +387,6 @@ Path   | Id | **String** | True  | Id of the Notification Template
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-
 [**TemplateDto[]**](../models/template-dto)
 
 ### Responses
@@ -425,7 +400,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -433,7 +407,9 @@ Code | Description  | Data Type
 ```powershell
 $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the Notification Template
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
 # Get Notification Template By Id
+
 try {
     Get-V2024NotificationTemplate-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
     
@@ -444,11 +420,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-notifications-template-context
-
 The notification service maintains metadata to construct the notification templates or supply any information during the event propagation. The data-store where this information is retrieved is called "Global Context" (a.k.a. notification template context). It defines a set of attributes
  that will be available per tenant (organization).
 
@@ -458,7 +431,6 @@ Param Type | Name | Data Type | Required  | Description
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-
 [**NotificationTemplateContext**](../models/notification-template-context)
 
 ### Responses
@@ -472,14 +444,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
 # Get Notification Template Context
+
 try {
     Get-V2024NotificationsTemplateContext-V2024XSailPointExperimental $XSailPointExperimental 
     
@@ -490,11 +463,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-from-addresses
-
 Retrieve a list of sender email addresses and their verification statuses
 
 ### Parameters 
@@ -508,7 +478,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **email**
 
 ### Return type
-
 [**EmailStatusDto[]**](../models/email-status-dto)
 
 ### Responses
@@ -521,7 +490,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -533,7 +501,9 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Filters = 'email eq "john.doe@company.com"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **email**: *eq, ge, le, sw* (optional)
 $Sorters = "email" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **email** (optional)
+
 # List From Addresses
+
 try {
     Get-V2024FromAddresses-V2024XSailPointExperimental $XSailPointExperimental 
     
@@ -544,11 +514,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-notification-preferences
-
 Returns a list of notification preferences for tenant.
 
 ### Parameters 
@@ -557,7 +524,6 @@ Param Type | Name | Data Type | Required  | Description
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-
 [**PreferencesDto[]**](../models/preferences-dto)
 
 ### Responses
@@ -572,14 +538,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
 # List Notification Preferences for tenant.
+
 try {
     Get-V2024NotificationPreferences-V2024XSailPointExperimental $XSailPointExperimental 
     
@@ -590,11 +557,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-notification-template-defaults
-
 This lists the default templates used for notifications, such as emails from IdentityNow.
 
 ### Parameters 
@@ -606,7 +570,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, in, sw*  **medium**: *eq, sw*  **locale**: *eq, sw*
 
 ### Return type
-
 [**TemplateDtoDefault[]**](../models/template-dto-default)
 
 ### Responses
@@ -620,7 +583,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -630,7 +592,9 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Filters = 'key eq "cloud_manual_work_item_summary"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, in, sw*  **medium**: *eq, sw*  **locale**: *eq, sw* (optional)
+
 # List Notification Template Defaults
+
 try {
     Get-V2024NotificationTemplateDefaults-V2024XSailPointExperimental $XSailPointExperimental 
     
@@ -641,11 +605,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-notification-templates
-
 This lists the templates that you have modified for your site.
 
 ### Parameters 
@@ -657,7 +618,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, in, sw*  **medium**: *eq, sw*  **locale**: *eq, sw*
 
 ### Return type
-
 [**TemplateDto[]**](../models/template-dto)
 
 ### Responses
@@ -671,7 +631,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -681,7 +640,9 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Filters = 'medium eq "EMAIL"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, in, sw*  **medium**: *eq, sw*  **locale**: *eq, sw* (optional)
+
 # List Notification Templates
+
 try {
     Get-V2024NotificationTemplates-V2024XSailPointExperimental $XSailPointExperimental 
     
@@ -692,11 +653,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## put-mail-from-attributes
-
 Change the MAIL FROM domain of an AWS SES email identity and provide the MX and TXT records to be placed in the caller's DNS
 
 ### Parameters 
@@ -706,7 +664,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | MailFromAttributesDto | [**MailFromAttributesDto**](../models/mail-from-attributes-dto) | True  | 
 
 ### Return type
-
 [**MailFromAttributes**](../models/mail-from-attributes)
 
 ### Responses
@@ -720,7 +677,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -731,7 +687,9 @@ $MailFromAttributesDto = @"{
   "identity" : "BobSmith@sailpoint.com",
   "mailFromDomain" : "example.sailpoint.com"
 }"@
+
 # Change MAIL FROM domain
+
 try {
     $Result = ConvertFrom-JsonToMailFromAttributesDto -Json $MailFromAttributesDto
     Send-V2024MailFromAttributes-V2024XSailPointExperimental $XSailPointExperimental -V2024MailFromAttributesDto $Result
@@ -743,11 +701,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## send-test-notification
-
 Send a Test Notification
 
 ### Parameters 
@@ -757,7 +712,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | SendTestNotificationRequestDto | [**SendTestNotificationRequestDto**](../models/send-test-notification-request-dto) | True  | 
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -772,7 +726,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -784,7 +737,9 @@ $SendTestNotificationRequestDto = @"{
   "medium" : "EMAIL",
   "key" : "cloud_manual_work_item_summary"
 }"@
+
 # Send Test Notification
+
 try {
     $Result = ConvertFrom-JsonToSendTestNotificationRequestDto -Json $SendTestNotificationRequestDto
     Send-V2024TestNotification-V2024XSailPointExperimental $XSailPointExperimental -V2024SendTestNotificationRequestDto $Result
@@ -796,7 +751,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

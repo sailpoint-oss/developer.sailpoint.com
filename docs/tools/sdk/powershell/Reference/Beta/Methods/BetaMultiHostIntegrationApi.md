@@ -1,3 +1,4 @@
+
 ---
 id: beta-multi-host-integration
 title: MultiHostIntegration
@@ -8,7 +9,6 @@ keywords: ['powershell', 'PowerShell', 'sdk', 'MultiHostIntegration', 'BetaMulti
 slug: /tools/sdk/powershell/beta/methods/multi-host-integration
 tags: ['SDK', 'Software Development Kit', 'MultiHostIntegration', 'BetaMultiHostIntegration']
 ---
-
 
 # MultiHostIntegration
   Use this API to build a Multi-Host Integration.
@@ -35,9 +35,7 @@ Method | HTTP request | Description
 [**Test-BetaSourceConnectionMultihost**](#test-source-connection-multihost) | **GET** `/multihosts/{multihost_id}/sources/{sourceId}/testConnection` | Test Configuration For Multi-Host Integration&#39;s Single Source
 [**Update-BetaMultiHostSources**](#update-multi-host-sources) | **PATCH** `/multihosts/{id}` | Update Multi-Host Integration
 
-
 ## create-multi-host-integration
-
 This API is used to create Multi-Host Integration. Multi-host Integration holds similar types of sources.
 
 A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
@@ -48,7 +46,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | MultiHostIntegrationsCreate | [**MultiHostIntegrationsCreate**](../models/multi-host-integrations-create) | True  | The specifics of the Multi-Host Integration to create
 
 ### Return type
-
 [**MultiHostIntegrations**](../models/multi-host-integrations)
 
 ### Responses
@@ -63,7 +60,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -95,7 +91,9 @@ $MultiHostIntegrationsCreate = @"{
   "description" : "This is the Multi-Host Integration.",
   "modified" : "2024-01-23T18:08:50.897Z"
 }"@
+
 # Create Multi-Host Integration
+
 try {
     $Result = ConvertFrom-JsonToMultiHostIntegrationsCreate -Json $MultiHostIntegrationsCreate
     New-BetaMultiHostIntegration-BetaMultiHostIntegrationsCreate $Result
@@ -107,11 +105,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## create-sources-within-multi-host
-
 This API is used to create sources within Multi-Host Integration. Multi-Host Integration holds similar types of sources.
 
 A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
@@ -123,7 +118,6 @@ Path   | Id | **String** | True  | ID of the Multi-Host Integration.
  Body  | MultiHostIntegrationsCreateSources | [**[]MultiHostIntegrationsCreateSources**](../models/multi-host-integrations-create-sources) | True  | The specifics of the sources to create within Multi-Host Integration.
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -138,14 +132,12 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "2c91808568c529c60168cca6f90c1326" # String | ID of the Multi-Host Integration.
- # MultiHostIntegrationsCreateSources[] | The specifics of the sources to create within Multi-Host Integration.
  $MultiHostIntegrationsCreateSources = @"{
   "connectorAttributes" : {
     "authType" : "SQLAuthentication",
@@ -157,9 +149,11 @@ $Id = "2c91808568c529c60168cca6f90c1326" # String | ID of the Multi-Host Integra
   },
   "name" : "My Source",
   "description" : "This is the corporate directory."
-}"@ 
+}"@ # MultiHostIntegrationsCreateSources[] | The specifics of the sources to create within Multi-Host Integration.
+ 
 
 # Create Sources Within Multi-Host Integration
+
 try {
     $Result = ConvertFrom-JsonToMultiHostIntegrationsCreateSources -Json $MultiHostIntegrationsCreateSources
     New-BetaSourcesWithinMultiHost-BetaId $Id -BetaMultiHostIntegrationsCreateSources $Result
@@ -171,11 +165,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## delete-multi-host
-
 Delete an existing Multi-Host Integration by ID.  
 
 A token with Org Admin or Multi Host Admin authority is required to access this endpoint.
@@ -186,7 +177,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | ID of Multi-Host Integration to delete.
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -201,14 +191,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "2c91808568c529c60168cca6f90c1326" # String | ID of Multi-Host Integration to delete.
+
 # Delete Multi-Host Integration
+
 try {
     Remove-BetaMultiHost-BetaId $Id 
     
@@ -219,11 +210,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-acct-aggregation-groups
-
 This API will return array of account aggregation groups within provided Multi-Host Integration ID.
 
 A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
@@ -234,7 +222,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | MultiHostId | **String** | True  | ID of the Multi-Host Integration to update
 
 ### Return type
-
 [**MultiHostIntegrationsAggScheduleUpdate**](../models/multi-host-integrations-agg-schedule-update)
 
 ### Responses
@@ -249,14 +236,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $MultiHostId = "aMultiHostId" # String | ID of the Multi-Host Integration to update
+
 # Get Account Aggregation Groups Within Multi-Host Integration ID
+
 try {
     Get-BetaAcctAggregationGroups-BetaMultiHostId $MultiHostId 
     
@@ -267,11 +255,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-entitlement-aggregation-groups
-
 This API will return array of aggregation groups within provided Multi-Host Integration ID.  
 
 A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
@@ -282,7 +267,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | MultiHostId | **String** | True  | ID of the Multi-Host Integration to update
 
 ### Return type
-
 [**MultiHostIntegrationsAggScheduleUpdate**](../models/multi-host-integrations-agg-schedule-update)
 
 ### Responses
@@ -297,14 +281,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $MultiHostId = "aMultiHostId" # String | ID of the Multi-Host Integration to update
+
 # Get Entitlement Aggregation Groups Within Multi-Host Integration ID
+
 try {
     Get-BetaEntitlementAggregationGroups-BetaMultiHostId $MultiHostId 
     
@@ -315,11 +300,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-multi-host-integrations
-
 Get an existing Multi-Host Integration. 
 
 A token with Org Admin or Multi-Host Integration Admin authority is required to access this endpoint.
@@ -330,7 +312,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | ID of the Multi-Host Integration.
 
 ### Return type
-
 [**MultiHostIntegrations**](../models/multi-host-integrations)
 
 ### Responses
@@ -345,14 +326,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "2c91808568c529c60168cca6f90c1326" # String | ID of the Multi-Host Integration.
+
 # Get Multi-Host Integration By ID
+
 try {
     Get-BetaMultiHostIntegrations-BetaId $Id 
     
@@ -363,11 +345,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-multi-host-integrations-list
-
 Get a list of Multi-Host Integrations.  
 
 A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
@@ -383,7 +362,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | ForSubadmin | **String** |   (optional) | If provided, filters the returned list according to what is visible to the indicated ROLE_SUBADMIN Identity or SOURCE_SUBADMIN identity.  The value of the parameter is either an Identity ID, or the special value **me**, which is shorthand for the calling Identity's ID.  A 400 Bad Request error is returned if the **for-subadmin** parameter is specified for an Identity that is not a subadmin.
 
 ### Return type
-
 [**MultiHostIntegrations[]**](../models/multi-host-integrations)
 
 ### Responses
@@ -398,7 +376,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -410,7 +387,9 @@ $Sorters = "name" # String | Sort results using the standard syntax described in
 $Filters = 'id eq 2c91808b6ef1d43e016efba0ce470904' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **type**: *in*  **forSubAdminId**: *in* (optional)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $ForSubadmin = "5168015d32f890ca15812c9180835d2e" # String | If provided, filters the returned list according to what is visible to the indicated ROLE_SUBADMIN Identity or SOURCE_SUBADMIN identity.  The value of the parameter is either an Identity ID, or the special value **me**, which is shorthand for the calling Identity's ID.  A 400 Bad Request error is returned if the **for-subadmin** parameter is specified for an Identity that is not a subadmin. (optional)
+
 # List All Existing Multi-Host Integrations
+
 try {
     Get-BetaMultiHostIntegrationsList
     
@@ -421,11 +400,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-multi-host-source-creation-errors
-
 Get a list of sources creation errors within Multi-Host Integration ID.  
 
 A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
@@ -436,7 +412,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | MultiHostId | **String** | True  | ID of the Multi-Host Integration
 
 ### Return type
-
 [**SourceCreationErrors[]**](../models/source-creation-errors)
 
 ### Responses
@@ -451,14 +426,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $MultiHostId = "004091cb79b04636b88662afa50a4440" # String | ID of the Multi-Host Integration
+
 # List Multi-Host Source Creation Errors
+
 try {
     Get-BetaMultiHostSourceCreationErrors-BetaMultiHostId $MultiHostId 
     
@@ -469,11 +445,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-multihost-integration-types
-
 This API endpoint returns the current list of supported Multi-Host Integration types.  
 
 A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
@@ -483,7 +456,6 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 
 ### Return type
-
 [**MultiHostIntegrationTemplateType[]**](../models/multi-host-integration-template-type)
 
 ### Responses
@@ -498,13 +470,14 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
+
 # List Multi-Host Integration Types
+
 try {
     Get-BetaMultihostIntegrationTypes
     
@@ -515,11 +488,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-sources-within-multi-host
-
 Get a list of sources within Multi-Host Integration ID.  
 
 A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
@@ -534,7 +504,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-
 [**MultiHostSources[]**](../models/multi-host-sources)
 
 ### Responses
@@ -549,7 +518,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -560,7 +528,9 @@ $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Col
 $Sorters = "name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name** (optional)
 $Filters = 'id eq 2c91808b6ef1d43e016efba0ce470904' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *in* (optional)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+
 # List Sources Within Multi-Host Integration
+
 try {
     Get-BetaSourcesWithinMultiHost
     
@@ -571,11 +541,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## test-connection-multi-host-sources
-
 This endpoint performs a more detailed validation of the Multi-Host Integration's configuration.
 
 A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
@@ -586,7 +553,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | MultihostId | **String** | True  | ID of the Multi-Host Integration
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -601,14 +567,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $MultihostId = "2c91808568c529c60168cca6f90c1324" # String | ID of the Multi-Host Integration
+
 # Test Configuration For Multi-Host Integration
+
 try {
     Test-BetaConnectionMultiHostSources-BetaMultihostId $MultihostId 
     
@@ -619,11 +586,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## test-source-connection-multihost
-
 This endpoint performs a more detailed validation of the source's configuration.  
 
 A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
@@ -635,7 +599,6 @@ Path   | MultihostId | **String** | True  | ID of the Multi-Host Integration
 Path   | SourceId | **String** | True  | ID of the source within the Multi-Host Integration
 
 ### Return type
-
 [**TestSourceConnectionMultihost200Response**](../models/test-source-connection-multihost200-response)
 
 ### Responses
@@ -650,7 +613,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -658,7 +620,9 @@ Code | Description  | Data Type
 ```powershell
 $MultihostId = "2c91808568c529c60168cca6f90c1326" # String | ID of the Multi-Host Integration
 $SourceId = "2c91808568c529f60168cca6f90c1324" # String | ID of the source within the Multi-Host Integration
+
 # Test Configuration For Multi-Host Integration's Single Source
+
 try {
     Test-BetaSourceConnectionMultihost-BetaMultihostId $MultihostId -BetaSourceId $SourceId 
     
@@ -669,11 +633,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## update-multi-host-sources
-
 Update existing sources within Multi-Host Integration.
 
 A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
@@ -685,7 +646,6 @@ Path   | MultihostId | **String** | True  | ID of the Multi-Host Integration to 
  Body  | UpdateMultiHostSourcesRequestInner | [**[]UpdateMultiHostSourcesRequestInner**](../models/update-multi-host-sources-request-inner) | True  | This endpoint allows you to update a Multi-Host Integration. 
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -700,17 +660,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json-patch+json
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $MultihostId = "anId" # String | ID of the Multi-Host Integration to update.
- # UpdateMultiHostSourcesRequestInner[] | This endpoint allows you to update a Multi-Host Integration. 
- $UpdateMultiHostSourcesRequestInner = @"[{op=add, path=/description, value=MDK Multi-Host Integration 222 description}]"@ 
+ $UpdateMultiHostSourcesRequestInner = @"[{op=add, path=/description, value=MDK Multi-Host Integration 222 description}]"@ # UpdateMultiHostSourcesRequestInner[] | This endpoint allows you to update a Multi-Host Integration. 
+ 
 
 # Update Multi-Host Integration
+
 try {
     $Result = ConvertFrom-JsonToUpdateMultiHostSourcesRequestInner -Json $UpdateMultiHostSourcesRequestInner
     Update-BetaMultiHostSources-BetaMultihostId $MultihostId -BetaUpdateMultiHostSourcesRequestInner $Result
@@ -722,7 +682,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

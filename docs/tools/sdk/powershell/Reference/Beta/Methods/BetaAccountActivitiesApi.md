@@ -1,3 +1,4 @@
+
 ---
 id: beta-account-activities
 title: AccountActivities
@@ -8,7 +9,6 @@ keywords: ['powershell', 'PowerShell', 'sdk', 'AccountActivities', 'BetaAccountA
 slug: /tools/sdk/powershell/beta/methods/account-activities
 tags: ['SDK', 'Software Development Kit', 'AccountActivities', 'BetaAccountActivities']
 ---
-
 
 # AccountActivities
   Use this API to implement account activity tracking functionality.
@@ -54,9 +54,7 @@ Method | HTTP request | Description
 [**Get-BetaAccountActivity**](#get-account-activity) | **GET** `/account-activities/{id}` | Get Account Activity
 [**Get-BetaAccountActivities**](#list-account-activities) | **GET** `/account-activities` | List Account Activities
 
-
 ## get-account-activity
-
 This gets a single account activity by its id.
 
 ### Parameters 
@@ -65,7 +63,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | The account activity id
 
 ### Return type
-
 [**CancelableAccountActivity**](../models/cancelable-account-activity)
 
 ### Responses
@@ -80,14 +77,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The account activity id
+
 # Get Account Activity
+
 try {
     Get-BetaAccountActivity-BetaId $Id 
     
@@ -98,11 +96,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-account-activities
-
 This gets a collection of account activities that satisfy the given query parameters.
 
 ### Parameters 
@@ -119,7 +114,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **type, created, modified**
 
 ### Return type
-
 [**CancelableAccountActivity[]**](../models/cancelable-account-activity)
 
 ### Responses
@@ -133,7 +127,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -148,7 +141,9 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Filters = 'MyFilters' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **type**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **created**: *gt, lt, ge, le, eq, in, ne, isnull, sw*  **modified**: *gt, lt, ge, le, eq, in, ne, isnull, sw* (optional)
 $Sorters = "MySorters" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **type, created, modified** (optional)
+
 # List Account Activities
+
 try {
     Get-BetaAccountActivities
     
@@ -159,7 +154,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

@@ -1,3 +1,4 @@
+
 ---
 id: beta-sp-config
 title: SPConfig
@@ -8,7 +9,6 @@ keywords: ['powershell', 'PowerShell', 'sdk', 'SPConfig', 'BetaSPConfig']
 slug: /tools/sdk/powershell/beta/methods/sp-config
 tags: ['SDK', 'Software Development Kit', 'SPConfig', 'BetaSPConfig']
 ---
-
 
 # SPConfig
   Import and export configuration for some objects between tenants. 
@@ -26,9 +26,7 @@ Method | HTTP request | Description
 [**Import-BetaSpConfig**](#import-sp-config) | **POST** `/sp-config/import` | Initiates configuration objects import job
 [**Get-BetaSpConfigObjects**](#list-sp-config-objects) | **GET** `/sp-config/config-objects` | Get config object details
 
-
 ## export-sp-config
-
 This post will export objects from the tenant to a JSON configuration file.
 For more information about the object types that currently support export functionality, refer to [SaaS Configuration](https://developer.sailpoint.com/idn/docs/saas-configuration/#supported-objects).
 
@@ -38,7 +36,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | ExportPayload | [**ExportPayload**](../models/export-payload) | True  | Export options control what will be included in the export.
 
 ### Return type
-
 [**SpConfigExportJob**](../models/sp-config-export-job)
 
 ### Responses
@@ -53,7 +50,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -62,7 +58,9 @@ Code | Description  | Data Type
 $ExportPayload = @"{
   "description" : "Export Job 1 Test"
 }"@
+
 # Initiates configuration objects export job
+
 try {
     $Result = ConvertFrom-JsonToExportPayload -Json $ExportPayload
     Export-BetaSpConfig-BetaExportPayload $Result
@@ -74,11 +72,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-sp-config-export
-
 This endpoint gets the export file resulting from the export job with the requested `id` and downloads it to a file.
 The request will need one of the following security scopes:
 - sp:config:read - sp:config:manage
@@ -89,7 +84,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | The ID of the export job whose results will be downloaded.
 
 ### Return type
-
 [**SpConfigExportResults**](../models/sp-config-export-results)
 
 ### Responses
@@ -104,14 +98,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the export job whose results will be downloaded.
+
 # Download export job result.
+
 try {
     Get-BetaSpConfigExport-BetaId $Id 
     
@@ -122,11 +117,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-sp-config-export-status
-
 This gets the status of the export job identified by the `id` parameter.
 The request will need one of the following security scopes:
 - sp:config:read - sp:config:manage
@@ -137,7 +129,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | The ID of the export job whose status will be returned.
 
 ### Return type
-
 [**SpConfigExportJobStatus**](../models/sp-config-export-job-status)
 
 ### Responses
@@ -152,14 +143,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the export job whose status will be returned.
+
 # Get export job status
+
 try {
     Get-BetaSpConfigExportStatus-BetaId $Id 
     
@@ -170,11 +162,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-sp-config-import
-
 This gets import file resulting from the import job with the requested id and downloads it to a file. The downloaded file will contain the results of the import operation, including any error, warning or informational messages associated with the import.
 The request will need the following security scope:
 - sp:config:manage
@@ -185,7 +174,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | The ID of the import job whose results will be downloaded.
 
 ### Return type
-
 [**SpConfigImportResults**](../models/sp-config-import-results)
 
 ### Responses
@@ -200,14 +188,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the import job whose results will be downloaded.
+
 # Download import job result
+
 try {
     Get-BetaSpConfigImport-BetaId $Id 
     
@@ -218,11 +207,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-sp-config-import-status
-
 This gets the status of the import job identified by the `id` parameter.
 For more information about the object types that currently support import functionality, refer to [SaaS Configuration](https://developer.sailpoint.com/idn/docs/saas-configuration/#supported-objects).
 
@@ -232,7 +218,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | The ID of the import job whose status will be returned.
 
 ### Return type
-
 [**SpConfigImportJobStatus**](../models/sp-config-import-job-status)
 
 ### Responses
@@ -247,14 +232,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the import job whose status will be returned.
+
 # Get import job status
+
 try {
     Get-BetaSpConfigImportStatus-BetaId $Id 
     
@@ -265,11 +251,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## import-sp-config
-
 This post will import objects from a JSON configuration file into a tenant.
 By default, every import will first export all existing objects supported by sp-config as a backup before the import is attempted.
 The backup is provided so that the state of the configuration prior to the import is available for inspection or restore if needed.
@@ -290,7 +273,6 @@ Param Type | Name | Data Type | Required  | Description
    | Options | [**ImportOptions**](../models/import-options) |   (optional) | 
 
 ### Return type
-
 [**SpConfigJob**](../models/sp-config-job)
 
 ### Responses
@@ -305,7 +287,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: multipart/form-data
 - **Accept**: application/json
 
@@ -314,7 +295,9 @@ Code | Description  | Data Type
 $Data =  # System.IO.FileInfo | JSON file containing the objects to be imported.
 $Preview = $true # Boolean | This option is intended to give the user information about how an import operation would proceed, without having any effect on the target tenant. If this parameter is ""true"", no objects will be imported. Instead, the import process will pre-process the import file and attempt to resolve references within imported objects. The import result file will contain messages pertaining to how specific references were resolved, any errors associated with the preprocessing, and messages indicating which objects would be imported.  (optional) (default to $false)
 $Options = @""@
+
 # Initiates configuration objects import job
+
 try {
     Import-BetaSpConfig-BetaData $Data 
     
@@ -325,11 +308,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-sp-config-objects
-
 This gets the list of object configurations which are known to the tenant export/import service. Object configurations that contain "importUrl" and "exportUrl" are available for export/import.
 
 ### Parameters 
@@ -337,7 +317,6 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 
 ### Return type
-
 [**SpConfigObject[]**](../models/sp-config-object)
 
 ### Responses
@@ -352,13 +331,14 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
+
 # Get config object details
+
 try {
     Get-BetaSpConfigObjects
     
@@ -369,7 +349,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

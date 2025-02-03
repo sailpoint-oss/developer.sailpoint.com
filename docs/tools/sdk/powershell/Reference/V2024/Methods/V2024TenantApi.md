@@ -1,3 +1,4 @@
+
 ---
 id: v2024-tenant
 title: Tenant
@@ -9,7 +10,6 @@ slug: /tools/sdk/powershell/v2024/methods/tenant
 tags: ['SDK', 'Software Development Kit', 'Tenant', 'V2024Tenant']
 ---
 
-
 # Tenant
   API for reading tenant details. 
   
@@ -20,9 +20,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Get-V2024Tenant**](#get-tenant) | **GET** `/tenant` | Get Tenant Information.
 
-
 ## get-tenant
-
 This rest endpoint can be used to retrieve tenant details.
 
 ### Parameters 
@@ -31,7 +29,6 @@ Param Type | Name | Data Type | Required  | Description
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-
 [**Tenant**](../models/tenant)
 
 ### Responses
@@ -46,14 +43,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
 # Get Tenant Information.
+
 try {
     Get-V2024Tenant-V2024XSailPointExperimental $XSailPointExperimental 
     
@@ -64,7 +62,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

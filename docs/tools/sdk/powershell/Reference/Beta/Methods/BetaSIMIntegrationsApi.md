@@ -1,3 +1,4 @@
+
 ---
 id: beta-sim-integrations
 title: SIMIntegrations
@@ -8,7 +9,6 @@ keywords: ['powershell', 'PowerShell', 'sdk', 'SIMIntegrations', 'BetaSIMIntegra
 slug: /tools/sdk/powershell/beta/methods/sim-integrations
 tags: ['SDK', 'Software Development Kit', 'SIMIntegrations', 'BetaSIMIntegrations']
 ---
-
 
 # SIMIntegrations
   Use this API to administer IdentityNow&#39;s Service Integration Module, or SIM integration with ServiceNow, so that it converts IdentityNow provisioning actions into tickets in ServiceNow.
@@ -33,9 +33,7 @@ Method | HTTP request | Description
 [**Update-BetaSIMAttributes**](#patch-sim-attributes) | **PATCH** `/sim-integrations/{id}` | Patch a SIM attribute.
 [**Send-BetaSIMIntegration**](#put-sim-integration) | **PUT** `/sim-integrations/{id}` | Update an existing SIM integration
 
-
 ## create-sim-integration
-
 Create a new SIM Integrations.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
 
 ### Parameters 
@@ -44,7 +42,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | SimIntegrationDetails | [**SimIntegrationDetails**](../models/sim-integration-details) | True  | DTO containing the details of the SIM integration
 
 ### Return type
-
 [**ServiceDeskIntegrationDto**](../models/service-desk-integration-dto)
 
 ### Responses
@@ -59,7 +56,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -83,7 +79,9 @@ $SimIntegrationDetails = @"{
     "type" : "IDENTITY"
   }
 }"@
+
 # Create new SIM integration
+
 try {
     $Result = ConvertFrom-JsonToSimIntegrationDetails -Json $SimIntegrationDetails
     New-BetaSIMIntegration-BetaSimIntegrationDetails $Result
@@ -95,11 +93,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## delete-sim-integration
-
 Get the details of a SIM integration. A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
 
 ### Parameters 
@@ -108,7 +103,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | The id of the integration to delete.
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -123,14 +117,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "12345" # String | The id of the integration to delete.
+
 # Delete a SIM integration
+
 try {
     Remove-BetaSIMIntegration-BetaId $Id 
     
@@ -141,11 +136,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-sim-integration
-
 Get the details of a SIM integration. A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
 
 ### Parameters 
@@ -154,7 +146,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | The id of the integration.
 
 ### Return type
-
 [**ServiceDeskIntegrationDto**](../models/service-desk-integration-dto)
 
 ### Responses
@@ -169,14 +160,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "12345" # String | The id of the integration.
+
 # Get a SIM integration details.
+
 try {
     Get-BetaSIMIntegration-BetaId $Id 
     
@@ -187,11 +179,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-sim-integrations
-
 List the existing SIM integrations. A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
 
 ### Parameters 
@@ -199,7 +188,6 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 
 ### Return type
-
 [**ServiceDeskIntegrationDto**](../models/service-desk-integration-dto)
 
 ### Responses
@@ -214,13 +202,14 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
+
 # List the existing SIM integrations.
+
 try {
     Get-BetaSIMIntegrations
     
@@ -231,11 +220,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## patch-before-provisioning-rule
-
 Patch a SIM beforeProvisioningRule attribute given a JsonPatch object. A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
 
 ### Parameters 
@@ -245,7 +231,6 @@ Path   | Id | **String** | True  | SIM integration id
  Body  | JsonPatch | [**JsonPatch**](../models/json-patch) | True  | The JsonPatch object that describes the changes of SIM beforeProvisioningRule.
 
 ### Return type
-
 [**ServiceDeskIntegrationDto**](../models/service-desk-integration-dto)
 
 ### Responses
@@ -260,7 +245,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json-patch+json
 - **Accept**: application/json
 
@@ -268,7 +252,9 @@ Code | Description  | Data Type
 ```powershell
 $Id = "12345" # String | SIM integration id
 $JsonPatch = @""[\n  {\n\t  \"op\": \"replace\",\n\t  \"path\": \"/description\",\n\t  \"value\": \"A new description\"\n  }\n]""@
+
 # Patch a SIM beforeProvisioningRule attribute.
+
 try {
     $Result = ConvertFrom-JsonToJsonPatch -Json $JsonPatch
     Update-BetaBeforeProvisioningRule-BetaId $Id -BetaJsonPatch $Result
@@ -280,11 +266,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## patch-sim-attributes
-
 Patch a SIM attribute given a JsonPatch object. A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
 
 ### Parameters 
@@ -294,7 +277,6 @@ Path   | Id | **String** | True  | SIM integration id
  Body  | JsonPatch | [**JsonPatch**](../models/json-patch) | True  | The JsonPatch object that describes the changes of SIM
 
 ### Return type
-
 [**ServiceDeskIntegrationDto**](../models/service-desk-integration-dto)
 
 ### Responses
@@ -309,7 +291,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json-patch+json
 - **Accept**: application/json
 
@@ -317,7 +298,9 @@ Code | Description  | Data Type
 ```powershell
 $Id = "12345" # String | SIM integration id
 $JsonPatch = @""[\n  {\n\t  \"op\": \"replace\",\n\t  \"path\": \"/description\",\n\t  \"value\": \"A new description\"\n  }\n]""@
+
 # Patch a SIM attribute.
+
 try {
     $Result = ConvertFrom-JsonToJsonPatch -Json $JsonPatch
     Update-BetaSIMAttributes-BetaId $Id -BetaJsonPatch $Result
@@ -329,11 +312,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## put-sim-integration
-
 Update an existing SIM integration.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
 
 ### Parameters 
@@ -343,7 +323,6 @@ Path   | Id | **String** | True  | The id of the integration.
  Body  | SimIntegrationDetails | [**SimIntegrationDetails**](../models/sim-integration-details) | True  | The full DTO of the integration containing the updated model
 
 ### Return type
-
 [**ServiceDeskIntegrationDto**](../models/service-desk-integration-dto)
 
 ### Responses
@@ -358,7 +337,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -383,7 +361,9 @@ $SimIntegrationDetails = @"{
     "type" : "IDENTITY"
   }
 }"@
+
 # Update an existing SIM integration
+
 try {
     $Result = ConvertFrom-JsonToSimIntegrationDetails -Json $SimIntegrationDetails
     Send-BetaSIMIntegration-BetaId $Id -BetaSimIntegrationDetails $Result
@@ -395,7 +375,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

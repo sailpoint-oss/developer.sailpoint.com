@@ -1,3 +1,4 @@
+
 ---
 id: v2024-connectors
 title: Connectors
@@ -8,7 +9,6 @@ keywords: ['powershell', 'PowerShell', 'sdk', 'Connectors', 'V2024Connectors']
 slug: /tools/sdk/powershell/v2024/methods/connectors
 tags: ['SDK', 'Software Development Kit', 'Connectors', 'V2024Connectors']
 ---
-
 
 # Connectors
   Use this API to implement connector functionality.
@@ -46,9 +46,7 @@ Method | HTTP request | Description
 [**Send-V2024ConnectorTranslations**](#put-connector-translations) | **PUT** `/connectors/{scriptName}/translations/{locale}` | Update Connector Translations
 [**Update-V2024Connector**](#update-connector) | **PATCH** `/connectors/{scriptName}` | Update Connector by Script Name
 
-
 ## create-custom-connector
-
 Create custom connector.    
 
 ### Parameters 
@@ -57,7 +55,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | V3CreateConnectorDto | [**V3CreateConnectorDto**](../models/v3-create-connector-dto) | True  | 
 
 ### Return type
-
 [**V3ConnectorDto**](../models/v3-connector-dto)
 
 ### Responses
@@ -72,7 +69,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -85,7 +81,9 @@ $V3CreateConnectorDto = @"{
   "type" : "custom connector type",
   "status" : "RELEASED"
 }"@
+
 # Create Custom Connector
+
 try {
     $Result = ConvertFrom-JsonToV3CreateConnectorDto -Json $V3CreateConnectorDto
     New-V2024CustomConnector-V2024V3CreateConnectorDto $Result
@@ -97,11 +95,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## delete-custom-connector
-
 Delete a custom connector that using its script name.
 
 ### Parameters 
@@ -110,7 +105,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | ScriptName | **String** | True  | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -125,14 +119,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $ScriptName = "aScriptName" # String | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
+
 # Delete Connector by Script Name
+
 try {
     Remove-V2024CustomConnector-V2024ScriptName $ScriptName 
     
@@ -143,11 +138,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-connector
-
 Fetches a connector that using its script name.    
 
 ### Parameters 
@@ -157,7 +149,6 @@ Path   | ScriptName | **String** | True  | The scriptName value of the connector
   Query | Locale | **String** |   (optional) | The locale to apply to the config. If no viable locale is given, it will default to ""en""
 
 ### Return type
-
 [**ConnectorDetail**](../models/connector-detail)
 
 ### Responses
@@ -172,7 +163,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -180,7 +170,9 @@ Code | Description  | Data Type
 ```powershell
 $ScriptName = "aScriptName" # String | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
 $Locale = "de" # String | The locale to apply to the config. If no viable locale is given, it will default to ""en"" (optional)
+
 # Get Connector by Script Name
+
 try {
     Get-V2024Connector-V2024ScriptName $ScriptName 
     
@@ -191,11 +183,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-connector-correlation-config
-
 Fetches a connector's correlation config using its script name.    
 
 ### Parameters 
@@ -204,7 +193,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | ScriptName | **String** | True  | The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
 
 ### Return type
-
 **String**
 
 ### Responses
@@ -219,14 +207,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/xml, application/json
 
 ### Example
 ```powershell
 $ScriptName = "aScriptName" # String | The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+
 # Get Connector Correlation Configuration
+
 try {
     Get-V2024ConnectorCorrelationConfig-V2024ScriptName $ScriptName 
     
@@ -237,11 +226,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-connector-list
-
 Fetches list of connectors that have 'RELEASED' status using filtering and pagination.
 
 ### Parameters 
@@ -254,7 +240,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Locale | **String** |   (optional) | The locale to apply to the config. If no viable locale is given, it will default to ""en""
 
 ### Return type
-
 [**V3ConnectorDto[]**](../models/v3-connector-dto)
 
 ### Responses
@@ -269,7 +254,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -280,7 +264,9 @@ $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Col
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Locale = "de" # String | The locale to apply to the config. If no viable locale is given, it will default to ""en"" (optional)
+
 # Get Connector List
+
 try {
     Get-V2024ConnectorList
     
@@ -291,11 +277,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-connector-source-config
-
 Fetches a connector's source config using its script name.    
 
 ### Parameters 
@@ -304,7 +287,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | ScriptName | **String** | True  | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
 
 ### Return type
-
 **String**
 
 ### Responses
@@ -319,14 +301,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/xml, application/json
 
 ### Example
 ```powershell
 $ScriptName = "aScriptName" # String | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
+
 # Get Connector Source Configuration
+
 try {
     Get-V2024ConnectorSourceConfig-V2024ScriptName $ScriptName 
     
@@ -337,11 +320,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-connector-source-template
-
 Fetches a connector's source template using its script name.    
 
 ### Parameters 
@@ -350,7 +330,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | ScriptName | **String** | True  | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
 
 ### Return type
-
 **String**
 
 ### Responses
@@ -365,14 +344,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/xml, application/json
 
 ### Example
 ```powershell
 $ScriptName = "aScriptName" # String | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
+
 # Get Connector Source Template
+
 try {
     Get-V2024ConnectorSourceTemplate-V2024ScriptName $ScriptName 
     
@@ -383,11 +363,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-connector-translations
-
 Fetches a connector's translations using its script name.    
 
 ### Parameters 
@@ -397,7 +374,6 @@ Path   | ScriptName | **String** | True  | The scriptName value of the connector
 Path   | Locale | **String** | True  | The locale to apply to the config. If no viable locale is given, it will default to ""en""
 
 ### Return type
-
 **String**
 
 ### Responses
@@ -412,7 +388,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: text/plain, application/json
 
@@ -420,7 +395,9 @@ Code | Description  | Data Type
 ```powershell
 $ScriptName = "aScriptName" # String | The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
 $Locale = "de" # String | The locale to apply to the config. If no viable locale is given, it will default to ""en""
+
 # Get Connector Translations
+
 try {
     Get-V2024ConnectorTranslations-V2024ScriptName $ScriptName -V2024Locale $Locale 
     
@@ -431,11 +408,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## put-connector-correlation-config
-
 Update a connector's correlation config using its script name.    
 
 ### Parameters 
@@ -445,7 +419,6 @@ Path   | ScriptName | **String** | True  | The scriptName value of the connector
    | File | **System.IO.FileInfo** | True  | connector correlation config xml file
 
 ### Return type
-
 [**UpdateDetail**](../models/update-detail)
 
 ### Responses
@@ -460,7 +433,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: multipart/form-data
 - **Accept**: application/json
 
@@ -468,7 +440,9 @@ Code | Description  | Data Type
 ```powershell
 $ScriptName = "aScriptName" # String | The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
 $File =  # System.IO.FileInfo | connector correlation config xml file
+
 # Update Connector Correlation Configuration
+
 try {
     Send-V2024ConnectorCorrelationConfig-V2024ScriptName $ScriptName -V2024File $File 
     
@@ -479,11 +453,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## put-connector-source-config
-
 Update a connector's source config using its script name.    
 
 ### Parameters 
@@ -493,7 +464,6 @@ Path   | ScriptName | **String** | True  | The scriptName value of the connector
    | File | **System.IO.FileInfo** | True  | connector source config xml file
 
 ### Return type
-
 [**UpdateDetail**](../models/update-detail)
 
 ### Responses
@@ -508,7 +478,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: multipart/form-data
 - **Accept**: application/json
 
@@ -516,7 +485,9 @@ Code | Description  | Data Type
 ```powershell
 $ScriptName = "aScriptName" # String | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
 $File =  # System.IO.FileInfo | connector source config xml file
+
 # Update Connector Source Configuration
+
 try {
     Send-V2024ConnectorSourceConfig-V2024ScriptName $ScriptName -V2024File $File 
     
@@ -527,11 +498,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## put-connector-source-template
-
 Update a connector's source template using its script name.    
 
 ### Parameters 
@@ -541,7 +509,6 @@ Path   | ScriptName | **String** | True  | The scriptName value of the connector
    | File | **System.IO.FileInfo** | True  | connector source template xml file
 
 ### Return type
-
 [**UpdateDetail**](../models/update-detail)
 
 ### Responses
@@ -556,7 +523,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: multipart/form-data
 - **Accept**: application/json
 
@@ -564,7 +530,9 @@ Code | Description  | Data Type
 ```powershell
 $ScriptName = "aScriptName" # String | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
 $File =  # System.IO.FileInfo | connector source template xml file
+
 # Update Connector Source Template
+
 try {
     Send-V2024ConnectorSourceTemplate-V2024ScriptName $ScriptName -V2024File $File 
     
@@ -575,11 +543,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## put-connector-translations
-
 Update a connector's translations using its script name.    
 
 ### Parameters 
@@ -589,7 +554,6 @@ Path   | ScriptName | **String** | True  | The scriptName value of the connector
 Path   | Locale | **String** | True  | The locale to apply to the config. If no viable locale is given, it will default to ""en""
 
 ### Return type
-
 [**UpdateDetail**](../models/update-detail)
 
 ### Responses
@@ -604,7 +568,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: multipart/form-data
 - **Accept**: application/json
 
@@ -612,7 +575,9 @@ Code | Description  | Data Type
 ```powershell
 $ScriptName = "aScriptName" # String | The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
 $Locale = "de" # String | The locale to apply to the config. If no viable locale is given, it will default to ""en""
+
 # Update Connector Translations
+
 try {
     Send-V2024ConnectorTranslations-V2024ScriptName $ScriptName -V2024Locale $Locale 
     
@@ -623,11 +588,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## update-connector
-
 This API updates a custom connector by script name using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
 
 The following fields are patchable:
@@ -649,7 +611,6 @@ Path   | ScriptName | **String** | True  | The scriptName value of the connector
  Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | A list of connector detail update operations 
 
 ### Return type
-
 [**ConnectorDetail**](../models/connector-detail)
 
 ### Responses
@@ -664,21 +625,21 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json-patch+json
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $ScriptName = "aScriptName" # String | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
- # JsonPatchOperation[] | A list of connector detail update operations 
  $JsonPatchOperation = @"{
   "op" : "replace",
   "path" : "/description",
   "value" : "New description"
-}"@ 
+}"@ # JsonPatchOperation[] | A list of connector detail update operations 
+ 
 
 # Update Connector by Script Name
+
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
     Update-V2024Connector-V2024ScriptName $ScriptName -V2024JsonPatchOperation $Result
@@ -690,7 +651,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

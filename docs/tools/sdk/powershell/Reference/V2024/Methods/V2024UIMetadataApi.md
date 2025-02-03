@@ -1,3 +1,4 @@
+
 ---
 id: v2024-ui-metadata
 title: UIMetadata
@@ -8,7 +9,6 @@ keywords: ['powershell', 'PowerShell', 'sdk', 'UIMetadata', 'V2024UIMetadata']
 slug: /tools/sdk/powershell/v2024/methods/ui-metadata
 tags: ['SDK', 'Software Development Kit', 'UIMetadata', 'V2024UIMetadata']
 ---
-
 
 # UIMetadata
   API for managing UI Metadata. Use this API to manage metadata about your User Interface.
@@ -22,9 +22,7 @@ Method | HTTP request | Description
 [**Get-V2024TenantUiMetadata**](#get-tenant-ui-metadata) | **GET** `/ui-metadata/tenant` | Get a tenant UI metadata
 [**Set-V2024TenantUiMetadata**](#set-tenant-ui-metadata) | **PUT** `/ui-metadata/tenant` | Update tenant UI metadata
 
-
 ## get-tenant-ui-metadata
-
 This API endpoint retrieves UI metadata configured for your tenant.
 
 ### Parameters 
@@ -33,7 +31,6 @@ Param Type | Name | Data Type | Required  | Description
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-
 [**TenantUiMetadataItemResponse**](../models/tenant-ui-metadata-item-response)
 
 ### Responses
@@ -48,14 +45,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
 # Get a tenant UI metadata
+
 try {
     Get-V2024TenantUiMetadata-V2024XSailPointExperimental $XSailPointExperimental 
     
@@ -66,11 +64,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## set-tenant-ui-metadata
-
 This API endpoint updates UI metadata for your tenant. These changes may require up to 5 minutes to take effect on the UI.
 
 ### Parameters 
@@ -80,7 +75,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | TenantUiMetadataItemUpdateRequest | [**TenantUiMetadataItemUpdateRequest**](../models/tenant-ui-metadata-item-update-request) | True  | 
 
 ### Return type
-
 [**TenantUiMetadataItemResponse**](../models/tenant-ui-metadata-item-response)
 
 ### Responses
@@ -95,7 +89,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -107,7 +100,9 @@ $TenantUiMetadataItemUpdateRequest = @"{
   "usernameLabel" : "Email",
   "iframeWhiteList" : "http://example.com http://example2.com"
 }"@
+
 # Update tenant UI metadata
+
 try {
     $Result = ConvertFrom-JsonToTenantUiMetadataItemUpdateRequest -Json $TenantUiMetadataItemUpdateRequest
     Set-V2024TenantUiMetadata-V2024XSailPointExperimental $XSailPointExperimental -V2024TenantUiMetadataItemUpdateRequest $Result
@@ -119,7 +114,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

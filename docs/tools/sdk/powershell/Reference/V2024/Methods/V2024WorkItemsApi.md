@@ -1,3 +1,4 @@
+
 ---
 id: v2024-work-items
 title: WorkItems
@@ -8,7 +9,6 @@ keywords: ['powershell', 'PowerShell', 'sdk', 'WorkItems', 'V2024WorkItems']
 slug: /tools/sdk/powershell/v2024/methods/work-items
 tags: ['SDK', 'Software Development Kit', 'WorkItems', 'V2024WorkItems']
 ---
-
 
 # WorkItems
   Use this API to implement work item functionality. 
@@ -46,9 +46,7 @@ Method | HTTP request | Description
 [**Send-V2024WorkItemForward**](#send-work-item-forward) | **POST** `/work-items/{id}/forward` | Forward a Work Item
 [**Submit-V2024AccountSelection**](#submit-account-selection) | **POST** `/work-items/{id}/submit-account-selection` | Submit Account Selections
 
-
 ## approve-approval-item
-
 This API approves an Approval Item. Either an admin, or the owning/current user must make this request.
 
 ### Parameters 
@@ -58,7 +56,6 @@ Path   | Id | **String** | True  | The ID of the work item
 Path   | ApprovalItemId | **String** | True  | The ID of the approval item.
 
 ### Return type
-
 [**WorkItems**](../models/work-items)
 
 ### Responses
@@ -73,7 +70,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -81,7 +77,9 @@ Code | Description  | Data Type
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
 $ApprovalItemId = "1211bcaa32112bcef6122adb21cef1ac" # String | The ID of the approval item.
+
 # Approve an Approval Item
+
 try {
     Approve-V2024ApprovalItem-V2024Id $Id -V2024ApprovalItemId $ApprovalItemId 
     
@@ -92,11 +90,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## approve-approval-items-in-bulk
-
 This API bulk approves Approval Items. Either an admin, or the owning/current user must make this request.
 
 ### Parameters 
@@ -105,7 +100,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | The ID of the work item
 
 ### Return type
-
 [**WorkItems**](../models/work-items)
 
 ### Responses
@@ -120,14 +114,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
+
 # Bulk approve Approval Items
+
 try {
     Approve-V2024ApprovalItemsInBulk-V2024Id $Id 
     
@@ -138,11 +133,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## complete-work-item
-
 This API completes a work item. Either an admin, or the owning/current user must make this request.
 
 ### Parameters 
@@ -151,7 +143,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | The ID of the work item
 
 ### Return type
-
 [**WorkItems**](../models/work-items)
 
 ### Responses
@@ -166,14 +157,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
+
 # Complete a Work Item
+
 try {
     Complete-V2024WorkItem-V2024Id $Id 
     
@@ -184,11 +176,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-completed-work-items
-
 This gets a collection of completed work items belonging to either the specified user(admin required), or the current user.
 
 ### Parameters 
@@ -200,7 +189,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-
 [**WorkItems[]**](../models/work-items)
 
 ### Responses
@@ -214,7 +202,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -224,7 +211,9 @@ $OwnerId = "1211bcaa32112bcef6122adb21cef1ac" # String | The id of the owner of 
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+
 # Completed Work Items
+
 try {
     Get-V2024CompletedWorkItems
     
@@ -235,11 +224,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-count-completed-work-items
-
 This gets a count of completed work items belonging to either the specified user(admin required), or the current user.
 
 ### Parameters 
@@ -248,7 +234,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | OwnerId | **String** |   (optional) | ID of the work item owner.
 
 ### Return type
-
 [**WorkItemsCount**](../models/work-items-count)
 
 ### Responses
@@ -262,14 +247,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $OwnerId = "1211bcaa32112bcef6122adb21cef1ac" # String | ID of the work item owner. (optional)
+
 # Count Completed Work Items
+
 try {
     Get-V2024CountCompletedWorkItems
     
@@ -280,11 +266,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-count-work-items
-
 This gets a count of work items belonging to either the specified user(admin required), or the current user.
 
 ### Parameters 
@@ -293,7 +276,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | OwnerId | **String** |   (optional) | ID of the work item owner.
 
 ### Return type
-
 [**WorkItemsCount**](../models/work-items-count)
 
 ### Responses
@@ -307,14 +289,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $OwnerId = "ef38f94347e94562b5bb8424a56397d8" # String | ID of the work item owner. (optional)
+
 # Count Work Items
+
 try {
     Get-V2024CountWorkItems
     
@@ -325,11 +308,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-work-item
-
 This gets the details of a Work Item belonging to either the specified user(admin required), or the current user.
 
 ### Parameters 
@@ -338,7 +318,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | ID of the work item.
 
 ### Return type
-
 [**WorkItems**](../models/work-items)
 
 ### Responses
@@ -352,14 +331,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "2c9180835d191a86015d28455b4a2329" # String | ID of the work item.
+
 # Get a Work Item
+
 try {
     Get-V2024WorkItem-V2024Id $Id 
     
@@ -370,11 +350,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-work-items-summary
-
 This gets a summary of work items belonging to either the specified user(admin required), or the current user.
 
 ### Parameters 
@@ -383,7 +360,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | OwnerId | **String** |   (optional) | ID of the work item owner.
 
 ### Return type
-
 [**WorkItemsSummary**](../models/work-items-summary)
 
 ### Responses
@@ -397,14 +373,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $OwnerId = "1211bcaa32112bcef6122adb21cef1ac" # String | ID of the work item owner. (optional)
+
 # Work Items Summary
+
 try {
     Get-V2024WorkItemsSummary
     
@@ -415,11 +392,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-work-items
-
 This gets a collection of work items belonging to either the specified user(admin required), or the current user.
 
 ### Parameters 
@@ -431,7 +405,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | OwnerId | **String** |   (optional) | ID of the work item owner.
 
 ### Return type
-
 [**WorkItems[]**](../models/work-items)
 
 ### Responses
@@ -445,7 +418,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -455,7 +427,9 @@ $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Col
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $OwnerId = "1211bcaa32112bcef6122adb21cef1ac" # String | ID of the work item owner. (optional)
+
 # List Work Items
+
 try {
     Get-V2024WorkItems
     
@@ -466,11 +440,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## reject-approval-item
-
 This API rejects an Approval Item. Either an admin, or the owning/current user must make this request.
 
 ### Parameters 
@@ -480,7 +451,6 @@ Path   | Id | **String** | True  | The ID of the work item
 Path   | ApprovalItemId | **String** | True  | The ID of the approval item.
 
 ### Return type
-
 [**WorkItems**](../models/work-items)
 
 ### Responses
@@ -495,7 +465,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -503,7 +472,9 @@ Code | Description  | Data Type
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
 $ApprovalItemId = "1211bcaa32112bcef6122adb21cef1ac" # String | The ID of the approval item.
+
 # Reject an Approval Item
+
 try {
     Deny-V2024ApprovalItem-V2024Id $Id -V2024ApprovalItemId $ApprovalItemId 
     
@@ -514,11 +485,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## reject-approval-items-in-bulk
-
 This API bulk rejects Approval Items. Either an admin, or the owning/current user must make this request.
 
 ### Parameters 
@@ -527,7 +495,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | The ID of the work item
 
 ### Return type
-
 [**WorkItems**](../models/work-items)
 
 ### Responses
@@ -542,14 +509,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
+
 # Bulk reject Approval Items
+
 try {
     Deny-V2024ApprovalItemsInBulk-V2024Id $Id 
     
@@ -560,11 +528,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## send-work-item-forward
-
 This API forwards a work item to a new owner. Either an admin, or the owning/current user must make this request. Accessible to work-item Owner, ORG_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN.
 
 ### Parameters 
@@ -574,7 +539,6 @@ Path   | Id | **String** | True  | The ID of the work item
  Body  | WorkItemForward | [**WorkItemForward**](../models/work-item-forward) | True  | 
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -588,7 +552,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -600,7 +563,9 @@ $WorkItemForward = @"{
   "comment" : "I'm going on vacation.",
   "sendNotifications" : true
 }"@
+
 # Forward a Work Item
+
 try {
     $Result = ConvertFrom-JsonToWorkItemForward -Json $WorkItemForward
     Send-V2024WorkItemForward-V2024Id $Id -V2024WorkItemForward $Result
@@ -612,11 +577,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## submit-account-selection
-
 This API submits account selections. Either an admin, or the owning/current user must make this request.
 
 ### Parameters 
@@ -626,7 +588,6 @@ Path   | Id | **String** | True  | The ID of the work item
  Body  | RequestBody | [**map[string]AnyType**](https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4) | True  | Account Selection Data map, keyed on fieldName
 
 ### Return type
-
 [**WorkItems**](../models/work-items)
 
 ### Responses
@@ -641,7 +602,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -649,7 +609,9 @@ Code | Description  | Data Type
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
 $RequestBody = @{ key_example =  } # System.Collections.Hashtable | Account Selection Data map, keyed on fieldName
+
 # Submit Account Selections
+
 try {
     $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
     Submit-V2024AccountSelection-V2024Id $Id -V2024RequestBody $Result
@@ -661,7 +623,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

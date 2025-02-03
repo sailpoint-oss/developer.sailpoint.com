@@ -1,3 +1,4 @@
+
 ---
 id: beta-access-request-identity-metrics
 title: AccessRequestIdentityMetrics
@@ -8,7 +9,6 @@ keywords: ['powershell', 'PowerShell', 'sdk', 'AccessRequestIdentityMetrics', 'B
 slug: /tools/sdk/powershell/beta/methods/access-request-identity-metrics
 tags: ['SDK', 'Software Development Kit', 'AccessRequestIdentityMetrics', 'BetaAccessRequestIdentityMetrics']
 ---
-
 
 # AccessRequestIdentityMetrics
   Use this API to implement access request identity metrics functionality.
@@ -24,9 +24,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Get-BetaAccessRequestIdentityMetrics**](#get-access-request-identity-metrics) | **GET** `/access-request-identity-metrics/{identityId}/requested-objects/{requestedObjectId}/type/{type}` | Return access request identity metrics
 
-
 ## get-access-request-identity-metrics
-
 Use this API to return information access metrics.
 
 ### Parameters 
@@ -37,7 +35,6 @@ Path   | RequestedObjectId | **String** | True  | Requested access item's ID.
 Path   | Type | **String** | True  | Requested access item's type.
 
 ### Return type
-
 [**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0)
 
 ### Responses
@@ -51,7 +48,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -60,7 +56,9 @@ Code | Description  | Data Type
 $IdentityId = "7025c863-c270-4ba6-beea-edf3cb091573" # String | Manager's identity ID.
 $RequestedObjectId = "2db501be-f0fb-4cc5-a695-334133c52891" # String | Requested access item's ID.
 $Type = "ENTITLEMENT" # String | Requested access item's type.
+
 # Return access request identity metrics
+
 try {
     Get-BetaAccessRequestIdentityMetrics-BetaIdentityId $IdentityId -BetaRequestedObjectId $RequestedObjectId -BetaType $Type 
     
@@ -71,7 +69,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

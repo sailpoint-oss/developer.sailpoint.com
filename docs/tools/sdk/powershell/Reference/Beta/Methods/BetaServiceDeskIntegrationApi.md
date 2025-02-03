@@ -1,3 +1,4 @@
+
 ---
 id: beta-service-desk-integration
 title: ServiceDeskIntegration
@@ -8,7 +9,6 @@ keywords: ['powershell', 'PowerShell', 'sdk', 'ServiceDeskIntegration', 'BetaSer
 slug: /tools/sdk/powershell/beta/methods/service-desk-integration
 tags: ['SDK', 'Software Development Kit', 'ServiceDeskIntegration', 'BetaServiceDeskIntegration']
 ---
-
 
 # ServiceDeskIntegration
   Use this API to build an integration between Identity Security Cloud and a service desk ITSM (IT service management) solution.
@@ -53,9 +53,7 @@ Method | HTTP request | Description
 [**Send-BetaServiceDeskIntegration**](#put-service-desk-integration) | **PUT** `/service-desk-integrations/{id}` | Update a Service Desk integration
 [**Update-BetaStatusCheckDetails**](#update-status-check-details) | **PUT** `/service-desk-integrations/status-check-configuration` | Update the time check configuration
 
-
 ## create-service-desk-integration
-
 Create a new Service Desk integration.
 
 ### Parameters 
@@ -64,7 +62,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | ServiceDeskIntegrationDto | [**ServiceDeskIntegrationDto**](../models/service-desk-integration-dto) | True  | The specifics of a new integration to create
 
 ### Return type
-
 [**ServiceDeskIntegrationDto**](../models/service-desk-integration-dto)
 
 ### Responses
@@ -79,7 +76,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -116,7 +112,9 @@ $ServiceDeskIntegrationDto = @"{
   "type" : "ServiceNowSDIM",
   "beforeProvisioningRule" : ""
 }"@
+
 # Create new Service Desk integration
+
 try {
     $Result = ConvertFrom-JsonToServiceDeskIntegrationDto -Json $ServiceDeskIntegrationDto
     New-BetaServiceDeskIntegration-BetaServiceDeskIntegrationDto $Result
@@ -128,11 +126,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## delete-service-desk-integration
-
 Delete an existing Service Desk integration by ID.
 
 ### Parameters 
@@ -141,7 +136,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | ID of Service Desk integration to delete
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -156,14 +150,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "anId" # String | ID of Service Desk integration to delete
+
 # Delete a Service Desk integration
+
 try {
     Remove-BetaServiceDeskIntegration-BetaId $Id 
     
@@ -174,11 +169,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-service-desk-integration
-
 Get an existing Service Desk integration by ID.
 
 ### Parameters 
@@ -187,7 +179,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | ID of the Service Desk integration to get
 
 ### Return type
-
 [**ServiceDeskIntegrationDto**](../models/service-desk-integration-dto)
 
 ### Responses
@@ -202,14 +193,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "anId" # String | ID of the Service Desk integration to get
+
 # Get a Service Desk integration
+
 try {
     Get-BetaServiceDeskIntegration-BetaId $Id 
     
@@ -220,11 +212,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-service-desk-integration-list
-
 Get a list of Service Desk integration objects.
 
 ### Parameters 
@@ -237,7 +226,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-
 [**ServiceDeskIntegrationDto[]**](../models/service-desk-integration-dto)
 
 ### Responses
@@ -252,7 +240,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -263,7 +250,9 @@ $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Col
 $Sorters = "name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name** (optional)
 $Filters = 'id eq 2c91808b6ef1d43e016efba0ce470904' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq*  **type**: *eq, in*  **cluster**: *eq, in* (optional)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+
 # List existing Service Desk integrations
+
 try {
     Get-BetaServiceDeskIntegrationList
     
@@ -274,11 +263,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-service-desk-integration-template
-
 This API endpoint returns an existing Service Desk integration template by scriptName.
 
 ### Parameters 
@@ -287,7 +273,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | ScriptName | **String** | True  | The scriptName value of the Service Desk integration template to get
 
 ### Return type
-
 [**ServiceDeskIntegrationTemplateDto**](../models/service-desk-integration-template-dto)
 
 ### Responses
@@ -302,14 +287,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $ScriptName = "aScriptName" # String | The scriptName value of the Service Desk integration template to get
+
 # Service Desk integration template by scriptName
+
 try {
     Get-BetaServiceDeskIntegrationTemplate-BetaScriptName $ScriptName 
     
@@ -320,11 +306,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-service-desk-integration-types
-
 This API endpoint returns the current list of supported Service Desk integration types.
 
 ### Parameters 
@@ -332,7 +315,6 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 
 ### Return type
-
 [**ServiceDeskIntegrationTemplateType[]**](../models/service-desk-integration-template-type)
 
 ### Responses
@@ -347,13 +329,14 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
+
 # List Service Desk integration types
+
 try {
     Get-BetaServiceDeskIntegrationTypes
     
@@ -364,11 +347,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-status-check-details
-
 Get the time check configuration of queued SDIM tickets.
 
 ### Parameters 
@@ -376,7 +356,6 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 
 ### Return type
-
 [**QueuedCheckConfigDetails**](../models/queued-check-config-details)
 
 ### Responses
@@ -391,13 +370,14 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
+
 # Get the time check configuration
+
 try {
     Get-BetaStatusCheckDetails
     
@@ -408,11 +388,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## patch-service-desk-integration
-
 Update an existing Service Desk integration by ID with a PATCH request.
 
 ### Parameters 
@@ -422,7 +399,6 @@ Path   | Id | **String** | True  | ID of the Service Desk integration to update
  Body  | PatchServiceDeskIntegrationRequest | [**PatchServiceDeskIntegrationRequest**](../models/patch-service-desk-integration-request) | True  | A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only `replace` operations are accepted by this endpoint.  A 403 Forbidden Error indicates that a PATCH operation was attempted that is not allowed. 
 
 ### Return type
-
 [**ServiceDeskIntegrationDto**](../models/service-desk-integration-dto)
 
 ### Responses
@@ -437,7 +413,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json-patch+json
 - **Accept**: application/json
 
@@ -445,7 +420,9 @@ Code | Description  | Data Type
 ```powershell
 $Id = "anId" # String | ID of the Service Desk integration to update
 $PatchServiceDeskIntegrationRequest = @""@
+
 # Patch a Service Desk Integration
+
 try {
     $Result = ConvertFrom-JsonToPatchServiceDeskIntegrationRequest -Json $PatchServiceDeskIntegrationRequest
     Update-BetaServiceDeskIntegration-BetaId $Id -BetaPatchServiceDeskIntegrationRequest $Result
@@ -457,11 +434,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## put-service-desk-integration
-
 Update an existing Service Desk integration by ID.
 
 ### Parameters 
@@ -471,7 +445,6 @@ Path   | Id | **String** | True  | ID of the Service Desk integration to update
  Body  | ServiceDeskIntegrationDto | [**ServiceDeskIntegrationDto**](../models/service-desk-integration-dto) | True  | The specifics of the integration to update
 
 ### Return type
-
 [**ServiceDeskIntegrationDto**](../models/service-desk-integration-dto)
 
 ### Responses
@@ -486,7 +459,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -524,7 +496,9 @@ $ServiceDeskIntegrationDto = @"{
   "type" : "ServiceNowSDIM",
   "beforeProvisioningRule" : ""
 }"@
+
 # Update a Service Desk integration
+
 try {
     $Result = ConvertFrom-JsonToServiceDeskIntegrationDto -Json $ServiceDeskIntegrationDto
     Send-BetaServiceDeskIntegration-BetaId $Id -BetaServiceDeskIntegrationDto $Result
@@ -536,11 +510,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## update-status-check-details
-
 Update the time check configuration of queued SDIM tickets.
 
 ### Parameters 
@@ -549,7 +520,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | QueuedCheckConfigDetails | [**QueuedCheckConfigDetails**](../models/queued-check-config-details) | True  | The modified time check configuration
 
 ### Return type
-
 [**QueuedCheckConfigDetails**](../models/queued-check-config-details)
 
 ### Responses
@@ -564,7 +534,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -574,7 +543,9 @@ $QueuedCheckConfigDetails = @"{
   "provisioningStatusCheckIntervalMinutes" : "30",
   "provisioningMaxStatusCheckDays" : "2"
 }"@
+
 # Update the time check configuration
+
 try {
     $Result = ConvertFrom-JsonToQueuedCheckConfigDetails -Json $QueuedCheckConfigDetails
     Update-BetaStatusCheckDetails-BetaQueuedCheckConfigDetails $Result
@@ -586,7 +557,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

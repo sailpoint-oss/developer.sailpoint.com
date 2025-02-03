@@ -1,3 +1,4 @@
+
 ---
 id: v2024-managed-clusters
 title: ManagedClusters
@@ -8,7 +9,6 @@ keywords: ['powershell', 'PowerShell', 'sdk', 'ManagedClusters', 'V2024ManagedCl
 slug: /tools/sdk/powershell/v2024/methods/managed-clusters
 tags: ['SDK', 'Software Development Kit', 'ManagedClusters', 'V2024ManagedClusters']
 ---
-
 
 # ManagedClusters
   Use this API to implement managed cluster functionality. 
@@ -28,9 +28,7 @@ Method | HTTP request | Description
 [**Send-V2024ClientLogConfiguration**](#put-client-log-configuration) | **PUT** `/managed-clusters/{id}/log-config` | Update Managed Cluster Log Configuration
 [**Update-V2024ManagedCluster**](#update-managed-cluster) | **PATCH** `/managed-clusters/{id}` | Update Managed Cluster
 
-
 ## create-managed-cluster
-
 Create a new Managed Cluster.
 The API returns a result that includes the managed cluster ID.
 
@@ -40,7 +38,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | ManagedClusterRequest | [**ManagedClusterRequest**](../models/managed-cluster-request) | True  | 
 
 ### Return type
-
 [**ManagedCluster**](../models/managed-cluster)
 
 ### Responses
@@ -54,7 +51,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -69,7 +65,9 @@ $ManagedClusterRequest = @"{
   "description" : "A short description of the managed cluster.",
   "type" : "idn"
 }"@
+
 # Create Create Managed Cluster
+
 try {
     $Result = ConvertFrom-JsonToManagedClusterRequest -Json $ManagedClusterRequest
     New-V2024ManagedCluster-V2024ManagedClusterRequest $Result
@@ -81,11 +79,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## delete-managed-cluster
-
 Delete an existing managed cluster.
 
 ### Parameters 
@@ -95,7 +90,6 @@ Path   | Id | **String** | True  | Managed cluster ID.
   Query | RemoveClients | **Boolean** |   (optional) (default to $false) | Flag to determine the need to delete a cluster with clients.
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -109,7 +103,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -117,7 +110,9 @@ Code | Description  | Data Type
 ```powershell
 $Id = "2c9180897de347a2017de8859e8c5039" # String | Managed cluster ID.
 $RemoveClients = $false # Boolean | Flag to determine the need to delete a cluster with clients. (optional) (default to $false)
+
 # Delete Managed Cluster
+
 try {
     Remove-V2024ManagedCluster-V2024Id $Id 
     
@@ -128,11 +123,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-client-log-configuration
-
 Get a managed cluster's log configuration.
 
 ### Parameters 
@@ -141,7 +133,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | ID of managed cluster to get log configuration for.
 
 ### Return type
-
 [**ClientLogConfiguration**](../models/client-log-configuration)
 
 ### Responses
@@ -157,14 +148,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | ID of managed cluster to get log configuration for.
+
 # Get Managed Cluster Log Configuration
+
 try {
     Get-V2024ClientLogConfiguration-V2024Id $Id 
     
@@ -175,11 +167,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-managed-cluster
-
 Get a managed cluster by ID.
 
 ### Parameters 
@@ -188,7 +177,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | Managed cluster ID.
 
 ### Return type
-
 [**ManagedCluster**](../models/managed-cluster)
 
 ### Responses
@@ -203,14 +191,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "2c9180897de347a2017de8859e8c5039" # String | Managed cluster ID.
+
 # Get Managed Cluster
+
 try {
     Get-V2024ManagedCluster-V2024Id $Id 
     
@@ -221,11 +210,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-managed-clusters
-
 List current organization's managed clusters, based on request context.
 
 ### Parameters 
@@ -237,7 +223,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **operational**: *eq*
 
 ### Return type
-
 [**ManagedCluster[]**](../models/managed-cluster)
 
 ### Responses
@@ -251,7 +236,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -261,7 +245,9 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Filters = 'operational eq "operation"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **operational**: *eq* (optional)
+
 # Get Managed Clusters
+
 try {
     Get-V2024ManagedClusters
     
@@ -272,11 +258,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## put-client-log-configuration
-
 Update a managed cluster's log configuration. You may only specify one of `durationMinutes` or `expiration`, up to 1440 minutes (24 hours) in the future. If neither is specified, the default value for `durationMinutes` is 240.
 
 ### Parameters 
@@ -286,7 +269,6 @@ Path   | Id | **String** | True  | ID of the managed cluster to update the log c
  Body  | PutClientLogConfigurationRequest | [**PutClientLogConfigurationRequest**](../models/put-client-log-configuration-request) | True  | Client log configuration for the given managed cluster.
 
 ### Return type
-
 [**ClientLogConfiguration**](../models/client-log-configuration)
 
 ### Responses
@@ -301,7 +283,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -309,7 +290,9 @@ Code | Description  | Data Type
 ```powershell
 $Id = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | ID of the managed cluster to update the log configuration for.
 $PutClientLogConfigurationRequest = @""@
+
 # Update Managed Cluster Log Configuration
+
 try {
     $Result = ConvertFrom-JsonToPutClientLogConfigurationRequest -Json $PutClientLogConfigurationRequest
     Send-V2024ClientLogConfiguration-V2024Id $Id -V2024PutClientLogConfigurationRequest $Result
@@ -321,11 +304,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## update-managed-cluster
-
 Update an existing managed cluster.
 
 ### Parameters 
@@ -335,7 +315,6 @@ Path   | Id | **String** | True  | Managed cluster ID.
  Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | JSONPatch payload used to update the object.
 
 ### Return type
-
 [**ManagedCluster**](../models/managed-cluster)
 
 ### Responses
@@ -350,21 +329,21 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json-patch+json
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "2c9180897de347a2017de8859e8c5039" # String | Managed cluster ID.
- # JsonPatchOperation[] | JSONPatch payload used to update the object.
  $JsonPatchOperation = @"{
   "op" : "replace",
   "path" : "/description",
   "value" : "New description"
-}"@ 
+}"@ # JsonPatchOperation[] | JSONPatch payload used to update the object.
+ 
 
 # Update Managed Cluster
+
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
     Update-V2024ManagedCluster-V2024Id $Id -V2024JsonPatchOperation $Result
@@ -376,7 +355,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

@@ -1,3 +1,4 @@
+
 ---
 id: beta-ui-metadata
 title: UIMetadata
@@ -8,7 +9,6 @@ keywords: ['powershell', 'PowerShell', 'sdk', 'UIMetadata', 'BetaUIMetadata']
 slug: /tools/sdk/powershell/beta/methods/ui-metadata
 tags: ['SDK', 'Software Development Kit', 'UIMetadata', 'BetaUIMetadata']
 ---
-
 
 # UIMetadata
   API for managing UI Metadata. Use this API to manage metadata about your User Interface.
@@ -22,9 +22,7 @@ Method | HTTP request | Description
 [**Get-BetaTenantUiMetadata**](#get-tenant-ui-metadata) | **GET** `/ui-metadata/tenant` | Get a tenant UI metadata
 [**Set-BetaTenantUiMetadata**](#set-tenant-ui-metadata) | **PUT** `/ui-metadata/tenant` | Update tenant UI metadata
 
-
 ## get-tenant-ui-metadata
-
 This API endpoint retrieves UI metadata configured for your tenant.
 A token with ORG_ADMIN authority is required to call this API.
 
@@ -33,7 +31,6 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 
 ### Return type
-
 [**TenantUiMetadataItemResponse**](../models/tenant-ui-metadata-item-response)
 
 ### Responses
@@ -48,13 +45,14 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
+
 # Get a tenant UI metadata
+
 try {
     Get-BetaTenantUiMetadata
     
@@ -65,11 +63,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## set-tenant-ui-metadata
-
 This API endpoint updates UI metadata for your tenant. These changes may require up to 5 minutes to take effect on the UI.
 A token with ORG_ADMIN authority is required to call this API.
 
@@ -79,7 +74,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | TenantUiMetadataItemUpdateRequest | [**TenantUiMetadataItemUpdateRequest**](../models/tenant-ui-metadata-item-update-request) | True  | 
 
 ### Return type
-
 [**TenantUiMetadataItemResponse**](../models/tenant-ui-metadata-item-response)
 
 ### Responses
@@ -94,7 +88,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -105,7 +98,9 @@ $TenantUiMetadataItemUpdateRequest = @"{
   "usernameLabel" : "Email",
   "iframeWhiteList" : "http://example.com http://example2.com"
 }"@
+
 # Update tenant UI metadata
+
 try {
     $Result = ConvertFrom-JsonToTenantUiMetadataItemUpdateRequest -Json $TenantUiMetadataItemUpdateRequest
     Set-BetaTenantUiMetadata-BetaTenantUiMetadataItemUpdateRequest $Result
@@ -117,7 +112,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

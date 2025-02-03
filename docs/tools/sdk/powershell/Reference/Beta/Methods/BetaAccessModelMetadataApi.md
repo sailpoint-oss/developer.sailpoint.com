@@ -1,3 +1,4 @@
+
 ---
 id: beta-access-model-metadata
 title: AccessModelMetadata
@@ -8,7 +9,6 @@ keywords: ['powershell', 'PowerShell', 'sdk', 'AccessModelMetadata', 'BetaAccess
 slug: /tools/sdk/powershell/beta/methods/access-model-metadata
 tags: ['SDK', 'Software Development Kit', 'AccessModelMetadata', 'BetaAccessModelMetadata']
 ---
-
 
 # AccessModelMetadata
   Use this API to create and manage metadata attributes for your Access Model.
@@ -33,9 +33,7 @@ Method | HTTP request | Description
 [**Get-BetaAccessModelMetadataAttribute**](#list-access-model-metadata-attribute) | **GET** `/access-model-metadata/attributes` | List Access Model Metadata Attributes
 [**Get-BetaAccessModelMetadataAttributeValue**](#list-access-model-metadata-attribute-value) | **GET** `/access-model-metadata/attributes/{key}/values` | List Access Model Metadata Values
 
-
 ## get-access-model-metadata-attribute
-
 Get single Access Model Metadata Attribute
 
 ### Parameters 
@@ -44,7 +42,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Key | **String** | True  | Technical name of the Attribute.
 
 ### Return type
-
 [**AttributeDTO**](../models/attribute-dto)
 
 ### Responses
@@ -58,14 +55,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Key = "iscPrivacy" # String | Technical name of the Attribute.
+
 # Get Access Model Metadata Attribute
+
 try {
     Get-BetaAccessModelMetadataAttribute-BetaKey $Key 
     
@@ -76,11 +74,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-access-model-metadata-attribute-value
-
 Get single Access Model Metadata Attribute Value
 
 ### Parameters 
@@ -90,7 +85,6 @@ Path   | Key | **String** | True  | Technical name of the Attribute.
 Path   | Value | **String** | True  | Technical name of the Attribute value.
 
 ### Return type
-
 [**AttributeValueDTO**](../models/attribute-value-dto)
 
 ### Responses
@@ -104,7 +98,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -112,7 +105,9 @@ Code | Description  | Data Type
 ```powershell
 $Key = "iscPrivacy" # String | Technical name of the Attribute.
 $Value = "public" # String | Technical name of the Attribute value.
+
 # Get Access Model Metadata Value
+
 try {
     Get-BetaAccessModelMetadataAttributeValue-BetaKey $Key -BetaValue $Value 
     
@@ -123,11 +118,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-access-model-metadata-attribute
-
 Get a list of Access Model Metadata Attributes
 
 ### Parameters 
@@ -136,7 +128,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq*  **type**: *eq*  **status**: *eq*  **objectTypes**: *eq*  Supported composite operators: *and*
 
 ### Return type
-
 [**AttributeDTO[]**](../models/attribute-dto)
 
 ### Responses
@@ -150,14 +141,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Filters = 'name eq "Privacy"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq*  **type**: *eq*  **status**: *eq*  **objectTypes**: *eq*  Supported composite operators: *and* (optional)
+
 # List Access Model Metadata Attributes
+
 try {
     Get-BetaAccessModelMetadataAttribute
     
@@ -168,11 +160,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-access-model-metadata-attribute-value
-
 Get a list of Access Model Metadata Attribute Values
 
 ### Parameters 
@@ -181,7 +170,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Key | **String** | True  | Technical name of the Attribute.
 
 ### Return type
-
 [**AttributeValueDTO[]**](../models/attribute-value-dto)
 
 ### Responses
@@ -195,14 +183,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Key = "iscPrivacy" # String | Technical name of the Attribute.
+
 # List Access Model Metadata Values
+
 try {
     Get-BetaAccessModelMetadataAttributeValue-BetaKey $Key 
     
@@ -213,7 +202,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

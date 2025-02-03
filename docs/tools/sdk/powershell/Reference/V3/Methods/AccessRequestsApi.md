@@ -1,3 +1,4 @@
+
 ---
 id: access-requests
 title: AccessRequests
@@ -8,7 +9,6 @@ keywords: ['powershell', 'PowerShell', 'sdk', 'AccessRequests', 'AccessRequests'
 slug: /tools/sdk/powershell/v3/methods/access-requests
 tags: ['SDK', 'Software Development Kit', 'AccessRequests', 'AccessRequests']
 ---
-
 
 # AccessRequests
   Use this API to implement and customize access request functionality. 
@@ -39,9 +39,7 @@ Method | HTTP request | Description
 [**Get-AccessRequestStatus**](#list-access-request-status) | **GET** `/access-request-status` | Access Request Status
 [**Set-AccessRequestConfig**](#set-access-request-config) | **PUT** `/access-request-config` | Update Access Request Configuration
 
-
 ## cancel-access-request
-
 This API endpoint cancels a pending access request. An access request can be cancelled only if it has not passed the approval step.
 In addition to users with ORG_ADMIN, any user who originally submitted the access request may cancel it.
 
@@ -51,7 +49,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | CancelAccessRequest | [**CancelAccessRequest**](../models/cancel-access-request) | True  | 
 
 ### Return type
-
 [**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0)
 
 ### Responses
@@ -66,7 +63,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -76,7 +72,9 @@ $CancelAccessRequest = @"{
   "accountActivityId" : "2c9180835d2e5168015d32f890ca1581",
   "comment" : "I requested this role by mistake."
 }"@
+
 # Cancel Access Request
+
 try {
     $Result = ConvertFrom-JsonToCancelAccessRequest -Json $CancelAccessRequest
     Suspend-AccessRequest-CancelAccessRequest $Result
@@ -88,11 +86,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## create-access-request
-
 Use this API to submit an access request in Identity Security Cloud (ISC), where it follows any ISC approval processes.
 
 Access requests are processed asynchronously by ISC. A successful response from this endpoint means that the request
@@ -131,7 +126,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | AccessRequest | [**AccessRequest**](../models/access-request) | True  | 
 
 ### Return type
-
 [**AccessRequestResponse**](../models/access-request-response)
 
 ### Responses
@@ -145,7 +139,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -205,7 +198,9 @@ $AccessRequest = @"{
     "type" : "ACCESS_PROFILE"
   } ]
 }"@
+
 # Submit Access Request
+
 try {
     $Result = ConvertFrom-JsonToAccessRequest -Json $AccessRequest
     New-AccessRequest-AccessRequest $Result
@@ -217,11 +212,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-access-request-config
-
 This endpoint returns the current access-request configuration.
 
 ### Parameters 
@@ -229,7 +221,6 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 
 ### Return type
-
 [**AccessRequestConfig**](../models/access-request-config)
 
 ### Responses
@@ -243,13 +234,14 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
+
 # Get Access Request Configuration
+
 try {
     Get-AccessRequestConfig
     
@@ -260,11 +252,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-access-request-status
-
 Use this API to return a list of access request statuses based on the specified query parameters.
 If an access request was made for access that an identity already has, the API ignores the access request.  These ignored requests do not display in the list of access request statuses.
 Any user with any user level can get the status of their own access requests. A user with ORG_ADMIN is required to call this API to get a list of statuses for other users.
@@ -284,7 +273,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | RequestState | **String** |   (optional) | Filter the results by the state of the request. The only valid value is *EXECUTING*.
 
 ### Return type
-
 [**RequestedItemStatus[]**](../models/requested-item-status)
 
 ### Responses
@@ -298,7 +286,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -314,7 +301,9 @@ $Offset = 10 # Int32 | Offset into the full result set. Usually specified with *
 $Filters = 'accountActivityItemId eq "2c918086771c86df0177401efcdf54c0"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **accessRequestId**: *in*  **accountActivityItemId**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **created**: *eq, in, ge, gt, le, lt, ne, isnull, sw* (optional)
 $Sorters = "created" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified, accountActivityItemId, name** (optional)
 $RequestState = "request-state=EXECUTING" # String | Filter the results by the state of the request. The only valid value is *EXECUTING*. (optional)
+
 # Access Request Status
+
 try {
     Get-AccessRequestStatus
     
@@ -325,11 +314,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## set-access-request-config
-
 This endpoint replaces the current access-request configuration.
 
 ### Parameters 
@@ -338,7 +324,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | AccessRequestConfig | [**AccessRequestConfig**](../models/access-request-config) | True  | 
 
 ### Return type
-
 [**AccessRequestConfig**](../models/access-request-config)
 
 ### Responses
@@ -352,7 +337,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -384,7 +368,9 @@ $AccessRequestConfig = @"{
   "reauthorizationEnabled" : true,
   "approvalsMustBeExternal" : true
 }"@
+
 # Update Access Request Configuration
+
 try {
     $Result = ConvertFrom-JsonToAccessRequestConfig -Json $AccessRequestConfig
     Set-AccessRequestConfig-AccessRequestConfig $Result
@@ -396,7 +382,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

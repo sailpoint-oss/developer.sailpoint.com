@@ -1,3 +1,4 @@
+
 ---
 id: beta-requestable-objects
 title: RequestableObjects
@@ -8,7 +9,6 @@ keywords: ['powershell', 'PowerShell', 'sdk', 'RequestableObjects', 'BetaRequest
 slug: /tools/sdk/powershell/beta/methods/requestable-objects
 tags: ['SDK', 'Software Development Kit', 'RequestableObjects', 'BetaRequestableObjects']
 ---
-
 
 # RequestableObjects
   Use this API to implement requestable object functionality.
@@ -23,9 +23,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Get-BetaRequestableObjects**](#list-requestable-objects) | **GET** `/requestable-objects` | Requestable Objects List
 
-
 ## list-requestable-objects
-
 This endpoint returns a list of acccess items that that can be requested through the Access Request endpoints. Access items are marked with AVAILABLE, PENDING or ASSIGNED with respect to the identity provided using *identity-id* query param.
 Any authenticated token can call this endpoint to see their requestable access items.
 
@@ -43,7 +41,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name** 
 
 ### Return type
-
 [**RequestableObject[]**](../models/requestable-object)
 
 ### Responses
@@ -57,7 +54,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -66,17 +62,19 @@ Code | Description  | Data Type
 $IdentityId = "e7eab60924f64aa284175b9fa3309599" # String | If present, the value returns only requestable objects for the specified identity.  * Admin users can call this with any identity ID value.  * Non-admin users can only specify *me* or pass their own identity ID value.  * If absent, returns a list of all requestable objects for the tenant. Only admin users can make such a call. In this case, the available, pending, assigned accesses will not be annotated in the result. (optional)
 $Types = "ACCESS_PROFILE" # RequestableObjectType[] | Filters the results to the specified type/types, where each type is one of ROLE or ACCESS_PROFILE. If absent, all types are returned. Support for additional types may be added in the future without notice. (optional)
 
-$Types = @"ROLE,ACCESS_PROFILE"@
+$Types = @"ROLE,ACCESS_PROFILE"@ # RequestableObjectType[] | Filters the results to the specified type/types, where each type is one of ROLE or ACCESS_PROFILE. If absent, all types are returned. Support for additional types may be added in the future without notice. (optional) 
 $Term = "Finance Role" # String | It allows searching requestable access items with a partial match on the name or description. If term is provided, then the *filter* query parameter will be ignored. (optional)
 $Statuses = "AVAILABLE" # RequestableObjectRequestStatus[] | Filters the result to the specified status/statuses, where each status is one of AVAILABLE, ASSIGNED, or PENDING. It is an error to specify this parameter without also specifying an *identity-id* parameter. Additional statuses may be added in the future without notice. (optional)
 
-$Statuses = @"[ASSIGNED, PENDING]"@
+$Statuses = @"[ASSIGNED, PENDING]"@ # RequestableObjectRequestStatus[] | Filters the result to the specified status/statuses, where each status is one of AVAILABLE, ASSIGNED, or PENDING. It is an error to specify this parameter without also specifying an *identity-id* parameter. Additional statuses may be added in the future without notice. (optional) 
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Filters = 'name sw "bob"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  (optional)
 $Sorters = "name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name**  (optional)
+
 # Requestable Objects List
+
 try {
     Get-BetaRequestableObjects
     
@@ -87,7 +85,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

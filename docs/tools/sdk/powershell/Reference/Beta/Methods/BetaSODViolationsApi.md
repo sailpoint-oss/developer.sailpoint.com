@@ -1,3 +1,4 @@
+
 ---
 id: beta-sod-violations
 title: SODViolations
@@ -8,7 +9,6 @@ keywords: ['powershell', 'PowerShell', 'sdk', 'SODViolations', 'BetaSODViolation
 slug: /tools/sdk/powershell/beta/methods/sod-violations
 tags: ['SDK', 'Software Development Kit', 'SODViolations', 'BetaSODViolations']
 ---
-
 
 # SODViolations
   Use this API to check for current &quot;separation of duties&quot; (SOD) policy violations as well as potential future SOD policy violations. 
@@ -38,9 +38,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Start-BetaPredictSodViolations**](#start-predict-sod-violations) | **POST** `/sod-violations/predict` | Predict SOD violations for identity.
 
-
 ## start-predict-sod-violations
-
 This API is used to check if granting some additional accesses would cause the subject to be in violation of any SOD policies. Returns the violations that would be caused.
 
 A token with ORG_ADMIN or API authority is required to call this API.
@@ -51,7 +49,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | IdentityWithNewAccess | [**IdentityWithNewAccess**](../models/identity-with-new-access) | True  | 
 
 ### Return type
-
 [**ViolationPrediction**](../models/violation-prediction)
 
 ### Responses
@@ -66,7 +63,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -84,7 +80,9 @@ $IdentityWithNewAccess = @"{
     "name" : "CN=Information Technology,OU=test,OU=test-service,DC=TestAD,DC=local"
   } ]
 }"@
+
 # Predict SOD violations for identity.
+
 try {
     $Result = ConvertFrom-JsonToIdentityWithNewAccess -Json $IdentityWithNewAccess
     Start-BetaPredictSodViolations-BetaIdentityWithNewAccess $Result
@@ -96,7 +94,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

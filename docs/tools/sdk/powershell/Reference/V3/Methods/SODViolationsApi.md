@@ -1,3 +1,4 @@
+
 ---
 id: sod-violations
 title: SODViolations
@@ -8,7 +9,6 @@ keywords: ['powershell', 'PowerShell', 'sdk', 'SODViolations', 'SODViolations']
 slug: /tools/sdk/powershell/v3/methods/sod-violations
 tags: ['SDK', 'Software Development Kit', 'SODViolations', 'SODViolations']
 ---
-
 
 # SODViolations
   Use this API to check for current &quot;separation of duties&quot; (SOD) policy violations as well as potential future SOD policy violations. 
@@ -39,9 +39,7 @@ Method | HTTP request | Description
 [**Start-PredictSodViolations**](#start-predict-sod-violations) | **POST** `/sod-violations/predict` | Predict SOD violations for identity.
 [**Start-ViolationCheck**](#start-violation-check) | **POST** `/sod-violations/check` | Check SOD violations
 
-
 ## start-predict-sod-violations
-
 This API is used to check if granting some additional accesses would cause the subject to be in violation of any SOD policies. Returns the violations that would be caused.
 
 ### Parameters 
@@ -50,7 +48,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | IdentityWithNewAccess | [**IdentityWithNewAccess**](../models/identity-with-new-access) | True  | 
 
 ### Return type
-
 [**ViolationPrediction**](../models/violation-prediction)
 
 ### Responses
@@ -65,7 +62,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -83,7 +79,9 @@ $IdentityWithNewAccess = @"{
     "name" : "CN=Information Technology,OU=test,OU=test-service,DC=TestAD,DC=local"
   } ]
 }"@
+
 # Predict SOD violations for identity.
+
 try {
     $Result = ConvertFrom-JsonToIdentityWithNewAccess -Json $IdentityWithNewAccess
     Start-PredictSodViolations-IdentityWithNewAccess $Result
@@ -95,11 +93,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## start-violation-check
-
 This API initiates a SOD policy verification asynchronously.
 
 ### Parameters 
@@ -108,7 +103,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | IdentityWithNewAccess1 | [**IdentityWithNewAccess1**](../models/identity-with-new-access1) | True  | 
 
 ### Return type
-
 [**SodViolationCheck**](../models/sod-violation-check)
 
 ### Responses
@@ -123,14 +117,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $IdentityWithNewAccess1 = @"{identityId=2c91808568c529c60168cca6f90c1313, accessRefs=[{type=ENTITLEMENT, id=2c918087682f9a86016839c050861ab1, name=CN=Information Access,OU=test,OU=test-service,DC=TestAD,DC=local}, {type=ENTITLEMENT, id=2c918087682f9a86016839c0509c1ab2, name=CN=Information Technology,OU=test,OU=test-service,DC=TestAD,DC=local}], clientMetadata={additionalProp1=string, additionalProp2=string, additionalProp3=string}}"@
+
 # Check SOD violations
+
 try {
     $Result = ConvertFrom-JsonToIdentityWithNewAccess1 -Json $IdentityWithNewAccess1
     Start-ViolationCheck-IdentityWithNewAccess1 $Result
@@ -142,7 +137,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

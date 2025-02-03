@@ -1,3 +1,4 @@
+
 ---
 id: beta-entitlements
 title: Entitlements
@@ -8,7 +9,6 @@ keywords: ['powershell', 'PowerShell', 'sdk', 'Entitlements', 'BetaEntitlements'
 slug: /tools/sdk/powershell/beta/methods/entitlements
 tags: ['SDK', 'Software Development Kit', 'Entitlements', 'BetaEntitlements']
 ---
-
 
 # Entitlements
   Use this API to implement and customize entitlement functionality.
@@ -80,9 +80,7 @@ Method | HTTP request | Description
 [**Reset-BetaSourceEntitlements**](#reset-source-entitlements) | **POST** `/entitlements/reset/sources/{id}` | Reset Source Entitlements
 [**Update-BetaEntitlementsInBulk**](#update-entitlements-in-bulk) | **POST** `/entitlements/bulk-update` | Bulk update an entitlement list
 
-
 ## create-access-model-metadata-for-entitlement
-
 Add single Access Model Metadata to an entitlement.
 
 ### Parameters 
@@ -93,7 +91,6 @@ Path   | AttributeKey | **String** | True  | Technical name of the Attribute.
 Path   | AttributeValue | **String** | True  | Technical name of the Attribute Value.
 
 ### Return type
-
 [**Entitlement**](../models/entitlement)
 
 ### Responses
@@ -107,7 +104,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -116,7 +112,9 @@ Code | Description  | Data Type
 $Id = "2c91808c74ff913f0175097daa9d59cd" # String | The entitlement id.
 $AttributeKey = "iscPrivacy" # String | Technical name of the Attribute.
 $AttributeValue = "public" # String | Technical name of the Attribute Value.
+
 # Add metadata to an entitlement.
+
 try {
     New-BetaAccessModelMetadataForEntitlement-BetaId $Id -BetaAttributeKey $AttributeKey -BetaAttributeValue $AttributeValue 
     
@@ -127,11 +125,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## delete-access-model-metadata-from-entitlement
-
 Remove single Access Model Metadata from an entitlement.
 
 ### Parameters 
@@ -142,7 +137,6 @@ Path   | AttributeKey | **String** | True  | Technical name of the Attribute.
 Path   | AttributeValue | **String** | True  | Technical name of the Attribute Value.
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -156,7 +150,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -165,7 +158,9 @@ Code | Description  | Data Type
 $Id = "2c91808c74ff913f0175097daa9d59cd" # String | The entitlement id.
 $AttributeKey = "iscPrivacy" # String | Technical name of the Attribute.
 $AttributeValue = "public" # String | Technical name of the Attribute Value.
+
 # Remove metadata from an entitlement.
+
 try {
     Remove-BetaAccessModelMetadataFromEntitlement-BetaId $Id -BetaAttributeKey $AttributeKey -BetaAttributeValue $AttributeValue 
     
@@ -176,11 +171,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-entitlement
-
 This API returns an entitlement by its ID.
 
 ### Parameters 
@@ -189,7 +181,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | The entitlement ID
 
 ### Return type
-
 [**Entitlement**](../models/entitlement)
 
 ### Responses
@@ -204,14 +195,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "2c91808874ff91550175097daaec161c" # String | The entitlement ID
+
 # Get an entitlement
+
 try {
     Get-BetaEntitlement-BetaId $Id 
     
@@ -222,11 +214,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-entitlement-request-config
-
 This API returns the entitlement request config for a specified entitlement.
 
 ### Parameters 
@@ -235,7 +224,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | Entitlement Id
 
 ### Return type
-
 [**EntitlementRequestConfig**](../models/entitlement-request-config)
 
 ### Responses
@@ -250,14 +238,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "2c91808874ff91550175097daaec161c" # String | Entitlement Id
+
 # Get Entitlement Request Config
+
 try {
     Get-BetaEntitlementRequestConfig-BetaId $Id 
     
@@ -268,11 +257,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## import-entitlements-by-source
-
 Starts an entitlement aggregation on the specified source. Though this endpoint has been deprecated, you can find its Beta equivalent [here](https://developer.sailpoint.com/docs/api/beta/import-entitlements).
 
 If the target source is a direct connection, then the request body must be empty. You will also need to make sure the Content-Type header is not set. If you set the Content-Type header without specifying a body, then you will receive a 500 error.
@@ -286,7 +272,6 @@ Path   | Id | **String** | True  | Source Id
    | CsvFile | **System.IO.FileInfo** |   (optional) | The CSV file containing the source entitlements to aggregate.
 
 ### Return type
-
 [**LoadEntitlementTask**](../models/load-entitlement-task)
 
 ### Responses
@@ -300,7 +285,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: multipart/form-data
 - **Accept**: application/json
 
@@ -308,7 +292,9 @@ Code | Description  | Data Type
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Source Id
 $CsvFile =  # System.IO.FileInfo | The CSV file containing the source entitlements to aggregate. (optional)
+
 # Aggregate Entitlements
+
 try {
     Import-BetaEntitlementsBySource-BetaId $Id 
     
@@ -319,11 +305,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-entitlement-children
-
 This API returns a list of all child entitlements of a given entitlement.
 
 ### Parameters 
@@ -337,7 +320,6 @@ Path   | Id | **String** | True  | Entitlement Id
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **type**: *eq, in*  **attribute**: *eq, in*  **value**: *eq, in, sw*  **source.id**: *eq, in*  **requestable**: *eq*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*
 
 ### Return type
-
 [**Entitlement[]**](../models/entitlement)
 
 ### Responses
@@ -352,7 +334,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -364,7 +345,9 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Sorters = "name,-modified" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, type, attribute, value, source.id** (optional)
 $Filters = 'attribute eq "memberOf"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **type**: *eq, in*  **attribute**: *eq, in*  **value**: *eq, in, sw*  **source.id**: *eq, in*  **requestable**: *eq*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le* (optional)
+
 # List of entitlements children
+
 try {
     Get-BetaEntitlementChildren-BetaId $Id 
     
@@ -375,11 +358,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-entitlement-parents
-
 This API returns a list of all parent entitlements of a given entitlement.
 
 ### Parameters 
@@ -393,7 +373,6 @@ Path   | Id | **String** | True  | Entitlement Id
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **type**: *eq, in*  **attribute**: *eq, in*  **value**: *eq, in, sw*  **source.id**: *eq, in*  **requestable**: *eq*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*
 
 ### Return type
-
 [**Entitlement[]**](../models/entitlement)
 
 ### Responses
@@ -408,7 +387,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -420,7 +398,9 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Sorters = "name,-modified" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, type, attribute, value, source.id** (optional)
 $Filters = 'attribute eq "memberOf"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **type**: *eq, in*  **attribute**: *eq, in*  **value**: *eq, in, sw*  **source.id**: *eq, in*  **requestable**: *eq*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le* (optional)
+
 # List of entitlements parents
+
 try {
     Get-BetaEntitlementParents-BetaId $Id 
     
@@ -431,11 +411,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-entitlements
-
 This API returns a list of entitlements.
 
 This API can be used in one of the two following ways: either getting entitlements for a specific **account-id**, or getting via use of **filters** (those two options are exclusive).
@@ -456,7 +433,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **type**: *eq, in*  **attribute**: *eq, in*  **value**: *eq, in, sw*  **source.id**: *eq, in*  **requestable**: *eq*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*
 
 ### Return type
-
 [**Entitlement[]**](../models/entitlement)
 
 ### Responses
@@ -470,7 +446,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -485,7 +460,9 @@ $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Col
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Sorters = "name,-modified" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, type, attribute, value, source.id, requestable** (optional)
 $Filters = 'attribute eq "memberOf"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **type**: *eq, in*  **attribute**: *eq, in*  **value**: *eq, in, sw*  **source.id**: *eq, in*  **requestable**: *eq*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in* (optional)
+
 # Gets a list of entitlements.
+
 try {
     Get-BetaEntitlements
     
@@ -496,11 +473,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## patch-entitlement
-
 This API updates an existing entitlement using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
 
 The following fields are patchable: **requestable**, **privileged**, **segments**, **owner**, **name**, **description**, and **manuallyUpdatedFields**
@@ -516,7 +490,6 @@ Path   | Id | **String** | True  | ID of the entitlement to patch
  Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) |   (optional) | 
 
 ### Return type
-
 [**Entitlement**](../models/entitlement)
 
 ### Responses
@@ -531,21 +504,21 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json-patch+json
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "2c91808a7813090a017814121e121518" # String | ID of the entitlement to patch
- # JsonPatchOperation[] |  (optional)
  $JsonPatchOperation = @"{
   "op" : "replace",
   "path" : "/description",
   "value" : "New description"
-}"@ 
+}"@ # JsonPatchOperation[] |  (optional)
+ 
 
 # Patch an entitlement
+
 try {
     Update-BetaEntitlement-BetaId $Id 
     
@@ -556,11 +529,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## put-entitlement-request-config
-
 This API replaces the entitlement request config for a specified entitlement.
 
 ### Parameters 
@@ -570,7 +540,6 @@ Path   | Id | **String** | True  | Entitlement ID
  Body  | EntitlementRequestConfig | [**EntitlementRequestConfig**](../models/entitlement-request-config) | True  | 
 
 ### Return type
-
 [**EntitlementRequestConfig**](../models/entitlement-request-config)
 
 ### Responses
@@ -585,7 +554,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -605,7 +573,9 @@ $EntitlementRequestConfig = @"{
     "requestCommentRequired" : true
   }
 }"@
+
 # Replace Entitlement Request Config
+
 try {
     $Result = ConvertFrom-JsonToEntitlementRequestConfig -Json $EntitlementRequestConfig
     Send-BetaEntitlementRequestConfig-BetaId $Id -BetaEntitlementRequestConfig $Result
@@ -617,11 +587,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## reset-source-entitlements
-
 Remove all entitlements from a specific source.
 To reload the accounts along with the entitlements you removed, you must run an unoptimized aggregation.  To do so, use [Import Accounts](https://developer.sailpoint.com/docs/api/beta/import-accounts/) with `disableOptimization` = `true`. 
 
@@ -631,7 +598,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | ID of source for the entitlement reset
 
 ### Return type
-
 [**EntitlementSourceResetBaseReferenceDto**](../models/entitlement-source-reset-base-reference-dto)
 
 ### Responses
@@ -645,14 +611,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "2c91808a7813090a017814121919ecca" # String | ID of source for the entitlement reset
+
 # Reset Source Entitlements
+
 try {
     Reset-BetaSourceEntitlements-BetaId $Id 
     
@@ -663,11 +630,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## update-entitlements-in-bulk
-
 This API applies an update to every entitlement of the list.
 
 
@@ -689,7 +653,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | EntitlementBulkUpdateRequest | [**EntitlementBulkUpdateRequest**](../models/entitlement-bulk-update-request) | True  | 
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -703,7 +666,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -721,7 +683,9 @@ $EntitlementBulkUpdateRequest = @"{
     "value" : false
   } ]
 }"@
+
 # Bulk update an entitlement list
+
 try {
     $Result = ConvertFrom-JsonToEntitlementBulkUpdateRequest -Json $EntitlementBulkUpdateRequest
     Update-BetaEntitlementsInBulk-BetaEntitlementBulkUpdateRequest $Result
@@ -733,7 +697,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

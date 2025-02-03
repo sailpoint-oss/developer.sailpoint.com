@@ -1,3 +1,4 @@
+
 ---
 id: v2024-public-identities-config
 title: PublicIdentitiesConfig
@@ -8,7 +9,6 @@ keywords: ['powershell', 'PowerShell', 'sdk', 'PublicIdentitiesConfig', 'V2024Pu
 slug: /tools/sdk/powershell/v2024/methods/public-identities-config
 tags: ['SDK', 'Software Development Kit', 'PublicIdentitiesConfig', 'V2024PublicIdentitiesConfig']
 ---
-
 
 # PublicIdentitiesConfig
   Use this API to implement public identity configuration functionality. 
@@ -31,9 +31,7 @@ Method | HTTP request | Description
 [**Get-V2024PublicIdentityConfig**](#get-public-identity-config) | **GET** `/public-identities-config` | Get the Public Identities Configuration
 [**Update-V2024PublicIdentityConfig**](#update-public-identity-config) | **PUT** `/public-identities-config` | Update the Public Identities Configuration
 
-
 ## get-public-identity-config
-
 Returns the publicly visible attributes of an identity available to request approvers for Access Requests and Certification Campaigns.
 
 ### Parameters 
@@ -41,7 +39,6 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 
 ### Return type
-
 [**PublicIdentityConfig**](../models/public-identity-config)
 
 ### Responses
@@ -55,13 +52,14 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
+
 # Get the Public Identities Configuration
+
 try {
     Get-V2024PublicIdentityConfig
     
@@ -72,11 +70,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## update-public-identity-config
-
 Updates the publicly visible attributes of an identity available to request approvers for Access Requests and Certification Campaigns.
 
 ### Parameters 
@@ -85,7 +80,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | PublicIdentityConfig | [**PublicIdentityConfig**](../models/public-identity-config) | True  | 
 
 ### Return type
-
 [**PublicIdentityConfig**](../models/public-identity-config)
 
 ### Responses
@@ -99,7 +93,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -120,7 +113,9 @@ $PublicIdentityConfig = @"{
     "type" : "IDENTITY"
   }
 }"@
+
 # Update the Public Identities Configuration
+
 try {
     $Result = ConvertFrom-JsonToPublicIdentityConfig -Json $PublicIdentityConfig
     Update-V2024PublicIdentityConfig-V2024PublicIdentityConfig $Result
@@ -132,7 +127,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

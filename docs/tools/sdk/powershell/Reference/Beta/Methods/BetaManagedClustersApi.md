@@ -1,3 +1,4 @@
+
 ---
 id: beta-managed-clusters
 title: ManagedClusters
@@ -8,7 +9,6 @@ keywords: ['powershell', 'PowerShell', 'sdk', 'ManagedClusters', 'BetaManagedClu
 slug: /tools/sdk/powershell/beta/methods/managed-clusters
 tags: ['SDK', 'Software Development Kit', 'ManagedClusters', 'BetaManagedClusters']
 ---
-
 
 # ManagedClusters
   Use this API to implement managed cluster functionality. 
@@ -25,9 +25,7 @@ Method | HTTP request | Description
 [**Get-BetaManagedClusters**](#get-managed-clusters) | **GET** `/managed-clusters` | Retrieve all Managed Clusters.
 [**Send-BetaClientLogConfiguration**](#put-client-log-configuration) | **PUT** `/managed-clusters/{id}/log-config` | Update managed cluster&#39;s log configuration
 
-
 ## get-client-log-configuration
-
 Get managed cluster's log configuration.
 
 ### Parameters 
@@ -36,7 +34,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | ID of ManagedCluster to get log configuration for
 
 ### Return type
-
 [**ClientLogConfiguration**](../models/client-log-configuration)
 
 ### Responses
@@ -51,14 +48,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "aClusterId" # String | ID of ManagedCluster to get log configuration for
+
 # Get managed cluster's log configuration
+
 try {
     Get-BetaClientLogConfiguration-BetaId $Id 
     
@@ -69,11 +67,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-managed-cluster
-
 Retrieve a ManagedCluster by ID.
 
 ### Parameters 
@@ -82,7 +77,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | ID of the ManagedCluster to get
 
 ### Return type
-
 [**ManagedCluster**](../models/managed-cluster)
 
 ### Responses
@@ -97,14 +91,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "aClusterId" # String | ID of the ManagedCluster to get
+
 # Get a specified ManagedCluster.
+
 try {
     Get-BetaManagedCluster-BetaId $Id 
     
@@ -115,11 +110,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-managed-clusters
-
 Retrieve all Managed Clusters for the current Org, based on request context.
 
 ### Parameters 
@@ -131,7 +123,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **operational**: *eq*
 
 ### Return type
-
 [**ManagedCluster[]**](../models/managed-cluster)
 
 ### Responses
@@ -145,7 +136,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -155,7 +145,9 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Filters = 'operational eq operation' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **operational**: *eq* (optional)
+
 # Retrieve all Managed Clusters.
+
 try {
     Get-BetaManagedClusters
     
@@ -166,11 +158,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## put-client-log-configuration
-
 Update managed cluster's log configuration
 
 ### Parameters 
@@ -180,7 +169,6 @@ Path   | Id | **String** | True  | ID of ManagedCluster to update log configurat
  Body  | ClientLogConfiguration | [**ClientLogConfiguration**](../models/client-log-configuration) | True  | ClientLogConfiguration for given ManagedCluster
 
 ### Return type
-
 [**ClientLogConfiguration**](../models/client-log-configuration)
 
 ### Responses
@@ -195,7 +183,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -209,7 +196,9 @@ $ClientLogConfiguration = @"{
   "expiration" : "2020-12-15T19:13:36.079Z",
   "logLevels" : "INFO"
 }"@
+
 # Update managed cluster's log configuration
+
 try {
     Send-BetaClientLogConfiguration-BetaId $Id -BetaClientLogConfiguration $Result
     
@@ -220,7 +209,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

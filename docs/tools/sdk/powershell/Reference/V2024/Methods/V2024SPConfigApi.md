@@ -1,3 +1,4 @@
+
 ---
 id: v2024-sp-config
 title: SPConfig
@@ -8,7 +9,6 @@ keywords: ['powershell', 'PowerShell', 'sdk', 'SPConfig', 'V2024SPConfig']
 slug: /tools/sdk/powershell/v2024/methods/sp-config
 tags: ['SDK', 'Software Development Kit', 'SPConfig', 'V2024SPConfig']
 ---
-
 
 # SPConfig
   Import and export configuration for some objects between tenants. 
@@ -26,9 +26,7 @@ Method | HTTP request | Description
 [**Import-V2024SpConfig**](#import-sp-config) | **POST** `/sp-config/import` | Initiates configuration objects import job
 [**Get-V2024SpConfigObjects**](#list-sp-config-objects) | **GET** `/sp-config/config-objects` | Get config object details
 
-
 ## export-sp-config
-
 This post will export objects from the tenant to a JSON configuration file.
 For more information about the object types that currently support export functionality, refer to [SaaS Configuration](https://developer.sailpoint.com/idn/docs/saas-configuration/#supported-objects).
 
@@ -39,7 +37,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | ExportPayload | [**ExportPayload**](../models/export-payload) | True  | Export options control what will be included in the export.
 
 ### Return type
-
 [**SpConfigExportJob**](../models/sp-config-export-job)
 
 ### Responses
@@ -54,7 +51,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -64,7 +60,9 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 $ExportPayload = @"{
   "description" : "Export Job 1 Test"
 }"@
+
 # Initiates configuration objects export job
+
 try {
     $Result = ConvertFrom-JsonToExportPayload -Json $ExportPayload
     Export-V2024SpConfig-V2024XSailPointExperimental $XSailPointExperimental -V2024ExportPayload $Result
@@ -76,11 +74,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-sp-config-export
-
 This endpoint gets the export file resulting from the export job with the requested `id` and downloads it to a file.
 The request will need one of the following security scopes:
 - sp:config:read - sp:config:manage
@@ -92,7 +87,6 @@ Path   | Id | **String** | True  | The ID of the export job whose results will b
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-
 [**SpConfigExportResults**](../models/sp-config-export-results)
 
 ### Responses
@@ -107,7 +101,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -115,7 +108,9 @@ Code | Description  | Data Type
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the export job whose results will be downloaded.
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
 # Download export job result.
+
 try {
     Get-V2024SpConfigExport-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
     
@@ -126,11 +121,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-sp-config-export-status
-
 This gets the status of the export job identified by the `id` parameter.
 The request will need one of the following security scopes:
 - sp:config:read - sp:config:manage
@@ -142,7 +134,6 @@ Path   | Id | **String** | True  | The ID of the export job whose status will be
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-
 [**SpConfigExportJobStatus**](../models/sp-config-export-job-status)
 
 ### Responses
@@ -157,7 +148,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -165,7 +155,9 @@ Code | Description  | Data Type
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the export job whose status will be returned.
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
 # Get export job status
+
 try {
     Get-V2024SpConfigExportStatus-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
     
@@ -176,11 +168,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-sp-config-import
-
 This gets import file resulting from the import job with the requested id and downloads it to a file. The downloaded file will contain the results of the import operation, including any error, warning or informational messages associated with the import.
 The request will need the following security scope:
 - sp:config:manage
@@ -192,7 +181,6 @@ Path   | Id | **String** | True  | The ID of the import job whose results will b
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-
 [**SpConfigImportResults**](../models/sp-config-import-results)
 
 ### Responses
@@ -207,7 +195,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -215,7 +202,9 @@ Code | Description  | Data Type
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the import job whose results will be downloaded.
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
 # Download import job result
+
 try {
     Get-V2024SpConfigImport-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
     
@@ -226,11 +215,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-sp-config-import-status
-
 'This gets the status of the import job identified by the `id` parameter.
 
  For more information about the object types that currently support import functionality,
@@ -244,7 +230,6 @@ Path   | Id | **String** | True  | The ID of the import job whose status will be
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-
 [**SpConfigImportJobStatus**](../models/sp-config-import-job-status)
 
 ### Responses
@@ -259,7 +244,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -267,7 +251,9 @@ Code | Description  | Data Type
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the import job whose status will be returned.
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
 # Get import job status
+
 try {
     Get-V2024SpConfigImportStatus-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
     
@@ -278,11 +264,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## import-sp-config
-
 "This post will import objects from a JSON configuration file into\
  \ a tenant. By default, every import will first export all existing objects supported\
  \ by sp-config as a backup before the import is attempted. The backup is provided\
@@ -306,7 +289,6 @@ Param Type | Name | Data Type | Required  | Description
    | Options | [**ImportOptions**](../models/import-options) |   (optional) | 
 
 ### Return type
-
 [**SpConfigJob**](../models/sp-config-job)
 
 ### Responses
@@ -321,7 +303,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: multipart/form-data
 - **Accept**: application/json
 
@@ -331,7 +312,9 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 $Data =  # System.IO.FileInfo | JSON file containing the objects to be imported.
 $Preview = $true # Boolean | This option is intended to give the user information about how an import operation would proceed, without having any effect on the target tenant. If this parameter is ""true"", no objects will be imported. Instead, the import process will pre-process the import file and attempt to resolve references within imported objects. The import result file will contain messages pertaining to how specific references were resolved, any errors associated with the preprocessing, and messages indicating which objects would be imported.  (optional) (default to $false)
 $Options = @""@
+
 # Initiates configuration objects import job
+
 try {
     Import-V2024SpConfig-V2024XSailPointExperimental $XSailPointExperimental -V2024Data $Data 
     
@@ -342,11 +325,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-sp-config-objects
-
 This gets the list of object configurations which are known to the tenant export/import service. Object configurations that contain "importUrl" and "exportUrl" are available for export/import.
 
 ### Parameters 
@@ -355,7 +335,6 @@ Param Type | Name | Data Type | Required  | Description
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-
 [**SpConfigObject[]**](../models/sp-config-object)
 
 ### Responses
@@ -370,14 +349,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
 # Get config object details
+
 try {
     Get-V2024SpConfigObjects-V2024XSailPointExperimental $XSailPointExperimental 
     
@@ -388,7 +368,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

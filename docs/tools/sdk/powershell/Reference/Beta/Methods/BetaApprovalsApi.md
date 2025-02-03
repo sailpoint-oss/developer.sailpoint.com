@@ -1,3 +1,4 @@
+
 ---
 id: beta-approvals
 title: Approvals
@@ -8,7 +9,6 @@ keywords: ['powershell', 'PowerShell', 'sdk', 'Approvals', 'BetaApprovals']
 slug: /tools/sdk/powershell/beta/methods/approvals
 tags: ['SDK', 'Software Development Kit', 'Approvals', 'BetaApprovals']
 ---
-
 
 # Approvals
   Use this API to implement approval functionality. With this functionality in place, you can get generic approvals and modify them. 
@@ -24,9 +24,7 @@ Method | HTTP request | Description
 [**Get-BetaApproval**](#get-approval) | **GET** `/generic-approvals/{id}` | Get Approval
 [**Get-BetaApprovals**](#get-approvals) | **GET** `/generic-approvals` | Get Approvals
 
-
 ## get-approval
-
 Get a single approval for a given approval ID. This endpoint is for generic approvals, unlike the access-request-approval endpoint, and doesn't include access-request-approvals.
 
 ### Parameters 
@@ -35,7 +33,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | ID of the approval that to be returned.
 
 ### Return type
-
 [**Approval**](../models/approval)
 
 ### Responses
@@ -49,14 +46,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "38453251-6be2-5f8f-df93-5ce19e295837" # String | ID of the approval that to be returned.
+
 # Get Approval
+
 try {
     Get-BetaApproval-BetaId $Id 
     
@@ -67,11 +65,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-approvals
-
 Get a list of approvals, which can be filtered by requester ID, status, or reference type. You can use the "Mine" query parameter to return all approvals for the current approver. This endpoint is for generic approvals, unlike the access-request-approval endpoint, and does not include access-request-approvals. 
 Absence of all query parameters will will default to mine=true.
 
@@ -83,7 +78,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq*  **referenceType**: *eq*
 
 ### Return type
-
 [**Approval[]**](../models/approval)
 
 ### Responses
@@ -97,7 +91,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -106,7 +99,9 @@ Code | Description  | Data Type
 $Mine = $true # Boolean | Returns the list of approvals for the current caller. (optional)
 $RequesterId = "17e633e7d57e481569df76323169deb6a" # String | Returns the list of approvals for a given requester ID. (optional)
 $Filters = 'filters=status eq PENDING' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq*  **referenceType**: *eq* (optional)
+
 # Get Approvals
+
 try {
     Get-BetaApprovals
     
@@ -117,7 +112,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

@@ -1,3 +1,4 @@
+
 ---
 id: accounts
 title: Accounts
@@ -8,7 +9,6 @@ keywords: ['powershell', 'PowerShell', 'sdk', 'Accounts', 'Accounts']
 slug: /tools/sdk/powershell/v3/methods/accounts
 tags: ['SDK', 'Software Development Kit', 'Accounts', 'Accounts']
 ---
-
 
 # Accounts
   Use this API to implement and customize account functionality.
@@ -57,9 +57,7 @@ Method | HTTP request | Description
 [**Unlock-Account**](#unlock-account) | **POST** `/accounts/{id}/unlock` | Unlock Account
 [**Update-Account**](#update-account) | **PATCH** `/accounts/{id}` | Update Account
 
-
 ## create-account
-
 Submit an account creation task - the API then returns the task ID.  
 
 You must include the `sourceId` where the account will be created in the `attributes` object.
@@ -79,7 +77,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | AccountAttributesCreate | [**AccountAttributesCreate**](../models/account-attributes-create) | True  | 
 
 ### Return type
-
 [**AccountsAsyncResult**](../models/accounts-async-result)
 
 ### Responses
@@ -93,7 +90,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -109,7 +105,9 @@ $AccountAttributesCreate = @"{
     "mail" : "john.doe@sailpoint.com"
   }
 }"@
+
 # Create Account
+
 try {
     $Result = ConvertFrom-JsonToAccountAttributesCreate -Json $AccountAttributesCreate
     New-Account-AccountAttributesCreate $Result
@@ -121,11 +119,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## delete-account
-
 Use this API to delete an account. 
 This endpoint submits an account delete task and returns the task ID. 
 This endpoint only deletes the account from IdentityNow, not the source itself, which can result in the account's returning with the next aggregation between the source and IdentityNow.  To avoid this scenario, it is recommended that you [disable accounts](https://developer.sailpoint.com/idn/api/v3/disable-account) rather than delete them. This will also allow you to reenable the accounts in the future. 
@@ -137,7 +132,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | Account ID.
 
 ### Return type
-
 [**AccountsAsyncResult**](../models/accounts-async-result)
 
 ### Responses
@@ -152,14 +146,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Account ID.
+
 # Delete Account
+
 try {
     Remove-Account-Id $Id 
     
@@ -170,11 +165,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## disable-account
-
 This API submits a task to disable the account and returns the task ID.      
 
 ### Parameters 
@@ -184,7 +176,6 @@ Path   | Id | **String** | True  | The account id
  Body  | AccountToggleRequest | [**AccountToggleRequest**](../models/account-toggle-request) | True  | 
 
 ### Return type
-
 [**AccountsAsyncResult**](../models/accounts-async-result)
 
 ### Responses
@@ -199,7 +190,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -210,7 +200,9 @@ $AccountToggleRequest = @"{
   "forceProvisioning" : false,
   "externalVerificationId" : "3f9180835d2e5168015d32f890ca1581"
 }"@
+
 # Disable Account
+
 try {
     $Result = ConvertFrom-JsonToAccountToggleRequest -Json $AccountToggleRequest
     Disable-Account-Id $Id -AccountToggleRequest $Result
@@ -222,11 +214,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## enable-account
-
 This API submits a task to enable account and returns the task ID.      
 
 ### Parameters 
@@ -236,7 +225,6 @@ Path   | Id | **String** | True  | The account id
  Body  | AccountToggleRequest | [**AccountToggleRequest**](../models/account-toggle-request) | True  | 
 
 ### Return type
-
 [**AccountsAsyncResult**](../models/accounts-async-result)
 
 ### Responses
@@ -251,7 +239,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -262,7 +249,9 @@ $AccountToggleRequest = @"{
   "forceProvisioning" : false,
   "externalVerificationId" : "3f9180835d2e5168015d32f890ca1581"
 }"@
+
 # Enable Account
+
 try {
     $Result = ConvertFrom-JsonToAccountToggleRequest -Json $AccountToggleRequest
     Enable-Account-Id $Id -AccountToggleRequest $Result
@@ -274,11 +263,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-account
-
 Use this API to return the details for a single account by its ID.  
 
 ### Parameters 
@@ -287,7 +273,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | Account ID.
 
 ### Return type
-
 [**Account**](../models/account)
 
 ### Responses
@@ -302,14 +287,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Account ID.
+
 # Account Details
+
 try {
     Get-Account-Id $Id 
     
@@ -320,11 +306,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-account-entitlements
-
 This API returns entitlements of the account.      
 
 ### Parameters 
@@ -336,7 +319,6 @@ Path   | Id | **String** | True  | The account id
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-
 [**EntitlementDto[]**](../models/entitlement-dto)
 
 ### Responses
@@ -351,7 +333,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -361,7 +342,9 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The account id
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+
 # Account Entitlements
+
 try {
     Get-AccountEntitlements-Id $Id 
     
@@ -372,11 +355,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-accounts
-
 List accounts. 
 
 ### Parameters 
@@ -390,7 +370,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, identity.id, nativeIdentity, uuid, manuallyCorrelated, entitlements, origin, identity.name, identity.identityState, identity.correlated, source.displayableName, source.authoritative, source.connectionType**
 
 ### Return type
-
 [**Account[]**](../models/account)
 
 ### Responses
@@ -404,7 +383,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -416,7 +394,9 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 $DetailLevel = "SLIM" # String | This value determines whether the API provides `SLIM` or increased level of detail (`FULL`) for each account in the returned list. `FULL` is the default behavior. (optional)
 $Filters = 'identityId eq "2c9180858082150f0180893dbaf44201"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **identityId**: *eq, in, sw*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **sourceId**: *eq, in, sw*  **uncorrelated**: *eq*  **entitlements**: *eq*  **origin**: *eq, in*  **manuallyCorrelated**: *eq*  **identity.name**: *eq, in, sw*  **identity.correlated**: *eq*  **identity.identityState**: *eq, in*  **source.displayableName**: *eq, in*  **source.authoritative**: *eq*  **source.connectionType**: *eq, in*  **recommendation.method**: *eq, in, isnull* (optional)
 $Sorters = "id,name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, identity.id, nativeIdentity, uuid, manuallyCorrelated, entitlements, origin, identity.name, identity.identityState, identity.correlated, source.displayableName, source.authoritative, source.connectionType** (optional)
+
 # Accounts List
+
 try {
     Get-Accounts
     
@@ -427,11 +407,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## put-account
-
 Use this API to update an account with a PUT request. 
 
 This endpoint submits an account update task and returns the task ID. 
@@ -446,7 +423,6 @@ Path   | Id | **String** | True  | Account ID.
  Body  | AccountAttributes | [**AccountAttributes**](../models/account-attributes) | True  | 
 
 ### Return type
-
 [**AccountsAsyncResult**](../models/accounts-async-result)
 
 ### Responses
@@ -461,7 +437,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -477,7 +452,9 @@ $AccountAttributes = @"{
     "mail" : "john.doe@sailpoint.com"
   }
 }"@
+
 # Update Account
+
 try {
     $Result = ConvertFrom-JsonToAccountAttributes -Json $AccountAttributes
     Send-Account-Id $Id -AccountAttributes $Result
@@ -489,11 +466,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## submit-reload-account
-
 This API asynchronously reloads the account directly from the connector and performs a one-time aggregation process.      
 
 ### Parameters 
@@ -502,7 +476,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | The account id
 
 ### Return type
-
 [**AccountsAsyncResult**](../models/accounts-async-result)
 
 ### Responses
@@ -517,14 +490,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The account id
+
 # Reload Account
+
 try {
     Submit-ReloadAccount-Id $Id 
     
@@ -535,11 +509,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## unlock-account
-
 This API submits a task to unlock an account and returns the task ID.  
 To use this endpoint to unlock an account that has the `forceProvisioning` option set to true, the `idn:accounts-provisioning:manage` scope is required. 
 
@@ -550,7 +521,6 @@ Path   | Id | **String** | True  | The account ID.
  Body  | AccountUnlockRequest | [**AccountUnlockRequest**](../models/account-unlock-request) | True  | 
 
 ### Return type
-
 [**AccountsAsyncResult**](../models/accounts-async-result)
 
 ### Responses
@@ -565,7 +535,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -577,7 +546,9 @@ $AccountUnlockRequest = @"{
   "externalVerificationId" : "3f9180835d2e5168015d32f890ca1581",
   "unlockIDNAccount" : false
 }"@
+
 # Unlock Account
+
 try {
     $Result = ConvertFrom-JsonToAccountUnlockRequest -Json $AccountUnlockRequest
     Unlock-Account-Id $Id -AccountUnlockRequest $Result
@@ -589,11 +560,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## update-account
-
 Use this API to update account details. 
 
 This API supports updating an account's correlation by modifying the `identityId` and `manuallyCorrelated` fields. 
@@ -613,7 +581,6 @@ Path   | Id | **String** | True  | Account ID.
  Body  | RequestBody | [**[]SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0) | True  | A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
 ### Return type
-
 [**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0)
 
 ### Responses
@@ -628,7 +595,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json-patch+json
 - **Accept**: application/json
 
@@ -636,9 +602,11 @@ Code | Description  | Data Type
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Account ID.
 $RequestBody =  # SystemCollectionsHashtable[] | A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
- $RequestBody = @"[{op=remove, path=/identityId}]"@ 
+ $RequestBody = @"[{op=remove, path=/identityId}]"@ # SystemCollectionsHashtable[] | A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+ 
 
 # Update Account
+
 try {
     $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
     Update-Account-Id $Id -RequestBody $Result
@@ -650,7 +618,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

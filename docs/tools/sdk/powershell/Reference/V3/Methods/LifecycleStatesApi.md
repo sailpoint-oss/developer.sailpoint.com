@@ -1,3 +1,4 @@
+
 ---
 id: lifecycle-states
 title: LifecycleStates
@@ -8,7 +9,6 @@ keywords: ['powershell', 'PowerShell', 'sdk', 'LifecycleStates', 'LifecycleState
 slug: /tools/sdk/powershell/v3/methods/lifecycle-states
 tags: ['SDK', 'Software Development Kit', 'LifecycleStates', 'LifecycleStates']
 ---
-
 
 # LifecycleStates
   Use this API to implement and customize lifecycle state functionality.
@@ -63,9 +63,7 @@ Method | HTTP request | Description
 [**Set-LifecycleState**](#set-lifecycle-state) | **POST** `/identities/{identity-id}/set-lifecycle-state` | Set Lifecycle State
 [**Update-LifecycleStates**](#update-lifecycle-states) | **PATCH** `/identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id}` | Update Lifecycle State
 
-
 ## create-lifecycle-state
-
 Use this endpoint to create a lifecycle state.
 
 ### Parameters 
@@ -75,7 +73,6 @@ Path   | IdentityProfileId | **String** | True  | Identity profile ID.
  Body  | LifecycleState | [**LifecycleState**](../models/lifecycle-state) | True  | Lifecycle state to be created.
 
 ### Return type
-
 [**LifecycleState**](../models/lifecycle-state)
 
 ### Responses
@@ -89,7 +86,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -121,7 +117,9 @@ $LifecycleState = @"{
   "identityState" : "identityState",
   "enabled" : true
 }"@
+
 # Create Lifecycle State
+
 try {
     $Result = ConvertFrom-JsonToLifecycleState -Json $LifecycleState
     New-LifecycleState-IdentityProfileId $IdentityProfileId -LifecycleState $Result
@@ -133,11 +131,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## delete-lifecycle-state
-
 Use this endpoint to delete the lifecycle state by its ID. 
 
 ### Parameters 
@@ -147,7 +142,6 @@ Path   | IdentityProfileId | **String** | True  | Identity profile ID.
 Path   | LifecycleStateId | **String** | True  | Lifecycle state ID.
 
 ### Return type
-
 [**LifecyclestateDeleted**](../models/lifecyclestate-deleted)
 
 ### Responses
@@ -162,7 +156,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -170,7 +163,9 @@ Code | Description  | Data Type
 ```powershell
 $IdentityProfileId = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | Identity profile ID.
 $LifecycleStateId = "ef38f94347e94562b5bb8424a56397d8" # String | Lifecycle state ID.
+
 # Delete Lifecycle State
+
 try {
     Remove-LifecycleState-IdentityProfileId $IdentityProfileId -LifecycleStateId $LifecycleStateId 
     
@@ -181,11 +176,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-lifecycle-state
-
 Use this endpoint to get a lifecycle state by its ID and its associated identity profile ID. 
 
 ### Parameters 
@@ -195,7 +187,6 @@ Path   | IdentityProfileId | **String** | True  | Identity profile ID.
 Path   | LifecycleStateId | **String** | True  | Lifecycle state ID.
 
 ### Return type
-
 [**LifecycleState**](../models/lifecycle-state)
 
 ### Responses
@@ -210,7 +201,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -218,7 +208,9 @@ Code | Description  | Data Type
 ```powershell
 $IdentityProfileId = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | Identity profile ID.
 $LifecycleStateId = "ef38f94347e94562b5bb8424a56397d8" # String | Lifecycle state ID.
+
 # Get Lifecycle State
+
 try {
     Get-LifecycleState-IdentityProfileId $IdentityProfileId -LifecycleStateId $LifecycleStateId 
     
@@ -229,11 +221,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-lifecycle-states
-
 Use this endpoint to list all lifecycle states by their associated identity profiles. 
 
 ### Parameters 
@@ -246,7 +235,6 @@ Path   | IdentityProfileId | **String** | True  | Identity profile ID.
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified**
 
 ### Return type
-
 [**LifecycleState[]**](../models/lifecycle-state)
 
 ### Responses
@@ -260,7 +248,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -271,7 +258,9 @@ $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Col
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Sorters = "created,modified" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified** (optional)
+
 # Lists LifecycleStates
+
 try {
     Get-LifecycleStates-IdentityProfileId $IdentityProfileId 
     
@@ -282,11 +271,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## set-lifecycle-state
-
 Use this API to set/update an identity's lifecycle state to the one provided and update the corresponding identity profile.
 
 ### Parameters 
@@ -296,7 +282,6 @@ Path   | IdentityId | **String** | True  | ID of the identity to update.
  Body  | SetLifecycleStateRequest | [**SetLifecycleStateRequest**](../models/set-lifecycle-state-request) | True  | 
 
 ### Return type
-
 [**SetLifecycleState200Response**](../models/set-lifecycle-state200-response)
 
 ### Responses
@@ -311,7 +296,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -319,7 +303,9 @@ Code | Description  | Data Type
 ```powershell
 $IdentityId = "2c9180857893f1290178944561990364" # String | ID of the identity to update.
 $SetLifecycleStateRequest = @""@
+
 # Set Lifecycle State
+
 try {
     $Result = ConvertFrom-JsonToSetLifecycleStateRequest -Json $SetLifecycleStateRequest
     Set-LifecycleState-IdentityId $IdentityId -SetLifecycleStateRequest $Result
@@ -331,11 +317,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## update-lifecycle-states
-
 Use this endpoint to update individual lifecycle state fields, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
 ### Parameters 
@@ -346,7 +329,6 @@ Path   | LifecycleStateId | **String** | True  | Lifecycle state ID.
  Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | A list of lifecycle state update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields can be updated: * enabled * description * accountActions * accessProfileIds * emailNotificationOption 
 
 ### Return type
-
 [**LifecycleState**](../models/lifecycle-state)
 
 ### Responses
@@ -361,7 +343,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json-patch+json
 - **Accept**: application/json
 
@@ -369,14 +350,15 @@ Code | Description  | Data Type
 ```powershell
 $IdentityProfileId = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | Identity profile ID.
 $LifecycleStateId = "ef38f94347e94562b5bb8424a56397d8" # String | Lifecycle state ID.
- # JsonPatchOperation[] | A list of lifecycle state update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields can be updated: * enabled * description * accountActions * accessProfileIds * emailNotificationOption 
  $JsonPatchOperation = @"{
   "op" : "replace",
   "path" : "/description",
   "value" : "New description"
-}"@ 
+}"@ # JsonPatchOperation[] | A list of lifecycle state update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields can be updated: * enabled * description * accountActions * accessProfileIds * emailNotificationOption 
+ 
 
 # Update Lifecycle State
+
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
     Update-LifecycleStates-IdentityProfileId $IdentityProfileId -LifecycleStateId $LifecycleStateId -JsonPatchOperation $Result
@@ -388,7 +370,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

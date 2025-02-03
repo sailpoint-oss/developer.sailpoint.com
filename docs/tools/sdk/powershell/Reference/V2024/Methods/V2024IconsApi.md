@@ -1,3 +1,4 @@
+
 ---
 id: v2024-icons
 title: Icons
@@ -8,7 +9,6 @@ keywords: ['powershell', 'PowerShell', 'sdk', 'Icons', 'V2024Icons']
 slug: /tools/sdk/powershell/v2024/methods/icons
 tags: ['SDK', 'Software Development Kit', 'Icons', 'V2024Icons']
 ---
-
 
 # Icons
   Use this API to implement functionality related to object icons (application icons for example). 
@@ -23,9 +23,7 @@ Method | HTTP request | Description
 [**Remove-V2024Icon**](#delete-icon) | **DELETE** `/icons/{objectType}/{objectId}` | Delete an icon
 [**Set-V2024Icon**](#set-icon) | **PUT** `/icons/{objectType}/{objectId}` | Update an icon
 
-
 ## delete-icon
-
 This API endpoint delete an icon by object type and object id. A token with ORG_ADMIN authority is required to call this API.
 
 ### Parameters 
@@ -36,7 +34,6 @@ Path   | ObjectId | **String** | True  | Object id.
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -51,7 +48,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -60,7 +56,9 @@ Code | Description  | Data Type
 $ObjectType = "application" # String | Object type. Available options ['application']
 $ObjectId = "a291e870-48c3-4953-b656-fb5ce2a93169" # String | Object id.
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
 # Delete an icon
+
 try {
     Remove-V2024Icon-V2024ObjectType $ObjectType -V2024ObjectId $ObjectId -V2024XSailPointExperimental $XSailPointExperimental 
     
@@ -71,11 +69,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## set-icon
-
 This API endpoint updates an icon by object type and object id. A token with ORG_ADMIN authority is required to call this API.
 
 ### Parameters 
@@ -87,7 +82,6 @@ Path   | ObjectId | **String** | True  | Object id.
    | Image | **System.IO.FileInfo** | True  | file with icon. Allowed mime-types ['image/png', 'image/jpeg']
 
 ### Return type
-
 [**SetIcon200Response**](../models/set-icon200-response)
 
 ### Responses
@@ -102,7 +96,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: multipart/form-data
 - **Accept**: application/json
 
@@ -112,7 +105,9 @@ $ObjectType = "application" # String | Object type. Available options ['applicat
 $ObjectId = "a291e870-48c3-4953-b656-fb5ce2a93169" # String | Object id.
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $Image =  # System.IO.FileInfo | file with icon. Allowed mime-types ['image/png', 'image/jpeg']
+
 # Update an icon
+
 try {
     Set-V2024Icon-V2024ObjectType $ObjectType -V2024ObjectId $ObjectId -V2024XSailPointExperimental $XSailPointExperimental -V2024Image $Image 
     
@@ -123,7 +118,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

@@ -1,3 +1,4 @@
+
 ---
 id: v2024-o-auth-clients
 title: OAuthClients
@@ -8,7 +9,6 @@ keywords: ['powershell', 'PowerShell', 'sdk', 'OAuthClients', 'V2024OAuthClients
 slug: /tools/sdk/powershell/v2024/methods/o-auth-clients
 tags: ['SDK', 'Software Development Kit', 'OAuthClients', 'V2024OAuthClients']
 ---
-
 
 # OAuthClients
   Use this API to implement OAuth client functionality.   
@@ -27,9 +27,7 @@ Method | HTTP request | Description
 [**Get-V2024OauthClients**](#list-oauth-clients) | **GET** `/oauth-clients` | List OAuth Clients
 [**Update-V2024OauthClient**](#patch-oauth-client) | **PATCH** `/oauth-clients/{id}` | Patch OAuth Client
 
-
 ## create-oauth-client
-
 This creates an OAuth client.
 
 ### Parameters 
@@ -38,7 +36,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | CreateOAuthClientRequest | [**CreateOAuthClientRequest**](../models/create-o-auth-client-request) | True  | 
 
 ### Return type
-
 [**CreateOAuthClientResponse**](../models/create-o-auth-client-response)
 
 ### Responses
@@ -52,7 +49,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -75,7 +71,9 @@ $CreateOAuthClientRequest = @"{
   "name" : "Demo API Client",
   "claimsSupported" : false
 }"@
+
 # Create OAuth Client
+
 try {
     $Result = ConvertFrom-JsonToCreateOAuthClientRequest -Json $CreateOAuthClientRequest
     New-V2024OauthClient-V2024CreateOAuthClientRequest $Result
@@ -87,11 +85,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## delete-oauth-client
-
 This deletes an OAuth client.
 
 ### Parameters 
@@ -100,7 +95,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | The OAuth client id
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -115,14 +109,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The OAuth client id
+
 # Delete OAuth Client
+
 try {
     Remove-V2024OauthClient-V2024Id $Id 
     
@@ -133,11 +128,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-oauth-client
-
 This gets details of an OAuth client.
 
 ### Parameters 
@@ -146,7 +138,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | The OAuth client id
 
 ### Return type
-
 [**GetOAuthClientResponse**](../models/get-o-auth-client-response)
 
 ### Responses
@@ -161,14 +152,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The OAuth client id
+
 # Get OAuth Client
+
 try {
     Get-V2024OauthClient-V2024Id $Id 
     
@@ -179,11 +171,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-oauth-clients
-
 This gets a list of OAuth clients.
 
 ### Parameters 
@@ -192,7 +181,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **lastUsed**: *le, isnull*
 
 ### Return type
-
 [**GetOAuthClientResponse[]**](../models/get-o-auth-client-response)
 
 ### Responses
@@ -206,14 +194,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Filters = 'lastUsed le 2023-02-05T10:59:27.214Z' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **lastUsed**: *le, isnull* (optional)
+
 # List OAuth Clients
+
 try {
     Get-V2024OauthClients
     
@@ -224,11 +213,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## patch-oauth-client
-
 This performs a targeted update to the field(s) of an OAuth client.
 
 ### Parameters 
@@ -238,7 +224,6 @@ Path   | Id | **String** | True  | The OAuth client id
  Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * tenant * businessName * homepageUrl * name * description * accessTokenValiditySeconds * refreshTokenValiditySeconds * redirectUris * grantTypes * accessType * enabled * strongAuthSupported * claimsSupported 
 
 ### Return type
-
 [**GetOAuthClientResponse**](../models/get-o-auth-client-response)
 
 ### Responses
@@ -253,21 +238,21 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json-patch+json
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The OAuth client id
- # JsonPatchOperation[] | A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * tenant * businessName * homepageUrl * name * description * accessTokenValiditySeconds * refreshTokenValiditySeconds * redirectUris * grantTypes * accessType * enabled * strongAuthSupported * claimsSupported 
  $JsonPatchOperation = @"{
   "op" : "replace",
   "path" : "/description",
   "value" : "New description"
-}"@ 
+}"@ # JsonPatchOperation[] | A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * tenant * businessName * homepageUrl * name * description * accessTokenValiditySeconds * refreshTokenValiditySeconds * redirectUris * grantTypes * accessType * enabled * strongAuthSupported * claimsSupported 
+ 
 
 # Patch OAuth Client
+
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
     Update-V2024OauthClient-V2024Id $Id -V2024JsonPatchOperation $Result
@@ -279,7 +264,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

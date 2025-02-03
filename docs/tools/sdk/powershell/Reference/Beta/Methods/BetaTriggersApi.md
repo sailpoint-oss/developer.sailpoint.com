@@ -1,3 +1,4 @@
+
 ---
 id: beta-triggers
 title: Triggers
@@ -8,7 +9,6 @@ keywords: ['powershell', 'PowerShell', 'sdk', 'Triggers', 'BetaTriggers']
 slug: /tools/sdk/powershell/beta/methods/triggers
 tags: ['SDK', 'Software Development Kit', 'Triggers', 'BetaTriggers']
 ---
-
 
 # Triggers
   Event Triggers provide real-time updates to changes in Identity Security Cloud so you can take action as soon as an event occurs, rather than poll an API endpoint for updates. Identity Security Cloud provides a user interface within the admin console to create and manage trigger subscriptions.  These endpoints allow for programatically creating and managing trigger subscriptions.
@@ -70,9 +70,7 @@ Method | HTTP request | Description
 [**Test-BetaSubscriptionFilter**](#test-subscription-filter) | **POST** `/trigger-subscriptions/validate-filter` | Validate a Subscription Filter
 [**Update-BetaSubscription**](#update-subscription) | **PUT** `/trigger-subscriptions/{id}` | Update a Subscription
 
-
 ## complete-trigger-invocation
-
 Completes an invocation to a REQUEST_RESPONSE type trigger.
 
 ### Parameters 
@@ -82,7 +80,6 @@ Path   | Id | **String** | True  | The ID of the invocation to complete.
  Body  | CompleteInvocation | [**CompleteInvocation**](../models/complete-invocation) | True  | 
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -96,7 +93,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -110,7 +106,9 @@ $CompleteInvocation = @"{
   "secret" : "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde",
   "error" : "Access request is denied."
 }"@
+
 # Complete Trigger Invocation
+
 try {
     $Result = ConvertFrom-JsonToCompleteInvocation -Json $CompleteInvocation
     Complete-BetaTriggerInvocation-BetaId $Id -BetaCompleteInvocation $Result
@@ -122,11 +120,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## create-subscription
-
 This API creates a new subscription to a trigger and defines trigger invocation details. The type of subscription determines which config object is required:
 * HTTP subscriptions require httpConfig
 * EventBridge subscriptions require eventBridgeConfig
@@ -137,7 +132,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | SubscriptionPostRequest | [**SubscriptionPostRequest**](../models/subscription-post-request) | True  | 
 
 ### Return type
-
 [**Subscription**](../models/subscription)
 
 ### Responses
@@ -151,7 +145,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -182,7 +175,9 @@ $SubscriptionPostRequest = @"{
   "type" : "HTTP",
   "enabled" : true
 }"@
+
 # Create a Subscription
+
 try {
     $Result = ConvertFrom-JsonToSubscriptionPostRequest -Json $SubscriptionPostRequest
     New-BetaSubscription-BetaSubscriptionPostRequest $Result
@@ -194,11 +189,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## delete-subscription
-
 Deletes an existing subscription to a trigger.
 
 ### Parameters 
@@ -207,7 +199,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | Subscription ID
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -222,14 +213,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde" # String | Subscription ID
+
 # Delete a Subscription
+
 try {
     Remove-BetaSubscription-BetaId $Id 
     
@@ -240,11 +232,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-subscriptions
-
 Gets a list of all trigger subscriptions.
 
 ### Parameters 
@@ -257,7 +246,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **triggerId, triggerName**
 
 ### Return type
-
 [**Subscription[]**](../models/subscription)
 
 ### Responses
@@ -271,7 +259,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -282,7 +269,9 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Filters = 'id eq "12cff757-c0c0-413b-8ad7-2a47956d1e89"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **triggerId**: *eq*  **type**: *eq, le* (optional)
 $Sorters = "triggerName" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **triggerId, triggerName** (optional)
+
 # List Subscriptions
+
 try {
     Get-BetaSubscriptions
     
@@ -293,11 +282,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-trigger-invocation-status
-
 Gets a list of latest invocation statuses.
 Statuses of successful invocations are available for up to 24 hours. Statuses of failed invocations are available for up to 48 hours.
 This endpoint may only fetch up to 2000 invocations, and should not be treated as a representation of the full history of invocations.
@@ -312,7 +298,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **triggerId, subscriptionName, created, completed**
 
 ### Return type
-
 [**InvocationStatus[]**](../models/invocation-status)
 
 ### Responses
@@ -326,7 +311,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -337,7 +321,9 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Filters = 'triggerId eq "idn:access-request-dynamic-approver"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **triggerId**: *eq*  **subscriptionId**: *eq* (optional)
 $Sorters = "created" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **triggerId, subscriptionName, created, completed** (optional)
+
 # List Latest Invocation Statuses
+
 try {
     Get-BetaTriggerInvocationStatus
     
@@ -348,11 +334,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-triggers
-
 Gets a list of triggers that are available in the tenant.
 
 ### Parameters 
@@ -365,7 +348,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name**
 
 ### Return type
-
 [**Trigger[]**](../models/trigger)
 
 ### Responses
@@ -379,7 +361,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -390,7 +371,9 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Filters = 'id eq "idn:access-request-post-approval"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ge, le* (optional)
 $Sorters = "name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name** (optional)
+
 # List Triggers
+
 try {
     Get-BetaTriggers
     
@@ -401,11 +384,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## patch-subscription
-
 This API updates a trigger subscription in IdentityNow, using a set of instructions to modify a subscription partially. The following fields are patchable:
 
 **name**, **description**, **enabled**, **type**, **filter**, **responseDeadline**, **httpConfig**, **eventBridgeConfig**, **workflowConfig**
@@ -417,7 +397,6 @@ Path   | Id | **String** | True  | ID of the Subscription to patch
  Body  | SubscriptionPatchRequestInner | [**[]SubscriptionPatchRequestInner**](../models/subscription-patch-request-inner) | True  | 
 
 ### Return type
-
 [**Subscription**](../models/subscription)
 
 ### Responses
@@ -432,17 +411,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json-patch+json
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde" # String | ID of the Subscription to patch
- # SubscriptionPatchRequestInner[] | 
- $SubscriptionPatchRequestInner = @""@ 
+ $SubscriptionPatchRequestInner = @""@ # SubscriptionPatchRequestInner[] | 
+ 
 
 # Patch a Subscription
+
 try {
     $Result = ConvertFrom-JsonToSubscriptionPatchRequestInner -Json $SubscriptionPatchRequestInner
     Update-BetaSubscription-BetaId $Id -BetaSubscriptionPatchRequestInner $Result
@@ -454,11 +433,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## start-test-trigger-invocation
-
 Initiate a test event for all subscribers of the specified event trigger.  If there are no subscribers to the specified trigger in the tenant, then no test event will be sent.
 
 ### Parameters 
@@ -467,7 +443,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | TestInvocation | [**TestInvocation**](../models/test-invocation) | True  | 
 
 ### Return type
-
 [**Invocation[]**](../models/invocation)
 
 ### Responses
@@ -482,7 +457,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -498,7 +472,9 @@ $TestInvocation = @"{
     "workflowId" : 1234
   }
 }"@
+
 # Start a Test Invocation
+
 try {
     $Result = ConvertFrom-JsonToTestInvocation -Json $TestInvocation
     Start-BetaTestTriggerInvocation-BetaTestInvocation $Result
@@ -510,11 +486,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## test-subscription-filter
-
 Validates a JSONPath filter expression against a provided mock input.
 Request requires a security scope of: 
 
@@ -524,7 +497,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | ValidateFilterInputDto | [**ValidateFilterInputDto**](../models/validate-filter-input-dto) | True  | 
 
 ### Return type
-
 [**ValidateFilterOutputDto**](../models/validate-filter-output-dto)
 
 ### Responses
@@ -538,7 +510,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -550,7 +521,9 @@ $ValidateFilterInputDto = @"{
     "identityId" : "201327fda1c44704ac01181e963d463c"
   }
 }"@
+
 # Validate a Subscription Filter
+
 try {
     $Result = ConvertFrom-JsonToValidateFilterInputDto -Json $ValidateFilterInputDto
     Test-BetaSubscriptionFilter-BetaValidateFilterInputDto $Result
@@ -562,11 +535,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## update-subscription
-
 This API updates a trigger subscription in IdentityNow, using a full object representation. In other words, the existing
   Subscription is completely replaced. The following fields are immutable:
 
@@ -585,7 +555,6 @@ Path   | Id | **String** | True  | Subscription ID
  Body  | SubscriptionPutRequest | [**SubscriptionPutRequest**](../models/subscription-put-request) | True  | 
 
 ### Return type
-
 [**Subscription**](../models/subscription)
 
 ### Responses
@@ -600,7 +569,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -631,7 +599,9 @@ $SubscriptionPutRequest = @"{
   "type" : "HTTP",
   "enabled" : true
 }"@
+
 # Update a Subscription
+
 try {
     $Result = ConvertFrom-JsonToSubscriptionPutRequest -Json $SubscriptionPutRequest
     Update-BetaSubscription-BetaId $Id -BetaSubscriptionPutRequest $Result
@@ -643,7 +613,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

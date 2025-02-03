@@ -1,3 +1,4 @@
+
 ---
 id: v2024-application-discovery
 title: ApplicationDiscovery
@@ -8,7 +9,6 @@ keywords: ['powershell', 'PowerShell', 'sdk', 'ApplicationDiscovery', 'V2024Appl
 slug: /tools/sdk/powershell/v2024/methods/application-discovery
 tags: ['SDK', 'Software Development Kit', 'ApplicationDiscovery', 'V2024ApplicationDiscovery']
 ---
-
 
 # ApplicationDiscovery
   Use this API to implement application discovery functionality. 
@@ -24,9 +24,7 @@ Method | HTTP request | Description
 [**Get-V2024ManualDiscoverApplicationsCsvTemplate**](#get-manual-discover-applications-csv-template) | **GET** `/manual-discover-applications-template` | Download CSV Template for Discovery
 [**Send-V2024ManualDiscoverApplicationsCsvTemplate**](#send-manual-discover-applications-csv-template) | **POST** `/manual-discover-applications` | Upload CSV to Discover Applications
 
-
 ## get-discovered-applications
-
 Get a list of applications that have been identified within the environment. This includes details such as application names, discovery dates, potential correlated saas_vendors and related suggested connectors.
 
 
@@ -40,7 +38,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, description, discoveredAt, discoverySource**
 
 ### Return type
-
 [**GetDiscoveredApplications200ResponseInner[]**](../models/get-discovered-applications200-response-inner)
 
 ### Responses
@@ -54,7 +51,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -65,7 +61,9 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 $Detail = "SLIM" # String | Determines whether slim, or increased level of detail is provided for each discovered application in the returned list. SLIM is the default behavior. (optional)
 $Filter = "name eq "Okta" and description co "Okta" and discoverySource in ("csv", "Okta Saas")" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)       Filtering is supported for the following fields and operators:  **name**: *eq, sw, co*  **description**: *eq, sw, co*  **createdAtStart**: *eq, le, ge*  **createdAtEnd**: *eq, le, ge*  **discoveredAtStart**: *eq, le, ge*  **discoveredAtEnd**: *eq, le, ge*  **discoverySource**: *eq, in*  (optional)
 $Sorters = "name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, description, discoveredAt, discoverySource** (optional)
+
 # Get Discovered Applications for Tenant
+
 try {
     Get-V2024DiscoveredApplications
     
@@ -76,11 +74,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-manual-discover-applications-csv-template
-
 Download an example CSV file with two columns `application_name` and `description`.  The CSV file contains a single row with the values 'Example Application' and 'Example Description'.
 
 The downloaded template is specifically designed for use with the `/manual-discover-applications` endpoint.
@@ -91,7 +86,6 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 
 ### Return type
-
 [**ManualDiscoverApplicationsTemplate**](../models/manual-discover-applications-template)
 
 ### Responses
@@ -105,13 +99,14 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: text/csv, application/json
 
 ### Example
 ```powershell
+
 # Download CSV Template for Discovery
+
 try {
     Get-V2024ManualDiscoverApplicationsCsvTemplate
     
@@ -122,11 +117,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## send-manual-discover-applications-csv-template
-
 Uploading a CSV file with application data for manual correlation to specific ISC connectors. 
 If a suitable ISC connector is unavailable, the system will recommend generic connectors instead.
 
@@ -136,7 +128,6 @@ Param Type | Name | Data Type | Required  | Description
    | File | **System.IO.FileInfo** | True  | The CSV file to upload containing `application_name` and `description` columns. Each row represents an application to be discovered.
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -150,14 +141,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: multipart/form-data
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $File =  # System.IO.FileInfo | The CSV file to upload containing `application_name` and `description` columns. Each row represents an application to be discovered.
+
 # Upload CSV to Discover Applications
+
 try {
     Send-V2024ManualDiscoverApplicationsCsvTemplate-V2024File $File 
     
@@ -168,7 +160,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

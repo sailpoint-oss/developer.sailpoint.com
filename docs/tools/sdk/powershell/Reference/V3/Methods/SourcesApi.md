@@ -1,3 +1,4 @@
+
 ---
 id: sources
 title: Sources
@@ -8,7 +9,6 @@ keywords: ['powershell', 'PowerShell', 'sdk', 'Sources', 'Sources']
 slug: /tools/sdk/powershell/v3/methods/sources
 tags: ['SDK', 'Software Development Kit', 'Sources', 'Sources']
 ---
-
 
 # Sources
   Use this API to implement and customize source functionality. 
@@ -102,9 +102,7 @@ Method | HTTP request | Description
 [**Update-Source**](#update-source) | **PATCH** `/sources/{id}` | Update Source (Partial)
 [**Update-SourceSchema**](#update-source-schema) | **PATCH** `/sources/{sourceId}/schemas/{schemaId}` | Update Source Schema (Partial)
 
-
 ## create-provisioning-policy
-
 This API generates a create policy/template based on field value transforms. This API is intended for use when setting up JDBC Provisioning type sources, but it will also work on other source types.
 Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning.
 Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information.
@@ -116,7 +114,6 @@ Path   | SourceId | **String** | True  | The Source id
  Body  | ProvisioningPolicyDto | [**ProvisioningPolicyDto**](../models/provisioning-policy-dto) | True  | 
 
 ### Return type
-
 [**ProvisioningPolicyDto**](../models/provisioning-policy-dto)
 
 ### Responses
@@ -131,7 +128,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -178,7 +174,9 @@ $ProvisioningPolicyDto = @"{
   } ],
   "usageType" : "CREATE"
 }"@
+
 # Create Provisioning Policy
+
 try {
     $Result = ConvertFrom-JsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
     New-ProvisioningPolicy-SourceId $SourceId -ProvisioningPolicyDto $Result
@@ -190,11 +188,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## create-source
-
 This creates a specific source with a full source JSON representation. Any passwords are submitted as plain-text and encrypted upon receipt in IdentityNow.
 
 ### Parameters 
@@ -204,7 +199,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | ProvisionAsCsv | **Boolean** |   (optional) | If this parameter is `true`, it configures the source as a Delimited File (CSV) source. Setting this to `true` will automatically set the `type` of the source to `DelimitedFile`.  You must use this query parameter to create a Delimited File source as you would in the UI.  If you don't set this query parameter and you attempt to set the `type` attribute directly, the request won't correctly generate the source.  
 
 ### Return type
-
 [**Source**](../models/source)
 
 ### Responses
@@ -218,7 +212,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -308,7 +301,9 @@ $Source = @"{
   "since" : "2021-09-28T15:48:29.3801666300Z"
 }"@
 $ProvisionAsCsv = $false # Boolean | If this parameter is `true`, it configures the source as a Delimited File (CSV) source. Setting this to `true` will automatically set the `type` of the source to `DelimitedFile`.  You must use this query parameter to create a Delimited File source as you would in the UI.  If you don't set this query parameter and you attempt to set the `type` attribute directly, the request won't correctly generate the source.   (optional)
+
 # Creates a source in IdentityNow.
+
 try {
     $Result = ConvertFrom-JsonToSource -Json $Source
     New-Source-Source $Result
@@ -320,11 +315,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## create-source-schema
-
 Use this API to create a new schema on the specified source in Identity Security Cloud (ISC).
 
 
@@ -335,7 +327,6 @@ Path   | SourceId | **String** | True  | Source ID.
  Body  | Schema | [**Schema**](../models/schema) | True  | 
 
 ### Return type
-
 [**Schema**](../models/schema)
 
 ### Responses
@@ -349,7 +340,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -390,7 +380,9 @@ $Schema = @"{
   "displayAttribute" : "distinguishedName",
   "identityAttribute" : "sAMAccountName"
 }"@
+
 # Create Schema on Source
+
 try {
     $Result = ConvertFrom-JsonToSchema -Json $Schema
     New-SourceSchema-SourceId $SourceId -Schema $Result
@@ -402,11 +394,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## delete-provisioning-policy
-
 Deletes the provisioning policy with the specified usage on an application.
 
 ### Parameters 
@@ -416,7 +405,6 @@ Path   | SourceId | **String** | True  | The Source ID.
 Path   | UsageType | [**UsageType**](../models/usage-type) | True  | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to 'Create Account Profile', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to 'Update Account Profile', the provisioning template for the 'Update' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to 'Enable Account Profile', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner's account is created.  DISABLE - This usage type relates to 'Disable Account Profile', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs. 
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -431,7 +419,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -439,7 +426,9 @@ Code | Description  | Data Type
 ```powershell
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source ID.
 $UsageType = "CREATE" # UsageType | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to 'Create Account Profile', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to 'Update Account Profile', the provisioning template for the 'Update' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to 'Enable Account Profile', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner's account is created.  DISABLE - This usage type relates to 'Disable Account Profile', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs. 
+
 # Delete Provisioning Policy by UsageType
+
 try {
     Remove-ProvisioningPolicy-SourceId $SourceId -UsageType $UsageType 
     
@@ -450,11 +439,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## delete-source
-
 Use this API to delete a specific source in Identity Security Cloud (ISC).
 The API removes all the accounts on the source first, and then it deletes the source. You can retrieve the actual task execution status with this method: GET `/task-status/{id}`
 
@@ -464,7 +450,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | Source ID.
 
 ### Return type
-
 [**DeleteSource202Response**](../models/delete-source202-response)
 
 ### Responses
@@ -479,14 +464,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
+
 # Delete Source by ID
+
 try {
     Remove-Source-Id $Id 
     
@@ -497,11 +483,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## delete-source-schema
-
 
 
 ### Parameters 
@@ -511,7 +494,6 @@ Path   | SourceId | **String** | True  | The Source id.
 Path   | SchemaId | **String** | True  | The Schema id.
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -526,7 +508,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -534,7 +515,9 @@ Code | Description  | Data Type
 ```powershell
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
 $SchemaId = "2c9180835d191a86015d28455b4a2329" # String | The Schema id.
+
 # Delete Source Schema by ID
+
 try {
     Remove-SourceSchema-SourceId $SourceId -SchemaId $SchemaId 
     
@@ -545,11 +528,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-accounts-schema
-
 This API downloads the CSV schema that defines the account attributes on a source.
 >**NOTE: This API is designated only for Delimited File sources.**
 
@@ -559,7 +539,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | The Source id
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -574,14 +553,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: text/csv, application/json
 
 ### Example
 ```powershell
 $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
+
 # Downloads source accounts schema template
+
 try {
     Get-AccountsSchema-Id $Id 
     
@@ -592,11 +572,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-entitlements-schema
-
 This API downloads the CSV schema that defines the entitlement attributes on a source.
 
 >**NOTE: This API is designated only for Delimited File sources.**
@@ -608,7 +585,6 @@ Path   | Id | **String** | True  | The Source id
   Query | SchemaName | **String** |   (optional) | Name of entitlement schema
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -623,7 +599,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: text/csv, application/json
 
@@ -631,7 +606,9 @@ Code | Description  | Data Type
 ```powershell
 $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
 $SchemaName = "?schemaName=group" # String | Name of entitlement schema (optional)
+
 # Downloads source entitlements schema template
+
 try {
     Get-EntitlementsSchema-Id $Id 
     
@@ -642,11 +619,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-provisioning-policy
-
 This end-point retrieves the ProvisioningPolicy with the specified usage on the specified Source in IdentityNow.
 
 ### Parameters 
@@ -656,7 +630,6 @@ Path   | SourceId | **String** | True  | The Source ID.
 Path   | UsageType | [**UsageType**](../models/usage-type) | True  | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to 'Create Account Profile', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to 'Update Account Profile', the provisioning template for the 'Update' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to 'Enable Account Profile', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner's account is created.  DISABLE - This usage type relates to 'Disable Account Profile', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs. 
 
 ### Return type
-
 [**ProvisioningPolicyDto**](../models/provisioning-policy-dto)
 
 ### Responses
@@ -671,7 +644,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -679,7 +651,9 @@ Code | Description  | Data Type
 ```powershell
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source ID.
 $UsageType = "CREATE" # UsageType | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to 'Create Account Profile', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to 'Update Account Profile', the provisioning template for the 'Update' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to 'Enable Account Profile', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner's account is created.  DISABLE - This usage type relates to 'Disable Account Profile', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs. 
+
 # Get Provisioning Policy by UsageType
+
 try {
     Get-ProvisioningPolicy-SourceId $SourceId -UsageType $UsageType 
     
@@ -690,11 +664,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-source
-
 Use this API to get a source by a specified ID in Identity Security Cloud (ISC).
 
 ### Parameters 
@@ -703,7 +674,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | Source ID.
 
 ### Return type
-
 [**Source**](../models/source)
 
 ### Responses
@@ -718,14 +688,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
+
 # Get Source by ID
+
 try {
     Get-Source-Id $Id 
     
@@ -736,11 +707,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-source-connections
-
 Use this API to get all dependent Profiles, Attributes, Applications and Custom Transforms for a source by a specified ID in Identity Security Cloud (ISC).
 
 ### Parameters 
@@ -749,7 +717,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | Source ID.
 
 ### Return type
-
 [**SourceConnectionsDto**](../models/source-connections-dto)
 
 ### Responses
@@ -764,14 +731,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
+
 # Get Source Connections by ID
+
 try {
     Get-SourceConnections-Id $Id 
     
@@ -782,11 +750,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-source-health
-
 This endpoint fetches source health by source's id
 
 ### Parameters 
@@ -795,7 +760,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | SourceId | **String** | True  | The Source id.
 
 ### Return type
-
 [**SourceHealthDto**](../models/source-health-dto)
 
 ### Responses
@@ -810,14 +774,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
+
 # Fetches source health by id
+
 try {
     Get-SourceHealth-SourceId $SourceId 
     
@@ -828,11 +793,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-source-schema
-
 Get the Source Schema by ID in IdentityNow.
 
 
@@ -843,7 +805,6 @@ Path   | SourceId | **String** | True  | The Source id.
 Path   | SchemaId | **String** | True  | The Schema id.
 
 ### Return type
-
 [**Schema**](../models/schema)
 
 ### Responses
@@ -858,7 +819,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -866,7 +826,9 @@ Code | Description  | Data Type
 ```powershell
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
 $SchemaId = "2c9180835d191a86015d28455b4a2329" # String | The Schema id.
+
 # Get Source Schema by ID
+
 try {
     Get-SourceSchema-SourceId $SourceId -SchemaId $SchemaId 
     
@@ -877,11 +839,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-source-schemas
-
 Use this API to list the schemas that exist on the specified source in Identity Security Cloud (ISC).
 
 ### Parameters 
@@ -892,7 +851,6 @@ Path   | SourceId | **String** | True  | Source ID.
   Query | IncludeNames | **String** |   (optional) | A comma-separated list of schema names to filter result.
 
 ### Return type
-
 [**Schema[]**](../models/schema)
 
 ### Responses
@@ -907,7 +865,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -916,7 +873,9 @@ Code | Description  | Data Type
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
 $IncludeTypes = "group" # String | If set to 'group', then the account schema is filtered and only group schemas are returned. Only a value of 'group' is recognized presently.  Note: The API will check whether include-types is group or not, if not, it will list schemas based on include-names, if include-names is not provided, it will list all schemas. (optional)
 $IncludeNames = "account" # String | A comma-separated list of schema names to filter result. (optional)
+
 # List Schemas on Source
+
 try {
     Get-SourceSchemas-SourceId $SourceId 
     
@@ -927,11 +886,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## import-accounts-schema
-
 This API uploads a source schema template file to configure a source's account attributes.
 
 To retrieve the file to modify and upload, log into Identity Now. 
@@ -947,7 +903,6 @@ Path   | Id | **String** | True  | The Source id
    | File | **System.IO.FileInfo** |   (optional) | 
 
 ### Return type
-
 [**Schema**](../models/schema)
 
 ### Responses
@@ -961,7 +916,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: multipart/form-data
 - **Accept**: application/json
 
@@ -969,7 +923,9 @@ Code | Description  | Data Type
 ```powershell
 $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
 $File =  # System.IO.FileInfo |  (optional)
+
 # Uploads source accounts schema template
+
 try {
     Import-AccountsSchema-Id $Id 
     
@@ -980,11 +936,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## import-connector-file
-
 This uploads a supplemental source connector file (like jdbc driver jars) to a source's S3 bucket. This also sends ETS and Audit events.
 
 ### Parameters 
@@ -994,7 +947,6 @@ Path   | SourceId | **String** | True  | The Source id.
    | File | **System.IO.FileInfo** |   (optional) | 
 
 ### Return type
-
 [**Source**](../models/source)
 
 ### Responses
@@ -1008,7 +960,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: multipart/form-data
 - **Accept**: application/json
 
@@ -1016,7 +967,9 @@ Code | Description  | Data Type
 ```powershell
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
 $File =  # System.IO.FileInfo |  (optional)
+
 # Upload connector file to source
+
 try {
     Import-ConnectorFile-SourceId $SourceId 
     
@@ -1027,11 +980,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## import-entitlements-schema
-
 This API uploads a source schema template file to configure a source's entitlement attributes.
 
 To retrieve the file to modify and upload, log into Identity Now. 
@@ -1048,7 +998,6 @@ Path   | Id | **String** | True  | The Source id
    | File | **System.IO.FileInfo** |   (optional) | 
 
 ### Return type
-
 [**Schema**](../models/schema)
 
 ### Responses
@@ -1062,7 +1011,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: multipart/form-data
 - **Accept**: application/json
 
@@ -1071,7 +1019,9 @@ Code | Description  | Data Type
 $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
 $SchemaName = "?schemaName=group" # String | Name of entitlement schema (optional)
 $File =  # System.IO.FileInfo |  (optional)
+
 # Uploads source entitlements schema template
+
 try {
     Import-EntitlementsSchema-Id $Id 
     
@@ -1082,11 +1032,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-provisioning-policies
-
 This end-point lists all the ProvisioningPolicies in IdentityNow.
 
 ### Parameters 
@@ -1095,7 +1042,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | SourceId | **String** | True  | The Source id
 
 ### Return type
-
 [**ProvisioningPolicyDto[]**](../models/provisioning-policy-dto)
 
 ### Responses
@@ -1110,14 +1056,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id
+
 # Lists ProvisioningPolicies
+
 try {
     Get-ProvisioningPolicies-SourceId $SourceId 
     
@@ -1128,11 +1075,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-sources
-
 This end-point lists all the sources in IdentityNow.
 
 ### Parameters 
@@ -1147,7 +1091,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | IncludeIDNSource | **Boolean** |   (optional) (default to $false) | Include the IdentityNow source in the response.
 
 ### Return type
-
 [**Source[]**](../models/source)
 
 ### Responses
@@ -1162,7 +1105,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -1175,7 +1117,9 @@ $Filters = 'name eq "Employees"' # String | Filter results using the standard sy
 $Sorters = "name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **type, created, modified, name, owner.name, healthy, status, id, description, owner.id, accountCorrelationConfig.id, accountCorrelationConfig.name, managerCorrelationRule.type, managerCorrelationRule.id, managerCorrelationRule.name, authoritative, managementWorkgroup.id, connectorName, connectionType** (optional)
 $ForSubadmin = "name" # String | Filter the returned list of sources for the identity specified by the parameter, which is the id of an identity with the role SOURCE_SUBADMIN. By convention, the value **me** indicates the identity id of the current user. Subadmins may only view Sources which they are able to administer; all other Sources will be filtered out when this parameter is set. If the current user is a SOURCE_SUBADMIN but fails to pass a valid value for this parameter, a 403 Forbidden is returned. (optional)
 $IncludeIDNSource = $true # Boolean | Include the IdentityNow source in the response. (optional) (default to $false)
+
 # Lists all sources in IdentityNow.
+
 try {
     Get-Sources
     
@@ -1186,11 +1130,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## put-provisioning-policy
-
 This end-point updates the provisioning policy with the specified usage on the specified source in IdentityNow.
 Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning.
 Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information.
@@ -1203,7 +1144,6 @@ Path   | UsageType | [**UsageType**](../models/usage-type) | True  | The type of
  Body  | ProvisioningPolicyDto | [**ProvisioningPolicyDto**](../models/provisioning-policy-dto) | True  | 
 
 ### Return type
-
 [**ProvisioningPolicyDto**](../models/provisioning-policy-dto)
 
 ### Responses
@@ -1218,7 +1158,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -1266,7 +1205,9 @@ $ProvisioningPolicyDto = @"{
   } ],
   "usageType" : "CREATE"
 }"@
+
 # Update Provisioning Policy by UsageType
+
 try {
     $Result = ConvertFrom-JsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
     Send-ProvisioningPolicy-SourceId $SourceId -UsageType $UsageType -ProvisioningPolicyDto $Result
@@ -1278,11 +1219,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## put-source
-
 Use this API to update a source in Identity Security Cloud (ISC), using a full object representation. This means that when you use this API, it completely replaces the existing source configuration.
 
 These fields are immutable, so they cannot be changed:
@@ -1304,7 +1242,6 @@ Path   | Id | **String** | True  | Source ID.
  Body  | Source | [**Source**](../models/source) | True  | 
 
 ### Return type
-
 [**Source**](../models/source)
 
 ### Responses
@@ -1319,7 +1256,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -1409,7 +1345,9 @@ $Source = @"{
   "status" : "SOURCE_STATE_HEALTHY",
   "since" : "2021-09-28T15:48:29.3801666300Z"
 }"@
+
 # Update Source (Full)
+
 try {
     $Result = ConvertFrom-JsonToSource -Json $Source
     Send-Source-Id $Id -Source $Result
@@ -1421,11 +1359,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## put-source-schema
-
 This API will completely replace an existing Schema with the submitted payload. Some fields of the Schema cannot be updated. These fields are listed below.
 
 * id
@@ -1446,7 +1381,6 @@ Path   | SchemaId | **String** | True  | The Schema id.
  Body  | Schema | [**Schema**](../models/schema) | True  | 
 
 ### Return type
-
 [**Schema**](../models/schema)
 
 ### Responses
@@ -1461,7 +1395,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -1503,7 +1436,9 @@ $Schema = @"{
   "displayAttribute" : "distinguishedName",
   "identityAttribute" : "sAMAccountName"
 }"@
+
 # Update Source Schema (Full)
+
 try {
     $Result = ConvertFrom-JsonToSchema -Json $Schema
     Send-SourceSchema-SourceId $SourceId -SchemaId $SchemaId -Schema $Result
@@ -1515,11 +1450,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## update-provisioning-policies-in-bulk
-
 This end-point updates a list of provisioning policies on the specified source in IdentityNow.
 
 ### Parameters 
@@ -1529,7 +1461,6 @@ Path   | SourceId | **String** | True  | The Source id.
  Body  | ProvisioningPolicyDto | [**[]ProvisioningPolicyDto**](../models/provisioning-policy-dto) | True  | 
 
 ### Return type
-
 [**ProvisioningPolicyDto[]**](../models/provisioning-policy-dto)
 
 ### Responses
@@ -1544,14 +1475,12 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
- # ProvisioningPolicyDto[] | 
  $ProvisioningPolicyDto = @"{
   "name" : "example provisioning policy for inactive identities",
   "description" : "this provisioning policy creates access based on an identity going inactive",
@@ -1591,9 +1520,11 @@ $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
     "type" : "string"
   } ],
   "usageType" : "CREATE"
-}"@ 
+}"@ # ProvisioningPolicyDto[] | 
+ 
 
 # Bulk Update Provisioning Policies
+
 try {
     $Result = ConvertFrom-JsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
     Update-ProvisioningPoliciesInBulk-SourceId $SourceId -ProvisioningPolicyDto $Result
@@ -1605,11 +1536,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## update-provisioning-policy
-
 This API selectively updates an existing Provisioning Policy using a JSONPatch payload.
 Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning.
 Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information.
@@ -1622,7 +1550,6 @@ Path   | UsageType | [**UsageType**](../models/usage-type) | True  | The type of
  Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | The JSONPatch payload used to update the schema.
 
 ### Return type
-
 [**ProvisioningPolicyDto**](../models/provisioning-policy-dto)
 
 ### Responses
@@ -1637,7 +1564,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json-patch+json
 - **Accept**: application/json
 
@@ -1645,14 +1571,15 @@ Code | Description  | Data Type
 ```powershell
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
 $UsageType = "CREATE" # UsageType | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to 'Create Account Profile', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to 'Update Account Profile', the provisioning template for the 'Update' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to 'Enable Account Profile', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner's account is created.  DISABLE - This usage type relates to 'Disable Account Profile', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs. 
- # JsonPatchOperation[] | The JSONPatch payload used to update the schema.
  $JsonPatchOperation = @"{
   "op" : "replace",
   "path" : "/description",
   "value" : "New description"
-}"@ 
+}"@ # JsonPatchOperation[] | The JSONPatch payload used to update the schema.
+ 
 
 # Partial update of Provisioning Policy
+
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
     Update-ProvisioningPolicy-SourceId $SourceId -UsageType $UsageType -JsonPatchOperation $Result
@@ -1664,11 +1591,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## update-source
-
 Use this API to partially update a source in Identity Security Cloud (ISC), using a list of patch operations according to the
 [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
@@ -1693,7 +1617,6 @@ Path   | Id | **String** | True  | Source ID.
  Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Any password changes are submitted as plain-text and encrypted upon receipt in Identity Security Cloud (ISC).
 
 ### Return type
-
 [**Source**](../models/source)
 
 ### Responses
@@ -1708,21 +1631,21 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json-patch+json
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
- # JsonPatchOperation[] | A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Any password changes are submitted as plain-text and encrypted upon receipt in Identity Security Cloud (ISC).
  $JsonPatchOperation = @"{
   "op" : "replace",
   "path" : "/description",
   "value" : "New description"
-}"@ 
+}"@ # JsonPatchOperation[] | A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Any password changes are submitted as plain-text and encrypted upon receipt in Identity Security Cloud (ISC).
+ 
 
 # Update Source (Partial)
+
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
     Update-Source-Id $Id -JsonPatchOperation $Result
@@ -1734,11 +1657,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## update-source-schema
-
 Use this API to selectively update an existing Schema using a JSONPatch payload. 
 
 The following schema fields are immutable and cannot be updated:
@@ -1778,7 +1698,6 @@ Path   | SchemaId | **String** | True  | The Schema id.
  Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | The JSONPatch payload used to update the schema.
 
 ### Return type
-
 [**Schema**](../models/schema)
 
 ### Responses
@@ -1793,7 +1712,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json-patch+json
 - **Accept**: application/json
 
@@ -1801,14 +1719,15 @@ Code | Description  | Data Type
 ```powershell
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
 $SchemaId = "2c9180835d191a86015d28455b4a2329" # String | The Schema id.
- # JsonPatchOperation[] | The JSONPatch payload used to update the schema.
  $JsonPatchOperation = @"{
   "op" : "replace",
   "path" : "/description",
   "value" : "New description"
-}"@ 
+}"@ # JsonPatchOperation[] | The JSONPatch payload used to update the schema.
+ 
 
 # Update Source Schema (Partial)
+
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
     Update-SourceSchema-SourceId $SourceId -SchemaId $SchemaId -JsonPatchOperation $Result
@@ -1820,7 +1739,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

@@ -1,3 +1,4 @@
+
 ---
 id: beta-mfa-configuration
 title: MFAConfiguration
@@ -8,7 +9,6 @@ keywords: ['powershell', 'PowerShell', 'sdk', 'MFAConfiguration', 'BetaMFAConfig
 slug: /tools/sdk/powershell/beta/methods/mfa-configuration
 tags: ['SDK', 'Software Development Kit', 'MFAConfiguration', 'BetaMFAConfiguration']
 ---
-
 
 # MFAConfiguration
   Configure and test multifactor authentication (MFA) methods 
@@ -27,9 +27,7 @@ Method | HTTP request | Description
 [**Set-BetaMFAOktaConfig**](#set-mfa-okta-config) | **PUT** `/mfa/okta-verify/config` | Set Okta MFA configuration
 [**Test-BetaMFAConfig**](#test-mfa-config) | **GET** `/mfa/{method}/test` | MFA method&#39;s test configuration
 
-
 ## delete-mfa-config
-
 This API removes the configuration for the specified MFA method.
 
 ### Parameters 
@@ -38,7 +36,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Method | **String** | True  | The name of the MFA method. The currently supported method names are 'okta-verify' and 'duo-web'.
 
 ### Return type
-
 [**MfaOktaConfig**](../models/mfa-okta-config)
 
 ### Responses
@@ -52,14 +49,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Method = "okta-verify" # String | The name of the MFA method. The currently supported method names are 'okta-verify' and 'duo-web'.
+
 # Delete MFA method configuration
+
 try {
     Remove-BetaMFAConfig-BetaMethod $Method 
     
@@ -70,11 +68,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-mfa-duo-config
-
 This API returns the configuration of an Duo MFA method.
 
 ### Parameters 
@@ -82,7 +77,6 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 
 ### Return type
-
 [**MfaDuoConfig**](../models/mfa-duo-config)
 
 ### Responses
@@ -96,13 +90,14 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
+
 # Configuration of Duo MFA method
+
 try {
     Get-BetaMFADuoConfig
     
@@ -113,11 +108,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-mfa-kba-config
-
 This API returns the KBA configuration for MFA.
 
 ### Parameters 
@@ -126,7 +118,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | AllLanguages | **Boolean** |   (optional) | Indicator whether the question text should be returned in all configured languages    * If true, the question text is returned in all languages that it is configured in.    * If false, the question text is returned in the user locale if available, else for the default locale.     * If not passed, it behaves the same way as passing this parameter as false
 
 ### Return type
-
 [**KbaQuestion[]**](../models/kba-question)
 
 ### Responses
@@ -140,14 +131,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $AllLanguages = $false # Boolean | Indicator whether the question text should be returned in all configured languages    * If true, the question text is returned in all languages that it is configured in.    * If false, the question text is returned in the user locale if available, else for the default locale.     * If not passed, it behaves the same way as passing this parameter as false (optional)
+
 # Configuration of KBA MFA method
+
 try {
     Get-BetaMFAKbaConfig
     
@@ -158,11 +150,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-mfa-okta-config
-
 This API returns the configuration of an Okta MFA method.
 
 ### Parameters 
@@ -170,7 +159,6 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 
 ### Return type
-
 [**MfaOktaConfig**](../models/mfa-okta-config)
 
 ### Responses
@@ -184,13 +172,14 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
+
 # Configuration of Okta MFA method
+
 try {
     Get-BetaMFAOktaConfig
     
@@ -201,11 +190,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## set-mfa-duo-config
-
 This API sets the configuration of an Duo MFA method.
 
 ### Parameters 
@@ -214,7 +200,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | MfaDuoConfig | [**MfaDuoConfig**](../models/mfa-duo-config) | True  | 
 
 ### Return type
-
 [**MfaDuoConfig**](../models/mfa-duo-config)
 
 ### Responses
@@ -228,7 +213,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -245,7 +229,9 @@ $MfaDuoConfig = @"{
   "enabled" : true,
   "identityAttribute" : "email"
 }"@
+
 # Set Duo MFA configuration
+
 try {
     $Result = ConvertFrom-JsonToMfaDuoConfig -Json $MfaDuoConfig
     Set-BetaMFADuoConfig-BetaMfaDuoConfig $Result
@@ -257,11 +243,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## set-mfakba-config
-
 This API sets answers to challenge questions.  Any configured questions omitted from the request are removed from user KBA configuration.    
 
 ### Parameters 
@@ -270,7 +253,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | KbaAnswerRequestItem | [**[]KbaAnswerRequestItem**](../models/kba-answer-request-item) | True  | 
 
 ### Return type
-
 [**KbaAnswerResponseItem[]**](../models/kba-answer-response-item)
 
 ### Responses
@@ -284,19 +266,19 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
 ### Example
 ```powershell
- # KbaAnswerRequestItem[] | 
  $KbaAnswerRequestItem = @"{
   "answer" : "Your answer",
   "id" : "c54fee53-2d63-4fc5-9259-3e93b9994135"
-}"@ 
+}"@ # KbaAnswerRequestItem[] | 
+ 
 
 # Set MFA KBA configuration
+
 try {
     $Result = ConvertFrom-JsonToKbaAnswerRequestItem -Json $KbaAnswerRequestItem
     Set-BetaMFAKBAConfig-BetaKbaAnswerRequestItem $Result
@@ -308,11 +290,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## set-mfa-okta-config
-
 This API sets the configuration of an Okta MFA method.
 
 ### Parameters 
@@ -321,7 +300,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | MfaOktaConfig | [**MfaOktaConfig**](../models/mfa-okta-config) | True  | 
 
 ### Return type
-
 [**MfaOktaConfig**](../models/mfa-okta-config)
 
 ### Responses
@@ -335,7 +313,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -348,7 +325,9 @@ $MfaOktaConfig = @"{
   "enabled" : true,
   "identityAttribute" : "email"
 }"@
+
 # Set Okta MFA configuration
+
 try {
     $Result = ConvertFrom-JsonToMfaOktaConfig -Json $MfaOktaConfig
     Set-BetaMFAOktaConfig-BetaMfaOktaConfig $Result
@@ -360,11 +339,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## test-mfa-config
-
 This API validates that the configuration is valid and will properly authenticate with the MFA provider identified by the method path parameter.
 
 ### Parameters 
@@ -373,7 +349,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Method | **String** | True  | The name of the MFA method. The currently supported method names are 'okta-verify' and 'duo-web'.
 
 ### Return type
-
 [**MfaConfigTestResponse**](../models/mfa-config-test-response)
 
 ### Responses
@@ -387,14 +362,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Method = "okta-verify" # String | The name of the MFA method. The currently supported method names are 'okta-verify' and 'duo-web'.
+
 # MFA method's test configuration
+
 try {
     Test-BetaMFAConfig-BetaMethod $Method 
     
@@ -405,7 +381,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

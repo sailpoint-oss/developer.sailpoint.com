@@ -1,3 +1,4 @@
+
 ---
 id: beta-lifecycle-states
 title: LifecycleStates
@@ -8,7 +9,6 @@ keywords: ['powershell', 'PowerShell', 'sdk', 'LifecycleStates', 'BetaLifecycleS
 slug: /tools/sdk/powershell/beta/methods/lifecycle-states
 tags: ['SDK', 'Software Development Kit', 'LifecycleStates', 'BetaLifecycleStates']
 ---
-
 
 # LifecycleStates
   Use this API to implement and customize lifecycle state functionality.
@@ -57,9 +57,7 @@ Method | HTTP request | Description
 [**Get-BetaLifecycleStates**](#get-lifecycle-states) | **GET** `/identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id}` | Get Lifecycle State
 [**Update-BetaLifecycleStates**](#update-lifecycle-states) | **PATCH** `/identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id}` | Update Lifecycle State
 
-
 ## get-lifecycle-states
-
 Use this endpoint to get a lifecycle state by its ID and its associated identity profile ID. 
 
 A token with ORG_ADMIN or API authority is required to call this API.
@@ -72,7 +70,6 @@ Path   | IdentityProfileId | **String** | True  | Identity Profile ID.
 Path   | LifecycleStateId | **String** | True  | Lifecycle State ID.
 
 ### Return type
-
 [**LifecycleState**](../models/lifecycle-state)
 
 ### Responses
@@ -86,7 +83,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -94,7 +90,9 @@ Code | Description  | Data Type
 ```powershell
 $IdentityProfileId = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | Identity Profile ID.
 $LifecycleStateId = "ef38f94347e94562b5bb8424a56397d8" # String | Lifecycle State ID.
+
 # Get Lifecycle State
+
 try {
     Get-BetaLifecycleStates-BetaIdentityProfileId $IdentityProfileId -BetaLifecycleStateId $LifecycleStateId 
     
@@ -105,11 +103,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## update-lifecycle-states
-
 Use this endpoint to update individual lifecycle state fields, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
 A token with ORG_ADMIN or API authority is required to call this API.
@@ -123,7 +118,6 @@ Path   | LifecycleStateId | **String** | True  | Lifecycle State ID.
  Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | A list of lifecycle state update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields can be updated: * enabled * description * accountActions * accessProfileIds * emailNotificationOption 
 
 ### Return type
-
 [**LifecycleState**](../models/lifecycle-state)
 
 ### Responses
@@ -137,7 +131,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json-patch+json
 - **Accept**: application/json
 
@@ -145,14 +138,15 @@ Code | Description  | Data Type
 ```powershell
 $IdentityProfileId = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | Identity Profile ID.
 $LifecycleStateId = "ef38f94347e94562b5bb8424a56397d8" # String | Lifecycle State ID.
- # JsonPatchOperation[] | A list of lifecycle state update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields can be updated: * enabled * description * accountActions * accessProfileIds * emailNotificationOption 
  $JsonPatchOperation = @"{
   "op" : "replace",
   "path" : "/description",
   "value" : "New description"
-}"@ 
+}"@ # JsonPatchOperation[] | A list of lifecycle state update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields can be updated: * enabled * description * accountActions * accessProfileIds * emailNotificationOption 
+ 
 
 # Update Lifecycle State
+
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
     Update-BetaLifecycleStates-BetaIdentityProfileId $IdentityProfileId -BetaLifecycleStateId $LifecycleStateId -BetaJsonPatchOperation $Result
@@ -164,7 +158,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

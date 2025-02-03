@@ -1,3 +1,4 @@
+
 ---
 id: v2024-identities
 title: Identities
@@ -8,7 +9,6 @@ keywords: ['powershell', 'PowerShell', 'sdk', 'Identities', 'V2024Identities']
 slug: /tools/sdk/powershell/v2024/methods/identities
 tags: ['SDK', 'Software Development Kit', 'Identities', 'V2024Identities']
 ---
-
 
 # Identities
   Use this API to implement identity functionality.
@@ -45,9 +45,7 @@ Method | HTTP request | Description
 [**Start-V2024IdentityProcessing**](#start-identity-processing) | **POST** `/identities/process` | Process a list of identityIds
 [**Sync-V2024hronizeAttributesForIdentity**](#synchronize-attributes-for-identity) | **POST** `/identities/{identityId}/synchronize-attributes` | Attribute synchronization for single identity.
 
-
 ## delete-identity
-
 The API returns successful response if the requested identity was deleted.
 
 ### Parameters 
@@ -57,7 +55,6 @@ Path   | Id | **String** | True  | Identity Id
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -72,7 +69,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -80,7 +76,9 @@ Code | Description  | Data Type
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Identity Id
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
 # Delete identity
+
 try {
     Remove-V2024Identity-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
     
@@ -91,11 +89,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-identity
-
 This API returns a single identity using the Identity ID.
 
 ### Parameters 
@@ -105,7 +100,6 @@ Path   | Id | **String** | True  | Identity Id
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-
 [**Identity**](../models/identity)
 
 ### Responses
@@ -120,7 +114,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -128,7 +121,9 @@ Code | Description  | Data Type
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Identity Id
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
 # Identity Details
+
 try {
     Get-V2024Identity-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
     
@@ -139,11 +134,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-identity-ownership-details
-
 Use this API to return an identity's owned objects that will cause problems for deleting the identity. 
 Use this API as a checklist of objects that you need to reassign to a different identity before you can delete the identity. 
 For a full list of objects owned by an identity, use the [Search API](https://developer.sailpoint.com/docs/api/v3/search-post/).  When you search for identities, the returned identities have a property, `owns`, that contains a more comprehensive list of identity's owned objects.
@@ -155,7 +147,6 @@ Path   | IdentityId | **String** | True  | Identity ID.
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-
 [**IdentityOwnershipAssociationDetails**](../models/identity-ownership-association-details)
 
 ### Responses
@@ -170,7 +161,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -178,7 +168,9 @@ Code | Description  | Data Type
 ```powershell
 $IdentityId = "ff8081814d2a8036014d701f3fbf53fa" # String | Identity ID.
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
 # Get ownership details
+
 try {
     Get-V2024IdentityOwnershipDetails-V2024IdentityId $IdentityId -V2024XSailPointExperimental $XSailPointExperimental 
     
@@ -189,11 +181,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-role-assignment
-
 
 
 ### Parameters 
@@ -204,7 +193,6 @@ Path   | AssignmentId | **String** | True  | Assignment Id
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-
 [**RoleAssignmentDto**](../models/role-assignment-dto)
 
 ### Responses
@@ -219,7 +207,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -228,7 +215,9 @@ Code | Description  | Data Type
 $IdentityId = "ef38f94347e94562b5bb8424a56397d8" # String | Identity Id
 $AssignmentId = "1cbb0705b38c4226b1334eadd8874086" # String | Assignment Id
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
 # Role assignment details
+
 try {
     Get-V2024RoleAssignment-V2024IdentityId $IdentityId -V2024AssignmentId $AssignmentId -V2024XSailPointExperimental $XSailPointExperimental 
     
@@ -239,11 +228,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-role-assignments
-
 This returns either a list of Role Assignments when querying with either a Role Id or Role Name, or a list of Role Assignment References if querying with only identity Id.
 
 ### Parameters 
@@ -255,7 +241,6 @@ Path   | IdentityId | **String** | True  | Identity Id to get the role assignmen
   Query | RoleName | **String** |   (optional) | Role name to filter the role assignments with
 
 ### Return type
-
 [**GetRoleAssignments200ResponseInner[]**](../models/get-role-assignments200-response-inner)
 
 ### Responses
@@ -270,7 +255,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -280,7 +264,9 @@ $IdentityId = "ef38f94347e94562b5bb8424a56397d8" # String | Identity Id to get t
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $RoleId = "e7697a1e96d04db1ac7b0f4544915d2c" # String | Role Id to filter the role assignments with (optional)
 $RoleName = "Engineer" # String | Role name to filter the role assignments with (optional)
+
 # List role assignments
+
 try {
     Get-V2024RoleAssignments-V2024IdentityId $IdentityId -V2024XSailPointExperimental $XSailPointExperimental 
     
@@ -291,11 +277,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-identities
-
 This API returns a list of identities.
 
 ### Parameters 
@@ -310,7 +293,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-
 [**Identity[]**](../models/identity)
 
 ### Responses
@@ -324,7 +306,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -337,7 +318,9 @@ $DefaultFilter = "CORRELATED_ONLY" # String | Adds additional filter to filters 
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+
 # List Identities
+
 try {
     Get-V2024Identities-V2024XSailPointExperimental $XSailPointExperimental 
     
@@ -348,11 +331,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## reset-identity
-
 Use this endpoint to reset a user's identity if they have forgotten their authentication information like their answers to knowledge-based questions. Resetting an identity de-registers the user and removes any elevated user levels they have.
 
 ### Parameters 
@@ -362,7 +342,6 @@ Path   | IdentityId | **String** | True  | Identity Id
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -377,7 +356,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -385,7 +363,9 @@ Code | Description  | Data Type
 ```powershell
 $IdentityId = "ef38f94347e94562b5bb8424a56397d8" # String | Identity Id
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
 # Reset an identity
+
 try {
     Reset-V2024Identity-V2024IdentityId $IdentityId -V2024XSailPointExperimental $XSailPointExperimental 
     
@@ -396,11 +376,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## send-identity-verification-account-token
-
 This API sends an email with the link to start Password Reset. After selecting the link an identity will be able to set up a new password. Emails expire after 2 hours.
 
 
@@ -412,7 +389,6 @@ Path   | Id | **String** | True  | Identity ID
  Body  | SendAccountVerificationRequest | [**SendAccountVerificationRequest**](../models/send-account-verification-request) | True  | 
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -427,7 +403,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -439,7 +414,9 @@ $SendAccountVerificationRequest = @"{
   "sourceName" : "Active Directory Source",
   "via" : "EMAIL_WORK"
 }"@
+
 # Send password reset email
+
 try {
     $Result = ConvertFrom-JsonToSendAccountVerificationRequest -Json $SendAccountVerificationRequest
     Send-V2024IdentityVerificationAccountToken-V2024XSailPointExperimental $XSailPointExperimental -V2024Id $Id -V2024SendAccountVerificationRequest $Result
@@ -451,11 +428,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## start-identities-invite
-
 This API submits a task for inviting given identities via email to complete registration. The invitation email will include the link. After selecting the link an identity will be able to set up password and log in into the system. Invitations expire after 7 days. By default invitations send to the work identity email. It can be changed in Admin > Identities > Identity Profiles by selecting corresponding profile and editing Invitation Options.
 
 This task will send an invitation email only for unregistered identities.
@@ -470,7 +444,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | InviteIdentitiesRequest | [**InviteIdentitiesRequest**](../models/invite-identities-request) | True  | 
 
 ### Return type
-
 [**TaskStatus**](../models/task-status)
 
 ### Responses
@@ -485,7 +458,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -496,7 +468,9 @@ $InviteIdentitiesRequest = @"{
   "ids" : [ "2b568c65bc3c4c57a43bd97e3a8e55", "2c9180867769897d01776ed5f125512f" ],
   "uninvited" : false
 }"@
+
 # Invite identities to register
+
 try {
     $Result = ConvertFrom-JsonToInviteIdentitiesRequest -Json $InviteIdentitiesRequest
     Start-V2024IdentitiesInvite-V2024XSailPointExperimental $XSailPointExperimental -V2024InviteIdentitiesRequest $Result
@@ -508,11 +482,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## start-identity-processing
-
 This operation should not be used to schedule your own identity processing or to perform system wide identity refreshes. The system will use a combination of [event-based processing](https://documentation.sailpoint.com/saas/help/setup/identity_processing.html?h=process#event-based-processing) and [scheduled processing](https://documentation.sailpoint.com/saas/help/setup/identity_processing.html?h=process#scheduled-processing) that runs every day at 8:00 AM and 8:00 PM in the tenant's timezone to keep your identities synchronized. 
 
 This endpoint will perform the following tasks:
@@ -529,7 +500,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | ProcessIdentitiesRequest | [**ProcessIdentitiesRequest**](../models/process-identities-request) | True  | 
 
 ### Return type
-
 [**TaskResultResponse**](../models/task-result-response)
 
 ### Responses
@@ -544,7 +514,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -554,7 +523,9 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 $ProcessIdentitiesRequest = @"{
   "identityIds" : [ "ef38f94347e94562b5bb8424a56397d8", "ef38f94347e94562b5bb8424a56397d8", "ef38f94347e94562b5bb8424a56397d8", "ef38f94347e94562b5bb8424a56397d8", "ef38f94347e94562b5bb8424a56397d8" ]
 }"@
+
 # Process a list of identityIds
+
 try {
     $Result = ConvertFrom-JsonToProcessIdentitiesRequest -Json $ProcessIdentitiesRequest
     Start-V2024IdentityProcessing-V2024XSailPointExperimental $XSailPointExperimental -V2024ProcessIdentitiesRequest $Result
@@ -566,11 +537,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## synchronize-attributes-for-identity
-
 This end-point performs attribute synchronization for a selected identity. The endpoint can be called once in 10 seconds per identity.
 
 ### Parameters 
@@ -580,7 +548,6 @@ Path   | IdentityId | **String** | True  | The Identity id
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-
 [**IdentitySyncJob**](../models/identity-sync-job)
 
 ### Responses
@@ -595,7 +562,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -603,7 +569,9 @@ Code | Description  | Data Type
 ```powershell
 $IdentityId = "MyIdentityId" # String | The Identity id
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
 # Attribute synchronization for single identity.
+
 try {
     Sync-V2024hronizeAttributesForIdentity-V2024IdentityId $IdentityId -V2024XSailPointExperimental $XSailPointExperimental 
     
@@ -614,7 +582,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

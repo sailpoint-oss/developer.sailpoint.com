@@ -1,3 +1,4 @@
+
 ---
 id: v2024-password-dictionary
 title: PasswordDictionary
@@ -8,7 +9,6 @@ keywords: ['powershell', 'PowerShell', 'sdk', 'PasswordDictionary', 'V2024Passwo
 slug: /tools/sdk/powershell/v2024/methods/password-dictionary
 tags: ['SDK', 'Software Development Kit', 'PasswordDictionary', 'V2024PasswordDictionary']
 ---
-
 
 # PasswordDictionary
   Use this API to implement password dictionary functionality.  
@@ -68,9 +68,7 @@ Method | HTTP request | Description
 [**Get-V2024PasswordDictionary**](#get-password-dictionary) | **GET** `/password-dictionary` | Get Password Dictionary
 [**Send-V2024PasswordDictionary**](#put-password-dictionary) | **PUT** `/password-dictionary` | Update Password Dictionary
 
-
 ## get-password-dictionary
-
 This gets password dictionary for the organization.
 The password dictionary file can contain lines that are:
 1. comment lines - the first character is '#', can be 128 Unicode codepoints in length, and are ignored during processing
@@ -106,7 +104,6 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 
 ### Return type
-
 **String**
 
 ### Responses
@@ -121,13 +118,14 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: text/plain, application/json
 
 ### Example
 ```powershell
+
 # Get Password Dictionary
+
 try {
     Get-V2024PasswordDictionary
     
@@ -138,11 +136,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## put-password-dictionary
-
 This updates password dictionary for the organization.
 The password dictionary file can contain lines that are:
 1. comment lines - the first character is '#', can be 128 Unicode codepoints in length, and are ignored during processing
@@ -179,7 +174,6 @@ Param Type | Name | Data Type | Required  | Description
    | File | **System.IO.FileInfo** |   (optional) | 
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -195,14 +189,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: multipart/form-data
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $File =  # System.IO.FileInfo |  (optional)
+
 # Update Password Dictionary
+
 try {
     Send-V2024PasswordDictionary
     
@@ -213,7 +208,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

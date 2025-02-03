@@ -1,3 +1,4 @@
+
 ---
 id: v2024-reports-data-extraction
 title: ReportsDataExtraction
@@ -8,7 +9,6 @@ keywords: ['powershell', 'PowerShell', 'sdk', 'ReportsDataExtraction', 'V2024Rep
 slug: /tools/sdk/powershell/v2024/methods/reports-data-extraction
 tags: ['SDK', 'Software Development Kit', 'ReportsDataExtraction', 'V2024ReportsDataExtraction']
 ---
-
 
 # ReportsDataExtraction
   Use this API to implement reports lifecycle managing and monitoring.
@@ -26,9 +26,7 @@ Method | HTTP request | Description
 [**Get-V2024ReportResult**](#get-report-result) | **GET** `/reports/{taskResultId}/result` | Get Report Result
 [**Start-V2024Report**](#start-report) | **POST** `/reports/run` | Run Report
 
-
 ## cancel-report
-
 Cancels a running report.
 
 ### Parameters 
@@ -37,7 +35,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | ID of the running Report to cancel
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -51,14 +48,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "a1ed223247144cc29d23c632624b4767" # String | ID of the running Report to cancel
+
 # Cancel Report
+
 try {
     Suspend-V2024Report-V2024Id $Id 
     
@@ -69,11 +67,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-report
-
 Gets a report in file format.
 
 ### Parameters 
@@ -85,7 +80,6 @@ Path   | TaskResultId | **String** | True  | Unique identifier of the task resul
   Query | Auditable | **Boolean** |   (optional) (default to $false) | Enables auditing for current report download. Will create an audit event and sent it to the REPORT cloud-audit kafka topic.  Event will be created if there is any result present by requested taskResultId.
 
 ### Return type
-
 **System.IO.FileInfo**
 
 ### Responses
@@ -100,7 +94,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/csv, application/pdf, application/json
 
@@ -110,7 +103,9 @@ $TaskResultId = "ef38f94347e94562b5bb8424a56397d8" # String | Unique identifier 
 $FileFormat = "csv" # String | Output format of the requested report file
 $Name = "Identities Details Report" # String | preferred Report file name, by default will be used report name from task result. (optional)
 $Auditable = $true # Boolean | Enables auditing for current report download. Will create an audit event and sent it to the REPORT cloud-audit kafka topic.  Event will be created if there is any result present by requested taskResultId. (optional) (default to $false)
+
 # Get Report File
+
 try {
     Get-V2024Report-V2024TaskResultId $TaskResultId -V2024FileFormat $FileFormat 
     
@@ -121,11 +116,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-report-result
-
 Get the report results for a report that was run or is running. Returns empty report result in case there are no active task definitions with used in payload task definition name.
 
 ### Parameters 
@@ -135,7 +127,6 @@ Path   | TaskResultId | **String** | True  | Unique identifier of the task resul
   Query | Completed | **Boolean** |   (optional) (default to $false) | state of task result to apply ordering when results are fetching from the DB
 
 ### Return type
-
 [**ReportResults**](../models/report-results)
 
 ### Responses
@@ -149,7 +140,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -157,7 +147,9 @@ Code | Description  | Data Type
 ```powershell
 $TaskResultId = "ef38f94347e94562b5bb8424a56397d8" # String | Unique identifier of the task result which handled report
 $Completed = $true # Boolean | state of task result to apply ordering when results are fetching from the DB (optional) (default to $false)
+
 # Get Report Result
+
 try {
     Get-V2024ReportResult-V2024TaskResultId $TaskResultId 
     
@@ -168,11 +160,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## start-report
-
 Use this API to run a report according to report input details. If non-concurrent task is already running then it returns, otherwise new task creates and returns.
 
 ### Parameters 
@@ -181,7 +170,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | ReportDetails | [**ReportDetails**](../models/report-details) | True  | 
 
 ### Return type
-
 [**TaskResultDetails**](../models/task-result-details)
 
 ### Responses
@@ -195,7 +183,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -208,7 +195,9 @@ $ReportDetails = @"{
     "sourceName" : "Active Directory"
   }
 }"@
+
 # Run Report
+
 try {
     $Result = ConvertFrom-JsonToReportDetails -Json $ReportDetails
     Start-V2024Report-V2024ReportDetails $Result
@@ -220,7 +209,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

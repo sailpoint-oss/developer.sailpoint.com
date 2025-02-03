@@ -1,3 +1,4 @@
+
 ---
 id: roles
 title: Roles
@@ -8,7 +9,6 @@ keywords: ['powershell', 'PowerShell', 'sdk', 'Roles', 'Roles']
 slug: /tools/sdk/powershell/v3/methods/roles
 tags: ['SDK', 'Software Development Kit', 'Roles', 'Roles']
 ---
-
 
 # Roles
   Use this API to implement and customize role functionality.
@@ -63,9 +63,7 @@ Method | HTTP request | Description
 [**Get-Roles**](#list-roles) | **GET** `/roles` | List Roles
 [**Update-Role**](#patch-role) | **PATCH** `/roles/{id}` | Patch a specified Role
 
-
 ## create-role
-
 This API creates a role.
 In addition, a ROLE_SUBADMIN may not create a role including an access profile if that access profile is associated with a source the ROLE_SUBADMIN is not associated with themselves. 
 
@@ -77,7 +75,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | Role | [**Role**](../models/role) | True  | 
 
 ### Return type
-
 [**Role**](../models/role)
 
 ### Responses
@@ -91,7 +88,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -255,7 +251,9 @@ $Role = @"{
   "id" : "2c918086749d78830174a1a40e121518",
   "requestable" : true
 }"@
+
 # Create a Role
+
 try {
     $Result = ConvertFrom-JsonToRole -Json $Role
     New-Role-Role $Result
@@ -267,11 +265,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## delete-bulk-roles
-
 This endpoint initiates a bulk deletion of one or more roles.
 When the request is successful, the endpoint returns the bulk delete's task result ID.  To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/beta/get-task-status), which will return the task result's status and information. 
 This endpoint can only bulk delete up to a limit of 50 roles per request. 
@@ -283,7 +278,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | RoleBulkDeleteRequest | [**RoleBulkDeleteRequest**](../models/role-bulk-delete-request) | True  | 
 
 ### Return type
-
 [**TaskResultDto**](../models/task-result-dto)
 
 ### Responses
@@ -297,7 +291,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -306,7 +299,9 @@ Code | Description  | Data Type
 $RoleBulkDeleteRequest = @"{
   "roleIds" : [ "2c9180847812e0b1017817051919ecca", "2c9180887812e0b201781e129f151816" ]
 }"@
+
 # Delete Role(s)
+
 try {
     $Result = ConvertFrom-JsonToRoleBulkDeleteRequest -Json $RoleBulkDeleteRequest
     Remove-BulkRoles-RoleBulkDeleteRequest $Result
@@ -318,11 +313,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## delete-role
-
 This API deletes a Role by its ID.
 
 A user with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
@@ -333,7 +325,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | ID of the Role
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -347,14 +338,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "2c91808a7813090a017814121e121518" # String | ID of the Role
+
 # Delete a Role
+
 try {
     Remove-Role-Id $Id 
     
@@ -365,11 +357,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-role
-
 This API returns a Role by its ID.
 A user with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
 
@@ -379,7 +368,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | ID of the Role
 
 ### Return type
-
 [**Role**](../models/role)
 
 ### Responses
@@ -393,14 +381,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "2c91808a7813090a017814121e121518" # String | ID of the Role
+
 # Get a Role
+
 try {
     Get-Role-Id $Id 
     
@@ -411,11 +400,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-role-assigned-identities
-
 
 
 ### Parameters 
@@ -429,7 +415,6 @@ Path   | Id | **String** | True  | ID of the Role for which the assigned Identit
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, aliasName, email**
 
 ### Return type
-
 [**RoleIdentity[]**](../models/role-identity)
 
 ### Responses
@@ -443,7 +428,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -455,7 +439,9 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Filters = 'name sw Joe' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **aliasName**: *eq, sw*  **email**: *eq, sw*  **name**: *eq, sw, co* (optional)
 $Sorters = "aliasName,name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, aliasName, email** (optional)
+
 # List Identities assigned a Role
+
 try {
     Get-RoleAssignedIdentities-Id $Id 
     
@@ -466,11 +452,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-roles
-
 This API returns a list of Roles.
 
 ### Parameters 
@@ -486,7 +469,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | IncludeUnsegmented | **Boolean** |   (optional) (default to $true) | Whether or not the response list should contain unsegmented Roles. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error.
 
 ### Return type
-
 [**Role[]**](../models/role)
 
 ### Responses
@@ -500,7 +482,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -514,7 +495,9 @@ $Filters = 'requestable eq false' # String | Filter results using the standard s
 $Sorters = "name,-modified" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified** (optional)
 $ForSegmentIds = "0b5c9f25-83c6-4762-9073-e38f7bb2ae26,2e8d8180-24bc-4d21-91c6-7affdb473b0d" # String | If present and not empty, additionally filters Roles to those which are assigned to the Segment(s) with the specified IDs.  If segmentation is currently unavailable, specifying this parameter results in an error. (optional)
 $IncludeUnsegmented = $false # Boolean | Whether or not the response list should contain unsegmented Roles. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error. (optional) (default to $true)
+
 # List Roles
+
 try {
     Get-Roles
     
@@ -525,11 +508,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## patch-role
-
 This API updates an existing role using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
 The following fields are patchable:
 * name
@@ -558,7 +538,6 @@ Path   | Id | **String** | True  | ID of the Role to patch
  Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | 
 
 ### Return type
-
 [**Role**](../models/role)
 
 ### Responses
@@ -572,21 +551,21 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json-patch+json
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "2c91808a7813090a017814121e121518" # String | ID of the Role to patch
- # JsonPatchOperation[] | 
  $JsonPatchOperation = @"{
   "op" : "replace",
   "path" : "/description",
   "value" : "New description"
-}"@ 
+}"@ # JsonPatchOperation[] | 
+ 
 
 # Patch a specified Role
+
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
     Update-Role-Id $Id -JsonPatchOperation $Result
@@ -598,7 +577,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

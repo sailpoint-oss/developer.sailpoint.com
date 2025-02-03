@@ -1,3 +1,4 @@
+
 ---
 id: v2024-iai-common-access
 title: IAICommonAccess
@@ -8,7 +9,6 @@ keywords: ['powershell', 'PowerShell', 'sdk', 'IAICommonAccess', 'V2024IAICommon
 slug: /tools/sdk/powershell/v2024/methods/iai-common-access
 tags: ['SDK', 'Software Development Kit', 'IAICommonAccess', 'V2024IAICommonAccess']
 ---
-
 
 # IAICommonAccess
    
@@ -22,9 +22,7 @@ Method | HTTP request | Description
 [**Get-V2024CommonAccess**](#get-common-access) | **GET** `/common-access` | Get a paginated list of common access
 [**Update-V2024CommonAccessStatusInBulk**](#update-common-access-status-in-bulk) | **POST** `/common-access/update-status` | Bulk update common access status
 
-
 ## create-common-access
-
 This API is used to add roles/access profiles to the list of common access for a customer. Requires authorization scope of iai:access-modeling:create
 
 ### Parameters 
@@ -34,7 +32,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | CommonAccessItemRequest | [**CommonAccessItemRequest**](../models/common-access-item-request) | True  | 
 
 ### Return type
-
 [**CommonAccessItemResponse**](../models/common-access-item-response)
 
 ### Responses
@@ -48,7 +45,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -66,7 +62,9 @@ $CommonAccessItemRequest = @"{
   },
   "status" : "CONFIRMED"
 }"@
+
 # Create common access items
+
 try {
     $Result = ConvertFrom-JsonToCommonAccessItemRequest -Json $CommonAccessItemRequest
     New-V2024CommonAccess-V2024XSailPointExperimental $XSailPointExperimental -V2024CommonAccessItemRequest $Result
@@ -78,11 +76,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-common-access
-
 This endpoint returns the current common access for a customer. The returned items can be filtered and sorted. Requires authorization scope of iai:access-modeling:read
 
 ### Parameters 
@@ -96,7 +91,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **access.name, status**  By default the common access items are sorted by name, ascending.
 
 ### Return type
-
 [**CommonAccessResponse[]**](../models/common-access-response)
 
 ### Responses
@@ -109,7 +103,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -121,7 +114,9 @@ $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Col
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Filters = 'access.type eq "ROLE"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq, sw*  **reviewedByUser** *eq*  **access.id**: *eq, sw*  **access.type**: *eq*  **access.name**: *sw, eq*  **access.description**: *sw, eq* (optional)
 $Sorters = "access.name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **access.name, status**  By default the common access items are sorted by name, ascending. (optional)
+
 # Get a paginated list of common access
+
 try {
     Get-V2024CommonAccess-V2024XSailPointExperimental $XSailPointExperimental 
     
@@ -132,11 +127,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## update-common-access-status-in-bulk
-
 This submits an update request to the common access application. At this time there are no parameters. Requires authorization scope of iai:access-modeling:update
 
 ### Parameters 
@@ -146,7 +138,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | CommonAccessIDStatus | [**[]CommonAccessIDStatus**](../models/common-access-id-status) | True  | Confirm or deny in bulk the common access ids that are (or aren't) common access
 
 ### Return type
-
 [**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0)
 
 ### Responses
@@ -160,20 +151,20 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
- # CommonAccessIDStatus[] | Confirm or deny in bulk the common access ids that are (or aren't) common access
  $CommonAccessIDStatus = @"{
   "confirmedIds" : [ "046b6c7f-0b8a-43b9-b35d-6489e6daee91", "046b6c7f-0b8a-43b9-b35d-6489e6daee91" ],
   "deniedIds" : [ "046b6c7f-0b8a-43b9-b35d-6489e6daee91", "046b6c7f-0b8a-43b9-b35d-6489e6daee91" ]
-}"@ 
+}"@ # CommonAccessIDStatus[] | Confirm or deny in bulk the common access ids that are (or aren't) common access
+ 
 
 # Bulk update common access status
+
 try {
     $Result = ConvertFrom-JsonToCommonAccessIDStatus -Json $CommonAccessIDStatus
     Update-V2024CommonAccessStatusInBulk-V2024XSailPointExperimental $XSailPointExperimental -V2024CommonAccessIDStatus $Result
@@ -185,7 +176,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

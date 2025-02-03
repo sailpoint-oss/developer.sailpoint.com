@@ -1,3 +1,4 @@
+
 ---
 id: v2024-public-identities
 title: PublicIdentities
@@ -8,7 +9,6 @@ keywords: ['powershell', 'PowerShell', 'sdk', 'PublicIdentities', 'V2024PublicId
 slug: /tools/sdk/powershell/v2024/methods/public-identities
 tags: ['SDK', 'Software Development Kit', 'PublicIdentities', 'V2024PublicIdentities']
 ---
-
 
 # PublicIdentities
   Use this API in conjunction with [Public Identites Config](https://developer.sailpoint.com/docs/api/v3/public-identities-config/) to enable non-administrators to view identities&#39; publicly visible attributes. 
@@ -23,9 +23,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Get-V2024PublicIdentities**](#get-public-identities) | **GET** `/public-identities` | Get list of public identities
 
-
 ## get-public-identities
-
 Get a list of public identities.  Set `add-core-filters` to `true` to exclude incomplete identities and uncorrelated accounts.
 
 ### Parameters 
@@ -39,7 +37,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name**
 
 ### Return type
-
 [**PublicIdentity[]**](../models/public-identity)
 
 ### Responses
@@ -53,7 +50,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -65,7 +61,9 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 $Filters = 'firstname eq "John"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **alias**: *eq, sw*  **email**: *eq, sw*  **firstname**: *eq, sw*  **lastname**: *eq, sw* (optional)
 $AddCoreFilters = $false # Boolean | If *true*, only get identities which satisfy ALL the following criteria in addition to any criteria specified by *filters*:   - Should be either correlated or protected.   - Should not be ""spadmin"" or ""cloudadmin"".   - uid should not be null.   - lastname should not be null.   - email should not be null. (optional) (default to $false)
 $Sorters = "name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name** (optional)
+
 # Get list of public identities
+
 try {
     Get-V2024PublicIdentities
     
@@ -76,7 +74,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

@@ -1,3 +1,4 @@
+
 ---
 id: beta-iai-message-catalogs
 title: IAIMessageCatalogs
@@ -9,7 +10,6 @@ slug: /tools/sdk/powershell/beta/methods/iai-message-catalogs
 tags: ['SDK', 'Software Development Kit', 'IAIMessageCatalogs', 'BetaIAIMessageCatalogs']
 ---
 
-
 # IAIMessageCatalogs
    
   
@@ -20,9 +20,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Get-BetaMessageCatalogs**](#get-message-catalogs) | **GET** `/translation-catalogs/{catalog-id}` | Get Message catalogs
 
-
 ## get-message-catalogs
-
 The getMessageCatalogs API returns message catalog based on the language headers in the requested object.
 
 ### Parameters 
@@ -31,7 +29,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | CatalogId | **String** | True  | The ID of the message catalog.
 
 ### Return type
-
 [**MessageCatalogDto[]**](../models/message-catalog-dto)
 
 ### Responses
@@ -45,14 +42,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $CatalogId = "recommender" # String | The ID of the message catalog.
+
 # Get Message catalogs
+
 try {
     Get-BetaMessageCatalogs-BetaCatalogId $CatalogId 
     
@@ -63,7 +61,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

@@ -1,3 +1,4 @@
+
 ---
 id: v2024-governance-groups
 title: GovernanceGroups
@@ -8,7 +9,6 @@ keywords: ['powershell', 'PowerShell', 'sdk', 'GovernanceGroups', 'V2024Governan
 slug: /tools/sdk/powershell/v2024/methods/governance-groups
 tags: ['SDK', 'Software Development Kit', 'GovernanceGroups', 'V2024GovernanceGroups']
 ---
-
 
 # GovernanceGroups
   Use this API to implement and customize Governance Group functionality. With this functionality in place, administrators can create Governance Groups and configure them for use throughout Identity Security Cloud.
@@ -34,9 +34,7 @@ Method | HTTP request | Description
 [**Update-V2024Workgroup**](#patch-workgroup) | **PATCH** `/workgroups/{id}` | Patch a Governance Group
 [**Update-V2024WorkgroupMembers**](#update-workgroup-members) | **POST** `/workgroups/{workgroupId}/members/bulk-add` | Add members to Governance Group
 
-
 ## create-workgroup
-
 This API creates a new Governance Group.
 
 ### Parameters 
@@ -46,7 +44,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | WorkgroupDto | [**WorkgroupDto**](../models/workgroup-dto) | True  | 
 
 ### Return type
-
 [**WorkgroupDto**](../models/workgroup-dto)
 
 ### Responses
@@ -60,7 +57,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -83,7 +79,9 @@ $WorkgroupDto = @"{
   "modified" : "2022-01-06T19:51:13Z",
   "id" : "2c91808568c529c60168cca6f90c1313"
 }"@
+
 # Create a new Governance Group.
+
 try {
     $Result = ConvertFrom-JsonToWorkgroupDto -Json $WorkgroupDto
     New-V2024Workgroup-V2024XSailPointExperimental $XSailPointExperimental -V2024WorkgroupDto $Result
@@ -95,11 +93,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## delete-workgroup
-
 This API deletes a Governance Group by its ID.
 
 ### Parameters 
@@ -109,7 +104,6 @@ Path   | Id | **String** | True  | ID of the Governance Group
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -123,7 +117,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -131,7 +124,9 @@ Code | Description  | Data Type
 ```powershell
 $Id = "2c9180837ca6693d017ca8d097500149" # String | ID of the Governance Group
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
 # Delete a Governance Group
+
 try {
     Remove-V2024Workgroup-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
     
@@ -142,11 +137,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## delete-workgroup-members
-
 This API removes one or more  members from a Governance Group.  A
 >  **Following field of Identity is an optional field in the request.**
 
@@ -160,7 +152,6 @@ Path   | WorkgroupId | **String** | True  | ID of the Governance Group.
  Body  | IdentityPreviewResponseIdentity | [**[]IdentityPreviewResponseIdentity**](../models/identity-preview-response-identity) | True  | List of identities to be removed from  a Governance Group members list.
 
 ### Return type
-
 [**WorkgroupMemberDeleteItem[]**](../models/workgroup-member-delete-item)
 
 ### Responses
@@ -174,7 +165,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -182,10 +172,11 @@ Code | Description  | Data Type
 ```powershell
 $WorkgroupId = "2c91808a7813090a017814121919ecca" # String | ID of the Governance Group.
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
- # IdentityPreviewResponseIdentity[] | List of identities to be removed from  a Governance Group members list.
- $IdentityPreviewResponseIdentity = @""@ 
+ $IdentityPreviewResponseIdentity = @""@ # IdentityPreviewResponseIdentity[] | List of identities to be removed from  a Governance Group members list.
+ 
 
 # Remove members from Governance Group
+
 try {
     $Result = ConvertFrom-JsonToIdentityPreviewResponseIdentity -Json $IdentityPreviewResponseIdentity
     Remove-V2024WorkgroupMembers-V2024WorkgroupId $WorkgroupId -V2024XSailPointExperimental $XSailPointExperimental -V2024IdentityPreviewResponseIdentity $Result
@@ -197,11 +188,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## delete-workgroups-in-bulk
-
 
 This API initiates a bulk deletion of one or more Governance Groups.
 
@@ -222,7 +210,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | WorkgroupBulkDeleteRequest | [**WorkgroupBulkDeleteRequest**](../models/workgroup-bulk-delete-request) | True  | 
 
 ### Return type
-
 [**WorkgroupDeleteItem[]**](../models/workgroup-delete-item)
 
 ### Responses
@@ -236,7 +223,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -246,7 +232,9 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 $WorkgroupBulkDeleteRequest = @"{
   "ids" : [ "567a697e-885b-495a-afc5-d55e1c23a302", "c7b0f7b2-1e78-4063-b294-a555333dacd2" ]
 }"@
+
 # Delete Governance Group(s)
+
 try {
     $Result = ConvertFrom-JsonToWorkgroupBulkDeleteRequest -Json $WorkgroupBulkDeleteRequest
     Remove-V2024WorkgroupsInBulk-V2024XSailPointExperimental $XSailPointExperimental -V2024WorkgroupBulkDeleteRequest $Result
@@ -258,11 +246,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-workgroup
-
 This API returns a Governance Groups by its ID.
 
 ### Parameters 
@@ -272,7 +257,6 @@ Path   | Id | **String** | True  | ID of the Governance Group
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-
 [**WorkgroupDto**](../models/workgroup-dto)
 
 ### Responses
@@ -286,7 +270,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -294,7 +277,9 @@ Code | Description  | Data Type
 ```powershell
 $Id = "2c9180837ca6693d017ca8d097500149" # String | ID of the Governance Group
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
 # Get Governance Group by Id
+
 try {
     Get-V2024Workgroup-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
     
@@ -305,11 +290,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-connections
-
 This API returns list of connections associated with a Governance Group.
 
 ### Parameters 
@@ -323,7 +305,6 @@ Path   | WorkgroupId | **String** | True  | ID of the Governance Group.
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified**
 
 ### Return type
-
 [**WorkgroupConnectionDto[]**](../models/workgroup-connection-dto)
 
 ### Responses
@@ -337,7 +318,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -349,7 +329,9 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 $Limit = 50 # Int32 | Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 50)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Sorters = "name,-modified" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified** (optional)
+
 # List connections for Governance Group
+
 try {
     Get-V2024Connections-V2024WorkgroupId $WorkgroupId -V2024XSailPointExperimental $XSailPointExperimental 
     
@@ -360,11 +342,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-workgroup-members
-
 This API returns list of members associated with a Governance Group.
 
 ### Parameters 
@@ -378,7 +357,6 @@ Path   | WorkgroupId | **String** | True  | ID of the Governance Group.
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified**
 
 ### Return type
-
 [**ListWorkgroupMembers200ResponseInner[]**](../models/list-workgroup-members200-response-inner)
 
 ### Responses
@@ -392,7 +370,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -404,7 +381,9 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 $Limit = 50 # Int32 | Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 50)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Sorters = "name,-modified" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified** (optional)
+
 # List Governance Group Members
+
 try {
     Get-V2024WorkgroupMembers-V2024WorkgroupId $WorkgroupId -V2024XSailPointExperimental $XSailPointExperimental 
     
@@ -415,11 +394,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-workgroups
-
 This API returns list of Governance Groups
 
 ### Parameters 
@@ -433,7 +409,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified, id, description**
 
 ### Return type
-
 [**WorkgroupDto[]**](../models/workgroup-dto)
 
 ### Responses
@@ -447,7 +422,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -459,7 +433,9 @@ $Limit = 50 # Int32 | Note that for this API the maximum value for limit is 50. 
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Filters = 'name sw "Test"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **name**: *eq, sw, in*  **memberships.identityId**: *eq, in* (optional)
 $Sorters = "name,-modified" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified, id, description** (optional)
+
 # List Governance Groups
+
 try {
     Get-V2024Workgroups-V2024XSailPointExperimental $XSailPointExperimental 
     
@@ -470,11 +446,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## patch-workgroup
-
 This API updates an existing governance group by ID. The following fields and objects are patchable:
 * name
 * description
@@ -488,7 +461,6 @@ Path   | Id | **String** | True  | ID of the Governance Group
  Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) |   (optional) | 
 
 ### Return type
-
 [**WorkgroupDto**](../models/workgroup-dto)
 
 ### Responses
@@ -502,7 +474,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json-patch+json
 - **Accept**: application/json
 
@@ -510,14 +481,15 @@ Code | Description  | Data Type
 ```powershell
 $Id = "2c9180837ca6693d017ca8d097500149" # String | ID of the Governance Group
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
- # JsonPatchOperation[] |  (optional)
  $JsonPatchOperation = @"{
   "op" : "replace",
   "path" : "/description",
   "value" : "New description"
-}"@ 
+}"@ # JsonPatchOperation[] |  (optional)
+ 
 
 # Patch a Governance Group
+
 try {
     Update-V2024Workgroup-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
     
@@ -528,11 +500,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## update-workgroup-members
-
 This API adds one or more members to a Governance Group.  A token with API, ORG_ADMIN authority is required to call this API.
 
 >  **Following field of Identity is an optional field in the request.**
@@ -547,7 +516,6 @@ Path   | WorkgroupId | **String** | True  | ID of the Governance Group.
  Body  | IdentityPreviewResponseIdentity | [**[]IdentityPreviewResponseIdentity**](../models/identity-preview-response-identity) | True  | List of identities to be added to a Governance Group members list.
 
 ### Return type
-
 [**WorkgroupMemberAddItem[]**](../models/workgroup-member-add-item)
 
 ### Responses
@@ -561,7 +529,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -569,10 +536,11 @@ Code | Description  | Data Type
 ```powershell
 $WorkgroupId = "2c91808a7813090a017814121919ecca" # String | ID of the Governance Group.
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
- # IdentityPreviewResponseIdentity[] | List of identities to be added to a Governance Group members list.
- $IdentityPreviewResponseIdentity = @""@ 
+ $IdentityPreviewResponseIdentity = @""@ # IdentityPreviewResponseIdentity[] | List of identities to be added to a Governance Group members list.
+ 
 
 # Add members to Governance Group
+
 try {
     $Result = ConvertFrom-JsonToIdentityPreviewResponseIdentity -Json $IdentityPreviewResponseIdentity
     Update-V2024WorkgroupMembers-V2024WorkgroupId $WorkgroupId -V2024XSailPointExperimental $XSailPointExperimental -V2024IdentityPreviewResponseIdentity $Result
@@ -584,7 +552,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

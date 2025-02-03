@@ -1,5 +1,9 @@
 // https://github.com/github-linguist/linguist/blob/master/lib/linguist/popular.yml
 export type CodeSampleLanguage =
+  | "Go"
+  | "PowerShell"
+  | "Python"
+  | "TypeScript"
   | "C"
   | "C#"
   | "C++"
@@ -8,7 +12,6 @@ export type CodeSampleLanguage =
   | "Dart"
   | "DM"
   | "Elixir"
-  | "Go"
   | "Groovy"
   | "HTML"
   | "Java"
@@ -18,15 +21,12 @@ export type CodeSampleLanguage =
   | "OCaml"
   | "Perl"
   | "PHP"
-  | "PowerShell"
-  | "Python"
   | "R"
   | "Ruby"
   | "Rust"
   | "Scala"
   | "Shell"
-  | "Swift"
-  | "TypeScript";
+  | "Swift";
 
 export interface Language {
   highlight: string;

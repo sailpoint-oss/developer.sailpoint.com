@@ -235,6 +235,7 @@ function CodeSnippets({postman, codeSamples}: Props) {
         defaultValue={defaultLang[0]?.language ?? mergedLangs[0].language}
         lazy>
         {mergedLangs.map((lang) => {
+          
           return (
             <CodeTab
               value={lang.language}
@@ -260,6 +261,9 @@ function CodeSnippets({postman, codeSamples}: Props) {
                 {/* Render Sample Tabs */}
                 {lang.samples &&
                   lang.samples.map((sample, index) => {
+                    console.log(lang.samplesLabels);
+                    console.log(lang);
+                    console.log(lang.sample);
                     return (
                       <CodeTab
                         value={sample}
@@ -272,6 +276,18 @@ function CodeSnippets({postman, codeSamples}: Props) {
                         attributes={{
                           className: `openapi-tabs__code-item--sample`,
                         }}>
+                        
+                          <p>
+                            <a
+                              href="(https://developer.sailpoint.com/docs/tools/sdk/powershell"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="sample-doc-link">
+                              View SDK Reference
+                            </a>
+                          </p>
+                        
+
                         {/* @ts-ignore */}
                         <ApiCodeBlock
                           language={lang.highlight}

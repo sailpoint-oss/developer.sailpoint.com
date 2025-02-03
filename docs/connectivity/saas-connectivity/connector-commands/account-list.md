@@ -237,9 +237,9 @@ The state that you send using the `saveState` command MUST be a json object, and
 
 ## Aggregation Filtering
 
-Filter resource objects on a source during an account aggregation process. In order to implement, there are a few things that need to be configured
+Filter resource objects on a source during an account aggregation process. In order to implement, there are a few things that need to be configured.
 
-1. In order to configure Filtering feature, you need to modify the source configurations to add in a `filterString` or `account.filterString` property. This can be done with a simple partial update to the source, using the REST APIs.   
+1. In order to configure Filtering feature, you need to modify the source configurations to add in a `filterString` or `account.filterString` property (The `filterString` applies to all objects which are aggregated. If you want to get more specific to accounts which are filtered, you can use `account.filterString` to denote specific filters for those particular objects). This can be done with a simple partial update to the source, using the REST APIs.   
 
 <details>
  <summary><code>PATCH</code><code>/v3/sources/\{id\}</code></summary>
@@ -321,7 +321,7 @@ export class GitHubConnector {
 
 In the above example, we are setting the constructor with filter string value fetched from the config, this will be required further for filtering.
 
-3. In the `stdAccountList` command, you need to properly handle the filtering by initializing `Filter` class from `@sailpoint/connector-sdk` and calling `matcher()` from `FIlter` class. Something like below which initialize Filter class by passing resource object's attributes to    `Filter` class's constructor and call `matcher()` by passing the filter string as an argument to it which we set in connector constructor in Step 2:
+3. In the `stdAccountList` command, you need to properly handle the filtering by initializing `Filter` class from `@sailpoint/connector-sdk` and calling `matcher()` from `Filter` class. Something like below which initialize Filter class by passing resource object's attributes to    `Filter` class's constructor and call `matcher()` by passing the filter string as an argument to it which we set in connector constructor in Step 2:
 
 ```javascript
 .stdAccountList(async (context: Context, input: StdAccountListInput, res: Response<StdAccountListOutput>) => {

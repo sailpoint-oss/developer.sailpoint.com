@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'SourceManagementWorkgroup', 'V2024Sou
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to  **Enum** [  "GOVERNANCE_GROUP" ] | Type of object being referenced. | [optional] 
-**Id** |  Pointer to **String** | Management workgroup ID. | [optional] 
-**Name** |  Pointer to **String** | Management workgroup's human-readable display name. | [optional] 
+**Type** |  **Enum** [  "GOVERNANCE_GROUP" ] | Type of object being referenced. | [optional] 
+**Id** | **String** | Management workgroup ID. | [optional] 
+**Name** | **String** | Management workgroup's human-readable display name. | [optional] 
 
 ## Examples
 

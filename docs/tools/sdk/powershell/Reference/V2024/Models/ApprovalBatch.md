@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'ApprovalBatch', 'V2024ApprovalBatch']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**BatchId** |  Pointer to **String** | ID of the batch | [optional] 
-**BatchSize** |  Pointer to **Int64** | How many approvals are going to be in this batch. Defaults to 1 if not provided. | [optional] 
+**BatchId** | **String** | ID of the batch | [optional] 
+**BatchSize** | **Int64** | How many approvals are going to be in this batch. Defaults to 1 if not provided. | [optional] 
 
 ## Examples
 

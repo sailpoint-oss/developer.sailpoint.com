@@ -16,16 +16,16 @@ tags: ['SDK', 'Software Development Kit', 'RoleMiningSessionDraftRoleDto', 'Beta
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** |  Pointer to **String** | Name of the draft role | [optional] 
-**Description** |  Pointer to **String** | Draft role description | [optional] 
-**IdentityIds** |  Pointer to **[]String** | The list of identities for this role mining session. | [optional] 
-**EntitlementIds** |  Pointer to **[]String** | The list of entitlement ids for this role mining session. | [optional] 
-**ExcludedEntitlements** |  Pointer to **[]String** | The list of excluded entitlement ids. | [optional] 
-**Modified** |  Pointer to **System.DateTime** | Last modified date | [optional] 
-**Type** |  Pointer to [**RoleMiningRoleType**](role-mining-role-type) |  | [optional] 
-**Id** |  Pointer to **String** | Id of the potential draft role | [optional] 
-**CreatedDate** |  Pointer to **System.DateTime** | The date-time when this potential draft role was created. | [optional] 
-**ModifiedDate** |  Pointer to **System.DateTime** | The date-time when this potential draft role was modified. | [optional] 
+**Name** | **String** | Name of the draft role | [optional] 
+**Description** | **String** | Draft role description | [optional] 
+**IdentityIds** | **[]String** | The list of identities for this role mining session. | [optional] 
+**EntitlementIds** | **[]String** | The list of entitlement ids for this role mining session. | [optional] 
+**ExcludedEntitlements** | **[]String** | The list of excluded entitlement ids. | [optional] 
+**Modified** | **System.DateTime** | Last modified date | [optional] 
+**Type** | [**RoleMiningRoleType**](role-mining-role-type) |  | [optional] 
+**Id** | **String** | Id of the potential draft role | [optional] 
+**CreatedDate** | **System.DateTime** | The date-time when this potential draft role was created. | [optional] 
+**ModifiedDate** | **System.DateTime** | The date-time when this potential draft role was modified. | [optional] 
 
 ## Examples
 

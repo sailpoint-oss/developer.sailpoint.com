@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'ManagedClientStatus', 'V2024ManagedCl
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Body** |  [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | ManagedClientStatus body information | [required]
-**Status** |  [**ManagedClientStatusCode**](managed-client-status-code) |  | [required]
-**Type** |  [**ManagedClientType**](managed-client-type) |  | [required]
-**Timestamp** |  **System.DateTime** | timestamp on the Client Status update | [required]
+**Body** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | ManagedClientStatus body information | [required]
+**Status** | [**ManagedClientStatusCode**](managed-client-status-code) |  | [required]
+**Type** | [**ManagedClientType**](managed-client-type) |  | [required]
+**Timestamp** | **System.DateTime** | timestamp on the Client Status update | [required]
 
 ## Examples
 

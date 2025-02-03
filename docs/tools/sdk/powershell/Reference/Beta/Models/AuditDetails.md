@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'AuditDetails', 'BetaAuditDetails']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Created** |  Pointer to **System.DateTime** | Initial date and time when the record was created | [optional] 
-**CreatedBy** |  Pointer to [**Identity1**](identity1) |  | [optional] 
-**Modified** |  Pointer to **System.DateTime** | Last modified date and time for the record | [optional] 
-**ModifiedBy** |  Pointer to [**Identity1**](identity1) |  | [optional] 
+**Created** | **System.DateTime** | Initial date and time when the record was created | [optional] 
+**CreatedBy** | [**Identity1**](identity1) |  | [optional] 
+**Modified** | **System.DateTime** | Last modified date and time for the record | [optional] 
+**ModifiedBy** | [**Identity1**](identity1) |  | [optional] 
 
 ## Examples
 

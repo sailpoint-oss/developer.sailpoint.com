@@ -1,4 +1,3 @@
-
 ---
 id: v2024-entitlements
 title: Entitlements
@@ -118,7 +117,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Add metadata to an entitlement.
 
 try {
-    New-V2024AccessModelMetadataForEntitlement-V2024Id $Id -V2024AttributeKey $AttributeKey -V2024AttributeValue $AttributeValue -V2024XSailPointExperimental $XSailPointExperimental 
+    New-V2024AccessModelMetadataForEntitlement -V2024Id $Id  -V2024AttributeKey $AttributeKey  -V2024AttributeValue $AttributeValue  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # New-V2024AccessModelMetadataForEntitlement -V2024Id $Id -V2024AttributeKey $AttributeKey -V2024AttributeValue $AttributeValue -V2024XSailPointExperimental $XSailPointExperimental  
@@ -166,7 +165,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Remove metadata from an entitlement.
 
 try {
-    Remove-V2024AccessModelMetadataFromEntitlement-V2024Id $Id -V2024AttributeKey $AttributeKey -V2024AttributeValue $AttributeValue -V2024XSailPointExperimental $XSailPointExperimental 
+    Remove-V2024AccessModelMetadataFromEntitlement -V2024Id $Id  -V2024AttributeKey $AttributeKey  -V2024AttributeValue $AttributeValue  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024AccessModelMetadataFromEntitlement -V2024Id $Id -V2024AttributeKey $AttributeKey -V2024AttributeValue $AttributeValue -V2024XSailPointExperimental $XSailPointExperimental  
@@ -211,7 +210,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Get an entitlement
 
 try {
-    Get-V2024Entitlement-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024Entitlement -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024Entitlement -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
@@ -256,7 +255,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Get Entitlement Request Config
 
 try {
-    Get-V2024EntitlementRequestConfig-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024EntitlementRequestConfig -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024EntitlementRequestConfig -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
@@ -306,7 +305,7 @@ $CsvFile =  # System.IO.FileInfo | The CSV file containing the source entitlemen
 # Aggregate Entitlements
 
 try {
-    Import-V2024EntitlementsBySource-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
+    Import-V2024EntitlementsBySource -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Import-V2024EntitlementsBySource -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024CsvFile $CsvFile  
@@ -361,7 +360,7 @@ $Filters = 'attribute eq "memberOf"' # String | Filter results using the standar
 # List of entitlements children
 
 try {
-    Get-V2024EntitlementChildren-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024EntitlementChildren -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024EntitlementChildren -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Sorters $Sorters -V2024Filters $Filters  
@@ -416,7 +415,7 @@ $Filters = 'attribute eq "memberOf"' # String | Filter results using the standar
 # List of entitlements parents
 
 try {
-    Get-V2024EntitlementParents-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024EntitlementParents -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024EntitlementParents -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Sorters $Sorters -V2024Filters $Filters  
@@ -480,7 +479,7 @@ $Filters = 'attribute eq "memberOf"' # String | Filter results using the standar
 # Gets a list of entitlements.
 
 try {
-    Get-V2024Entitlements-V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024Entitlements -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024Entitlements -V2024XSailPointExperimental $XSailPointExperimental -V2024AccountId $AccountId -V2024SegmentedForIdentity $SegmentedForIdentity -V2024ForSegmentIds $ForSegmentIds -V2024IncludeUnsegmented $IncludeUnsegmented -V2024Offset $Offset -V2024Limit $Limit -V2024Count $Count -V2024Sorters $Sorters -V2024Filters $Filters  
@@ -536,7 +535,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Patch an entitlement
 
 try {
-    Update-V2024Entitlement-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
+    Update-V2024Entitlement -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Update-V2024Entitlement -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024JsonPatchOperation $JsonPatchOperation  
@@ -596,7 +595,7 @@ $EntitlementRequestConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToEntitlementRequestConfig -Json $EntitlementRequestConfig
-    Send-V2024EntitlementRequestConfig-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024EntitlementRequestConfig $Result
+    Send-V2024EntitlementRequestConfig -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental  -V2024EntitlementRequestConfig $Result
     
     # Below is a request that includes all optional parameters
     # Send-V2024EntitlementRequestConfig -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024EntitlementRequestConfig $EntitlementRequestConfig  
@@ -641,7 +640,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Reset Source Entitlements
 
 try {
-    Reset-V2024SourceEntitlements-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
+    Reset-V2024SourceEntitlements -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Reset-V2024SourceEntitlements -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
@@ -703,7 +702,7 @@ $EntitlementBulkUpdateRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToEntitlementBulkUpdateRequest -Json $EntitlementBulkUpdateRequest
-    Update-V2024EntitlementsInBulk-V2024XSailPointExperimental $XSailPointExperimental -V2024EntitlementBulkUpdateRequest $Result
+    Update-V2024EntitlementsInBulk -V2024XSailPointExperimental $XSailPointExperimental  -V2024EntitlementBulkUpdateRequest $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024EntitlementsInBulk -V2024XSailPointExperimental $XSailPointExperimental -V2024EntitlementBulkUpdateRequest $EntitlementBulkUpdateRequest  

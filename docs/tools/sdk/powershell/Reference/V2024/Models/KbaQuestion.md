@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'KbaQuestion', 'V2024KbaQuestion']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  **String** | KBA Question Id | [required]
-**Text** |  **String** | KBA Question description | [required]
-**HasAnswer** |  **Boolean** | Denotes whether the KBA question has an answer configured for any user in the tenant | [required]
-**NumAnswers** |  **Int32** | Denotes the number of KBA configurations for this question | [required]
+**Id** | **String** | KBA Question Id | [required]
+**Text** | **String** | KBA Question description | [required]
+**HasAnswer** | **Boolean** | Denotes whether the KBA question has an answer configured for any user in the tenant | [required]
+**NumAnswers** | **Int32** | Denotes the number of KBA configurations for this question | [required]
 
 ## Examples
 

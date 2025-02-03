@@ -16,11 +16,11 @@ tags: ['SDK', 'Software Development Kit', 'RecommendationRequestDto', 'BetaRecom
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Requests** |  Pointer to [**[]RecommendationRequest**](recommendation-request) |  | [optional] 
-**ExcludeInterpretations** |  Pointer to **Boolean** | Exclude interpretations in the response if ""true"". Return interpretations in the response if this attribute is not specified. | [optional] [default to $false]
-**IncludeTranslationMessages** |  Pointer to **Boolean** | When set to true, the calling system uses the translated messages for the specified language | [optional] [default to $false]
-**IncludeDebugInformation** |  Pointer to **Boolean** | Returns the recommender calculations if set to true | [optional] [default to $false]
-**PrescribeMode** |  Pointer to **Boolean** | When set to true, uses prescribedRulesRecommenderConfig to get identity attributes and peer group threshold instead of standard config. | [optional] [default to $false]
+**Requests** | [**[]RecommendationRequest**](recommendation-request) |  | [optional] 
+**ExcludeInterpretations** | **Boolean** | Exclude interpretations in the response if ""true"". Return interpretations in the response if this attribute is not specified. | [optional] [default to $false]
+**IncludeTranslationMessages** | **Boolean** | When set to true, the calling system uses the translated messages for the specified language | [optional] [default to $false]
+**IncludeDebugInformation** | **Boolean** | Returns the recommender calculations if set to true | [optional] [default to $false]
+**PrescribeMode** | **Boolean** | When set to true, uses prescribedRulesRecommenderConfig to get identity attributes and peer group threshold instead of standard config. | [optional] [default to $false]
 
 ## Examples
 

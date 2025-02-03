@@ -1,4 +1,3 @@
-
 ---
 id: v2024-apps
 title: Apps
@@ -79,7 +78,7 @@ $SourceAppCreateDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToSourceAppCreateDto -Json $SourceAppCreateDto
-    New-V2024SourceApp-V2024XSailPointExperimental $XSailPointExperimental -V2024SourceAppCreateDto $Result
+    New-V2024SourceApp -V2024XSailPointExperimental $XSailPointExperimental  -V2024SourceAppCreateDto $Result
     
     # Below is a request that includes all optional parameters
     # New-V2024SourceApp -V2024XSailPointExperimental $XSailPointExperimental -V2024SourceAppCreateDto $SourceAppCreateDto  
@@ -130,7 +129,7 @@ $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Col
 
 try {
     $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
-    Remove-V2024AccessProfilesFromSourceAppByBulk-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024RequestBody $Result
+    Remove-V2024AccessProfilesFromSourceAppByBulk -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental  -V2024RequestBody $Result
     
     # Below is a request that includes all optional parameters
     # Remove-V2024AccessProfilesFromSourceAppByBulk -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024RequestBody $RequestBody -V2024Limit $Limit  
@@ -174,7 +173,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Delete source app by ID
 
 try {
-    Remove-V2024SourceApp-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
+    Remove-V2024SourceApp -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024SourceApp -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
@@ -219,7 +218,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Get source app by ID
 
 try {
-    Get-V2024SourceApp-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024SourceApp -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024SourceApp -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
@@ -269,7 +268,7 @@ $Filters = 'name eq "developer access profile"' # String | Filter results using 
 # List access profiles for the specified source app
 
 try {
-    Get-V2024AccessProfilesForSourceApp-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024AccessProfilesForSourceApp -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024AccessProfilesForSourceApp -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024Limit $Limit -V2024Offset $Offset -V2024Filters $Filters  
@@ -321,7 +320,7 @@ $Filters = 'enabled eq true' # String | Filter results using the standard syntax
 # List all source apps
 
 try {
-    Get-V2024AllSourceApp-V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024AllSourceApp -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024AllSourceApp -V2024XSailPointExperimental $XSailPointExperimental -V2024Limit $Limit -V2024Count $Count -V2024Offset $Offset -V2024Sorters $Sorters -V2024Filters $Filters  
@@ -372,7 +371,7 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 # List all user apps
 
 try {
-    Get-V2024AllUserApps-V2024Filters $Filters -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024AllUserApps -V2024Filters $Filters  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024AllUserApps -V2024Filters $Filters -V2024XSailPointExperimental $XSailPointExperimental -V2024Limit $Limit -V2024Count $Count -V2024Offset $Offset  
@@ -424,7 +423,7 @@ $Filters = 'name eq "source app name"' # String | Filter results using the stand
 # List assigned source apps
 
 try {
-    Get-V2024AssignedSourceApp-V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024AssignedSourceApp -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024AssignedSourceApp -V2024XSailPointExperimental $XSailPointExperimental -V2024Limit $Limit -V2024Count $Count -V2024Offset $Offset -V2024Sorters $Sorters -V2024Filters $Filters  
@@ -472,7 +471,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # List available accounts for user app
 
 try {
-    Get-V2024AvailableAccountsForUserApp-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024AvailableAccountsForUserApp -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024AvailableAccountsForUserApp -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024Limit $Limit -V2024Count $Count  
@@ -524,7 +523,7 @@ $Filters = 'name eq "source app name"' # String | Filter results using the stand
 # List available source apps
 
 try {
-    Get-V2024AvailableSourceApps-V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024AvailableSourceApps -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024AvailableSourceApps -V2024XSailPointExperimental $XSailPointExperimental -V2024Limit $Limit -V2024Count $Count -V2024Offset $Offset -V2024Sorters $Sorters -V2024Filters $Filters  
@@ -574,7 +573,7 @@ $Filters = 'name eq "user app name"' # String | Filter results using the standar
 # List owned user apps
 
 try {
-    Get-V2024OwnedUserApps-V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024OwnedUserApps -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024OwnedUserApps -V2024XSailPointExperimental $XSailPointExperimental -V2024Limit $Limit -V2024Count $Count -V2024Offset $Offset -V2024Filters $Filters  
@@ -628,7 +627,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Patch source app by ID
 
 try {
-    Update-V2024SourceApp-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
+    Update-V2024SourceApp -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Update-V2024SourceApp -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024JsonPatchOperation $JsonPatchOperation  
@@ -681,7 +680,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Patch user app by ID
 
 try {
-    Update-V2024UserApp-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
+    Update-V2024UserApp -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Update-V2024UserApp -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024JsonPatchOperation $JsonPatchOperation  
@@ -739,7 +738,7 @@ $SourceAppBulkUpdateRequest = @"{
 # Bulk update source apps
 
 try {
-    Update-V2024SourceAppsInBulk-V2024XSailPointExperimental $XSailPointExperimental 
+    Update-V2024SourceAppsInBulk -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Update-V2024SourceAppsInBulk -V2024XSailPointExperimental $XSailPointExperimental -V2024SourceAppBulkUpdateRequest $SourceAppBulkUpdateRequest  

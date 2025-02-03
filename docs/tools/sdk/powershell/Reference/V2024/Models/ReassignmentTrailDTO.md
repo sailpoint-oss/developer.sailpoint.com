@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'ReassignmentTrailDTO', 'V2024Reassign
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PreviousOwner** |  Pointer to **String** | The ID of previous owner identity. | [optional] 
-**NewOwner** |  Pointer to **String** | The ID of new owner identity. | [optional] 
-**ReassignmentType** |  Pointer to **String** | The type of reassignment. | [optional] 
+**PreviousOwner** | **String** | The ID of previous owner identity. | [optional] 
+**NewOwner** | **String** | The ID of new owner identity. | [optional] 
+**ReassignmentType** | **String** | The type of reassignment. | [optional] 
 
 ## Examples
 

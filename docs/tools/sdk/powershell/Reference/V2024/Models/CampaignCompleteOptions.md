@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'CampaignCompleteOptions', 'V2024Campa
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AutoCompleteAction** |  Pointer to  **Enum** [  "APPROVE",    "REVOKE" ] | Determines whether to auto-approve(APPROVE) or auto-revoke(REVOKE) upon campaign completion. | [optional] [default to "APPROVE"]
+**AutoCompleteAction** |  **Enum** [  "APPROVE",    "REVOKE" ] | Determines whether to auto-approve(APPROVE) or auto-revoke(REVOKE) upon campaign completion. | [optional] [default to "APPROVE"]
 
 ## Examples
 

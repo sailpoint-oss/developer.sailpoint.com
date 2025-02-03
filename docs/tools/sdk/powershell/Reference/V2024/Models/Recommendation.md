@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'Recommendation', 'V2024Recommendation
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |   **Enum** [  "HUMAN",    "MACHINE" ] | Recommended type of account. | [required]
-**Method** |   **Enum** [  "DISCOVERY",    "SOURCE",    "CRITERIA" ] | Method used to produce the recommendation. DISCOVERY - suggested by AI, SOURCE - the account comes from a source flagged as containing machine accounts, CRITERIA - the account satisfies classification criteria. | [required]
+**Type** |  **Enum** [  "HUMAN",    "MACHINE" ] | Recommended type of account. | [required]
+**Method** |  **Enum** [  "DISCOVERY",    "SOURCE",    "CRITERIA" ] | Method used to produce the recommendation. DISCOVERY - suggested by AI, SOURCE - the account comes from a source flagged as containing machine accounts, CRITERIA - the account satisfies classification criteria. | [required]
 
 ## Examples
 

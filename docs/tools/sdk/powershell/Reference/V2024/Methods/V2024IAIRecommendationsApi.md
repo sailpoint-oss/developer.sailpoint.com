@@ -1,4 +1,3 @@
-
 ---
 id: v2024-iai-recommendations
 title: IAIRecommendations
@@ -75,7 +74,7 @@ $RecommendationRequestDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToRecommendationRequestDto -Json $RecommendationRequestDto
-    Get-V2024Recommendations-V2024XSailPointExperimental $XSailPointExperimental -V2024RecommendationRequestDto $Result
+    Get-V2024Recommendations -V2024XSailPointExperimental $XSailPointExperimental  -V2024RecommendationRequestDto $Result
     
     # Below is a request that includes all optional parameters
     # Get-V2024Recommendations -V2024XSailPointExperimental $XSailPointExperimental -V2024RecommendationRequestDto $RecommendationRequestDto  
@@ -116,7 +115,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Get certification recommendation config values
 
 try {
-    Get-V2024RecommendationsConfig-V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024RecommendationsConfig -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024RecommendationsConfig -V2024XSailPointExperimental $XSailPointExperimental  
@@ -165,7 +164,7 @@ $RecommendationConfigDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToRecommendationConfigDto -Json $RecommendationConfigDto
-    Update-V2024RecommendationsConfig-V2024XSailPointExperimental $XSailPointExperimental -V2024RecommendationConfigDto $Result
+    Update-V2024RecommendationsConfig -V2024XSailPointExperimental $XSailPointExperimental  -V2024RecommendationConfigDto $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024RecommendationsConfig -V2024XSailPointExperimental $XSailPointExperimental -V2024RecommendationConfigDto $RecommendationConfigDto  

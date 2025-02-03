@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'LockoutConfiguration', 'LockoutConfig
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**MaximumAttempts** |  Pointer to **Int32** | The maximum attempts allowed before lockout occurs. | [optional] 
-**LockoutDuration** |  Pointer to **Int32** | The total time in minutes a user will be locked out. | [optional] 
-**LockoutWindow** |  Pointer to **Int32** | A rolling window where authentication attempts in a series count towards the maximum before lockout occurs. | [optional] 
+**MaximumAttempts** | **Int32** | The maximum attempts allowed before lockout occurs. | [optional] 
+**LockoutDuration** | **Int32** | The total time in minutes a user will be locked out. | [optional] 
+**LockoutWindow** | **Int32** | A rolling window where authentication attempts in a series count towards the maximum before lockout occurs. | [optional] 
 
 ## Examples
 

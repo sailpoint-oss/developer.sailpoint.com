@@ -1,4 +1,3 @@
-
 ---
 id: v2024-custom-forms
 title: CustomForms
@@ -189,7 +188,7 @@ $Body = @"{
 # Creates a form definition.
 
 try {
-    New-V2024FormDefinition-V2024XSailPointExperimental $XSailPointExperimental 
+    New-V2024FormDefinition -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # New-V2024FormDefinition -V2024XSailPointExperimental $XSailPointExperimental -V2024Body $Body  
@@ -242,7 +241,7 @@ $Body = @"{
 # Generate JSON Schema dynamically.
 
 try {
-    New-V2024FormDefinitionDynamicSchema-V2024XSailPointExperimental $XSailPointExperimental 
+    New-V2024FormDefinitionDynamicSchema -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # New-V2024FormDefinitionDynamicSchema -V2024XSailPointExperimental $XSailPointExperimental -V2024Body $Body  
@@ -292,7 +291,7 @@ $File =  # System.IO.FileInfo | File specifying the multipart
 # Upload new form definition file.
 
 try {
-    New-V2024FormDefinitionFileRequest-V2024FormDefinitionID $FormDefinitionID -V2024XSailPointExperimental $XSailPointExperimental -V2024File $File 
+    New-V2024FormDefinitionFileRequest -V2024FormDefinitionID $FormDefinitionID  -V2024XSailPointExperimental $XSailPointExperimental  -V2024File $File 
     
     # Below is a request that includes all optional parameters
     # New-V2024FormDefinitionFileRequest -V2024FormDefinitionID $FormDefinitionID -V2024XSailPointExperimental $XSailPointExperimental -V2024File $File  
@@ -356,7 +355,7 @@ $Body = @"{
 # Creates a form instance.
 
 try {
-    New-V2024FormInstance-V2024XSailPointExperimental $XSailPointExperimental 
+    New-V2024FormInstance -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # New-V2024FormInstance -V2024XSailPointExperimental $XSailPointExperimental -V2024Body $Body  
@@ -401,7 +400,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Deletes a form definition.
 
 try {
-    Remove-V2024FormDefinition-V2024FormDefinitionID $FormDefinitionID -V2024XSailPointExperimental $XSailPointExperimental 
+    Remove-V2024FormDefinition -V2024FormDefinitionID $FormDefinitionID  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024FormDefinition -V2024FormDefinitionID $FormDefinitionID -V2024XSailPointExperimental $XSailPointExperimental  
@@ -451,7 +450,7 @@ $Sorters = "name" # String | Sort results using the standard syntax described in
 # List form definitions by tenant.
 
 try {
-    Export-V2024FormDefinitionsByTenant-V2024XSailPointExperimental $XSailPointExperimental 
+    Export-V2024FormDefinitionsByTenant -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Export-V2024FormDefinitionsByTenant -V2024XSailPointExperimental $XSailPointExperimental -V2024Offset $Offset -V2024Limit $Limit -V2024Filters $Filters -V2024Sorters $Sorters  
@@ -499,7 +498,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Download definition file by fileId.
 
 try {
-    Get-V2024FileFromS3-V2024FormDefinitionID $FormDefinitionID -V2024FileID $FileID -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024FileFromS3 -V2024FormDefinitionID $FormDefinitionID  -V2024FileID $FileID  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024FileFromS3 -V2024FormDefinitionID $FormDefinitionID -V2024FileID $FileID -V2024XSailPointExperimental $XSailPointExperimental  
@@ -544,7 +543,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Return a form definition.
 
 try {
-    Get-V2024FormDefinitionByKey-V2024FormDefinitionID $FormDefinitionID -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024FormDefinitionByKey -V2024FormDefinitionID $FormDefinitionID  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024FormDefinitionByKey -V2024FormDefinitionID $FormDefinitionID -V2024XSailPointExperimental $XSailPointExperimental  
@@ -589,7 +588,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Returns a form instance.
 
 try {
-    Get-V2024FormInstanceByKey-V2024FormInstanceID $FormInstanceID -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024FormInstanceByKey -V2024FormInstanceID $FormInstanceID  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024FormInstanceByKey -V2024FormInstanceID $FormInstanceID -V2024XSailPointExperimental $XSailPointExperimental  
@@ -637,7 +636,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Download instance file by fileId.
 
 try {
-    Get-V2024FormInstanceFile-V2024FormInstanceID $FormInstanceID -V2024FileID $FileID -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024FormInstanceFile -V2024FormInstanceID $FormInstanceID  -V2024FileID $FileID  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024FormInstanceFile -V2024FormInstanceID $FormInstanceID -V2024FileID $FileID -V2024XSailPointExperimental $XSailPointExperimental  
@@ -688,7 +687,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Import form definitions from export.
 
 try {
-    Import-V2024FormDefinitions-V2024XSailPointExperimental $XSailPointExperimental 
+    Import-V2024FormDefinitions -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Import-V2024FormDefinitions -V2024XSailPointExperimental $XSailPointExperimental -V2024Body $Body  
@@ -737,7 +736,7 @@ $Body = @{ key_example =  } # Map[] | Body is the request payload to patch a for
 # Patch a form definition.
 
 try {
-    Update-V2024FormDefinition-V2024FormDefinitionID $FormDefinitionID -V2024XSailPointExperimental $XSailPointExperimental 
+    Update-V2024FormDefinition -V2024FormDefinitionID $FormDefinitionID  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Update-V2024FormDefinition -V2024FormDefinitionID $FormDefinitionID -V2024XSailPointExperimental $XSailPointExperimental -V2024Body $Body  
@@ -787,7 +786,7 @@ $Body = @{ key_example =  } # Map[] | Body is the request payload to patch a for
 # Patch a form instance.
 
 try {
-    Update-V2024FormInstance-V2024FormInstanceID $FormInstanceID -V2024XSailPointExperimental $XSailPointExperimental 
+    Update-V2024FormInstance -V2024FormInstanceID $FormInstanceID  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Update-V2024FormInstance -V2024FormInstanceID $FormInstanceID -V2024XSailPointExperimental $XSailPointExperimental -V2024Body $Body  
@@ -837,7 +836,7 @@ $Sorters = "name" # String | Sort results using the standard syntax described in
 # Export form definitions by tenant.
 
 try {
-    Search-V2024FormDefinitionsByTenant-V2024XSailPointExperimental $XSailPointExperimental 
+    Search-V2024FormDefinitionsByTenant -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Search-V2024FormDefinitionsByTenant -V2024XSailPointExperimental $XSailPointExperimental -V2024Offset $Offset -V2024Limit $Limit -V2024Filters $Filters -V2024Sorters $Sorters  
@@ -891,7 +890,7 @@ $Query = "support" # String | String that is passed to the underlying API to fil
 # Retrieves dynamic data by element.
 
 try {
-    Search-V2024FormElementDataByElementID-V2024FormInstanceID $FormInstanceID -V2024FormElementID $FormElementID -V2024XSailPointExperimental $XSailPointExperimental 
+    Search-V2024FormElementDataByElementID -V2024FormInstanceID $FormInstanceID  -V2024FormElementID $FormElementID  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Search-V2024FormElementDataByElementID -V2024FormInstanceID $FormInstanceID -V2024FormElementID $FormElementID -V2024XSailPointExperimental $XSailPointExperimental -V2024Limit $Limit -V2024Filters $Filters -V2024Query $Query  
@@ -933,7 +932,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # List form instances by tenant.
 
 try {
-    Search-V2024FormInstancesByTenant-V2024XSailPointExperimental $XSailPointExperimental 
+    Search-V2024FormInstancesByTenant -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Search-V2024FormInstancesByTenant -V2024XSailPointExperimental $XSailPointExperimental  
@@ -975,7 +974,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # List predefined select options.
 
 try {
-    Search-V2024PreDefinedSelectOptions-V2024XSailPointExperimental $XSailPointExperimental 
+    Search-V2024PreDefinedSelectOptions -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Search-V2024PreDefinedSelectOptions -V2024XSailPointExperimental $XSailPointExperimental  
@@ -1038,7 +1037,7 @@ $FormElementPreviewRequest = @"{
 # Preview form definition data source.
 
 try {
-    Show-V2024PreviewDataSource-V2024FormDefinitionID $FormDefinitionID -V2024XSailPointExperimental $XSailPointExperimental 
+    Show-V2024PreviewDataSource -V2024FormDefinitionID $FormDefinitionID  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Show-V2024PreviewDataSource -V2024FormDefinitionID $FormDefinitionID -V2024XSailPointExperimental $XSailPointExperimental -V2024Limit $Limit -V2024Filters $Filters -V2024Query $Query -V2024FormElementPreviewRequest $FormElementPreviewRequest  

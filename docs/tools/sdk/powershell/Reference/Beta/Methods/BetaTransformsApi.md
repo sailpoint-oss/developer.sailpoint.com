@@ -1,4 +1,3 @@
-
 ---
 id: beta-transforms
 title: Transforms
@@ -78,7 +77,7 @@ $Transform = @"{
 
 try {
     $Result = ConvertFrom-JsonToTransform -Json $Transform
-    New-BetaTransform-BetaTransform $Result
+    New-BetaTransform -BetaTransform $Result
     
     # Below is a request that includes all optional parameters
     # New-BetaTransform -BetaTransform $Transform  
@@ -122,7 +121,7 @@ $Id = "2cd78adghjkja34jh2b1hkjhasuecd" # String | ID of the transform to delete
 # Delete a transform
 
 try {
-    Remove-BetaTransform-BetaId $Id 
+    Remove-BetaTransform -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-BetaTransform -BetaId $Id  
@@ -166,7 +165,7 @@ $Id = "2cd78adghjkja34jh2b1hkjhasuecd" # String | ID of the transform to retriev
 # Transform by ID
 
 try {
-    Get-BetaTransform-BetaId $Id 
+    Get-BetaTransform -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaTransform -BetaId $Id  
@@ -284,7 +283,7 @@ $Transform = @"{
 # Update a transform
 
 try {
-    Update-BetaTransform-BetaId $Id 
+    Update-BetaTransform -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Update-BetaTransform -BetaId $Id -BetaTransform $Transform  

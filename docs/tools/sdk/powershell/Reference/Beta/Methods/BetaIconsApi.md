@@ -1,4 +1,3 @@
-
 ---
 id: beta-icons
 title: Icons
@@ -58,7 +57,7 @@ $ObjectId = "a291e870-48c3-4953-b656-fb5ce2a93169" # String | Object id.
 # Delete an icon
 
 try {
-    Remove-BetaIcon-BetaObjectType $ObjectType -BetaObjectId $ObjectId 
+    Remove-BetaIcon -BetaObjectType $ObjectType  -BetaObjectId $ObjectId 
     
     # Below is a request that includes all optional parameters
     # Remove-BetaIcon -BetaObjectType $ObjectType -BetaObjectId $ObjectId  
@@ -105,7 +104,7 @@ $Image =  # System.IO.FileInfo | file with icon. Allowed mime-types ['image/png'
 # Update an icon
 
 try {
-    Set-BetaIcon-BetaObjectType $ObjectType -BetaObjectId $ObjectId -BetaImage $Image 
+    Set-BetaIcon -BetaObjectType $ObjectType  -BetaObjectId $ObjectId  -BetaImage $Image 
     
     # Below is a request that includes all optional parameters
     # Set-BetaIcon -BetaObjectType $ObjectType -BetaObjectId $ObjectId -BetaImage $Image  

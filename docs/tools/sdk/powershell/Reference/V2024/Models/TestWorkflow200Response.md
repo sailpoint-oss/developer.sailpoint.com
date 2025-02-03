@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'TestWorkflow200Response', 'V2024TestW
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**WorkflowExecutionId** |  Pointer to **String** | The workflow execution id | [optional] 
+**WorkflowExecutionId** | **String** | The workflow execution id | [optional] 
 
 ## Examples
 

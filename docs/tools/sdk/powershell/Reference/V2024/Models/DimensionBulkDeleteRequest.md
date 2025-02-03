@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'DimensionBulkDeleteRequest', 'V2024Di
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DimensionIds** |  **[]String** | List of IDs of Dimensions to be deleted. | [required]
+**DimensionIds** | **[]String** | List of IDs of Dimensions to be deleted. | [required]
 
 ## Examples
 

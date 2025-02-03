@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'SetLifecycleStateRequest', 'SetLifecy
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**LifecycleStateId** |  Pointer to **String** | ID of the lifecycle state to set. | [optional] 
+**LifecycleStateId** | **String** | ID of the lifecycle state to set. | [optional] 
 
 ## Examples
 

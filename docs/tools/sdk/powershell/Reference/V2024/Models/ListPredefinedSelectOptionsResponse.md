@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'ListPredefinedSelectOptionsResponse',
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Results** |  Pointer to **[]String** | Results holds a list of PreDefinedSelectOption items | [optional] 
+**Results** | **[]String** | Results holds a list of PreDefinedSelectOption items | [optional] 
 
 ## Examples
 

@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'AttributeDTOList', 'V2024AttributeDTO
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Attributes** |  Pointer to [**[]AttributeDTO**](attribute-dto) |  | [optional] 
+**Attributes** | [**[]AttributeDTO**](attribute-dto) |  | [optional] 
 
 ## Examples
 

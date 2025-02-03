@@ -1,4 +1,3 @@
-
 ---
 id: beta-identity-profiles
 title: IdentityProfiles
@@ -124,7 +123,7 @@ $IdentityProfile = @"{
 
 try {
     $Result = ConvertFrom-JsonToIdentityProfile -Json $IdentityProfile
-    New-BetaIdentityProfile-BetaIdentityProfile $Result
+    New-BetaIdentityProfile -BetaIdentityProfile $Result
     
     # Below is a request that includes all optional parameters
     # New-BetaIdentityProfile -BetaIdentityProfile $IdentityProfile  
@@ -173,7 +172,7 @@ $IdentityProfileId = "ef38f94347e94562b5bb8424a56397d8" # String | The Identity 
 # Delete an Identity Profile
 
 try {
-    Remove-BetaIdentityProfile-BetaIdentityProfileId $IdentityProfileId 
+    Remove-BetaIdentityProfile -BetaIdentityProfileId $IdentityProfileId 
     
     # Below is a request that includes all optional parameters
     # Remove-BetaIdentityProfile -BetaIdentityProfileId $IdentityProfileId  
@@ -224,7 +223,7 @@ $RequestBody = "MyRequestBody" # String[] | Identity Profile bulk delete request
 
 try {
     $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
-    Remove-BetaIdentityProfiles-BetaRequestBody $Result
+    Remove-BetaIdentityProfiles -BetaRequestBody $Result
     
     # Below is a request that includes all optional parameters
     # Remove-BetaIdentityProfiles -BetaRequestBody $RequestBody  
@@ -319,7 +318,7 @@ $IdentityProfileId = "ef38f94347e94562b5bb8424a56397d8" # String | The Identity 
 # Default identity attribute config
 
 try {
-    Get-BetaDefaultIdentityAttributeConfig-BetaIdentityProfileId $IdentityProfileId 
+    Get-BetaDefaultIdentityAttributeConfig -BetaIdentityProfileId $IdentityProfileId 
     
     # Below is a request that includes all optional parameters
     # Get-BetaDefaultIdentityAttributeConfig -BetaIdentityProfileId $IdentityProfileId  
@@ -364,7 +363,7 @@ $IdentityProfileId = "ef38f94347e94562b5bb8424a56397d8" # String | The Identity 
 # Gets a single Identity Profile
 
 try {
-    Get-BetaIdentityProfile-BetaIdentityProfileId $IdentityProfileId 
+    Get-BetaIdentityProfile -BetaIdentityProfileId $IdentityProfileId 
     
     # Below is a request that includes all optional parameters
     # Get-BetaIdentityProfile -BetaIdentityProfileId $IdentityProfileId  
@@ -469,7 +468,7 @@ Code | Description  | Data Type
 
 try {
     $Result = ConvertFrom-JsonToIdentityProfileExportedObject -Json $IdentityProfileExportedObject
-    Import-BetaIdentityProfiles-BetaIdentityProfileExportedObject $Result
+    Import-BetaIdentityProfiles -BetaIdentityProfileExportedObject $Result
     
     # Below is a request that includes all optional parameters
     # Import-BetaIdentityProfiles -BetaIdentityProfileExportedObject $IdentityProfileExportedObject  
@@ -591,7 +590,7 @@ $IdentityPreviewRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToIdentityPreviewRequest -Json $IdentityPreviewRequest
-    Show-BetaGenerateIdentityPreview-BetaIdentityPreviewRequest $Result
+    Show-BetaGenerateIdentityPreview -BetaIdentityPreviewRequest $Result
     
     # Below is a request that includes all optional parameters
     # Show-BetaGenerateIdentityPreview -BetaIdentityPreviewRequest $IdentityPreviewRequest  
@@ -639,7 +638,7 @@ $IdentityProfileId = "ef38f94347e94562b5bb8424a56397d8" # String | The Identity 
 # Process identities under profile
 
 try {
-    Sync-BetaIdentityProfile-BetaIdentityProfileId $IdentityProfileId 
+    Sync-BetaIdentityProfile -BetaIdentityProfileId $IdentityProfileId 
     
     # Below is a request that includes all optional parameters
     # Sync-BetaIdentityProfile -BetaIdentityProfileId $IdentityProfileId  
@@ -701,7 +700,7 @@ $IdentityProfileId = "ef38f94347e94562b5bb8424a56397d8" # String | The Identity 
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-BetaIdentityProfile-BetaIdentityProfileId $IdentityProfileId -BetaJsonPatchOperation $Result
+    Update-BetaIdentityProfile -BetaIdentityProfileId $IdentityProfileId  -BetaJsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-BetaIdentityProfile -BetaIdentityProfileId $IdentityProfileId -BetaJsonPatchOperation $JsonPatchOperation  

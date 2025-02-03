@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'ManagedClusterRequest', 'V2024Managed
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** |  **String** | ManagedCluster name | [required]
-**Type** |  Pointer to [**ManagedClusterTypes**](managed-cluster-types) |  | [optional] 
-**Configuration** |  Pointer to **map[string]String** | ManagedProcess configuration map | [optional] 
-**Description** |  Pointer to **String** | ManagedCluster description | [optional] 
+**Name** | **String** | ManagedCluster name | [required]
+**Type** | [**ManagedClusterTypes**](managed-cluster-types) |  | [optional] 
+**Configuration** | **map[string]String** | ManagedProcess configuration map | [optional] 
+**Description** | **String** | ManagedCluster description | [optional] 
 
 ## Examples
 

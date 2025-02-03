@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'AccessRequestTracking', 'BetaAccessRe
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**RequestedFor** |  Pointer to **String** | The identity id in which the access request is for. | [optional] 
-**RequestedItemsDetails** |  Pointer to [**[]RequestedItemDetails**](requested-item-details) | The details of the item requested. | [optional] 
-**AttributesHash** |  Pointer to **String** | a hash representation of the access requested, useful for longer term tracking client side. | [optional] 
-**AccessRequestIds** |  Pointer to **[]String** | a list of access request identifiers, generally only one will be populated, but high volume requested may result in multiple ids. | [optional] 
+**RequestedFor** | **String** | The identity id in which the access request is for. | [optional] 
+**RequestedItemsDetails** | [**[]RequestedItemDetails**](requested-item-details) | The details of the item requested. | [optional] 
+**AttributesHash** | **String** | a hash representation of the access requested, useful for longer term tracking client side. | [optional] 
+**AccessRequestIds** | **[]String** | a list of access request identifiers, generally only one will be populated, but high volume requested may result in multiple ids. | [optional] 
 
 ## Examples
 

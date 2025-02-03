@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'PublicIdentityAttributeConfig', 'Beta
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Key** |  Pointer to **String** | the key of the attribute | [optional] 
-**Name** |  Pointer to **String** | the display name of the attribute | [optional] 
+**Key** | **String** | the key of the attribute | [optional] 
+**Name** | **String** | the display name of the attribute | [optional] 
 
 ## Examples
 

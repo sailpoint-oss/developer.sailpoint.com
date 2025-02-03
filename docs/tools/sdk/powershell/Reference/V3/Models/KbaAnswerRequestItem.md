@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'KbaAnswerRequestItem', 'KbaAnswerRequ
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  **String** | Question Id | [required]
-**Answer** |  **String** | An answer for the KBA question | [required]
+**Id** | **String** | Question Id | [required]
+**Answer** | **String** | An answer for the KBA question | [required]
 
 ## Examples
 

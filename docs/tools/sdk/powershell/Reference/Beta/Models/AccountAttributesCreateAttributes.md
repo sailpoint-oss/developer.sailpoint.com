@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'AccountAttributesCreateAttributes', '
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**SourceId** |  **String** | Target source to create an account | [required]
+**SourceId** | **String** | Target source to create an account | [required]
 
 ## Examples
 

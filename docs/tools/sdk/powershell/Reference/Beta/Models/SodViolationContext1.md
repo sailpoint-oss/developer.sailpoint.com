@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'SodViolationContext1', 'BetaSodViolat
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Policy** |  Pointer to [**SodPolicyDto**](sod-policy-dto) |  | [optional] 
-**ConflictingAccessCriteria** |  Pointer to [**SodViolationContext1ConflictingAccessCriteria**](sod-violation-context1-conflicting-access-criteria) |  | [optional] 
+**Policy** | [**SodPolicyDto**](sod-policy-dto) |  | [optional] 
+**ConflictingAccessCriteria** | [**SodViolationContext1ConflictingAccessCriteria**](sod-violation-context1-conflicting-access-criteria) |  | [optional] 
 
 ## Examples
 

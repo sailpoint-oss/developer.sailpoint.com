@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'BulkCancelAccessRequest', 'V2024BulkC
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccessRequestIds** |  **[]String** | List of access requests ids to cancel the pending requests | [required]
-**Comment** |  **String** | Reason for cancelling the pending access request. | [required]
+**AccessRequestIds** | **[]String** | List of access requests ids to cancel the pending requests | [required]
+**Comment** | **String** | Reason for cancelling the pending access request. | [required]
 
 ## Examples
 

@@ -16,22 +16,22 @@ tags: ['SDK', 'Software Development Kit', 'ConnectorDetail', 'V2024ConnectorDeta
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** |  Pointer to **String** | The connector name | [optional] 
-**Type** |  Pointer to **String** | The connector type | [optional] 
-**ClassName** |  Pointer to **String** | The connector class name | [optional] 
-**ScriptName** |  Pointer to **String** | The connector script name | [optional] 
-**ApplicationXml** |  Pointer to **String** | The connector application xml | [optional] 
-**CorrelationConfigXml** |  Pointer to **String** | The connector correlation config xml | [optional] 
-**SourceConfigXml** |  Pointer to **String** | The connector source config xml | [optional] 
-**SourceConfig** |  Pointer to **String** | The connector source config | [optional] 
-**SourceConfigFrom** |  Pointer to **String** | The connector source config origin | [optional] 
-**S3Location** |  Pointer to **String** | storage path key for this connector | [optional] 
-**UploadedFiles** |  Pointer to **[]String** | The list of uploaded files supported by the connector. If there was any executable files uploaded to thee connector. Typically this be empty as the executable be uploaded at source creation. | [optional] 
-**FileUpload** |  Pointer to **Boolean** | true if the source is file upload | [optional] [default to $false]
-**DirectConnect** |  Pointer to **Boolean** | true if the source is a direct connect source | [optional] [default to $false]
-**TranslationProperties** |  Pointer to [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | A map containing translation attributes by loacale key | [optional] 
-**ConnectorMetadata** |  Pointer to [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | A map containing metadata pertinent to the UI to be used | [optional] 
-**Status** |  Pointer to  **Enum** [  "DEPRECATED",    "DEVELOPMENT",    "DEMO",    "RELEASED" ] | The connector status | [optional] 
+**Name** | **String** | The connector name | [optional] 
+**Type** | **String** | The connector type | [optional] 
+**ClassName** | **String** | The connector class name | [optional] 
+**ScriptName** | **String** | The connector script name | [optional] 
+**ApplicationXml** | **String** | The connector application xml | [optional] 
+**CorrelationConfigXml** | **String** | The connector correlation config xml | [optional] 
+**SourceConfigXml** | **String** | The connector source config xml | [optional] 
+**SourceConfig** | **String** | The connector source config | [optional] 
+**SourceConfigFrom** | **String** | The connector source config origin | [optional] 
+**S3Location** | **String** | storage path key for this connector | [optional] 
+**UploadedFiles** | **[]String** | The list of uploaded files supported by the connector. If there was any executable files uploaded to thee connector. Typically this be empty as the executable be uploaded at source creation. | [optional] 
+**FileUpload** | **Boolean** | true if the source is file upload | [optional] [default to $false]
+**DirectConnect** | **Boolean** | true if the source is a direct connect source | [optional] [default to $false]
+**TranslationProperties** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | A map containing translation attributes by loacale key | [optional] 
+**ConnectorMetadata** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | A map containing metadata pertinent to the UI to be used | [optional] 
+**Status** |  **Enum** [  "DEPRECATED",    "DEVELOPMENT",    "DEMO",    "RELEASED" ] | The connector status | [optional] 
 
 ## Examples
 

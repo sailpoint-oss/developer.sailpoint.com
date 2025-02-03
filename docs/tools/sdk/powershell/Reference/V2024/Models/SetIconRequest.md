@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'SetIconRequest', 'V2024SetIconRequest
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Image** |  **System.IO.FileInfo** | file with icon. Allowed mime-types ['image/png', 'image/jpeg'] | [required]
+**Image** | **System.IO.FileInfo** | file with icon. Allowed mime-types ['image/png', 'image/jpeg'] | [required]
 
 ## Examples
 

@@ -1,4 +1,3 @@
-
 ---
 id: v2024-workflows
 title: Workflows
@@ -71,7 +70,7 @@ $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | The workflow execution I
 # Cancel Workflow Execution by ID
 
 try {
-    Suspend-V2024WorkflowExecution-V2024Id $Id 
+    Suspend-V2024WorkflowExecution -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Suspend-V2024WorkflowExecution -V2024Id $Id  
@@ -115,7 +114,7 @@ $CreateExternalExecuteWorkflowRequest = @""@
 # Execute Workflow via External Trigger
 
 try {
-    New-V2024ExternalExecuteWorkflow-V2024Id $Id 
+    New-V2024ExternalExecuteWorkflow -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # New-V2024ExternalExecuteWorkflow -V2024Id $Id -V2024CreateExternalExecuteWorkflowRequest $CreateExternalExecuteWorkflowRequest  
@@ -158,7 +157,7 @@ $CreateWorkflowRequest = @"{name=Send Email, owner={type=IDENTITY, id=2c91808568
 
 try {
     $Result = ConvertFrom-JsonToCreateWorkflowRequest -Json $CreateWorkflowRequest
-    New-V2024Workflow-V2024CreateWorkflowRequest $Result
+    New-V2024Workflow -V2024CreateWorkflowRequest $Result
     
     # Below is a request that includes all optional parameters
     # New-V2024Workflow -V2024CreateWorkflowRequest $CreateWorkflowRequest  
@@ -200,7 +199,7 @@ $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow
 # Generate External Trigger OAuth Client
 
 try {
-    New-V2024WorkflowExternalTrigger-V2024Id $Id 
+    New-V2024WorkflowExternalTrigger -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # New-V2024WorkflowExternalTrigger -V2024Id $Id  
@@ -242,7 +241,7 @@ $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the Workflow
 # Delete Workflow By Id
 
 try {
-    Remove-V2024Workflow-V2024Id $Id 
+    Remove-V2024Workflow -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024Workflow -V2024Id $Id  
@@ -284,7 +283,7 @@ $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow
 # Get Workflow By Id
 
 try {
-    Get-V2024Workflow-V2024Id $Id 
+    Get-V2024Workflow -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-V2024Workflow -V2024Id $Id  
@@ -327,7 +326,7 @@ $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Workflow execution ID.
 # Get Workflow Execution
 
 try {
-    Get-V2024WorkflowExecution-V2024Id $Id 
+    Get-V2024WorkflowExecution -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-V2024WorkflowExecution -V2024Id $Id  
@@ -370,7 +369,7 @@ $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow execu
 # Get Workflow Execution History
 
 try {
-    Get-V2024WorkflowExecutionHistory-V2024Id $Id 
+    Get-V2024WorkflowExecutionHistory -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-V2024WorkflowExecutionHistory -V2024Id $Id  
@@ -431,7 +430,7 @@ $Filters = 'status eq "Failed"' # String | Filter results using the standard syn
 # List Workflow Executions
 
 try {
-    Get-V2024WorkflowExecutions-V2024Id $Id 
+    Get-V2024WorkflowExecutions -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-V2024WorkflowExecutions -V2024Id $Id -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Filters $Filters  
@@ -697,7 +696,7 @@ $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the Workflow
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024Workflow-V2024Id $Id -V2024JsonPatchOperation $Result
+    Update-V2024Workflow -V2024Id $Id  -V2024JsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024Workflow -V2024Id $Id -V2024JsonPatchOperation $JsonPatchOperation  
@@ -780,7 +779,7 @@ $WorkflowBody = @"{
 
 try {
     $Result = ConvertFrom-JsonToWorkflowBody -Json $WorkflowBody
-    Send-V2024Workflow-V2024Id $Id -V2024WorkflowBody $Result
+    Send-V2024Workflow -V2024Id $Id  -V2024WorkflowBody $Result
     
     # Below is a request that includes all optional parameters
     # Send-V2024Workflow -V2024Id $Id -V2024WorkflowBody $WorkflowBody  
@@ -824,7 +823,7 @@ $TestExternalExecuteWorkflowRequest = @""@
 # Test Workflow via External Trigger
 
 try {
-    Test-V2024ExternalExecuteWorkflow-V2024Id $Id 
+    Test-V2024ExternalExecuteWorkflow -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Test-V2024ExternalExecuteWorkflow -V2024Id $Id -V2024TestExternalExecuteWorkflowRequest $TestExternalExecuteWorkflowRequest  
@@ -871,7 +870,7 @@ $TestWorkflowRequest = @"{input={identity={id=ee769173319b41d19ccec6cea52f237b, 
 
 try {
     $Result = ConvertFrom-JsonToTestWorkflowRequest -Json $TestWorkflowRequest
-    Test-V2024Workflow-V2024Id $Id -V2024TestWorkflowRequest $Result
+    Test-V2024Workflow -V2024Id $Id  -V2024TestWorkflowRequest $Result
     
     # Below is a request that includes all optional parameters
     # Test-V2024Workflow -V2024Id $Id -V2024TestWorkflowRequest $TestWorkflowRequest  

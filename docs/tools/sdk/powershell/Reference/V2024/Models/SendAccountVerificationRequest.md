@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'SendAccountVerificationRequest', 'V20
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**SourceName** |  Pointer to **String** | The source name where identity account password should be reset | [optional] 
-**Via** |   **Enum** [  "EMAIL_WORK",    "EMAIL_PERSONAL",    "LINK_WORK",    "LINK_PERSONAL" ] | The method to send notification | [required]
+**SourceName** | **String** | The source name where identity account password should be reset | [optional] 
+**Via** |  **Enum** [  "EMAIL_WORK",    "EMAIL_PERSONAL",    "LINK_WORK",    "LINK_PERSONAL" ] | The method to send notification | [required]
 
 ## Examples
 

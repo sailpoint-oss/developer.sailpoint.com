@@ -16,11 +16,11 @@ tags: ['SDK', 'Software Development Kit', 'LatestOutlierSummary', 'BetaLatestOut
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to  **Enum** [  "LOW_SIMILARITY",    "STRUCTURAL" ] | The type of outlier summary | [optional] 
-**SnapshotDate** |  Pointer to **System.DateTime** | The date the bulk outlier detection ran/snapshot was created | [optional] 
-**TotalOutliers** |  Pointer to **Int32** | Total number of outliers for the customer making the request | [optional] 
-**TotalIdentities** |  Pointer to **Int32** | Total number of identities for the customer making the request | [optional] 
-**TotalIgnored** |  Pointer to **Int32** | Total number of ignored outliers | [optional] 
+**Type** |  **Enum** [  "LOW_SIMILARITY",    "STRUCTURAL" ] | The type of outlier summary | [optional] 
+**SnapshotDate** | **System.DateTime** | The date the bulk outlier detection ran/snapshot was created | [optional] 
+**TotalOutliers** | **Int32** | Total number of outliers for the customer making the request | [optional] 
+**TotalIdentities** | **Int32** | Total number of identities for the customer making the request | [optional] 
+**TotalIgnored** | **Int32** | Total number of ignored outliers | [optional] 
 
 ## Examples
 

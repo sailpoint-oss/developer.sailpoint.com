@@ -1,4 +1,3 @@
-
 ---
 id: workflows
 title: Workflows
@@ -71,7 +70,7 @@ $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | The workflow execution I
 # Cancel Workflow Execution by ID
 
 try {
-    Suspend-WorkflowExecution-Id $Id 
+    Suspend-WorkflowExecution -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Suspend-WorkflowExecution -Id $Id  
@@ -115,7 +114,7 @@ $CreateExternalExecuteWorkflowRequest = @""@
 # Execute Workflow via External Trigger
 
 try {
-    New-ExternalExecuteWorkflow-Id $Id 
+    New-ExternalExecuteWorkflow -Id $Id 
     
     # Below is a request that includes all optional parameters
     # New-ExternalExecuteWorkflow -Id $Id -CreateExternalExecuteWorkflowRequest $CreateExternalExecuteWorkflowRequest  
@@ -158,7 +157,7 @@ $CreateWorkflowRequest = @"{name=Send Email, owner={type=IDENTITY, id=2c91808568
 
 try {
     $Result = ConvertFrom-JsonToCreateWorkflowRequest -Json $CreateWorkflowRequest
-    New-Workflow-CreateWorkflowRequest $Result
+    New-Workflow -CreateWorkflowRequest $Result
     
     # Below is a request that includes all optional parameters
     # New-Workflow -CreateWorkflowRequest $CreateWorkflowRequest  
@@ -200,7 +199,7 @@ $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow
 # Generate External Trigger OAuth Client
 
 try {
-    New-WorkflowExternalTrigger-Id $Id 
+    New-WorkflowExternalTrigger -Id $Id 
     
     # Below is a request that includes all optional parameters
     # New-WorkflowExternalTrigger -Id $Id  
@@ -242,7 +241,7 @@ $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the Workflow
 # Delete Workflow By Id
 
 try {
-    Remove-Workflow-Id $Id 
+    Remove-Workflow -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-Workflow -Id $Id  
@@ -284,7 +283,7 @@ $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow
 # Get Workflow By Id
 
 try {
-    Get-Workflow-Id $Id 
+    Get-Workflow -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-Workflow -Id $Id  
@@ -327,7 +326,7 @@ $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Workflow execution ID.
 # Get Workflow Execution
 
 try {
-    Get-WorkflowExecution-Id $Id 
+    Get-WorkflowExecution -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-WorkflowExecution -Id $Id  
@@ -370,7 +369,7 @@ $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow execu
 # Get Workflow Execution History
 
 try {
-    Get-WorkflowExecutionHistory-Id $Id 
+    Get-WorkflowExecutionHistory -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-WorkflowExecutionHistory -Id $Id  
@@ -431,7 +430,7 @@ $Filters = 'status eq "Failed"' # String | Filter results using the standard syn
 # List Workflow Executions
 
 try {
-    Get-WorkflowExecutions-Id $Id 
+    Get-WorkflowExecutions -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-WorkflowExecutions -Id $Id -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters  
@@ -697,7 +696,7 @@ $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the Workflow
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-Workflow-Id $Id -JsonPatchOperation $Result
+    Update-Workflow -Id $Id  -JsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-Workflow -Id $Id -JsonPatchOperation $JsonPatchOperation  
@@ -780,7 +779,7 @@ $WorkflowBody = @"{
 
 try {
     $Result = ConvertFrom-JsonToWorkflowBody -Json $WorkflowBody
-    Send-Workflow-Id $Id -WorkflowBody $Result
+    Send-Workflow -Id $Id  -WorkflowBody $Result
     
     # Below is a request that includes all optional parameters
     # Send-Workflow -Id $Id -WorkflowBody $WorkflowBody  
@@ -824,7 +823,7 @@ $TestExternalExecuteWorkflowRequest = @""@
 # Test Workflow via External Trigger
 
 try {
-    Test-ExternalExecuteWorkflow-Id $Id 
+    Test-ExternalExecuteWorkflow -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Test-ExternalExecuteWorkflow -Id $Id -TestExternalExecuteWorkflowRequest $TestExternalExecuteWorkflowRequest  
@@ -871,7 +870,7 @@ $TestWorkflowRequest = @"{input={identity={id=ee769173319b41d19ccec6cea52f237b, 
 
 try {
     $Result = ConvertFrom-JsonToTestWorkflowRequest -Json $TestWorkflowRequest
-    Test-Workflow-Id $Id -TestWorkflowRequest $Result
+    Test-Workflow -Id $Id  -TestWorkflowRequest $Result
     
     # Below is a request that includes all optional parameters
     # Test-Workflow -Id $Id -TestWorkflowRequest $TestWorkflowRequest  

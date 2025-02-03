@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'ViolationPrediction', 'ViolationPredi
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ViolationContexts** |  Pointer to [**[]ViolationContext**](violation-context) | List of Violation Contexts | [optional] 
+**ViolationContexts** | [**[]ViolationContext**](violation-context) | List of Violation Contexts | [optional] 
 
 ## Examples
 

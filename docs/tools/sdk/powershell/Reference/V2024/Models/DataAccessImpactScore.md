@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'DataAccessImpactScore', 'V2024DataAcc
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Value** |  Pointer to **String** | Impact Score for this data | [optional] 
+**Value** | **String** | Impact Score for this data | [optional] 
 
 ## Examples
 

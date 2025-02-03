@@ -1,4 +1,3 @@
-
 ---
 id: personal-access-tokens
 title: PersonalAccessTokens
@@ -71,7 +70,7 @@ $CreatePersonalAccessTokenRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToCreatePersonalAccessTokenRequest -Json $CreatePersonalAccessTokenRequest
-    New-PersonalAccessToken-CreatePersonalAccessTokenRequest $Result
+    New-PersonalAccessToken -CreatePersonalAccessTokenRequest $Result
     
     # Below is a request that includes all optional parameters
     # New-PersonalAccessToken -CreatePersonalAccessTokenRequest $CreatePersonalAccessTokenRequest  
@@ -114,7 +113,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The personal access token id
 # Delete Personal Access Token
 
 try {
-    Remove-PersonalAccessToken-Id $Id 
+    Remove-PersonalAccessToken -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-PersonalAccessToken -Id $Id  
@@ -210,7 +209,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The Personal Access Token id
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-PersonalAccessToken-Id $Id -JsonPatchOperation $Result
+    Update-PersonalAccessToken -Id $Id  -JsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-PersonalAccessToken -Id $Id -JsonPatchOperation $JsonPatchOperation  

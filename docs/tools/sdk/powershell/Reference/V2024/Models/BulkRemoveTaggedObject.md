@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'BulkRemoveTaggedObject', 'V2024BulkRe
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ObjectRefs** |  Pointer to [**[]TaggedObjectDto**](tagged-object-dto) |  | [optional] 
-**Tags** |  Pointer to **[]String** | Label to be applied to an Object | [optional] 
+**ObjectRefs** | [**[]TaggedObjectDto**](tagged-object-dto) |  | [optional] 
+**Tags** | **[]String** | Label to be applied to an Object | [optional] 
 
 ## Examples
 

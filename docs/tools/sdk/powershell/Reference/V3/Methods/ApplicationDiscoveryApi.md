@@ -1,4 +1,3 @@
-
 ---
 id: application-discovery
 title: ApplicationDiscovery
@@ -151,7 +150,7 @@ $File =  # System.IO.FileInfo | The CSV file to upload containing `application_n
 # Upload CSV to Discover Applications
 
 try {
-    Send-ManualDiscoverApplicationsCsvTemplate-File $File 
+    Send-ManualDiscoverApplicationsCsvTemplate -File $File 
     
     # Below is a request that includes all optional parameters
     # Send-ManualDiscoverApplicationsCsvTemplate -File $File  

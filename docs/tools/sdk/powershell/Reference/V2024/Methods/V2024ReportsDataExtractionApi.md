@@ -1,4 +1,3 @@
-
 ---
 id: v2024-reports-data-extraction
 title: ReportsDataExtraction
@@ -58,7 +57,7 @@ $Id = "a1ed223247144cc29d23c632624b4767" # String | ID of the running Report to 
 # Cancel Report
 
 try {
-    Suspend-V2024Report-V2024Id $Id 
+    Suspend-V2024Report -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Suspend-V2024Report -V2024Id $Id  
@@ -107,7 +106,7 @@ $Auditable = $true # Boolean | Enables auditing for current report download. Wil
 # Get Report File
 
 try {
-    Get-V2024Report-V2024TaskResultId $TaskResultId -V2024FileFormat $FileFormat 
+    Get-V2024Report -V2024TaskResultId $TaskResultId  -V2024FileFormat $FileFormat 
     
     # Below is a request that includes all optional parameters
     # Get-V2024Report -V2024TaskResultId $TaskResultId -V2024FileFormat $FileFormat -V2024Name $Name -V2024Auditable $Auditable  
@@ -151,7 +150,7 @@ $Completed = $true # Boolean | state of task result to apply ordering when resul
 # Get Report Result
 
 try {
-    Get-V2024ReportResult-V2024TaskResultId $TaskResultId 
+    Get-V2024ReportResult -V2024TaskResultId $TaskResultId 
     
     # Below is a request that includes all optional parameters
     # Get-V2024ReportResult -V2024TaskResultId $TaskResultId -V2024Completed $Completed  
@@ -200,7 +199,7 @@ $ReportDetails = @"{
 
 try {
     $Result = ConvertFrom-JsonToReportDetails -Json $ReportDetails
-    Start-V2024Report-V2024ReportDetails $Result
+    Start-V2024Report -V2024ReportDetails $Result
     
     # Below is a request that includes all optional parameters
     # Start-V2024Report -V2024ReportDetails $ReportDetails  

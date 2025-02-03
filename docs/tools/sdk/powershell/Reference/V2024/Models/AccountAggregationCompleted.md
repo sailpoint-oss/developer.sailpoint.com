@@ -16,13 +16,13 @@ tags: ['SDK', 'Software Development Kit', 'AccountAggregationCompleted', 'V2024A
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Source** |  [**AccountAggregationCompletedSource**](account-aggregation-completed-source) |  | [required]
-**Status** |   **Enum** [  "Success",    "Failed",    "Terminated" ] | The overall status of the aggregation. | [required]
-**Started** |  **System.DateTime** | The date and time when the account aggregation started. | [required]
-**Completed** |  **System.DateTime** | The date and time when the account aggregation finished. | [required]
-**Errors** |  **[]String** | A list of errors that occurred during the aggregation. | [required]
-**Warnings** |  **[]String** | A list of warnings that occurred during the aggregation. | [required]
-**Stats** |  [**AccountAggregationCompletedStats**](account-aggregation-completed-stats) |  | [required]
+**Source** | [**AccountAggregationCompletedSource**](account-aggregation-completed-source) |  | [required]
+**Status** |  **Enum** [  "Success",    "Failed",    "Terminated" ] | The overall status of the aggregation. | [required]
+**Started** | **System.DateTime** | The date and time when the account aggregation started. | [required]
+**Completed** | **System.DateTime** | The date and time when the account aggregation finished. | [required]
+**Errors** | **[]String** | A list of errors that occurred during the aggregation. | [required]
+**Warnings** | **[]String** | A list of warnings that occurred during the aggregation. | [required]
+**Stats** | [**AccountAggregationCompletedStats**](account-aggregation-completed-stats) |  | [required]
 
 ## Examples
 

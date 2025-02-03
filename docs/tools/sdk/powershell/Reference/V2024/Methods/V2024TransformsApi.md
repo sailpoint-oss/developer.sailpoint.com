@@ -1,4 +1,3 @@
-
 ---
 id: v2024-transforms
 title: Transforms
@@ -84,7 +83,7 @@ $Transform = @"{
 
 try {
     $Result = ConvertFrom-JsonToTransform -Json $Transform
-    New-V2024Transform-V2024Transform $Result
+    New-V2024Transform -V2024Transform $Result
     
     # Below is a request that includes all optional parameters
     # New-V2024Transform -V2024Transform $Transform  
@@ -127,7 +126,7 @@ $Id = "2cd78adghjkja34jh2b1hkjhasuecd" # String | ID of the transform to delete
 # Delete a transform
 
 try {
-    Remove-V2024Transform-V2024Id $Id 
+    Remove-V2024Transform -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024Transform -V2024Id $Id  
@@ -170,7 +169,7 @@ $Id = "2cd78adghjkja34jh2b1hkjhasuecd" # String | ID of the transform to retriev
 # Transform by ID
 
 try {
-    Get-V2024Transform-V2024Id $Id 
+    Get-V2024Transform -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-V2024Transform -V2024Id $Id  
@@ -286,7 +285,7 @@ $Transform = @"{
 # Update a transform
 
 try {
-    Update-V2024Transform-V2024Id $Id 
+    Update-V2024Transform -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Update-V2024Transform -V2024Id $Id -V2024Transform $Transform  

@@ -1,4 +1,3 @@
-
 ---
 id: v2024-connector-rule-management
 title: ConnectorRuleManagement
@@ -92,7 +91,7 @@ $ConnectorRuleCreateRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToConnectorRuleCreateRequest -Json $ConnectorRuleCreateRequest
-    New-V2024ConnectorRule-V2024XSailPointExperimental $XSailPointExperimental -V2024ConnectorRuleCreateRequest $Result
+    New-V2024ConnectorRule -V2024XSailPointExperimental $XSailPointExperimental  -V2024ConnectorRuleCreateRequest $Result
     
     # Below is a request that includes all optional parameters
     # New-V2024ConnectorRule -V2024XSailPointExperimental $XSailPointExperimental -V2024ConnectorRuleCreateRequest $ConnectorRuleCreateRequest  
@@ -137,7 +136,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Delete Connector Rule
 
 try {
-    Remove-V2024ConnectorRule-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
+    Remove-V2024ConnectorRule -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024ConnectorRule -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
@@ -182,7 +181,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Get Connector Rule
 
 try {
-    Get-V2024ConnectorRule-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024ConnectorRule -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024ConnectorRule -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
@@ -230,7 +229,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # List Connector Rules
 
 try {
-    Get-V2024ConnectorRuleList-V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024ConnectorRuleList -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024ConnectorRuleList -V2024XSailPointExperimental $XSailPointExperimental -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count  
@@ -303,7 +302,7 @@ $ConnectorRuleUpdateRequest = @"{
 # Update Connector Rule
 
 try {
-    Send-V2024ConnectorRule-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
+    Send-V2024ConnectorRule -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Send-V2024ConnectorRule -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024ConnectorRuleUpdateRequest $ConnectorRuleUpdateRequest  
@@ -351,7 +350,7 @@ $SourceCode = @"{
 
 try {
     $Result = ConvertFrom-JsonToSourceCode -Json $SourceCode
-    Test-V2024ConnectorRule-V2024XSailPointExperimental $XSailPointExperimental -V2024SourceCode $Result
+    Test-V2024ConnectorRule -V2024XSailPointExperimental $XSailPointExperimental  -V2024SourceCode $Result
     
     # Below is a request that includes all optional parameters
     # Test-V2024ConnectorRule -V2024XSailPointExperimental $XSailPointExperimental -V2024SourceCode $SourceCode  

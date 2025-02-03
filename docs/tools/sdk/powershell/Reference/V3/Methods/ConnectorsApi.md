@@ -1,4 +1,3 @@
-
 ---
 id: connectors
 title: Connectors
@@ -84,7 +83,7 @@ $V3CreateConnectorDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToV3CreateConnectorDto -Json $V3CreateConnectorDto
-    New-CustomConnector-V3CreateConnectorDto $Result
+    New-CustomConnector -V3CreateConnectorDto $Result
     
     # Below is a request that includes all optional parameters
     # New-CustomConnector -V3CreateConnectorDto $V3CreateConnectorDto  
@@ -127,7 +126,7 @@ $ScriptName = "aScriptName" # String | The scriptName value of the connector. Sc
 # Delete Connector by Script Name
 
 try {
-    Remove-CustomConnector-ScriptName $ScriptName 
+    Remove-CustomConnector -ScriptName $ScriptName 
     
     # Below is a request that includes all optional parameters
     # Remove-CustomConnector -ScriptName $ScriptName  
@@ -172,7 +171,7 @@ $Locale = "de" # String | The locale to apply to the config. If no viable locale
 # Get Connector by Script Name
 
 try {
-    Get-Connector-ScriptName $ScriptName 
+    Get-Connector -ScriptName $ScriptName 
     
     # Below is a request that includes all optional parameters
     # Get-Connector -ScriptName $ScriptName -Locale $Locale  
@@ -266,7 +265,7 @@ $ScriptName = "aScriptName" # String | The scriptName value of the connector. Sc
 # Get Connector Source Configuration
 
 try {
-    Get-ConnectorSourceConfig-ScriptName $ScriptName 
+    Get-ConnectorSourceConfig -ScriptName $ScriptName 
     
     # Below is a request that includes all optional parameters
     # Get-ConnectorSourceConfig -ScriptName $ScriptName  
@@ -309,7 +308,7 @@ $ScriptName = "aScriptName" # String | The scriptName value of the connector. Sc
 # Get Connector Source Template
 
 try {
-    Get-ConnectorSourceTemplate-ScriptName $ScriptName 
+    Get-ConnectorSourceTemplate -ScriptName $ScriptName 
     
     # Below is a request that includes all optional parameters
     # Get-ConnectorSourceTemplate -ScriptName $ScriptName  
@@ -354,7 +353,7 @@ $Locale = "de" # String | The locale to apply to the config. If no viable locale
 # Get Connector Translations
 
 try {
-    Get-ConnectorTranslations-ScriptName $ScriptName -Locale $Locale 
+    Get-ConnectorTranslations -ScriptName $ScriptName  -Locale $Locale 
     
     # Below is a request that includes all optional parameters
     # Get-ConnectorTranslations -ScriptName $ScriptName -Locale $Locale  
@@ -399,7 +398,7 @@ $File =  # System.IO.FileInfo | connector source config xml file
 # Update Connector Source Configuration
 
 try {
-    Send-ConnectorSourceConfig-ScriptName $ScriptName -File $File 
+    Send-ConnectorSourceConfig -ScriptName $ScriptName  -File $File 
     
     # Below is a request that includes all optional parameters
     # Send-ConnectorSourceConfig -ScriptName $ScriptName -File $File  
@@ -444,7 +443,7 @@ $File =  # System.IO.FileInfo | connector source template xml file
 # Update Connector Source Template
 
 try {
-    Send-ConnectorSourceTemplate-ScriptName $ScriptName -File $File 
+    Send-ConnectorSourceTemplate -ScriptName $ScriptName  -File $File 
     
     # Below is a request that includes all optional parameters
     # Send-ConnectorSourceTemplate -ScriptName $ScriptName -File $File  
@@ -489,7 +488,7 @@ $Locale = "de" # String | The locale to apply to the config. If no viable locale
 # Update Connector Translations
 
 try {
-    Send-ConnectorTranslations-ScriptName $ScriptName -Locale $Locale 
+    Send-ConnectorTranslations -ScriptName $ScriptName  -Locale $Locale 
     
     # Below is a request that includes all optional parameters
     # Send-ConnectorTranslations -ScriptName $ScriptName -Locale $Locale  
@@ -552,7 +551,7 @@ $ScriptName = "aScriptName" # String | The scriptName value of the connector. Sc
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-Connector-ScriptName $ScriptName -JsonPatchOperation $Result
+    Update-Connector -ScriptName $ScriptName  -JsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-Connector -ScriptName $ScriptName -JsonPatchOperation $JsonPatchOperation  

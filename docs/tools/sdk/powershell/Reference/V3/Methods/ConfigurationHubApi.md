@@ -1,4 +1,3 @@
-
 ---
 id: configuration-hub
 title: ConfigurationHub
@@ -82,7 +81,7 @@ $ObjectMappingRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToObjectMappingRequest -Json $ObjectMappingRequest
-    New-ObjectMapping-SourceOrg $SourceOrg -ObjectMappingRequest $Result
+    New-ObjectMapping -SourceOrg $SourceOrg  -ObjectMappingRequest $Result
     
     # Below is a request that includes all optional parameters
     # New-ObjectMapping -SourceOrg $SourceOrg -ObjectMappingRequest $ObjectMappingRequest  
@@ -145,7 +144,7 @@ $ObjectMappingBulkCreateRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToObjectMappingBulkCreateRequest -Json $ObjectMappingBulkCreateRequest
-    New-ObjectMappings-SourceOrg $SourceOrg -ObjectMappingBulkCreateRequest $Result
+    New-ObjectMappings -SourceOrg $SourceOrg  -ObjectMappingBulkCreateRequest $Result
     
     # Below is a request that includes all optional parameters
     # New-ObjectMappings -SourceOrg $SourceOrg -ObjectMappingBulkCreateRequest $ObjectMappingBulkCreateRequest  
@@ -193,7 +192,7 @@ $Name = "MyName" # String | Name that will be assigned to the uploaded configura
 # Upload a Configuration
 
 try {
-    New-UploadedConfiguration-Data $Data -Name $Name 
+    New-UploadedConfiguration -Data $Data  -Name $Name 
     
     # Below is a request that includes all optional parameters
     # New-UploadedConfiguration -Data $Data -Name $Name  
@@ -241,7 +240,7 @@ $ObjectMappingId = "3d6e0144-963f-4bd6-8d8d-d77b4e507ce4" # String | The id of t
 # Deletes an object mapping
 
 try {
-    Remove-ObjectMapping-SourceOrg $SourceOrg -ObjectMappingId $ObjectMappingId 
+    Remove-ObjectMapping -SourceOrg $SourceOrg  -ObjectMappingId $ObjectMappingId 
     
     # Below is a request that includes all optional parameters
     # Remove-ObjectMapping -SourceOrg $SourceOrg -ObjectMappingId $ObjectMappingId  
@@ -288,7 +287,7 @@ $Id = "3d0fe04b-57df-4a46-a83b-8f04b0f9d10b" # String | The id of the uploaded c
 # Delete an Uploaded Configuration
 
 try {
-    Remove-UploadedConfiguration-Id $Id 
+    Remove-UploadedConfiguration -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-UploadedConfiguration -Id $Id  
@@ -334,7 +333,7 @@ $SourceOrg = "source-org" # String | The name of the source org.
 # Gets list of object mappings
 
 try {
-    Get-ObjectMappings-SourceOrg $SourceOrg 
+    Get-ObjectMappings -SourceOrg $SourceOrg 
     
     # Below is a request that includes all optional parameters
     # Get-ObjectMappings -SourceOrg $SourceOrg  
@@ -377,7 +376,7 @@ $Id = "3d0fe04b-57df-4a46-a83b-8f04b0f9d10b" # String | The id of the uploaded c
 # Get an Uploaded Configuration
 
 try {
-    Get-UploadedConfiguration-Id $Id 
+    Get-UploadedConfiguration -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-UploadedConfiguration -Id $Id  
@@ -482,7 +481,7 @@ $ObjectMappingBulkPatchRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToObjectMappingBulkPatchRequest -Json $ObjectMappingBulkPatchRequest
-    Update-ObjectMappings-SourceOrg $SourceOrg -ObjectMappingBulkPatchRequest $Result
+    Update-ObjectMappings -SourceOrg $SourceOrg  -ObjectMappingBulkPatchRequest $Result
     
     # Below is a request that includes all optional parameters
     # Update-ObjectMappings -SourceOrg $SourceOrg -ObjectMappingBulkPatchRequest $ObjectMappingBulkPatchRequest  

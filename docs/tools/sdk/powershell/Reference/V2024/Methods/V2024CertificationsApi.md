@@ -1,4 +1,3 @@
-
 ---
 id: v2024-certifications
 title: Certifications
@@ -86,7 +85,7 @@ $Id = "63b32151-26c0-42f4-9299-8898dc1c9daa" # String | The task ID
 # Certification Task by ID
 
 try {
-    Get-V2024CertificationTask-V2024Id $Id 
+    Get-V2024CertificationTask -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-V2024CertificationTask -V2024Id $Id  
@@ -129,7 +128,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The certification id
 # Identity Certification by ID
 
 try {
-    Get-V2024IdentityCertification-V2024Id $Id 
+    Get-V2024IdentityCertification -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-V2024IdentityCertification -V2024Id $Id  
@@ -182,7 +181,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Permissions for Entitlement Certification Item
 
 try {
-    Get-V2024IdentityCertificationItemPermissions-V2024CertificationId $CertificationId -V2024ItemId $ItemId 
+    Get-V2024IdentityCertificationItemPermissions -V2024CertificationId $CertificationId  -V2024ItemId $ItemId 
     
     # Below is a request that includes all optional parameters
     # Get-V2024IdentityCertificationItemPermissions -V2024CertificationId $CertificationId -V2024ItemId $ItemId -V2024Filters $Filters -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count  
@@ -286,7 +285,7 @@ $Sorters = "name" # String | Sort results using the standard syntax described in
 # List of Reviewers for certification
 
 try {
-    Get-V2024CertificationReviewers-V2024Id $Id 
+    Get-V2024CertificationReviewers -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-V2024CertificationReviewers -V2024Id $Id -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Filters $Filters -V2024Sorters $Sorters  
@@ -345,7 +344,7 @@ $Roles = "userRole" # String | Filter results to view access review items that p
 # List of Access Review Items
 
 try {
-    Get-V2024IdentityAccessReviewItems-V2024Id $Id 
+    Get-V2024IdentityAccessReviewItems -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-V2024IdentityAccessReviewItems -V2024Id $Id -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Filters $Filters -V2024Sorters $Sorters -V2024Entitlements $Entitlements -V2024AccessProfiles $AccessProfiles -V2024Roles $Roles  
@@ -455,7 +454,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the identity campa
 
 try {
     $Result = ConvertFrom-JsonToReviewDecision -Json $ReviewDecision
-    Select-V2024IdentityDecision-V2024Id $Id -V2024ReviewDecision $Result
+    Select-V2024IdentityDecision -V2024Id $Id  -V2024ReviewDecision $Result
     
     # Below is a request that includes all optional parameters
     # Select-V2024IdentityDecision -V2024Id $Id -V2024ReviewDecision $ReviewDecision  
@@ -511,7 +510,7 @@ $ReviewReassign = @"{
 
 try {
     $Result = ConvertFrom-JsonToReviewReassign -Json $ReviewReassign
-    Invoke-V2024ReassignIdentityCertifications-V2024Id $Id -V2024ReviewReassign $Result
+    Invoke-V2024ReassignIdentityCertifications -V2024Id $Id  -V2024ReviewReassign $Result
     
     # Below is a request that includes all optional parameters
     # Invoke-V2024ReassignIdentityCertifications -V2024Id $Id -V2024ReviewReassign $ReviewReassign  
@@ -554,7 +553,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The identity campaign certif
 # Finalize Identity Certification Decisions
 
 try {
-    Invoke-V2024SignOffIdentityCertification-V2024Id $Id 
+    Invoke-V2024SignOffIdentityCertification -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Invoke-V2024SignOffIdentityCertification -V2024Id $Id  
@@ -615,7 +614,7 @@ $ReviewReassign = @"{
 
 try {
     $Result = ConvertFrom-JsonToReviewReassign -Json $ReviewReassign
-    Submit-V2024ReassignCertsAsync-V2024Id $Id -V2024ReviewReassign $Result
+    Submit-V2024ReassignCertsAsync -V2024Id $Id  -V2024ReviewReassign $Result
     
     # Below is a request that includes all optional parameters
     # Submit-V2024ReassignCertsAsync -V2024Id $Id -V2024ReviewReassign $ReviewReassign  

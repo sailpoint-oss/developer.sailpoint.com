@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'SodViolationContextConflictingAccessC
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CriteriaList** |  Pointer to [**[]SodExemptCriteria**](sod-exempt-criteria) |  | [optional] 
+**CriteriaList** | [**[]SodExemptCriteria**](sod-exempt-criteria) |  | [optional] 
 
 ## Examples
 

@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'LoadAccountsTaskTaskAttributes', 'Bet
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AppId** |  Pointer to **String** | The id of the source | [optional] 
-**OptimizedAggregation** |  Pointer to **String** | The indicator if the aggregation process was enabled/disabled for the aggregation job | [optional] 
+**AppId** | **String** | The id of the source | [optional] 
+**OptimizedAggregation** | **String** | The indicator if the aggregation process was enabled/disabled for the aggregation job | [optional] 
 
 ## Examples
 

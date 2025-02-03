@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'ManualWorkItemDetailsCurrentOwner', '
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to  **Enum** [  "GOVERNANCE_GROUP",    "IDENTITY" ] | DTO type of current work item owner's identity. | [optional] 
-**Id** |  Pointer to **String** | ID of current work item owner's identity. | [optional] 
-**Name** |  Pointer to **String** | Display name of current work item owner. | [optional] 
+**Type** |  **Enum** [  "GOVERNANCE_GROUP",    "IDENTITY" ] | DTO type of current work item owner's identity. | [optional] 
+**Id** | **String** | ID of current work item owner's identity. | [optional] 
+**Name** | **String** | Display name of current work item owner. | [optional] 
 
 ## Examples
 

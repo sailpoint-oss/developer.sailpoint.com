@@ -16,22 +16,22 @@ tags: ['SDK', 'Software Development Kit', 'AccountActivityItem', 'V2024AccountAc
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | Item id | [optional] 
-**Name** |  Pointer to **String** | Human-readable display name of item | [optional] 
-**Requested** |  Pointer to **System.DateTime** | Date and time item was requested | [optional] 
-**ApprovalStatus** |  Pointer to [**AccountActivityApprovalStatus**](account-activity-approval-status) |  | [optional] 
-**ProvisioningStatus** |  Pointer to [**ProvisioningState**](provisioning-state) |  | [optional] 
-**RequesterComment** |  Pointer to [**Comment**](comment) |  | [optional] 
-**ReviewerIdentitySummary** |  Pointer to [**IdentitySummary**](identity-summary) |  | [optional] 
-**ReviewerComment** |  Pointer to [**Comment**](comment) |  | [optional] 
-**Operation** |  Pointer to [**AccountActivityItemOperation**](account-activity-item-operation) |  | [optional] 
-**Attribute** |  Pointer to **String** | Attribute to which account activity applies | [optional] 
-**Value** |  Pointer to **String** | Value of attribute | [optional] 
-**NativeIdentity** |  Pointer to **String** | Native identity in the target system to which the account activity applies | [optional] 
-**SourceId** |  Pointer to **String** | Id of Source to which account activity applies | [optional] 
-**AccountRequestInfo** |  Pointer to [**AccountRequestInfo**](account-request-info) |  | [optional] 
-**ClientMetadata** |  Pointer to **map[string]String** | Arbitrary key-value pairs, if any were included in the corresponding access request item | [optional] 
-**RemoveDate** |  Pointer to **System.DateTime** | The date the role or access profile or entitlement is no longer assigned to the specified identity. | [optional] 
+**Id** | **String** | Item id | [optional] 
+**Name** | **String** | Human-readable display name of item | [optional] 
+**Requested** | **System.DateTime** | Date and time item was requested | [optional] 
+**ApprovalStatus** | [**AccountActivityApprovalStatus**](account-activity-approval-status) |  | [optional] 
+**ProvisioningStatus** | [**ProvisioningState**](provisioning-state) |  | [optional] 
+**RequesterComment** | [**Comment**](comment) |  | [optional] 
+**ReviewerIdentitySummary** | [**IdentitySummary**](identity-summary) |  | [optional] 
+**ReviewerComment** | [**Comment**](comment) |  | [optional] 
+**Operation** | [**AccountActivityItemOperation**](account-activity-item-operation) |  | [optional] 
+**Attribute** | **String** | Attribute to which account activity applies | [optional] 
+**Value** | **String** | Value of attribute | [optional] 
+**NativeIdentity** | **String** | Native identity in the target system to which the account activity applies | [optional] 
+**SourceId** | **String** | Id of Source to which account activity applies | [optional] 
+**AccountRequestInfo** | [**AccountRequestInfo**](account-request-info) |  | [optional] 
+**ClientMetadata** | **map[string]String** | Arbitrary key-value pairs, if any were included in the corresponding access request item | [optional] 
+**RemoveDate** | **System.DateTime** | The date the role or access profile or entitlement is no longer assigned to the specified identity. | [optional] 
 
 ## Examples
 

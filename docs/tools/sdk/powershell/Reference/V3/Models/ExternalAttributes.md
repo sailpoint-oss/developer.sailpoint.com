@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'ExternalAttributes', 'ExternalAttribu
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** |  Pointer to **String** | A unique name for the external trigger | [optional] 
-**Description** |  Pointer to **String** | Additonal context about the external trigger | [optional] 
-**ClientId** |  Pointer to **String** | OAuth Client ID to authenticate with this trigger | [optional] 
-**Url** |  Pointer to **String** | URL to invoke this workflow | [optional] 
+**Name** | **String** | A unique name for the external trigger | [optional] 
+**Description** | **String** | Additonal context about the external trigger | [optional] 
+**ClientId** | **String** | OAuth Client ID to authenticate with this trigger | [optional] 
+**Url** | **String** | URL to invoke this workflow | [optional] 
 
 ## Examples
 

@@ -1,4 +1,3 @@
-
 ---
 id: password-sync-groups
 title: PasswordSyncGroups
@@ -96,7 +95,7 @@ $PasswordSyncGroup = @"{
 
 try {
     $Result = ConvertFrom-JsonToPasswordSyncGroup -Json $PasswordSyncGroup
-    New-PasswordSyncGroup-PasswordSyncGroup $Result
+    New-PasswordSyncGroup -PasswordSyncGroup $Result
     
     # Below is a request that includes all optional parameters
     # New-PasswordSyncGroup -PasswordSyncGroup $PasswordSyncGroup  
@@ -138,7 +137,7 @@ $Id = "6881f631-3bd5-4213-9c75-8e05cc3e35dd" # String | The ID of password sync 
 # Delete Password Sync Group by ID
 
 try {
-    Remove-PasswordSyncGroup-Id $Id 
+    Remove-PasswordSyncGroup -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-PasswordSyncGroup -Id $Id  
@@ -181,7 +180,7 @@ $Id = "6881f631-3bd5-4213-9c75-8e05cc3e35dd" # String | The ID of password sync 
 # Get Password Sync Group by ID
 
 try {
-    Get-PasswordSyncGroup-Id $Id 
+    Get-PasswordSyncGroup -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-PasswordSyncGroup -Id $Id  
@@ -280,7 +279,7 @@ $PasswordSyncGroup = @"{
 
 try {
     $Result = ConvertFrom-JsonToPasswordSyncGroup -Json $PasswordSyncGroup
-    Update-PasswordSyncGroup-Id $Id -PasswordSyncGroup $Result
+    Update-PasswordSyncGroup -Id $Id  -PasswordSyncGroup $Result
     
     # Below is a request that includes all optional parameters
     # Update-PasswordSyncGroup -Id $Id -PasswordSyncGroup $PasswordSyncGroup  

@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'App', 'V2024App']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | The unique ID of the referenced object. | [optional] 
-**Name** |  Pointer to **String** | The human readable name of the referenced object. | [optional] 
-**Source** |  Pointer to [**Reference1**](reference1) |  | [optional] 
-**Account** |  Pointer to [**AppAllOfAccount**](app-all-of-account) |  | [optional] 
+**Id** | **String** | The unique ID of the referenced object. | [optional] 
+**Name** | **String** | The human readable name of the referenced object. | [optional] 
+**Source** | [**Reference1**](reference1) |  | [optional] 
+**Account** | [**AppAllOfAccount**](app-all-of-account) |  | [optional] 
 
 ## Examples
 

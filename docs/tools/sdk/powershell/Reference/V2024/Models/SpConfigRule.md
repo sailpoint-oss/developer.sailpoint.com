@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'SpConfigRule', 'V2024SpConfigRule']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Path** |  Pointer to **String** | JSONPath expression denoting the path within the object where a value substitution should be applied | [optional] 
-**Value** |  Pointer to [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | Value to be assigned at the jsonPath location within the object | [optional] 
-**Mode** |  Pointer to **[]String** | Draft modes to which this rule will apply | [optional] 
+**Path** | **String** | JSONPath expression denoting the path within the object where a value substitution should be applied | [optional] 
+**Value** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | Value to be assigned at the jsonPath location within the object | [optional] 
+**Mode** | **[]String** | Draft modes to which this rule will apply | [optional] 
 
 ## Examples
 

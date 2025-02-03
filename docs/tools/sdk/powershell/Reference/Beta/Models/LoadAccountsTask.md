@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'LoadAccountsTask', 'BetaLoadAccountsT
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Success** |  Pointer to **Boolean** | The status of the result | [optional] [default to $true]
-**Task** |  Pointer to [**LoadAccountsTaskTask**](load-accounts-task-task) |  | [optional] 
+**Success** | **Boolean** | The status of the result | [optional] [default to $true]
+**Task** | [**LoadAccountsTaskTask**](load-accounts-task-task) |  | [optional] 
 
 ## Examples
 

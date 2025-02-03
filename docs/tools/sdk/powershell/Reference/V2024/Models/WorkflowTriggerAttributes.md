@@ -16,18 +16,18 @@ tags: ['SDK', 'Software Development Kit', 'WorkflowTriggerAttributes', 'V2024Wor
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  **String** | The unique ID of the trigger | [required]
-**VarFilter** |  Pointer to **String** | JSON path expression that will limit which events the trigger will fire on | [optional] 
-**Description** |  Pointer to **String** | Additonal context about the external trigger | [optional] 
-**AttributeToFilter** |  Pointer to **String** | The attribute to filter on | [optional] 
-**Name** |  Pointer to **String** | A unique name for the external trigger | [optional] 
-**ClientId** |  Pointer to **String** | OAuth Client ID to authenticate with this trigger | [optional] 
-**Url** |  Pointer to **String** | URL to invoke this workflow | [optional] 
-**CronString** |  Pointer to **String** | A valid CRON expression | [optional] 
-**Frequency** |   **Enum** [  "daily",    "weekly",    "monthly",    "yearly",    "cronSchedule" ] | Frequency of execution | [required]
-**TimeZone** |  Pointer to **String** | Time zone identifier | [optional] 
-**WeeklyDays** |  Pointer to **[]String** | Scheduled days of the week for execution | [optional] 
-**WeeklyTimes** |  Pointer to **[]String** | Scheduled execution times | [optional] 
+**Id** | **String** | The unique ID of the trigger | [required]
+**VarFilter** | **String** | JSON path expression that will limit which events the trigger will fire on | [optional] 
+**Description** | **String** | Additonal context about the external trigger | [optional] 
+**AttributeToFilter** | **String** | The attribute to filter on | [optional] 
+**Name** | **String** | A unique name for the external trigger | [optional] 
+**ClientId** | **String** | OAuth Client ID to authenticate with this trigger | [optional] 
+**Url** | **String** | URL to invoke this workflow | [optional] 
+**CronString** | **String** | A valid CRON expression | [optional] 
+**Frequency** |  **Enum** [  "daily",    "weekly",    "monthly",    "yearly",    "cronSchedule" ] | Frequency of execution | [required]
+**TimeZone** | **String** | Time zone identifier | [optional] 
+**WeeklyDays** | **[]String** | Scheduled days of the week for execution | [optional] 
+**WeeklyTimes** | **[]String** | Scheduled execution times | [optional] 
 
 ## Examples
 

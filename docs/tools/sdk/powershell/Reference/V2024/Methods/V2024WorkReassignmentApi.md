@@ -1,4 +1,3 @@
-
 ---
 id: v2024-work-reassignment
 title: WorkReassignment
@@ -79,7 +78,7 @@ $ConfigurationItemRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToConfigurationItemRequest -Json $ConfigurationItemRequest
-    New-V2024ReassignmentConfiguration-V2024XSailPointExperimental $XSailPointExperimental -V2024ConfigurationItemRequest $Result
+    New-V2024ReassignmentConfiguration -V2024XSailPointExperimental $XSailPointExperimental  -V2024ConfigurationItemRequest $Result
     
     # Below is a request that includes all optional parameters
     # New-V2024ReassignmentConfiguration -V2024XSailPointExperimental $XSailPointExperimental -V2024ConfigurationItemRequest $ConfigurationItemRequest  
@@ -125,7 +124,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Delete Reassignment Configuration
 
 try {
-    Remove-V2024ReassignmentConfiguration-V2024IdentityId $IdentityId -V2024ConfigType $ConfigType -V2024XSailPointExperimental $XSailPointExperimental 
+    Remove-V2024ReassignmentConfiguration -V2024IdentityId $IdentityId  -V2024ConfigType $ConfigType  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024ReassignmentConfiguration -V2024IdentityId $IdentityId -V2024ConfigType $ConfigType -V2024XSailPointExperimental $XSailPointExperimental  
@@ -175,7 +174,7 @@ $ExclusionFilters = @"SELF_REVIEW_DELEGATION"@ # String[] | Exclusion filters th
 # Evaluate Reassignment Configuration
 
 try {
-    Get-V2024EvaluateReassignmentConfiguration-V2024IdentityId $IdentityId -V2024ConfigType $ConfigType -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024EvaluateReassignmentConfiguration -V2024IdentityId $IdentityId  -V2024ConfigType $ConfigType  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024EvaluateReassignmentConfiguration -V2024IdentityId $IdentityId -V2024ConfigType $ConfigType -V2024XSailPointExperimental $XSailPointExperimental -V2024ExclusionFilters $ExclusionFilters  
@@ -217,7 +216,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # List Reassignment Config Types
 
 try {
-    Get-V2024ReassignmentConfigTypes-V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024ReassignmentConfigTypes -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024ReassignmentConfigTypes -V2024XSailPointExperimental $XSailPointExperimental  
@@ -262,7 +261,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Get Reassignment Configuration
 
 try {
-    Get-V2024ReassignmentConfiguration-V2024IdentityId $IdentityId -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024ReassignmentConfiguration -V2024IdentityId $IdentityId  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024ReassignmentConfiguration -V2024IdentityId $IdentityId -V2024XSailPointExperimental $XSailPointExperimental  
@@ -305,7 +304,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Get Tenant-wide Reassignment Configuration settings
 
 try {
-    Get-V2024TenantConfigConfiguration-V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024TenantConfigConfiguration -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024TenantConfigConfiguration -V2024XSailPointExperimental $XSailPointExperimental  
@@ -348,7 +347,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # List Reassignment Configurations
 
 try {
-    Get-V2024ReassignmentConfigurations-V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024ReassignmentConfigurations -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024ReassignmentConfigurations -V2024XSailPointExperimental $XSailPointExperimental  
@@ -401,7 +400,7 @@ $ConfigurationItemRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToConfigurationItemRequest -Json $ConfigurationItemRequest
-    Send-V2024ReassignmentConfig-V2024IdentityId $IdentityId -V2024XSailPointExperimental $XSailPointExperimental -V2024ConfigurationItemRequest $Result
+    Send-V2024ReassignmentConfig -V2024IdentityId $IdentityId  -V2024XSailPointExperimental $XSailPointExperimental  -V2024ConfigurationItemRequest $Result
     
     # Below is a request that includes all optional parameters
     # Send-V2024ReassignmentConfig -V2024IdentityId $IdentityId -V2024XSailPointExperimental $XSailPointExperimental -V2024ConfigurationItemRequest $ConfigurationItemRequest  
@@ -450,7 +449,7 @@ $TenantConfigurationRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToTenantConfigurationRequest -Json $TenantConfigurationRequest
-    Send-V2024TenantConfiguration-V2024XSailPointExperimental $XSailPointExperimental -V2024TenantConfigurationRequest $Result
+    Send-V2024TenantConfiguration -V2024XSailPointExperimental $XSailPointExperimental  -V2024TenantConfigurationRequest $Result
     
     # Below is a request that includes all optional parameters
     # Send-V2024TenantConfiguration -V2024XSailPointExperimental $XSailPointExperimental -V2024TenantConfigurationRequest $TenantConfigurationRequest  

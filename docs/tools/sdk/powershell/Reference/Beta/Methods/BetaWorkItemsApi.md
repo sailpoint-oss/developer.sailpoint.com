@@ -1,4 +1,3 @@
-
 ---
 id: beta-work-items
 title: WorkItems
@@ -78,7 +77,7 @@ $ApprovalItemId = "1211bcaa32112bcef6122adb21cef1ac" # String | The ID of the ap
 # Approve an Approval Item
 
 try {
-    Approve-BetaApprovalItem-BetaId $Id -BetaApprovalItemId $ApprovalItemId 
+    Approve-BetaApprovalItem -BetaId $Id  -BetaApprovalItemId $ApprovalItemId 
     
     # Below is a request that includes all optional parameters
     # Approve-BetaApprovalItem -BetaId $Id -BetaApprovalItemId $ApprovalItemId  
@@ -118,7 +117,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
 # Bulk approve Approval Items
 
 try {
-    Approve-BetaApprovalItemsInBulk-BetaId $Id 
+    Approve-BetaApprovalItemsInBulk -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Approve-BetaApprovalItemsInBulk -BetaId $Id  
@@ -158,7 +157,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
 # Complete a Work Item
 
 try {
-    Complete-BetaWorkItem-BetaId $Id 
+    Complete-BetaWorkItem -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Complete-BetaWorkItem -BetaId $Id  
@@ -207,7 +206,7 @@ $WorkItemForward = @"{
 
 try {
     $Result = ConvertFrom-JsonToWorkItemForward -Json $WorkItemForward
-    Invoke-BetaForwardWorkItem-BetaId $Id -BetaWorkItemForward $Result
+    Invoke-BetaForwardWorkItem -BetaId $Id  -BetaWorkItemForward $Result
     
     # Below is a request that includes all optional parameters
     # Invoke-BetaForwardWorkItem -BetaId $Id -BetaWorkItemForward $WorkItemForward  
@@ -375,7 +374,7 @@ $OwnerId = "MyOwnerId" # String | ID of the work item owner. (optional)
 # Get a Work Item
 
 try {
-    Get-BetaWorkItem-BetaId $Id 
+    Get-BetaWorkItem -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaWorkItem -BetaId $Id -BetaOwnerId $OwnerId  
@@ -503,7 +502,7 @@ $ApprovalItemId = "1211bcaa32112bcef6122adb21cef1ac" # String | The ID of the ap
 # Reject an Approval Item
 
 try {
-    Deny-BetaApprovalItem-BetaId $Id -BetaApprovalItemId $ApprovalItemId 
+    Deny-BetaApprovalItem -BetaId $Id  -BetaApprovalItemId $ApprovalItemId 
     
     # Below is a request that includes all optional parameters
     # Deny-BetaApprovalItem -BetaId $Id -BetaApprovalItemId $ApprovalItemId  
@@ -543,7 +542,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
 # Bulk reject Approval Items
 
 try {
-    Deny-BetaApprovalItemsInBulk-BetaId $Id 
+    Deny-BetaApprovalItemsInBulk -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Deny-BetaApprovalItemsInBulk -BetaId $Id  
@@ -586,7 +585,7 @@ $RequestBody = @{ key_example =  } # System.Collections.Hashtable | Account Sele
 
 try {
     $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
-    Submit-BetaAccountSelection-BetaId $Id -BetaRequestBody $Result
+    Submit-BetaAccountSelection -BetaId $Id  -BetaRequestBody $Result
     
     # Below is a request that includes all optional parameters
     # Submit-BetaAccountSelection -BetaId $Id -BetaRequestBody $RequestBody  

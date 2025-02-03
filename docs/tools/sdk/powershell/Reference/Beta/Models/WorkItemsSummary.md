@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'WorkItemsSummary', 'BetaWorkItemsSumm
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Open** |  Pointer to **Int32** | The count of open work items | [optional] 
-**Completed** |  Pointer to **Int32** | The count of completed work items | [optional] 
-**Total** |  Pointer to **Int32** | The count of total work items | [optional] 
+**Open** | **Int32** | The count of open work items | [optional] 
+**Completed** | **Int32** | The count of completed work items | [optional] 
+**Total** | **Int32** | The count of total work items | [optional] 
 
 ## Examples
 

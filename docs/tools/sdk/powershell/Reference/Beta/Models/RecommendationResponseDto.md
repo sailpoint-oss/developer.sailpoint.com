@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'RecommendationResponseDto', 'BetaReco
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** |  Pointer to [**[]RecommendationResponse**](recommendation-response) |  | [optional] 
+**Response** | [**[]RecommendationResponse**](recommendation-response) |  | [optional] 
 
 ## Examples
 

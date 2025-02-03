@@ -16,14 +16,14 @@ tags: ['SDK', 'Software Development Kit', 'RecommenderCalculations', 'BetaRecomm
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**IdentityId** |  Pointer to **String** | The ID of the identity | [optional] 
-**EntitlementId** |  Pointer to **String** | The entitlement ID | [optional] 
-**Recommendation** |  Pointer to **String** | The actual recommendation | [optional] 
-**OverallWeightedScore** |  Pointer to **Decimal** | The overall weighted score | [optional] 
-**FeatureWeightedScores** |  Pointer to **map[string]Decimal** | The weighted score of each individual feature | [optional] 
-**Threshold** |  Pointer to **Decimal** | The configured value against which the overallWeightedScore is compared | [optional] 
-**IdentityAttributes** |  Pointer to [**map[string]RecommenderCalculationsIdentityAttributesValue**](recommender-calculations-identity-attributes-value) | The values for your configured features | [optional] 
-**FeatureValues** |  Pointer to [**FeatureValueDto**](feature-value-dto) |  | [optional] 
+**IdentityId** | **String** | The ID of the identity | [optional] 
+**EntitlementId** | **String** | The entitlement ID | [optional] 
+**Recommendation** | **String** | The actual recommendation | [optional] 
+**OverallWeightedScore** | **Decimal** | The overall weighted score | [optional] 
+**FeatureWeightedScores** | **map[string]Decimal** | The weighted score of each individual feature | [optional] 
+**Threshold** | **Decimal** | The configured value against which the overallWeightedScore is compared | [optional] 
+**IdentityAttributes** | [**map[string]RecommenderCalculationsIdentityAttributesValue**](recommender-calculations-identity-attributes-value) | The values for your configured features | [optional] 
+**FeatureValues** | [**FeatureValueDto**](feature-value-dto) |  | [optional] 
 
 ## Examples
 

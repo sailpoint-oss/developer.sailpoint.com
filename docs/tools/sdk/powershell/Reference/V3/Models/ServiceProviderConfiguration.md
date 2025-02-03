@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'ServiceProviderConfiguration', 'Servi
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Enabled** |  Pointer to **Boolean** | This determines whether or not the SAML authentication flow is enabled for an org | [optional] [default to $false]
-**BypassIdp** |  Pointer to **Boolean** | This allows basic login with the parameter prompt=true. This is often toggled on when debugging SAML authentication setup. When false, only org admins with MFA-enabled can bypass the IDP. | [optional] [default to $false]
-**SamlConfigurationValid** |  Pointer to **Boolean** | This indicates whether or not the SAML configuration is valid. | [optional] [default to $false]
-**FederationProtocolDetails** |  Pointer to [**[]ServiceProviderConfigurationFederationProtocolDetailsInner**](service-provider-configuration-federation-protocol-details-inner) | A list of the abstract implementations of the Federation Protocol details. Typically, this will include on SpDetails object and one IdpDetails object used in tandem to define a SAML integration between a customer's identity provider and a customer's SailPoint instance (i.e., the service provider). | [optional] 
+**Enabled** | **Boolean** | This determines whether or not the SAML authentication flow is enabled for an org | [optional] [default to $false]
+**BypassIdp** | **Boolean** | This allows basic login with the parameter prompt=true. This is often toggled on when debugging SAML authentication setup. When false, only org admins with MFA-enabled can bypass the IDP. | [optional] [default to $false]
+**SamlConfigurationValid** | **Boolean** | This indicates whether or not the SAML configuration is valid. | [optional] [default to $false]
+**FederationProtocolDetails** | [**[]ServiceProviderConfigurationFederationProtocolDetailsInner**](service-provider-configuration-federation-protocol-details-inner) | A list of the abstract implementations of the Federation Protocol details. Typically, this will include on SpDetails object and one IdpDetails object used in tandem to define a SAML integration between a customer's identity provider and a customer's SailPoint instance (i.e., the service provider). | [optional] 
 
 ## Examples
 

@@ -16,11 +16,11 @@ tags: ['SDK', 'Software Development Kit', 'SearchAggregationSpecification', 'V20
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Nested** |  Pointer to [**NestedAggregation**](nested-aggregation) |  | [optional] 
-**Metric** |  Pointer to [**MetricAggregation**](metric-aggregation) |  | [optional] 
-**VarFilter** |  Pointer to [**FilterAggregation**](filter-aggregation) |  | [optional] 
-**Bucket** |  Pointer to [**BucketAggregation**](bucket-aggregation) |  | [optional] 
-**SubAggregation** |  Pointer to [**SubSearchAggregationSpecification**](sub-search-aggregation-specification) |  | [optional] 
+**Nested** | [**NestedAggregation**](nested-aggregation) |  | [optional] 
+**Metric** | [**MetricAggregation**](metric-aggregation) |  | [optional] 
+**VarFilter** | [**FilterAggregation**](filter-aggregation) |  | [optional] 
+**Bucket** | [**BucketAggregation**](bucket-aggregation) |  | [optional] 
+**SubAggregation** | [**SubSearchAggregationSpecification**](sub-search-aggregation-specification) |  | [optional] 
 
 ## Examples
 

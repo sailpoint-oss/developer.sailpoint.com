@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'OutlierFeatureTranslation', 'BetaOutl
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DisplayName** |  Pointer to [**TranslationMessage**](translation-message) |  | [optional] 
-**Description** |  Pointer to [**TranslationMessage**](translation-message) |  | [optional] 
+**DisplayName** | [**TranslationMessage**](translation-message) |  | [optional] 
+**Description** | [**TranslationMessage**](translation-message) |  | [optional] 
 
 ## Examples
 

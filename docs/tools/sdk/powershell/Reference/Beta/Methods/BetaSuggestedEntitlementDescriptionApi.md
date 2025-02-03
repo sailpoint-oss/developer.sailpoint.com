@@ -1,4 +1,3 @@
-
 ---
 id: beta-suggested-entitlement-description
 title: SuggestedEntitlementDescription
@@ -66,7 +65,7 @@ $BatchId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | Batch Id
 # Submit Sed Batch Stats Request
 
 try {
-    Get-BetaSedBatchStats-BetaBatchId $BatchId 
+    Get-BetaSedBatchStats -BetaBatchId $BatchId 
     
     # Below is a request that includes all optional parameters
     # Get-BetaSedBatchStats -BetaBatchId $BatchId  
@@ -228,7 +227,7 @@ $Id = "ebab396f-0af1-4050-89b7-dafc63ec70e7" # String | id is sed id
 
 try {
     $Result = ConvertFrom-JsonToSedPatch -Json $SedPatch
-    Update-BetaSed-BetaId $Id -BetaSedPatch $Result
+    Update-BetaSed -BetaId $Id  -BetaSedPatch $Result
     
     # Below is a request that includes all optional parameters
     # Update-BetaSed -BetaId $Id -BetaSedPatch $SedPatch  
@@ -276,7 +275,7 @@ Code | Description  | Data Type
 
 try {
     $Result = ConvertFrom-JsonToSedApproval -Json $SedApproval
-    Submit-BetaSedApproval-BetaSedApproval $Result
+    Submit-BetaSedApproval -BetaSedApproval $Result
     
     # Below is a request that includes all optional parameters
     # Submit-BetaSedApproval -BetaSedApproval $SedApproval  
@@ -327,7 +326,7 @@ $SedAssignment = @"{
 
 try {
     $Result = ConvertFrom-JsonToSedAssignment -Json $SedAssignment
-    Submit-BetaSedAssignment-BetaSedAssignment $Result
+    Submit-BetaSedAssignment -BetaSedAssignment $Result
     
     # Below is a request that includes all optional parameters
     # Submit-BetaSedAssignment -BetaSedAssignment $SedAssignment  

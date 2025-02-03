@@ -1,4 +1,3 @@
-
 ---
 id: beta-segments
 title: Segments
@@ -99,7 +98,7 @@ $Segment = @"{
 
 try {
     $Result = ConvertFrom-JsonToSegment -Json $Segment
-    New-BetaSegment-BetaSegment $Result
+    New-BetaSegment -BetaSegment $Result
     
     # Below is a request that includes all optional parameters
     # New-BetaSegment -BetaSegment $Segment  
@@ -144,7 +143,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The segment ID to delete.
 # Delete Segment by ID
 
 try {
-    Remove-BetaSegment-BetaId $Id 
+    Remove-BetaSegment -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-BetaSegment -BetaId $Id  
@@ -188,7 +187,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The segment ID to retrieve.
 # Get Segment by ID
 
 try {
-    Get-BetaSegment-BetaId $Id 
+    Get-BetaSegment -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaSegment -BetaId $Id  
@@ -285,7 +284,7 @@ $RequestBody =  # SystemCollectionsHashtable[] | A list of segment update operat
 
 try {
     $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
-    Update-BetaSegment-BetaId $Id -BetaRequestBody $Result
+    Update-BetaSegment -BetaId $Id  -BetaRequestBody $Result
     
     # Below is a request that includes all optional parameters
     # Update-BetaSegment -BetaId $Id -BetaRequestBody $RequestBody  

@@ -16,15 +16,15 @@ tags: ['SDK', 'Software Development Kit', 'NonEmployeeSource', 'BetaNonEmployeeS
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | Non-Employee source id. | [optional] 
-**SourceId** |  Pointer to **String** | Source Id associated with this non-employee source. | [optional] 
-**Name** |  Pointer to **String** | Source name associated with this non-employee source. | [optional] 
-**Description** |  Pointer to **String** | Source description associated with this non-employee source. | [optional] 
-**Approvers** |  Pointer to [**[]IdentityReferenceWithId**](identity-reference-with-id) | List of approvers | [optional] 
-**AccountManagers** |  Pointer to [**[]IdentityReferenceWithId**](identity-reference-with-id) | List of account managers | [optional] 
-**Modified** |  Pointer to **System.DateTime** | When the request was last modified. | [optional] 
-**Created** |  Pointer to **System.DateTime** | When the request was created. | [optional] 
-**NonEmployeeCount** |  Pointer to **Int32** | The number of non-employee records on all sources that *requested-for* user manages. | [optional] 
+**Id** | **String** | Non-Employee source id. | [optional] 
+**SourceId** | **String** | Source Id associated with this non-employee source. | [optional] 
+**Name** | **String** | Source name associated with this non-employee source. | [optional] 
+**Description** | **String** | Source description associated with this non-employee source. | [optional] 
+**Approvers** | [**[]IdentityReferenceWithId**](identity-reference-with-id) | List of approvers | [optional] 
+**AccountManagers** | [**[]IdentityReferenceWithId**](identity-reference-with-id) | List of account managers | [optional] 
+**Modified** | **System.DateTime** | When the request was last modified. | [optional] 
+**Created** | **System.DateTime** | When the request was created. | [optional] 
+**NonEmployeeCount** | **Int32** | The number of non-employee records on all sources that *requested-for* user manages. | [optional] 
 
 ## Examples
 

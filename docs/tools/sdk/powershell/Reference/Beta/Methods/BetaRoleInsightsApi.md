@@ -1,4 +1,3 @@
-
 ---
 id: beta-role-insights
 title: RoleInsights
@@ -103,7 +102,7 @@ $Filters = 'name sw "r"' # String | Filter results using the standard syntax des
 # Download entitlement insights for a role
 
 try {
-    Invoke-BetaDownloadRoleInsightsEntitlementsChanges-BetaInsightId $InsightId 
+    Invoke-BetaDownloadRoleInsightsEntitlementsChanges -BetaInsightId $InsightId 
     
     # Below is a request that includes all optional parameters
     # Invoke-BetaDownloadRoleInsightsEntitlementsChanges -BetaInsightId $InsightId -BetaSorters $Sorters -BetaFilters $Filters  
@@ -158,7 +157,7 @@ $Filters = 'name sw "Jan"' # String | Filter results using the standard syntax d
 # Get identities for a suggested entitlement (for a role)
 
 try {
-    Get-BetaEntitlementChangesIdentities-BetaInsightId $InsightId -BetaEntitlementId $EntitlementId 
+    Get-BetaEntitlementChangesIdentities -BetaInsightId $InsightId  -BetaEntitlementId $EntitlementId 
     
     # Below is a request that includes all optional parameters
     # Get-BetaEntitlementChangesIdentities -BetaInsightId $InsightId -BetaEntitlementId $EntitlementId -BetaHasEntitlement $HasEntitlement -BetaOffset $Offset -BetaLimit $Limit -BetaCount $Count -BetaSorters $Sorters -BetaFilters $Filters  
@@ -199,7 +198,7 @@ $InsightId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role insight 
 # Get a single role insight
 
 try {
-    Get-BetaRoleInsight-BetaInsightId $InsightId 
+    Get-BetaRoleInsight -BetaInsightId $InsightId 
     
     # Below is a request that includes all optional parameters
     # Get-BetaRoleInsight -BetaInsightId $InsightId  
@@ -291,7 +290,7 @@ $Filters = 'name sw "r"' # String | Filter results using the standard syntax des
 # Get current entitlement for a role
 
 try {
-    Get-BetaRoleInsightsCurrentEntitlements-BetaInsightId $InsightId 
+    Get-BetaRoleInsightsCurrentEntitlements -BetaInsightId $InsightId 
     
     # Below is a request that includes all optional parameters
     # Get-BetaRoleInsightsCurrentEntitlements -BetaInsightId $InsightId -BetaFilters $Filters  
@@ -336,7 +335,7 @@ $Filters = 'name sw "Admin"' # String | Filter results using the standard syntax
 # Get entitlement insights for a role
 
 try {
-    Get-BetaRoleInsightsEntitlementsChanges-BetaInsightId $InsightId 
+    Get-BetaRoleInsightsEntitlementsChanges -BetaInsightId $InsightId 
     
     # Below is a request that includes all optional parameters
     # Get-BetaRoleInsightsEntitlementsChanges -BetaInsightId $InsightId -BetaSorters $Sorters -BetaFilters $Filters  
@@ -378,7 +377,7 @@ $Id = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role insights reques
 # Returns metadata from prior request.
 
 try {
-    Get-BetaRoleInsightsRequests-BetaId $Id 
+    Get-BetaRoleInsightsRequests -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaRoleInsightsRequests -BetaId $Id  

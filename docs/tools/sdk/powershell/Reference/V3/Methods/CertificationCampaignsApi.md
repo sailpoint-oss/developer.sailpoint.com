@@ -1,4 +1,3 @@
-
 ---
 id: certification-campaigns
 title: CertificationCampaigns
@@ -153,7 +152,7 @@ $CampaignCompleteOptions = @"{
 # Complete a Campaign
 
 try {
-    Complete-Campaign-Id $Id 
+    Complete-Campaign -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Complete-Campaign -Id $Id -CampaignCompleteOptions $CampaignCompleteOptions  
@@ -305,7 +304,7 @@ $Campaign = @"{
 
 try {
     $Result = ConvertFrom-JsonToCampaign -Json $Campaign
-    New-Campaign-Campaign $Result
+    New-Campaign -Campaign $Result
     
     # Below is a request that includes all optional parameters
     # New-Campaign -Campaign $Campaign  
@@ -472,7 +471,7 @@ $CampaignTemplate = @"{
 
 try {
     $Result = ConvertFrom-JsonToCampaignTemplate -Json $CampaignTemplate
-    New-CampaignTemplate-CampaignTemplate $Result
+    New-CampaignTemplate -CampaignTemplate $Result
     
     # Below is a request that includes all optional parameters
     # New-CampaignTemplate -CampaignTemplate $CampaignTemplate  
@@ -516,7 +515,7 @@ $Id = "2c9180835d191a86015d28455b4a2329" # String | ID of the campaign template 
 # Delete a Campaign Template
 
 try {
-    Remove-CampaignTemplate-Id $Id 
+    Remove-CampaignTemplate -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-CampaignTemplate -Id $Id  
@@ -560,7 +559,7 @@ $Id = "04bedce387bd47b2ae1f86eb0bb36dee" # String | ID of the campaign template 
 # Delete Campaign Template Schedule
 
 try {
-    Remove-CampaignTemplateSchedule-Id $Id 
+    Remove-CampaignTemplateSchedule -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-CampaignTemplateSchedule -Id $Id  
@@ -607,7 +606,7 @@ $CampaignsDeleteRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToCampaignsDeleteRequest -Json $CampaignsDeleteRequest
-    Remove-Campaigns-CampaignsDeleteRequest $Result
+    Remove-Campaigns -CampaignsDeleteRequest $Result
     
     # Below is a request that includes all optional parameters
     # Remove-Campaigns -CampaignsDeleteRequest $CampaignsDeleteRequest  
@@ -706,7 +705,7 @@ $Detail = "SLIM" # String | Determines whether slim, or increased level of detai
 # Get Campaign
 
 try {
-    Get-Campaign-Id $Id 
+    Get-Campaign -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-Campaign -Id $Id -Detail $Detail  
@@ -750,7 +749,7 @@ $Id = "2c91808571bcfcf80171c23e4b4221fc" # String | ID of the campaign whose rep
 # Get Campaign Reports
 
 try {
-    Get-CampaignReports-Id $Id 
+    Get-CampaignReports -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-CampaignReports -Id $Id  
@@ -835,7 +834,7 @@ $Id = "2c9180835d191a86015d28455b4a2329" # String | Requested campaign template'
 # Get a Campaign Template
 
 try {
-    Get-CampaignTemplate-Id $Id 
+    Get-CampaignTemplate -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-CampaignTemplate -Id $Id  
@@ -879,7 +878,7 @@ $Id = "04bedce387bd47b2ae1f86eb0bb36dee" # String | ID of the campaign template 
 # Get Campaign Template Schedule
 
 try {
-    Get-CampaignTemplateSchedule-Id $Id 
+    Get-CampaignTemplateSchedule -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-CampaignTemplateSchedule -Id $Id  
@@ -986,7 +985,7 @@ $AdminReviewReassign = @"{
 
 try {
     $Result = ConvertFrom-JsonToAdminReviewReassign -Json $AdminReviewReassign
-    Move--Id $Id -AdminReviewReassign $Result
+    Move- -Id $Id  -AdminReviewReassign $Result
     
     # Below is a request that includes all optional parameters
     # Move- -Id $Id -AdminReviewReassign $AdminReviewReassign  
@@ -1038,7 +1037,7 @@ $Id = "2c9180835d191a86015d28455b4a2329" # String | ID of the campaign template 
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-CampaignTemplate-Id $Id -JsonPatchOperation $Result
+    Update-CampaignTemplate -Id $Id  -JsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-CampaignTemplate -Id $Id -JsonPatchOperation $JsonPatchOperation  
@@ -1084,7 +1083,7 @@ $CampaignReportsConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToCampaignReportsConfig -Json $CampaignReportsConfig
-    Set-CampaignReportsConfig-CampaignReportsConfig $Result
+    Set-CampaignReportsConfig -CampaignReportsConfig $Result
     
     # Below is a request that includes all optional parameters
     # Set-CampaignReportsConfig -CampaignReportsConfig $CampaignReportsConfig  
@@ -1149,7 +1148,7 @@ $Schedule = @"{
 # Set Campaign Template Schedule
 
 try {
-    Set-CampaignTemplateSchedule-Id $Id 
+    Set-CampaignTemplateSchedule -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Set-CampaignTemplateSchedule -Id $Id -Schedule $Schedule  
@@ -1197,7 +1196,7 @@ $ActivateCampaignOptions = @"{
 # Activate a Campaign
 
 try {
-    Start-Campaign-Id $Id 
+    Start-Campaign -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Start-Campaign -Id $Id -ActivateCampaignOptions $ActivateCampaignOptions  
@@ -1241,7 +1240,7 @@ $Id = "2c91808571bcfcf80171c23e4b4221fc" # String | ID of the campaign the remed
 # Run Campaign Remediation Scan
 
 try {
-    Start-CampaignRemediationScan-Id $Id 
+    Start-CampaignRemediationScan -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Start-CampaignRemediationScan -Id $Id  
@@ -1287,7 +1286,7 @@ $Type = "CAMPAIGN_COMPOSITION_REPORT" # ReportType | Type of the report to run.
 # Run Campaign Report
 
 try {
-    Start-CampaignReport-Id $Id -Type $Type 
+    Start-CampaignReport -Id $Id  -Type $Type 
     
     # Below is a request that includes all optional parameters
     # Start-CampaignReport -Id $Id -Type $Type  
@@ -1340,7 +1339,7 @@ $Id = "2c9180835d191a86015d28455b4a2329" # String | ID of the campaign template 
 # Generate a Campaign from Template
 
 try {
-    Start-GenerateCampaignTemplate-Id $Id 
+    Start-GenerateCampaignTemplate -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Start-GenerateCampaignTemplate -Id $Id  
@@ -1392,7 +1391,7 @@ $Id = "2c91808571bcfcf80171c23e4b4221fc" # String | ID of the campaign template 
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-Campaign-Id $Id -JsonPatchOperation $Result
+    Update-Campaign -Id $Id  -JsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-Campaign -Id $Id -JsonPatchOperation $JsonPatchOperation  

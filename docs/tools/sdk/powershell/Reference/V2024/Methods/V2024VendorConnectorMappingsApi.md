@@ -1,4 +1,3 @@
-
 ---
 id: v2024-vendor-connector-mappings
 title: VendorConnectorMappings
@@ -83,7 +82,7 @@ $VendorConnectorMapping = @"{
 
 try {
     $Result = ConvertFrom-JsonToVendorConnectorMapping -Json $VendorConnectorMapping
-    New-V2024VendorConnectorMapping-V2024VendorConnectorMapping $Result
+    New-V2024VendorConnectorMapping -V2024VendorConnectorMapping $Result
     
     # Below is a request that includes all optional parameters
     # New-V2024VendorConnectorMapping -V2024VendorConnectorMapping $VendorConnectorMapping  
@@ -150,7 +149,7 @@ $VendorConnectorMapping = @"{
 
 try {
     $Result = ConvertFrom-JsonToVendorConnectorMapping -Json $VendorConnectorMapping
-    Remove-V2024VendorConnectorMapping-V2024VendorConnectorMapping $Result
+    Remove-V2024VendorConnectorMapping -V2024VendorConnectorMapping $Result
     
     # Below is a request that includes all optional parameters
     # Remove-V2024VendorConnectorMapping -V2024VendorConnectorMapping $VendorConnectorMapping  

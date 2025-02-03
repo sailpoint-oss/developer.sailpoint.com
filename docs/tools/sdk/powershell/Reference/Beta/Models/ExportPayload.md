@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'ExportPayload', 'BetaExportPayload']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Description** |  Pointer to **String** | Optional user defined description/name for export job. | [optional] 
-**ExcludeTypes** |  Pointer to **[]String** | Object type names to be excluded from an sp-config export command. | [optional] 
-**IncludeTypes** |  Pointer to **[]String** | Object type names to be included in an sp-config export command. IncludeTypes takes precedence over excludeTypes. | [optional] 
-**ObjectOptions** |  Pointer to [**map[string]ObjectExportImportOptions**](object-export-import-options) | Additional options targeting specific objects related to each item in the includeTypes field | [optional] 
+**Description** | **String** | Optional user defined description/name for export job. | [optional] 
+**ExcludeTypes** | **[]String** | Object type names to be excluded from an sp-config export command. | [optional] 
+**IncludeTypes** | **[]String** | Object type names to be included in an sp-config export command. IncludeTypes takes precedence over excludeTypes. | [optional] 
+**ObjectOptions** | [**map[string]ObjectExportImportOptions**](object-export-import-options) | Additional options targeting specific objects related to each item in the includeTypes field | [optional] 
 
 ## Examples
 

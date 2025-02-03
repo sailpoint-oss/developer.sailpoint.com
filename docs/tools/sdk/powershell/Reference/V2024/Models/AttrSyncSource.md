@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'AttrSyncSource', 'V2024AttrSyncSource
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to  **Enum** [  "SOURCE" ] | DTO type of target source for attribute synchronization. | [optional] 
-**Id** |  Pointer to **String** | ID of target source for attribute synchronization. | [optional] 
-**Name** |  Pointer to **String** | Human-readable name of target source for attribute synchronization. | [optional] 
+**Type** |  **Enum** [  "SOURCE" ] | DTO type of target source for attribute synchronization. | [optional] 
+**Id** | **String** | ID of target source for attribute synchronization. | [optional] 
+**Name** | **String** | Human-readable name of target source for attribute synchronization. | [optional] 
 
 ## Examples
 

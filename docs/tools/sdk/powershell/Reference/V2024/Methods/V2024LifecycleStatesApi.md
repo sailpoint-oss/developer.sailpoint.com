@@ -1,4 +1,3 @@
-
 ---
 id: v2024-lifecycle-states
 title: LifecycleStates
@@ -122,7 +121,7 @@ $LifecycleState = @"{
 
 try {
     $Result = ConvertFrom-JsonToLifecycleState -Json $LifecycleState
-    New-V2024LifecycleState-V2024IdentityProfileId $IdentityProfileId -V2024LifecycleState $Result
+    New-V2024LifecycleState -V2024IdentityProfileId $IdentityProfileId  -V2024LifecycleState $Result
     
     # Below is a request that includes all optional parameters
     # New-V2024LifecycleState -V2024IdentityProfileId $IdentityProfileId -V2024LifecycleState $LifecycleState  
@@ -167,7 +166,7 @@ $LifecycleStateId = "ef38f94347e94562b5bb8424a56397d8" # String | Lifecycle stat
 # Delete Lifecycle State
 
 try {
-    Remove-V2024LifecycleState-V2024IdentityProfileId $IdentityProfileId -V2024LifecycleStateId $LifecycleStateId 
+    Remove-V2024LifecycleState -V2024IdentityProfileId $IdentityProfileId  -V2024LifecycleStateId $LifecycleStateId 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024LifecycleState -V2024IdentityProfileId $IdentityProfileId -V2024LifecycleStateId $LifecycleStateId  
@@ -212,7 +211,7 @@ $LifecycleStateId = "ef38f94347e94562b5bb8424a56397d8" # String | Lifecycle stat
 # Get Lifecycle State
 
 try {
-    Get-V2024LifecycleState-V2024IdentityProfileId $IdentityProfileId -V2024LifecycleStateId $LifecycleStateId 
+    Get-V2024LifecycleState -V2024IdentityProfileId $IdentityProfileId  -V2024LifecycleStateId $LifecycleStateId 
     
     # Below is a request that includes all optional parameters
     # Get-V2024LifecycleState -V2024IdentityProfileId $IdentityProfileId -V2024LifecycleStateId $LifecycleStateId  
@@ -262,7 +261,7 @@ $Sorters = "created,modified" # String | Sort results using the standard syntax 
 # Lists LifecycleStates
 
 try {
-    Get-V2024LifecycleStates-V2024IdentityProfileId $IdentityProfileId 
+    Get-V2024LifecycleStates -V2024IdentityProfileId $IdentityProfileId 
     
     # Below is a request that includes all optional parameters
     # Get-V2024LifecycleStates -V2024IdentityProfileId $IdentityProfileId -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Sorters $Sorters  
@@ -308,7 +307,7 @@ $SetLifecycleStateRequest = @""@
 
 try {
     $Result = ConvertFrom-JsonToSetLifecycleStateRequest -Json $SetLifecycleStateRequest
-    Set-V2024LifecycleState-V2024IdentityId $IdentityId -V2024SetLifecycleStateRequest $Result
+    Set-V2024LifecycleState -V2024IdentityId $IdentityId  -V2024SetLifecycleStateRequest $Result
     
     # Below is a request that includes all optional parameters
     # Set-V2024LifecycleState -V2024IdentityId $IdentityId -V2024SetLifecycleStateRequest $SetLifecycleStateRequest  
@@ -361,7 +360,7 @@ $LifecycleStateId = "ef38f94347e94562b5bb8424a56397d8" # String | Lifecycle stat
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024LifecycleStates-V2024IdentityProfileId $IdentityProfileId -V2024LifecycleStateId $LifecycleStateId -V2024JsonPatchOperation $Result
+    Update-V2024LifecycleStates -V2024IdentityProfileId $IdentityProfileId  -V2024LifecycleStateId $LifecycleStateId  -V2024JsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024LifecycleStates -V2024IdentityProfileId $IdentityProfileId -V2024LifecycleStateId $LifecycleStateId -V2024JsonPatchOperation $JsonPatchOperation  

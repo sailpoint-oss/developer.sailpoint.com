@@ -16,13 +16,13 @@ tags: ['SDK', 'Software Development Kit', 'CorrelationConfigAttributeAssignments
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Property** |  Pointer to **String** | The property of the attribute assignment. | [optional] 
-**Value** |  Pointer to **String** | The value of the attribute assignment. | [optional] 
-**Operation** |  Pointer to  **Enum** [  "EQ" ] | The operation of the attribute assignment. | [optional] 
-**Complex** |  Pointer to **Boolean** | Whether or not the it's a complex attribute assignment. | [optional] [default to $false]
-**IgnoreCase** |  Pointer to **Boolean** | Whether or not the attribute assignment should ignore case. | [optional] [default to $false]
-**MatchMode** |  Pointer to  **Enum** [  "ANYWHERE",    "START",    "END" ] | The match mode of the attribute assignment. | [optional] 
-**FilterString** |  Pointer to **String** | The filter string of the attribute assignment. | [optional] 
+**Property** | **String** | The property of the attribute assignment. | [optional] 
+**Value** | **String** | The value of the attribute assignment. | [optional] 
+**Operation** |  **Enum** [  "EQ" ] | The operation of the attribute assignment. | [optional] 
+**Complex** | **Boolean** | Whether or not the it's a complex attribute assignment. | [optional] [default to $false]
+**IgnoreCase** | **Boolean** | Whether or not the attribute assignment should ignore case. | [optional] [default to $false]
+**MatchMode** |  **Enum** [  "ANYWHERE",    "START",    "END" ] | The match mode of the attribute assignment. | [optional] 
+**FilterString** | **String** | The filter string of the attribute assignment. | [optional] 
 
 ## Examples
 

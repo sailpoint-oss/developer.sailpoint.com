@@ -1,4 +1,3 @@
-
 ---
 id: v2024-sources
 title: Sources
@@ -202,7 +201,7 @@ $ProvisioningPolicyDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
-    New-V2024ProvisioningPolicy-V2024SourceId $SourceId -V2024ProvisioningPolicyDto $Result
+    New-V2024ProvisioningPolicy -V2024SourceId $SourceId  -V2024ProvisioningPolicyDto $Result
     
     # Below is a request that includes all optional parameters
     # New-V2024ProvisioningPolicy -V2024SourceId $SourceId -V2024ProvisioningPolicyDto $ProvisioningPolicyDto  
@@ -329,7 +328,7 @@ $ProvisionAsCsv = $false # Boolean | If this parameter is `true`, it configures 
 
 try {
     $Result = ConvertFrom-JsonToSource -Json $Source
-    New-V2024Source-V2024Source $Result
+    New-V2024Source -V2024Source $Result
     
     # Below is a request that includes all optional parameters
     # New-V2024Source -V2024Source $Source -V2024ProvisionAsCsv $ProvisionAsCsv  
@@ -375,7 +374,7 @@ $Schedule1 = @""@
 
 try {
     $Result = ConvertFrom-JsonToSchedule1 -Json $Schedule1
-    New-V2024SourceSchedule-V2024SourceId $SourceId -V2024Schedule1 $Result
+    New-V2024SourceSchedule -V2024SourceId $SourceId  -V2024Schedule1 $Result
     
     # Below is a request that includes all optional parameters
     # New-V2024SourceSchedule -V2024SourceId $SourceId -V2024Schedule1 $Schedule1  
@@ -454,7 +453,7 @@ $Schema = @"{
 
 try {
     $Result = ConvertFrom-JsonToSchema -Json $Schema
-    New-V2024SourceSchema-V2024SourceId $SourceId -V2024Schema $Result
+    New-V2024SourceSchema -V2024SourceId $SourceId  -V2024Schema $Result
     
     # Below is a request that includes all optional parameters
     # New-V2024SourceSchema -V2024SourceId $SourceId -V2024Schema $Schema  
@@ -504,7 +503,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Remove All Accounts in a Source
 
 try {
-    Remove-V2024AccountsAsync-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
+    Remove-V2024AccountsAsync -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024AccountsAsync -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
@@ -549,7 +548,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Delete Native Change Detection Configuration
 
 try {
-    Remove-V2024NativeChangeDetectionConfig-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
+    Remove-V2024NativeChangeDetectionConfig -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024NativeChangeDetectionConfig -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
@@ -594,7 +593,7 @@ $UsageType = "CREATE" # UsageType | The type of provisioning policy usage.  In I
 # Delete Provisioning Policy by UsageType
 
 try {
-    Remove-V2024ProvisioningPolicy-V2024SourceId $SourceId -V2024UsageType $UsageType 
+    Remove-V2024ProvisioningPolicy -V2024SourceId $SourceId  -V2024UsageType $UsageType 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024ProvisioningPolicy -V2024SourceId $SourceId -V2024UsageType $UsageType  
@@ -638,7 +637,7 @@ $Id = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
 # Delete Source by ID
 
 try {
-    Remove-V2024Source-V2024Id $Id 
+    Remove-V2024Source -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024Source -V2024Id $Id  
@@ -683,7 +682,7 @@ $ScheduleType = "ACCOUNT_AGGREGATION" # String | The Schedule type.
 # Delete Source Schedule by type.
 
 try {
-    Remove-V2024SourceSchedule-V2024SourceId $SourceId -V2024ScheduleType $ScheduleType 
+    Remove-V2024SourceSchedule -V2024SourceId $SourceId  -V2024ScheduleType $ScheduleType 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024SourceSchedule -V2024SourceId $SourceId -V2024ScheduleType $ScheduleType  
@@ -728,7 +727,7 @@ $SchemaId = "2c9180835d191a86015d28455b4a2329" # String | The Schema id.
 # Delete Source Schema by ID
 
 try {
-    Remove-V2024SourceSchema-V2024SourceId $SourceId -V2024SchemaId $SchemaId 
+    Remove-V2024SourceSchema -V2024SourceId $SourceId  -V2024SchemaId $SchemaId 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024SourceSchema -V2024SourceId $SourceId -V2024SchemaId $SchemaId  
@@ -772,7 +771,7 @@ $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
 # Downloads source accounts schema template
 
 try {
-    Get-V2024AccountsSchema-V2024Id $Id 
+    Get-V2024AccountsSchema -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-V2024AccountsSchema -V2024Id $Id  
@@ -815,7 +814,7 @@ $Id = "2c9180835d191a86015d28455b4a2329" # String | The source id
 # Get Source Correlation Configuration
 
 try {
-    Get-V2024CorrelationConfig-V2024Id $Id 
+    Get-V2024CorrelationConfig -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-V2024CorrelationConfig -V2024Id $Id  
@@ -862,7 +861,7 @@ $SchemaName = "?schemaName=group" # String | Name of entitlement schema (optiona
 # Downloads source entitlements schema template
 
 try {
-    Get-V2024EntitlementsSchema-V2024Id $Id 
+    Get-V2024EntitlementsSchema -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-V2024EntitlementsSchema -V2024Id $Id -V2024SchemaName $SchemaName  
@@ -907,7 +906,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Native Change Detection Configuration
 
 try {
-    Get-V2024NativeChangeDetectionConfig-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024NativeChangeDetectionConfig -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024NativeChangeDetectionConfig -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
@@ -952,7 +951,7 @@ $UsageType = "CREATE" # UsageType | The type of provisioning policy usage.  In I
 # Get Provisioning Policy by UsageType
 
 try {
-    Get-V2024ProvisioningPolicy-V2024SourceId $SourceId -V2024UsageType $UsageType 
+    Get-V2024ProvisioningPolicy -V2024SourceId $SourceId  -V2024UsageType $UsageType 
     
     # Below is a request that includes all optional parameters
     # Get-V2024ProvisioningPolicy -V2024SourceId $SourceId -V2024UsageType $UsageType  
@@ -995,7 +994,7 @@ $Id = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
 # Get Source by ID
 
 try {
-    Get-V2024Source-V2024Id $Id 
+    Get-V2024Source -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-V2024Source -V2024Id $Id  
@@ -1040,7 +1039,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Attribute Sync Config
 
 try {
-    Get-V2024SourceAttrSyncConfig-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024SourceAttrSyncConfig -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024SourceAttrSyncConfig -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
@@ -1086,7 +1085,7 @@ $Locale = "de" # String | The locale to apply to the config. If no viable locale
 # Gets source config with language translations
 
 try {
-    Get-V2024SourceConfig-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024SourceConfig -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024SourceConfig -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024Locale $Locale  
@@ -1132,7 +1131,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Get Source Entitlement Request Configuration
 
 try {
-    Get-V2024SourceEntitlementRequestConfig-V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024SourceEntitlementRequestConfig -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024SourceEntitlementRequestConfig -V2024XSailPointExperimental $XSailPointExperimental  
@@ -1175,7 +1174,7 @@ $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
 # Fetches source health by id
 
 try {
-    Get-V2024SourceHealth-V2024SourceId $SourceId 
+    Get-V2024SourceHealth -V2024SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
     # Get-V2024SourceHealth -V2024SourceId $SourceId  
@@ -1221,7 +1220,7 @@ $ScheduleType = "ACCOUNT_AGGREGATION" # String | The Schedule type.
 # Get Source Schedule by Type
 
 try {
-    Get-V2024SourceSchedule-V2024SourceId $SourceId -V2024ScheduleType $ScheduleType 
+    Get-V2024SourceSchedule -V2024SourceId $SourceId  -V2024ScheduleType $ScheduleType 
     
     # Below is a request that includes all optional parameters
     # Get-V2024SourceSchedule -V2024SourceId $SourceId -V2024ScheduleType $ScheduleType  
@@ -1264,7 +1263,7 @@ $SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
 # List Schedules on Source
 
 try {
-    Get-V2024SourceSchedules-V2024SourceId $SourceId 
+    Get-V2024SourceSchedules -V2024SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
     # Get-V2024SourceSchedules -V2024SourceId $SourceId  
@@ -1310,7 +1309,7 @@ $SchemaId = "2c9180835d191a86015d28455b4a2329" # String | The Schema id.
 # Get Source Schema by ID
 
 try {
-    Get-V2024SourceSchema-V2024SourceId $SourceId -V2024SchemaId $SchemaId 
+    Get-V2024SourceSchema -V2024SourceId $SourceId  -V2024SchemaId $SchemaId 
     
     # Below is a request that includes all optional parameters
     # Get-V2024SourceSchema -V2024SourceId $SourceId -V2024SchemaId $SchemaId  
@@ -1357,7 +1356,7 @@ $IncludeNames = "account" # String | A comma-separated list of schema names to f
 # List Schemas on Source
 
 try {
-    Get-V2024SourceSchemas-V2024SourceId $SourceId 
+    Get-V2024SourceSchemas -V2024SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
     # Get-V2024SourceSchemas -V2024SourceId $SourceId -V2024IncludeTypes $IncludeTypes -V2024IncludeNames $IncludeNames  
@@ -1407,7 +1406,7 @@ $DisableOptimization = "MyDisableOptimization" # String | Use this flag to repro
 # Account Aggregation
 
 try {
-    Import-V2024Accounts-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
+    Import-V2024Accounts -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Import-V2024Accounts -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024File $File -V2024DisableOptimization $DisableOptimization  
@@ -1457,7 +1456,7 @@ $File =  # System.IO.FileInfo |  (optional)
 # Uploads source accounts schema template
 
 try {
-    Import-V2024AccountsSchema-V2024Id $Id 
+    Import-V2024AccountsSchema -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Import-V2024AccountsSchema -V2024Id $Id -V2024File $File  
@@ -1501,7 +1500,7 @@ $File =  # System.IO.FileInfo |  (optional)
 # Upload connector file to source
 
 try {
-    Import-V2024ConnectorFile-V2024SourceId $SourceId 
+    Import-V2024ConnectorFile -V2024SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
     # Import-V2024ConnectorFile -V2024SourceId $SourceId -V2024File $File  
@@ -1553,7 +1552,7 @@ $File =  # System.IO.FileInfo |  (optional)
 # Uploads source entitlements schema template
 
 try {
-    Import-V2024EntitlementsSchema-V2024Id $Id 
+    Import-V2024EntitlementsSchema -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Import-V2024EntitlementsSchema -V2024Id $Id -V2024SchemaName $SchemaName -V2024File $File  
@@ -1599,7 +1598,7 @@ $File =  # System.IO.FileInfo |  (optional)
 # Process Uncorrelated Accounts
 
 try {
-    Import-V2024UncorrelatedAccounts-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
+    Import-V2024UncorrelatedAccounts -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Import-V2024UncorrelatedAccounts -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024File $File  
@@ -1642,7 +1641,7 @@ $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id
 # Lists ProvisioningPolicies
 
 try {
-    Get-V2024ProvisioningPolicies-V2024SourceId $SourceId 
+    Get-V2024ProvisioningPolicies -V2024SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
     # Get-V2024ProvisioningPolicies -V2024SourceId $SourceId  
@@ -1748,7 +1747,7 @@ $ResourceObjectsRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToResourceObjectsRequest -Json $ResourceObjectsRequest
-    Receive-V2024ResourceObjects-V2024SourceId $SourceId -V2024XSailPointExperimental $XSailPointExperimental -V2024ResourceObjectsRequest $Result
+    Receive-V2024ResourceObjects -V2024SourceId $SourceId  -V2024XSailPointExperimental $XSailPointExperimental  -V2024ResourceObjectsRequest $Result
     
     # Below is a request that includes all optional parameters
     # Receive-V2024ResourceObjects -V2024SourceId $SourceId -V2024XSailPointExperimental $XSailPointExperimental -V2024ResourceObjectsRequest $ResourceObjectsRequest  
@@ -1793,7 +1792,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Ping cluster for source connector
 
 try {
-    Ping-V2024Cluster-V2024SourceId $SourceId -V2024XSailPointExperimental $XSailPointExperimental 
+    Ping-V2024Cluster -V2024SourceId $SourceId  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Ping-V2024Cluster -V2024SourceId $SourceId -V2024XSailPointExperimental $XSailPointExperimental  
@@ -1859,7 +1858,7 @@ $CorrelationConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToCorrelationConfig -Json $CorrelationConfig
-    Send-V2024CorrelationConfig-V2024Id $Id -V2024CorrelationConfig $Result
+    Send-V2024CorrelationConfig -V2024Id $Id  -V2024CorrelationConfig $Result
     
     # Below is a request that includes all optional parameters
     # Send-V2024CorrelationConfig -V2024Id $Id -V2024CorrelationConfig $CorrelationConfig  
@@ -1914,7 +1913,7 @@ $NativeChangeDetectionConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToNativeChangeDetectionConfig -Json $NativeChangeDetectionConfig
-    Send-V2024NativeChangeDetectionConfig-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024NativeChangeDetectionConfig $Result
+    Send-V2024NativeChangeDetectionConfig -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental  -V2024NativeChangeDetectionConfig $Result
     
     # Below is a request that includes all optional parameters
     # Send-V2024NativeChangeDetectionConfig -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024NativeChangeDetectionConfig $NativeChangeDetectionConfig  
@@ -2003,7 +2002,7 @@ $ProvisioningPolicyDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
-    Send-V2024ProvisioningPolicy-V2024SourceId $SourceId -V2024UsageType $UsageType -V2024ProvisioningPolicyDto $Result
+    Send-V2024ProvisioningPolicy -V2024SourceId $SourceId  -V2024UsageType $UsageType  -V2024ProvisioningPolicyDto $Result
     
     # Below is a request that includes all optional parameters
     # Send-V2024ProvisioningPolicy -V2024SourceId $SourceId -V2024UsageType $UsageType -V2024ProvisioningPolicyDto $ProvisioningPolicyDto  
@@ -2143,7 +2142,7 @@ $Source = @"{
 
 try {
     $Result = ConvertFrom-JsonToSource -Json $Source
-    Send-V2024Source-V2024Id $Id -V2024Source $Result
+    Send-V2024Source -V2024Id $Id  -V2024Source $Result
     
     # Below is a request that includes all optional parameters
     # Send-V2024Source -V2024Id $Id -V2024Source $Source  
@@ -2209,7 +2208,7 @@ $AttrSyncSourceConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToAttrSyncSourceConfig -Json $AttrSyncSourceConfig
-    Send-V2024SourceAttrSyncConfig-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024AttrSyncSourceConfig $Result
+    Send-V2024SourceAttrSyncConfig -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental  -V2024AttrSyncSourceConfig $Result
     
     # Below is a request that includes all optional parameters
     # Send-V2024SourceAttrSyncConfig -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024AttrSyncSourceConfig $AttrSyncSourceConfig  
@@ -2300,7 +2299,7 @@ $Schema = @"{
 
 try {
     $Result = ConvertFrom-JsonToSchema -Json $Schema
-    Send-V2024SourceSchema-V2024SourceId $SourceId -V2024SchemaId $SchemaId -V2024Schema $Result
+    Send-V2024SourceSchema -V2024SourceId $SourceId  -V2024SchemaId $SchemaId  -V2024Schema $Result
     
     # Below is a request that includes all optional parameters
     # Send-V2024SourceSchema -V2024SourceId $SourceId -V2024SchemaId $SchemaId -V2024Schema $Schema  
@@ -2345,7 +2344,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Synchronize single source attributes.
 
 try {
-    Sync-V2024AttributesForSource-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
+    Sync-V2024AttributesForSource -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Sync-V2024AttributesForSource -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
@@ -2390,7 +2389,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Test configuration for source connector
 
 try {
-    Test-V2024SourceConfiguration-V2024SourceId $SourceId -V2024XSailPointExperimental $XSailPointExperimental 
+    Test-V2024SourceConfiguration -V2024SourceId $SourceId  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Test-V2024SourceConfiguration -V2024SourceId $SourceId -V2024XSailPointExperimental $XSailPointExperimental  
@@ -2435,7 +2434,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Check connection for source connector.
 
 try {
-    Test-V2024SourceConnection-V2024SourceId $SourceId -V2024XSailPointExperimental $XSailPointExperimental 
+    Test-V2024SourceConnection -V2024SourceId $SourceId  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Test-V2024SourceConnection -V2024SourceId $SourceId -V2024XSailPointExperimental $XSailPointExperimental  
@@ -2484,7 +2483,7 @@ $SourceId = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
 
 try {
     $Result = ConvertFrom-JsonToPasswordPolicyHoldersDtoInner -Json $PasswordPolicyHoldersDtoInner
-    Update-V2024PasswordPolicyHolders-V2024SourceId $SourceId -V2024PasswordPolicyHoldersDtoInner $Result
+    Update-V2024PasswordPolicyHolders -V2024SourceId $SourceId  -V2024PasswordPolicyHoldersDtoInner $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024PasswordPolicyHolders -V2024SourceId $SourceId -V2024PasswordPolicyHoldersDtoInner $PasswordPolicyHoldersDtoInner  
@@ -2570,7 +2569,7 @@ $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
 
 try {
     $Result = ConvertFrom-JsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
-    Update-V2024ProvisioningPoliciesInBulk-V2024SourceId $SourceId -V2024ProvisioningPolicyDto $Result
+    Update-V2024ProvisioningPoliciesInBulk -V2024SourceId $SourceId  -V2024ProvisioningPolicyDto $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024ProvisioningPoliciesInBulk -V2024SourceId $SourceId -V2024ProvisioningPolicyDto $ProvisioningPolicyDto  
@@ -2625,7 +2624,7 @@ $UsageType = "CREATE" # UsageType | The type of provisioning policy usage.  In I
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024ProvisioningPolicy-V2024SourceId $SourceId -V2024UsageType $UsageType -V2024JsonPatchOperation $Result
+    Update-V2024ProvisioningPolicy -V2024SourceId $SourceId  -V2024UsageType $UsageType  -V2024JsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024ProvisioningPolicy -V2024SourceId $SourceId -V2024UsageType $UsageType -V2024JsonPatchOperation $JsonPatchOperation  
@@ -2691,7 +2690,7 @@ $Id = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024Source-V2024Id $Id -V2024JsonPatchOperation $Result
+    Update-V2024Source -V2024Id $Id  -V2024JsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024Source -V2024Id $Id -V2024JsonPatchOperation $JsonPatchOperation  
@@ -2752,7 +2751,7 @@ $SourceEntitlementRequestConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToSourceEntitlementRequestConfig -Json $SourceEntitlementRequestConfig
-    Update-V2024SourceEntitlementRequestConfig-V2024XSailPointExperimental $XSailPointExperimental -V2024SourceEntitlementRequestConfig $Result
+    Update-V2024SourceEntitlementRequestConfig -V2024XSailPointExperimental $XSailPointExperimental  -V2024SourceEntitlementRequestConfig $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024SourceEntitlementRequestConfig -V2024XSailPointExperimental $XSailPointExperimental -V2024SourceEntitlementRequestConfig $SourceEntitlementRequestConfig  
@@ -2810,7 +2809,7 @@ $ScheduleType = "ACCOUNT_AGGREGATION" # String | The Schedule type.
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024SourceSchedule-V2024SourceId $SourceId -V2024ScheduleType $ScheduleType -V2024JsonPatchOperation $Result
+    Update-V2024SourceSchedule -V2024SourceId $SourceId  -V2024ScheduleType $ScheduleType  -V2024JsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024SourceSchedule -V2024SourceId $SourceId -V2024ScheduleType $ScheduleType -V2024JsonPatchOperation $JsonPatchOperation  
@@ -2892,7 +2891,7 @@ $SchemaId = "2c9180835d191a86015d28455b4a2329" # String | The Schema id.
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024SourceSchema-V2024SourceId $SourceId -V2024SchemaId $SchemaId -V2024JsonPatchOperation $Result
+    Update-V2024SourceSchema -V2024SourceId $SourceId  -V2024SchemaId $SchemaId  -V2024JsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024SourceSchema -V2024SourceId $SourceId -V2024SchemaId $SchemaId -V2024JsonPatchOperation $JsonPatchOperation  

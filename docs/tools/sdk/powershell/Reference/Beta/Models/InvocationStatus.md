@@ -16,15 +16,15 @@ tags: ['SDK', 'Software Development Kit', 'InvocationStatus', 'BetaInvocationSta
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  **String** | Invocation ID | [required]
-**TriggerId** |  **String** | Trigger ID | [required]
-**SubscriptionName** |  **String** | Subscription name | [required]
-**SubscriptionId** |  **String** | Subscription ID | [required]
-**Type** |  [**InvocationStatusType**](invocation-status-type) |  | [required]
-**Created** |  **System.DateTime** | Invocation created timestamp. ISO-8601 in UTC. | [required]
-**Completed** |  Pointer to **System.DateTime** | Invocation completed timestamp; empty fields imply invocation is in-flight or not completed. ISO-8601 in UTC. | [optional] 
-**StartInvocationInput** |  [**StartInvocationInput**](start-invocation-input) |  | [required]
-**CompleteInvocationInput** |  Pointer to [**CompleteInvocationInput**](complete-invocation-input) |  | [optional] 
+**Id** | **String** | Invocation ID | [required]
+**TriggerId** | **String** | Trigger ID | [required]
+**SubscriptionName** | **String** | Subscription name | [required]
+**SubscriptionId** | **String** | Subscription ID | [required]
+**Type** | [**InvocationStatusType**](invocation-status-type) |  | [required]
+**Created** | **System.DateTime** | Invocation created timestamp. ISO-8601 in UTC. | [required]
+**Completed** | **System.DateTime** | Invocation completed timestamp; empty fields imply invocation is in-flight or not completed. ISO-8601 in UTC. | [optional] 
+**StartInvocationInput** | [**StartInvocationInput**](start-invocation-input) |  | [required]
+**CompleteInvocationInput** | [**CompleteInvocationInput**](complete-invocation-input) |  | [optional] 
 
 ## Examples
 

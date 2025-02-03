@@ -1,4 +1,3 @@
-
 ---
 id: v2024-notifications
 title: Notifications
@@ -72,7 +71,7 @@ $DomainAddress = @"{
 
 try {
     $Result = ConvertFrom-JsonToDomainAddress -Json $DomainAddress
-    New-V2024DomainDkim-V2024XSailPointExperimental $XSailPointExperimental -V2024DomainAddress $Result
+    New-V2024DomainDkim -V2024XSailPointExperimental $XSailPointExperimental  -V2024DomainAddress $Result
     
     # Below is a request that includes all optional parameters
     # New-V2024DomainDkim -V2024XSailPointExperimental $XSailPointExperimental -V2024DomainAddress $DomainAddress  
@@ -136,7 +135,7 @@ $TemplateDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToTemplateDto -Json $TemplateDto
-    New-V2024NotificationTemplate-V2024XSailPointExperimental $XSailPointExperimental -V2024TemplateDto $Result
+    New-V2024NotificationTemplate -V2024XSailPointExperimental $XSailPointExperimental  -V2024TemplateDto $Result
     
     # Below is a request that includes all optional parameters
     # New-V2024NotificationTemplate -V2024XSailPointExperimental $XSailPointExperimental -V2024TemplateDto $TemplateDto  
@@ -186,7 +185,7 @@ $EmailStatusDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToEmailStatusDto -Json $EmailStatusDto
-    New-V2024VerifiedFromAddress-V2024XSailPointExperimental $XSailPointExperimental -V2024EmailStatusDto $Result
+    New-V2024VerifiedFromAddress -V2024XSailPointExperimental $XSailPointExperimental  -V2024EmailStatusDto $Result
     
     # Below is a request that includes all optional parameters
     # New-V2024VerifiedFromAddress -V2024XSailPointExperimental $XSailPointExperimental -V2024EmailStatusDto $EmailStatusDto  
@@ -236,7 +235,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 
 try {
     $Result = ConvertFrom-JsonToTemplateBulkDeleteDto -Json $TemplateBulkDeleteDto
-    Remove-V2024NotificationTemplatesInBulk-V2024XSailPointExperimental $XSailPointExperimental -V2024TemplateBulkDeleteDto $Result
+    Remove-V2024NotificationTemplatesInBulk -V2024XSailPointExperimental $XSailPointExperimental  -V2024TemplateBulkDeleteDto $Result
     
     # Below is a request that includes all optional parameters
     # Remove-V2024NotificationTemplatesInBulk -V2024XSailPointExperimental $XSailPointExperimental -V2024TemplateBulkDeleteDto $TemplateBulkDeleteDto  
@@ -281,7 +280,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Delete Verified From Address
 
 try {
-    Remove-V2024VerifiedFromAddress-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
+    Remove-V2024VerifiedFromAddress -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024VerifiedFromAddress -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
@@ -323,7 +322,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Get DKIM Attributes
 
 try {
-    Get-V2024DkimAttributes-V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024DkimAttributes -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024DkimAttributes -V2024XSailPointExperimental $XSailPointExperimental  
@@ -367,7 +366,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Get MAIL FROM Attributes
 
 try {
-    Get-V2024MailFromAttributes-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024MailFromAttributes -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024MailFromAttributes -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
@@ -411,7 +410,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Get Notification Template By Id
 
 try {
-    Get-V2024NotificationTemplate-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024NotificationTemplate -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024NotificationTemplate -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
@@ -454,7 +453,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Get Notification Template Context
 
 try {
-    Get-V2024NotificationsTemplateContext-V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024NotificationsTemplateContext -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024NotificationsTemplateContext -V2024XSailPointExperimental $XSailPointExperimental  
@@ -505,7 +504,7 @@ $Sorters = "email" # String | Sort results using the standard syntax described i
 # List From Addresses
 
 try {
-    Get-V2024FromAddresses-V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024FromAddresses -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024FromAddresses -V2024XSailPointExperimental $XSailPointExperimental -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Filters $Filters -V2024Sorters $Sorters  
@@ -548,7 +547,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # List Notification Preferences for tenant.
 
 try {
-    Get-V2024NotificationPreferences-V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024NotificationPreferences -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024NotificationPreferences -V2024XSailPointExperimental $XSailPointExperimental  
@@ -596,7 +595,7 @@ $Filters = 'key eq "cloud_manual_work_item_summary"' # String | Filter results u
 # List Notification Template Defaults
 
 try {
-    Get-V2024NotificationTemplateDefaults-V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024NotificationTemplateDefaults -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024NotificationTemplateDefaults -V2024XSailPointExperimental $XSailPointExperimental -V2024Limit $Limit -V2024Offset $Offset -V2024Filters $Filters  
@@ -644,7 +643,7 @@ $Filters = 'medium eq "EMAIL"' # String | Filter results using the standard synt
 # List Notification Templates
 
 try {
-    Get-V2024NotificationTemplates-V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024NotificationTemplates -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024NotificationTemplates -V2024XSailPointExperimental $XSailPointExperimental -V2024Limit $Limit -V2024Offset $Offset -V2024Filters $Filters  
@@ -692,7 +691,7 @@ $MailFromAttributesDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToMailFromAttributesDto -Json $MailFromAttributesDto
-    Send-V2024MailFromAttributes-V2024XSailPointExperimental $XSailPointExperimental -V2024MailFromAttributesDto $Result
+    Send-V2024MailFromAttributes -V2024XSailPointExperimental $XSailPointExperimental  -V2024MailFromAttributesDto $Result
     
     # Below is a request that includes all optional parameters
     # Send-V2024MailFromAttributes -V2024XSailPointExperimental $XSailPointExperimental -V2024MailFromAttributesDto $MailFromAttributesDto  
@@ -742,7 +741,7 @@ $SendTestNotificationRequestDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToSendTestNotificationRequestDto -Json $SendTestNotificationRequestDto
-    Send-V2024TestNotification-V2024XSailPointExperimental $XSailPointExperimental -V2024SendTestNotificationRequestDto $Result
+    Send-V2024TestNotification -V2024XSailPointExperimental $XSailPointExperimental  -V2024SendTestNotificationRequestDto $Result
     
     # Below is a request that includes all optional parameters
     # Send-V2024TestNotification -V2024XSailPointExperimental $XSailPointExperimental -V2024SendTestNotificationRequestDto $SendTestNotificationRequestDto  

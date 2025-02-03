@@ -1,4 +1,3 @@
-
 ---
 id: v2024-access-profiles
 title: AccessProfiles
@@ -180,7 +179,7 @@ $AccessProfile = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccessProfile -Json $AccessProfile
-    New-V2024AccessProfile-V2024AccessProfile $Result
+    New-V2024AccessProfile -V2024AccessProfile $Result
     
     # Below is a request that includes all optional parameters
     # New-V2024AccessProfile -V2024AccessProfile $AccessProfile  
@@ -226,7 +225,7 @@ $Id = "2c91808a7813090a017814121919ecca" # String | ID of the Access Profile to 
 # Delete the specified Access Profile
 
 try {
-    Remove-V2024AccessProfile-V2024Id $Id 
+    Remove-V2024AccessProfile -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024AccessProfile -V2024Id $Id  
@@ -277,7 +276,7 @@ $AccessProfileBulkDeleteRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccessProfileBulkDeleteRequest -Json $AccessProfileBulkDeleteRequest
-    Remove-V2024AccessProfilesInBulk-V2024AccessProfileBulkDeleteRequest $Result
+    Remove-V2024AccessProfilesInBulk -V2024AccessProfileBulkDeleteRequest $Result
     
     # Below is a request that includes all optional parameters
     # Remove-V2024AccessProfilesInBulk -V2024AccessProfileBulkDeleteRequest $AccessProfileBulkDeleteRequest  
@@ -319,7 +318,7 @@ $Id = "2c9180837ca6693d017ca8d097500149" # String | ID of the Access Profile
 # Get an Access Profile
 
 try {
-    Get-V2024AccessProfile-V2024Id $Id 
+    Get-V2024AccessProfile -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-V2024AccessProfile -V2024Id $Id  
@@ -373,7 +372,7 @@ $Sorters = "name,-modified" # String | Sort results using the standard syntax de
 # List Access Profile's Entitlements
 
 try {
-    Get-V2024AccessProfileEntitlements-V2024Id $Id 
+    Get-V2024AccessProfileEntitlements -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-V2024AccessProfileEntitlements -V2024Id $Id -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Filters $Filters -V2024Sorters $Sorters  
@@ -509,7 +508,7 @@ $Id = "2c91808a7813090a017814121919ecca" # String | ID of the Access Profile to 
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024AccessProfile-V2024Id $Id -V2024JsonPatchOperation $Result
+    Update-V2024AccessProfile -V2024Id $Id  -V2024JsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024AccessProfile -V2024Id $Id -V2024JsonPatchOperation $JsonPatchOperation  
@@ -562,7 +561,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 
 try {
     $Result = ConvertFrom-JsonToAccessProfileBulkUpdateRequestInner -Json $AccessProfileBulkUpdateRequestInner
-    Update-V2024AccessProfilesInBulk-V2024XSailPointExperimental $XSailPointExperimental -V2024AccessProfileBulkUpdateRequestInner $Result
+    Update-V2024AccessProfilesInBulk -V2024XSailPointExperimental $XSailPointExperimental  -V2024AccessProfileBulkUpdateRequestInner $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024AccessProfilesInBulk -V2024XSailPointExperimental $XSailPointExperimental -V2024AccessProfileBulkUpdateRequestInner $AccessProfileBulkUpdateRequestInner  

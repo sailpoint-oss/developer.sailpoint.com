@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'LifecycleStateDto', 'V2024LifecycleSt
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**StateName** |  **String** | The name of the lifecycle state | [required]
-**ManuallyUpdated** |  **Boolean** | Whether the lifecycle state has been manually or automatically set | [required]
+**StateName** | **String** | The name of the lifecycle state | [required]
+**ManuallyUpdated** | **Boolean** | Whether the lifecycle state has been manually or automatically set | [required]
 
 ## Examples
 

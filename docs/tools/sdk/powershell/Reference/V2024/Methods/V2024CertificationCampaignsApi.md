@@ -1,4 +1,3 @@
-
 ---
 id: v2024-certification-campaigns
 title: CertificationCampaigns
@@ -153,7 +152,7 @@ $CampaignCompleteOptions = @"{
 # Complete a Campaign
 
 try {
-    Complete-V2024Campaign-V2024Id $Id 
+    Complete-V2024Campaign -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Complete-V2024Campaign -V2024Id $Id -V2024CampaignCompleteOptions $CampaignCompleteOptions  
@@ -305,7 +304,7 @@ $Campaign = @"{
 
 try {
     $Result = ConvertFrom-JsonToCampaign -Json $Campaign
-    New-V2024Campaign-V2024Campaign $Result
+    New-V2024Campaign -V2024Campaign $Result
     
     # Below is a request that includes all optional parameters
     # New-V2024Campaign -V2024Campaign $Campaign  
@@ -472,7 +471,7 @@ $CampaignTemplate = @"{
 
 try {
     $Result = ConvertFrom-JsonToCampaignTemplate -Json $CampaignTemplate
-    New-V2024CampaignTemplate-V2024CampaignTemplate $Result
+    New-V2024CampaignTemplate -V2024CampaignTemplate $Result
     
     # Below is a request that includes all optional parameters
     # New-V2024CampaignTemplate -V2024CampaignTemplate $CampaignTemplate  
@@ -516,7 +515,7 @@ $Id = "2c9180835d191a86015d28455b4a2329" # String | ID of the campaign template 
 # Delete a Campaign Template
 
 try {
-    Remove-V2024CampaignTemplate-V2024Id $Id 
+    Remove-V2024CampaignTemplate -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024CampaignTemplate -V2024Id $Id  
@@ -560,7 +559,7 @@ $Id = "04bedce387bd47b2ae1f86eb0bb36dee" # String | ID of the campaign template 
 # Delete Campaign Template Schedule
 
 try {
-    Remove-V2024CampaignTemplateSchedule-V2024Id $Id 
+    Remove-V2024CampaignTemplateSchedule -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024CampaignTemplateSchedule -V2024Id $Id  
@@ -607,7 +606,7 @@ $CampaignsDeleteRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToCampaignsDeleteRequest -Json $CampaignsDeleteRequest
-    Remove-V2024Campaigns-V2024CampaignsDeleteRequest $Result
+    Remove-V2024Campaigns -V2024CampaignsDeleteRequest $Result
     
     # Below is a request that includes all optional parameters
     # Remove-V2024Campaigns -V2024CampaignsDeleteRequest $CampaignsDeleteRequest  
@@ -706,7 +705,7 @@ $Detail = "SLIM" # String | Determines whether slim, or increased level of detai
 # Get Campaign
 
 try {
-    Get-V2024Campaign-V2024Id $Id 
+    Get-V2024Campaign -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-V2024Campaign -V2024Id $Id -V2024Detail $Detail  
@@ -750,7 +749,7 @@ $Id = "2c91808571bcfcf80171c23e4b4221fc" # String | ID of the campaign whose rep
 # Get Campaign Reports
 
 try {
-    Get-V2024CampaignReports-V2024Id $Id 
+    Get-V2024CampaignReports -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-V2024CampaignReports -V2024Id $Id  
@@ -835,7 +834,7 @@ $Id = "2c9180835d191a86015d28455b4a2329" # String | Requested campaign template'
 # Get a Campaign Template
 
 try {
-    Get-V2024CampaignTemplate-V2024Id $Id 
+    Get-V2024CampaignTemplate -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-V2024CampaignTemplate -V2024Id $Id  
@@ -879,7 +878,7 @@ $Id = "04bedce387bd47b2ae1f86eb0bb36dee" # String | ID of the campaign template 
 # Get Campaign Template Schedule
 
 try {
-    Get-V2024CampaignTemplateSchedule-V2024Id $Id 
+    Get-V2024CampaignTemplateSchedule -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-V2024CampaignTemplateSchedule -V2024Id $Id  
@@ -986,7 +985,7 @@ $AdminReviewReassign = @"{
 
 try {
     $Result = ConvertFrom-JsonToAdminReviewReassign -Json $AdminReviewReassign
-    Move-V2024-V2024Id $Id -V2024AdminReviewReassign $Result
+    Move-V2024 -V2024Id $Id  -V2024AdminReviewReassign $Result
     
     # Below is a request that includes all optional parameters
     # Move-V2024 -V2024Id $Id -V2024AdminReviewReassign $AdminReviewReassign  
@@ -1038,7 +1037,7 @@ $Id = "2c9180835d191a86015d28455b4a2329" # String | ID of the campaign template 
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024CampaignTemplate-V2024Id $Id -V2024JsonPatchOperation $Result
+    Update-V2024CampaignTemplate -V2024Id $Id  -V2024JsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024CampaignTemplate -V2024Id $Id -V2024JsonPatchOperation $JsonPatchOperation  
@@ -1084,7 +1083,7 @@ $CampaignReportsConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToCampaignReportsConfig -Json $CampaignReportsConfig
-    Set-V2024CampaignReportsConfig-V2024CampaignReportsConfig $Result
+    Set-V2024CampaignReportsConfig -V2024CampaignReportsConfig $Result
     
     # Below is a request that includes all optional parameters
     # Set-V2024CampaignReportsConfig -V2024CampaignReportsConfig $CampaignReportsConfig  
@@ -1149,7 +1148,7 @@ $Schedule = @"{
 # Set Campaign Template Schedule
 
 try {
-    Set-V2024CampaignTemplateSchedule-V2024Id $Id 
+    Set-V2024CampaignTemplateSchedule -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Set-V2024CampaignTemplateSchedule -V2024Id $Id -V2024Schedule $Schedule  
@@ -1197,7 +1196,7 @@ $ActivateCampaignOptions = @"{
 # Activate a Campaign
 
 try {
-    Start-V2024Campaign-V2024Id $Id 
+    Start-V2024Campaign -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Start-V2024Campaign -V2024Id $Id -V2024ActivateCampaignOptions $ActivateCampaignOptions  
@@ -1241,7 +1240,7 @@ $Id = "2c91808571bcfcf80171c23e4b4221fc" # String | ID of the campaign the remed
 # Run Campaign Remediation Scan
 
 try {
-    Start-V2024CampaignRemediationScan-V2024Id $Id 
+    Start-V2024CampaignRemediationScan -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Start-V2024CampaignRemediationScan -V2024Id $Id  
@@ -1287,7 +1286,7 @@ $Type = "CAMPAIGN_COMPOSITION_REPORT" # ReportType | Type of the report to run.
 # Run Campaign Report
 
 try {
-    Start-V2024CampaignReport-V2024Id $Id -V2024Type $Type 
+    Start-V2024CampaignReport -V2024Id $Id  -V2024Type $Type 
     
     # Below is a request that includes all optional parameters
     # Start-V2024CampaignReport -V2024Id $Id -V2024Type $Type  
@@ -1340,7 +1339,7 @@ $Id = "2c9180835d191a86015d28455b4a2329" # String | ID of the campaign template 
 # Generate a Campaign from Template
 
 try {
-    Start-V2024GenerateCampaignTemplate-V2024Id $Id 
+    Start-V2024GenerateCampaignTemplate -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Start-V2024GenerateCampaignTemplate -V2024Id $Id  
@@ -1392,7 +1391,7 @@ $Id = "2c91808571bcfcf80171c23e4b4221fc" # String | ID of the campaign template 
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024Campaign-V2024Id $Id -V2024JsonPatchOperation $Result
+    Update-V2024Campaign -V2024Id $Id  -V2024JsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024Campaign -V2024Id $Id -V2024JsonPatchOperation $JsonPatchOperation  

@@ -1,4 +1,3 @@
-
 ---
 id: v2024-approvals
 title: Approvals
@@ -58,7 +57,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Get an approval
 
 try {
-    Get-V2024Approval-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024Approval -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024Approval -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
@@ -107,7 +106,7 @@ $Filters = 'filters=status eq PENDING' # String | Filter results using the stand
 # Get Approvals
 
 try {
-    Get-V2024Approvals-V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024Approvals -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024Approvals -V2024XSailPointExperimental $XSailPointExperimental -V2024Mine $Mine -V2024RequesterId $RequesterId -V2024Filters $Filters  

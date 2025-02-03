@@ -1,4 +1,3 @@
-
 ---
 id: v2024-custom-password-instructions
 title: CustomPasswordInstructions
@@ -70,7 +69,7 @@ $CustomPasswordInstruction = @"{
 
 try {
     $Result = ConvertFrom-JsonToCustomPasswordInstruction -Json $CustomPasswordInstruction
-    New-V2024CustomPasswordInstructions-V2024XSailPointExperimental $XSailPointExperimental -V2024CustomPasswordInstruction $Result
+    New-V2024CustomPasswordInstructions -V2024XSailPointExperimental $XSailPointExperimental  -V2024CustomPasswordInstruction $Result
     
     # Below is a request that includes all optional parameters
     # New-V2024CustomPasswordInstructions -V2024XSailPointExperimental $XSailPointExperimental -V2024CustomPasswordInstruction $CustomPasswordInstruction  
@@ -115,7 +114,7 @@ $Locale = "MyLocale" # String | The locale for the custom instructions, a BCP47 
 # Delete Custom Password Instructions by page ID
 
 try {
-    Remove-V2024CustomPasswordInstructions-V2024PageId $PageId -V2024XSailPointExperimental $XSailPointExperimental 
+    Remove-V2024CustomPasswordInstructions -V2024PageId $PageId  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024CustomPasswordInstructions -V2024PageId $PageId -V2024XSailPointExperimental $XSailPointExperimental -V2024Locale $Locale  
@@ -160,7 +159,7 @@ $Locale = "MyLocale" # String | The locale for the custom instructions, a BCP47 
 # Get Custom Password Instructions by Page ID
 
 try {
-    Get-V2024CustomPasswordInstructions-V2024PageId $PageId -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024CustomPasswordInstructions -V2024PageId $PageId  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024CustomPasswordInstructions -V2024PageId $PageId -V2024XSailPointExperimental $XSailPointExperimental -V2024Locale $Locale  

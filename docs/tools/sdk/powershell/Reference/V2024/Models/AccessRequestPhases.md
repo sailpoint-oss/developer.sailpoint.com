@@ -16,12 +16,12 @@ tags: ['SDK', 'Software Development Kit', 'AccessRequestPhases', 'V2024AccessReq
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Started** |  Pointer to **System.DateTime** | The time that this phase started. | [optional] 
-**Finished** |  Pointer to **System.DateTime** | The time that this phase finished. | [optional] 
-**Name** |  Pointer to **String** | The name of this phase. | [optional] 
-**State** |  Pointer to  **Enum** [  "PENDING",    "EXECUTING",    "COMPLETED",    "CANCELLED",    "NOT_EXECUTED" ] | The state of this phase. | [optional] 
-**Result** |  Pointer to  **Enum** [  "SUCCESSFUL",    "FAILED" ] | The state of this phase. | [optional] 
-**PhaseReference** |  Pointer to **String** | A reference to another object on the RequestedItemStatus that contains more details about the phase. Note that for the Provisioning phase, this will be empty if there are no manual work items. | [optional] 
+**Started** | **System.DateTime** | The time that this phase started. | [optional] 
+**Finished** | **System.DateTime** | The time that this phase finished. | [optional] 
+**Name** | **String** | The name of this phase. | [optional] 
+**State** |  **Enum** [  "PENDING",    "EXECUTING",    "COMPLETED",    "CANCELLED",    "NOT_EXECUTED" ] | The state of this phase. | [optional] 
+**Result** |  **Enum** [  "SUCCESSFUL",    "FAILED" ] | The state of this phase. | [optional] 
+**PhaseReference** | **String** | A reference to another object on the RequestedItemStatus that contains more details about the phase. Note that for the Provisioning phase, this will be empty if there are no manual work items. | [optional] 
 
 ## Examples
 

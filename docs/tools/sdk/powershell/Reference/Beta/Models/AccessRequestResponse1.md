@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'AccessRequestResponse1', 'BetaAccessR
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**RequesterId** |  Pointer to **String** | the requester Id | [optional] 
-**RequesterName** |  Pointer to **String** | the requesterName | [optional] 
-**Items** |  Pointer to [**[]AccessRequestItemResponse**](access-request-item-response) |  | [optional] 
+**RequesterId** | **String** | the requester Id | [optional] 
+**RequesterName** | **String** | the requesterName | [optional] 
+**Items** | [**[]AccessRequestItemResponse**](access-request-item-response) |  | [optional] 
 
 ## Examples
 

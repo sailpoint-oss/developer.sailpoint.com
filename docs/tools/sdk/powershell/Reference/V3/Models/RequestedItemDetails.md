@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'RequestedItemDetails', 'RequestedItem
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to  **Enum** [  "ACCESS_PROFILE",    "ENTITLEMENT",    "ROLE" ] | The type of access item requested. | [optional] 
-**Id** |  Pointer to **String** | The id of the access item requested. | [optional] 
+**Type** |  **Enum** [  "ACCESS_PROFILE",    "ENTITLEMENT",    "ROLE" ] | The type of access item requested. | [optional] 
+**Id** | **String** | The id of the access item requested. | [optional] 
 
 ## Examples
 

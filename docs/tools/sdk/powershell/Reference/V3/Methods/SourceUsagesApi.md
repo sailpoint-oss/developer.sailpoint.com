@@ -1,4 +1,3 @@
-
 ---
 id: source-usages
 title: SourceUsages
@@ -56,7 +55,7 @@ $SourceId = "2c9180835d191a86015d28455b4a2329" # String | ID of IDN source
 # Finds status of source usage
 
 try {
-    Get-StatusBySourceId-SourceId $SourceId 
+    Get-StatusBySourceId -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
     # Get-StatusBySourceId -SourceId $SourceId  
@@ -106,7 +105,7 @@ $Sorters = "-date" # String | Sort results using the standard syntax described i
 # Returns source usage insights
 
 try {
-    Get-UsagesBySourceId-SourceId $SourceId 
+    Get-UsagesBySourceId -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
     # Get-UsagesBySourceId -SourceId $SourceId -Limit $Limit -Offset $Offset -Count $Count -Sorters $Sorters  

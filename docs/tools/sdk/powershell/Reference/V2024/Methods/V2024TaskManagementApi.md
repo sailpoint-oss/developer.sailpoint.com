@@ -1,4 +1,3 @@
-
 ---
 id: v2024-task-management
 title: TaskManagement
@@ -63,7 +62,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Retrieve Pending Task List Headers
 
 try {
-    Get-V2024PendingTaskHeaders-V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024PendingTaskHeaders -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024PendingTaskHeaders -V2024XSailPointExperimental $XSailPointExperimental -V2024Offset $Offset -V2024Limit $Limit -V2024Count $Count  
@@ -112,7 +111,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Retrieve Pending Task Status List
 
 try {
-    Get-V2024PendingTasks-V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024PendingTasks -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024PendingTasks -V2024XSailPointExperimental $XSailPointExperimental -V2024Offset $Offset -V2024Limit $Limit -V2024Count $Count  
@@ -157,7 +156,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Get Task Status by ID
 
 try {
-    Get-V2024TaskStatus-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024TaskStatus -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024TaskStatus -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
@@ -211,7 +210,7 @@ $Sorters = "-created" # String | Sort results using the standard syntax describe
 # Retrieve Task Status List
 
 try {
-    Get-V2024TaskStatusList-V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024TaskStatusList -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024TaskStatusList -V2024XSailPointExperimental $XSailPointExperimental -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Filters $Filters -V2024Sorters $Sorters  
@@ -264,7 +263,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024TaskStatus-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024JsonPatchOperation $Result
+    Update-V2024TaskStatus -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental  -V2024JsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024TaskStatus -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024JsonPatchOperation $JsonPatchOperation  

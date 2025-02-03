@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'ScheduledSearchAllOfOwner', 'V2024Sch
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |   **Enum** [  "IDENTITY" ] | The type of object being referenced | [required]
-**Id** |  **String** | The ID of the referenced object | [required]
+**Type** |  **Enum** [  "IDENTITY" ] | The type of object being referenced | [required]
+**Id** | **String** | The ID of the referenced object | [required]
 
 ## Examples
 

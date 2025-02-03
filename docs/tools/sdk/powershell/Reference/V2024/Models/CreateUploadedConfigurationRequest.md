@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'CreateUploadedConfigurationRequest', 
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**VarData** |  **System.IO.FileInfo** | JSON file containing the objects to be imported. | [required]
-**Name** |  **String** | Name that will be assigned to the uploaded configuration file. | [required]
+**VarData** | **System.IO.FileInfo** | JSON file containing the objects to be imported. | [required]
+**Name** | **String** | Name that will be assigned to the uploaded configuration file. | [required]
 
 ## Examples
 

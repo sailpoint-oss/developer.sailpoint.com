@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'AccessRequest', 'AccessRequest']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**RequestedFor** |  **[]String** | A list of Identity IDs for whom the Access is requested. If it's a Revoke request, there can only be one Identity ID. | [required]
-**RequestType** |  Pointer to [**AccessRequestType**](access-request-type) |  | [optional] 
-**RequestedItems** |  [**[]AccessRequestItem**](access-request-item) |  | [required]
-**ClientMetadata** |  Pointer to **map[string]String** | Arbitrary key-value pairs. They will never be processed by the IdentityNow system but will be returned on associated APIs such as /account-activities. | [optional] 
+**RequestedFor** | **[]String** | A list of Identity IDs for whom the Access is requested. If it's a Revoke request, there can only be one Identity ID. | [required]
+**RequestType** | [**AccessRequestType**](access-request-type) |  | [optional] 
+**RequestedItems** | [**[]AccessRequestItem**](access-request-item) |  | [required]
+**ClientMetadata** | **map[string]String** | Arbitrary key-value pairs. They will never be processed by the IdentityNow system but will be returned on associated APIs such as /account-activities. | [optional] 
 
 ## Examples
 

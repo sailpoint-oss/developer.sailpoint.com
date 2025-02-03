@@ -1,4 +1,3 @@
-
 ---
 id: access-requests
 title: AccessRequests
@@ -77,7 +76,7 @@ $CancelAccessRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToCancelAccessRequest -Json $CancelAccessRequest
-    Suspend-AccessRequest-CancelAccessRequest $Result
+    Suspend-AccessRequest -CancelAccessRequest $Result
     
     # Below is a request that includes all optional parameters
     # Suspend-AccessRequest -CancelAccessRequest $CancelAccessRequest  
@@ -203,7 +202,7 @@ $AccessRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccessRequest -Json $AccessRequest
-    New-AccessRequest-AccessRequest $Result
+    New-AccessRequest -AccessRequest $Result
     
     # Below is a request that includes all optional parameters
     # New-AccessRequest -AccessRequest $AccessRequest  
@@ -373,7 +372,7 @@ $AccessRequestConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccessRequestConfig -Json $AccessRequestConfig
-    Set-AccessRequestConfig-AccessRequestConfig $Result
+    Set-AccessRequestConfig -AccessRequestConfig $Result
     
     # Below is a request that includes all optional parameters
     # Set-AccessRequestConfig -AccessRequestConfig $AccessRequestConfig  

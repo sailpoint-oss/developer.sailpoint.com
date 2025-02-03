@@ -16,12 +16,12 @@ tags: ['SDK', 'Software Development Kit', 'OutliersContributingFeatureAccessItem
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | The ID of the access item | [optional] 
-**DisplayName** |  Pointer to **String** | the display name of the access item | [optional] 
-**Description** |  Pointer to **String** | Description of the access item. | [optional] 
-**AccessType** |  Pointer to  **Enum** [  "ENTITLEMENT",    "ACCESS_PROFILE",    "ROLE" ] | The type of the access item. | [optional] 
-**SourceName** |  Pointer to **String** | the associated source name if it exists | [optional] 
-**ExtremelyRare** |  Pointer to **Boolean** | rarest access | [optional] [default to $false]
+**Id** | **String** | The ID of the access item | [optional] 
+**DisplayName** | **String** | the display name of the access item | [optional] 
+**Description** | **String** | Description of the access item. | [optional] 
+**AccessType** |  **Enum** [  "ENTITLEMENT",    "ACCESS_PROFILE",    "ROLE" ] | The type of the access item. | [optional] 
+**SourceName** | **String** | the associated source name if it exists | [optional] 
+**ExtremelyRare** | **Boolean** | rarest access | [optional] [default to $false]
 
 ## Examples
 

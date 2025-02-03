@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'PasswordStatus', 'PasswordStatus']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**RequestId** |  Pointer to **String** | The password change request ID | [optional] 
-**State** |  Pointer to  **Enum** [  "IN_PROGRESS",    "FINISHED",    "FAILED" ] | Password change state | [optional] 
-**Errors** |  Pointer to **[]String** | The errors during the password change request | [optional] 
-**SourceIds** |  Pointer to **[]String** | List of source IDs in the password change request | [optional] 
+**RequestId** | **String** | The password change request ID | [optional] 
+**State** |  **Enum** [  "IN_PROGRESS",    "FINISHED",    "FAILED" ] | Password change state | [optional] 
+**Errors** | **[]String** | The errors during the password change request | [optional] 
+**SourceIds** | **[]String** | List of source IDs in the password change request | [optional] 
 
 ## Examples
 

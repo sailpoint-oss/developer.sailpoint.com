@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'TokenAuthResponse', 'TokenAuthRespons
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** |  Pointer to  **Enum** [  "PENDING",    "SUCCESS",    "FAILED",    "LOCKOUT",    "NOT_ENOUGH_DATA" ] | MFA Authentication status | [optional] 
+**Status** |  **Enum** [  "PENDING",    "SUCCESS",    "FAILED",    "LOCKOUT",    "NOT_ENOUGH_DATA" ] | MFA Authentication status | [optional] 
 
 ## Examples
 

@@ -16,12 +16,12 @@ tags: ['SDK', 'Software Development Kit', 'Reviewer', 'V2024Reviewer']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | The id of the reviewer. | [optional] 
-**Name** |  Pointer to **String** | The name of the reviewer. | [optional] 
-**Email** |  Pointer to **String** | The email of the reviewing identity. | [optional] 
-**Type** |  Pointer to  **Enum** [  "IDENTITY" ] | The type of the reviewing identity. | [optional] 
-**Created** |  Pointer to **System.DateTime** | The created date of the reviewing identity. | [optional] 
-**Modified** |  Pointer to **System.DateTime** | The modified date of the reviewing identity. | [optional] 
+**Id** | **String** | The id of the reviewer. | [optional] 
+**Name** | **String** | The name of the reviewer. | [optional] 
+**Email** | **String** | The email of the reviewing identity. | [optional] 
+**Type** |  **Enum** [  "IDENTITY" ] | The type of the reviewing identity. | [optional] 
+**Created** | **System.DateTime** | The created date of the reviewing identity. | [optional] 
+**Modified** | **System.DateTime** | The modified date of the reviewing identity. | [optional] 
 
 ## Examples
 

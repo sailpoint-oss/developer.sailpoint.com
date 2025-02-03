@@ -1,4 +1,3 @@
-
 ---
 id: v2024-password-policies
 title: PasswordPolicies
@@ -98,7 +97,7 @@ $PasswordPolicyV3Dto = @"{
 
 try {
     $Result = ConvertFrom-JsonToPasswordPolicyV3Dto -Json $PasswordPolicyV3Dto
-    New-V2024PasswordPolicy-V2024PasswordPolicyV3Dto $Result
+    New-V2024PasswordPolicy -V2024PasswordPolicyV3Dto $Result
     
     # Below is a request that includes all optional parameters
     # New-V2024PasswordPolicy -V2024PasswordPolicyV3Dto $PasswordPolicyV3Dto  
@@ -141,7 +140,7 @@ $Id = "ff808081838d9e9d01838da6a03e0002" # String | The ID of password policy to
 # Delete Password Policy by ID
 
 try {
-    Remove-V2024PasswordPolicy-V2024Id $Id 
+    Remove-V2024PasswordPolicy -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024PasswordPolicy -V2024Id $Id  
@@ -184,7 +183,7 @@ $Id = "ff808081838d9e9d01838da6a03e0005" # String | The ID of password policy to
 # Get Password Policy by ID
 
 try {
-    Get-V2024PasswordPolicyById-V2024Id $Id 
+    Get-V2024PasswordPolicyById -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-V2024PasswordPolicyById -V2024Id $Id  
@@ -309,7 +308,7 @@ $PasswordPolicyV3Dto = @"{
 
 try {
     $Result = ConvertFrom-JsonToPasswordPolicyV3Dto -Json $PasswordPolicyV3Dto
-    Set-V2024PasswordPolicy-V2024Id $Id -V2024PasswordPolicyV3Dto $Result
+    Set-V2024PasswordPolicy -V2024Id $Id  -V2024PasswordPolicyV3Dto $Result
     
     # Below is a request that includes all optional parameters
     # Set-V2024PasswordPolicy -V2024Id $Id -V2024PasswordPolicyV3Dto $PasswordPolicyV3Dto  

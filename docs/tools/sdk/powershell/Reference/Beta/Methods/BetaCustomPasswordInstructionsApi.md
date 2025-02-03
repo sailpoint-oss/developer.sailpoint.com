@@ -1,4 +1,3 @@
-
 ---
 id: beta-custom-password-instructions
 title: CustomPasswordInstructions
@@ -68,7 +67,7 @@ $CustomPasswordInstruction = @"{
 
 try {
     $Result = ConvertFrom-JsonToCustomPasswordInstruction -Json $CustomPasswordInstruction
-    New-BetaCustomPasswordInstructions-BetaCustomPasswordInstruction $Result
+    New-BetaCustomPasswordInstructions -BetaCustomPasswordInstruction $Result
     
     # Below is a request that includes all optional parameters
     # New-BetaCustomPasswordInstructions -BetaCustomPasswordInstruction $CustomPasswordInstruction  
@@ -111,7 +110,7 @@ $Locale = "MyLocale" # String | The locale for the custom instructions, a BCP47 
 # Delete Custom Password Instructions by page ID
 
 try {
-    Remove-BetaCustomPasswordInstructions-BetaPageId $PageId 
+    Remove-BetaCustomPasswordInstructions -BetaPageId $PageId 
     
     # Below is a request that includes all optional parameters
     # Remove-BetaCustomPasswordInstructions -BetaPageId $PageId -BetaLocale $Locale  
@@ -154,7 +153,7 @@ $Locale = "MyLocale" # String | The locale for the custom instructions, a BCP47 
 # Get Custom Password Instructions by Page ID
 
 try {
-    Get-BetaCustomPasswordInstructions-BetaPageId $PageId 
+    Get-BetaCustomPasswordInstructions -BetaPageId $PageId 
     
     # Below is a request that includes all optional parameters
     # Get-BetaCustomPasswordInstructions -BetaPageId $PageId -BetaLocale $Locale  

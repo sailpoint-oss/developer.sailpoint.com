@@ -1,4 +1,3 @@
-
 ---
 id: beta-identity-attributes
 title: IdentityAttributes
@@ -80,7 +79,7 @@ $IdentityAttribute = @"{
 
 try {
     $Result = ConvertFrom-JsonToIdentityAttribute -Json $IdentityAttribute
-    New-BetaIdentityAttribute-BetaIdentityAttribute $Result
+    New-BetaIdentityAttribute -BetaIdentityAttribute $Result
     
     # Below is a request that includes all optional parameters
     # New-BetaIdentityAttribute -BetaIdentityAttribute $IdentityAttribute  
@@ -123,7 +122,7 @@ $Name = "displayName" # String | The attribute's technical name.
 # Delete Identity Attribute
 
 try {
-    Remove-BetaIdentityAttribute-BetaName $Name 
+    Remove-BetaIdentityAttribute -BetaName $Name 
     
     # Below is a request that includes all optional parameters
     # Remove-BetaIdentityAttribute -BetaName $Name  
@@ -169,7 +168,7 @@ $IdentityAttributeNames = @"{
 
 try {
     $Result = ConvertFrom-JsonToIdentityAttributeNames -Json $IdentityAttributeNames
-    Remove-BetaIdentityAttributesInBulk-BetaIdentityAttributeNames $Result
+    Remove-BetaIdentityAttributesInBulk -BetaIdentityAttributeNames $Result
     
     # Below is a request that includes all optional parameters
     # Remove-BetaIdentityAttributesInBulk -BetaIdentityAttributeNames $IdentityAttributeNames  
@@ -212,7 +211,7 @@ $Name = "displayName" # String | The attribute's technical name.
 # Get Identity Attribute
 
 try {
-    Get-BetaIdentityAttribute-BetaName $Name 
+    Get-BetaIdentityAttribute -BetaName $Name 
     
     # Below is a request that includes all optional parameters
     # Get-BetaIdentityAttribute -BetaName $Name  
@@ -327,7 +326,7 @@ $IdentityAttribute = @"{
 
 try {
     $Result = ConvertFrom-JsonToIdentityAttribute -Json $IdentityAttribute
-    Send-BetaIdentityAttribute-BetaName $Name -BetaIdentityAttribute $Result
+    Send-BetaIdentityAttribute -BetaName $Name  -BetaIdentityAttribute $Result
     
     # Below is a request that includes all optional parameters
     # Send-BetaIdentityAttribute -BetaName $Name -BetaIdentityAttribute $IdentityAttribute  

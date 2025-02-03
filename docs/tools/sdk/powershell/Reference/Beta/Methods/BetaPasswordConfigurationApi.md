@@ -1,4 +1,3 @@
-
 ---
 id: beta-password-configuration
 title: PasswordConfiguration
@@ -68,7 +67,7 @@ $PasswordOrgConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToPasswordOrgConfig -Json $PasswordOrgConfig
-    New-BetaPasswordOrgConfig-BetaPasswordOrgConfig $Result
+    New-BetaPasswordOrgConfig -BetaPasswordOrgConfig $Result
     
     # Below is a request that includes all optional parameters
     # New-BetaPasswordOrgConfig -BetaPasswordOrgConfig $PasswordOrgConfig  
@@ -158,7 +157,7 @@ $PasswordOrgConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToPasswordOrgConfig -Json $PasswordOrgConfig
-    Send-BetaPasswordOrgConfig-BetaPasswordOrgConfig $Result
+    Send-BetaPasswordOrgConfig -BetaPasswordOrgConfig $Result
     
     # Below is a request that includes all optional parameters
     # Send-BetaPasswordOrgConfig -BetaPasswordOrgConfig $PasswordOrgConfig  

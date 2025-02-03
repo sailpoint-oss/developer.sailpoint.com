@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'ErrorMessage', 'BetaErrorMessage']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Locale** |  Pointer to **String** | Locale is the current Locale | [optional] 
-**LocaleOrigin** |  Pointer to **String** | LocaleOrigin holds possible values of how the locale was selected | [optional] 
-**Text** |  Pointer to **String** | Text is the actual text of the error message | [optional] 
+**Locale** | **String** | Locale is the current Locale | [optional] 
+**LocaleOrigin** | **String** | LocaleOrigin holds possible values of how the locale was selected | [optional] 
+**Text** | **String** | Text is the actual text of the error message | [optional] 
 
 ## Examples
 

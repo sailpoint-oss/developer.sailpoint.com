@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'ImportFormDefinitionsRequestInner', '
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Object** |  Pointer to [**FormDefinitionResponse**](form-definition-response) |  | [optional] 
-**Self** |  Pointer to **String** |  | [optional] 
-**Version** |  Pointer to **Int32** |  | [optional] 
+**Object** | [**FormDefinitionResponse**](form-definition-response) |  | [optional] 
+**Self** | **String** |  | [optional] 
+**Version** | **Int32** |  | [optional] 
 
 ## Examples
 

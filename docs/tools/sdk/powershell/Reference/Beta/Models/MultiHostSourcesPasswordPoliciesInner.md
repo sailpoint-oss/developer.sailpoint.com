@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'MultiHostSourcesPasswordPoliciesInner
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to  **Enum** [  "PASSWORD_POLICY" ] | Type of object being referenced. | [optional] 
-**Id** |  Pointer to **String** | Policy ID. | [optional] 
-**Name** |  Pointer to **String** | Policy's human-readable display name. | [optional] 
+**Type** |  **Enum** [  "PASSWORD_POLICY" ] | Type of object being referenced. | [optional] 
+**Id** | **String** | Policy ID. | [optional] 
+**Name** | **String** | Policy's human-readable display name. | [optional] 
 
 ## Examples
 

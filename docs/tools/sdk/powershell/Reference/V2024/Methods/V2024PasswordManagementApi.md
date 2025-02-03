@@ -1,4 +1,3 @@
-
 ---
 id: v2024-password-management
 title: PasswordManagement
@@ -86,7 +85,7 @@ $PasswordDigitTokenReset = @"{
 
 try {
     $Result = ConvertFrom-JsonToPasswordDigitTokenReset -Json $PasswordDigitTokenReset
-    New-V2024DigitToken-V2024XSailPointExperimental $XSailPointExperimental -V2024PasswordDigitTokenReset $Result
+    New-V2024DigitToken -V2024XSailPointExperimental $XSailPointExperimental  -V2024PasswordDigitTokenReset $Result
     
     # Below is a request that includes all optional parameters
     # New-V2024DigitToken -V2024XSailPointExperimental $XSailPointExperimental -V2024PasswordDigitTokenReset $PasswordDigitTokenReset  
@@ -129,7 +128,7 @@ $Id = "089899f13a8f4da7824996191587bab9" # String | Password change request ID
 # Get Password Change Request Status
 
 try {
-    Get-V2024PasswordChangeStatus-V2024Id $Id 
+    Get-V2024PasswordChangeStatus -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-V2024PasswordChangeStatus -V2024Id $Id  
@@ -176,7 +175,7 @@ $PasswordInfoQueryDTO = @"{
 
 try {
     $Result = ConvertFrom-JsonToPasswordInfoQueryDTO -Json $PasswordInfoQueryDTO
-    Search-V2024PasswordInfo-V2024PasswordInfoQueryDTO $Result
+    Search-V2024PasswordInfo -V2024PasswordInfoQueryDTO $Result
     
     # Below is a request that includes all optional parameters
     # Search-V2024PasswordInfo -V2024PasswordInfoQueryDTO $PasswordInfoQueryDTO  
@@ -244,7 +243,7 @@ $PasswordChangeRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToPasswordChangeRequest -Json $PasswordChangeRequest
-    Set-V2024Password-V2024PasswordChangeRequest $Result
+    Set-V2024Password -V2024PasswordChangeRequest $Result
     
     # Below is a request that includes all optional parameters
     # Set-V2024Password -V2024PasswordChangeRequest $PasswordChangeRequest  

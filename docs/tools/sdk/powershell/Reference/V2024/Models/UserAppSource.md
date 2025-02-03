@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'UserAppSource', 'V2024UserAppSource']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | the source ID | [optional] 
-**Type** |  Pointer to **String** | It will always be ""SOURCE"" | [optional] 
-**Name** |  Pointer to **String** | the source name | [optional] 
+**Id** | **String** | the source ID | [optional] 
+**Type** | **String** | It will always be ""SOURCE"" | [optional] 
+**Name** | **String** | the source name | [optional] 
 
 ## Examples
 

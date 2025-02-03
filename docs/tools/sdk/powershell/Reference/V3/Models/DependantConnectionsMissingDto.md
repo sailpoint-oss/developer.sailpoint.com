@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'DependantConnectionsMissingDto', 'Dep
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DependencyType** |  Pointer to  **Enum** [  "identityProfiles",    "credentialProfiles",    "mappingProfiles",    "sourceAttributes",    "dependantCustomTransforms",    "dependantApps" ] | The type of dependency type that is missing in the SourceConnections | [optional] 
-**Reason** |  Pointer to **String** | The reason why this dependency is missing | [optional] 
+**DependencyType** |  **Enum** [  "identityProfiles",    "credentialProfiles",    "mappingProfiles",    "sourceAttributes",    "dependantCustomTransforms",    "dependantApps" ] | The type of dependency type that is missing in the SourceConnections | [optional] 
+**Reason** | **String** | The reason why this dependency is missing | [optional] 
 
 ## Examples
 

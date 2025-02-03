@@ -1,4 +1,3 @@
-
 ---
 id: v2024-personal-access-tokens
 title: PersonalAccessTokens
@@ -71,7 +70,7 @@ $CreatePersonalAccessTokenRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToCreatePersonalAccessTokenRequest -Json $CreatePersonalAccessTokenRequest
-    New-V2024PersonalAccessToken-V2024CreatePersonalAccessTokenRequest $Result
+    New-V2024PersonalAccessToken -V2024CreatePersonalAccessTokenRequest $Result
     
     # Below is a request that includes all optional parameters
     # New-V2024PersonalAccessToken -V2024CreatePersonalAccessTokenRequest $CreatePersonalAccessTokenRequest  
@@ -114,7 +113,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The personal access token id
 # Delete Personal Access Token
 
 try {
-    Remove-V2024PersonalAccessToken-V2024Id $Id 
+    Remove-V2024PersonalAccessToken -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024PersonalAccessToken -V2024Id $Id  
@@ -210,7 +209,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The Personal Access Token id
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024PersonalAccessToken-V2024Id $Id -V2024JsonPatchOperation $Result
+    Update-V2024PersonalAccessToken -V2024Id $Id  -V2024JsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024PersonalAccessToken -V2024Id $Id -V2024JsonPatchOperation $JsonPatchOperation  

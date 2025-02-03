@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'SourceAccountCorrelationConfig', 'V20
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to  **Enum** [  "ACCOUNT_CORRELATION_CONFIG" ] | Type of object being referenced. | [optional] 
-**Id** |  Pointer to **String** | Account correlation config ID. | [optional] 
-**Name** |  Pointer to **String** | Account correlation config's human-readable display name. | [optional] 
+**Type** |  **Enum** [  "ACCOUNT_CORRELATION_CONFIG" ] | Type of object being referenced. | [optional] 
+**Id** | **String** | Account correlation config ID. | [optional] 
+**Name** | **String** | Account correlation config's human-readable display name. | [optional] 
 
 ## Examples
 

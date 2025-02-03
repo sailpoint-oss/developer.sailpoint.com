@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'SourceSchedule', 'V2024SourceSchedule
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |   **Enum** [  "ACCOUNT_AGGREGATION",    "GROUP_AGGREGATION" ] | The type of the Schedule. | [required]
-**CronExpression** |  **String** | The cron expression of the schedule. | [required]
+**Type** |  **Enum** [  "ACCOUNT_AGGREGATION",    "GROUP_AGGREGATION" ] | The type of the Schedule. | [required]
+**CronExpression** | **String** | The cron expression of the schedule. | [required]
 
 ## Examples
 

@@ -1,4 +1,3 @@
-
 ---
 id: v2024-accounts
 title: Accounts
@@ -115,7 +114,7 @@ $AccountAttributesCreate = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccountAttributesCreate -Json $AccountAttributesCreate
-    New-V2024Account-V2024AccountAttributesCreate $Result
+    New-V2024Account -V2024AccountAttributesCreate $Result
     
     # Below is a request that includes all optional parameters
     # New-V2024Account -V2024AccountAttributesCreate $AccountAttributesCreate  
@@ -161,7 +160,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Account ID.
 # Delete Account
 
 try {
-    Remove-V2024Account-V2024Id $Id 
+    Remove-V2024Account -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024Account -V2024Id $Id  
@@ -211,7 +210,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Remove Account
 
 try {
-    Remove-V2024AccountAsync-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
+    Remove-V2024AccountAsync -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024AccountAsync -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
@@ -260,7 +259,7 @@ $AccountToggleRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccountToggleRequest -Json $AccountToggleRequest
-    Disable-V2024Account-V2024Id $Id -V2024AccountToggleRequest $Result
+    Disable-V2024Account -V2024Id $Id  -V2024AccountToggleRequest $Result
     
     # Below is a request that includes all optional parameters
     # Disable-V2024Account -V2024Id $Id -V2024AccountToggleRequest $AccountToggleRequest  
@@ -305,7 +304,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Disable IDN Account for Identity
 
 try {
-    Disable-V2024AccountForIdentity-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
+    Disable-V2024AccountForIdentity -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Disable-V2024AccountForIdentity -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
@@ -352,7 +351,7 @@ $IdentitiesAccountsBulkRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToIdentitiesAccountsBulkRequest -Json $IdentitiesAccountsBulkRequest
-    Disable-V2024AccountsForIdentities-V2024XSailPointExperimental $XSailPointExperimental -V2024IdentitiesAccountsBulkRequest $Result
+    Disable-V2024AccountsForIdentities -V2024XSailPointExperimental $XSailPointExperimental  -V2024IdentitiesAccountsBulkRequest $Result
     
     # Below is a request that includes all optional parameters
     # Disable-V2024AccountsForIdentities -V2024XSailPointExperimental $XSailPointExperimental -V2024IdentitiesAccountsBulkRequest $IdentitiesAccountsBulkRequest  
@@ -401,7 +400,7 @@ $AccountToggleRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccountToggleRequest -Json $AccountToggleRequest
-    Enable-V2024Account-V2024Id $Id -V2024AccountToggleRequest $Result
+    Enable-V2024Account -V2024Id $Id  -V2024AccountToggleRequest $Result
     
     # Below is a request that includes all optional parameters
     # Enable-V2024Account -V2024Id $Id -V2024AccountToggleRequest $AccountToggleRequest  
@@ -446,7 +445,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Enable IDN Account for Identity
 
 try {
-    Enable-V2024AccountForIdentity-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
+    Enable-V2024AccountForIdentity -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Enable-V2024AccountForIdentity -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
@@ -493,7 +492,7 @@ $IdentitiesAccountsBulkRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToIdentitiesAccountsBulkRequest -Json $IdentitiesAccountsBulkRequest
-    Enable-V2024AccountsForIdentities-V2024XSailPointExperimental $XSailPointExperimental -V2024IdentitiesAccountsBulkRequest $Result
+    Enable-V2024AccountsForIdentities -V2024XSailPointExperimental $XSailPointExperimental  -V2024IdentitiesAccountsBulkRequest $Result
     
     # Below is a request that includes all optional parameters
     # Enable-V2024AccountsForIdentities -V2024XSailPointExperimental $XSailPointExperimental -V2024IdentitiesAccountsBulkRequest $IdentitiesAccountsBulkRequest  
@@ -536,7 +535,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Account ID.
 # Account Details
 
 try {
-    Get-V2024Account-V2024Id $Id 
+    Get-V2024Account -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-V2024Account -V2024Id $Id  
@@ -585,7 +584,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Account Entitlements
 
 try {
-    Get-V2024AccountEntitlements-V2024Id $Id 
+    Get-V2024AccountEntitlements -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-V2024AccountEntitlements -V2024Id $Id -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count  
@@ -696,7 +695,7 @@ $AccountAttributes = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccountAttributes -Json $AccountAttributes
-    Send-V2024Account-V2024Id $Id -V2024AccountAttributes $Result
+    Send-V2024Account -V2024Id $Id  -V2024AccountAttributes $Result
     
     # Below is a request that includes all optional parameters
     # Send-V2024Account -V2024Id $Id -V2024AccountAttributes $AccountAttributes  
@@ -739,7 +738,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The account id
 # Reload Account
 
 try {
-    Submit-V2024ReloadAccount-V2024Id $Id 
+    Submit-V2024ReloadAccount -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Submit-V2024ReloadAccount -V2024Id $Id  
@@ -790,7 +789,7 @@ $AccountUnlockRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccountUnlockRequest -Json $AccountUnlockRequest
-    Unlock-V2024Account-V2024Id $Id -V2024AccountUnlockRequest $Result
+    Unlock-V2024Account -V2024Id $Id  -V2024AccountUnlockRequest $Result
     
     # Below is a request that includes all optional parameters
     # Unlock-V2024Account -V2024Id $Id -V2024AccountUnlockRequest $AccountUnlockRequest  
@@ -848,7 +847,7 @@ $RequestBody =  # SystemCollectionsHashtable[] | A list of account update operat
 
 try {
     $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
-    Update-V2024Account-V2024Id $Id -V2024RequestBody $Result
+    Update-V2024Account -V2024Id $Id  -V2024RequestBody $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024Account -V2024Id $Id -V2024RequestBody $RequestBody  

@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'SodExemptCriteria', 'BetaSodExemptCri
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Existing** |  Pointer to **Boolean** | If the entitlement already belonged to the user or not. | [optional] [default to $false]
-**Type** |  Pointer to [**DtoType**](dto-type) |  | [optional] 
-**Id** |  Pointer to **String** | Entitlement ID | [optional] 
-**Name** |  Pointer to **String** | Entitlement name | [optional] 
+**Existing** | **Boolean** | If the entitlement already belonged to the user or not. | [optional] [default to $false]
+**Type** | [**DtoType**](dto-type) |  | [optional] 
+**Id** | **String** | Entitlement ID | [optional] 
+**Name** | **String** | Entitlement name | [optional] 
 
 ## Examples
 

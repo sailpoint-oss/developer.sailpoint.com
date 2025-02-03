@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'FormItem', 'BetaFormItem']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** |  Pointer to **String** | Name of the FormItem | [optional] 
+**Name** | **String** | Name of the FormItem | [optional] 
 
 ## Examples
 

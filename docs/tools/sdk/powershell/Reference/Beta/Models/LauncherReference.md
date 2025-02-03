@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'LauncherReference', 'BetaLauncherRefe
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to  **Enum** [  "WORKFLOW" ] | Type of Launcher reference | [optional] 
-**Id** |  Pointer to **String** | ID of Launcher reference | [optional] 
+**Type** |  **Enum** [  "WORKFLOW" ] | Type of Launcher reference | [optional] 
+**Id** | **String** | ID of Launcher reference | [optional] 
 
 ## Examples
 

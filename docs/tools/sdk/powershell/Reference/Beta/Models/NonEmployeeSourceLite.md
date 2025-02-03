@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'NonEmployeeSourceLite', 'BetaNonEmplo
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | Non-Employee source id. | [optional] 
-**SourceId** |  Pointer to **String** | Source Id associated with this non-employee source. | [optional] 
-**Name** |  Pointer to **String** | Source name associated with this non-employee source. | [optional] 
-**Description** |  Pointer to **String** | Source description associated with this non-employee source. | [optional] 
+**Id** | **String** | Non-Employee source id. | [optional] 
+**SourceId** | **String** | Source Id associated with this non-employee source. | [optional] 
+**Name** | **String** | Source name associated with this non-employee source. | [optional] 
+**Description** | **String** | Source description associated with this non-employee source. | [optional] 
 
 ## Examples
 

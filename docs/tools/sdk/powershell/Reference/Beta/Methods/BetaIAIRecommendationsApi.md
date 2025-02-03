@@ -1,4 +1,3 @@
-
 ---
 id: beta-iai-recommendations
 title: IAIRecommendations
@@ -73,7 +72,7 @@ $RecommendationRequestDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToRecommendationRequestDto -Json $RecommendationRequestDto
-    Get-BetaRecommendations-BetaRecommendationRequestDto $Result
+    Get-BetaRecommendations -BetaRecommendationRequestDto $Result
     
     # Below is a request that includes all optional parameters
     # Get-BetaRecommendations -BetaRecommendationRequestDto $RecommendationRequestDto  
@@ -159,7 +158,7 @@ $RecommendationConfigDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToRecommendationConfigDto -Json $RecommendationConfigDto
-    Update-BetaRecommendationsConfig-BetaRecommendationConfigDto $Result
+    Update-BetaRecommendationsConfig -BetaRecommendationConfigDto $Result
     
     # Below is a request that includes all optional parameters
     # Update-BetaRecommendationsConfig -BetaRecommendationConfigDto $RecommendationConfigDto  

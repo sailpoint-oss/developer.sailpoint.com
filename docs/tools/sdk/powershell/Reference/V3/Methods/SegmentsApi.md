@@ -1,4 +1,3 @@
-
 ---
 id: segments
 title: Segments
@@ -98,7 +97,7 @@ $Segment = @"{
 
 try {
     $Result = ConvertFrom-JsonToSegment -Json $Segment
-    New-Segment-Segment $Result
+    New-Segment -Segment $Result
     
     # Below is a request that includes all optional parameters
     # New-Segment -Segment $Segment  
@@ -142,7 +141,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The segment ID to delete.
 # Delete Segment by ID
 
 try {
-    Remove-Segment-Id $Id 
+    Remove-Segment -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-Segment -Id $Id  
@@ -185,7 +184,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The segment ID to retrieve.
 # Get Segment by ID
 
 try {
-    Get-Segment-Id $Id 
+    Get-Segment -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-Segment -Id $Id  
@@ -280,7 +279,7 @@ $RequestBody =  # SystemCollectionsHashtable[] | A list of segment update operat
 
 try {
     $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
-    Update-Segment-Id $Id -RequestBody $Result
+    Update-Segment -Id $Id  -RequestBody $Result
     
     # Below is a request that includes all optional parameters
     # Update-Segment -Id $Id -RequestBody $RequestBody  

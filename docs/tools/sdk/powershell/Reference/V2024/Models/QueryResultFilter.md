@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'QueryResultFilter', 'V2024QueryResult
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Includes** |  Pointer to **[]String** | The list of field names to include in the result documents. | [optional] 
-**Excludes** |  Pointer to **[]String** | The list of field names to exclude from the result documents. | [optional] 
+**Includes** | **[]String** | The list of field names to include in the result documents. | [optional] 
+**Excludes** | **[]String** | The list of field names to exclude from the result documents. | [optional] 
 
 ## Examples
 

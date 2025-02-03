@@ -1,4 +1,3 @@
-
 ---
 id: beta-identities
 title: Identities
@@ -78,7 +77,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Identity Id
 # Delete identity
 
 try {
-    Remove-BetaIdentity-BetaId $Id 
+    Remove-BetaIdentity -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-BetaIdentity -BetaId $Id  
@@ -121,7 +120,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Identity Id
 # Identity Details
 
 try {
-    Get-BetaIdentity-BetaId $Id 
+    Get-BetaIdentity -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaIdentity -BetaId $Id  
@@ -166,7 +165,7 @@ $IdentityId = "ff8081814d2a8036014d701f3fbf53fa" # String | Identity ID.
 # Get ownership details
 
 try {
-    Get-BetaIdentityOwnershipDetails-BetaIdentityId $IdentityId 
+    Get-BetaIdentityOwnershipDetails -BetaIdentityId $IdentityId 
     
     # Below is a request that includes all optional parameters
     # Get-BetaIdentityOwnershipDetails -BetaIdentityId $IdentityId  
@@ -211,7 +210,7 @@ $AssignmentId = "1cbb0705b38c4226b1334eadd8874086" # String | Assignment Id
 # Role assignment details
 
 try {
-    Get-BetaRoleAssignment-BetaIdentityId $IdentityId -BetaAssignmentId $AssignmentId 
+    Get-BetaRoleAssignment -BetaIdentityId $IdentityId  -BetaAssignmentId $AssignmentId 
     
     # Below is a request that includes all optional parameters
     # Get-BetaRoleAssignment -BetaIdentityId $IdentityId -BetaAssignmentId $AssignmentId  
@@ -258,7 +257,7 @@ $RoleName = "Engineer" # String | Role name to filter the role assignments with 
 # List role assignments
 
 try {
-    Get-BetaRoleAssignments-BetaIdentityId $IdentityId 
+    Get-BetaRoleAssignments -BetaIdentityId $IdentityId 
     
     # Below is a request that includes all optional parameters
     # Get-BetaRoleAssignments -BetaIdentityId $IdentityId -BetaRoleId $RoleId -BetaRoleName $RoleName  
@@ -353,7 +352,7 @@ $IdentityId = "ef38f94347e94562b5bb8424a56397d8" # String | Identity Id
 # Reset an identity
 
 try {
-    Reset-BetaIdentity-BetaIdentityId $IdentityId 
+    Reset-BetaIdentity -BetaIdentityId $IdentityId 
     
     # Below is a request that includes all optional parameters
     # Reset-BetaIdentity -BetaIdentityId $IdentityId  
@@ -403,7 +402,7 @@ $SendAccountVerificationRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToSendAccountVerificationRequest -Json $SendAccountVerificationRequest
-    Send-BetaIdentityVerificationAccountToken-BetaId $Id -BetaSendAccountVerificationRequest $Result
+    Send-BetaIdentityVerificationAccountToken -BetaId $Id  -BetaSendAccountVerificationRequest $Result
     
     # Below is a request that includes all optional parameters
     # Send-BetaIdentityVerificationAccountToken -BetaId $Id -BetaSendAccountVerificationRequest $SendAccountVerificationRequest  
@@ -455,7 +454,7 @@ $InviteIdentitiesRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToInviteIdentitiesRequest -Json $InviteIdentitiesRequest
-    Start-BetaIdentitiesInvite-BetaInviteIdentitiesRequest $Result
+    Start-BetaIdentitiesInvite -BetaInviteIdentitiesRequest $Result
     
     # Below is a request that includes all optional parameters
     # Start-BetaIdentitiesInvite -BetaInviteIdentitiesRequest $InviteIdentitiesRequest  
@@ -511,7 +510,7 @@ $ProcessIdentitiesRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToProcessIdentitiesRequest -Json $ProcessIdentitiesRequest
-    Start-BetaIdentityProcessing-BetaProcessIdentitiesRequest $Result
+    Start-BetaIdentityProcessing -BetaProcessIdentitiesRequest $Result
     
     # Below is a request that includes all optional parameters
     # Start-BetaIdentityProcessing -BetaProcessIdentitiesRequest $ProcessIdentitiesRequest  
@@ -554,7 +553,7 @@ $IdentityId = "MyIdentityId" # String | The Identity id
 # Attribute synchronization for single identity.
 
 try {
-    Sync-BetahronizeAttributesForIdentity-BetaIdentityId $IdentityId 
+    Sync-BetahronizeAttributesForIdentity -BetaIdentityId $IdentityId 
     
     # Below is a request that includes all optional parameters
     # Sync-BetahronizeAttributesForIdentity -BetaIdentityId $IdentityId  

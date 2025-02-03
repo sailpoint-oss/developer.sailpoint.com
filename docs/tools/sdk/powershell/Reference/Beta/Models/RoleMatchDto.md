@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'RoleMatchDto', 'BetaRoleMatchDto']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**RoleRef** |  Pointer to [**BaseReferenceDto1**](base-reference-dto1) |  | [optional] 
-**MatchedAttributes** |  Pointer to [**[]ContextAttributeDto**](context-attribute-dto) |  | [optional] 
+**RoleRef** | [**BaseReferenceDto1**](base-reference-dto1) |  | [optional] 
+**MatchedAttributes** | [**[]ContextAttributeDto**](context-attribute-dto) |  | [optional] 
 
 ## Examples
 

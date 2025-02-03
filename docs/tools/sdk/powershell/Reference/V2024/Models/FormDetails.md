@@ -16,12 +16,12 @@ tags: ['SDK', 'Software Development Kit', 'FormDetails', 'V2024FormDetails']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | ID of the form | [optional] 
-**Name** |  Pointer to **String** | Name of the form | [optional] 
-**Title** |  Pointer to **String** | The form title | [optional] 
-**Subtitle** |  Pointer to **String** | The form subtitle. | [optional] 
-**TargetUser** |  Pointer to **String** | The name of the user that should be shown this form | [optional] 
-**Sections** |  Pointer to [**[]SectionDetails**](section-details) | Sections of the form | [optional] 
+**Id** | **String** | ID of the form | [optional] 
+**Name** | **String** | Name of the form | [optional] 
+**Title** | **String** | The form title | [optional] 
+**Subtitle** | **String** | The form subtitle. | [optional] 
+**TargetUser** | **String** | The name of the user that should be shown this form | [optional] 
+**Sections** | [**[]SectionDetails**](section-details) | Sections of the form | [optional] 
 
 ## Examples
 

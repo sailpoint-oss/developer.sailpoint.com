@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'RoleMetadataBulkUpdateByFilterRequest
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AttributeKey** |  Pointer to **String** | the key of metadata attribute | [optional] 
-**Values** |  **[]String** | the values of attribute to be updated | [required]
+**AttributeKey** | **String** | the key of metadata attribute | [optional] 
+**Values** | **[]String** | the values of attribute to be updated | [required]
 
 ## Examples
 

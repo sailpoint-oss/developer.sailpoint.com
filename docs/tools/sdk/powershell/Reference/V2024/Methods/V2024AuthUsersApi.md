@@ -1,4 +1,3 @@
-
 ---
 id: v2024-auth-users
 title: AuthUsers
@@ -59,7 +58,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Identity ID
 # Auth User Details
 
 try {
-    Get-V2024AuthUser-V2024Id $Id 
+    Get-V2024AuthUser -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-V2024AuthUser -V2024Id $Id  
@@ -114,7 +113,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Identity ID
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024AuthUser-V2024Id $Id -V2024JsonPatchOperation $Result
+    Update-V2024AuthUser -V2024Id $Id  -V2024JsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024AuthUser -V2024Id $Id -V2024JsonPatchOperation $JsonPatchOperation  

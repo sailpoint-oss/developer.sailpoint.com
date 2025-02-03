@@ -1,4 +1,3 @@
-
 ---
 id: non-employee-lifecycle-management
 title: NonEmployeeLifecycleManagement
@@ -119,7 +118,7 @@ $NonEmployeeApprovalDecision = @"{
 
 try {
     $Result = ConvertFrom-JsonToNonEmployeeApprovalDecision -Json $NonEmployeeApprovalDecision
-    Approve-NonEmployeeRequest-Id $Id -NonEmployeeApprovalDecision $Result
+    Approve-NonEmployeeRequest -Id $Id  -NonEmployeeApprovalDecision $Result
     
     # Below is a request that includes all optional parameters
     # Approve-NonEmployeeRequest -Id $Id -NonEmployeeApprovalDecision $NonEmployeeApprovalDecision  
@@ -176,7 +175,7 @@ $NonEmployeeRequestBody = @"{
 
 try {
     $Result = ConvertFrom-JsonToNonEmployeeRequestBody -Json $NonEmployeeRequestBody
-    New-NonEmployeeRecord-NonEmployeeRequestBody $Result
+    New-NonEmployeeRecord -NonEmployeeRequestBody $Result
     
     # Below is a request that includes all optional parameters
     # New-NonEmployeeRecord -NonEmployeeRequestBody $NonEmployeeRequestBody  
@@ -232,7 +231,7 @@ $NonEmployeeRequestBody = @"{
 
 try {
     $Result = ConvertFrom-JsonToNonEmployeeRequestBody -Json $NonEmployeeRequestBody
-    New-NonEmployeeRequest-NonEmployeeRequestBody $Result
+    New-NonEmployeeRequest -NonEmployeeRequestBody $Result
     
     # Below is a request that includes all optional parameters
     # New-NonEmployeeRequest -NonEmployeeRequestBody $NonEmployeeRequestBody  
@@ -300,7 +299,7 @@ $NonEmployeeSourceRequestBody = @"{
 
 try {
     $Result = ConvertFrom-JsonToNonEmployeeSourceRequestBody -Json $NonEmployeeSourceRequestBody
-    New-NonEmployeeSource-NonEmployeeSourceRequestBody $Result
+    New-NonEmployeeSource -NonEmployeeSourceRequestBody $Result
     
     # Below is a request that includes all optional parameters
     # New-NonEmployeeSource -NonEmployeeSourceRequestBody $NonEmployeeSourceRequestBody  
@@ -353,7 +352,7 @@ $NonEmployeeSchemaAttributeBody = @"{
 
 try {
     $Result = ConvertFrom-JsonToNonEmployeeSchemaAttributeBody -Json $NonEmployeeSchemaAttributeBody
-    New-NonEmployeeSourceSchemaAttributes-SourceId $SourceId -NonEmployeeSchemaAttributeBody $Result
+    New-NonEmployeeSourceSchemaAttributes -SourceId $SourceId  -NonEmployeeSchemaAttributeBody $Result
     
     # Below is a request that includes all optional parameters
     # New-NonEmployeeSourceSchemaAttributes -SourceId $SourceId -NonEmployeeSchemaAttributeBody $NonEmployeeSchemaAttributeBody  
@@ -396,7 +395,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Non-Employee record id (UUID
 # Delete Non-Employee Record
 
 try {
-    Remove-NonEmployeeRecord-Id $Id 
+    Remove-NonEmployeeRecord -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-NonEmployeeRecord -Id $Id  
@@ -439,7 +438,7 @@ $DeleteNonEmployeeRecordsInBulkRequest = @""@
 
 try {
     $Result = ConvertFrom-JsonToDeleteNonEmployeeRecordsInBulkRequest -Json $DeleteNonEmployeeRecordsInBulkRequest
-    Remove-NonEmployeeRecordsInBulk-DeleteNonEmployeeRecordsInBulkRequest $Result
+    Remove-NonEmployeeRecordsInBulk -DeleteNonEmployeeRecordsInBulkRequest $Result
     
     # Below is a request that includes all optional parameters
     # Remove-NonEmployeeRecordsInBulk -DeleteNonEmployeeRecordsInBulkRequest $DeleteNonEmployeeRecordsInBulkRequest  
@@ -483,7 +482,7 @@ $Id = "ac110005-7156-1150-8171-5b292e3e0084" # String | Non-Employee request id 
 # Delete Non-Employee Request
 
 try {
-    Remove-NonEmployeeRequest-Id $Id 
+    Remove-NonEmployeeRequest -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-NonEmployeeRequest -Id $Id  
@@ -529,7 +528,7 @@ $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | The Source id
 # Delete a Schema Attribute for Non-Employee Source
 
 try {
-    Remove-NonEmployeeSchemaAttribute-AttributeId $AttributeId -SourceId $SourceId 
+    Remove-NonEmployeeSchemaAttribute -AttributeId $AttributeId  -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
     # Remove-NonEmployeeSchemaAttribute -AttributeId $AttributeId -SourceId $SourceId  
@@ -571,7 +570,7 @@ $SourceId = "e136567de87e4d029e60b3c3c55db56d" # String | Source Id
 # Delete Non-Employee Source
 
 try {
-    Remove-NonEmployeeSource-SourceId $SourceId 
+    Remove-NonEmployeeSource -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
     # Remove-NonEmployeeSource -SourceId $SourceId  
@@ -613,7 +612,7 @@ $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | The Source id
 # Delete all custom schema attributes for Non-Employee Source
 
 try {
-    Remove-NonEmployeeSourceSchemaAttributes-SourceId $SourceId 
+    Remove-NonEmployeeSourceSchemaAttributes -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
     # Remove-NonEmployeeSourceSchemaAttributes -SourceId $SourceId  
@@ -656,7 +655,7 @@ $Id = "e136567de87e4d029e60b3c3c55db56d" # String | Source Id (UUID)
 # Exports Non-Employee Records to CSV
 
 try {
-    Export-NonEmployeeRecords-Id $Id 
+    Export-NonEmployeeRecords -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Export-NonEmployeeRecords -Id $Id  
@@ -699,7 +698,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Source Id (UUID)
 # Exports Source Schema Template
 
 try {
-    Export-NonEmployeeSourceSchemaTemplate-Id $Id 
+    Export-NonEmployeeSourceSchemaTemplate -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Export-NonEmployeeSourceSchemaTemplate -Id $Id  
@@ -746,7 +745,7 @@ $IncludeDetail = $true # Boolean | The object nonEmployeeRequest will not be inc
 # Get a non-employee approval item detail
 
 try {
-    Get-NonEmployeeApproval-Id $Id 
+    Get-NonEmployeeApproval -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-NonEmployeeApproval -Id $Id -IncludeDetail $IncludeDetail  
@@ -792,7 +791,7 @@ $RequestedFor = "2c91808280430dfb0180431a59440460" # String | The identity (UUID
 # Get Summary of Non-Employee Approval Requests
 
 try {
-    Get-NonEmployeeApprovalSummary-RequestedFor $RequestedFor 
+    Get-NonEmployeeApprovalSummary -RequestedFor $RequestedFor 
     
     # Below is a request that includes all optional parameters
     # Get-NonEmployeeApprovalSummary -RequestedFor $RequestedFor  
@@ -836,7 +835,7 @@ $Id = "e136567de87e4d029e60b3c3c55db56d" # String | Source ID (UUID)
 # Obtain the status of bulk upload on the source
 
 try {
-    Get-NonEmployeeBulkUploadStatus-Id $Id 
+    Get-NonEmployeeBulkUploadStatus -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-NonEmployeeBulkUploadStatus -Id $Id  
@@ -879,7 +878,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Non-Employee record id (UUID
 # Get a Non-Employee Record
 
 try {
-    Get-NonEmployeeRecord-Id $Id 
+    Get-NonEmployeeRecord -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-NonEmployeeRecord -Id $Id  
@@ -926,7 +925,7 @@ $Id = "ac110005-7156-1150-8171-5b292e3e0084" # String | Non-Employee request id 
 # Get a Non-Employee Request
 
 try {
-    Get-NonEmployeeRequest-Id $Id 
+    Get-NonEmployeeRequest -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-NonEmployeeRequest -Id $Id  
@@ -972,7 +971,7 @@ $RequestedFor = "2c91808280430dfb0180431a59440460" # String | The identity (UUID
 # Get Summary of Non-Employee Requests
 
 try {
-    Get-NonEmployeeRequestSummary-RequestedFor $RequestedFor 
+    Get-NonEmployeeRequestSummary -RequestedFor $RequestedFor 
     
     # Below is a request that includes all optional parameters
     # Get-NonEmployeeRequestSummary -RequestedFor $RequestedFor  
@@ -1016,7 +1015,7 @@ $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | The Source id
 # Get Schema Attribute Non-Employee Source
 
 try {
-    Get-NonEmployeeSchemaAttribute-AttributeId $AttributeId -SourceId $SourceId 
+    Get-NonEmployeeSchemaAttribute -AttributeId $AttributeId  -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
     # Get-NonEmployeeSchemaAttribute -AttributeId $AttributeId -SourceId $SourceId  
@@ -1062,7 +1061,7 @@ $SourceId = "2c91808b7c28b350017c2a2ec5790aa1" # String | Source Id
 # Get a Non-Employee Source
 
 try {
-    Get-NonEmployeeSource-SourceId $SourceId 
+    Get-NonEmployeeSource -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
     # Get-NonEmployeeSource -SourceId $SourceId  
@@ -1106,7 +1105,7 @@ $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | The Source id
 # List Schema Attributes Non-Employee Source
 
 try {
-    Get-NonEmployeeSourceSchemaAttributes-SourceId $SourceId 
+    Get-NonEmployeeSourceSchemaAttributes -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
     # Get-NonEmployeeSourceSchemaAttributes -SourceId $SourceId  
@@ -1151,7 +1150,7 @@ $Data =  # System.IO.FileInfo |
 # Imports, or Updates, Non-Employee Records
 
 try {
-    Import-NonEmployeeRecordsInBulk-Id $Id -Data $Data 
+    Import-NonEmployeeRecordsInBulk -Id $Id  -Data $Data 
     
     # Below is a request that includes all optional parameters
     # Import-NonEmployeeRecordsInBulk -Id $Id -Data $Data  
@@ -1315,7 +1314,7 @@ $Filters = 'sourceId eq "2c91808568c529c60168cca6f90c1313"' # String | Filter re
 # List Non-Employee Requests
 
 try {
-    Get-NonEmployeeRequests-RequestedFor $RequestedFor 
+    Get-NonEmployeeRequests -RequestedFor $RequestedFor 
     
     # Below is a request that includes all optional parameters
     # Get-NonEmployeeRequests -RequestedFor $RequestedFor -Limit $Limit -Offset $Offset -Count $Count -Sorters $Sorters -Filters $Filters  
@@ -1371,7 +1370,7 @@ $Sorters = "name,created" # String | Sort results using the standard syntax desc
 # List Non-Employee Sources
 
 try {
-    Get-NonEmployeeSources-RequestedFor $RequestedFor 
+    Get-NonEmployeeSources -RequestedFor $RequestedFor 
     
     # Below is a request that includes all optional parameters
     # Get-NonEmployeeSources -RequestedFor $RequestedFor -Limit $Limit -Offset $Offset -Count $Count -NonEmployeeCount $NonEmployeeCount -Sorters $Sorters  
@@ -1426,7 +1425,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Non-employee record id (UUID
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-NonEmployeeRecord-Id $Id -JsonPatchOperation $Result
+    Update-NonEmployeeRecord -Id $Id  -JsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-NonEmployeeRecord -Id $Id -JsonPatchOperation $JsonPatchOperation  
@@ -1481,7 +1480,7 @@ $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | The Source id
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-NonEmployeeSchemaAttribute-AttributeId $AttributeId -SourceId $SourceId -JsonPatchOperation $Result
+    Update-NonEmployeeSchemaAttribute -AttributeId $AttributeId  -SourceId $SourceId  -JsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-NonEmployeeSchemaAttribute -AttributeId $AttributeId -SourceId $SourceId -JsonPatchOperation $JsonPatchOperation  
@@ -1531,7 +1530,7 @@ $SourceId = "e136567de87e4d029e60b3c3c55db56d" # String | Source Id
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-NonEmployeeSource-SourceId $SourceId -JsonPatchOperation $Result
+    Update-NonEmployeeSource -SourceId $SourceId  -JsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-NonEmployeeSource -SourceId $SourceId -JsonPatchOperation $JsonPatchOperation  
@@ -1578,7 +1577,7 @@ $NonEmployeeRejectApprovalDecision = @"{
 
 try {
     $Result = ConvertFrom-JsonToNonEmployeeRejectApprovalDecision -Json $NonEmployeeRejectApprovalDecision
-    Deny-NonEmployeeRequest-Id $Id -NonEmployeeRejectApprovalDecision $Result
+    Deny-NonEmployeeRequest -Id $Id  -NonEmployeeRejectApprovalDecision $Result
     
     # Below is a request that includes all optional parameters
     # Deny-NonEmployeeRequest -Id $Id -NonEmployeeRejectApprovalDecision $NonEmployeeRejectApprovalDecision  
@@ -1641,7 +1640,7 @@ $NonEmployeeRequestBody = @"{
 
 try {
     $Result = ConvertFrom-JsonToNonEmployeeRequestBody -Json $NonEmployeeRequestBody
-    Update-NonEmployeeRecord-Id $Id -NonEmployeeRequestBody $Result
+    Update-NonEmployeeRecord -Id $Id  -NonEmployeeRequestBody $Result
     
     # Below is a request that includes all optional parameters
     # Update-NonEmployeeRecord -Id $Id -NonEmployeeRequestBody $NonEmployeeRequestBody  

@@ -16,13 +16,13 @@ tags: ['SDK', 'Software Development Kit', 'AccessReviewItem', 'AccessReviewItem'
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccessSummary** |  Pointer to [**AccessSummary**](access-summary) |  | [optional] 
-**IdentitySummary** |  Pointer to [**CertificationIdentitySummary**](certification-identity-summary) |  | [optional] 
-**Id** |  Pointer to **String** | The review item's id | [optional] 
-**Completed** |  Pointer to **Boolean** | Whether the review item is complete | [optional] 
-**NewAccess** |  Pointer to **Boolean** | Indicates whether the review item is for new access to a source | [optional] 
-**Decision** |  Pointer to [**CertificationDecision**](certification-decision) |  | [optional] 
-**Comments** |  Pointer to **String** | Comments for this review item | [optional] 
+**AccessSummary** | [**AccessSummary**](access-summary) |  | [optional] 
+**IdentitySummary** | [**CertificationIdentitySummary**](certification-identity-summary) |  | [optional] 
+**Id** | **String** | The review item's id | [optional] 
+**Completed** | **Boolean** | Whether the review item is complete | [optional] 
+**NewAccess** | **Boolean** | Indicates whether the review item is for new access to a source | [optional] 
+**Decision** | [**CertificationDecision**](certification-decision) |  | [optional] 
+**Comments** | **String** | Comments for this review item | [optional] 
 
 ## Examples
 

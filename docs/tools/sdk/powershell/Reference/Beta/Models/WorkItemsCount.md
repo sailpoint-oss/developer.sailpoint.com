@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'WorkItemsCount', 'BetaWorkItemsCount'
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Count** |  Pointer to **Int32** | The count of work items | [optional] 
+**Count** | **Int32** | The count of work items | [optional] 
 
 ## Examples
 

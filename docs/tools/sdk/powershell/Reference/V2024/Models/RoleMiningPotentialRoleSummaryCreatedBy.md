@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'RoleMiningPotentialRoleSummaryCreated
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | ID of the creator | [optional] 
-**DisplayName** |  Pointer to **String** | The display name of the creator | [optional] 
+**Id** | **String** | ID of the creator | [optional] 
+**DisplayName** | **String** | The display name of the creator | [optional] 
 
 ## Examples
 

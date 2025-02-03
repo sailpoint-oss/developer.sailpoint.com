@@ -1,4 +1,3 @@
-
 ---
 id: v2024-access-requests
 title: AccessRequests
@@ -80,7 +79,7 @@ $BulkApproveAccessRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToBulkApproveAccessRequest -Json $BulkApproveAccessRequest
-    Approve-V2024BulkAccessRequest-V2024BulkApproveAccessRequest $Result
+    Approve-V2024BulkAccessRequest -V2024BulkApproveAccessRequest $Result
     
     # Below is a request that includes all optional parameters
     # Approve-V2024BulkAccessRequest -V2024BulkApproveAccessRequest $BulkApproveAccessRequest  
@@ -128,7 +127,7 @@ $CancelAccessRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToCancelAccessRequest -Json $CancelAccessRequest
-    Suspend-V2024AccessRequest-V2024CancelAccessRequest $Result
+    Suspend-V2024AccessRequest -V2024CancelAccessRequest $Result
     
     # Below is a request that includes all optional parameters
     # Suspend-V2024AccessRequest -V2024CancelAccessRequest $CancelAccessRequest  
@@ -176,7 +175,7 @@ $BulkCancelAccessRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToBulkCancelAccessRequest -Json $BulkCancelAccessRequest
-    Suspend-V2024AccessRequestInBulk-V2024BulkCancelAccessRequest $Result
+    Suspend-V2024AccessRequestInBulk -V2024BulkCancelAccessRequest $Result
     
     # Below is a request that includes all optional parameters
     # Suspend-V2024AccessRequestInBulk -V2024BulkCancelAccessRequest $BulkCancelAccessRequest  
@@ -237,7 +236,7 @@ $CloseAccessRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToCloseAccessRequest -Json $CloseAccessRequest
-    Close-V2024AccessRequest-V2024XSailPointExperimental $XSailPointExperimental -V2024CloseAccessRequest $Result
+    Close-V2024AccessRequest -V2024XSailPointExperimental $XSailPointExperimental  -V2024CloseAccessRequest $Result
     
     # Below is a request that includes all optional parameters
     # Close-V2024AccessRequest -V2024XSailPointExperimental $XSailPointExperimental -V2024CloseAccessRequest $CloseAccessRequest  
@@ -363,7 +362,7 @@ $AccessRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccessRequest -Json $AccessRequest
-    New-V2024AccessRequest-V2024AccessRequest $Result
+    New-V2024AccessRequest -V2024AccessRequest $Result
     
     # Below is a request that includes all optional parameters
     # New-V2024AccessRequest -V2024AccessRequest $AccessRequest  
@@ -594,7 +593,7 @@ $AccessRequestConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccessRequestConfig -Json $AccessRequestConfig
-    Set-V2024AccessRequestConfig-V2024AccessRequestConfig $Result
+    Set-V2024AccessRequestConfig -V2024AccessRequestConfig $Result
     
     # Below is a request that includes all optional parameters
     # Set-V2024AccessRequestConfig -V2024AccessRequestConfig $AccessRequestConfig  

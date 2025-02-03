@@ -1,4 +1,3 @@
-
 ---
 id: beta-password-management
 title: PasswordManagement
@@ -84,7 +83,7 @@ $PasswordDigitTokenReset = @"{
 
 try {
     $Result = ConvertFrom-JsonToPasswordDigitTokenReset -Json $PasswordDigitTokenReset
-    New-BetaDigitToken-BetaPasswordDigitTokenReset $Result
+    New-BetaDigitToken -BetaPasswordDigitTokenReset $Result
     
     # Below is a request that includes all optional parameters
     # New-BetaDigitToken -BetaPasswordDigitTokenReset $PasswordDigitTokenReset  
@@ -126,7 +125,7 @@ $Id = "MyId" # String |
 # Get Password Change Request Status
 
 try {
-    Get-BetaIdentityPasswordChangeStatus-BetaId $Id 
+    Get-BetaIdentityPasswordChangeStatus -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaIdentityPasswordChangeStatus -BetaId $Id  
@@ -180,7 +179,7 @@ $PasswordInfoQueryDTO = @"{
 
 try {
     $Result = ConvertFrom-JsonToPasswordInfoQueryDTO -Json $PasswordInfoQueryDTO
-    Search-BetaPasswordInfo-BetaPasswordInfoQueryDTO $Result
+    Search-BetaPasswordInfo -BetaPasswordInfoQueryDTO $Result
     
     # Below is a request that includes all optional parameters
     # Search-BetaPasswordInfo -BetaPasswordInfoQueryDTO $PasswordInfoQueryDTO  
@@ -272,7 +271,7 @@ $PasswordChangeRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToPasswordChangeRequest -Json $PasswordChangeRequest
-    Set-BetaIdentityPassword-BetaPasswordChangeRequest $Result
+    Set-BetaIdentityPassword -BetaPasswordChangeRequest $Result
     
     # Below is a request that includes all optional parameters
     # Set-BetaIdentityPassword -BetaPasswordChangeRequest $PasswordChangeRequest  

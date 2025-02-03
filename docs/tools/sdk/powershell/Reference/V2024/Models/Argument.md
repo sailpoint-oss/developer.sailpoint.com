@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'Argument', 'V2024Argument']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** |  **String** | the name of the argument | [required]
-**Description** |  Pointer to **String** | the description of the argument | [optional] 
-**Type** |  Pointer to **String** | the programmatic type of the argument | [optional] 
+**Name** | **String** | the name of the argument | [required]
+**Description** | **String** | the description of the argument | [optional] 
+**Type** | **String** | the programmatic type of the argument | [optional] 
 
 ## Examples
 

@@ -16,11 +16,11 @@ tags: ['SDK', 'Software Development Kit', 'RoleInsightsInsight', 'BetaRoleInsigh
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to **String** | The number of identities in this role with the entitlement. | [optional] 
-**IdentitiesWithAccess** |  Pointer to **Int32** | The number of identities in this role with the entitlement. | [optional] 
-**IdentitiesImpacted** |  Pointer to **Int32** | The number of identities in this role that do not have the specified entitlement. | [optional] 
-**TotalNumberOfIdentities** |  Pointer to **Int32** | The total number of identities. | [optional] 
-**ImpactedIdentityNames** |  Pointer to **String** |  | [optional] 
+**Type** | **String** | The number of identities in this role with the entitlement. | [optional] 
+**IdentitiesWithAccess** | **Int32** | The number of identities in this role with the entitlement. | [optional] 
+**IdentitiesImpacted** | **Int32** | The number of identities in this role that do not have the specified entitlement. | [optional] 
+**TotalNumberOfIdentities** | **Int32** | The total number of identities. | [optional] 
+**ImpactedIdentityNames** | **String** |  | [optional] 
 
 ## Examples
 

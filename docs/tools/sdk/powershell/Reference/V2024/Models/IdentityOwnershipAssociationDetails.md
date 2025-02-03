@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'IdentityOwnershipAssociationDetails',
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AssociationDetails** |  Pointer to [**[]IdentityOwnershipAssociationDetailsAssociationDetailsInner**](identity-ownership-association-details-association-details-inner) | list of all the resource associations for the identity | [optional] 
+**AssociationDetails** | [**[]IdentityOwnershipAssociationDetailsAssociationDetailsInner**](identity-ownership-association-details-association-details-inner) | list of all the resource associations for the identity | [optional] 
 
 ## Examples
 

@@ -16,16 +16,16 @@ tags: ['SDK', 'Software Development Kit', 'ApprovalStatusDto', 'BetaApprovalStat
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ApprovalId** |  Pointer to **String** | Unique identifier for the approval. | [optional] 
-**Forwarded** |  Pointer to **Boolean** | True if the request for this item was forwarded from one owner to another. | [optional] [default to $false]
-**OriginalOwner** |  Pointer to [**ApprovalStatusDtoOriginalOwner**](approval-status-dto-original-owner) |  | [optional] 
-**CurrentOwner** |  Pointer to [**ApprovalStatusDtoCurrentOwner**](approval-status-dto-current-owner) |  | [optional] 
-**Modified** |  Pointer to **System.DateTime** | Time at which item was modified. | [optional] 
-**Status** |  Pointer to [**ManualWorkItemState**](manual-work-item-state) |  | [optional] 
-**Scheme** |  Pointer to [**ApprovalScheme**](approval-scheme) |  | [optional] 
-**ErrorMessages** |  Pointer to [**[]ErrorMessageDto**](error-message-dto) | If the request failed, includes any error messages that were generated. | [optional] 
-**Comment** |  Pointer to **String** | Comment, if any, provided by the approver. | [optional] 
-**RemoveDate** |  Pointer to **System.DateTime** | The date the role or access profile or entitlement is no longer assigned to the specified identity. | [optional] 
+**ApprovalId** | **String** | Unique identifier for the approval. | [optional] 
+**Forwarded** | **Boolean** | True if the request for this item was forwarded from one owner to another. | [optional] [default to $false]
+**OriginalOwner** | [**ApprovalStatusDtoOriginalOwner**](approval-status-dto-original-owner) |  | [optional] 
+**CurrentOwner** | [**ApprovalStatusDtoCurrentOwner**](approval-status-dto-current-owner) |  | [optional] 
+**Modified** | **System.DateTime** | Time at which item was modified. | [optional] 
+**Status** | [**ManualWorkItemState**](manual-work-item-state) |  | [optional] 
+**Scheme** | [**ApprovalScheme**](approval-scheme) |  | [optional] 
+**ErrorMessages** | [**[]ErrorMessageDto**](error-message-dto) | If the request failed, includes any error messages that were generated. | [optional] 
+**Comment** | **String** | Comment, if any, provided by the approver. | [optional] 
+**RemoveDate** | **System.DateTime** | The date the role or access profile or entitlement is no longer assigned to the specified identity. | [optional] 
 
 ## Examples
 

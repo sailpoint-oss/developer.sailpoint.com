@@ -1,4 +1,3 @@
-
 ---
 id: search-attribute-configuration
 title: SearchAttributeConfiguration
@@ -83,7 +82,7 @@ $SearchAttributeConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToSearchAttributeConfig -Json $SearchAttributeConfig
-    New-SearchAttributeConfig-SearchAttributeConfig $Result
+    New-SearchAttributeConfig -SearchAttributeConfig $Result
     
     # Below is a request that includes all optional parameters
     # New-SearchAttributeConfig -SearchAttributeConfig $SearchAttributeConfig  
@@ -126,7 +125,7 @@ $Name = "newMailAttribute" # String | Name of the extended search attribute conf
 # Delete Extended Search Attribute
 
 try {
-    Remove-SearchAttributeConfig-Name $Name 
+    Remove-SearchAttributeConfig -Name $Name 
     
     # Below is a request that includes all optional parameters
     # Remove-SearchAttributeConfig -Name $Name  
@@ -210,7 +209,7 @@ $Name = "newMailAttribute" # String | Name of the extended search attribute conf
 # Get Extended Search Attribute
 
 try {
-    Get-SingleSearchAttributeConfig-Name $Name 
+    Get-SingleSearchAttributeConfig -Name $Name 
     
     # Below is a request that includes all optional parameters
     # Get-SingleSearchAttributeConfig -Name $Name  
@@ -263,7 +262,7 @@ $Name = "promotedMailAttribute" # String | Name of the search attribute configur
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-SearchAttributeConfig-Name $Name -JsonPatchOperation $Result
+    Update-SearchAttributeConfig -Name $Name  -JsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-SearchAttributeConfig -Name $Name -JsonPatchOperation $JsonPatchOperation  

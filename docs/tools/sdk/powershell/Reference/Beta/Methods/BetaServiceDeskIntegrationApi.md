@@ -1,4 +1,3 @@
-
 ---
 id: beta-service-desk-integration
 title: ServiceDeskIntegration
@@ -117,7 +116,7 @@ $ServiceDeskIntegrationDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToServiceDeskIntegrationDto -Json $ServiceDeskIntegrationDto
-    New-BetaServiceDeskIntegration-BetaServiceDeskIntegrationDto $Result
+    New-BetaServiceDeskIntegration -BetaServiceDeskIntegrationDto $Result
     
     # Below is a request that includes all optional parameters
     # New-BetaServiceDeskIntegration -BetaServiceDeskIntegrationDto $ServiceDeskIntegrationDto  
@@ -160,7 +159,7 @@ $Id = "anId" # String | ID of Service Desk integration to delete
 # Delete a Service Desk integration
 
 try {
-    Remove-BetaServiceDeskIntegration-BetaId $Id 
+    Remove-BetaServiceDeskIntegration -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-BetaServiceDeskIntegration -BetaId $Id  
@@ -203,7 +202,7 @@ $Id = "anId" # String | ID of the Service Desk integration to get
 # Get a Service Desk integration
 
 try {
-    Get-BetaServiceDeskIntegration-BetaId $Id 
+    Get-BetaServiceDeskIntegration -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaServiceDeskIntegration -BetaId $Id  
@@ -297,7 +296,7 @@ $ScriptName = "aScriptName" # String | The scriptName value of the Service Desk 
 # Service Desk integration template by scriptName
 
 try {
-    Get-BetaServiceDeskIntegrationTemplate-BetaScriptName $ScriptName 
+    Get-BetaServiceDeskIntegrationTemplate -BetaScriptName $ScriptName 
     
     # Below is a request that includes all optional parameters
     # Get-BetaServiceDeskIntegrationTemplate -BetaScriptName $ScriptName  
@@ -425,7 +424,7 @@ $PatchServiceDeskIntegrationRequest = @""@
 
 try {
     $Result = ConvertFrom-JsonToPatchServiceDeskIntegrationRequest -Json $PatchServiceDeskIntegrationRequest
-    Update-BetaServiceDeskIntegration-BetaId $Id -BetaPatchServiceDeskIntegrationRequest $Result
+    Update-BetaServiceDeskIntegration -BetaId $Id  -BetaPatchServiceDeskIntegrationRequest $Result
     
     # Below is a request that includes all optional parameters
     # Update-BetaServiceDeskIntegration -BetaId $Id -BetaPatchServiceDeskIntegrationRequest $PatchServiceDeskIntegrationRequest  
@@ -501,7 +500,7 @@ $ServiceDeskIntegrationDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToServiceDeskIntegrationDto -Json $ServiceDeskIntegrationDto
-    Send-BetaServiceDeskIntegration-BetaId $Id -BetaServiceDeskIntegrationDto $Result
+    Send-BetaServiceDeskIntegration -BetaId $Id  -BetaServiceDeskIntegrationDto $Result
     
     # Below is a request that includes all optional parameters
     # Send-BetaServiceDeskIntegration -BetaId $Id -BetaServiceDeskIntegrationDto $ServiceDeskIntegrationDto  
@@ -548,7 +547,7 @@ $QueuedCheckConfigDetails = @"{
 
 try {
     $Result = ConvertFrom-JsonToQueuedCheckConfigDetails -Json $QueuedCheckConfigDetails
-    Update-BetaStatusCheckDetails-BetaQueuedCheckConfigDetails $Result
+    Update-BetaStatusCheckDetails -BetaQueuedCheckConfigDetails $Result
     
     # Below is a request that includes all optional parameters
     # Update-BetaStatusCheckDetails -BetaQueuedCheckConfigDetails $QueuedCheckConfigDetails  

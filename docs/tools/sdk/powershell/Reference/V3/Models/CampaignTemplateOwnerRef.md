@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'CampaignTemplateOwnerRef', 'CampaignT
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | Id of the owner | [optional] 
-**Type** |  Pointer to  **Enum** [  "IDENTITY" ] | Type of the owner | [optional] 
-**Name** |  Pointer to **String** | Name of the owner | [optional] 
-**Email** |  Pointer to **String** | Email of the owner | [optional] 
+**Id** | **String** | Id of the owner | [optional] 
+**Type** |  **Enum** [  "IDENTITY" ] | Type of the owner | [optional] 
+**Name** | **String** | Name of the owner | [optional] 
+**Email** | **String** | Email of the owner | [optional] 
 
 ## Examples
 

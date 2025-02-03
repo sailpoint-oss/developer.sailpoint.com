@@ -16,14 +16,14 @@ tags: ['SDK', 'Software Development Kit', 'V3ConnectorDto', 'BetaV3ConnectorDto'
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** |  Pointer to **String** | The connector name | [optional] 
-**Type** |  Pointer to **String** | The connector type | [optional] 
-**ScriptName** |  Pointer to **String** | The connector script name | [optional] 
-**ClassName** |  Pointer to **String** | The connector class name. | [optional] 
-**Features** |  Pointer to **[]String** | The list of features supported by the connector | [optional] 
-**DirectConnect** |  Pointer to **Boolean** | true if the source is a direct connect source | [optional] [default to $false]
-**ConnectorMetadata** |  Pointer to [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | Object containing metadata pertinent to the UI to be used | [optional] 
-**Status** |  Pointer to **String** | The connector status | [optional] 
+**Name** | **String** | The connector name | [optional] 
+**Type** | **String** | The connector type | [optional] 
+**ScriptName** | **String** | The connector script name | [optional] 
+**ClassName** | **String** | The connector class name. | [optional] 
+**Features** | **[]String** | The list of features supported by the connector | [optional] 
+**DirectConnect** | **Boolean** | true if the source is a direct connect source | [optional] [default to $false]
+**ConnectorMetadata** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | Object containing metadata pertinent to the UI to be used | [optional] 
+**Status** | **String** | The connector status | [optional] 
 
 ## Examples
 

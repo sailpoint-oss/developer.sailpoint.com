@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'ProvisioningCompletedRequester', 'V20
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |   **Enum** [  "IDENTITY" ] | Provisioning requester's DTO type. | [required]
-**Id** |  **String** | Provisioning requester's identity ID. | [required]
-**Name** |  **String** | Provisioning owner's human-readable display name. | [required]
+**Type** |  **Enum** [  "IDENTITY" ] | Provisioning requester's DTO type. | [required]
+**Id** | **String** | Provisioning requester's identity ID. | [required]
+**Name** | **String** | Provisioning owner's human-readable display name. | [required]
 
 ## Examples
 

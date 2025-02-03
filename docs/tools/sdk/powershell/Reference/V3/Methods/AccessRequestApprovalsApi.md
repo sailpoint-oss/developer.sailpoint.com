@@ -1,4 +1,3 @@
-
 ---
 id: access-request-approvals
 title: AccessRequestApprovals
@@ -85,7 +84,7 @@ $CommentDto = @"{
 # Approve Access Request Approval
 
 try {
-    Approve-AccessRequest-ApprovalId $ApprovalId 
+    Approve-AccessRequest -ApprovalId $ApprovalId 
     
     # Below is a request that includes all optional parameters
     # Approve-AccessRequest -ApprovalId $ApprovalId -CommentDto $CommentDto  
@@ -134,7 +133,7 @@ $ForwardApprovalDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToForwardApprovalDto -Json $ForwardApprovalDto
-    Invoke-ForwardAccessRequest-ApprovalId $ApprovalId -ForwardApprovalDto $Result
+    Invoke-ForwardAccessRequest -ApprovalId $ApprovalId  -ForwardApprovalDto $Result
     
     # Below is a request that includes all optional parameters
     # Invoke-ForwardAccessRequest -ApprovalId $ApprovalId -ForwardApprovalDto $ForwardApprovalDto  
@@ -336,7 +335,7 @@ $CommentDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToCommentDto -Json $CommentDto
-    Deny-AccessRequest-ApprovalId $ApprovalId -CommentDto $Result
+    Deny-AccessRequest -ApprovalId $ApprovalId  -CommentDto $Result
     
     # Below is a request that includes all optional parameters
     # Deny-AccessRequest -ApprovalId $ApprovalId -CommentDto $CommentDto  

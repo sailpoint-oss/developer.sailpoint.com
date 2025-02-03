@@ -1,4 +1,3 @@
-
 ---
 id: v2024-saved-search
 title: SavedSearch
@@ -69,7 +68,7 @@ $CreateSavedSearchRequest = @""@
 
 try {
     $Result = ConvertFrom-JsonToCreateSavedSearchRequest -Json $CreateSavedSearchRequest
-    New-V2024SavedSearch-V2024CreateSavedSearchRequest $Result
+    New-V2024SavedSearch -V2024CreateSavedSearchRequest $Result
     
     # Below is a request that includes all optional parameters
     # New-V2024SavedSearch -V2024CreateSavedSearchRequest $CreateSavedSearchRequest  
@@ -113,7 +112,7 @@ $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document
 # Delete document by ID
 
 try {
-    Remove-V2024SavedSearch-V2024Id $Id 
+    Remove-V2024SavedSearch -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024SavedSearch -V2024Id $Id  
@@ -170,7 +169,7 @@ $SearchArguments = @"{
 
 try {
     $Result = ConvertFrom-JsonToSearchArguments -Json $SearchArguments
-    Invoke-V2024ExecuteSavedSearch-V2024Id $Id -V2024SearchArguments $Result
+    Invoke-V2024ExecuteSavedSearch -V2024Id $Id  -V2024SearchArguments $Result
     
     # Below is a request that includes all optional parameters
     # Invoke-V2024ExecuteSavedSearch -V2024Id $Id -V2024SearchArguments $SearchArguments  
@@ -214,7 +213,7 @@ $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document
 # Return saved search by ID
 
 try {
-    Get-V2024SavedSearch-V2024Id $Id 
+    Get-V2024SavedSearch -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-V2024SavedSearch -V2024Id $Id  
@@ -355,7 +354,7 @@ $SavedSearch = @"{
 
 try {
     $Result = ConvertFrom-JsonToSavedSearch -Json $SavedSearch
-    Send-V2024SavedSearch-V2024Id $Id -V2024SavedSearch $Result
+    Send-V2024SavedSearch -V2024Id $Id  -V2024SavedSearch $Result
     
     # Below is a request that includes all optional parameters
     # Send-V2024SavedSearch -V2024Id $Id -V2024SavedSearch $SavedSearch  

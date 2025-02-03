@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'DimensionRef', 'BetaDimensionRef']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to  **Enum** [  "DIMENSION" ] | The type of the object to which this reference applies | [optional] 
-**Id** |  Pointer to **String** | ID of the object to which this reference applies | [optional] 
-**Name** |  Pointer to **String** | Human-readable display name of the object to which this reference applies | [optional] 
+**Type** |  **Enum** [  "DIMENSION" ] | The type of the object to which this reference applies | [optional] 
+**Id** | **String** | ID of the object to which this reference applies | [optional] 
+**Name** | **String** | Human-readable display name of the object to which this reference applies | [optional] 
 
 ## Examples
 

@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'DataAccessCategoriesInner', 'V2024Dat
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Value** |  Pointer to **String** | Value of the category | [optional] 
-**MatchCount** |  Pointer to **Int32** | Number of matched for each category | [optional] 
+**Value** | **String** | Value of the category | [optional] 
+**MatchCount** | **Int32** | Number of matched for each category | [optional] 
 
 ## Examples
 

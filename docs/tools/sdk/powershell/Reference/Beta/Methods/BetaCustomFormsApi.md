@@ -1,4 +1,3 @@
-
 ---
 id: beta-custom-forms
 title: CustomForms
@@ -439,7 +438,7 @@ $File =  # System.IO.FileInfo | File specifying the multipart
 # Upload new form definition file.
 
 try {
-    New-BetaFormDefinitionFileRequest-BetaFormDefinitionID $FormDefinitionID -BetaFile $File 
+    New-BetaFormDefinitionFileRequest -BetaFormDefinitionID $FormDefinitionID  -BetaFile $File 
     
     # Below is a request that includes all optional parameters
     # New-BetaFormDefinitionFileRequest -BetaFormDefinitionID $FormDefinitionID -BetaFile $File  
@@ -544,7 +543,7 @@ $FormDefinitionID = "00000000-0000-0000-0000-000000000000" # String | Form defin
 # Deletes a form definition.
 
 try {
-    Remove-BetaFormDefinition-BetaFormDefinitionID $FormDefinitionID 
+    Remove-BetaFormDefinition -BetaFormDefinitionID $FormDefinitionID 
     
     # Below is a request that includes all optional parameters
     # Remove-BetaFormDefinition -BetaFormDefinitionID $FormDefinitionID  
@@ -638,7 +637,7 @@ $FileID = "00000031N0J7R2B57M8YG73J7M.png" # String | FileID  String specifying 
 # Download definition file by fileId.
 
 try {
-    Get-BetaFileFromS3-BetaFormDefinitionID $FormDefinitionID -BetaFileID $FileID 
+    Get-BetaFileFromS3 -BetaFormDefinitionID $FormDefinitionID  -BetaFileID $FileID 
     
     # Below is a request that includes all optional parameters
     # Get-BetaFileFromS3 -BetaFormDefinitionID $FormDefinitionID -BetaFileID $FileID  
@@ -681,7 +680,7 @@ $FormDefinitionID = "00000000-0000-0000-0000-000000000000" # String | Form defin
 # Return a form definition.
 
 try {
-    Get-BetaFormDefinitionByKey-BetaFormDefinitionID $FormDefinitionID 
+    Get-BetaFormDefinitionByKey -BetaFormDefinitionID $FormDefinitionID 
     
     # Below is a request that includes all optional parameters
     # Get-BetaFormDefinitionByKey -BetaFormDefinitionID $FormDefinitionID  
@@ -724,7 +723,7 @@ $FormInstanceID = "00000000-0000-0000-0000-000000000000" # String | Form instanc
 # Returns a form instance.
 
 try {
-    Get-BetaFormInstanceByKey-BetaFormInstanceID $FormInstanceID 
+    Get-BetaFormInstanceByKey -BetaFormInstanceID $FormInstanceID 
     
     # Below is a request that includes all optional parameters
     # Get-BetaFormInstanceByKey -BetaFormInstanceID $FormInstanceID  
@@ -770,7 +769,7 @@ $FileID = "00000031N0J7R2B57M8YG73J7M.png" # String | FileID  String specifying 
 # Download instance file by fileId.
 
 try {
-    Get-BetaFormInstanceFile-BetaFormInstanceID $FormInstanceID -BetaFileID $FileID 
+    Get-BetaFormInstanceFile -BetaFormInstanceID $FormInstanceID  -BetaFileID $FileID 
     
     # Below is a request that includes all optional parameters
     # Get-BetaFormInstanceFile -BetaFormInstanceID $FormInstanceID -BetaFileID $FileID  
@@ -866,7 +865,7 @@ $Body = @{ key_example =  } # Map[] | Body is the request payload to patch a for
 # Patch a form definition.
 
 try {
-    Update-BetaFormDefinition-BetaFormDefinitionID $FormDefinitionID 
+    Update-BetaFormDefinition -BetaFormDefinitionID $FormDefinitionID 
     
     # Below is a request that includes all optional parameters
     # Update-BetaFormDefinition -BetaFormDefinitionID $FormDefinitionID -BetaBody $Body  
@@ -914,7 +913,7 @@ $Body = @{ key_example =  } # Map[] | Body is the request payload to patch a for
 # Patch a form instance.
 
 try {
-    Update-BetaFormInstance-BetaFormInstanceID $FormInstanceID 
+    Update-BetaFormInstance -BetaFormInstanceID $FormInstanceID 
     
     # Below is a request that includes all optional parameters
     # Update-BetaFormInstance -BetaFormInstanceID $FormInstanceID -BetaBody $Body  
@@ -1014,7 +1013,7 @@ $Query = "support" # String | String that is passed to the underlying API to fil
 # Retrieves dynamic data by element.
 
 try {
-    Search-BetaFormElementDataByElementID-BetaFormInstanceID $FormInstanceID -BetaFormElementID $FormElementID 
+    Search-BetaFormElementDataByElementID -BetaFormInstanceID $FormInstanceID  -BetaFormElementID $FormElementID 
     
     # Below is a request that includes all optional parameters
     # Search-BetaFormElementDataByElementID -BetaFormInstanceID $FormInstanceID -BetaFormElementID $FormElementID -BetaLimit $Limit -BetaFilters $Filters -BetaQuery $Query  
@@ -1155,7 +1154,7 @@ $FormElementPreviewRequest = @"{
 # Preview form definition data source.
 
 try {
-    Show-BetaPreviewDataSource-BetaFormDefinitionID $FormDefinitionID 
+    Show-BetaPreviewDataSource -BetaFormDefinitionID $FormDefinitionID 
     
     # Below is a request that includes all optional parameters
     # Show-BetaPreviewDataSource -BetaFormDefinitionID $FormDefinitionID -BetaLimit $Limit -BetaFilters $Filters -BetaQuery $Query -BetaFormElementPreviewRequest $FormElementPreviewRequest  

@@ -16,15 +16,15 @@ tags: ['SDK', 'Software Development Kit', 'RemediationItemDetails', 'Remediation
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | The ID of the certification | [optional] 
-**TargetId** |  Pointer to **String** | The ID of the certification target | [optional] 
-**TargetName** |  Pointer to **String** | The name of the certification target | [optional] 
-**TargetDisplayName** |  Pointer to **String** | The display name of the certification target | [optional] 
-**ApplicationName** |  Pointer to **String** | The name of the application/source | [optional] 
-**AttributeName** |  Pointer to **String** | The name of the attribute being certified | [optional] 
-**AttributeOperation** |  Pointer to **String** | The operation of the certification on the attribute | [optional] 
-**AttributeValue** |  Pointer to **String** | The value of the attribute being certified | [optional] 
-**NativeIdentity** |  Pointer to **String** | The native identity of the target | [optional] 
+**Id** | **String** | The ID of the certification | [optional] 
+**TargetId** | **String** | The ID of the certification target | [optional] 
+**TargetName** | **String** | The name of the certification target | [optional] 
+**TargetDisplayName** | **String** | The display name of the certification target | [optional] 
+**ApplicationName** | **String** | The name of the application/source | [optional] 
+**AttributeName** | **String** | The name of the attribute being certified | [optional] 
+**AttributeOperation** | **String** | The operation of the certification on the attribute | [optional] 
+**AttributeValue** | **String** | The value of the attribute being certified | [optional] 
+**NativeIdentity** | **String** | The native identity of the target | [optional] 
 
 ## Examples
 

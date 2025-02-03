@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'IdentityWithNewAccess1', 'IdentityWit
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**IdentityId** |  **String** | Set of identity IDs to be checked. | [required]
-**AccessRefs** |  [**[]EntitlementRef1**](entitlement-ref1) | The bundle of access profiles to be added to the identities specified. All references must be ENTITLEMENT type. | [required]
-**ClientMetadata** |  Pointer to **map[string]String** | Arbitrary key-value pairs. They will never be processed by the IdentityNow system but will be returned on completion of the violation check. | [optional] 
+**IdentityId** | **String** | Set of identity IDs to be checked. | [required]
+**AccessRefs** | [**[]EntitlementRef1**](entitlement-ref1) | The bundle of access profiles to be added to the identities specified. All references must be ENTITLEMENT type. | [required]
+**ClientMetadata** | **map[string]String** | Arbitrary key-value pairs. They will never be processed by the IdentityNow system but will be returned on completion of the violation check. | [optional] 
 
 ## Examples
 

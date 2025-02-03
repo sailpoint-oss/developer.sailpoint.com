@@ -1,4 +1,3 @@
-
 ---
 id: v2024-tenant
 title: Tenant
@@ -53,7 +52,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Get Tenant Information.
 
 try {
-    Get-V2024Tenant-V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024Tenant -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024Tenant -V2024XSailPointExperimental $XSailPointExperimental  

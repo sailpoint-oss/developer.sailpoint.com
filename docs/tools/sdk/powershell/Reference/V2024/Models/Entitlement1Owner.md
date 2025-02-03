@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'Entitlement1Owner', 'V2024Entitlement
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | The owner id for the entitlement | [optional] 
-**Name** |  Pointer to **String** | The owner name for the entitlement | [optional] 
-**Type** |  Pointer to  **Enum** [  "IDENTITY" ] | The type of the owner. Initially only type IDENTITY is supported | [optional] 
+**Id** | **String** | The owner id for the entitlement | [optional] 
+**Name** | **String** | The owner name for the entitlement | [optional] 
+**Type** |  **Enum** [  "IDENTITY" ] | The type of the owner. Initially only type IDENTITY is supported | [optional] 
 
 ## Examples
 

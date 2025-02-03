@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'MetricResponse', 'BetaMetricResponse'
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** |  Pointer to **String** | the name of metric | [optional] 
-**Value** |  Pointer to **Decimal** | the value associated to the metric | [optional] 
+**Name** | **String** | the name of metric | [optional] 
+**Value** | **Decimal** | the value associated to the metric | [optional] 
 
 ## Examples
 

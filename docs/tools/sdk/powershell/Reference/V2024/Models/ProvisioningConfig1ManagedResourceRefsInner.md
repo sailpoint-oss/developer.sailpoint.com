@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'ProvisioningConfig1ManagedResourceRef
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to  **Enum** [  "SOURCE" ] | The type of object being referenced | [optional] 
-**Id** |  Pointer to [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | ID of the source | [optional] 
-**Name** |  Pointer to [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | Human-readable display name of the source | [optional] 
+**Type** |  **Enum** [  "SOURCE" ] | The type of object being referenced | [optional] 
+**Id** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | ID of the source | [optional] 
+**Name** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | Human-readable display name of the source | [optional] 
 
 ## Examples
 

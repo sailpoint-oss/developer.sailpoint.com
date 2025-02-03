@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'WorkgroupMemberAddItem', 'BetaWorkgro
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  **String** | Identifier of identity in bulk member add request. | [required]
-**Status** |  **Int32** |  The HTTP response status code returned for an individual member that is requested for addition during a bulk add operation. The HTTP response status code returned for an individual Governance Group is requested for deletion.  > 201   - Identity is added into Governance Group members list.  > 409   - Identity is already member of  Governance Group.  | [required]
-**Description** |  Pointer to **String** | Human readable status description and containing additional context information about success or failures etc.  | [optional] 
+**Id** | **String** | Identifier of identity in bulk member add request. | [required]
+**Status** | **Int32** |  The HTTP response status code returned for an individual member that is requested for addition during a bulk add operation. The HTTP response status code returned for an individual Governance Group is requested for deletion.  > 201   - Identity is added into Governance Group members list.  > 409   - Identity is already member of  Governance Group.  | [required]
+**Description** | **String** | Human readable status description and containing additional context information about success or failures etc.  | [optional] 
 
 ## Examples
 

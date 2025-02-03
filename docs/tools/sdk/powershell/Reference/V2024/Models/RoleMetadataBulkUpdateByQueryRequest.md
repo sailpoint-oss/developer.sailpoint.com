@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'RoleMetadataBulkUpdateByQueryRequest'
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Query** |  [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | query the identities to be updated | [required]
-**Operation** |   **Enum** [  "ADD",    "REMOVE",    "REPLACE" ] | The operation to be performed | [required]
-**ReplaceScope** |  Pointer to  **Enum** [  "ALL",    "ATTRIBUTE" ] | The choice of update scope. | [optional] 
-**Values** |  [**[]RoleMetadataBulkUpdateByQueryRequestValuesInner**](role-metadata-bulk-update-by-query-request-values-inner) | The metadata to be updated, including attribute key and value. | [required]
+**Query** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | query the identities to be updated | [required]
+**Operation** |  **Enum** [  "ADD",    "REMOVE",    "REPLACE" ] | The operation to be performed | [required]
+**ReplaceScope** |  **Enum** [  "ALL",    "ATTRIBUTE" ] | The choice of update scope. | [optional] 
+**Values** | [**[]RoleMetadataBulkUpdateByQueryRequestValuesInner**](role-metadata-bulk-update-by-query-request-values-inner) | The metadata to be updated, including attribute key and value. | [required]
 
 ## Examples
 

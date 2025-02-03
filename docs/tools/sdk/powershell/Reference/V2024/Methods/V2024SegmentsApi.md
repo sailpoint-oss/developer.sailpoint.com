@@ -1,4 +1,3 @@
-
 ---
 id: v2024-segments
 title: Segments
@@ -98,7 +97,7 @@ $Segment = @"{
 
 try {
     $Result = ConvertFrom-JsonToSegment -Json $Segment
-    New-V2024Segment-V2024Segment $Result
+    New-V2024Segment -V2024Segment $Result
     
     # Below is a request that includes all optional parameters
     # New-V2024Segment -V2024Segment $Segment  
@@ -142,7 +141,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The segment ID to delete.
 # Delete Segment by ID
 
 try {
-    Remove-V2024Segment-V2024Id $Id 
+    Remove-V2024Segment -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024Segment -V2024Id $Id  
@@ -185,7 +184,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The segment ID to retrieve.
 # Get Segment by ID
 
 try {
-    Get-V2024Segment-V2024Id $Id 
+    Get-V2024Segment -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-V2024Segment -V2024Id $Id  
@@ -280,7 +279,7 @@ $RequestBody =  # SystemCollectionsHashtable[] | A list of segment update operat
 
 try {
     $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
-    Update-V2024Segment-V2024Id $Id -V2024RequestBody $Result
+    Update-V2024Segment -V2024Id $Id  -V2024RequestBody $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024Segment -V2024Id $Id -V2024RequestBody $RequestBody  

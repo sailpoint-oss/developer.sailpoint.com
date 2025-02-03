@@ -16,11 +16,11 @@ tags: ['SDK', 'Software Development Kit', 'ScheduledAttributes', 'ScheduledAttri
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CronString** |  Pointer to **String** | A valid CRON expression | [optional] 
-**Frequency** |   **Enum** [  "daily",    "weekly",    "monthly",    "yearly",    "cronSchedule" ] | Frequency of execution | [required]
-**TimeZone** |  Pointer to **String** | Time zone identifier | [optional] 
-**WeeklyDays** |  Pointer to **[]String** | Scheduled days of the week for execution | [optional] 
-**WeeklyTimes** |  Pointer to **[]String** | Scheduled execution times | [optional] 
+**CronString** | **String** | A valid CRON expression | [optional] 
+**Frequency** |  **Enum** [  "daily",    "weekly",    "monthly",    "yearly",    "cronSchedule" ] | Frequency of execution | [required]
+**TimeZone** | **String** | Time zone identifier | [optional] 
+**WeeklyDays** | **[]String** | Scheduled days of the week for execution | [optional] 
+**WeeklyTimes** | **[]String** | Scheduled execution times | [optional] 
 
 ## Examples
 

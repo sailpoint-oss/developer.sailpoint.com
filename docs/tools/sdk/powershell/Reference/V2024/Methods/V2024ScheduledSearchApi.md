@@ -1,4 +1,3 @@
-
 ---
 id: v2024-scheduled-search
 title: ScheduledSearch
@@ -86,7 +85,7 @@ $CreateScheduledSearchRequest = @"{savedSearchId=9c620e13-cd33-4804-a13d-403bd7b
 
 try {
     $Result = ConvertFrom-JsonToCreateScheduledSearchRequest -Json $CreateScheduledSearchRequest
-    New-V2024ScheduledSearch-V2024CreateScheduledSearchRequest $Result
+    New-V2024ScheduledSearch -V2024CreateScheduledSearchRequest $Result
     
     # Below is a request that includes all optional parameters
     # New-V2024ScheduledSearch -V2024CreateScheduledSearchRequest $CreateScheduledSearchRequest  
@@ -130,7 +129,7 @@ $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document
 # Delete a Scheduled Search
 
 try {
-    Remove-V2024ScheduledSearch-V2024Id $Id 
+    Remove-V2024ScheduledSearch -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024ScheduledSearch -V2024Id $Id  
@@ -173,7 +172,7 @@ $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document
 # Get a Scheduled Search
 
 try {
-    Get-V2024ScheduledSearch-V2024Id $Id 
+    Get-V2024ScheduledSearch -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-V2024ScheduledSearch -V2024Id $Id  
@@ -270,7 +269,7 @@ $TypedReference = @"{
 
 try {
     $Result = ConvertFrom-JsonToTypedReference -Json $TypedReference
-    Invoke-V2024UnsubscribeScheduledSearch-V2024Id $Id -V2024TypedReference $Result
+    Invoke-V2024UnsubscribeScheduledSearch -V2024Id $Id  -V2024TypedReference $Result
     
     # Below is a request that includes all optional parameters
     # Invoke-V2024UnsubscribeScheduledSearch -V2024Id $Id -V2024TypedReference $TypedReference  
@@ -407,7 +406,7 @@ $ScheduledSearch = @"{
 
 try {
     $Result = ConvertFrom-JsonToScheduledSearch -Json $ScheduledSearch
-    Update-V2024ScheduledSearch-V2024Id $Id -V2024ScheduledSearch $Result
+    Update-V2024ScheduledSearch -V2024Id $Id  -V2024ScheduledSearch $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024ScheduledSearch -V2024Id $Id -V2024ScheduledSearch $ScheduledSearch  

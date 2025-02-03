@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'GetReferenceIdentityAttribute', 'Beta
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** |  **String** | This must always be set to ""Cloud Services Deployment Utility"" | [required]
-**Operation** |  **String** | The operation to perform `getReferenceIdentityAttribute` | [required]
-**Uid** |  **String** | This is the SailPoint User Name (uid) value of the identity whose attribute is desired  As a convenience feature, you can use the `manager` keyword to dynamically look up the user's manager and then get that manager's identity attribute.  | [required]
-**RequiresPeriodicRefresh** |  Pointer to **Boolean** | A value that indicates whether the transform logic should be re-evaluated every evening as part of the identity refresh process | [optional] 
+**Name** | **String** | This must always be set to ""Cloud Services Deployment Utility"" | [required]
+**Operation** | **String** | The operation to perform `getReferenceIdentityAttribute` | [required]
+**Uid** | **String** | This is the SailPoint User Name (uid) value of the identity whose attribute is desired  As a convenience feature, you can use the `manager` keyword to dynamically look up the user's manager and then get that manager's identity attribute.  | [required]
+**RequiresPeriodicRefresh** | **Boolean** | A value that indicates whether the transform logic should be re-evaluated every evening as part of the identity refresh process | [optional] 
 
 ## Examples
 

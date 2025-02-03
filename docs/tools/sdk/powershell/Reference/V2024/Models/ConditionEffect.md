@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'ConditionEffect', 'V2024ConditionEffe
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**EffectType** |  Pointer to  **Enum** [  "HIDE",    "SHOW",    "DISABLE",    "ENABLE",    "REQUIRE",    "OPTIONAL",    "SUBMIT_MESSAGE",    "SUBMIT_NOTIFICATION",    "SET_DEFAULT_VALUE" ] | Type of effect to perform when the conditions are evaluated for this logic block. HIDE ConditionEffectTypeHide  Disables validations. SHOW ConditionEffectTypeShow  Enables validations. DISABLE ConditionEffectTypeDisable  Disables validations. ENABLE ConditionEffectTypeEnable  Enables validations. REQUIRE ConditionEffectTypeRequire OPTIONAL ConditionEffectTypeOptional SUBMIT_MESSAGE ConditionEffectTypeSubmitMessage SUBMIT_NOTIFICATION ConditionEffectTypeSubmitNotification SET_DEFAULT_VALUE ConditionEffectTypeSetDefaultValue  This value is ignored on purpose. | [optional] 
-**Config** |  Pointer to [**ConditionEffectConfig**](condition-effect-config) |  | [optional] 
+**EffectType** |  **Enum** [  "HIDE",    "SHOW",    "DISABLE",    "ENABLE",    "REQUIRE",    "OPTIONAL",    "SUBMIT_MESSAGE",    "SUBMIT_NOTIFICATION",    "SET_DEFAULT_VALUE" ] | Type of effect to perform when the conditions are evaluated for this logic block. HIDE ConditionEffectTypeHide  Disables validations. SHOW ConditionEffectTypeShow  Enables validations. DISABLE ConditionEffectTypeDisable  Disables validations. ENABLE ConditionEffectTypeEnable  Enables validations. REQUIRE ConditionEffectTypeRequire OPTIONAL ConditionEffectTypeOptional SUBMIT_MESSAGE ConditionEffectTypeSubmitMessage SUBMIT_NOTIFICATION ConditionEffectTypeSubmitNotification SET_DEFAULT_VALUE ConditionEffectTypeSetDefaultValue  This value is ignored on purpose. | [optional] 
+**Config** | [**ConditionEffectConfig**](condition-effect-config) |  | [optional] 
 
 ## Examples
 

@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'IdentityAssociationDetailsAssociation
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AssociationType** |  Pointer to **String** | association type with the identity | [optional] 
-**Entities** |  Pointer to [**[]IdentityEntities**](identity-entities) | the specific resource this identity has ownership on | [optional] 
+**AssociationType** | **String** | association type with the identity | [optional] 
+**Entities** | [**[]IdentityEntities**](identity-entities) | the specific resource this identity has ownership on | [optional] 
 
 ## Examples
 

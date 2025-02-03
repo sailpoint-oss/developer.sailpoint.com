@@ -1,4 +1,3 @@
-
 ---
 id: v2024-account-usages
 title: AccountUsages
@@ -63,7 +62,7 @@ $Sorters = "-date" # String | Sort results using the standard syntax described i
 # Returns account usage insights
 
 try {
-    Get-V2024UsagesByAccountId-V2024AccountId $AccountId 
+    Get-V2024UsagesByAccountId -V2024AccountId $AccountId 
     
     # Below is a request that includes all optional parameters
     # Get-V2024UsagesByAccountId -V2024AccountId $AccountId -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Sorters $Sorters  

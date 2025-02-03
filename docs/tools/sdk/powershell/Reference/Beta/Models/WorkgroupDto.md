@@ -16,14 +16,14 @@ tags: ['SDK', 'Software Development Kit', 'WorkgroupDto', 'BetaWorkgroupDto']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Owner** |  Pointer to [**WorkgroupDtoOwner**](workgroup-dto-owner) |  | [optional] 
-**Id** |  Pointer to **String** | Governance group ID. | [optional] [readonly] 
-**Name** |  Pointer to **String** | Governance group name. | [optional] 
-**Description** |  Pointer to **String** | Governance group description. | [optional] 
-**MemberCount** |  Pointer to **Int64** | Number of members in the governance group. | [optional] [readonly] 
-**ConnectionCount** |  Pointer to **Int64** | Number of connections in the governance group. | [optional] [readonly] 
-**Created** |  Pointer to **System.DateTime** |  | [optional] 
-**Modified** |  Pointer to **System.DateTime** |  | [optional] 
+**Owner** | [**WorkgroupDtoOwner**](workgroup-dto-owner) |  | [optional] 
+**Id** | **String** | Governance group ID. | [optional] [readonly] 
+**Name** | **String** | Governance group name. | [optional] 
+**Description** | **String** | Governance group description. | [optional] 
+**MemberCount** | **Int64** | Number of members in the governance group. | [optional] [readonly] 
+**ConnectionCount** | **Int64** | Number of connections in the governance group. | [optional] [readonly] 
+**Created** | **System.DateTime** |  | [optional] 
+**Modified** | **System.DateTime** |  | [optional] 
 
 ## Examples
 

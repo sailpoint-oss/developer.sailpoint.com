@@ -1,4 +1,3 @@
-
 ---
 id: v2024-ui-metadata
 title: UIMetadata
@@ -55,7 +54,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Get a tenant UI metadata
 
 try {
-    Get-V2024TenantUiMetadata-V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024TenantUiMetadata -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024TenantUiMetadata -V2024XSailPointExperimental $XSailPointExperimental  
@@ -105,7 +104,7 @@ $TenantUiMetadataItemUpdateRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToTenantUiMetadataItemUpdateRequest -Json $TenantUiMetadataItemUpdateRequest
-    Set-V2024TenantUiMetadata-V2024XSailPointExperimental $XSailPointExperimental -V2024TenantUiMetadataItemUpdateRequest $Result
+    Set-V2024TenantUiMetadata -V2024XSailPointExperimental $XSailPointExperimental  -V2024TenantUiMetadataItemUpdateRequest $Result
     
     # Below is a request that includes all optional parameters
     # Set-V2024TenantUiMetadata -V2024XSailPointExperimental $XSailPointExperimental -V2024TenantUiMetadataItemUpdateRequest $TenantUiMetadataItemUpdateRequest  

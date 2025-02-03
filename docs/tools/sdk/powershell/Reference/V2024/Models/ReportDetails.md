@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'ReportDetails', 'V2024ReportDetails']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ReportType** |  Pointer to  **Enum** [  "ACCOUNTS",    "IDENTITIES_DETAILS",    "IDENTITIES",    "IDENTITY_PROFILE_IDENTITY_ERROR",    "ORPHAN_IDENTITIES",    "SEARCH_EXPORT",    "UNCORRELATED_ACCOUNTS" ] | Use this property to define what report should be processed in the RDE service. | [optional] 
-**Arguments** |  Pointer to [**ReportDetailsArguments**](report-details-arguments) |  | [optional] 
+**ReportType** |  **Enum** [  "ACCOUNTS",    "IDENTITIES_DETAILS",    "IDENTITIES",    "IDENTITY_PROFILE_IDENTITY_ERROR",    "ORPHAN_IDENTITIES",    "SEARCH_EXPORT",    "UNCORRELATED_ACCOUNTS" ] | Use this property to define what report should be processed in the RDE service. | [optional] 
+**Arguments** | [**ReportDetailsArguments**](report-details-arguments) |  | [optional] 
 
 ## Examples
 

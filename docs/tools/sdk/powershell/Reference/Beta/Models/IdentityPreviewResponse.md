@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'IdentityPreviewResponse', 'BetaIdenti
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Identity** |  Pointer to [**IdentityPreviewResponseIdentity**](identity-preview-response-identity) |  | [optional] 
-**PreviewAttributes** |  Pointer to [**[]IdentityAttributePreview**](identity-attribute-preview) |  | [optional] 
+**Identity** | [**IdentityPreviewResponseIdentity**](identity-preview-response-identity) |  | [optional] 
+**PreviewAttributes** | [**[]IdentityAttributePreview**](identity-attribute-preview) |  | [optional] 
 
 ## Examples
 

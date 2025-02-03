@@ -1,4 +1,3 @@
-
 ---
 id: v2024-role-insights
 title: RoleInsights
@@ -60,7 +59,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Generate insights for roles
 
 try {
-    New-V2024RoleInsightRequests-V2024XSailPointExperimental $XSailPointExperimental 
+    New-V2024RoleInsightRequests -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # New-V2024RoleInsightRequests -V2024XSailPointExperimental $XSailPointExperimental  
@@ -107,7 +106,7 @@ $Filters = 'name sw "r"' # String | Filter results using the standard syntax des
 # Download entitlement insights for a role
 
 try {
-    Invoke-V2024DownloadRoleInsightsEntitlementsChanges-V2024InsightId $InsightId -V2024XSailPointExperimental $XSailPointExperimental 
+    Invoke-V2024DownloadRoleInsightsEntitlementsChanges -V2024InsightId $InsightId  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Invoke-V2024DownloadRoleInsightsEntitlementsChanges -V2024InsightId $InsightId -V2024XSailPointExperimental $XSailPointExperimental -V2024Sorters $Sorters -V2024Filters $Filters  
@@ -164,7 +163,7 @@ $Filters = 'name sw "Jan"' # String | Filter results using the standard syntax d
 # Get identities for a suggested entitlement (for a role)
 
 try {
-    Get-V2024EntitlementChangesIdentities-V2024InsightId $InsightId -V2024EntitlementId $EntitlementId -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024EntitlementChangesIdentities -V2024InsightId $InsightId  -V2024EntitlementId $EntitlementId  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024EntitlementChangesIdentities -V2024InsightId $InsightId -V2024EntitlementId $EntitlementId -V2024XSailPointExperimental $XSailPointExperimental -V2024HasEntitlement $HasEntitlement -V2024Offset $Offset -V2024Limit $Limit -V2024Count $Count -V2024Sorters $Sorters -V2024Filters $Filters  
@@ -207,7 +206,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Get a single role insight
 
 try {
-    Get-V2024RoleInsight-V2024InsightId $InsightId -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024RoleInsight -V2024InsightId $InsightId  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024RoleInsight -V2024InsightId $InsightId -V2024XSailPointExperimental $XSailPointExperimental  
@@ -258,7 +257,7 @@ $Filters = 'name sw "John"' # String | Filter results using the standard syntax 
 # Get role insights
 
 try {
-    Get-V2024RoleInsights-V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024RoleInsights -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024RoleInsights -V2024XSailPointExperimental $XSailPointExperimental -V2024Offset $Offset -V2024Limit $Limit -V2024Count $Count -V2024Sorters $Sorters -V2024Filters $Filters  
@@ -303,7 +302,7 @@ $Filters = 'name sw "r"' # String | Filter results using the standard syntax des
 # Get current entitlement for a role
 
 try {
-    Get-V2024RoleInsightsCurrentEntitlements-V2024InsightId $InsightId -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024RoleInsightsCurrentEntitlements -V2024InsightId $InsightId  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024RoleInsightsCurrentEntitlements -V2024InsightId $InsightId -V2024XSailPointExperimental $XSailPointExperimental -V2024Filters $Filters  
@@ -350,7 +349,7 @@ $Filters = 'name sw "Admin"' # String | Filter results using the standard syntax
 # Get entitlement insights for a role
 
 try {
-    Get-V2024RoleInsightsEntitlementsChanges-V2024InsightId $InsightId -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024RoleInsightsEntitlementsChanges -V2024InsightId $InsightId  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024RoleInsightsEntitlementsChanges -V2024InsightId $InsightId -V2024XSailPointExperimental $XSailPointExperimental -V2024Sorters $Sorters -V2024Filters $Filters  
@@ -394,7 +393,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Returns metadata from prior request.
 
 try {
-    Get-V2024RoleInsightsRequests-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024RoleInsightsRequests -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024RoleInsightsRequests -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
@@ -435,7 +434,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Get role insights summary information
 
 try {
-    Get-V2024RoleInsightsSummary-V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024RoleInsightsSummary -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024RoleInsightsSummary -V2024XSailPointExperimental $XSailPointExperimental  

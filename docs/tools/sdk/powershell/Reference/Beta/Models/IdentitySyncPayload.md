@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'IdentitySyncPayload', 'BetaIdentitySy
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  **String** | Payload type. | [required]
-**DataJson** |  **String** | Payload type. | [required]
+**Type** | **String** | Payload type. | [required]
+**DataJson** | **String** | Payload type. | [required]
 
 ## Examples
 

@@ -1,4 +1,3 @@
-
 ---
 id: beta-iai-role-mining
 title: IAIRoleMining
@@ -90,7 +89,7 @@ $RoleMiningPotentialRoleProvisionRequest = @"{
 # Create request to provision a potential role into an actual role.
 
 try {
-    New-BetaPotentialRoleProvisionRequest-BetaSessionId $SessionId -BetaPotentialRoleId $PotentialRoleId 
+    New-BetaPotentialRoleProvisionRequest -BetaSessionId $SessionId  -BetaPotentialRoleId $PotentialRoleId 
     
     # Below is a request that includes all optional parameters
     # New-BetaPotentialRoleProvisionRequest -BetaSessionId $SessionId -BetaPotentialRoleId $PotentialRoleId -BetaMinEntitlementPopularity $MinEntitlementPopularity -BetaIncludeCommonAccess $IncludeCommonAccess -BetaRoleMiningPotentialRoleProvisionRequest $RoleMiningPotentialRoleProvisionRequest  
@@ -164,7 +163,7 @@ $RoleMiningSessionDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToRoleMiningSessionDto -Json $RoleMiningSessionDto
-    New-BetaRoleMiningSessions-BetaRoleMiningSessionDto $Result
+    New-BetaRoleMiningSessions -BetaRoleMiningSessionDto $Result
     
     # Below is a request that includes all optional parameters
     # New-BetaRoleMiningSessions -BetaRoleMiningSessionDto $RoleMiningSessionDto  
@@ -209,7 +208,7 @@ $ExportId = "4940ffd4-836f-48a3-b2b0-6d498c3fdf40" # String | The id of a previo
 # Export (download) details for a potential role in a role mining session
 
 try {
-    Invoke-BetaDownloadRoleMiningPotentialRoleZip-BetaSessionId $SessionId -BetaPotentialRoleId $PotentialRoleId -BetaExportId $ExportId 
+    Invoke-BetaDownloadRoleMiningPotentialRoleZip -BetaSessionId $SessionId  -BetaPotentialRoleId $PotentialRoleId  -BetaExportId $ExportId 
     
     # Below is a request that includes all optional parameters
     # Invoke-BetaDownloadRoleMiningPotentialRoleZip -BetaSessionId $SessionId -BetaPotentialRoleId $PotentialRoleId -BetaExportId $ExportId  
@@ -252,7 +251,7 @@ $PotentialRoleId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | A potential
 # Export (download) details for a potential role in a role mining session
 
 try {
-    Export-BetaRoleMiningPotentialRole-BetaSessionId $SessionId -BetaPotentialRoleId $PotentialRoleId 
+    Export-BetaRoleMiningPotentialRole -BetaSessionId $SessionId  -BetaPotentialRoleId $PotentialRoleId 
     
     # Below is a request that includes all optional parameters
     # Export-BetaRoleMiningPotentialRole -BetaSessionId $SessionId -BetaPotentialRoleId $PotentialRoleId  
@@ -300,7 +299,7 @@ $RoleMiningPotentialRoleExportRequest = @"{
 # Asynchronously export details for a potential role in a role mining session and upload to S3
 
 try {
-    Export-BetaRoleMiningPotentialRoleAsync-BetaSessionId $SessionId -BetaPotentialRoleId $PotentialRoleId 
+    Export-BetaRoleMiningPotentialRoleAsync -BetaSessionId $SessionId  -BetaPotentialRoleId $PotentialRoleId 
     
     # Below is a request that includes all optional parameters
     # Export-BetaRoleMiningPotentialRoleAsync -BetaSessionId $SessionId -BetaPotentialRoleId $PotentialRoleId -BetaRoleMiningPotentialRoleExportRequest $RoleMiningPotentialRoleExportRequest  
@@ -345,7 +344,7 @@ $ExportId = "4940ffd4-836f-48a3-b2b0-6d498c3fdf40" # String | The id of a previo
 # Retrieve status of a potential role export job
 
 try {
-    Export-BetaRoleMiningPotentialRoleStatus-BetaSessionId $SessionId -BetaPotentialRoleId $PotentialRoleId -BetaExportId $ExportId 
+    Export-BetaRoleMiningPotentialRoleStatus -BetaSessionId $SessionId  -BetaPotentialRoleId $PotentialRoleId  -BetaExportId $ExportId 
     
     # Below is a request that includes all optional parameters
     # Export-BetaRoleMiningPotentialRoleStatus -BetaSessionId $SessionId -BetaPotentialRoleId $PotentialRoleId -BetaExportId $ExportId  
@@ -440,7 +439,7 @@ $IncludeCommonAccess = $true # Boolean | Boolean determining whether common acce
 # Retrieves entitlement popularity distribution for a potential role in a role mining session
 
 try {
-    Get-BetaEntitlementDistributionPotentialRole-BetaSessionId $SessionId -BetaPotentialRoleId $PotentialRoleId 
+    Get-BetaEntitlementDistributionPotentialRole -BetaSessionId $SessionId  -BetaPotentialRoleId $PotentialRoleId 
     
     # Below is a request that includes all optional parameters
     # Get-BetaEntitlementDistributionPotentialRole -BetaSessionId $SessionId -BetaPotentialRoleId $PotentialRoleId -BetaIncludeCommonAccess $IncludeCommonAccess  
@@ -496,7 +495,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Retrieves entitlements for a potential role in a role mining session
 
 try {
-    Get-BetaEntitlementsPotentialRole-BetaSessionId $SessionId -BetaPotentialRoleId $PotentialRoleId 
+    Get-BetaEntitlementsPotentialRole -BetaSessionId $SessionId  -BetaPotentialRoleId $PotentialRoleId 
     
     # Below is a request that includes all optional parameters
     # Get-BetaEntitlementsPotentialRole -BetaSessionId $SessionId -BetaPotentialRoleId $PotentialRoleId -BetaIncludeCommonAccess $IncludeCommonAccess -BetaSorters $Sorters -BetaFilters $Filters -BetaOffset $Offset -BetaLimit $Limit -BetaCount $Count  
@@ -549,7 +548,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Retrieves excluded entitlements for a potential role in a role mining session
 
 try {
-    Get-BetaExcludedEntitlementsPotentialRole-BetaSessionId $SessionId -BetaPotentialRoleId $PotentialRoleId 
+    Get-BetaExcludedEntitlementsPotentialRole -BetaSessionId $SessionId  -BetaPotentialRoleId $PotentialRoleId 
     
     # Below is a request that includes all optional parameters
     # Get-BetaExcludedEntitlementsPotentialRole -BetaSessionId $SessionId -BetaPotentialRoleId $PotentialRoleId -BetaSorters $Sorters -BetaFilters $Filters -BetaOffset $Offset -BetaLimit $Limit -BetaCount $Count  
@@ -602,7 +601,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Retrieves identities for a potential role in a role mining session
 
 try {
-    Get-BetaIdentitiesPotentialRole-BetaSessionId $SessionId -BetaPotentialRoleId $PotentialRoleId 
+    Get-BetaIdentitiesPotentialRole -BetaSessionId $SessionId  -BetaPotentialRoleId $PotentialRoleId 
     
     # Below is a request that includes all optional parameters
     # Get-BetaIdentitiesPotentialRole -BetaSessionId $SessionId -BetaPotentialRoleId $PotentialRoleId -BetaSorters $Sorters -BetaFilters $Filters -BetaOffset $Offset -BetaLimit $Limit -BetaCount $Count  
@@ -646,7 +645,7 @@ $PotentialRoleId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | A potential
 # Retrieve potential role in session
 
 try {
-    Get-BetaPotentialRole-BetaSessionId $SessionId -BetaPotentialRoleId $PotentialRoleId 
+    Get-BetaPotentialRole -BetaSessionId $SessionId  -BetaPotentialRoleId $PotentialRoleId 
     
     # Below is a request that includes all optional parameters
     # Get-BetaPotentialRole -BetaSessionId $SessionId -BetaPotentialRoleId $PotentialRoleId  
@@ -698,7 +697,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Retrieves the applications of a potential role for a role mining session
 
 try {
-    Get-BetaPotentialRoleApplications-BetaSessionId $SessionId -BetaPotentialRoleId $PotentialRoleId 
+    Get-BetaPotentialRoleApplications -BetaSessionId $SessionId  -BetaPotentialRoleId $PotentialRoleId 
     
     # Below is a request that includes all optional parameters
     # Get-BetaPotentialRoleApplications -BetaSessionId $SessionId -BetaPotentialRoleId $PotentialRoleId -BetaFilters $Filters -BetaOffset $Offset -BetaLimit $Limit -BetaCount $Count  
@@ -750,7 +749,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Retrieves the entitlements of a potential role for a role mining session
 
 try {
-    Get-BetaPotentialRoleEntitlements-BetaSessionId $SessionId -BetaPotentialRoleId $PotentialRoleId 
+    Get-BetaPotentialRoleEntitlements -BetaSessionId $SessionId  -BetaPotentialRoleId $PotentialRoleId 
     
     # Below is a request that includes all optional parameters
     # Get-BetaPotentialRoleEntitlements -BetaSessionId $SessionId -BetaPotentialRoleId $PotentialRoleId -BetaFilters $Filters -BetaOffset $Offset -BetaLimit $Limit -BetaCount $Count  
@@ -802,7 +801,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Retrieves potential role source usage
 
 try {
-    Get-BetaPotentialRoleSourceIdentityUsage-BetaPotentialRoleId $PotentialRoleId -BetaSourceId $SourceId 
+    Get-BetaPotentialRoleSourceIdentityUsage -BetaPotentialRoleId $PotentialRoleId  -BetaSourceId $SourceId 
     
     # Below is a request that includes all optional parameters
     # Get-BetaPotentialRoleSourceIdentityUsage -BetaPotentialRoleId $PotentialRoleId -BetaSourceId $SourceId -BetaSorters $Sorters -BetaOffset $Offset -BetaLimit $Limit -BetaCount $Count  
@@ -854,7 +853,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Retrieve session's potential role summaries
 
 try {
-    Get-BetaPotentialRoleSummaries-BetaSessionId $SessionId 
+    Get-BetaPotentialRoleSummaries -BetaSessionId $SessionId 
     
     # Below is a request that includes all optional parameters
     # Get-BetaPotentialRoleSummaries -BetaSessionId $SessionId -BetaSorters $Sorters -BetaFilters $Filters -BetaOffset $Offset -BetaLimit $Limit -BetaCount $Count  
@@ -896,7 +895,7 @@ $PotentialRoleId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | A potential
 # Retrieves a specific potential role
 
 try {
-    Get-BetaRoleMiningPotentialRole-BetaPotentialRoleId $PotentialRoleId 
+    Get-BetaRoleMiningPotentialRole -BetaPotentialRoleId $PotentialRoleId 
     
     # Below is a request that includes all optional parameters
     # Get-BetaRoleMiningPotentialRole -BetaPotentialRoleId $PotentialRoleId  
@@ -939,7 +938,7 @@ $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining s
 # Get a role mining session
 
 try {
-    Get-BetaRoleMiningSession-BetaSessionId $SessionId 
+    Get-BetaRoleMiningSession -BetaSessionId $SessionId 
     
     # Below is a request that includes all optional parameters
     # Get-BetaRoleMiningSession -BetaSessionId $SessionId  
@@ -980,7 +979,7 @@ $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining s
 # Get role mining session status state
 
 try {
-    Get-BetaRoleMiningSessionStatus-BetaSessionId $SessionId 
+    Get-BetaRoleMiningSessionStatus -BetaSessionId $SessionId 
     
     # Below is a request that includes all optional parameters
     # Get-BetaRoleMiningSessionStatus -BetaSessionId $SessionId  
@@ -1139,7 +1138,7 @@ $PotentialRoleId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The potenti
 
 try {
     $Result = ConvertFrom-JsonToPatchPotentialRoleRequestInner -Json $PatchPotentialRoleRequestInner
-    Update-BetaPotentialRole-BetaSessionId $SessionId -BetaPotentialRoleId $PotentialRoleId -BetaPatchPotentialRoleRequestInner $Result
+    Update-BetaPotentialRole -BetaSessionId $SessionId  -BetaPotentialRoleId $PotentialRoleId  -BetaPatchPotentialRoleRequestInner $Result
     
     # Below is a request that includes all optional parameters
     # Update-BetaPotentialRole -BetaSessionId $SessionId -BetaPotentialRoleId $PotentialRoleId -BetaPatchPotentialRoleRequestInner $PatchPotentialRoleRequestInner  
@@ -1198,7 +1197,7 @@ $PotentialRoleId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The potenti
 
 try {
     $Result = ConvertFrom-JsonToPatchPotentialRoleRequestInner -Json $PatchPotentialRoleRequestInner
-    Update-BetaRoleMiningPotentialRole-BetaPotentialRoleId $PotentialRoleId -BetaPatchPotentialRoleRequestInner $Result
+    Update-BetaRoleMiningPotentialRole -BetaPotentialRoleId $PotentialRoleId  -BetaPatchPotentialRoleRequestInner $Result
     
     # Below is a request that includes all optional parameters
     # Update-BetaRoleMiningPotentialRole -BetaPotentialRoleId $PotentialRoleId -BetaPatchPotentialRoleRequestInner $PatchPotentialRoleRequestInner  
@@ -1249,7 +1248,7 @@ $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining s
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-BetaRoleMiningSession-BetaSessionId $SessionId -BetaJsonPatchOperation $Result
+    Update-BetaRoleMiningSession -BetaSessionId $SessionId  -BetaJsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-BetaRoleMiningSession -BetaSessionId $SessionId -BetaJsonPatchOperation $JsonPatchOperation  
@@ -1298,7 +1297,7 @@ $RoleMiningPotentialRoleEditEntitlements = @"{
 
 try {
     $Result = ConvertFrom-JsonToRoleMiningPotentialRoleEditEntitlements -Json $RoleMiningPotentialRoleEditEntitlements
-    Update-BetaEntitlementsPotentialRole-BetaSessionId $SessionId -BetaPotentialRoleId $PotentialRoleId -BetaRoleMiningPotentialRoleEditEntitlements $Result
+    Update-BetaEntitlementsPotentialRole -BetaSessionId $SessionId  -BetaPotentialRoleId $PotentialRoleId  -BetaRoleMiningPotentialRoleEditEntitlements $Result
     
     # Below is a request that includes all optional parameters
     # Update-BetaEntitlementsPotentialRole -BetaSessionId $SessionId -BetaPotentialRoleId $PotentialRoleId -BetaRoleMiningPotentialRoleEditEntitlements $RoleMiningPotentialRoleEditEntitlements  

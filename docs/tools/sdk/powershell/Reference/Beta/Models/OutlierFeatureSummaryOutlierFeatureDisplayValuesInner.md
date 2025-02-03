@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'OutlierFeatureSummaryOutlierFeatureDi
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DisplayName** |  Pointer to **String** | display name | [optional] 
-**Value** |  Pointer to **String** | value | [optional] 
-**ValueType** |  Pointer to  **Enum** [  "INTEGER",    "FLOAT" ] | The data type of the value field | [optional] 
+**DisplayName** | **String** | display name | [optional] 
+**Value** | **String** | value | [optional] 
+**ValueType** |  **Enum** [  "INTEGER",    "FLOAT" ] | The data type of the value field | [optional] 
 
 ## Examples
 

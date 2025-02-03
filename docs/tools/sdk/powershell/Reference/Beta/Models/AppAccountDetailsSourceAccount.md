@@ -16,11 +16,11 @@ tags: ['SDK', 'Software Development Kit', 'AppAccountDetailsSourceAccount', 'Bet
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | The account ID | [optional] 
-**NativeIdentity** |  Pointer to **String** | The native identity of account | [optional] 
-**DisplayName** |  Pointer to **String** | The display name of account | [optional] 
-**SourceId** |  Pointer to **String** | The source ID of account | [optional] 
-**SourceDisplayName** |  Pointer to **String** | The source name of account | [optional] 
+**Id** | **String** | The account ID | [optional] 
+**NativeIdentity** | **String** | The native identity of account | [optional] 
+**DisplayName** | **String** | The display name of account | [optional] 
+**SourceId** | **String** | The source ID of account | [optional] 
+**SourceDisplayName** | **String** | The source name of account | [optional] 
 
 ## Examples
 

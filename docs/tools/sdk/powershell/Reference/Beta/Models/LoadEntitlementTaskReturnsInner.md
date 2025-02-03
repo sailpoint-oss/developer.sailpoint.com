@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'LoadEntitlementTaskReturnsInner', 'Be
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DisplayLabel** |  Pointer to **String** | The display label for the return value | [optional] 
-**AttributeName** |  Pointer to **String** | The attribute name for the return value | [optional] 
+**DisplayLabel** | **String** | The display label for the return value | [optional] 
+**AttributeName** | **String** | The attribute name for the return value | [optional] 
 
 ## Examples
 

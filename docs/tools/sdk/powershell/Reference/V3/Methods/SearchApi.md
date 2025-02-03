@@ -1,4 +1,3 @@
-
 ---
 id: search
 title: Search
@@ -201,7 +200,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 
 try {
     $Result = ConvertFrom-JsonToSearch -Json $Search
-    Search-Aggregate-Search $Result
+    Search-Aggregate -Search $Result
     
     # Below is a request that includes all optional parameters
     # Search-Aggregate -Search $Search -Offset $Offset -Limit $Limit -Count $Count  
@@ -360,7 +359,7 @@ $Search = @"{
 
 try {
     $Result = ConvertFrom-JsonToSearch -Json $Search
-    Search-Count-Search $Result
+    Search-Count -Search $Result
     
     # Below is a request that includes all optional parameters
     # Search-Count -Search $Search  
@@ -405,7 +404,7 @@ $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document
 # Get a Document by ID
 
 try {
-    Search-Get-Index $Index -Id $Id 
+    Search-Get -Index $Index  -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Search-Get -Index $Index -Id $Id  
@@ -570,7 +569,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 
 try {
     $Result = ConvertFrom-JsonToSearch -Json $Search
-    Search-Post-Search $Result
+    Search-Post -Search $Result
     
     # Below is a request that includes all optional parameters
     # Search-Post -Search $Search -Offset $Offset -Limit $Limit -Count $Count  

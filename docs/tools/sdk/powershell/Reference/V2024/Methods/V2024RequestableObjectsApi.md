@@ -1,4 +1,3 @@
-
 ---
 id: v2024-requestable-objects
 title: RequestableObjects

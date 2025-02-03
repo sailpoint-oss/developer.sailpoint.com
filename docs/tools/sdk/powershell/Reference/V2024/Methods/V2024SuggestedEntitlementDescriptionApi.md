@@ -1,4 +1,3 @@
-
 ---
 id: v2024-suggested-entitlement-description
 title: SuggestedEntitlementDescription
@@ -68,7 +67,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Submit Sed Batch Stats Request
 
 try {
-    Get-V2024SedBatchStats-V2024BatchId $BatchId -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024SedBatchStats -V2024BatchId $BatchId  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024SedBatchStats -V2024BatchId $BatchId -V2024XSailPointExperimental $XSailPointExperimental  
@@ -112,7 +111,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # List Sed Batch Request
 
 try {
-    Get-V2024SedBatches-V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024SedBatches -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024SedBatches -V2024XSailPointExperimental $XSailPointExperimental  
@@ -183,7 +182,7 @@ $ShowPendingStatusOnly = $false # Boolean | Will limit records to items that are
 # List Suggested Entitlement Descriptions
 
 try {
-    Get-V2024Seds-V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024Seds -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024Seds -V2024XSailPointExperimental $XSailPointExperimental -V2024Limit $Limit -V2024Filters $Filters -V2024Sorters $Sorters -V2024Count $Count -V2024CountOnly $CountOnly -V2024RequestedByAnyone $RequestedByAnyone -V2024ShowPendingStatusOnly $ShowPendingStatusOnly  
@@ -236,7 +235,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 
 try {
     $Result = ConvertFrom-JsonToSedPatch -Json $SedPatch
-    Update-V2024Sed-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024SedPatch $Result
+    Update-V2024Sed -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental  -V2024SedPatch $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024Sed -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024SedPatch $SedPatch  
@@ -286,7 +285,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 
 try {
     $Result = ConvertFrom-JsonToSedApproval -Json $SedApproval
-    Submit-V2024SedApproval-V2024XSailPointExperimental $XSailPointExperimental -V2024SedApproval $Result
+    Submit-V2024SedApproval -V2024XSailPointExperimental $XSailPointExperimental  -V2024SedApproval $Result
     
     # Below is a request that includes all optional parameters
     # Submit-V2024SedApproval -V2024XSailPointExperimental $XSailPointExperimental -V2024SedApproval $SedApproval  
@@ -339,7 +338,7 @@ $SedAssignment = @"{
 
 try {
     $Result = ConvertFrom-JsonToSedAssignment -Json $SedAssignment
-    Submit-V2024SedAssignment-V2024XSailPointExperimental $XSailPointExperimental -V2024SedAssignment $Result
+    Submit-V2024SedAssignment -V2024XSailPointExperimental $XSailPointExperimental  -V2024SedAssignment $Result
     
     # Below is a request that includes all optional parameters
     # Submit-V2024SedAssignment -V2024XSailPointExperimental $XSailPointExperimental -V2024SedAssignment $SedAssignment  
@@ -388,7 +387,7 @@ $SedBatchRequest = @"{
 # Submit Sed Batch Request
 
 try {
-    Submit-V2024SedBatchRequest-V2024XSailPointExperimental $XSailPointExperimental 
+    Submit-V2024SedBatchRequest -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Submit-V2024SedBatchRequest -V2024XSailPointExperimental $XSailPointExperimental -V2024SedBatchRequest $SedBatchRequest  

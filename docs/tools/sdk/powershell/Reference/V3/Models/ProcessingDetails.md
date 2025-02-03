@@ -16,11 +16,11 @@ tags: ['SDK', 'Software Development Kit', 'ProcessingDetails', 'ProcessingDetail
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Date** |  Pointer to **System.DateTime** | A date-time in ISO-8601 format | [optional] 
-**Stage** |  Pointer to **String** |  | [optional] 
-**RetryCount** |  Pointer to **Int32** |  | [optional] 
-**VarStackTrace** |  Pointer to **String** |  | [optional] 
-**Message** |  Pointer to **String** |  | [optional] 
+**Date** | **System.DateTime** | A date-time in ISO-8601 format | [optional] 
+**Stage** | **String** |  | [optional] 
+**RetryCount** | **Int32** |  | [optional] 
+**VarStackTrace** | **String** |  | [optional] 
+**Message** | **String** |  | [optional] 
 
 ## Examples
 

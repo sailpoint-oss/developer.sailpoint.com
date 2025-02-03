@@ -1,4 +1,3 @@
-
 ---
 id: branding
 title: Branding
@@ -75,7 +74,7 @@ $FileStandard =  # System.IO.FileInfo | png file with logo (optional)
 # Create a branding item
 
 try {
-    New-BrandingItem-Name $Name -ProductName $ProductName 
+    New-BrandingItem -Name $Name  -ProductName $ProductName 
     
     # Below is a request that includes all optional parameters
     # New-BrandingItem -Name $Name -ProductName $ProductName -ActionButtonColor $ActionButtonColor -ActiveLinkColor $ActiveLinkColor -NavigationColor $NavigationColor -EmailFromAddress $EmailFromAddress -LoginInformationalMessage $LoginInformationalMessage -FileStandard $FileStandard  
@@ -118,7 +117,7 @@ $Name = "default" # String | The name of the branding item to be deleted
 # Delete a branding item
 
 try {
-    Remove-Branding-Name $Name 
+    Remove-Branding -Name $Name 
     
     # Below is a request that includes all optional parameters
     # Remove-Branding -Name $Name  
@@ -161,7 +160,7 @@ $Name = "default" # String | The name of the branding item to be retrieved
 # Get a branding item
 
 try {
-    Get-Branding-Name $Name 
+    Get-Branding -Name $Name 
     
     # Below is a request that includes all optional parameters
     # Get-Branding -Name $Name  
@@ -260,7 +259,7 @@ $FileStandard =  # System.IO.FileInfo | png file with logo (optional)
 # Update a branding item
 
 try {
-    Set-BrandingItem-Name $Name -Name2 $Name2 -ProductName $ProductName 
+    Set-BrandingItem -Name $Name  -Name2 $Name2  -ProductName $ProductName 
     
     # Below is a request that includes all optional parameters
     # Set-BrandingItem -Name $Name -Name2 $Name2 -ProductName $ProductName -ActionButtonColor $ActionButtonColor -ActiveLinkColor $ActiveLinkColor -NavigationColor $NavigationColor -EmailFromAddress $EmailFromAddress -LoginInformationalMessage $LoginInformationalMessage -FileStandard $FileStandard  

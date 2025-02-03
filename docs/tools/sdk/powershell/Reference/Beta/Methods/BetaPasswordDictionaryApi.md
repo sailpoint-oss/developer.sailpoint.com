@@ -1,4 +1,3 @@
-
 ---
 id: beta-password-dictionary
 title: PasswordDictionary

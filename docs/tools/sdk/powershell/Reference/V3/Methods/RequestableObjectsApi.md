@@ -1,4 +1,3 @@
-
 ---
 id: requestable-objects
 title: RequestableObjects

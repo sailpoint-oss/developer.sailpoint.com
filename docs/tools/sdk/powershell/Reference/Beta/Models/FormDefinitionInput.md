@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'FormDefinitionInput', 'BetaFormDefini
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | Unique identifier for the form input. | [optional] 
-**Type** |  Pointer to  **Enum** [  "STRING" ] | FormDefinitionInputType value. STRING FormDefinitionInputTypeString | [optional] 
-**Label** |  Pointer to **String** | Name for the form input. | [optional] 
-**Description** |  Pointer to **String** | Form input's description. | [optional] 
+**Id** | **String** | Unique identifier for the form input. | [optional] 
+**Type** |  **Enum** [  "STRING" ] | FormDefinitionInputType value. STRING FormDefinitionInputTypeString | [optional] 
+**Label** | **String** | Name for the form input. | [optional] 
+**Description** | **String** | Form input's description. | [optional] 
 
 ## Examples
 

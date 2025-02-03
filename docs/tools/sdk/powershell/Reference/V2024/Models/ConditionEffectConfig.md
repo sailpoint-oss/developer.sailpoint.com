@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'ConditionEffectConfig', 'V2024Conditi
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DefaultValueLabel** |  Pointer to **String** | Effect type's label. | [optional] 
-**Element** |  Pointer to **String** | Element's identifier. | [optional] 
+**DefaultValueLabel** | **String** | Effect type's label. | [optional] 
+**Element** | **String** | Element's identifier. | [optional] 
 
 ## Examples
 

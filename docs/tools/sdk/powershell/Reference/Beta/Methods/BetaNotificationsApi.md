@@ -1,4 +1,3 @@
-
 ---
 id: beta-notifications
 title: Notifications
@@ -70,7 +69,7 @@ $DomainAddress = @"{
 
 try {
     $Result = ConvertFrom-JsonToDomainAddress -Json $DomainAddress
-    New-BetaDomainDkim-BetaDomainAddress $Result
+    New-BetaDomainDkim -BetaDomainAddress $Result
     
     # Below is a request that includes all optional parameters
     # New-BetaDomainDkim -BetaDomainAddress $DomainAddress  
@@ -132,7 +131,7 @@ $TemplateDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToTemplateDto -Json $TemplateDto
-    New-BetaNotificationTemplate-BetaTemplateDto $Result
+    New-BetaNotificationTemplate -BetaTemplateDto $Result
     
     # Below is a request that includes all optional parameters
     # New-BetaNotificationTemplate -BetaTemplateDto $TemplateDto  
@@ -180,7 +179,7 @@ $EmailStatusDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToEmailStatusDto -Json $EmailStatusDto
-    New-BetaVerifiedFromAddress-BetaEmailStatusDto $Result
+    New-BetaVerifiedFromAddress -BetaEmailStatusDto $Result
     
     # Below is a request that includes all optional parameters
     # New-BetaVerifiedFromAddress -BetaEmailStatusDto $EmailStatusDto  
@@ -228,7 +227,7 @@ Code | Description  | Data Type
 
 try {
     $Result = ConvertFrom-JsonToTemplateBulkDeleteDto -Json $TemplateBulkDeleteDto
-    Remove-BetaNotificationTemplatesInBulk-BetaTemplateBulkDeleteDto $Result
+    Remove-BetaNotificationTemplatesInBulk -BetaTemplateBulkDeleteDto $Result
     
     # Below is a request that includes all optional parameters
     # Remove-BetaNotificationTemplatesInBulk -BetaTemplateBulkDeleteDto $TemplateBulkDeleteDto  
@@ -271,7 +270,7 @@ $Id = "MyId" # String |
 # Delete Verified From Address
 
 try {
-    Remove-BetaVerifiedFromAddress-BetaId $Id 
+    Remove-BetaVerifiedFromAddress -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-BetaVerifiedFromAddress -BetaId $Id  
@@ -353,7 +352,7 @@ $Id = "bobsmith@sailpoint.com" # String | Returns the MX and TXT record to be pu
 # Get MAIL FROM Attributes
 
 try {
-    Get-BetaMailFromAttributes-BetaId $Id 
+    Get-BetaMailFromAttributes -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaMailFromAttributes -BetaId $Id  
@@ -395,7 +394,7 @@ $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the Notification T
 # Get Notification Template By Id
 
 try {
-    Get-BetaNotificationTemplate-BetaId $Id 
+    Get-BetaNotificationTemplate -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaNotificationTemplate -BetaId $Id  
@@ -664,7 +663,7 @@ $MailFromAttributesDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToMailFromAttributesDto -Json $MailFromAttributesDto
-    Send-BetaMailFromAttributes-BetaMailFromAttributesDto $Result
+    Send-BetaMailFromAttributes -BetaMailFromAttributesDto $Result
     
     # Below is a request that includes all optional parameters
     # Send-BetaMailFromAttributes -BetaMailFromAttributesDto $MailFromAttributesDto  
@@ -712,7 +711,7 @@ $SendTestNotificationRequestDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToSendTestNotificationRequestDto -Json $SendTestNotificationRequestDto
-    Send-BetaTestNotification-BetaSendTestNotificationRequestDto $Result
+    Send-BetaTestNotification -BetaSendTestNotificationRequestDto $Result
     
     # Below is a request that includes all optional parameters
     # Send-BetaTestNotification -BetaSendTestNotificationRequestDto $SendTestNotificationRequestDto  

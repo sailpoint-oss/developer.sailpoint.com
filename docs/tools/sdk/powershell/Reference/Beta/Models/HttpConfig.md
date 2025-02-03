@@ -16,11 +16,11 @@ tags: ['SDK', 'Software Development Kit', 'HttpConfig', 'BetaHttpConfig']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Url** |  **String** | URL of the external/custom integration. | [required]
-**HttpDispatchMode** |  [**HttpDispatchMode**](http-dispatch-mode) |  | [required]
-**HttpAuthenticationType** |  Pointer to [**HttpAuthenticationType**](http-authentication-type) |  | [optional] 
-**BasicAuthConfig** |  Pointer to [**BasicAuthConfig**](basic-auth-config) |  | [optional] 
-**BearerTokenAuthConfig** |  Pointer to [**BearerTokenAuthConfig**](bearer-token-auth-config) |  | [optional] 
+**Url** | **String** | URL of the external/custom integration. | [required]
+**HttpDispatchMode** | [**HttpDispatchMode**](http-dispatch-mode) |  | [required]
+**HttpAuthenticationType** | [**HttpAuthenticationType**](http-authentication-type) |  | [optional] 
+**BasicAuthConfig** | [**BasicAuthConfig**](basic-auth-config) |  | [optional] 
+**BearerTokenAuthConfig** | [**BearerTokenAuthConfig**](bearer-token-auth-config) |  | [optional] 
 
 ## Examples
 

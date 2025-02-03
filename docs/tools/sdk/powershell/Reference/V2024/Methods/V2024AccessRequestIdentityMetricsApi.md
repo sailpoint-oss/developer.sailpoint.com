@@ -1,4 +1,3 @@
-
 ---
 id: v2024-access-request-identity-metrics
 title: AccessRequestIdentityMetrics
@@ -62,7 +61,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Return access request identity metrics
 
 try {
-    Get-V2024AccessRequestIdentityMetrics-V2024IdentityId $IdentityId -V2024RequestedObjectId $RequestedObjectId -V2024Type $Type -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024AccessRequestIdentityMetrics -V2024IdentityId $IdentityId  -V2024RequestedObjectId $RequestedObjectId  -V2024Type $Type  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024AccessRequestIdentityMetrics -V2024IdentityId $IdentityId -V2024RequestedObjectId $RequestedObjectId -V2024Type $Type -V2024XSailPointExperimental $XSailPointExperimental  

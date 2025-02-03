@@ -1,4 +1,3 @@
-
 ---
 id: v2024-access-model-metadata
 title: AccessModelMetadata
@@ -67,7 +66,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Get Access Model Metadata Attribute
 
 try {
-    Get-V2024AccessModelMetadataAttribute-V2024Key $Key -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024AccessModelMetadataAttribute -V2024Key $Key  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024AccessModelMetadataAttribute -V2024Key $Key -V2024XSailPointExperimental $XSailPointExperimental  
@@ -113,7 +112,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Get Access Model Metadata Value
 
 try {
-    Get-V2024AccessModelMetadataAttributeValue-V2024Key $Key -V2024Value $Value -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024AccessModelMetadataAttributeValue -V2024Key $Key  -V2024Value $Value  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024AccessModelMetadataAttributeValue -V2024Key $Key -V2024Value $Value -V2024XSailPointExperimental $XSailPointExperimental  
@@ -157,7 +156,7 @@ $Filters = 'name eq "Privacy"' # String | Filter results using the standard synt
 # List Access Model Metadata Attributes
 
 try {
-    Get-V2024AccessModelMetadataAttribute-V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024AccessModelMetadataAttribute -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024AccessModelMetadataAttribute -V2024XSailPointExperimental $XSailPointExperimental -V2024Filters $Filters  
@@ -201,7 +200,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # List Access Model Metadata Values
 
 try {
-    Get-V2024AccessModelMetadataAttributeValue-V2024Key $Key -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024AccessModelMetadataAttributeValue -V2024Key $Key  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024AccessModelMetadataAttributeValue -V2024Key $Key -V2024XSailPointExperimental $XSailPointExperimental  

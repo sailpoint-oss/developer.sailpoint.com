@@ -1,4 +1,3 @@
-
 ---
 id: beta-workflows
 title: Workflows
@@ -71,7 +70,7 @@ $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | The workflow execution I
 # Cancel Workflow Execution by ID
 
 try {
-    Suspend-BetaWorkflowExecution-BetaId $Id 
+    Suspend-BetaWorkflowExecution -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Suspend-BetaWorkflowExecution -BetaId $Id  
@@ -114,7 +113,7 @@ $CreateWorkflowRequest = @"{name=Send Email, owner={type=IDENTITY, id=2c91808568
 
 try {
     $Result = ConvertFrom-JsonToCreateWorkflowRequest -Json $CreateWorkflowRequest
-    New-BetaWorkflow-BetaCreateWorkflowRequest $Result
+    New-BetaWorkflow -BetaCreateWorkflowRequest $Result
     
     # Below is a request that includes all optional parameters
     # New-BetaWorkflow -BetaCreateWorkflowRequest $CreateWorkflowRequest  
@@ -156,7 +155,7 @@ $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the Workflow
 # Delete Workflow By Id
 
 try {
-    Remove-BetaWorkflow-BetaId $Id 
+    Remove-BetaWorkflow -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-BetaWorkflow -BetaId $Id  
@@ -198,7 +197,7 @@ $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow
 # Get Workflow By Id
 
 try {
-    Get-BetaWorkflow-BetaId $Id 
+    Get-BetaWorkflow -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaWorkflow -BetaId $Id  
@@ -241,7 +240,7 @@ $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Workflow execution ID.
 # Get Workflow Execution
 
 try {
-    Get-BetaWorkflowExecution-BetaId $Id 
+    Get-BetaWorkflowExecution -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaWorkflowExecution -BetaId $Id  
@@ -284,7 +283,7 @@ $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow execu
 # Get Workflow Execution History
 
 try {
-    Get-BetaWorkflowExecutionHistory-BetaId $Id 
+    Get-BetaWorkflowExecutionHistory -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaWorkflowExecutionHistory -BetaId $Id  
@@ -345,7 +344,7 @@ $Filters = 'status eq "Failed"' # String | Filter results using the standard syn
 # List Workflow Executions
 
 try {
-    Get-BetaWorkflowExecutions-BetaId $Id 
+    Get-BetaWorkflowExecutions -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaWorkflowExecutions -BetaId $Id -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count -BetaFilters $Filters  
@@ -611,7 +610,7 @@ $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the Workflow
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-BetaWorkflow-BetaId $Id -BetaJsonPatchOperation $Result
+    Update-BetaWorkflow -BetaId $Id  -BetaJsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-BetaWorkflow -BetaId $Id -BetaJsonPatchOperation $JsonPatchOperation  
@@ -655,7 +654,7 @@ $PostExternalExecuteWorkflowRequest = @""@
 # Execute Workflow via External Trigger
 
 try {
-    Submit-BetaExternalExecuteWorkflow-BetaId $Id 
+    Submit-BetaExternalExecuteWorkflow -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Submit-BetaExternalExecuteWorkflow -BetaId $Id -BetaPostExternalExecuteWorkflowRequest $PostExternalExecuteWorkflowRequest  
@@ -697,7 +696,7 @@ $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow
 # Generate External Trigger OAuth Client
 
 try {
-    Submit-BetaWorkflowExternalTrigger-BetaId $Id 
+    Submit-BetaWorkflowExternalTrigger -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Submit-BetaWorkflowExternalTrigger -BetaId $Id  
@@ -741,7 +740,7 @@ $TestExternalExecuteWorkflowRequest = @""@
 # Test Workflow via External Trigger
 
 try {
-    Test-BetaExternalExecuteWorkflow-BetaId $Id 
+    Test-BetaExternalExecuteWorkflow -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Test-BetaExternalExecuteWorkflow -BetaId $Id -BetaTestExternalExecuteWorkflowRequest $TestExternalExecuteWorkflowRequest  
@@ -788,7 +787,7 @@ $TestWorkflowRequest = @"{input={identity={id=ee769173319b41d19ccec6cea52f237b, 
 
 try {
     $Result = ConvertFrom-JsonToTestWorkflowRequest -Json $TestWorkflowRequest
-    Test-BetaWorkflow-BetaId $Id -BetaTestWorkflowRequest $Result
+    Test-BetaWorkflow -BetaId $Id  -BetaTestWorkflowRequest $Result
     
     # Below is a request that includes all optional parameters
     # Test-BetaWorkflow -BetaId $Id -BetaTestWorkflowRequest $TestWorkflowRequest  
@@ -870,7 +869,7 @@ $WorkflowBody = @"{
 
 try {
     $Result = ConvertFrom-JsonToWorkflowBody -Json $WorkflowBody
-    Update-BetaWorkflow-BetaId $Id -BetaWorkflowBody $Result
+    Update-BetaWorkflow -BetaId $Id  -BetaWorkflowBody $Result
     
     # Below is a request that includes all optional parameters
     # Update-BetaWorkflow -BetaId $Id -BetaWorkflowBody $WorkflowBody  

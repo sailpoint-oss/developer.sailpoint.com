@@ -1,4 +1,3 @@
-
 ---
 id: beta-governance-groups
 title: GovernanceGroups
@@ -82,7 +81,7 @@ $WorkgroupDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToWorkgroupDto -Json $WorkgroupDto
-    New-BetaWorkgroup-BetaWorkgroupDto $Result
+    New-BetaWorkgroup -BetaWorkgroupDto $Result
     
     # Below is a request that includes all optional parameters
     # New-BetaWorkgroup -BetaWorkgroupDto $WorkgroupDto  
@@ -124,7 +123,7 @@ $Id = "2c9180837ca6693d017ca8d097500149" # String | ID of the Governance Group
 # Delete a Governance Group
 
 try {
-    Remove-BetaWorkgroup-BetaId $Id 
+    Remove-BetaWorkgroup -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-BetaWorkgroup -BetaId $Id  
@@ -174,7 +173,7 @@ $WorkgroupId = "2c91808a7813090a017814121919ecca" # String | ID of the Governanc
 
 try {
     $Result = ConvertFrom-JsonToBulkWorkgroupMembersRequestInner -Json $BulkWorkgroupMembersRequestInner
-    Remove-BetaWorkgroupMembers-BetaWorkgroupId $WorkgroupId -BetaBulkWorkgroupMembersRequestInner $Result
+    Remove-BetaWorkgroupMembers -BetaWorkgroupId $WorkgroupId  -BetaBulkWorkgroupMembersRequestInner $Result
     
     # Below is a request that includes all optional parameters
     # Remove-BetaWorkgroupMembers -BetaWorkgroupId $WorkgroupId -BetaBulkWorkgroupMembersRequestInner $BulkWorkgroupMembersRequestInner  
@@ -230,7 +229,7 @@ $WorkgroupBulkDeleteRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToWorkgroupBulkDeleteRequest -Json $WorkgroupBulkDeleteRequest
-    Remove-BetaWorkgroupsInBulk-BetaWorkgroupBulkDeleteRequest $Result
+    Remove-BetaWorkgroupsInBulk -BetaWorkgroupBulkDeleteRequest $Result
     
     # Below is a request that includes all optional parameters
     # Remove-BetaWorkgroupsInBulk -BetaWorkgroupBulkDeleteRequest $WorkgroupBulkDeleteRequest  
@@ -272,7 +271,7 @@ $Id = "2c9180837ca6693d017ca8d097500149" # String | ID of the Governance Group
 # Get Governance Group by Id
 
 try {
-    Get-BetaWorkgroup-BetaId $Id 
+    Get-BetaWorkgroup -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaWorkgroup -BetaId $Id  
@@ -322,7 +321,7 @@ $Sorters = "name,-modified" # String | Sort results using the standard syntax de
 # List connections for Governance Group
 
 try {
-    Get-BetaConnections-BetaWorkgroupId $WorkgroupId 
+    Get-BetaConnections -BetaWorkgroupId $WorkgroupId 
     
     # Below is a request that includes all optional parameters
     # Get-BetaConnections -BetaWorkgroupId $WorkgroupId -BetaOffset $Offset -BetaLimit $Limit -BetaCount $Count -BetaSorters $Sorters  
@@ -372,7 +371,7 @@ $Sorters = "name,-modified" # String | Sort results using the standard syntax de
 # List Governance Group Members
 
 try {
-    Get-BetaWorkgroupMembers-BetaWorkgroupId $WorkgroupId 
+    Get-BetaWorkgroupMembers -BetaWorkgroupId $WorkgroupId 
     
     # Below is a request that includes all optional parameters
     # Get-BetaWorkgroupMembers -BetaWorkgroupId $WorkgroupId -BetaOffset $Offset -BetaLimit $Limit -BetaCount $Count -BetaSorters $Sorters  
@@ -477,7 +476,7 @@ $Id = "2c9180837ca6693d017ca8d097500149" # String | ID of the Governance Group
 # Patch a Governance Group
 
 try {
-    Update-BetaWorkgroup-BetaId $Id 
+    Update-BetaWorkgroup -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Update-BetaWorkgroup -BetaId $Id -BetaJsonPatchOperation $JsonPatchOperation  
@@ -527,7 +526,7 @@ $WorkgroupId = "2c91808a7813090a017814121919ecca" # String | ID of the Governanc
 
 try {
     $Result = ConvertFrom-JsonToBulkWorkgroupMembersRequestInner -Json $BulkWorkgroupMembersRequestInner
-    Update-BetaWorkgroupMembers-BetaWorkgroupId $WorkgroupId -BetaBulkWorkgroupMembersRequestInner $Result
+    Update-BetaWorkgroupMembers -BetaWorkgroupId $WorkgroupId  -BetaBulkWorkgroupMembersRequestInner $Result
     
     # Below is a request that includes all optional parameters
     # Update-BetaWorkgroupMembers -BetaWorkgroupId $WorkgroupId -BetaBulkWorkgroupMembersRequestInner $BulkWorkgroupMembersRequestInner  

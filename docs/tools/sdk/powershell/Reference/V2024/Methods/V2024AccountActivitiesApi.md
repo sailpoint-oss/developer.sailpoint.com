@@ -1,4 +1,3 @@
-
 ---
 id: v2024-account-activities
 title: AccountActivities
@@ -87,7 +86,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The account activity id
 # Get an Account Activity
 
 try {
-    Get-V2024AccountActivity-V2024Id $Id 
+    Get-V2024AccountActivity -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-V2024AccountActivity -V2024Id $Id  

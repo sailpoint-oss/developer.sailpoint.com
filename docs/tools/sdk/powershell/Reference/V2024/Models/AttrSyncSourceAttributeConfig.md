@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'AttrSyncSourceAttributeConfig', 'V202
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** |  **String** | Name of the identity attribute | [required]
-**DisplayName** |  **String** | Display name of the identity attribute | [required]
-**Enabled** |  **Boolean** | Determines whether or not the attribute is enabled for synchronization | [required]
-**Target** |  **String** | Name of the source account attribute to which the identity attribute value will be synchronized if enabled | [required]
+**Name** | **String** | Name of the identity attribute | [required]
+**DisplayName** | **String** | Display name of the identity attribute | [required]
+**Enabled** | **Boolean** | Determines whether or not the attribute is enabled for synchronization | [required]
+**Target** | **String** | Name of the source account attribute to which the identity attribute value will be synchronized if enabled | [required]
 
 ## Examples
 

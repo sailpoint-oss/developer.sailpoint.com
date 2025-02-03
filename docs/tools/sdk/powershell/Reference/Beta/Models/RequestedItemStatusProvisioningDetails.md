@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'RequestedItemStatusProvisioningDetail
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**OrderedSubPhaseReferences** |  Pointer to **String** | Ordered CSV of sub phase references to objects that contain more information about provisioning. For example, this can contain ""manualWorkItemDetails"" which indicate that there is further information in that object for this phase. | [optional] 
+**OrderedSubPhaseReferences** | **String** | Ordered CSV of sub phase references to objects that contain more information about provisioning. For example, this can contain ""manualWorkItemDetails"" which indicate that there is further information in that object for this phase. | [optional] 
 
 ## Examples
 

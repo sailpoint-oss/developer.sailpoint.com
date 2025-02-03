@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'BaseSegment', 'BaseSegment']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | Segment's unique ID. | [optional] 
-**Name** |  Pointer to **String** | Segment's display name. | [optional] 
+**Id** | **String** | Segment's unique ID. | [optional] 
+**Name** | **String** | Segment's display name. | [optional] 
 
 ## Examples
 

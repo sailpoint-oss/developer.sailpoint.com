@@ -16,15 +16,15 @@ tags: ['SDK', 'Software Development Kit', 'ReviewableRole', 'V2024ReviewableRole
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | The id for the Role | [optional] 
-**Name** |  Pointer to **String** | The name of the Role | [optional] 
-**Description** |  Pointer to **String** | Information about the Role | [optional] 
-**Privileged** |  Pointer to **Boolean** | Indicates if the entitlement is a privileged entitlement | [optional] 
-**Owner** |  Pointer to [**IdentityReferenceWithNameAndEmail**](identity-reference-with-name-and-email) |  | [optional] 
-**Revocable** |  Pointer to **Boolean** | Indicates whether the Role can be revoked or requested | [optional] 
-**EndDate** |  Pointer to **System.DateTime** | The date when a user's access expires. | [optional] 
-**AccessProfiles** |  Pointer to [**[]ReviewableAccessProfile**](reviewable-access-profile) | The list of Access Profiles associated with this Role | [optional] 
-**Entitlements** |  Pointer to [**[]ReviewableEntitlement**](reviewable-entitlement) | The list of entitlements associated with this Role | [optional] 
+**Id** | **String** | The id for the Role | [optional] 
+**Name** | **String** | The name of the Role | [optional] 
+**Description** | **String** | Information about the Role | [optional] 
+**Privileged** | **Boolean** | Indicates if the entitlement is a privileged entitlement | [optional] 
+**Owner** | [**IdentityReferenceWithNameAndEmail**](identity-reference-with-name-and-email) |  | [optional] 
+**Revocable** | **Boolean** | Indicates whether the Role can be revoked or requested | [optional] 
+**EndDate** | **System.DateTime** | The date when a user's access expires. | [optional] 
+**AccessProfiles** | [**[]ReviewableAccessProfile**](reviewable-access-profile) | The list of Access Profiles associated with this Role | [optional] 
+**Entitlements** | [**[]ReviewableEntitlement**](reviewable-entitlement) | The list of entitlements associated with this Role | [optional] 
 
 ## Examples
 

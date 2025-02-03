@@ -1,4 +1,3 @@
-
 ---
 id: v2024-iai-outliers
 title: IAIOutliers
@@ -65,7 +64,7 @@ $Type = "LOW_SIMILARITY" # String | Type of the identity outliers snapshot to fi
 # IAI Identity Outliers Export
 
 try {
-    Export-V2024OutliersZip-V2024XSailPointExperimental $XSailPointExperimental 
+    Export-V2024OutliersZip -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Export-V2024OutliersZip -V2024XSailPointExperimental $XSailPointExperimental -V2024Type $Type  
@@ -118,7 +117,7 @@ $Sorters = "snapshotDate" # String | Sort results using the standard syntax desc
 # IAI Identity Outliers Summary
 
 try {
-    Get-V2024IdentityOutlierSnapshots-V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024IdentityOutlierSnapshots -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024IdentityOutlierSnapshots -V2024XSailPointExperimental $XSailPointExperimental -V2024Limit $Limit -V2024Offset $Offset -V2024Type $Type -V2024Filters $Filters -V2024Sorters $Sorters  
@@ -172,7 +171,7 @@ $Sorters = "attributes.displayName,firstDetectionDate,-score" # String | Sort re
 # IAI Get Identity Outliers
 
 try {
-    Get-V2024IdentityOutliers-V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024IdentityOutliers -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024IdentityOutliers -V2024XSailPointExperimental $XSailPointExperimental -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Type $Type -V2024Filters $Filters -V2024Sorters $Sorters  
@@ -217,7 +216,7 @@ $Type = "LOW_SIMILARITY" # String | Type of the identity outliers snapshot to fi
 # IAI Identity Outliers Latest Summary
 
 try {
-    Get-V2024LatestIdentityOutlierSnapshots-V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024LatestIdentityOutlierSnapshots -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024LatestIdentityOutlierSnapshots -V2024XSailPointExperimental $XSailPointExperimental -V2024Type $Type  
@@ -265,7 +264,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Get identity outlier contibuting feature summary
 
 try {
-    Get-V2024OutlierContributingFeatureSummary-V2024OutlierFeatureId $OutlierFeatureId -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024OutlierContributingFeatureSummary -V2024OutlierFeatureId $OutlierFeatureId  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024OutlierContributingFeatureSummary -V2024OutlierFeatureId $OutlierFeatureId -V2024XSailPointExperimental $XSailPointExperimental  
@@ -323,7 +322,7 @@ $Sorters = "importance" # String | Sort results using the standard syntax descri
 # Get identity outlier's contibuting features
 
 try {
-    Get-V2024PeerGroupOutliersContributingFeatures-V2024OutlierId $OutlierId -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024PeerGroupOutliersContributingFeatures -V2024OutlierId $OutlierId  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024PeerGroupOutliersContributingFeatures -V2024OutlierId $OutlierId -V2024XSailPointExperimental $XSailPointExperimental -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024IncludeTranslationMessages $IncludeTranslationMessages -V2024Sorters $Sorters  
@@ -370,7 +369,7 @@ $RequestBody = "MyRequestBody" # String[] |
 
 try {
     $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
-    Invoke-V2024IgnoreIdentityOutliers-V2024XSailPointExperimental $XSailPointExperimental -V2024RequestBody $Result
+    Invoke-V2024IgnoreIdentityOutliers -V2024XSailPointExperimental $XSailPointExperimental  -V2024RequestBody $Result
     
     # Below is a request that includes all optional parameters
     # Invoke-V2024IgnoreIdentityOutliers -V2024XSailPointExperimental $XSailPointExperimental -V2024RequestBody $RequestBody  
@@ -430,7 +429,7 @@ $Sorters = "displayName" # String | Sort results using the standard syntax descr
 # Gets a list of access items associated with each identity outlier contributing feature
 
 try {
-    Get-V2024OutliersContributingFeatureAccessItems-V2024OutlierId $OutlierId -V2024ContributingFeatureName $ContributingFeatureName -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024OutliersContributingFeatureAccessItems -V2024OutlierId $OutlierId  -V2024ContributingFeatureName $ContributingFeatureName  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024OutliersContributingFeatureAccessItems -V2024OutlierId $OutlierId -V2024ContributingFeatureName $ContributingFeatureName -V2024XSailPointExperimental $XSailPointExperimental -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024AccessType $AccessType -V2024Sorters $Sorters  
@@ -477,7 +476,7 @@ $RequestBody = "MyRequestBody" # String[] |
 
 try {
     $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
-    Invoke-V2024UnIgnoreIdentityOutliers-V2024XSailPointExperimental $XSailPointExperimental -V2024RequestBody $Result
+    Invoke-V2024UnIgnoreIdentityOutliers -V2024XSailPointExperimental $XSailPointExperimental  -V2024RequestBody $Result
     
     # Below is a request that includes all optional parameters
     # Invoke-V2024UnIgnoreIdentityOutliers -V2024XSailPointExperimental $XSailPointExperimental -V2024RequestBody $RequestBody  

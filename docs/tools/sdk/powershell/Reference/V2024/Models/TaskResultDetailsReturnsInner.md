@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'TaskResultDetailsReturnsInner', 'V202
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DisplayLabel** |  Pointer to **String** | Attribute description. | [optional] 
-**AttributeName** |  Pointer to **String** | System or database attribute name. | [optional] 
+**DisplayLabel** | **String** | Attribute description. | [optional] 
+**AttributeName** | **String** | System or database attribute name. | [optional] 
 
 ## Examples
 

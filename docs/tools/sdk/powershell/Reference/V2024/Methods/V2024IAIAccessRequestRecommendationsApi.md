@@ -1,4 +1,3 @@
-
 ---
 id: v2024-iai-access-request-recommendations
 title: IAIAccessRequestRecommendations
@@ -68,7 +67,7 @@ $AccessRequestRecommendationActionItemDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
-    Add-V2024AccessRequestRecommendationsIgnoredItem-V2024XSailPointExperimental $XSailPointExperimental -V2024AccessRequestRecommendationActionItemDto $Result
+    Add-V2024AccessRequestRecommendationsIgnoredItem -V2024XSailPointExperimental $XSailPointExperimental  -V2024AccessRequestRecommendationActionItemDto $Result
     
     # Below is a request that includes all optional parameters
     # Add-V2024AccessRequestRecommendationsIgnoredItem -V2024XSailPointExperimental $XSailPointExperimental -V2024AccessRequestRecommendationActionItemDto $AccessRequestRecommendationActionItemDto  
@@ -119,7 +118,7 @@ $AccessRequestRecommendationActionItemDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
-    Add-V2024AccessRequestRecommendationsRequestedItem-V2024XSailPointExperimental $XSailPointExperimental -V2024AccessRequestRecommendationActionItemDto $Result
+    Add-V2024AccessRequestRecommendationsRequestedItem -V2024XSailPointExperimental $XSailPointExperimental  -V2024AccessRequestRecommendationActionItemDto $Result
     
     # Below is a request that includes all optional parameters
     # Add-V2024AccessRequestRecommendationsRequestedItem -V2024XSailPointExperimental $XSailPointExperimental -V2024AccessRequestRecommendationActionItemDto $AccessRequestRecommendationActionItemDto  
@@ -170,7 +169,7 @@ $AccessRequestRecommendationActionItemDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
-    Add-V2024AccessRequestRecommendationsViewedItem-V2024XSailPointExperimental $XSailPointExperimental -V2024AccessRequestRecommendationActionItemDto $Result
+    Add-V2024AccessRequestRecommendationsViewedItem -V2024XSailPointExperimental $XSailPointExperimental  -V2024AccessRequestRecommendationActionItemDto $Result
     
     # Below is a request that includes all optional parameters
     # Add-V2024AccessRequestRecommendationsViewedItem -V2024XSailPointExperimental $XSailPointExperimental -V2024AccessRequestRecommendationActionItemDto $AccessRequestRecommendationActionItemDto  
@@ -222,7 +221,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 
 try {
     $Result = ConvertFrom-JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
-    Add-V2024AccessRequestRecommendationsViewedItems-V2024XSailPointExperimental $XSailPointExperimental -V2024AccessRequestRecommendationActionItemDto $Result
+    Add-V2024AccessRequestRecommendationsViewedItems -V2024XSailPointExperimental $XSailPointExperimental  -V2024AccessRequestRecommendationActionItemDto $Result
     
     # Below is a request that includes all optional parameters
     # Add-V2024AccessRequestRecommendationsViewedItems -V2024XSailPointExperimental $XSailPointExperimental -V2024AccessRequestRecommendationActionItemDto $AccessRequestRecommendationActionItemDto  
@@ -278,7 +277,7 @@ $Sorters = "MySorters" # String | Sort results using the standard syntax describ
 # Identity Access Request Recommendations
 
 try {
-    Get-V2024AccessRequestRecommendations-V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024AccessRequestRecommendations -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024AccessRequestRecommendations -V2024XSailPointExperimental $XSailPointExperimental -V2024IdentityId $IdentityId -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024IncludeTranslationMessages $IncludeTranslationMessages -V2024Filters $Filters -V2024Sorters $Sorters  
@@ -330,7 +329,7 @@ $Sorters = "access.id" # String | Sort results using the standard syntax describ
 # List of Ignored Access Request Recommendations
 
 try {
-    Get-V2024AccessRequestRecommendationsIgnoredItems-V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024AccessRequestRecommendationsIgnoredItems -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024AccessRequestRecommendationsIgnoredItems -V2024XSailPointExperimental $XSailPointExperimental -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Filters $Filters -V2024Sorters $Sorters  
@@ -382,7 +381,7 @@ $Sorters = "MySorters" # String | Sort results using the standard syntax describ
 # List of Requested Access Request Recommendations
 
 try {
-    Get-V2024AccessRequestRecommendationsRequestedItems-V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024AccessRequestRecommendationsRequestedItems -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024AccessRequestRecommendationsRequestedItems -V2024XSailPointExperimental $XSailPointExperimental -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Filters $Filters -V2024Sorters $Sorters  
@@ -434,7 +433,7 @@ $Sorters = "MySorters" # String | Sort results using the standard syntax describ
 # List of Viewed Access Request Recommendations
 
 try {
-    Get-V2024AccessRequestRecommendationsViewedItems-V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024AccessRequestRecommendationsViewedItems -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024AccessRequestRecommendationsViewedItems -V2024XSailPointExperimental $XSailPointExperimental -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Filters $Filters -V2024Sorters $Sorters  

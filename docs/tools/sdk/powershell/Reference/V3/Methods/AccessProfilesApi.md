@@ -1,4 +1,3 @@
-
 ---
 id: access-profiles
 title: AccessProfiles
@@ -179,7 +178,7 @@ $AccessProfile = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccessProfile -Json $AccessProfile
-    New-AccessProfile-AccessProfile $Result
+    New-AccessProfile -AccessProfile $Result
     
     # Below is a request that includes all optional parameters
     # New-AccessProfile -AccessProfile $AccessProfile  
@@ -225,7 +224,7 @@ $Id = "2c91808a7813090a017814121919ecca" # String | ID of the Access Profile to 
 # Delete the specified Access Profile
 
 try {
-    Remove-AccessProfile-Id $Id 
+    Remove-AccessProfile -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-AccessProfile -Id $Id  
@@ -276,7 +275,7 @@ $AccessProfileBulkDeleteRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccessProfileBulkDeleteRequest -Json $AccessProfileBulkDeleteRequest
-    Remove-AccessProfilesInBulk-AccessProfileBulkDeleteRequest $Result
+    Remove-AccessProfilesInBulk -AccessProfileBulkDeleteRequest $Result
     
     # Below is a request that includes all optional parameters
     # Remove-AccessProfilesInBulk -AccessProfileBulkDeleteRequest $AccessProfileBulkDeleteRequest  
@@ -318,7 +317,7 @@ $Id = "2c9180837ca6693d017ca8d097500149" # String | ID of the Access Profile
 # Get an Access Profile
 
 try {
-    Get-AccessProfile-Id $Id 
+    Get-AccessProfile -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-AccessProfile -Id $Id  
@@ -372,7 +371,7 @@ $Sorters = "name,-modified" # String | Sort results using the standard syntax de
 # List Access Profile's Entitlements
 
 try {
-    Get-AccessProfileEntitlements-Id $Id 
+    Get-AccessProfileEntitlements -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-AccessProfileEntitlements -Id $Id -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
@@ -508,7 +507,7 @@ $Id = "2c91808a7813090a017814121919ecca" # String | ID of the Access Profile to 
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-AccessProfile-Id $Id -JsonPatchOperation $Result
+    Update-AccessProfile -Id $Id  -JsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-AccessProfile -Id $Id -JsonPatchOperation $JsonPatchOperation  

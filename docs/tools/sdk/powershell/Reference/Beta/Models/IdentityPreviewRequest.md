@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'IdentityPreviewRequest', 'BetaIdentit
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**IdentityId** |  Pointer to **String** |  | [optional] 
-**IdentityAttributeConfig** |  Pointer to [**IdentityAttributeConfig**](identity-attribute-config) |  | [optional] 
+**IdentityId** | **String** |  | [optional] 
+**IdentityAttributeConfig** | [**IdentityAttributeConfig**](identity-attribute-config) |  | [optional] 
 
 ## Examples
 

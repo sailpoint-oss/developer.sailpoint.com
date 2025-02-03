@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'IdentityManagerRef', 'BetaIdentityMan
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to  **Enum** [  "IDENTITY" ] | DTO type of identity's manager | [optional] 
-**Id** |  Pointer to **String** | ID of identity's manager | [optional] 
-**Name** |  Pointer to **String** | Human-readable display name of identity's manager | [optional] 
+**Type** |  **Enum** [  "IDENTITY" ] | DTO type of identity's manager | [optional] 
+**Id** | **String** | ID of identity's manager | [optional] 
+**Name** | **String** | Human-readable display name of identity's manager | [optional] 
 
 ## Examples
 

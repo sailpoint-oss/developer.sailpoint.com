@@ -16,14 +16,14 @@ tags: ['SDK', 'Software Development Kit', 'AttributeDTO', 'V2024AttributeDTO']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Key** |  Pointer to **String** | Technical name of the Attribute. This is unique and cannot be changed after creation. | [optional] 
-**Name** |  Pointer to **String** | The display name of the key. | [optional] 
-**Multiselect** |  Pointer to **Boolean** | Indicates whether the attribute can have multiple values. | [optional] [default to $false]
-**Status** |  Pointer to **String** | The status of the Attribute. | [optional] 
-**Type** |  Pointer to **String** | The type of the Attribute. This can be either ""custom"" or ""governance"". | [optional] 
-**ObjectTypes** |  Pointer to **[]String** | An array of object types this attributes values can be applied to. Possible values are ""all"" or ""entitlement"". Value ""all"" means this attribute can be used with all object types that are supported. | [optional] 
-**Description** |  Pointer to **String** | The description of the Attribute. | [optional] 
-**Values** |  Pointer to [**[]AttributeValueDTO**](attribute-value-dto) |  | [optional] 
+**Key** | **String** | Technical name of the Attribute. This is unique and cannot be changed after creation. | [optional] 
+**Name** | **String** | The display name of the key. | [optional] 
+**Multiselect** | **Boolean** | Indicates whether the attribute can have multiple values. | [optional] [default to $false]
+**Status** | **String** | The status of the Attribute. | [optional] 
+**Type** | **String** | The type of the Attribute. This can be either ""custom"" or ""governance"". | [optional] 
+**ObjectTypes** | **[]String** | An array of object types this attributes values can be applied to. Possible values are ""all"" or ""entitlement"". Value ""all"" means this attribute can be used with all object types that are supported. | [optional] 
+**Description** | **String** | The description of the Attribute. | [optional] 
+**Values** | [**[]AttributeValueDTO**](attribute-value-dto) |  | [optional] 
 
 ## Examples
 

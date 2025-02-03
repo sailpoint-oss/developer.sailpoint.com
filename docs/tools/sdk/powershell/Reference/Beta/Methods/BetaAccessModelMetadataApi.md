@@ -1,4 +1,3 @@
-
 ---
 id: beta-access-model-metadata
 title: AccessModelMetadata
@@ -65,7 +64,7 @@ $Key = "iscPrivacy" # String | Technical name of the Attribute.
 # Get Access Model Metadata Attribute
 
 try {
-    Get-BetaAccessModelMetadataAttribute-BetaKey $Key 
+    Get-BetaAccessModelMetadataAttribute -BetaKey $Key 
     
     # Below is a request that includes all optional parameters
     # Get-BetaAccessModelMetadataAttribute -BetaKey $Key  
@@ -109,7 +108,7 @@ $Value = "public" # String | Technical name of the Attribute value.
 # Get Access Model Metadata Value
 
 try {
-    Get-BetaAccessModelMetadataAttributeValue-BetaKey $Key -BetaValue $Value 
+    Get-BetaAccessModelMetadataAttributeValue -BetaKey $Key  -BetaValue $Value 
     
     # Below is a request that includes all optional parameters
     # Get-BetaAccessModelMetadataAttributeValue -BetaKey $Key -BetaValue $Value  
@@ -193,7 +192,7 @@ $Key = "iscPrivacy" # String | Technical name of the Attribute.
 # List Access Model Metadata Values
 
 try {
-    Get-BetaAccessModelMetadataAttributeValue-BetaKey $Key 
+    Get-BetaAccessModelMetadataAttributeValue -BetaKey $Key 
     
     # Below is a request that includes all optional parameters
     # Get-BetaAccessModelMetadataAttributeValue -BetaKey $Key  

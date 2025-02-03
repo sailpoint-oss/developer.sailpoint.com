@@ -1,4 +1,3 @@
-
 ---
 id: beta-application-discovery
 title: ApplicationDiscovery
@@ -59,7 +58,7 @@ $Id = "123e4567-e89b-12d3-a456-426655440000" # String | Discovered application's
 # Get Discovered Application by ID
 
 try {
-    Get-BetaDiscoveredApplicationByID-BetaId $Id 
+    Get-BetaDiscoveredApplicationByID -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaDiscoveredApplicationByID -BetaId $Id  
@@ -203,7 +202,7 @@ $Id = "123e4567-e89b-12d3-a456-426655440000" # String | Discovered application's
 # Patch Discovered Application by ID
 
 try {
-    Update-BetaDiscoveredApplicationByID-BetaId $Id 
+    Update-BetaDiscoveredApplicationByID -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Update-BetaDiscoveredApplicationByID -BetaId $Id -BetaJsonPatchOperations $JsonPatchOperations  
@@ -246,7 +245,7 @@ $File =  # System.IO.FileInfo | The CSV file to upload containing `application_n
 # Upload CSV to Discover Applications
 
 try {
-    Send-BetaManualDiscoverApplicationsCsvTemplate-BetaFile $File 
+    Send-BetaManualDiscoverApplicationsCsvTemplate -BetaFile $File 
     
     # Below is a request that includes all optional parameters
     # Send-BetaManualDiscoverApplicationsCsvTemplate -BetaFile $File  

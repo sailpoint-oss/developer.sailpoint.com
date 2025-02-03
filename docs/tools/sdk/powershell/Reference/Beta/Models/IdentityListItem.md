@@ -16,12 +16,12 @@ tags: ['SDK', 'Software Development Kit', 'IdentityListItem', 'BetaIdentityListI
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | the identity ID | [optional] 
-**DisplayName** |  Pointer to **String** | the display name of the identity | [optional] 
-**FirstName** |  Pointer to **String** | the first name of the identity | [optional] 
-**LastName** |  Pointer to **String** | the last name of the identity | [optional] 
-**Active** |  Pointer to **Boolean** | indicates if an identity is active or not | [optional] [default to $true]
-**DeletedDate** |  Pointer to **String** | the date when the identity was deleted | [optional] 
+**Id** | **String** | the identity ID | [optional] 
+**DisplayName** | **String** | the display name of the identity | [optional] 
+**FirstName** | **String** | the first name of the identity | [optional] 
+**LastName** | **String** | the last name of the identity | [optional] 
+**Active** | **Boolean** | indicates if an identity is active or not | [optional] [default to $true]
+**DeletedDate** | **String** | the date when the identity was deleted | [optional] 
 
 ## Examples
 

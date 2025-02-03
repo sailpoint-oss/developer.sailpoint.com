@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'NestedAggregation', 'V2024NestedAggre
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** |  **String** | The name of the nested aggregate to be included in the result. | [required]
-**Type** |  **String** | The type of the nested object. | [required]
+**Name** | **String** | The name of the nested aggregate to be included in the result. | [required]
+**Type** | **String** | The type of the nested object. | [required]
 
 ## Examples
 

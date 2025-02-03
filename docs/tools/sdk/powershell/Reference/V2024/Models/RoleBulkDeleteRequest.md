@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'RoleBulkDeleteRequest', 'V2024RoleBul
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**RoleIds** |  **[]String** | List of IDs of Roles to be deleted. | [required]
+**RoleIds** | **[]String** | List of IDs of Roles to be deleted. | [required]
 
 ## Examples
 

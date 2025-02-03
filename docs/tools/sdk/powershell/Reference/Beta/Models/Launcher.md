@@ -16,16 +16,16 @@ tags: ['SDK', 'Software Development Kit', 'Launcher', 'BetaLauncher']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  **String** | ID of the Launcher | [required]
-**Created** |  **System.DateTime** | Date the Launcher was created | [required]
-**Modified** |  **System.DateTime** | Date the Launcher was last modified | [required]
-**Owner** |  [**LauncherOwner**](launcher-owner) |  | [required]
-**Name** |  **String** | Name of the Launcher, limited to 255 characters | [required]
-**Description** |  **String** | Description of the Launcher, limited to 2000 characters | [required]
-**Type** |   **Enum** [  "INTERACTIVE_PROCESS" ] | Launcher type | [required]
-**Disabled** |  **Boolean** | State of the Launcher | [required]
-**Reference** |  Pointer to [**LauncherReference**](launcher-reference) |  | [optional] 
-**Config** |  **String** | JSON configuration associated with this Launcher, restricted to a max size of 4KB  | [required]
+**Id** | **String** | ID of the Launcher | [required]
+**Created** | **System.DateTime** | Date the Launcher was created | [required]
+**Modified** | **System.DateTime** | Date the Launcher was last modified | [required]
+**Owner** | [**LauncherOwner**](launcher-owner) |  | [required]
+**Name** | **String** | Name of the Launcher, limited to 255 characters | [required]
+**Description** | **String** | Description of the Launcher, limited to 2000 characters | [required]
+**Type** |  **Enum** [  "INTERACTIVE_PROCESS" ] | Launcher type | [required]
+**Disabled** | **Boolean** | State of the Launcher | [required]
+**Reference** | [**LauncherReference**](launcher-reference) |  | [optional] 
+**Config** | **String** | JSON configuration associated with this Launcher, restricted to a max size of 4KB  | [required]
 
 ## Examples
 

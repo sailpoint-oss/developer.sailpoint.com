@@ -1,4 +1,3 @@
-
 ---
 id: managed-clusters
 title: ManagedClusters
@@ -70,7 +69,7 @@ $ManagedClusterRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToManagedClusterRequest -Json $ManagedClusterRequest
-    New-ManagedCluster-ManagedClusterRequest $Result
+    New-ManagedCluster -ManagedClusterRequest $Result
     
     # Below is a request that includes all optional parameters
     # New-ManagedCluster -ManagedClusterRequest $ManagedClusterRequest  
@@ -114,7 +113,7 @@ $RemoveClients = $false # Boolean | Flag to determine the need to delete a clust
 # Delete Managed Cluster
 
 try {
-    Remove-ManagedCluster-Id $Id 
+    Remove-ManagedCluster -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-ManagedCluster -Id $Id -RemoveClients $RemoveClients  
@@ -158,7 +157,7 @@ $Id = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | ID of managed cluster to
 # Get Managed Cluster Log Configuration
 
 try {
-    Get-ClientLogConfiguration-Id $Id 
+    Get-ClientLogConfiguration -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-ClientLogConfiguration -Id $Id  
@@ -201,7 +200,7 @@ $Id = "2c9180897de347a2017de8859e8c5039" # String | Managed cluster ID.
 # Get Managed Cluster
 
 try {
-    Get-ManagedCluster-Id $Id 
+    Get-ManagedCluster -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-ManagedCluster -Id $Id  
@@ -295,7 +294,7 @@ $PutClientLogConfigurationRequest = @""@
 
 try {
     $Result = ConvertFrom-JsonToPutClientLogConfigurationRequest -Json $PutClientLogConfigurationRequest
-    Send-ClientLogConfiguration-Id $Id -PutClientLogConfigurationRequest $Result
+    Send-ClientLogConfiguration -Id $Id  -PutClientLogConfigurationRequest $Result
     
     # Below is a request that includes all optional parameters
     # Send-ClientLogConfiguration -Id $Id -PutClientLogConfigurationRequest $PutClientLogConfigurationRequest  
@@ -346,7 +345,7 @@ $Id = "2c9180897de347a2017de8859e8c5039" # String | Managed cluster ID.
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-ManagedCluster-Id $Id -JsonPatchOperation $Result
+    Update-ManagedCluster -Id $Id  -JsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-ManagedCluster -Id $Id -JsonPatchOperation $JsonPatchOperation  

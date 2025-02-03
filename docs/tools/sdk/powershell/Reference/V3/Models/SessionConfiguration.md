@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'SessionConfiguration', 'SessionConfig
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**MaxIdleTime** |  Pointer to **Int32** | The maximum time in minutes a session can be idle. | [optional] 
-**RememberMe** |  Pointer to **Boolean** | Denotes if 'remember me' is enabled. | [optional] [default to $false]
-**MaxSessionTime** |  Pointer to **Int32** | The maximum allowable session time in minutes. | [optional] 
+**MaxIdleTime** | **Int32** | The maximum time in minutes a session can be idle. | [optional] 
+**RememberMe** | **Boolean** | Denotes if 'remember me' is enabled. | [optional] [default to $false]
+**MaxSessionTime** | **Int32** | The maximum allowable session time in minutes. | [optional] 
 
 ## Examples
 

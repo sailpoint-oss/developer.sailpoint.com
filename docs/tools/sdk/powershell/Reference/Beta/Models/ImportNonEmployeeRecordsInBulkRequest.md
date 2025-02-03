@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'ImportNonEmployeeRecordsInBulkRequest
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**VarData** |  **System.IO.FileInfo** |  | [required]
+**VarData** | **System.IO.FileInfo** |  | [required]
 
 ## Examples
 

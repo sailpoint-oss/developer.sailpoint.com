@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'EntitlementRef1', 'V2024EntitlementRe
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to  **Enum** [  "ENTITLEMENT" ] | Entitlement's DTO type. | [optional] 
-**Id** |  Pointer to **String** | Entitlement's ID. | [optional] 
-**Name** |  Pointer to **String** | Entitlement's display name. | [optional] 
+**Type** |  **Enum** [  "ENTITLEMENT" ] | Entitlement's DTO type. | [optional] 
+**Id** | **String** | Entitlement's ID. | [optional] 
+**Name** | **String** | Entitlement's display name. | [optional] 
 
 ## Examples
 

@@ -1,4 +1,3 @@
-
 ---
 id: beta-password-policies
 title: PasswordPolicies
@@ -99,7 +98,7 @@ $PasswordPolicyV3Dto = @"{
 
 try {
     $Result = ConvertFrom-JsonToPasswordPolicyV3Dto -Json $PasswordPolicyV3Dto
-    New-BetaPasswordPolicy-BetaPasswordPolicyV3Dto $Result
+    New-BetaPasswordPolicy -BetaPasswordPolicyV3Dto $Result
     
     # Below is a request that includes all optional parameters
     # New-BetaPasswordPolicy -BetaPasswordPolicyV3Dto $PasswordPolicyV3Dto  
@@ -142,7 +141,7 @@ $Id = "ff808081838d9e9d01838da6a03e0002" # String | The ID of password policy to
 # Delete Password Policy by ID
 
 try {
-    Remove-BetaPasswordPolicy-BetaId $Id 
+    Remove-BetaPasswordPolicy -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-BetaPasswordPolicy -BetaId $Id  
@@ -185,7 +184,7 @@ $Id = "ff808081838d9e9d01838da6a03e0005" # String | The ID of password policy to
 # Get Password Policy by ID
 
 try {
-    Get-BetaPasswordPolicyById-BetaId $Id 
+    Get-BetaPasswordPolicyById -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaPasswordPolicyById -BetaId $Id  
@@ -310,7 +309,7 @@ $PasswordPolicyV3Dto = @"{
 
 try {
     $Result = ConvertFrom-JsonToPasswordPolicyV3Dto -Json $PasswordPolicyV3Dto
-    Set-BetaPasswordPolicy-BetaId $Id -BetaPasswordPolicyV3Dto $Result
+    Set-BetaPasswordPolicy -BetaId $Id  -BetaPasswordPolicyV3Dto $Result
     
     # Below is a request that includes all optional parameters
     # Set-BetaPasswordPolicy -BetaId $Id -BetaPasswordPolicyV3Dto $PasswordPolicyV3Dto  

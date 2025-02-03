@@ -16,19 +16,19 @@ tags: ['SDK', 'Software Development Kit', 'ServiceDeskIntegrationDto', 'ServiceD
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | Unique identifier for the Service Desk integration | [optional] 
-**Name** |  **String** | Service Desk integration's name. The name must be unique. | [required]
-**Created** |  Pointer to **System.DateTime** | The date and time the Service Desk integration was created | [optional] 
-**Modified** |  Pointer to **System.DateTime** | The date and time the Service Desk integration was last modified | [optional] 
-**Description** |  **String** | Service Desk integration's description. | [required]
-**Type** |  **String** | Service Desk integration types:  - ServiceNowSDIM - ServiceNow  | [required][default to "ServiceNowSDIM"]
-**OwnerRef** |  Pointer to [**OwnerDto**](owner-dto) |  | [optional] 
-**ClusterRef** |  Pointer to [**SourceClusterDto**](source-cluster-dto) |  | [optional] 
-**Cluster** |  Pointer to **String** | Cluster ID for the Service Desk integration (replaced by clusterRef, retained for backward compatibility). | [optional] 
-**ManagedSources** |  Pointer to **[]String** | Source IDs for the Service Desk integration (replaced by provisioningConfig.managedSResourceRefs, but retained here for backward compatibility). | [optional] 
-**ProvisioningConfig** |  Pointer to [**ProvisioningConfig**](provisioning-config) |  | [optional] 
-**Attributes** |  [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | Service Desk integration's attributes. Validation constraints enforced by the implementation. | [required]
-**BeforeProvisioningRule** |  Pointer to [**BeforeProvisioningRuleDto**](before-provisioning-rule-dto) |  | [optional] 
+**Id** | **String** | Unique identifier for the Service Desk integration | [optional] 
+**Name** | **String** | Service Desk integration's name. The name must be unique. | [required]
+**Created** | **System.DateTime** | The date and time the Service Desk integration was created | [optional] 
+**Modified** | **System.DateTime** | The date and time the Service Desk integration was last modified | [optional] 
+**Description** | **String** | Service Desk integration's description. | [required]
+**Type** | **String** | Service Desk integration types:  - ServiceNowSDIM - ServiceNow  | [required][default to "ServiceNowSDIM"]
+**OwnerRef** | [**OwnerDto**](owner-dto) |  | [optional] 
+**ClusterRef** | [**SourceClusterDto**](source-cluster-dto) |  | [optional] 
+**Cluster** | **String** | Cluster ID for the Service Desk integration (replaced by clusterRef, retained for backward compatibility). | [optional] 
+**ManagedSources** | **[]String** | Source IDs for the Service Desk integration (replaced by provisioningConfig.managedSResourceRefs, but retained here for backward compatibility). | [optional] 
+**ProvisioningConfig** | [**ProvisioningConfig**](provisioning-config) |  | [optional] 
+**Attributes** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | Service Desk integration's attributes. Validation constraints enforced by the implementation. | [required]
+**BeforeProvisioningRule** | [**BeforeProvisioningRuleDto**](before-provisioning-rule-dto) |  | [optional] 
 
 ## Examples
 

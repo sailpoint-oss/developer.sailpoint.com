@@ -1,4 +1,3 @@
-
 ---
 id: beta-approvals
 title: Approvals
@@ -56,7 +55,7 @@ $Id = "38453251-6be2-5f8f-df93-5ce19e295837" # String | ID of the approval that 
 # Get Approval
 
 try {
-    Get-BetaApproval-BetaId $Id 
+    Get-BetaApproval -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaApproval -BetaId $Id  

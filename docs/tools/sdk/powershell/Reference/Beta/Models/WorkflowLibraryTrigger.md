@@ -16,17 +16,17 @@ tags: ['SDK', 'Software Development Kit', 'WorkflowLibraryTrigger', 'BetaWorkflo
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | Trigger ID. This is a static namespaced ID for the trigger. | [optional] 
-**Type** |  Pointer to  **Enum** [  "EVENT",    "SCHEDULED",    "EXTERNAL" ] | Trigger type | [optional] 
-**Deprecated** |  Pointer to **Boolean** |  | [optional] 
-**DeprecatedBy** |  Pointer to **System.DateTime** |  | [optional] 
-**IsSimulationEnabled** |  Pointer to **Boolean** |  | [optional] 
-**OutputSchema** |  Pointer to [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | Example output schema | [optional] 
-**Name** |  Pointer to **String** | Trigger Name | [optional] 
-**Description** |  Pointer to **String** | Trigger Description | [optional] 
-**IsDynamicSchema** |  Pointer to **Boolean** | Determines whether the dynamic output schema is returned in place of the action's output schema. The dynamic schema lists non-static properties, like properties of a workflow form where each form has different fields. These will be provided dynamically based on available form fields. | [optional] 
-**InputExample** |  Pointer to [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | Example trigger payload if applicable | [optional] 
-**FormFields** |  Pointer to [**[]WorkflowLibraryFormFields**](workflow-library-form-fields) | One or more inputs that the trigger accepts | [optional] 
+**Id** | **String** | Trigger ID. This is a static namespaced ID for the trigger. | [optional] 
+**Type** |  **Enum** [  "EVENT",    "SCHEDULED",    "EXTERNAL" ] | Trigger type | [optional] 
+**Deprecated** | **Boolean** |  | [optional] 
+**DeprecatedBy** | **System.DateTime** |  | [optional] 
+**IsSimulationEnabled** | **Boolean** |  | [optional] 
+**OutputSchema** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | Example output schema | [optional] 
+**Name** | **String** | Trigger Name | [optional] 
+**Description** | **String** | Trigger Description | [optional] 
+**IsDynamicSchema** | **Boolean** | Determines whether the dynamic output schema is returned in place of the action's output schema. The dynamic schema lists non-static properties, like properties of a workflow form where each form has different fields. These will be provided dynamically based on available form fields. | [optional] 
+**InputExample** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | Example trigger payload if applicable | [optional] 
+**FormFields** | [**[]WorkflowLibraryFormFields**](workflow-library-form-fields) | One or more inputs that the trigger accepts | [optional] 
 
 ## Examples
 

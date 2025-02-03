@@ -1,4 +1,3 @@
-
 ---
 id: v2024-access-request-approvals
 title: AccessRequestApprovals
@@ -86,7 +85,7 @@ $CommentDto = @"{
 # Approve Access Request Approval
 
 try {
-    Approve-V2024AccessRequest-V2024ApprovalId $ApprovalId 
+    Approve-V2024AccessRequest -V2024ApprovalId $ApprovalId 
     
     # Below is a request that includes all optional parameters
     # Approve-V2024AccessRequest -V2024ApprovalId $ApprovalId -V2024CommentDto $CommentDto  
@@ -135,7 +134,7 @@ $ForwardApprovalDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToForwardApprovalDto -Json $ForwardApprovalDto
-    Invoke-V2024ForwardAccessRequest-V2024ApprovalId $ApprovalId -V2024ForwardApprovalDto $Result
+    Invoke-V2024ForwardAccessRequest -V2024ApprovalId $ApprovalId  -V2024ForwardApprovalDto $Result
     
     # Below is a request that includes all optional parameters
     # Invoke-V2024ForwardAccessRequest -V2024ApprovalId $ApprovalId -V2024ForwardApprovalDto $ForwardApprovalDto  
@@ -229,7 +228,7 @@ $Count = $false # Boolean | If this is true, the *X-Total-Count* response header
 # Access Request Approvers
 
 try {
-    Get-V2024AccessRequestApprovers-V2024AccessRequestId $AccessRequestId 
+    Get-V2024AccessRequestApprovers -V2024AccessRequestId $AccessRequestId 
     
     # Below is a request that includes all optional parameters
     # Get-V2024AccessRequestApprovers -V2024AccessRequestId $AccessRequestId -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count  
@@ -387,7 +386,7 @@ $CommentDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToCommentDto -Json $CommentDto
-    Deny-V2024AccessRequest-V2024ApprovalId $ApprovalId -V2024CommentDto $Result
+    Deny-V2024AccessRequest -V2024ApprovalId $ApprovalId  -V2024CommentDto $Result
     
     # Below is a request that includes all optional parameters
     # Deny-V2024AccessRequest -V2024ApprovalId $ApprovalId -V2024CommentDto $CommentDto  

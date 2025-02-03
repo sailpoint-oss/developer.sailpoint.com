@@ -1,4 +1,3 @@
-
 ---
 id: v2024-connectors
 title: Connectors
@@ -86,7 +85,7 @@ $V3CreateConnectorDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToV3CreateConnectorDto -Json $V3CreateConnectorDto
-    New-V2024CustomConnector-V2024V3CreateConnectorDto $Result
+    New-V2024CustomConnector -V2024V3CreateConnectorDto $Result
     
     # Below is a request that includes all optional parameters
     # New-V2024CustomConnector -V2024V3CreateConnectorDto $V3CreateConnectorDto  
@@ -129,7 +128,7 @@ $ScriptName = "aScriptName" # String | The scriptName value of the connector. Sc
 # Delete Connector by Script Name
 
 try {
-    Remove-V2024CustomConnector-V2024ScriptName $ScriptName 
+    Remove-V2024CustomConnector -V2024ScriptName $ScriptName 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024CustomConnector -V2024ScriptName $ScriptName  
@@ -174,7 +173,7 @@ $Locale = "de" # String | The locale to apply to the config. If no viable locale
 # Get Connector by Script Name
 
 try {
-    Get-V2024Connector-V2024ScriptName $ScriptName 
+    Get-V2024Connector -V2024ScriptName $ScriptName 
     
     # Below is a request that includes all optional parameters
     # Get-V2024Connector -V2024ScriptName $ScriptName -V2024Locale $Locale  
@@ -217,7 +216,7 @@ $ScriptName = "aScriptName" # String | The scriptName value of the connector. Sc
 # Get Connector Correlation Configuration
 
 try {
-    Get-V2024ConnectorCorrelationConfig-V2024ScriptName $ScriptName 
+    Get-V2024ConnectorCorrelationConfig -V2024ScriptName $ScriptName 
     
     # Below is a request that includes all optional parameters
     # Get-V2024ConnectorCorrelationConfig -V2024ScriptName $ScriptName  
@@ -311,7 +310,7 @@ $ScriptName = "aScriptName" # String | The scriptName value of the connector. Sc
 # Get Connector Source Configuration
 
 try {
-    Get-V2024ConnectorSourceConfig-V2024ScriptName $ScriptName 
+    Get-V2024ConnectorSourceConfig -V2024ScriptName $ScriptName 
     
     # Below is a request that includes all optional parameters
     # Get-V2024ConnectorSourceConfig -V2024ScriptName $ScriptName  
@@ -354,7 +353,7 @@ $ScriptName = "aScriptName" # String | The scriptName value of the connector. Sc
 # Get Connector Source Template
 
 try {
-    Get-V2024ConnectorSourceTemplate-V2024ScriptName $ScriptName 
+    Get-V2024ConnectorSourceTemplate -V2024ScriptName $ScriptName 
     
     # Below is a request that includes all optional parameters
     # Get-V2024ConnectorSourceTemplate -V2024ScriptName $ScriptName  
@@ -399,7 +398,7 @@ $Locale = "de" # String | The locale to apply to the config. If no viable locale
 # Get Connector Translations
 
 try {
-    Get-V2024ConnectorTranslations-V2024ScriptName $ScriptName -V2024Locale $Locale 
+    Get-V2024ConnectorTranslations -V2024ScriptName $ScriptName  -V2024Locale $Locale 
     
     # Below is a request that includes all optional parameters
     # Get-V2024ConnectorTranslations -V2024ScriptName $ScriptName -V2024Locale $Locale  
@@ -444,7 +443,7 @@ $File =  # System.IO.FileInfo | connector correlation config xml file
 # Update Connector Correlation Configuration
 
 try {
-    Send-V2024ConnectorCorrelationConfig-V2024ScriptName $ScriptName -V2024File $File 
+    Send-V2024ConnectorCorrelationConfig -V2024ScriptName $ScriptName  -V2024File $File 
     
     # Below is a request that includes all optional parameters
     # Send-V2024ConnectorCorrelationConfig -V2024ScriptName $ScriptName -V2024File $File  
@@ -489,7 +488,7 @@ $File =  # System.IO.FileInfo | connector source config xml file
 # Update Connector Source Configuration
 
 try {
-    Send-V2024ConnectorSourceConfig-V2024ScriptName $ScriptName -V2024File $File 
+    Send-V2024ConnectorSourceConfig -V2024ScriptName $ScriptName  -V2024File $File 
     
     # Below is a request that includes all optional parameters
     # Send-V2024ConnectorSourceConfig -V2024ScriptName $ScriptName -V2024File $File  
@@ -534,7 +533,7 @@ $File =  # System.IO.FileInfo | connector source template xml file
 # Update Connector Source Template
 
 try {
-    Send-V2024ConnectorSourceTemplate-V2024ScriptName $ScriptName -V2024File $File 
+    Send-V2024ConnectorSourceTemplate -V2024ScriptName $ScriptName  -V2024File $File 
     
     # Below is a request that includes all optional parameters
     # Send-V2024ConnectorSourceTemplate -V2024ScriptName $ScriptName -V2024File $File  
@@ -579,7 +578,7 @@ $Locale = "de" # String | The locale to apply to the config. If no viable locale
 # Update Connector Translations
 
 try {
-    Send-V2024ConnectorTranslations-V2024ScriptName $ScriptName -V2024Locale $Locale 
+    Send-V2024ConnectorTranslations -V2024ScriptName $ScriptName  -V2024Locale $Locale 
     
     # Below is a request that includes all optional parameters
     # Send-V2024ConnectorTranslations -V2024ScriptName $ScriptName -V2024Locale $Locale  
@@ -642,7 +641,7 @@ $ScriptName = "aScriptName" # String | The scriptName value of the connector. Sc
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024Connector-V2024ScriptName $ScriptName -V2024JsonPatchOperation $Result
+    Update-V2024Connector -V2024ScriptName $ScriptName  -V2024JsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024Connector -V2024ScriptName $ScriptName -V2024JsonPatchOperation $JsonPatchOperation  

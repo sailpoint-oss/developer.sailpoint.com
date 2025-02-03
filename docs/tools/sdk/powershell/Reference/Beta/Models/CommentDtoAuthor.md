@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'CommentDtoAuthor', 'BetaCommentDtoAut
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to  **Enum** [  "IDENTITY" ] | DTO type of the commenting identity. | [optional] 
-**Id** |  Pointer to **String** | ID of the commenting identity. | [optional] 
-**Name** |  Pointer to **String** | Display name of the commenting identity. | [optional] 
+**Type** |  **Enum** [  "IDENTITY" ] | DTO type of the commenting identity. | [optional] 
+**Id** | **String** | ID of the commenting identity. | [optional] 
+**Name** | **String** | Display name of the commenting identity. | [optional] 
 
 ## Examples
 

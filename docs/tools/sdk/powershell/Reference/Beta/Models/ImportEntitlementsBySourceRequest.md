@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'ImportEntitlementsBySourceRequest', '
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CsvFile** |  Pointer to **System.IO.FileInfo** | The CSV file containing the source entitlements to aggregate. | [optional] 
+**CsvFile** | **System.IO.FileInfo** | The CSV file containing the source entitlements to aggregate. | [optional] 
 
 ## Examples
 

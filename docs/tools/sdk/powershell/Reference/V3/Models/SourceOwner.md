@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'SourceOwner', 'SourceOwner']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to  **Enum** [  "IDENTITY" ] | Type of object being referenced. | [optional] 
-**Id** |  Pointer to **String** | Owner identity's ID. | [optional] 
-**Name** |  Pointer to **String** | Owner identity's human-readable display name. | [optional] 
+**Type** |  **Enum** [  "IDENTITY" ] | Type of object being referenced. | [optional] 
+**Id** | **String** | Owner identity's ID. | [optional] 
+**Name** | **String** | Owner identity's human-readable display name. | [optional] 
 
 ## Examples
 

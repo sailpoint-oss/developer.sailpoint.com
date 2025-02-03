@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'PutConnectorSourceConfigRequest', 'V2
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**File** |  **System.IO.FileInfo** | connector source config xml file | [required]
+**File** | **System.IO.FileInfo** | connector source config xml file | [required]
 
 ## Examples
 

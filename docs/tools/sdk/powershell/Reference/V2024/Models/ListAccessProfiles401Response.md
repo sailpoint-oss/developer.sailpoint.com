@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'ListAccessProfiles401Response', 'V202
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**VarError** |  Pointer to [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | A message describing the error | [optional] 
+**VarError** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | A message describing the error | [optional] 
 
 ## Examples
 

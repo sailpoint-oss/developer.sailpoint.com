@@ -1,4 +1,3 @@
-
 ---
 id: v2024-service-desk-integration
 title: ServiceDeskIntegration
@@ -120,7 +119,7 @@ $ServiceDeskIntegrationDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToServiceDeskIntegrationDto -Json $ServiceDeskIntegrationDto
-    New-V2024ServiceDeskIntegration-V2024ServiceDeskIntegrationDto $Result
+    New-V2024ServiceDeskIntegration -V2024ServiceDeskIntegrationDto $Result
     
     # Below is a request that includes all optional parameters
     # New-V2024ServiceDeskIntegration -V2024ServiceDeskIntegrationDto $ServiceDeskIntegrationDto  
@@ -163,7 +162,7 @@ $Id = "anId" # String | ID of Service Desk integration to delete
 # Delete a Service Desk integration
 
 try {
-    Remove-V2024ServiceDeskIntegration-V2024Id $Id 
+    Remove-V2024ServiceDeskIntegration -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024ServiceDeskIntegration -V2024Id $Id  
@@ -206,7 +205,7 @@ $Id = "anId" # String | ID of the Service Desk integration to get
 # Get a Service Desk integration
 
 try {
-    Get-V2024ServiceDeskIntegration-V2024Id $Id 
+    Get-V2024ServiceDeskIntegration -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-V2024ServiceDeskIntegration -V2024Id $Id  
@@ -249,7 +248,7 @@ $ScriptName = "aScriptName" # String | The scriptName value of the Service Desk 
 # Service Desk integration template by scriptName
 
 try {
-    Get-V2024ServiceDeskIntegrationTemplate-V2024ScriptName $ScriptName 
+    Get-V2024ServiceDeskIntegrationTemplate -V2024ScriptName $ScriptName 
     
     # Below is a request that includes all optional parameters
     # Get-V2024ServiceDeskIntegrationTemplate -V2024ScriptName $ScriptName  
@@ -428,7 +427,7 @@ $PatchServiceDeskIntegrationRequest = @""@
 
 try {
     $Result = ConvertFrom-JsonToPatchServiceDeskIntegrationRequest -Json $PatchServiceDeskIntegrationRequest
-    Update-V2024ServiceDeskIntegration-V2024Id $Id -V2024PatchServiceDeskIntegrationRequest $Result
+    Update-V2024ServiceDeskIntegration -V2024Id $Id  -V2024PatchServiceDeskIntegrationRequest $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024ServiceDeskIntegration -V2024Id $Id -V2024PatchServiceDeskIntegrationRequest $PatchServiceDeskIntegrationRequest  
@@ -507,7 +506,7 @@ $ServiceDeskIntegrationDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToServiceDeskIntegrationDto -Json $ServiceDeskIntegrationDto
-    Send-V2024ServiceDeskIntegration-V2024Id $Id -V2024ServiceDeskIntegrationDto $Result
+    Send-V2024ServiceDeskIntegration -V2024Id $Id  -V2024ServiceDeskIntegrationDto $Result
     
     # Below is a request that includes all optional parameters
     # Send-V2024ServiceDeskIntegration -V2024Id $Id -V2024ServiceDeskIntegrationDto $ServiceDeskIntegrationDto  
@@ -554,7 +553,7 @@ $QueuedCheckConfigDetails = @"{
 
 try {
     $Result = ConvertFrom-JsonToQueuedCheckConfigDetails -Json $QueuedCheckConfigDetails
-    Update-V2024StatusCheckDetails-V2024QueuedCheckConfigDetails $Result
+    Update-V2024StatusCheckDetails -V2024QueuedCheckConfigDetails $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024StatusCheckDetails -V2024QueuedCheckConfigDetails $QueuedCheckConfigDetails  

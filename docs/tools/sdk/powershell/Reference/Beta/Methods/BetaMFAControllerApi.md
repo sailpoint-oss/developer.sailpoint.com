@@ -1,4 +1,3 @@
-
 ---
 id: beta-mfa-controller
 title: MFAController
@@ -61,7 +60,7 @@ $SendTokenRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToSendTokenRequest -Json $SendTokenRequest
-    New-BetaSendToken-BetaSendTokenRequest $Result
+    New-BetaSendToken -BetaSendTokenRequest $Result
     
     # Below is a request that includes all optional parameters
     # New-BetaSendToken -BetaSendTokenRequest $SendTokenRequest  
@@ -108,7 +107,7 @@ $VerificationPollRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToVerificationPollRequest -Json $VerificationPollRequest
-    Ping-BetaVerificationStatus-BetaMethod $Method -BetaVerificationPollRequest $Result
+    Ping-BetaVerificationStatus -BetaMethod $Method  -BetaVerificationPollRequest $Result
     
     # Below is a request that includes all optional parameters
     # Ping-BetaVerificationStatus -BetaMethod $Method -BetaVerificationPollRequest $VerificationPollRequest  
@@ -154,7 +153,7 @@ $DuoVerificationRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToDuoVerificationRequest -Json $DuoVerificationRequest
-    Send-BetaDuoVerifyRequest-BetaDuoVerificationRequest $Result
+    Send-BetaDuoVerifyRequest -BetaDuoVerificationRequest $Result
     
     # Below is a request that includes all optional parameters
     # Send-BetaDuoVerifyRequest -BetaDuoVerificationRequest $DuoVerificationRequest  
@@ -201,7 +200,7 @@ Code | Description  | Data Type
 
 try {
     $Result = ConvertFrom-JsonToKbaAnswerRequestItem -Json $KbaAnswerRequestItem
-    Send-BetaKbaAnswers-BetaKbaAnswerRequestItem $Result
+    Send-BetaKbaAnswers -BetaKbaAnswerRequestItem $Result
     
     # Below is a request that includes all optional parameters
     # Send-BetaKbaAnswers -BetaKbaAnswerRequestItem $KbaAnswerRequestItem  
@@ -246,7 +245,7 @@ $OktaVerificationRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToOktaVerificationRequest -Json $OktaVerificationRequest
-    Send-BetaOktaVerifyRequest-BetaOktaVerificationRequest $Result
+    Send-BetaOktaVerifyRequest -BetaOktaVerificationRequest $Result
     
     # Below is a request that includes all optional parameters
     # Send-BetaOktaVerifyRequest -BetaOktaVerificationRequest $OktaVerificationRequest  
@@ -293,7 +292,7 @@ $TokenAuthRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToTokenAuthRequest -Json $TokenAuthRequest
-    Send-BetaTokenAuthRequest-BetaTokenAuthRequest $Result
+    Send-BetaTokenAuthRequest -BetaTokenAuthRequest $Result
     
     # Below is a request that includes all optional parameters
     # Send-BetaTokenAuthRequest -BetaTokenAuthRequest $TokenAuthRequest  

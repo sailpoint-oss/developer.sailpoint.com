@@ -1,4 +1,3 @@
-
 ---
 id: v2024-mfa-configuration
 title: MFAConfiguration
@@ -191,7 +190,7 @@ $MfaDuoConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToMfaDuoConfig -Json $MfaDuoConfig
-    Set-V2024MFADuoConfig-V2024MfaDuoConfig $Result
+    Set-V2024MFADuoConfig -V2024MfaDuoConfig $Result
     
     # Below is a request that includes all optional parameters
     # Set-V2024MFADuoConfig -V2024MfaDuoConfig $MfaDuoConfig  
@@ -238,7 +237,7 @@ Code | Description  | Data Type
 
 try {
     $Result = ConvertFrom-JsonToKbaAnswerRequestItem -Json $KbaAnswerRequestItem
-    Set-V2024MFAKBAConfig-V2024KbaAnswerRequestItem $Result
+    Set-V2024MFAKBAConfig -V2024KbaAnswerRequestItem $Result
     
     # Below is a request that includes all optional parameters
     # Set-V2024MFAKBAConfig -V2024KbaAnswerRequestItem $KbaAnswerRequestItem  
@@ -287,7 +286,7 @@ $MfaOktaConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToMfaOktaConfig -Json $MfaOktaConfig
-    Set-V2024MFAOktaConfig-V2024MfaOktaConfig $Result
+    Set-V2024MFAOktaConfig -V2024MfaOktaConfig $Result
     
     # Below is a request that includes all optional parameters
     # Set-V2024MFAOktaConfig -V2024MfaOktaConfig $MfaOktaConfig  
@@ -329,7 +328,7 @@ $Method = "okta-verify" # String | The name of the MFA method. The currently sup
 # MFA method's test configuration
 
 try {
-    Test-V2024MFAConfig-V2024Method $Method 
+    Test-V2024MFAConfig -V2024Method $Method 
     
     # Below is a request that includes all optional parameters
     # Test-V2024MFAConfig -V2024Method $Method  

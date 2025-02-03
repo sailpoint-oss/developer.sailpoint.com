@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'WorkflowTrigger', 'WorkflowTrigger']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |   **Enum** [  "EVENT",    "EXTERNAL",    "SCHEDULED",    "" ] | The trigger type | [required]
-**DisplayName** |  Pointer to **String** |  | [optional] 
-**Attributes** |  [**WorkflowTriggerAttributes**](workflow-trigger-attributes) |  | [required]
+**Type** |  **Enum** [  "EVENT",    "EXTERNAL",    "SCHEDULED",    "" ] | The trigger type | [required]
+**DisplayName** | **String** |  | [optional] 
+**Attributes** | [**WorkflowTriggerAttributes**](workflow-trigger-attributes) |  | [required]
 
 ## Examples
 

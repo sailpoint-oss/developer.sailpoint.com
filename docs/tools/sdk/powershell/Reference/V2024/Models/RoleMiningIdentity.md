@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'RoleMiningIdentity', 'V2024RoleMining
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | Id of the identity | [optional] 
-**Name** |  Pointer to **String** | Name of the identity | [optional] 
-**Attributes** |  Pointer to **map[string]String** |  | [optional] 
+**Id** | **String** | Id of the identity | [optional] 
+**Name** | **String** | Name of the identity | [optional] 
+**Attributes** | **map[string]String** |  | [optional] 
 
 ## Examples
 

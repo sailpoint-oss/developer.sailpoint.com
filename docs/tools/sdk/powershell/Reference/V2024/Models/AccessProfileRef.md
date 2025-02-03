@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'AccessProfileRef', 'V2024AccessProfil
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | ID of the Access Profile | [optional] 
-**Type** |  Pointer to  **Enum** [  "ACCESS_PROFILE" ] | Type of requested object. This field must be either left null or set to 'ACCESS_PROFILE' when creating an Access Profile, otherwise a 400 Bad Request error will result. | [optional] 
-**Name** |  Pointer to **String** | Human-readable display name of the Access Profile. This field is ignored on input. | [optional] 
+**Id** | **String** | ID of the Access Profile | [optional] 
+**Type** |  **Enum** [  "ACCESS_PROFILE" ] | Type of requested object. This field must be either left null or set to 'ACCESS_PROFILE' when creating an Access Profile, otherwise a 400 Bad Request error will result. | [optional] 
+**Name** | **String** | Human-readable display name of the Access Profile. This field is ignored on input. | [optional] 
 
 ## Examples
 

@@ -1,4 +1,3 @@
-
 ---
 id: v2024-branding
 title: Branding
@@ -75,7 +74,7 @@ $FileStandard =  # System.IO.FileInfo | png file with logo (optional)
 # Create a branding item
 
 try {
-    New-V2024BrandingItem-V2024Name $Name -V2024ProductName $ProductName 
+    New-V2024BrandingItem -V2024Name $Name  -V2024ProductName $ProductName 
     
     # Below is a request that includes all optional parameters
     # New-V2024BrandingItem -V2024Name $Name -V2024ProductName $ProductName -V2024ActionButtonColor $ActionButtonColor -V2024ActiveLinkColor $ActiveLinkColor -V2024NavigationColor $NavigationColor -V2024EmailFromAddress $EmailFromAddress -V2024LoginInformationalMessage $LoginInformationalMessage -V2024FileStandard $FileStandard  
@@ -118,7 +117,7 @@ $Name = "default" # String | The name of the branding item to be deleted
 # Delete a branding item
 
 try {
-    Remove-V2024Branding-V2024Name $Name 
+    Remove-V2024Branding -V2024Name $Name 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024Branding -V2024Name $Name  
@@ -161,7 +160,7 @@ $Name = "default" # String | The name of the branding item to be retrieved
 # Get a branding item
 
 try {
-    Get-V2024Branding-V2024Name $Name 
+    Get-V2024Branding -V2024Name $Name 
     
     # Below is a request that includes all optional parameters
     # Get-V2024Branding -V2024Name $Name  
@@ -260,7 +259,7 @@ $FileStandard =  # System.IO.FileInfo | png file with logo (optional)
 # Update a branding item
 
 try {
-    Set-V2024BrandingItem-V2024Name $Name -V2024Name2 $Name2 -V2024ProductName $ProductName 
+    Set-V2024BrandingItem -V2024Name $Name  -V2024Name2 $Name2  -V2024ProductName $ProductName 
     
     # Below is a request that includes all optional parameters
     # Set-V2024BrandingItem -V2024Name $Name -V2024Name2 $Name2 -V2024ProductName $ProductName -V2024ActionButtonColor $ActionButtonColor -V2024ActiveLinkColor $ActiveLinkColor -V2024NavigationColor $NavigationColor -V2024EmailFromAddress $EmailFromAddress -V2024LoginInformationalMessage $LoginInformationalMessage -V2024FileStandard $FileStandard  

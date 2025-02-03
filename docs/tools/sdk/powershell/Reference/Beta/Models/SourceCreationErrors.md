@@ -16,12 +16,12 @@ tags: ['SDK', 'Software Development Kit', 'SourceCreationErrors', 'BetaSourceCre
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**MultihostId** |  Pointer to **String** | Multi-Host Integration ID. | [optional] [readonly] 
-**SourceName** |  Pointer to **String** | Source's human-readable name. | [optional] 
-**SourceError** |  Pointer to **String** | Source's human-readable description. | [optional] 
-**Created** |  Pointer to **System.DateTime** | Date-time when the source was created | [optional] 
-**Modified** |  Pointer to **System.DateTime** | Date-time when the source was last modified. | [optional] 
-**Operation** |  Pointer to **String** | operation category (e.g. DELETE). | [optional] 
+**MultihostId** | **String** | Multi-Host Integration ID. | [optional] [readonly] 
+**SourceName** | **String** | Source's human-readable name. | [optional] 
+**SourceError** | **String** | Source's human-readable description. | [optional] 
+**Created** | **System.DateTime** | Date-time when the source was created | [optional] 
+**Modified** | **System.DateTime** | Date-time when the source was last modified. | [optional] 
+**Operation** | **String** | operation category (e.g. DELETE). | [optional] 
 
 ## Examples
 

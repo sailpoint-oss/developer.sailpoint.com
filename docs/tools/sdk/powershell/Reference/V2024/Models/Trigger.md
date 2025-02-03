@@ -16,14 +16,14 @@ tags: ['SDK', 'Software Development Kit', 'Trigger', 'V2024Trigger']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  **String** | Unique identifier of the trigger. | [required]
-**Name** |  **String** | Trigger Name. | [required]
-**Type** |  [**TriggerType**](trigger-type) |  | [required]
-**Description** |  Pointer to **String** | Trigger Description. | [optional] 
-**InputSchema** |  **String** | The JSON schema of the payload that will be sent by the trigger to the subscribed service. | [required]
-**ExampleInput** |  [**TriggerExampleInput**](trigger-example-input) |  | [required]
-**OutputSchema** |  Pointer to **String** | The JSON schema of the response that will be sent by the subscribed service to the trigger in response to an event.  This only applies to a trigger type of `REQUEST_RESPONSE`. | [optional] 
-**ExampleOutput** |  Pointer to [**TriggerExampleOutput**](trigger-example-output) |  | [optional] 
+**Id** | **String** | Unique identifier of the trigger. | [required]
+**Name** | **String** | Trigger Name. | [required]
+**Type** | [**TriggerType**](trigger-type) |  | [required]
+**Description** | **String** | Trigger Description. | [optional] 
+**InputSchema** | **String** | The JSON schema of the payload that will be sent by the trigger to the subscribed service. | [required]
+**ExampleInput** | [**TriggerExampleInput**](trigger-example-input) |  | [required]
+**OutputSchema** | **String** | The JSON schema of the response that will be sent by the subscribed service to the trigger in response to an event.  This only applies to a trigger type of `REQUEST_RESPONSE`. | [optional] 
+**ExampleOutput** | [**TriggerExampleOutput**](trigger-example-output) |  | [optional] 
 
 ## Examples
 

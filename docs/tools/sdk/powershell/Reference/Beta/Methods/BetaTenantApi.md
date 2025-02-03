@@ -1,4 +1,3 @@
-
 ---
 id: beta-tenant
 title: Tenant

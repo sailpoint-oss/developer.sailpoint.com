@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'NonEmployeeRejectApprovalDecision', '
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Comment** |  **String** | Comment on the approval item. | [required]
+**Comment** | **String** | Comment on the approval item. | [required]
 
 ## Examples
 

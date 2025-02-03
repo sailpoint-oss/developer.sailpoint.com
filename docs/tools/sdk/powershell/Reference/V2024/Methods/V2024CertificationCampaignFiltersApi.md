@@ -1,4 +1,3 @@
-
 ---
 id: v2024-certification-campaign-filters
 title: CertificationCampaignFilters
@@ -101,7 +100,7 @@ $CampaignFilterDetails = @"{
 
 try {
     $Result = ConvertFrom-JsonToCampaignFilterDetails -Json $CampaignFilterDetails
-    New-V2024CampaignFilter-V2024CampaignFilterDetails $Result
+    New-V2024CampaignFilter -V2024CampaignFilterDetails $Result
     
     # Below is a request that includes all optional parameters
     # New-V2024CampaignFilter -V2024CampaignFilterDetails $CampaignFilterDetails  
@@ -147,7 +146,7 @@ $RequestBody = "MyRequestBody" # String[] | A json list of IDs of campaign filte
 
 try {
     $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
-    Remove-V2024CampaignFilters-V2024RequestBody $Result
+    Remove-V2024CampaignFilters -V2024RequestBody $Result
     
     # Below is a request that includes all optional parameters
     # Remove-V2024CampaignFilters -V2024RequestBody $RequestBody  
@@ -190,7 +189,7 @@ $Id = "e9f9a1397b842fd5a65842087040d3ac" # String | The ID of the campaign filte
 # Get Campaign Filter by ID
 
 try {
-    Get-V2024CampaignFilterById-V2024Id $Id 
+    Get-V2024CampaignFilterById -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-V2024CampaignFilterById -V2024Id $Id  
@@ -298,7 +297,7 @@ $CampaignFilterDetails = @"{
 
 try {
     $Result = ConvertFrom-JsonToCampaignFilterDetails -Json $CampaignFilterDetails
-    Update-V2024CampaignFilter-V2024FilterId $FilterId -V2024CampaignFilterDetails $Result
+    Update-V2024CampaignFilter -V2024FilterId $FilterId  -V2024CampaignFilterDetails $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024CampaignFilter -V2024FilterId $FilterId -V2024CampaignFilterDetails $CampaignFilterDetails  

@@ -1,4 +1,3 @@
-
 ---
 id: v2024-global-tenant-security-settings
 title: GlobalTenantSecuritySettings
@@ -63,7 +62,7 @@ $NetworkConfiguration = @"{
 
 try {
     $Result = ConvertFrom-JsonToNetworkConfiguration -Json $NetworkConfiguration
-    New-V2024AuthOrgNetworkConfig-V2024NetworkConfiguration $Result
+    New-V2024AuthOrgNetworkConfig -V2024NetworkConfiguration $Result
     
     # Below is a request that includes all optional parameters
     # New-V2024AuthOrgNetworkConfig -V2024NetworkConfiguration $NetworkConfiguration  
@@ -154,7 +153,7 @@ Code | Description  | Data Type
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024AuthOrgNetworkConfig-V2024JsonPatchOperation $Result
+    Update-V2024AuthOrgNetworkConfig -V2024JsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024AuthOrgNetworkConfig -V2024JsonPatchOperation $JsonPatchOperation  

@@ -1,4 +1,3 @@
-
 ---
 id: o-auth-clients
 title: OAuthClients
@@ -76,7 +75,7 @@ $CreateOAuthClientRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToCreateOAuthClientRequest -Json $CreateOAuthClientRequest
-    New-OauthClient-CreateOAuthClientRequest $Result
+    New-OauthClient -CreateOAuthClientRequest $Result
     
     # Below is a request that includes all optional parameters
     # New-OauthClient -CreateOAuthClientRequest $CreateOAuthClientRequest  
@@ -119,7 +118,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The OAuth client id
 # Delete OAuth Client
 
 try {
-    Remove-OauthClient-Id $Id 
+    Remove-OauthClient -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-OauthClient -Id $Id  
@@ -162,7 +161,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The OAuth client id
 # Get OAuth Client
 
 try {
-    Get-OauthClient-Id $Id 
+    Get-OauthClient -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-OauthClient -Id $Id  
@@ -255,7 +254,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The OAuth client id
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-OauthClient-Id $Id -JsonPatchOperation $Result
+    Update-OauthClient -Id $Id  -JsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-OauthClient -Id $Id -JsonPatchOperation $JsonPatchOperation  

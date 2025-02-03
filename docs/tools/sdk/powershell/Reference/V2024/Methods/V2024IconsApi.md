@@ -1,4 +1,3 @@
-
 ---
 id: v2024-icons
 title: Icons
@@ -60,7 +59,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Delete an icon
 
 try {
-    Remove-V2024Icon-V2024ObjectType $ObjectType -V2024ObjectId $ObjectId -V2024XSailPointExperimental $XSailPointExperimental 
+    Remove-V2024Icon -V2024ObjectType $ObjectType  -V2024ObjectId $ObjectId  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024Icon -V2024ObjectType $ObjectType -V2024ObjectId $ObjectId -V2024XSailPointExperimental $XSailPointExperimental  
@@ -109,7 +108,7 @@ $Image =  # System.IO.FileInfo | file with icon. Allowed mime-types ['image/png'
 # Update an icon
 
 try {
-    Set-V2024Icon-V2024ObjectType $ObjectType -V2024ObjectId $ObjectId -V2024XSailPointExperimental $XSailPointExperimental -V2024Image $Image 
+    Set-V2024Icon -V2024ObjectType $ObjectType  -V2024ObjectId $ObjectId  -V2024XSailPointExperimental $XSailPointExperimental  -V2024Image $Image 
     
     # Below is a request that includes all optional parameters
     # Set-V2024Icon -V2024ObjectType $ObjectType -V2024ObjectId $ObjectId -V2024XSailPointExperimental $XSailPointExperimental -V2024Image $Image  

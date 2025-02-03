@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'ActivateCampaignOptions', 'V2024Activ
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TimeZone** |  Pointer to **String** | The timezone must be in a valid ISO 8601 format. Timezones in ISO 8601 are represented as UTC (represented as 'Z') or as an offset from UTC. The offset format can be +/-hh:mm, +/-hhmm, or +/-hh. | [optional] [default to "Z"]
+**TimeZone** | **String** | The timezone must be in a valid ISO 8601 format. Timezones in ISO 8601 are represented as UTC (represented as 'Z') or as an offset from UTC. The offset format can be +/-hh:mm, +/-hhmm, or +/-hh. | [optional] [default to "Z"]
 
 ## Examples
 

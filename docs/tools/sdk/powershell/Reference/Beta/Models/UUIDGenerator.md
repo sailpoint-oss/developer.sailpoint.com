@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'UUIDGenerator', 'BetaUUIDGenerator']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**RequiresPeriodicRefresh** |  Pointer to **Boolean** | A value that indicates whether the transform logic should be re-evaluated every evening as part of the identity refresh process | [optional] [default to $false]
+**RequiresPeriodicRefresh** | **Boolean** | A value that indicates whether the transform logic should be re-evaluated every evening as part of the identity refresh process | [optional] [default to $false]
 
 ## Examples
 

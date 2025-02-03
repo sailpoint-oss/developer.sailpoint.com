@@ -1,4 +1,3 @@
-
 ---
 id: certifications
 title: Certifications
@@ -86,7 +85,7 @@ $Id = "63b32151-26c0-42f4-9299-8898dc1c9daa" # String | The task ID
 # Certification Task by ID
 
 try {
-    Get-CertificationTask-Id $Id 
+    Get-CertificationTask -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-CertificationTask -Id $Id  
@@ -129,7 +128,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The certification id
 # Identity Certification by ID
 
 try {
-    Get-IdentityCertification-Id $Id 
+    Get-IdentityCertification -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-IdentityCertification -Id $Id  
@@ -182,7 +181,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Permissions for Entitlement Certification Item
 
 try {
-    Get-IdentityCertificationItemPermissions-CertificationId $CertificationId -ItemId $ItemId 
+    Get-IdentityCertificationItemPermissions -CertificationId $CertificationId  -ItemId $ItemId 
     
     # Below is a request that includes all optional parameters
     # Get-IdentityCertificationItemPermissions -CertificationId $CertificationId -ItemId $ItemId -Filters $Filters -Limit $Limit -Offset $Offset -Count $Count  
@@ -286,7 +285,7 @@ $Sorters = "name" # String | Sort results using the standard syntax described in
 # List of Reviewers for certification
 
 try {
-    Get-CertificationReviewers-Id $Id 
+    Get-CertificationReviewers -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-CertificationReviewers -Id $Id -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
@@ -345,7 +344,7 @@ $Roles = "userRole" # String | Filter results to view access review items that p
 # List of Access Review Items
 
 try {
-    Get-IdentityAccessReviewItems-Id $Id 
+    Get-IdentityAccessReviewItems -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-IdentityAccessReviewItems -Id $Id -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters -Entitlements $Entitlements -AccessProfiles $AccessProfiles -Roles $Roles  
@@ -455,7 +454,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the identity campa
 
 try {
     $Result = ConvertFrom-JsonToReviewDecision -Json $ReviewDecision
-    Select-IdentityDecision-Id $Id -ReviewDecision $Result
+    Select-IdentityDecision -Id $Id  -ReviewDecision $Result
     
     # Below is a request that includes all optional parameters
     # Select-IdentityDecision -Id $Id -ReviewDecision $ReviewDecision  
@@ -511,7 +510,7 @@ $ReviewReassign = @"{
 
 try {
     $Result = ConvertFrom-JsonToReviewReassign -Json $ReviewReassign
-    Invoke-ReassignIdentityCertifications-Id $Id -ReviewReassign $Result
+    Invoke-ReassignIdentityCertifications -Id $Id  -ReviewReassign $Result
     
     # Below is a request that includes all optional parameters
     # Invoke-ReassignIdentityCertifications -Id $Id -ReviewReassign $ReviewReassign  
@@ -554,7 +553,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The identity campaign certif
 # Finalize Identity Certification Decisions
 
 try {
-    Invoke-SignOffIdentityCertification-Id $Id 
+    Invoke-SignOffIdentityCertification -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Invoke-SignOffIdentityCertification -Id $Id  
@@ -615,7 +614,7 @@ $ReviewReassign = @"{
 
 try {
     $Result = ConvertFrom-JsonToReviewReassign -Json $ReviewReassign
-    Submit-ReassignCertsAsync-Id $Id -ReviewReassign $Result
+    Submit-ReassignCertsAsync -Id $Id  -ReviewReassign $Result
     
     # Below is a request that includes all optional parameters
     # Submit-ReassignCertsAsync -Id $Id -ReviewReassign $ReviewReassign  

@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'LauncherOwner', 'BetaLauncherOwner']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  **String** | Owner type | [required]
-**Id** |  **String** | Owner ID | [required]
+**Type** | **String** | Owner type | [required]
+**Id** | **String** | Owner ID | [required]
 
 ## Examples
 

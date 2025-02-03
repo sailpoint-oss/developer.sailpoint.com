@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'FormDefinitionDynamicSchemaResponse',
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**OutputSchema** |  Pointer to [**map[string]SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | OutputSchema holds a JSON schema generated dynamically | [optional] 
+**OutputSchema** | [**map[string]SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | OutputSchema holds a JSON schema generated dynamically | [optional] 
 
 ## Examples
 

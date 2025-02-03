@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'VerificationResponse', 'BetaVerificat
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**RequestId** |  Pointer to **String** | The verificationPollRequest request ID | [optional] 
-**Status** |  Pointer to  **Enum** [  "PENDING",    "SUCCESS",    "FAILED",    "LOCKOUT",    "NOT_ENOUGH_DATA" ] | MFA Authentication status | [optional] 
-**VarError** |  Pointer to **String** | Error messages from MFA verification request | [optional] 
+**RequestId** | **String** | The verificationPollRequest request ID | [optional] 
+**Status** |  **Enum** [  "PENDING",    "SUCCESS",    "FAILED",    "LOCKOUT",    "NOT_ENOUGH_DATA" ] | MFA Authentication status | [optional] 
+**VarError** | **String** | Error messages from MFA verification request | [optional] 
 
 ## Examples
 

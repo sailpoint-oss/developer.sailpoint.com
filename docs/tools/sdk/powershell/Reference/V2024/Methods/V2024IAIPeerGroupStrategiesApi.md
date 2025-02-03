@@ -1,4 +1,3 @@
-
 ---
 id: v2024-iai-peer-group-strategies
 title: IAIPeerGroupStrategies
@@ -60,7 +59,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Identity Outliers List
 
 try {
-    Get-V2024PeerGroupOutliers-V2024Strategy $Strategy -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024PeerGroupOutliers -V2024Strategy $Strategy  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024PeerGroupOutliers -V2024Strategy $Strategy -V2024XSailPointExperimental $XSailPointExperimental -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count  

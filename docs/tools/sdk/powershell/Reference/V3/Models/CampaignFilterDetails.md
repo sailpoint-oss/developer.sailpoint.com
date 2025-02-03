@@ -16,13 +16,13 @@ tags: ['SDK', 'Software Development Kit', 'CampaignFilterDetails', 'CampaignFilt
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  **String** | The unique ID of the campaign filter | [required]
-**Name** |  **String** | Campaign filter name. | [required]
-**Description** |  Pointer to **String** | Campaign filter description. | [optional] 
-**Owner** |  **String** | Owner of the filter. This field automatically populates at creation time with the current user. | [required]
-**Mode** |   **Enum** [  "INCLUSION",    "EXCLUSION" ] | Mode/type of filter, either the INCLUSION or EXCLUSION type. The INCLUSION type includes the data in generated campaigns  as per specified in the criteria, whereas the EXCLUSION type excludes the data in generated campaigns as per specified in criteria. | [required]
-**CriteriaList** |  Pointer to [**[]CampaignFilterDetailsCriteriaListInner**](campaign-filter-details-criteria-list-inner) | List of criteria. | [optional] 
-**IsSystemFilter** |  **Boolean** | If true, the filter is created by the system. If false, the filter is created by a user. | [required][default to $false]
+**Id** | **String** | The unique ID of the campaign filter | [required]
+**Name** | **String** | Campaign filter name. | [required]
+**Description** | **String** | Campaign filter description. | [optional] 
+**Owner** | **String** | Owner of the filter. This field automatically populates at creation time with the current user. | [required]
+**Mode** |  **Enum** [  "INCLUSION",    "EXCLUSION" ] | Mode/type of filter, either the INCLUSION or EXCLUSION type. The INCLUSION type includes the data in generated campaigns  as per specified in the criteria, whereas the EXCLUSION type excludes the data in generated campaigns as per specified in criteria. | [required]
+**CriteriaList** | [**[]CampaignFilterDetailsCriteriaListInner**](campaign-filter-details-criteria-list-inner) | List of criteria. | [optional] 
+**IsSystemFilter** | **Boolean** | If true, the filter is created by the system. If false, the filter is created by a user. | [required][default to $false]
 
 ## Examples
 

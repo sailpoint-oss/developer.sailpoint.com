@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'ConnectorRuleValidationResponse', 'Be
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**State** |   **Enum** [  "OK",    "ERROR" ] |  | [required]
-**Details** |  [**[]ConnectorRuleValidationResponseDetailsInner**](connector-rule-validation-response-details-inner) |  | [required]
+**State** |  **Enum** [  "OK",    "ERROR" ] |  | [required]
+**Details** | [**[]ConnectorRuleValidationResponseDetailsInner**](connector-rule-validation-response-details-inner) |  | [required]
 
 ## Examples
 

@@ -1,4 +1,3 @@
-
 ---
 id: beta-search-attribute-configuration
 title: SearchAttributeConfiguration
@@ -84,7 +83,7 @@ $SearchAttributeConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToSearchAttributeConfig -Json $SearchAttributeConfig
-    New-BetaSearchAttributeConfig-BetaSearchAttributeConfig $Result
+    New-BetaSearchAttributeConfig -BetaSearchAttributeConfig $Result
     
     # Below is a request that includes all optional parameters
     # New-BetaSearchAttributeConfig -BetaSearchAttributeConfig $SearchAttributeConfig  
@@ -126,7 +125,7 @@ $Name = "newMailAttribute" # String | Name of the extended search attribute conf
 # Delete Extended Search Attribute
 
 try {
-    Remove-BetaSearchAttributeConfig-BetaName $Name 
+    Remove-BetaSearchAttributeConfig -BetaName $Name 
     
     # Below is a request that includes all optional parameters
     # Remove-BetaSearchAttributeConfig -BetaName $Name  
@@ -209,7 +208,7 @@ $Name = "newMailAttribute" # String | Name of the extended search attribute conf
 # Get Extended Search Attribute
 
 try {
-    Get-BetaSingleSearchAttributeConfig-BetaName $Name 
+    Get-BetaSingleSearchAttributeConfig -BetaName $Name 
     
     # Below is a request that includes all optional parameters
     # Get-BetaSingleSearchAttributeConfig -BetaName $Name  
@@ -262,7 +261,7 @@ $Name = "promotedMailAttribute" # String | Name of the extended search attribute
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-BetaSearchAttributeConfig-BetaName $Name -BetaJsonPatchOperation $Result
+    Update-BetaSearchAttributeConfig -BetaName $Name  -BetaJsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-BetaSearchAttributeConfig -BetaName $Name -BetaJsonPatchOperation $JsonPatchOperation  

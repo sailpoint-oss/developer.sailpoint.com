@@ -1,4 +1,3 @@
-
 ---
 id: beta-identity-history
 title: IdentityHistory
@@ -76,7 +75,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Gets a difference of count for each access item types for the given identity between 2 snapshots
 
 try {
-    Compare-BetaIdentitySnapshots-BetaId $Id 
+    Compare-BetaIdentitySnapshots -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Compare-BetaIdentitySnapshots -BetaId $Id -BetaSnapshot1 $Snapshot1 -BetaSnapshot2 $Snapshot2 -BetaAccessItemTypes $AccessItemTypes -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count  
@@ -132,7 +131,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Gets a list of differences of specific accessType for the given identity between 2 snapshots
 
 try {
-    Compare-BetaIdentitySnapshotsAccessType-BetaId $Id -BetaAccessType $AccessType 
+    Compare-BetaIdentitySnapshotsAccessType -BetaId $Id  -BetaAccessType $AccessType 
     
     # Below is a request that includes all optional parameters
     # Compare-BetaIdentitySnapshotsAccessType -BetaId $Id -BetaAccessType $AccessType -BetaAccessAssociated $AccessAssociated -BetaSnapshot1 $Snapshot1 -BetaSnapshot2 $Snapshot2 -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count  
@@ -174,7 +173,7 @@ $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The identity id
 # Get latest snapshot of identity
 
 try {
-    Get-BetaHistoricalIdentity-BetaId $Id 
+    Get-BetaHistoricalIdentity -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaHistoricalIdentity -BetaId $Id  
@@ -233,7 +232,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Lists all events for the given identity
 
 try {
-    Get-BetaHistoricalIdentityEvents-BetaId $Id 
+    Get-BetaHistoricalIdentityEvents -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaHistoricalIdentityEvents -BetaId $Id -BetaFrom $From -BetaEventTypes $EventTypes -BetaAccessItemTypes $AccessItemTypes -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count  
@@ -277,7 +276,7 @@ $Date = "2007-03-01T13:00:00Z" # String | The specified date
 # Gets an identity snapshot at a given date
 
 try {
-    Get-BetaIdentitySnapshot-BetaId $Id -BetaDate $Date 
+    Get-BetaIdentitySnapshot -BetaId $Id  -BetaDate $Date 
     
     # Below is a request that includes all optional parameters
     # Get-BetaIdentitySnapshot -BetaId $Id -BetaDate $Date  
@@ -331,7 +330,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Gets the summary for the event count for a specific identity
 
 try {
-    Get-BetaIdentitySnapshotSummary-BetaId $Id 
+    Get-BetaIdentitySnapshotSummary -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaIdentitySnapshotSummary -BetaId $Id -BetaBefore $Before -BetaInterval $Interval -BetaTimeZone $TimeZone -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count  
@@ -373,7 +372,7 @@ $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The identity id
 # Gets the start date of the identity
 
 try {
-    Get-BetaIdentityStartDate-BetaId $Id 
+    Get-BetaIdentityStartDate -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaIdentityStartDate -BetaId $Id  
@@ -480,7 +479,7 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 # List Access Items by Identity
 
 try {
-    Get-BetaIdentityAccessItems-BetaId $Id 
+    Get-BetaIdentityAccessItems -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaIdentityAccessItems -BetaId $Id -BetaType $Type -BetaFilters $Filters -BetaSorters $Sorters -BetaQuery $Query -BetaLimit $Limit -BetaCount $Count -BetaOffset $Offset  
@@ -527,7 +526,7 @@ $Type = "role" # String | Access item type. (optional)
 # Get Identity Access Items Snapshot
 
 try {
-    Get-BetaIdentitySnapshotAccessItems-BetaId $Id -BetaDate $Date 
+    Get-BetaIdentitySnapshotAccessItems -BetaId $Id  -BetaDate $Date 
     
     # Below is a request that includes all optional parameters
     # Get-BetaIdentitySnapshotAccessItems -BetaId $Id -BetaDate $Date -BetaType $Type  
@@ -579,7 +578,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Lists all the snapshots for the identity
 
 try {
-    Get-BetaIdentitySnapshots-BetaId $Id 
+    Get-BetaIdentitySnapshots -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaIdentitySnapshots -BetaId $Id -BetaStart $Start -BetaInterval $Interval -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count  

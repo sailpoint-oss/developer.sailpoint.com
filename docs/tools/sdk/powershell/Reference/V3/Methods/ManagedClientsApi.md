@@ -1,4 +1,3 @@
-
 ---
 id: managed-clients
 title: ManagedClients
@@ -66,7 +65,7 @@ $ManagedClientRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToManagedClientRequest -Json $ManagedClientRequest
-    New-ManagedClient-ManagedClientRequest $Result
+    New-ManagedClient -ManagedClientRequest $Result
     
     # Below is a request that includes all optional parameters
     # New-ManagedClient -ManagedClientRequest $ManagedClientRequest  
@@ -108,7 +107,7 @@ $Id = "4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7" # String | Managed client ID.
 # Delete Managed Client
 
 try {
-    Remove-ManagedClient-Id $Id 
+    Remove-ManagedClient -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-ManagedClient -Id $Id  
@@ -151,7 +150,7 @@ $Id = "4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7" # String | Managed client ID.
 # Get Managed Client
 
 try {
-    Get-ManagedClient-Id $Id 
+    Get-ManagedClient -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-ManagedClient -Id $Id  
@@ -196,7 +195,7 @@ $Type = "CCG" # ManagedClientType | Managed client type to get status for.
 # Get Managed Client Status
 
 try {
-    Get-ManagedClientStatus-Id $Id -Type $Type 
+    Get-ManagedClientStatus -Id $Id  -Type $Type 
     
     # Below is a request that includes all optional parameters
     # Get-ManagedClientStatus -Id $Id -Type $Type  
@@ -295,7 +294,7 @@ $Id = "4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7" # String | Managed client ID.
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-ManagedClient-Id $Id -JsonPatchOperation $Result
+    Update-ManagedClient -Id $Id  -JsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-ManagedClient -Id $Id -JsonPatchOperation $JsonPatchOperation  

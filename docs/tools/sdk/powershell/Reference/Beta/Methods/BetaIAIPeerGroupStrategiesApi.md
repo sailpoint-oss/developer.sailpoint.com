@@ -1,4 +1,3 @@
-
 ---
 id: beta-iai-peer-group-strategies
 title: IAIPeerGroupStrategies
@@ -58,7 +57,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Identity Outliers List
 
 try {
-    Get-BetaPeerGroupOutliers-BetaStrategy $Strategy 
+    Get-BetaPeerGroupOutliers -BetaStrategy $Strategy 
     
     # Below is a request that includes all optional parameters
     # Get-BetaPeerGroupOutliers -BetaStrategy $Strategy -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count  

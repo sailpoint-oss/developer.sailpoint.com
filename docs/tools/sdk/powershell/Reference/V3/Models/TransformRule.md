@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'TransformRule', 'TransformRule']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** |  **String** | This is the name of the Transform rule that needs to be invoked by the transform | [required]
-**RequiresPeriodicRefresh** |  Pointer to **Boolean** | A value that indicates whether the transform logic should be re-evaluated every evening as part of the identity refresh process | [optional] [default to $false]
+**Name** | **String** | This is the name of the Transform rule that needs to be invoked by the transform | [required]
+**RequiresPeriodicRefresh** | **Boolean** | A value that indicates whether the transform logic should be re-evaluated every evening as part of the identity refresh process | [optional] [default to $false]
 
 ## Examples
 

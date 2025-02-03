@@ -1,4 +1,3 @@
-
 ---
 id: beta-accounts
 title: Accounts
@@ -115,7 +114,7 @@ $AccountAttributesCreate = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccountAttributesCreate -Json $AccountAttributesCreate
-    New-BetaAccount-BetaAccountAttributesCreate $Result
+    New-BetaAccount -BetaAccountAttributesCreate $Result
     
     # Below is a request that includes all optional parameters
     # New-BetaAccount -BetaAccountAttributesCreate $AccountAttributesCreate  
@@ -162,7 +161,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Account ID.
 # Delete Account
 
 try {
-    Remove-BetaAccount-BetaId $Id 
+    Remove-BetaAccount -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-BetaAccount -BetaId $Id  
@@ -210,7 +209,7 @@ $Id = "c350d6aa4f104c61b062cb632421ad10" # String | The account id
 # Remove Account
 
 try {
-    Remove-BetaAccountAsync-BetaId $Id 
+    Remove-BetaAccountAsync -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-BetaAccountAsync -BetaId $Id  
@@ -260,7 +259,7 @@ $AccountToggleRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccountToggleRequest -Json $AccountToggleRequest
-    Disable-BetaAccount-BetaId $Id -BetaAccountToggleRequest $Result
+    Disable-BetaAccount -BetaId $Id  -BetaAccountToggleRequest $Result
     
     # Below is a request that includes all optional parameters
     # Disable-BetaAccount -BetaId $Id -BetaAccountToggleRequest $AccountToggleRequest  
@@ -303,7 +302,7 @@ $Id = "2c91808384203c2d018437e631158309" # String | The identity id.
 # Disable IDN Account for Identity
 
 try {
-    Disable-BetaAccountForIdentity-BetaId $Id 
+    Disable-BetaAccountForIdentity -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Disable-BetaAccountForIdentity -BetaId $Id  
@@ -348,7 +347,7 @@ $IdentitiesAccountsBulkRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToIdentitiesAccountsBulkRequest -Json $IdentitiesAccountsBulkRequest
-    Disable-BetaAccountsForIdentities-BetaIdentitiesAccountsBulkRequest $Result
+    Disable-BetaAccountsForIdentities -BetaIdentitiesAccountsBulkRequest $Result
     
     # Below is a request that includes all optional parameters
     # Disable-BetaAccountsForIdentities -BetaIdentitiesAccountsBulkRequest $IdentitiesAccountsBulkRequest  
@@ -398,7 +397,7 @@ $AccountToggleRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccountToggleRequest -Json $AccountToggleRequest
-    Enable-BetaAccount-BetaId $Id -BetaAccountToggleRequest $Result
+    Enable-BetaAccount -BetaId $Id  -BetaAccountToggleRequest $Result
     
     # Below is a request that includes all optional parameters
     # Enable-BetaAccount -BetaId $Id -BetaAccountToggleRequest $AccountToggleRequest  
@@ -441,7 +440,7 @@ $Id = "2c91808384203c2d018437e631158309" # String | The identity id.
 # Enable IDN Account for Identity
 
 try {
-    Enable-BetaAccountForIdentity-BetaId $Id 
+    Enable-BetaAccountForIdentity -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Enable-BetaAccountForIdentity -BetaId $Id  
@@ -486,7 +485,7 @@ $IdentitiesAccountsBulkRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToIdentitiesAccountsBulkRequest -Json $IdentitiesAccountsBulkRequest
-    Enable-BetaAccountsForIdentities-BetaIdentitiesAccountsBulkRequest $Result
+    Enable-BetaAccountsForIdentities -BetaIdentitiesAccountsBulkRequest $Result
     
     # Below is a request that includes all optional parameters
     # Enable-BetaAccountsForIdentities -BetaIdentitiesAccountsBulkRequest $IdentitiesAccountsBulkRequest  
@@ -530,7 +529,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Account ID.
 # Account Details
 
 try {
-    Get-BetaAccount-BetaId $Id 
+    Get-BetaAccount -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaAccount -BetaId $Id  
@@ -580,7 +579,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Account Entitlements
 
 try {
-    Get-BetaAccountEntitlements-BetaId $Id 
+    Get-BetaAccountEntitlements -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaAccountEntitlements -BetaId $Id -BetaOffset $Offset -BetaLimit $Limit -BetaCount $Count  
@@ -693,7 +692,7 @@ $AccountAttributes = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccountAttributes -Json $AccountAttributes
-    Send-BetaAccount-BetaId $Id -BetaAccountAttributes $Result
+    Send-BetaAccount -BetaId $Id  -BetaAccountAttributes $Result
     
     # Below is a request that includes all optional parameters
     # Send-BetaAccount -BetaId $Id -BetaAccountAttributes $AccountAttributes  
@@ -737,7 +736,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The account id
 # Reload Account
 
 try {
-    Submit-BetaReloadAccount-BetaId $Id 
+    Submit-BetaReloadAccount -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Submit-BetaReloadAccount -BetaId $Id  
@@ -789,7 +788,7 @@ $AccountUnlockRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccountUnlockRequest -Json $AccountUnlockRequest
-    Unlock-BetaAccount-BetaId $Id -BetaAccountUnlockRequest $Result
+    Unlock-BetaAccount -BetaId $Id  -BetaAccountUnlockRequest $Result
     
     # Below is a request that includes all optional parameters
     # Unlock-BetaAccount -BetaId $Id -BetaAccountUnlockRequest $AccountUnlockRequest  
@@ -848,7 +847,7 @@ $RequestBody =  # SystemCollectionsHashtable[] | A list of account update operat
 
 try {
     $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
-    Update-BetaAccount-BetaId $Id -BetaRequestBody $Result
+    Update-BetaAccount -BetaId $Id  -BetaRequestBody $Result
     
     # Below is a request that includes all optional parameters
     # Update-BetaAccount -BetaId $Id -BetaRequestBody $RequestBody  

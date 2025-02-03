@@ -16,12 +16,12 @@ tags: ['SDK', 'Software Development Kit', 'IdentityHistoryResponse', 'V2024Ident
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | the identity ID | [optional] 
-**DisplayName** |  Pointer to **String** | the display name of the identity | [optional] 
-**Snapshot** |  Pointer to **String** | the date when the identity record was created | [optional] 
-**DeletedDate** |  Pointer to **String** | the date when the identity was deleted | [optional] 
-**AccessItemCount** |  Pointer to **map[string]Int32** | A map containing the count of each access item | [optional] 
-**Attributes** |  Pointer to [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | A map containing the identity attributes | [optional] 
+**Id** | **String** | the identity ID | [optional] 
+**DisplayName** | **String** | the display name of the identity | [optional] 
+**Snapshot** | **String** | the date when the identity record was created | [optional] 
+**DeletedDate** | **String** | the date when the identity was deleted | [optional] 
+**AccessItemCount** | **map[string]Int32** | A map containing the count of each access item | [optional] 
+**Attributes** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | A map containing the identity attributes | [optional] 
 
 ## Examples
 

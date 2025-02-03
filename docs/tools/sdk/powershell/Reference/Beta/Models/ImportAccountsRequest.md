@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'ImportAccountsRequest', 'BetaImportAc
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**File** |  Pointer to **System.IO.FileInfo** | The CSV file containing the source accounts to aggregate. | [optional] 
-**DisableOptimization** |  Pointer to  **Enum** [  "true",    "false" ] | Use this flag to reprocess every account whether or not the data has changed. | [optional] 
+**File** | **System.IO.FileInfo** | The CSV file containing the source accounts to aggregate. | [optional] 
+**DisableOptimization** |  **Enum** [  "true",    "false" ] | Use this flag to reprocess every account whether or not the data has changed. | [optional] 
 
 ## Examples
 

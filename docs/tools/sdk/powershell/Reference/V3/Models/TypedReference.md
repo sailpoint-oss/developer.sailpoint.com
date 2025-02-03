@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'TypedReference', 'TypedReference']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  [**DtoType**](dto-type) |  | [required]
-**Id** |  **String** | The id of the object.  | [required]
+**Type** | [**DtoType**](dto-type) |  | [required]
+**Id** | **String** | The id of the object.  | [required]
 
 ## Examples
 

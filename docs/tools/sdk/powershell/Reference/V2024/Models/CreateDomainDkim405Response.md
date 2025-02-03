@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'CreateDomainDkim405Response', 'V2024C
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ErrorName** |  Pointer to [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | A message describing the error | [optional] 
-**ErrorMessage** |  Pointer to [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | Description of the error | [optional] 
-**TrackingId** |  Pointer to **String** | Unique tracking id for the error. | [optional] 
+**ErrorName** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | A message describing the error | [optional] 
+**ErrorMessage** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | Description of the error | [optional] 
+**TrackingId** | **String** | Unique tracking id for the error. | [optional] 
 
 ## Examples
 

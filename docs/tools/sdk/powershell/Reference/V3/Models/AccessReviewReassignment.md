@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'AccessReviewReassignment', 'AccessRev
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Reassign** |  [**[]ReassignReference**](reassign-reference) |  | [required]
-**ReassignTo** |  **String** | The ID of the identity to which the certification is reassigned | [required]
-**Reason** |  **String** | The reason comment for why the reassign was made | [required]
+**Reassign** | [**[]ReassignReference**](reassign-reference) |  | [required]
+**ReassignTo** | **String** | The ID of the identity to which the certification is reassigned | [required]
+**Reason** | **String** | The reason comment for why the reassign was made | [required]
 
 ## Examples
 

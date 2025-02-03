@@ -1,4 +1,3 @@
-
 ---
 id: v2024-iai-role-mining
 title: IAIRoleMining
@@ -92,7 +91,7 @@ $RoleMiningPotentialRoleProvisionRequest = @"{
 # Create request to provision a potential role into an actual role.
 
 try {
-    New-V2024PotentialRoleProvisionRequest-V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental 
+    New-V2024PotentialRoleProvisionRequest -V2024SessionId $SessionId  -V2024PotentialRoleId $PotentialRoleId  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # New-V2024PotentialRoleProvisionRequest -V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental -V2024MinEntitlementPopularity $MinEntitlementPopularity -V2024IncludeCommonAccess $IncludeCommonAccess -V2024RoleMiningPotentialRoleProvisionRequest $RoleMiningPotentialRoleProvisionRequest  
@@ -168,7 +167,7 @@ $RoleMiningSessionDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToRoleMiningSessionDto -Json $RoleMiningSessionDto
-    New-V2024RoleMiningSessions-V2024XSailPointExperimental $XSailPointExperimental -V2024RoleMiningSessionDto $Result
+    New-V2024RoleMiningSessions -V2024XSailPointExperimental $XSailPointExperimental  -V2024RoleMiningSessionDto $Result
     
     # Below is a request that includes all optional parameters
     # New-V2024RoleMiningSessions -V2024XSailPointExperimental $XSailPointExperimental -V2024RoleMiningSessionDto $RoleMiningSessionDto  
@@ -215,7 +214,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Export (download) details for a potential role in a role mining session
 
 try {
-    Invoke-V2024DownloadRoleMiningPotentialRoleZip-V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024ExportId $ExportId -V2024XSailPointExperimental $XSailPointExperimental 
+    Invoke-V2024DownloadRoleMiningPotentialRoleZip -V2024SessionId $SessionId  -V2024PotentialRoleId $PotentialRoleId  -V2024ExportId $ExportId  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Invoke-V2024DownloadRoleMiningPotentialRoleZip -V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024ExportId $ExportId -V2024XSailPointExperimental $XSailPointExperimental  
@@ -260,7 +259,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Export (download) details for a potential role in a role mining session
 
 try {
-    Export-V2024RoleMiningPotentialRole-V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental 
+    Export-V2024RoleMiningPotentialRole -V2024SessionId $SessionId  -V2024PotentialRoleId $PotentialRoleId  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Export-V2024RoleMiningPotentialRole -V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental  
@@ -310,7 +309,7 @@ $RoleMiningPotentialRoleExportRequest = @"{
 # Asynchronously export details for a potential role in a role mining session and upload to S3
 
 try {
-    Export-V2024RoleMiningPotentialRoleAsync-V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental 
+    Export-V2024RoleMiningPotentialRoleAsync -V2024SessionId $SessionId  -V2024PotentialRoleId $PotentialRoleId  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Export-V2024RoleMiningPotentialRoleAsync -V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental -V2024RoleMiningPotentialRoleExportRequest $RoleMiningPotentialRoleExportRequest  
@@ -357,7 +356,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Retrieve status of a potential role export job
 
 try {
-    Export-V2024RoleMiningPotentialRoleStatus-V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024ExportId $ExportId -V2024XSailPointExperimental $XSailPointExperimental 
+    Export-V2024RoleMiningPotentialRoleStatus -V2024SessionId $SessionId  -V2024PotentialRoleId $PotentialRoleId  -V2024ExportId $ExportId  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Export-V2024RoleMiningPotentialRoleStatus -V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024ExportId $ExportId -V2024XSailPointExperimental $XSailPointExperimental  
@@ -409,7 +408,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Retrieves all potential role summaries
 
 try {
-    Get-V2024AllPotentialRoleSummaries-V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024AllPotentialRoleSummaries -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024AllPotentialRoleSummaries -V2024XSailPointExperimental $XSailPointExperimental -V2024Sorters $Sorters -V2024Filters $Filters -V2024Offset $Offset -V2024Limit $Limit -V2024Count $Count  
@@ -456,7 +455,7 @@ $IncludeCommonAccess = $true # Boolean | Boolean determining whether common acce
 # Retrieves entitlement popularity distribution for a potential role in a role mining session
 
 try {
-    Get-V2024EntitlementDistributionPotentialRole-V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024EntitlementDistributionPotentialRole -V2024SessionId $SessionId  -V2024PotentialRoleId $PotentialRoleId  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024EntitlementDistributionPotentialRole -V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental -V2024IncludeCommonAccess $IncludeCommonAccess  
@@ -514,7 +513,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Retrieves entitlements for a potential role in a role mining session
 
 try {
-    Get-V2024EntitlementsPotentialRole-V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024EntitlementsPotentialRole -V2024SessionId $SessionId  -V2024PotentialRoleId $PotentialRoleId  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024EntitlementsPotentialRole -V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental -V2024IncludeCommonAccess $IncludeCommonAccess -V2024Sorters $Sorters -V2024Filters $Filters -V2024Offset $Offset -V2024Limit $Limit -V2024Count $Count  
@@ -569,7 +568,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Retrieves excluded entitlements for a potential role in a role mining session
 
 try {
-    Get-V2024ExcludedEntitlementsPotentialRole-V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024ExcludedEntitlementsPotentialRole -V2024SessionId $SessionId  -V2024PotentialRoleId $PotentialRoleId  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024ExcludedEntitlementsPotentialRole -V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental -V2024Sorters $Sorters -V2024Filters $Filters -V2024Offset $Offset -V2024Limit $Limit -V2024Count $Count  
@@ -624,7 +623,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Retrieves identities for a potential role in a role mining session
 
 try {
-    Get-V2024IdentitiesPotentialRole-V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024IdentitiesPotentialRole -V2024SessionId $SessionId  -V2024PotentialRoleId $PotentialRoleId  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024IdentitiesPotentialRole -V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental -V2024Sorters $Sorters -V2024Filters $Filters -V2024Offset $Offset -V2024Limit $Limit -V2024Count $Count  
@@ -670,7 +669,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Retrieves a specific potential role
 
 try {
-    Get-V2024PotentialRole-V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024PotentialRole -V2024SessionId $SessionId  -V2024PotentialRoleId $PotentialRoleId  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024PotentialRole -V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental  
@@ -724,7 +723,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Retrieves the applications of a potential role for a role mining session
 
 try {
-    Get-V2024PotentialRoleApplications-V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024PotentialRoleApplications -V2024SessionId $SessionId  -V2024PotentialRoleId $PotentialRoleId  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024PotentialRoleApplications -V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental -V2024Filters $Filters -V2024Offset $Offset -V2024Limit $Limit -V2024Count $Count  
@@ -778,7 +777,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Retrieves the entitlements of a potential role for a role mining session
 
 try {
-    Get-V2024PotentialRoleEntitlements-V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024PotentialRoleEntitlements -V2024SessionId $SessionId  -V2024PotentialRoleId $PotentialRoleId  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024PotentialRoleEntitlements -V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental -V2024Filters $Filters -V2024Offset $Offset -V2024Limit $Limit -V2024Count $Count  
@@ -832,7 +831,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Retrieves potential role source usage
 
 try {
-    Get-V2024PotentialRoleSourceIdentityUsage-V2024PotentialRoleId $PotentialRoleId -V2024SourceId $SourceId -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024PotentialRoleSourceIdentityUsage -V2024PotentialRoleId $PotentialRoleId  -V2024SourceId $SourceId  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024PotentialRoleSourceIdentityUsage -V2024PotentialRoleId $PotentialRoleId -V2024SourceId $SourceId -V2024XSailPointExperimental $XSailPointExperimental -V2024Sorters $Sorters -V2024Offset $Offset -V2024Limit $Limit -V2024Count $Count  
@@ -886,7 +885,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Retrieves all potential role summaries
 
 try {
-    Get-V2024PotentialRoleSummaries-V2024SessionId $SessionId -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024PotentialRoleSummaries -V2024SessionId $SessionId  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024PotentialRoleSummaries -V2024SessionId $SessionId -V2024XSailPointExperimental $XSailPointExperimental -V2024Sorters $Sorters -V2024Filters $Filters -V2024Offset $Offset -V2024Limit $Limit -V2024Count $Count  
@@ -930,7 +929,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Retrieves a specific potential role
 
 try {
-    Get-V2024RoleMiningPotentialRole-V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024RoleMiningPotentialRole -V2024PotentialRoleId $PotentialRoleId  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024RoleMiningPotentialRole -V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental  
@@ -975,7 +974,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Get a role mining session
 
 try {
-    Get-V2024RoleMiningSession-V2024SessionId $SessionId -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024RoleMiningSession -V2024SessionId $SessionId  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024RoleMiningSession -V2024SessionId $SessionId -V2024XSailPointExperimental $XSailPointExperimental  
@@ -1018,7 +1017,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Get role mining session status state
 
 try {
-    Get-V2024RoleMiningSessionStatus-V2024SessionId $SessionId -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024RoleMiningSessionStatus -V2024SessionId $SessionId  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024RoleMiningSessionStatus -V2024SessionId $SessionId -V2024XSailPointExperimental $XSailPointExperimental  
@@ -1070,7 +1069,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Retrieves all role mining sessions
 
 try {
-    Get-V2024RoleMiningSessions-V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024RoleMiningSessions -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024RoleMiningSessions -V2024XSailPointExperimental $XSailPointExperimental -V2024Filters $Filters -V2024Sorters $Sorters -V2024Offset $Offset -V2024Limit $Limit -V2024Count $Count  
@@ -1120,7 +1119,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Retrieves all saved potential roles
 
 try {
-    Get-V2024SavedPotentialRoles-V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024SavedPotentialRoles -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024SavedPotentialRoles -V2024XSailPointExperimental $XSailPointExperimental -V2024Sorters $Sorters -V2024Offset $Offset -V2024Limit $Limit -V2024Count $Count  
@@ -1183,7 +1182,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 
 try {
     $Result = ConvertFrom-JsonToPatchPotentialRoleRequestInner -Json $PatchPotentialRoleRequestInner
-    Update-V2024PotentialRole-V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental -V2024PatchPotentialRoleRequestInner $Result
+    Update-V2024PotentialRole -V2024SessionId $SessionId  -V2024PotentialRoleId $PotentialRoleId  -V2024XSailPointExperimental $XSailPointExperimental  -V2024PatchPotentialRoleRequestInner $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024PotentialRole -V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental -V2024PatchPotentialRoleRequestInner $PatchPotentialRoleRequestInner  
@@ -1246,7 +1245,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 
 try {
     $Result = ConvertFrom-JsonToPatchPotentialRoleRequestInner -Json $PatchPotentialRoleRequestInner
-    Update-V2024PotentialRole0-V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental -V2024PatchPotentialRoleRequestInner $Result
+    Update-V2024PotentialRole0 -V2024SessionId $SessionId  -V2024PotentialRoleId $PotentialRoleId  -V2024XSailPointExperimental $XSailPointExperimental  -V2024PatchPotentialRoleRequestInner $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024PotentialRole0 -V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental -V2024PatchPotentialRoleRequestInner $PatchPotentialRoleRequestInner  
@@ -1299,7 +1298,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024RoleMiningSession-V2024SessionId $SessionId -V2024XSailPointExperimental $XSailPointExperimental -V2024JsonPatchOperation $Result
+    Update-V2024RoleMiningSession -V2024SessionId $SessionId  -V2024XSailPointExperimental $XSailPointExperimental  -V2024JsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024RoleMiningSession -V2024SessionId $SessionId -V2024XSailPointExperimental $XSailPointExperimental -V2024JsonPatchOperation $JsonPatchOperation  
@@ -1350,7 +1349,7 @@ $RoleMiningPotentialRoleEditEntitlements = @"{
 
 try {
     $Result = ConvertFrom-JsonToRoleMiningPotentialRoleEditEntitlements -Json $RoleMiningPotentialRoleEditEntitlements
-    Update-V2024EntitlementsPotentialRole-V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental -V2024RoleMiningPotentialRoleEditEntitlements $Result
+    Update-V2024EntitlementsPotentialRole -V2024SessionId $SessionId  -V2024PotentialRoleId $PotentialRoleId  -V2024XSailPointExperimental $XSailPointExperimental  -V2024RoleMiningPotentialRoleEditEntitlements $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024EntitlementsPotentialRole -V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental -V2024RoleMiningPotentialRoleEditEntitlements $RoleMiningPotentialRoleEditEntitlements  

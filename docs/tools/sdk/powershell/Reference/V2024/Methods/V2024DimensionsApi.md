@@ -1,4 +1,3 @@
-
 ---
 id: v2024-dimensions
 title: Dimensions
@@ -152,7 +151,7 @@ $Dimension = @"{
 
 try {
     $Result = ConvertFrom-JsonToDimension -Json $Dimension
-    New-V2024Dimension-V2024RoleId $RoleId -V2024Dimension $Result
+    New-V2024Dimension -V2024RoleId $RoleId  -V2024Dimension $Result
     
     # Below is a request that includes all optional parameters
     # New-V2024Dimension -V2024RoleId $RoleId -V2024Dimension $Dimension  
@@ -202,7 +201,7 @@ $DimensionBulkDeleteRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToDimensionBulkDeleteRequest -Json $DimensionBulkDeleteRequest
-    Remove-V2024BulkDimensions-V2024RoleId $RoleId -V2024DimensionBulkDeleteRequest $Result
+    Remove-V2024BulkDimensions -V2024RoleId $RoleId  -V2024DimensionBulkDeleteRequest $Result
     
     # Below is a request that includes all optional parameters
     # Remove-V2024BulkDimensions -V2024RoleId $RoleId -V2024DimensionBulkDeleteRequest $DimensionBulkDeleteRequest  
@@ -247,7 +246,7 @@ $DimensionId = "2c9180835d191a86015d28455b4a2329" # String | Id of the Dimension
 # Delete a Dimension
 
 try {
-    Remove-V2024Dimension-V2024RoleId $RoleId -V2024DimensionId $DimensionId 
+    Remove-V2024Dimension -V2024RoleId $RoleId  -V2024DimensionId $DimensionId 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024Dimension -V2024RoleId $RoleId -V2024DimensionId $DimensionId  
@@ -293,7 +292,7 @@ $DimensionId = "2c9180835d191a86015d28455b4a2329" # String | Id of the Dimension
 # Get a Dimension under Role.
 
 try {
-    Get-V2024Dimension-V2024RoleId $RoleId -V2024DimensionId $DimensionId 
+    Get-V2024Dimension -V2024RoleId $RoleId  -V2024DimensionId $DimensionId 
     
     # Below is a request that includes all optional parameters
     # Get-V2024Dimension -V2024RoleId $RoleId -V2024DimensionId $DimensionId  
@@ -349,7 +348,7 @@ $Sorters = "name,-modified" # String | Sort results using the standard syntax de
 # List Dimension's Entitlements
 
 try {
-    Get-V2024DimensionEntitlements-V2024RoleId $RoleId -V2024DimensionId $DimensionId 
+    Get-V2024DimensionEntitlements -V2024RoleId $RoleId  -V2024DimensionId $DimensionId 
     
     # Below is a request that includes all optional parameters
     # Get-V2024DimensionEntitlements -V2024RoleId $RoleId -V2024DimensionId $DimensionId -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Filters $Filters -V2024Sorters $Sorters  
@@ -406,7 +405,7 @@ $Sorters = "name,-modified" # String | Sort results using the standard syntax de
 # List Dimension's Access Profiles
 
 try {
-    Get-V2024DimensionAccessProfiles-V2024RoleId $RoleId -V2024DimensionId $DimensionId 
+    Get-V2024DimensionAccessProfiles -V2024RoleId $RoleId  -V2024DimensionId $DimensionId 
     
     # Below is a request that includes all optional parameters
     # Get-V2024DimensionAccessProfiles -V2024RoleId $RoleId -V2024DimensionId $DimensionId -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Filters $Filters -V2024Sorters $Sorters  
@@ -462,7 +461,7 @@ $Sorters = "name,-modified" # String | Sort results using the standard syntax de
 # List Dimensions
 
 try {
-    Get-V2024Dimensions-V2024RoleId $RoleId 
+    Get-V2024Dimensions -V2024RoleId $RoleId 
     
     # Below is a request that includes all optional parameters
     # Get-V2024Dimensions -V2024RoleId $RoleId -V2024ForSubadmin $ForSubadmin -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Filters $Filters -V2024Sorters $Sorters  
@@ -518,7 +517,7 @@ $DimensionId = "2c9180835d191a86015d28455b4a2329" # String | Id of the Dimension
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024Dimension-V2024RoleId $RoleId -V2024DimensionId $DimensionId -V2024JsonPatchOperation $Result
+    Update-V2024Dimension -V2024RoleId $RoleId  -V2024DimensionId $DimensionId  -V2024JsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024Dimension -V2024RoleId $RoleId -V2024DimensionId $DimensionId -V2024JsonPatchOperation $JsonPatchOperation  

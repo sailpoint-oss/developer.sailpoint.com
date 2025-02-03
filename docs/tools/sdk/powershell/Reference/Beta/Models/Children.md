@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'Children', 'BetaChildren']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Operator** |  Pointer to **String** |  | [optional] 
-**Attribute** |  Pointer to **String** |  | [optional] 
-**Value** |  Pointer to [**Value**](value) |  | [optional] 
-**Children** |  Pointer to **String** |  | [optional] 
+**Operator** | **String** |  | [optional] 
+**Attribute** | **String** |  | [optional] 
+**Value** | [**Value**](value) |  | [optional] 
+**Children** | **String** |  | [optional] 
 
 ## Examples
 

@@ -16,14 +16,14 @@ tags: ['SDK', 'Software Development Kit', 'BaseEntitlement', 'BaseEntitlement']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**HasPermissions** |  Pointer to **Boolean** | Indicates whether the entitlement has permissions. | [optional] [default to $false]
-**Description** |  Pointer to **String** | Entitlement's description. | [optional] 
-**Attribute** |  Pointer to **String** | Entitlement attribute's name. | [optional] 
-**Value** |  Pointer to **String** | Entitlement's value. | [optional] 
-**Schema** |  Pointer to **String** | Entitlement's schema. | [optional] 
-**Privileged** |  Pointer to **Boolean** | Indicates whether the entitlement is privileged. | [optional] [default to $false]
-**Id** |  Pointer to **String** | Entitlement's ID. | [optional] 
-**Name** |  Pointer to **String** | Entitlement's name. | [optional] 
+**HasPermissions** | **Boolean** | Indicates whether the entitlement has permissions. | [optional] [default to $false]
+**Description** | **String** | Entitlement's description. | [optional] 
+**Attribute** | **String** | Entitlement attribute's name. | [optional] 
+**Value** | **String** | Entitlement's value. | [optional] 
+**Schema** | **String** | Entitlement's schema. | [optional] 
+**Privileged** | **Boolean** | Indicates whether the entitlement is privileged. | [optional] [default to $false]
+**Id** | **String** | Entitlement's ID. | [optional] 
+**Name** | **String** | Entitlement's name. | [optional] 
 
 ## Examples
 

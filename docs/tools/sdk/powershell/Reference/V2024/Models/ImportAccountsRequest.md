@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'ImportAccountsRequest', 'V2024ImportA
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**File** |  Pointer to **System.IO.FileInfo** | The CSV file containing the source accounts to aggregate. | [optional] 
-**DisableOptimization** |  Pointer to **String** | Use this flag to reprocess every account whether or not the data has changed. | [optional] 
+**File** | **System.IO.FileInfo** | The CSV file containing the source accounts to aggregate. | [optional] 
+**DisableOptimization** | **String** | Use this flag to reprocess every account whether or not the data has changed. | [optional] 
 
 ## Examples
 

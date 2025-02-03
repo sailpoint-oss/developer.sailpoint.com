@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'AccessItemRef', 'V2024AccessItemRef']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | ID of the access item to retrieve the recommendation for. | [optional] 
-**Type** |  Pointer to  **Enum** [  "ENTITLEMENT",    "ACCESS_PROFILE",    "ROLE" ] | Access item's type. | [optional] 
+**Id** | **String** | ID of the access item to retrieve the recommendation for. | [optional] 
+**Type** |  **Enum** [  "ENTITLEMENT",    "ACCESS_PROFILE",    "ROLE" ] | Access item's type. | [optional] 
 
 ## Examples
 

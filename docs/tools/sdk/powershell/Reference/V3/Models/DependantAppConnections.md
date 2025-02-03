@@ -16,15 +16,15 @@ tags: ['SDK', 'Software Development Kit', 'DependantAppConnections', 'DependantA
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CloudAppId** |  Pointer to **String** | Id of the connected Application | [optional] 
-**Description** |  Pointer to **String** | Description of the connected Application | [optional] 
-**Enabled** |  Pointer to **Boolean** | Is the Application enabled | [optional] [default to $true]
-**ProvisionRequestEnabled** |  Pointer to **Boolean** | Is Provisioning enabled for connected Application | [optional] [default to $true]
-**AccountSource** |  Pointer to [**DependantAppConnectionsAccountSource**](dependant-app-connections-account-source) |  | [optional] 
-**LauncherCount** |  Pointer to **Int64** | The amount of launchers for connected Application (long type) | [optional] 
-**MatchAllAccount** |  Pointer to **Boolean** | Is Provisioning enabled for connected Application | [optional] [default to $false]
-**Owner** |  Pointer to [**[]BaseReferenceDto**](base-reference-dto) | The owner of the connected Application | [optional] 
-**AppCenterEnabled** |  Pointer to **Boolean** | Is App Center enabled for connected Application | [optional] [default to $false]
+**CloudAppId** | **String** | Id of the connected Application | [optional] 
+**Description** | **String** | Description of the connected Application | [optional] 
+**Enabled** | **Boolean** | Is the Application enabled | [optional] [default to $true]
+**ProvisionRequestEnabled** | **Boolean** | Is Provisioning enabled for connected Application | [optional] [default to $true]
+**AccountSource** | [**DependantAppConnectionsAccountSource**](dependant-app-connections-account-source) |  | [optional] 
+**LauncherCount** | **Int64** | The amount of launchers for connected Application (long type) | [optional] 
+**MatchAllAccount** | **Boolean** | Is Provisioning enabled for connected Application | [optional] [default to $false]
+**Owner** | [**[]BaseReferenceDto**](base-reference-dto) | The owner of the connected Application | [optional] 
+**AppCenterEnabled** | **Boolean** | Is App Center enabled for connected Application | [optional] [default to $false]
 
 ## Examples
 

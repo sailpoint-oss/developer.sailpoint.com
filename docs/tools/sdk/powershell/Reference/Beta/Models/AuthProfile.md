@@ -16,13 +16,13 @@ tags: ['SDK', 'Software Development Kit', 'AuthProfile', 'BetaAuthProfile']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** |  Pointer to **String** | Authentication Profile name. | [optional] 
-**OffNetwork** |  Pointer to **Boolean** | Use it to block access from off network. | [optional] [default to $false]
-**UntrustedGeography** |  Pointer to **Boolean** | Use it to block access from untrusted geoographies. | [optional] [default to $false]
-**ApplicationId** |  Pointer to **String** | Application ID. | [optional] 
-**ApplicationName** |  Pointer to **String** | Application name. | [optional] 
-**Type** |  Pointer to  **Enum** [  "BLOCK",    "MFA",    "NON_PTA",    "PTA" ] | Type of the Authentication Profile. | [optional] 
-**StrongAuthLogin** |  Pointer to **Boolean** | Use it to enable strong authentication. | [optional] [default to $false]
+**Name** | **String** | Authentication Profile name. | [optional] 
+**OffNetwork** | **Boolean** | Use it to block access from off network. | [optional] [default to $false]
+**UntrustedGeography** | **Boolean** | Use it to block access from untrusted geoographies. | [optional] [default to $false]
+**ApplicationId** | **String** | Application ID. | [optional] 
+**ApplicationName** | **String** | Application name. | [optional] 
+**Type** |  **Enum** [  "BLOCK",    "MFA",    "NON_PTA",    "PTA" ] | Type of the Authentication Profile. | [optional] 
+**StrongAuthLogin** | **Boolean** | Use it to enable strong authentication. | [optional] [default to $false]
 
 ## Examples
 

@@ -1,4 +1,3 @@
-
 ---
 id: v2024-sod-violations
 title: SODViolations
@@ -84,7 +83,7 @@ $IdentityWithNewAccess = @"{
 
 try {
     $Result = ConvertFrom-JsonToIdentityWithNewAccess -Json $IdentityWithNewAccess
-    Start-V2024PredictSodViolations-V2024IdentityWithNewAccess $Result
+    Start-V2024PredictSodViolations -V2024IdentityWithNewAccess $Result
     
     # Below is a request that includes all optional parameters
     # Start-V2024PredictSodViolations -V2024IdentityWithNewAccess $IdentityWithNewAccess  
@@ -128,7 +127,7 @@ $IdentityWithNewAccess1 = @"{identityId=2c91808568c529c60168cca6f90c1313, access
 
 try {
     $Result = ConvertFrom-JsonToIdentityWithNewAccess1 -Json $IdentityWithNewAccess1
-    Start-V2024ViolationCheck-V2024IdentityWithNewAccess1 $Result
+    Start-V2024ViolationCheck -V2024IdentityWithNewAccess1 $Result
     
     # Below is a request that includes all optional parameters
     # Start-V2024ViolationCheck -V2024IdentityWithNewAccess1 $IdentityWithNewAccess1  

@@ -1,4 +1,3 @@
-
 ---
 id: sod-policies
 title: SODPolicies
@@ -151,7 +150,7 @@ $SodPolicy = @"{
 
 try {
     $Result = ConvertFrom-JsonToSodPolicy -Json $SodPolicy
-    New-SodPolicy-SodPolicy $Result
+    New-SodPolicy -SodPolicy $Result
     
     # Below is a request that includes all optional parameters
     # New-SodPolicy -SodPolicy $SodPolicy  
@@ -197,7 +196,7 @@ $Logical = $true # Boolean | Indicates whether this is a soft delete (logical tr
 # Delete SOD policy by ID
 
 try {
-    Remove-SodPolicy-Id $Id 
+    Remove-SodPolicy -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-SodPolicy -Id $Id -Logical $Logical  
@@ -240,7 +239,7 @@ $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The ID of the SOD policy
 # Delete SOD policy schedule
 
 try {
-    Remove-SodPolicySchedule-Id $Id 
+    Remove-SodPolicySchedule -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-SodPolicySchedule -Id $Id  
@@ -285,7 +284,7 @@ $FileName = "custom-name" # String | Custom Name for the  file.
 # Download custom violation report
 
 try {
-    Get-CustomViolationReport-ReportResultId $ReportResultId -FileName $FileName 
+    Get-CustomViolationReport -ReportResultId $ReportResultId  -FileName $FileName 
     
     # Below is a request that includes all optional parameters
     # Get-CustomViolationReport -ReportResultId $ReportResultId -FileName $FileName  
@@ -328,7 +327,7 @@ $ReportResultId = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the re
 # Download violation report
 
 try {
-    Get-DefaultViolationReport-ReportResultId $ReportResultId 
+    Get-DefaultViolationReport -ReportResultId $ReportResultId 
     
     # Below is a request that includes all optional parameters
     # Get-DefaultViolationReport -ReportResultId $ReportResultId  
@@ -412,7 +411,7 @@ $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The ID of the SOD Policy
 # Get SOD policy by ID
 
 try {
-    Get-SodPolicy-Id $Id 
+    Get-SodPolicy -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-SodPolicy -Id $Id  
@@ -454,7 +453,7 @@ $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The ID of the SOD policy
 # Get SOD policy schedule
 
 try {
-    Get-SodPolicySchedule-Id $Id 
+    Get-SodPolicySchedule -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-SodPolicySchedule -Id $Id  
@@ -497,7 +496,7 @@ $ReportResultId = "2e8d8180-24bc-4d21-91c6-7affdb473b0d" # String | The ID of th
 # Get violation report run status
 
 try {
-    Get-SodViolationReportRunStatus-ReportResultId $ReportResultId 
+    Get-SodViolationReportRunStatus -ReportResultId $ReportResultId 
     
     # Below is a request that includes all optional parameters
     # Get-SodViolationReportRunStatus -ReportResultId $ReportResultId  
@@ -540,7 +539,7 @@ $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The ID of the violation 
 # Get SOD violation report status
 
 try {
-    Get-SodViolationReportStatus-Id $Id 
+    Get-SodViolationReportStatus -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-SodViolationReportStatus -Id $Id  
@@ -644,7 +643,7 @@ $Id = "2c918083-5d19-1a86-015d-28455b4a2329" # String | The ID of the SOD policy
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-SodPolicy-Id $Id -JsonPatchOperation $Result
+    Update-SodPolicy -Id $Id  -JsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-SodPolicy -Id $Id -JsonPatchOperation $JsonPatchOperation  
@@ -726,7 +725,7 @@ $SodPolicySchedule = @"{
 
 try {
     $Result = ConvertFrom-JsonToSodPolicySchedule -Json $SodPolicySchedule
-    Send-PolicySchedule-Id $Id -SodPolicySchedule $Result
+    Send-PolicySchedule -Id $Id  -SodPolicySchedule $Result
     
     # Below is a request that includes all optional parameters
     # Send-PolicySchedule -Id $Id -SodPolicySchedule $SodPolicySchedule  
@@ -828,7 +827,7 @@ $SodPolicy = @"{
 
 try {
     $Result = ConvertFrom-JsonToSodPolicy -Json $SodPolicy
-    Send-SodPolicy-Id $Id -SodPolicy $Result
+    Send-SodPolicy -Id $Id  -SodPolicy $Result
     
     # Below is a request that includes all optional parameters
     # Send-SodPolicy -Id $Id -SodPolicy $SodPolicy  
@@ -870,7 +869,7 @@ $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The SOD policy ID to run
 # Evaluate one policy by ID
 
 try {
-    Start-EvaluateSodPolicy-Id $Id 
+    Start-EvaluateSodPolicy -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Start-EvaluateSodPolicy -Id $Id  
@@ -957,7 +956,7 @@ $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The SOD policy ID to run
 # Runs SOD policy violation report
 
 try {
-    Start-SodPolicy-Id $Id 
+    Start-SodPolicy -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Start-SodPolicy -Id $Id  

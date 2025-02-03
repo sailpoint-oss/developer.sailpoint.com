@@ -1,4 +1,3 @@
-
 ---
 id: beta-access-request-identity-metrics
 title: AccessRequestIdentityMetrics
@@ -60,7 +59,7 @@ $Type = "ENTITLEMENT" # String | Requested access item's type.
 # Return access request identity metrics
 
 try {
-    Get-BetaAccessRequestIdentityMetrics-BetaIdentityId $IdentityId -BetaRequestedObjectId $RequestedObjectId -BetaType $Type 
+    Get-BetaAccessRequestIdentityMetrics -BetaIdentityId $IdentityId  -BetaRequestedObjectId $RequestedObjectId  -BetaType $Type 
     
     # Below is a request that includes all optional parameters
     # Get-BetaAccessRequestIdentityMetrics -BetaIdentityId $IdentityId -BetaRequestedObjectId $RequestedObjectId -BetaType $Type  

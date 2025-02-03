@@ -1,4 +1,3 @@
-
 ---
 id: v2024-managed-clients
 title: ManagedClients
@@ -66,7 +65,7 @@ $ManagedClientRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToManagedClientRequest -Json $ManagedClientRequest
-    New-V2024ManagedClient-V2024ManagedClientRequest $Result
+    New-V2024ManagedClient -V2024ManagedClientRequest $Result
     
     # Below is a request that includes all optional parameters
     # New-V2024ManagedClient -V2024ManagedClientRequest $ManagedClientRequest  
@@ -108,7 +107,7 @@ $Id = "4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7" # String | Managed client ID.
 # Delete Managed Client
 
 try {
-    Remove-V2024ManagedClient-V2024Id $Id 
+    Remove-V2024ManagedClient -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024ManagedClient -V2024Id $Id  
@@ -151,7 +150,7 @@ $Id = "4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7" # String | Managed client ID.
 # Get Managed Client
 
 try {
-    Get-V2024ManagedClient-V2024Id $Id 
+    Get-V2024ManagedClient -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-V2024ManagedClient -V2024Id $Id  
@@ -196,7 +195,7 @@ $Type = "CCG" # ManagedClientType | Managed client type to get status for.
 # Get Managed Client Status
 
 try {
-    Get-V2024ManagedClientStatus-V2024Id $Id -V2024Type $Type 
+    Get-V2024ManagedClientStatus -V2024Id $Id  -V2024Type $Type 
     
     # Below is a request that includes all optional parameters
     # Get-V2024ManagedClientStatus -V2024Id $Id -V2024Type $Type  
@@ -295,7 +294,7 @@ $Id = "4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7" # String | Managed client ID.
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024ManagedClient-V2024Id $Id -V2024JsonPatchOperation $Result
+    Update-V2024ManagedClient -V2024Id $Id  -V2024JsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024ManagedClient -V2024Id $Id -V2024JsonPatchOperation $JsonPatchOperation  

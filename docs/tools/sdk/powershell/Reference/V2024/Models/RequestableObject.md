@@ -16,16 +16,16 @@ tags: ['SDK', 'Software Development Kit', 'RequestableObject', 'V2024Requestable
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | Id of the requestable object itself | [optional] 
-**Name** |  Pointer to **String** | Human-readable display name of the requestable object | [optional] 
-**Created** |  Pointer to **System.DateTime** | The time when the requestable object was created | [optional] 
-**Modified** |  Pointer to **System.DateTime** | The time when the requestable object was last modified | [optional] 
-**Description** |  Pointer to **String** | Description of the requestable object. | [optional] 
-**Type** |  Pointer to [**RequestableObjectType**](requestable-object-type) |  | [optional] 
-**RequestStatus** |  Pointer to [**RequestableObjectRequestStatus**](requestable-object-request-status) |  | [optional] 
-**IdentityRequestId** |  Pointer to **String** | If *requestStatus* is *PENDING*, indicates the id of the associated account activity. | [optional] 
-**OwnerRef** |  Pointer to [**IdentityReferenceWithNameAndEmail**](identity-reference-with-name-and-email) |  | [optional] 
-**RequestCommentsRequired** |  Pointer to **Boolean** | Whether the requester must provide comments when requesting the object. | [optional] 
+**Id** | **String** | Id of the requestable object itself | [optional] 
+**Name** | **String** | Human-readable display name of the requestable object | [optional] 
+**Created** | **System.DateTime** | The time when the requestable object was created | [optional] 
+**Modified** | **System.DateTime** | The time when the requestable object was last modified | [optional] 
+**Description** | **String** | Description of the requestable object. | [optional] 
+**Type** | [**RequestableObjectType**](requestable-object-type) |  | [optional] 
+**RequestStatus** | [**RequestableObjectRequestStatus**](requestable-object-request-status) |  | [optional] 
+**IdentityRequestId** | **String** | If *requestStatus* is *PENDING*, indicates the id of the associated account activity. | [optional] 
+**OwnerRef** | [**IdentityReferenceWithNameAndEmail**](identity-reference-with-name-and-email) |  | [optional] 
+**RequestCommentsRequired** | **Boolean** | Whether the requester must provide comments when requesting the object. | [optional] 
 
 ## Examples
 

@@ -1,4 +1,3 @@
-
 ---
 id: v2024-password-sync-groups
 title: PasswordSyncGroups
@@ -96,7 +95,7 @@ $PasswordSyncGroup = @"{
 
 try {
     $Result = ConvertFrom-JsonToPasswordSyncGroup -Json $PasswordSyncGroup
-    New-V2024PasswordSyncGroup-V2024PasswordSyncGroup $Result
+    New-V2024PasswordSyncGroup -V2024PasswordSyncGroup $Result
     
     # Below is a request that includes all optional parameters
     # New-V2024PasswordSyncGroup -V2024PasswordSyncGroup $PasswordSyncGroup  
@@ -138,7 +137,7 @@ $Id = "6881f631-3bd5-4213-9c75-8e05cc3e35dd" # String | The ID of password sync 
 # Delete Password Sync Group by ID
 
 try {
-    Remove-V2024PasswordSyncGroup-V2024Id $Id 
+    Remove-V2024PasswordSyncGroup -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024PasswordSyncGroup -V2024Id $Id  
@@ -181,7 +180,7 @@ $Id = "6881f631-3bd5-4213-9c75-8e05cc3e35dd" # String | The ID of password sync 
 # Get Password Sync Group by ID
 
 try {
-    Get-V2024PasswordSyncGroup-V2024Id $Id 
+    Get-V2024PasswordSyncGroup -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-V2024PasswordSyncGroup -V2024Id $Id  
@@ -280,7 +279,7 @@ $PasswordSyncGroup = @"{
 
 try {
     $Result = ConvertFrom-JsonToPasswordSyncGroup -Json $PasswordSyncGroup
-    Update-V2024PasswordSyncGroup-V2024Id $Id -V2024PasswordSyncGroup $Result
+    Update-V2024PasswordSyncGroup -V2024Id $Id  -V2024PasswordSyncGroup $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024PasswordSyncGroup -V2024Id $Id -V2024PasswordSyncGroup $PasswordSyncGroup  

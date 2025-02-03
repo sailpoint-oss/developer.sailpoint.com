@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'AccessProfileDocumentAllOfSource', 'A
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | Source's ID. | [optional] 
-**Name** |  Pointer to **String** | Source's name. | [optional] 
+**Id** | **String** | Source's ID. | [optional] 
+**Name** | **String** | Source's name. | [optional] 
 
 ## Examples
 

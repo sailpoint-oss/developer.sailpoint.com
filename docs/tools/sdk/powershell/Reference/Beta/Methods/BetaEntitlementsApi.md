@@ -1,4 +1,3 @@
-
 ---
 id: beta-entitlements
 title: Entitlements
@@ -116,7 +115,7 @@ $AttributeValue = "public" # String | Technical name of the Attribute Value.
 # Add metadata to an entitlement.
 
 try {
-    New-BetaAccessModelMetadataForEntitlement-BetaId $Id -BetaAttributeKey $AttributeKey -BetaAttributeValue $AttributeValue 
+    New-BetaAccessModelMetadataForEntitlement -BetaId $Id  -BetaAttributeKey $AttributeKey  -BetaAttributeValue $AttributeValue 
     
     # Below is a request that includes all optional parameters
     # New-BetaAccessModelMetadataForEntitlement -BetaId $Id -BetaAttributeKey $AttributeKey -BetaAttributeValue $AttributeValue  
@@ -162,7 +161,7 @@ $AttributeValue = "public" # String | Technical name of the Attribute Value.
 # Remove metadata from an entitlement.
 
 try {
-    Remove-BetaAccessModelMetadataFromEntitlement-BetaId $Id -BetaAttributeKey $AttributeKey -BetaAttributeValue $AttributeValue 
+    Remove-BetaAccessModelMetadataFromEntitlement -BetaId $Id  -BetaAttributeKey $AttributeKey  -BetaAttributeValue $AttributeValue 
     
     # Below is a request that includes all optional parameters
     # Remove-BetaAccessModelMetadataFromEntitlement -BetaId $Id -BetaAttributeKey $AttributeKey -BetaAttributeValue $AttributeValue  
@@ -205,7 +204,7 @@ $Id = "2c91808874ff91550175097daaec161c" # String | The entitlement ID
 # Get an entitlement
 
 try {
-    Get-BetaEntitlement-BetaId $Id 
+    Get-BetaEntitlement -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaEntitlement -BetaId $Id  
@@ -248,7 +247,7 @@ $Id = "2c91808874ff91550175097daaec161c" # String | Entitlement Id
 # Get Entitlement Request Config
 
 try {
-    Get-BetaEntitlementRequestConfig-BetaId $Id 
+    Get-BetaEntitlementRequestConfig -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaEntitlementRequestConfig -BetaId $Id  
@@ -296,7 +295,7 @@ $CsvFile =  # System.IO.FileInfo | The CSV file containing the source entitlemen
 # Aggregate Entitlements
 
 try {
-    Import-BetaEntitlementsBySource-BetaId $Id 
+    Import-BetaEntitlementsBySource -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Import-BetaEntitlementsBySource -BetaId $Id -BetaCsvFile $CsvFile  
@@ -349,7 +348,7 @@ $Filters = 'attribute eq "memberOf"' # String | Filter results using the standar
 # List of entitlements children
 
 try {
-    Get-BetaEntitlementChildren-BetaId $Id 
+    Get-BetaEntitlementChildren -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaEntitlementChildren -BetaId $Id -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count -BetaSorters $Sorters -BetaFilters $Filters  
@@ -402,7 +401,7 @@ $Filters = 'attribute eq "memberOf"' # String | Filter results using the standar
 # List of entitlements parents
 
 try {
-    Get-BetaEntitlementParents-BetaId $Id 
+    Get-BetaEntitlementParents -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaEntitlementParents -BetaId $Id -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count -BetaSorters $Sorters -BetaFilters $Filters  
@@ -520,7 +519,7 @@ $Id = "2c91808a7813090a017814121e121518" # String | ID of the entitlement to pat
 # Patch an entitlement
 
 try {
-    Update-BetaEntitlement-BetaId $Id 
+    Update-BetaEntitlement -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Update-BetaEntitlement -BetaId $Id -BetaJsonPatchOperation $JsonPatchOperation  
@@ -578,7 +577,7 @@ $EntitlementRequestConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToEntitlementRequestConfig -Json $EntitlementRequestConfig
-    Send-BetaEntitlementRequestConfig-BetaId $Id -BetaEntitlementRequestConfig $Result
+    Send-BetaEntitlementRequestConfig -BetaId $Id  -BetaEntitlementRequestConfig $Result
     
     # Below is a request that includes all optional parameters
     # Send-BetaEntitlementRequestConfig -BetaId $Id -BetaEntitlementRequestConfig $EntitlementRequestConfig  
@@ -621,7 +620,7 @@ $Id = "2c91808a7813090a017814121919ecca" # String | ID of source for the entitle
 # Reset Source Entitlements
 
 try {
-    Reset-BetaSourceEntitlements-BetaId $Id 
+    Reset-BetaSourceEntitlements -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Reset-BetaSourceEntitlements -BetaId $Id  
@@ -688,7 +687,7 @@ $EntitlementBulkUpdateRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToEntitlementBulkUpdateRequest -Json $EntitlementBulkUpdateRequest
-    Update-BetaEntitlementsInBulk-BetaEntitlementBulkUpdateRequest $Result
+    Update-BetaEntitlementsInBulk -BetaEntitlementBulkUpdateRequest $Result
     
     # Below is a request that includes all optional parameters
     # Update-BetaEntitlementsInBulk -BetaEntitlementBulkUpdateRequest $EntitlementBulkUpdateRequest  

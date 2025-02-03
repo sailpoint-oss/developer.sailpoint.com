@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'SourceCluster', 'V2024SourceCluster']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |   **Enum** [  "CLUSTER" ] | Type of object being referenced. | [required]
-**Id** |  **String** | Cluster ID. | [required]
-**Name** |  **String** | Cluster's human-readable display name. | [required]
+**Type** |  **Enum** [  "CLUSTER" ] | Type of object being referenced. | [required]
+**Id** | **String** | Cluster ID. | [required]
+**Name** | **String** | Cluster's human-readable display name. | [required]
 
 ## Examples
 

@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'OriginalRequest', 'V2024OriginalReque
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccountId** |  Pointer to **String** | Account ID. | [optional] 
-**AttributeRequests** |  Pointer to [**[]AttributeRequest**](attribute-request) | Attribute changes requested for account. | [optional] 
-**Op** |  Pointer to **String** | Operation used. | [optional] 
-**Source** |  Pointer to [**AccountSource**](account-source) |  | [optional] 
+**AccountId** | **String** | Account ID. | [optional] 
+**AttributeRequests** | [**[]AttributeRequest**](attribute-request) | Attribute changes requested for account. | [optional] 
+**Op** | **String** | Operation used. | [optional] 
+**Source** | [**AccountSource**](account-source) |  | [optional] 
 
 ## Examples
 

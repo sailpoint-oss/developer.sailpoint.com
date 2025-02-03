@@ -1,4 +1,3 @@
-
 ---
 id: v2024-sim-integrations
 title: SIMIntegrations
@@ -86,7 +85,7 @@ $SimIntegrationDetails = @"{
 
 try {
     $Result = ConvertFrom-JsonToSimIntegrationDetails -Json $SimIntegrationDetails
-    New-V2024SIMIntegration-V2024XSailPointExperimental $XSailPointExperimental -V2024SimIntegrationDetails $Result
+    New-V2024SIMIntegration -V2024XSailPointExperimental $XSailPointExperimental  -V2024SimIntegrationDetails $Result
     
     # Below is a request that includes all optional parameters
     # New-V2024SIMIntegration -V2024XSailPointExperimental $XSailPointExperimental -V2024SimIntegrationDetails $SimIntegrationDetails  
@@ -131,7 +130,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Delete a SIM integration
 
 try {
-    Remove-V2024SIMIntegration-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
+    Remove-V2024SIMIntegration -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024SIMIntegration -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
@@ -176,7 +175,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Get a SIM integration details.
 
 try {
-    Get-V2024SIMIntegration-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024SIMIntegration -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024SIMIntegration -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
@@ -219,7 +218,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # List the existing SIM integrations.
 
 try {
-    Get-V2024SIMIntegrations-V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024SIMIntegrations -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024SIMIntegrations -V2024XSailPointExperimental $XSailPointExperimental  
@@ -267,7 +266,7 @@ $JsonPatch = @""[\n  {\n\t  \"op\": \"replace\",\n\t  \"path\": \"/description\"
 
 try {
     $Result = ConvertFrom-JsonToJsonPatch -Json $JsonPatch
-    Update-V2024BeforeProvisioningRule-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024JsonPatch $Result
+    Update-V2024BeforeProvisioningRule -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental  -V2024JsonPatch $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024BeforeProvisioningRule -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024JsonPatch $JsonPatch  
@@ -315,7 +314,7 @@ $JsonPatch = @""[\n  {\n\t  \"op\": \"replace\",\n\t  \"path\": \"/description\"
 
 try {
     $Result = ConvertFrom-JsonToJsonPatch -Json $JsonPatch
-    Update-V2024SIMAttributes-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024JsonPatch $Result
+    Update-V2024SIMAttributes -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental  -V2024JsonPatch $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024SIMAttributes -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024JsonPatch $JsonPatch  
@@ -380,7 +379,7 @@ $SimIntegrationDetails = @"{
 
 try {
     $Result = ConvertFrom-JsonToSimIntegrationDetails -Json $SimIntegrationDetails
-    Send-V2024SIMIntegration-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024SimIntegrationDetails $Result
+    Send-V2024SIMIntegration -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental  -V2024SimIntegrationDetails $Result
     
     # Below is a request that includes all optional parameters
     # Send-V2024SIMIntegration -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024SimIntegrationDetails $SimIntegrationDetails  

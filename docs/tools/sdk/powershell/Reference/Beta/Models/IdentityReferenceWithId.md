@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'IdentityReferenceWithId', 'BetaIdenti
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to [**DtoType**](dto-type) |  | [optional] 
-**Id** |  Pointer to **String** | Identity id | [optional] 
+**Type** | [**DtoType**](dto-type) |  | [optional] 
+**Id** | **String** | Identity id | [optional] 
 
 ## Examples
 

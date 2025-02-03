@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'QueuedCheckConfigDetails', 'QueuedChe
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ProvisioningStatusCheckIntervalMinutes** |  **String** | Interval in minutes between status checks | [required]
-**ProvisioningMaxStatusCheckDays** |  **String** | Maximum number of days to check | [required]
+**ProvisioningStatusCheckIntervalMinutes** | **String** | Interval in minutes between status checks | [required]
+**ProvisioningMaxStatusCheckDays** | **String** | Maximum number of days to check | [required]
 
 ## Examples
 

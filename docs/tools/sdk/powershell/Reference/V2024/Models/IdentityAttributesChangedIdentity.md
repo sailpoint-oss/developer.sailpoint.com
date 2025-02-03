@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'IdentityAttributesChangedIdentity', '
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |   **Enum** [  "IDENTITY" ] | DTO type of identity whose attributes changed. | [required]
-**Id** |  **String** | ID of identity whose attributes changed. | [required]
-**Name** |  **String** | Display name of identity whose attributes changed. | [required]
+**Type** |  **Enum** [  "IDENTITY" ] | DTO type of identity whose attributes changed. | [required]
+**Id** | **String** | ID of identity whose attributes changed. | [required]
+**Name** | **String** | Display name of identity whose attributes changed. | [required]
 
 ## Examples
 

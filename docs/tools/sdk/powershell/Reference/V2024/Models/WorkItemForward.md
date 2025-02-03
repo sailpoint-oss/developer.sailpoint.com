@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'WorkItemForward', 'V2024WorkItemForwa
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TargetOwnerId** |  **String** | The ID of the identity to forward this work item to. | [required]
-**Comment** |  **String** | Comments to send to the target owner | [required]
-**SendNotifications** |  Pointer to **Boolean** | If true, send a notification to the target owner. | [optional] [default to $true]
+**TargetOwnerId** | **String** | The ID of the identity to forward this work item to. | [required]
+**Comment** | **String** | Comments to send to the target owner | [required]
+**SendNotifications** | **Boolean** | If true, send a notification to the target owner. | [optional] [default to $true]
 
 ## Examples
 

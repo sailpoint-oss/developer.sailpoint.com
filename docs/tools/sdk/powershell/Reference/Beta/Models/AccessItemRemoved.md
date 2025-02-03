@@ -16,11 +16,11 @@ tags: ['SDK', 'Software Development Kit', 'AccessItemRemoved', 'BetaAccessItemRe
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccessItem** |  Pointer to [**AccessItemAssociatedAccessItem**](access-item-associated-access-item) |  | [optional] 
-**IdentityId** |  Pointer to **String** | the identity id | [optional] 
-**EventType** |  Pointer to **String** | the event type | [optional] 
-**Dt** |  Pointer to **String** | the date of event | [optional] 
-**GovernanceEvent** |  Pointer to [**CorrelatedGovernanceEvent**](correlated-governance-event) |  | [optional] 
+**AccessItem** | [**AccessItemAssociatedAccessItem**](access-item-associated-access-item) |  | [optional] 
+**IdentityId** | **String** | the identity id | [optional] 
+**EventType** | **String** | the event type | [optional] 
+**Dt** | **String** | the date of event | [optional] 
+**GovernanceEvent** | [**CorrelatedGovernanceEvent**](correlated-governance-event) |  | [optional] 
 
 ## Examples
 

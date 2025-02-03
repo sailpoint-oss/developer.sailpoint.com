@@ -16,12 +16,12 @@ tags: ['SDK', 'Software Development Kit', 'WorkflowExecution', 'V2024WorkflowExe
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | Workflow execution ID. | [optional] 
-**WorkflowId** |  Pointer to **String** | Workflow ID. | [optional] 
-**RequestId** |  Pointer to **String** | Backend ID that tracks a workflow request in the system. Provide this ID in a customer support ticket for debugging purposes. | [optional] 
-**StartTime** |  Pointer to **System.DateTime** | Date/time when the workflow started. | [optional] 
-**CloseTime** |  Pointer to **System.DateTime** | Date/time when the workflow ended. | [optional] 
-**Status** |  Pointer to  **Enum** [  "Completed",    "Failed",    "Canceled",    "Executing" ] | Workflow execution status. | [optional] 
+**Id** | **String** | Workflow execution ID. | [optional] 
+**WorkflowId** | **String** | Workflow ID. | [optional] 
+**RequestId** | **String** | Backend ID that tracks a workflow request in the system. Provide this ID in a customer support ticket for debugging purposes. | [optional] 
+**StartTime** | **System.DateTime** | Date/time when the workflow started. | [optional] 
+**CloseTime** | **System.DateTime** | Date/time when the workflow ended. | [optional] 
+**Status** |  **Enum** [  "Completed",    "Failed",    "Canceled",    "Executing" ] | Workflow execution status. | [optional] 
 
 ## Examples
 

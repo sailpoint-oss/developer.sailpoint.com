@@ -1,4 +1,3 @@
-
 ---
 id: transforms
 title: Transforms
@@ -84,7 +83,7 @@ $Transform = @"{
 
 try {
     $Result = ConvertFrom-JsonToTransform -Json $Transform
-    New-Transform-Transform $Result
+    New-Transform -Transform $Result
     
     # Below is a request that includes all optional parameters
     # New-Transform -Transform $Transform  
@@ -127,7 +126,7 @@ $Id = "2cd78adghjkja34jh2b1hkjhasuecd" # String | ID of the transform to delete
 # Delete a transform
 
 try {
-    Remove-Transform-Id $Id 
+    Remove-Transform -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-Transform -Id $Id  
@@ -170,7 +169,7 @@ $Id = "2cd78adghjkja34jh2b1hkjhasuecd" # String | ID of the transform to retriev
 # Transform by ID
 
 try {
-    Get-Transform-Id $Id 
+    Get-Transform -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-Transform -Id $Id  
@@ -286,7 +285,7 @@ $Transform = @"{
 # Update a transform
 
 try {
-    Update-Transform-Id $Id 
+    Update-Transform -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Update-Transform -Id $Id -Transform $Transform  

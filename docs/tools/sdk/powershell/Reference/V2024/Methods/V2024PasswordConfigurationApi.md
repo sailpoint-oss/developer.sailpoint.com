@@ -1,4 +1,3 @@
-
 ---
 id: v2024-password-configuration
 title: PasswordConfiguration
@@ -68,7 +67,7 @@ $PasswordOrgConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToPasswordOrgConfig -Json $PasswordOrgConfig
-    New-V2024PasswordOrgConfig-V2024PasswordOrgConfig $Result
+    New-V2024PasswordOrgConfig -V2024PasswordOrgConfig $Result
     
     # Below is a request that includes all optional parameters
     # New-V2024PasswordOrgConfig -V2024PasswordOrgConfig $PasswordOrgConfig  
@@ -158,7 +157,7 @@ $PasswordOrgConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToPasswordOrgConfig -Json $PasswordOrgConfig
-    Send-V2024PasswordOrgConfig-V2024PasswordOrgConfig $Result
+    Send-V2024PasswordOrgConfig -V2024PasswordOrgConfig $Result
     
     # Below is a request that includes all optional parameters
     # Send-V2024PasswordOrgConfig -V2024PasswordOrgConfig $PasswordOrgConfig  

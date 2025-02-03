@@ -1,4 +1,3 @@
-
 ---
 id: public-identities-config
 title: PublicIdentitiesConfig
@@ -118,7 +117,7 @@ $PublicIdentityConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToPublicIdentityConfig -Json $PublicIdentityConfig
-    Update-PublicIdentityConfig-PublicIdentityConfig $Result
+    Update-PublicIdentityConfig -PublicIdentityConfig $Result
     
     # Below is a request that includes all optional parameters
     # Update-PublicIdentityConfig -PublicIdentityConfig $PublicIdentityConfig  

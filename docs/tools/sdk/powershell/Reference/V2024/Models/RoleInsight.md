@@ -16,12 +16,12 @@ tags: ['SDK', 'Software Development Kit', 'RoleInsight', 'V2024RoleInsight']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | Insight id | [optional] 
-**NumberOfUpdates** |  Pointer to **Int32** | Total number of updates for this role | [optional] 
-**CreatedDate** |  Pointer to **System.DateTime** | The date-time insights were last created for this role. | [optional] 
-**ModifiedDate** |  Pointer to **System.DateTime** | The date-time insights were last modified for this role. | [optional] 
-**Role** |  Pointer to [**RoleInsightsRole**](role-insights-role) |  | [optional] 
-**Insight** |  Pointer to [**RoleInsightsInsight**](role-insights-insight) |  | [optional] 
+**Id** | **String** | Insight id | [optional] 
+**NumberOfUpdates** | **Int32** | Total number of updates for this role | [optional] 
+**CreatedDate** | **System.DateTime** | The date-time insights were last created for this role. | [optional] 
+**ModifiedDate** | **System.DateTime** | The date-time insights were last modified for this role. | [optional] 
+**Role** | [**RoleInsightsRole**](role-insights-role) |  | [optional] 
+**Insight** | [**RoleInsightsInsight**](role-insights-insight) |  | [optional] 
 
 ## Examples
 

@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'Range', 'V2024Range']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Lower** |  Pointer to [**Bound**](bound) |  | [optional] 
-**Upper** |  Pointer to [**Bound**](bound) |  | [optional] 
+**Lower** | [**Bound**](bound) |  | [optional] 
+**Upper** | [**Bound**](bound) |  | [optional] 
 
 ## Examples
 

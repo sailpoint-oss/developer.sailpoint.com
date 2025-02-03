@@ -16,11 +16,11 @@ tags: ['SDK', 'Software Development Kit', 'LoadAccountsTaskTaskMessagesInner', '
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to  **Enum** [  "INFO",    "WARN",    "ERROR" ] | Type of the message. | [optional] 
-**VarError** |  Pointer to **Boolean** | Flag whether message is an error. | [optional] [default to $false]
-**Warning** |  Pointer to **Boolean** | Flag whether message is a warning. | [optional] [default to $false]
-**Key** |  Pointer to **String** | Message string identifier. | [optional] 
-**LocalizedText** |  Pointer to **String** | Message context with the locale based language. | [optional] 
+**Type** |  **Enum** [  "INFO",    "WARN",    "ERROR" ] | Type of the message. | [optional] 
+**VarError** | **Boolean** | Flag whether message is an error. | [optional] [default to $false]
+**Warning** | **Boolean** | Flag whether message is a warning. | [optional] [default to $false]
+**Key** | **String** | Message string identifier. | [optional] 
+**LocalizedText** | **String** | Message context with the locale based language. | [optional] 
 
 ## Examples
 

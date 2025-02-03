@@ -1,4 +1,3 @@
-
 ---
 id: v2024-work-items
 title: WorkItems
@@ -81,7 +80,7 @@ $ApprovalItemId = "1211bcaa32112bcef6122adb21cef1ac" # String | The ID of the ap
 # Approve an Approval Item
 
 try {
-    Approve-V2024ApprovalItem-V2024Id $Id -V2024ApprovalItemId $ApprovalItemId 
+    Approve-V2024ApprovalItem -V2024Id $Id  -V2024ApprovalItemId $ApprovalItemId 
     
     # Below is a request that includes all optional parameters
     # Approve-V2024ApprovalItem -V2024Id $Id -V2024ApprovalItemId $ApprovalItemId  
@@ -124,7 +123,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
 # Bulk approve Approval Items
 
 try {
-    Approve-V2024ApprovalItemsInBulk-V2024Id $Id 
+    Approve-V2024ApprovalItemsInBulk -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Approve-V2024ApprovalItemsInBulk -V2024Id $Id  
@@ -167,7 +166,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
 # Complete a Work Item
 
 try {
-    Complete-V2024WorkItem-V2024Id $Id 
+    Complete-V2024WorkItem -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Complete-V2024WorkItem -V2024Id $Id  
@@ -341,7 +340,7 @@ $Id = "2c9180835d191a86015d28455b4a2329" # String | ID of the work item.
 # Get a Work Item
 
 try {
-    Get-V2024WorkItem-V2024Id $Id 
+    Get-V2024WorkItem -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-V2024WorkItem -V2024Id $Id  
@@ -476,7 +475,7 @@ $ApprovalItemId = "1211bcaa32112bcef6122adb21cef1ac" # String | The ID of the ap
 # Reject an Approval Item
 
 try {
-    Deny-V2024ApprovalItem-V2024Id $Id -V2024ApprovalItemId $ApprovalItemId 
+    Deny-V2024ApprovalItem -V2024Id $Id  -V2024ApprovalItemId $ApprovalItemId 
     
     # Below is a request that includes all optional parameters
     # Deny-V2024ApprovalItem -V2024Id $Id -V2024ApprovalItemId $ApprovalItemId  
@@ -519,7 +518,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
 # Bulk reject Approval Items
 
 try {
-    Deny-V2024ApprovalItemsInBulk-V2024Id $Id 
+    Deny-V2024ApprovalItemsInBulk -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Deny-V2024ApprovalItemsInBulk -V2024Id $Id  
@@ -568,7 +567,7 @@ $WorkItemForward = @"{
 
 try {
     $Result = ConvertFrom-JsonToWorkItemForward -Json $WorkItemForward
-    Send-V2024WorkItemForward-V2024Id $Id -V2024WorkItemForward $Result
+    Send-V2024WorkItemForward -V2024Id $Id  -V2024WorkItemForward $Result
     
     # Below is a request that includes all optional parameters
     # Send-V2024WorkItemForward -V2024Id $Id -V2024WorkItemForward $WorkItemForward  
@@ -614,7 +613,7 @@ $RequestBody = @{ key_example =  } # System.Collections.Hashtable | Account Sele
 
 try {
     $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
-    Submit-V2024AccountSelection-V2024Id $Id -V2024RequestBody $Result
+    Submit-V2024AccountSelection -V2024Id $Id  -V2024RequestBody $Result
     
     # Below is a request that includes all optional parameters
     # Submit-V2024AccountSelection -V2024Id $Id -V2024RequestBody $RequestBody  

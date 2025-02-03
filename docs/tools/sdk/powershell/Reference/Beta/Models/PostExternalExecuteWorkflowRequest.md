@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'PostExternalExecuteWorkflowRequest', 
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**VarInput** |  Pointer to [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | The input for the workflow | [optional] 
+**VarInput** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | The input for the workflow | [optional] 
 
 ## Examples
 

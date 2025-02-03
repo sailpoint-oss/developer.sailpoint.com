@@ -16,11 +16,11 @@ tags: ['SDK', 'Software Development Kit', 'AccessItemAppResponse', 'V2024AccessI
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccessType** |  Pointer to **String** | the access item type. entitlement in this case | [optional] 
-**Id** |  Pointer to **String** | the access item id | [optional] 
-**DisplayName** |  Pointer to **String** | the access item display name | [optional] 
-**SourceName** |  Pointer to **String** | the associated source name if it exists | [optional] 
-**AppRoleId** |  Pointer to **String** | the app role id | [optional] 
+**AccessType** | **String** | the access item type. entitlement in this case | [optional] 
+**Id** | **String** | the access item id | [optional] 
+**DisplayName** | **String** | the access item display name | [optional] 
+**SourceName** | **String** | the associated source name if it exists | [optional] 
+**AppRoleId** | **String** | the app role id | [optional] 
 
 ## Examples
 

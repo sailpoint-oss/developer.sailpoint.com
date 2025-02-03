@@ -16,15 +16,15 @@ tags: ['SDK', 'Software Development Kit', 'GetRoleAssignments200ResponseInner', 
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | Assignment Id | [optional] 
-**Role** |  Pointer to [**BaseReferenceDto1**](base-reference-dto1) |  | [optional] 
-**Comments** |  Pointer to **String** | Comments added by the user when the assignment was made | [optional] 
-**AssignmentSource** |  Pointer to **String** | Source describing how this assignment was made | [optional] 
-**Assigner** |  Pointer to [**BaseReferenceDto1**](base-reference-dto1) |  | [optional] 
-**AssignedDimensions** |  Pointer to [**[]BaseReferenceDto1**](base-reference-dto1) | Dimensions assigned related to this role | [optional] 
-**AssignmentContext** |  Pointer to [**AssignmentContextDto**](assignment-context-dto) |  | [optional] 
-**AccountTargets** |  Pointer to [**[]RoleTargetDto**](role-target-dto) |  | [optional] 
-**RemoveDate** |  Pointer to **String** | Date that the assignment will be removed | [optional] 
+**Id** | **String** | Assignment Id | [optional] 
+**Role** | [**BaseReferenceDto1**](base-reference-dto1) |  | [optional] 
+**Comments** | **String** | Comments added by the user when the assignment was made | [optional] 
+**AssignmentSource** | **String** | Source describing how this assignment was made | [optional] 
+**Assigner** | [**BaseReferenceDto1**](base-reference-dto1) |  | [optional] 
+**AssignedDimensions** | [**[]BaseReferenceDto1**](base-reference-dto1) | Dimensions assigned related to this role | [optional] 
+**AssignmentContext** | [**AssignmentContextDto**](assignment-context-dto) |  | [optional] 
+**AccountTargets** | [**[]RoleTargetDto**](role-target-dto) |  | [optional] 
+**RemoveDate** | **String** | Date that the assignment will be removed | [optional] 
 
 ## Examples
 

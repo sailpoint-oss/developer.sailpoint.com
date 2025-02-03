@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'AttributeChange', 'BetaAttributeChang
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** |  Pointer to **String** | the attribute name | [optional] 
-**PreviousValue** |  Pointer to **String** | the old value of attribute | [optional] 
-**NewValue** |  Pointer to **String** | the new value of attribute | [optional] 
+**Name** | **String** | the attribute name | [optional] 
+**PreviousValue** | **String** | the old value of attribute | [optional] 
+**NewValue** | **String** | the new value of attribute | [optional] 
 
 ## Examples
 

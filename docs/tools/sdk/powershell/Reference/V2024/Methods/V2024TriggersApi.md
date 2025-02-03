@@ -1,4 +1,3 @@
-
 ---
 id: v2024-triggers
 title: Triggers
@@ -113,7 +112,7 @@ $CompleteInvocation = @"{
 
 try {
     $Result = ConvertFrom-JsonToCompleteInvocation -Json $CompleteInvocation
-    Complete-V2024TriggerInvocation-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024CompleteInvocation $Result
+    Complete-V2024TriggerInvocation -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental  -V2024CompleteInvocation $Result
     
     # Below is a request that includes all optional parameters
     # Complete-V2024TriggerInvocation -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024CompleteInvocation $CompleteInvocation  
@@ -184,7 +183,7 @@ $SubscriptionPostRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToSubscriptionPostRequest -Json $SubscriptionPostRequest
-    New-V2024Subscription-V2024XSailPointExperimental $XSailPointExperimental -V2024SubscriptionPostRequest $Result
+    New-V2024Subscription -V2024XSailPointExperimental $XSailPointExperimental  -V2024SubscriptionPostRequest $Result
     
     # Below is a request that includes all optional parameters
     # New-V2024Subscription -V2024XSailPointExperimental $XSailPointExperimental -V2024SubscriptionPostRequest $SubscriptionPostRequest  
@@ -229,7 +228,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Delete a Subscription
 
 try {
-    Remove-V2024Subscription-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
+    Remove-V2024Subscription -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024Subscription -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
@@ -281,7 +280,7 @@ $Sorters = "triggerName" # String | Sort results using the standard syntax descr
 # List Subscriptions
 
 try {
-    Get-V2024Subscriptions-V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024Subscriptions -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024Subscriptions -V2024XSailPointExperimental $XSailPointExperimental -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Filters $Filters -V2024Sorters $Sorters  
@@ -335,7 +334,7 @@ $Sorters = "created" # String | Sort results using the standard syntax described
 # List Latest Invocation Statuses
 
 try {
-    Get-V2024TriggerInvocationStatus-V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024TriggerInvocationStatus -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024TriggerInvocationStatus -V2024XSailPointExperimental $XSailPointExperimental -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Filters $Filters -V2024Sorters $Sorters  
@@ -387,7 +386,7 @@ $Sorters = "name" # String | Sort results using the standard syntax described in
 # List Triggers
 
 try {
-    Get-V2024Triggers-V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024Triggers -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024Triggers -V2024XSailPointExperimental $XSailPointExperimental -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Filters $Filters -V2024Sorters $Sorters  
@@ -438,7 +437,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 
 try {
     $Result = ConvertFrom-JsonToSubscriptionPatchRequestInner -Json $SubscriptionPatchRequestInner
-    Update-V2024Subscription-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024SubscriptionPatchRequestInner $Result
+    Update-V2024Subscription -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental  -V2024SubscriptionPatchRequestInner $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024Subscription -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024SubscriptionPatchRequestInner $SubscriptionPatchRequestInner  
@@ -493,7 +492,7 @@ $TestInvocation = @"{
 
 try {
     $Result = ConvertFrom-JsonToTestInvocation -Json $TestInvocation
-    Start-V2024TestTriggerInvocation-V2024XSailPointExperimental $XSailPointExperimental -V2024TestInvocation $Result
+    Start-V2024TestTriggerInvocation -V2024XSailPointExperimental $XSailPointExperimental  -V2024TestInvocation $Result
     
     # Below is a request that includes all optional parameters
     # Start-V2024TestTriggerInvocation -V2024XSailPointExperimental $XSailPointExperimental -V2024TestInvocation $TestInvocation  
@@ -544,7 +543,7 @@ $ValidateFilterInputDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToValidateFilterInputDto -Json $ValidateFilterInputDto
-    Test-V2024SubscriptionFilter-V2024XSailPointExperimental $XSailPointExperimental -V2024ValidateFilterInputDto $Result
+    Test-V2024SubscriptionFilter -V2024XSailPointExperimental $XSailPointExperimental  -V2024ValidateFilterInputDto $Result
     
     # Below is a request that includes all optional parameters
     # Test-V2024SubscriptionFilter -V2024XSailPointExperimental $XSailPointExperimental -V2024ValidateFilterInputDto $ValidateFilterInputDto  
@@ -624,7 +623,7 @@ $SubscriptionPutRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToSubscriptionPutRequest -Json $SubscriptionPutRequest
-    Update-V2024Subscription-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024SubscriptionPutRequest $Result
+    Update-V2024Subscription -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental  -V2024SubscriptionPutRequest $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024Subscription -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024SubscriptionPutRequest $SubscriptionPutRequest  

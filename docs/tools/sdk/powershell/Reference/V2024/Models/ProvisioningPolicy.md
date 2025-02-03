@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'ProvisioningPolicy', 'V2024Provisioni
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** |  **String** | the provisioning policy name | [required]
-**Description** |  Pointer to **String** | the description of the provisioning policy | [optional] 
-**UsageType** |  Pointer to [**UsageType**](usage-type) |  | [optional] 
-**Fields** |  Pointer to [**[]FieldDetailsDto**](field-details-dto) |  | [optional] 
+**Name** | **String** | the provisioning policy name | [required]
+**Description** | **String** | the description of the provisioning policy | [optional] 
+**UsageType** | [**UsageType**](usage-type) |  | [optional] 
+**Fields** | [**[]FieldDetailsDto**](field-details-dto) |  | [optional] 
 
 ## Examples
 

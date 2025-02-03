@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'CorrelationConfig', 'V2024Correlation
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | The ID of the correlation configuration. | [optional] 
-**Name** |  Pointer to **String** | The name of the correlation configuration. | [optional] 
-**AttributeAssignments** |  Pointer to [**[]CorrelationConfigAttributeAssignmentsInner**](correlation-config-attribute-assignments-inner) | The list of attribute assignments of the correlation configuration. | [optional] 
+**Id** | **String** | The ID of the correlation configuration. | [optional] 
+**Name** | **String** | The name of the correlation configuration. | [optional] 
+**AttributeAssignments** | [**[]CorrelationConfigAttributeAssignmentsInner**](correlation-config-attribute-assignments-inner) | The list of attribute assignments of the correlation configuration. | [optional] 
 
 ## Examples
 

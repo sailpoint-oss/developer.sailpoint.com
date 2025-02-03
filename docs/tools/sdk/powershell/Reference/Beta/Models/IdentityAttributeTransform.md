@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'IdentityAttributeTransform', 'BetaIde
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**IdentityAttributeName** |  Pointer to **String** | Name of the identity attribute | [optional] 
-**TransformDefinition** |  Pointer to [**TransformDefinition**](transform-definition) |  | [optional] 
+**IdentityAttributeName** | **String** | Name of the identity attribute | [optional] 
+**TransformDefinition** | [**TransformDefinition**](transform-definition) |  | [optional] 
 
 ## Examples
 

@@ -1,4 +1,3 @@
-
 ---
 id: beta-non-employee-lifecycle-management
 title: NonEmployeeLifecycleManagement
@@ -119,7 +118,7 @@ $NonEmployeeApprovalDecision = @"{
 
 try {
     $Result = ConvertFrom-JsonToNonEmployeeApprovalDecision -Json $NonEmployeeApprovalDecision
-    Approve-BetaNonEmployeeRequest-BetaId $Id -BetaNonEmployeeApprovalDecision $Result
+    Approve-BetaNonEmployeeRequest -BetaId $Id  -BetaNonEmployeeApprovalDecision $Result
     
     # Below is a request that includes all optional parameters
     # Approve-BetaNonEmployeeRequest -BetaId $Id -BetaNonEmployeeApprovalDecision $NonEmployeeApprovalDecision  
@@ -177,7 +176,7 @@ $NonEmployeeRequestBody = @"{
 
 try {
     $Result = ConvertFrom-JsonToNonEmployeeRequestBody -Json $NonEmployeeRequestBody
-    New-BetaNonEmployeeRecord-BetaNonEmployeeRequestBody $Result
+    New-BetaNonEmployeeRecord -BetaNonEmployeeRequestBody $Result
     
     # Below is a request that includes all optional parameters
     # New-BetaNonEmployeeRecord -BetaNonEmployeeRequestBody $NonEmployeeRequestBody  
@@ -233,7 +232,7 @@ $NonEmployeeRequestBody = @"{
 
 try {
     $Result = ConvertFrom-JsonToNonEmployeeRequestBody -Json $NonEmployeeRequestBody
-    New-BetaNonEmployeeRequest-BetaNonEmployeeRequestBody $Result
+    New-BetaNonEmployeeRequest -BetaNonEmployeeRequestBody $Result
     
     # Below is a request that includes all optional parameters
     # New-BetaNonEmployeeRequest -BetaNonEmployeeRequestBody $NonEmployeeRequestBody  
@@ -303,7 +302,7 @@ $NonEmployeeSourceRequestBody = @"{
 
 try {
     $Result = ConvertFrom-JsonToNonEmployeeSourceRequestBody -Json $NonEmployeeSourceRequestBody
-    New-BetaNonEmployeeSource-BetaNonEmployeeSourceRequestBody $Result
+    New-BetaNonEmployeeSource -BetaNonEmployeeSourceRequestBody $Result
     
     # Below is a request that includes all optional parameters
     # New-BetaNonEmployeeSource -BetaNonEmployeeSourceRequestBody $NonEmployeeSourceRequestBody  
@@ -355,7 +354,7 @@ $NonEmployeeSchemaAttributeBody = @"{
 
 try {
     $Result = ConvertFrom-JsonToNonEmployeeSchemaAttributeBody -Json $NonEmployeeSchemaAttributeBody
-    New-BetaNonEmployeeSourceSchemaAttributes-BetaSourceId $SourceId -BetaNonEmployeeSchemaAttributeBody $Result
+    New-BetaNonEmployeeSourceSchemaAttributes -BetaSourceId $SourceId  -BetaNonEmployeeSchemaAttributeBody $Result
     
     # Below is a request that includes all optional parameters
     # New-BetaNonEmployeeSourceSchemaAttributes -BetaSourceId $SourceId -BetaNonEmployeeSchemaAttributeBody $NonEmployeeSchemaAttributeBody  
@@ -397,7 +396,7 @@ $Id = "2c91808b6ef1d43e016efba0ce470904" # String | Non-Employee record id (UUID
 # Delete Non-Employee Record
 
 try {
-    Remove-BetaNonEmployeeRecord-BetaId $Id 
+    Remove-BetaNonEmployeeRecord -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-BetaNonEmployeeRecord -BetaId $Id  
@@ -442,7 +441,7 @@ $DeleteNonEmployeeRecordInBulkRequest = @""@
 
 try {
     $Result = ConvertFrom-JsonToDeleteNonEmployeeRecordInBulkRequest -Json $DeleteNonEmployeeRecordInBulkRequest
-    Remove-BetaNonEmployeeRecordInBulk-BetaDeleteNonEmployeeRecordInBulkRequest $Result
+    Remove-BetaNonEmployeeRecordInBulk -BetaDeleteNonEmployeeRecordInBulkRequest $Result
     
     # Below is a request that includes all optional parameters
     # Remove-BetaNonEmployeeRecordInBulk -BetaDeleteNonEmployeeRecordInBulkRequest $DeleteNonEmployeeRecordInBulkRequest  
@@ -485,7 +484,7 @@ $Id = "2c91808b6ef1d43e016efba0ce470904" # String | Non-Employee request id in t
 # Delete Non-Employee Request
 
 try {
-    Remove-BetaNonEmployeeRequest-BetaId $Id 
+    Remove-BetaNonEmployeeRequest -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-BetaNonEmployeeRequest -BetaId $Id  
@@ -530,7 +529,7 @@ $SourceId = "2c91808b6ef1d43e016efba0ce470904" # String | The Source id
 # Delete Non-Employee Source's Schema Attribute
 
 try {
-    Remove-BetaNonEmployeeSchemaAttribute-BetaAttributeId $AttributeId -BetaSourceId $SourceId 
+    Remove-BetaNonEmployeeSchemaAttribute -BetaAttributeId $AttributeId  -BetaSourceId $SourceId 
     
     # Below is a request that includes all optional parameters
     # Remove-BetaNonEmployeeSchemaAttribute -BetaAttributeId $AttributeId -BetaSourceId $SourceId  
@@ -572,7 +571,7 @@ $SourceId = "2c91808b6ef1d43e016efba0ce470904" # String | Source Id
 # Delete Non-Employee Source
 
 try {
-    Remove-BetaNonEmployeeSource-BetaSourceId $SourceId 
+    Remove-BetaNonEmployeeSource -BetaSourceId $SourceId 
     
     # Below is a request that includes all optional parameters
     # Remove-BetaNonEmployeeSource -BetaSourceId $SourceId  
@@ -614,7 +613,7 @@ $SourceId = "2c91808b6ef1d43e016efba0ce470904" # String | The Source id
 # Delete all custom schema attributes
 
 try {
-    Remove-BetaNonEmployeeSourceSchemaAttributes-BetaSourceId $SourceId 
+    Remove-BetaNonEmployeeSourceSchemaAttributes -BetaSourceId $SourceId 
     
     # Below is a request that includes all optional parameters
     # Remove-BetaNonEmployeeSourceSchemaAttributes -BetaSourceId $SourceId  
@@ -657,7 +656,7 @@ $Id = "2c918085842e69ae018432d22ccb212f" # String | Source Id (UUID)
 # Exports Non-Employee Records to CSV
 
 try {
-    Export-BetaNonEmployeeRecords-BetaId $Id 
+    Export-BetaNonEmployeeRecords -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Export-BetaNonEmployeeRecords -BetaId $Id  
@@ -702,7 +701,7 @@ $Id = "2c918085842e69ae018432d22ccb212f" # String | Source Id (UUID)
 # Exports Source Schema Template
 
 try {
-    Export-BetaNonEmployeeSourceSchemaTemplate-BetaId $Id 
+    Export-BetaNonEmployeeSourceSchemaTemplate -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Export-BetaNonEmployeeSourceSchemaTemplate -BetaId $Id  
@@ -746,7 +745,7 @@ $IncludeDetail = "include-detail=false" # String | The object nonEmployeeRequest
 # Get a non-employee approval item detail
 
 try {
-    Get-BetaNonEmployeeApproval-BetaId $Id 
+    Get-BetaNonEmployeeApproval -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaNonEmployeeApproval -BetaId $Id -BetaIncludeDetail $IncludeDetail  
@@ -788,7 +787,7 @@ $RequestedFor = "ac10d20a-841e-1e7d-8184-32d2e22c0179" # String | The identity (
 # Get Summary of Non-Employee Approval Requests
 
 try {
-    Get-BetaNonEmployeeApprovalSummary-BetaRequestedFor $RequestedFor 
+    Get-BetaNonEmployeeApprovalSummary -BetaRequestedFor $RequestedFor 
     
     # Below is a request that includes all optional parameters
     # Get-BetaNonEmployeeApprovalSummary -BetaRequestedFor $RequestedFor  
@@ -831,7 +830,7 @@ $Id = "2c918085842e69ae018432d22ccb212f" # String | Source ID (UUID)
 # Bulk upload status on source
 
 try {
-    Get-BetaNonEmployeeBulkUploadStatus-BetaId $Id 
+    Get-BetaNonEmployeeBulkUploadStatus -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaNonEmployeeBulkUploadStatus -BetaId $Id  
@@ -873,7 +872,7 @@ $Id = "2c91808b6ef1d43e016efba0ce470904" # String | Non-Employee record id (UUID
 # Get a Non-Employee Record
 
 try {
-    Get-BetaNonEmployeeRecord-BetaId $Id 
+    Get-BetaNonEmployeeRecord -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaNonEmployeeRecord -BetaId $Id  
@@ -916,7 +915,7 @@ $Id = "2c91808b6ef1d43e016efba0ce470904" # String | Non-Employee request id (UUI
 # Get a Non-Employee Request
 
 try {
-    Get-BetaNonEmployeeRequest-BetaId $Id 
+    Get-BetaNonEmployeeRequest -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaNonEmployeeRequest -BetaId $Id  
@@ -958,7 +957,7 @@ $RequestedFor = "ac10d20a-841e-1e7d-8184-32d2e22c0179" # String | The identity (
 # Get Summary of Non-Employee Requests
 
 try {
-    Get-BetaNonEmployeeRequestSummary-BetaRequestedFor $RequestedFor 
+    Get-BetaNonEmployeeRequestSummary -BetaRequestedFor $RequestedFor 
     
     # Below is a request that includes all optional parameters
     # Get-BetaNonEmployeeRequestSummary -BetaRequestedFor $RequestedFor  
@@ -1002,7 +1001,7 @@ $SourceId = "2c918085842e69ae018432d22ccb212f" # String | The Source id
 # Get Schema Attribute Non-Employee Source
 
 try {
-    Get-BetaNonEmployeeSchemaAttribute-BetaAttributeId $AttributeId -BetaSourceId $SourceId 
+    Get-BetaNonEmployeeSchemaAttribute -BetaAttributeId $AttributeId  -BetaSourceId $SourceId 
     
     # Below is a request that includes all optional parameters
     # Get-BetaNonEmployeeSchemaAttribute -BetaAttributeId $AttributeId -BetaSourceId $SourceId  
@@ -1044,7 +1043,7 @@ $SourceId = "2c91808b7c28b350017c2a2ec5790aa1" # String | Source Id
 # Get a Non-Employee Source
 
 try {
-    Get-BetaNonEmployeeSource-BetaSourceId $SourceId 
+    Get-BetaNonEmployeeSource -BetaSourceId $SourceId 
     
     # Below is a request that includes all optional parameters
     # Get-BetaNonEmployeeSource -BetaSourceId $SourceId  
@@ -1087,7 +1086,7 @@ $SourceId = "2c918085842e69ae018432d22ccb212f" # String | The Source id
 # List Schema Attributes Non-Employee Source
 
 try {
-    Get-BetaNonEmployeeSourceSchemaAttributes-BetaSourceId $SourceId 
+    Get-BetaNonEmployeeSourceSchemaAttributes -BetaSourceId $SourceId 
     
     # Below is a request that includes all optional parameters
     # Get-BetaNonEmployeeSourceSchemaAttributes -BetaSourceId $SourceId  
@@ -1134,7 +1133,7 @@ $Data =  # System.IO.FileInfo |
 # Imports, or Updates, Non-Employee Records
 
 try {
-    Import-BetaNonEmployeeRecordsInBulk-BetaId $Id -BetaData $Data 
+    Import-BetaNonEmployeeRecordsInBulk -BetaId $Id  -BetaData $Data 
     
     # Below is a request that includes all optional parameters
     # Import-BetaNonEmployeeRecordsInBulk -BetaId $Id -BetaData $Data  
@@ -1288,7 +1287,7 @@ $Filters = 'sourceId eq "2c91808568c529c60168cca6f90c1313"' # String | Filter re
 # List Non-Employee Requests
 
 try {
-    Get-BetaNonEmployeeRequests-BetaRequestedFor $RequestedFor 
+    Get-BetaNonEmployeeRequests -BetaRequestedFor $RequestedFor 
     
     # Below is a request that includes all optional parameters
     # Get-BetaNonEmployeeRequests -BetaRequestedFor $RequestedFor -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count -BetaSorters $Sorters -BetaFilters $Filters  
@@ -1340,7 +1339,7 @@ $Sorters = "name,created" # String | Sort results using the standard syntax desc
 # List Non-Employee Sources
 
 try {
-    Get-BetaNonEmployeeSources-BetaRequestedFor $RequestedFor -BetaNonEmployeeCount $NonEmployeeCount 
+    Get-BetaNonEmployeeSources -BetaRequestedFor $RequestedFor  -BetaNonEmployeeCount $NonEmployeeCount 
     
     # Below is a request that includes all optional parameters
     # Get-BetaNonEmployeeSources -BetaRequestedFor $RequestedFor -BetaNonEmployeeCount $NonEmployeeCount -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count -BetaSorters $Sorters  
@@ -1391,7 +1390,7 @@ $Id = "2c91808b6ef1d43e016efba0ce470904" # String | Non-employee record id (UUID
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-BetaNonEmployeeRecord-BetaId $Id -BetaJsonPatchOperation $Result
+    Update-BetaNonEmployeeRecord -BetaId $Id  -BetaJsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-BetaNonEmployeeRecord -BetaId $Id -BetaJsonPatchOperation $JsonPatchOperation  
@@ -1445,7 +1444,7 @@ $SourceId = "2c91808b6ef1d43e016efba0ce470904" # String | The Source id
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-BetaNonEmployeeSchemaAttribute-BetaAttributeId $AttributeId -BetaSourceId $SourceId -BetaJsonPatchOperation $Result
+    Update-BetaNonEmployeeSchemaAttribute -BetaAttributeId $AttributeId  -BetaSourceId $SourceId  -BetaJsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-BetaNonEmployeeSchemaAttribute -BetaAttributeId $AttributeId -BetaSourceId $SourceId -BetaJsonPatchOperation $JsonPatchOperation  
@@ -1495,7 +1494,7 @@ $SourceId = "2c91808b6ef1d43e016efba0ce470904" # String | Source Id
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-BetaNonEmployeeSource-BetaSourceId $SourceId -BetaJsonPatchOperation $Result
+    Update-BetaNonEmployeeSource -BetaSourceId $SourceId  -BetaJsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-BetaNonEmployeeSource -BetaSourceId $SourceId -BetaJsonPatchOperation $JsonPatchOperation  
@@ -1542,7 +1541,7 @@ $NonEmployeeRejectApprovalDecision = @"{
 
 try {
     $Result = ConvertFrom-JsonToNonEmployeeRejectApprovalDecision -Json $NonEmployeeRejectApprovalDecision
-    Deny-BetaNonEmployeeRequest-BetaId $Id -BetaNonEmployeeRejectApprovalDecision $Result
+    Deny-BetaNonEmployeeRequest -BetaId $Id  -BetaNonEmployeeRejectApprovalDecision $Result
     
     # Below is a request that includes all optional parameters
     # Deny-BetaNonEmployeeRequest -BetaId $Id -BetaNonEmployeeRejectApprovalDecision $NonEmployeeRejectApprovalDecision  
@@ -1601,7 +1600,7 @@ $NonEmployeeRequestBody = @"{
 
 try {
     $Result = ConvertFrom-JsonToNonEmployeeRequestBody -Json $NonEmployeeRequestBody
-    Update-BetaNonEmployeeRecord-BetaId $Id -BetaNonEmployeeRequestBody $Result
+    Update-BetaNonEmployeeRecord -BetaId $Id  -BetaNonEmployeeRequestBody $Result
     
     # Below is a request that includes all optional parameters
     # Update-BetaNonEmployeeRecord -BetaId $Id -BetaNonEmployeeRequestBody $NonEmployeeRequestBody  

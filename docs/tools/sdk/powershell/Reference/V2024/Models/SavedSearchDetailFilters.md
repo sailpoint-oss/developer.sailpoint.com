@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'SavedSearchDetailFilters', 'V2024Save
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to [**FilterType**](filter-type) |  | [optional] 
-**Range** |  Pointer to [**Range**](range) |  | [optional] 
-**Terms** |  Pointer to **[]String** | The terms to be filtered. | [optional] 
-**Exclude** |  Pointer to **Boolean** | Indicates if the filter excludes results. | [optional] [default to $false]
+**Type** | [**FilterType**](filter-type) |  | [optional] 
+**Range** | [**Range**](range) |  | [optional] 
+**Terms** | **[]String** | The terms to be filtered. | [optional] 
+**Exclude** | **Boolean** | Indicates if the filter excludes results. | [optional] [default to $false]
 
 ## Examples
 

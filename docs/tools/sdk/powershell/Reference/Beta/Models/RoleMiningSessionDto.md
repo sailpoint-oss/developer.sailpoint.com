@@ -16,17 +16,17 @@ tags: ['SDK', 'Software Development Kit', 'RoleMiningSessionDto', 'BetaRoleMinin
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Scope** |  Pointer to [**RoleMiningSessionScope**](role-mining-session-scope) |  | [optional] 
-**PruneThreshold** |  Pointer to **Int32** | The prune threshold to be used or null to calculate prescribedPruneThreshold | [optional] 
-**PrescribedPruneThreshold** |  Pointer to **Int32** | The calculated prescribedPruneThreshold | [optional] 
-**MinNumIdentitiesInPotentialRole** |  Pointer to **Int32** | Minimum number of identities in a potential role | [optional] 
-**PotentialRoleCount** |  Pointer to **Int32** | Number of potential roles | [optional] 
-**PotentialRolesReadyCount** |  Pointer to **Int32** | Number of potential roles ready | [optional] 
-**Type** |  Pointer to [**RoleMiningRoleType**](role-mining-role-type) |  | [optional] 
-**EmailRecipientId** |  Pointer to **String** | The id of the user who will receive an email about the role mining session | [optional] 
-**IdentityCount** |  Pointer to **Int32** | Number of identities in the population which meet the search criteria or identity list provided | [optional] 
-**Saved** |  Pointer to **Boolean** | The session's saved status | [optional] [default to $false]
-**Name** |  Pointer to **String** | The session's saved name | [optional] 
+**Scope** | [**RoleMiningSessionScope**](role-mining-session-scope) |  | [optional] 
+**PruneThreshold** | **Int32** | The prune threshold to be used or null to calculate prescribedPruneThreshold | [optional] 
+**PrescribedPruneThreshold** | **Int32** | The calculated prescribedPruneThreshold | [optional] 
+**MinNumIdentitiesInPotentialRole** | **Int32** | Minimum number of identities in a potential role | [optional] 
+**PotentialRoleCount** | **Int32** | Number of potential roles | [optional] 
+**PotentialRolesReadyCount** | **Int32** | Number of potential roles ready | [optional] 
+**Type** | [**RoleMiningRoleType**](role-mining-role-type) |  | [optional] 
+**EmailRecipientId** | **String** | The id of the user who will receive an email about the role mining session | [optional] 
+**IdentityCount** | **Int32** | Number of identities in the population which meet the search criteria or identity list provided | [optional] 
+**Saved** | **Boolean** | The session's saved status | [optional] [default to $false]
+**Name** | **String** | The session's saved name | [optional] 
 
 ## Examples
 

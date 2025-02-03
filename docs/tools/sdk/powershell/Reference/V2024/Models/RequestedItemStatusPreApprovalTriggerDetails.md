@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'RequestedItemStatusPreApprovalTrigger
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Comment** |  Pointer to **String** | Comment left for the pre-approval decision | [optional] 
-**Reviewer** |  Pointer to **String** | The reviewer of the pre-approval decision | [optional] 
-**Decision** |  Pointer to  **Enum** [  "APPROVED",    "REJECTED" ] | The decision of the pre-approval trigger | [optional] 
+**Comment** | **String** | Comment left for the pre-approval decision | [optional] 
+**Reviewer** | **String** | The reviewer of the pre-approval decision | [optional] 
+**Decision** |  **Enum** [  "APPROVED",    "REJECTED" ] | The decision of the pre-approval trigger | [optional] 
 
 ## Examples
 

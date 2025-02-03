@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'Entitlement1AccessModelMetadata', 'V2
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Attributes** |  Pointer to [**[]AttributeDTO**](attribute-dto) |  | [optional] 
+**Attributes** | [**[]AttributeDTO**](attribute-dto) |  | [optional] 
 
 ## Examples
 

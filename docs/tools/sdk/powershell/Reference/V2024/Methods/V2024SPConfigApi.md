@@ -1,4 +1,3 @@
-
 ---
 id: v2024-sp-config
 title: SPConfig
@@ -65,7 +64,7 @@ $ExportPayload = @"{
 
 try {
     $Result = ConvertFrom-JsonToExportPayload -Json $ExportPayload
-    Export-V2024SpConfig-V2024XSailPointExperimental $XSailPointExperimental -V2024ExportPayload $Result
+    Export-V2024SpConfig -V2024XSailPointExperimental $XSailPointExperimental  -V2024ExportPayload $Result
     
     # Below is a request that includes all optional parameters
     # Export-V2024SpConfig -V2024XSailPointExperimental $XSailPointExperimental -V2024ExportPayload $ExportPayload  
@@ -112,7 +111,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Download export job result.
 
 try {
-    Get-V2024SpConfigExport-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024SpConfigExport -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024SpConfigExport -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
@@ -159,7 +158,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Get export job status
 
 try {
-    Get-V2024SpConfigExportStatus-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024SpConfigExportStatus -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024SpConfigExportStatus -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
@@ -206,7 +205,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Download import job result
 
 try {
-    Get-V2024SpConfigImport-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024SpConfigImport -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024SpConfigImport -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
@@ -255,7 +254,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Get import job status
 
 try {
-    Get-V2024SpConfigImportStatus-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024SpConfigImportStatus -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024SpConfigImportStatus -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
@@ -316,7 +315,7 @@ $Options = @""@
 # Initiates configuration objects import job
 
 try {
-    Import-V2024SpConfig-V2024XSailPointExperimental $XSailPointExperimental -V2024Data $Data 
+    Import-V2024SpConfig -V2024XSailPointExperimental $XSailPointExperimental  -V2024Data $Data 
     
     # Below is a request that includes all optional parameters
     # Import-V2024SpConfig -V2024XSailPointExperimental $XSailPointExperimental -V2024Data $Data -V2024Preview $Preview -V2024Options $Options  
@@ -359,7 +358,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Get config object details
 
 try {
-    Get-V2024SpConfigObjects-V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024SpConfigObjects -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024SpConfigObjects -V2024XSailPointExperimental $XSailPointExperimental  

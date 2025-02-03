@@ -1,4 +1,3 @@
-
 ---
 id: beta-ui-metadata
 title: UIMetadata
@@ -103,7 +102,7 @@ $TenantUiMetadataItemUpdateRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToTenantUiMetadataItemUpdateRequest -Json $TenantUiMetadataItemUpdateRequest
-    Set-BetaTenantUiMetadata-BetaTenantUiMetadataItemUpdateRequest $Result
+    Set-BetaTenantUiMetadata -BetaTenantUiMetadataItemUpdateRequest $Result
     
     # Below is a request that includes all optional parameters
     # Set-BetaTenantUiMetadata -BetaTenantUiMetadataItemUpdateRequest $TenantUiMetadataItemUpdateRequest  

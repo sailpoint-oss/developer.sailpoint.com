@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'AccountRequestInfo', 'BetaAccountRequ
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**RequestedObjectId** |  Pointer to **String** | Id of requested object | [optional] 
-**RequestedObjectName** |  Pointer to **String** | Human-readable name of requested object | [optional] 
-**RequestedObjectType** |  Pointer to [**RequestableObjectType**](requestable-object-type) |  | [optional] 
+**RequestedObjectId** | **String** | Id of requested object | [optional] 
+**RequestedObjectName** | **String** | Human-readable name of requested object | [optional] 
+**RequestedObjectType** | [**RequestableObjectType**](requestable-object-type) |  | [optional] 
 
 ## Examples
 

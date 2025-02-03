@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'IdentityEntitiesIdentityEntity', 'V20
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | id of the resource to which the identity is associated | [optional] 
-**Name** |  Pointer to **String** | name of the resource to which the identity is associated | [optional] 
-**Type** |  Pointer to **String** | type of the resource to which the identity is associated | [optional] 
+**Id** | **String** | id of the resource to which the identity is associated | [optional] 
+**Name** | **String** | name of the resource to which the identity is associated | [optional] 
+**Type** | **String** | type of the resource to which the identity is associated | [optional] 
 
 ## Examples
 

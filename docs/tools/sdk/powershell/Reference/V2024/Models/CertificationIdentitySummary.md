@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'CertificationIdentitySummary', 'V2024
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | The ID of the identity summary | [optional] 
-**Name** |  Pointer to **String** | Name of the linked identity | [optional] 
-**IdentityId** |  Pointer to **String** | The ID of the identity being certified | [optional] 
-**Completed** |  Pointer to **Boolean** | Indicates whether the review items for the linked identity's certification have been completed | [optional] 
+**Id** | **String** | The ID of the identity summary | [optional] 
+**Name** | **String** | Name of the linked identity | [optional] 
+**IdentityId** | **String** | The ID of the identity being certified | [optional] 
+**Completed** | **Boolean** | Indicates whether the review items for the linked identity's certification have been completed | [optional] 
 
 ## Examples
 

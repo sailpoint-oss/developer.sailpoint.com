@@ -1,4 +1,3 @@
-
 ---
 id: tagged-objects
 title: TaggedObjects
@@ -114,7 +113,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the object to dele
 # Delete Object Tags
 
 try {
-    Remove-TaggedObject-Type $Type -Id $Id 
+    Remove-TaggedObject -Type $Type  -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-TaggedObject -Type $Type -Id $Id  
@@ -168,7 +167,7 @@ $BulkRemoveTaggedObject = @"{
 
 try {
     $Result = ConvertFrom-JsonToBulkRemoveTaggedObject -Json $BulkRemoveTaggedObject
-    Remove-TagsToManyObject-BulkRemoveTaggedObject $Result
+    Remove-TagsToManyObject -BulkRemoveTaggedObject $Result
     
     # Below is a request that includes all optional parameters
     # Remove-TagsToManyObject -BulkRemoveTaggedObject $BulkRemoveTaggedObject  
@@ -212,7 +211,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the object referen
 # Get Tagged Object
 
 try {
-    Get-TaggedObject-Type $Type -Id $Id 
+    Get-TaggedObject -Type $Type  -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-TaggedObject -Type $Type -Id $Id  
@@ -314,7 +313,7 @@ $Filters = 'objectRef.id eq "2c91808568c529c60168cca6f90c1313"' # String | Filte
 # List Tagged Objects by Type
 
 try {
-    Get-TaggedObjectsByType-Type $Type 
+    Get-TaggedObjectsByType -Type $Type 
     
     # Below is a request that includes all optional parameters
     # Get-TaggedObjectsByType -Type $Type -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters  
@@ -368,7 +367,7 @@ $TaggedObject = @"{
 
 try {
     $Result = ConvertFrom-JsonToTaggedObject -Json $TaggedObject
-    Send-TaggedObject-Type $Type -Id $Id -TaggedObject $Result
+    Send-TaggedObject -Type $Type  -Id $Id  -TaggedObject $Result
     
     # Below is a request that includes all optional parameters
     # Send-TaggedObject -Type $Type -Id $Id -TaggedObject $TaggedObject  
@@ -420,7 +419,7 @@ $TaggedObject = @"{
 
 try {
     $Result = ConvertFrom-JsonToTaggedObject -Json $TaggedObject
-    Set-TagToObject-TaggedObject $Result
+    Set-TagToObject -TaggedObject $Result
     
     # Below is a request that includes all optional parameters
     # Set-TagToObject -TaggedObject $TaggedObject  
@@ -475,7 +474,7 @@ $BulkAddTaggedObject = @"{
 
 try {
     $Result = ConvertFrom-JsonToBulkAddTaggedObject -Json $BulkAddTaggedObject
-    Set-TagsToManyObjects-BulkAddTaggedObject $Result
+    Set-TagsToManyObjects -BulkAddTaggedObject $Result
     
     # Below is a request that includes all optional parameters
     # Set-TagsToManyObjects -BulkAddTaggedObject $BulkAddTaggedObject  

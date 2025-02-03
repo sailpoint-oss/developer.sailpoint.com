@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'SodPolicyOwnerRef', 'V2024SodPolicyOw
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to  **Enum** [  "IDENTITY",    "GOVERNANCE_GROUP" ] | Owner type. | [optional] 
-**Id** |  Pointer to **String** | Owner's ID. | [optional] 
-**Name** |  Pointer to **String** | Owner's name. | [optional] 
+**Type** |  **Enum** [  "IDENTITY",    "GOVERNANCE_GROUP" ] | Owner type. | [optional] 
+**Id** | **String** | Owner's ID. | [optional] 
+**Name** | **String** | Owner's name. | [optional] 
 
 ## Examples
 

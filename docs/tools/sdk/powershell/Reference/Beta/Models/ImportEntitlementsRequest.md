@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'ImportEntitlementsRequest', 'BetaImpo
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**File** |  Pointer to **System.IO.FileInfo** | The CSV file containing the source entitlements to aggregate. | [optional] 
+**File** | **System.IO.FileInfo** | The CSV file containing the source entitlements to aggregate. | [optional] 
 
 ## Examples
 

@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'ReviewRecommendation', 'V2024ReviewRe
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Recommendation** |  Pointer to **String** | The recommendation from IAI at the time of the decision. This field will be null if no recommendation was made. | [optional] 
-**Reasons** |  Pointer to **[]String** | A list of reasons for the recommendation. | [optional] 
-**Timestamp** |  Pointer to **System.DateTime** | The time at which the recommendation was recorded. | [optional] 
+**Recommendation** | **String** | The recommendation from IAI at the time of the decision. This field will be null if no recommendation was made. | [optional] 
+**Reasons** | **[]String** | A list of reasons for the recommendation. | [optional] 
+**Timestamp** | **System.DateTime** | The time at which the recommendation was recorded. | [optional] 
 
 ## Examples
 

@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'MultiHostIntegrationsConnectorAttribu
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Password** |  Pointer to **String** | Password. | [optional] 
-**ConnectorFiles** |  Pointer to **String** | Connector file. | [optional] 
-**AuthType** |  Pointer to **String** | Authentication type. | [optional] 
-**User** |  Pointer to **String** | Username. | [optional] 
+**Password** | **String** | Password. | [optional] 
+**ConnectorFiles** | **String** | Connector file. | [optional] 
+**AuthType** | **String** | Authentication type. | [optional] 
+**User** | **String** | Username. | [optional] 
 
 ## Examples
 

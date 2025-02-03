@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'SodReportResultDto', 'SodReportResult
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to  **Enum** [  "REPORT_RESULT" ] | SOD policy violation report result DTO type. | [optional] 
-**Id** |  Pointer to **String** | SOD policy violation report result ID. | [optional] 
-**Name** |  Pointer to **String** | Human-readable name of the SOD policy violation report result. | [optional] 
+**Type** |  **Enum** [  "REPORT_RESULT" ] | SOD policy violation report result DTO type. | [optional] 
+**Id** | **String** | SOD policy violation report result ID. | [optional] 
+**Name** | **String** | Human-readable name of the SOD policy violation report result. | [optional] 
 
 ## Examples
 

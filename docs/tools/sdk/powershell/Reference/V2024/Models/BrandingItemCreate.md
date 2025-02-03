@@ -16,14 +16,14 @@ tags: ['SDK', 'Software Development Kit', 'BrandingItemCreate', 'V2024BrandingIt
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** |  **String** | name of branding item | [required]
-**ProductName** |  **String** | product name | [required]
-**ActionButtonColor** |  Pointer to **String** | hex value of color for action button | [optional] 
-**ActiveLinkColor** |  Pointer to **String** | hex value of color for link | [optional] 
-**NavigationColor** |  Pointer to **String** | hex value of color for navigation bar | [optional] 
-**EmailFromAddress** |  Pointer to **String** | email from address | [optional] 
-**LoginInformationalMessage** |  Pointer to **String** | login information message | [optional] 
-**FileStandard** |  Pointer to **System.IO.FileInfo** | png file with logo | [optional] 
+**Name** | **String** | name of branding item | [required]
+**ProductName** | **String** | product name | [required]
+**ActionButtonColor** | **String** | hex value of color for action button | [optional] 
+**ActiveLinkColor** | **String** | hex value of color for link | [optional] 
+**NavigationColor** | **String** | hex value of color for navigation bar | [optional] 
+**EmailFromAddress** | **String** | email from address | [optional] 
+**LoginInformationalMessage** | **String** | login information message | [optional] 
+**FileStandard** | **System.IO.FileInfo** | png file with logo | [optional] 
 
 ## Examples
 

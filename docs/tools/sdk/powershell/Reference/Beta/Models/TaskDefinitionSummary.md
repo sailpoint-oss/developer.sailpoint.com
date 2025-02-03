@@ -16,12 +16,12 @@ tags: ['SDK', 'Software Development Kit', 'TaskDefinitionSummary', 'BetaTaskDefi
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  **String** | System-generated unique ID of the TaskDefinition | [required]
-**UniqueName** |  **String** | Name of the TaskDefinition | [required]
-**Description** |  **String** | Description of the TaskDefinition | [required]
-**ParentName** |  **String** | Name of the parent of the TaskDefinition | [required]
-**Executor** |  **String** | Executor of the TaskDefinition | [required]
-**Arguments** |  [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | Formal parameters of the TaskDefinition, without values | [required]
+**Id** | **String** | System-generated unique ID of the TaskDefinition | [required]
+**UniqueName** | **String** | Name of the TaskDefinition | [required]
+**Description** | **String** | Description of the TaskDefinition | [required]
+**ParentName** | **String** | Name of the parent of the TaskDefinition | [required]
+**Executor** | **String** | Executor of the TaskDefinition | [required]
+**Arguments** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | Formal parameters of the TaskDefinition, without values | [required]
 
 ## Examples
 

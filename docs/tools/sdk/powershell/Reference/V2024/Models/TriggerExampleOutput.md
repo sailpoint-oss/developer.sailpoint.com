@@ -16,12 +16,12 @@ tags: ['SDK', 'Software Development Kit', 'TriggerExampleOutput', 'V2024TriggerE
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  **String** | The unique ID of the identity to add to the approver list for the access request. | [required]
-**Name** |  **String** | The name of the identity to add to the approver list for the access request. | [required]
-**Type** |   **Enum** [  "IDENTITY",    "GOVERNANCE_GROUP" ] | The type of object being referenced. | [required]
-**Approved** |  **Boolean** | Whether or not to approve the access request. | [required]
-**Comment** |  **String** | A comment about the decision to approve or deny the request. | [required]
-**Approver** |  **String** | The name of the entity that approved or denied the request. | [required]
+**Id** | **String** | The unique ID of the identity to add to the approver list for the access request. | [required]
+**Name** | **String** | The name of the identity to add to the approver list for the access request. | [required]
+**Type** |  **Enum** [  "IDENTITY",    "GOVERNANCE_GROUP" ] | The type of object being referenced. | [required]
+**Approved** | **Boolean** | Whether or not to approve the access request. | [required]
+**Comment** | **String** | A comment about the decision to approve or deny the request. | [required]
+**Approver** | **String** | The name of the entity that approved or denied the request. | [required]
 
 ## Examples
 

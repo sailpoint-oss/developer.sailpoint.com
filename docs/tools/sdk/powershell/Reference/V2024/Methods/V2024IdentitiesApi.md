@@ -1,4 +1,3 @@
-
 ---
 id: v2024-identities
 title: Identities
@@ -80,7 +79,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Delete identity
 
 try {
-    Remove-V2024Identity-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
+    Remove-V2024Identity -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024Identity -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
@@ -125,7 +124,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Identity Details
 
 try {
-    Get-V2024Identity-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024Identity -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024Identity -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
@@ -172,7 +171,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Get ownership details
 
 try {
-    Get-V2024IdentityOwnershipDetails-V2024IdentityId $IdentityId -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024IdentityOwnershipDetails -V2024IdentityId $IdentityId  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024IdentityOwnershipDetails -V2024IdentityId $IdentityId -V2024XSailPointExperimental $XSailPointExperimental  
@@ -219,7 +218,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Role assignment details
 
 try {
-    Get-V2024RoleAssignment-V2024IdentityId $IdentityId -V2024AssignmentId $AssignmentId -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024RoleAssignment -V2024IdentityId $IdentityId  -V2024AssignmentId $AssignmentId  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024RoleAssignment -V2024IdentityId $IdentityId -V2024AssignmentId $AssignmentId -V2024XSailPointExperimental $XSailPointExperimental  
@@ -268,7 +267,7 @@ $RoleName = "Engineer" # String | Role name to filter the role assignments with 
 # List role assignments
 
 try {
-    Get-V2024RoleAssignments-V2024IdentityId $IdentityId -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024RoleAssignments -V2024IdentityId $IdentityId  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024RoleAssignments -V2024IdentityId $IdentityId -V2024XSailPointExperimental $XSailPointExperimental -V2024RoleId $RoleId -V2024RoleName $RoleName  
@@ -322,7 +321,7 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 # List Identities
 
 try {
-    Get-V2024Identities-V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024Identities -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024Identities -V2024XSailPointExperimental $XSailPointExperimental -V2024Filters $Filters -V2024Sorters $Sorters -V2024DefaultFilter $DefaultFilter -V2024Count $Count -V2024Limit $Limit -V2024Offset $Offset  
@@ -367,7 +366,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Reset an identity
 
 try {
-    Reset-V2024Identity-V2024IdentityId $IdentityId -V2024XSailPointExperimental $XSailPointExperimental 
+    Reset-V2024Identity -V2024IdentityId $IdentityId  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Reset-V2024Identity -V2024IdentityId $IdentityId -V2024XSailPointExperimental $XSailPointExperimental  
@@ -419,7 +418,7 @@ $SendAccountVerificationRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToSendAccountVerificationRequest -Json $SendAccountVerificationRequest
-    Send-V2024IdentityVerificationAccountToken-V2024XSailPointExperimental $XSailPointExperimental -V2024Id $Id -V2024SendAccountVerificationRequest $Result
+    Send-V2024IdentityVerificationAccountToken -V2024XSailPointExperimental $XSailPointExperimental  -V2024Id $Id  -V2024SendAccountVerificationRequest $Result
     
     # Below is a request that includes all optional parameters
     # Send-V2024IdentityVerificationAccountToken -V2024XSailPointExperimental $XSailPointExperimental -V2024Id $Id -V2024SendAccountVerificationRequest $SendAccountVerificationRequest  
@@ -473,7 +472,7 @@ $InviteIdentitiesRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToInviteIdentitiesRequest -Json $InviteIdentitiesRequest
-    Start-V2024IdentitiesInvite-V2024XSailPointExperimental $XSailPointExperimental -V2024InviteIdentitiesRequest $Result
+    Start-V2024IdentitiesInvite -V2024XSailPointExperimental $XSailPointExperimental  -V2024InviteIdentitiesRequest $Result
     
     # Below is a request that includes all optional parameters
     # Start-V2024IdentitiesInvite -V2024XSailPointExperimental $XSailPointExperimental -V2024InviteIdentitiesRequest $InviteIdentitiesRequest  
@@ -528,7 +527,7 @@ $ProcessIdentitiesRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToProcessIdentitiesRequest -Json $ProcessIdentitiesRequest
-    Start-V2024IdentityProcessing-V2024XSailPointExperimental $XSailPointExperimental -V2024ProcessIdentitiesRequest $Result
+    Start-V2024IdentityProcessing -V2024XSailPointExperimental $XSailPointExperimental  -V2024ProcessIdentitiesRequest $Result
     
     # Below is a request that includes all optional parameters
     # Start-V2024IdentityProcessing -V2024XSailPointExperimental $XSailPointExperimental -V2024ProcessIdentitiesRequest $ProcessIdentitiesRequest  
@@ -573,7 +572,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Attribute synchronization for single identity.
 
 try {
-    Sync-V2024hronizeAttributesForIdentity-V2024IdentityId $IdentityId -V2024XSailPointExperimental $XSailPointExperimental 
+    Sync-V2024hronizeAttributesForIdentity -V2024IdentityId $IdentityId  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Sync-V2024hronizeAttributesForIdentity -V2024IdentityId $IdentityId -V2024XSailPointExperimental $XSailPointExperimental  

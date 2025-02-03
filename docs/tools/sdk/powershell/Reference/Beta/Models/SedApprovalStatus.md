@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'SedApprovalStatus', 'BetaSedApprovalS
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**FailedReason** |  Pointer to **String** | failed reason will be display if status is failed | [optional] 
-**Id** |  Pointer to **String** | Sed id | [optional] 
-**Status** |  Pointer to **String** | SUCCESS | FAILED | [optional] 
+**FailedReason** | **String** | failed reason will be display if status is failed | [optional] 
+**Id** | **String** | Sed id | [optional] 
+**Status** | **String** | SUCCESS | FAILED | [optional] 
 
 ## Examples
 

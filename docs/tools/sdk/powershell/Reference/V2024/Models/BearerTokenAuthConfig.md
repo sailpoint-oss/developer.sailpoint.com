@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'BearerTokenAuthConfig', 'V2024BearerT
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**BearerToken** |  Pointer to **String** | Bearer token | [optional] 
+**BearerToken** | **String** | Bearer token | [optional] 
 
 ## Examples
 

@@ -16,11 +16,11 @@ tags: ['SDK', 'Software Development Kit', 'SourceAppAccountSource', 'V2024Source
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | The source ID | [optional] 
-**Type** |  Pointer to **String** | The source type, will always be ""SOURCE"" | [optional] 
-**Name** |  Pointer to **String** | The source name | [optional] 
-**UseForPasswordManagement** |  Pointer to **Boolean** | If the source is used for password management | [optional] [default to $false]
-**PasswordPolicies** |  Pointer to [**[]BaseReferenceDto**](base-reference-dto) | The password policies for the source | [optional] 
+**Id** | **String** | The source ID | [optional] 
+**Type** | **String** | The source type, will always be ""SOURCE"" | [optional] 
+**Name** | **String** | The source name | [optional] 
+**UseForPasswordManagement** | **Boolean** | If the source is used for password management | [optional] [default to $false]
+**PasswordPolicies** | [**[]BaseReferenceDto**](base-reference-dto) | The password policies for the source | [optional] 
 
 ## Examples
 

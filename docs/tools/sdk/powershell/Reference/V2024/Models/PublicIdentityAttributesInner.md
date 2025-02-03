@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'PublicIdentityAttributesInner', 'V202
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Key** |  Pointer to **String** | The attribute key | [optional] 
-**Name** |  Pointer to **String** | Human-readable display name of the attribute | [optional] 
-**Value** |  Pointer to **String** | The attribute value | [optional] 
+**Key** | **String** | The attribute key | [optional] 
+**Name** | **String** | Human-readable display name of the attribute | [optional] 
+**Value** | **String** | The attribute value | [optional] 
 
 ## Examples
 

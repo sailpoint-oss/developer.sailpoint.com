@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'LoadUncorrelatedAccountsTask', 'BetaL
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Success** |  Pointer to **Boolean** | The status of the result | [optional] [default to $true]
-**Task** |  Pointer to [**LoadUncorrelatedAccountsTaskTask**](load-uncorrelated-accounts-task-task) |  | [optional] 
+**Success** | **Boolean** | The status of the result | [optional] [default to $true]
+**Task** | [**LoadUncorrelatedAccountsTaskTask**](load-uncorrelated-accounts-task-task) |  | [optional] 
 
 ## Examples
 

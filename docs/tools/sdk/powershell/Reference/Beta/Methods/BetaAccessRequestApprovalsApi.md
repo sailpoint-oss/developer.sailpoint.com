@@ -1,4 +1,3 @@
-
 ---
 id: beta-access-request-approvals
 title: AccessRequestApprovals
@@ -86,7 +85,7 @@ $CommentDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToCommentDto -Json $CommentDto
-    Approve-BetaAccessRequest-BetaApprovalId $ApprovalId -BetaCommentDto $Result
+    Approve-BetaAccessRequest -BetaApprovalId $ApprovalId  -BetaCommentDto $Result
     
     # Below is a request that includes all optional parameters
     # Approve-BetaAccessRequest -BetaApprovalId $ApprovalId -BetaCommentDto $CommentDto  
@@ -135,7 +134,7 @@ $ForwardApprovalDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToForwardApprovalDto -Json $ForwardApprovalDto
-    Invoke-BetaForwardAccessRequest-BetaApprovalId $ApprovalId -BetaForwardApprovalDto $Result
+    Invoke-BetaForwardAccessRequest -BetaApprovalId $ApprovalId  -BetaForwardApprovalDto $Result
     
     # Below is a request that includes all optional parameters
     # Invoke-BetaForwardAccessRequest -BetaApprovalId $ApprovalId -BetaForwardApprovalDto $ForwardApprovalDto  
@@ -335,7 +334,7 @@ $CommentDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToCommentDto -Json $CommentDto
-    Deny-BetaAccessRequest-BetaApprovalId $ApprovalId -BetaCommentDto $Result
+    Deny-BetaAccessRequest -BetaApprovalId $ApprovalId  -BetaCommentDto $Result
     
     # Below is a request that includes all optional parameters
     # Deny-BetaAccessRequest -BetaApprovalId $ApprovalId -BetaCommentDto $CommentDto  

@@ -1,4 +1,3 @@
-
 ---
 id: password-management
 title: PasswordManagement
@@ -79,7 +78,7 @@ $Id = "089899f13a8f4da7824996191587bab9" # String | Password change request ID
 # Get Password Change Request Status
 
 try {
-    Get-PasswordChangeStatus-Id $Id 
+    Get-PasswordChangeStatus -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-PasswordChangeStatus -Id $Id  
@@ -126,7 +125,7 @@ $PasswordInfoQueryDTO = @"{
 
 try {
     $Result = ConvertFrom-JsonToPasswordInfoQueryDTO -Json $PasswordInfoQueryDTO
-    Search-PasswordInfo-PasswordInfoQueryDTO $Result
+    Search-PasswordInfo -PasswordInfoQueryDTO $Result
     
     # Below is a request that includes all optional parameters
     # Search-PasswordInfo -PasswordInfoQueryDTO $PasswordInfoQueryDTO  
@@ -194,7 +193,7 @@ $PasswordChangeRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToPasswordChangeRequest -Json $PasswordChangeRequest
-    Set-Password-PasswordChangeRequest $Result
+    Set-Password -PasswordChangeRequest $Result
     
     # Below is a request that includes all optional parameters
     # Set-Password -PasswordChangeRequest $PasswordChangeRequest  

@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'TenantConfigurationResponse', 'V2024T
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AuditDetails** |  Pointer to [**AuditDetails**](audit-details) |  | [optional] 
-**ConfigDetails** |  Pointer to [**TenantConfigurationDetails**](tenant-configuration-details) |  | [optional] 
+**AuditDetails** | [**AuditDetails**](audit-details) |  | [optional] 
+**ConfigDetails** | [**TenantConfigurationDetails**](tenant-configuration-details) |  | [optional] 
 
 ## Examples
 

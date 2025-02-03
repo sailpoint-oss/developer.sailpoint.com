@@ -1,4 +1,3 @@
-
 ---
 id: mfa-configuration
 title: MFAConfiguration
@@ -59,7 +58,7 @@ $Method = "okta-verify" # String | The name of the MFA method. The currently sup
 # Delete MFA method configuration
 
 try {
-    Remove-MFAConfig-Method $Method 
+    Remove-MFAConfig -Method $Method 
     
     # Below is a request that includes all optional parameters
     # Remove-MFAConfig -Method $Method  
@@ -234,7 +233,7 @@ $MfaDuoConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToMfaDuoConfig -Json $MfaDuoConfig
-    Set-MFADuoConfig-MfaDuoConfig $Result
+    Set-MFADuoConfig -MfaDuoConfig $Result
     
     # Below is a request that includes all optional parameters
     # Set-MFADuoConfig -MfaDuoConfig $MfaDuoConfig  
@@ -281,7 +280,7 @@ Code | Description  | Data Type
 
 try {
     $Result = ConvertFrom-JsonToKbaAnswerRequestItem -Json $KbaAnswerRequestItem
-    Set-MFAKBAConfig-KbaAnswerRequestItem $Result
+    Set-MFAKBAConfig -KbaAnswerRequestItem $Result
     
     # Below is a request that includes all optional parameters
     # Set-MFAKBAConfig -KbaAnswerRequestItem $KbaAnswerRequestItem  
@@ -330,7 +329,7 @@ $MfaOktaConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToMfaOktaConfig -Json $MfaOktaConfig
-    Set-MFAOktaConfig-MfaOktaConfig $Result
+    Set-MFAOktaConfig -MfaOktaConfig $Result
     
     # Below is a request that includes all optional parameters
     # Set-MFAOktaConfig -MfaOktaConfig $MfaOktaConfig  
@@ -372,7 +371,7 @@ $Method = "okta-verify" # String | The name of the MFA method. The currently sup
 # MFA method's test configuration
 
 try {
-    Test-MFAConfig-Method $Method 
+    Test-MFAConfig -Method $Method 
     
     # Below is a request that includes all optional parameters
     # Test-MFAConfig -Method $Method  

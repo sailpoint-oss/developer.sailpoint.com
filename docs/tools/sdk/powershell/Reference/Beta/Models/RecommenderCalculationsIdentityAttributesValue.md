@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'RecommenderCalculationsIdentityAttrib
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Value** |  Pointer to **String** |  | [optional] 
+**Value** | **String** |  | [optional] 
 
 ## Examples
 

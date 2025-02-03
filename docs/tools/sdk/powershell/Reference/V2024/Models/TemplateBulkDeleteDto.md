@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'TemplateBulkDeleteDto', 'V2024Templat
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Key** |  **String** |  | [required]
-**Medium** |  Pointer to  **Enum** [  "EMAIL",    "PHONE",    "SMS" ] |  | [optional] 
-**Locale** |  Pointer to **String** | The locale for the message text, a BCP 47 language tag. | [optional] 
+**Key** | **String** |  | [required]
+**Medium** |  **Enum** [  "EMAIL",    "PHONE",    "SMS" ] |  | [optional] 
+**Locale** | **String** | The locale for the message text, a BCP 47 language tag. | [optional] 
 
 ## Examples
 

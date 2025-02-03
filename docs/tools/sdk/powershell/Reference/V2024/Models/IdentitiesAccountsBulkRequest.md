@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'IdentitiesAccountsBulkRequest', 'V202
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**IdentityIds** |  Pointer to **[]String** | The ids of the identities for which enable/disable accounts. | [optional] 
+**IdentityIds** | **[]String** | The ids of the identities for which enable/disable accounts. | [optional] 
 
 ## Examples
 

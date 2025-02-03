@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'DataAccess', 'DataAccess']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Policies** |  Pointer to [**[]DataAccessPoliciesInner**](data-access-policies-inner) | List of classification policies that apply to resources the entitlement \ groups has access to | [optional] 
-**Categories** |  Pointer to [**[]DataAccessCategoriesInner**](data-access-categories-inner) | List of classification categories that apply to resources the entitlement \ groups has access to | [optional] 
-**ImpactScore** |  Pointer to [**DataAccessImpactScore**](data-access-impact-score) |  | [optional] 
+**Policies** | [**[]DataAccessPoliciesInner**](data-access-policies-inner) | List of classification policies that apply to resources the entitlement \ groups has access to | [optional] 
+**Categories** | [**[]DataAccessCategoriesInner**](data-access-categories-inner) | List of classification categories that apply to resources the entitlement \ groups has access to | [optional] 
+**ImpactScore** | [**DataAccessImpactScore**](data-access-impact-score) |  | [optional] 
 
 ## Examples
 

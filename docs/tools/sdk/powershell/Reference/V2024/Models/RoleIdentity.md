@@ -16,11 +16,11 @@ tags: ['SDK', 'Software Development Kit', 'RoleIdentity', 'V2024RoleIdentity']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | The ID of the Identity | [optional] 
-**AliasName** |  Pointer to **String** | The alias / username of the Identity | [optional] 
-**Name** |  Pointer to **String** | The human-readable display name of the Identity | [optional] 
-**Email** |  Pointer to **String** | Email address of the Identity | [optional] 
-**RoleAssignmentSource** |  Pointer to [**RoleAssignmentSourceType**](role-assignment-source-type) |  | [optional] 
+**Id** | **String** | The ID of the Identity | [optional] 
+**AliasName** | **String** | The alias / username of the Identity | [optional] 
+**Name** | **String** | The human-readable display name of the Identity | [optional] 
+**Email** | **String** | Email address of the Identity | [optional] 
+**RoleAssignmentSource** | [**RoleAssignmentSourceType**](role-assignment-source-type) |  | [optional] 
 
 ## Examples
 

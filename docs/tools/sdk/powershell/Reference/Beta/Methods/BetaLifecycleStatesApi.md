@@ -1,4 +1,3 @@
-
 ---
 id: beta-lifecycle-states
 title: LifecycleStates
@@ -94,7 +93,7 @@ $LifecycleStateId = "ef38f94347e94562b5bb8424a56397d8" # String | Lifecycle Stat
 # Get Lifecycle State
 
 try {
-    Get-BetaLifecycleStates-BetaIdentityProfileId $IdentityProfileId -BetaLifecycleStateId $LifecycleStateId 
+    Get-BetaLifecycleStates -BetaIdentityProfileId $IdentityProfileId  -BetaLifecycleStateId $LifecycleStateId 
     
     # Below is a request that includes all optional parameters
     # Get-BetaLifecycleStates -BetaIdentityProfileId $IdentityProfileId -BetaLifecycleStateId $LifecycleStateId  
@@ -149,7 +148,7 @@ $LifecycleStateId = "ef38f94347e94562b5bb8424a56397d8" # String | Lifecycle Stat
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-BetaLifecycleStates-BetaIdentityProfileId $IdentityProfileId -BetaLifecycleStateId $LifecycleStateId -BetaJsonPatchOperation $Result
+    Update-BetaLifecycleStates -BetaIdentityProfileId $IdentityProfileId  -BetaLifecycleStateId $LifecycleStateId  -BetaJsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-BetaLifecycleStates -BetaIdentityProfileId $IdentityProfileId -BetaLifecycleStateId $LifecycleStateId -BetaJsonPatchOperation $JsonPatchOperation  

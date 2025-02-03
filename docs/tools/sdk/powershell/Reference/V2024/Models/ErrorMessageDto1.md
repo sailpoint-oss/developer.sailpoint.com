@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'ErrorMessageDto1', 'V2024ErrorMessage
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Locale** |  Pointer to **String** | The locale for the message text, a BCP 47 language tag. | [optional] 
-**LocaleOrigin** |  Pointer to [**LocaleOrigin**](locale-origin) |  | [optional] 
-**Text** |  Pointer to **String** | Actual text of the error message in the indicated locale. | [optional] 
+**Locale** | **String** | The locale for the message text, a BCP 47 language tag. | [optional] 
+**LocaleOrigin** | [**LocaleOrigin**](locale-origin) |  | [optional] 
+**Text** | **String** | Actual text of the error message in the indicated locale. | [optional] 
 
 ## Examples
 

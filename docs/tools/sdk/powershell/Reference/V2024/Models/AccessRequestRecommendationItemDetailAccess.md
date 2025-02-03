@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'AccessRequestRecommendationItemDetail
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | ID of access item being recommended. | [optional] 
-**Type** |  Pointer to [**AccessRequestRecommendationItemType**](access-request-recommendation-item-type) |  | [optional] 
-**Name** |  Pointer to **String** | Name of the access item | [optional] 
-**Description** |  Pointer to **String** | Description of the access item | [optional] 
+**Id** | **String** | ID of access item being recommended. | [optional] 
+**Type** | [**AccessRequestRecommendationItemType**](access-request-recommendation-item-type) |  | [optional] 
+**Name** | **String** | Name of the access item | [optional] 
+**Description** | **String** | Description of the access item | [optional] 
 
 ## Examples
 

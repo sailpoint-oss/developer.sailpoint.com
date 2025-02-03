@@ -1,4 +1,3 @@
-
 ---
 id: accounts
 title: Accounts
@@ -110,7 +109,7 @@ $AccountAttributesCreate = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccountAttributesCreate -Json $AccountAttributesCreate
-    New-Account-AccountAttributesCreate $Result
+    New-Account -AccountAttributesCreate $Result
     
     # Below is a request that includes all optional parameters
     # New-Account -AccountAttributesCreate $AccountAttributesCreate  
@@ -156,7 +155,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Account ID.
 # Delete Account
 
 try {
-    Remove-Account-Id $Id 
+    Remove-Account -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-Account -Id $Id  
@@ -205,7 +204,7 @@ $AccountToggleRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccountToggleRequest -Json $AccountToggleRequest
-    Disable-Account-Id $Id -AccountToggleRequest $Result
+    Disable-Account -Id $Id  -AccountToggleRequest $Result
     
     # Below is a request that includes all optional parameters
     # Disable-Account -Id $Id -AccountToggleRequest $AccountToggleRequest  
@@ -254,7 +253,7 @@ $AccountToggleRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccountToggleRequest -Json $AccountToggleRequest
-    Enable-Account-Id $Id -AccountToggleRequest $Result
+    Enable-Account -Id $Id  -AccountToggleRequest $Result
     
     # Below is a request that includes all optional parameters
     # Enable-Account -Id $Id -AccountToggleRequest $AccountToggleRequest  
@@ -297,7 +296,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Account ID.
 # Account Details
 
 try {
-    Get-Account-Id $Id 
+    Get-Account -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-Account -Id $Id  
@@ -346,7 +345,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Account Entitlements
 
 try {
-    Get-AccountEntitlements-Id $Id 
+    Get-AccountEntitlements -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-AccountEntitlements -Id $Id -Limit $Limit -Offset $Offset -Count $Count  
@@ -457,7 +456,7 @@ $AccountAttributes = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccountAttributes -Json $AccountAttributes
-    Send-Account-Id $Id -AccountAttributes $Result
+    Send-Account -Id $Id  -AccountAttributes $Result
     
     # Below is a request that includes all optional parameters
     # Send-Account -Id $Id -AccountAttributes $AccountAttributes  
@@ -500,7 +499,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The account id
 # Reload Account
 
 try {
-    Submit-ReloadAccount-Id $Id 
+    Submit-ReloadAccount -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Submit-ReloadAccount -Id $Id  
@@ -551,7 +550,7 @@ $AccountUnlockRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccountUnlockRequest -Json $AccountUnlockRequest
-    Unlock-Account-Id $Id -AccountUnlockRequest $Result
+    Unlock-Account -Id $Id  -AccountUnlockRequest $Result
     
     # Below is a request that includes all optional parameters
     # Unlock-Account -Id $Id -AccountUnlockRequest $AccountUnlockRequest  
@@ -609,7 +608,7 @@ $RequestBody =  # SystemCollectionsHashtable[] | A list of account update operat
 
 try {
     $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
-    Update-Account-Id $Id -RequestBody $Result
+    Update-Account -Id $Id  -RequestBody $Result
     
     # Below is a request that includes all optional parameters
     # Update-Account -Id $Id -RequestBody $RequestBody  

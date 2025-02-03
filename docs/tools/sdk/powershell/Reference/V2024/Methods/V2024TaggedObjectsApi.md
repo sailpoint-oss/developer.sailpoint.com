@@ -1,4 +1,3 @@
-
 ---
 id: v2024-tagged-objects
 title: TaggedObjects
@@ -114,7 +113,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the object to dele
 # Delete Object Tags
 
 try {
-    Remove-V2024TaggedObject-V2024Type $Type -V2024Id $Id 
+    Remove-V2024TaggedObject -V2024Type $Type  -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024TaggedObject -V2024Type $Type -V2024Id $Id  
@@ -168,7 +167,7 @@ $BulkRemoveTaggedObject = @"{
 
 try {
     $Result = ConvertFrom-JsonToBulkRemoveTaggedObject -Json $BulkRemoveTaggedObject
-    Remove-V2024TagsToManyObject-V2024BulkRemoveTaggedObject $Result
+    Remove-V2024TagsToManyObject -V2024BulkRemoveTaggedObject $Result
     
     # Below is a request that includes all optional parameters
     # Remove-V2024TagsToManyObject -V2024BulkRemoveTaggedObject $BulkRemoveTaggedObject  
@@ -212,7 +211,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the object referen
 # Get Tagged Object
 
 try {
-    Get-V2024TaggedObject-V2024Type $Type -V2024Id $Id 
+    Get-V2024TaggedObject -V2024Type $Type  -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-V2024TaggedObject -V2024Type $Type -V2024Id $Id  
@@ -314,7 +313,7 @@ $Filters = 'objectRef.id eq "2c91808568c529c60168cca6f90c1313"' # String | Filte
 # List Tagged Objects by Type
 
 try {
-    Get-V2024TaggedObjectsByType-V2024Type $Type 
+    Get-V2024TaggedObjectsByType -V2024Type $Type 
     
     # Below is a request that includes all optional parameters
     # Get-V2024TaggedObjectsByType -V2024Type $Type -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Filters $Filters  
@@ -368,7 +367,7 @@ $TaggedObject = @"{
 
 try {
     $Result = ConvertFrom-JsonToTaggedObject -Json $TaggedObject
-    Send-V2024TaggedObject-V2024Type $Type -V2024Id $Id -V2024TaggedObject $Result
+    Send-V2024TaggedObject -V2024Type $Type  -V2024Id $Id  -V2024TaggedObject $Result
     
     # Below is a request that includes all optional parameters
     # Send-V2024TaggedObject -V2024Type $Type -V2024Id $Id -V2024TaggedObject $TaggedObject  
@@ -420,7 +419,7 @@ $TaggedObject = @"{
 
 try {
     $Result = ConvertFrom-JsonToTaggedObject -Json $TaggedObject
-    Set-V2024TagToObject-V2024TaggedObject $Result
+    Set-V2024TagToObject -V2024TaggedObject $Result
     
     # Below is a request that includes all optional parameters
     # Set-V2024TagToObject -V2024TaggedObject $TaggedObject  
@@ -475,7 +474,7 @@ $BulkAddTaggedObject = @"{
 
 try {
     $Result = ConvertFrom-JsonToBulkAddTaggedObject -Json $BulkAddTaggedObject
-    Set-V2024TagsToManyObjects-V2024BulkAddTaggedObject $Result
+    Set-V2024TagsToManyObjects -V2024BulkAddTaggedObject $Result
     
     # Below is a request that includes all optional parameters
     # Set-V2024TagsToManyObjects -V2024BulkAddTaggedObject $BulkAddTaggedObject  

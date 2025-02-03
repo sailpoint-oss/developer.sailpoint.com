@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'KbaAuthResponseItem', 'BetaKbaAuthRes
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**QuestionId** |  Pointer to **String** | The KBA question id | [optional] 
-**IsVerified** |  Pointer to **Boolean** | Return true if verified | [optional] 
+**QuestionId** | **String** | The KBA question id | [optional] 
+**IsVerified** | **Boolean** | Return true if verified | [optional] 
 
 ## Examples
 

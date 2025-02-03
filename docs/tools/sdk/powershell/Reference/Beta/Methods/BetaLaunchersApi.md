@@ -1,4 +1,3 @@
-
 ---
 id: beta-launchers
 title: Launchers
@@ -72,7 +71,7 @@ $LauncherRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToLauncherRequest -Json $LauncherRequest
-    New-BetaLauncher-BetaLauncherRequest $Result
+    New-BetaLauncher -BetaLauncherRequest $Result
     
     # Below is a request that includes all optional parameters
     # New-BetaLauncher -BetaLauncherRequest $LauncherRequest  
@@ -115,7 +114,7 @@ $LauncherID = "e3012408-8b61-4564-ad41-c5ec131c325b" # String | ID of the Launch
 # Delete Launcher
 
 try {
-    Remove-BetaLauncher-BetaLauncherID $LauncherID 
+    Remove-BetaLauncher -BetaLauncherID $LauncherID 
     
     # Below is a request that includes all optional parameters
     # Remove-BetaLauncher -BetaLauncherID $LauncherID  
@@ -158,7 +157,7 @@ $LauncherID = "e3012408-8b61-4564-ad41-c5ec131c325b" # String | ID of the Launch
 # Get Launcher by ID
 
 try {
-    Get-BetaLauncher-BetaLauncherID $LauncherID 
+    Get-BetaLauncher -BetaLauncherID $LauncherID 
     
     # Below is a request that includes all optional parameters
     # Get-BetaLauncher -BetaLauncherID $LauncherID  
@@ -261,7 +260,7 @@ $LauncherRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToLauncherRequest -Json $LauncherRequest
-    Send-BetaLauncher-BetaLauncherID $LauncherID -BetaLauncherRequest $Result
+    Send-BetaLauncher -BetaLauncherID $LauncherID  -BetaLauncherRequest $Result
     
     # Below is a request that includes all optional parameters
     # Send-BetaLauncher -BetaLauncherID $LauncherID -BetaLauncherRequest $LauncherRequest  
@@ -304,7 +303,7 @@ $LauncherID = "e3012408-8b61-4564-ad41-c5ec131c325b" # String | ID of the Launch
 # Launch a Launcher
 
 try {
-    Start-BetaLauncher-BetaLauncherID $LauncherID 
+    Start-BetaLauncher -BetaLauncherID $LauncherID 
     
     # Below is a request that includes all optional parameters
     # Start-BetaLauncher -BetaLauncherID $LauncherID  

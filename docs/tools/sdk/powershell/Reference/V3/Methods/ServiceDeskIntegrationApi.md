@@ -1,4 +1,3 @@
-
 ---
 id: service-desk-integration
 title: ServiceDeskIntegration
@@ -120,7 +119,7 @@ $ServiceDeskIntegrationDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToServiceDeskIntegrationDto -Json $ServiceDeskIntegrationDto
-    New-ServiceDeskIntegration-ServiceDeskIntegrationDto $Result
+    New-ServiceDeskIntegration -ServiceDeskIntegrationDto $Result
     
     # Below is a request that includes all optional parameters
     # New-ServiceDeskIntegration -ServiceDeskIntegrationDto $ServiceDeskIntegrationDto  
@@ -163,7 +162,7 @@ $Id = "anId" # String | ID of Service Desk integration to delete
 # Delete a Service Desk integration
 
 try {
-    Remove-ServiceDeskIntegration-Id $Id 
+    Remove-ServiceDeskIntegration -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-ServiceDeskIntegration -Id $Id  
@@ -206,7 +205,7 @@ $Id = "anId" # String | ID of the Service Desk integration to get
 # Get a Service Desk integration
 
 try {
-    Get-ServiceDeskIntegration-Id $Id 
+    Get-ServiceDeskIntegration -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-ServiceDeskIntegration -Id $Id  
@@ -249,7 +248,7 @@ $ScriptName = "aScriptName" # String | The scriptName value of the Service Desk 
 # Service Desk integration template by scriptName
 
 try {
-    Get-ServiceDeskIntegrationTemplate-ScriptName $ScriptName 
+    Get-ServiceDeskIntegrationTemplate -ScriptName $ScriptName 
     
     # Below is a request that includes all optional parameters
     # Get-ServiceDeskIntegrationTemplate -ScriptName $ScriptName  
@@ -428,7 +427,7 @@ $PatchServiceDeskIntegrationRequest = @""@
 
 try {
     $Result = ConvertFrom-JsonToPatchServiceDeskIntegrationRequest -Json $PatchServiceDeskIntegrationRequest
-    Update-ServiceDeskIntegration-Id $Id -PatchServiceDeskIntegrationRequest $Result
+    Update-ServiceDeskIntegration -Id $Id  -PatchServiceDeskIntegrationRequest $Result
     
     # Below is a request that includes all optional parameters
     # Update-ServiceDeskIntegration -Id $Id -PatchServiceDeskIntegrationRequest $PatchServiceDeskIntegrationRequest  
@@ -507,7 +506,7 @@ $ServiceDeskIntegrationDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToServiceDeskIntegrationDto -Json $ServiceDeskIntegrationDto
-    Send-ServiceDeskIntegration-Id $Id -ServiceDeskIntegrationDto $Result
+    Send-ServiceDeskIntegration -Id $Id  -ServiceDeskIntegrationDto $Result
     
     # Below is a request that includes all optional parameters
     # Send-ServiceDeskIntegration -Id $Id -ServiceDeskIntegrationDto $ServiceDeskIntegrationDto  
@@ -554,7 +553,7 @@ $QueuedCheckConfigDetails = @"{
 
 try {
     $Result = ConvertFrom-JsonToQueuedCheckConfigDetails -Json $QueuedCheckConfigDetails
-    Update-StatusCheckDetails-QueuedCheckConfigDetails $Result
+    Update-StatusCheckDetails -QueuedCheckConfigDetails $Result
     
     # Below is a request that includes all optional parameters
     # Update-StatusCheckDetails -QueuedCheckConfigDetails $QueuedCheckConfigDetails  

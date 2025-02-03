@@ -1,4 +1,3 @@
-
 ---
 id: v2024-search
 title: Search
@@ -201,7 +200,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 
 try {
     $Result = ConvertFrom-JsonToSearch -Json $Search
-    Search-V2024Aggregate-V2024Search $Result
+    Search-V2024Aggregate -V2024Search $Result
     
     # Below is a request that includes all optional parameters
     # Search-V2024Aggregate -V2024Search $Search -V2024Offset $Offset -V2024Limit $Limit -V2024Count $Count  
@@ -360,7 +359,7 @@ $Search = @"{
 
 try {
     $Result = ConvertFrom-JsonToSearch -Json $Search
-    Search-V2024Count-V2024Search $Result
+    Search-V2024Count -V2024Search $Result
     
     # Below is a request that includes all optional parameters
     # Search-V2024Count -V2024Search $Search  
@@ -405,7 +404,7 @@ $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document
 # Get a Document by ID
 
 try {
-    Search-V2024Get-V2024Index $Index -V2024Id $Id 
+    Search-V2024Get -V2024Index $Index  -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Search-V2024Get -V2024Index $Index -V2024Id $Id  
@@ -570,7 +569,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 
 try {
     $Result = ConvertFrom-JsonToSearch -Json $Search
-    Search-V2024Post-V2024Search $Result
+    Search-V2024Post -V2024Search $Result
     
     # Below is a request that includes all optional parameters
     # Search-V2024Post -V2024Search $Search -V2024Offset $Offset -V2024Limit $Limit -V2024Count $Count  

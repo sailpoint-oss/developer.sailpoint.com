@@ -1,4 +1,3 @@
-
 ---
 id: beta-tags
 title: Tags
@@ -72,7 +71,7 @@ $Tag = @"{
 
 try {
     $Result = ConvertFrom-JsonToTag -Json $Tag
-    New-BetaTag-BetaTag $Result
+    New-BetaTag -BetaTag $Result
     
     # Below is a request that includes all optional parameters
     # New-BetaTag -BetaTag $Tag  
@@ -117,7 +116,7 @@ $Id = "329d96cf-3bdb-40a9-988a-b5037ab89022" # String | The ID of the object ref
 # Delete Tag
 
 try {
-    Remove-BetaTagById-BetaId $Id 
+    Remove-BetaTagById -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-BetaTagById -BetaId $Id  
@@ -162,7 +161,7 @@ $Id = "329d96cf-3bdb-40a9-988a-b5037ab89022" # String | The ID of the object ref
 # Get Tag By Id
 
 try {
-    Get-BetaTagById-BetaId $Id 
+    Get-BetaTagById -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaTagById -BetaId $Id  

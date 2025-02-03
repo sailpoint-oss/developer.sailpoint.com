@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'IdentityWithNewAccess', 'IdentityWith
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**IdentityId** |  **String** | Identity id to be checked. | [required]
-**AccessRefs** |  [**[]IdentityWithNewAccessAccessRefsInner**](identity-with-new-access-access-refs-inner) | The list of entitlements to consider for possible violations in a preventive check. | [required]
+**IdentityId** | **String** | Identity id to be checked. | [required]
+**AccessRefs** | [**[]IdentityWithNewAccessAccessRefsInner**](identity-with-new-access-access-refs-inner) | The list of entitlements to consider for possible violations in a preventive check. | [required]
 
 ## Examples
 

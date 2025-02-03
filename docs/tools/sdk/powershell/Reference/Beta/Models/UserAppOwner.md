@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'UserAppOwner', 'BetaUserAppOwner']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | The identity ID | [optional] 
-**Type** |  Pointer to **String** | It will always be ""IDENTITY"" | [optional] 
-**Name** |  Pointer to **String** | The identity name | [optional] 
-**Alias** |  Pointer to **String** | The identity alias | [optional] 
+**Id** | **String** | The identity ID | [optional] 
+**Type** | **String** | It will always be ""IDENTITY"" | [optional] 
+**Name** | **String** | The identity name | [optional] 
+**Alias** | **String** | The identity alias | [optional] 
 
 ## Examples
 

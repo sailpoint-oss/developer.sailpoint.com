@@ -1,4 +1,3 @@
-
 ---
 id: v2024-org-config
 title: OrgConfig
@@ -57,7 +56,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Get Org Config Settings
 
 try {
-    Get-V2024OrgConfig-V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024OrgConfig -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024OrgConfig -V2024XSailPointExperimental $XSailPointExperimental  
@@ -105,7 +104,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Get Valid Time Zones
 
 try {
-    Get-V2024ValidTimeZones-V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024ValidTimeZones -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024ValidTimeZones -V2024XSailPointExperimental $XSailPointExperimental -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count  
@@ -156,7 +155,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024OrgConfig-V2024XSailPointExperimental $XSailPointExperimental -V2024JsonPatchOperation $Result
+    Update-V2024OrgConfig -V2024XSailPointExperimental $XSailPointExperimental  -V2024JsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024OrgConfig -V2024XSailPointExperimental $XSailPointExperimental -V2024JsonPatchOperation $JsonPatchOperation  

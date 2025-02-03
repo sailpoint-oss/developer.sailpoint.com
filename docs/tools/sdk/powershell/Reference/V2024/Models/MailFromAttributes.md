@@ -16,11 +16,11 @@ tags: ['SDK', 'Software Development Kit', 'MailFromAttributes', 'V2024MailFromAt
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Identity** |  Pointer to **String** | The email identity | [optional] 
-**MailFromDomain** |  Pointer to **String** | The name of a domain that an email identity uses as a custom MAIL FROM domain | [optional] 
-**MxRecord** |  Pointer to **String** | MX record that is required in customer's DNS to allow the domain to receive bounce and complaint notifications that email providers send you | [optional] 
-**TxtRecord** |  Pointer to **String** | TXT record that is required in customer's DNS in order to prove that Amazon SES is authorized to send email from your domain | [optional] 
-**MailFromDomainStatus** |  Pointer to  **Enum** [  "PENDING",    "SUCCESS",    "FAILED" ] | The current status of the MAIL FROM verification | [optional] 
+**Identity** | **String** | The email identity | [optional] 
+**MailFromDomain** | **String** | The name of a domain that an email identity uses as a custom MAIL FROM domain | [optional] 
+**MxRecord** | **String** | MX record that is required in customer's DNS to allow the domain to receive bounce and complaint notifications that email providers send you | [optional] 
+**TxtRecord** | **String** | TXT record that is required in customer's DNS in order to prove that Amazon SES is authorized to send email from your domain | [optional] 
+**MailFromDomainStatus** |  **Enum** [  "PENDING",    "SUCCESS",    "FAILED" ] | The current status of the MAIL FROM verification | [optional] 
 
 ## Examples
 

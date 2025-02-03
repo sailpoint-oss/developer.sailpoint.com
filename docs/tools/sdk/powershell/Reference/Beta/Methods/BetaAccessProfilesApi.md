@@ -1,4 +1,3 @@
-
 ---
 id: beta-access-profiles
 title: AccessProfiles
@@ -180,7 +179,7 @@ $AccessProfile = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccessProfile -Json $AccessProfile
-    New-BetaAccessProfile-BetaAccessProfile $Result
+    New-BetaAccessProfile -BetaAccessProfile $Result
     
     # Below is a request that includes all optional parameters
     # New-BetaAccessProfile -BetaAccessProfile $AccessProfile  
@@ -226,7 +225,7 @@ $Id = "2c91808a7813090a017814121919ecca" # String | ID of the Access Profile to 
 # Delete the specified Access Profile
 
 try {
-    Remove-BetaAccessProfile-BetaId $Id 
+    Remove-BetaAccessProfile -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-BetaAccessProfile -BetaId $Id  
@@ -276,7 +275,7 @@ $AccessProfileBulkDeleteRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccessProfileBulkDeleteRequest -Json $AccessProfileBulkDeleteRequest
-    Remove-BetaAccessProfilesInBulk-BetaAccessProfileBulkDeleteRequest $Result
+    Remove-BetaAccessProfilesInBulk -BetaAccessProfileBulkDeleteRequest $Result
     
     # Below is a request that includes all optional parameters
     # Remove-BetaAccessProfilesInBulk -BetaAccessProfileBulkDeleteRequest $AccessProfileBulkDeleteRequest  
@@ -318,7 +317,7 @@ $Id = "2c9180837ca6693d017ca8d097500149" # String | ID of the Access Profile
 # Get an Access Profile
 
 try {
-    Get-BetaAccessProfile-BetaId $Id 
+    Get-BetaAccessProfile -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaAccessProfile -BetaId $Id  
@@ -371,7 +370,7 @@ $Sorters = "name,-modified" # String | Sort results using the standard syntax de
 # List Access Profile's Entitlements
 
 try {
-    Get-BetaAccessProfileEntitlements-BetaId $Id 
+    Get-BetaAccessProfileEntitlements -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaAccessProfileEntitlements -BetaId $Id -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count -BetaFilters $Filters -BetaSorters $Sorters  
@@ -483,7 +482,7 @@ $Id = "2c91808a7813090a017814121919ecca" # String | ID of the Access Profile to 
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-BetaAccessProfile-BetaId $Id -BetaJsonPatchOperation $Result
+    Update-BetaAccessProfile -BetaId $Id  -BetaJsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-BetaAccessProfile -BetaId $Id -BetaJsonPatchOperation $JsonPatchOperation  
@@ -534,7 +533,7 @@ Code | Description  | Data Type
 
 try {
     $Result = ConvertFrom-JsonToAccessProfileBulkUpdateRequestInner -Json $AccessProfileBulkUpdateRequestInner
-    Update-BetaAccessProfilesInBulk-BetaAccessProfileBulkUpdateRequestInner $Result
+    Update-BetaAccessProfilesInBulk -BetaAccessProfileBulkUpdateRequestInner $Result
     
     # Below is a request that includes all optional parameters
     # Update-BetaAccessProfilesInBulk -BetaAccessProfileBulkUpdateRequestInner $AccessProfileBulkUpdateRequestInner  

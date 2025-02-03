@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'CampaignGenerated', 'BetaCampaignGene
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Campaign** |  [**CampaignGeneratedCampaign**](campaign-generated-campaign) |  | [required]
+**Campaign** | [**CampaignGeneratedCampaign**](campaign-generated-campaign) |  | [required]
 
 ## Examples
 

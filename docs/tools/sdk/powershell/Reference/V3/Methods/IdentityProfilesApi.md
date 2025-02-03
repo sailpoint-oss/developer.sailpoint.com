@@ -1,4 +1,3 @@
-
 ---
 id: identity-profiles
 title: IdentityProfiles
@@ -121,7 +120,7 @@ $IdentityProfile = @"{
 
 try {
     $Result = ConvertFrom-JsonToIdentityProfile -Json $IdentityProfile
-    New-IdentityProfile-IdentityProfile $Result
+    New-IdentityProfile -IdentityProfile $Result
     
     # Below is a request that includes all optional parameters
     # New-IdentityProfile -IdentityProfile $IdentityProfile  
@@ -169,7 +168,7 @@ $IdentityProfileId = "ef38f94347e94562b5bb8424a56397d8" # String | The Identity 
 # Delete an Identity Profile
 
 try {
-    Remove-IdentityProfile-IdentityProfileId $IdentityProfileId 
+    Remove-IdentityProfile -IdentityProfileId $IdentityProfileId 
     
     # Below is a request that includes all optional parameters
     # Remove-IdentityProfile -IdentityProfileId $IdentityProfileId  
@@ -218,7 +217,7 @@ $RequestBody = "MyRequestBody" # String[] | Identity Profile bulk delete request
 
 try {
     $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
-    Remove-IdentityProfiles-RequestBody $Result
+    Remove-IdentityProfiles -RequestBody $Result
     
     # Below is a request that includes all optional parameters
     # Remove-IdentityProfiles -RequestBody $RequestBody  
@@ -311,7 +310,7 @@ $IdentityProfileId = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | The Ident
 # Get default Identity Attribute Config
 
 try {
-    Get-DefaultIdentityAttributeConfig-IdentityProfileId $IdentityProfileId 
+    Get-DefaultIdentityAttributeConfig -IdentityProfileId $IdentityProfileId 
     
     # Below is a request that includes all optional parameters
     # Get-DefaultIdentityAttributeConfig -IdentityProfileId $IdentityProfileId  
@@ -354,7 +353,7 @@ $IdentityProfileId = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | The Ident
 # Get single Identity Profile
 
 try {
-    Get-IdentityProfile-IdentityProfileId $IdentityProfileId 
+    Get-IdentityProfile -IdentityProfileId $IdentityProfileId 
     
     # Below is a request that includes all optional parameters
     # Get-IdentityProfile -IdentityProfileId $IdentityProfileId  
@@ -459,7 +458,7 @@ Code | Description  | Data Type
 
 try {
     $Result = ConvertFrom-JsonToIdentityProfileExportedObject -Json $IdentityProfileExportedObject
-    Import-IdentityProfiles-IdentityProfileExportedObject $Result
+    Import-IdentityProfiles -IdentityProfileExportedObject $Result
     
     # Below is a request that includes all optional parameters
     # Import-IdentityProfiles -IdentityProfileExportedObject $IdentityProfileExportedObject  
@@ -579,7 +578,7 @@ $IdentityPreviewRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToIdentityPreviewRequest -Json $IdentityPreviewRequest
-    Show-IdentityPreview-IdentityPreviewRequest $Result
+    Show-IdentityPreview -IdentityPreviewRequest $Result
     
     # Below is a request that includes all optional parameters
     # Show-IdentityPreview -IdentityPreviewRequest $IdentityPreviewRequest  
@@ -626,7 +625,7 @@ $IdentityProfileId = "ef38f94347e94562b5bb8424a56397d8" # String | The Identity 
 # Process identities under profile
 
 try {
-    Sync-IdentityProfile-IdentityProfileId $IdentityProfileId 
+    Sync-IdentityProfile -IdentityProfileId $IdentityProfileId 
     
     # Below is a request that includes all optional parameters
     # Sync-IdentityProfile -IdentityProfileId $IdentityProfileId  
@@ -687,7 +686,7 @@ $IdentityProfileId = "ef38f94347e94562b5bb8424a56397d8" # String | The Identity 
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-IdentityProfile-IdentityProfileId $IdentityProfileId -JsonPatchOperation $Result
+    Update-IdentityProfile -IdentityProfileId $IdentityProfileId  -JsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-IdentityProfile -IdentityProfileId $IdentityProfileId -JsonPatchOperation $JsonPatchOperation  

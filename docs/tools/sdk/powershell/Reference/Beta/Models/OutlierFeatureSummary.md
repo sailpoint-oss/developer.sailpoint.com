@@ -16,14 +16,14 @@ tags: ['SDK', 'Software Development Kit', 'OutlierFeatureSummary', 'BetaOutlierF
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ContributingFeatureName** |  Pointer to **String** | Contributing feature name | [optional] 
-**IdentityOutlierDisplayName** |  Pointer to **String** | Identity display name | [optional] 
-**OutlierFeatureDisplayValues** |  Pointer to [**[]OutlierFeatureSummaryOutlierFeatureDisplayValuesInner**](outlier-feature-summary-outlier-feature-display-values-inner) |  | [optional] 
-**FeatureDefinition** |  Pointer to **String** | Definition of the feature | [optional] 
-**FeatureExplanation** |  Pointer to **String** | Detailed explanation of the feature | [optional] 
-**PeerDisplayName** |  Pointer to **String** | outlier's peer identity display name | [optional] 
-**PeerIdentityId** |  Pointer to **String** | outlier's peer identity id | [optional] 
-**AccessItemReference** |  Pointer to [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | Access Item reference | [optional] 
+**ContributingFeatureName** | **String** | Contributing feature name | [optional] 
+**IdentityOutlierDisplayName** | **String** | Identity display name | [optional] 
+**OutlierFeatureDisplayValues** | [**[]OutlierFeatureSummaryOutlierFeatureDisplayValuesInner**](outlier-feature-summary-outlier-feature-display-values-inner) |  | [optional] 
+**FeatureDefinition** | **String** | Definition of the feature | [optional] 
+**FeatureExplanation** | **String** | Detailed explanation of the feature | [optional] 
+**PeerDisplayName** | **String** | outlier's peer identity display name | [optional] 
+**PeerIdentityId** | **String** | outlier's peer identity id | [optional] 
+**AccessItemReference** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | Access Item reference | [optional] 
 
 ## Examples
 

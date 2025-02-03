@@ -1,4 +1,3 @@
-
 ---
 id: password-dictionary
 title: PasswordDictionary

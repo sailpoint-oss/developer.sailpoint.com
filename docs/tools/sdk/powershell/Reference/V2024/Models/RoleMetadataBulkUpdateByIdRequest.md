@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'RoleMetadataBulkUpdateByIdRequest', '
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Roles** |  **[]String** | Roles' Id to be updated | [required]
-**Operation** |   **Enum** [  "ADD",    "REMOVE",    "REPLACE" ] | The operation to be performed | [required]
-**ReplaceScope** |  Pointer to  **Enum** [  "ALL",    "ATTRIBUTE" ] | The choice of update scope. | [optional] 
-**Values** |  [**[]RoleMetadataBulkUpdateByIdRequestValuesInner**](role-metadata-bulk-update-by-id-request-values-inner) | The metadata to be updated, including attribute key and value. | [required]
+**Roles** | **[]String** | Roles' Id to be updated | [required]
+**Operation** |  **Enum** [  "ADD",    "REMOVE",    "REPLACE" ] | The operation to be performed | [required]
+**ReplaceScope** |  **Enum** [  "ALL",    "ATTRIBUTE" ] | The choice of update scope. | [optional] 
+**Values** | [**[]RoleMetadataBulkUpdateByIdRequestValuesInner**](role-metadata-bulk-update-by-id-request-values-inner) | The metadata to be updated, including attribute key and value. | [required]
 
 ## Examples
 

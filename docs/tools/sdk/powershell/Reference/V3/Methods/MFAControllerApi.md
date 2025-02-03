@@ -1,4 +1,3 @@
-
 ---
 id: mfa-controller
 title: MFAController
@@ -61,7 +60,7 @@ $SendTokenRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToSendTokenRequest -Json $SendTokenRequest
-    New-SendToken-SendTokenRequest $Result
+    New-SendToken -SendTokenRequest $Result
     
     # Below is a request that includes all optional parameters
     # New-SendToken -SendTokenRequest $SendTokenRequest  
@@ -108,7 +107,7 @@ $VerificationPollRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToVerificationPollRequest -Json $VerificationPollRequest
-    Ping-VerificationStatus-Method $Method -VerificationPollRequest $Result
+    Ping-VerificationStatus -Method $Method  -VerificationPollRequest $Result
     
     # Below is a request that includes all optional parameters
     # Ping-VerificationStatus -Method $Method -VerificationPollRequest $VerificationPollRequest  
@@ -154,7 +153,7 @@ $DuoVerificationRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToDuoVerificationRequest -Json $DuoVerificationRequest
-    Send-DuoVerifyRequest-DuoVerificationRequest $Result
+    Send-DuoVerifyRequest -DuoVerificationRequest $Result
     
     # Below is a request that includes all optional parameters
     # Send-DuoVerifyRequest -DuoVerificationRequest $DuoVerificationRequest  
@@ -201,7 +200,7 @@ Code | Description  | Data Type
 
 try {
     $Result = ConvertFrom-JsonToKbaAnswerRequestItem -Json $KbaAnswerRequestItem
-    Send-KbaAnswers-KbaAnswerRequestItem $Result
+    Send-KbaAnswers -KbaAnswerRequestItem $Result
     
     # Below is a request that includes all optional parameters
     # Send-KbaAnswers -KbaAnswerRequestItem $KbaAnswerRequestItem  
@@ -246,7 +245,7 @@ $OktaVerificationRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToOktaVerificationRequest -Json $OktaVerificationRequest
-    Send-OktaVerifyRequest-OktaVerificationRequest $Result
+    Send-OktaVerifyRequest -OktaVerificationRequest $Result
     
     # Below is a request that includes all optional parameters
     # Send-OktaVerifyRequest -OktaVerificationRequest $OktaVerificationRequest  
@@ -293,7 +292,7 @@ $TokenAuthRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToTokenAuthRequest -Json $TokenAuthRequest
-    Send-TokenAuthRequest-TokenAuthRequest $Result
+    Send-TokenAuthRequest -TokenAuthRequest $Result
     
     # Below is a request that includes all optional parameters
     # Send-TokenAuthRequest -TokenAuthRequest $TokenAuthRequest  

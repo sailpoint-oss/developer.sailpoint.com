@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'SearchArguments', 'SearchArguments']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ScheduleId** |  Pointer to **String** | The ID of the scheduled search that triggered the saved search execution.  | [optional] 
-**Owner** |  Pointer to [**TypedReference**](typed-reference) | The owner of the scheduled search being tested.  | [optional] 
-**Recipients** |  Pointer to [**[]TypedReference**](typed-reference) | The email recipients of the scheduled search being tested.  | [optional] 
+**ScheduleId** | **String** | The ID of the scheduled search that triggered the saved search execution.  | [optional] 
+**Owner** | [**TypedReference**](typed-reference) | The owner of the scheduled search being tested.  | [optional] 
+**Recipients** | [**[]TypedReference**](typed-reference) | The email recipients of the scheduled search being tested.  | [optional] 
 
 ## Examples
 

@@ -16,13 +16,13 @@ tags: ['SDK', 'Software Development Kit', 'TaskResultSimplified', 'TaskResultSim
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | Task identifier | [optional] 
-**Name** |  Pointer to **String** | Task name | [optional] 
-**Description** |  Pointer to **String** | Task description | [optional] 
-**Launcher** |  Pointer to **String** | User or process who launched the task | [optional] 
-**Completed** |  Pointer to **System.DateTime** | Date time of completion | [optional] 
-**Launched** |  Pointer to **System.DateTime** | Date time when the task was launched | [optional] 
-**CompletionStatus** |  Pointer to  **Enum** [  "Success",    "Warning",    "Error",    "Terminated",    "TempError" ] | Task result status | [optional] 
+**Id** | **String** | Task identifier | [optional] 
+**Name** | **String** | Task name | [optional] 
+**Description** | **String** | Task description | [optional] 
+**Launcher** | **String** | User or process who launched the task | [optional] 
+**Completed** | **System.DateTime** | Date time of completion | [optional] 
+**Launched** | **System.DateTime** | Date time when the task was launched | [optional] 
+**CompletionStatus** |  **Enum** [  "Success",    "Warning",    "Error",    "Terminated",    "TempError" ] | Task result status | [optional] 
 
 ## Examples
 

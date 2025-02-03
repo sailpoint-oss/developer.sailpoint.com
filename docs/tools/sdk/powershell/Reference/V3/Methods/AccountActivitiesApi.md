@@ -1,4 +1,3 @@
-
 ---
 id: account-activities
 title: AccountActivities
@@ -87,7 +86,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The account activity id
 # Get an Account Activity
 
 try {
-    Get-AccountActivity-Id $Id 
+    Get-AccountActivity -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-AccountActivity -Id $Id  

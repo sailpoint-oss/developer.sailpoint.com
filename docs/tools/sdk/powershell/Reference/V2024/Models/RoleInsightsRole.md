@@ -16,11 +16,11 @@ tags: ['SDK', 'Software Development Kit', 'RoleInsightsRole', 'V2024RoleInsights
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** |  Pointer to **String** | Role name | [optional] 
-**Id** |  Pointer to **String** | Role id | [optional] 
-**Description** |  Pointer to **String** | Role description | [optional] 
-**OwnerName** |  Pointer to **String** | Role owner name | [optional] 
-**OwnerId** |  Pointer to **String** | Role owner id | [optional] 
+**Name** | **String** | Role name | [optional] 
+**Id** | **String** | Role id | [optional] 
+**Description** | **String** | Role description | [optional] 
+**OwnerName** | **String** | Role owner name | [optional] 
+**OwnerId** | **String** | Role owner id | [optional] 
 
 ## Examples
 

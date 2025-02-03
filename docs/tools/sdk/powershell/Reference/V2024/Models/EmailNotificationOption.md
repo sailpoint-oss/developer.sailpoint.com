@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'EmailNotificationOption', 'V2024Email
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**NotifyManagers** |  Pointer to **Boolean** | If true, then the manager is notified of the lifecycle state change. | [optional] [default to $false]
-**NotifyAllAdmins** |  Pointer to **Boolean** | If true, then all the admins are notified of the lifecycle state change. | [optional] [default to $false]
-**NotifySpecificUsers** |  Pointer to **Boolean** | If true, then the users specified in ""emailAddressList"" below are notified of lifecycle state change. | [optional] [default to $false]
-**EmailAddressList** |  Pointer to **[]String** | List of user email addresses. If ""notifySpecificUsers"" option is true, then these users are notified of lifecycle state change. | [optional] 
+**NotifyManagers** | **Boolean** | If true, then the manager is notified of the lifecycle state change. | [optional] [default to $false]
+**NotifyAllAdmins** | **Boolean** | If true, then all the admins are notified of the lifecycle state change. | [optional] [default to $false]
+**NotifySpecificUsers** | **Boolean** | If true, then the users specified in ""emailAddressList"" below are notified of lifecycle state change. | [optional] [default to $false]
+**EmailAddressList** | **[]String** | List of user email addresses. If ""notifySpecificUsers"" option is true, then these users are notified of lifecycle state change. | [optional] 
 
 ## Examples
 

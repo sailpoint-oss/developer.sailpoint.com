@@ -1,4 +1,3 @@
-
 ---
 id: beta-mfa-configuration
 title: MFAConfiguration
@@ -59,7 +58,7 @@ $Method = "okta-verify" # String | The name of the MFA method. The currently sup
 # Delete MFA method configuration
 
 try {
-    Remove-BetaMFAConfig-BetaMethod $Method 
+    Remove-BetaMFAConfig -BetaMethod $Method 
     
     # Below is a request that includes all optional parameters
     # Remove-BetaMFAConfig -BetaMethod $Method  
@@ -234,7 +233,7 @@ $MfaDuoConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToMfaDuoConfig -Json $MfaDuoConfig
-    Set-BetaMFADuoConfig-BetaMfaDuoConfig $Result
+    Set-BetaMFADuoConfig -BetaMfaDuoConfig $Result
     
     # Below is a request that includes all optional parameters
     # Set-BetaMFADuoConfig -BetaMfaDuoConfig $MfaDuoConfig  
@@ -281,7 +280,7 @@ Code | Description  | Data Type
 
 try {
     $Result = ConvertFrom-JsonToKbaAnswerRequestItem -Json $KbaAnswerRequestItem
-    Set-BetaMFAKBAConfig-BetaKbaAnswerRequestItem $Result
+    Set-BetaMFAKBAConfig -BetaKbaAnswerRequestItem $Result
     
     # Below is a request that includes all optional parameters
     # Set-BetaMFAKBAConfig -BetaKbaAnswerRequestItem $KbaAnswerRequestItem  
@@ -330,7 +329,7 @@ $MfaOktaConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToMfaOktaConfig -Json $MfaOktaConfig
-    Set-BetaMFAOktaConfig-BetaMfaOktaConfig $Result
+    Set-BetaMFAOktaConfig -BetaMfaOktaConfig $Result
     
     # Below is a request that includes all optional parameters
     # Set-BetaMFAOktaConfig -BetaMfaOktaConfig $MfaOktaConfig  
@@ -372,7 +371,7 @@ $Method = "okta-verify" # String | The name of the MFA method. The currently sup
 # MFA method's test configuration
 
 try {
-    Test-BetaMFAConfig-BetaMethod $Method 
+    Test-BetaMFAConfig -BetaMethod $Method 
     
     # Below is a request that includes all optional parameters
     # Test-BetaMFAConfig -BetaMethod $Method  

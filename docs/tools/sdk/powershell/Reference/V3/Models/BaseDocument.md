@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'BaseDocument', 'BaseDocument']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  **String** |  | [required]
-**Name** |  **String** |  | [required]
-**Type** |  [**DocumentType**](document-type) |  | [required]
+**Id** | **String** |  | [required]
+**Name** | **String** |  | [required]
+**Type** | [**DocumentType**](document-type) |  | [required]
 
 ## Examples
 

@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'DuoVerificationRequest', 'BetaDuoVeri
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**UserId** |  **String** | User id for Verification request. | [required]
-**SignedResponse** |  **String** | User id for Verification request. | [required]
+**UserId** | **String** | User id for Verification request. | [required]
+**SignedResponse** | **String** | User id for Verification request. | [required]
 
 ## Examples
 

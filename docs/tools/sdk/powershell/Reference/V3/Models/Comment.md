@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'Comment', 'Comment']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CommenterId** |  Pointer to **String** | Id of the identity making the comment | [optional] 
-**CommenterName** |  Pointer to **String** | Human-readable display name of the identity making the comment | [optional] 
-**Body** |  Pointer to **String** | Content of the comment | [optional] 
-**Date** |  Pointer to **System.DateTime** | Date and time comment was made | [optional] 
+**CommenterId** | **String** | Id of the identity making the comment | [optional] 
+**CommenterName** | **String** | Human-readable display name of the identity making the comment | [optional] 
+**Body** | **String** | Content of the comment | [optional] 
+**Date** | **System.DateTime** | Date and time comment was made | [optional] 
 
 ## Examples
 

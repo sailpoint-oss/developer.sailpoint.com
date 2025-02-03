@@ -16,16 +16,16 @@ tags: ['SDK', 'Software Development Kit', 'SourceHealthDto', 'SourceHealthDto']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | the id of the Source | [optional] [readonly] 
-**Type** |  Pointer to **String** | Specifies the type of system being managed e.g. Active Directory, Workday, etc.. If you are creating a Delimited File source, you must set the `provisionasCsv` query parameter to `true`.  | [optional] 
-**Name** |  Pointer to **String** | the name of the source | [optional] 
-**Org** |  Pointer to **String** | source's org | [optional] 
-**IsAuthoritative** |  Pointer to **Boolean** | Is the source authoritative | [optional] 
-**IsCluster** |  Pointer to **Boolean** | Is the source in a cluster | [optional] 
-**Hostname** |  Pointer to **String** | source's hostname | [optional] 
-**Pod** |  Pointer to **String** | source's pod | [optional] 
-**IqServiceVersion** |  Pointer to **String** | The version of the iqService | [optional] 
-**Status** |  Pointer to  **Enum** [  "SOURCE_STATE_ERROR_CLUSTER",    "SOURCE_STATE_ERROR_SOURCE",    "SOURCE_STATE_ERROR_VA",    "SOURCE_STATE_FAILURE_CLUSTER",    "SOURCE_STATE_FAILURE_SOURCE",    "SOURCE_STATE_HEALTHY",    "SOURCE_STATE_UNCHECKED_CLUSTER",    "SOURCE_STATE_UNCHECKED_CLUSTER_NO_SOURCES",    "SOURCE_STATE_UNCHECKED_SOURCE",    "SOURCE_STATE_UNCHECKED_SOURCE_NO_ACCOUNTS" ] | connection test result | [optional] 
+**Id** | **String** | the id of the Source | [optional] [readonly] 
+**Type** | **String** | Specifies the type of system being managed e.g. Active Directory, Workday, etc.. If you are creating a Delimited File source, you must set the `provisionasCsv` query parameter to `true`.  | [optional] 
+**Name** | **String** | the name of the source | [optional] 
+**Org** | **String** | source's org | [optional] 
+**IsAuthoritative** | **Boolean** | Is the source authoritative | [optional] 
+**IsCluster** | **Boolean** | Is the source in a cluster | [optional] 
+**Hostname** | **String** | source's hostname | [optional] 
+**Pod** | **String** | source's pod | [optional] 
+**IqServiceVersion** | **String** | The version of the iqService | [optional] 
+**Status** |  **Enum** [  "SOURCE_STATE_ERROR_CLUSTER",    "SOURCE_STATE_ERROR_SOURCE",    "SOURCE_STATE_ERROR_VA",    "SOURCE_STATE_FAILURE_CLUSTER",    "SOURCE_STATE_FAILURE_SOURCE",    "SOURCE_STATE_HEALTHY",    "SOURCE_STATE_UNCHECKED_CLUSTER",    "SOURCE_STATE_UNCHECKED_CLUSTER_NO_SOURCES",    "SOURCE_STATE_UNCHECKED_SOURCE",    "SOURCE_STATE_UNCHECKED_SOURCE_NO_ACCOUNTS" ] | connection test result | [optional] 
 
 ## Examples
 

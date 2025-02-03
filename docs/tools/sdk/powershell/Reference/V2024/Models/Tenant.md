@@ -16,13 +16,13 @@ tags: ['SDK', 'Software Development Kit', 'Tenant', 'V2024Tenant']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | The unique identifier for the Tenant | [optional] [readonly] 
-**Name** |  Pointer to **String** | Abbreviated name of the Tenant | [optional] 
-**FullName** |  Pointer to **String** | Human-readable name of the Tenant | [optional] 
-**Pod** |  Pointer to **String** | Deployment pod for the Tenant | [optional] 
-**Region** |  Pointer to **String** | Deployment region for the Tenant | [optional] 
-**Description** |  Pointer to **String** | Description of the Tenant | [optional] 
-**Products** |  Pointer to [**[]Product**](product) |  | [optional] 
+**Id** | **String** | The unique identifier for the Tenant | [optional] [readonly] 
+**Name** | **String** | Abbreviated name of the Tenant | [optional] 
+**FullName** | **String** | Human-readable name of the Tenant | [optional] 
+**Pod** | **String** | Deployment pod for the Tenant | [optional] 
+**Region** | **String** | Deployment region for the Tenant | [optional] 
+**Description** | **String** | Description of the Tenant | [optional] 
+**Products** | [**[]Product**](product) |  | [optional] 
 
 ## Examples
 

@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'AccessItemOwnerDto', 'BetaAccessItemO
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to  **Enum** [  "IDENTITY" ] | Access item owner's DTO type. | [optional] 
-**Id** |  Pointer to **String** | Access item owner's identity ID. | [optional] 
-**Name** |  Pointer to **String** | Access item owner's human-readable display name. | [optional] 
+**Type** |  **Enum** [  "IDENTITY" ] | Access item owner's DTO type. | [optional] 
+**Id** | **String** | Access item owner's identity ID. | [optional] 
+**Name** | **String** | Access item owner's human-readable display name. | [optional] 
 
 ## Examples
 

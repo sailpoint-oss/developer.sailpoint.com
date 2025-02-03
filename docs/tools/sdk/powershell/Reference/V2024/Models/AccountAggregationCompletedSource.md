@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'AccountAggregationCompletedSource', '
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |   **Enum** [  "SOURCE" ] | The DTO type of the source the accounts are being aggregated from. | [required]
-**Id** |  **String** | The ID of the source the accounts are being aggregated from. | [required]
-**Name** |  **String** | Display name of the source the accounts are being aggregated from. | [required]
+**Type** |  **Enum** [  "SOURCE" ] | The DTO type of the source the accounts are being aggregated from. | [required]
+**Id** | **String** | The ID of the source the accounts are being aggregated from. | [required]
+**Name** | **String** | Display name of the source the accounts are being aggregated from. | [required]
 
 ## Examples
 

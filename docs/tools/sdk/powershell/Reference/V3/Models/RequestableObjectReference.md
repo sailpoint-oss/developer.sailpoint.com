@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'RequestableObjectReference', 'Request
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | Id of the object. | [optional] 
-**Name** |  Pointer to **String** | Name of the object. | [optional] 
-**Description** |  Pointer to **String** | Description of the object. | [optional] 
-**Type** |  Pointer to  **Enum** [  "ACCESS_PROFILE",    "ROLE",    "ENTITLEMENT" ] | Type of the object. | [optional] 
+**Id** | **String** | Id of the object. | [optional] 
+**Name** | **String** | Name of the object. | [optional] 
+**Description** | **String** | Description of the object. | [optional] 
+**Type** |  **Enum** [  "ACCESS_PROFILE",    "ROLE",    "ENTITLEMENT" ] | Type of the object. | [optional] 
 
 ## Examples
 

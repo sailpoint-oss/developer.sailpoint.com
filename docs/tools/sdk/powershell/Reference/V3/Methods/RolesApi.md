@@ -1,4 +1,3 @@
-
 ---
 id: roles
 title: Roles
@@ -256,7 +255,7 @@ $Role = @"{
 
 try {
     $Result = ConvertFrom-JsonToRole -Json $Role
-    New-Role-Role $Result
+    New-Role -Role $Result
     
     # Below is a request that includes all optional parameters
     # New-Role -Role $Role  
@@ -304,7 +303,7 @@ $RoleBulkDeleteRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToRoleBulkDeleteRequest -Json $RoleBulkDeleteRequest
-    Remove-BulkRoles-RoleBulkDeleteRequest $Result
+    Remove-BulkRoles -RoleBulkDeleteRequest $Result
     
     # Below is a request that includes all optional parameters
     # Remove-BulkRoles -RoleBulkDeleteRequest $RoleBulkDeleteRequest  
@@ -348,7 +347,7 @@ $Id = "2c91808a7813090a017814121e121518" # String | ID of the Role
 # Delete a Role
 
 try {
-    Remove-Role-Id $Id 
+    Remove-Role -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-Role -Id $Id  
@@ -391,7 +390,7 @@ $Id = "2c91808a7813090a017814121e121518" # String | ID of the Role
 # Get a Role
 
 try {
-    Get-Role-Id $Id 
+    Get-Role -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-Role -Id $Id  
@@ -443,7 +442,7 @@ $Sorters = "aliasName,name" # String | Sort results using the standard syntax de
 # List Identities assigned a Role
 
 try {
-    Get-RoleAssignedIdentities-Id $Id 
+    Get-RoleAssignedIdentities -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-RoleAssignedIdentities -Id $Id -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
@@ -568,7 +567,7 @@ $Id = "2c91808a7813090a017814121e121518" # String | ID of the Role to patch
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-Role-Id $Id -JsonPatchOperation $Result
+    Update-Role -Id $Id  -JsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-Role -Id $Id -JsonPatchOperation $JsonPatchOperation  

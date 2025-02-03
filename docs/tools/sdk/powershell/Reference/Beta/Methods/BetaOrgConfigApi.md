@@ -1,4 +1,3 @@
-
 ---
 id: beta-org-config
 title: OrgConfig
@@ -144,7 +143,7 @@ Code | Description  | Data Type
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-BetaOrgConfig-BetaJsonPatchOperation $Result
+    Update-BetaOrgConfig -BetaJsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-BetaOrgConfig -BetaJsonPatchOperation $JsonPatchOperation  

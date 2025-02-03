@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'FullcampaignAllOfMachineAccountCampai
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**SourceIds** |  Pointer to **[]String** | The list of sources to be included in the campaign. | [optional] 
-**ReviewerType** |  Pointer to  **Enum** [  "ACCOUNT_OWNER" ] | The reviewer's type. | [optional] 
+**SourceIds** | **[]String** | The list of sources to be included in the campaign. | [optional] 
+**ReviewerType** |  **Enum** [  "ACCOUNT_OWNER" ] | The reviewer's type. | [optional] 
 
 ## Examples
 

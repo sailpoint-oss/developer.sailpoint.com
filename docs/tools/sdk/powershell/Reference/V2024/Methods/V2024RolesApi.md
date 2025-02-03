@@ -1,4 +1,3 @@
-
 ---
 id: v2024-roles
 title: Roles
@@ -265,7 +264,7 @@ $Role = @"{
 
 try {
     $Result = ConvertFrom-JsonToRole -Json $Role
-    New-V2024Role-V2024Role $Result
+    New-V2024Role -V2024Role $Result
     
     # Below is a request that includes all optional parameters
     # New-V2024Role -V2024Role $Role  
@@ -313,7 +312,7 @@ $RoleBulkDeleteRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToRoleBulkDeleteRequest -Json $RoleBulkDeleteRequest
-    Remove-V2024BulkRoles-V2024RoleBulkDeleteRequest $Result
+    Remove-V2024BulkRoles -V2024RoleBulkDeleteRequest $Result
     
     # Below is a request that includes all optional parameters
     # Remove-V2024BulkRoles -V2024RoleBulkDeleteRequest $RoleBulkDeleteRequest  
@@ -359,7 +358,7 @@ $AttributeValue = "public" # String | Technical name of the Attribute Value.
 # Remove a Metadata From Role.
 
 try {
-    Remove-V2024MetadataFromRoleByKeyAndValue-V2024Id $Id -V2024AttributeKey $AttributeKey -V2024AttributeValue $AttributeValue 
+    Remove-V2024MetadataFromRoleByKeyAndValue -V2024Id $Id  -V2024AttributeKey $AttributeKey  -V2024AttributeValue $AttributeValue 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024MetadataFromRoleByKeyAndValue -V2024Id $Id -V2024AttributeKey $AttributeKey -V2024AttributeValue $AttributeValue  
@@ -403,7 +402,7 @@ $Id = "2c91808a7813090a017814121e121518" # String | ID of the Role
 # Delete a Role
 
 try {
-    Remove-V2024Role-V2024Id $Id 
+    Remove-V2024Role -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024Role -V2024Id $Id  
@@ -487,7 +486,7 @@ $Id = "c24359c389374d0fb8585698a2189e3d" # String | The Id of the bulk update ta
 # Get Bulk-Update Status by ID
 
 try {
-    Get-V2024BulkUpdateStatusById-V2024Id $Id 
+    Get-V2024BulkUpdateStatusById -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-V2024BulkUpdateStatusById -V2024Id $Id  
@@ -530,7 +529,7 @@ $Id = "2c91808a7813090a017814121e121518" # String | ID of the Role
 # Get a Role
 
 try {
-    Get-V2024Role-V2024Id $Id 
+    Get-V2024Role -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-V2024Role -V2024Id $Id  
@@ -582,7 +581,7 @@ $Sorters = "aliasName,name" # String | Sort results using the standard syntax de
 # List Identities assigned a Role
 
 try {
-    Get-V2024RoleAssignedIdentities-V2024Id $Id 
+    Get-V2024RoleAssignedIdentities -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-V2024RoleAssignedIdentities -V2024Id $Id -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Filters $Filters -V2024Sorters $Sorters  
@@ -636,7 +635,7 @@ $Sorters = "name,-modified" # String | Sort results using the standard syntax de
 # List role's Entitlements
 
 try {
-    Get-V2024RoleEntitlements-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024RoleEntitlements -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024RoleEntitlements -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Filters $Filters -V2024Sorters $Sorters  
@@ -761,7 +760,7 @@ $Id = "2c91808a7813090a017814121e121518" # String | ID of the Role to patch
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024Role-V2024Id $Id -V2024JsonPatchOperation $Result
+    Update-V2024Role -V2024Id $Id  -V2024JsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024Role -V2024Id $Id -V2024JsonPatchOperation $JsonPatchOperation  
@@ -870,7 +869,7 @@ $AttributeValue = "public" # String | Technical name of the Attribute Value.
 # Add a Metadata to Role.
 
 try {
-    Update-V2024AttributeKeyAndValueToRole-V2024Id $Id -V2024AttributeKey $AttributeKey -V2024AttributeValue $AttributeValue 
+    Update-V2024AttributeKeyAndValueToRole -V2024Id $Id  -V2024AttributeKey $AttributeKey  -V2024AttributeValue $AttributeValue 
     
     # Below is a request that includes all optional parameters
     # Update-V2024AttributeKeyAndValueToRole -V2024Id $Id -V2024AttributeKey $AttributeKey -V2024AttributeValue $AttributeValue  
@@ -924,7 +923,7 @@ $RoleMetadataBulkUpdateByFilterRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToRoleMetadataBulkUpdateByFilterRequest -Json $RoleMetadataBulkUpdateByFilterRequest
-    Update-V2024RolesMetadataByFilter-V2024RoleMetadataBulkUpdateByFilterRequest $Result
+    Update-V2024RolesMetadataByFilter -V2024RoleMetadataBulkUpdateByFilterRequest $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024RolesMetadataByFilter -V2024RoleMetadataBulkUpdateByFilterRequest $RoleMetadataBulkUpdateByFilterRequest  
@@ -978,7 +977,7 @@ $RoleMetadataBulkUpdateByIdRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToRoleMetadataBulkUpdateByIdRequest -Json $RoleMetadataBulkUpdateByIdRequest
-    Update-V2024RolesMetadataByIds-V2024RoleMetadataBulkUpdateByIdRequest $Result
+    Update-V2024RolesMetadataByIds -V2024RoleMetadataBulkUpdateByIdRequest $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024RolesMetadataByIds -V2024RoleMetadataBulkUpdateByIdRequest $RoleMetadataBulkUpdateByIdRequest  
@@ -1047,7 +1046,7 @@ $RoleMetadataBulkUpdateByQueryRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToRoleMetadataBulkUpdateByQueryRequest -Json $RoleMetadataBulkUpdateByQueryRequest
-    Update-V2024RolesMetadataByQuery-V2024RoleMetadataBulkUpdateByQueryRequest $Result
+    Update-V2024RolesMetadataByQuery -V2024RoleMetadataBulkUpdateByQueryRequest $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024RolesMetadataByQuery -V2024RoleMetadataBulkUpdateByQueryRequest $RoleMetadataBulkUpdateByQueryRequest  

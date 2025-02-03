@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'ReviewableEntitlementAccountOwner', '
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | The id associated with the machine account owner | [optional] 
-**Type** |  Pointer to  **Enum** [  "IDENTITY" ] | An enumeration of the types of Owner supported within the IdentityNow infrastructure. | [optional] 
-**DisplayName** |  Pointer to **String** | The machine account owner's display name | [optional] 
+**Id** | **String** | The id associated with the machine account owner | [optional] 
+**Type** |  **Enum** [  "IDENTITY" ] | An enumeration of the types of Owner supported within the IdentityNow infrastructure. | [optional] 
+**DisplayName** | **String** | The machine account owner's display name | [optional] 
 
 ## Examples
 

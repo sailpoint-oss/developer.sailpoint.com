@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'IdentityCreated', 'V2024IdentityCreat
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Identity** |  [**IdentityCreatedIdentity**](identity-created-identity) |  | [required]
-**Attributes** |  [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | The attributes assigned to the identity. Attributes are determined by the identity profile. | [required]
+**Identity** | [**IdentityCreatedIdentity**](identity-created-identity) |  | [required]
+**Attributes** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | The attributes assigned to the identity. Attributes are determined by the identity profile. | [required]
 
 ## Examples
 

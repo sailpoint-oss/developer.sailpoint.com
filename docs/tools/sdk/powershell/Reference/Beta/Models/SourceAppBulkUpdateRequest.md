@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'SourceAppBulkUpdateRequest', 'BetaSou
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AppIds** |  **[]String** | List of source app ids to update | [required]
-**JsonPatch** |  [**[]JsonPatchOperation**](json-patch-operation) | The JSONPatch payload used to update the source app. | [required]
+**AppIds** | **[]String** | List of source app ids to update | [required]
+**JsonPatch** | [**[]JsonPatchOperation**](json-patch-operation) | The JSONPatch payload used to update the source app. | [required]
 
 ## Examples
 

@@ -1,4 +1,3 @@
-
 ---
 id: v2024-identity-history
 title: IdentityHistory
@@ -78,7 +77,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Gets a difference of count for each access item types for the given identity between 2 snapshots
 
 try {
-    Compare-V2024IdentitySnapshots-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
+    Compare-V2024IdentitySnapshots -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Compare-V2024IdentitySnapshots -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024Snapshot1 $Snapshot1 -V2024Snapshot2 $Snapshot2 -V2024AccessItemTypes $AccessItemTypes -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count  
@@ -136,7 +135,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Gets a list of differences of specific accessType for the given identity between 2 snapshots
 
 try {
-    Compare-V2024IdentitySnapshotsAccessType-V2024Id $Id -V2024AccessType $AccessType -V2024XSailPointExperimental $XSailPointExperimental 
+    Compare-V2024IdentitySnapshotsAccessType -V2024Id $Id  -V2024AccessType $AccessType  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Compare-V2024IdentitySnapshotsAccessType -V2024Id $Id -V2024AccessType $AccessType -V2024XSailPointExperimental $XSailPointExperimental -V2024AccessAssociated $AccessAssociated -V2024Snapshot1 $Snapshot1 -V2024Snapshot2 $Snapshot2 -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count  
@@ -180,7 +179,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Get latest snapshot of identity
 
 try {
-    Get-V2024HistoricalIdentity-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024HistoricalIdentity -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024HistoricalIdentity -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
@@ -241,7 +240,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Lists all events for the given identity
 
 try {
-    Get-V2024HistoricalIdentityEvents-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024HistoricalIdentityEvents -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024HistoricalIdentityEvents -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024From $From -V2024EventTypes $EventTypes -V2024AccessItemTypes $AccessItemTypes -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count  
@@ -287,7 +286,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Gets an identity snapshot at a given date
 
 try {
-    Get-V2024IdentitySnapshot-V2024Id $Id -V2024Date $Date -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024IdentitySnapshot -V2024Id $Id  -V2024Date $Date  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024IdentitySnapshot -V2024Id $Id -V2024Date $Date -V2024XSailPointExperimental $XSailPointExperimental  
@@ -343,7 +342,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Gets the summary for the event count for a specific identity
 
 try {
-    Get-V2024IdentitySnapshotSummary-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024IdentitySnapshotSummary -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024IdentitySnapshotSummary -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024Before $Before -V2024Interval $Interval -V2024TimeZone $TimeZone -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count  
@@ -387,7 +386,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Gets the start date of the identity
 
 try {
-    Get-V2024IdentityStartDate-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024IdentityStartDate -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024IdentityStartDate -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
@@ -439,7 +438,7 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 # Lists all the identities
 
 try {
-    Get-V2024HistoricalIdentities-V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024HistoricalIdentities -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024HistoricalIdentities -V2024XSailPointExperimental $XSailPointExperimental -V2024StartsWithQuery $StartsWithQuery -V2024IsDeleted $IsDeleted -V2024IsActive $IsActive -V2024Limit $Limit -V2024Offset $Offset  
@@ -493,7 +492,7 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 # List Access Items by Identity
 
 try {
-    Get-V2024IdentityAccessItems-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024IdentityAccessItems -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024IdentityAccessItems -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024Type $Type -V2024Limit $Limit -V2024Count $Count -V2024Offset $Offset  
@@ -541,7 +540,7 @@ $Type = "account" # String | The access item type (optional)
 # Gets the list of identity access items at a given date filterd by item type
 
 try {
-    Get-V2024IdentitySnapshotAccessItems-V2024Id $Id -V2024Date $Date -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024IdentitySnapshotAccessItems -V2024Id $Id  -V2024Date $Date  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024IdentitySnapshotAccessItems -V2024Id $Id -V2024Date $Date -V2024XSailPointExperimental $XSailPointExperimental -V2024Type $Type  
@@ -595,7 +594,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Lists all the snapshots for the identity
 
 try {
-    Get-V2024IdentitySnapshots-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024IdentitySnapshots -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024IdentitySnapshots -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024Start $Start -V2024Interval $Interval -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count  

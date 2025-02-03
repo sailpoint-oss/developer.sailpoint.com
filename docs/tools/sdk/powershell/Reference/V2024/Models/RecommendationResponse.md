@@ -16,11 +16,11 @@ tags: ['SDK', 'Software Development Kit', 'RecommendationResponse', 'V2024Recomm
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Request** |  Pointer to [**RecommendationRequest**](recommendation-request) |  | [optional] 
-**Recommendation** |  Pointer to  **Enum** [  "true",    "false",    "MAYBE",    "NOT_FOUND" ] | The recommendation - YES if the access is recommended, NO if not recommended, MAYBE if there is not enough information to make a recommendation, NOT_FOUND if the identity is not found in the system | [optional] 
-**Interpretations** |  Pointer to **[]String** | The list of interpretations explaining the recommendation. The array is empty if includeInterpretations is false or not present in the request. e.g. - [ ""Not approved in the last 6 months."" ]. Interpretations will be translated using the client's locale as found in the Accept-Language header. If a translation for the client's locale cannot be found, the US English translation will be returned. | [optional] 
-**TranslationMessages** |  Pointer to [**[]TranslationMessage**](translation-message) | The list of translation messages, if they have been requested. | [optional] 
-**RecommenderCalculations** |  Pointer to [**RecommenderCalculations**](recommender-calculations) |  | [optional] 
+**Request** | [**RecommendationRequest**](recommendation-request) |  | [optional] 
+**Recommendation** |  **Enum** [  "true",    "false",    "MAYBE",    "NOT_FOUND" ] | The recommendation - YES if the access is recommended, NO if not recommended, MAYBE if there is not enough information to make a recommendation, NOT_FOUND if the identity is not found in the system | [optional] 
+**Interpretations** | **[]String** | The list of interpretations explaining the recommendation. The array is empty if includeInterpretations is false or not present in the request. e.g. - [ ""Not approved in the last 6 months."" ]. Interpretations will be translated using the client's locale as found in the Accept-Language header. If a translation for the client's locale cannot be found, the US English translation will be returned. | [optional] 
+**TranslationMessages** | [**[]TranslationMessage**](translation-message) | The list of translation messages, if they have been requested. | [optional] 
+**RecommenderCalculations** | [**RecommenderCalculations**](recommender-calculations) |  | [optional] 
 
 ## Examples
 

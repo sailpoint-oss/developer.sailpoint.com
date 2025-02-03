@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'ApprovalComment', 'ApprovalComment']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Comment** |  Pointer to **String** | The comment text | [optional] 
-**Commenter** |  Pointer to **String** | The name of the commenter | [optional] 
-**Date** |  Pointer to **System.DateTime** | A date-time in ISO-8601 format | [optional] 
+**Comment** | **String** | The comment text | [optional] 
+**Commenter** | **String** | The name of the commenter | [optional] 
+**Date** | **System.DateTime** | A date-time in ISO-8601 format | [optional] 
 
 ## Examples
 

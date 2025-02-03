@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'ApprovalStatusDtoOriginalOwner', 'App
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to  **Enum** [  "GOVERNANCE_GROUP",    "IDENTITY" ] | DTO type of original approval owner's identity. | [optional] 
-**Id** |  Pointer to **String** | ID of original approval owner's identity. | [optional] 
-**Name** |  Pointer to **String** | Display name of original approval owner. | [optional] 
+**Type** |  **Enum** [  "GOVERNANCE_GROUP",    "IDENTITY" ] | DTO type of original approval owner's identity. | [optional] 
+**Id** | **String** | ID of original approval owner's identity. | [optional] 
+**Name** | **String** | Display name of original approval owner. | [optional] 
 
 ## Examples
 

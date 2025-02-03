@@ -1,4 +1,3 @@
-
 ---
 id: beta-auth-profile
 title: AuthProfile
@@ -61,7 +60,7 @@ $Id = "2c91808a7813090a017814121919ecca" # String | ID of the Auth Profile to ge
 # Get Auth Profile.
 
 try {
-    Get-BetaProfileConfig-BetaId $Id 
+    Get-BetaProfileConfig -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaProfileConfig -BetaId $Id  
@@ -152,7 +151,7 @@ $Id = "2c91808a7813090a017814121919ecca" # String | ID of the Auth Profile to pa
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-BetaProfileConfig-BetaId $Id -BetaJsonPatchOperation $Result
+    Update-BetaProfileConfig -BetaId $Id  -BetaJsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-BetaProfileConfig -BetaId $Id -BetaJsonPatchOperation $JsonPatchOperation  

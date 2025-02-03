@@ -1,4 +1,3 @@
-
 ---
 id: v2024-search-attribute-configuration
 title: SearchAttributeConfiguration
@@ -83,7 +82,7 @@ $SearchAttributeConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToSearchAttributeConfig -Json $SearchAttributeConfig
-    New-V2024SearchAttributeConfig-V2024SearchAttributeConfig $Result
+    New-V2024SearchAttributeConfig -V2024SearchAttributeConfig $Result
     
     # Below is a request that includes all optional parameters
     # New-V2024SearchAttributeConfig -V2024SearchAttributeConfig $SearchAttributeConfig  
@@ -126,7 +125,7 @@ $Name = "newMailAttribute" # String | Name of the extended search attribute conf
 # Delete Extended Search Attribute
 
 try {
-    Remove-V2024SearchAttributeConfig-V2024Name $Name 
+    Remove-V2024SearchAttributeConfig -V2024Name $Name 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024SearchAttributeConfig -V2024Name $Name  
@@ -210,7 +209,7 @@ $Name = "newMailAttribute" # String | Name of the extended search attribute conf
 # Get Extended Search Attribute
 
 try {
-    Get-V2024SingleSearchAttributeConfig-V2024Name $Name 
+    Get-V2024SingleSearchAttributeConfig -V2024Name $Name 
     
     # Below is a request that includes all optional parameters
     # Get-V2024SingleSearchAttributeConfig -V2024Name $Name  
@@ -263,7 +262,7 @@ $Name = "promotedMailAttribute" # String | Name of the search attribute configur
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024SearchAttributeConfig-V2024Name $Name -V2024JsonPatchOperation $Result
+    Update-V2024SearchAttributeConfig -V2024Name $Name  -V2024JsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024SearchAttributeConfig -V2024Name $Name -V2024JsonPatchOperation $JsonPatchOperation  

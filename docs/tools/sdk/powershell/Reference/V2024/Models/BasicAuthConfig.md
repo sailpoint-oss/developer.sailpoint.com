@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'BasicAuthConfig', 'V2024BasicAuthConf
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**UserName** |  Pointer to **String** | The username to authenticate. | [optional] 
-**Password** |  Pointer to **String** | The password to authenticate. On response, this field is set to null as to not return secrets. | [optional] 
+**UserName** | **String** | The username to authenticate. | [optional] 
+**Password** | **String** | The password to authenticate. On response, this field is set to null as to not return secrets. | [optional] 
 
 ## Examples
 

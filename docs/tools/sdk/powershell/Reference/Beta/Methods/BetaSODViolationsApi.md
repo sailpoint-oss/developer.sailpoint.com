@@ -1,4 +1,3 @@
-
 ---
 id: beta-sod-violations
 title: SODViolations
@@ -85,7 +84,7 @@ $IdentityWithNewAccess = @"{
 
 try {
     $Result = ConvertFrom-JsonToIdentityWithNewAccess -Json $IdentityWithNewAccess
-    Start-BetaPredictSodViolations-BetaIdentityWithNewAccess $Result
+    Start-BetaPredictSodViolations -BetaIdentityWithNewAccess $Result
     
     # Below is a request that includes all optional parameters
     # Start-BetaPredictSodViolations -BetaIdentityWithNewAccess $IdentityWithNewAccess  

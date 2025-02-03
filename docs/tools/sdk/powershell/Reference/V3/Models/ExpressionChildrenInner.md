@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'ExpressionChildrenInner', 'Expression
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Operator** |  Pointer to  **Enum** [  "AND",    "EQUALS" ] | Operator for the expression | [optional] 
-**Attribute** |  Pointer to **String** | Name for the attribute | [optional] 
-**Value** |  Pointer to [**Value**](value) |  | [optional] 
-**Children** |  Pointer to **String** | There cannot be anymore nested children. This will always be null. | [optional] 
+**Operator** |  **Enum** [  "AND",    "EQUALS" ] | Operator for the expression | [optional] 
+**Attribute** | **String** | Name for the attribute | [optional] 
+**Value** | [**Value**](value) |  | [optional] 
+**Children** | **String** | There cannot be anymore nested children. This will always be null. | [optional] 
 
 ## Examples
 

@@ -16,11 +16,11 @@ tags: ['SDK', 'Software Development Kit', 'TemplateSlackAutoApprovalData', 'V202
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**IsAutoApproved** |  Pointer to **String** |  | [optional] 
-**ItemId** |  Pointer to **String** |  | [optional] 
-**ItemType** |  Pointer to **String** |  | [optional] 
-**AutoApprovalMessageJSON** |  Pointer to **String** |  | [optional] 
-**AutoApprovalTitle** |  Pointer to **String** |  | [optional] 
+**IsAutoApproved** | **String** |  | [optional] 
+**ItemId** | **String** |  | [optional] 
+**ItemType** | **String** |  | [optional] 
+**AutoApprovalMessageJSON** | **String** |  | [optional] 
+**AutoApprovalTitle** | **String** |  | [optional] 
 
 ## Examples
 

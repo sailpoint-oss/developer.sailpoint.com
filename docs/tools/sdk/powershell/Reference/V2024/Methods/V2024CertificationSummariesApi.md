@@ -1,4 +1,3 @@
-
 ---
 id: v2024-certification-summaries
 title: CertificationSummaries
@@ -82,7 +81,7 @@ $Sorters = "access.name" # String | Sort results using the standard syntax descr
 # Access Summaries
 
 try {
-    Get-V2024IdentityAccessSummaries-V2024Id $Id -V2024Type $Type 
+    Get-V2024IdentityAccessSummaries -V2024Id $Id  -V2024Type $Type 
     
     # Below is a request that includes all optional parameters
     # Get-V2024IdentityAccessSummaries -V2024Id $Id -V2024Type $Type -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Filters $Filters -V2024Sorters $Sorters  
@@ -127,7 +126,7 @@ $Filters = 'identitySummary.id eq "ef38f94347e94562b5bb8424a56397d8"' # String |
 # Summary of Certification Decisions
 
 try {
-    Get-V2024IdentityDecisionSummary-V2024Id $Id 
+    Get-V2024IdentityDecisionSummary -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-V2024IdentityDecisionSummary -V2024Id $Id -V2024Filters $Filters  
@@ -180,7 +179,7 @@ $Sorters = "name" # String | Sort results using the standard syntax described in
 # Identity Summaries for Campaign Certification
 
 try {
-    Get-V2024IdentitySummaries-V2024Id $Id 
+    Get-V2024IdentitySummaries -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-V2024IdentitySummaries -V2024Id $Id -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Filters $Filters -V2024Sorters $Sorters  
@@ -225,7 +224,7 @@ $IdentitySummaryId = "2c91808772a504f50172a9540e501ba8" # String | The identity 
 # Summary for Identity
 
 try {
-    Get-V2024IdentitySummary-V2024Id $Id -V2024IdentitySummaryId $IdentitySummaryId 
+    Get-V2024IdentitySummary -V2024Id $Id  -V2024IdentitySummaryId $IdentitySummaryId 
     
     # Below is a request that includes all optional parameters
     # Get-V2024IdentitySummary -V2024Id $Id -V2024IdentitySummaryId $IdentitySummaryId  

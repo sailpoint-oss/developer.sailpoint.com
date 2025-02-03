@@ -16,12 +16,12 @@ tags: ['SDK', 'Software Development Kit', 'WorkflowBody', 'BetaWorkflowBody']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** |  Pointer to **String** | The name of the workflow | [optional] 
-**Owner** |  Pointer to [**WorkflowBodyOwner**](workflow-body-owner) |  | [optional] 
-**Description** |  Pointer to **String** | Description of what the workflow accomplishes | [optional] 
-**Definition** |  Pointer to [**WorkflowDefinition**](workflow-definition) |  | [optional] 
-**Enabled** |  Pointer to **Boolean** | Enable or disable the workflow.  Workflows cannot be created in an enabled state. | [optional] [default to $false]
-**Trigger** |  Pointer to [**WorkflowTrigger**](workflow-trigger) |  | [optional] 
+**Name** | **String** | The name of the workflow | [optional] 
+**Owner** | [**WorkflowBodyOwner**](workflow-body-owner) |  | [optional] 
+**Description** | **String** | Description of what the workflow accomplishes | [optional] 
+**Definition** | [**WorkflowDefinition**](workflow-definition) |  | [optional] 
+**Enabled** | **Boolean** | Enable or disable the workflow.  Workflows cannot be created in an enabled state. | [optional] [default to $false]
+**Trigger** | [**WorkflowTrigger**](workflow-trigger) |  | [optional] 
 
 ## Examples
 

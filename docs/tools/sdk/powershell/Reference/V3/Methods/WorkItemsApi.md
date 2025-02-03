@@ -1,4 +1,3 @@
-
 ---
 id: work-items
 title: WorkItems
@@ -81,7 +80,7 @@ $ApprovalItemId = "1211bcaa32112bcef6122adb21cef1ac" # String | The ID of the ap
 # Approve an Approval Item
 
 try {
-    Approve-ApprovalItem-Id $Id -ApprovalItemId $ApprovalItemId 
+    Approve-ApprovalItem -Id $Id  -ApprovalItemId $ApprovalItemId 
     
     # Below is a request that includes all optional parameters
     # Approve-ApprovalItem -Id $Id -ApprovalItemId $ApprovalItemId  
@@ -124,7 +123,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
 # Bulk approve Approval Items
 
 try {
-    Approve-ApprovalItemsInBulk-Id $Id 
+    Approve-ApprovalItemsInBulk -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Approve-ApprovalItemsInBulk -Id $Id  
@@ -167,7 +166,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
 # Complete a Work Item
 
 try {
-    Complete-WorkItem-Id $Id 
+    Complete-WorkItem -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Complete-WorkItem -Id $Id  
@@ -341,7 +340,7 @@ $Id = "2c9180835d191a86015d28455b4a2329" # String | ID of the work item.
 # Get a Work Item
 
 try {
-    Get-WorkItem-Id $Id 
+    Get-WorkItem -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-WorkItem -Id $Id  
@@ -476,7 +475,7 @@ $ApprovalItemId = "1211bcaa32112bcef6122adb21cef1ac" # String | The ID of the ap
 # Reject an Approval Item
 
 try {
-    Deny-ApprovalItem-Id $Id -ApprovalItemId $ApprovalItemId 
+    Deny-ApprovalItem -Id $Id  -ApprovalItemId $ApprovalItemId 
     
     # Below is a request that includes all optional parameters
     # Deny-ApprovalItem -Id $Id -ApprovalItemId $ApprovalItemId  
@@ -519,7 +518,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
 # Bulk reject Approval Items
 
 try {
-    Deny-ApprovalItemsInBulk-Id $Id 
+    Deny-ApprovalItemsInBulk -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Deny-ApprovalItemsInBulk -Id $Id  
@@ -568,7 +567,7 @@ $WorkItemForward = @"{
 
 try {
     $Result = ConvertFrom-JsonToWorkItemForward -Json $WorkItemForward
-    Send-WorkItemForward-Id $Id -WorkItemForward $Result
+    Send-WorkItemForward -Id $Id  -WorkItemForward $Result
     
     # Below is a request that includes all optional parameters
     # Send-WorkItemForward -Id $Id -WorkItemForward $WorkItemForward  
@@ -614,7 +613,7 @@ $RequestBody = @{ key_example =  } # System.Collections.Hashtable | Account Sele
 
 try {
     $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
-    Submit-AccountSelection-Id $Id -RequestBody $Result
+    Submit-AccountSelection -Id $Id  -RequestBody $Result
     
     # Below is a request that includes all optional parameters
     # Submit-AccountSelection -Id $Id -RequestBody $RequestBody  

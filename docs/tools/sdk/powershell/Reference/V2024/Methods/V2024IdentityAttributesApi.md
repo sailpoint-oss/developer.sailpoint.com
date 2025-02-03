@@ -1,4 +1,3 @@
-
 ---
 id: v2024-identity-attributes
 title: IdentityAttributes
@@ -82,7 +81,7 @@ $IdentityAttribute = @"{
 
 try {
     $Result = ConvertFrom-JsonToIdentityAttribute -Json $IdentityAttribute
-    New-V2024IdentityAttribute-V2024XSailPointExperimental $XSailPointExperimental -V2024IdentityAttribute $Result
+    New-V2024IdentityAttribute -V2024XSailPointExperimental $XSailPointExperimental  -V2024IdentityAttribute $Result
     
     # Below is a request that includes all optional parameters
     # New-V2024IdentityAttribute -V2024XSailPointExperimental $XSailPointExperimental -V2024IdentityAttribute $IdentityAttribute  
@@ -127,7 +126,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Delete Identity Attribute
 
 try {
-    Remove-V2024IdentityAttribute-V2024Name $Name -V2024XSailPointExperimental $XSailPointExperimental 
+    Remove-V2024IdentityAttribute -V2024Name $Name  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024IdentityAttribute -V2024Name $Name -V2024XSailPointExperimental $XSailPointExperimental  
@@ -175,7 +174,7 @@ $IdentityAttributeNames = @"{
 
 try {
     $Result = ConvertFrom-JsonToIdentityAttributeNames -Json $IdentityAttributeNames
-    Remove-V2024IdentityAttributesInBulk-V2024XSailPointExperimental $XSailPointExperimental -V2024IdentityAttributeNames $Result
+    Remove-V2024IdentityAttributesInBulk -V2024XSailPointExperimental $XSailPointExperimental  -V2024IdentityAttributeNames $Result
     
     # Below is a request that includes all optional parameters
     # Remove-V2024IdentityAttributesInBulk -V2024XSailPointExperimental $XSailPointExperimental -V2024IdentityAttributeNames $IdentityAttributeNames  
@@ -220,7 +219,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Get Identity Attribute
 
 try {
-    Get-V2024IdentityAttribute-V2024Name $Name -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024IdentityAttribute -V2024Name $Name  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024IdentityAttribute -V2024Name $Name -V2024XSailPointExperimental $XSailPointExperimental  
@@ -270,7 +269,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # List Identity Attributes
 
 try {
-    Get-V2024IdentityAttributes-V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024IdentityAttributes -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024IdentityAttributes -V2024XSailPointExperimental $XSailPointExperimental -V2024IncludeSystem $IncludeSystem -V2024IncludeSilent $IncludeSilent -V2024SearchableOnly $SearchableOnly -V2024Count $Count  
@@ -339,7 +338,7 @@ $IdentityAttribute = @"{
 
 try {
     $Result = ConvertFrom-JsonToIdentityAttribute -Json $IdentityAttribute
-    Send-V2024IdentityAttribute-V2024Name $Name -V2024XSailPointExperimental $XSailPointExperimental -V2024IdentityAttribute $Result
+    Send-V2024IdentityAttribute -V2024Name $Name  -V2024XSailPointExperimental $XSailPointExperimental  -V2024IdentityAttribute $Result
     
     # Below is a request that includes all optional parameters
     # Send-V2024IdentityAttribute -V2024Name $Name -V2024XSailPointExperimental $XSailPointExperimental -V2024IdentityAttribute $IdentityAttribute  

@@ -1,4 +1,3 @@
-
 ---
 id: beta-certification-campaigns
 title: CertificationCampaigns
@@ -155,7 +154,7 @@ $CompleteCampaignOptions = @"{
 # Complete a Campaign
 
 try {
-    Complete-BetaCampaign-BetaId $Id 
+    Complete-BetaCampaign -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Complete-BetaCampaign -BetaId $Id -BetaCompleteCampaignOptions $CompleteCampaignOptions  
@@ -309,7 +308,7 @@ $Campaign = @"{
 
 try {
     $Result = ConvertFrom-JsonToCampaign -Json $Campaign
-    New-BetaCampaign-BetaCampaign $Result
+    New-BetaCampaign -BetaCampaign $Result
     
     # Below is a request that includes all optional parameters
     # New-BetaCampaign -BetaCampaign $Campaign  
@@ -478,7 +477,7 @@ $CampaignTemplate = @"{
 
 try {
     $Result = ConvertFrom-JsonToCampaignTemplate -Json $CampaignTemplate
-    New-BetaCampaignTemplate-BetaCampaignTemplate $Result
+    New-BetaCampaignTemplate -BetaCampaignTemplate $Result
     
     # Below is a request that includes all optional parameters
     # New-BetaCampaignTemplate -BetaCampaignTemplate $CampaignTemplate  
@@ -524,7 +523,7 @@ $Id = "2c9180835d191a86015d28455b4a2329" # String | ID of the campaign template 
 # Delete a Campaign Template
 
 try {
-    Remove-BetaCampaignTemplate-BetaId $Id 
+    Remove-BetaCampaignTemplate -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-BetaCampaignTemplate -BetaId $Id  
@@ -570,7 +569,7 @@ $Id = "04bedce387bd47b2ae1f86eb0bb36dee" # String | ID of the campaign template 
 # Delete Campaign Template Schedule
 
 try {
-    Remove-BetaCampaignTemplateSchedule-BetaId $Id 
+    Remove-BetaCampaignTemplateSchedule -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-BetaCampaignTemplateSchedule -BetaId $Id  
@@ -619,7 +618,7 @@ $DeleteCampaignsRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToDeleteCampaignsRequest -Json $DeleteCampaignsRequest
-    Remove-BetaCampaigns-BetaDeleteCampaignsRequest $Result
+    Remove-BetaCampaigns -BetaDeleteCampaignsRequest $Result
     
     # Below is a request that includes all optional parameters
     # Remove-BetaCampaigns -BetaDeleteCampaignsRequest $DeleteCampaignsRequest  
@@ -720,7 +719,7 @@ $Id = "2c91808571bcfcf80171c23e4b4221fc" # String | ID of the campaign to be ret
 # Get Campaign
 
 try {
-    Get-BetaCampaign-BetaId $Id 
+    Get-BetaCampaign -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaCampaign -BetaId $Id  
@@ -766,7 +765,7 @@ $Id = "2c91808571bcfcf80171c23e4b4221fc" # String | ID of the campaign whose rep
 # Get Campaign Reports
 
 try {
-    Get-BetaCampaignReports-BetaId $Id 
+    Get-BetaCampaignReports -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaCampaignReports -BetaId $Id  
@@ -855,7 +854,7 @@ $Id = "2c9180835d191a86015d28455b4a2329" # String | Requested campaign template'
 # Get a Campaign Template
 
 try {
-    Get-BetaCampaignTemplate-BetaId $Id 
+    Get-BetaCampaignTemplate -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaCampaignTemplate -BetaId $Id  
@@ -901,7 +900,7 @@ $Id = "04bedce387bd47b2ae1f86eb0bb36dee" # String | ID of the campaign template 
 # Get Campaign Template Schedule
 
 try {
-    Get-BetaCampaignTemplateSchedule-BetaId $Id 
+    Get-BetaCampaignTemplateSchedule -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaCampaignTemplateSchedule -BetaId $Id  
@@ -1012,7 +1011,7 @@ $AdminReviewReassign = @"{
 
 try {
     $Result = ConvertFrom-JsonToAdminReviewReassign -Json $AdminReviewReassign
-    Move-Beta-BetaId $Id -BetaAdminReviewReassign $Result
+    Move-Beta -BetaId $Id  -BetaAdminReviewReassign $Result
     
     # Below is a request that includes all optional parameters
     # Move-Beta -BetaId $Id -BetaAdminReviewReassign $AdminReviewReassign  
@@ -1066,7 +1065,7 @@ $Id = "2c9180835d191a86015d28455b4a2329" # String | ID of the campaign template 
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-BetaCampaignTemplate-BetaId $Id -BetaJsonPatchOperation $Result
+    Update-BetaCampaignTemplate -BetaId $Id  -BetaJsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-BetaCampaignTemplate -BetaId $Id -BetaJsonPatchOperation $JsonPatchOperation  
@@ -1114,7 +1113,7 @@ $CampaignReportsConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToCampaignReportsConfig -Json $CampaignReportsConfig
-    Set-BetaCampaignReportsConfig-BetaCampaignReportsConfig $Result
+    Set-BetaCampaignReportsConfig -BetaCampaignReportsConfig $Result
     
     # Below is a request that includes all optional parameters
     # Set-BetaCampaignReportsConfig -BetaCampaignReportsConfig $CampaignReportsConfig  
@@ -1182,7 +1181,7 @@ $Schedule = @"{
 # Set Campaign Template Schedule
 
 try {
-    Set-BetaCampaignTemplateSchedule-BetaId $Id 
+    Set-BetaCampaignTemplateSchedule -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Set-BetaCampaignTemplateSchedule -BetaId $Id -BetaSchedule $Schedule  
@@ -1232,7 +1231,7 @@ $ActivateCampaignOptions = @"{
 # Activate a Campaign
 
 try {
-    Start-BetaCampaign-BetaId $Id 
+    Start-BetaCampaign -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Start-BetaCampaign -BetaId $Id -BetaActivateCampaignOptions $ActivateCampaignOptions  
@@ -1278,7 +1277,7 @@ $Id = "2c91808571bcfcf80171c23e4b4221fc" # String | ID of the campaign the remed
 # Run Campaign Remediation Scan
 
 try {
-    Start-BetaCampaignRemediationScan-BetaId $Id 
+    Start-BetaCampaignRemediationScan -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Start-BetaCampaignRemediationScan -BetaId $Id  
@@ -1326,7 +1325,7 @@ $Type = "CAMPAIGN_COMPOSITION_REPORT" # ReportType | Type of report to run.
 # Run Campaign Report
 
 try {
-    Start-BetaCampaignReport-BetaId $Id -BetaType $Type 
+    Start-BetaCampaignReport -BetaId $Id  -BetaType $Type 
     
     # Below is a request that includes all optional parameters
     # Start-BetaCampaignReport -BetaId $Id -BetaType $Type  
@@ -1383,7 +1382,7 @@ $Id = "2c9180835d191a86015d28455b4a2329" # String | ID of the campaign template 
 # Generate a Campaign from Template
 
 try {
-    Start-BetaGenerateCampaignTemplate-BetaId $Id 
+    Start-BetaGenerateCampaignTemplate -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Start-BetaGenerateCampaignTemplate -BetaId $Id  
@@ -1434,7 +1433,7 @@ $RequestBody =  # SystemCollectionsHashtable[] | A list of campaign update opera
 
 try {
     $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
-    Update-BetaCampaign-BetaId $Id -BetaRequestBody $Result
+    Update-BetaCampaign -BetaId $Id  -BetaRequestBody $Result
     
     # Below is a request that includes all optional parameters
     # Update-BetaCampaign -BetaId $Id -BetaRequestBody $RequestBody  

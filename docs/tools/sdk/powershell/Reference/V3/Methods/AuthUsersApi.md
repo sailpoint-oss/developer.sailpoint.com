@@ -1,4 +1,3 @@
-
 ---
 id: auth-users
 title: AuthUsers
@@ -59,7 +58,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Identity ID
 # Auth User Details
 
 try {
-    Get-AuthUser-Id $Id 
+    Get-AuthUser -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-AuthUser -Id $Id  
@@ -114,7 +113,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Identity ID
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-AuthUser-Id $Id -JsonPatchOperation $Result
+    Update-AuthUser -Id $Id  -JsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-AuthUser -Id $Id -JsonPatchOperation $JsonPatchOperation  

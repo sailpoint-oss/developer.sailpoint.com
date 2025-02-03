@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'TaggedObjectDto', 'BetaTaggedObjectDt
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to  **Enum** [  "ACCESS_PROFILE",    "APPLICATION",    "CAMPAIGN",    "ENTITLEMENT",    "IDENTITY",    "ROLE",    "SOD_POLICY",    "SOURCE" ] | DTO type | [optional] 
-**Id** |  Pointer to **String** | ID of the object this reference applies to | [optional] 
-**Name** |  Pointer to **String** | Human-readable display name of the object this reference applies to | [optional] 
+**Type** |  **Enum** [  "ACCESS_PROFILE",    "APPLICATION",    "CAMPAIGN",    "ENTITLEMENT",    "IDENTITY",    "ROLE",    "SOD_POLICY",    "SOURCE" ] | DTO type | [optional] 
+**Id** | **String** | ID of the object this reference applies to | [optional] 
+**Name** | **String** | Human-readable display name of the object this reference applies to | [optional] 
 
 ## Examples
 

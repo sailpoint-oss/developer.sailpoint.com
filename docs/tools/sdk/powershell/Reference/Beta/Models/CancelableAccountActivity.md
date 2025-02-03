@@ -16,22 +16,22 @@ tags: ['SDK', 'Software Development Kit', 'CancelableAccountActivity', 'BetaCanc
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | ID of the account activity itself | [optional] 
-**Name** |  Pointer to **String** |  | [optional] 
-**Created** |  Pointer to **System.DateTime** |  | [optional] 
-**Modified** |  Pointer to **System.DateTime** |  | [optional] 
-**Completed** |  Pointer to **System.DateTime** |  | [optional] 
-**CompletionStatus** |  Pointer to [**CompletionStatus**](completion-status) |  | [optional] 
-**Type** |  Pointer to **String** |  | [optional] 
-**RequesterIdentitySummary** |  Pointer to [**IdentitySummary**](identity-summary) |  | [optional] 
-**TargetIdentitySummary** |  Pointer to [**IdentitySummary**](identity-summary) |  | [optional] 
-**Errors** |  Pointer to **[]String** |  | [optional] 
-**Warnings** |  Pointer to **[]String** |  | [optional] 
-**Items** |  Pointer to [**[]AccountActivityItem**](account-activity-item) |  | [optional] 
-**ExecutionStatus** |  Pointer to [**ExecutionStatus**](execution-status) |  | [optional] 
-**ClientMetadata** |  Pointer to **map[string]String** | Arbitrary key-value pairs, if any were included in the corresponding access request | [optional] 
-**Cancelable** |  Pointer to **Boolean** | Whether the account activity can be canceled before completion | [optional] 
-**CancelComment** |  Pointer to [**Comment**](comment) |  | [optional] 
+**Id** | **String** | ID of the account activity itself | [optional] 
+**Name** | **String** |  | [optional] 
+**Created** | **System.DateTime** |  | [optional] 
+**Modified** | **System.DateTime** |  | [optional] 
+**Completed** | **System.DateTime** |  | [optional] 
+**CompletionStatus** | [**CompletionStatus**](completion-status) |  | [optional] 
+**Type** | **String** |  | [optional] 
+**RequesterIdentitySummary** | [**IdentitySummary**](identity-summary) |  | [optional] 
+**TargetIdentitySummary** | [**IdentitySummary**](identity-summary) |  | [optional] 
+**Errors** | **[]String** |  | [optional] 
+**Warnings** | **[]String** |  | [optional] 
+**Items** | [**[]AccountActivityItem**](account-activity-item) |  | [optional] 
+**ExecutionStatus** | [**ExecutionStatus**](execution-status) |  | [optional] 
+**ClientMetadata** | **map[string]String** | Arbitrary key-value pairs, if any were included in the corresponding access request | [optional] 
+**Cancelable** | **Boolean** | Whether the account activity can be canceled before completion | [optional] 
+**CancelComment** | [**Comment**](comment) |  | [optional] 
 
 ## Examples
 

@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'ViolationOwnerAssignmentConfig', 'Vio
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AssignmentRule** |  Pointer to  **Enum** [  "MANAGER",    "STATIC" ] | Details about the violations owner. MANAGER - identity's manager STATIC - Governance Group or Identity | [optional] 
-**OwnerRef** |  Pointer to [**ViolationOwnerAssignmentConfigOwnerRef**](violation-owner-assignment-config-owner-ref) |  | [optional] 
+**AssignmentRule** |  **Enum** [  "MANAGER",    "STATIC" ] | Details about the violations owner. MANAGER - identity's manager STATIC - Governance Group or Identity | [optional] 
+**OwnerRef** | [**ViolationOwnerAssignmentConfigOwnerRef**](violation-owner-assignment-config-owner-ref) |  | [optional] 
 
 ## Examples
 

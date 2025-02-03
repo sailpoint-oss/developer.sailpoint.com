@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'LoadAccountsTaskTaskReturnsInner', 'V
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DisplayLabel** |  Pointer to **String** | The display label of the return value | [optional] 
-**AttributeName** |  Pointer to **String** | The attribute name of the return value | [optional] 
+**DisplayLabel** | **String** | The display label of the return value | [optional] 
+**AttributeName** | **String** | The attribute name of the return value | [optional] 
 
 ## Examples
 

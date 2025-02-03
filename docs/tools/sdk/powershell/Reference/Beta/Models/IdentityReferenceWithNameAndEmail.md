@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'IdentityReferenceWithNameAndEmail', '
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to **String** | The type can only be IDENTITY. This is read-only. | [optional] 
-**Id** |  Pointer to **String** | Identity ID. | [optional] 
-**Name** |  Pointer to **String** | Identity's human-readable display name. This is read-only. | [optional] 
-**Email** |  Pointer to **String** | Identity's email address. This is read-only. | [optional] 
+**Type** | **String** | The type can only be IDENTITY. This is read-only. | [optional] 
+**Id** | **String** | Identity ID. | [optional] 
+**Name** | **String** | Identity's human-readable display name. This is read-only. | [optional] 
+**Email** | **String** | Identity's email address. This is read-only. | [optional] 
 
 ## Examples
 

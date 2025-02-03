@@ -1,4 +1,3 @@
-
 ---
 id: beta-managed-clients
 title: ManagedClients
@@ -58,7 +57,7 @@ $Type = "CCG" # ManagedClientType | Type of the Managed Client Status to get
 # Specified Managed Client Status.
 
 try {
-    Get-BetaManagedClientStatus-BetaId $Id -BetaType $Type 
+    Get-BetaManagedClientStatus -BetaId $Id  -BetaType $Type 
     
     # Below is a request that includes all optional parameters
     # Get-BetaManagedClientStatus -BetaId $Id -BetaType $Type  
@@ -129,7 +128,7 @@ $ManagedClientStatus = @"{
 
 try {
     $Result = ConvertFrom-JsonToManagedClientStatus -Json $ManagedClientStatus
-    Update-BetaManagedClientStatus-BetaId $Id -BetaManagedClientStatus $Result
+    Update-BetaManagedClientStatus -BetaId $Id  -BetaManagedClientStatus $Result
     
     # Below is a request that includes all optional parameters
     # Update-BetaManagedClientStatus -BetaId $Id -BetaManagedClientStatus $ManagedClientStatus  

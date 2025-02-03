@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'ObjectExportImportNames', 'ObjectExpo
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**IncludedNames** |  Pointer to **[]String** | Object names to be included in a backup. | [optional] 
+**IncludedNames** | **[]String** | Object names to be included in a backup. | [optional] 
 
 ## Examples
 

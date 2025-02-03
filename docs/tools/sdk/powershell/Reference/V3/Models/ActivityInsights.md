@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'ActivityInsights', 'ActivityInsights'
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccountID** |  Pointer to **String** | UUID of the account | [optional] 
-**UsageDays** |  Pointer to **Int32** | The number of days of activity | [optional] 
-**UsageDaysState** |  Pointer to  **Enum** [  "COMPLETE",    "UNKNOWN" ] | Status indicating if the activity is complete or unknown | [optional] 
+**AccountID** | **String** | UUID of the account | [optional] 
+**UsageDays** | **Int32** | The number of days of activity | [optional] 
+**UsageDaysState** |  **Enum** [  "COMPLETE",    "UNKNOWN" ] | Status indicating if the activity is complete or unknown | [optional] 
 
 ## Examples
 

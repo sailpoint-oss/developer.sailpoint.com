@@ -1,4 +1,3 @@
-
 ---
 id: beta-work-reassignment
 title: WorkReassignment
@@ -77,7 +76,7 @@ $ConfigurationItemRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToConfigurationItemRequest -Json $ConfigurationItemRequest
-    New-BetaReassignmentConfiguration-BetaConfigurationItemRequest $Result
+    New-BetaReassignmentConfiguration -BetaConfigurationItemRequest $Result
     
     # Below is a request that includes all optional parameters
     # New-BetaReassignmentConfiguration -BetaConfigurationItemRequest $ConfigurationItemRequest  
@@ -121,7 +120,7 @@ $ConfigType = "ACCESS_REQUESTS" # ConfigTypeEnum |
 # Delete Reassignment Configuration
 
 try {
-    Remove-BetaReassignmentConfiguration-BetaIdentityId $IdentityId -BetaConfigType $ConfigType 
+    Remove-BetaReassignmentConfiguration -BetaIdentityId $IdentityId  -BetaConfigType $ConfigType 
     
     # Below is a request that includes all optional parameters
     # Remove-BetaReassignmentConfiguration -BetaIdentityId $IdentityId -BetaConfigType $ConfigType  
@@ -169,7 +168,7 @@ $ExclusionFilters = @"SELF_REVIEW_DELEGATION"@ # String[] | Exclusion filters th
 # Evaluate Reassignment Configuration
 
 try {
-    Get-BetaEvaluateReassignmentConfiguration-BetaIdentityId $IdentityId -BetaConfigType $ConfigType 
+    Get-BetaEvaluateReassignmentConfiguration -BetaIdentityId $IdentityId  -BetaConfigType $ConfigType 
     
     # Below is a request that includes all optional parameters
     # Get-BetaEvaluateReassignmentConfiguration -BetaIdentityId $IdentityId -BetaConfigType $ConfigType -BetaExclusionFilters $ExclusionFilters  
@@ -252,7 +251,7 @@ $IdentityId = "2c91808781a71ddb0181b9090b5c504f" # String | unique identity id
 # Get Reassignment Configuration
 
 try {
-    Get-BetaReassignmentConfiguration-BetaIdentityId $IdentityId 
+    Get-BetaReassignmentConfiguration -BetaIdentityId $IdentityId 
     
     # Below is a request that includes all optional parameters
     # Get-BetaReassignmentConfiguration -BetaIdentityId $IdentityId  
@@ -385,7 +384,7 @@ $ConfigurationItemRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToConfigurationItemRequest -Json $ConfigurationItemRequest
-    Send-BetaReassignmentConfig-BetaIdentityId $IdentityId -BetaConfigurationItemRequest $Result
+    Send-BetaReassignmentConfig -BetaIdentityId $IdentityId  -BetaConfigurationItemRequest $Result
     
     # Below is a request that includes all optional parameters
     # Send-BetaReassignmentConfig -BetaIdentityId $IdentityId -BetaConfigurationItemRequest $ConfigurationItemRequest  
@@ -432,7 +431,7 @@ $TenantConfigurationRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToTenantConfigurationRequest -Json $TenantConfigurationRequest
-    Send-BetaTenantConfiguration-BetaTenantConfigurationRequest $Result
+    Send-BetaTenantConfiguration -BetaTenantConfigurationRequest $Result
     
     # Below is a request that includes all optional parameters
     # Send-BetaTenantConfiguration -BetaTenantConfigurationRequest $TenantConfigurationRequest  

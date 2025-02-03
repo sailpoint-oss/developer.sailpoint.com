@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'PermissionDto', 'BetaPermissionDto']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Rights** |  Pointer to **[]String** | All the rights (e.g. actions) that this permission allows on the target | [optional] [readonly] 
-**Target** |  Pointer to **String** | The target the permission would grants rights on. | [optional] [readonly] 
+**Rights** | **[]String** | All the rights (e.g. actions) that this permission allows on the target | [optional] [readonly] 
+**Target** | **String** | The target the permission would grants rights on. | [optional] [readonly] 
 
 ## Examples
 

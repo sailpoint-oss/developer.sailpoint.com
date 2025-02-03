@@ -1,4 +1,3 @@
-
 ---
 id: beta-sources
 title: Sources
@@ -196,7 +195,7 @@ $ProvisioningPolicyDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
-    New-BetaProvisioningPolicy-BetaSourceId $SourceId -BetaProvisioningPolicyDto $Result
+    New-BetaProvisioningPolicy -BetaSourceId $SourceId  -BetaProvisioningPolicyDto $Result
     
     # Below is a request that includes all optional parameters
     # New-BetaProvisioningPolicy -BetaSourceId $SourceId -BetaProvisioningPolicyDto $ProvisioningPolicyDto  
@@ -324,7 +323,7 @@ $ProvisionAsCsv = $false # Boolean | If this parameter is `true`, it configures 
 
 try {
     $Result = ConvertFrom-JsonToSource -Json $Source
-    New-BetaSource-BetaSource $Result
+    New-BetaSource -BetaSource $Result
     
     # Below is a request that includes all optional parameters
     # New-BetaSource -BetaSource $Source -BetaProvisionAsCsv $ProvisionAsCsv  
@@ -402,7 +401,7 @@ $Schema = @"{
 
 try {
     $Result = ConvertFrom-JsonToSchema -Json $Schema
-    New-BetaSourceSchema-BetaSourceId $SourceId -BetaSchema $Result
+    New-BetaSourceSchema -BetaSourceId $SourceId  -BetaSchema $Result
     
     # Below is a request that includes all optional parameters
     # New-BetaSourceSchema -BetaSourceId $SourceId -BetaSchema $Schema  
@@ -447,7 +446,7 @@ $Id = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
 # Delete Source by ID
 
 try {
-    Remove-Beta-BetaId $Id 
+    Remove-Beta -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-Beta -BetaId $Id  
@@ -495,7 +494,7 @@ $Id = "ebbf35756e1140699ce52b233121384a" # String | The source id
 # Remove All Accounts in a Source
 
 try {
-    Remove-BetaAccountsAsync-BetaId $Id 
+    Remove-BetaAccountsAsync -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-BetaAccountsAsync -BetaId $Id  
@@ -539,7 +538,7 @@ $Id = "2c9180835d191a86015d28455b4a2329" # String | The source id
 # Delete Native Change Detection Configuration
 
 try {
-    Remove-BetaNativeChangeDetectionConfig-BetaId $Id 
+    Remove-BetaNativeChangeDetectionConfig -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-BetaNativeChangeDetectionConfig -BetaId $Id  
@@ -584,7 +583,7 @@ $UsageType = "CREATE" # UsageType | The type of provisioning policy usage.  In I
 # Delete Provisioning Policy by UsageType
 
 try {
-    Remove-BetaProvisioningPolicy-BetaSourceId $SourceId -BetaUsageType $UsageType 
+    Remove-BetaProvisioningPolicy -BetaSourceId $SourceId  -BetaUsageType $UsageType 
     
     # Below is a request that includes all optional parameters
     # Remove-BetaProvisioningPolicy -BetaSourceId $SourceId -BetaUsageType $UsageType  
@@ -629,7 +628,7 @@ $SchemaId = "2c9180835d191a86015d28455b4a2329" # String | The Schema ID.
 # Delete Source Schema by ID
 
 try {
-    Remove-BetaSourceSchema-BetaSourceId $SourceId -BetaSchemaId $SchemaId 
+    Remove-BetaSourceSchema -BetaSourceId $SourceId  -BetaSchemaId $SchemaId 
     
     # Below is a request that includes all optional parameters
     # Remove-BetaSourceSchema -BetaSourceId $SourceId -BetaSchemaId $SchemaId  
@@ -672,7 +671,7 @@ $Id = "2c9180835d191a86015d28455b4a2329" # String | The source id
 # Get Source Correlation Configuration
 
 try {
-    Get-BetaCorrelationConfig-BetaId $Id 
+    Get-BetaCorrelationConfig -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaCorrelationConfig -BetaId $Id  
@@ -716,7 +715,7 @@ $Id = "2c9180835d191a86015d28455b4a2329" # String | The source id
 # Native Change Detection Configuration
 
 try {
-    Get-BetaNativeChangeDetectionConfig-BetaId $Id 
+    Get-BetaNativeChangeDetectionConfig -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaNativeChangeDetectionConfig -BetaId $Id  
@@ -761,7 +760,7 @@ $UsageType = "CREATE" # UsageType | The type of provisioning policy usage.  In I
 # Get Provisioning Policy by UsageType
 
 try {
-    Get-BetaProvisioningPolicy-BetaSourceId $SourceId -BetaUsageType $UsageType 
+    Get-BetaProvisioningPolicy -BetaSourceId $SourceId  -BetaUsageType $UsageType 
     
     # Below is a request that includes all optional parameters
     # Get-BetaProvisioningPolicy -BetaSourceId $SourceId -BetaUsageType $UsageType  
@@ -805,7 +804,7 @@ $Id = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
 # Get Source by ID
 
 try {
-    Get-BetaSource-BetaId $Id 
+    Get-BetaSource -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaSource -BetaId $Id  
@@ -848,7 +847,7 @@ $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
 # Downloads source accounts schema template
 
 try {
-    Get-BetaSourceAccountsSchema-BetaId $Id 
+    Get-BetaSourceAccountsSchema -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaSourceAccountsSchema -BetaId $Id  
@@ -892,7 +891,7 @@ $Id = "2c9180835d191a86015d28455b4a2329" # String | The source id
 # Attribute Sync Config
 
 try {
-    Get-BetaSourceAttrSyncConfig-BetaId $Id 
+    Get-BetaSourceAttrSyncConfig -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaSourceAttrSyncConfig -BetaId $Id  
@@ -937,7 +936,7 @@ $Locale = "de" # String | The locale to apply to the config. If no viable locale
 # Gets source config with language translations
 
 try {
-    Get-BetaSourceConfig-BetaId $Id 
+    Get-BetaSourceConfig -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaSourceConfig -BetaId $Id -BetaLocale $Locale  
@@ -1028,7 +1027,7 @@ $SchemaName = "?schemaName=group" # String | Name of entitlement schema (optiona
 # Downloads source entitlements schema template
 
 try {
-    Get-BetaSourceEntitlementsSchema-BetaId $Id 
+    Get-BetaSourceEntitlementsSchema -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaSourceEntitlementsSchema -BetaId $Id -BetaSchemaName $SchemaName  
@@ -1074,7 +1073,7 @@ $SchemaId = "2c9180835d191a86015d28455b4a2329" # String | The Schema ID.
 # Get Source Schema by ID
 
 try {
-    Get-BetaSourceSchema-BetaSourceId $SourceId -BetaSchemaId $SchemaId 
+    Get-BetaSourceSchema -BetaSourceId $SourceId  -BetaSchemaId $SchemaId 
     
     # Below is a request that includes all optional parameters
     # Get-BetaSourceSchema -BetaSourceId $SourceId -BetaSchemaId $SchemaId  
@@ -1121,7 +1120,7 @@ $IncludeNames = "account" # String | A comma-separated list of schema names to f
 # List Schemas on Source
 
 try {
-    Get-BetaSourceSchemas-BetaSourceId $SourceId 
+    Get-BetaSourceSchemas -BetaSourceId $SourceId 
     
     # Below is a request that includes all optional parameters
     # Get-BetaSourceSchemas -BetaSourceId $SourceId -BetaIncludeTypes $IncludeTypes -BetaIncludeNames $IncludeNames  
@@ -1170,7 +1169,7 @@ $DisableOptimization = "true" # String | Use this flag to reprocess every accoun
 # Account Aggregation
 
 try {
-    Import-BetaAccounts-BetaId $Id 
+    Import-BetaAccounts -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Import-BetaAccounts -BetaId $Id -BetaFile $File -BetaDisableOptimization $DisableOptimization  
@@ -1217,7 +1216,7 @@ $File =  # System.IO.FileInfo | The CSV file containing the source entitlements 
 # Entitlement Aggregation
 
 try {
-    Import-BetaEntitlements-BetaId $Id 
+    Import-BetaEntitlements -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Import-BetaEntitlements -BetaId $Id -BetaFile $File  
@@ -1261,7 +1260,7 @@ $File =  # System.IO.FileInfo |  (optional)
 # Uploads source accounts schema template
 
 try {
-    Import-BetaSourceAccountsSchema-BetaId $Id 
+    Import-BetaSourceAccountsSchema -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Import-BetaSourceAccountsSchema -BetaId $Id -BetaFile $File  
@@ -1306,7 +1305,7 @@ $File =  # System.IO.FileInfo |  (optional)
 # Upload connector file to source
 
 try {
-    Import-BetaSourceConnectorFile-BetaSourceId $SourceId 
+    Import-BetaSourceConnectorFile -BetaSourceId $SourceId 
     
     # Below is a request that includes all optional parameters
     # Import-BetaSourceConnectorFile -BetaSourceId $SourceId -BetaFile $File  
@@ -1352,7 +1351,7 @@ $File =  # System.IO.FileInfo |  (optional)
 # Uploads source entitlements schema template
 
 try {
-    Import-BetaSourceEntitlementsSchema-BetaId $Id 
+    Import-BetaSourceEntitlementsSchema -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Import-BetaSourceEntitlementsSchema -BetaId $Id -BetaSchemaName $SchemaName -BetaFile $File  
@@ -1396,7 +1395,7 @@ $File =  # System.IO.FileInfo |  (optional)
 # Process Uncorrelated Accounts
 
 try {
-    Import-BetaUncorrelatedAccounts-BetaId $Id 
+    Import-BetaUncorrelatedAccounts -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Import-BetaUncorrelatedAccounts -BetaId $Id -BetaFile $File  
@@ -1439,7 +1438,7 @@ $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id
 # Lists ProvisioningPolicies
 
 try {
-    Get-BetaProvisioningPolicies-BetaSourceId $SourceId 
+    Get-BetaProvisioningPolicies -BetaSourceId $SourceId 
     
     # Below is a request that includes all optional parameters
     # Get-BetaProvisioningPolicies -BetaSourceId $SourceId  
@@ -1546,7 +1545,7 @@ $ResourceObjectsRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToResourceObjectsRequest -Json $ResourceObjectsRequest
-    Receive-BetaResourceObjects-BetaSourceId $SourceId -BetaResourceObjectsRequest $Result
+    Receive-BetaResourceObjects -BetaSourceId $SourceId  -BetaResourceObjectsRequest $Result
     
     # Below is a request that includes all optional parameters
     # Receive-BetaResourceObjects -BetaSourceId $SourceId -BetaResourceObjectsRequest $ResourceObjectsRequest  
@@ -1590,7 +1589,7 @@ $SourceId = "cef3ee201db947c5912551015ba0c679" # String | The ID of the Source
 # Ping cluster for source connector
 
 try {
-    Ping-BetaCluster-BetaSourceId $SourceId 
+    Ping-BetaCluster -BetaSourceId $SourceId 
     
     # Below is a request that includes all optional parameters
     # Ping-BetaCluster -BetaSourceId $SourceId  
@@ -1656,7 +1655,7 @@ $CorrelationConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToCorrelationConfig -Json $CorrelationConfig
-    Send-BetaCorrelationConfig-BetaId $Id -BetaCorrelationConfig $Result
+    Send-BetaCorrelationConfig -BetaId $Id  -BetaCorrelationConfig $Result
     
     # Below is a request that includes all optional parameters
     # Send-BetaCorrelationConfig -BetaId $Id -BetaCorrelationConfig $CorrelationConfig  
@@ -1711,7 +1710,7 @@ $NativeChangeDetectionConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToNativeChangeDetectionConfig -Json $NativeChangeDetectionConfig
-    Send-BetaNativeChangeDetectionConfig-BetaId $Id -BetaNativeChangeDetectionConfig $Result
+    Send-BetaNativeChangeDetectionConfig -BetaId $Id  -BetaNativeChangeDetectionConfig $Result
     
     # Below is a request that includes all optional parameters
     # Send-BetaNativeChangeDetectionConfig -BetaId $Id -BetaNativeChangeDetectionConfig $NativeChangeDetectionConfig  
@@ -1800,7 +1799,7 @@ $ProvisioningPolicyDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
-    Send-BetaProvisioningPolicy-BetaSourceId $SourceId -BetaUsageType $UsageType -BetaProvisioningPolicyDto $Result
+    Send-BetaProvisioningPolicy -BetaSourceId $SourceId  -BetaUsageType $UsageType  -BetaProvisioningPolicyDto $Result
     
     # Below is a request that includes all optional parameters
     # Send-BetaProvisioningPolicy -BetaSourceId $SourceId -BetaUsageType $UsageType -BetaProvisioningPolicyDto $ProvisioningPolicyDto  
@@ -1942,7 +1941,7 @@ $Source = @"{
 
 try {
     $Result = ConvertFrom-JsonToSource -Json $Source
-    Send-BetaSource-BetaId $Id -BetaSource $Result
+    Send-BetaSource -BetaId $Id  -BetaSource $Result
     
     # Below is a request that includes all optional parameters
     # Send-BetaSource -BetaId $Id -BetaSource $Source  
@@ -2007,7 +2006,7 @@ $AttrSyncSourceConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToAttrSyncSourceConfig -Json $AttrSyncSourceConfig
-    Send-BetaSourceAttrSyncConfig-BetaId $Id -BetaAttrSyncSourceConfig $Result
+    Send-BetaSourceAttrSyncConfig -BetaId $Id  -BetaAttrSyncSourceConfig $Result
     
     # Below is a request that includes all optional parameters
     # Send-BetaSourceAttrSyncConfig -BetaId $Id -BetaAttrSyncSourceConfig $AttrSyncSourceConfig  
@@ -2093,7 +2092,7 @@ $Schema = @"{
 
 try {
     $Result = ConvertFrom-JsonToSchema -Json $Schema
-    Send-BetaSourceSchema-BetaSourceId $SourceId -BetaSchemaId $SchemaId -BetaSchema $Result
+    Send-BetaSourceSchema -BetaSourceId $SourceId  -BetaSchemaId $SchemaId  -BetaSchema $Result
     
     # Below is a request that includes all optional parameters
     # Send-BetaSourceSchema -BetaSourceId $SourceId -BetaSchemaId $SchemaId -BetaSchema $Schema  
@@ -2137,7 +2136,7 @@ $Id = "MyId" # String | The Source id
 # Synchronize single source attributes.
 
 try {
-    Sync-BetaAttributesForSource-BetaId $Id 
+    Sync-BetaAttributesForSource -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Sync-BetaAttributesForSource -BetaId $Id  
@@ -2181,7 +2180,7 @@ $SourceId = "cef3ee201db947c5912551015ba0c679" # String | The ID of the Source
 # Test configuration for source connector
 
 try {
-    Test-BetaSourceConfiguration-BetaSourceId $SourceId 
+    Test-BetaSourceConfiguration -BetaSourceId $SourceId 
     
     # Below is a request that includes all optional parameters
     # Test-BetaSourceConfiguration -BetaSourceId $SourceId  
@@ -2225,7 +2224,7 @@ $SourceId = "cef3ee201db947c5912551015ba0c679" # String | The ID of the Source.
 # Check connection for source connector.
 
 try {
-    Test-BetaSourceConnection-BetaSourceId $SourceId 
+    Test-BetaSourceConnection -BetaSourceId $SourceId 
     
     # Below is a request that includes all optional parameters
     # Test-BetaSourceConnection -BetaSourceId $SourceId  
@@ -2311,7 +2310,7 @@ $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
 
 try {
     $Result = ConvertFrom-JsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
-    Update-BetaProvisioningPoliciesInBulk-BetaSourceId $SourceId -BetaProvisioningPolicyDto $Result
+    Update-BetaProvisioningPoliciesInBulk -BetaSourceId $SourceId  -BetaProvisioningPolicyDto $Result
     
     # Below is a request that includes all optional parameters
     # Update-BetaProvisioningPoliciesInBulk -BetaSourceId $SourceId -BetaProvisioningPolicyDto $ProvisioningPolicyDto  
@@ -2366,7 +2365,7 @@ $UsageType = "CREATE" # UsageType | The type of provisioning policy usage.  In I
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-BetaProvisioningPolicy-BetaSourceId $SourceId -BetaUsageType $UsageType -BetaJsonPatchOperation $Result
+    Update-BetaProvisioningPolicy -BetaSourceId $SourceId  -BetaUsageType $UsageType  -BetaJsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-BetaProvisioningPolicy -BetaSourceId $SourceId -BetaUsageType $UsageType -BetaJsonPatchOperation $JsonPatchOperation  
@@ -2433,7 +2432,7 @@ $Id = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-BetaSource-BetaId $Id -BetaJsonPatchOperation $Result
+    Update-BetaSource -BetaId $Id  -BetaJsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-BetaSource -BetaId $Id -BetaJsonPatchOperation $JsonPatchOperation  
@@ -2494,7 +2493,7 @@ $SourceEntitlementRequestConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToSourceEntitlementRequestConfig -Json $SourceEntitlementRequestConfig
-    Update-BetaSourceEntitlementRequestConfig-BetaSourceEntitlementRequestConfig $Result
+    Update-BetaSourceEntitlementRequestConfig -BetaSourceEntitlementRequestConfig $Result
     
     # Below is a request that includes all optional parameters
     # Update-BetaSourceEntitlementRequestConfig -BetaSourceEntitlementRequestConfig $SourceEntitlementRequestConfig  
@@ -2576,7 +2575,7 @@ $SchemaId = "2c9180835d191a86015d28455b4a2329" # String | The Schema id.
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-BetaSourceSchema-BetaSourceId $SourceId -BetaSchemaId $SchemaId -BetaJsonPatchOperation $Result
+    Update-BetaSourceSchema -BetaSourceId $SourceId  -BetaSchemaId $SchemaId  -BetaJsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-BetaSourceSchema -BetaSourceId $SourceId -BetaSchemaId $SchemaId -BetaJsonPatchOperation $JsonPatchOperation  

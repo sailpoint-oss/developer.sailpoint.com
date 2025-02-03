@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'FormElementDynamicDataSource', 'BetaF
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Config** |  Pointer to [**FormElementDynamicDataSourceConfig**](form-element-dynamic-data-source-config) |  | [optional] 
-**DataSourceType** |  Pointer to  **Enum** [  "STATIC",    "INTERNAL",    "SEARCH",    "FORM_INPUT" ] | DataSourceType is a FormElementDataSourceType value STATIC FormElementDataSourceTypeStatic INTERNAL FormElementDataSourceTypeInternal SEARCH FormElementDataSourceTypeSearch FORM_INPUT FormElementDataSourceTypeFormInput | [optional] 
+**Config** | [**FormElementDynamicDataSourceConfig**](form-element-dynamic-data-source-config) |  | [optional] 
+**DataSourceType** |  **Enum** [  "STATIC",    "INTERNAL",    "SEARCH",    "FORM_INPUT" ] | DataSourceType is a FormElementDataSourceType value STATIC FormElementDataSourceTypeStatic INTERNAL FormElementDataSourceTypeInternal SEARCH FormElementDataSourceTypeSearch FORM_INPUT FormElementDataSourceTypeFormInput | [optional] 
 
 ## Examples
 

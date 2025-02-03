@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'RequestOnBehalfOfConfig', 'BetaReques
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AllowRequestOnBehalfOfAnyoneByAnyone** |  Pointer to **Boolean** | If this is true, anyone can request access for anyone. | [optional] [default to $false]
-**AllowRequestOnBehalfOfEmployeeByManager** |  Pointer to **Boolean** | If this is true, a manager can request access for his or her direct reports. | [optional] [default to $false]
+**AllowRequestOnBehalfOfAnyoneByAnyone** | **Boolean** | If this is true, anyone can request access for anyone. | [optional] [default to $false]
+**AllowRequestOnBehalfOfEmployeeByManager** | **Boolean** | If this is true, a manager can request access for his or her direct reports. | [optional] [default to $false]
 
 ## Examples
 

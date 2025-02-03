@@ -1,4 +1,3 @@
-
 ---
 id: beta-roles
 title: Roles
@@ -260,7 +259,7 @@ $Role = @"{
 
 try {
     $Result = ConvertFrom-JsonToRole -Json $Role
-    New-BetaRole-BetaRole $Result
+    New-BetaRole -BetaRole $Result
     
     # Below is a request that includes all optional parameters
     # New-BetaRole -BetaRole $Role  
@@ -308,7 +307,7 @@ $RoleBulkDeleteRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToRoleBulkDeleteRequest -Json $RoleBulkDeleteRequest
-    Remove-BetaBulkRoles-BetaRoleBulkDeleteRequest $Result
+    Remove-BetaBulkRoles -BetaRoleBulkDeleteRequest $Result
     
     # Below is a request that includes all optional parameters
     # Remove-BetaBulkRoles -BetaRoleBulkDeleteRequest $RoleBulkDeleteRequest  
@@ -352,7 +351,7 @@ $Id = "2c91808a7813090a017814121e121518" # String | ID of the Role
 # Delete a Role
 
 try {
-    Remove-BetaRole-BetaId $Id 
+    Remove-BetaRole -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-BetaRole -BetaId $Id  
@@ -395,7 +394,7 @@ $Id = "2c91808a7813090a017814121e121518" # String | ID of the Role
 # Get a Role
 
 try {
-    Get-BetaRole-BetaId $Id 
+    Get-BetaRole -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaRole -BetaId $Id  
@@ -447,7 +446,7 @@ $Sorters = "aliasName,name" # String | Sort results using the standard syntax de
 # Identities assigned a Role
 
 try {
-    Get-BetaRoleAssignedIdentities-BetaId $Id 
+    Get-BetaRoleAssignedIdentities -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaRoleAssignedIdentities -BetaId $Id -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count -BetaFilters $Filters -BetaSorters $Sorters  
@@ -501,7 +500,7 @@ $Sorters = "name,-modified" # String | Sort results using the standard syntax de
 # List role's Entitlements
 
 try {
-    Get-BetaRoleEntitlements-BetaId $Id 
+    Get-BetaRoleEntitlements -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaRoleEntitlements -BetaId $Id -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count -BetaFilters $Filters -BetaSorters $Sorters  
@@ -629,7 +628,7 @@ $Id = "2c91808a7813090a017814121e121518" # String | ID of the Role to patch
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-BetaRole-BetaId $Id -BetaJsonPatchOperation $Result
+    Update-BetaRole -BetaId $Id  -BetaJsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-BetaRole -BetaId $Id -BetaJsonPatchOperation $JsonPatchOperation  

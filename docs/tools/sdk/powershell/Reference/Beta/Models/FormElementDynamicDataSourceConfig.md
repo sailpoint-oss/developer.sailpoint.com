@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'FormElementDynamicDataSourceConfig', 
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AggregationBucketField** |  Pointer to **String** | AggregationBucketField is the aggregation bucket field name | [optional] 
-**Indices** |  Pointer to **[]String** | Indices is a list of indices to use | [optional] 
-**ObjectType** |  Pointer to  **Enum** [  "IDENTITY",    "ACCESS_PROFILE",    "SOURCES",    "ROLE",    "ENTITLEMENT" ] | ObjectType is a PreDefinedSelectOption value IDENTITY PreDefinedSelectOptionIdentity ACCESS_PROFILE PreDefinedSelectOptionAccessProfile SOURCES PreDefinedSelectOptionSources ROLE PreDefinedSelectOptionRole ENTITLEMENT PreDefinedSelectOptionEntitlement | [optional] 
-**Query** |  Pointer to **String** | Query is a text | [optional] 
+**AggregationBucketField** | **String** | AggregationBucketField is the aggregation bucket field name | [optional] 
+**Indices** | **[]String** | Indices is a list of indices to use | [optional] 
+**ObjectType** |  **Enum** [  "IDENTITY",    "ACCESS_PROFILE",    "SOURCES",    "ROLE",    "ENTITLEMENT" ] | ObjectType is a PreDefinedSelectOption value IDENTITY PreDefinedSelectOptionIdentity ACCESS_PROFILE PreDefinedSelectOptionAccessProfile SOURCES PreDefinedSelectOptionSources ROLE PreDefinedSelectOptionRole ENTITLEMENT PreDefinedSelectOptionEntitlement | [optional] 
+**Query** | **String** | Query is a text | [optional] 
 
 ## Examples
 

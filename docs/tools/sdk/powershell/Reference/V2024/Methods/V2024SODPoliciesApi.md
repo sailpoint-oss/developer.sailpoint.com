@@ -1,4 +1,3 @@
-
 ---
 id: v2024-sod-policies
 title: SODPolicies
@@ -151,7 +150,7 @@ $SodPolicy = @"{
 
 try {
     $Result = ConvertFrom-JsonToSodPolicy -Json $SodPolicy
-    New-V2024SodPolicy-V2024SodPolicy $Result
+    New-V2024SodPolicy -V2024SodPolicy $Result
     
     # Below is a request that includes all optional parameters
     # New-V2024SodPolicy -V2024SodPolicy $SodPolicy  
@@ -197,7 +196,7 @@ $Logical = $true # Boolean | Indicates whether this is a soft delete (logical tr
 # Delete SOD policy by ID
 
 try {
-    Remove-V2024SodPolicy-V2024Id $Id 
+    Remove-V2024SodPolicy -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024SodPolicy -V2024Id $Id -V2024Logical $Logical  
@@ -240,7 +239,7 @@ $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The ID of the SOD policy
 # Delete SOD policy schedule
 
 try {
-    Remove-V2024SodPolicySchedule-V2024Id $Id 
+    Remove-V2024SodPolicySchedule -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024SodPolicySchedule -V2024Id $Id  
@@ -285,7 +284,7 @@ $FileName = "custom-name" # String | Custom Name for the  file.
 # Download custom violation report
 
 try {
-    Get-V2024CustomViolationReport-V2024ReportResultId $ReportResultId -V2024FileName $FileName 
+    Get-V2024CustomViolationReport -V2024ReportResultId $ReportResultId  -V2024FileName $FileName 
     
     # Below is a request that includes all optional parameters
     # Get-V2024CustomViolationReport -V2024ReportResultId $ReportResultId -V2024FileName $FileName  
@@ -328,7 +327,7 @@ $ReportResultId = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the re
 # Download violation report
 
 try {
-    Get-V2024DefaultViolationReport-V2024ReportResultId $ReportResultId 
+    Get-V2024DefaultViolationReport -V2024ReportResultId $ReportResultId 
     
     # Below is a request that includes all optional parameters
     # Get-V2024DefaultViolationReport -V2024ReportResultId $ReportResultId  
@@ -412,7 +411,7 @@ $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The ID of the SOD Policy
 # Get SOD policy by ID
 
 try {
-    Get-V2024SodPolicy-V2024Id $Id 
+    Get-V2024SodPolicy -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-V2024SodPolicy -V2024Id $Id  
@@ -454,7 +453,7 @@ $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The ID of the SOD policy
 # Get SOD policy schedule
 
 try {
-    Get-V2024SodPolicySchedule-V2024Id $Id 
+    Get-V2024SodPolicySchedule -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-V2024SodPolicySchedule -V2024Id $Id  
@@ -497,7 +496,7 @@ $ReportResultId = "2e8d8180-24bc-4d21-91c6-7affdb473b0d" # String | The ID of th
 # Get violation report run status
 
 try {
-    Get-V2024SodViolationReportRunStatus-V2024ReportResultId $ReportResultId 
+    Get-V2024SodViolationReportRunStatus -V2024ReportResultId $ReportResultId 
     
     # Below is a request that includes all optional parameters
     # Get-V2024SodViolationReportRunStatus -V2024ReportResultId $ReportResultId  
@@ -540,7 +539,7 @@ $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The ID of the violation 
 # Get SOD violation report status
 
 try {
-    Get-V2024SodViolationReportStatus-V2024Id $Id 
+    Get-V2024SodViolationReportStatus -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-V2024SodViolationReportStatus -V2024Id $Id  
@@ -644,7 +643,7 @@ $Id = "2c918083-5d19-1a86-015d-28455b4a2329" # String | The ID of the SOD policy
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024SodPolicy-V2024Id $Id -V2024JsonPatchOperation $Result
+    Update-V2024SodPolicy -V2024Id $Id  -V2024JsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024SodPolicy -V2024Id $Id -V2024JsonPatchOperation $JsonPatchOperation  
@@ -774,7 +773,7 @@ $SodPolicySchedule = @"{
 
 try {
     $Result = ConvertFrom-JsonToSodPolicySchedule -Json $SodPolicySchedule
-    Send-V2024PolicySchedule-V2024Id $Id -V2024SodPolicySchedule $Result
+    Send-V2024PolicySchedule -V2024Id $Id  -V2024SodPolicySchedule $Result
     
     # Below is a request that includes all optional parameters
     # Send-V2024PolicySchedule -V2024Id $Id -V2024SodPolicySchedule $SodPolicySchedule  
@@ -876,7 +875,7 @@ $SodPolicy = @"{
 
 try {
     $Result = ConvertFrom-JsonToSodPolicy -Json $SodPolicy
-    Send-V2024SodPolicy-V2024Id $Id -V2024SodPolicy $Result
+    Send-V2024SodPolicy -V2024Id $Id  -V2024SodPolicy $Result
     
     # Below is a request that includes all optional parameters
     # Send-V2024SodPolicy -V2024Id $Id -V2024SodPolicy $SodPolicy  
@@ -918,7 +917,7 @@ $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The SOD policy ID to run
 # Evaluate one policy by ID
 
 try {
-    Start-V2024EvaluateSodPolicy-V2024Id $Id 
+    Start-V2024EvaluateSodPolicy -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Start-V2024EvaluateSodPolicy -V2024Id $Id  
@@ -1005,7 +1004,7 @@ $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The SOD policy ID to run
 # Runs SOD policy violation report
 
 try {
-    Start-V2024SodPolicy-V2024Id $Id 
+    Start-V2024SodPolicy -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Start-V2024SodPolicy -V2024Id $Id  

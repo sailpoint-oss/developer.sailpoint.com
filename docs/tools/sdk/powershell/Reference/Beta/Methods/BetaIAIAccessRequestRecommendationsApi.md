@@ -1,4 +1,3 @@
-
 ---
 id: beta-iai-access-request-recommendations
 title: IAIAccessRequestRecommendations
@@ -66,7 +65,7 @@ $AccessRequestRecommendationActionItemDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
-    Add-BetaAccessRequestRecommendationsIgnoredItem-BetaAccessRequestRecommendationActionItemDto $Result
+    Add-BetaAccessRequestRecommendationsIgnoredItem -BetaAccessRequestRecommendationActionItemDto $Result
     
     # Below is a request that includes all optional parameters
     # Add-BetaAccessRequestRecommendationsIgnoredItem -BetaAccessRequestRecommendationActionItemDto $AccessRequestRecommendationActionItemDto  
@@ -115,7 +114,7 @@ $AccessRequestRecommendationActionItemDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
-    Add-BetaAccessRequestRecommendationsRequestedItem-BetaAccessRequestRecommendationActionItemDto $Result
+    Add-BetaAccessRequestRecommendationsRequestedItem -BetaAccessRequestRecommendationActionItemDto $Result
     
     # Below is a request that includes all optional parameters
     # Add-BetaAccessRequestRecommendationsRequestedItem -BetaAccessRequestRecommendationActionItemDto $AccessRequestRecommendationActionItemDto  
@@ -164,7 +163,7 @@ $AccessRequestRecommendationActionItemDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
-    Add-BetaAccessRequestRecommendationsViewedItem-BetaAccessRequestRecommendationActionItemDto $Result
+    Add-BetaAccessRequestRecommendationsViewedItem -BetaAccessRequestRecommendationActionItemDto $Result
     
     # Below is a request that includes all optional parameters
     # Add-BetaAccessRequestRecommendationsViewedItem -BetaAccessRequestRecommendationActionItemDto $AccessRequestRecommendationActionItemDto  
@@ -214,7 +213,7 @@ Code | Description  | Data Type
 
 try {
     $Result = ConvertFrom-JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
-    Add-BetaAccessRequestRecommendationsViewedItems-BetaAccessRequestRecommendationActionItemDto $Result
+    Add-BetaAccessRequestRecommendationsViewedItems -BetaAccessRequestRecommendationActionItemDto $Result
     
     # Below is a request that includes all optional parameters
     # Add-BetaAccessRequestRecommendationsViewedItems -BetaAccessRequestRecommendationActionItemDto $AccessRequestRecommendationActionItemDto  

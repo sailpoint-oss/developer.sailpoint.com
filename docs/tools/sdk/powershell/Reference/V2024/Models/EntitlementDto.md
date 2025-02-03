@@ -16,18 +16,18 @@ tags: ['SDK', 'Software Development Kit', 'EntitlementDto', 'V2024EntitlementDto
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | System-generated unique ID of the Object | [optional] [readonly] 
-**Name** |  **String** | Name of the Object | [required]
-**Created** |  Pointer to **System.DateTime** | Creation date of the Object | [optional] [readonly] 
-**Modified** |  Pointer to **System.DateTime** | Last modification date of the Object | [optional] [readonly] 
-**Attribute** |  Pointer to **String** | Name of the entitlement attribute | [optional] 
-**Value** |  Pointer to **String** | Raw value of the entitlement | [optional] 
-**Description** |  Pointer to **String** | Entitlment description | [optional] 
-**Attributes** |  Pointer to [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | Entitlement attributes | [optional] 
-**SourceSchemaObjectType** |  Pointer to **String** | Schema objectType on the given application that maps to an Account Group | [optional] 
-**Privileged** |  Pointer to **Boolean** | Determines if this Entitlement is privileged. | [optional] 
-**CloudGoverned** |  Pointer to **Boolean** | Determines if this Entitlement is goverened in the cloud. | [optional] 
-**Source** |  Pointer to [**EntitlementSource**](entitlement-source) |  | [optional] 
+**Id** | **String** | System-generated unique ID of the Object | [optional] [readonly] 
+**Name** | **String** | Name of the Object | [required]
+**Created** | **System.DateTime** | Creation date of the Object | [optional] [readonly] 
+**Modified** | **System.DateTime** | Last modification date of the Object | [optional] [readonly] 
+**Attribute** | **String** | Name of the entitlement attribute | [optional] 
+**Value** | **String** | Raw value of the entitlement | [optional] 
+**Description** | **String** | Entitlment description | [optional] 
+**Attributes** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | Entitlement attributes | [optional] 
+**SourceSchemaObjectType** | **String** | Schema objectType on the given application that maps to an Account Group | [optional] 
+**Privileged** | **Boolean** | Determines if this Entitlement is privileged. | [optional] 
+**CloudGoverned** | **Boolean** | Determines if this Entitlement is goverened in the cloud. | [optional] 
+**Source** | [**EntitlementSource**](entitlement-source) |  | [optional] 
 
 ## Examples
 

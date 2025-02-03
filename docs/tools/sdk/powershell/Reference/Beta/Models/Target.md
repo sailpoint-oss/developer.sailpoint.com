@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'Target', 'BetaTarget']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | Target ID | [optional] 
-**Type** |  Pointer to  **Enum** [  "APPLICATION",    "IDENTITY" ] | Target type | [optional] 
-**Name** |  Pointer to **String** | Target name | [optional] 
+**Id** | **String** | Target ID | [optional] 
+**Type** |  **Enum** [  "APPLICATION",    "IDENTITY" ] | Target type | [optional] 
+**Name** | **String** | Target name | [optional] 
 
 ## Examples
 

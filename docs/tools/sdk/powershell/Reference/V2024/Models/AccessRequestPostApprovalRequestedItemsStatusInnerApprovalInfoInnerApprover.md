@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'AccessRequestPostApprovalRequestedIte
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |   **Enum** [  "IDENTITY" ] | The type of object that is referenced | [required]
-**Id** |  **String** | ID of identity who approved the access item request. | [required]
-**Name** |  **String** | Human-readable display name of identity who approved the access item request. | [required]
+**Type** |  **Enum** [  "IDENTITY" ] | The type of object that is referenced | [required]
+**Id** | **String** | ID of identity who approved the access item request. | [required]
+**Name** | **String** | Human-readable display name of identity who approved the access item request. | [required]
 
 ## Examples
 

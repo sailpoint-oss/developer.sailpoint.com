@@ -1,4 +1,3 @@
-
 ---
 id: v2024-managed-clusters
 title: ManagedClusters
@@ -70,7 +69,7 @@ $ManagedClusterRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToManagedClusterRequest -Json $ManagedClusterRequest
-    New-V2024ManagedCluster-V2024ManagedClusterRequest $Result
+    New-V2024ManagedCluster -V2024ManagedClusterRequest $Result
     
     # Below is a request that includes all optional parameters
     # New-V2024ManagedCluster -V2024ManagedClusterRequest $ManagedClusterRequest  
@@ -114,7 +113,7 @@ $RemoveClients = $false # Boolean | Flag to determine the need to delete a clust
 # Delete Managed Cluster
 
 try {
-    Remove-V2024ManagedCluster-V2024Id $Id 
+    Remove-V2024ManagedCluster -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024ManagedCluster -V2024Id $Id -V2024RemoveClients $RemoveClients  
@@ -158,7 +157,7 @@ $Id = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | ID of managed cluster to
 # Get Managed Cluster Log Configuration
 
 try {
-    Get-V2024ClientLogConfiguration-V2024Id $Id 
+    Get-V2024ClientLogConfiguration -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-V2024ClientLogConfiguration -V2024Id $Id  
@@ -201,7 +200,7 @@ $Id = "2c9180897de347a2017de8859e8c5039" # String | Managed cluster ID.
 # Get Managed Cluster
 
 try {
-    Get-V2024ManagedCluster-V2024Id $Id 
+    Get-V2024ManagedCluster -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-V2024ManagedCluster -V2024Id $Id  
@@ -295,7 +294,7 @@ $PutClientLogConfigurationRequest = @""@
 
 try {
     $Result = ConvertFrom-JsonToPutClientLogConfigurationRequest -Json $PutClientLogConfigurationRequest
-    Send-V2024ClientLogConfiguration-V2024Id $Id -V2024PutClientLogConfigurationRequest $Result
+    Send-V2024ClientLogConfiguration -V2024Id $Id  -V2024PutClientLogConfigurationRequest $Result
     
     # Below is a request that includes all optional parameters
     # Send-V2024ClientLogConfiguration -V2024Id $Id -V2024PutClientLogConfigurationRequest $PutClientLogConfigurationRequest  
@@ -346,7 +345,7 @@ $Id = "2c9180897de347a2017de8859e8c5039" # String | Managed cluster ID.
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024ManagedCluster-V2024Id $Id -V2024JsonPatchOperation $Result
+    Update-V2024ManagedCluster -V2024Id $Id  -V2024JsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024ManagedCluster -V2024Id $Id -V2024JsonPatchOperation $JsonPatchOperation  

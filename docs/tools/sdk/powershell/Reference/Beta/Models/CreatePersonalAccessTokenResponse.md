@@ -16,13 +16,13 @@ tags: ['SDK', 'Software Development Kit', 'CreatePersonalAccessTokenResponse', '
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  **String** | The ID of the personal access token (to be used as the username for Basic Auth). | [required]
-**Secret** |  **String** | The secret of the personal access token (to be used as the password for Basic Auth). | [required]
-**Scope** |  **[]String** | Scopes of the personal  access token. | [required]
-**Name** |  **String** | The name of the personal access token. Cannot be the same as other personal access tokens owned by a user. | [required]
-**Owner** |  [**PatOwner**](pat-owner) |  | [required]
-**Created** |  **System.DateTime** | The date and time, down to the millisecond, when this personal access token was created. | [required]
-**AccessTokenValiditySeconds** |  **Int32** | Number of seconds an access token is valid when generated using this Personal Access Token. If no value is specified, the token will be created with the default value of 43200. | [required]
+**Id** | **String** | The ID of the personal access token (to be used as the username for Basic Auth). | [required]
+**Secret** | **String** | The secret of the personal access token (to be used as the password for Basic Auth). | [required]
+**Scope** | **[]String** | Scopes of the personal  access token. | [required]
+**Name** | **String** | The name of the personal access token. Cannot be the same as other personal access tokens owned by a user. | [required]
+**Owner** | [**PatOwner**](pat-owner) |  | [required]
+**Created** | **System.DateTime** | The date and time, down to the millisecond, when this personal access token was created. | [required]
+**AccessTokenValiditySeconds** | **Int32** | Number of seconds an access token is valid when generated using this Personal Access Token. If no value is specified, the token will be created with the default value of 43200. | [required]
 
 ## Examples
 

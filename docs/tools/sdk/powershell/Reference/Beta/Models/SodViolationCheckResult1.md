@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'SodViolationCheckResult1', 'BetaSodVi
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Message** |  Pointer to [**ErrorMessageDto**](error-message-dto) |  | [optional] 
-**ClientMetadata** |  Pointer to **map[string]String** | Arbitrary key-value pairs. They will never be processed by the IdentityNow system but will be returned on completion of the violation check. | [optional] 
-**ViolationContexts** |  Pointer to [**[]SodViolationContext1**](sod-violation-context1) |  | [optional] 
-**ViolatedPolicies** |  Pointer to [**[]SodPolicyDto**](sod-policy-dto) | A list of the Policies that were violated. | [optional] 
+**Message** | [**ErrorMessageDto**](error-message-dto) |  | [optional] 
+**ClientMetadata** | **map[string]String** | Arbitrary key-value pairs. They will never be processed by the IdentityNow system but will be returned on completion of the violation check. | [optional] 
+**ViolationContexts** | [**[]SodViolationContext1**](sod-violation-context1) |  | [optional] 
+**ViolatedPolicies** | [**[]SodPolicyDto**](sod-policy-dto) | A list of the Policies that were violated. | [optional] 
 
 ## Examples
 

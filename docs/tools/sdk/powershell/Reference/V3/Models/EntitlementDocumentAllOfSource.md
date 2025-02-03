@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'EntitlementDocumentAllOfSource', 'Ent
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | ID of entitlement's source. | [optional] 
-**Name** |  Pointer to **String** | Display name of entitlement's source. | [optional] 
+**Id** | **String** | ID of entitlement's source. | [optional] 
+**Name** | **String** | Display name of entitlement's source. | [optional] 
 
 ## Examples
 

@@ -1,4 +1,3 @@
-
 ---
 id: v2024-non-employee-lifecycle-management
 title: NonEmployeeLifecycleManagement
@@ -119,7 +118,7 @@ $NonEmployeeApprovalDecision = @"{
 
 try {
     $Result = ConvertFrom-JsonToNonEmployeeApprovalDecision -Json $NonEmployeeApprovalDecision
-    Approve-V2024NonEmployeeRequest-V2024Id $Id -V2024NonEmployeeApprovalDecision $Result
+    Approve-V2024NonEmployeeRequest -V2024Id $Id  -V2024NonEmployeeApprovalDecision $Result
     
     # Below is a request that includes all optional parameters
     # Approve-V2024NonEmployeeRequest -V2024Id $Id -V2024NonEmployeeApprovalDecision $NonEmployeeApprovalDecision  
@@ -176,7 +175,7 @@ $NonEmployeeRequestBody = @"{
 
 try {
     $Result = ConvertFrom-JsonToNonEmployeeRequestBody -Json $NonEmployeeRequestBody
-    New-V2024NonEmployeeRecord-V2024NonEmployeeRequestBody $Result
+    New-V2024NonEmployeeRecord -V2024NonEmployeeRequestBody $Result
     
     # Below is a request that includes all optional parameters
     # New-V2024NonEmployeeRecord -V2024NonEmployeeRequestBody $NonEmployeeRequestBody  
@@ -232,7 +231,7 @@ $NonEmployeeRequestBody = @"{
 
 try {
     $Result = ConvertFrom-JsonToNonEmployeeRequestBody -Json $NonEmployeeRequestBody
-    New-V2024NonEmployeeRequest-V2024NonEmployeeRequestBody $Result
+    New-V2024NonEmployeeRequest -V2024NonEmployeeRequestBody $Result
     
     # Below is a request that includes all optional parameters
     # New-V2024NonEmployeeRequest -V2024NonEmployeeRequestBody $NonEmployeeRequestBody  
@@ -300,7 +299,7 @@ $NonEmployeeSourceRequestBody = @"{
 
 try {
     $Result = ConvertFrom-JsonToNonEmployeeSourceRequestBody -Json $NonEmployeeSourceRequestBody
-    New-V2024NonEmployeeSource-V2024NonEmployeeSourceRequestBody $Result
+    New-V2024NonEmployeeSource -V2024NonEmployeeSourceRequestBody $Result
     
     # Below is a request that includes all optional parameters
     # New-V2024NonEmployeeSource -V2024NonEmployeeSourceRequestBody $NonEmployeeSourceRequestBody  
@@ -353,7 +352,7 @@ $NonEmployeeSchemaAttributeBody = @"{
 
 try {
     $Result = ConvertFrom-JsonToNonEmployeeSchemaAttributeBody -Json $NonEmployeeSchemaAttributeBody
-    New-V2024NonEmployeeSourceSchemaAttributes-V2024SourceId $SourceId -V2024NonEmployeeSchemaAttributeBody $Result
+    New-V2024NonEmployeeSourceSchemaAttributes -V2024SourceId $SourceId  -V2024NonEmployeeSchemaAttributeBody $Result
     
     # Below is a request that includes all optional parameters
     # New-V2024NonEmployeeSourceSchemaAttributes -V2024SourceId $SourceId -V2024NonEmployeeSchemaAttributeBody $NonEmployeeSchemaAttributeBody  
@@ -396,7 +395,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Non-Employee record id (UUID
 # Delete Non-Employee Record
 
 try {
-    Remove-V2024NonEmployeeRecord-V2024Id $Id 
+    Remove-V2024NonEmployeeRecord -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024NonEmployeeRecord -V2024Id $Id  
@@ -439,7 +438,7 @@ $DeleteNonEmployeeRecordsInBulkRequest = @""@
 
 try {
     $Result = ConvertFrom-JsonToDeleteNonEmployeeRecordsInBulkRequest -Json $DeleteNonEmployeeRecordsInBulkRequest
-    Remove-V2024NonEmployeeRecordsInBulk-V2024DeleteNonEmployeeRecordsInBulkRequest $Result
+    Remove-V2024NonEmployeeRecordsInBulk -V2024DeleteNonEmployeeRecordsInBulkRequest $Result
     
     # Below is a request that includes all optional parameters
     # Remove-V2024NonEmployeeRecordsInBulk -V2024DeleteNonEmployeeRecordsInBulkRequest $DeleteNonEmployeeRecordsInBulkRequest  
@@ -483,7 +482,7 @@ $Id = "ac110005-7156-1150-8171-5b292e3e0084" # String | Non-Employee request id 
 # Delete Non-Employee Request
 
 try {
-    Remove-V2024NonEmployeeRequest-V2024Id $Id 
+    Remove-V2024NonEmployeeRequest -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024NonEmployeeRequest -V2024Id $Id  
@@ -529,7 +528,7 @@ $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | The Source id
 # Delete a Schema Attribute for Non-Employee Source
 
 try {
-    Remove-V2024NonEmployeeSchemaAttribute-V2024AttributeId $AttributeId -V2024SourceId $SourceId 
+    Remove-V2024NonEmployeeSchemaAttribute -V2024AttributeId $AttributeId  -V2024SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024NonEmployeeSchemaAttribute -V2024AttributeId $AttributeId -V2024SourceId $SourceId  
@@ -571,7 +570,7 @@ $SourceId = "e136567de87e4d029e60b3c3c55db56d" # String | Source Id
 # Delete Non-Employee Source
 
 try {
-    Remove-V2024NonEmployeeSource-V2024SourceId $SourceId 
+    Remove-V2024NonEmployeeSource -V2024SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024NonEmployeeSource -V2024SourceId $SourceId  
@@ -613,7 +612,7 @@ $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | The Source id
 # Delete all custom schema attributes for Non-Employee Source
 
 try {
-    Remove-V2024NonEmployeeSourceSchemaAttributes-V2024SourceId $SourceId 
+    Remove-V2024NonEmployeeSourceSchemaAttributes -V2024SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024NonEmployeeSourceSchemaAttributes -V2024SourceId $SourceId  
@@ -656,7 +655,7 @@ $Id = "e136567de87e4d029e60b3c3c55db56d" # String | Source Id (UUID)
 # Exports Non-Employee Records to CSV
 
 try {
-    Export-V2024NonEmployeeRecords-V2024Id $Id 
+    Export-V2024NonEmployeeRecords -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Export-V2024NonEmployeeRecords -V2024Id $Id  
@@ -699,7 +698,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Source Id (UUID)
 # Exports Source Schema Template
 
 try {
-    Export-V2024NonEmployeeSourceSchemaTemplate-V2024Id $Id 
+    Export-V2024NonEmployeeSourceSchemaTemplate -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Export-V2024NonEmployeeSourceSchemaTemplate -V2024Id $Id  
@@ -746,7 +745,7 @@ $IncludeDetail = $true # Boolean | The object nonEmployeeRequest will not be inc
 # Get a non-employee approval item detail
 
 try {
-    Get-V2024NonEmployeeApproval-V2024Id $Id 
+    Get-V2024NonEmployeeApproval -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-V2024NonEmployeeApproval -V2024Id $Id -V2024IncludeDetail $IncludeDetail  
@@ -792,7 +791,7 @@ $RequestedFor = "2c91808280430dfb0180431a59440460" # String | The identity (UUID
 # Get Summary of Non-Employee Approval Requests
 
 try {
-    Get-V2024NonEmployeeApprovalSummary-V2024RequestedFor $RequestedFor 
+    Get-V2024NonEmployeeApprovalSummary -V2024RequestedFor $RequestedFor 
     
     # Below is a request that includes all optional parameters
     # Get-V2024NonEmployeeApprovalSummary -V2024RequestedFor $RequestedFor  
@@ -836,7 +835,7 @@ $Id = "e136567de87e4d029e60b3c3c55db56d" # String | Source ID (UUID)
 # Obtain the status of bulk upload on the source
 
 try {
-    Get-V2024NonEmployeeBulkUploadStatus-V2024Id $Id 
+    Get-V2024NonEmployeeBulkUploadStatus -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-V2024NonEmployeeBulkUploadStatus -V2024Id $Id  
@@ -879,7 +878,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Non-Employee record id (UUID
 # Get a Non-Employee Record
 
 try {
-    Get-V2024NonEmployeeRecord-V2024Id $Id 
+    Get-V2024NonEmployeeRecord -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-V2024NonEmployeeRecord -V2024Id $Id  
@@ -926,7 +925,7 @@ $Id = "ac110005-7156-1150-8171-5b292e3e0084" # String | Non-Employee request id 
 # Get a Non-Employee Request
 
 try {
-    Get-V2024NonEmployeeRequest-V2024Id $Id 
+    Get-V2024NonEmployeeRequest -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-V2024NonEmployeeRequest -V2024Id $Id  
@@ -972,7 +971,7 @@ $RequestedFor = "2c91808280430dfb0180431a59440460" # String | The identity (UUID
 # Get Summary of Non-Employee Requests
 
 try {
-    Get-V2024NonEmployeeRequestSummary-V2024RequestedFor $RequestedFor 
+    Get-V2024NonEmployeeRequestSummary -V2024RequestedFor $RequestedFor 
     
     # Below is a request that includes all optional parameters
     # Get-V2024NonEmployeeRequestSummary -V2024RequestedFor $RequestedFor  
@@ -1016,7 +1015,7 @@ $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | The Source id
 # Get Schema Attribute Non-Employee Source
 
 try {
-    Get-V2024NonEmployeeSchemaAttribute-V2024AttributeId $AttributeId -V2024SourceId $SourceId 
+    Get-V2024NonEmployeeSchemaAttribute -V2024AttributeId $AttributeId  -V2024SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
     # Get-V2024NonEmployeeSchemaAttribute -V2024AttributeId $AttributeId -V2024SourceId $SourceId  
@@ -1062,7 +1061,7 @@ $SourceId = "2c91808b7c28b350017c2a2ec5790aa1" # String | Source Id
 # Get a Non-Employee Source
 
 try {
-    Get-V2024NonEmployeeSource-V2024SourceId $SourceId 
+    Get-V2024NonEmployeeSource -V2024SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
     # Get-V2024NonEmployeeSource -V2024SourceId $SourceId  
@@ -1106,7 +1105,7 @@ $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | The Source id
 # List Schema Attributes Non-Employee Source
 
 try {
-    Get-V2024NonEmployeeSourceSchemaAttributes-V2024SourceId $SourceId 
+    Get-V2024NonEmployeeSourceSchemaAttributes -V2024SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
     # Get-V2024NonEmployeeSourceSchemaAttributes -V2024SourceId $SourceId  
@@ -1151,7 +1150,7 @@ $Data =  # System.IO.FileInfo |
 # Imports, or Updates, Non-Employee Records
 
 try {
-    Import-V2024NonEmployeeRecordsInBulk-V2024Id $Id -V2024Data $Data 
+    Import-V2024NonEmployeeRecordsInBulk -V2024Id $Id  -V2024Data $Data 
     
     # Below is a request that includes all optional parameters
     # Import-V2024NonEmployeeRecordsInBulk -V2024Id $Id -V2024Data $Data  
@@ -1315,7 +1314,7 @@ $Filters = 'sourceId eq "2c91808568c529c60168cca6f90c1313"' # String | Filter re
 # List Non-Employee Requests
 
 try {
-    Get-V2024NonEmployeeRequests-V2024RequestedFor $RequestedFor 
+    Get-V2024NonEmployeeRequests -V2024RequestedFor $RequestedFor 
     
     # Below is a request that includes all optional parameters
     # Get-V2024NonEmployeeRequests -V2024RequestedFor $RequestedFor -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Sorters $Sorters -V2024Filters $Filters  
@@ -1371,7 +1370,7 @@ $Sorters = "name,created" # String | Sort results using the standard syntax desc
 # List Non-Employee Sources
 
 try {
-    Get-V2024NonEmployeeSources-V2024RequestedFor $RequestedFor 
+    Get-V2024NonEmployeeSources -V2024RequestedFor $RequestedFor 
     
     # Below is a request that includes all optional parameters
     # Get-V2024NonEmployeeSources -V2024RequestedFor $RequestedFor -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024NonEmployeeCount $NonEmployeeCount -V2024Sorters $Sorters  
@@ -1426,7 +1425,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Non-employee record id (UUID
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024NonEmployeeRecord-V2024Id $Id -V2024JsonPatchOperation $Result
+    Update-V2024NonEmployeeRecord -V2024Id $Id  -V2024JsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024NonEmployeeRecord -V2024Id $Id -V2024JsonPatchOperation $JsonPatchOperation  
@@ -1481,7 +1480,7 @@ $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | The Source id
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024NonEmployeeSchemaAttribute-V2024AttributeId $AttributeId -V2024SourceId $SourceId -V2024JsonPatchOperation $Result
+    Update-V2024NonEmployeeSchemaAttribute -V2024AttributeId $AttributeId  -V2024SourceId $SourceId  -V2024JsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024NonEmployeeSchemaAttribute -V2024AttributeId $AttributeId -V2024SourceId $SourceId -V2024JsonPatchOperation $JsonPatchOperation  
@@ -1531,7 +1530,7 @@ $SourceId = "e136567de87e4d029e60b3c3c55db56d" # String | Source Id
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024NonEmployeeSource-V2024SourceId $SourceId -V2024JsonPatchOperation $Result
+    Update-V2024NonEmployeeSource -V2024SourceId $SourceId  -V2024JsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024NonEmployeeSource -V2024SourceId $SourceId -V2024JsonPatchOperation $JsonPatchOperation  
@@ -1578,7 +1577,7 @@ $NonEmployeeRejectApprovalDecision = @"{
 
 try {
     $Result = ConvertFrom-JsonToNonEmployeeRejectApprovalDecision -Json $NonEmployeeRejectApprovalDecision
-    Deny-V2024NonEmployeeRequest-V2024Id $Id -V2024NonEmployeeRejectApprovalDecision $Result
+    Deny-V2024NonEmployeeRequest -V2024Id $Id  -V2024NonEmployeeRejectApprovalDecision $Result
     
     # Below is a request that includes all optional parameters
     # Deny-V2024NonEmployeeRequest -V2024Id $Id -V2024NonEmployeeRejectApprovalDecision $NonEmployeeRejectApprovalDecision  
@@ -1641,7 +1640,7 @@ $NonEmployeeRequestBody = @"{
 
 try {
     $Result = ConvertFrom-JsonToNonEmployeeRequestBody -Json $NonEmployeeRequestBody
-    Update-V2024NonEmployeeRecord-V2024Id $Id -V2024NonEmployeeRequestBody $Result
+    Update-V2024NonEmployeeRecord -V2024Id $Id  -V2024NonEmployeeRequestBody $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024NonEmployeeRecord -V2024Id $Id -V2024NonEmployeeRequestBody $NonEmployeeRequestBody  

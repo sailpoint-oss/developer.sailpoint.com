@@ -16,16 +16,16 @@ tags: ['SDK', 'Software Development Kit', 'ReviewableAccessProfile', 'V2024Revie
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | The id of the Access Profile | [optional] 
-**Name** |  Pointer to **String** | Name of the Access Profile | [optional] 
-**Description** |  Pointer to **String** | Information about the Access Profile | [optional] 
-**Privileged** |  Pointer to **Boolean** | Indicates if the entitlement is a privileged entitlement | [optional] 
-**CloudGoverned** |  Pointer to **Boolean** | True if the entitlement is cloud governed | [optional] 
-**EndDate** |  Pointer to **System.DateTime** | The date at which a user's access expires | [optional] 
-**Owner** |  Pointer to [**IdentityReferenceWithNameAndEmail**](identity-reference-with-name-and-email) |  | [optional] 
-**Entitlements** |  Pointer to [**[]ReviewableEntitlement**](reviewable-entitlement) | A list of entitlements associated with this Access Profile | [optional] 
-**Created** |  Pointer to **System.DateTime** | Date the Access Profile was created. | [optional] 
-**Modified** |  Pointer to **System.DateTime** | Date the Access Profile was last modified. | [optional] 
+**Id** | **String** | The id of the Access Profile | [optional] 
+**Name** | **String** | Name of the Access Profile | [optional] 
+**Description** | **String** | Information about the Access Profile | [optional] 
+**Privileged** | **Boolean** | Indicates if the entitlement is a privileged entitlement | [optional] 
+**CloudGoverned** | **Boolean** | True if the entitlement is cloud governed | [optional] 
+**EndDate** | **System.DateTime** | The date at which a user's access expires | [optional] 
+**Owner** | [**IdentityReferenceWithNameAndEmail**](identity-reference-with-name-and-email) |  | [optional] 
+**Entitlements** | [**[]ReviewableEntitlement**](reviewable-entitlement) | A list of entitlements associated with this Access Profile | [optional] 
+**Created** | **System.DateTime** | Date the Access Profile was created. | [optional] 
+**Modified** | **System.DateTime** | Date the Access Profile was last modified. | [optional] 
 
 ## Examples
 

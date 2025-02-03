@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'CampaignFilterDetailsCriteriaListInne
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  [**CriteriaType**](criteria-type) |  | [required]
-**Operation** |  [**Operation**](operation) |  | [required]
-**Property** |  **String** | Specified key from the type of criteria. | [required]
-**Value** |  **String** | Value for the specified key from the type of criteria. | [required]
+**Type** | [**CriteriaType**](criteria-type) |  | [required]
+**Operation** | [**Operation**](operation) |  | [required]
+**Property** | **String** | Specified key from the type of criteria. | [required]
+**Value** | **String** | Value for the specified key from the type of criteria. | [required]
 
 ## Examples
 

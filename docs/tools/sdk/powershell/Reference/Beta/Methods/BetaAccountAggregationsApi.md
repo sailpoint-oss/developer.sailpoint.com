@@ -1,4 +1,3 @@
-
 ---
 id: beta-account-aggregations
 title: AccountAggregations
@@ -70,7 +69,7 @@ $Id = "2c91808477a6b0c60177a81146b8110b" # String | The account aggregation id
 # In-progress Account Aggregation status
 
 try {
-    Get-BetaAccountAggregationStatus-BetaId $Id 
+    Get-BetaAccountAggregationStatus -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaAccountAggregationStatus -BetaId $Id  

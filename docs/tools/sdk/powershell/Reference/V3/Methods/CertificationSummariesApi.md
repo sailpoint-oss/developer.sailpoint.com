@@ -1,4 +1,3 @@
-
 ---
 id: certification-summaries
 title: CertificationSummaries
@@ -82,7 +81,7 @@ $Sorters = "access.name" # String | Sort results using the standard syntax descr
 # Access Summaries
 
 try {
-    Get-IdentityAccessSummaries-Id $Id -Type $Type 
+    Get-IdentityAccessSummaries -Id $Id  -Type $Type 
     
     # Below is a request that includes all optional parameters
     # Get-IdentityAccessSummaries -Id $Id -Type $Type -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
@@ -127,7 +126,7 @@ $Filters = 'identitySummary.id eq "ef38f94347e94562b5bb8424a56397d8"' # String |
 # Summary of Certification Decisions
 
 try {
-    Get-IdentityDecisionSummary-Id $Id 
+    Get-IdentityDecisionSummary -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-IdentityDecisionSummary -Id $Id -Filters $Filters  
@@ -180,7 +179,7 @@ $Sorters = "name" # String | Sort results using the standard syntax described in
 # Identity Summaries for Campaign Certification
 
 try {
-    Get-IdentitySummaries-Id $Id 
+    Get-IdentitySummaries -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-IdentitySummaries -Id $Id -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
@@ -225,7 +224,7 @@ $IdentitySummaryId = "2c91808772a504f50172a9540e501ba8" # String | The identity 
 # Summary for Identity
 
 try {
-    Get-IdentitySummary-Id $Id -IdentitySummaryId $IdentitySummaryId 
+    Get-IdentitySummary -Id $Id  -IdentitySummaryId $IdentitySummaryId 
     
     # Below is a request that includes all optional parameters
     # Get-IdentitySummary -Id $Id -IdentitySummaryId $IdentitySummaryId  

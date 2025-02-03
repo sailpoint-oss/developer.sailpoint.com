@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'ApprovalReference', 'BetaApprovalRefe
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | Id of the reference object | [optional] 
-**Type** |  Pointer to **String** | What reference object does this ID correspond to | [optional] 
+**Id** | **String** | Id of the reference object | [optional] 
+**Type** | **String** | What reference object does this ID correspond to | [optional] 
 
 ## Examples
 

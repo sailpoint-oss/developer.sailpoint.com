@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'AccountSource', 'V2024AccountSource']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | The unique ID of the referenced object. | [optional] 
-**Name** |  Pointer to **String** | The human readable name of the referenced object. | [optional] 
-**Type** |  Pointer to **String** | Type of source returned. | [optional] 
+**Id** | **String** | The unique ID of the referenced object. | [optional] 
+**Name** | **String** | The human readable name of the referenced object. | [optional] 
+**Type** | **String** | Type of source returned. | [optional] 
 
 ## Examples
 

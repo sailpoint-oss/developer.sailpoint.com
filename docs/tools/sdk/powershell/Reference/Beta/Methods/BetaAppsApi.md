@@ -1,4 +1,3 @@
-
 ---
 id: beta-apps
 title: Apps
@@ -77,7 +76,7 @@ $SourceAppCreateDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToSourceAppCreateDto -Json $SourceAppCreateDto
-    New-BetaSourceApp-BetaSourceAppCreateDto $Result
+    New-BetaSourceApp -BetaSourceAppCreateDto $Result
     
     # Below is a request that includes all optional parameters
     # New-BetaSourceApp -BetaSourceAppCreateDto $SourceAppCreateDto  
@@ -126,7 +125,7 @@ $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Col
 
 try {
     $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
-    Remove-BetaAccessProfilesFromSourceAppByBulk-BetaId $Id -BetaRequestBody $Result
+    Remove-BetaAccessProfilesFromSourceAppByBulk -BetaId $Id  -BetaRequestBody $Result
     
     # Below is a request that includes all optional parameters
     # Remove-BetaAccessProfilesFromSourceAppByBulk -BetaId $Id -BetaRequestBody $RequestBody -BetaLimit $Limit  
@@ -168,7 +167,7 @@ $Id = "2c9180835d191a86015d28455b4a2329" # String | source app ID.
 # Delete source app by ID
 
 try {
-    Remove-BetaSourceApp-BetaId $Id 
+    Remove-BetaSourceApp -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-BetaSourceApp -BetaId $Id  
@@ -211,7 +210,7 @@ $Id = "2c91808a7813090a017814121e121518" # String | ID of the source app
 # Get source app by ID
 
 try {
-    Get-BetaSourceApp-BetaId $Id 
+    Get-BetaSourceApp -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaSourceApp -BetaId $Id  
@@ -259,7 +258,7 @@ $Filters = 'name eq "developer access profile"' # String | Filter results using 
 # List access profiles for the specified source app
 
 try {
-    Get-BetaAccessProfilesForSourceApp-BetaId $Id 
+    Get-BetaAccessProfilesForSourceApp -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaAccessProfilesForSourceApp -BetaId $Id -BetaLimit $Limit -BetaOffset $Offset -BetaFilters $Filters  
@@ -360,7 +359,7 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 # List all user apps
 
 try {
-    Get-BetaAllUserApps-BetaFilters $Filters 
+    Get-BetaAllUserApps -BetaFilters $Filters 
     
     # Below is a request that includes all optional parameters
     # Get-BetaAllUserApps -BetaFilters $Filters -BetaLimit $Limit -BetaCount $Count -BetaOffset $Offset  
@@ -458,7 +457,7 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 # List available accounts for user app
 
 try {
-    Get-BetaAvailableAccountsForUserApp-BetaId $Id 
+    Get-BetaAvailableAccountsForUserApp -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaAvailableAccountsForUserApp -BetaId $Id -BetaLimit $Limit -BetaCount $Count -BetaOffset $Offset  
@@ -608,7 +607,7 @@ $Id = "2c91808a7813090a017814121e121518" # String | ID of the source app to patc
 # Patch source app by ID
 
 try {
-    Update-BetaSourceApp-BetaId $Id 
+    Update-BetaSourceApp -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Update-BetaSourceApp -BetaId $Id -BetaJsonPatchOperation $JsonPatchOperation  
@@ -659,7 +658,7 @@ $Id = "2c91808a7813090a017814121e121518" # String | ID of the user app to patch
 # Patch user app by ID
 
 try {
-    Update-BetaUserApp-BetaId $Id 
+    Update-BetaUserApp -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Update-BetaUserApp -BetaId $Id -BetaJsonPatchOperation $JsonPatchOperation  

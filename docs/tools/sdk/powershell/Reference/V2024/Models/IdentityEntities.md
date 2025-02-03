@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'IdentityEntities', 'V2024IdentityEnti
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**IdentityEntity** |  Pointer to [**IdentityEntitiesIdentityEntity**](identity-entities-identity-entity) |  | [optional] 
+**IdentityEntity** | [**IdentityEntitiesIdentityEntity**](identity-entities-identity-entity) |  | [optional] 
 
 ## Examples
 

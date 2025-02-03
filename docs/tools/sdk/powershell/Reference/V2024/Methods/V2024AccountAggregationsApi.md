@@ -1,4 +1,3 @@
-
 ---
 id: v2024-account-aggregations
 title: AccountAggregations
@@ -71,7 +70,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # In-progress Account Aggregation status
 
 try {
-    Get-V2024AccountAggregationStatus-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024AccountAggregationStatus -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024AccountAggregationStatus -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  

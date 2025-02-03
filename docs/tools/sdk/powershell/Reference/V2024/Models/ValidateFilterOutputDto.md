@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'ValidateFilterOutputDto', 'V2024Valid
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**IsValid** |  Pointer to **Boolean** | When this field is true, the filter expression is valid against the input. | [optional] [default to $false]
-**IsValidJSONPath** |  Pointer to **Boolean** | When this field is true, the filter expression is using a valid JSON path. | [optional] [default to $false]
-**IsPathExist** |  Pointer to **Boolean** | When this field is true, the filter expression is using an existing path. | [optional] [default to $false]
+**IsValid** | **Boolean** | When this field is true, the filter expression is valid against the input. | [optional] [default to $false]
+**IsValidJSONPath** | **Boolean** | When this field is true, the filter expression is using a valid JSON path. | [optional] [default to $false]
+**IsPathExist** | **Boolean** | When this field is true, the filter expression is using an existing path. | [optional] [default to $false]
 
 ## Examples
 

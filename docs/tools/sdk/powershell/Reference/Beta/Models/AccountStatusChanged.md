@@ -16,11 +16,11 @@ tags: ['SDK', 'Software Development Kit', 'AccountStatusChanged', 'BetaAccountSt
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**EventType** |  Pointer to **String** | the event type | [optional] 
-**IdentityId** |  Pointer to **String** | the identity id | [optional] 
-**Dt** |  Pointer to **String** | the date of event | [optional] 
-**Account** |  Pointer to [**AccountStatusChangedAccount**](account-status-changed-account) |  | [optional] 
-**StatusChange** |  Pointer to [**AccountStatusChangedStatusChange**](account-status-changed-status-change) |  | [optional] 
+**EventType** | **String** | the event type | [optional] 
+**IdentityId** | **String** | the identity id | [optional] 
+**Dt** | **String** | the date of event | [optional] 
+**Account** | [**AccountStatusChangedAccount**](account-status-changed-account) |  | [optional] 
+**StatusChange** | [**AccountStatusChangedStatusChange**](account-status-changed-status-change) |  | [optional] 
 
 ## Examples
 

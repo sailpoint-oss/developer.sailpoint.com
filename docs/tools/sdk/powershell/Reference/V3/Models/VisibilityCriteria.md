@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'VisibilityCriteria', 'VisibilityCrite
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Expression** |  Pointer to [**Expression**](expression) |  | [optional] 
+**Expression** | [**Expression**](expression) |  | [optional] 
 
 ## Examples
 

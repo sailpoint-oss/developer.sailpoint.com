@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'MailFromAttributesDto', 'V2024MailFro
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Identity** |  Pointer to **String** | The identity or domain address | [optional] 
-**MailFromDomain** |  Pointer to **String** | The new MAIL FROM domain of the identity. Must be a subdomain of the identity. | [optional] 
+**Identity** | **String** | The identity or domain address | [optional] 
+**MailFromDomain** | **String** | The new MAIL FROM domain of the identity. Must be a subdomain of the identity. | [optional] 
 
 ## Examples
 

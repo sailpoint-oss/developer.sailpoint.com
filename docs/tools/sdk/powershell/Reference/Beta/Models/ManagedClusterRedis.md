@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'ManagedClusterRedis', 'BetaManagedClu
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**RedisHost** |  Pointer to **String** | ManagedCluster redisHost | [optional] 
-**RedisPort** |  Pointer to **Int32** | ManagedCluster redisPort | [optional] 
+**RedisHost** | **String** | ManagedCluster redisHost | [optional] 
+**RedisPort** | **Int32** | ManagedCluster redisPort | [optional] 
 
 ## Examples
 

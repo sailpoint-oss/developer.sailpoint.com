@@ -16,14 +16,14 @@ tags: ['SDK', 'Software Development Kit', 'SpConfigExportJobStatus', 'BetaSpConf
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**JobId** |  **String** | Unique id assigned to this job. | [required]
-**Status** |   **Enum** [  "NOT_STARTED",    "IN_PROGRESS",    "COMPLETE",    "CANCELLED",    "FAILED" ] | Status of the job. | [required]
-**Type** |   **Enum** [  "EXPORT",    "IMPORT" ] | Type of the job, either export or import. | [required]
-**Expiration** |  **System.DateTime** | The time until which the artifacts will be available for download. | [required]
-**Created** |  **System.DateTime** | The time the job was started. | [required]
-**Modified** |  **System.DateTime** | The time of the last update to the job. | [required]
-**Description** |  Pointer to **String** | Optional user defined description/name for export job. | [optional] 
-**Completed** |  Pointer to **System.DateTime** | The time the job was completed. | [optional] 
+**JobId** | **String** | Unique id assigned to this job. | [required]
+**Status** |  **Enum** [  "NOT_STARTED",    "IN_PROGRESS",    "COMPLETE",    "CANCELLED",    "FAILED" ] | Status of the job. | [required]
+**Type** |  **Enum** [  "EXPORT",    "IMPORT" ] | Type of the job, either export or import. | [required]
+**Expiration** | **System.DateTime** | The time until which the artifacts will be available for download. | [required]
+**Created** | **System.DateTime** | The time the job was started. | [required]
+**Modified** | **System.DateTime** | The time of the last update to the job. | [required]
+**Description** | **String** | Optional user defined description/name for export job. | [optional] 
+**Completed** | **System.DateTime** | The time the job was completed. | [optional] 
 
 ## Examples
 

@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'CertificationReferenceDto', 'V2024Cer
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to  **Enum** [  "CERTIFICATION" ] | DTO type of certification for review. | [optional] 
-**Id** |  Pointer to **String** | ID of certification for review. | [optional] 
-**Name** |  Pointer to **String** | Display name of certification for review. | [optional] 
+**Type** |  **Enum** [  "CERTIFICATION" ] | DTO type of certification for review. | [optional] 
+**Id** | **String** | ID of certification for review. | [optional] 
+**Name** | **String** | Display name of certification for review. | [optional] 
 
 ## Examples
 

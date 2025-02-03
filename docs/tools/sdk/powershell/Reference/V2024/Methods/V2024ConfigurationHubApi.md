@@ -1,4 +1,3 @@
-
 ---
 id: v2024-configuration-hub
 title: ConfigurationHub
@@ -81,7 +80,7 @@ $DeployRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToDeployRequest -Json $DeployRequest
-    New-V2024Deploy-V2024DeployRequest $Result
+    New-V2024Deploy -V2024DeployRequest $Result
     
     # Below is a request that includes all optional parameters
     # New-V2024Deploy -V2024DeployRequest $DeployRequest  
@@ -136,7 +135,7 @@ $ObjectMappingRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToObjectMappingRequest -Json $ObjectMappingRequest
-    New-V2024ObjectMapping-V2024SourceOrg $SourceOrg -V2024ObjectMappingRequest $Result
+    New-V2024ObjectMapping -V2024SourceOrg $SourceOrg  -V2024ObjectMappingRequest $Result
     
     # Below is a request that includes all optional parameters
     # New-V2024ObjectMapping -V2024SourceOrg $SourceOrg -V2024ObjectMappingRequest $ObjectMappingRequest  
@@ -199,7 +198,7 @@ $ObjectMappingBulkCreateRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToObjectMappingBulkCreateRequest -Json $ObjectMappingBulkCreateRequest
-    New-V2024ObjectMappings-V2024SourceOrg $SourceOrg -V2024ObjectMappingBulkCreateRequest $Result
+    New-V2024ObjectMappings -V2024SourceOrg $SourceOrg  -V2024ObjectMappingBulkCreateRequest $Result
     
     # Below is a request that includes all optional parameters
     # New-V2024ObjectMappings -V2024SourceOrg $SourceOrg -V2024ObjectMappingBulkCreateRequest $ObjectMappingBulkCreateRequest  
@@ -247,7 +246,7 @@ $Name = "MyName" # String | Name that will be assigned to the uploaded configura
 # Upload a Configuration
 
 try {
-    New-V2024UploadedConfiguration-V2024Data $Data -V2024Name $Name 
+    New-V2024UploadedConfiguration -V2024Data $Data  -V2024Name $Name 
     
     # Below is a request that includes all optional parameters
     # New-V2024UploadedConfiguration -V2024Data $Data -V2024Name $Name  
@@ -294,7 +293,7 @@ $Id = "07659d7d-2cce-47c0-9e49-185787ee565a" # String | The id of the backup to 
 # Delete a Backup
 
 try {
-    Remove-V2024Backup-V2024Id $Id 
+    Remove-V2024Backup -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024Backup -V2024Id $Id  
@@ -341,7 +340,7 @@ $Id = "07659d7d-2cce-47c0-9e49-185787ee565a" # String | The id of the draft to d
 # Delete a draft
 
 try {
-    Remove-V2024Draft-V2024Id $Id 
+    Remove-V2024Draft -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024Draft -V2024Id $Id  
@@ -389,7 +388,7 @@ $ObjectMappingId = "3d6e0144-963f-4bd6-8d8d-d77b4e507ce4" # String | The id of t
 # Deletes an object mapping
 
 try {
-    Remove-V2024ObjectMapping-V2024SourceOrg $SourceOrg -V2024ObjectMappingId $ObjectMappingId 
+    Remove-V2024ObjectMapping -V2024SourceOrg $SourceOrg  -V2024ObjectMappingId $ObjectMappingId 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024ObjectMapping -V2024SourceOrg $SourceOrg -V2024ObjectMappingId $ObjectMappingId  
@@ -436,7 +435,7 @@ $Id = "3d0fe04b-57df-4a46-a83b-8f04b0f9d10b" # String | The id of the uploaded c
 # Delete an Uploaded Configuration
 
 try {
-    Remove-V2024UploadedConfiguration-V2024Id $Id 
+    Remove-V2024UploadedConfiguration -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024UploadedConfiguration -V2024Id $Id  
@@ -479,7 +478,7 @@ $Id = "3d0fe04b-57df-4a46-a83b-8f04b0f9d10b" # String | The id of the deploy.
 # Get a Deploy
 
 try {
-    Get-V2024Deploy-V2024Id $Id 
+    Get-V2024Deploy -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-V2024Deploy -V2024Id $Id  
@@ -525,7 +524,7 @@ $SourceOrg = "source-org" # String | The name of the source org.
 # Gets list of object mappings
 
 try {
-    Get-V2024ObjectMappings-V2024SourceOrg $SourceOrg 
+    Get-V2024ObjectMappings -V2024SourceOrg $SourceOrg 
     
     # Below is a request that includes all optional parameters
     # Get-V2024ObjectMappings -V2024SourceOrg $SourceOrg  
@@ -568,7 +567,7 @@ $Id = "3d0fe04b-57df-4a46-a83b-8f04b0f9d10b" # String | The id of the uploaded c
 # Get an Uploaded Configuration
 
 try {
-    Get-V2024UploadedConfiguration-V2024Id $Id 
+    Get-V2024UploadedConfiguration -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-V2024UploadedConfiguration -V2024Id $Id  
@@ -797,7 +796,7 @@ $ObjectMappingBulkPatchRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToObjectMappingBulkPatchRequest -Json $ObjectMappingBulkPatchRequest
-    Update-V2024ObjectMappings-V2024SourceOrg $SourceOrg -V2024ObjectMappingBulkPatchRequest $Result
+    Update-V2024ObjectMappings -V2024SourceOrg $SourceOrg  -V2024ObjectMappingBulkPatchRequest $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024ObjectMappings -V2024SourceOrg $SourceOrg -V2024ObjectMappingBulkPatchRequest $ObjectMappingBulkPatchRequest  

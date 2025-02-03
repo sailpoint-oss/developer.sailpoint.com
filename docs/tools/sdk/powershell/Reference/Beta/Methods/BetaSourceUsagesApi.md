@@ -1,4 +1,3 @@
-
 ---
 id: beta-source-usages
 title: SourceUsages
@@ -56,7 +55,7 @@ $SourceId = "2c9180835d191a86015d28455b4a2329" # String | ID of IDN source
 # Finds status of source usage
 
 try {
-    Get-BetaStatusBySourceId-BetaSourceId $SourceId 
+    Get-BetaStatusBySourceId -BetaSourceId $SourceId 
     
     # Below is a request that includes all optional parameters
     # Get-BetaStatusBySourceId -BetaSourceId $SourceId  
@@ -106,7 +105,7 @@ $Sorters = "-date" # String | Sort results using the standard syntax described i
 # Returns source usage insights
 
 try {
-    Get-BetaUsagesBySourceId-BetaSourceId $SourceId 
+    Get-BetaUsagesBySourceId -BetaSourceId $SourceId 
     
     # Below is a request that includes all optional parameters
     # Get-BetaUsagesBySourceId -BetaSourceId $SourceId -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count -BetaSorters $Sorters  

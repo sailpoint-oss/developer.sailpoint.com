@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'RoleMiningPotentialRoleRef', 'V2024Ro
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | Id of the potential role | [optional] 
-**Name** |  Pointer to **String** | Name of the potential role | [optional] 
+**Id** | **String** | Id of the potential role | [optional] 
+**Name** | **String** | Name of the potential role | [optional] 
 
 ## Examples
 

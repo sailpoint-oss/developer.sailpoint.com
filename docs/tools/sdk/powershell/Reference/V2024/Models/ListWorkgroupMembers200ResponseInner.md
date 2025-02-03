@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'ListWorkgroupMembers200ResponseInner'
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to  **Enum** [  "IDENTITY" ] | Workgroup member identity DTO type. | [optional] 
-**Id** |  Pointer to **String** | Workgroup member identity ID. | [optional] 
-**Name** |  Pointer to **String** | Workgroup member identity display name. | [optional] 
-**Email** |  Pointer to **String** | Workgroup member identity email. | [optional] 
+**Type** |  **Enum** [  "IDENTITY" ] | Workgroup member identity DTO type. | [optional] 
+**Id** | **String** | Workgroup member identity ID. | [optional] 
+**Name** | **String** | Workgroup member identity display name. | [optional] 
+**Email** | **String** | Workgroup member identity email. | [optional] 
 
 ## Examples
 

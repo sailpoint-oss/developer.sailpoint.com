@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'AccountUncorrelatedIdentity', 'BetaAc
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |   **Enum** [  "IDENTITY" ] | DTO type of the identity the account is uncorrelated with. | [required]
-**Id** |  **String** | ID of the identity the account is uncorrelated with. | [required]
-**Name** |  **String** | Display name of the identity the account is uncorrelated with. | [required]
+**Type** |  **Enum** [  "IDENTITY" ] | DTO type of the identity the account is uncorrelated with. | [required]
+**Id** | **String** | ID of the identity the account is uncorrelated with. | [required]
+**Name** | **String** | Display name of the identity the account is uncorrelated with. | [required]
 
 ## Examples
 

@@ -16,15 +16,15 @@ tags: ['SDK', 'Software Development Kit', 'RoleMiningEntitlement', 'BetaRoleMini
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**EntitlementRef** |  Pointer to [**RoleMiningEntitlementRef**](role-mining-entitlement-ref) |  | [optional] 
-**Name** |  Pointer to **String** | Name of the entitlement | [optional] 
-**ApplicationName** |  Pointer to **String** | Application name of the entitlement | [optional] 
-**IdentityCount** |  Pointer to **Int32** | The number of identities with this entitlement in a role. | [optional] 
-**Popularity** |  Pointer to **Double** | The % popularity of this entitlement in a role. | [optional] 
-**PopularityInOrg** |  Pointer to **Double** | The % popularity of this entitlement in the org. | [optional] 
-**SourceId** |  Pointer to **String** | The ID of the source/application. | [optional] 
-**ActivitySourceState** |  Pointer to **String** | The status of activity data for the source.   Value is complete or notComplete. | [optional] 
-**SourceUsagePercent** |  Pointer to **Double** | The percentage of identities in the potential role that have usage of the source/application of this entitlement. | [optional] 
+**EntitlementRef** | [**RoleMiningEntitlementRef**](role-mining-entitlement-ref) |  | [optional] 
+**Name** | **String** | Name of the entitlement | [optional] 
+**ApplicationName** | **String** | Application name of the entitlement | [optional] 
+**IdentityCount** | **Int32** | The number of identities with this entitlement in a role. | [optional] 
+**Popularity** | **Double** | The % popularity of this entitlement in a role. | [optional] 
+**PopularityInOrg** | **Double** | The % popularity of this entitlement in the org. | [optional] 
+**SourceId** | **String** | The ID of the source/application. | [optional] 
+**ActivitySourceState** | **String** | The status of activity data for the source.   Value is complete or notComplete. | [optional] 
+**SourceUsagePercent** | **Double** | The percentage of identities in the potential role that have usage of the source/application of this entitlement. | [optional] 
 
 ## Examples
 

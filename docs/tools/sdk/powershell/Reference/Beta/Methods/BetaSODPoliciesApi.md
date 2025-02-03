@@ -1,4 +1,3 @@
-
 ---
 id: beta-sod-policies
 title: SODPolicies
@@ -150,7 +149,7 @@ $SodPolicy = @"{
 
 try {
     $Result = ConvertFrom-JsonToSodPolicy -Json $SodPolicy
-    New-BetaSodPolicy-BetaSodPolicy $Result
+    New-BetaSodPolicy -BetaSodPolicy $Result
     
     # Below is a request that includes all optional parameters
     # New-BetaSodPolicy -BetaSodPolicy $SodPolicy  
@@ -196,7 +195,7 @@ $Logical = $true # Boolean | Indicates whether this is a soft delete (logical tr
 # Delete SOD policy by ID
 
 try {
-    Remove-BetaSodPolicy-BetaId $Id 
+    Remove-BetaSodPolicy -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-BetaSodPolicy -BetaId $Id -BetaLogical $Logical  
@@ -240,7 +239,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the SOD policy the
 # Delete SOD policy schedule
 
 try {
-    Remove-BetaSodPolicySchedule-BetaId $Id 
+    Remove-BetaSodPolicySchedule -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-BetaSodPolicySchedule -BetaId $Id  
@@ -286,7 +285,7 @@ $FileName = "custom-name" # String | Custom Name for the  file.
 # Download custom violation report
 
 try {
-    Get-BetaCustomViolationReport-BetaReportResultId $ReportResultId -BetaFileName $FileName 
+    Get-BetaCustomViolationReport -BetaReportResultId $ReportResultId  -BetaFileName $FileName 
     
     # Below is a request that includes all optional parameters
     # Get-BetaCustomViolationReport -BetaReportResultId $ReportResultId -BetaFileName $FileName  
@@ -330,7 +329,7 @@ $ReportResultId = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the re
 # Download violation report
 
 try {
-    Get-BetaDefaultViolationReport-BetaReportResultId $ReportResultId 
+    Get-BetaDefaultViolationReport -BetaReportResultId $ReportResultId 
     
     # Below is a request that includes all optional parameters
     # Get-BetaDefaultViolationReport -BetaReportResultId $ReportResultId  
@@ -415,7 +414,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the object referen
 # Get SOD policy by ID
 
 try {
-    Get-BetaSodPolicy-BetaId $Id 
+    Get-BetaSodPolicy -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaSodPolicy -BetaId $Id  
@@ -458,7 +457,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the object referen
 # Get SOD policy schedule
 
 try {
-    Get-BetaSodPolicySchedule-BetaId $Id 
+    Get-BetaSodPolicySchedule -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaSodPolicySchedule -BetaId $Id  
@@ -502,7 +501,7 @@ $ReportResultId = "2e8d8180-24bc-4d21-91c6-7affdb473b0d" # String | The ID of th
 # Get violation report run status
 
 try {
-    Get-BetaSodViolationReportRunStatus-BetaReportResultId $ReportResultId 
+    Get-BetaSodViolationReportRunStatus -BetaReportResultId $ReportResultId 
     
     # Below is a request that includes all optional parameters
     # Get-BetaSodViolationReportRunStatus -BetaReportResultId $ReportResultId  
@@ -546,7 +545,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the object referen
 # Get SOD violation report status
 
 try {
-    Get-BetaSodViolationReportStatus-BetaId $Id 
+    Get-BetaSodViolationReportStatus -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaSodViolationReportStatus -BetaId $Id  
@@ -647,7 +646,7 @@ $RequestBody =  # SystemCollectionsHashtable[] | A list of SOD Policy update ope
 
 try {
     $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
-    Update-BetaSodPolicy-BetaId $Id -BetaRequestBody $Result
+    Update-BetaSodPolicy -BetaId $Id  -BetaRequestBody $Result
     
     # Below is a request that includes all optional parameters
     # Update-BetaSodPolicy -BetaId $Id -BetaRequestBody $RequestBody  
@@ -778,7 +777,7 @@ $SodPolicySchedule = @"{
 
 try {
     $Result = ConvertFrom-JsonToSodPolicySchedule -Json $SodPolicySchedule
-    Send-BetaPolicySchedule-BetaId $Id -BetaSodPolicySchedule $Result
+    Send-BetaPolicySchedule -BetaId $Id  -BetaSodPolicySchedule $Result
     
     # Below is a request that includes all optional parameters
     # Send-BetaPolicySchedule -BetaId $Id -BetaSodPolicySchedule $SodPolicySchedule  
@@ -880,7 +879,7 @@ $SodPolicy = @"{
 
 try {
     $Result = ConvertFrom-JsonToSodPolicy -Json $SodPolicy
-    Send-BetaSodPolicy-BetaId $Id -BetaSodPolicy $Result
+    Send-BetaSodPolicy -BetaId $Id  -BetaSodPolicy $Result
     
     # Below is a request that includes all optional parameters
     # Send-BetaSodPolicy -BetaId $Id -BetaSodPolicy $SodPolicy  
@@ -969,7 +968,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The SOD policy ID to run.
 # Runs SOD policy violation report
 
 try {
-    Start-BetaSodPolicy-BetaId $Id 
+    Start-BetaSodPolicy -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Start-BetaSodPolicy -BetaId $Id  

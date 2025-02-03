@@ -1,4 +1,3 @@
-
 ---
 id: v2024-source-usages
 title: SourceUsages
@@ -56,7 +55,7 @@ $SourceId = "2c9180835d191a86015d28455b4a2329" # String | ID of IDN source
 # Finds status of source usage
 
 try {
-    Get-V2024StatusBySourceId-V2024SourceId $SourceId 
+    Get-V2024StatusBySourceId -V2024SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
     # Get-V2024StatusBySourceId -V2024SourceId $SourceId  
@@ -106,7 +105,7 @@ $Sorters = "-date" # String | Sort results using the standard syntax described i
 # Returns source usage insights
 
 try {
-    Get-V2024UsagesBySourceId-V2024SourceId $SourceId 
+    Get-V2024UsagesBySourceId -V2024SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
     # Get-V2024UsagesBySourceId -V2024SourceId $SourceId -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Sorters $Sorters  

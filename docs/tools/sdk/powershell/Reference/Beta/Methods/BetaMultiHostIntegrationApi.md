@@ -1,4 +1,3 @@
-
 ---
 id: beta-multi-host-integration
 title: MultiHostIntegration
@@ -96,7 +95,7 @@ $MultiHostIntegrationsCreate = @"{
 
 try {
     $Result = ConvertFrom-JsonToMultiHostIntegrationsCreate -Json $MultiHostIntegrationsCreate
-    New-BetaMultiHostIntegration-BetaMultiHostIntegrationsCreate $Result
+    New-BetaMultiHostIntegration -BetaMultiHostIntegrationsCreate $Result
     
     # Below is a request that includes all optional parameters
     # New-BetaMultiHostIntegration -BetaMultiHostIntegrationsCreate $MultiHostIntegrationsCreate  
@@ -156,7 +155,7 @@ $Id = "2c91808568c529c60168cca6f90c1326" # String | ID of the Multi-Host Integra
 
 try {
     $Result = ConvertFrom-JsonToMultiHostIntegrationsCreateSources -Json $MultiHostIntegrationsCreateSources
-    New-BetaSourcesWithinMultiHost-BetaId $Id -BetaMultiHostIntegrationsCreateSources $Result
+    New-BetaSourcesWithinMultiHost -BetaId $Id  -BetaMultiHostIntegrationsCreateSources $Result
     
     # Below is a request that includes all optional parameters
     # New-BetaSourcesWithinMultiHost -BetaId $Id -BetaMultiHostIntegrationsCreateSources $MultiHostIntegrationsCreateSources  
@@ -201,7 +200,7 @@ $Id = "2c91808568c529c60168cca6f90c1326" # String | ID of Multi-Host Integration
 # Delete Multi-Host Integration
 
 try {
-    Remove-BetaMultiHost-BetaId $Id 
+    Remove-BetaMultiHost -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-BetaMultiHost -BetaId $Id  
@@ -246,7 +245,7 @@ $MultiHostId = "aMultiHostId" # String | ID of the Multi-Host Integration to upd
 # Get Account Aggregation Groups Within Multi-Host Integration ID
 
 try {
-    Get-BetaAcctAggregationGroups-BetaMultiHostId $MultiHostId 
+    Get-BetaAcctAggregationGroups -BetaMultiHostId $MultiHostId 
     
     # Below is a request that includes all optional parameters
     # Get-BetaAcctAggregationGroups -BetaMultiHostId $MultiHostId  
@@ -291,7 +290,7 @@ $MultiHostId = "aMultiHostId" # String | ID of the Multi-Host Integration to upd
 # Get Entitlement Aggregation Groups Within Multi-Host Integration ID
 
 try {
-    Get-BetaEntitlementAggregationGroups-BetaMultiHostId $MultiHostId 
+    Get-BetaEntitlementAggregationGroups -BetaMultiHostId $MultiHostId 
     
     # Below is a request that includes all optional parameters
     # Get-BetaEntitlementAggregationGroups -BetaMultiHostId $MultiHostId  
@@ -336,7 +335,7 @@ $Id = "2c91808568c529c60168cca6f90c1326" # String | ID of the Multi-Host Integra
 # Get Multi-Host Integration By ID
 
 try {
-    Get-BetaMultiHostIntegrations-BetaId $Id 
+    Get-BetaMultiHostIntegrations -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaMultiHostIntegrations -BetaId $Id  
@@ -436,7 +435,7 @@ $MultiHostId = "004091cb79b04636b88662afa50a4440" # String | ID of the Multi-Hos
 # List Multi-Host Source Creation Errors
 
 try {
-    Get-BetaMultiHostSourceCreationErrors-BetaMultiHostId $MultiHostId 
+    Get-BetaMultiHostSourceCreationErrors -BetaMultiHostId $MultiHostId 
     
     # Below is a request that includes all optional parameters
     # Get-BetaMultiHostSourceCreationErrors -BetaMultiHostId $MultiHostId  
@@ -577,7 +576,7 @@ $MultihostId = "2c91808568c529c60168cca6f90c1324" # String | ID of the Multi-Hos
 # Test Configuration For Multi-Host Integration
 
 try {
-    Test-BetaConnectionMultiHostSources-BetaMultihostId $MultihostId 
+    Test-BetaConnectionMultiHostSources -BetaMultihostId $MultihostId 
     
     # Below is a request that includes all optional parameters
     # Test-BetaConnectionMultiHostSources -BetaMultihostId $MultihostId  
@@ -624,7 +623,7 @@ $SourceId = "2c91808568c529f60168cca6f90c1324" # String | ID of the source withi
 # Test Configuration For Multi-Host Integration's Single Source
 
 try {
-    Test-BetaSourceConnectionMultihost-BetaMultihostId $MultihostId -BetaSourceId $SourceId 
+    Test-BetaSourceConnectionMultihost -BetaMultihostId $MultihostId  -BetaSourceId $SourceId 
     
     # Below is a request that includes all optional parameters
     # Test-BetaSourceConnectionMultihost -BetaMultihostId $MultihostId -BetaSourceId $SourceId  
@@ -673,7 +672,7 @@ $MultihostId = "anId" # String | ID of the Multi-Host Integration to update.
 
 try {
     $Result = ConvertFrom-JsonToUpdateMultiHostSourcesRequestInner -Json $UpdateMultiHostSourcesRequestInner
-    Update-BetaMultiHostSources-BetaMultihostId $MultihostId -BetaUpdateMultiHostSourcesRequestInner $Result
+    Update-BetaMultiHostSources -BetaMultihostId $MultihostId  -BetaUpdateMultiHostSourcesRequestInner $Result
     
     # Below is a request that includes all optional parameters
     # Update-BetaMultiHostSources -BetaMultihostId $MultihostId -BetaUpdateMultiHostSourcesRequestInner $UpdateMultiHostSourcesRequestInner  

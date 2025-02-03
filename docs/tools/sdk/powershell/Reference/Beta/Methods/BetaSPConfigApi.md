@@ -1,4 +1,3 @@
-
 ---
 id: beta-sp-config
 title: SPConfig
@@ -63,7 +62,7 @@ $ExportPayload = @"{
 
 try {
     $Result = ConvertFrom-JsonToExportPayload -Json $ExportPayload
-    Export-BetaSpConfig-BetaExportPayload $Result
+    Export-BetaSpConfig -BetaExportPayload $Result
     
     # Below is a request that includes all optional parameters
     # Export-BetaSpConfig -BetaExportPayload $ExportPayload  
@@ -108,7 +107,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the export job who
 # Download export job result.
 
 try {
-    Get-BetaSpConfigExport-BetaId $Id 
+    Get-BetaSpConfigExport -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaSpConfigExport -BetaId $Id  
@@ -153,7 +152,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the export job who
 # Get export job status
 
 try {
-    Get-BetaSpConfigExportStatus-BetaId $Id 
+    Get-BetaSpConfigExportStatus -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaSpConfigExportStatus -BetaId $Id  
@@ -198,7 +197,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the import job who
 # Download import job result
 
 try {
-    Get-BetaSpConfigImport-BetaId $Id 
+    Get-BetaSpConfigImport -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaSpConfigImport -BetaId $Id  
@@ -242,7 +241,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the import job who
 # Get import job status
 
 try {
-    Get-BetaSpConfigImportStatus-BetaId $Id 
+    Get-BetaSpConfigImportStatus -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaSpConfigImportStatus -BetaId $Id  
@@ -299,7 +298,7 @@ $Options = @""@
 # Initiates configuration objects import job
 
 try {
-    Import-BetaSpConfig-BetaData $Data 
+    Import-BetaSpConfig -BetaData $Data 
     
     # Below is a request that includes all optional parameters
     # Import-BetaSpConfig -BetaData $Data -BetaPreview $Preview -BetaOptions $Options  

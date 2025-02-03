@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'AccountAttributesChanged', 'BetaAccou
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Identity** |  [**AccountAttributesChangedIdentity**](account-attributes-changed-identity) |  | [required]
-**Source** |  [**AccountAttributesChangedSource**](account-attributes-changed-source) |  | [required]
-**Account** |  [**AccountAttributesChangedAccount**](account-attributes-changed-account) |  | [required]
-**Changes** |  [**[]AccountAttributesChangedChangesInner**](account-attributes-changed-changes-inner) | A list of attributes that changed. | [required]
+**Identity** | [**AccountAttributesChangedIdentity**](account-attributes-changed-identity) |  | [required]
+**Source** | [**AccountAttributesChangedSource**](account-attributes-changed-source) |  | [required]
+**Account** | [**AccountAttributesChangedAccount**](account-attributes-changed-account) |  | [required]
+**Changes** | [**[]AccountAttributesChangedChangesInner**](account-attributes-changed-changes-inner) | A list of attributes that changed. | [required]
 
 ## Examples
 

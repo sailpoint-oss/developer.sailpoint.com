@@ -1,4 +1,3 @@
-
 ---
 id: beta-task-management
 title: TaskManagement
@@ -151,7 +150,7 @@ $Id = "00eebcf881994e419d72e757fd30dc0e" # String | Task ID.
 # Get Task Status by ID
 
 try {
-    Get-BetaTaskStatus-BetaId $Id 
+    Get-BetaTaskStatus -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaTaskStatus -BetaId $Id  
@@ -254,7 +253,7 @@ $Id = "00eebcf881994e419d72e757fd30dc0e" # String | Task ID.
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-BetaTaskStatus-BetaId $Id -BetaJsonPatchOperation $Result
+    Update-BetaTaskStatus -BetaId $Id  -BetaJsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-BetaTaskStatus -BetaId $Id -BetaJsonPatchOperation $JsonPatchOperation  

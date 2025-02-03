@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'DeleteVendorConnectorMapping200Respon
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Count** |  Pointer to **Int32** | The number of vendor connector mappings successfully deleted. | [optional] 
+**Count** | **Int32** | The number of vendor connector mappings successfully deleted. | [optional] 
 
 ## Examples
 

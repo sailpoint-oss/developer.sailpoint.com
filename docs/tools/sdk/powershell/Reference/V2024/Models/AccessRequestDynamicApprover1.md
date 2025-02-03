@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'AccessRequestDynamicApprover1', 'V202
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  **String** | The unique ID of the identity to add to the approver list for the access request. | [required]
-**Name** |  **String** | The name of the identity to add to the approver list for the access request. | [required]
-**Type** |   **Enum** [  "IDENTITY",    "GOVERNANCE_GROUP" ] | The type of object being referenced. | [required]
+**Id** | **String** | The unique ID of the identity to add to the approver list for the access request. | [required]
+**Name** | **String** | The name of the identity to add to the approver list for the access request. | [required]
+**Type** |  **Enum** [  "IDENTITY",    "GOVERNANCE_GROUP" ] | The type of object being referenced. | [required]
 
 ## Examples
 

@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'IdentityAttributeConfig', 'IdentityAt
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Enabled** |  Pointer to **Boolean** | The backend will only promote values if the profile/mapping is enabled. | [optional] [default to $false]
-**AttributeTransforms** |  Pointer to [**[]IdentityAttributeTransform**](identity-attribute-transform) |  | [optional] 
+**Enabled** | **Boolean** | The backend will only promote values if the profile/mapping is enabled. | [optional] [default to $false]
+**AttributeTransforms** | [**[]IdentityAttributeTransform**](identity-attribute-transform) |  | [optional] 
 
 ## Examples
 

@@ -1,4 +1,3 @@
-
 ---
 id: v2024-iai-common-access
 title: IAICommonAccess
@@ -67,7 +66,7 @@ $CommonAccessItemRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToCommonAccessItemRequest -Json $CommonAccessItemRequest
-    New-V2024CommonAccess-V2024XSailPointExperimental $XSailPointExperimental -V2024CommonAccessItemRequest $Result
+    New-V2024CommonAccess -V2024XSailPointExperimental $XSailPointExperimental  -V2024CommonAccessItemRequest $Result
     
     # Below is a request that includes all optional parameters
     # New-V2024CommonAccess -V2024XSailPointExperimental $XSailPointExperimental -V2024CommonAccessItemRequest $CommonAccessItemRequest  
@@ -118,7 +117,7 @@ $Sorters = "access.name" # String | Sort results using the standard syntax descr
 # Get a paginated list of common access
 
 try {
-    Get-V2024CommonAccess-V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024CommonAccess -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024CommonAccess -V2024XSailPointExperimental $XSailPointExperimental -V2024Offset $Offset -V2024Limit $Limit -V2024Count $Count -V2024Filters $Filters -V2024Sorters $Sorters  
@@ -167,7 +166,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 
 try {
     $Result = ConvertFrom-JsonToCommonAccessIDStatus -Json $CommonAccessIDStatus
-    Update-V2024CommonAccessStatusInBulk-V2024XSailPointExperimental $XSailPointExperimental -V2024CommonAccessIDStatus $Result
+    Update-V2024CommonAccessStatusInBulk -V2024XSailPointExperimental $XSailPointExperimental  -V2024CommonAccessIDStatus $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024CommonAccessStatusInBulk -V2024XSailPointExperimental $XSailPointExperimental -V2024CommonAccessIDStatus $CommonAccessIDStatus  

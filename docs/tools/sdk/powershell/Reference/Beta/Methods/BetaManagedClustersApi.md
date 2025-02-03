@@ -1,4 +1,3 @@
-
 ---
 id: beta-managed-clusters
 title: ManagedClusters
@@ -58,7 +57,7 @@ $Id = "aClusterId" # String | ID of ManagedCluster to get log configuration for
 # Get managed cluster's log configuration
 
 try {
-    Get-BetaClientLogConfiguration-BetaId $Id 
+    Get-BetaClientLogConfiguration -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaClientLogConfiguration -BetaId $Id  
@@ -101,7 +100,7 @@ $Id = "aClusterId" # String | ID of the ManagedCluster to get
 # Get a specified ManagedCluster.
 
 try {
-    Get-BetaManagedCluster-BetaId $Id 
+    Get-BetaManagedCluster -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaManagedCluster -BetaId $Id  
@@ -200,7 +199,7 @@ $ClientLogConfiguration = @"{
 # Update managed cluster's log configuration
 
 try {
-    Send-BetaClientLogConfiguration-BetaId $Id -BetaClientLogConfiguration $Result
+    Send-BetaClientLogConfiguration -BetaId $Id  -BetaClientLogConfiguration $Result
     
     # Below is a request that includes all optional parameters
     # Send-BetaClientLogConfiguration -BetaId $Id -BetaClientLogConfiguration $ClientLogConfiguration  

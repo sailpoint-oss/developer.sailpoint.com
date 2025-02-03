@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'CertifierResponse', 'BetaCertifierRes
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | the id of the certifier | [optional] 
-**DisplayName** |  Pointer to **String** | the name of the certifier | [optional] 
+**Id** | **String** | the id of the certifier | [optional] 
+**DisplayName** | **String** | the name of the certifier | [optional] 
 
 ## Examples
 

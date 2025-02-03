@@ -1,4 +1,3 @@
-
 ---
 id: v2024-identity-profiles
 title: IdentityProfiles
@@ -121,7 +120,7 @@ $IdentityProfile = @"{
 
 try {
     $Result = ConvertFrom-JsonToIdentityProfile -Json $IdentityProfile
-    New-V2024IdentityProfile-V2024IdentityProfile $Result
+    New-V2024IdentityProfile -V2024IdentityProfile $Result
     
     # Below is a request that includes all optional parameters
     # New-V2024IdentityProfile -V2024IdentityProfile $IdentityProfile  
@@ -169,7 +168,7 @@ $IdentityProfileId = "ef38f94347e94562b5bb8424a56397d8" # String | The Identity 
 # Delete an Identity Profile
 
 try {
-    Remove-V2024IdentityProfile-V2024IdentityProfileId $IdentityProfileId 
+    Remove-V2024IdentityProfile -V2024IdentityProfileId $IdentityProfileId 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024IdentityProfile -V2024IdentityProfileId $IdentityProfileId  
@@ -218,7 +217,7 @@ $RequestBody = "MyRequestBody" # String[] | Identity Profile bulk delete request
 
 try {
     $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
-    Remove-V2024IdentityProfiles-V2024RequestBody $Result
+    Remove-V2024IdentityProfiles -V2024RequestBody $Result
     
     # Below is a request that includes all optional parameters
     # Remove-V2024IdentityProfiles -V2024RequestBody $RequestBody  
@@ -311,7 +310,7 @@ $IdentityProfileId = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | The Ident
 # Get default Identity Attribute Config
 
 try {
-    Get-V2024DefaultIdentityAttributeConfig-V2024IdentityProfileId $IdentityProfileId 
+    Get-V2024DefaultIdentityAttributeConfig -V2024IdentityProfileId $IdentityProfileId 
     
     # Below is a request that includes all optional parameters
     # Get-V2024DefaultIdentityAttributeConfig -V2024IdentityProfileId $IdentityProfileId  
@@ -354,7 +353,7 @@ $IdentityProfileId = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | The Ident
 # Get single Identity Profile
 
 try {
-    Get-V2024IdentityProfile-V2024IdentityProfileId $IdentityProfileId 
+    Get-V2024IdentityProfile -V2024IdentityProfileId $IdentityProfileId 
     
     # Below is a request that includes all optional parameters
     # Get-V2024IdentityProfile -V2024IdentityProfileId $IdentityProfileId  
@@ -459,7 +458,7 @@ Code | Description  | Data Type
 
 try {
     $Result = ConvertFrom-JsonToIdentityProfileExportedObject -Json $IdentityProfileExportedObject
-    Import-V2024IdentityProfiles-V2024IdentityProfileExportedObject $Result
+    Import-V2024IdentityProfiles -V2024IdentityProfileExportedObject $Result
     
     # Below is a request that includes all optional parameters
     # Import-V2024IdentityProfiles -V2024IdentityProfileExportedObject $IdentityProfileExportedObject  
@@ -579,7 +578,7 @@ $IdentityPreviewRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToIdentityPreviewRequest -Json $IdentityPreviewRequest
-    Show-V2024IdentityPreview-V2024IdentityPreviewRequest $Result
+    Show-V2024IdentityPreview -V2024IdentityPreviewRequest $Result
     
     # Below is a request that includes all optional parameters
     # Show-V2024IdentityPreview -V2024IdentityPreviewRequest $IdentityPreviewRequest  
@@ -626,7 +625,7 @@ $IdentityProfileId = "ef38f94347e94562b5bb8424a56397d8" # String | The Identity 
 # Process identities under profile
 
 try {
-    Sync-V2024IdentityProfile-V2024IdentityProfileId $IdentityProfileId 
+    Sync-V2024IdentityProfile -V2024IdentityProfileId $IdentityProfileId 
     
     # Below is a request that includes all optional parameters
     # Sync-V2024IdentityProfile -V2024IdentityProfileId $IdentityProfileId  
@@ -687,7 +686,7 @@ $IdentityProfileId = "ef38f94347e94562b5bb8424a56397d8" # String | The Identity 
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024IdentityProfile-V2024IdentityProfileId $IdentityProfileId -V2024JsonPatchOperation $Result
+    Update-V2024IdentityProfile -V2024IdentityProfileId $IdentityProfileId  -V2024JsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024IdentityProfile -V2024IdentityProfileId $IdentityProfileId -V2024JsonPatchOperation $JsonPatchOperation  

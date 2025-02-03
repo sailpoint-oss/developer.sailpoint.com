@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'UpdateMultiHostSourcesRequestInner', 
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Op** |   **Enum** [  "add",    "replace" ] | The operation to be performed | [required]
-**Path** |  **String** | A string JSON Pointer representing the target path to an element to be affected by the operation | [required]
-**Value** |  Pointer to [**UpdateMultiHostSourcesRequestInnerValue**](update-multi-host-sources-request-inner-value) |  | [optional] 
+**Op** |  **Enum** [  "add",    "replace" ] | The operation to be performed | [required]
+**Path** | **String** | A string JSON Pointer representing the target path to an element to be affected by the operation | [required]
+**Value** | [**UpdateMultiHostSourcesRequestInnerValue**](update-multi-host-sources-request-inner-value) |  | [optional] 
 
 ## Examples
 

@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'CampaignAllOfRoleCompositionCampaignI
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |   **Enum** [  "IDENTITY" ] | Legal Remediator Type | [required]
-**Id** |  **String** | The ID of the remediator. | [required]
-**Name** |  Pointer to **String** | The name of the remediator. | [optional] [readonly] 
+**Type** |  **Enum** [  "IDENTITY" ] | Legal Remediator Type | [required]
+**Id** | **String** | The ID of the remediator. | [required]
+**Name** | **String** | The name of the remediator. | [optional] [readonly] 
 
 ## Examples
 

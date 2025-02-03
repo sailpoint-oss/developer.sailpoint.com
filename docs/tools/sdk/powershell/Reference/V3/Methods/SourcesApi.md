@@ -1,4 +1,3 @@
-
 ---
 id: sources
 title: Sources
@@ -179,7 +178,7 @@ $ProvisioningPolicyDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
-    New-ProvisioningPolicy-SourceId $SourceId -ProvisioningPolicyDto $Result
+    New-ProvisioningPolicy -SourceId $SourceId  -ProvisioningPolicyDto $Result
     
     # Below is a request that includes all optional parameters
     # New-ProvisioningPolicy -SourceId $SourceId -ProvisioningPolicyDto $ProvisioningPolicyDto  
@@ -306,7 +305,7 @@ $ProvisionAsCsv = $false # Boolean | If this parameter is `true`, it configures 
 
 try {
     $Result = ConvertFrom-JsonToSource -Json $Source
-    New-Source-Source $Result
+    New-Source -Source $Result
     
     # Below is a request that includes all optional parameters
     # New-Source -Source $Source -ProvisionAsCsv $ProvisionAsCsv  
@@ -385,7 +384,7 @@ $Schema = @"{
 
 try {
     $Result = ConvertFrom-JsonToSchema -Json $Schema
-    New-SourceSchema-SourceId $SourceId -Schema $Result
+    New-SourceSchema -SourceId $SourceId  -Schema $Result
     
     # Below is a request that includes all optional parameters
     # New-SourceSchema -SourceId $SourceId -Schema $Schema  
@@ -430,7 +429,7 @@ $UsageType = "CREATE" # UsageType | The type of provisioning policy usage.  In I
 # Delete Provisioning Policy by UsageType
 
 try {
-    Remove-ProvisioningPolicy-SourceId $SourceId -UsageType $UsageType 
+    Remove-ProvisioningPolicy -SourceId $SourceId  -UsageType $UsageType 
     
     # Below is a request that includes all optional parameters
     # Remove-ProvisioningPolicy -SourceId $SourceId -UsageType $UsageType  
@@ -474,7 +473,7 @@ $Id = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
 # Delete Source by ID
 
 try {
-    Remove-Source-Id $Id 
+    Remove-Source -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-Source -Id $Id  
@@ -519,7 +518,7 @@ $SchemaId = "2c9180835d191a86015d28455b4a2329" # String | The Schema id.
 # Delete Source Schema by ID
 
 try {
-    Remove-SourceSchema-SourceId $SourceId -SchemaId $SchemaId 
+    Remove-SourceSchema -SourceId $SourceId  -SchemaId $SchemaId 
     
     # Below is a request that includes all optional parameters
     # Remove-SourceSchema -SourceId $SourceId -SchemaId $SchemaId  
@@ -563,7 +562,7 @@ $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
 # Downloads source accounts schema template
 
 try {
-    Get-AccountsSchema-Id $Id 
+    Get-AccountsSchema -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-AccountsSchema -Id $Id  
@@ -610,7 +609,7 @@ $SchemaName = "?schemaName=group" # String | Name of entitlement schema (optiona
 # Downloads source entitlements schema template
 
 try {
-    Get-EntitlementsSchema-Id $Id 
+    Get-EntitlementsSchema -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-EntitlementsSchema -Id $Id -SchemaName $SchemaName  
@@ -655,7 +654,7 @@ $UsageType = "CREATE" # UsageType | The type of provisioning policy usage.  In I
 # Get Provisioning Policy by UsageType
 
 try {
-    Get-ProvisioningPolicy-SourceId $SourceId -UsageType $UsageType 
+    Get-ProvisioningPolicy -SourceId $SourceId  -UsageType $UsageType 
     
     # Below is a request that includes all optional parameters
     # Get-ProvisioningPolicy -SourceId $SourceId -UsageType $UsageType  
@@ -698,7 +697,7 @@ $Id = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
 # Get Source by ID
 
 try {
-    Get-Source-Id $Id 
+    Get-Source -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-Source -Id $Id  
@@ -741,7 +740,7 @@ $Id = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
 # Get Source Connections by ID
 
 try {
-    Get-SourceConnections-Id $Id 
+    Get-SourceConnections -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-SourceConnections -Id $Id  
@@ -784,7 +783,7 @@ $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
 # Fetches source health by id
 
 try {
-    Get-SourceHealth-SourceId $SourceId 
+    Get-SourceHealth -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
     # Get-SourceHealth -SourceId $SourceId  
@@ -830,7 +829,7 @@ $SchemaId = "2c9180835d191a86015d28455b4a2329" # String | The Schema id.
 # Get Source Schema by ID
 
 try {
-    Get-SourceSchema-SourceId $SourceId -SchemaId $SchemaId 
+    Get-SourceSchema -SourceId $SourceId  -SchemaId $SchemaId 
     
     # Below is a request that includes all optional parameters
     # Get-SourceSchema -SourceId $SourceId -SchemaId $SchemaId  
@@ -877,7 +876,7 @@ $IncludeNames = "account" # String | A comma-separated list of schema names to f
 # List Schemas on Source
 
 try {
-    Get-SourceSchemas-SourceId $SourceId 
+    Get-SourceSchemas -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
     # Get-SourceSchemas -SourceId $SourceId -IncludeTypes $IncludeTypes -IncludeNames $IncludeNames  
@@ -927,7 +926,7 @@ $File =  # System.IO.FileInfo |  (optional)
 # Uploads source accounts schema template
 
 try {
-    Import-AccountsSchema-Id $Id 
+    Import-AccountsSchema -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Import-AccountsSchema -Id $Id -File $File  
@@ -971,7 +970,7 @@ $File =  # System.IO.FileInfo |  (optional)
 # Upload connector file to source
 
 try {
-    Import-ConnectorFile-SourceId $SourceId 
+    Import-ConnectorFile -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
     # Import-ConnectorFile -SourceId $SourceId -File $File  
@@ -1023,7 +1022,7 @@ $File =  # System.IO.FileInfo |  (optional)
 # Uploads source entitlements schema template
 
 try {
-    Import-EntitlementsSchema-Id $Id 
+    Import-EntitlementsSchema -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Import-EntitlementsSchema -Id $Id -SchemaName $SchemaName -File $File  
@@ -1066,7 +1065,7 @@ $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id
 # Lists ProvisioningPolicies
 
 try {
-    Get-ProvisioningPolicies-SourceId $SourceId 
+    Get-ProvisioningPolicies -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
     # Get-ProvisioningPolicies -SourceId $SourceId  
@@ -1210,7 +1209,7 @@ $ProvisioningPolicyDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
-    Send-ProvisioningPolicy-SourceId $SourceId -UsageType $UsageType -ProvisioningPolicyDto $Result
+    Send-ProvisioningPolicy -SourceId $SourceId  -UsageType $UsageType  -ProvisioningPolicyDto $Result
     
     # Below is a request that includes all optional parameters
     # Send-ProvisioningPolicy -SourceId $SourceId -UsageType $UsageType -ProvisioningPolicyDto $ProvisioningPolicyDto  
@@ -1350,7 +1349,7 @@ $Source = @"{
 
 try {
     $Result = ConvertFrom-JsonToSource -Json $Source
-    Send-Source-Id $Id -Source $Result
+    Send-Source -Id $Id  -Source $Result
     
     # Below is a request that includes all optional parameters
     # Send-Source -Id $Id -Source $Source  
@@ -1441,7 +1440,7 @@ $Schema = @"{
 
 try {
     $Result = ConvertFrom-JsonToSchema -Json $Schema
-    Send-SourceSchema-SourceId $SourceId -SchemaId $SchemaId -Schema $Result
+    Send-SourceSchema -SourceId $SourceId  -SchemaId $SchemaId  -Schema $Result
     
     # Below is a request that includes all optional parameters
     # Send-SourceSchema -SourceId $SourceId -SchemaId $SchemaId -Schema $Schema  
@@ -1527,7 +1526,7 @@ $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
 
 try {
     $Result = ConvertFrom-JsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
-    Update-ProvisioningPoliciesInBulk-SourceId $SourceId -ProvisioningPolicyDto $Result
+    Update-ProvisioningPoliciesInBulk -SourceId $SourceId  -ProvisioningPolicyDto $Result
     
     # Below is a request that includes all optional parameters
     # Update-ProvisioningPoliciesInBulk -SourceId $SourceId -ProvisioningPolicyDto $ProvisioningPolicyDto  
@@ -1582,7 +1581,7 @@ $UsageType = "CREATE" # UsageType | The type of provisioning policy usage.  In I
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-ProvisioningPolicy-SourceId $SourceId -UsageType $UsageType -JsonPatchOperation $Result
+    Update-ProvisioningPolicy -SourceId $SourceId  -UsageType $UsageType  -JsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-ProvisioningPolicy -SourceId $SourceId -UsageType $UsageType -JsonPatchOperation $JsonPatchOperation  
@@ -1648,7 +1647,7 @@ $Id = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-Source-Id $Id -JsonPatchOperation $Result
+    Update-Source -Id $Id  -JsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-Source -Id $Id -JsonPatchOperation $JsonPatchOperation  
@@ -1730,7 +1729,7 @@ $SchemaId = "2c9180835d191a86015d28455b4a2329" # String | The Schema id.
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-SourceSchema-SourceId $SourceId -SchemaId $SchemaId -JsonPatchOperation $Result
+    Update-SourceSchema -SourceId $SourceId  -SchemaId $SchemaId  -JsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-SourceSchema -SourceId $SourceId -SchemaId $SchemaId -JsonPatchOperation $JsonPatchOperation  

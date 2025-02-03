@@ -1,4 +1,3 @@
-
 ---
 id: beta-iai-outliers
 title: IAIOutliers
@@ -255,7 +254,7 @@ $OutlierFeatureId = "04654b66-7561-4090-94f9-abee0722a1af" # String | Contributi
 # Get identity outlier contibuting feature summary
 
 try {
-    Get-BetaOutlierContributingFeatureSummary-BetaOutlierFeatureId $OutlierFeatureId 
+    Get-BetaOutlierContributingFeatureSummary -BetaOutlierFeatureId $OutlierFeatureId 
     
     # Below is a request that includes all optional parameters
     # Get-BetaOutlierContributingFeatureSummary -BetaOutlierFeatureId $OutlierFeatureId  
@@ -311,7 +310,7 @@ $Sorters = "importance" # String | Sort results using the standard syntax descri
 # Get identity outlier's contibuting features
 
 try {
-    Get-BetaPeerGroupOutliersContributingFeatures-BetaOutlierId $OutlierId 
+    Get-BetaPeerGroupOutliersContributingFeatures -BetaOutlierId $OutlierId 
     
     # Below is a request that includes all optional parameters
     # Get-BetaPeerGroupOutliersContributingFeatures -BetaOutlierId $OutlierId -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count -BetaIncludeTranslationMessages $IncludeTranslationMessages -BetaSorters $Sorters  
@@ -356,7 +355,7 @@ $RequestBody = "MyRequestBody" # String[] |
 
 try {
     $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
-    Invoke-BetaIgnoreIdentityOutliers-BetaRequestBody $Result
+    Invoke-BetaIgnoreIdentityOutliers -BetaRequestBody $Result
     
     # Below is a request that includes all optional parameters
     # Invoke-BetaIgnoreIdentityOutliers -BetaRequestBody $RequestBody  
@@ -414,7 +413,7 @@ $Sorters = "displayName" # String | Sort results using the standard syntax descr
 # Gets a list of access items associated with each identity outlier contributing feature
 
 try {
-    Get-BetaOutliersContributingFeatureAccessItems-BetaOutlierId $OutlierId -BetaContributingFeatureName $ContributingFeatureName 
+    Get-BetaOutliersContributingFeatureAccessItems -BetaOutlierId $OutlierId  -BetaContributingFeatureName $ContributingFeatureName 
     
     # Below is a request that includes all optional parameters
     # Get-BetaOutliersContributingFeatureAccessItems -BetaOutlierId $OutlierId -BetaContributingFeatureName $ContributingFeatureName -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count -BetaAccessType $AccessType -BetaSorters $Sorters  
@@ -459,7 +458,7 @@ $RequestBody = "MyRequestBody" # String[] |
 
 try {
     $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
-    Invoke-BetaUnIgnoreIdentityOutliers-BetaRequestBody $Result
+    Invoke-BetaUnIgnoreIdentityOutliers -BetaRequestBody $Result
     
     # Below is a request that includes all optional parameters
     # Invoke-BetaUnIgnoreIdentityOutliers -BetaRequestBody $RequestBody  

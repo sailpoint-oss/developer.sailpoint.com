@@ -16,15 +16,15 @@ tags: ['SDK', 'Software Development Kit', 'RoleMiningSessionParametersDto', 'Bet
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | The ID of the role mining session | [optional] 
-**Name** |  Pointer to **String** | The session's saved name | [optional] 
-**MinNumIdentitiesInPotentialRole** |  Pointer to **Int32** | Minimum number of identities in a potential role | [optional] 
-**PruneThreshold** |  Pointer to **Int32** | The prune threshold to be used or null to calculate prescribedPruneThreshold | [optional] 
-**Saved** |  Pointer to **Boolean** | The session's saved status | [optional] [default to $true]
-**Scope** |  Pointer to [**RoleMiningSessionScope**](role-mining-session-scope) |  | [optional] 
-**Type** |  Pointer to [**RoleMiningRoleType**](role-mining-role-type) |  | [optional] 
-**State** |  Pointer to [**RoleMiningSessionState**](role-mining-session-state) |  | [optional] 
-**ScopingMethod** |  Pointer to [**RoleMiningSessionScopingMethod**](role-mining-session-scoping-method) |  | [optional] 
+**Id** | **String** | The ID of the role mining session | [optional] 
+**Name** | **String** | The session's saved name | [optional] 
+**MinNumIdentitiesInPotentialRole** | **Int32** | Minimum number of identities in a potential role | [optional] 
+**PruneThreshold** | **Int32** | The prune threshold to be used or null to calculate prescribedPruneThreshold | [optional] 
+**Saved** | **Boolean** | The session's saved status | [optional] [default to $true]
+**Scope** | [**RoleMiningSessionScope**](role-mining-session-scope) |  | [optional] 
+**Type** | [**RoleMiningRoleType**](role-mining-role-type) |  | [optional] 
+**State** | [**RoleMiningSessionState**](role-mining-session-state) |  | [optional] 
+**ScopingMethod** | [**RoleMiningSessionScopingMethod**](role-mining-session-scoping-method) |  | [optional] 
 
 ## Examples
 

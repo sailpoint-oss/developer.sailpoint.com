@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'TenantUiMetadataItemResponse', 'V2024
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**IframeWhiteList** |  Pointer to **String** | Parameter that organizational administrators can adjust to permit another domain to encapsulate IDN within an iframe. If you would like to reset the value use ""null"". It will only allow include into iframe non authenticated portions of the product, such as password reset. | [optional] 
-**UsernameLabel** |  Pointer to **String** | Descriptor for the username input field. If you would like to reset the value use ""null"". | [optional] 
-**UsernameEmptyText** |  Pointer to **String** | Placeholder text displayed in the username input field. If you would like to reset the value use ""null"". | [optional] 
+**IframeWhiteList** | **String** | Parameter that organizational administrators can adjust to permit another domain to encapsulate IDN within an iframe. If you would like to reset the value use ""null"". It will only allow include into iframe non authenticated portions of the product, such as password reset. | [optional] 
+**UsernameLabel** | **String** | Descriptor for the username input field. If you would like to reset the value use ""null"". | [optional] 
+**UsernameEmptyText** | **String** | Placeholder text displayed in the username input field. If you would like to reset the value use ""null"". | [optional] 
 
 ## Examples
 

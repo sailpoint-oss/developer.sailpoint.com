@@ -1,4 +1,3 @@
-
 ---
 id: beta-tagged-objects
 title: TaggedObjects
@@ -114,7 +113,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the object to dele
 # Delete Object Tags
 
 try {
-    Remove-BetaTaggedObject-BetaType $Type -BetaId $Id 
+    Remove-BetaTaggedObject -BetaType $Type  -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-BetaTaggedObject -BetaType $Type -BetaId $Id  
@@ -171,7 +170,7 @@ $BulkTaggedObject = @"{
 
 try {
     $Result = ConvertFrom-JsonToBulkTaggedObject -Json $BulkTaggedObject
-    Remove-BetaTagsToManyObject-BetaBulkTaggedObject $Result
+    Remove-BetaTagsToManyObject -BetaBulkTaggedObject $Result
     
     # Below is a request that includes all optional parameters
     # Remove-BetaTagsToManyObject -BetaBulkTaggedObject $BulkTaggedObject  
@@ -215,7 +214,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the object referen
 # Get Tagged Object
 
 try {
-    Get-BetaTaggedObject-BetaType $Type -BetaId $Id 
+    Get-BetaTaggedObject -BetaType $Type  -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaTaggedObject -BetaType $Type -BetaId $Id  
@@ -317,7 +316,7 @@ $Filters = 'objectRef.id eq "2c91808568c529c60168cca6f90c1313"' # String | Filte
 # List Tagged Objects by Type
 
 try {
-    Get-BetaTaggedObjectsByType-BetaType $Type 
+    Get-BetaTaggedObjectsByType -BetaType $Type 
     
     # Below is a request that includes all optional parameters
     # Get-BetaTaggedObjectsByType -BetaType $Type -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count -BetaFilters $Filters  
@@ -371,7 +370,7 @@ $TaggedObject = @"{
 
 try {
     $Result = ConvertFrom-JsonToTaggedObject -Json $TaggedObject
-    Send-BetaTaggedObject-BetaType $Type -BetaId $Id -BetaTaggedObject $Result
+    Send-BetaTaggedObject -BetaType $Type  -BetaId $Id  -BetaTaggedObject $Result
     
     # Below is a request that includes all optional parameters
     # Send-BetaTaggedObject -BetaType $Type -BetaId $Id -BetaTaggedObject $TaggedObject  
@@ -423,7 +422,7 @@ $TaggedObject = @"{
 
 try {
     $Result = ConvertFrom-JsonToTaggedObject -Json $TaggedObject
-    Set-BetaTagToObject-BetaTaggedObject $Result
+    Set-BetaTagToObject -BetaTaggedObject $Result
     
     # Below is a request that includes all optional parameters
     # Set-BetaTagToObject -BetaTaggedObject $TaggedObject  
@@ -480,7 +479,7 @@ $BulkTaggedObject = @"{
 
 try {
     $Result = ConvertFrom-JsonToBulkTaggedObject -Json $BulkTaggedObject
-    Set-BetaTagsToManyObjects-BetaBulkTaggedObject $Result
+    Set-BetaTagsToManyObjects -BetaBulkTaggedObject $Result
     
     # Below is a request that includes all optional parameters
     # Set-BetaTagsToManyObjects -BetaBulkTaggedObject $BulkTaggedObject  

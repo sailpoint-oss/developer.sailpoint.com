@@ -16,14 +16,14 @@ tags: ['SDK', 'Software Development Kit', 'CommonAccessResponse', 'V2024CommonAc
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | Unique ID of the common access item | [optional] 
-**Access** |  Pointer to [**CommonAccessItemAccess**](common-access-item-access) |  | [optional] 
-**Status** |  Pointer to **String** | CONFIRMED or DENIED | [optional] 
-**CommonAccessType** |  Pointer to **String** |  | [optional] 
-**LastUpdated** |  Pointer to **System.DateTime** |  | [optional] [readonly] 
-**ReviewedByUser** |  Pointer to **Boolean** | true if user has confirmed or denied status | [optional] 
-**LastReviewed** |  Pointer to **System.DateTime** |  | [optional] [readonly] 
-**CreatedByUser** |  Pointer to **Boolean** |  | [optional] [default to $false]
+**Id** | **String** | Unique ID of the common access item | [optional] 
+**Access** | [**CommonAccessItemAccess**](common-access-item-access) |  | [optional] 
+**Status** | **String** | CONFIRMED or DENIED | [optional] 
+**CommonAccessType** | **String** |  | [optional] 
+**LastUpdated** | **System.DateTime** |  | [optional] [readonly] 
+**ReviewedByUser** | **Boolean** | true if user has confirmed or denied status | [optional] 
+**LastReviewed** | **System.DateTime** |  | [optional] [readonly] 
+**CreatedByUser** | **Boolean** |  | [optional] [default to $false]
 
 ## Examples
 

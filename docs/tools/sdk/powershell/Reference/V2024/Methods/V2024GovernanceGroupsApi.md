@@ -1,4 +1,3 @@
-
 ---
 id: v2024-governance-groups
 title: GovernanceGroups
@@ -84,7 +83,7 @@ $WorkgroupDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToWorkgroupDto -Json $WorkgroupDto
-    New-V2024Workgroup-V2024XSailPointExperimental $XSailPointExperimental -V2024WorkgroupDto $Result
+    New-V2024Workgroup -V2024XSailPointExperimental $XSailPointExperimental  -V2024WorkgroupDto $Result
     
     # Below is a request that includes all optional parameters
     # New-V2024Workgroup -V2024XSailPointExperimental $XSailPointExperimental -V2024WorkgroupDto $WorkgroupDto  
@@ -128,7 +127,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Delete a Governance Group
 
 try {
-    Remove-V2024Workgroup-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
+    Remove-V2024Workgroup -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024Workgroup -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
@@ -179,7 +178,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 
 try {
     $Result = ConvertFrom-JsonToIdentityPreviewResponseIdentity -Json $IdentityPreviewResponseIdentity
-    Remove-V2024WorkgroupMembers-V2024WorkgroupId $WorkgroupId -V2024XSailPointExperimental $XSailPointExperimental -V2024IdentityPreviewResponseIdentity $Result
+    Remove-V2024WorkgroupMembers -V2024WorkgroupId $WorkgroupId  -V2024XSailPointExperimental $XSailPointExperimental  -V2024IdentityPreviewResponseIdentity $Result
     
     # Below is a request that includes all optional parameters
     # Remove-V2024WorkgroupMembers -V2024WorkgroupId $WorkgroupId -V2024XSailPointExperimental $XSailPointExperimental -V2024IdentityPreviewResponseIdentity $IdentityPreviewResponseIdentity  
@@ -237,7 +236,7 @@ $WorkgroupBulkDeleteRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToWorkgroupBulkDeleteRequest -Json $WorkgroupBulkDeleteRequest
-    Remove-V2024WorkgroupsInBulk-V2024XSailPointExperimental $XSailPointExperimental -V2024WorkgroupBulkDeleteRequest $Result
+    Remove-V2024WorkgroupsInBulk -V2024XSailPointExperimental $XSailPointExperimental  -V2024WorkgroupBulkDeleteRequest $Result
     
     # Below is a request that includes all optional parameters
     # Remove-V2024WorkgroupsInBulk -V2024XSailPointExperimental $XSailPointExperimental -V2024WorkgroupBulkDeleteRequest $WorkgroupBulkDeleteRequest  
@@ -281,7 +280,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Get Governance Group by Id
 
 try {
-    Get-V2024Workgroup-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024Workgroup -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024Workgroup -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
@@ -333,7 +332,7 @@ $Sorters = "name,-modified" # String | Sort results using the standard syntax de
 # List connections for Governance Group
 
 try {
-    Get-V2024Connections-V2024WorkgroupId $WorkgroupId -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024Connections -V2024WorkgroupId $WorkgroupId  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024Connections -V2024WorkgroupId $WorkgroupId -V2024XSailPointExperimental $XSailPointExperimental -V2024Offset $Offset -V2024Limit $Limit -V2024Count $Count -V2024Sorters $Sorters  
@@ -385,7 +384,7 @@ $Sorters = "name,-modified" # String | Sort results using the standard syntax de
 # List Governance Group Members
 
 try {
-    Get-V2024WorkgroupMembers-V2024WorkgroupId $WorkgroupId -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024WorkgroupMembers -V2024WorkgroupId $WorkgroupId  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024WorkgroupMembers -V2024WorkgroupId $WorkgroupId -V2024XSailPointExperimental $XSailPointExperimental -V2024Offset $Offset -V2024Limit $Limit -V2024Count $Count -V2024Sorters $Sorters  
@@ -437,7 +436,7 @@ $Sorters = "name,-modified" # String | Sort results using the standard syntax de
 # List Governance Groups
 
 try {
-    Get-V2024Workgroups-V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024Workgroups -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024Workgroups -V2024XSailPointExperimental $XSailPointExperimental -V2024Offset $Offset -V2024Limit $Limit -V2024Count $Count -V2024Filters $Filters -V2024Sorters $Sorters  
@@ -491,7 +490,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Patch a Governance Group
 
 try {
-    Update-V2024Workgroup-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
+    Update-V2024Workgroup -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Update-V2024Workgroup -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024JsonPatchOperation $JsonPatchOperation  
@@ -543,7 +542,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 
 try {
     $Result = ConvertFrom-JsonToIdentityPreviewResponseIdentity -Json $IdentityPreviewResponseIdentity
-    Update-V2024WorkgroupMembers-V2024WorkgroupId $WorkgroupId -V2024XSailPointExperimental $XSailPointExperimental -V2024IdentityPreviewResponseIdentity $Result
+    Update-V2024WorkgroupMembers -V2024WorkgroupId $WorkgroupId  -V2024XSailPointExperimental $XSailPointExperimental  -V2024IdentityPreviewResponseIdentity $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024WorkgroupMembers -V2024WorkgroupId $WorkgroupId -V2024XSailPointExperimental $XSailPointExperimental -V2024IdentityPreviewResponseIdentity $IdentityPreviewResponseIdentity  

@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'NonEmployeeRequestSummary', 'V2024Non
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Approved** |  Pointer to **Int32** | The number of approved non-employee requests on all sources that *requested-for* user manages. | [optional] 
-**Rejected** |  Pointer to **Int32** | The number of rejected non-employee requests on all sources that *requested-for* user manages. | [optional] 
-**Pending** |  Pointer to **Int32** | The number of pending non-employee requests on all sources that *requested-for* user manages. | [optional] 
-**NonEmployeeCount** |  Pointer to **Int32** | The number of non-employee records on all sources that *requested-for* user manages. | [optional] 
+**Approved** | **Int32** | The number of approved non-employee requests on all sources that *requested-for* user manages. | [optional] 
+**Rejected** | **Int32** | The number of rejected non-employee requests on all sources that *requested-for* user manages. | [optional] 
+**Pending** | **Int32** | The number of pending non-employee requests on all sources that *requested-for* user manages. | [optional] 
+**NonEmployeeCount** | **Int32** | The number of non-employee records on all sources that *requested-for* user manages. | [optional] 
 
 ## Examples
 

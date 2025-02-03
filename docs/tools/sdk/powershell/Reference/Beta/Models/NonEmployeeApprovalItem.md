@@ -16,15 +16,15 @@ tags: ['SDK', 'Software Development Kit', 'NonEmployeeApprovalItem', 'BetaNonEmp
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | Non-Employee approval item id | [optional] 
-**Approver** |  Pointer to [**IdentityReferenceWithId**](identity-reference-with-id) |  | [optional] 
-**AccountName** |  Pointer to **String** | Requested identity account name | [optional] 
-**ApprovalStatus** |  Pointer to [**ApprovalStatus**](approval-status) |  | [optional] 
-**ApprovalOrder** |  Pointer to **Double** | Approval order | [optional] 
-**Comment** |  Pointer to **String** | comment of approver | [optional] 
-**Modified** |  Pointer to **System.DateTime** | When the request was last modified. | [optional] 
-**Created** |  Pointer to **System.DateTime** | When the request was created. | [optional] 
-**NonEmployeeRequest** |  Pointer to [**NonEmployeeRequestLite**](non-employee-request-lite) |  | [optional] 
+**Id** | **String** | Non-Employee approval item id | [optional] 
+**Approver** | [**IdentityReferenceWithId**](identity-reference-with-id) |  | [optional] 
+**AccountName** | **String** | Requested identity account name | [optional] 
+**ApprovalStatus** | [**ApprovalStatus**](approval-status) |  | [optional] 
+**ApprovalOrder** | **Double** | Approval order | [optional] 
+**Comment** | **String** | comment of approver | [optional] 
+**Modified** | **System.DateTime** | When the request was last modified. | [optional] 
+**Created** | **System.DateTime** | When the request was created. | [optional] 
+**NonEmployeeRequest** | [**NonEmployeeRequestLite**](non-employee-request-lite) |  | [optional] 
 
 ## Examples
 

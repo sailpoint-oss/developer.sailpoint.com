@@ -1,4 +1,3 @@
-
 ---
 id: reports-data-extraction
 title: ReportsDataExtraction
@@ -58,7 +57,7 @@ $Id = "a1ed223247144cc29d23c632624b4767" # String | ID of the running Report to 
 # Cancel Report
 
 try {
-    Suspend-Report-Id $Id 
+    Suspend-Report -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Suspend-Report -Id $Id  
@@ -107,7 +106,7 @@ $Auditable = $true # Boolean | Enables auditing for current report download. Wil
 # Get Report File
 
 try {
-    Get-Report-TaskResultId $TaskResultId -FileFormat $FileFormat 
+    Get-Report -TaskResultId $TaskResultId  -FileFormat $FileFormat 
     
     # Below is a request that includes all optional parameters
     # Get-Report -TaskResultId $TaskResultId -FileFormat $FileFormat -Name $Name -Auditable $Auditable  
@@ -151,7 +150,7 @@ $Completed = $true # Boolean | state of task result to apply ordering when resul
 # Get Report Result
 
 try {
-    Get-ReportResult-TaskResultId $TaskResultId 
+    Get-ReportResult -TaskResultId $TaskResultId 
     
     # Below is a request that includes all optional parameters
     # Get-ReportResult -TaskResultId $TaskResultId -Completed $Completed  
@@ -200,7 +199,7 @@ $ReportDetails = @"{
 
 try {
     $Result = ConvertFrom-JsonToReportDetails -Json $ReportDetails
-    Start-Report-ReportDetails $Result
+    Start-Report -ReportDetails $Result
     
     # Below is a request that includes all optional parameters
     # Start-Report -ReportDetails $ReportDetails  

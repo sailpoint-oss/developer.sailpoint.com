@@ -1,4 +1,3 @@
-
 ---
 id: beta-iai-common-access
 title: IAICommonAccess
@@ -65,7 +64,7 @@ $CommonAccessItemRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToCommonAccessItemRequest -Json $CommonAccessItemRequest
-    New-BetaCommonAccess-BetaCommonAccessItemRequest $Result
+    New-BetaCommonAccess -BetaCommonAccessItemRequest $Result
     
     # Below is a request that includes all optional parameters
     # New-BetaCommonAccess -BetaCommonAccessItemRequest $CommonAccessItemRequest  
@@ -161,7 +160,7 @@ Code | Description  | Data Type
 
 try {
     $Result = ConvertFrom-JsonToCommonAccessIDStatus -Json $CommonAccessIDStatus
-    Update-BetaCommonAccessStatusInBulk-BetaCommonAccessIDStatus $Result
+    Update-BetaCommonAccessStatusInBulk -BetaCommonAccessIDStatus $Result
     
     # Below is a request that includes all optional parameters
     # Update-BetaCommonAccessStatusInBulk -BetaCommonAccessIDStatus $CommonAccessIDStatus  

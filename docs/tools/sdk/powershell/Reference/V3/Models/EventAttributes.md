@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'EventAttributes', 'EventAttributes']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  **String** | The unique ID of the trigger | [required]
-**VarFilter** |  Pointer to **String** | JSON path expression that will limit which events the trigger will fire on | [optional] 
-**Description** |  Pointer to **String** | Description of the event trigger | [optional] 
-**AttributeToFilter** |  Pointer to **String** | The attribute to filter on | [optional] 
+**Id** | **String** | The unique ID of the trigger | [required]
+**VarFilter** | **String** | JSON path expression that will limit which events the trigger will fire on | [optional] 
+**Description** | **String** | Description of the event trigger | [optional] 
+**AttributeToFilter** | **String** | The attribute to filter on | [optional] 
 
 ## Examples
 

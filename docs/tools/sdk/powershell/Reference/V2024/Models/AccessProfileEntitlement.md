@@ -16,16 +16,16 @@ tags: ['SDK', 'Software Development Kit', 'AccessProfileEntitlement', 'V2024Acce
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | The unique ID of the referenced object. | [optional] 
-**Name** |  Pointer to **String** | The human readable name of the referenced object. | [optional] 
-**DisplayName** |  Pointer to **String** |  | [optional] 
-**Type** |  Pointer to [**DtoType**](dto-type) |  | [optional] 
-**Description** |  Pointer to **String** |  | [optional] 
-**Source** |  Pointer to [**Reference1**](reference1) |  | [optional] 
-**Privileged** |  Pointer to **Boolean** |  | [optional] 
-**Attribute** |  Pointer to **String** |  | [optional] 
-**Value** |  Pointer to **String** |  | [optional] 
-**Standalone** |  Pointer to **Boolean** |  | [optional] 
+**Id** | **String** | The unique ID of the referenced object. | [optional] 
+**Name** | **String** | The human readable name of the referenced object. | [optional] 
+**DisplayName** | **String** |  | [optional] 
+**Type** | [**DtoType**](dto-type) |  | [optional] 
+**Description** | **String** |  | [optional] 
+**Source** | [**Reference1**](reference1) |  | [optional] 
+**Privileged** | **Boolean** |  | [optional] 
+**Attribute** | **String** |  | [optional] 
+**Value** | **String** |  | [optional] 
+**Standalone** | **Boolean** |  | [optional] 
 
 ## Examples
 

@@ -16,13 +16,13 @@ tags: ['SDK', 'Software Development Kit', 'AccessItemRoleResponse', 'BetaAccessI
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccessType** |  Pointer to **String** | the access item type. role in this case | [optional] 
-**Id** |  Pointer to **String** | the access item id | [optional] 
-**DisplayName** |  Pointer to **String** | the role display name | [optional] 
-**Description** |  Pointer to **String** | the description for the role | [optional] 
-**SourceName** |  Pointer to **String** | the associated source name if it exists | [optional] 
-**RemoveDate** |  Pointer to **String** | the date the role is no longer assigned to the specified identity | [optional] 
-**Revocable** |  **Boolean** | indicates whether the role is revocable | [required]
+**AccessType** | **String** | the access item type. role in this case | [optional] 
+**Id** | **String** | the access item id | [optional] 
+**DisplayName** | **String** | the role display name | [optional] 
+**Description** | **String** | the description for the role | [optional] 
+**SourceName** | **String** | the associated source name if it exists | [optional] 
+**RemoveDate** | **String** | the date the role is no longer assigned to the specified identity | [optional] 
+**Revocable** | **Boolean** | indicates whether the role is revocable | [required]
 
 ## Examples
 

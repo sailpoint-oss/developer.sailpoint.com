@@ -1,4 +1,3 @@
-
 ---
 id: v2024-auth-profile
 title: AuthProfile
@@ -63,7 +62,7 @@ $Id = "2c91808a7813090a017814121919ecca" # String | ID of the Auth Profile to pa
 # Get Auth Profile.
 
 try {
-    Get-V2024ProfileConfig-V2024XSailPointExperimental $XSailPointExperimental -V2024Id $Id 
+    Get-V2024ProfileConfig -V2024XSailPointExperimental $XSailPointExperimental  -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-V2024ProfileConfig -V2024XSailPointExperimental $XSailPointExperimental -V2024Id $Id  
@@ -105,7 +104,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Get list of Auth Profiles.
 
 try {
-    Get-V2024ProfileConfigList-V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024ProfileConfigList -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024ProfileConfigList -V2024XSailPointExperimental $XSailPointExperimental  
@@ -158,7 +157,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024ProfileConfig-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024JsonPatchOperation $Result
+    Update-V2024ProfileConfig -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental  -V2024JsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024ProfileConfig -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024JsonPatchOperation $JsonPatchOperation  

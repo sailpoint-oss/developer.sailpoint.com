@@ -1,4 +1,3 @@
-
 ---
 id: lifecycle-states
 title: LifecycleStates
@@ -122,7 +121,7 @@ $LifecycleState = @"{
 
 try {
     $Result = ConvertFrom-JsonToLifecycleState -Json $LifecycleState
-    New-LifecycleState-IdentityProfileId $IdentityProfileId -LifecycleState $Result
+    New-LifecycleState -IdentityProfileId $IdentityProfileId  -LifecycleState $Result
     
     # Below is a request that includes all optional parameters
     # New-LifecycleState -IdentityProfileId $IdentityProfileId -LifecycleState $LifecycleState  
@@ -167,7 +166,7 @@ $LifecycleStateId = "ef38f94347e94562b5bb8424a56397d8" # String | Lifecycle stat
 # Delete Lifecycle State
 
 try {
-    Remove-LifecycleState-IdentityProfileId $IdentityProfileId -LifecycleStateId $LifecycleStateId 
+    Remove-LifecycleState -IdentityProfileId $IdentityProfileId  -LifecycleStateId $LifecycleStateId 
     
     # Below is a request that includes all optional parameters
     # Remove-LifecycleState -IdentityProfileId $IdentityProfileId -LifecycleStateId $LifecycleStateId  
@@ -212,7 +211,7 @@ $LifecycleStateId = "ef38f94347e94562b5bb8424a56397d8" # String | Lifecycle stat
 # Get Lifecycle State
 
 try {
-    Get-LifecycleState-IdentityProfileId $IdentityProfileId -LifecycleStateId $LifecycleStateId 
+    Get-LifecycleState -IdentityProfileId $IdentityProfileId  -LifecycleStateId $LifecycleStateId 
     
     # Below is a request that includes all optional parameters
     # Get-LifecycleState -IdentityProfileId $IdentityProfileId -LifecycleStateId $LifecycleStateId  
@@ -262,7 +261,7 @@ $Sorters = "created,modified" # String | Sort results using the standard syntax 
 # Lists LifecycleStates
 
 try {
-    Get-LifecycleStates-IdentityProfileId $IdentityProfileId 
+    Get-LifecycleStates -IdentityProfileId $IdentityProfileId 
     
     # Below is a request that includes all optional parameters
     # Get-LifecycleStates -IdentityProfileId $IdentityProfileId -Limit $Limit -Offset $Offset -Count $Count -Sorters $Sorters  
@@ -308,7 +307,7 @@ $SetLifecycleStateRequest = @""@
 
 try {
     $Result = ConvertFrom-JsonToSetLifecycleStateRequest -Json $SetLifecycleStateRequest
-    Set-LifecycleState-IdentityId $IdentityId -SetLifecycleStateRequest $Result
+    Set-LifecycleState -IdentityId $IdentityId  -SetLifecycleStateRequest $Result
     
     # Below is a request that includes all optional parameters
     # Set-LifecycleState -IdentityId $IdentityId -SetLifecycleStateRequest $SetLifecycleStateRequest  
@@ -361,7 +360,7 @@ $LifecycleStateId = "ef38f94347e94562b5bb8424a56397d8" # String | Lifecycle stat
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-LifecycleStates-IdentityProfileId $IdentityProfileId -LifecycleStateId $LifecycleStateId -JsonPatchOperation $Result
+    Update-LifecycleStates -IdentityProfileId $IdentityProfileId  -LifecycleStateId $LifecycleStateId  -JsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-LifecycleStates -IdentityProfileId $IdentityProfileId -LifecycleStateId $LifecycleStateId -JsonPatchOperation $JsonPatchOperation  

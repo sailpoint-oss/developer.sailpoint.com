@@ -1,4 +1,3 @@
-
 ---
 id: beta-iai-message-catalogs
 title: IAIMessageCatalogs
@@ -52,7 +51,7 @@ $CatalogId = "recommender" # String | The ID of the message catalog.
 # Get Message catalogs
 
 try {
-    Get-BetaMessageCatalogs-BetaCatalogId $CatalogId 
+    Get-BetaMessageCatalogs -BetaCatalogId $CatalogId 
     
     # Below is a request that includes all optional parameters
     # Get-BetaMessageCatalogs -BetaCatalogId $CatalogId  

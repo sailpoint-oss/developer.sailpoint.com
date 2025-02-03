@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'TagTagCategoryRefsInner', 'BetaTagTag
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to  **Enum** [  "ACCESS_PROFILE",    "APPLICATION",    "CAMPAIGN",    "ENTITLEMENT",    "IDENTITY",    "ROLE",    "SOD_POLICY",    "SOURCE" ] | DTO type of the tagged object's category. | [optional] 
-**Id** |  Pointer to **String** | Tagged object's ID. | [optional] 
-**Name** |  Pointer to **String** | Tagged object's display name. | [optional] 
+**Type** |  **Enum** [  "ACCESS_PROFILE",    "APPLICATION",    "CAMPAIGN",    "ENTITLEMENT",    "IDENTITY",    "ROLE",    "SOD_POLICY",    "SOURCE" ] | DTO type of the tagged object's category. | [optional] 
+**Id** | **String** | Tagged object's ID. | [optional] 
+**Name** | **String** | Tagged object's display name. | [optional] 
 
 ## Examples
 

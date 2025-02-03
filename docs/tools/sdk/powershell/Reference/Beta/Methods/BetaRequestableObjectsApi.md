@@ -1,4 +1,3 @@
-
 ---
 id: beta-requestable-objects
 title: RequestableObjects

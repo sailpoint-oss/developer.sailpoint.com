@@ -1,4 +1,3 @@
-
 ---
 id: global-tenant-security-settings
 title: GlobalTenantSecuritySettings
@@ -69,7 +68,7 @@ $NetworkConfiguration = @"{
 
 try {
     $Result = ConvertFrom-JsonToNetworkConfiguration -Json $NetworkConfiguration
-    New-AuthOrgNetworkConfig-NetworkConfiguration $Result
+    New-AuthOrgNetworkConfig -NetworkConfiguration $Result
     
     # Below is a request that includes all optional parameters
     # New-AuthOrgNetworkConfig -NetworkConfiguration $NetworkConfiguration  
@@ -283,7 +282,7 @@ Code | Description  | Data Type
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-AuthOrgLockoutConfig-JsonPatchOperation $Result
+    Update-AuthOrgLockoutConfig -JsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-AuthOrgLockoutConfig -JsonPatchOperation $JsonPatchOperation  
@@ -333,7 +332,7 @@ Code | Description  | Data Type
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-AuthOrgNetworkConfig-JsonPatchOperation $Result
+    Update-AuthOrgNetworkConfig -JsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-AuthOrgNetworkConfig -JsonPatchOperation $JsonPatchOperation  
@@ -382,7 +381,7 @@ Code | Description  | Data Type
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-AuthOrgServiceProviderConfig-JsonPatchOperation $Result
+    Update-AuthOrgServiceProviderConfig -JsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-AuthOrgServiceProviderConfig -JsonPatchOperation $JsonPatchOperation  
@@ -431,7 +430,7 @@ Code | Description  | Data Type
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-AuthOrgSessionConfig-JsonPatchOperation $Result
+    Update-AuthOrgSessionConfig -JsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-AuthOrgSessionConfig -JsonPatchOperation $JsonPatchOperation  

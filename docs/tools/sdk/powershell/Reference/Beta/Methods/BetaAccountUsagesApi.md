@@ -1,4 +1,3 @@
-
 ---
 id: beta-account-usages
 title: AccountUsages
@@ -63,7 +62,7 @@ $Sorters = "-date" # String | Sort results using the standard syntax described i
 # Returns account usage insights
 
 try {
-    Get-BetaUsagesByAccountId-BetaAccountId $AccountId 
+    Get-BetaUsagesByAccountId -BetaAccountId $AccountId 
     
     # Below is a request that includes all optional parameters
     # Get-BetaUsagesByAccountId -BetaAccountId $AccountId -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count -BetaSorters $Sorters  

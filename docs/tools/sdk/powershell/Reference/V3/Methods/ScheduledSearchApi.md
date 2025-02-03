@@ -1,4 +1,3 @@
-
 ---
 id: scheduled-search
 title: ScheduledSearch
@@ -86,7 +85,7 @@ $CreateScheduledSearchRequest = @"{savedSearchId=9c620e13-cd33-4804-a13d-403bd7b
 
 try {
     $Result = ConvertFrom-JsonToCreateScheduledSearchRequest -Json $CreateScheduledSearchRequest
-    New-ScheduledSearch-CreateScheduledSearchRequest $Result
+    New-ScheduledSearch -CreateScheduledSearchRequest $Result
     
     # Below is a request that includes all optional parameters
     # New-ScheduledSearch -CreateScheduledSearchRequest $CreateScheduledSearchRequest  
@@ -130,7 +129,7 @@ $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document
 # Delete a Scheduled Search
 
 try {
-    Remove-ScheduledSearch-Id $Id 
+    Remove-ScheduledSearch -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-ScheduledSearch -Id $Id  
@@ -173,7 +172,7 @@ $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document
 # Get a Scheduled Search
 
 try {
-    Get-ScheduledSearch-Id $Id 
+    Get-ScheduledSearch -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-ScheduledSearch -Id $Id  
@@ -270,7 +269,7 @@ $TypedReference = @"{
 
 try {
     $Result = ConvertFrom-JsonToTypedReference -Json $TypedReference
-    Invoke-UnsubscribeScheduledSearch-Id $Id -TypedReference $Result
+    Invoke-UnsubscribeScheduledSearch -Id $Id  -TypedReference $Result
     
     # Below is a request that includes all optional parameters
     # Invoke-UnsubscribeScheduledSearch -Id $Id -TypedReference $TypedReference  
@@ -359,7 +358,7 @@ $ScheduledSearch = @"{
 
 try {
     $Result = ConvertFrom-JsonToScheduledSearch -Json $ScheduledSearch
-    Update-ScheduledSearch-Id $Id -ScheduledSearch $Result
+    Update-ScheduledSearch -Id $Id  -ScheduledSearch $Result
     
     # Below is a request that includes all optional parameters
     # Update-ScheduledSearch -Id $Id -ScheduledSearch $ScheduledSearch  

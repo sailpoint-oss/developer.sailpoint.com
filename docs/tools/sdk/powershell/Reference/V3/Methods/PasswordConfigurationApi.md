@@ -1,4 +1,3 @@
-
 ---
 id: password-configuration
 title: PasswordConfiguration
@@ -68,7 +67,7 @@ $PasswordOrgConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToPasswordOrgConfig -Json $PasswordOrgConfig
-    New-PasswordOrgConfig-PasswordOrgConfig $Result
+    New-PasswordOrgConfig -PasswordOrgConfig $Result
     
     # Below is a request that includes all optional parameters
     # New-PasswordOrgConfig -PasswordOrgConfig $PasswordOrgConfig  
@@ -158,7 +157,7 @@ $PasswordOrgConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToPasswordOrgConfig -Json $PasswordOrgConfig
-    Send-PasswordOrgConfig-PasswordOrgConfig $Result
+    Send-PasswordOrgConfig -PasswordOrgConfig $Result
     
     # Below is a request that includes all optional parameters
     # Send-PasswordOrgConfig -PasswordOrgConfig $PasswordOrgConfig  

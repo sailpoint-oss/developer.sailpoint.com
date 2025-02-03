@@ -1,4 +1,3 @@
-
 ---
 id: saved-search
 title: SavedSearch
@@ -69,7 +68,7 @@ $CreateSavedSearchRequest = @""@
 
 try {
     $Result = ConvertFrom-JsonToCreateSavedSearchRequest -Json $CreateSavedSearchRequest
-    New-SavedSearch-CreateSavedSearchRequest $Result
+    New-SavedSearch -CreateSavedSearchRequest $Result
     
     # Below is a request that includes all optional parameters
     # New-SavedSearch -CreateSavedSearchRequest $CreateSavedSearchRequest  
@@ -113,7 +112,7 @@ $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document
 # Delete document by ID
 
 try {
-    Remove-SavedSearch-Id $Id 
+    Remove-SavedSearch -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-SavedSearch -Id $Id  
@@ -170,7 +169,7 @@ $SearchArguments = @"{
 
 try {
     $Result = ConvertFrom-JsonToSearchArguments -Json $SearchArguments
-    Invoke-ExecuteSavedSearch-Id $Id -SearchArguments $Result
+    Invoke-ExecuteSavedSearch -Id $Id  -SearchArguments $Result
     
     # Below is a request that includes all optional parameters
     # Invoke-ExecuteSavedSearch -Id $Id -SearchArguments $SearchArguments  
@@ -214,7 +213,7 @@ $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document
 # Return saved search by ID
 
 try {
-    Get-SavedSearch-Id $Id 
+    Get-SavedSearch -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-SavedSearch -Id $Id  
@@ -355,7 +354,7 @@ $SavedSearch = @"{
 
 try {
     $Result = ConvertFrom-JsonToSavedSearch -Json $SavedSearch
-    Send-SavedSearch-Id $Id -SavedSearch $Result
+    Send-SavedSearch -Id $Id  -SavedSearch $Result
     
     # Below is a request that includes all optional parameters
     # Send-SavedSearch -Id $Id -SavedSearch $SavedSearch  

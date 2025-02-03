@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'IdentityDocumentAllOfSource', 'Identi
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | ID of identity's source. | [optional] 
-**Name** |  Pointer to **String** | Display name of identity's source. | [optional] 
+**Id** | **String** | ID of identity's source. | [optional] 
+**Name** | **String** | Display name of identity's source. | [optional] 
 
 ## Examples
 

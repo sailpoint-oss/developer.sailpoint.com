@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'AccountAction', 'V2024AccountAction']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Action** |  Pointer to  **Enum** [  "ENABLE",    "DISABLE" ] | Describes if action will be enabled or disabled | [optional] 
-**SourceIds** |  Pointer to **[]String** | List of unique source IDs. The sources must have the ENABLE feature or flat file source. See ""/sources"" endpoint for source features. | [optional] 
+**Action** |  **Enum** [  "ENABLE",    "DISABLE" ] | Describes if action will be enabled or disabled | [optional] 
+**SourceIds** | **[]String** | List of unique source IDs. The sources must have the ENABLE feature or flat file source. See ""/sources"" endpoint for source features. | [optional] 
 
 ## Examples
 

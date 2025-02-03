@@ -16,14 +16,14 @@ tags: ['SDK', 'Software Development Kit', 'CertificationTask', 'V2024Certificati
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | The ID of the certification task. | [optional] 
-**Type** |  Pointer to  **Enum** [  "REASSIGN",    "ADMIN_REASSIGN",    "COMPLETE_CERTIFICATION",    "FINISH_CERTIFICATION",    "COMPLETE_CAMPAIGN",    "ACTIVATE_CAMPAIGN",    "CAMPAIGN_CREATE",    "CAMPAIGN_DELETE" ] | The type of the certification task. More values may be added in the future. | [optional] 
-**TargetType** |  Pointer to  **Enum** [  "CERTIFICATION",    "CAMPAIGN" ] | The type of item that is being operated on by this task whose ID is stored in the targetId field. | [optional] 
-**TargetId** |  Pointer to **String** | The ID of the item being operated on by this task. | [optional] 
-**Status** |  Pointer to  **Enum** [  "QUEUED",    "IN_PROGRESS",    "SUCCESS",    "ERROR" ] | The status of the task. | [optional] 
-**Errors** |  Pointer to [**[]ErrorMessageDto**](error-message-dto) |  | [optional] 
-**ReassignmentTrailDTOs** |  Pointer to [**[]ReassignmentTrailDTO**](reassignment-trail-dto) | Reassignment trails that lead to self certification identity | [optional] 
-**Created** |  Pointer to **System.DateTime** | The date and time on which this task was created. | [optional] 
+**Id** | **String** | The ID of the certification task. | [optional] 
+**Type** |  **Enum** [  "REASSIGN",    "ADMIN_REASSIGN",    "COMPLETE_CERTIFICATION",    "FINISH_CERTIFICATION",    "COMPLETE_CAMPAIGN",    "ACTIVATE_CAMPAIGN",    "CAMPAIGN_CREATE",    "CAMPAIGN_DELETE" ] | The type of the certification task. More values may be added in the future. | [optional] 
+**TargetType** |  **Enum** [  "CERTIFICATION",    "CAMPAIGN" ] | The type of item that is being operated on by this task whose ID is stored in the targetId field. | [optional] 
+**TargetId** | **String** | The ID of the item being operated on by this task. | [optional] 
+**Status** |  **Enum** [  "QUEUED",    "IN_PROGRESS",    "SUCCESS",    "ERROR" ] | The status of the task. | [optional] 
+**Errors** | [**[]ErrorMessageDto**](error-message-dto) |  | [optional] 
+**ReassignmentTrailDTOs** | [**[]ReassignmentTrailDTO**](reassignment-trail-dto) | Reassignment trails that lead to self certification identity | [optional] 
+**Created** | **System.DateTime** | The date and time on which this task was created. | [optional] 
 
 ## Examples
 

@@ -16,13 +16,13 @@ tags: ['SDK', 'Software Development Kit', 'SavedSearchComplete', 'BetaSavedSearc
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**FileName** |  **String** | A name for the report file. | [required]
-**OwnerEmail** |  **String** | The email address of the identity that owns the saved search. | [required]
-**OwnerName** |  **String** | The name of the identity that owns the saved search. | [required]
-**Query** |  **String** | The search query that was used to generate the report. | [required]
-**SearchName** |  **String** | The name of the saved search. | [required]
-**SearchResults** |  [**SavedSearchCompleteSearchResults**](saved-search-complete-search-results) |  | [required]
-**SignedS3Url** |  **String** | The Amazon S3 URL to download the report from. | [required]
+**FileName** | **String** | A name for the report file. | [required]
+**OwnerEmail** | **String** | The email address of the identity that owns the saved search. | [required]
+**OwnerName** | **String** | The name of the identity that owns the saved search. | [required]
+**Query** | **String** | The search query that was used to generate the report. | [required]
+**SearchName** | **String** | The name of the saved search. | [required]
+**SearchResults** | [**SavedSearchCompleteSearchResults**](saved-search-complete-search-results) |  | [required]
+**SignedS3Url** | **String** | The Amazon S3 URL to download the report from. | [required]
 
 ## Examples
 

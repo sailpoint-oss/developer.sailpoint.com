@@ -16,11 +16,11 @@ tags: ['SDK', 'Software Development Kit', 'Tag', 'BetaTag']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  **String** | Tag id | [required][readonly] 
-**Name** |  **String** | Name of the tag. | [required]
-**Created** |  **System.DateTime** | Date the tag was created. | [required][readonly] 
-**Modified** |  **System.DateTime** | Date the tag was last modified. | [required][readonly] 
-**TagCategoryRefs** |  [**[]TagTagCategoryRefsInner**](tag-tag-category-refs-inner) |  | [required][readonly] 
+**Id** | **String** | Tag id | [required][readonly] 
+**Name** | **String** | Name of the tag. | [required]
+**Created** | **System.DateTime** | Date the tag was created. | [required][readonly] 
+**Modified** | **System.DateTime** | Date the tag was last modified. | [required][readonly] 
+**TagCategoryRefs** | [**[]TagTagCategoryRefsInner**](tag-tag-category-refs-inner) |  | [required][readonly] 
 
 ## Examples
 

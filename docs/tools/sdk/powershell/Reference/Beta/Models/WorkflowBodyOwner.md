@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'WorkflowBodyOwner', 'BetaWorkflowBody
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to  **Enum** [  "IDENTITY" ] | The type of object that is referenced | [optional] 
-**Id** |  Pointer to **String** | The unique ID of the object | [optional] 
-**Name** |  Pointer to **String** | The name of the object | [optional] 
+**Type** |  **Enum** [  "IDENTITY" ] | The type of object that is referenced | [optional] 
+**Id** | **String** | The unique ID of the object | [optional] 
+**Name** | **String** | The name of the object | [optional] 
 
 ## Examples
 

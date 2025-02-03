@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'ObjectExportImportOptions', 'V2024Obj
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**IncludedIds** |  Pointer to **[]String** | Object ids to be included in an import or export. | [optional] 
-**IncludedNames** |  Pointer to **[]String** | Object names to be included in an import or export. | [optional] 
+**IncludedIds** | **[]String** | Object ids to be included in an import or export. | [optional] 
+**IncludedNames** | **[]String** | Object names to be included in an import or export. | [optional] 
 
 ## Examples
 

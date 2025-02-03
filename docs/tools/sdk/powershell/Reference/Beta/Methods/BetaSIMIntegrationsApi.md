@@ -1,4 +1,3 @@
-
 ---
 id: beta-sim-integrations
 title: SIMIntegrations
@@ -84,7 +83,7 @@ $SimIntegrationDetails = @"{
 
 try {
     $Result = ConvertFrom-JsonToSimIntegrationDetails -Json $SimIntegrationDetails
-    New-BetaSIMIntegration-BetaSimIntegrationDetails $Result
+    New-BetaSIMIntegration -BetaSimIntegrationDetails $Result
     
     # Below is a request that includes all optional parameters
     # New-BetaSIMIntegration -BetaSimIntegrationDetails $SimIntegrationDetails  
@@ -127,7 +126,7 @@ $Id = "12345" # String | The id of the integration to delete.
 # Delete a SIM integration
 
 try {
-    Remove-BetaSIMIntegration-BetaId $Id 
+    Remove-BetaSIMIntegration -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-BetaSIMIntegration -BetaId $Id  
@@ -170,7 +169,7 @@ $Id = "12345" # String | The id of the integration.
 # Get a SIM integration details.
 
 try {
-    Get-BetaSIMIntegration-BetaId $Id 
+    Get-BetaSIMIntegration -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaSIMIntegration -BetaId $Id  
@@ -257,7 +256,7 @@ $JsonPatch = @""[\n  {\n\t  \"op\": \"replace\",\n\t  \"path\": \"/description\"
 
 try {
     $Result = ConvertFrom-JsonToJsonPatch -Json $JsonPatch
-    Update-BetaBeforeProvisioningRule-BetaId $Id -BetaJsonPatch $Result
+    Update-BetaBeforeProvisioningRule -BetaId $Id  -BetaJsonPatch $Result
     
     # Below is a request that includes all optional parameters
     # Update-BetaBeforeProvisioningRule -BetaId $Id -BetaJsonPatch $JsonPatch  
@@ -303,7 +302,7 @@ $JsonPatch = @""[\n  {\n\t  \"op\": \"replace\",\n\t  \"path\": \"/description\"
 
 try {
     $Result = ConvertFrom-JsonToJsonPatch -Json $JsonPatch
-    Update-BetaSIMAttributes-BetaId $Id -BetaJsonPatch $Result
+    Update-BetaSIMAttributes -BetaId $Id  -BetaJsonPatch $Result
     
     # Below is a request that includes all optional parameters
     # Update-BetaSIMAttributes -BetaId $Id -BetaJsonPatch $JsonPatch  
@@ -366,7 +365,7 @@ $SimIntegrationDetails = @"{
 
 try {
     $Result = ConvertFrom-JsonToSimIntegrationDetails -Json $SimIntegrationDetails
-    Send-BetaSIMIntegration-BetaId $Id -BetaSimIntegrationDetails $Result
+    Send-BetaSIMIntegration -BetaId $Id  -BetaSimIntegrationDetails $Result
     
     # Below is a request that includes all optional parameters
     # Send-BetaSIMIntegration -BetaId $Id -BetaSimIntegrationDetails $SimIntegrationDetails  

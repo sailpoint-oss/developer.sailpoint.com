@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'BearerTokenAuthConfig', 'BetaBearerTo
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**BearerToken** |  Pointer to **String** | Bearer token | [optional] 
+**BearerToken** | **String** | Bearer token | [optional] 
 
 ## Examples
 

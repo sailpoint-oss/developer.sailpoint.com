@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'KbaAuthResponse', 'KbaAuthResponse']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**KbaAuthResponseItems** |  Pointer to [**[]KbaAuthResponseItem**](kba-auth-response-item) |  | [optional] 
-**Status** |  Pointer to  **Enum** [  "PENDING",    "SUCCESS",    "FAILED",    "LOCKOUT",    "NOT_ENOUGH_DATA" ] | MFA Authentication status | [optional] 
+**KbaAuthResponseItems** | [**[]KbaAuthResponseItem**](kba-auth-response-item) |  | [optional] 
+**Status** |  **Enum** [  "PENDING",    "SUCCESS",    "FAILED",    "LOCKOUT",    "NOT_ENOUGH_DATA" ] | MFA Authentication status | [optional] 
 
 ## Examples
 

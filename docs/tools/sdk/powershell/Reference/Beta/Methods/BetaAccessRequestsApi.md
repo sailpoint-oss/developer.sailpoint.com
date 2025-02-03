@@ -1,4 +1,3 @@
-
 ---
 id: beta-access-requests
 title: AccessRequests
@@ -78,7 +77,7 @@ $CancelAccessRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToCancelAccessRequest -Json $CancelAccessRequest
-    Suspend-BetaAccessRequest-BetaCancelAccessRequest $Result
+    Suspend-BetaAccessRequest -BetaCancelAccessRequest $Result
     
     # Below is a request that includes all optional parameters
     # Suspend-BetaAccessRequest -BetaCancelAccessRequest $CancelAccessRequest  
@@ -137,7 +136,7 @@ $CloseAccessRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToCloseAccessRequest -Json $CloseAccessRequest
-    Close-BetaAccessRequest-BetaCloseAccessRequest $Result
+    Close-BetaAccessRequest -BetaCloseAccessRequest $Result
     
     # Below is a request that includes all optional parameters
     # Close-BetaAccessRequest -BetaCloseAccessRequest $CloseAccessRequest  
@@ -263,7 +262,7 @@ $AccessRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccessRequest -Json $AccessRequest
-    New-BetaAccessRequest-BetaAccessRequest $Result
+    New-BetaAccessRequest -BetaAccessRequest $Result
     
     # Below is a request that includes all optional parameters
     # New-BetaAccessRequest -BetaAccessRequest $AccessRequest  
@@ -433,7 +432,7 @@ $AccessRequestConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccessRequestConfig -Json $AccessRequestConfig
-    Set-BetaAccessRequestConfig-BetaAccessRequestConfig $Result
+    Set-BetaAccessRequestConfig -BetaAccessRequestConfig $Result
     
     # Below is a request that includes all optional parameters
     # Set-BetaAccessRequestConfig -BetaAccessRequestConfig $AccessRequestConfig  

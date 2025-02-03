@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'IdentityDeletedIdentity', 'BetaIdenti
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |   **Enum** [  "IDENTITY" ] | Deleted identity's DTO type. | [required]
-**Id** |  **String** | Deleted identity ID. | [required]
-**Name** |  **String** | Deleted identity's display name. | [required]
+**Type** |  **Enum** [  "IDENTITY" ] | Deleted identity's DTO type. | [required]
+**Id** | **String** | Deleted identity ID. | [required]
+**Name** | **String** | Deleted identity's display name. | [required]
 
 ## Examples
 

@@ -16,14 +16,14 @@ tags: ['SDK', 'Software Development Kit', 'MultiHostIntegrationsAggScheduleUpdat
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**MultihostId** |  **String** | Multi-Host Integration ID. The ID must be unique | [required]
-**AggregationGrpId** |  **String** | Multi-Host Integration aggregation group ID | [required]
-**AggregationGrpName** |  **String** | Multi-Host Integration name | [required]
-**AggregationCronSchedule** |  **String** | Cron expression to schedule aggregation | [required]
-**EnableSchedule** |  **Boolean** | Boolean value for Multi-Host Integration aggregation schedule.  This specifies if scheduled aggregation is enabled or disabled. | [required][default to $false]
-**SourceIdList** |  **[]String** | Source IDs of the Multi-Host Integration | [required]
-**Created** |  Pointer to **System.DateTime** | Created date of Multi-Host Integration aggregation schedule | [optional] 
-**Modified** |  Pointer to **System.DateTime** | Modified date of Multi-Host Integration aggregation schedule | [optional] 
+**MultihostId** | **String** | Multi-Host Integration ID. The ID must be unique | [required]
+**AggregationGrpId** | **String** | Multi-Host Integration aggregation group ID | [required]
+**AggregationGrpName** | **String** | Multi-Host Integration name | [required]
+**AggregationCronSchedule** | **String** | Cron expression to schedule aggregation | [required]
+**EnableSchedule** | **Boolean** | Boolean value for Multi-Host Integration aggregation schedule.  This specifies if scheduled aggregation is enabled or disabled. | [required][default to $false]
+**SourceIdList** | **[]String** | Source IDs of the Multi-Host Integration | [required]
+**Created** | **System.DateTime** | Created date of Multi-Host Integration aggregation schedule | [optional] 
+**Modified** | **System.DateTime** | Modified date of Multi-Host Integration aggregation schedule | [optional] 
 
 ## Examples
 

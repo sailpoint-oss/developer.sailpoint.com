@@ -1,4 +1,3 @@
-
 ---
 id: beta-certifications
 title: Certifications
@@ -82,7 +81,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Permissions for Entitlement Certification Item
 
 try {
-    Get-BetaIdentityCertificationItemPermissions-BetaCertificationId $CertificationId -BetaItemId $ItemId 
+    Get-BetaIdentityCertificationItemPermissions -BetaCertificationId $CertificationId  -BetaItemId $ItemId 
     
     # Below is a request that includes all optional parameters
     # Get-BetaIdentityCertificationItemPermissions -BetaCertificationId $CertificationId -BetaItemId $ItemId -BetaFilters $Filters -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count  
@@ -125,7 +124,7 @@ $Id = "MyId" # String | The identity campaign certification ID
 # Pending Certification Tasks
 
 try {
-    Get-BetaIdentityCertificationPendingTasks-BetaId $Id 
+    Get-BetaIdentityCertificationPendingTasks -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaIdentityCertificationPendingTasks -BetaId $Id  
@@ -170,7 +169,7 @@ $TaskId = "MyTaskId" # String | The certification task ID
 # Certification Task Status
 
 try {
-    Get-BetaIdentityCertificationTaskStatus-BetaId $Id -BetaTaskId $TaskId 
+    Get-BetaIdentityCertificationTaskStatus -BetaId $Id  -BetaTaskId $TaskId 
     
     # Below is a request that includes all optional parameters
     # Get-BetaIdentityCertificationTaskStatus -BetaId $Id -BetaTaskId $TaskId  
@@ -223,7 +222,7 @@ $Sorters = "name" # String | Sort results using the standard syntax described in
 # List of Reviewers for certification
 
 try {
-    Get-BetaCertificationReviewers-BetaId $Id 
+    Get-BetaCertificationReviewers -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaCertificationReviewers -BetaId $Id -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count -BetaFilters $Filters -BetaSorters $Sorters  
@@ -279,7 +278,7 @@ $ReviewReassign = @"{
 
 try {
     $Result = ConvertFrom-JsonToReviewReassign -Json $ReviewReassign
-    Submit-BetaReassignCertsAsync-BetaId $Id -BetaReviewReassign $Result
+    Submit-BetaReassignCertsAsync -BetaId $Id  -BetaReviewReassign $Result
     
     # Below is a request that includes all optional parameters
     # Submit-BetaReassignCertsAsync -BetaId $Id -BetaReviewReassign $ReviewReassign  

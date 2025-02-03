@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'RoleMiningPotentialRoleApplication', 
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | Id of the application | [optional] 
-**Name** |  Pointer to **String** | Name of the application | [optional] 
+**Id** | **String** | Id of the application | [optional] 
+**Name** | **String** | Name of the application | [optional] 
 
 ## Examples
 

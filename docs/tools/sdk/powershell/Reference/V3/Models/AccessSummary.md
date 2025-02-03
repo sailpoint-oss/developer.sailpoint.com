@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'AccessSummary', 'AccessSummary']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Access** |  Pointer to [**AccessSummaryAccess**](access-summary-access) |  | [optional] 
-**Entitlement** |  Pointer to [**ReviewableEntitlement**](reviewable-entitlement) |  | [optional] 
-**AccessProfile** |  Pointer to [**ReviewableAccessProfile**](reviewable-access-profile) |  | [optional] 
-**Role** |  Pointer to [**ReviewableRole**](reviewable-role) |  | [optional] 
+**Access** | [**AccessSummaryAccess**](access-summary-access) |  | [optional] 
+**Entitlement** | [**ReviewableEntitlement**](reviewable-entitlement) |  | [optional] 
+**AccessProfile** | [**ReviewableAccessProfile**](reviewable-access-profile) |  | [optional] 
+**Role** | [**ReviewableRole**](reviewable-role) |  | [optional] 
 
 ## Examples
 

@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'AccountRequestResult', 'AccountReques
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Errors** |  Pointer to **[]String** |  | [optional] 
-**Status** |  Pointer to **String** | The status of the account request | [optional] 
-**TicketId** |  Pointer to **String** |  | [optional] 
+**Errors** | **[]String** |  | [optional] 
+**Status** | **String** | The status of the account request | [optional] 
+**TicketId** | **String** |  | [optional] 
 
 ## Examples
 

@@ -1,4 +1,3 @@
-
 ---
 id: beta-triggers
 title: Triggers
@@ -111,7 +110,7 @@ $CompleteInvocation = @"{
 
 try {
     $Result = ConvertFrom-JsonToCompleteInvocation -Json $CompleteInvocation
-    Complete-BetaTriggerInvocation-BetaId $Id -BetaCompleteInvocation $Result
+    Complete-BetaTriggerInvocation -BetaId $Id  -BetaCompleteInvocation $Result
     
     # Below is a request that includes all optional parameters
     # Complete-BetaTriggerInvocation -BetaId $Id -BetaCompleteInvocation $CompleteInvocation  
@@ -180,7 +179,7 @@ $SubscriptionPostRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToSubscriptionPostRequest -Json $SubscriptionPostRequest
-    New-BetaSubscription-BetaSubscriptionPostRequest $Result
+    New-BetaSubscription -BetaSubscriptionPostRequest $Result
     
     # Below is a request that includes all optional parameters
     # New-BetaSubscription -BetaSubscriptionPostRequest $SubscriptionPostRequest  
@@ -223,7 +222,7 @@ $Id = "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde" # String | Subscription ID
 # Delete a Subscription
 
 try {
-    Remove-BetaSubscription-BetaId $Id 
+    Remove-BetaSubscription -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-BetaSubscription -BetaId $Id  
@@ -424,7 +423,7 @@ $Id = "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde" # String | ID of the Subscription t
 
 try {
     $Result = ConvertFrom-JsonToSubscriptionPatchRequestInner -Json $SubscriptionPatchRequestInner
-    Update-BetaSubscription-BetaId $Id -BetaSubscriptionPatchRequestInner $Result
+    Update-BetaSubscription -BetaId $Id  -BetaSubscriptionPatchRequestInner $Result
     
     # Below is a request that includes all optional parameters
     # Update-BetaSubscription -BetaId $Id -BetaSubscriptionPatchRequestInner $SubscriptionPatchRequestInner  
@@ -477,7 +476,7 @@ $TestInvocation = @"{
 
 try {
     $Result = ConvertFrom-JsonToTestInvocation -Json $TestInvocation
-    Start-BetaTestTriggerInvocation-BetaTestInvocation $Result
+    Start-BetaTestTriggerInvocation -BetaTestInvocation $Result
     
     # Below is a request that includes all optional parameters
     # Start-BetaTestTriggerInvocation -BetaTestInvocation $TestInvocation  
@@ -526,7 +525,7 @@ $ValidateFilterInputDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToValidateFilterInputDto -Json $ValidateFilterInputDto
-    Test-BetaSubscriptionFilter-BetaValidateFilterInputDto $Result
+    Test-BetaSubscriptionFilter -BetaValidateFilterInputDto $Result
     
     # Below is a request that includes all optional parameters
     # Test-BetaSubscriptionFilter -BetaValidateFilterInputDto $ValidateFilterInputDto  
@@ -604,7 +603,7 @@ $SubscriptionPutRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToSubscriptionPutRequest -Json $SubscriptionPutRequest
-    Update-BetaSubscription-BetaId $Id -BetaSubscriptionPutRequest $Result
+    Update-BetaSubscription -BetaId $Id  -BetaSubscriptionPutRequest $Result
     
     # Below is a request that includes all optional parameters
     # Update-BetaSubscription -BetaId $Id -BetaSubscriptionPutRequest $SubscriptionPutRequest  

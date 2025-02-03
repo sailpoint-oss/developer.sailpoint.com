@@ -16,19 +16,19 @@ tags: ['SDK', 'Software Development Kit', 'TemplateDtoDefault', 'V2024TemplateDt
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Key** |  Pointer to **String** | The key of the default template | [optional] 
-**Name** |  Pointer to **String** | The name of the default template | [optional] 
-**Medium** |  Pointer to  **Enum** [  "EMAIL",    "PHONE",    "SMS",    "SLACK",    "TEAMS" ] | The message medium. More mediums may be added in the future. | [optional] 
-**Locale** |  Pointer to **String** | The locale for the message text, a BCP 47 language tag. | [optional] 
-**Subject** |  Pointer to **String** | The subject of the default template | [optional] 
-**Header** |  Pointer to **String** | The header value is now located within the body field. If included with non-null values, will result in a 400. | [optional] 
-**Body** |  Pointer to **String** | The body of the default template | [optional] 
-**Footer** |  Pointer to **String** | The footer value is now located within the body field. If included with non-null values, will result in a 400. | [optional] 
-**VarFrom** |  Pointer to **String** | The ""From:"" address of the default template | [optional] 
-**ReplyTo** |  Pointer to **String** | The ""Reply To"" field of the default template | [optional] 
-**Description** |  Pointer to **String** | The description of the default template | [optional] 
-**SlackTemplate** |  Pointer to [**TemplateSlack**](template-slack) |  | [optional] 
-**TeamsTemplate** |  Pointer to [**TemplateTeams**](template-teams) |  | [optional] 
+**Key** | **String** | The key of the default template | [optional] 
+**Name** | **String** | The name of the default template | [optional] 
+**Medium** |  **Enum** [  "EMAIL",    "PHONE",    "SMS",    "SLACK",    "TEAMS" ] | The message medium. More mediums may be added in the future. | [optional] 
+**Locale** | **String** | The locale for the message text, a BCP 47 language tag. | [optional] 
+**Subject** | **String** | The subject of the default template | [optional] 
+**Header** | **String** | The header value is now located within the body field. If included with non-null values, will result in a 400. | [optional] 
+**Body** | **String** | The body of the default template | [optional] 
+**Footer** | **String** | The footer value is now located within the body field. If included with non-null values, will result in a 400. | [optional] 
+**VarFrom** | **String** | The ""From:"" address of the default template | [optional] 
+**ReplyTo** | **String** | The ""Reply To"" field of the default template | [optional] 
+**Description** | **String** | The description of the default template | [optional] 
+**SlackTemplate** | [**TemplateSlack**](template-slack) |  | [optional] 
+**TeamsTemplate** | [**TemplateTeams**](template-teams) |  | [optional] 
 
 ## Examples
 

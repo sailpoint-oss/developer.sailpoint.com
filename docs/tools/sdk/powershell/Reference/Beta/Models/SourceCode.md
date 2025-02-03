@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'SourceCode', 'BetaSourceCode']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Version** |  **String** | the version of the code | [required]
-**Script** |  **String** | The code | [required]
+**Version** | **String** | the version of the code | [required]
+**Script** | **String** | The code | [required]
 
 ## Examples
 

@@ -16,20 +16,20 @@ tags: ['SDK', 'Software Development Kit', 'LoadUncorrelatedAccountsTaskTask', 'V
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | System-generated unique ID of the task this taskStatus represents | [optional] 
-**Type** |  Pointer to **String** | Type of task this task represents | [optional] 
-**Name** |  Pointer to **String** | The name of uncorrelated accounts process | [optional] 
-**Description** |  Pointer to **String** | The description of the task | [optional] 
-**Launcher** |  Pointer to **String** | The user who initiated the task | [optional] 
-**Created** |  Pointer to **System.DateTime** | The Task creation date | [optional] 
-**Launched** |  Pointer to **System.DateTime** | The task start date | [optional] 
-**Completed** |  Pointer to **System.DateTime** | The task completion date | [optional] 
-**CompletionStatus** |  Pointer to  **Enum** [  "SUCCESS",    "WARNING",    "ERROR",    "TERMINATED",    "TEMP_ERROR" ] | Task completion status. | [optional] 
-**ParentName** |  Pointer to **String** | Name of the parent task if exists. | [optional] 
-**Messages** |  Pointer to [**[]LoadUncorrelatedAccountsTaskTaskMessagesInner**](load-uncorrelated-accounts-task-task-messages-inner) | List of the messages dedicated to the report.  From task definition perspective here usually should be warnings or errors. | [optional] 
-**Progress** |  Pointer to **String** | Current task state. | [optional] 
-**Attributes** |  Pointer to [**LoadUncorrelatedAccountsTaskTaskAttributes**](load-uncorrelated-accounts-task-task-attributes) |  | [optional] 
-**Returns** |  Pointer to [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | Return values from the task | [optional] 
+**Id** | **String** | System-generated unique ID of the task this taskStatus represents | [optional] 
+**Type** | **String** | Type of task this task represents | [optional] 
+**Name** | **String** | The name of uncorrelated accounts process | [optional] 
+**Description** | **String** | The description of the task | [optional] 
+**Launcher** | **String** | The user who initiated the task | [optional] 
+**Created** | **System.DateTime** | The Task creation date | [optional] 
+**Launched** | **System.DateTime** | The task start date | [optional] 
+**Completed** | **System.DateTime** | The task completion date | [optional] 
+**CompletionStatus** |  **Enum** [  "SUCCESS",    "WARNING",    "ERROR",    "TERMINATED",    "TEMP_ERROR" ] | Task completion status. | [optional] 
+**ParentName** | **String** | Name of the parent task if exists. | [optional] 
+**Messages** | [**[]LoadUncorrelatedAccountsTaskTaskMessagesInner**](load-uncorrelated-accounts-task-task-messages-inner) | List of the messages dedicated to the report.  From task definition perspective here usually should be warnings or errors. | [optional] 
+**Progress** | **String** | Current task state. | [optional] 
+**Attributes** | [**LoadUncorrelatedAccountsTaskTaskAttributes**](load-uncorrelated-accounts-task-task-attributes) |  | [optional] 
+**Returns** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | Return values from the task | [optional] 
 
 ## Examples
 

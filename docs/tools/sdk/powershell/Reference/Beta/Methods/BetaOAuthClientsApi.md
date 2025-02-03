@@ -1,4 +1,3 @@
-
 ---
 id: beta-o-auth-clients
 title: OAuthClients
@@ -76,7 +75,7 @@ $CreateOAuthClientRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToCreateOAuthClientRequest -Json $CreateOAuthClientRequest
-    New-BetaOauthClient-BetaCreateOAuthClientRequest $Result
+    New-BetaOauthClient -BetaCreateOAuthClientRequest $Result
     
     # Below is a request that includes all optional parameters
     # New-BetaOauthClient -BetaCreateOAuthClientRequest $CreateOAuthClientRequest  
@@ -119,7 +118,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The OAuth client id
 # Delete OAuth Client
 
 try {
-    Remove-BetaOauthClient-BetaId $Id 
+    Remove-BetaOauthClient -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-BetaOauthClient -BetaId $Id  
@@ -162,7 +161,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The OAuth client id
 # Get OAuth Client
 
 try {
-    Get-BetaOauthClient-BetaId $Id 
+    Get-BetaOauthClient -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaOauthClient -BetaId $Id  
@@ -257,7 +256,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The OAuth client id
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-BetaOauthClient-BetaId $Id -BetaJsonPatchOperation $Result
+    Update-BetaOauthClient -BetaId $Id  -BetaJsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-BetaOauthClient -BetaId $Id -BetaJsonPatchOperation $JsonPatchOperation  

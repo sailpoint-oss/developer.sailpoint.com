@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'FilterAggregation', 'FilterAggregatio
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** |  **String** | The name of the filter aggregate to be included in the result. | [required]
-**Type** |  Pointer to [**SearchFilterType**](search-filter-type) |  | [optional] 
-**Field** |  **String** | The search field to apply the filter to.  Prefix the field name with '@' to reference a nested object.  | [required]
-**Value** |  **String** | The value to filter on. | [required]
+**Name** | **String** | The name of the filter aggregate to be included in the result. | [required]
+**Type** | [**SearchFilterType**](search-filter-type) |  | [optional] 
+**Field** | **String** | The search field to apply the filter to.  Prefix the field name with '@' to reference a nested object.  | [required]
+**Value** | **String** | The value to filter on. | [required]
 
 ## Examples
 

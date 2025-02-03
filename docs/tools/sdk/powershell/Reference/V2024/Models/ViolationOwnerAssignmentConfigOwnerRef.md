@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'ViolationOwnerAssignmentConfigOwnerRe
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to  **Enum** [  "IDENTITY",    "GOVERNANCE_GROUP",    "MANAGER" ] | Owner type. | [optional] 
-**Id** |  Pointer to **String** | Owner's ID. | [optional] 
-**Name** |  Pointer to **String** | Owner's name. | [optional] 
+**Type** |  **Enum** [  "IDENTITY",    "GOVERNANCE_GROUP",    "MANAGER" ] | Owner type. | [optional] 
+**Id** | **String** | Owner's ID. | [optional] 
+**Name** | **String** | Owner's name. | [optional] 
 
 ## Examples
 

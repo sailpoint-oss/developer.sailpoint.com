@@ -1,4 +1,3 @@
-
 ---
 id: beta-connector-rule-management
 title: ConnectorRuleManagement
@@ -90,7 +89,7 @@ $ConnectorRuleCreateRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToConnectorRuleCreateRequest -Json $ConnectorRuleCreateRequest
-    New-BetaConnectorRule-BetaConnectorRuleCreateRequest $Result
+    New-BetaConnectorRule -BetaConnectorRuleCreateRequest $Result
     
     # Below is a request that includes all optional parameters
     # New-BetaConnectorRule -BetaConnectorRuleCreateRequest $ConnectorRuleCreateRequest  
@@ -134,7 +133,7 @@ $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | ID of the connector rule to 
 # Delete a Connector-Rule
 
 try {
-    Remove-BetaConnectorRule-BetaId $Id 
+    Remove-BetaConnectorRule -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-BetaConnectorRule -BetaId $Id  
@@ -178,7 +177,7 @@ $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | ID of the connector rule to 
 # Connector-Rule by ID
 
 try {
-    Get-BetaConnectorRule-BetaId $Id 
+    Get-BetaConnectorRule -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaConnectorRule -BetaId $Id  
@@ -291,7 +290,7 @@ $ConnectorRuleUpdateRequest = @"{
 # Update a Connector Rule
 
 try {
-    Update-BetaConnectorRule-BetaId $Id 
+    Update-BetaConnectorRule -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Update-BetaConnectorRule -BetaId $Id -BetaConnectorRuleUpdateRequest $ConnectorRuleUpdateRequest  
@@ -338,7 +337,7 @@ $SourceCode = @"{
 
 try {
     $Result = ConvertFrom-JsonToSourceCode -Json $SourceCode
-    Confirm-BetaConnectorRule-BetaSourceCode $Result
+    Confirm-BetaConnectorRule -BetaSourceCode $Result
     
     # Below is a request that includes all optional parameters
     # Confirm-BetaConnectorRule -BetaSourceCode $SourceCode  

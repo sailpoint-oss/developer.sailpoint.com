@@ -9,7 +9,6 @@ slug: /tools/sdk/powershell/beta/methods/apps
 tags: ['SDK', 'Software Development Kit', 'Apps', 'BetaApps']
 ---
 
-
 # Apps
   Use this API to implement source application functionality. 
 With this functionality in place, you can create, customize, and manage applications within sources.
@@ -35,9 +34,7 @@ Method | HTTP request | Description
 [**Update-BetaUserApp**](#patch-user-app) | **PATCH** `/user-apps/{id}` | Patch user app by ID
 [**Update-BetaSourceAppsInBulk**](#update-source-apps-in-bulk) | **POST** `/source-apps/bulk-update` | Bulk update source apps
 
-
 ## create-source-app
-
 This endpoint creates a source app using the given source app payload
 
 ### Parameters 
@@ -46,7 +43,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | SourceAppCreateDto | [**SourceAppCreateDto**](../models/source-app-create-dto) | True  | 
 
 ### Return type
-
 [**SourceApp**](../models/source-app)
 
 ### Responses
@@ -60,7 +56,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -76,10 +71,12 @@ $SourceAppCreateDto = @"{
   },
   "matchAllAccounts" : true
 }"@
+
 # Create source app
+
 try {
     $Result = ConvertFrom-JsonToSourceAppCreateDto -Json $SourceAppCreateDto
-    New-BetaSourceApp-BetaSourceAppCreateDto $Result
+    New-BetaSourceApp -BetaSourceAppCreateDto $Result
     
     # Below is a request that includes all optional parameters
     # New-BetaSourceApp -BetaSourceAppCreateDto $SourceAppCreateDto  
@@ -88,11 +85,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## delete-access-profiles-from-source-app-by-bulk
-
 This API returns the final list of access profiles for the specified source app after removing
 
 ### Parameters 
@@ -103,7 +97,6 @@ Path   | Id | **String** | True  | ID of the source app
   Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-
 [**AccessProfileDetails[]**](../models/access-profile-details)
 
 ### Responses
@@ -117,7 +110,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -125,13 +117,15 @@ Code | Description  | Data Type
 ```powershell
 $Id = "2c91808a7813090a017814121e121518" # String | ID of the source app
 $RequestBody = "MyRequestBody" # String[] | 
- $RequestBody = @""@ 
-
+ $RequestBody = @""@ # String[] | 
+ 
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+
 # Bulk remove access profiles from the specified source app
+
 try {
     $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
-    Remove-BetaAccessProfilesFromSourceAppByBulk-BetaId $Id -BetaRequestBody $Result
+    Remove-BetaAccessProfilesFromSourceAppByBulk -BetaId $Id  -BetaRequestBody $Result
     
     # Below is a request that includes all optional parameters
     # Remove-BetaAccessProfilesFromSourceAppByBulk -BetaId $Id -BetaRequestBody $RequestBody -BetaLimit $Limit  
@@ -140,11 +134,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## delete-source-app
-
 Use this API to delete a specific source app
 
 ### Parameters 
@@ -153,7 +144,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | source app ID.
 
 ### Return type
-
 [**SourceApp**](../models/source-app)
 
 ### Responses
@@ -167,16 +157,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "2c9180835d191a86015d28455b4a2329" # String | source app ID.
+
 # Delete source app by ID
+
 try {
-    Remove-BetaSourceApp-BetaId $Id 
+    Remove-BetaSourceApp -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-BetaSourceApp -BetaId $Id  
@@ -185,11 +176,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-source-app
-
 This API returns a source app by its ID.
 
 ### Parameters 
@@ -198,7 +186,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | ID of the source app
 
 ### Return type
-
 [**SourceApp**](../models/source-app)
 
 ### Responses
@@ -213,16 +200,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "2c91808a7813090a017814121e121518" # String | ID of the source app
+
 # Get source app by ID
+
 try {
-    Get-BetaSourceApp-BetaId $Id 
+    Get-BetaSourceApp -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaSourceApp -BetaId $Id  
@@ -231,11 +219,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-access-profiles-for-source-app
-
 This API returns the list of access profiles for the specified source app
 
 ### Parameters 
@@ -247,7 +232,6 @@ Path   | Id | **String** | True  | ID of the source app
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*
 
 ### Return type
-
 [**AccessProfileDetails[]**](../models/access-profile-details)
 
 ### Responses
@@ -261,7 +245,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -271,9 +254,11 @@ $Id = "2c91808a7813090a017814121e121518" # String | ID of the source app
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Filters = 'name eq "developer access profile"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le* (optional)
+
 # List access profiles for the specified source app
+
 try {
-    Get-BetaAccessProfilesForSourceApp-BetaId $Id 
+    Get-BetaAccessProfilesForSourceApp -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaAccessProfilesForSourceApp -BetaId $Id -BetaLimit $Limit -BetaOffset $Offset -BetaFilters $Filters  
@@ -282,11 +267,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-all-source-app
-
 This API returns the list of all source apps for the org.
 
 A token with ORG_ADMIN authority is required to call this API.
@@ -301,7 +283,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, co, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **accountSource.id**: *eq, in*  **enabled**: *eq*
 
 ### Return type
-
 [**SourceApp[]**](../models/source-app)
 
 ### Responses
@@ -315,7 +296,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -326,7 +306,9 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Sorters = "name,-modified" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, owner.id, accountSource.id** (optional)
 $Filters = 'enabled eq true' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, co, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **accountSource.id**: *eq, in*  **enabled**: *eq* (optional)
+
 # List all source apps
+
 try {
     Get-BetaAllSourceApp
     
@@ -337,11 +319,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-all-user-apps
-
 This API returns the list of all user apps with specified filters.
 This API must be used with **filters** query parameter.
 
@@ -354,7 +333,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-
 [**UserApp[]**](../models/user-app)
 
 ### Responses
@@ -368,7 +346,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -378,9 +355,11 @@ $Filters = 'name eq "user app name"' # String | Filter results using the standar
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+
 # List all user apps
+
 try {
-    Get-BetaAllUserApps-BetaFilters $Filters 
+    Get-BetaAllUserApps -BetaFilters $Filters 
     
     # Below is a request that includes all optional parameters
     # Get-BetaAllUserApps -BetaFilters $Filters -BetaLimit $Limit -BetaCount $Count -BetaOffset $Offset  
@@ -389,11 +368,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-assigned-source-app
-
 This API returns the list of source apps assigned for logged in user.
 
 ### Parameters 
@@ -406,7 +382,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, co, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **accountSource.id**: *eq, in*
 
 ### Return type
-
 [**SourceApp[]**](../models/source-app)
 
 ### Responses
@@ -420,7 +395,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -431,7 +405,9 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Sorters = "name,-modified" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, accountSource.id** (optional)
 $Filters = 'name eq "source app name"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, co, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **accountSource.id**: *eq, in* (optional)
+
 # List assigned source apps
+
 try {
     Get-BetaAssignedSourceApp
     
@@ -442,11 +418,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-available-accounts-for-user-app
-
 This API returns the list of available accounts for the specified user app. The user app needs to belong lo logged in user.
 
 ### Parameters 
@@ -458,7 +431,6 @@ Path   | Id | **String** | True  | ID of the user app
   Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-
 [**AppAccountDetails[]**](../models/app-account-details)
 
 ### Responses
@@ -472,7 +444,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -482,9 +453,11 @@ $Id = "2c91808a7813090a017814121e121518" # String | ID of the user app
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+
 # List available accounts for user app
+
 try {
-    Get-BetaAvailableAccountsForUserApp-BetaId $Id 
+    Get-BetaAvailableAccountsForUserApp -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaAvailableAccountsForUserApp -BetaId $Id -BetaLimit $Limit -BetaCount $Count -BetaOffset $Offset  
@@ -493,11 +466,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-available-source-apps
-
 This API returns the list of source apps available for access request.
 
 ### Parameters 
@@ -510,7 +480,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, co, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **accountSource.id**: *eq, in*
 
 ### Return type
-
 [**SourceApp[]**](../models/source-app)
 
 ### Responses
@@ -524,7 +493,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -535,7 +503,9 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Sorters = "name,-modified" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, owner.id, accountSource.id** (optional)
 $Filters = 'name eq "source app name"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, co, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **accountSource.id**: *eq, in* (optional)
+
 # List available source apps
+
 try {
     Get-BetaAvailableSourceApps
     
@@ -546,11 +516,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-owned-user-apps
-
 This API returns the list of user apps assigned to logged in user
 
 ### Parameters 
@@ -562,7 +529,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **ownerName**: *eq, sw*  **ownerAlias**: *eq, sw*  **accountId**: *eq*  **sourceAppId**: *eq*
 
 ### Return type
-
 [**UserApp[]**](../models/user-app)
 
 ### Responses
@@ -576,7 +542,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -586,7 +551,9 @@ $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Col
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Filters = 'name eq "user app name"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **ownerName**: *eq, sw*  **ownerAlias**: *eq, sw*  **accountId**: *eq*  **sourceAppId**: *eq* (optional)
+
 # List owned user apps
+
 try {
     Get-BetaOwnedUserApps
     
@@ -597,11 +564,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## patch-source-app
-
 This API updates an existing source app using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
 The following fields are patchable: **name**, **description**, **enabled**, **owner**, **provisionRequestEnabled**, **appCenterEnabled**, **accountSource**,  **matchAllAccounts** and **accessProfiles**.
 Name, description and owner can't be empty or null.
@@ -613,7 +577,6 @@ Path   | Id | **String** | True  | ID of the source app to patch
  Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) |   (optional) | 
 
 ### Return type
-
 [**SourceAppPatchDto**](../models/source-app-patch-dto)
 
 ### Responses
@@ -628,23 +591,23 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json-patch+json
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "2c91808a7813090a017814121e121518" # String | ID of the source app to patch
- # JsonPatchOperation[] |  (optional)
  $JsonPatchOperation = @"{
   "op" : "replace",
   "path" : "/description",
   "value" : "New description"
-}"@ 
+}"@ # JsonPatchOperation[] |  (optional)
+ 
 
 # Patch source app by ID
+
 try {
-    Update-BetaSourceApp-BetaId $Id 
+    Update-BetaSourceApp -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Update-BetaSourceApp -BetaId $Id -BetaJsonPatchOperation $JsonPatchOperation  
@@ -653,11 +616,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## patch-user-app
-
 This API updates an existing user app using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
 The following fields are patchable: **account**
 
@@ -668,7 +628,6 @@ Path   | Id | **String** | True  | ID of the user app to patch
  Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) |   (optional) | 
 
 ### Return type
-
 [**UserApp**](../models/user-app)
 
 ### Responses
@@ -683,23 +642,23 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json-patch+json
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "2c91808a7813090a017814121e121518" # String | ID of the user app to patch
- # JsonPatchOperation[] |  (optional)
  $JsonPatchOperation = @"{
   "op" : "replace",
   "path" : "/description",
   "value" : "New description"
-}"@ 
+}"@ # JsonPatchOperation[] |  (optional)
+ 
 
 # Patch user app by ID
+
 try {
-    Update-BetaUserApp-BetaId $Id 
+    Update-BetaUserApp -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Update-BetaUserApp -BetaId $Id -BetaJsonPatchOperation $JsonPatchOperation  
@@ -708,11 +667,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## update-source-apps-in-bulk
-
 This API updates source apps using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  It can update up to 50 source apps in a batch.
 The following fields can be updated: **name**, **description**, **enabled**, **owner**, **provisionRequestEnabled**, **appCenterEnabled**, **accountSource**,  **matchAllAccounts**, and **accessProfiles**.
 Name, description and owner can't be empty or null.
@@ -723,7 +679,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | SourceAppBulkUpdateRequest | [**SourceAppBulkUpdateRequest**](../models/source-app-bulk-update-request) |   (optional) | 
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -738,7 +693,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -756,7 +710,9 @@ $SourceAppBulkUpdateRequest = @"{
     "value" : false
   } ]
 }"@
+
 # Bulk update source apps
+
 try {
     Update-BetaSourceAppsInBulk
     
@@ -767,7 +723,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

@@ -16,11 +16,11 @@ tags: ['SDK', 'Software Development Kit', 'RoleMiningPotentialRoleProvisionReque
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**RoleName** |  Pointer to **String** | Name of the new role being created | [optional] 
-**RoleDescription** |  Pointer to **String** | Short description of the new role being created | [optional] 
-**OwnerId** |  Pointer to **String** | ID of the identity that will own this role | [optional] 
-**IncludeIdentities** |  Pointer to **Boolean** | When true, create access requests for the identities associated with the potential role | [optional] [default to $false]
-**DirectlyAssignedEntitlements** |  Pointer to **Boolean** | When true, assign entitlements directly to the role; otherwise, create access profiles containing the entitlements | [optional] [default to $false]
+**RoleName** | **String** | Name of the new role being created | [optional] 
+**RoleDescription** | **String** | Short description of the new role being created | [optional] 
+**OwnerId** | **String** | ID of the identity that will own this role | [optional] 
+**IncludeIdentities** | **Boolean** | When true, create access requests for the identities associated with the potential role | [optional] [default to $false]
+**DirectlyAssignedEntitlements** | **Boolean** | When true, assign entitlements directly to the role; otherwise, create access profiles containing the entitlements | [optional] [default to $false]
 
 ## Examples
 

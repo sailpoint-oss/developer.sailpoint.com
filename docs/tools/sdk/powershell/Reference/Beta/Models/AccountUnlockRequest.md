@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'AccountUnlockRequest', 'BetaAccountUn
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ExternalVerificationId** |  Pointer to **String** | If set, an external process validates that the user wants to proceed with this request. | [optional] 
-**UnlockIDNAccount** |  Pointer to **Boolean** | If set, the IDN account is unlocked after the workflow completes. | [optional] 
-**ForceProvisioning** |  Pointer to **Boolean** | If set, provisioning updates the account attribute at the source.   This option is used when the account is not synced to ensure the attribute is updated. | [optional] 
+**ExternalVerificationId** | **String** | If set, an external process validates that the user wants to proceed with this request. | [optional] 
+**UnlockIDNAccount** | **Boolean** | If set, the IDN account is unlocked after the workflow completes. | [optional] 
+**ForceProvisioning** | **Boolean** | If set, provisioning updates the account attribute at the source.   This option is used when the account is not synced to ensure the attribute is updated. | [optional] 
 
 ## Examples
 

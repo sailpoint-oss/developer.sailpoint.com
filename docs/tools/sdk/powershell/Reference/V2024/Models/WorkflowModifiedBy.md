@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'WorkflowModifiedBy', 'V2024WorkflowMo
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to  **Enum** [  "IDENTITY" ] |  | [optional] 
-**Id** |  Pointer to **String** | Identity ID | [optional] 
-**Name** |  Pointer to **String** | Human-readable display name of identity. | [optional] 
+**Type** |  **Enum** [  "IDENTITY" ] |  | [optional] 
+**Id** | **String** | Identity ID | [optional] 
+**Name** | **String** | Human-readable display name of identity. | [optional] 
 
 ## Examples
 

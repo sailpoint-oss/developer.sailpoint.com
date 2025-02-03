@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'LoadUncorrelatedAccountsTaskTaskAttri
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**QpocJobId** |  Pointer to **String** | The id of qpoc job | [optional] 
-**TaskStartDelay** |  Pointer to [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | the task start delay value | [optional] 
+**QpocJobId** | **String** | The id of qpoc job | [optional] 
+**TaskStartDelay** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | the task start delay value | [optional] 
 
 ## Examples
 

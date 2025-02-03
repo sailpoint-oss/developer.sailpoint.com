@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'Source1', 'V2024Source1']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to **String** | Attribute mapping type. | [optional] 
-**Properties** |  Pointer to [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | Attribute mapping properties. | [optional] 
+**Type** | **String** | Attribute mapping type. | [optional] 
+**Properties** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | Attribute mapping properties. | [optional] 
 
 ## Examples
 

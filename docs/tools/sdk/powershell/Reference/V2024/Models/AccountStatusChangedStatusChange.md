@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'AccountStatusChangedStatusChange', 'V
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PreviousStatus** |  Pointer to  **Enum** [  "enabled",    "disabled",    "locked" ] | the previous status of the account | [optional] 
-**NewStatus** |  Pointer to  **Enum** [  "enabled",    "disabled",    "locked" ] | the new status of the account | [optional] 
+**PreviousStatus** |  **Enum** [  "enabled",    "disabled",    "locked" ] | the previous status of the account | [optional] 
+**NewStatus** |  **Enum** [  "enabled",    "disabled",    "locked" ] | the new status of the account | [optional] 
 
 ## Examples
 

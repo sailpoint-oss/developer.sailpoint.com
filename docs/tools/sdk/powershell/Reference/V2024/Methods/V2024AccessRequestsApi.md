@@ -9,7 +9,6 @@ slug: /tools/sdk/powershell/v2024/methods/access-requests
 tags: ['SDK', 'Software Development Kit', 'AccessRequests', 'V2024AccessRequests']
 ---
 
-
 # AccessRequests
   Use this API to implement and customize access request functionality. 
 With this functionality in place, users can request access to applications, entitlements, or roles, and managers can request that team members&#39; access be revoked.
@@ -43,9 +42,7 @@ Method | HTTP request | Description
 [**Get-V2024AdministratorsAccessRequestStatus**](#list-administrators-access-request-status) | **GET** `/access-request-administration` | Access Request Status for Administrators
 [**Set-V2024AccessRequestConfig**](#set-access-request-config) | **PUT** `/access-request-config` | Update Access Request Configuration
 
-
 ## approve-bulk-access-request
-
 This API endpoint allows approving pending access requests in bulk. Maximum of 50 approval ids can be  provided in the request for one single invocation.  ORG_ADMIN or users with rights "idn:access-request-administration:write" can approve the access requests in bulk.
 
 ### Parameters 
@@ -54,7 +51,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | BulkApproveAccessRequest | [**BulkApproveAccessRequest**](../models/bulk-approve-access-request) | True  | 
 
 ### Return type
-
 [**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0)
 
 ### Responses
@@ -69,7 +65,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -79,10 +74,12 @@ $BulkApproveAccessRequest = @"{
   "comment" : "I approve these request items",
   "approvalIds" : [ "2c9180835d2e5168015d32f890ca1581", "2c9180835d2e5168015d32f890ca1582" ]
 }"@
+
 # Bulk Approve Access Request
+
 try {
     $Result = ConvertFrom-JsonToBulkApproveAccessRequest -Json $BulkApproveAccessRequest
-    Approve-V2024BulkAccessRequest-V2024BulkApproveAccessRequest $Result
+    Approve-V2024BulkAccessRequest -V2024BulkApproveAccessRequest $Result
     
     # Below is a request that includes all optional parameters
     # Approve-V2024BulkAccessRequest -V2024BulkApproveAccessRequest $BulkApproveAccessRequest  
@@ -91,11 +88,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## cancel-access-request
-
 This API endpoint cancels a pending access request. An access request can be cancelled only if it has not passed the approval step.
 In addition to users with ORG_ADMIN, any user who originally submitted the access request may cancel it.
 
@@ -105,7 +99,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | CancelAccessRequest | [**CancelAccessRequest**](../models/cancel-access-request) | True  | 
 
 ### Return type
-
 [**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0)
 
 ### Responses
@@ -120,7 +113,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -130,10 +122,12 @@ $CancelAccessRequest = @"{
   "accountActivityId" : "2c9180835d2e5168015d32f890ca1581",
   "comment" : "I requested this role by mistake."
 }"@
+
 # Cancel Access Request
+
 try {
     $Result = ConvertFrom-JsonToCancelAccessRequest -Json $CancelAccessRequest
-    Suspend-V2024AccessRequest-V2024CancelAccessRequest $Result
+    Suspend-V2024AccessRequest -V2024CancelAccessRequest $Result
     
     # Below is a request that includes all optional parameters
     # Suspend-V2024AccessRequest -V2024CancelAccessRequest $CancelAccessRequest  
@@ -142,11 +136,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## cancel-access-request-in-bulk
-
 This API endpoint allows cancelling pending access requests in bulk. Maximum of 50 access request ids can be  provided in the request for one single invocation. 
 Only ORG_ADMIN or users with rights "idn:access-request-administration:write" can cancel the access requests in  bulk.
 
@@ -156,7 +147,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | BulkCancelAccessRequest | [**BulkCancelAccessRequest**](../models/bulk-cancel-access-request) | True  | 
 
 ### Return type
-
 [**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0)
 
 ### Responses
@@ -171,7 +161,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -181,10 +170,12 @@ $BulkCancelAccessRequest = @"{
   "accessRequestIds" : [ "2c9180835d2e5168015d32f890ca1581", "2c9180835d2e5168015d32f890ca1582" ],
   "comment" : "I requested this role by mistake."
 }"@
+
 # Bulk Cancel Access Request
+
 try {
     $Result = ConvertFrom-JsonToBulkCancelAccessRequest -Json $BulkCancelAccessRequest
-    Suspend-V2024AccessRequestInBulk-V2024BulkCancelAccessRequest $Result
+    Suspend-V2024AccessRequestInBulk -V2024BulkCancelAccessRequest $Result
     
     # Below is a request that includes all optional parameters
     # Suspend-V2024AccessRequestInBulk -V2024BulkCancelAccessRequest $BulkCancelAccessRequest  
@@ -193,11 +184,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## close-access-request
-
 This endpoint closes access requests that are stuck in a pending state. It can be used throughout a request's lifecycle even after the approval state, unlike the [Cancel Access Request endpoint](https://developer.sailpoint.com/idn/api/v3/cancel-access-request/).
 
 To find pending access requests with the UI, navigate to Search and use this query: status: Pending AND "Access Request". Use the Column Chooser to select 'Tracking Number', and use the 'Download' button to export a CSV containing the tracking numbers.
@@ -218,7 +206,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | CloseAccessRequest | [**CloseAccessRequest**](../models/close-access-request) | True  | 
 
 ### Return type
-
 [**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0)
 
 ### Responses
@@ -232,7 +219,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -245,10 +231,12 @@ $CloseAccessRequest = @"{
   "completionStatus" : "Failure",
   "message" : "The IdentityNow Administrator manually closed this request."
 }"@
+
 # Close Access Request
+
 try {
     $Result = ConvertFrom-JsonToCloseAccessRequest -Json $CloseAccessRequest
-    Close-V2024AccessRequest-V2024XSailPointExperimental $XSailPointExperimental -V2024CloseAccessRequest $Result
+    Close-V2024AccessRequest -V2024XSailPointExperimental $XSailPointExperimental  -V2024CloseAccessRequest $Result
     
     # Below is a request that includes all optional parameters
     # Close-V2024AccessRequest -V2024XSailPointExperimental $XSailPointExperimental -V2024CloseAccessRequest $CloseAccessRequest  
@@ -257,11 +245,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## create-access-request
-
 Use this API to submit an access request in Identity Security Cloud (ISC), where it follows any ISC approval processes.
 
 Access requests are processed asynchronously by ISC. A successful response from this endpoint means that the request
@@ -300,7 +285,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | AccessRequest | [**AccessRequest**](../models/access-request) | True  | 
 
 ### Return type
-
 [**AccessRequestResponse**](../models/access-request-response)
 
 ### Responses
@@ -314,7 +298,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -374,10 +357,12 @@ $AccessRequest = @"{
     "type" : "ACCESS_PROFILE"
   } ]
 }"@
+
 # Submit Access Request
+
 try {
     $Result = ConvertFrom-JsonToAccessRequest -Json $AccessRequest
-    New-V2024AccessRequest-V2024AccessRequest $Result
+    New-V2024AccessRequest -V2024AccessRequest $Result
     
     # Below is a request that includes all optional parameters
     # New-V2024AccessRequest -V2024AccessRequest $AccessRequest  
@@ -386,11 +371,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-access-request-config
-
 This endpoint returns the current access-request configuration.
 
 ### Parameters 
@@ -398,7 +380,6 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 
 ### Return type
-
 [**AccessRequestConfig**](../models/access-request-config)
 
 ### Responses
@@ -412,13 +393,14 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
+
 # Get Access Request Configuration
+
 try {
     Get-V2024AccessRequestConfig
     
@@ -429,11 +411,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-access-request-status
-
 Use this API to return a list of access request statuses based on the specified query parameters.
 If an access request was made for access that an identity already has, the API ignores the access request.  These ignored requests do not display in the list of access request statuses.
 Any user with any user level can get the status of their own access requests. A user with ORG_ADMIN is required to call this API to get a list of statuses for other users.
@@ -453,7 +432,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | RequestState | **String** |   (optional) | Filter the results by the state of the request. The only valid value is *EXECUTING*.
 
 ### Return type
-
 [**RequestedItemStatus[]**](../models/requested-item-status)
 
 ### Responses
@@ -467,7 +445,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -483,7 +460,9 @@ $Offset = 10 # Int32 | Offset into the full result set. Usually specified with *
 $Filters = 'accountActivityItemId eq "2c918086771c86df0177401efcdf54c0"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **accessRequestId**: *in*  **accountActivityItemId**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **created**: *eq, in, ge, gt, le, lt, ne, isnull, sw* (optional)
 $Sorters = "created" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified, accountActivityItemId, name** (optional)
 $RequestState = "request-state=EXECUTING" # String | Filter the results by the state of the request. The only valid value is *EXECUTING*. (optional)
+
 # Access Request Status
+
 try {
     Get-V2024AccessRequestStatus
     
@@ -494,11 +473,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-administrators-access-request-status
-
 Use this API to get access request statuses of all the access requests in the org based on the specified query  parameters.
 Any user with user level ORG_ADMIN or scope idn:access-request-administration:read can access this endpoint to get  the  access request statuses
 
@@ -517,7 +493,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | RequestState | **String** |   (optional) | Filter the results by the state of the request. The only valid value is *EXECUTING*.
 
 ### Return type
-
 [**AccessRequestAdminItemStatus[]**](../models/access-request-admin-item-status)
 
 ### Responses
@@ -531,7 +506,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -547,7 +521,9 @@ $Offset = 10 # Int32 | Offset into the full result set. Usually specified with *
 $Filters = 'accountActivityItemId eq "2c918086771c86df0177401efcdf54c0"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **accountActivityItemId**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **accessRequestId**: *in*  **status**: *in, eq, ne*  **created**: *eq, in, ge, gt, le, lt, ne, isnull, sw* (optional)
 $Sorters = "created" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified, accountActivityItemId, name, accessRequestId** (optional)
 $RequestState = "request-state=EXECUTING" # String | Filter the results by the state of the request. The only valid value is *EXECUTING*. (optional)
+
 # Access Request Status for Administrators
+
 try {
     Get-V2024AdministratorsAccessRequestStatus
     
@@ -558,11 +534,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## set-access-request-config
-
 This endpoint replaces the current access-request configuration.
 
 ### Parameters 
@@ -571,7 +544,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | AccessRequestConfig | [**AccessRequestConfig**](../models/access-request-config) | True  | 
 
 ### Return type
-
 [**AccessRequestConfig**](../models/access-request-config)
 
 ### Responses
@@ -585,7 +557,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -617,10 +588,12 @@ $AccessRequestConfig = @"{
   "reauthorizationEnabled" : true,
   "approvalsMustBeExternal" : true
 }"@
+
 # Update Access Request Configuration
+
 try {
     $Result = ConvertFrom-JsonToAccessRequestConfig -Json $AccessRequestConfig
-    Set-V2024AccessRequestConfig-V2024AccessRequestConfig $Result
+    Set-V2024AccessRequestConfig -V2024AccessRequestConfig $Result
     
     # Below is a request that includes all optional parameters
     # Set-V2024AccessRequestConfig -V2024AccessRequestConfig $AccessRequestConfig  
@@ -629,7 +602,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'SelectorAccountMatchConfig', 'BetaSel
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**MatchExpression** |  Pointer to [**SelectorAccountMatchConfigMatchExpression**](selector-account-match-config-match-expression) |  | [optional] 
+**MatchExpression** | [**SelectorAccountMatchConfigMatchExpression**](selector-account-match-config-match-expression) |  | [optional] 
 
 ## Examples
 

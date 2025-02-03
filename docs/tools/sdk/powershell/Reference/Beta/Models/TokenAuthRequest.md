@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'TokenAuthRequest', 'BetaTokenAuthRequ
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Token** |  **String** | Token value | [required]
-**UserAlias** |  **String** | User alias from table spt_identity field named 'name' | [required]
-**DeliveryType** |   **Enum** [  "SMS_PERSONAL",    "VOICE_PERSONAL",    "SMS_WORK",    "VOICE_WORK",    "EMAIL_WORK",    "EMAIL_PERSONAL" ] | Token delivery type | [required]
+**Token** | **String** | Token value | [required]
+**UserAlias** | **String** | User alias from table spt_identity field named 'name' | [required]
+**DeliveryType** |  **Enum** [  "SMS_PERSONAL",    "VOICE_PERSONAL",    "SMS_WORK",    "VOICE_WORK",    "EMAIL_WORK",    "EMAIL_PERSONAL" ] | Token delivery type | [required]
 
 ## Examples
 

@@ -16,11 +16,11 @@ tags: ['SDK', 'Software Development Kit', 'AccountCorrelated', 'V2024AccountCorr
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Identity** |  [**AccountCorrelatedIdentity**](account-correlated-identity) |  | [required]
-**Source** |  [**AccountCorrelatedSource**](account-correlated-source) |  | [required]
-**Account** |  [**AccountCorrelatedAccount**](account-correlated-account) |  | [required]
-**Attributes** |  [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | The attributes associated with the account.  Attributes are unique per source. | [required]
-**EntitlementCount** |  Pointer to **Int32** | The number of entitlements associated with this account. | [optional] 
+**Identity** | [**AccountCorrelatedIdentity**](account-correlated-identity) |  | [required]
+**Source** | [**AccountCorrelatedSource**](account-correlated-source) |  | [required]
+**Account** | [**AccountCorrelatedAccount**](account-correlated-account) |  | [required]
+**Attributes** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | The attributes associated with the account.  Attributes are unique per source. | [required]
+**EntitlementCount** | **Int32** | The number of entitlements associated with this account. | [optional] 
 
 ## Examples
 

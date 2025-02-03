@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'ProcessIdentitiesRequest', 'V2024Proc
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**IdentityIds** |  Pointer to **[]String** | List of up to 250 identity IDs to process. | [optional] 
+**IdentityIds** | **[]String** | List of up to 250 identity IDs to process. | [optional] 
 
 ## Examples
 

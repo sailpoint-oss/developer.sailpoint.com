@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'AccountUncorrelated', 'BetaAccountUnc
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Identity** |  [**AccountUncorrelatedIdentity**](account-uncorrelated-identity) |  | [required]
-**Source** |  [**AccountUncorrelatedSource**](account-uncorrelated-source) |  | [required]
-**Account** |  [**AccountUncorrelatedAccount**](account-uncorrelated-account) |  | [required]
-**EntitlementCount** |  Pointer to **Int32** | The number of entitlements associated with this account. | [optional] 
+**Identity** | [**AccountUncorrelatedIdentity**](account-uncorrelated-identity) |  | [required]
+**Source** | [**AccountUncorrelatedSource**](account-uncorrelated-source) |  | [required]
+**Account** | [**AccountUncorrelatedAccount**](account-uncorrelated-account) |  | [required]
+**EntitlementCount** | **Int32** | The number of entitlements associated with this account. | [optional] 
 
 ## Examples
 

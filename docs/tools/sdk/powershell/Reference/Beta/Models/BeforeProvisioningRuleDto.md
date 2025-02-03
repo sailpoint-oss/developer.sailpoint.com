@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'BeforeProvisioningRuleDto', 'BetaBefo
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to  **Enum** [  "RULE" ] | Before Provisioning Rule DTO type. | [optional] 
-**Id** |  Pointer to **String** | Before Provisioning Rule ID. | [optional] 
-**Name** |  Pointer to **String** | Rule display name. | [optional] 
+**Type** |  **Enum** [  "RULE" ] | Before Provisioning Rule DTO type. | [optional] 
+**Id** | **String** | Before Provisioning Rule ID. | [optional] 
+**Name** | **String** | Rule display name. | [optional] 
 
 ## Examples
 

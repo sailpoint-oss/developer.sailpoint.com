@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'ContextAttributeDto', 'BetaContextAtt
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Attribute** |  Pointer to **String** | The name of the attribute | [optional] 
-**Value** |  Pointer to [**ContextAttributeDtoValue**](context-attribute-dto-value) |  | [optional] 
-**Derived** |  Pointer to **Boolean** | True if the attribute was derived. | [optional] [default to $false]
+**Attribute** | **String** | The name of the attribute | [optional] 
+**Value** | [**ContextAttributeDtoValue**](context-attribute-dto-value) |  | [optional] 
+**Derived** | **Boolean** | True if the attribute was derived. | [optional] [default to $false]
 
 ## Examples
 

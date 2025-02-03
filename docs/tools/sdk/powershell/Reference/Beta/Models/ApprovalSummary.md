@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'ApprovalSummary', 'BetaApprovalSummar
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Pending** |  Pointer to **Int32** | The number of pending access requests approvals. | [optional] 
-**Approved** |  Pointer to **Int32** | The number of approved access requests approvals. | [optional] 
-**Rejected** |  Pointer to **Int32** | The number of rejected access requests approvals. | [optional] 
+**Pending** | **Int32** | The number of pending access requests approvals. | [optional] 
+**Approved** | **Int32** | The number of approved access requests approvals. | [optional] 
+**Rejected** | **Int32** | The number of rejected access requests approvals. | [optional] 
 
 ## Examples
 

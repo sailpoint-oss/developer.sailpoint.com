@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'ObjectImportResult1', 'V2024ObjectImp
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Infos** |  [**[]SpConfigMessage1**](sp-config-message1) | Informational messages returned from the target service on import. | [required]
-**Warnings** |  [**[]SpConfigMessage1**](sp-config-message1) | Warning messages returned from the target service on import. | [required]
-**Errors** |  [**[]SpConfigMessage1**](sp-config-message1) | Error messages returned from the target service on import. | [required]
-**ImportedObjects** |  [**[]ImportObject**](import-object) | References to objects that were created or updated by the import. | [required]
+**Infos** | [**[]SpConfigMessage1**](sp-config-message1) | Informational messages returned from the target service on import. | [required]
+**Warnings** | [**[]SpConfigMessage1**](sp-config-message1) | Warning messages returned from the target service on import. | [required]
+**Errors** | [**[]SpConfigMessage1**](sp-config-message1) | Error messages returned from the target service on import. | [required]
+**ImportedObjects** | [**[]ImportObject**](import-object) | References to objects that were created or updated by the import. | [required]
 
 ## Examples
 

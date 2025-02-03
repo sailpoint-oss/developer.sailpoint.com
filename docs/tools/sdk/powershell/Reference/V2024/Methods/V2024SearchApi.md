@@ -9,7 +9,6 @@ slug: /tools/sdk/powershell/v2024/methods/search
 tags: ['SDK', 'Software Development Kit', 'Search', 'V2024Search']
 ---
 
-
 # Search
   Use this API to implement search functionality. 
 With search functionality in place, users can search their tenants for nearly any information from throughout their organizations. 
@@ -46,9 +45,7 @@ Method | HTTP request | Description
 [**Search-V2024Get**](#search-get) | **GET** `/search/{index}/{id}` | Get a Document by ID
 [**Search-V2024Post**](#search-post) | **POST** `/search` | Perform Search
 
-
 ## search-aggregate
-
 Performs a search query aggregation and returns the aggregation result. By default, you can page a maximum of 10,000 search result records.  To page past 10,000 records, you can use searchAfter paging.  Refer to [Paginating Search Queries](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-search-queries) for more information about how to implement searchAfter paging. 
 
 ### Parameters 
@@ -60,7 +57,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-
 [**AggregationResult**](../models/aggregation-result)
 
 ### Responses
@@ -74,7 +70,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json, text/csv
 
@@ -200,10 +195,12 @@ $Search = @"{
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+
 # Perform a Search Query Aggregation
+
 try {
     $Result = ConvertFrom-JsonToSearch -Json $Search
-    Search-V2024Aggregate-V2024Search $Result
+    Search-V2024Aggregate -V2024Search $Result
     
     # Below is a request that includes all optional parameters
     # Search-V2024Aggregate -V2024Search $Search -V2024Offset $Offset -V2024Limit $Limit -V2024Count $Count  
@@ -212,11 +209,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## search-count
-
 Performs a search with a provided query and returns the count of results in the X-Total-Count header.
 
 ### Parameters 
@@ -225,7 +219,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | Search | [**Search**](../models/search) | True  | 
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -239,7 +232,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -362,10 +354,12 @@ $Search = @"{
     }
   }
 }"@
+
 # Count Documents Satisfying a Query
+
 try {
     $Result = ConvertFrom-JsonToSearch -Json $Search
-    Search-V2024Count-V2024Search $Result
+    Search-V2024Count -V2024Search $Result
     
     # Below is a request that includes all optional parameters
     # Search-V2024Count -V2024Search $Search  
@@ -374,11 +368,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## search-get
-
 Fetches a single document from the specified index, using the specified document ID.
 
 ### Parameters 
@@ -388,7 +379,6 @@ Path   | Index | **String** | True  | The index from which to fetch the specifie
 Path   | Id | **String** | True  | ID of the requested document.
 
 ### Return type
-
 [**SearchDocument**](../models/search-document)
 
 ### Responses
@@ -403,7 +393,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -411,9 +400,11 @@ Code | Description  | Data Type
 ```powershell
 $Index = "accessprofiles" # String | The index from which to fetch the specified document.  The currently supported index names are: *accessprofiles*, *accountactivities*, *entitlements*, *events*, *identities*, and *roles*. 
 $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document.
+
 # Get a Document by ID
+
 try {
-    Search-V2024Get-V2024Index $Index -V2024Id $Id 
+    Search-V2024Get -V2024Index $Index  -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Search-V2024Get -V2024Index $Index -V2024Id $Id  
@@ -422,11 +413,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## search-post
-
 Perform a search with the provided query and return a matching result collection. To page past 10,000 records, you can use `searchAfter` paging.  Refer to [Paginating Search Queries](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-search-queries) for more information about how to implement `searchAfter` paging. 
 
 ### Parameters 
@@ -438,7 +426,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-
 [**SearchDocument[]**](../models/search-document)
 
 ### Responses
@@ -452,7 +439,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -578,10 +564,12 @@ $Search = @"{
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Limit = 10000 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+
 # Perform Search
+
 try {
     $Result = ConvertFrom-JsonToSearch -Json $Search
-    Search-V2024Post-V2024Search $Result
+    Search-V2024Post -V2024Search $Result
     
     # Below is a request that includes all optional parameters
     # Search-V2024Post -V2024Search $Search -V2024Offset $Offset -V2024Limit $Limit -V2024Count $Count  
@@ -590,7 +578,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

@@ -16,13 +16,13 @@ tags: ['SDK', 'Software Development Kit', 'Owns', 'V2024Owns']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Sources** |  Pointer to [**[]Reference1**](reference1) |  | [optional] 
-**Entitlements** |  Pointer to [**[]Reference1**](reference1) |  | [optional] 
-**AccessProfiles** |  Pointer to [**[]Reference1**](reference1) |  | [optional] 
-**Roles** |  Pointer to [**[]Reference1**](reference1) |  | [optional] 
-**Apps** |  Pointer to [**[]Reference1**](reference1) |  | [optional] 
-**GovernanceGroups** |  Pointer to [**[]Reference1**](reference1) |  | [optional] 
-**FallbackApprover** |  Pointer to **Boolean** |  | [optional] 
+**Sources** | [**[]Reference1**](reference1) |  | [optional] 
+**Entitlements** | [**[]Reference1**](reference1) |  | [optional] 
+**AccessProfiles** | [**[]Reference1**](reference1) |  | [optional] 
+**Roles** | [**[]Reference1**](reference1) |  | [optional] 
+**Apps** | [**[]Reference1**](reference1) |  | [optional] 
+**GovernanceGroups** | [**[]Reference1**](reference1) |  | [optional] 
+**FallbackApprover** | **Boolean** |  | [optional] 
 
 ## Examples
 

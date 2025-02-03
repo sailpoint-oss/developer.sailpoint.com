@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'IdentityProfileIdentityErrorReportArg
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AuthoritativeSource** |  **String** | Source ID. | [required]
+**AuthoritativeSource** | **String** | Source ID. | [required]
 
 ## Examples
 

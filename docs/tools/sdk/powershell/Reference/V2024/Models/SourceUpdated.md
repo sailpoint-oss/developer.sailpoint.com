@@ -16,12 +16,12 @@ tags: ['SDK', 'Software Development Kit', 'SourceUpdated', 'V2024SourceUpdated']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  **String** | The unique ID of the source. | [required]
-**Name** |  **String** | The user friendly name of the source. | [required]
-**Type** |  **String** | The connection type of the source. | [required]
-**Modified** |  **System.DateTime** | The date and time the source was modified. | [required]
-**Connector** |  **String** | The connector type used to connect to the source. | [required]
-**Actor** |  [**SourceUpdatedActor**](source-updated-actor) |  | [required]
+**Id** | **String** | The unique ID of the source. | [required]
+**Name** | **String** | The user friendly name of the source. | [required]
+**Type** | **String** | The connection type of the source. | [required]
+**Modified** | **System.DateTime** | The date and time the source was modified. | [required]
+**Connector** | **String** | The connector type used to connect to the source. | [required]
+**Actor** | [**SourceUpdatedActor**](source-updated-actor) |  | [required]
 
 ## Examples
 

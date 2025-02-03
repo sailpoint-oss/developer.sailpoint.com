@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'ProvisioningCompletedAccountRequestsI
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AttributeName** |  **String** | The name of the attribute being provisioned. | [required]
-**AttributeValue** |  Pointer to **String** | The value of the attribute being provisioned. | [optional] 
-**Operation** |   **Enum** [  "Add",    "Set",    "Remove" ] | The operation to handle the attribute. | [required]
+**AttributeName** | **String** | The name of the attribute being provisioned. | [required]
+**AttributeValue** | **String** | The value of the attribute being provisioned. | [optional] 
+**Operation** |  **Enum** [  "Add",    "Set",    "Remove" ] | The operation to handle the attribute. | [required]
 
 ## Examples
 

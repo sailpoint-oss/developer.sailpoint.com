@@ -16,18 +16,18 @@ tags: ['SDK', 'Software Development Kit', 'AccessItemEntitlementResponse', 'V202
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccessType** |  Pointer to **String** | the access item type. entitlement in this case | [optional] 
-**Id** |  Pointer to **String** | the access item id | [optional] 
-**Attribute** |  Pointer to **String** | the entitlement attribute | [optional] 
-**Value** |  Pointer to **String** | the associated value | [optional] 
-**EntitlementType** |  Pointer to **String** | the type of entitlement | [optional] 
-**SourceName** |  Pointer to **String** | the name of the source | [optional] 
-**SourceId** |  Pointer to **String** | the id of the source | [optional] 
-**Description** |  Pointer to **String** | the description for the entitlment | [optional] 
-**DisplayName** |  Pointer to **String** | the display name of the identity | [optional] 
-**Standalone** |  **Boolean** | indicates whether the entitlement is standalone | [required]
-**Privileged** |  **Boolean** | indicates whether the entitlement is privileged | [required]
-**CloudGoverned** |  **Boolean** | indicates whether the entitlement is cloud governed | [required]
+**AccessType** | **String** | the access item type. entitlement in this case | [optional] 
+**Id** | **String** | the access item id | [optional] 
+**Attribute** | **String** | the entitlement attribute | [optional] 
+**Value** | **String** | the associated value | [optional] 
+**EntitlementType** | **String** | the type of entitlement | [optional] 
+**SourceName** | **String** | the name of the source | [optional] 
+**SourceId** | **String** | the id of the source | [optional] 
+**Description** | **String** | the description for the entitlment | [optional] 
+**DisplayName** | **String** | the display name of the identity | [optional] 
+**Standalone** | **Boolean** | indicates whether the entitlement is standalone | [required]
+**Privileged** | **Boolean** | indicates whether the entitlement is privileged | [required]
+**CloudGoverned** | **Boolean** | indicates whether the entitlement is cloud governed | [required]
 
 ## Examples
 

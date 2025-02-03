@@ -9,7 +9,6 @@ slug: /tools/sdk/powershell/v3/methods/tagged-objects
 tags: ['SDK', 'Software Development Kit', 'TaggedObjects', 'TaggedObjects']
 ---
 
-
 # TaggedObjects
   Use this API to implement object tagging functionality. 
 With object tagging functionality in place, any user in an organization can use tags as a way to group objects together and find them more quickly when the user searches Identity Security Cloud. 
@@ -80,9 +79,7 @@ Method | HTTP request | Description
 [**Set-TagToObject**](#set-tag-to-object) | **POST** `/tagged-objects` | Add Tag to Object
 [**Set-TagsToManyObjects**](#set-tags-to-many-objects) | **POST** `/tagged-objects/bulk-add` | Tag Multiple Objects
 
-
 ## delete-tagged-object
-
 Delete all tags from a tagged object.
 
 ### Parameters 
@@ -92,7 +89,6 @@ Path   | Type | **String** | True  | The type of object to delete tags from.
 Path   | Id | **String** | True  | The ID of the object to delete tags from.
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -106,7 +102,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -114,9 +109,11 @@ Code | Description  | Data Type
 ```powershell
 $Type = "ACCESS_PROFILE" # String | The type of object to delete tags from.
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the object to delete tags from.
+
 # Delete Object Tags
+
 try {
-    Remove-TaggedObject-Type $Type -Id $Id 
+    Remove-TaggedObject -Type $Type  -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-TaggedObject -Type $Type -Id $Id  
@@ -125,11 +122,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## delete-tags-to-many-object
-
 This API removes tags from multiple objects.
 
 ### Parameters 
@@ -138,7 +132,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | BulkRemoveTaggedObject | [**BulkRemoveTaggedObject**](../models/bulk-remove-tagged-object) | True  | Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -152,7 +145,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -170,10 +162,12 @@ $BulkRemoveTaggedObject = @"{
   } ],
   "tags" : [ "BU_FINANCE", "PCI" ]
 }"@
+
 # Remove Tags from Multiple Objects
+
 try {
     $Result = ConvertFrom-JsonToBulkRemoveTaggedObject -Json $BulkRemoveTaggedObject
-    Remove-TagsToManyObject-BulkRemoveTaggedObject $Result
+    Remove-TagsToManyObject -BulkRemoveTaggedObject $Result
     
     # Below is a request that includes all optional parameters
     # Remove-TagsToManyObject -BulkRemoveTaggedObject $BulkRemoveTaggedObject  
@@ -182,11 +176,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-tagged-object
-
 This gets a tagged object for the specified type.
 
 ### Parameters 
@@ -196,7 +187,6 @@ Path   | Type | **String** | True  | The type of tagged object to retrieve.
 Path   | Id | **String** | True  | The ID of the object reference to retrieve.
 
 ### Return type
-
 [**TaggedObject**](../models/tagged-object)
 
 ### Responses
@@ -210,7 +200,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -218,9 +207,11 @@ Code | Description  | Data Type
 ```powershell
 $Type = "ACCESS_PROFILE" # String | The type of tagged object to retrieve.
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the object reference to retrieve.
+
 # Get Tagged Object
+
 try {
-    Get-TaggedObject-Type $Type -Id $Id 
+    Get-TaggedObject -Type $Type  -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-TaggedObject -Type $Type -Id $Id  
@@ -229,11 +220,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-tagged-objects
-
 This API returns a list of all tagged objects.
 
 Any authenticated token may be used to call this API.
@@ -247,7 +235,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **objectRef.id**: *eq, in*  **objectRef.type**: *eq, in*  **tagName**: *eq, in*
 
 ### Return type
-
 [**TaggedObject[]**](../models/tagged-object)
 
 ### Responses
@@ -261,7 +248,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -271,7 +257,9 @@ $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Col
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Filters = 'tagName eq "BU_FINANCE"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **objectRef.id**: *eq, in*  **objectRef.type**: *eq, in*  **tagName**: *eq, in* (optional)
+
 # List Tagged Objects
+
 try {
     Get-TaggedObjects
     
@@ -282,11 +270,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-tagged-objects-by-type
-
 This API returns a list of all tagged objects by type.
 
 Any authenticated token may be used to call this API.
@@ -301,7 +286,6 @@ Path   | Type | **String** | True  | The type of tagged object to retrieve.
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **objectRef.id**: *eq*  **objectRef.type**: *eq*
 
 ### Return type
-
 [**TaggedObject[]**](../models/tagged-object)
 
 ### Responses
@@ -315,7 +299,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -326,9 +309,11 @@ $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Col
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Filters = 'objectRef.id eq "2c91808568c529c60168cca6f90c1313"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **objectRef.id**: *eq*  **objectRef.type**: *eq* (optional)
+
 # List Tagged Objects by Type
+
 try {
-    Get-TaggedObjectsByType-Type $Type 
+    Get-TaggedObjectsByType -Type $Type 
     
     # Below is a request that includes all optional parameters
     # Get-TaggedObjectsByType -Type $Type -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters  
@@ -337,11 +322,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## put-tagged-object
-
 This updates a tagged object for the specified type.
 
 ### Parameters 
@@ -352,7 +334,6 @@ Path   | Id | **String** | True  | The ID of the object reference to update.
  Body  | TaggedObject | [**TaggedObject**](../models/tagged-object) | True  | 
 
 ### Return type
-
 [**TaggedObject**](../models/tagged-object)
 
 ### Responses
@@ -366,7 +347,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -382,10 +362,12 @@ $TaggedObject = @"{
   },
   "tags" : [ "BU_FINANCE", "PCI" ]
 }"@
+
 # Update Tagged Object
+
 try {
     $Result = ConvertFrom-JsonToTaggedObject -Json $TaggedObject
-    Send-TaggedObject-Type $Type -Id $Id -TaggedObject $Result
+    Send-TaggedObject -Type $Type  -Id $Id  -TaggedObject $Result
     
     # Below is a request that includes all optional parameters
     # Send-TaggedObject -Type $Type -Id $Id -TaggedObject $TaggedObject  
@@ -394,11 +376,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## set-tag-to-object
-
 This adds a tag to an object.
 
 Any authenticated token may be used to call this API.
@@ -409,7 +388,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | TaggedObject | [**TaggedObject**](../models/tagged-object) | True  | 
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -423,7 +401,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -437,10 +414,12 @@ $TaggedObject = @"{
   },
   "tags" : [ "BU_FINANCE", "PCI" ]
 }"@
+
 # Add Tag to Object
+
 try {
     $Result = ConvertFrom-JsonToTaggedObject -Json $TaggedObject
-    Set-TagToObject-TaggedObject $Result
+    Set-TagToObject -TaggedObject $Result
     
     # Below is a request that includes all optional parameters
     # Set-TagToObject -TaggedObject $TaggedObject  
@@ -449,11 +428,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## set-tags-to-many-objects
-
 This API adds tags to multiple objects.
 
 ### Parameters 
@@ -462,7 +438,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | BulkAddTaggedObject | [**BulkAddTaggedObject**](../models/bulk-add-tagged-object) | True  | Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
 
 ### Return type
-
 [**BulkTaggedObjectResponse[]**](../models/bulk-tagged-object-response)
 
 ### Responses
@@ -476,7 +451,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -495,10 +469,12 @@ $BulkAddTaggedObject = @"{
   "operation" : "MERGE",
   "tags" : [ "BU_FINANCE", "PCI" ]
 }"@
+
 # Tag Multiple Objects
+
 try {
     $Result = ConvertFrom-JsonToBulkAddTaggedObject -Json $BulkAddTaggedObject
-    Set-TagsToManyObjects-BulkAddTaggedObject $Result
+    Set-TagsToManyObjects -BulkAddTaggedObject $Result
     
     # Below is a request that includes all optional parameters
     # Set-TagsToManyObjects -BulkAddTaggedObject $BulkAddTaggedObject  
@@ -507,7 +483,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

@@ -9,7 +9,6 @@ slug: /tools/sdk/powershell/beta/methods/vendor-connector-mappings
 tags: ['SDK', 'Software Development Kit', 'VendorConnectorMappings', 'BetaVendorConnectorMappings']
 ---
 
-
 # VendorConnectorMappings
   Vendors use ISC connectors to connect their source data to ISC, but the data in their source and the data in ISC may be stored in different formats. 
 Connector mappings allow vendors to match their data on both sides of the connection. 
@@ -26,9 +25,7 @@ Method | HTTP request | Description
 [**Remove-BetaVendorConnectorMapping**](#delete-vendor-connector-mapping) | **DELETE** `/vendor-connector-mappings` | Delete Vendor Connector Mapping
 [**Get-BetaVendorConnectorMappings**](#get-vendor-connector-mappings) | **GET** `/vendor-connector-mappings` | List Vendor Connector Mappings
 
-
 ## create-vendor-connector-mapping
-
 Create a new mapping between a SaaS vendor and an ISC connector to establish correlation paths.
 
 
@@ -38,7 +35,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | VendorConnectorMapping | [**VendorConnectorMapping**](../models/vendor-connector-mapping) | True  | 
 
 ### Return type
-
 [**VendorConnectorMapping**](../models/vendor-connector-mapping)
 
 ### Responses
@@ -53,7 +49,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -82,10 +77,12 @@ $VendorConnectorMapping = @"{
     "Time" : "2024-03-14T12:56:19.391294Z"
   }
 }"@
+
 # Create Vendor Connector Mapping
+
 try {
     $Result = ConvertFrom-JsonToVendorConnectorMapping -Json $VendorConnectorMapping
-    New-BetaVendorConnectorMapping-BetaVendorConnectorMapping $Result
+    New-BetaVendorConnectorMapping -BetaVendorConnectorMapping $Result
     
     # Below is a request that includes all optional parameters
     # New-BetaVendorConnectorMapping -BetaVendorConnectorMapping $VendorConnectorMapping  
@@ -94,11 +91,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## delete-vendor-connector-mapping
-
 Soft delete a mapping between a SaaS vendor and an ISC connector, removing the established correlation.
 
 
@@ -108,7 +102,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | VendorConnectorMapping | [**VendorConnectorMapping**](../models/vendor-connector-mapping) | True  | 
 
 ### Return type
-
 [**DeleteVendorConnectorMapping200Response**](../models/delete-vendor-connector-mapping200-response)
 
 ### Responses
@@ -123,7 +116,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -152,10 +144,12 @@ $VendorConnectorMapping = @"{
     "Time" : "2024-03-14T12:56:19.391294Z"
   }
 }"@
+
 # Delete Vendor Connector Mapping
+
 try {
     $Result = ConvertFrom-JsonToVendorConnectorMapping -Json $VendorConnectorMapping
-    Remove-BetaVendorConnectorMapping-BetaVendorConnectorMapping $Result
+    Remove-BetaVendorConnectorMapping -BetaVendorConnectorMapping $Result
     
     # Below is a request that includes all optional parameters
     # Remove-BetaVendorConnectorMapping -BetaVendorConnectorMapping $VendorConnectorMapping  
@@ -164,11 +158,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-vendor-connector-mappings
-
 Get a list of mappings between SaaS vendors and ISC connectors, detailing the connections established for correlation.
 
 
@@ -177,7 +168,6 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 
 ### Return type
-
 [**VendorConnectorMapping[]**](../models/vendor-connector-mapping)
 
 ### Responses
@@ -192,13 +182,14 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
+
 # List Vendor Connector Mappings
+
 try {
     Get-BetaVendorConnectorMappings
     
@@ -209,7 +200,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

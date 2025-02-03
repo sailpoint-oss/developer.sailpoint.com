@@ -9,7 +9,6 @@ slug: /tools/sdk/powershell/beta/methods/identity-attributes
 tags: ['SDK', 'Software Development Kit', 'IdentityAttributes', 'BetaIdentityAttributes']
 ---
 
-
 # IdentityAttributes
    
   
@@ -25,9 +24,7 @@ Method | HTTP request | Description
 [**Get-BetaIdentityAttributes**](#list-identity-attributes) | **GET** `/identity-attributes` | List Identity Attributes
 [**Send-BetaIdentityAttribute**](#put-identity-attribute) | **PUT** `/identity-attributes/{name}` | Update Identity Attribute
 
-
 ## create-identity-attribute
-
 Use this API to create a new identity attribute.   A token with ORG_ADMIN authority is required to call this API.
 
 ### Parameters 
@@ -36,7 +33,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | IdentityAttribute | [**IdentityAttribute**](../models/identity-attribute) | True  | 
 
 ### Return type
-
 [**IdentityAttribute**](../models/identity-attribute)
 
 ### Responses
@@ -51,7 +47,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -79,10 +74,12 @@ $IdentityAttribute = @"{
   "searchable" : false,
   "multi" : false
 }"@
+
 # Create Identity Attribute
+
 try {
     $Result = ConvertFrom-JsonToIdentityAttribute -Json $IdentityAttribute
-    New-BetaIdentityAttribute-BetaIdentityAttribute $Result
+    New-BetaIdentityAttribute -BetaIdentityAttribute $Result
     
     # Below is a request that includes all optional parameters
     # New-BetaIdentityAttribute -BetaIdentityAttribute $IdentityAttribute  
@@ -91,11 +88,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## delete-identity-attribute
-
 This deletes an identity attribute with the given name.  The `system` and `standard` properties must be set to false before you can delete an identity attribute.   A token with ORG_ADMIN authority is required to call this API.
 
 ### Parameters 
@@ -104,7 +98,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Name | **String** | True  | The attribute's technical name.
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -119,16 +112,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Name = "displayName" # String | The attribute's technical name.
+
 # Delete Identity Attribute
+
 try {
-    Remove-BetaIdentityAttribute-BetaName $Name 
+    Remove-BetaIdentityAttribute -BetaName $Name 
     
     # Below is a request that includes all optional parameters
     # Remove-BetaIdentityAttribute -BetaName $Name  
@@ -137,11 +131,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## delete-identity-attributes-in-bulk
-
 Use this API to bulk delete identity attributes for a given set of names. Attributes that are currently mapped in an identity profile cannot be deleted.  The `system` and `standard` properties must be set to 'false' before you can delete an identity attribute.   A token with ORG_ADMIN authority is required to call this API.
 
 ### Parameters 
@@ -150,7 +141,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | IdentityAttributeNames | [**IdentityAttributeNames**](../models/identity-attribute-names) | True  | 
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -165,7 +155,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -174,10 +163,12 @@ Code | Description  | Data Type
 $IdentityAttributeNames = @"{
   "ids" : [ "name", "displayName" ]
 }"@
+
 # Bulk delete Identity Attributes
+
 try {
     $Result = ConvertFrom-JsonToIdentityAttributeNames -Json $IdentityAttributeNames
-    Remove-BetaIdentityAttributesInBulk-BetaIdentityAttributeNames $Result
+    Remove-BetaIdentityAttributesInBulk -BetaIdentityAttributeNames $Result
     
     # Below is a request that includes all optional parameters
     # Remove-BetaIdentityAttributesInBulk -BetaIdentityAttributeNames $IdentityAttributeNames  
@@ -186,11 +177,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-identity-attribute
-
 This gets an identity attribute for a given technical name.
 
 ### Parameters 
@@ -199,7 +187,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Name | **String** | True  | The attribute's technical name.
 
 ### Return type
-
 [**IdentityAttribute**](../models/identity-attribute)
 
 ### Responses
@@ -214,16 +201,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Name = "displayName" # String | The attribute's technical name.
+
 # Get Identity Attribute
+
 try {
-    Get-BetaIdentityAttribute-BetaName $Name 
+    Get-BetaIdentityAttribute -BetaName $Name 
     
     # Below is a request that includes all optional parameters
     # Get-BetaIdentityAttribute -BetaName $Name  
@@ -232,11 +220,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-identity-attributes
-
 Use this API to get a collection of identity attributes.
 
 ### Parameters 
@@ -248,7 +233,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-
 [**IdentityAttribute[]**](../models/identity-attribute)
 
 ### Responses
@@ -262,7 +246,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -272,7 +255,9 @@ $IncludeSystem = $false # Boolean | Include 'system' attributes in the response.
 $IncludeSilent = $false # Boolean | Include 'silent' attributes in the response. (optional) (default to $false)
 $SearchableOnly = $false # Boolean | Include only 'searchable' attributes in the response. (optional) (default to $false)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+
 # List Identity Attributes
+
 try {
     Get-BetaIdentityAttributes
     
@@ -283,11 +268,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## put-identity-attribute
-
 This updates an existing identity attribute.  Making an attribute searchable requires that the `system`, `standard`, and `multi` properties be set to false.   A token with ORG_ADMIN authority is required to call this API.
 
 ### Parameters 
@@ -297,7 +279,6 @@ Path   | Name | **String** | True  | The attribute's technical name.
  Body  | IdentityAttribute | [**IdentityAttribute**](../models/identity-attribute) | True  | 
 
 ### Return type
-
 [**IdentityAttribute**](../models/identity-attribute)
 
 ### Responses
@@ -312,7 +293,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -341,10 +321,12 @@ $IdentityAttribute = @"{
   "searchable" : false,
   "multi" : false
 }"@
+
 # Update Identity Attribute
+
 try {
     $Result = ConvertFrom-JsonToIdentityAttribute -Json $IdentityAttribute
-    Send-BetaIdentityAttribute-BetaName $Name -BetaIdentityAttribute $Result
+    Send-BetaIdentityAttribute -BetaName $Name  -BetaIdentityAttribute $Result
     
     # Below is a request that includes all optional parameters
     # Send-BetaIdentityAttribute -BetaName $Name -BetaIdentityAttribute $IdentityAttribute  
@@ -353,7 +335,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

@@ -16,11 +16,11 @@ tags: ['SDK', 'Software Development Kit', 'ApprovalComment', 'V2024ApprovalComme
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Comment** |  **String** | Comment provided either by the approval requester or the approver. | [required]
-**Timestamp** |  **System.DateTime** | The time when this comment was provided. | [required]
-**User** |  **String** | Name of the user that provided this comment. | [required]
-**Id** |  **String** | Id of the user that provided this comment. | [required]
-**ChangedToStatus** |   **Enum** [  "PENDING_APPROVAL",    "APPROVED",    "REJECTED" ] | Status transition of the draft. | [required]
+**Comment** | **String** | Comment provided either by the approval requester or the approver. | [required]
+**Timestamp** | **System.DateTime** | The time when this comment was provided. | [required]
+**User** | **String** | Name of the user that provided this comment. | [required]
+**Id** | **String** | Id of the user that provided this comment. | [required]
+**ChangedToStatus** |  **Enum** [  "PENDING_APPROVAL",    "APPROVED",    "REJECTED" ] | Status transition of the draft. | [required]
 
 ## Examples
 

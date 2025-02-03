@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'ProvisioningCompletedRecipient', 'V20
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |   **Enum** [  "IDENTITY" ] | Provisioning recipient DTO type. | [required]
-**Id** |  **String** | Provisioning recipient's identity ID. | [required]
-**Name** |  **String** | Provisioning recipient's display name. | [required]
+**Type** |  **Enum** [  "IDENTITY" ] | Provisioning recipient DTO type. | [required]
+**Id** | **String** | Provisioning recipient's identity ID. | [required]
+**Name** | **String** | Provisioning recipient's display name. | [required]
 
 ## Examples
 

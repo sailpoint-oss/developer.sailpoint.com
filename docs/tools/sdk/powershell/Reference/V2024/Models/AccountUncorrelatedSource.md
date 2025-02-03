@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'AccountUncorrelatedSource', 'V2024Acc
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |   **Enum** [  "SOURCE" ] | The DTO type of the source the accounts are uncorrelated from. | [required]
-**Id** |  **String** | The ID of the source the accounts are uncorrelated from. | [required]
-**Name** |  **String** | Display name of the source the accounts are uncorrelated from. | [required]
+**Type** |  **Enum** [  "SOURCE" ] | The DTO type of the source the accounts are uncorrelated from. | [required]
+**Id** | **String** | The ID of the source the accounts are uncorrelated from. | [required]
+**Name** | **String** | Display name of the source the accounts are uncorrelated from. | [required]
 
 ## Examples
 

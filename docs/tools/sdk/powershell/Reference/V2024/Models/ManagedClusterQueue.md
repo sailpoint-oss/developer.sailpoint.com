@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'ManagedClusterQueue', 'V2024ManagedCl
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** |  Pointer to **String** | ManagedCluster queue name | [optional] 
-**Region** |  Pointer to **String** | ManagedCluster queue aws region | [optional] 
+**Name** | **String** | ManagedCluster queue name | [optional] 
+**Region** | **String** | ManagedCluster queue aws region | [optional] 
 
 ## Examples
 

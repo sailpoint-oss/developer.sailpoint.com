@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'Schedule2Days', 'V2024Schedule2Days']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ApplicationId** |  Pointer to **String** | The application id | [optional] 
-**AccountMatchConfig** |  Pointer to [**SelectorAccountMatchConfig**](selector-account-match-config) |  | [optional] 
+**ApplicationId** | **String** | The application id | [optional] 
+**AccountMatchConfig** | [**SelectorAccountMatchConfig**](selector-account-match-config) |  | [optional] 
 
 ## Examples
 

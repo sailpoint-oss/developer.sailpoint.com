@@ -16,11 +16,11 @@ tags: ['SDK', 'Software Development Kit', 'ExpansionItem', 'V2024ExpansionItem']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccountId** |  Pointer to **String** | The ID of the account | [optional] 
-**Cause** |  Pointer to **String** |  | [optional] 
-**Name** |  Pointer to **String** | The name of the item | [optional] 
-**AttributeRequests** |  Pointer to [**[]AttributeRequest**](attribute-request) |  | [optional] 
-**Source** |  Pointer to [**AccountSource**](account-source) |  | [optional] 
+**AccountId** | **String** | The ID of the account | [optional] 
+**Cause** | **String** |  | [optional] 
+**Name** | **String** | The name of the item | [optional] 
+**AttributeRequests** | [**[]AttributeRequest**](attribute-request) |  | [optional] 
+**Source** | [**AccountSource**](account-source) |  | [optional] 
 
 ## Examples
 

@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'PublicIdentityConfig', 'PublicIdentit
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Attributes** |  Pointer to [**[]PublicIdentityAttributeConfig**](public-identity-attribute-config) | Up to 5 identity attributes that will be available to everyone in the org for all users in the org. | [optional] 
-**Modified** |  Pointer to **System.DateTime** | When this configuration was last modified. | [optional] 
-**ModifiedBy** |  Pointer to [**IdentityReference**](identity-reference) |  | [optional] 
+**Attributes** | [**[]PublicIdentityAttributeConfig**](public-identity-attribute-config) | Up to 5 identity attributes that will be available to everyone in the org for all users in the org. | [optional] 
+**Modified** | **System.DateTime** | When this configuration was last modified. | [optional] 
+**ModifiedBy** | [**IdentityReference**](identity-reference) |  | [optional] 
 
 ## Examples
 

@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'AccountToggleRequest', 'V2024AccountT
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ExternalVerificationId** |  Pointer to **String** | If set, an external process validates that the user wants to proceed with this request. | [optional] 
-**ForceProvisioning** |  Pointer to **Boolean** | If set, provisioning updates the account attribute at the source.   This option is used when the account is not synced to ensure the attribute is updated. Providing 'true' for an unlocked account will add and process 'Unlock' operation by the workflow. | [optional] 
+**ExternalVerificationId** | **String** | If set, an external process validates that the user wants to proceed with this request. | [optional] 
+**ForceProvisioning** | **Boolean** | If set, provisioning updates the account attribute at the source.   This option is used when the account is not synced to ensure the attribute is updated. Providing 'true' for an unlocked account will add and process 'Unlock' operation by the workflow. | [optional] 
 
 ## Examples
 

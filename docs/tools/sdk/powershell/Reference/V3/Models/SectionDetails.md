@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'SectionDetails', 'SectionDetails']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** |  Pointer to **String** | Name of the FormItem | [optional] 
-**Label** |  Pointer to **String** | Label of the section | [optional] 
-**FormItems** |  Pointer to [**[]SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | List of FormItems. FormItems can be SectionDetails and/or FieldDetails | [optional] 
+**Name** | **String** | Name of the FormItem | [optional] 
+**Label** | **String** | Label of the section | [optional] 
+**FormItems** | [**[]SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | List of FormItems. FormItems can be SectionDetails and/or FieldDetails | [optional] 
 
 ## Examples
 

@@ -16,20 +16,20 @@ tags: ['SDK', 'Software Development Kit', 'TaskResultDetails', 'TaskResultDetail
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to  **Enum** [  "QUARTZ",    "QPOC",    "MENTOS",    "QUEUED_TASK" ] | Type of the job or task underlying in the report processing. It could be a quartz task, QPOC or MENTOS jobs or a refresh/sync task. | [optional] 
-**Id** |  Pointer to **String** | Unique task definition identifier. | [optional] 
-**ReportType** |  Pointer to  **Enum** [  "ACCOUNTS",    "IDENTITIES_DETAILS",    "IDENTITIES",    "IDENTITY_PROFILE_IDENTITY_ERROR",    "ORPHAN_IDENTITIES",    "SEARCH_EXPORT",    "UNCORRELATED_ACCOUNTS" ] | Use this property to define what report should be processed in the RDE service. | [optional] 
-**Description** |  Pointer to **String** | Description of the report purpose and/or contents. | [optional] 
-**ParentName** |  Pointer to **String** | Name of the parent task/report if exists. | [optional] 
-**Launcher** |  Pointer to **String** | Name of the report processing initiator. | [optional] 
-**Created** |  Pointer to **System.DateTime** | Report creation date | [optional] 
-**Launched** |  Pointer to **System.DateTime** | Report start date | [optional] 
-**Completed** |  Pointer to **System.DateTime** | Report completion date | [optional] 
-**CompletionStatus** |  Pointer to  **Enum** [  "SUCCESS",    "WARNING",    "ERROR",    "TERMINATED",    "TEMP_ERROR" ] | Report completion status. | [optional] 
-**Messages** |  Pointer to [**[]TaskResultDetailsMessagesInner**](task-result-details-messages-inner) | List of the messages dedicated to the report.  From task definition perspective here usually should be warnings or errors. | [optional] 
-**Returns** |  Pointer to [**[]TaskResultDetailsReturnsInner**](task-result-details-returns-inner) | Task definition results, if necessary. | [optional] 
-**Attributes** |  Pointer to [**map[string]SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | Extra attributes map(dictionary) needed for the report. | [optional] 
-**Progress** |  Pointer to **String** | Current report state. | [optional] 
+**Type** |  **Enum** [  "QUARTZ",    "QPOC",    "MENTOS",    "QUEUED_TASK" ] | Type of the job or task underlying in the report processing. It could be a quartz task, QPOC or MENTOS jobs or a refresh/sync task. | [optional] 
+**Id** | **String** | Unique task definition identifier. | [optional] 
+**ReportType** |  **Enum** [  "ACCOUNTS",    "IDENTITIES_DETAILS",    "IDENTITIES",    "IDENTITY_PROFILE_IDENTITY_ERROR",    "ORPHAN_IDENTITIES",    "SEARCH_EXPORT",    "UNCORRELATED_ACCOUNTS" ] | Use this property to define what report should be processed in the RDE service. | [optional] 
+**Description** | **String** | Description of the report purpose and/or contents. | [optional] 
+**ParentName** | **String** | Name of the parent task/report if exists. | [optional] 
+**Launcher** | **String** | Name of the report processing initiator. | [optional] 
+**Created** | **System.DateTime** | Report creation date | [optional] 
+**Launched** | **System.DateTime** | Report start date | [optional] 
+**Completed** | **System.DateTime** | Report completion date | [optional] 
+**CompletionStatus** |  **Enum** [  "SUCCESS",    "WARNING",    "ERROR",    "TERMINATED",    "TEMP_ERROR" ] | Report completion status. | [optional] 
+**Messages** | [**[]TaskResultDetailsMessagesInner**](task-result-details-messages-inner) | List of the messages dedicated to the report.  From task definition perspective here usually should be warnings or errors. | [optional] 
+**Returns** | [**[]TaskResultDetailsReturnsInner**](task-result-details-returns-inner) | Task definition results, if necessary. | [optional] 
+**Attributes** | [**map[string]SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | Extra attributes map(dictionary) needed for the report. | [optional] 
+**Progress** | **String** | Current report state. | [optional] 
 
 ## Examples
 

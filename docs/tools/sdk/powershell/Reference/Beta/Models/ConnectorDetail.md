@@ -16,13 +16,13 @@ tags: ['SDK', 'Software Development Kit', 'ConnectorDetail', 'BetaConnectorDetai
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** |  Pointer to **String** | The connector name | [optional] 
-**SourceConfigXml** |  Pointer to **String** | XML representation of the source config data | [optional] 
-**SourceConfig** |  Pointer to **String** | JSON representation of the source config data | [optional] 
-**DirectConnect** |  Pointer to **Boolean** | true if the source is a direct connect source | [optional] 
-**FileUpload** |  Pointer to **Boolean** | Connector config's file upload attribute, false if not there | [optional] 
-**UploadedFiles** |  Pointer to **String** | List of uploaded file strings for the connector | [optional] 
-**ConnectorMetadata** |  Pointer to [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | Object containing metadata pertinent to the UI to be used | [optional] 
+**Name** | **String** | The connector name | [optional] 
+**SourceConfigXml** | **String** | XML representation of the source config data | [optional] 
+**SourceConfig** | **String** | JSON representation of the source config data | [optional] 
+**DirectConnect** | **Boolean** | true if the source is a direct connect source | [optional] 
+**FileUpload** | **Boolean** | Connector config's file upload attribute, false if not there | [optional] 
+**UploadedFiles** | **String** | List of uploaded file strings for the connector | [optional] 
+**ConnectorMetadata** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | Object containing metadata pertinent to the UI to be used | [optional] 
 
 ## Examples
 

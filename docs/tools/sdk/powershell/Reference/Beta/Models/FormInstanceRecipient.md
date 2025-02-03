@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'FormInstanceRecipient', 'BetaFormInst
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | ID is a unique identifier | [optional] 
-**Type** |  Pointer to  **Enum** [  "IDENTITY" ] | Type is a FormInstanceRecipientType value IDENTITY FormInstanceRecipientIdentity | [optional] 
+**Id** | **String** | ID is a unique identifier | [optional] 
+**Type** |  **Enum** [  "IDENTITY" ] | Type is a FormInstanceRecipientType value IDENTITY FormInstanceRecipientIdentity | [optional] 
 
 ## Examples
 

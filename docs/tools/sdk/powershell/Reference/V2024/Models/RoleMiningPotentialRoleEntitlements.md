@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'RoleMiningPotentialRoleEntitlements',
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | Id of the entitlement | [optional] 
-**Name** |  Pointer to **String** | Name of the entitlement | [optional] 
+**Id** | **String** | Id of the entitlement | [optional] 
+**Name** | **String** | Name of the entitlement | [optional] 
 
 ## Examples
 

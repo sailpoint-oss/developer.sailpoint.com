@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'AccessCriteriaCriteriaListInner', 'V2
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to  **Enum** [  "ENTITLEMENT" ] | Type of the propery to which this reference applies to | [optional] 
-**Id** |  Pointer to **String** | ID of the object to which this reference applies to | [optional] 
-**Name** |  Pointer to **String** | Human-readable display name of the object to which this reference applies to | [optional] 
+**Type** |  **Enum** [  "ENTITLEMENT" ] | Type of the propery to which this reference applies to | [optional] 
+**Id** | **String** | ID of the object to which this reference applies to | [optional] 
+**Name** | **String** | Human-readable display name of the object to which this reference applies to | [optional] 
 
 ## Examples
 

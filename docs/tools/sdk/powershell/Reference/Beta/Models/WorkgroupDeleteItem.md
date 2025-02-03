@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'WorkgroupDeleteItem', 'BetaWorkgroupD
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  **String** | Id of the Governance Group. | [required]
-**Status** |  **Int32** |  The HTTP response status code returned for an individual Governance Group that is requested for deletion during a bulk delete operation.  > 204   -  Governance Group deleted successfully.  > 409   - Governance Group is in use,hence can not be deleted.  > 404   - Governance Group not found.  | [required]
-**Description** |  Pointer to **String** | Human readable status description and containing additional context information about success or failures etc.  | [optional] 
+**Id** | **String** | Id of the Governance Group. | [required]
+**Status** | **Int32** |  The HTTP response status code returned for an individual Governance Group that is requested for deletion during a bulk delete operation.  > 204   -  Governance Group deleted successfully.  > 409   - Governance Group is in use,hence can not be deleted.  > 404   - Governance Group not found.  | [required]
+**Description** | **String** | Human readable status description and containing additional context information about success or failures etc.  | [optional] 
 
 ## Examples
 

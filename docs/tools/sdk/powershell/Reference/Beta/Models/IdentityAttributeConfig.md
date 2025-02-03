@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'IdentityAttributeConfig', 'BetaIdenti
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Enabled** |  Pointer to **Boolean** | If the profile or mapping is enabled | [optional] [default to $true]
-**AttributeTransforms** |  Pointer to [**[]IdentityAttributeTransform**](identity-attribute-transform) |  | [optional] 
+**Enabled** | **Boolean** | If the profile or mapping is enabled | [optional] [default to $true]
+**AttributeTransforms** | [**[]IdentityAttributeTransform**](identity-attribute-transform) |  | [optional] 
 
 ## Examples
 

@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'AttributeDefinitionSchema', 'V2024Att
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to  **Enum** [  "CONNECTOR_SCHEMA" ] | The type of object being referenced | [optional] 
-**Id** |  Pointer to **String** | The object ID this reference applies to. | [optional] 
-**Name** |  Pointer to **String** | The human-readable display name of the object. | [optional] 
+**Type** |  **Enum** [  "CONNECTOR_SCHEMA" ] | The type of object being referenced | [optional] 
+**Id** | **String** | The object ID this reference applies to. | [optional] 
+**Name** | **String** | The human-readable display name of the object. | [optional] 
 
 ## Examples
 

@@ -9,7 +9,6 @@ slug: /tools/sdk/powershell/v2024/methods/iai-peer-group-strategies
 tags: ['SDK', 'Software Development Kit', 'IAIPeerGroupStrategies', 'V2024IAIPeerGroupStrategies']
 ---
 
-
 # IAIPeerGroupStrategies
    
   
@@ -20,9 +19,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Get-V2024PeerGroupOutliers**](#get-peer-group-outliers) | **GET** `/peer-group-strategies/{strategy}/identity-outliers` | Identity Outliers List
 
-
 ## get-peer-group-outliers
-
 -- Deprecated : See 'IAI Outliers' This API will be used by Identity Governance systems to identify identities that are not included in an organization's peer groups. By default, 250 identities are returned. You can specify between 1 and 1000 number of identities that can be returned.
 
 ### Parameters 
@@ -35,7 +32,6 @@ Path   | Strategy | **String** | True  | The strategy used to create peer groups
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-
 [**PeerGroupMember[]**](../models/peer-group-member)
 
 ### Responses
@@ -49,7 +45,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -60,9 +55,11 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+
 # Identity Outliers List
+
 try {
-    Get-V2024PeerGroupOutliers-V2024Strategy $Strategy -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024PeerGroupOutliers -V2024Strategy $Strategy  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024PeerGroupOutliers -V2024Strategy $Strategy -V2024XSailPointExperimental $XSailPointExperimental -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count  
@@ -71,7 +68,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

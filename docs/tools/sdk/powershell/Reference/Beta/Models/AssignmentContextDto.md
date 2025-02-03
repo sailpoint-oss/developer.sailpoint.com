@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'AssignmentContextDto', 'BetaAssignmen
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Requested** |  Pointer to [**AccessRequestContext**](access-request-context) |  | [optional] 
-**Matched** |  Pointer to [**[]RoleMatchDto**](role-match-dto) |  | [optional] 
-**ComputedDate** |  Pointer to **String** | Date that the assignment will was evaluated | [optional] 
+**Requested** | [**AccessRequestContext**](access-request-context) |  | [optional] 
+**Matched** | [**[]RoleMatchDto**](role-match-dto) |  | [optional] 
+**ComputedDate** | **String** | Date that the assignment will was evaluated | [optional] 
 
 ## Examples
 

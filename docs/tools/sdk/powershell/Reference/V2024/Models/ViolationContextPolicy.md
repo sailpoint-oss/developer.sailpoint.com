@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'ViolationContextPolicy', 'V2024Violat
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to  **Enum** [  "ENTITLEMENT" ] | The type of object that is referenced | [optional] 
-**Id** |  Pointer to **String** | SOD policy ID. | [optional] 
-**Name** |  Pointer to **String** |  | [optional] 
+**Type** |  **Enum** [  "ENTITLEMENT" ] | The type of object that is referenced | [optional] 
+**Id** | **String** | SOD policy ID. | [optional] 
+**Name** | **String** |  | [optional] 
 
 ## Examples
 

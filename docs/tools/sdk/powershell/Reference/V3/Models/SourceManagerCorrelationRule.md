@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'SourceManagerCorrelationRule', 'Sourc
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to  **Enum** [  "RULE" ] | Type of object being referenced. | [optional] 
-**Id** |  Pointer to **String** | Rule ID. | [optional] 
-**Name** |  Pointer to **String** | Rule's human-readable display name. | [optional] 
+**Type** |  **Enum** [  "RULE" ] | Type of object being referenced. | [optional] 
+**Id** | **String** | Rule ID. | [optional] 
+**Name** | **String** | Rule's human-readable display name. | [optional] 
 
 ## Examples
 

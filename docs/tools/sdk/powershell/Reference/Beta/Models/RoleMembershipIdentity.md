@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'RoleMembershipIdentity', 'BetaRoleMem
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to [**DtoType**](dto-type) |  | [optional] 
-**Id** |  Pointer to **String** | Identity id | [optional] 
-**Name** |  Pointer to **String** | Human-readable display name of the Identity. | [optional] 
-**AliasName** |  Pointer to **String** | User name of the Identity | [optional] 
+**Type** | [**DtoType**](dto-type) |  | [optional] 
+**Id** | **String** | Identity id | [optional] 
+**Name** | **String** | Human-readable display name of the Identity. | [optional] 
+**AliasName** | **String** | User name of the Identity | [optional] 
 
 ## Examples
 

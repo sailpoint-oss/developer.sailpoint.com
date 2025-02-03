@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'CertificationReference1', 'V2024Certi
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to  **Enum** [  "CERTIFICATION" ] | DTO type of certification for review. | [optional] 
-**Id** |  Pointer to **String** | ID of certification for review. | [optional] 
-**Name** |  Pointer to **String** | Display name of certification for review. | [optional] 
-**Reviewer** |  Pointer to [**Reviewer1**](reviewer1) |  | [optional] 
+**Type** |  **Enum** [  "CERTIFICATION" ] | DTO type of certification for review. | [optional] 
+**Id** | **String** | ID of certification for review. | [optional] 
+**Name** | **String** | Display name of certification for review. | [optional] 
+**Reviewer** | [**Reviewer1**](reviewer1) |  | [optional] 
 
 ## Examples
 

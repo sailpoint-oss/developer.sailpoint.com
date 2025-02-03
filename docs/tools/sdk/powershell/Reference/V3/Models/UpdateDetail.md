@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'UpdateDetail', 'UpdateDetail']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Message** |  Pointer to **String** | The detailed message for an update. Typically the relevent error message when status is error. | [optional] 
-**ScriptName** |  Pointer to **String** | The connector script name | [optional] 
-**UpdatedFiles** |  Pointer to **[]String** | The list of updated files supported by the connector | [optional] 
-**Status** |  Pointer to  **Enum** [  "ERROR",    "UPDATED",    "UNCHANGED",    "SKIPPED" ] | The connector update status | [optional] 
+**Message** | **String** | The detailed message for an update. Typically the relevent error message when status is error. | [optional] 
+**ScriptName** | **String** | The connector script name | [optional] 
+**UpdatedFiles** | **[]String** | The list of updated files supported by the connector | [optional] 
+**Status** |  **Enum** [  "ERROR",    "UPDATED",    "UNCHANGED",    "SKIPPED" ] | The connector update status | [optional] 
 
 ## Examples
 

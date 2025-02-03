@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'GetLaunchers200Response', 'BetaGetLau
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Next** |  Pointer to **String** | Pagination marker | [optional] 
-**Items** |  Pointer to [**[]Launcher**](launcher) |  | [optional] 
+**Next** | **String** | Pagination marker | [optional] 
+**Items** | [**[]Launcher**](launcher) |  | [optional] 
 
 ## Examples
 

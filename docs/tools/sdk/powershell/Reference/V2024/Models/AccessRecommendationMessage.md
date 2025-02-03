@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'AccessRecommendationMessage', 'V2024A
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Interpretation** |  Pointer to **String** | Information about why the access item was recommended. | [optional] 
+**Interpretation** | **String** | Information about why the access item was recommended. | [optional] 
 
 ## Examples
 

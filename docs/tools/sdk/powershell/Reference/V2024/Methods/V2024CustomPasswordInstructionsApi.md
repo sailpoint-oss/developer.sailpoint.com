@@ -9,7 +9,6 @@ slug: /tools/sdk/powershell/v2024/methods/custom-password-instructions
 tags: ['SDK', 'Software Development Kit', 'CustomPasswordInstructions', 'V2024CustomPasswordInstructions']
 ---
 
-
 # CustomPasswordInstructions
   Use this API to implement custom password instruction functionality.
 With this functionality in place, administrators can create custom password instructions to help users reset their passwords, change them, unlock their accounts, or recover their usernames.
@@ -33,9 +32,7 @@ Method | HTTP request | Description
 [**Remove-V2024CustomPasswordInstructions**](#delete-custom-password-instructions) | **DELETE** `/custom-password-instructions/{pageId}` | Delete Custom Password Instructions by page ID
 [**Get-V2024CustomPasswordInstructions**](#get-custom-password-instructions) | **GET** `/custom-password-instructions/{pageId}` | Get Custom Password Instructions by Page ID
 
-
 ## create-custom-password-instructions
-
 This API creates the custom password instructions for the specified page ID.
 
 ### Parameters 
@@ -45,7 +42,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | CustomPasswordInstruction | [**CustomPasswordInstruction**](../models/custom-password-instruction) | True  | 
 
 ### Return type
-
 [**CustomPasswordInstruction**](../models/custom-password-instruction)
 
 ### Responses
@@ -57,7 +53,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -69,10 +64,12 @@ $CustomPasswordInstruction = @"{
   "pageId" : "change-password:enter-password",
   "locale" : "en"
 }"@
+
 # Create Custom Password Instructions
+
 try {
     $Result = ConvertFrom-JsonToCustomPasswordInstruction -Json $CustomPasswordInstruction
-    New-V2024CustomPasswordInstructions-V2024XSailPointExperimental $XSailPointExperimental -V2024CustomPasswordInstruction $Result
+    New-V2024CustomPasswordInstructions -V2024XSailPointExperimental $XSailPointExperimental  -V2024CustomPasswordInstruction $Result
     
     # Below is a request that includes all optional parameters
     # New-V2024CustomPasswordInstructions -V2024XSailPointExperimental $XSailPointExperimental -V2024CustomPasswordInstruction $CustomPasswordInstruction  
@@ -81,11 +78,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## delete-custom-password-instructions
-
 This API delete the custom password instructions for the specified page ID.
 
 ### Parameters 
@@ -96,7 +90,6 @@ Path   | PageId | **String** | True  | The page ID of custom password instructio
   Query | Locale | **String** |   (optional) | The locale for the custom instructions, a BCP47 language tag. The default value is \""default\"".
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -109,7 +102,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -118,9 +110,11 @@ Code | Description  | Data Type
 $PageId = "change-password:enter-password" # String | The page ID of custom password instructions to delete.
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $Locale = "MyLocale" # String | The locale for the custom instructions, a BCP47 language tag. The default value is \""default\"". (optional)
+
 # Delete Custom Password Instructions by page ID
+
 try {
-    Remove-V2024CustomPasswordInstructions-V2024PageId $PageId -V2024XSailPointExperimental $XSailPointExperimental 
+    Remove-V2024CustomPasswordInstructions -V2024PageId $PageId  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024CustomPasswordInstructions -V2024PageId $PageId -V2024XSailPointExperimental $XSailPointExperimental -V2024Locale $Locale  
@@ -129,11 +123,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-custom-password-instructions
-
 This API returns the custom password instructions for the specified page ID.
 
 ### Parameters 
@@ -144,7 +135,6 @@ Path   | PageId | **String** | True  | The page ID of custom password instructio
   Query | Locale | **String** |   (optional) | The locale for the custom instructions, a BCP47 language tag. The default value is \""default\"".
 
 ### Return type
-
 [**CustomPasswordInstruction**](../models/custom-password-instruction)
 
 ### Responses
@@ -157,7 +147,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -166,9 +155,11 @@ Code | Description  | Data Type
 $PageId = "change-password:enter-password" # String | The page ID of custom password instructions to query.
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $Locale = "MyLocale" # String | The locale for the custom instructions, a BCP47 language tag. The default value is \""default\"". (optional)
+
 # Get Custom Password Instructions by Page ID
+
 try {
-    Get-V2024CustomPasswordInstructions-V2024PageId $PageId -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024CustomPasswordInstructions -V2024PageId $PageId  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024CustomPasswordInstructions -V2024PageId $PageId -V2024XSailPointExperimental $XSailPointExperimental -V2024Locale $Locale  
@@ -177,7 +168,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

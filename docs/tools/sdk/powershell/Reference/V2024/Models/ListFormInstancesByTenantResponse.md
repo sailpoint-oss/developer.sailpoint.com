@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'ListFormInstancesByTenantResponse', '
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Count** |  Pointer to **Int64** | Count number of Results | [optional] 
-**Results** |  Pointer to [**[]FormInstanceResponse**](form-instance-response) | Results holds a list of FormInstanceResponse items | [optional] 
+**Count** | **Int64** | Count number of Results | [optional] 
+**Results** | [**[]FormInstanceResponse**](form-instance-response) | Results holds a list of FormInstanceResponse items | [optional] 
 
 ## Examples
 

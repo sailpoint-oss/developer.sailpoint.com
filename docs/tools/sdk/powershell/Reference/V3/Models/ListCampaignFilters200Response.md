@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'ListCampaignFilters200Response', 'Lis
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Items** |  Pointer to [**[]CampaignFilterDetails**](campaign-filter-details) | List of campaign filters. | [optional] 
-**Count** |  Pointer to **Int32** | Number of filters returned. | [optional] 
+**Items** | [**[]CampaignFilterDetails**](campaign-filter-details) | List of campaign filters. | [optional] 
+**Count** | **Int32** | Number of filters returned. | [optional] 
 
 ## Examples
 

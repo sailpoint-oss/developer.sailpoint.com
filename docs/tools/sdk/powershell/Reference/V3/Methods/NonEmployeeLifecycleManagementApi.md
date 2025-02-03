@@ -9,7 +9,6 @@ slug: /tools/sdk/powershell/v3/methods/non-employee-lifecycle-management
 tags: ['SDK', 'Software Development Kit', 'NonEmployeeLifecycleManagement', 'NonEmployeeLifecycleManagement']
 ---
 
-
 # NonEmployeeLifecycleManagement
   Use this API to implement non-employee lifecycle management functionality. 
 With this functionality in place, administrators can create non-employee records and configure them for use in their organizations. 
@@ -82,9 +81,7 @@ Method | HTTP request | Description
 [**Deny-NonEmployeeRequest**](#reject-non-employee-request) | **POST** `/non-employee-approvals/{id}/reject` | Reject a Non-Employee Request
 [**Update-NonEmployeeRecord**](#update-non-employee-record) | **PUT** `/non-employee-records/{id}` | Update Non-Employee Record
 
-
 ## approve-non-employee-request
-
 Approves a non-employee approval request and notifies the next approver. The current user must be the requested approver.
 
 ### Parameters 
@@ -94,7 +91,6 @@ Path   | Id | **String** | True  | Non-Employee approval item id (UUID)
  Body  | NonEmployeeApprovalDecision | [**NonEmployeeApprovalDecision**](../models/non-employee-approval-decision) | True  | 
 
 ### Return type
-
 [**NonEmployeeApprovalItem**](../models/non-employee-approval-item)
 
 ### Responses
@@ -108,7 +104,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -118,10 +113,12 @@ $Id = "e136567de87e4d029e60b3c3c55db56d" # String | Non-Employee approval item i
 $NonEmployeeApprovalDecision = @"{
   "comment" : "Approved by manager"
 }"@
+
 # Approve a Non-Employee Request
+
 try {
     $Result = ConvertFrom-JsonToNonEmployeeApprovalDecision -Json $NonEmployeeApprovalDecision
-    Approve-NonEmployeeRequest-Id $Id -NonEmployeeApprovalDecision $Result
+    Approve-NonEmployeeRequest -Id $Id  -NonEmployeeApprovalDecision $Result
     
     # Below is a request that includes all optional parameters
     # Approve-NonEmployeeRequest -Id $Id -NonEmployeeApprovalDecision $NonEmployeeApprovalDecision  
@@ -130,11 +127,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## create-non-employee-record
-
 This request will create a non-employee record.
 Requires role context of `idn:nesr:create`
 
@@ -144,7 +138,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | NonEmployeeRequestBody | [**NonEmployeeRequestBody**](../models/non-employee-request-body) | True  | Non-Employee record creation request body.
 
 ### Return type
-
 [**NonEmployeeRecord**](../models/non-employee-record)
 
 ### Responses
@@ -158,7 +151,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -178,10 +170,12 @@ $NonEmployeeRequestBody = @"{
   "email" : "william.smith@example.com",
   "startDate" : "2020-03-24T00:00:00-05:00"
 }"@
+
 # Create Non-Employee Record
+
 try {
     $Result = ConvertFrom-JsonToNonEmployeeRequestBody -Json $NonEmployeeRequestBody
-    New-NonEmployeeRecord-NonEmployeeRequestBody $Result
+    New-NonEmployeeRecord -NonEmployeeRequestBody $Result
     
     # Below is a request that includes all optional parameters
     # New-NonEmployeeRecord -NonEmployeeRequestBody $NonEmployeeRequestBody  
@@ -190,11 +184,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## create-non-employee-request
-
 This request will create a non-employee request and notify the approver. Requires role context of `idn:nesr:create` or the user must own the source.
 
 ### Parameters 
@@ -203,7 +194,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | NonEmployeeRequestBody | [**NonEmployeeRequestBody**](../models/non-employee-request-body) | True  | Non-Employee creation request body
 
 ### Return type
-
 [**NonEmployeeRequest**](../models/non-employee-request)
 
 ### Responses
@@ -217,7 +207,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -237,10 +226,12 @@ $NonEmployeeRequestBody = @"{
   "email" : "william.smith@example.com",
   "startDate" : "2020-03-24T00:00:00-05:00"
 }"@
+
 # Create Non-Employee Request
+
 try {
     $Result = ConvertFrom-JsonToNonEmployeeRequestBody -Json $NonEmployeeRequestBody
-    New-NonEmployeeRequest-NonEmployeeRequestBody $Result
+    New-NonEmployeeRequest -NonEmployeeRequestBody $Result
     
     # Below is a request that includes all optional parameters
     # New-NonEmployeeRequest -NonEmployeeRequestBody $NonEmployeeRequestBody  
@@ -249,11 +240,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## create-non-employee-source
-
 This request will create a non-employee source. Requires role context of `idn:nesr:create`
 
 ### Parameters 
@@ -262,7 +250,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | NonEmployeeSourceRequestBody | [**NonEmployeeSourceRequestBody**](../models/non-employee-source-request-body) | True  | Non-Employee source creation request body.
 
 ### Return type
-
 [**NonEmployeeSourceWithCloudExternalId**](../models/non-employee-source-with-cloud-external-id)
 
 ### Responses
@@ -276,7 +263,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -308,10 +294,12 @@ $NonEmployeeSourceRequestBody = @"{
     "id" : "2c91808570313110017040b06f344ec9"
   } ]
 }"@
+
 # Create Non-Employee Source
+
 try {
     $Result = ConvertFrom-JsonToNonEmployeeSourceRequestBody -Json $NonEmployeeSourceRequestBody
-    New-NonEmployeeSource-NonEmployeeSourceRequestBody $Result
+    New-NonEmployeeSource -NonEmployeeSourceRequestBody $Result
     
     # Below is a request that includes all optional parameters
     # New-NonEmployeeSource -NonEmployeeSourceRequestBody $NonEmployeeSourceRequestBody  
@@ -320,11 +308,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## create-non-employee-source-schema-attributes
-
 This API creates a new schema attribute for Non-Employee Source. The schema technical name must be unique in the source. Attempts to create a schema attribute with an existing name will result in a "400.1.409 Reference conflict" response. At most, 10 custom attributes can be created per schema. Attempts to create more than 10 will result in a "400.1.4 Limit violation" response.
 Requires role context of `idn:nesr:create`
 
@@ -335,7 +320,6 @@ Path   | SourceId | **String** | True  | The Source id
  Body  | NonEmployeeSchemaAttributeBody | [**NonEmployeeSchemaAttributeBody**](../models/non-employee-schema-attribute-body) | True  | 
 
 ### Return type
-
 [**NonEmployeeSchemaAttribute**](../models/non-employee-schema-attribute)
 
 ### Responses
@@ -349,7 +333,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -364,10 +347,12 @@ $NonEmployeeSchemaAttributeBody = @"{
   "technicalName" : "account.name",
   "required" : true
 }"@
+
 # Create a new Schema Attribute for Non-Employee Source
+
 try {
     $Result = ConvertFrom-JsonToNonEmployeeSchemaAttributeBody -Json $NonEmployeeSchemaAttributeBody
-    New-NonEmployeeSourceSchemaAttributes-SourceId $SourceId -NonEmployeeSchemaAttributeBody $Result
+    New-NonEmployeeSourceSchemaAttributes -SourceId $SourceId  -NonEmployeeSchemaAttributeBody $Result
     
     # Below is a request that includes all optional parameters
     # New-NonEmployeeSourceSchemaAttributes -SourceId $SourceId -NonEmployeeSchemaAttributeBody $NonEmployeeSchemaAttributeBody  
@@ -376,11 +361,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## delete-non-employee-record
-
 This request will delete a non-employee record.
 Requires role context of `idn:nesr:delete`
 
@@ -390,7 +372,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | Non-Employee record id (UUID)
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -404,16 +385,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Non-Employee record id (UUID)
+
 # Delete Non-Employee Record
+
 try {
-    Remove-NonEmployeeRecord-Id $Id 
+    Remove-NonEmployeeRecord -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-NonEmployeeRecord -Id $Id  
@@ -422,11 +404,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## delete-non-employee-records-in-bulk
-
 This request will delete multiple non-employee records based on the non-employee ids provided. Requires role context of `idn:nesr:delete`
 
 ### Parameters 
@@ -435,7 +414,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | DeleteNonEmployeeRecordsInBulkRequest | [**DeleteNonEmployeeRecordsInBulkRequest**](../models/delete-non-employee-records-in-bulk-request) | True  | Non-Employee bulk delete request body.
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -449,17 +427,18 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $DeleteNonEmployeeRecordsInBulkRequest = @""@
+
 # Delete Multiple Non-Employee Records
+
 try {
     $Result = ConvertFrom-JsonToDeleteNonEmployeeRecordsInBulkRequest -Json $DeleteNonEmployeeRecordsInBulkRequest
-    Remove-NonEmployeeRecordsInBulk-DeleteNonEmployeeRecordsInBulkRequest $Result
+    Remove-NonEmployeeRecordsInBulk -DeleteNonEmployeeRecordsInBulkRequest $Result
     
     # Below is a request that includes all optional parameters
     # Remove-NonEmployeeRecordsInBulk -DeleteNonEmployeeRecordsInBulkRequest $DeleteNonEmployeeRecordsInBulkRequest  
@@ -468,11 +447,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## delete-non-employee-request
-
 This request will delete a non-employee request. 
 Requires role context of `idn:nesr:delete`
 
@@ -482,7 +458,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | Non-Employee request id in the UUID format
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -497,16 +472,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "ac110005-7156-1150-8171-5b292e3e0084" # String | Non-Employee request id in the UUID format
+
 # Delete Non-Employee Request
+
 try {
-    Remove-NonEmployeeRequest-Id $Id 
+    Remove-NonEmployeeRequest -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-NonEmployeeRequest -Id $Id  
@@ -515,11 +491,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## delete-non-employee-schema-attribute
-
 This end-point deletes a specific schema attribute for a non-employee source.
 Requires role context of `idn:nesr:delete`
 
@@ -531,7 +504,6 @@ Path   | AttributeId | **String** | True  | The Schema Attribute Id (UUID)
 Path   | SourceId | **String** | True  | The Source id
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -545,7 +517,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -553,9 +524,11 @@ Code | Description  | Data Type
 ```powershell
 $AttributeId = "ef38f94347e94562b5bb8424a56397d8" # String | The Schema Attribute Id (UUID)
 $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | The Source id
+
 # Delete a Schema Attribute for Non-Employee Source
+
 try {
-    Remove-NonEmployeeSchemaAttribute-AttributeId $AttributeId -SourceId $SourceId 
+    Remove-NonEmployeeSchemaAttribute -AttributeId $AttributeId  -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
     # Remove-NonEmployeeSchemaAttribute -AttributeId $AttributeId -SourceId $SourceId  
@@ -564,11 +537,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## delete-non-employee-source
-
 This request will delete a non-employee source. Requires role context of `idn:nesr:delete`.
 
 ### Parameters 
@@ -577,7 +547,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | SourceId | **String** | True  | Source Id
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -591,16 +560,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $SourceId = "e136567de87e4d029e60b3c3c55db56d" # String | Source Id
+
 # Delete Non-Employee Source
+
 try {
-    Remove-NonEmployeeSource-SourceId $SourceId 
+    Remove-NonEmployeeSource -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
     # Remove-NonEmployeeSource -SourceId $SourceId  
@@ -609,11 +579,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## delete-non-employee-source-schema-attributes
-
 This end-point deletes all custom schema attributes for a non-employee source. Requires role context of `idn:nesr:delete`
 
 ### Parameters 
@@ -622,7 +589,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | SourceId | **String** | True  | The Source id
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -636,16 +602,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | The Source id
+
 # Delete all custom schema attributes for Non-Employee Source
+
 try {
-    Remove-NonEmployeeSourceSchemaAttributes-SourceId $SourceId 
+    Remove-NonEmployeeSourceSchemaAttributes -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
     # Remove-NonEmployeeSourceSchemaAttributes -SourceId $SourceId  
@@ -654,11 +621,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## export-non-employee-records
-
 This requests a CSV download for all non-employees from a provided source. Requires role context of `idn:nesr:read`
 
 ### Parameters 
@@ -667,7 +631,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | Source Id (UUID)
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -682,16 +645,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: text/csv, application/json
 
 ### Example
 ```powershell
 $Id = "e136567de87e4d029e60b3c3c55db56d" # String | Source Id (UUID)
+
 # Exports Non-Employee Records to CSV
+
 try {
-    Export-NonEmployeeRecords-Id $Id 
+    Export-NonEmployeeRecords -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Export-NonEmployeeRecords -Id $Id  
@@ -700,11 +664,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## export-non-employee-source-schema-template
-
 This requests a download for the Source Schema Template for a provided source. Requires role context of `idn:nesr:read`
 
 ### Parameters 
@@ -713,7 +674,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | Source Id (UUID)
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -728,16 +688,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: text/csv, application/json
 
 ### Example
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Source Id (UUID)
+
 # Exports Source Schema Template
+
 try {
-    Export-NonEmployeeSourceSchemaTemplate-Id $Id 
+    Export-NonEmployeeSourceSchemaTemplate -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Export-NonEmployeeSourceSchemaTemplate -Id $Id  
@@ -746,11 +707,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-non-employee-approval
-
 Gets a non-employee approval item detail. There are two contextual uses for this endpoint:
   1. The user has the role context of `idn:nesr:read`, in which case they
 can get any approval.
@@ -763,7 +721,6 @@ Path   | Id | **String** | True  | Non-Employee approval item id (UUID)
   Query | IncludeDetail | **Boolean** |   (optional) | The object nonEmployeeRequest will not be included detail when set to false. *Default value is true*
 
 ### Return type
-
 [**NonEmployeeApprovalItemDetail**](../models/non-employee-approval-item-detail)
 
 ### Responses
@@ -777,7 +734,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -785,9 +741,11 @@ Code | Description  | Data Type
 ```powershell
 $Id = "e136567de87e4d029e60b3c3c55db56d" # String | Non-Employee approval item id (UUID)
 $IncludeDetail = $true # Boolean | The object nonEmployeeRequest will not be included detail when set to false. *Default value is true* (optional)
+
 # Get a non-employee approval item detail
+
 try {
-    Get-NonEmployeeApproval-Id $Id 
+    Get-NonEmployeeApproval -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-NonEmployeeApproval -Id $Id -IncludeDetail $IncludeDetail  
@@ -796,11 +754,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-non-employee-approval-summary
-
 This request will retrieve a summary of non-employee approval requests. There are two contextual uses for the `requested-for` path parameter:
   1. The user has the role context of `idn:nesr:read`, in which case he or
 she may request a summary of all non-employee approval requests assigned to a particular approver by passing in that approver's id.
@@ -813,7 +768,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | RequestedFor | **String** | True  | The identity (UUID) of the approver for whom for whom the summary is being retrieved. Use ""me"" instead to indicate the current user.
 
 ### Return type
-
 [**NonEmployeeApprovalSummary**](../models/non-employee-approval-summary)
 
 ### Responses
@@ -827,16 +781,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $RequestedFor = "2c91808280430dfb0180431a59440460" # String | The identity (UUID) of the approver for whom for whom the summary is being retrieved. Use ""me"" instead to indicate the current user.
+
 # Get Summary of Non-Employee Approval Requests
+
 try {
-    Get-NonEmployeeApprovalSummary-RequestedFor $RequestedFor 
+    Get-NonEmployeeApprovalSummary -RequestedFor $RequestedFor 
     
     # Below is a request that includes all optional parameters
     # Get-NonEmployeeApprovalSummary -RequestedFor $RequestedFor  
@@ -845,11 +800,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-non-employee-bulk-upload-status
-
 The nonEmployeeBulkUploadStatus API returns the status of the newest bulk upload job for the specified source.
 Requires role context of `idn:nesr:read`
 
@@ -860,7 +812,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | Source ID (UUID)
 
 ### Return type
-
 [**NonEmployeeBulkUploadStatus**](../models/non-employee-bulk-upload-status)
 
 ### Responses
@@ -874,16 +825,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "e136567de87e4d029e60b3c3c55db56d" # String | Source ID (UUID)
+
 # Obtain the status of bulk upload on the source
+
 try {
-    Get-NonEmployeeBulkUploadStatus-Id $Id 
+    Get-NonEmployeeBulkUploadStatus -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-NonEmployeeBulkUploadStatus -Id $Id  
@@ -892,11 +844,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-non-employee-record
-
 This gets a non-employee record.
 Requires role context of `idn:nesr:read`
 
@@ -906,7 +855,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | Non-Employee record id (UUID)
 
 ### Return type
-
 [**NonEmployeeRecord**](../models/non-employee-record)
 
 ### Responses
@@ -920,16 +868,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Non-Employee record id (UUID)
+
 # Get a Non-Employee Record
+
 try {
-    Get-NonEmployeeRecord-Id $Id 
+    Get-NonEmployeeRecord -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-NonEmployeeRecord -Id $Id  
@@ -938,11 +887,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-non-employee-request
-
 This gets a non-employee request.
 There are two contextual uses for this endpoint:
   1. The user has the role context of `idn:nesr:read`, in this case the user
@@ -955,7 +901,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | Non-Employee request id (UUID)
 
 ### Return type
-
 [**NonEmployeeRequest**](../models/non-employee-request)
 
 ### Responses
@@ -970,16 +915,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "ac110005-7156-1150-8171-5b292e3e0084" # String | Non-Employee request id (UUID)
+
 # Get a Non-Employee Request
+
 try {
-    Get-NonEmployeeRequest-Id $Id 
+    Get-NonEmployeeRequest -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-NonEmployeeRequest -Id $Id  
@@ -988,11 +934,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-non-employee-request-summary
-
 This request will retrieve a summary of non-employee requests. There are two contextual uses for the `requested-for` path parameter:
   1. The user has the role context of `idn:nesr:read`, in which case he or
 she may request a summary of all non-employee approval requests assigned to a particular account manager by passing in that manager's id.
@@ -1005,7 +948,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | RequestedFor | **String** | True  | The identity (UUID) of the non-employee account manager for whom the summary is being retrieved. Use ""me"" instead to indicate the current user.
 
 ### Return type
-
 [**NonEmployeeRequestSummary**](../models/non-employee-request-summary)
 
 ### Responses
@@ -1019,16 +961,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $RequestedFor = "2c91808280430dfb0180431a59440460" # String | The identity (UUID) of the non-employee account manager for whom the summary is being retrieved. Use ""me"" instead to indicate the current user.
+
 # Get Summary of Non-Employee Requests
+
 try {
-    Get-NonEmployeeRequestSummary-RequestedFor $RequestedFor 
+    Get-NonEmployeeRequestSummary -RequestedFor $RequestedFor 
     
     # Below is a request that includes all optional parameters
     # Get-NonEmployeeRequestSummary -RequestedFor $RequestedFor  
@@ -1037,11 +980,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-non-employee-schema-attribute
-
 This API gets a schema attribute by Id for the specified Non-Employee SourceId. Requires role context of `idn:nesr:read` or the user must be an account manager of the source.
 
 ### Parameters 
@@ -1051,7 +991,6 @@ Path   | AttributeId | **String** | True  | The Schema Attribute Id (UUID)
 Path   | SourceId | **String** | True  | The Source id
 
 ### Return type
-
 [**NonEmployeeSchemaAttribute**](../models/non-employee-schema-attribute)
 
 ### Responses
@@ -1065,7 +1004,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -1073,9 +1011,11 @@ Code | Description  | Data Type
 ```powershell
 $AttributeId = "ef38f94347e94562b5bb8424a56397d8" # String | The Schema Attribute Id (UUID)
 $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | The Source id
+
 # Get Schema Attribute Non-Employee Source
+
 try {
-    Get-NonEmployeeSchemaAttribute-AttributeId $AttributeId -SourceId $SourceId 
+    Get-NonEmployeeSchemaAttribute -AttributeId $AttributeId  -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
     # Get-NonEmployeeSchemaAttribute -AttributeId $AttributeId -SourceId $SourceId  
@@ -1084,11 +1024,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-non-employee-source
-
 This gets a non-employee source. There are two contextual uses for the requested-for path parameter: 
   1. The user has the role context of `idn:nesr:read`, in which case he or
 she may request any source.
@@ -1101,7 +1038,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | SourceId | **String** | True  | Source Id
 
 ### Return type
-
 [**NonEmployeeSource**](../models/non-employee-source)
 
 ### Responses
@@ -1115,16 +1051,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $SourceId = "2c91808b7c28b350017c2a2ec5790aa1" # String | Source Id
+
 # Get a Non-Employee Source
+
 try {
-    Get-NonEmployeeSource-SourceId $SourceId 
+    Get-NonEmployeeSource -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
     # Get-NonEmployeeSource -SourceId $SourceId  
@@ -1133,11 +1070,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-non-employee-source-schema-attributes
-
 This API gets the list of schema attributes for the specified Non-Employee SourceId. There are 8 mandatory attributes added to each new Non-Employee Source automatically. Additionaly, user can add up to 10 custom attributes. This interface returns all the mandatory attributes followed by any custom attributes. At most, a total of 18 attributes will be returned.
 Requires role context of `idn:nesr:read` or the user must be an account manager of the source.
 
@@ -1147,7 +1081,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | SourceId | **String** | True  | The Source id
 
 ### Return type
-
 [**NonEmployeeSchemaAttribute[]**](../models/non-employee-schema-attribute)
 
 ### Responses
@@ -1162,16 +1095,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | The Source id
+
 # List Schema Attributes Non-Employee Source
+
 try {
-    Get-NonEmployeeSourceSchemaAttributes-SourceId $SourceId 
+    Get-NonEmployeeSourceSchemaAttributes -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
     # Get-NonEmployeeSourceSchemaAttributes -SourceId $SourceId  
@@ -1180,11 +1114,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## import-non-employee-records-in-bulk
-
 This post will import, or update, Non-Employee records found in the CSV. Requires role context of `idn:nesr:create`
 
 ### Parameters 
@@ -1194,7 +1125,6 @@ Path   | Id | **String** | True  | Source Id (UUID)
    | Data | **System.IO.FileInfo** | True  | 
 
 ### Return type
-
 [**NonEmployeeBulkUploadJob**](../models/non-employee-bulk-upload-job)
 
 ### Responses
@@ -1209,7 +1139,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: multipart/form-data
 - **Accept**: application/json
 
@@ -1217,9 +1146,11 @@ Code | Description  | Data Type
 ```powershell
 $Id = "e136567de87e4d029e60b3c3c55db56d" # String | Source Id (UUID)
 $Data =  # System.IO.FileInfo | 
+
 # Imports, or Updates, Non-Employee Records
+
 try {
-    Import-NonEmployeeRecordsInBulk-Id $Id -Data $Data 
+    Import-NonEmployeeRecordsInBulk -Id $Id  -Data $Data 
     
     # Below is a request that includes all optional parameters
     # Import-NonEmployeeRecordsInBulk -Id $Id -Data $Data  
@@ -1228,11 +1159,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-non-employee-approvals
-
 This gets a list of non-employee approval requests.
 There are two contextual uses for this endpoint:
   1. The user has the role context of `idn:nesr:read`, in which case they
@@ -1250,7 +1178,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified**
 
 ### Return type
-
 [**NonEmployeeApprovalItem[]**](../models/non-employee-approval-item)
 
 ### Responses
@@ -1264,7 +1191,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -1276,7 +1202,9 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Filters = 'approvalStatus eq "Pending"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **approvalStatus**: *eq* (optional)
 $Sorters = "created" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified** (optional)
+
 # Get List of Non-Employee Approval Requests
+
 try {
     Get-NonEmployeeApprovals
     
@@ -1287,11 +1215,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-non-employee-records
-
 This gets a list of non-employee records. There are two contextual uses for this endpoint:
   1. The user has the role context of `idn:nesr:read`, in which case they can get a list of all of the non-employees.
   2. The user is an account manager, in which case they can get a list of the non-employees that they manage.
@@ -1306,7 +1231,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **sourceId**: *eq*
 
 ### Return type
-
 [**NonEmployeeRecord[]**](../models/non-employee-record)
 
 ### Responses
@@ -1320,7 +1244,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -1331,7 +1254,9 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Sorters = "accountName,sourceId" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, accountName, sourceId, manager, firstName, lastName, email, phone, startDate, endDate, created, modified** (optional)
 $Filters = 'sourceId eq "2c91808568c529c60168cca6f90c1313"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **sourceId**: *eq* (optional)
+
 # List Non-Employee Records
+
 try {
     Get-NonEmployeeRecords
     
@@ -1342,11 +1267,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-non-employee-requests
-
 This gets a list of non-employee requests. There are two contextual uses for the `requested-for` path parameter:
   1. The user has the role context of `idn:nesr:read`, in which case he or
 she may request a list non-employee requests assigned to a particular account manager by passing in that manager's id.
@@ -1364,7 +1286,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **sourceId**: *eq* 
 
 ### Return type
-
 [**NonEmployeeRequest[]**](../models/non-employee-request)
 
 ### Responses
@@ -1378,7 +1299,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -1390,9 +1310,11 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Sorters = "created,approvalStatus" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, approvalStatus, firstName, lastName, email, phone, accountName, startDate, endDate** (optional)
 $Filters = 'sourceId eq "2c91808568c529c60168cca6f90c1313"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **sourceId**: *eq*  (optional)
+
 # List Non-Employee Requests
+
 try {
-    Get-NonEmployeeRequests-RequestedFor $RequestedFor 
+    Get-NonEmployeeRequests -RequestedFor $RequestedFor 
     
     # Below is a request that includes all optional parameters
     # Get-NonEmployeeRequests -RequestedFor $RequestedFor -Limit $Limit -Offset $Offset -Count $Count -Sorters $Sorters -Filters $Filters  
@@ -1401,11 +1323,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-non-employee-sources
-
 This gets a list of non-employee sources. There are two contextual uses for the requested-for path parameter: 
   1. The user has the role context of `idn:nesr:read`, in which case he or
 she may request a list sources assigned to a particular account manager by passing in that manager's id.
@@ -1423,7 +1342,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, sourceId**
 
 ### Return type
-
 [**NonEmployeeSourceWithNECount[]**](../models/non-employee-source-with-ne-count)
 
 ### Responses
@@ -1437,7 +1355,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -1449,9 +1366,11 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $NonEmployeeCount = $true # Boolean | The flag to determine whether return a non-employee count associate with source. (optional)
 $Sorters = "name,created" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, sourceId** (optional)
+
 # List Non-Employee Sources
+
 try {
-    Get-NonEmployeeSources-RequestedFor $RequestedFor 
+    Get-NonEmployeeSources -RequestedFor $RequestedFor 
     
     # Below is a request that includes all optional parameters
     # Get-NonEmployeeSources -RequestedFor $RequestedFor -Limit $Limit -Offset $Offset -Count $Count -NonEmployeeCount $NonEmployeeCount -Sorters $Sorters  
@@ -1460,11 +1379,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## patch-non-employee-record
-
 This request will patch a non-employee record. There are two contextual uses for this endpoint:
   1. The user has the role context of `idn:nesr:update`, in which case they
 update all available fields.
@@ -1478,7 +1394,6 @@ Path   | Id | **String** | True  | Non-employee record id (UUID)
  Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | A list of non-employee update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
 
 ### Return type
-
 [**NonEmployeeRecord**](../models/non-employee-record)
 
 ### Responses
@@ -1493,24 +1408,24 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json-patch+json
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Non-employee record id (UUID)
- # JsonPatchOperation[] | A list of non-employee update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
  $JsonPatchOperation = @"{
   "op" : "replace",
   "path" : "/description",
   "value" : "New description"
-}"@ 
+}"@ # JsonPatchOperation[] | A list of non-employee update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
+ 
 
 # Patch Non-Employee Record
+
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-NonEmployeeRecord-Id $Id -JsonPatchOperation $Result
+    Update-NonEmployeeRecord -Id $Id  -JsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-NonEmployeeRecord -Id $Id -JsonPatchOperation $JsonPatchOperation  
@@ -1519,11 +1434,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## patch-non-employee-schema-attribute
-
 This end-point patches a specific schema attribute for a non-employee SourceId.
 Requires role context of `idn:nesr:update`
 
@@ -1536,7 +1448,6 @@ Path   | SourceId | **String** | True  | The Source id
  Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The following properties are allowed for update ':' 'label', 'helpText', 'placeholder', 'required'.
 
 ### Return type
-
 [**NonEmployeeSchemaAttribute**](../models/non-employee-schema-attribute)
 
 ### Responses
@@ -1551,7 +1462,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json-patch+json
 - **Accept**: application/json
 
@@ -1559,17 +1469,18 @@ Code | Description  | Data Type
 ```powershell
 $AttributeId = "ef38f94347e94562b5bb8424a56397d8" # String | The Schema Attribute Id (UUID)
 $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | The Source id
- # JsonPatchOperation[] | A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The following properties are allowed for update ':' 'label', 'helpText', 'placeholder', 'required'.
  $JsonPatchOperation = @"{
   "op" : "replace",
   "path" : "/description",
   "value" : "New description"
-}"@ 
+}"@ # JsonPatchOperation[] | A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The following properties are allowed for update ':' 'label', 'helpText', 'placeholder', 'required'.
+ 
 
 # Patch a Schema Attribute for Non-Employee Source
+
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-NonEmployeeSchemaAttribute-AttributeId $AttributeId -SourceId $SourceId -JsonPatchOperation $Result
+    Update-NonEmployeeSchemaAttribute -AttributeId $AttributeId  -SourceId $SourceId  -JsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-NonEmployeeSchemaAttribute -AttributeId $AttributeId -SourceId $SourceId -JsonPatchOperation $JsonPatchOperation  
@@ -1578,11 +1489,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## patch-non-employee-source
-
 patch a non-employee source. (partial update) <br/> Patchable field: **name, description, approvers, accountManagers** Requires role context of `idn:nesr:update`.
 
 ### Parameters 
@@ -1592,7 +1500,6 @@ Path   | SourceId | **String** | True  | Source Id
  Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | A list of non-employee source update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
 ### Return type
-
 [**NonEmployeeSource**](../models/non-employee-source)
 
 ### Responses
@@ -1606,24 +1513,24 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json-patch+json
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $SourceId = "e136567de87e4d029e60b3c3c55db56d" # String | Source Id
- # JsonPatchOperation[] | A list of non-employee source update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
  $JsonPatchOperation = @"{
   "op" : "replace",
   "path" : "/description",
   "value" : "New description"
-}"@ 
+}"@ # JsonPatchOperation[] | A list of non-employee source update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+ 
 
 # Patch a Non-Employee Source
+
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-NonEmployeeSource-SourceId $SourceId -JsonPatchOperation $Result
+    Update-NonEmployeeSource -SourceId $SourceId  -JsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-NonEmployeeSource -SourceId $SourceId -JsonPatchOperation $JsonPatchOperation  
@@ -1632,11 +1539,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## reject-non-employee-request
-
 This endpoint will reject an approval item request and notify user. The current user must be the requested approver.
 
 ### Parameters 
@@ -1646,7 +1550,6 @@ Path   | Id | **String** | True  | Non-Employee approval item id (UUID)
  Body  | NonEmployeeRejectApprovalDecision | [**NonEmployeeRejectApprovalDecision**](../models/non-employee-reject-approval-decision) | True  | 
 
 ### Return type
-
 [**NonEmployeeApprovalItem**](../models/non-employee-approval-item)
 
 ### Responses
@@ -1660,7 +1563,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -1670,10 +1572,12 @@ $Id = "e136567de87e4d029e60b3c3c55db56d" # String | Non-Employee approval item i
 $NonEmployeeRejectApprovalDecision = @"{
   "comment" : "approved"
 }"@
+
 # Reject a Non-Employee Request
+
 try {
     $Result = ConvertFrom-JsonToNonEmployeeRejectApprovalDecision -Json $NonEmployeeRejectApprovalDecision
-    Deny-NonEmployeeRequest-Id $Id -NonEmployeeRejectApprovalDecision $Result
+    Deny-NonEmployeeRequest -Id $Id  -NonEmployeeRejectApprovalDecision $Result
     
     # Below is a request that includes all optional parameters
     # Deny-NonEmployeeRequest -Id $Id -NonEmployeeRejectApprovalDecision $NonEmployeeRejectApprovalDecision  
@@ -1682,11 +1586,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## update-non-employee-record
-
 This request will update a non-employee record. There are two contextual uses for this endpoint:
   1. The user has the role context of `idn:nesr:update`, in which case they
 update all available fields.
@@ -1700,7 +1601,6 @@ Path   | Id | **String** | True  | Non-employee record id (UUID)
  Body  | NonEmployeeRequestBody | [**NonEmployeeRequestBody**](../models/non-employee-request-body) | True  | Non-employee record creation request body. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
 
 ### Return type
-
 [**NonEmployeeRecord**](../models/non-employee-record)
 
 ### Responses
@@ -1715,7 +1615,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -1736,10 +1635,12 @@ $NonEmployeeRequestBody = @"{
   "email" : "william.smith@example.com",
   "startDate" : "2020-03-24T00:00:00-05:00"
 }"@
+
 # Update Non-Employee Record
+
 try {
     $Result = ConvertFrom-JsonToNonEmployeeRequestBody -Json $NonEmployeeRequestBody
-    Update-NonEmployeeRecord-Id $Id -NonEmployeeRequestBody $Result
+    Update-NonEmployeeRecord -Id $Id  -NonEmployeeRequestBody $Result
     
     # Below is a request that includes all optional parameters
     # Update-NonEmployeeRecord -Id $Id -NonEmployeeRequestBody $NonEmployeeRequestBody  
@@ -1748,7 +1649,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

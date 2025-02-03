@@ -9,7 +9,6 @@ slug: /tools/sdk/powershell/v3/methods/password-policies
 tags: ['SDK', 'Software Development Kit', 'PasswordPolicies', 'PasswordPolicies']
 ---
 
-
 # PasswordPolicies
   Use these APIs to implement password policies functionality.
 These APIs allow you to define the policy parameters for choosing passwords.
@@ -32,9 +31,7 @@ Method | HTTP request | Description
 [**Get-PasswordPolicies**](#list-password-policies) | **GET** `/password-policies` | List Password Policies
 [**Set-PasswordPolicy**](#set-password-policy) | **PUT** `/password-policies/{id}` | Update Password Policy by ID
 
-
 ## create-password-policy
-
 This API creates the specified password policy.
 
 ### Parameters 
@@ -43,7 +40,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | PasswordPolicyV3Dto | [**PasswordPolicyV3Dto**](../models/password-policy-v3-dto) | True  | 
 
 ### Return type
-
 [**PasswordPolicyV3Dto**](../models/password-policy-v3-dto)
 
 ### Responses
@@ -58,7 +54,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -97,10 +92,12 @@ $PasswordPolicyV3Dto = @"{
   "name" : "PasswordPolicy Example",
   "maxLength" : 25
 }"@
+
 # Create Password Policy
+
 try {
     $Result = ConvertFrom-JsonToPasswordPolicyV3Dto -Json $PasswordPolicyV3Dto
-    New-PasswordPolicy-PasswordPolicyV3Dto $Result
+    New-PasswordPolicy -PasswordPolicyV3Dto $Result
     
     # Below is a request that includes all optional parameters
     # New-PasswordPolicy -PasswordPolicyV3Dto $PasswordPolicyV3Dto  
@@ -109,11 +106,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## delete-password-policy
-
 This API deletes the specified password policy.
 
 ### Parameters 
@@ -122,7 +116,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | The ID of password policy to delete.
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -137,16 +130,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "ff808081838d9e9d01838da6a03e0002" # String | The ID of password policy to delete.
+
 # Delete Password Policy by ID
+
 try {
-    Remove-PasswordPolicy-Id $Id 
+    Remove-PasswordPolicy -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-PasswordPolicy -Id $Id  
@@ -155,11 +149,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-password-policy-by-id
-
 This API returns the password policy for the specified ID.
 
 ### Parameters 
@@ -168,7 +159,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | The ID of password policy to retrieve.
 
 ### Return type
-
 [**PasswordPolicyV3Dto**](../models/password-policy-v3-dto)
 
 ### Responses
@@ -183,16 +173,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "ff808081838d9e9d01838da6a03e0005" # String | The ID of password policy to retrieve.
+
 # Get Password Policy by ID
+
 try {
-    Get-PasswordPolicyById-Id $Id 
+    Get-PasswordPolicyById -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-PasswordPolicyById -Id $Id  
@@ -201,11 +192,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-password-policies
-
 This gets list of all Password Policies.
 Requires role of ORG_ADMIN
 
@@ -217,7 +205,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-
 [**PasswordPolicyV3Dto[]**](../models/password-policy-v3-dto)
 
 ### Responses
@@ -231,7 +218,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -240,7 +226,9 @@ Code | Description  | Data Type
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+
 # List Password Policies
+
 try {
     Get-PasswordPolicies
     
@@ -251,11 +239,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## set-password-policy
-
 This API updates the specified password policy.
 
 ### Parameters 
@@ -265,7 +250,6 @@ Path   | Id | **String** | True  | The ID of password policy to update.
  Body  | PasswordPolicyV3Dto | [**PasswordPolicyV3Dto**](../models/password-policy-v3-dto) | True  | 
 
 ### Return type
-
 [**PasswordPolicyV3Dto**](../models/password-policy-v3-dto)
 
 ### Responses
@@ -280,7 +264,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -320,10 +303,12 @@ $PasswordPolicyV3Dto = @"{
   "name" : "PasswordPolicy Example",
   "maxLength" : 25
 }"@
+
 # Update Password Policy by ID
+
 try {
     $Result = ConvertFrom-JsonToPasswordPolicyV3Dto -Json $PasswordPolicyV3Dto
-    Set-PasswordPolicy-Id $Id -PasswordPolicyV3Dto $Result
+    Set-PasswordPolicy -Id $Id  -PasswordPolicyV3Dto $Result
     
     # Below is a request that includes all optional parameters
     # Set-PasswordPolicy -Id $Id -PasswordPolicyV3Dto $PasswordPolicyV3Dto  
@@ -332,7 +317,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

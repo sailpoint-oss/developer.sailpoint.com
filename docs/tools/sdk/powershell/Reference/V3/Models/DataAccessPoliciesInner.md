@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'DataAccessPoliciesInner', 'DataAccess
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Value** |  Pointer to **String** | Value of the policy | [optional] 
+**Value** | **String** | Value of the policy | [optional] 
 
 ## Examples
 

@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'CommentDto1', 'BetaCommentDto1']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Comment** |  Pointer to **String** | Comment content. | [optional] 
-**Created** |  Pointer to **System.DateTime** | Date and time comment was created. | [optional] 
-**Author** |  Pointer to [**CommentDto1Author**](comment-dto1-author) |  | [optional] 
+**Comment** | **String** | Comment content. | [optional] 
+**Created** | **System.DateTime** | Date and time comment was created. | [optional] 
+**Author** | [**CommentDto1Author**](comment-dto1-author) |  | [optional] 
 
 ## Examples
 

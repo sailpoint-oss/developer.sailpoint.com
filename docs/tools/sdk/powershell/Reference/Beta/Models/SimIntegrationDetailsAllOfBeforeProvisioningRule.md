@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'SimIntegrationDetailsAllOfBeforeProvi
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to [**DtoType**](dto-type) |  | [optional] 
-**Id** |  Pointer to **String** | ID of the rule | [optional] 
-**Name** |  Pointer to **String** | Human-readable display name of the rule | [optional] 
+**Type** | [**DtoType**](dto-type) |  | [optional] 
+**Id** | **String** | ID of the rule | [optional] 
+**Name** | **String** | Human-readable display name of the rule | [optional] 
 
 ## Examples
 

@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'DisplayReference', 'DisplayReference'
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | The unique ID of the referenced object. | [optional] 
-**Name** |  Pointer to **String** | The human readable name of the referenced object. | [optional] 
-**DisplayName** |  Pointer to **String** |  | [optional] 
+**Id** | **String** | The unique ID of the referenced object. | [optional] 
+**Name** | **String** | The human readable name of the referenced object. | [optional] 
+**DisplayName** | **String** |  | [optional] 
 
 ## Examples
 

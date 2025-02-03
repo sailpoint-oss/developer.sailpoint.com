@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'MfaConfigTestResponse', 'V2024MfaConf
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**State** |  Pointer to  **Enum** [  "SUCCESS",    "FAILED" ] | The configuration test result. | [optional] [readonly] 
-**VarError** |  Pointer to **String** | The error message to indicate the failure of configuration test. | [optional] [readonly] 
+**State** |  **Enum** [  "SUCCESS",    "FAILED" ] | The configuration test result. | [optional] [readonly] 
+**VarError** | **String** | The error message to indicate the failure of configuration test. | [optional] [readonly] 
 
 ## Examples
 

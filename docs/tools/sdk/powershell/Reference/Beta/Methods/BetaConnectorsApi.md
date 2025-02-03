@@ -9,7 +9,6 @@ slug: /tools/sdk/powershell/beta/methods/connectors
 tags: ['SDK', 'Software Development Kit', 'Connectors', 'BetaConnectors']
 ---
 
-
 # Connectors
   Use this API to implement connector functionality.
 With this functionality in place, administrators can view available connectors.
@@ -34,9 +33,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Get-BetaConnectorList**](#get-connector-list) | **GET** `/connectors` | Get Connector List
 
-
 ## get-connector-list
-
 Fetches list of connectors that have 'RELEASED' status using filtering and pagination.
 
 ### Parameters 
@@ -49,7 +46,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Locale | **String** |   (optional) | The locale to apply to the config. If no viable locale is given, it will default to ""en""
 
 ### Return type
-
 [**V3ConnectorDto[]**](../models/v3-connector-dto)
 
 ### Responses
@@ -64,7 +60,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -75,7 +70,9 @@ $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Col
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Locale = "de" # String | The locale to apply to the config. If no viable locale is given, it will default to ""en"" (optional)
+
 # Get Connector List
+
 try {
     Get-BetaConnectorList
     
@@ -86,7 +83,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

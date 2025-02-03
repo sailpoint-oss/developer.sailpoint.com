@@ -16,12 +16,12 @@ tags: ['SDK', 'Software Development Kit', 'ApprovalForwardHistory', 'BetaApprova
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**OldApproverName** |  Pointer to **String** | Display name of approver from whom the approval was forwarded. | [optional] 
-**NewApproverName** |  Pointer to **String** | Display name of approver to whom the approval was forwarded. | [optional] 
-**Comment** |  Pointer to **String** | Comment made while forwarding. | [optional] 
-**Modified** |  Pointer to **System.DateTime** | Time at which approval was forwarded. | [optional] 
-**ForwarderName** |  Pointer to **String** | Display name of forwarder who forwarded the approval. | [optional] 
-**ReassignmentType** |  Pointer to [**ReassignmentType**](reassignment-type) |  | [optional] 
+**OldApproverName** | **String** | Display name of approver from whom the approval was forwarded. | [optional] 
+**NewApproverName** | **String** | Display name of approver to whom the approval was forwarded. | [optional] 
+**Comment** | **String** | Comment made while forwarding. | [optional] 
+**Modified** | **System.DateTime** | Time at which approval was forwarded. | [optional] 
+**ForwarderName** | **String** | Display name of forwarder who forwarded the approval. | [optional] 
+**ReassignmentType** | [**ReassignmentType**](reassignment-type) |  | [optional] 
 
 ## Examples
 

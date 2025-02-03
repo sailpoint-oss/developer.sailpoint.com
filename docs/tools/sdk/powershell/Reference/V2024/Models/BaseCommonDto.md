@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'BaseCommonDto', 'V2024BaseCommonDto']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | System-generated unique ID of the Object | [optional] [readonly] 
-**Name** |  **String** | Name of the Object | [required]
-**Created** |  Pointer to **System.DateTime** | Creation date of the Object | [optional] [readonly] 
-**Modified** |  Pointer to **System.DateTime** | Last modification date of the Object | [optional] [readonly] 
+**Id** | **String** | System-generated unique ID of the Object | [optional] [readonly] 
+**Name** | **String** | Name of the Object | [required]
+**Created** | **System.DateTime** | Creation date of the Object | [optional] [readonly] 
+**Modified** | **System.DateTime** | Last modification date of the Object | [optional] [readonly] 
 
 ## Examples
 

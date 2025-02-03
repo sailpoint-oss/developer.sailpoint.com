@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'SedBatchStatus', 'V2024SedBatchStatus
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** |  Pointer to **String** | status of batch | [optional] 
+**Status** | **String** | status of batch | [optional] 
 
 ## Examples
 

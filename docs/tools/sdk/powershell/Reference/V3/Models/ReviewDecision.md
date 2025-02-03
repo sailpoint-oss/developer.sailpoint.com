@@ -16,12 +16,12 @@ tags: ['SDK', 'Software Development Kit', 'ReviewDecision', 'ReviewDecision']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  **String** | The id of the review decision | [required]
-**Decision** |  [**CertificationDecision**](certification-decision) |  | [required]
-**ProposedEndDate** |  Pointer to **System.DateTime** | The date at which a user's access should be taken away. Should only be set for `REVOKE` decisions. | [optional] 
-**Bulk** |  **Boolean** | Indicates whether decision should be marked as part of a larger bulk decision | [required]
-**Recommendation** |  Pointer to [**ReviewRecommendation**](review-recommendation) |  | [optional] 
-**Comments** |  Pointer to **String** | Comments recorded when the decision was made | [optional] 
+**Id** | **String** | The id of the review decision | [required]
+**Decision** | [**CertificationDecision**](certification-decision) |  | [required]
+**ProposedEndDate** | **System.DateTime** | The date at which a user's access should be taken away. Should only be set for `REVOKE` decisions. | [optional] 
+**Bulk** | **Boolean** | Indicates whether decision should be marked as part of a larger bulk decision | [required]
+**Recommendation** | [**ReviewRecommendation**](review-recommendation) |  | [optional] 
+**Comments** | **String** | Comments recorded when the decision was made | [optional] 
 
 ## Examples
 

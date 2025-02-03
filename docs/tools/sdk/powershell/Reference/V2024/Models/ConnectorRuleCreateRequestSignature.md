@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'ConnectorRuleCreateRequestSignature',
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**VarInput** |  [**[]Argument**](argument) |  | [required]
-**Output** |  Pointer to [**Argument**](argument) |  | [optional] 
+**VarInput** | [**[]Argument**](argument) |  | [required]
+**Output** | [**Argument**](argument) |  | [optional] 
 
 ## Examples
 

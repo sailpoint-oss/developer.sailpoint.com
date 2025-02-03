@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'BaseAccessAllOfOwner', 'BaseAccessAll
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to  **Enum** [  "IDENTITY" ] | Owner's DTO type. | [optional] 
-**Id** |  Pointer to **String** | Owner's identity ID. | [optional] 
-**Name** |  Pointer to **String** | Owner's display name. | [optional] 
-**Email** |  Pointer to **String** | Owner's email. | [optional] 
+**Type** |  **Enum** [  "IDENTITY" ] | Owner's DTO type. | [optional] 
+**Id** | **String** | Owner's identity ID. | [optional] 
+**Name** | **String** | Owner's display name. | [optional] 
+**Email** | **String** | Owner's email. | [optional] 
 
 ## Examples
 

@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'TaggedObject', 'TaggedObject']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ObjectRef** |  Pointer to [**TaggedObjectDto**](tagged-object-dto) |  | [optional] 
-**Tags** |  Pointer to **[]String** | Labels to be applied to an Object | [optional] 
+**ObjectRef** | [**TaggedObjectDto**](tagged-object-dto) |  | [optional] 
+**Tags** | **[]String** | Labels to be applied to an Object | [optional] 
 
 ## Examples
 

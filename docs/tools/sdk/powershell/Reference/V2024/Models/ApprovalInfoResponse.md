@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'ApprovalInfoResponse', 'V2024Approval
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | the id of approver | [optional] 
-**Name** |  Pointer to **String** | the name of approver | [optional] 
-**Status** |  Pointer to **String** | the status of the approval request | [optional] 
+**Id** | **String** | the id of approver | [optional] 
+**Name** | **String** | the name of approver | [optional] 
+**Status** | **String** | the status of the approval request | [optional] 
 
 ## Examples
 

@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'FederationProtocolDetails', 'Federati
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Role** |  Pointer to  **Enum** [  "SAML_IDP",    "SAML_SP" ] | Federation protocol role | [optional] 
-**EntityId** |  Pointer to **String** | An entity ID is a globally unique name for a SAML entity, either an Identity Provider (IDP) or a Service Provider (SP). | [optional] 
+**Role** |  **Enum** [  "SAML_IDP",    "SAML_SP" ] | Federation protocol role | [optional] 
+**EntityId** | **String** | An entity ID is a globally unique name for a SAML entity, either an Identity Provider (IDP) or a Service Provider (SP). | [optional] 
 
 ## Examples
 

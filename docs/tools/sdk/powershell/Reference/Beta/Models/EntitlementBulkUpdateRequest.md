@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'EntitlementBulkUpdateRequest', 'BetaE
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**EntitlementIds** |  **[]String** | List of entitlement ids to update | [required]
-**JsonPatch** |  [**[]JsonPatchOperation**](json-patch-operation) |  | [required]
+**EntitlementIds** | **[]String** | List of entitlement ids to update | [required]
+**JsonPatch** | [**[]JsonPatchOperation**](json-patch-operation) |  | [required]
 
 ## Examples
 

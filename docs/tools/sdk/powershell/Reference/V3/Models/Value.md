@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'Value', 'Value']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to **String** | The type of attribute value | [optional] 
-**Value** |  Pointer to **String** | The attribute value | [optional] 
+**Type** | **String** | The type of attribute value | [optional] 
+**Value** | **String** | The attribute value | [optional] 
 
 ## Examples
 

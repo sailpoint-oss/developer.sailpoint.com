@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'RoleMiningPotentialRoleExportResponse
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**MinEntitlementPopularity** |  Pointer to **Int32** | The minimum popularity among identities in the role which an entitlement must have to be included in the report | [optional] 
-**IncludeCommonAccess** |  Pointer to **Boolean** | If false, do not include entitlements that are highly popular among the entire orginization | [optional] 
-**ExportId** |  Pointer to **String** | ID used to reference this export | [optional] 
-**Status** |  Pointer to [**RoleMiningPotentialRoleExportState**](role-mining-potential-role-export-state) |  | [optional] 
+**MinEntitlementPopularity** | **Int32** | The minimum popularity among identities in the role which an entitlement must have to be included in the report | [optional] 
+**IncludeCommonAccess** | **Boolean** | If false, do not include entitlements that are highly popular among the entire orginization | [optional] 
+**ExportId** | **String** | ID used to reference this export | [optional] 
+**Status** | [**RoleMiningPotentialRoleExportState**](role-mining-potential-role-export-state) |  | [optional] 
 
 ## Examples
 

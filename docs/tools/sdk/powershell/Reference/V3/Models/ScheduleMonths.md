@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'ScheduleMonths', 'ScheduleMonths']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |   **Enum** [  "LIST",    "RANGE" ] | Enum type to specify months value | [required]
-**Values** |  **[]String** | Values of the months based on the enum type mentioned above | [required]
-**Interval** |  Pointer to **Int64** | Interval between the cert generations | [optional] 
+**Type** |  **Enum** [  "LIST",    "RANGE" ] | Enum type to specify months value | [required]
+**Values** | **[]String** | Values of the months based on the enum type mentioned above | [required]
+**Interval** | **Int64** | Interval between the cert generations | [optional] 
 
 ## Examples
 

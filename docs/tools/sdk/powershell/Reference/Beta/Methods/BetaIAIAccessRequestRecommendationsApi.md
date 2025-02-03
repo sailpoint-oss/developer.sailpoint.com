@@ -9,7 +9,6 @@ slug: /tools/sdk/powershell/beta/methods/iai-access-request-recommendations
 tags: ['SDK', 'Software Development Kit', 'IAIAccessRequestRecommendations', 'BetaIAIAccessRequestRecommendations']
 ---
 
-
 # IAIAccessRequestRecommendations
    
   
@@ -27,9 +26,7 @@ Method | HTTP request | Description
 [**Get-BetaAccessRequestRecommendationsRequestedItems**](#get-access-request-recommendations-requested-items) | **GET** `/ai-access-request-recommendations/requested-items` | List of Requested Access Request Recommendations
 [**Get-BetaAccessRequestRecommendationsViewedItems**](#get-access-request-recommendations-viewed-items) | **GET** `/ai-access-request-recommendations/viewed-items` | List of Viewed Access Request Recommendations
 
-
 ## add-access-request-recommendations-ignored-item
-
 This API ignores a recommended access request item. Once an item is ignored, it will be marked as ignored=true if it is still a recommended item. The consumer can decide to hide ignored recommendations.
 
 ### Parameters 
@@ -38,7 +35,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | AccessRequestRecommendationActionItemDto | [**AccessRequestRecommendationActionItemDto**](../models/access-request-recommendation-action-item-dto) | True  | The recommended access item to ignore for an identity.
 
 ### Return type
-
 [**AccessRequestRecommendationActionItemResponseDto**](../models/access-request-recommendation-action-item-response-dto)
 
 ### Responses
@@ -52,7 +48,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -65,10 +60,12 @@ $AccessRequestRecommendationActionItemDto = @"{
   },
   "identityId" : "2c91808570313110017040b06f344ec9"
 }"@
+
 # Notification of Ignored Access Request Recommendations
+
 try {
     $Result = ConvertFrom-JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
-    Add-BetaAccessRequestRecommendationsIgnoredItem-BetaAccessRequestRecommendationActionItemDto $Result
+    Add-BetaAccessRequestRecommendationsIgnoredItem -BetaAccessRequestRecommendationActionItemDto $Result
     
     # Below is a request that includes all optional parameters
     # Add-BetaAccessRequestRecommendationsIgnoredItem -BetaAccessRequestRecommendationActionItemDto $AccessRequestRecommendationActionItemDto  
@@ -77,11 +74,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## add-access-request-recommendations-requested-item
-
 This API consumes a notification that a recommended access request item was requested. This API does not actually make the request, it is just a notification. This will help provide feedback in order to improve our recommendations.
 
 ### Parameters 
@@ -90,7 +84,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | AccessRequestRecommendationActionItemDto | [**AccessRequestRecommendationActionItemDto**](../models/access-request-recommendation-action-item-dto) | True  | The recommended access item that was requested for an identity.
 
 ### Return type
-
 [**AccessRequestRecommendationActionItemResponseDto**](../models/access-request-recommendation-action-item-response-dto)
 
 ### Responses
@@ -104,7 +97,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -117,10 +109,12 @@ $AccessRequestRecommendationActionItemDto = @"{
   },
   "identityId" : "2c91808570313110017040b06f344ec9"
 }"@
+
 # Notification of Requested Access Request Recommendations
+
 try {
     $Result = ConvertFrom-JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
-    Add-BetaAccessRequestRecommendationsRequestedItem-BetaAccessRequestRecommendationActionItemDto $Result
+    Add-BetaAccessRequestRecommendationsRequestedItem -BetaAccessRequestRecommendationActionItemDto $Result
     
     # Below is a request that includes all optional parameters
     # Add-BetaAccessRequestRecommendationsRequestedItem -BetaAccessRequestRecommendationActionItemDto $AccessRequestRecommendationActionItemDto  
@@ -129,11 +123,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## add-access-request-recommendations-viewed-item
-
 This API consumes a notification that a recommended access request item was viewed. Future recommendations with this item will be marked with viewed=true. This can be useful for the consumer to determine if there are any new/unviewed recommendations.
 
 ### Parameters 
@@ -142,7 +133,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | AccessRequestRecommendationActionItemDto | [**AccessRequestRecommendationActionItemDto**](../models/access-request-recommendation-action-item-dto) | True  | The recommended access that was viewed for an identity.
 
 ### Return type
-
 [**AccessRequestRecommendationActionItemResponseDto**](../models/access-request-recommendation-action-item-response-dto)
 
 ### Responses
@@ -156,7 +146,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -169,10 +158,12 @@ $AccessRequestRecommendationActionItemDto = @"{
   },
   "identityId" : "2c91808570313110017040b06f344ec9"
 }"@
+
 # Notification of Viewed Access Request Recommendations
+
 try {
     $Result = ConvertFrom-JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
-    Add-BetaAccessRequestRecommendationsViewedItem-BetaAccessRequestRecommendationActionItemDto $Result
+    Add-BetaAccessRequestRecommendationsViewedItem -BetaAccessRequestRecommendationActionItemDto $Result
     
     # Below is a request that includes all optional parameters
     # Add-BetaAccessRequestRecommendationsViewedItem -BetaAccessRequestRecommendationActionItemDto $AccessRequestRecommendationActionItemDto  
@@ -181,11 +172,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## add-access-request-recommendations-viewed-items
-
 This API consumes a notification that a set of recommended access request item were viewed. Future recommendations with these items will be marked with viewed=true. This can be useful for the consumer to determine if there are any new/unviewed recommendations.
 
 ### Parameters 
@@ -194,7 +182,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | AccessRequestRecommendationActionItemDto | [**[]AccessRequestRecommendationActionItemDto**](../models/access-request-recommendation-action-item-dto) | True  | The recommended access items that were viewed for an identity.
 
 ### Return type
-
 [**AccessRequestRecommendationActionItemResponseDto[]**](../models/access-request-recommendation-action-item-response-dto)
 
 ### Responses
@@ -208,25 +195,25 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
 ### Example
 ```powershell
- # AccessRequestRecommendationActionItemDto[] | The recommended access items that were viewed for an identity.
  $AccessRequestRecommendationActionItemDto = @"{
   "access" : {
     "id" : "2c9180835d2e5168015d32f890ca1581",
     "type" : "ACCESS_PROFILE"
   },
   "identityId" : "2c91808570313110017040b06f344ec9"
-}"@ 
+}"@ # AccessRequestRecommendationActionItemDto[] | The recommended access items that were viewed for an identity.
+ 
 
 # Notification of Viewed Access Request Recommendations in Bulk
+
 try {
     $Result = ConvertFrom-JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
-    Add-BetaAccessRequestRecommendationsViewedItems-BetaAccessRequestRecommendationActionItemDto $Result
+    Add-BetaAccessRequestRecommendationsViewedItems -BetaAccessRequestRecommendationActionItemDto $Result
     
     # Below is a request that includes all optional parameters
     # Add-BetaAccessRequestRecommendationsViewedItems -BetaAccessRequestRecommendationActionItemDto $AccessRequestRecommendationActionItemDto  
@@ -235,11 +222,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-access-request-recommendations
-
 This API returns the access request recommendations for the specified identity. The default identity is *me* which indicates the current user.
 
 ### Parameters 
@@ -254,7 +238,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **access.name, access.type**  By default the recommendations are sorted by highest confidence first.
 
 ### Return type
-
 [**AccessRequestRecommendationItemDetail[]**](../models/access-request-recommendation-item-detail)
 
 ### Responses
@@ -268,7 +251,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -281,7 +263,9 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 $IncludeTranslationMessages = $false # Boolean | If *true* it will populate a list of translation messages in the response. (optional) (default to $false)
 $Filters = 'access.name co "admin"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **access.name**: *co*  **access.type**: *eq, in*  **access.description**: *co, eq, in* (optional)
 $Sorters = "MySorters" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **access.name, access.type**  By default the recommendations are sorted by highest confidence first. (optional)
+
 # Identity Access Request Recommendations
+
 try {
     Get-BetaAccessRequestRecommendations
     
@@ -292,11 +276,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-access-request-recommendations-ignored-items
-
 This API returns the list of ignored access request recommendations.
 
 ### Parameters 
@@ -309,7 +290,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **access.id, access.type, identityId, timestamp**
 
 ### Return type
-
 [**AccessRequestRecommendationActionItemResponseDto[]**](../models/access-request-recommendation-action-item-response-dto)
 
 ### Responses
@@ -323,7 +303,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -334,7 +313,9 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Filters = 'identityId eq "2c9180846b0a0583016b299f210c1314"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **access.id**: *eq, in*  **access.type**: *eq, in*  **identityId**: *eq, in* (optional)
 $Sorters = "access.id" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **access.id, access.type, identityId, timestamp** (optional)
+
 # List of Ignored Access Request Recommendations
+
 try {
     Get-BetaAccessRequestRecommendationsIgnoredItems
     
@@ -345,11 +326,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-access-request-recommendations-requested-items
-
 This API returns a list of requested access request recommendations.
 
 ### Parameters 
@@ -362,7 +340,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **access.id, access.type, identityId, timestamp**
 
 ### Return type
-
 [**AccessRequestRecommendationActionItemResponseDto[]**](../models/access-request-recommendation-action-item-response-dto)
 
 ### Responses
@@ -376,7 +353,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -387,7 +363,9 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Filters = 'access.id eq "2c9180846b0a0583016b299f210c1314"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **access.id**: *eq, in*  **access.type**: *eq, in*  **identityId**: *eq, in* (optional)
 $Sorters = "MySorters" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **access.id, access.type, identityId, timestamp** (optional)
+
 # List of Requested Access Request Recommendations
+
 try {
     Get-BetaAccessRequestRecommendationsRequestedItems
     
@@ -398,11 +376,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-access-request-recommendations-viewed-items
-
 This API returns the list of viewed access request recommendations.
 
 ### Parameters 
@@ -415,7 +390,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **access.id, access.type, identityId, timestamp**
 
 ### Return type
-
 [**AccessRequestRecommendationActionItemResponseDto[]**](../models/access-request-recommendation-action-item-response-dto)
 
 ### Responses
@@ -429,7 +403,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -440,7 +413,9 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Filters = 'access.id eq "2c9180846b0a0583016b299f210c1314"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **access.id**: *eq, in*  **access.type**: *eq, in*  **identityId**: *eq, in* (optional)
 $Sorters = "MySorters" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **access.id, access.type, identityId, timestamp** (optional)
+
 # List of Viewed Access Request Recommendations
+
 try {
     Get-BetaAccessRequestRecommendationsViewedItems
     
@@ -451,7 +426,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

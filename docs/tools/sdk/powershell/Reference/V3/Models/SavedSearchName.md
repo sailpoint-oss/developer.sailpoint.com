@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'SavedSearchName', 'SavedSearchName']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** |  Pointer to **String** | The name of the saved search.  | [optional] 
-**Description** |  Pointer to **String** | The description of the saved search.  | [optional] 
+**Name** | **String** | The name of the saved search.  | [optional] 
+**Description** | **String** | The description of the saved search.  | [optional] 
 
 ## Examples
 

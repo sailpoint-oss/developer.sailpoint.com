@@ -16,13 +16,13 @@ tags: ['SDK', 'Software Development Kit', 'SpConfigObject', 'V2024SpConfigObject
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ObjectType** |  Pointer to **String** | The object type this configuration is for. | [optional] 
-**ReferenceExtractors** |  Pointer to **[]String** | List of json paths within an exported object of this type that represent references that need to be resolved. | [optional] 
-**SignatureRequired** |  Pointer to **Boolean** | If true, this type of object will be JWS signed and cannot be modified before import. | [optional] [default to $false]
-**LegacyObject** |  Pointer to **Boolean** | Whether this is a legacy object | [optional] [default to $false]
-**OnePerTenant** |  Pointer to **Boolean** | Whether there is only one object of this type | [optional] [default to $false]
-**Exportable** |  Pointer to **Boolean** | Whether this object can be exported or it is just a reference object | [optional] [default to $false]
-**Rules** |  Pointer to [**SpConfigRules**](sp-config-rules) |  | [optional] 
+**ObjectType** | **String** | The object type this configuration is for. | [optional] 
+**ReferenceExtractors** | **[]String** | List of json paths within an exported object of this type that represent references that need to be resolved. | [optional] 
+**SignatureRequired** | **Boolean** | If true, this type of object will be JWS signed and cannot be modified before import. | [optional] [default to $false]
+**LegacyObject** | **Boolean** | Whether this is a legacy object | [optional] [default to $false]
+**OnePerTenant** | **Boolean** | Whether there is only one object of this type | [optional] [default to $false]
+**Exportable** | **Boolean** | Whether this object can be exported or it is just a reference object | [optional] [default to $false]
+**Rules** | [**SpConfigRules**](sp-config-rules) |  | [optional] 
 
 ## Examples
 

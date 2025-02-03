@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'ManagedClusterKeyPair', 'V2024Managed
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PublicKey** |  Pointer to **String** | ManagedCluster publicKey | [optional] 
-**PublicKeyThumbprint** |  Pointer to **String** | ManagedCluster publicKeyThumbprint | [optional] 
-**PublicKeyCertificate** |  Pointer to **String** | ManagedCluster publicKeyCertificate | [optional] 
+**PublicKey** | **String** | ManagedCluster publicKey | [optional] 
+**PublicKeyThumbprint** | **String** | ManagedCluster publicKeyThumbprint | [optional] 
+**PublicKeyCertificate** | **String** | ManagedCluster publicKeyCertificate | [optional] 
 
 ## Examples
 

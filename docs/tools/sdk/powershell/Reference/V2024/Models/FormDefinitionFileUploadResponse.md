@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'FormDefinitionFileUploadResponse', 'V
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Created** |  Pointer to **String** | Created is the date the file was uploaded | [optional] 
-**FileId** |  Pointer to **String** | fileId is a unique ULID that serves as an identifier for the form definition file | [optional] 
-**FormDefinitionId** |  Pointer to **String** | FormDefinitionID is a unique guid identifying this form definition | [optional] 
+**Created** | **String** | Created is the date the file was uploaded | [optional] 
+**FileId** | **String** | fileId is a unique ULID that serves as an identifier for the form definition file | [optional] 
+**FormDefinitionId** | **String** | FormDefinitionID is a unique guid identifying this form definition | [optional] 
 
 ## Examples
 

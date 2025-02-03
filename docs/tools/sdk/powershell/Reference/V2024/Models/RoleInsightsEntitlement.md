@@ -16,12 +16,12 @@ tags: ['SDK', 'Software Development Kit', 'RoleInsightsEntitlement', 'V2024RoleI
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** |  Pointer to **String** | Name of the entitlement | [optional] 
-**Id** |  Pointer to **String** | Id of the entitlement | [optional] 
-**Description** |  Pointer to **String** | Description for the entitlement | [optional] 
-**Source** |  Pointer to **String** | Source or the application for the entitlement | [optional] 
-**Attribute** |  Pointer to **String** | Attribute for the entitlement | [optional] 
-**Value** |  Pointer to **String** | Attribute value for the entitlement | [optional] 
+**Name** | **String** | Name of the entitlement | [optional] 
+**Id** | **String** | Id of the entitlement | [optional] 
+**Description** | **String** | Description for the entitlement | [optional] 
+**Source** | **String** | Source or the application for the entitlement | [optional] 
+**Attribute** | **String** | Attribute for the entitlement | [optional] 
+**Value** | **String** | Attribute value for the entitlement | [optional] 
 
 ## Examples
 

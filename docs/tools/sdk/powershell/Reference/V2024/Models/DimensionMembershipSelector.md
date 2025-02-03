@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'DimensionMembershipSelector', 'V2024D
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to [**DimensionMembershipSelectorType**](dimension-membership-selector-type) |  | [optional] 
-**Criteria** |  Pointer to [**DimensionCriteriaLevel1**](dimension-criteria-level1) |  | [optional] 
+**Type** | [**DimensionMembershipSelectorType**](dimension-membership-selector-type) |  | [optional] 
+**Criteria** | [**DimensionCriteriaLevel1**](dimension-criteria-level1) |  | [optional] 
 
 ## Examples
 

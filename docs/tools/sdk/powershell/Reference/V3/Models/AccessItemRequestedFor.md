@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'AccessItemRequestedFor', 'AccessItemR
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to  **Enum** [  "IDENTITY" ] | DTO type of identity the access item is requested for. | [optional] 
-**Id** |  Pointer to **String** | ID of identity the access item is requested for. | [optional] 
-**Name** |  Pointer to **String** | Human-readable display name of identity the access item is requested for. | [optional] 
+**Type** |  **Enum** [  "IDENTITY" ] | DTO type of identity the access item is requested for. | [optional] 
+**Id** | **String** | ID of identity the access item is requested for. | [optional] 
+**Name** | **String** | Human-readable display name of identity the access item is requested for. | [optional] 
 
 ## Examples
 

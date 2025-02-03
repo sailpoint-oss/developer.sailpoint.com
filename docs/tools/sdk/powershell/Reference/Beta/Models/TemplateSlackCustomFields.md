@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'TemplateSlackCustomFields', 'BetaTemp
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**RequestType** |  Pointer to **String** |  | [optional] 
-**ContainsDeny** |  Pointer to **String** |  | [optional] 
-**CampaignId** |  Pointer to **String** |  | [optional] 
-**CampaignStatus** |  Pointer to **String** |  | [optional] 
+**RequestType** | **String** |  | [optional] 
+**ContainsDeny** | **String** |  | [optional] 
+**CampaignId** | **String** |  | [optional] 
+**CampaignStatus** | **String** |  | [optional] 
 
 ## Examples
 

@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'AccessSummaryAccess', 'V2024AccessSum
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to [**DtoType**](dto-type) |  | [optional] 
-**Id** |  Pointer to **String** | The ID of the item being certified | [optional] 
-**Name** |  Pointer to **String** | The name of the item being certified | [optional] 
+**Type** | [**DtoType**](dto-type) |  | [optional] 
+**Id** | **String** | The ID of the item being certified | [optional] 
+**Name** | **String** | The name of the item being certified | [optional] 
 
 ## Examples
 

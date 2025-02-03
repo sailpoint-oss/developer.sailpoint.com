@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'VendorConnectorMappingDeletedAt', 'Ve
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Time** |  Pointer to **System.DateTime** | The timestamp when the mapping was deleted, represented in ISO 8601 format, if applicable. | [optional] 
-**Valid** |  Pointer to **Boolean** | A flag indicating if the 'Time' field is set and valid, i.e., if the mapping has been deleted. | [optional] [default to $false]
+**Time** | **System.DateTime** | The timestamp when the mapping was deleted, represented in ISO 8601 format, if applicable. | [optional] 
+**Valid** | **Boolean** | A flag indicating if the 'Time' field is set and valid, i.e., if the mapping has been deleted. | [optional] [default to $false]
 
 ## Examples
 

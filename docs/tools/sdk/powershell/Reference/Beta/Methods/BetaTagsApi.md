@@ -9,7 +9,6 @@ slug: /tools/sdk/powershell/beta/methods/tags
 tags: ['SDK', 'Software Development Kit', 'Tags', 'BetaTags']
 ---
 
-
 # Tags
    
   
@@ -23,9 +22,7 @@ Method | HTTP request | Description
 [**Get-BetaTagById**](#get-tag-by-id) | **GET** `/tags/{id}` | Get Tag By Id
 [**Get-BetaTags**](#list-tags) | **GET** `/tags` | List Tags
 
-
 ## create-tag
-
 This API creates new tag.
 
 A token with API, ORG_ADMIN, CERT_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
@@ -36,7 +33,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | Tag | [**Tag**](../models/tag) | True  | 
 
 ### Return type
-
 [**Tag**](../models/tag)
 
 ### Responses
@@ -50,7 +46,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -71,10 +66,12 @@ $Tag = @"{
   "modified" : "2022-07-14T16:31:11Z",
   "id" : "449ecdc0-d4ff-4341-acf6-92f6f7ce604f"
 }"@
+
 # Create Tag
+
 try {
     $Result = ConvertFrom-JsonToTag -Json $Tag
-    New-BetaTag-BetaTag $Result
+    New-BetaTag -BetaTag $Result
     
     # Below is a request that includes all optional parameters
     # New-BetaTag -BetaTag $Tag  
@@ -83,11 +80,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## delete-tag-by-id
-
 This API deletes a tag by specified id.
 
 A token with API, ORG_ADMIN, CERT_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
@@ -98,7 +92,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | The ID of the object reference to delete.
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -113,16 +106,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "329d96cf-3bdb-40a9-988a-b5037ab89022" # String | The ID of the object reference to delete.
+
 # Delete Tag
+
 try {
-    Remove-BetaTagById-BetaId $Id 
+    Remove-BetaTagById -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-BetaTagById -BetaId $Id  
@@ -131,11 +125,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-tag-by-id
-
 Returns a tag by its id.
 
 A token with API, ORG_ADMIN, CERT_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
@@ -146,7 +137,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | The ID of the object reference to retrieve.
 
 ### Return type
-
 [**Tag**](../models/tag)
 
 ### Responses
@@ -161,16 +151,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "329d96cf-3bdb-40a9-988a-b5037ab89022" # String | The ID of the object reference to retrieve.
+
 # Get Tag By Id
+
 try {
-    Get-BetaTagById-BetaId $Id 
+    Get-BetaTagById -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaTagById -BetaId $Id  
@@ -179,11 +170,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-tags
-
 This API returns a list of tags.
 
 A token with API, ORG_ADMIN, CERT_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
@@ -198,7 +186,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified**
 
 ### Return type
-
 [**Tag[]**](../models/tag)
 
 ### Responses
@@ -212,7 +199,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -223,7 +209,9 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Filters = 'id eq "27462f54-61c7-4140-b5da-d5dbe27fc6db"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw* (optional)
 $Sorters = "name,-modified" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified** (optional)
+
 # List Tags
+
 try {
     Get-BetaTags
     
@@ -234,7 +222,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

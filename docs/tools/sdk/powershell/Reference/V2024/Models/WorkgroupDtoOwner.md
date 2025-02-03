@@ -16,11 +16,11 @@ tags: ['SDK', 'Software Development Kit', 'WorkgroupDtoOwner', 'V2024WorkgroupDt
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to  **Enum** [  "IDENTITY" ] | Owner's DTO type. | [optional] 
-**Id** |  Pointer to **String** | Owner's identity ID. | [optional] 
-**Name** |  Pointer to **String** | Owner's name. | [optional] 
-**DisplayName** |  Pointer to **String** | The display name of the identity | [optional] [readonly] 
-**EmailAddress** |  Pointer to **String** | The primary email address of the identity | [optional] [readonly] 
+**Type** |  **Enum** [  "IDENTITY" ] | Owner's DTO type. | [optional] 
+**Id** | **String** | Owner's identity ID. | [optional] 
+**Name** | **String** | Owner's name. | [optional] 
+**DisplayName** | **String** | The display name of the identity | [optional] [readonly] 
+**EmailAddress** | **String** | The primary email address of the identity | [optional] [readonly] 
 
 ## Examples
 

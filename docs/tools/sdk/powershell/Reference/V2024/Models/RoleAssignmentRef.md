@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'RoleAssignmentRef', 'V2024RoleAssignm
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | Assignment Id | [optional] 
-**Role** |  Pointer to [**BaseReferenceDto1**](base-reference-dto1) |  | [optional] 
+**Id** | **String** | Assignment Id | [optional] 
+**Role** | [**BaseReferenceDto1**](base-reference-dto1) |  | [optional] 
 
 ## Examples
 

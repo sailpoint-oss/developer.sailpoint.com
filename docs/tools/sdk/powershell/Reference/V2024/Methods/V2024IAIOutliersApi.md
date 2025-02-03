@@ -9,7 +9,6 @@ slug: /tools/sdk/powershell/v2024/methods/iai-outliers
 tags: ['SDK', 'Software Development Kit', 'IAIOutliers', 'V2024IAIOutliers']
 ---
 
-
 # IAIOutliers
    
   
@@ -28,9 +27,7 @@ Method | HTTP request | Description
 [**Get-V2024OutliersContributingFeatureAccessItems**](#list-outliers-contributing-feature-access-items) | **GET** `/outliers/{outlierId}/feature-details/{contributingFeatureName}/access-items` | Gets a list of access items associated with each identity outlier contributing feature
 [**Invoke-V2024UnIgnoreIdentityOutliers**](#un-ignore-identity-outliers) | **POST** `/outliers/unignore` | IAI Identity Outliers Unignore
 
-
 ## export-outliers-zip
-
 This API exports a list of ignored outliers to a CSV as well as list of non-ignored outliers to a CSV. These two CSVs will be zipped and exported.
 
 Columns will include: identityId, type, firstDetectionDate, latestDetectionDate, ignored, & attributes (defined set of identity attributes).
@@ -43,7 +40,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Type | **String** |   (optional) | Type of the identity outliers snapshot to filter on
 
 ### Return type
-
 **System.IO.FileInfo**
 
 ### Responses
@@ -57,7 +53,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/zip, application/json
 
@@ -65,9 +60,11 @@ Code | Description  | Data Type
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $Type = "LOW_SIMILARITY" # String | Type of the identity outliers snapshot to filter on (optional)
+
 # IAI Identity Outliers Export
+
 try {
-    Export-V2024OutliersZip-V2024XSailPointExperimental $XSailPointExperimental 
+    Export-V2024OutliersZip -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Export-V2024OutliersZip -V2024XSailPointExperimental $XSailPointExperimental -V2024Type $Type  
@@ -76,11 +73,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-identity-outlier-snapshots
-
 This API returns a summary containing the number of identities that customer has, the number of outliers, and the type of outlier.
 
 ### Parameters 
@@ -94,7 +88,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **snapshotDate**
 
 ### Return type
-
 [**OutlierSummary[]**](../models/outlier-summary)
 
 ### Responses
@@ -109,7 +102,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -121,9 +113,11 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 $Type = "LOW_SIMILARITY" # String | Type of the identity outliers snapshot to filter on (optional)
 $Filters = 'snapshotDate ge "2022-02-07T20:13:29.356648026Z"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **snapshotDate**: *ge, le* (optional)
 $Sorters = "snapshotDate" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **snapshotDate** (optional)
+
 # IAI Identity Outliers Summary
+
 try {
-    Get-V2024IdentityOutlierSnapshots-V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024IdentityOutlierSnapshots -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024IdentityOutlierSnapshots -V2024XSailPointExperimental $XSailPointExperimental -V2024Limit $Limit -V2024Offset $Offset -V2024Type $Type -V2024Filters $Filters -V2024Sorters $Sorters  
@@ -132,11 +126,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-identity-outliers
-
 This API returns a list of outliers, containing data such as identity ID, outlier type, detection dates, identity attributes, if identity is ignored, and certification information.
 
 ### Parameters 
@@ -151,7 +142,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **firstDetectionDate, attributes, score**
 
 ### Return type
-
 [**Outlier[]**](../models/outlier)
 
 ### Responses
@@ -165,7 +155,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -178,9 +167,11 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 $Type = "LOW_SIMILARITY" # String | Type of the identity outliers snapshot to filter on (optional)
 $Filters = 'attributes.displayName sw "John" and certStatus eq "false"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **attributes**: *eq, sw, co, in*  **firstDetectionDate**: *ge, le*  **certStatus**: *eq*  **ignored**: *eq*  **score**: *ge, le* (optional)
 $Sorters = "attributes.displayName,firstDetectionDate,-score" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **firstDetectionDate, attributes, score** (optional)
+
 # IAI Get Identity Outliers
+
 try {
-    Get-V2024IdentityOutliers-V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024IdentityOutliers -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024IdentityOutliers -V2024XSailPointExperimental $XSailPointExperimental -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Type $Type -V2024Filters $Filters -V2024Sorters $Sorters  
@@ -189,11 +180,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-latest-identity-outlier-snapshots
-
 This API returns a most recent snapshot of each outlier type, each containing the number of identities that customer has, the number of outliers, and the type of outlier.
 
 ### Parameters 
@@ -203,7 +191,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Type | **String** |   (optional) | Type of the identity outliers snapshot to filter on
 
 ### Return type
-
 [**LatestOutlierSummary[]**](../models/latest-outlier-summary)
 
 ### Responses
@@ -218,7 +205,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -226,9 +212,11 @@ Code | Description  | Data Type
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $Type = "LOW_SIMILARITY" # String | Type of the identity outliers snapshot to filter on (optional)
+
 # IAI Identity Outliers Latest Summary
+
 try {
-    Get-V2024LatestIdentityOutlierSnapshots-V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024LatestIdentityOutlierSnapshots -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024LatestIdentityOutlierSnapshots -V2024XSailPointExperimental $XSailPointExperimental -V2024Type $Type  
@@ -237,11 +225,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-outlier-contributing-feature-summary
-
 This API returns a summary of a contributing feature for an identity outlier.
 
 The object contains: contributing feature name (translated text or message key), identity outlier display name, feature values, feature definition and explanation (translated text or message key), peer display name and identityId, access item reference, translation messages object.
@@ -254,7 +239,6 @@ Path   | OutlierFeatureId | **String** | True  | Contributing feature id
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-
 [**OutlierFeatureSummary**](../models/outlier-feature-summary)
 
 ### Responses
@@ -269,7 +253,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -277,9 +260,11 @@ Code | Description  | Data Type
 ```powershell
 $OutlierFeatureId = "04654b66-7561-4090-94f9-abee0722a1af" # String | Contributing feature id
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
 # Get identity outlier contibuting feature summary
+
 try {
-    Get-V2024OutlierContributingFeatureSummary-V2024OutlierFeatureId $OutlierFeatureId -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024OutlierContributingFeatureSummary -V2024OutlierFeatureId $OutlierFeatureId  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024OutlierContributingFeatureSummary -V2024OutlierFeatureId $OutlierFeatureId -V2024XSailPointExperimental $XSailPointExperimental  
@@ -288,11 +273,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-peer-group-outliers-contributing-features
-
 This API returns a list of contributing feature objects for a single outlier.
 
 The object contains: feature name, feature value type, value, importance, display name (translated text or message key), description (translated text or message key), translation messages object.
@@ -310,7 +292,6 @@ Path   | OutlierId | **String** | True  | The outlier id
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **importance**
 
 ### Return type
-
 [**OutlierContributingFeature[]**](../models/outlier-contributing-feature)
 
 ### Responses
@@ -325,7 +306,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -338,9 +318,11 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $IncludeTranslationMessages = "include-translation-messages=" # String | Whether or not to include translation messages object in returned response (optional)
 $Sorters = "importance" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **importance** (optional)
+
 # Get identity outlier's contibuting features
+
 try {
-    Get-V2024PeerGroupOutliersContributingFeatures-V2024OutlierId $OutlierId -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024PeerGroupOutliersContributingFeatures -V2024OutlierId $OutlierId  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024PeerGroupOutliersContributingFeatures -V2024OutlierId $OutlierId -V2024XSailPointExperimental $XSailPointExperimental -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024IncludeTranslationMessages $IncludeTranslationMessages -V2024Sorters $Sorters  
@@ -349,11 +331,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## ignore-identity-outliers
-
 This API receives a list of identity IDs in the request, changes the outliers to be ignored.
 
 ### Parameters 
@@ -363,7 +342,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | RequestBody | **[]String** | True  | 
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -377,7 +355,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -385,12 +362,14 @@ Code | Description  | Data Type
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $RequestBody = "MyRequestBody" # String[] | 
- $RequestBody = @""@ 
+ $RequestBody = @""@ # String[] | 
+ 
 
 # IAI Identity Outliers Ignore
+
 try {
     $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
-    Invoke-V2024IgnoreIdentityOutliers-V2024XSailPointExperimental $XSailPointExperimental -V2024RequestBody $Result
+    Invoke-V2024IgnoreIdentityOutliers -V2024XSailPointExperimental $XSailPointExperimental  -V2024RequestBody $Result
     
     # Below is a request that includes all optional parameters
     # Invoke-V2024IgnoreIdentityOutliers -V2024XSailPointExperimental $XSailPointExperimental -V2024RequestBody $RequestBody  
@@ -399,11 +378,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-outliers-contributing-feature-access-items
-
 This API returns a list of the enriched access items associated with each feature filtered by the access item type.
 
 The object contains: accessItemId, display name (translated text or message key), description (translated text or message key), accessType, sourceName, extremelyRare.
@@ -422,7 +398,6 @@ Path   | ContributingFeatureName | **String** | True  | The name of contributing
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName**
 
 ### Return type
-
 [**OutliersContributingFeatureAccessItems[]**](../models/outliers-contributing-feature-access-items)
 
 ### Responses
@@ -437,7 +412,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -451,9 +425,11 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $AccessType = "ENTITLEMENT" # String | The type of access item for the identity outlier contributing feature. If not provided, it returns all. (optional)
 $Sorters = "displayName" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName** (optional)
+
 # Gets a list of access items associated with each identity outlier contributing feature
+
 try {
-    Get-V2024OutliersContributingFeatureAccessItems-V2024OutlierId $OutlierId -V2024ContributingFeatureName $ContributingFeatureName -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024OutliersContributingFeatureAccessItems -V2024OutlierId $OutlierId  -V2024ContributingFeatureName $ContributingFeatureName  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024OutliersContributingFeatureAccessItems -V2024OutlierId $OutlierId -V2024ContributingFeatureName $ContributingFeatureName -V2024XSailPointExperimental $XSailPointExperimental -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024AccessType $AccessType -V2024Sorters $Sorters  
@@ -462,11 +438,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## un-ignore-identity-outliers
-
 This API receives a list of identity IDs in the request, changes the outliers to be un-ignored.
 
 ### Parameters 
@@ -476,7 +449,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | RequestBody | **[]String** | True  | 
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -490,7 +462,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -498,12 +469,14 @@ Code | Description  | Data Type
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $RequestBody = "MyRequestBody" # String[] | 
- $RequestBody = @""@ 
+ $RequestBody = @""@ # String[] | 
+ 
 
 # IAI Identity Outliers Unignore
+
 try {
     $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
-    Invoke-V2024UnIgnoreIdentityOutliers-V2024XSailPointExperimental $XSailPointExperimental -V2024RequestBody $Result
+    Invoke-V2024UnIgnoreIdentityOutliers -V2024XSailPointExperimental $XSailPointExperimental  -V2024RequestBody $Result
     
     # Below is a request that includes all optional parameters
     # Invoke-V2024UnIgnoreIdentityOutliers -V2024XSailPointExperimental $XSailPointExperimental -V2024RequestBody $RequestBody  
@@ -512,7 +485,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

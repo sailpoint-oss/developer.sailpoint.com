@@ -16,14 +16,14 @@ tags: ['SDK', 'Software Development Kit', 'AccessRequestItemResponse', 'V2024Acc
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Operation** |  Pointer to **String** | the access request item operation | [optional] 
-**AccessItemType** |  Pointer to **String** | the access item type | [optional] 
-**Name** |  Pointer to **String** | the name of access request item | [optional] 
-**Decision** |  Pointer to  **Enum** [  "APPROVED",    "REJECTED" ] | the final decision for the access request | [optional] 
-**Description** |  Pointer to **String** | the description of access request item | [optional] 
-**SourceId** |  Pointer to **String** | the source id | [optional] 
-**SourceName** |  Pointer to **String** | the source Name | [optional] 
-**ApprovalInfos** |  Pointer to [**[]ApprovalInfoResponse**](approval-info-response) |  | [optional] 
+**Operation** | **String** | the access request item operation | [optional] 
+**AccessItemType** | **String** | the access item type | [optional] 
+**Name** | **String** | the name of access request item | [optional] 
+**Decision** |  **Enum** [  "APPROVED",    "REJECTED" ] | the final decision for the access request | [optional] 
+**Description** | **String** | the description of access request item | [optional] 
+**SourceId** | **String** | the source id | [optional] 
+**SourceName** | **String** | the source Name | [optional] 
+**ApprovalInfos** | [**[]ApprovalInfoResponse**](approval-info-response) |  | [optional] 
 
 ## Examples
 

@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'TenantConfigurationDetails', 'BetaTen
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Disabled** |  Pointer to **Boolean** | Flag to determine if Reassignment Configuration is enabled or disabled for a tenant.  When this flag is set to true, Reassignment Configuration is disabled. | [optional] [default to $false]
+**Disabled** | **Boolean** | Flag to determine if Reassignment Configuration is enabled or disabled for a tenant.  When this flag is set to true, Reassignment Configuration is disabled. | [optional] [default to $false]
 
 ## Examples
 

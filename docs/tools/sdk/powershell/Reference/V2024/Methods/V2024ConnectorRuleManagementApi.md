@@ -9,7 +9,6 @@ slug: /tools/sdk/powershell/v2024/methods/connector-rule-management
 tags: ['SDK', 'Software Development Kit', 'ConnectorRuleManagement', 'V2024ConnectorRuleManagement']
 ---
 
-
 # ConnectorRuleManagement
   Use this API to implement connector rule management functionality. 
 With this functionality in place, administrators can implement connector-executed rules in a programmatic, scalable way. 
@@ -32,9 +31,7 @@ Method | HTTP request | Description
 [**Send-V2024ConnectorRule**](#put-connector-rule) | **PUT** `/connector-rules/{id}` | Update Connector Rule
 [**Test-V2024ConnectorRule**](#test-connector-rule) | **POST** `/connector-rules/validate` | Validate Connector Rule
 
-
 ## create-connector-rule
-
 Create a connector rule from the available types.
 
 ### Parameters 
@@ -44,7 +41,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | ConnectorRuleCreateRequest | [**ConnectorRuleCreateRequest**](../models/connector-rule-create-request) | True  | Connector rule to create.
 
 ### Return type
-
 [**ConnectorRuleResponse**](../models/connector-rule-response)
 
 ### Responses
@@ -58,7 +54,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -91,10 +86,12 @@ $ConnectorRuleCreateRequest = @"{
   "attributes" : { },
   "type" : "BuildMap"
 }"@
+
 # Create Connector Rule
+
 try {
     $Result = ConvertFrom-JsonToConnectorRuleCreateRequest -Json $ConnectorRuleCreateRequest
-    New-V2024ConnectorRule-V2024XSailPointExperimental $XSailPointExperimental -V2024ConnectorRuleCreateRequest $Result
+    New-V2024ConnectorRule -V2024XSailPointExperimental $XSailPointExperimental  -V2024ConnectorRuleCreateRequest $Result
     
     # Below is a request that includes all optional parameters
     # New-V2024ConnectorRule -V2024XSailPointExperimental $XSailPointExperimental -V2024ConnectorRuleCreateRequest $ConnectorRuleCreateRequest  
@@ -103,11 +100,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## delete-connector-rule
-
 Delete the connector rule for the given ID.
 
 ### Parameters 
@@ -117,7 +111,6 @@ Path   | Id | **String** | True  | ID of the connector rule to delete.
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -132,7 +125,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -140,9 +132,11 @@ Code | Description  | Data Type
 ```powershell
 $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | ID of the connector rule to delete.
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
 # Delete Connector Rule
+
 try {
-    Remove-V2024ConnectorRule-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
+    Remove-V2024ConnectorRule -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024ConnectorRule -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
@@ -151,11 +145,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-connector-rule
-
 Get a connector rule by ID.
 
 ### Parameters 
@@ -165,7 +156,6 @@ Path   | Id | **String** | True  | ID of the connector rule to get.
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-
 [**ConnectorRuleResponse**](../models/connector-rule-response)
 
 ### Responses
@@ -180,7 +170,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -188,9 +177,11 @@ Code | Description  | Data Type
 ```powershell
 $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | ID of the connector rule to get.
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
 # Get Connector Rule
+
 try {
-    Get-V2024ConnectorRule-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024ConnectorRule -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024ConnectorRule -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
@@ -199,11 +190,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-connector-rule-list
-
 List existing connector rules.
 
 ### Parameters 
@@ -215,7 +203,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-
 [**ConnectorRuleResponse[]**](../models/connector-rule-response)
 
 ### Responses
@@ -229,7 +216,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -239,9 +225,11 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 $Limit = 50 # Int32 | Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 50)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+
 # List Connector Rules
+
 try {
-    Get-V2024ConnectorRuleList-V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024ConnectorRuleList -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024ConnectorRuleList -V2024XSailPointExperimental $XSailPointExperimental -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count  
@@ -250,11 +238,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## put-connector-rule
-
 Update an existing connector rule with the one provided in the request body. These fields are immutable: `id`, `name`, `type`
 
 ### Parameters 
@@ -265,7 +250,6 @@ Path   | Id | **String** | True  | ID of the connector rule to update.
  Body  | ConnectorRuleUpdateRequest | [**ConnectorRuleUpdateRequest**](../models/connector-rule-update-request) |   (optional) | Connector rule with updated data.
 
 ### Return type
-
 [**ConnectorRuleResponse**](../models/connector-rule-response)
 
 ### Responses
@@ -280,7 +264,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -315,9 +298,11 @@ $ConnectorRuleUpdateRequest = @"{
   "id" : "8113d48c0b914f17b4c6072d4dcb9dfe",
   "type" : "BuildMap"
 }"@
+
 # Update Connector Rule
+
 try {
-    Send-V2024ConnectorRule-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
+    Send-V2024ConnectorRule -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Send-V2024ConnectorRule -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024ConnectorRuleUpdateRequest $ConnectorRuleUpdateRequest  
@@ -326,11 +311,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## test-connector-rule
-
 Detect issues within the connector rule's code to fix and list them.
 
 ### Parameters 
@@ -340,7 +322,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | SourceCode | [**SourceCode**](../models/source-code) | True  | Code to validate.
 
 ### Return type
-
 [**ConnectorRuleValidationResponse**](../models/connector-rule-validation-response)
 
 ### Responses
@@ -354,7 +335,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -365,10 +345,12 @@ $SourceCode = @"{
   "version" : "1.0",
   "script" : "return \"Mr. \" + firstName;"
 }"@
+
 # Validate Connector Rule
+
 try {
     $Result = ConvertFrom-JsonToSourceCode -Json $SourceCode
-    Test-V2024ConnectorRule-V2024XSailPointExperimental $XSailPointExperimental -V2024SourceCode $Result
+    Test-V2024ConnectorRule -V2024XSailPointExperimental $XSailPointExperimental  -V2024SourceCode $Result
     
     # Below is a request that includes all optional parameters
     # Test-V2024ConnectorRule -V2024XSailPointExperimental $XSailPointExperimental -V2024SourceCode $SourceCode  
@@ -377,7 +359,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

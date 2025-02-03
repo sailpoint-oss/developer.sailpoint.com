@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'AccessRequested', 'V2024AccessRequest
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccessRequest** |  Pointer to [**AccessRequestResponse1**](access-request-response1) |  | [optional] 
-**IdentityId** |  Pointer to **String** | the identity id | [optional] 
-**EventType** |  Pointer to **String** | the event type | [optional] 
-**Dt** |  Pointer to **String** | the date of event | [optional] 
+**AccessRequest** | [**AccessRequestResponse1**](access-request-response1) |  | [optional] 
+**IdentityId** | **String** | the identity id | [optional] 
+**EventType** | **String** | the event type | [optional] 
+**Dt** | **String** | the date of event | [optional] 
 
 ## Examples
 

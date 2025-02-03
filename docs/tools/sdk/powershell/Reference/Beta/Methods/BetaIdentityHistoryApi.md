@@ -9,7 +9,6 @@ slug: /tools/sdk/powershell/beta/methods/identity-history
 tags: ['SDK', 'Software Development Kit', 'IdentityHistory', 'BetaIdentityHistory']
 ---
 
-
 # IdentityHistory
    
   
@@ -30,9 +29,7 @@ Method | HTTP request | Description
 [**Get-BetaIdentitySnapshotAccessItems**](#list-identity-snapshot-access-items) | **GET** `/historical-identities/{id}/snapshots/{date}/access-items` | Get Identity Access Items Snapshot
 [**Get-BetaIdentitySnapshots**](#list-identity-snapshots) | **GET** `/historical-identities/{id}/snapshots` | Lists all the snapshots for the identity
 
-
 ## compare-identity-snapshots
-
 This method gets a difference of count for each access item types for the given identity between 2 snapshots Requires authorization scope of 'idn:identity-history:read' 
 
 ### Parameters 
@@ -47,7 +44,6 @@ Path   | Id | **String** | True  | The identity id
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-
 [**IdentityCompareResponse[]**](../models/identity-compare-response)
 
 ### Responses
@@ -61,7 +57,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -72,13 +67,15 @@ $Snapshot1 = "2007-03-01T13:00:00Z" # String | The snapshot 1 of identity (optio
 $Snapshot2 = "2008-03-01T13:00:00Z" # String | The snapshot 2 of identity (optional)
 $AccessItemTypes = "MyAccessItemTypes" # String[] | An optional list of access item types (app, account, entitlement, etc...) to return.   If null or empty, all access items types are returned  (optional)
 
-
+ 
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+
 # Gets a difference of count for each access item types for the given identity between 2 snapshots
+
 try {
-    Compare-BetaIdentitySnapshots-BetaId $Id 
+    Compare-BetaIdentitySnapshots -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Compare-BetaIdentitySnapshots -BetaId $Id -BetaSnapshot1 $Snapshot1 -BetaSnapshot2 $Snapshot2 -BetaAccessItemTypes $AccessItemTypes -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count  
@@ -87,11 +84,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## compare-identity-snapshots-access-type
-
 This method gets a list of differences of specific accessType for the given identity between 2 snapshots Requires authorization scope of 'idn:identity-history:read' 
 
 ### Parameters 
@@ -107,7 +101,6 @@ Path   | AccessType | **String** | True  | The specific type which needs to be c
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-
 [**AccessItemDiff[]**](../models/access-item-diff)
 
 ### Responses
@@ -121,23 +114,24 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The identity id
-$AccessType = "role" # String | The specific type which needs to be compared
+$AccessType = "accessProfile" # String | The specific type which needs to be compared
 $AccessAssociated = $false # Boolean | Indicates if added or removed access needs to be returned. true - added, false - removed, null - both added & removed (optional)
 $Snapshot1 = "2008-03-01T13:00:00Z" # String | The snapshot 1 of identity (optional)
 $Snapshot2 = "2009-03-01T13:00:00Z" # String | The snapshot 2 of identity (optional)
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+
 # Gets a list of differences of specific accessType for the given identity between 2 snapshots
+
 try {
-    Compare-BetaIdentitySnapshotsAccessType-BetaId $Id -BetaAccessType $AccessType 
+    Compare-BetaIdentitySnapshotsAccessType -BetaId $Id  -BetaAccessType $AccessType 
     
     # Below is a request that includes all optional parameters
     # Compare-BetaIdentitySnapshotsAccessType -BetaId $Id -BetaAccessType $AccessType -BetaAccessAssociated $AccessAssociated -BetaSnapshot1 $Snapshot1 -BetaSnapshot2 $Snapshot2 -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count  
@@ -146,11 +140,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-historical-identity
-
 This method retrieves a specified identity Requires authorization scope of 'idn:identity-history:read'
 
 ### Parameters 
@@ -159,7 +150,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | The identity id
 
 ### Return type
-
 [**IdentityHistoryResponse**](../models/identity-history-response)
 
 ### Responses
@@ -173,16 +163,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The identity id
+
 # Get latest snapshot of identity
+
 try {
-    Get-BetaHistoricalIdentity-BetaId $Id 
+    Get-BetaHistoricalIdentity -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaHistoricalIdentity -BetaId $Id  
@@ -191,11 +182,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-historical-identity-events
-
 This method retrieves all access events for the identity Requires authorization scope of 'idn:identity-history:read' 
 
 ### Parameters 
@@ -210,7 +198,6 @@ Path   | Id | **String** | True  | The identity id
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-
 [**GetHistoricalIdentityEvents200ResponseInner[]**](../models/get-historical-identity-events200-response-inner)
 
 ### Responses
@@ -225,7 +212,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -235,16 +221,18 @@ $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The identity id
 $From = "2024-03-01T13:00:00Z" # String | The optional instant until which access events are returned (optional)
 $EventTypes = "MyEventTypes" # String[] | An optional list of event types to return.  If null or empty, all events are returned (optional)
 
-$EventTypes = @"[AccessAddedEvent, AccessRemovedEvent]"@
+$EventTypes = @"[AccessAddedEvent, AccessRemovedEvent]"@ # String[] | An optional list of event types to return.  If null or empty, all events are returned (optional) 
 $AccessItemTypes = "MyAccessItemTypes" # String[] | An optional list of access item types (app, account, entitlement, etc...) to return.   If null or empty, all access items types are returned (optional)
 
-$AccessItemTypes = @"[entitlement, account]"@
+$AccessItemTypes = @"[entitlement, account]"@ # String[] | An optional list of access item types (app, account, entitlement, etc...) to return.   If null or empty, all access items types are returned (optional) 
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+
 # Lists all events for the given identity
+
 try {
-    Get-BetaHistoricalIdentityEvents-BetaId $Id 
+    Get-BetaHistoricalIdentityEvents -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaHistoricalIdentityEvents -BetaId $Id -BetaFrom $From -BetaEventTypes $EventTypes -BetaAccessItemTypes $AccessItemTypes -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count  
@@ -253,11 +241,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-identity-snapshot
-
 This method retrieves a specified identity snapshot at a given date Requires authorization scope of 'idn:identity-history:read' 
 
 ### Parameters 
@@ -267,7 +252,6 @@ Path   | Id | **String** | True  | The identity id
 Path   | Date | **String** | True  | The specified date
 
 ### Return type
-
 [**IdentityHistoryResponse**](../models/identity-history-response)
 
 ### Responses
@@ -281,7 +265,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -289,9 +272,11 @@ Code | Description  | Data Type
 ```powershell
 $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The identity id
 $Date = "2007-03-01T13:00:00Z" # String | The specified date
+
 # Gets an identity snapshot at a given date
+
 try {
-    Get-BetaIdentitySnapshot-BetaId $Id -BetaDate $Date 
+    Get-BetaIdentitySnapshot -BetaId $Id  -BetaDate $Date 
     
     # Below is a request that includes all optional parameters
     # Get-BetaIdentitySnapshot -BetaId $Id -BetaDate $Date  
@@ -300,11 +285,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-identity-snapshot-summary
-
 This method gets the summary for the event count for a specific identity by month/day Requires authorization scope of 'idn:identity-history:read' 
 
 ### Parameters 
@@ -319,7 +301,6 @@ Path   | Id | **String** | True  | The identity id
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-
 [**MetricResponse[]**](../models/metric-response)
 
 ### Responses
@@ -333,7 +314,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -346,9 +326,11 @@ $TimeZone = "UTC" # String | The time zone. Defaults to UTC if not provided (opt
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+
 # Gets the summary for the event count for a specific identity
+
 try {
-    Get-BetaIdentitySnapshotSummary-BetaId $Id 
+    Get-BetaIdentitySnapshotSummary -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaIdentitySnapshotSummary -BetaId $Id -BetaBefore $Before -BetaInterval $Interval -BetaTimeZone $TimeZone -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count  
@@ -357,11 +339,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-identity-start-date
-
 This method retrieves start date of the identity Requires authorization scope of 'idn:identity-history:read' 
 
 ### Parameters 
@@ -370,7 +349,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | The identity id
 
 ### Return type
-
 **String**
 
 ### Responses
@@ -384,16 +362,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The identity id
+
 # Gets the start date of the identity
+
 try {
-    Get-BetaIdentityStartDate-BetaId $Id 
+    Get-BetaIdentityStartDate -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaIdentityStartDate -BetaId $Id  
@@ -402,11 +381,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-historical-identities
-
 This gets the list of identities for the customer. This list end point does not support count=true request param. The total  count of identities would never be returned even if the count param is specified in the request Requires authorization scope of 'idn:identity-history:read'
 
 ### Parameters 
@@ -419,7 +395,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-
 [**IdentityListItem[]**](../models/identity-list-item)
 
 ### Responses
@@ -433,7 +408,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -444,7 +418,9 @@ $IsDeleted = $true # Boolean | Indicates if we want to only list down deleted id
 $IsActive = $true # Boolean | Indicates if we want to only list active or inactive identities. (optional)
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+
 # Lists all the identities
+
 try {
     Get-BetaHistoricalIdentities
     
@@ -455,11 +431,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-identity-access-items
-
 This method retrieves a list of access item for the identity filtered by the access item type
 
 ### Parameters 
@@ -475,7 +448,6 @@ Path   | Id | **String** | True  | The identity id
   Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-
 [**ListIdentityAccessItems200ResponseInner[]**](../models/list-identity-access-items200-response-inner)
 
 ### Responses
@@ -490,7 +462,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -504,9 +475,11 @@ $Query = "Dr. Arden" # String | This param is used to search if certain fields o
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+
 # List Access Items by Identity
+
 try {
-    Get-BetaIdentityAccessItems-BetaId $Id 
+    Get-BetaIdentityAccessItems -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaIdentityAccessItems -BetaId $Id -BetaType $Type -BetaFilters $Filters -BetaSorters $Sorters -BetaQuery $Query -BetaLimit $Limit -BetaCount $Count -BetaOffset $Offset  
@@ -515,11 +488,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-identity-snapshot-access-items
-
 Use this API to get a list of identity access items at a specified date, filtered by item type.
 
 ### Parameters 
@@ -530,7 +500,6 @@ Path   | Date | **String** | True  | Specified date.
   Query | Type | **String** |   (optional) | Access item type.
 
 ### Return type
-
 [**ListIdentityAccessItems200ResponseInner[]**](../models/list-identity-access-items200-response-inner)
 
 ### Responses
@@ -545,7 +514,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -553,10 +521,12 @@ Code | Description  | Data Type
 ```powershell
 $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | Identity ID.
 $Date = "2007-03-01T13:00:00Z" # String | Specified date.
-$Type = "account" # String | Access item type. (optional)
+$Type = "role" # String | Access item type. (optional)
+
 # Get Identity Access Items Snapshot
+
 try {
-    Get-BetaIdentitySnapshotAccessItems-BetaId $Id -BetaDate $Date 
+    Get-BetaIdentitySnapshotAccessItems -BetaId $Id  -BetaDate $Date 
     
     # Below is a request that includes all optional parameters
     # Get-BetaIdentitySnapshotAccessItems -BetaId $Id -BetaDate $Date -BetaType $Type  
@@ -565,11 +535,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-identity-snapshots
-
 This method retrieves all the snapshots for the identity Requires authorization scope of 'idn:identity-history:read' 
 
 ### Parameters 
@@ -583,7 +550,6 @@ Path   | Id | **String** | True  | The identity id
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-
 [**IdentitySnapshotSummaryResponse[]**](../models/identity-snapshot-summary-response)
 
 ### Responses
@@ -597,7 +563,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -609,9 +574,11 @@ $Interval = "day" # String | The interval indicating the range in day or month f
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+
 # Lists all the snapshots for the identity
+
 try {
-    Get-BetaIdentitySnapshots-BetaId $Id 
+    Get-BetaIdentitySnapshots -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaIdentitySnapshots -BetaId $Id -BetaStart $Start -BetaInterval $Interval -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count  
@@ -620,7 +587,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

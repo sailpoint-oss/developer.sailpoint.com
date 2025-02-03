@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'DeleteNonEmployeeRecordInBulkRequest'
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Ids** |  **[]String** | List of non-employee ids. | [required]
+**Ids** | **[]String** | List of non-employee ids. | [required]
 
 ## Examples
 

@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'RoleMiningIdentityDistribution', 'Bet
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AttributeName** |  Pointer to **String** | Id of the potential role | [optional] 
-**Distribution** |  Pointer to **[]System.Collections.Hashtable** |  | [optional] 
+**AttributeName** | **String** | Id of the potential role | [optional] 
+**Distribution** | **[]System.Collections.Hashtable** |  | [optional] 
 
 ## Examples
 

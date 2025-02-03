@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'RoleMiningEntitlementRef', 'V2024Role
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | Id of the entitlement | [optional] 
-**Name** |  Pointer to **String** | Name of the entitlement | [optional] 
-**Description** |  Pointer to **String** | Description forthe entitlement | [optional] 
-**Attribute** |  Pointer to **String** | The entitlement attribute | [optional] 
+**Id** | **String** | Id of the entitlement | [optional] 
+**Name** | **String** | Name of the entitlement | [optional] 
+**Description** | **String** | Description forthe entitlement | [optional] 
+**Attribute** | **String** | The entitlement attribute | [optional] 
 
 ## Examples
 

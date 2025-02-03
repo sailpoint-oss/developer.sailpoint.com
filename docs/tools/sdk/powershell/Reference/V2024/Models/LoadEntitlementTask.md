@@ -16,13 +16,13 @@ tags: ['SDK', 'Software Development Kit', 'LoadEntitlementTask', 'V2024LoadEntit
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | System-generated unique ID of the task this taskStatus represents | [optional] 
-**Type** |  Pointer to **String** | Type of task this task represents | [optional] 
-**UniqueName** |  Pointer to **String** | The name of the task | [optional] 
-**Description** |  Pointer to **String** | The description of the task | [optional] 
-**Launcher** |  Pointer to **String** | The user who initiated the task | [optional] 
-**Created** |  Pointer to **System.DateTime** | The creation date of the task | [optional] 
-**Returns** |  Pointer to [**[]LoadEntitlementTaskReturnsInner**](load-entitlement-task-returns-inner) | Return values from the task | [optional] 
+**Id** | **String** | System-generated unique ID of the task this taskStatus represents | [optional] 
+**Type** | **String** | Type of task this task represents | [optional] 
+**UniqueName** | **String** | The name of the task | [optional] 
+**Description** | **String** | The description of the task | [optional] 
+**Launcher** | **String** | The user who initiated the task | [optional] 
+**Created** | **System.DateTime** | The creation date of the task | [optional] 
+**Returns** | [**[]LoadEntitlementTaskReturnsInner**](load-entitlement-task-returns-inner) | Return values from the task | [optional] 
 
 ## Examples
 

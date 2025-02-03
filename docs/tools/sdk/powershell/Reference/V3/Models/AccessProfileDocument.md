@@ -16,21 +16,21 @@ tags: ['SDK', 'Software Development Kit', 'AccessProfileDocument', 'AccessProfil
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  **String** | Access profile's ID. | [required]
-**Name** |  **String** | Access profile's name. | [required]
-**Description** |  Pointer to **String** | Access item's description. | [optional] 
-**Created** |  Pointer to **System.DateTime** | ISO-8601 date-time referring to the time when the object was created. | [optional] 
-**Modified** |  Pointer to **System.DateTime** | ISO-8601 date-time referring to the time when the object was last modified. | [optional] 
-**Synced** |  Pointer to **System.DateTime** | ISO-8601 date-time referring to the date-time when object was queued to be synced into search database for use in the search API.   This date-time changes anytime there is an update to the object, which triggers a synchronization event being sent to the search database.  There may be some delay between the `synced` time and the time when the updated data is actually available in the search API.  | [optional] 
-**Enabled** |  Pointer to **Boolean** | Indicates whether the access item is currently enabled. | [optional] [default to $false]
-**Requestable** |  Pointer to **Boolean** | Indicates whether the access item can be requested. | [optional] [default to $true]
-**RequestCommentsRequired** |  Pointer to **Boolean** | Indicates whether comments are required for requests to access the item. | [optional] [default to $false]
-**Owner** |  Pointer to [**BaseAccessAllOfOwner**](base-access-all-of-owner) |  | [optional] 
-**Type** |   **Enum** [  "accessprofile",    "accountactivity",    "account",    "aggregation",    "entitlement",    "event",    "identity",    "role" ] | Access profile's document type.  This enum represents the currently supported document types. Additional values may be added in the future without notice. | [required]
-**Source** |  Pointer to [**AccessProfileDocumentAllOfSource**](access-profile-document-all-of-source) |  | [optional] 
-**Entitlements** |  Pointer to [**[]BaseEntitlement**](base-entitlement) | Entitlements the access profile has access to. | [optional] 
-**EntitlementCount** |  Pointer to **Int32** | Number of entitlements. | [optional] 
-**Tags** |  Pointer to **[]String** | Tags that have been applied to the object. | [optional] 
+**Id** | **String** | Access profile's ID. | [required]
+**Name** | **String** | Access profile's name. | [required]
+**Description** | **String** | Access item's description. | [optional] 
+**Created** | **System.DateTime** | ISO-8601 date-time referring to the time when the object was created. | [optional] 
+**Modified** | **System.DateTime** | ISO-8601 date-time referring to the time when the object was last modified. | [optional] 
+**Synced** | **System.DateTime** | ISO-8601 date-time referring to the date-time when object was queued to be synced into search database for use in the search API.   This date-time changes anytime there is an update to the object, which triggers a synchronization event being sent to the search database.  There may be some delay between the `synced` time and the time when the updated data is actually available in the search API.  | [optional] 
+**Enabled** | **Boolean** | Indicates whether the access item is currently enabled. | [optional] [default to $false]
+**Requestable** | **Boolean** | Indicates whether the access item can be requested. | [optional] [default to $true]
+**RequestCommentsRequired** | **Boolean** | Indicates whether comments are required for requests to access the item. | [optional] [default to $false]
+**Owner** | [**BaseAccessAllOfOwner**](base-access-all-of-owner) |  | [optional] 
+**Type** |  **Enum** [  "accessprofile",    "accountactivity",    "account",    "aggregation",    "entitlement",    "event",    "identity",    "role" ] | Access profile's document type.  This enum represents the currently supported document types. Additional values may be added in the future without notice. | [required]
+**Source** | [**AccessProfileDocumentAllOfSource**](access-profile-document-all-of-source) |  | [optional] 
+**Entitlements** | [**[]BaseEntitlement**](base-entitlement) | Entitlements the access profile has access to. | [optional] 
+**EntitlementCount** | **Int32** | Number of entitlements. | [optional] 
+**Tags** | **[]String** | Tags that have been applied to the object. | [optional] 
 
 ## Examples
 

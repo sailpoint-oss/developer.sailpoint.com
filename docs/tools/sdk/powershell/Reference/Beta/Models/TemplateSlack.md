@@ -16,17 +16,17 @@ tags: ['SDK', 'Software Development Kit', 'TemplateSlack', 'BetaTemplateSlack']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Key** |  Pointer to **String** |  | [optional] 
-**Text** |  Pointer to **String** |  | [optional] 
-**Blocks** |  Pointer to **String** |  | [optional] 
-**Attachments** |  Pointer to **String** |  | [optional] 
-**NotificationType** |  Pointer to **String** |  | [optional] 
-**ApprovalId** |  Pointer to **String** |  | [optional] 
-**RequestId** |  Pointer to **String** |  | [optional] 
-**RequestedById** |  Pointer to **String** |  | [optional] 
-**IsSubscription** |  Pointer to **Boolean** |  | [optional] 
-**AutoApprovalData** |  Pointer to [**TemplateSlackAutoApprovalData**](template-slack-auto-approval-data) |  | [optional] 
-**CustomFields** |  Pointer to [**TemplateSlackCustomFields**](template-slack-custom-fields) |  | [optional] 
+**Key** | **String** |  | [optional] 
+**Text** | **String** |  | [optional] 
+**Blocks** | **String** |  | [optional] 
+**Attachments** | **String** |  | [optional] 
+**NotificationType** | **String** |  | [optional] 
+**ApprovalId** | **String** |  | [optional] 
+**RequestId** | **String** |  | [optional] 
+**RequestedById** | **String** |  | [optional] 
+**IsSubscription** | **Boolean** |  | [optional] 
+**AutoApprovalData** | [**TemplateSlackAutoApprovalData**](template-slack-auto-approval-data) |  | [optional] 
+**CustomFields** | [**TemplateSlackCustomFields**](template-slack-custom-fields) |  | [optional] 
 
 ## Examples
 

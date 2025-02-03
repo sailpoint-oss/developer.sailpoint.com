@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'SourceAppCreateDto', 'BetaSourceAppCr
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** |  **String** | The source app name | [required]
-**Description** |  **String** | The description of the source app | [required]
-**MatchAllAccounts** |  Pointer to **Boolean** | True if the source app match all accounts | [optional] [default to $false]
-**AccountSource** |  [**SourceAppCreateDtoAccountSource**](source-app-create-dto-account-source) |  | [required]
+**Name** | **String** | The source app name | [required]
+**Description** | **String** | The description of the source app | [required]
+**MatchAllAccounts** | **Boolean** | True if the source app match all accounts | [optional] [default to $false]
+**AccountSource** | [**SourceAppCreateDtoAccountSource**](source-app-create-dto-account-source) |  | [required]
 
 ## Examples
 

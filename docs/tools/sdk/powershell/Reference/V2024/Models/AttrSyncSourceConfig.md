@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'AttrSyncSourceConfig', 'V2024AttrSync
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Source** |  [**AttrSyncSource**](attr-sync-source) |  | [required]
-**Attributes** |  [**[]AttrSyncSourceAttributeConfig**](attr-sync-source-attribute-config) | Attribute synchronization configuration for specific identity attributes in the context of a source | [required]
+**Source** | [**AttrSyncSource**](attr-sync-source) |  | [required]
+**Attributes** | [**[]AttrSyncSourceAttributeConfig**](attr-sync-source-attribute-config) | Attribute synchronization configuration for specific identity attributes in the context of a source | [required]
 
 ## Examples
 

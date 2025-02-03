@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'BaseReferenceDto', 'V2024BaseReferenc
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to [**DtoType**](dto-type) |  | [optional] 
-**Id** |  Pointer to **String** | ID of the object to which this reference applies | [optional] 
-**Name** |  Pointer to **String** | Human-readable display name of the object to which this reference applies | [optional] 
+**Type** | [**DtoType**](dto-type) |  | [optional] 
+**Id** | **String** | ID of the object to which this reference applies | [optional] 
+**Name** | **String** | Human-readable display name of the object to which this reference applies | [optional] 
 
 ## Examples
 

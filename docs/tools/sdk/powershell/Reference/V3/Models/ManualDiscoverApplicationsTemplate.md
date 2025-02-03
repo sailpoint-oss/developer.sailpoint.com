@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'ManualDiscoverApplicationsTemplate', 
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ApplicationName** |  Pointer to **String** | Name of the application. | [optional] 
-**Description** |  Pointer to **String** | Description of the application. | [optional] 
+**ApplicationName** | **String** | Name of the application. | [optional] 
+**Description** | **String** | Description of the application. | [optional] 
 
 ## Examples
 

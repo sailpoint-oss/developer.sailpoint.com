@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'StartLauncher200Response', 'BetaStart
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**InteractiveProcessId** |  **String** | ID of the Interactive Process that was launched | [required]
+**InteractiveProcessId** | **String** | ID of the Interactive Process that was launched | [required]
 
 ## Examples
 

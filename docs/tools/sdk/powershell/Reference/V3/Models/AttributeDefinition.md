@@ -16,13 +16,13 @@ tags: ['SDK', 'Software Development Kit', 'AttributeDefinition', 'AttributeDefin
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** |  Pointer to **String** | The name of the attribute. | [optional] 
-**Type** |  Pointer to [**AttributeDefinitionType**](attribute-definition-type) |  | [optional] 
-**Schema** |  Pointer to [**AttributeDefinitionSchema**](attribute-definition-schema) |  | [optional] 
-**Description** |  Pointer to **String** | A human-readable description of the attribute. | [optional] 
-**IsMulti** |  Pointer to **Boolean** | Flag indicating whether or not the attribute is multi-valued. | [optional] [default to $false]
-**IsEntitlement** |  Pointer to **Boolean** | Flag indicating whether or not the attribute is an entitlement. | [optional] [default to $false]
-**IsGroup** |  Pointer to **Boolean** | Flag indicating whether or not the attribute represents a group. This can only be `true` if `isEntitlement` is also `true` **and** there is a schema defined for the attribute..  | [optional] [default to $false]
+**Name** | **String** | The name of the attribute. | [optional] 
+**Type** | [**AttributeDefinitionType**](attribute-definition-type) |  | [optional] 
+**Schema** | [**AttributeDefinitionSchema**](attribute-definition-schema) |  | [optional] 
+**Description** | **String** | A human-readable description of the attribute. | [optional] 
+**IsMulti** | **Boolean** | Flag indicating whether or not the attribute is multi-valued. | [optional] [default to $false]
+**IsEntitlement** | **Boolean** | Flag indicating whether or not the attribute is an entitlement. | [optional] [default to $false]
+**IsGroup** | **Boolean** | Flag indicating whether or not the attribute represents a group. This can only be `true` if `isEntitlement` is also `true` **and** there is a schema defined for the attribute..  | [optional] [default to $false]
 
 ## Examples
 

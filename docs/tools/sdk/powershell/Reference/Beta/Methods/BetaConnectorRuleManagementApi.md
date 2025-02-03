@@ -9,7 +9,6 @@ slug: /tools/sdk/powershell/beta/methods/connector-rule-management
 tags: ['SDK', 'Software Development Kit', 'ConnectorRuleManagement', 'BetaConnectorRuleManagement']
 ---
 
-
 # ConnectorRuleManagement
   Use this API to implement connector rule management functionality. 
 With this functionality in place, administrators can implement connector-executed rules in a programmatic, scalable way. 
@@ -31,9 +30,7 @@ Method | HTTP request | Description
 [**Update-BetaConnectorRule**](#update-connector-rule) | **PUT** `/connector-rules/{id}` | Update a Connector Rule
 [**Confirm-BetaConnectorRule**](#validate-connector-rule) | **POST** `/connector-rules/validate` | Validate Connector Rule
 
-
 ## create-connector-rule
-
 Creates a new connector rule.
 A token with ORG_ADMIN authority is required to call this API.
 
@@ -43,7 +40,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | ConnectorRuleCreateRequest | [**ConnectorRuleCreateRequest**](../models/connector-rule-create-request) | True  | The connector rule to create
 
 ### Return type
-
 [**ConnectorRuleResponse**](../models/connector-rule-response)
 
 ### Responses
@@ -57,7 +53,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -89,10 +84,12 @@ $ConnectorRuleCreateRequest = @"{
   "attributes" : { },
   "type" : "BuildMap"
 }"@
+
 # Create Connector Rule
+
 try {
     $Result = ConvertFrom-JsonToConnectorRuleCreateRequest -Json $ConnectorRuleCreateRequest
-    New-BetaConnectorRule-BetaConnectorRuleCreateRequest $Result
+    New-BetaConnectorRule -BetaConnectorRuleCreateRequest $Result
     
     # Below is a request that includes all optional parameters
     # New-BetaConnectorRule -BetaConnectorRuleCreateRequest $ConnectorRuleCreateRequest  
@@ -101,11 +98,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## delete-connector-rule
-
 Deletes the connector rule specified by the given ID.
 A token with ORG_ADMIN authority is required to call this API.
 
@@ -115,7 +109,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | ID of the connector rule to delete
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -130,16 +123,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | ID of the connector rule to delete
+
 # Delete a Connector-Rule
+
 try {
-    Remove-BetaConnectorRule-BetaId $Id 
+    Remove-BetaConnectorRule -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-BetaConnectorRule -BetaId $Id  
@@ -148,11 +142,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-connector-rule
-
 Returns the connector rule specified by ID.
 A token with ORG_ADMIN authority is required to call this API.
 
@@ -162,7 +153,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | ID of the connector rule to retrieve
 
 ### Return type
-
 [**ConnectorRuleResponse**](../models/connector-rule-response)
 
 ### Responses
@@ -177,16 +167,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | ID of the connector rule to retrieve
+
 # Connector-Rule by ID
+
 try {
-    Get-BetaConnectorRule-BetaId $Id 
+    Get-BetaConnectorRule -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaConnectorRule -BetaId $Id  
@@ -195,11 +186,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-connector-rule-list
-
 Returns the list of connector rules.
 A token with ORG_ADMIN authority is required to call this API.
 
@@ -208,7 +196,6 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 
 ### Return type
-
 [**ConnectorRuleResponse[]**](../models/connector-rule-response)
 
 ### Responses
@@ -222,13 +209,14 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
+
 # List Connector Rules
+
 try {
     Get-BetaConnectorRuleList
     
@@ -239,11 +227,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## update-connector-rule
-
 Updates an existing connector rule with the one provided in the request body. Note that the fields 'id', 'name', and 'type' are immutable.
 A token with ORG_ADMIN authority is required to call this API.
 
@@ -254,7 +239,6 @@ Path   | Id | **String** | True  | ID of the connector rule to update
  Body  | ConnectorRuleUpdateRequest | [**ConnectorRuleUpdateRequest**](../models/connector-rule-update-request) |   (optional) | The connector rule with updated data
 
 ### Return type
-
 [**ConnectorRuleResponse**](../models/connector-rule-response)
 
 ### Responses
@@ -269,7 +253,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -303,9 +286,11 @@ $ConnectorRuleUpdateRequest = @"{
   "id" : "8113d48c0b914f17b4c6072d4dcb9dfe",
   "type" : "BuildMap"
 }"@
+
 # Update a Connector Rule
+
 try {
-    Update-BetaConnectorRule-BetaId $Id 
+    Update-BetaConnectorRule -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Update-BetaConnectorRule -BetaId $Id -BetaConnectorRuleUpdateRequest $ConnectorRuleUpdateRequest  
@@ -314,11 +299,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## validate-connector-rule
-
 Returns a list of issues within the code to fix, if any.
 A token with ORG_ADMIN authority is required to call this API.
 
@@ -328,7 +310,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | SourceCode | [**SourceCode**](../models/source-code) | True  | The code to validate
 
 ### Return type
-
 [**ConnectorRuleValidationResponse**](../models/connector-rule-validation-response)
 
 ### Responses
@@ -342,7 +323,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -352,10 +332,12 @@ $SourceCode = @"{
   "version" : "1.0",
   "script" : "return \"Mr. \" + firstName;"
 }"@
+
 # Validate Connector Rule
+
 try {
     $Result = ConvertFrom-JsonToSourceCode -Json $SourceCode
-    Confirm-BetaConnectorRule-BetaSourceCode $Result
+    Confirm-BetaConnectorRule -BetaSourceCode $Result
     
     # Below is a request that includes all optional parameters
     # Confirm-BetaConnectorRule -BetaSourceCode $SourceCode  
@@ -364,7 +346,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

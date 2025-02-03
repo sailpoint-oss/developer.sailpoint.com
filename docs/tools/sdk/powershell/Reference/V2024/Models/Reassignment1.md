@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'Reassignment1', 'V2024Reassignment1']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**VarFrom** |  Pointer to [**CertificationReference1**](certification-reference1) |  | [optional] 
-**Comment** |  Pointer to **String** | Comments from the previous reviewer. | [optional] 
+**VarFrom** | [**CertificationReference1**](certification-reference1) |  | [optional] 
+**Comment** | **String** | Comments from the previous reviewer. | [optional] 
 
 ## Examples
 

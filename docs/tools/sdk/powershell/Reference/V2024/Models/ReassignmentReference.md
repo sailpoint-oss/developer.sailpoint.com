@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'ReassignmentReference', 'V2024Reassig
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  **String** | The ID of item or identity being reassigned. | [required]
-**Type** |   **Enum** [  "TARGET_SUMMARY",    "ITEM",    "IDENTITY_SUMMARY" ] | The type of item or identity being reassigned. | [required]
+**Id** | **String** | The ID of item or identity being reassigned. | [required]
+**Type** |  **Enum** [  "TARGET_SUMMARY",    "ITEM",    "IDENTITY_SUMMARY" ] | The type of item or identity being reassigned. | [required]
 
 ## Examples
 

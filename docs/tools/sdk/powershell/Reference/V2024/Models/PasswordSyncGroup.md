@@ -16,12 +16,12 @@ tags: ['SDK', 'Software Development Kit', 'PasswordSyncGroup', 'V2024PasswordSyn
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | ID of the sync group | [optional] 
-**Name** |  Pointer to **String** | Name of the sync group | [optional] 
-**PasswordPolicyId** |  Pointer to **String** | ID of the password policy | [optional] 
-**SourceIds** |  Pointer to **[]String** | List of password managed sources IDs | [optional] 
-**Created** |  Pointer to **System.DateTime** | The date and time this sync group was created | [optional] 
-**Modified** |  Pointer to **System.DateTime** | The date and time this sync group was last modified | [optional] 
+**Id** | **String** | ID of the sync group | [optional] 
+**Name** | **String** | Name of the sync group | [optional] 
+**PasswordPolicyId** | **String** | ID of the password policy | [optional] 
+**SourceIds** | **[]String** | List of password managed sources IDs | [optional] 
+**Created** | **System.DateTime** | The date and time this sync group was created | [optional] 
+**Modified** | **System.DateTime** | The date and time this sync group was last modified | [optional] 
 
 ## Examples
 

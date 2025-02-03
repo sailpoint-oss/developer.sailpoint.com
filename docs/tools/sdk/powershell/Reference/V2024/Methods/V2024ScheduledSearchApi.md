@@ -9,7 +9,6 @@ slug: /tools/sdk/powershell/v2024/methods/scheduled-search
 tags: ['SDK', 'Software Development Kit', 'ScheduledSearch', 'V2024ScheduledSearch']
 ---
 
-
 # ScheduledSearch
   Use this API to implement scheduled search functionality. 
 With scheduled search functionality in place, users can run saved search queries on their tenants on a schedule, and Identity Security Cloud emails them the search results. 
@@ -51,9 +50,7 @@ Method | HTTP request | Description
 [**Invoke-V2024UnsubscribeScheduledSearch**](#unsubscribe-scheduled-search) | **POST** `/scheduled-searches/{id}/unsubscribe` | Unsubscribe a recipient from Scheduled Search
 [**Update-V2024ScheduledSearch**](#update-scheduled-search) | **PUT** `/scheduled-searches/{id}` | Update an existing Scheduled Search
 
-
 ## create-scheduled-search
-
 Creates a new scheduled search.
 
 
@@ -63,7 +60,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | CreateScheduledSearchRequest | [**CreateScheduledSearchRequest**](../models/create-scheduled-search-request) | True  | The scheduled search to persist.
 
 ### Return type
-
 [**ScheduledSearch**](../models/scheduled-search)
 
 ### Responses
@@ -78,17 +74,18 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $CreateScheduledSearchRequest = @"{savedSearchId=9c620e13-cd33-4804-a13d-403bd7bcdbad, schedule={type=DAILY, hours={type=LIST, values=[9]}}, recipients=[{type=IDENTITY, id=2c9180867624cbd7017642d8c8c81f67}]}"@
+
 # Create a new scheduled search
+
 try {
     $Result = ConvertFrom-JsonToCreateScheduledSearchRequest -Json $CreateScheduledSearchRequest
-    New-V2024ScheduledSearch-V2024CreateScheduledSearchRequest $Result
+    New-V2024ScheduledSearch -V2024CreateScheduledSearchRequest $Result
     
     # Below is a request that includes all optional parameters
     # New-V2024ScheduledSearch -V2024CreateScheduledSearchRequest $CreateScheduledSearchRequest  
@@ -97,11 +94,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## delete-scheduled-search
-
 Deletes the specified scheduled search.
 
 
@@ -111,7 +105,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | ID of the requested document.
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -126,16 +119,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document.
+
 # Delete a Scheduled Search
+
 try {
-    Remove-V2024ScheduledSearch-V2024Id $Id 
+    Remove-V2024ScheduledSearch -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024ScheduledSearch -V2024Id $Id  
@@ -144,11 +138,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-scheduled-search
-
 Returns the specified scheduled search.
 
 ### Parameters 
@@ -157,7 +148,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | ID of the requested document.
 
 ### Return type
-
 [**ScheduledSearch**](../models/scheduled-search)
 
 ### Responses
@@ -172,16 +162,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document.
+
 # Get a Scheduled Search
+
 try {
-    Get-V2024ScheduledSearch-V2024Id $Id 
+    Get-V2024ScheduledSearch -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-V2024ScheduledSearch -V2024Id $Id  
@@ -190,11 +181,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-scheduled-search
-
 Returns a list of scheduled searches.
 
 
@@ -207,7 +195,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **owner.id**: *eq*  **savedSearchId**: *eq*
 
 ### Return type
-
 [**ScheduledSearch[]**](../models/scheduled-search)
 
 ### Responses
@@ -222,7 +209,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -232,7 +218,9 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Filters = 'savedSearchId eq "6cc0945d-9eeb-4948-9033-72d066e1153e"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **owner.id**: *eq*  **savedSearchId**: *eq* (optional)
+
 # List scheduled searches
+
 try {
     Get-V2024ScheduledSearch
     
@@ -243,11 +231,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## unsubscribe-scheduled-search
-
 Unsubscribes a recipient from the specified scheduled search.
 
 
@@ -258,7 +243,6 @@ Path   | Id | **String** | True  | ID of the requested document.
  Body  | TypedReference | [**TypedReference**](../models/typed-reference) | True  | The recipient to be removed from the scheduled search. 
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -270,7 +254,6 @@ Code | Description  | Data Type
 404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -281,10 +264,12 @@ $TypedReference = @"{
   "id" : "2c91808568c529c60168cca6f90c1313",
   "type" : "IDENTITY"
 }"@
+
 # Unsubscribe a recipient from Scheduled Search
+
 try {
     $Result = ConvertFrom-JsonToTypedReference -Json $TypedReference
-    Invoke-V2024UnsubscribeScheduledSearch-V2024Id $Id -V2024TypedReference $Result
+    Invoke-V2024UnsubscribeScheduledSearch -V2024Id $Id  -V2024TypedReference $Result
     
     # Below is a request that includes all optional parameters
     # Invoke-V2024UnsubscribeScheduledSearch -V2024Id $Id -V2024TypedReference $TypedReference  
@@ -293,11 +278,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## update-scheduled-search
-
 Updates an existing scheduled search.
 
 
@@ -308,7 +290,6 @@ Path   | Id | **String** | True  | ID of the requested document.
  Body  | ScheduledSearch | [**ScheduledSearch**](../models/scheduled-search) | True  | The scheduled search to persist.
 
 ### Return type
-
 [**ScheduledSearch**](../models/scheduled-search)
 
 ### Responses
@@ -323,7 +304,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -421,10 +401,12 @@ $ScheduledSearch = @"{
   "id" : "0de46054-fe90-434a-b84e-c6b3359d0c64",
   "emailEmptyResults" : false
 }"@
+
 # Update an existing Scheduled Search
+
 try {
     $Result = ConvertFrom-JsonToScheduledSearch -Json $ScheduledSearch
-    Update-V2024ScheduledSearch-V2024Id $Id -V2024ScheduledSearch $Result
+    Update-V2024ScheduledSearch -V2024Id $Id  -V2024ScheduledSearch $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024ScheduledSearch -V2024Id $Id -V2024ScheduledSearch $ScheduledSearch  
@@ -433,7 +415,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

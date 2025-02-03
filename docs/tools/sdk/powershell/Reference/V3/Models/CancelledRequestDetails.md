@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'CancelledRequestDetails', 'CancelledR
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Comment** |  Pointer to **String** | Comment made by the owner when cancelling the associated request. | [optional] 
-**Owner** |  Pointer to [**OwnerDto**](owner-dto) |  | [optional] 
-**Modified** |  Pointer to **System.DateTime** | Date comment was added by the owner when cancelling the associated request. | [optional] 
+**Comment** | **String** | Comment made by the owner when cancelling the associated request. | [optional] 
+**Owner** | [**OwnerDto**](owner-dto) |  | [optional] 
+**Modified** | **System.DateTime** | Date comment was added by the owner when cancelling the associated request. | [optional] 
 
 ## Examples
 

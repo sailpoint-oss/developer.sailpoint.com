@@ -9,7 +9,6 @@ slug: /tools/sdk/powershell/v2024/methods/branding
 tags: ['SDK', 'Software Development Kit', 'Branding', 'V2024Branding']
 ---
 
-
 # Branding
   Use this API to implement and customize branding functionality. 
 With this functionality in place, administrators can get and manage existing branding items, and they can also create new branding items and configure them for use throughout Identity Security Cloud. 
@@ -29,9 +28,7 @@ Method | HTTP request | Description
 [**Get-V2024BrandingList**](#get-branding-list) | **GET** `/brandings` | List of branding items
 [**Set-V2024BrandingItem**](#set-branding-item) | **PUT** `/brandings/{name}` | Update a branding item
 
-
 ## create-branding-item
-
 This API endpoint creates a branding item.
 
 ### Parameters 
@@ -47,7 +44,6 @@ Param Type | Name | Data Type | Required  | Description
    | FileStandard | **System.IO.FileInfo** |   (optional) | png file with logo
 
 ### Return type
-
 [**BrandingItem**](../models/branding-item)
 
 ### Responses
@@ -61,7 +57,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: multipart/form-data
 - **Accept**: application/json
 
@@ -75,9 +70,11 @@ $NavigationColor = "MyNavigationColor" # String | hex value of color for navigat
 $EmailFromAddress = "MyEmailFromAddress" # String | email from address (optional)
 $LoginInformationalMessage = "MyLoginInformationalMessage" # String | login information message (optional)
 $FileStandard =  # System.IO.FileInfo | png file with logo (optional)
+
 # Create a branding item
+
 try {
-    New-V2024BrandingItem-V2024Name $Name -V2024ProductName $ProductName 
+    New-V2024BrandingItem -V2024Name $Name  -V2024ProductName $ProductName 
     
     # Below is a request that includes all optional parameters
     # New-V2024BrandingItem -V2024Name $Name -V2024ProductName $ProductName -V2024ActionButtonColor $ActionButtonColor -V2024ActiveLinkColor $ActiveLinkColor -V2024NavigationColor $NavigationColor -V2024EmailFromAddress $EmailFromAddress -V2024LoginInformationalMessage $LoginInformationalMessage -V2024FileStandard $FileStandard  
@@ -86,11 +83,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## delete-branding
-
 This API endpoint delete information for an existing branding item by name.    
 
 ### Parameters 
@@ -99,7 +93,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Name | **String** | True  | The name of the branding item to be deleted
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -114,16 +107,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Name = "default" # String | The name of the branding item to be deleted
+
 # Delete a branding item
+
 try {
-    Remove-V2024Branding-V2024Name $Name 
+    Remove-V2024Branding -V2024Name $Name 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024Branding -V2024Name $Name  
@@ -132,11 +126,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-branding
-
 This API endpoint retrieves information for an existing branding item by name.    
 
 ### Parameters 
@@ -145,7 +136,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Name | **String** | True  | The name of the branding item to be retrieved
 
 ### Return type
-
 [**BrandingItem**](../models/branding-item)
 
 ### Responses
@@ -160,16 +150,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Name = "default" # String | The name of the branding item to be retrieved
+
 # Get a branding item
+
 try {
-    Get-V2024Branding-V2024Name $Name 
+    Get-V2024Branding -V2024Name $Name 
     
     # Below is a request that includes all optional parameters
     # Get-V2024Branding -V2024Name $Name  
@@ -178,11 +169,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-branding-list
-
 This API endpoint returns a list of branding items.
 
 ### Parameters 
@@ -190,7 +178,6 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 
 ### Return type
-
 [**BrandingItem[]**](../models/branding-item)
 
 ### Responses
@@ -204,13 +191,14 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
+
 # List of branding items
+
 try {
     Get-V2024BrandingList
     
@@ -221,11 +209,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## set-branding-item
-
 This API endpoint updates information for an existing branding item.
 
 ### Parameters 
@@ -242,7 +227,6 @@ Path   | Name | **String** | True  | The name of the branding item to be retriev
    | FileStandard | **System.IO.FileInfo** |   (optional) | png file with logo
 
 ### Return type
-
 [**BrandingItem**](../models/branding-item)
 
 ### Responses
@@ -257,7 +241,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: multipart/form-data
 - **Accept**: application/json
 
@@ -272,9 +255,11 @@ $NavigationColor = "MyNavigationColor" # String | hex value of color for navigat
 $EmailFromAddress = "MyEmailFromAddress" # String | email from address (optional)
 $LoginInformationalMessage = "MyLoginInformationalMessage" # String | login information message (optional)
 $FileStandard =  # System.IO.FileInfo | png file with logo (optional)
+
 # Update a branding item
+
 try {
-    Set-V2024BrandingItem-V2024Name $Name -V2024Name2 $Name2 -V2024ProductName $ProductName 
+    Set-V2024BrandingItem -V2024Name $Name  -V2024Name2 $Name2  -V2024ProductName $ProductName 
     
     # Below is a request that includes all optional parameters
     # Set-V2024BrandingItem -V2024Name $Name -V2024Name2 $Name2 -V2024ProductName $ProductName -V2024ActionButtonColor $ActionButtonColor -V2024ActiveLinkColor $ActiveLinkColor -V2024NavigationColor $NavigationColor -V2024EmailFromAddress $EmailFromAddress -V2024LoginInformationalMessage $LoginInformationalMessage -V2024FileStandard $FileStandard  
@@ -283,7 +268,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

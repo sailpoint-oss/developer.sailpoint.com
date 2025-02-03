@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'MessageCatalogDto', 'BetaMessageCatal
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Locale** |  Pointer to **String** | The language in which the messages are returned | [optional] 
-**Messages** |  Pointer to [**[]ResourceBundleMessage**](resource-bundle-message) | The list of message with their keys and formats | [optional] 
+**Locale** | **String** | The language in which the messages are returned | [optional] 
+**Messages** | [**[]ResourceBundleMessage**](resource-bundle-message) | The list of message with their keys and formats | [optional] 
 
 ## Examples
 

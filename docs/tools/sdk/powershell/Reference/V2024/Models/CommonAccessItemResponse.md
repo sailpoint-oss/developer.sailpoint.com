@@ -16,13 +16,13 @@ tags: ['SDK', 'Software Development Kit', 'CommonAccessItemResponse', 'V2024Comm
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | Common Access Item ID | [optional] 
-**Access** |  Pointer to [**CommonAccessItemAccess**](common-access-item-access) |  | [optional] 
-**Status** |  Pointer to [**CommonAccessItemState**](common-access-item-state) |  | [optional] 
-**LastUpdated** |  Pointer to **String** |  | [optional] 
-**ReviewedByUser** |  Pointer to **Boolean** |  | [optional] 
-**LastReviewed** |  Pointer to **String** |  | [optional] 
-**CreatedByUser** |  Pointer to **String** |  | [optional] 
+**Id** | **String** | Common Access Item ID | [optional] 
+**Access** | [**CommonAccessItemAccess**](common-access-item-access) |  | [optional] 
+**Status** | [**CommonAccessItemState**](common-access-item-state) |  | [optional] 
+**LastUpdated** | **String** |  | [optional] 
+**ReviewedByUser** | **Boolean** |  | [optional] 
+**LastReviewed** | **String** |  | [optional] 
+**CreatedByUser** | **String** |  | [optional] 
 
 ## Examples
 

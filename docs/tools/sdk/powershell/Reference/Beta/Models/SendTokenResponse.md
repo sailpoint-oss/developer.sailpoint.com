@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'SendTokenResponse', 'BetaSendTokenRes
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**RequestId** |  Pointer to **String** | The token request ID | [optional] 
-**Status** |  Pointer to  **Enum** [  "SUCCESS",    "FAILED" ] | Status of sending token | [optional] 
-**ErrorMessage** |  Pointer to **String** | Error messages from token send request | [optional] 
+**RequestId** | **String** | The token request ID | [optional] 
+**Status** |  **Enum** [  "SUCCESS",    "FAILED" ] | Status of sending token | [optional] 
+**ErrorMessage** | **String** | Error messages from token send request | [optional] 
 
 ## Examples
 

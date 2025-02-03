@@ -16,18 +16,18 @@ tags: ['SDK', 'Software Development Kit', 'AccessItemAccessProfileResponse', 'V2
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccessType** |  Pointer to **String** | the access item type. accessProfile in this case | [optional] 
-**Id** |  Pointer to **String** | the access item id | [optional] 
-**Name** |  Pointer to **String** | the access profile name | [optional] 
-**SourceName** |  Pointer to **String** | the name of the source | [optional] 
-**SourceId** |  Pointer to **String** | the id of the source | [optional] 
-**Description** |  Pointer to **String** | the description for the access profile | [optional] 
-**DisplayName** |  Pointer to **String** | the display name of the identity | [optional] 
-**EntitlementCount** |  Pointer to **String** | the number of entitlements the access profile will create | [optional] 
-**AppDisplayName** |  Pointer to **String** | the name of | [optional] 
-**RemoveDate** |  Pointer to **String** | the date the access profile is no longer assigned to the specified identity | [optional] 
-**Standalone** |  **Boolean** | indicates whether the access profile is standalone | [required]
-**Revocable** |  **Boolean** | indicates whether the access profile is | [required]
+**AccessType** | **String** | the access item type. accessProfile in this case | [optional] 
+**Id** | **String** | the access item id | [optional] 
+**Name** | **String** | the access profile name | [optional] 
+**SourceName** | **String** | the name of the source | [optional] 
+**SourceId** | **String** | the id of the source | [optional] 
+**Description** | **String** | the description for the access profile | [optional] 
+**DisplayName** | **String** | the display name of the identity | [optional] 
+**EntitlementCount** | **String** | the number of entitlements the access profile will create | [optional] 
+**AppDisplayName** | **String** | the name of | [optional] 
+**RemoveDate** | **String** | the date the access profile is no longer assigned to the specified identity | [optional] 
+**Standalone** | **Boolean** | indicates whether the access profile is standalone | [required]
+**Revocable** | **Boolean** | indicates whether the access profile is | [required]
 
 ## Examples
 

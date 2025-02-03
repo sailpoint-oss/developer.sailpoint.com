@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'NonEmployeeIdentityReferenceWithId', 
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to [**NonEmployeeIdentityDtoType**](non-employee-identity-dto-type) |  | [optional] 
-**Id** |  Pointer to **String** | Identity id | [optional] 
+**Type** | [**NonEmployeeIdentityDtoType**](non-employee-identity-dto-type) |  | [optional] 
+**Id** | **String** | Identity id | [optional] 
 
 ## Examples
 

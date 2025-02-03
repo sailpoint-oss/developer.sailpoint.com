@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'SedAssignment', 'BetaSedAssignment']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Assignee** |  Pointer to [**SedAssignee**](sed-assignee) |  | [optional] 
-**Items** |  Pointer to **[]String** | List of SED id's | [optional] 
+**Assignee** | [**SedAssignee**](sed-assignee) |  | [optional] 
+**Items** | **[]String** | List of SED id's | [optional] 
 
 ## Examples
 

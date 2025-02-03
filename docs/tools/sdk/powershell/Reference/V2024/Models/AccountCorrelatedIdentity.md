@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'AccountCorrelatedIdentity', 'V2024Acc
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |   **Enum** [  "IDENTITY" ] | DTO type of the identity the account is correlated with. | [required]
-**Id** |  **String** | ID of the identity the account is correlated with. | [required]
-**Name** |  **String** | Display name of the identity the account is correlated with. | [required]
+**Type** |  **Enum** [  "IDENTITY" ] | DTO type of the identity the account is correlated with. | [required]
+**Id** | **String** | ID of the identity the account is correlated with. | [required]
+**Name** | **String** | Display name of the identity the account is correlated with. | [required]
 
 ## Examples
 

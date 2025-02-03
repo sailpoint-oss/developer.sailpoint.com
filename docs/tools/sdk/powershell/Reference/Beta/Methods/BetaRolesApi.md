@@ -9,7 +9,6 @@ slug: /tools/sdk/powershell/beta/methods/roles
 tags: ['SDK', 'Software Development Kit', 'Roles', 'BetaRoles']
 ---
 
-
 # Roles
   Use this API to implement and customize role functionality.
 With this functionality in place, administrators can create roles and configure them for use throughout Identity Security Cloud.
@@ -64,9 +63,7 @@ Method | HTTP request | Description
 [**Get-BetaRoles**](#list-roles) | **GET** `/roles` | List Roles
 [**Update-BetaRole**](#patch-role) | **PATCH** `/roles/{id}` | Patch a specified Role
 
-
 ## create-role
-
 This API creates a role.
 
 You must have a token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority to call this API. 
@@ -81,7 +78,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | Role | [**Role**](../models/role) | True  | 
 
 ### Return type
-
 [**Role**](../models/role)
 
 ### Responses
@@ -95,7 +91,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -259,10 +254,12 @@ $Role = @"{
   "id" : "2c918086749d78830174a1a40e121518",
   "requestable" : true
 }"@
+
 # Create a Role
+
 try {
     $Result = ConvertFrom-JsonToRole -Json $Role
-    New-BetaRole-BetaRole $Result
+    New-BetaRole -BetaRole $Result
     
     # Below is a request that includes all optional parameters
     # New-BetaRole -BetaRole $Role  
@@ -271,11 +268,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## delete-bulk-roles
-
 This endpoint initiates a bulk deletion of one or more roles.
 When the request is successful, the endpoint returns the bulk delete's task result ID.  To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/beta/get-task-status), which will return the task result's status and information. 
 This endpoint can only bulk delete up to a limit of 50 roles per request. 
@@ -287,7 +281,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | RoleBulkDeleteRequest | [**RoleBulkDeleteRequest**](../models/role-bulk-delete-request) | True  | 
 
 ### Return type
-
 [**TaskResultDto**](../models/task-result-dto)
 
 ### Responses
@@ -301,7 +294,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -310,10 +302,12 @@ Code | Description  | Data Type
 $RoleBulkDeleteRequest = @"{
   "roleIds" : [ "2c9180847812e0b1017817051919ecca", "2c9180887812e0b201781e129f151816" ]
 }"@
+
 # Delete Role(s)
+
 try {
     $Result = ConvertFrom-JsonToRoleBulkDeleteRequest -Json $RoleBulkDeleteRequest
-    Remove-BetaBulkRoles-BetaRoleBulkDeleteRequest $Result
+    Remove-BetaBulkRoles -BetaRoleBulkDeleteRequest $Result
     
     # Below is a request that includes all optional parameters
     # Remove-BetaBulkRoles -BetaRoleBulkDeleteRequest $RoleBulkDeleteRequest  
@@ -322,11 +316,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## delete-role
-
 This API deletes a Role by its ID.
 
 A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
@@ -337,7 +328,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | ID of the Role
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -351,16 +341,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "2c91808a7813090a017814121e121518" # String | ID of the Role
+
 # Delete a Role
+
 try {
-    Remove-BetaRole-BetaId $Id 
+    Remove-BetaRole -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-BetaRole -BetaId $Id  
@@ -369,11 +360,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-role
-
 This API returns a Role by its ID.
 A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
 
@@ -383,7 +371,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | ID of the Role
 
 ### Return type
-
 [**Role**](../models/role)
 
 ### Responses
@@ -397,16 +384,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "2c91808a7813090a017814121e121518" # String | ID of the Role
+
 # Get a Role
+
 try {
-    Get-BetaRole-BetaId $Id 
+    Get-BetaRole -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaRole -BetaId $Id  
@@ -415,11 +403,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-role-assigned-identities
-
 
 
 ### Parameters 
@@ -433,7 +418,6 @@ Path   | Id | **String** | True  | ID of the Role for which the assigned Identit
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, aliasName, email**
 
 ### Return type
-
 [**RoleIdentity[]**](../models/role-identity)
 
 ### Responses
@@ -447,7 +431,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -459,9 +442,11 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Filters = 'name sw Joe' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **aliasName**: *eq, sw*  **email**: *eq, sw*  **name**: *eq, sw, co* (optional)
 $Sorters = "aliasName,name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, aliasName, email** (optional)
+
 # Identities assigned a Role
+
 try {
-    Get-BetaRoleAssignedIdentities-BetaId $Id 
+    Get-BetaRoleAssignedIdentities -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaRoleAssignedIdentities -BetaId $Id -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count -BetaFilters $Filters -BetaSorters $Sorters  
@@ -470,11 +455,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-role-entitlements
-
 This API lists the Entitlements associated with a given role.
 
 A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API.
@@ -490,7 +472,6 @@ Path   | Id | **String** | True  | ID of the containing role
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, attribute, value, created, modified**
 
 ### Return type
-
 [**Entitlement[]**](../models/entitlement)
 
 ### Responses
@@ -504,7 +485,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -516,9 +496,11 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Filters = 'attribute eq "memberOf"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **attribute**: *eq, sw*  **value**: *eq, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **source.id**: *eq, in* (optional)
 $Sorters = "name,-modified" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, attribute, value, created, modified** (optional)
+
 # List role's Entitlements
+
 try {
-    Get-BetaRoleEntitlements-BetaId $Id 
+    Get-BetaRoleEntitlements -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaRoleEntitlements -BetaId $Id -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count -BetaFilters $Filters -BetaSorters $Sorters  
@@ -527,11 +509,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-roles
-
 This API returns a list of Roles.
 
 A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API.
@@ -549,7 +528,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | IncludeUnsegmented | **Boolean** |   (optional) (default to $true) | Whether or not the response list should contain unsegmented Roles. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error.
 
 ### Return type
-
 [**Role[]**](../models/role)
 
 ### Responses
@@ -563,7 +541,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -577,7 +554,9 @@ $Filters = 'requestable eq false' # String | Filter results using the standard s
 $Sorters = "name,-modified" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified** (optional)
 $ForSegmentIds = "0b5c9f25-83c6-4762-9073-e38f7bb2ae26,2e8d8180-24bc-4d21-91c6-7affdb473b0d" # String | If present and not empty, additionally filters Roles to those which are assigned to the Segment(s) with the specified IDs.  If segmentation is currently unavailable, specifying this parameter results in an error. (optional)
 $IncludeUnsegmented = $false # Boolean | Whether or not the response list should contain unsegmented Roles. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error. (optional) (default to $true)
+
 # List Roles
+
 try {
     Get-BetaRoles
     
@@ -588,11 +567,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## patch-role
-
 This API updates an existing role using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
 
 The following fields are patchable:
@@ -622,7 +598,6 @@ Path   | Id | **String** | True  | ID of the Role to patch
  Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | 
 
 ### Return type
-
 [**Role**](../models/role)
 
 ### Responses
@@ -636,24 +611,24 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json-patch+json
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "2c91808a7813090a017814121e121518" # String | ID of the Role to patch
- # JsonPatchOperation[] | 
  $JsonPatchOperation = @"{
   "op" : "replace",
   "path" : "/description",
   "value" : "New description"
-}"@ 
+}"@ # JsonPatchOperation[] | 
+ 
 
 # Patch a specified Role
+
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-BetaRole-BetaId $Id -BetaJsonPatchOperation $Result
+    Update-BetaRole -BetaId $Id  -BetaJsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-BetaRole -BetaId $Id -BetaJsonPatchOperation $JsonPatchOperation  
@@ -662,7 +637,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

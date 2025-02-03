@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'RoleBulkUpdateResponse', 'V2024RoleBu
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | ID of the task which is executing the bulk update. This also used in to the bulk-update/** API to track status. | [optional] 
-**Type** |  Pointer to **String** | Type of the bulk update object. | [optional] 
-**Status** |  Pointer to  **Enum** [  "CREATED",    "PRE_PROCESS",    "PRE_PROCESS_COMPLETED",    "POST_PROCESS",    "COMPLETED",    "CHUNK_PENDING",    "CHUNK_PROCESSING" ] | The status of the bulk update request, could also checked by getBulkUpdateStatus API | [optional] 
-**Created** |  Pointer to **System.DateTime** | Time when the bulk update request was created | [optional] 
+**Id** | **String** | ID of the task which is executing the bulk update. This also used in to the bulk-update/** API to track status. | [optional] 
+**Type** | **String** | Type of the bulk update object. | [optional] 
+**Status** |  **Enum** [  "CREATED",    "PRE_PROCESS",    "PRE_PROCESS_COMPLETED",    "POST_PROCESS",    "COMPLETED",    "CHUNK_PENDING",    "CHUNK_PROCESSING" ] | The status of the bulk update request, could also checked by getBulkUpdateStatus API | [optional] 
+**Created** | **System.DateTime** | Time when the bulk update request was created | [optional] 
 
 ## Examples
 

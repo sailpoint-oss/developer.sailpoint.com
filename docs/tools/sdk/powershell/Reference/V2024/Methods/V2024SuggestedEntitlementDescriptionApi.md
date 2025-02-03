@@ -9,7 +9,6 @@ slug: /tools/sdk/powershell/v2024/methods/suggested-entitlement-description
 tags: ['SDK', 'Software Development Kit', 'SuggestedEntitlementDescription', 'V2024SuggestedEntitlementDescription']
 ---
 
-
 # SuggestedEntitlementDescription
   Use this API to implement Suggested Entitlement Description (SED) functionality. 
 SED functionality leverages the power of LLM to generate suggested entitlement descriptions. 
@@ -29,9 +28,7 @@ Method | HTTP request | Description
 [**Submit-V2024SedAssignment**](#submit-sed-assignment) | **POST** `/suggested-entitlement-description-assignments` | Submit Sed Assignment Request
 [**Submit-V2024SedBatchRequest**](#submit-sed-batch-request) | **POST** `/suggested-entitlement-description-batches` | Submit Sed Batch Request
 
-
 ## get-sed-batch-stats
-
 'Submit Sed Batch Stats Request.
 
  Submits batchId in the path param `(e.g. {batchId}/stats)`. API responses with stats
@@ -45,7 +42,6 @@ Path   | BatchId | **String** | True  | Batch Id
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-
 [**SedBatchStats**](../models/sed-batch-stats)
 
 ### Responses
@@ -60,7 +56,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -68,9 +63,11 @@ Code | Description  | Data Type
 ```powershell
 $BatchId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | Batch Id
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
 # Submit Sed Batch Stats Request
+
 try {
-    Get-V2024SedBatchStats-V2024BatchId $BatchId -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024SedBatchStats -V2024BatchId $BatchId  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024SedBatchStats -V2024BatchId $BatchId -V2024XSailPointExperimental $XSailPointExperimental  
@@ -79,11 +76,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-sed-batches
-
 List Sed Batches.
 API responses with Sed Batch Status
 
@@ -93,7 +87,6 @@ Param Type | Name | Data Type | Required  | Description
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-
 [**SedBatchStatus**](../models/sed-batch-status)
 
 ### Responses
@@ -108,16 +101,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
 # List Sed Batch Request
+
 try {
-    Get-V2024SedBatches-V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024SedBatches -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024SedBatches -V2024XSailPointExperimental $XSailPointExperimental  
@@ -126,11 +120,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-seds
-
 List of Suggested Entitlement Descriptions (SED)
 
 SED field descriptions:
@@ -160,7 +151,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | ShowPendingStatusOnly | **Boolean** |   (optional) | Will limit records to items that are in ""suggested"" or ""approved"" status
 
 ### Return type
-
 [**Sed[]**](../models/sed)
 
 ### Responses
@@ -175,7 +165,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -189,9 +178,11 @@ $Count = $false # Boolean | If `true` it will populate the `X-Total-Count` respo
 $CountOnly = $false # Boolean | If `true` it will populate the `X-Total-Count` response header with the number of results that would be returned if `limit` and `offset` were ignored. This parameter differs from the Coun parameter in that this one skip executing the actual query and always return an empty array. (optional)
 $RequestedByAnyone = $false # Boolean | By default, the ListSeds API will only return items that you have requested to be generated.   This option will allow you to see all items that have been requested (optional)
 $ShowPendingStatusOnly = $false # Boolean | Will limit records to items that are in ""suggested"" or ""approved"" status (optional)
+
 # List Suggested Entitlement Descriptions
+
 try {
-    Get-V2024Seds-V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024Seds -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024Seds -V2024XSailPointExperimental $XSailPointExperimental -V2024Limit $Limit -V2024Filters $Filters -V2024Sorters $Sorters -V2024Count $Count -V2024CountOnly $CountOnly -V2024RequestedByAnyone $RequestedByAnyone -V2024ShowPendingStatusOnly $ShowPendingStatusOnly  
@@ -200,11 +191,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## patch-sed
-
 Patch Suggested Entitlement Description
 
 ### Parameters 
@@ -215,7 +203,6 @@ Path   | Id | **String** | True  | id is sed id
  Body  | SedPatch | [**[]SedPatch**](../models/sed-patch) | True  | Sed Patch Request
 
 ### Return type
-
 [**Sed**](../models/sed)
 
 ### Responses
@@ -230,7 +217,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json-patch+json
 - **Accept**: application/json
 
@@ -238,17 +224,18 @@ Code | Description  | Data Type
 ```powershell
 $Id = "ebab396f-0af1-4050-89b7-dafc63ec70e7" # String | id is sed id
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
- # SedPatch[] | Sed Patch Request
  $SedPatch = @"{
   "op" : "replace",
   "path" : "status",
   "value" : "approved"
-}"@ 
+}"@ # SedPatch[] | Sed Patch Request
+ 
 
 # Patch Suggested Entitlement Description
+
 try {
     $Result = ConvertFrom-JsonToSedPatch -Json $SedPatch
-    Update-V2024Sed-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024SedPatch $Result
+    Update-V2024Sed -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental  -V2024SedPatch $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024Sed -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024SedPatch $SedPatch  
@@ -257,11 +244,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## submit-sed-approval
-
 Submit Bulk Approval Request for SED.
 Request body takes list of SED Ids. API responses with list of SED Approval Status
 
@@ -272,7 +256,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | SedApproval | [**[]SedApproval**](../models/sed-approval) | True  | Sed Approval
 
 ### Return type
-
 [**SedApprovalStatus[]**](../models/sed-approval-status)
 
 ### Responses
@@ -287,22 +270,22 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json-patch+json
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
- # SedApproval[] | Sed Approval
  $SedApproval = @"{
   "items" : "016629d1-1d25-463f-97f3-c6686846650"
-}"@ 
+}"@ # SedApproval[] | Sed Approval
+ 
 
 # Submit Bulk Approval Request
+
 try {
     $Result = ConvertFrom-JsonToSedApproval -Json $SedApproval
-    Submit-V2024SedApproval-V2024XSailPointExperimental $XSailPointExperimental -V2024SedApproval $Result
+    Submit-V2024SedApproval -V2024XSailPointExperimental $XSailPointExperimental  -V2024SedApproval $Result
     
     # Below is a request that includes all optional parameters
     # Submit-V2024SedApproval -V2024XSailPointExperimental $XSailPointExperimental -V2024SedApproval $SedApproval  
@@ -311,11 +294,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## submit-sed-assignment
-
 Submit Assignment Request.
 Request body has an assignee, and list of SED Ids that are assigned to that assignee API responses with batchId that groups all approval requests together
 
@@ -326,7 +306,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | SedAssignment | [**SedAssignment**](../models/sed-assignment) | True  | Sed Assignment Request
 
 ### Return type
-
 [**SedAssignmentResponse**](../models/sed-assignment-response)
 
 ### Responses
@@ -341,7 +320,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json-patch+json
 - **Accept**: application/json
 
@@ -355,10 +333,12 @@ $SedAssignment = @"{
   },
   "items" : [ "016629d1-1d25-463f-97f3-0c6686846650", "016629d1-1d25-463f-97f3-0c6686846650" ]
 }"@
+
 # Submit Sed Assignment Request
+
 try {
     $Result = ConvertFrom-JsonToSedAssignment -Json $SedAssignment
-    Submit-V2024SedAssignment-V2024XSailPointExperimental $XSailPointExperimental -V2024SedAssignment $Result
+    Submit-V2024SedAssignment -V2024XSailPointExperimental $XSailPointExperimental  -V2024SedAssignment $Result
     
     # Below is a request that includes all optional parameters
     # Submit-V2024SedAssignment -V2024XSailPointExperimental $XSailPointExperimental -V2024SedAssignment $SedAssignment  
@@ -367,11 +347,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## submit-sed-batch-request
-
 Submit Sed Batch Request.
 Request body has one of the following: - a list of entitlement Ids - a list of SED Ids that user wants to have description generated by LLM. API responses with batchId that groups Ids together
 
@@ -382,7 +359,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | SedBatchRequest | [**SedBatchRequest**](../models/sed-batch-request) |   (optional) | Sed Batch Request
 
 ### Return type
-
 [**SedBatchResponse**](../models/sed-batch-response)
 
 ### Responses
@@ -397,7 +373,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json-patch+json
 - **Accept**: application/json
 
@@ -408,9 +383,11 @@ $SedBatchRequest = @"{
   "entitlements" : [ "016629d1-1d25-463f-97f3-c6686846650", "016629d1-1d25-463f-97f3-c6686846650" ],
   "seds" : [ "016629d1-1d25-463f-97f3-c6686846650", "016629d1-1d25-463f-97f3-c6686846650" ]
 }"@
+
 # Submit Sed Batch Request
+
 try {
-    Submit-V2024SedBatchRequest-V2024XSailPointExperimental $XSailPointExperimental 
+    Submit-V2024SedBatchRequest -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Submit-V2024SedBatchRequest -V2024XSailPointExperimental $XSailPointExperimental -V2024SedBatchRequest $SedBatchRequest  
@@ -419,7 +396,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

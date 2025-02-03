@@ -9,7 +9,6 @@ slug: /tools/sdk/powershell/v2024/methods/sources
 tags: ['SDK', 'Software Development Kit', 'Sources', 'V2024Sources']
 ---
 
-
 # Sources
   Use this API to implement and customize source functionality. 
 With source functionality in place, organizations can use Identity Security Cloud to connect their various sources and user data sets and manage access across all those different sources in a secure, scalable way. 
@@ -125,9 +124,7 @@ Method | HTTP request | Description
 [**Update-V2024SourceSchedule**](#update-source-schedule) | **PATCH** `/sources/{sourceId}/schedules/{scheduleType}` | Update Source Schedule (Partial)
 [**Update-V2024SourceSchema**](#update-source-schema) | **PATCH** `/sources/{sourceId}/schemas/{schemaId}` | Update Source Schema (Partial)
 
-
 ## create-provisioning-policy
-
 This API generates a create policy/template based on field value transforms. This API is intended for use when setting up JDBC Provisioning type sources, but it will also work on other source types.
 Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning.
 Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information.
@@ -139,7 +136,6 @@ Path   | SourceId | **String** | True  | The Source id
  Body  | ProvisioningPolicyDto | [**ProvisioningPolicyDto**](../models/provisioning-policy-dto) | True  | 
 
 ### Return type
-
 [**ProvisioningPolicyDto**](../models/provisioning-policy-dto)
 
 ### Responses
@@ -154,7 +150,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -201,10 +196,12 @@ $ProvisioningPolicyDto = @"{
   } ],
   "usageType" : "CREATE"
 }"@
+
 # Create Provisioning Policy
+
 try {
     $Result = ConvertFrom-JsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
-    New-V2024ProvisioningPolicy-V2024SourceId $SourceId -V2024ProvisioningPolicyDto $Result
+    New-V2024ProvisioningPolicy -V2024SourceId $SourceId  -V2024ProvisioningPolicyDto $Result
     
     # Below is a request that includes all optional parameters
     # New-V2024ProvisioningPolicy -V2024SourceId $SourceId -V2024ProvisioningPolicyDto $ProvisioningPolicyDto  
@@ -213,11 +210,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## create-source
-
 This creates a specific source with a full source JSON representation. Any passwords are submitted as plain-text and encrypted upon receipt in IdentityNow.
 
 ### Parameters 
@@ -227,7 +221,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | ProvisionAsCsv | **Boolean** |   (optional) | If this parameter is `true`, it configures the source as a Delimited File (CSV) source. Setting this to `true` will automatically set the `type` of the source to `DelimitedFile`.  You must use this query parameter to create a Delimited File source as you would in the UI.  If you don't set this query parameter and you attempt to set the `type` attribute directly, the request won't correctly generate the source.  
 
 ### Return type
-
 [**Source**](../models/source)
 
 ### Responses
@@ -241,7 +234,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -331,10 +323,12 @@ $Source = @"{
   "since" : "2021-09-28T15:48:29.3801666300Z"
 }"@
 $ProvisionAsCsv = $false # Boolean | If this parameter is `true`, it configures the source as a Delimited File (CSV) source. Setting this to `true` will automatically set the `type` of the source to `DelimitedFile`.  You must use this query parameter to create a Delimited File source as you would in the UI.  If you don't set this query parameter and you attempt to set the `type` attribute directly, the request won't correctly generate the source.   (optional)
+
 # Creates a source in IdentityNow.
+
 try {
     $Result = ConvertFrom-JsonToSource -Json $Source
-    New-V2024Source-V2024Source $Result
+    New-V2024Source -V2024Source $Result
     
     # Below is a request that includes all optional parameters
     # New-V2024Source -V2024Source $Source -V2024ProvisionAsCsv $ProvisionAsCsv  
@@ -343,11 +337,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## create-source-schedule
-
 Use this API to create a new schedule for a type on the specified source in Identity Security Cloud (ISC).
 
 
@@ -358,7 +349,6 @@ Path   | SourceId | **String** | True  | Source ID.
  Body  | Schedule1 | [**Schedule1**](../models/schedule1) | True  | 
 
 ### Return type
-
 [**Schedule1**](../models/schedule1)
 
 ### Responses
@@ -372,7 +362,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -380,10 +369,12 @@ Code | Description  | Data Type
 ```powershell
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
 $Schedule1 = @""@
+
 # Create Schedule on Source
+
 try {
     $Result = ConvertFrom-JsonToSchedule1 -Json $Schedule1
-    New-V2024SourceSchedule-V2024SourceId $SourceId -V2024Schedule1 $Result
+    New-V2024SourceSchedule -V2024SourceId $SourceId  -V2024Schedule1 $Result
     
     # Below is a request that includes all optional parameters
     # New-V2024SourceSchedule -V2024SourceId $SourceId -V2024Schedule1 $Schedule1  
@@ -392,11 +383,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## create-source-schema
-
 Use this API to create a new schema on the specified source in Identity Security Cloud (ISC).
 
 
@@ -407,7 +395,6 @@ Path   | SourceId | **String** | True  | Source ID.
  Body  | Schema | [**Schema**](../models/schema) | True  | 
 
 ### Return type
-
 [**Schema**](../models/schema)
 
 ### Responses
@@ -421,7 +408,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -462,10 +448,12 @@ $Schema = @"{
   "displayAttribute" : "distinguishedName",
   "identityAttribute" : "sAMAccountName"
 }"@
+
 # Create Schema on Source
+
 try {
     $Result = ConvertFrom-JsonToSchema -Json $Schema
-    New-V2024SourceSchema-V2024SourceId $SourceId -V2024Schema $Result
+    New-V2024SourceSchema -V2024SourceId $SourceId  -V2024Schema $Result
     
     # Below is a request that includes all optional parameters
     # New-V2024SourceSchema -V2024SourceId $SourceId -V2024Schema $Schema  
@@ -474,11 +462,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## delete-accounts-async
-
 Use this endpoint to remove all accounts from the system without provisioning changes to the source. Accounts that are removed could be re-created during the next aggregation.
 
 This endpoint is good for:
@@ -494,7 +479,6 @@ Path   | Id | **String** | True  | The source id
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-
 [**TaskResultDto**](../models/task-result-dto)
 
 ### Responses
@@ -508,7 +492,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -516,9 +499,11 @@ Code | Description  | Data Type
 ```powershell
 $Id = "ebbf35756e1140699ce52b233121384a" # String | The source id
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
 # Remove All Accounts in a Source
+
 try {
-    Remove-V2024AccountsAsync-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
+    Remove-V2024AccountsAsync -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024AccountsAsync -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
@@ -527,11 +512,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## delete-native-change-detection-config
-
 Deletes the native change detection configuration for the source specified by the given ID.
 
 ### Parameters 
@@ -541,7 +523,6 @@ Path   | Id | **String** | True  | The source id
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -556,7 +537,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -564,9 +544,11 @@ Code | Description  | Data Type
 ```powershell
 $Id = "2c9180835d191a86015d28455b4a2329" # String | The source id
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
 # Delete Native Change Detection Configuration
+
 try {
-    Remove-V2024NativeChangeDetectionConfig-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
+    Remove-V2024NativeChangeDetectionConfig -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024NativeChangeDetectionConfig -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
@@ -575,11 +557,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## delete-provisioning-policy
-
 Deletes the provisioning policy with the specified usage on an application.
 
 ### Parameters 
@@ -589,7 +568,6 @@ Path   | SourceId | **String** | True  | The Source ID.
 Path   | UsageType | [**UsageType**](../models/usage-type) | True  | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to 'Create Account Profile', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to 'Update Account Profile', the provisioning template for the 'Update' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to 'Enable Account Profile', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner's account is created.  DISABLE - This usage type relates to 'Disable Account Profile', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs. 
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -604,7 +582,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -612,9 +589,11 @@ Code | Description  | Data Type
 ```powershell
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source ID.
 $UsageType = "CREATE" # UsageType | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to 'Create Account Profile', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to 'Update Account Profile', the provisioning template for the 'Update' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to 'Enable Account Profile', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner's account is created.  DISABLE - This usage type relates to 'Disable Account Profile', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs. 
+
 # Delete Provisioning Policy by UsageType
+
 try {
-    Remove-V2024ProvisioningPolicy-V2024SourceId $SourceId -V2024UsageType $UsageType 
+    Remove-V2024ProvisioningPolicy -V2024SourceId $SourceId  -V2024UsageType $UsageType 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024ProvisioningPolicy -V2024SourceId $SourceId -V2024UsageType $UsageType  
@@ -623,11 +602,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## delete-source
-
 Use this API to delete a specific source in Identity Security Cloud (ISC).
 The API removes all the accounts on the source first, and then it deletes the source. You can retrieve the actual task execution status with this method: GET `/task-status/{id}`
 
@@ -637,7 +613,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | Source ID.
 
 ### Return type
-
 [**DeleteSource202Response**](../models/delete-source202-response)
 
 ### Responses
@@ -652,16 +627,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
+
 # Delete Source by ID
+
 try {
-    Remove-V2024Source-V2024Id $Id 
+    Remove-V2024Source -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024Source -V2024Id $Id  
@@ -670,11 +646,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## delete-source-schedule
-
 
 
 ### Parameters 
@@ -684,7 +657,6 @@ Path   | SourceId | **String** | True  | The Source id.
 Path   | ScheduleType | **String** | True  | The Schedule type.
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -699,7 +671,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -707,9 +678,11 @@ Code | Description  | Data Type
 ```powershell
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
 $ScheduleType = "ACCOUNT_AGGREGATION" # String | The Schedule type.
+
 # Delete Source Schedule by type.
+
 try {
-    Remove-V2024SourceSchedule-V2024SourceId $SourceId -V2024ScheduleType $ScheduleType 
+    Remove-V2024SourceSchedule -V2024SourceId $SourceId  -V2024ScheduleType $ScheduleType 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024SourceSchedule -V2024SourceId $SourceId -V2024ScheduleType $ScheduleType  
@@ -718,11 +691,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## delete-source-schema
-
 
 
 ### Parameters 
@@ -732,7 +702,6 @@ Path   | SourceId | **String** | True  | The Source id.
 Path   | SchemaId | **String** | True  | The Schema id.
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -747,7 +716,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -755,9 +723,11 @@ Code | Description  | Data Type
 ```powershell
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
 $SchemaId = "2c9180835d191a86015d28455b4a2329" # String | The Schema id.
+
 # Delete Source Schema by ID
+
 try {
-    Remove-V2024SourceSchema-V2024SourceId $SourceId -V2024SchemaId $SchemaId 
+    Remove-V2024SourceSchema -V2024SourceId $SourceId  -V2024SchemaId $SchemaId 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024SourceSchema -V2024SourceId $SourceId -V2024SchemaId $SchemaId  
@@ -766,11 +736,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-accounts-schema
-
 This API downloads the CSV schema that defines the account attributes on a source.
 >**NOTE: This API is designated only for Delimited File sources.**
 
@@ -780,7 +747,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | The Source id
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -795,16 +761,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: text/csv, application/json
 
 ### Example
 ```powershell
 $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
+
 # Downloads source accounts schema template
+
 try {
-    Get-V2024AccountsSchema-V2024Id $Id 
+    Get-V2024AccountsSchema -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-V2024AccountsSchema -V2024Id $Id  
@@ -813,11 +780,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-correlation-config
-
 This API returns the existing correlation configuration for a source specified by the given ID.
 
 ### Parameters 
@@ -826,7 +790,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | The source id
 
 ### Return type
-
 [**CorrelationConfig**](../models/correlation-config)
 
 ### Responses
@@ -841,16 +804,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "2c9180835d191a86015d28455b4a2329" # String | The source id
+
 # Get Source Correlation Configuration
+
 try {
-    Get-V2024CorrelationConfig-V2024Id $Id 
+    Get-V2024CorrelationConfig -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-V2024CorrelationConfig -V2024Id $Id  
@@ -859,11 +823,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-entitlements-schema
-
 This API downloads the CSV schema that defines the entitlement attributes on a source.
 
 >**NOTE: This API is designated only for Delimited File sources.**
@@ -875,7 +836,6 @@ Path   | Id | **String** | True  | The Source id
   Query | SchemaName | **String** |   (optional) | Name of entitlement schema
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -890,7 +850,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: text/csv, application/json
 
@@ -898,9 +857,11 @@ Code | Description  | Data Type
 ```powershell
 $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
 $SchemaName = "?schemaName=group" # String | Name of entitlement schema (optional)
+
 # Downloads source entitlements schema template
+
 try {
-    Get-V2024EntitlementsSchema-V2024Id $Id 
+    Get-V2024EntitlementsSchema -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-V2024EntitlementsSchema -V2024Id $Id -V2024SchemaName $SchemaName  
@@ -909,11 +870,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-native-change-detection-config
-
 This API returns the existing native change detection configuration for a source specified by the given ID.
 
 ### Parameters 
@@ -923,7 +881,6 @@ Path   | Id | **String** | True  | The source id
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-
 [**NativeChangeDetectionConfig**](../models/native-change-detection-config)
 
 ### Responses
@@ -938,7 +895,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -946,9 +902,11 @@ Code | Description  | Data Type
 ```powershell
 $Id = "2c9180835d191a86015d28455b4a2329" # String | The source id
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
 # Native Change Detection Configuration
+
 try {
-    Get-V2024NativeChangeDetectionConfig-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024NativeChangeDetectionConfig -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024NativeChangeDetectionConfig -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
@@ -957,11 +915,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-provisioning-policy
-
 This end-point retrieves the ProvisioningPolicy with the specified usage on the specified Source in IdentityNow.
 
 ### Parameters 
@@ -971,7 +926,6 @@ Path   | SourceId | **String** | True  | The Source ID.
 Path   | UsageType | [**UsageType**](../models/usage-type) | True  | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to 'Create Account Profile', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to 'Update Account Profile', the provisioning template for the 'Update' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to 'Enable Account Profile', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner's account is created.  DISABLE - This usage type relates to 'Disable Account Profile', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs. 
 
 ### Return type
-
 [**ProvisioningPolicyDto**](../models/provisioning-policy-dto)
 
 ### Responses
@@ -986,7 +940,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -994,9 +947,11 @@ Code | Description  | Data Type
 ```powershell
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source ID.
 $UsageType = "CREATE" # UsageType | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to 'Create Account Profile', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to 'Update Account Profile', the provisioning template for the 'Update' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to 'Enable Account Profile', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner's account is created.  DISABLE - This usage type relates to 'Disable Account Profile', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs. 
+
 # Get Provisioning Policy by UsageType
+
 try {
-    Get-V2024ProvisioningPolicy-V2024SourceId $SourceId -V2024UsageType $UsageType 
+    Get-V2024ProvisioningPolicy -V2024SourceId $SourceId  -V2024UsageType $UsageType 
     
     # Below is a request that includes all optional parameters
     # Get-V2024ProvisioningPolicy -V2024SourceId $SourceId -V2024UsageType $UsageType  
@@ -1005,11 +960,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-source
-
 Use this API to get a source by a specified ID in Identity Security Cloud (ISC).
 
 ### Parameters 
@@ -1018,7 +970,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | Source ID.
 
 ### Return type
-
 [**Source**](../models/source)
 
 ### Responses
@@ -1033,16 +984,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
+
 # Get Source by ID
+
 try {
-    Get-V2024Source-V2024Id $Id 
+    Get-V2024Source -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-V2024Source -V2024Id $Id  
@@ -1051,11 +1003,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-source-attr-sync-config
-
 This API returns the existing attribute synchronization configuration for a source specified by the given ID. The response contains all attributes, regardless of whether they enabled or not.
 
 ### Parameters 
@@ -1065,7 +1014,6 @@ Path   | Id | **String** | True  | The source id
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-
 [**AttrSyncSourceConfig**](../models/attr-sync-source-config)
 
 ### Responses
@@ -1080,7 +1028,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -1088,9 +1035,11 @@ Code | Description  | Data Type
 ```powershell
 $Id = "2c9180835d191a86015d28455b4a2329" # String | The source id
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
 # Attribute Sync Config
+
 try {
-    Get-V2024SourceAttrSyncConfig-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024SourceAttrSyncConfig -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024SourceAttrSyncConfig -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
@@ -1099,11 +1048,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-source-config
-
 Looks up and returns the source config for the requested source id after populating the source config values and applying language translations.
 
 ### Parameters 
@@ -1114,7 +1060,6 @@ Path   | Id | **String** | True  | The Source id
   Query | Locale | **String** |   (optional) | The locale to apply to the config. If no viable locale is given, it will default to ""en""
 
 ### Return type
-
 [**ConnectorDetail1**](../models/connector-detail1)
 
 ### Responses
@@ -1128,7 +1073,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -1137,9 +1081,11 @@ Code | Description  | Data Type
 $Id = "MyId" # String | The Source id
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $Locale = "de" # String | The locale to apply to the config. If no viable locale is given, it will default to ""en"" (optional)
+
 # Gets source config with language translations
+
 try {
-    Get-V2024SourceConfig-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024SourceConfig -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024SourceConfig -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024Locale $Locale  
@@ -1148,11 +1094,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-source-entitlement-request-config
-
 This API gets the current entitlement request configuration for a source. This source-level configuration should apply for all the entitlements in the source.
 
 Access request to any entitlements in the source should follow this configuration unless a separate entitlement-level configuration is defined.
@@ -1165,7 +1108,6 @@ Param Type | Name | Data Type | Required  | Description
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-
 [**SourceEntitlementRequestConfig**](../models/source-entitlement-request-config)
 
 ### Responses
@@ -1179,16 +1121,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
 # Get Source Entitlement Request Configuration
+
 try {
-    Get-V2024SourceEntitlementRequestConfig-V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024SourceEntitlementRequestConfig -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024SourceEntitlementRequestConfig -V2024XSailPointExperimental $XSailPointExperimental  
@@ -1197,11 +1140,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-source-health
-
 This endpoint fetches source health by source's id
 
 ### Parameters 
@@ -1210,7 +1150,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | SourceId | **String** | True  | The Source id.
 
 ### Return type
-
 [**SourceHealthDto**](../models/source-health-dto)
 
 ### Responses
@@ -1225,16 +1164,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
+
 # Fetches source health by id
+
 try {
-    Get-V2024SourceHealth-V2024SourceId $SourceId 
+    Get-V2024SourceHealth -V2024SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
     # Get-V2024SourceHealth -V2024SourceId $SourceId  
@@ -1243,11 +1183,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-source-schedule
-
 Get the source schedule by type in Identity Security Cloud (ISC).
 
 
@@ -1258,7 +1195,6 @@ Path   | SourceId | **String** | True  | The Source id.
 Path   | ScheduleType | **String** | True  | The Schedule type.
 
 ### Return type
-
 [**Schedule1**](../models/schedule1)
 
 ### Responses
@@ -1273,7 +1209,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -1281,9 +1216,11 @@ Code | Description  | Data Type
 ```powershell
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
 $ScheduleType = "ACCOUNT_AGGREGATION" # String | The Schedule type.
+
 # Get Source Schedule by Type
+
 try {
-    Get-V2024SourceSchedule-V2024SourceId $SourceId -V2024ScheduleType $ScheduleType 
+    Get-V2024SourceSchedule -V2024SourceId $SourceId  -V2024ScheduleType $ScheduleType 
     
     # Below is a request that includes all optional parameters
     # Get-V2024SourceSchedule -V2024SourceId $SourceId -V2024ScheduleType $ScheduleType  
@@ -1292,11 +1229,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-source-schedules
-
 Use this API to list the schedules that exist on the specified source in Identity Security Cloud (ISC).
 
 ### Parameters 
@@ -1305,7 +1239,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | SourceId | **String** | True  | Source ID.
 
 ### Return type
-
 [**Schedule1[]**](../models/schedule1)
 
 ### Responses
@@ -1320,16 +1253,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
+
 # List Schedules on Source
+
 try {
-    Get-V2024SourceSchedules-V2024SourceId $SourceId 
+    Get-V2024SourceSchedules -V2024SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
     # Get-V2024SourceSchedules -V2024SourceId $SourceId  
@@ -1338,11 +1272,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-source-schema
-
 Get the Source Schema by ID in IdentityNow.
 
 
@@ -1353,7 +1284,6 @@ Path   | SourceId | **String** | True  | The Source id.
 Path   | SchemaId | **String** | True  | The Schema id.
 
 ### Return type
-
 [**Schema**](../models/schema)
 
 ### Responses
@@ -1368,7 +1298,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -1376,9 +1305,11 @@ Code | Description  | Data Type
 ```powershell
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
 $SchemaId = "2c9180835d191a86015d28455b4a2329" # String | The Schema id.
+
 # Get Source Schema by ID
+
 try {
-    Get-V2024SourceSchema-V2024SourceId $SourceId -V2024SchemaId $SchemaId 
+    Get-V2024SourceSchema -V2024SourceId $SourceId  -V2024SchemaId $SchemaId 
     
     # Below is a request that includes all optional parameters
     # Get-V2024SourceSchema -V2024SourceId $SourceId -V2024SchemaId $SchemaId  
@@ -1387,11 +1318,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-source-schemas
-
 Use this API to list the schemas that exist on the specified source in Identity Security Cloud (ISC).
 
 ### Parameters 
@@ -1402,7 +1330,6 @@ Path   | SourceId | **String** | True  | Source ID.
   Query | IncludeNames | **String** |   (optional) | A comma-separated list of schema names to filter result.
 
 ### Return type
-
 [**Schema[]**](../models/schema)
 
 ### Responses
@@ -1417,7 +1344,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -1426,9 +1352,11 @@ Code | Description  | Data Type
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
 $IncludeTypes = "group" # String | If set to 'group', then the account schema is filtered and only group schemas are returned. Only a value of 'group' is recognized presently.  Note: The API will check whether include-types is group or not, if not, it will list schemas based on include-names, if include-names is not provided, it will list all schemas. (optional)
 $IncludeNames = "account" # String | A comma-separated list of schema names to filter result. (optional)
+
 # List Schemas on Source
+
 try {
-    Get-V2024SourceSchemas-V2024SourceId $SourceId 
+    Get-V2024SourceSchemas -V2024SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
     # Get-V2024SourceSchemas -V2024SourceId $SourceId -V2024IncludeTypes $IncludeTypes -V2024IncludeNames $IncludeNames  
@@ -1437,11 +1365,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## import-accounts
-
 Starts an account aggregation on the specified source. 
 If the target source is a delimited file source, then the CSV file needs to be included in the request body.
 You will also need to set the Content-Type header to `multipart/form-data`.
@@ -1455,7 +1380,6 @@ Path   | Id | **String** | True  | Source Id
    | DisableOptimization | **String** |   (optional) | Use this flag to reprocess every account whether or not the data has changed.
 
 ### Return type
-
 [**LoadAccountsTask**](../models/load-accounts-task)
 
 ### Responses
@@ -1469,7 +1393,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: multipart/form-data
 - **Accept**: application/json
 
@@ -1479,9 +1402,11 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Source Id
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $File =  # System.IO.FileInfo | The CSV file containing the source accounts to aggregate. (optional)
 $DisableOptimization = "MyDisableOptimization" # String | Use this flag to reprocess every account whether or not the data has changed. (optional)
+
 # Account Aggregation
+
 try {
-    Import-V2024Accounts-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
+    Import-V2024Accounts -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Import-V2024Accounts -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024File $File -V2024DisableOptimization $DisableOptimization  
@@ -1490,11 +1415,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## import-accounts-schema
-
 This API uploads a source schema template file to configure a source's account attributes.
 
 To retrieve the file to modify and upload, log into Identity Now. 
@@ -1510,7 +1432,6 @@ Path   | Id | **String** | True  | The Source id
    | File | **System.IO.FileInfo** |   (optional) | 
 
 ### Return type
-
 [**Schema**](../models/schema)
 
 ### Responses
@@ -1524,7 +1445,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: multipart/form-data
 - **Accept**: application/json
 
@@ -1532,9 +1452,11 @@ Code | Description  | Data Type
 ```powershell
 $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
 $File =  # System.IO.FileInfo |  (optional)
+
 # Uploads source accounts schema template
+
 try {
-    Import-V2024AccountsSchema-V2024Id $Id 
+    Import-V2024AccountsSchema -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Import-V2024AccountsSchema -V2024Id $Id -V2024File $File  
@@ -1543,11 +1465,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## import-connector-file
-
 This uploads a supplemental source connector file (like jdbc driver jars) to a source's S3 bucket. This also sends ETS and Audit events.
 
 ### Parameters 
@@ -1557,7 +1476,6 @@ Path   | SourceId | **String** | True  | The Source id.
    | File | **System.IO.FileInfo** |   (optional) | 
 
 ### Return type
-
 [**Source**](../models/source)
 
 ### Responses
@@ -1571,7 +1489,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: multipart/form-data
 - **Accept**: application/json
 
@@ -1579,9 +1496,11 @@ Code | Description  | Data Type
 ```powershell
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
 $File =  # System.IO.FileInfo |  (optional)
+
 # Upload connector file to source
+
 try {
-    Import-V2024ConnectorFile-V2024SourceId $SourceId 
+    Import-V2024ConnectorFile -V2024SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
     # Import-V2024ConnectorFile -V2024SourceId $SourceId -V2024File $File  
@@ -1590,11 +1509,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## import-entitlements-schema
-
 This API uploads a source schema template file to configure a source's entitlement attributes.
 
 To retrieve the file to modify and upload, log into Identity Now. 
@@ -1611,7 +1527,6 @@ Path   | Id | **String** | True  | The Source id
    | File | **System.IO.FileInfo** |   (optional) | 
 
 ### Return type
-
 [**Schema**](../models/schema)
 
 ### Responses
@@ -1625,7 +1540,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: multipart/form-data
 - **Accept**: application/json
 
@@ -1634,9 +1548,11 @@ Code | Description  | Data Type
 $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
 $SchemaName = "?schemaName=group" # String | Name of entitlement schema (optional)
 $File =  # System.IO.FileInfo |  (optional)
+
 # Uploads source entitlements schema template
+
 try {
-    Import-V2024EntitlementsSchema-V2024Id $Id 
+    Import-V2024EntitlementsSchema -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Import-V2024EntitlementsSchema -V2024Id $Id -V2024SchemaName $SchemaName -V2024File $File  
@@ -1645,11 +1561,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## import-uncorrelated-accounts
-
 File is required for upload. You will also need to set the Content-Type header to `multipart/form-data`
 
 ### Parameters 
@@ -1660,7 +1573,6 @@ Path   | Id | **String** | True  | Source Id
    | File | **System.IO.FileInfo** |   (optional) | 
 
 ### Return type
-
 [**LoadUncorrelatedAccountsTask**](../models/load-uncorrelated-accounts-task)
 
 ### Responses
@@ -1674,7 +1586,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: multipart/form-data
 - **Accept**: application/json
 
@@ -1683,9 +1594,11 @@ Code | Description  | Data Type
 $Id = "75dbec1ebe154d5785da27b95e1dd5d7" # String | Source Id
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $File =  # System.IO.FileInfo |  (optional)
+
 # Process Uncorrelated Accounts
+
 try {
-    Import-V2024UncorrelatedAccounts-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
+    Import-V2024UncorrelatedAccounts -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Import-V2024UncorrelatedAccounts -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024File $File  
@@ -1694,11 +1607,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-provisioning-policies
-
 This end-point lists all the ProvisioningPolicies in IdentityNow.
 
 ### Parameters 
@@ -1707,7 +1617,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | SourceId | **String** | True  | The Source id
 
 ### Return type
-
 [**ProvisioningPolicyDto[]**](../models/provisioning-policy-dto)
 
 ### Responses
@@ -1722,16 +1631,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id
+
 # Lists ProvisioningPolicies
+
 try {
-    Get-V2024ProvisioningPolicies-V2024SourceId $SourceId 
+    Get-V2024ProvisioningPolicies -V2024SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
     # Get-V2024ProvisioningPolicies -V2024SourceId $SourceId  
@@ -1740,11 +1650,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-sources
-
 This end-point lists all the sources in IdentityNow.
 
 ### Parameters 
@@ -1759,7 +1666,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | IncludeIDNSource | **Boolean** |   (optional) (default to $false) | Include the IdentityNow source in the response.
 
 ### Return type
-
 [**Source[]**](../models/source)
 
 ### Responses
@@ -1774,7 +1680,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -1787,7 +1692,9 @@ $Filters = 'name eq "Employees"' # String | Filter results using the standard sy
 $Sorters = "name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **type, created, modified, name, owner.name, healthy, status, id, description, owner.id, accountCorrelationConfig.id, accountCorrelationConfig.name, managerCorrelationRule.type, managerCorrelationRule.id, managerCorrelationRule.name, authoritative, managementWorkgroup.id, connectorName, connectionType** (optional)
 $ForSubadmin = "name" # String | Filter the returned list of sources for the identity specified by the parameter, which is the id of an identity with the role SOURCE_SUBADMIN. By convention, the value **me** indicates the identity id of the current user. Subadmins may only view Sources which they are able to administer; all other Sources will be filtered out when this parameter is set. If the current user is a SOURCE_SUBADMIN but fails to pass a valid value for this parameter, a 403 Forbidden is returned. (optional)
 $IncludeIDNSource = $true # Boolean | Include the IdentityNow source in the response. (optional) (default to $false)
+
 # Lists all sources in IdentityNow.
+
 try {
     Get-V2024Sources
     
@@ -1798,11 +1705,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## peek-resource-objects
-
 Retrieves a sample of data returned from account and group aggregation requests.
 
 ### Parameters 
@@ -1813,7 +1717,6 @@ Path   | SourceId | **String** | True  | The ID of the Source
  Body  | ResourceObjectsRequest | [**ResourceObjectsRequest**](../models/resource-objects-request) | True  | 
 
 ### Return type
-
 [**ResourceObjectsResponse**](../models/resource-objects-response)
 
 ### Responses
@@ -1828,7 +1731,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -1840,10 +1742,12 @@ $ResourceObjectsRequest = @"{
   "maxCount" : 100,
   "objectType" : "group"
 }"@
+
 # Peek source connector's resource objects
+
 try {
     $Result = ConvertFrom-JsonToResourceObjectsRequest -Json $ResourceObjectsRequest
-    Receive-V2024ResourceObjects-V2024SourceId $SourceId -V2024XSailPointExperimental $XSailPointExperimental -V2024ResourceObjectsRequest $Result
+    Receive-V2024ResourceObjects -V2024SourceId $SourceId  -V2024XSailPointExperimental $XSailPointExperimental  -V2024ResourceObjectsRequest $Result
     
     # Below is a request that includes all optional parameters
     # Receive-V2024ResourceObjects -V2024SourceId $SourceId -V2024XSailPointExperimental $XSailPointExperimental -V2024ResourceObjectsRequest $ResourceObjectsRequest  
@@ -1852,11 +1756,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## ping-cluster
-
 This endpoint validates that the cluster being used by the source is reachable from IdentityNow.
 
 ### Parameters 
@@ -1866,7 +1767,6 @@ Path   | SourceId | **String** | True  | The ID of the Source
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-
 [**StatusResponse**](../models/status-response)
 
 ### Responses
@@ -1881,7 +1781,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -1889,9 +1788,11 @@ Code | Description  | Data Type
 ```powershell
 $SourceId = "cef3ee201db947c5912551015ba0c679" # String | The ID of the Source
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
 # Ping cluster for source connector
+
 try {
-    Ping-V2024Cluster-V2024SourceId $SourceId -V2024XSailPointExperimental $XSailPointExperimental 
+    Ping-V2024Cluster -V2024SourceId $SourceId  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Ping-V2024Cluster -V2024SourceId $SourceId -V2024XSailPointExperimental $XSailPointExperimental  
@@ -1900,11 +1801,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## put-correlation-config
-
 Replaces the correlation configuration for the source specified by the given ID with the configuration provided in the request body.
 
 ### Parameters 
@@ -1914,7 +1812,6 @@ Path   | Id | **String** | True  | The source id
  Body  | CorrelationConfig | [**CorrelationConfig**](../models/correlation-config) | True  | 
 
 ### Return type
-
 [**CorrelationConfig**](../models/correlation-config)
 
 ### Responses
@@ -1929,7 +1826,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -1957,10 +1853,12 @@ $CorrelationConfig = @"{
   "name" : "Source [source] Account Correlation",
   "id" : "2c9180835d191a86015d28455b4a2329"
 }"@
+
 # Update Source Correlation Configuration
+
 try {
     $Result = ConvertFrom-JsonToCorrelationConfig -Json $CorrelationConfig
-    Send-V2024CorrelationConfig-V2024Id $Id -V2024CorrelationConfig $Result
+    Send-V2024CorrelationConfig -V2024Id $Id  -V2024CorrelationConfig $Result
     
     # Below is a request that includes all optional parameters
     # Send-V2024CorrelationConfig -V2024Id $Id -V2024CorrelationConfig $CorrelationConfig  
@@ -1969,11 +1867,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## put-native-change-detection-config
-
 Replaces the native change detection configuration for the source specified by the given ID with the configuration provided in the request body.
 
 ### Parameters 
@@ -1984,7 +1879,6 @@ Path   | Id | **String** | True  | The source id
  Body  | NativeChangeDetectionConfig | [**NativeChangeDetectionConfig**](../models/native-change-detection-config) | True  | 
 
 ### Return type
-
 [**NativeChangeDetectionConfig**](../models/native-change-detection-config)
 
 ### Responses
@@ -1999,7 +1893,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -2015,10 +1908,12 @@ $NativeChangeDetectionConfig = @"{
   "allEntitlements" : false,
   "enabled" : true
 }"@
+
 # Update Native Change Detection Configuration
+
 try {
     $Result = ConvertFrom-JsonToNativeChangeDetectionConfig -Json $NativeChangeDetectionConfig
-    Send-V2024NativeChangeDetectionConfig-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024NativeChangeDetectionConfig $Result
+    Send-V2024NativeChangeDetectionConfig -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental  -V2024NativeChangeDetectionConfig $Result
     
     # Below is a request that includes all optional parameters
     # Send-V2024NativeChangeDetectionConfig -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024NativeChangeDetectionConfig $NativeChangeDetectionConfig  
@@ -2027,11 +1922,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## put-provisioning-policy
-
 This end-point updates the provisioning policy with the specified usage on the specified source in IdentityNow.
 Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning.
 Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information.
@@ -2044,7 +1936,6 @@ Path   | UsageType | [**UsageType**](../models/usage-type) | True  | The type of
  Body  | ProvisioningPolicyDto | [**ProvisioningPolicyDto**](../models/provisioning-policy-dto) | True  | 
 
 ### Return type
-
 [**ProvisioningPolicyDto**](../models/provisioning-policy-dto)
 
 ### Responses
@@ -2059,7 +1950,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -2107,10 +1997,12 @@ $ProvisioningPolicyDto = @"{
   } ],
   "usageType" : "CREATE"
 }"@
+
 # Update Provisioning Policy by UsageType
+
 try {
     $Result = ConvertFrom-JsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
-    Send-V2024ProvisioningPolicy-V2024SourceId $SourceId -V2024UsageType $UsageType -V2024ProvisioningPolicyDto $Result
+    Send-V2024ProvisioningPolicy -V2024SourceId $SourceId  -V2024UsageType $UsageType  -V2024ProvisioningPolicyDto $Result
     
     # Below is a request that includes all optional parameters
     # Send-V2024ProvisioningPolicy -V2024SourceId $SourceId -V2024UsageType $UsageType -V2024ProvisioningPolicyDto $ProvisioningPolicyDto  
@@ -2119,11 +2011,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## put-source
-
 Use this API to update a source in Identity Security Cloud (ISC), using a full object representation. This means that when you use this API, it completely replaces the existing source configuration.
 
 These fields are immutable, so they cannot be changed:
@@ -2145,7 +2034,6 @@ Path   | Id | **String** | True  | Source ID.
  Body  | Source | [**Source**](../models/source) | True  | 
 
 ### Return type
-
 [**Source**](../models/source)
 
 ### Responses
@@ -2160,7 +2048,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -2250,10 +2137,12 @@ $Source = @"{
   "status" : "SOURCE_STATE_HEALTHY",
   "since" : "2021-09-28T15:48:29.3801666300Z"
 }"@
+
 # Update Source (Full)
+
 try {
     $Result = ConvertFrom-JsonToSource -Json $Source
-    Send-V2024Source-V2024Id $Id -V2024Source $Result
+    Send-V2024Source -V2024Id $Id  -V2024Source $Result
     
     # Below is a request that includes all optional parameters
     # Send-V2024Source -V2024Id $Id -V2024Source $Source  
@@ -2262,11 +2151,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## put-source-attr-sync-config
-
 Replaces the attribute synchronization configuration for the source specified by the given ID with the configuration provided in the request body. Only the "enabled" field of the values in the "attributes" array is mutable. Attempting to change other attributes or add new values to the "attributes" array will result in an error.
 
 
@@ -2278,7 +2164,6 @@ Path   | Id | **String** | True  | The source id
  Body  | AttrSyncSourceConfig | [**AttrSyncSourceConfig**](../models/attr-sync-source-config) | True  | 
 
 ### Return type
-
 [**AttrSyncSourceConfig**](../models/attr-sync-source-config)
 
 ### Responses
@@ -2293,7 +2178,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -2319,10 +2203,12 @@ $AttrSyncSourceConfig = @"{
     "type" : "SOURCE"
   }
 }"@
+
 # Update Attribute Sync Config
+
 try {
     $Result = ConvertFrom-JsonToAttrSyncSourceConfig -Json $AttrSyncSourceConfig
-    Send-V2024SourceAttrSyncConfig-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024AttrSyncSourceConfig $Result
+    Send-V2024SourceAttrSyncConfig -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental  -V2024AttrSyncSourceConfig $Result
     
     # Below is a request that includes all optional parameters
     # Send-V2024SourceAttrSyncConfig -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024AttrSyncSourceConfig $AttrSyncSourceConfig  
@@ -2331,11 +2217,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## put-source-schema
-
 This API will completely replace an existing Schema with the submitted payload. Some fields of the Schema cannot be updated. These fields are listed below.
 
 * id
@@ -2356,7 +2239,6 @@ Path   | SchemaId | **String** | True  | The Schema id.
  Body  | Schema | [**Schema**](../models/schema) | True  | 
 
 ### Return type
-
 [**Schema**](../models/schema)
 
 ### Responses
@@ -2371,7 +2253,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -2413,10 +2294,12 @@ $Schema = @"{
   "displayAttribute" : "distinguishedName",
   "identityAttribute" : "sAMAccountName"
 }"@
+
 # Update Source Schema (Full)
+
 try {
     $Result = ConvertFrom-JsonToSchema -Json $Schema
-    Send-V2024SourceSchema-V2024SourceId $SourceId -V2024SchemaId $SchemaId -V2024Schema $Result
+    Send-V2024SourceSchema -V2024SourceId $SourceId  -V2024SchemaId $SchemaId  -V2024Schema $Result
     
     # Below is a request that includes all optional parameters
     # Send-V2024SourceSchema -V2024SourceId $SourceId -V2024SchemaId $SchemaId -V2024Schema $Schema  
@@ -2425,11 +2308,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## sync-attributes-for-source
-
 This end-point performs attribute synchronization for a selected source.
 
 ### Parameters 
@@ -2439,7 +2319,6 @@ Path   | Id | **String** | True  | The Source id
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-
 [**SourceSyncJob**](../models/source-sync-job)
 
 ### Responses
@@ -2454,7 +2333,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -2462,9 +2340,11 @@ Code | Description  | Data Type
 ```powershell
 $Id = "MyId" # String | The Source id
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
 # Synchronize single source attributes.
+
 try {
-    Sync-V2024AttributesForSource-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
+    Sync-V2024AttributesForSource -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Sync-V2024AttributesForSource -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
@@ -2473,11 +2353,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## test-source-configuration
-
 This endpoint performs a more detailed validation of the source''s configuration that can take longer than the lighter weight credential validation performed by the checkConnection API.
 
 ### Parameters 
@@ -2487,7 +2364,6 @@ Path   | SourceId | **String** | True  | The ID of the Source
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-
 [**StatusResponse**](../models/status-response)
 
 ### Responses
@@ -2502,7 +2378,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -2510,9 +2385,11 @@ Code | Description  | Data Type
 ```powershell
 $SourceId = "cef3ee201db947c5912551015ba0c679" # String | The ID of the Source
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
 # Test configuration for source connector
+
 try {
-    Test-V2024SourceConfiguration-V2024SourceId $SourceId -V2024XSailPointExperimental $XSailPointExperimental 
+    Test-V2024SourceConfiguration -V2024SourceId $SourceId  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Test-V2024SourceConfiguration -V2024SourceId $SourceId -V2024XSailPointExperimental $XSailPointExperimental  
@@ -2521,11 +2398,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## test-source-connection
-
 This endpoint validates that the configured credentials are valid and will properly authenticate with the source identified by the sourceId path parameter.
 
 ### Parameters 
@@ -2535,7 +2409,6 @@ Path   | SourceId | **String** | True  | The ID of the Source.
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-
 [**StatusResponse**](../models/status-response)
 
 ### Responses
@@ -2550,7 +2423,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -2558,9 +2430,11 @@ Code | Description  | Data Type
 ```powershell
 $SourceId = "cef3ee201db947c5912551015ba0c679" # String | The ID of the Source.
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
 # Check connection for source connector.
+
 try {
-    Test-V2024SourceConnection-V2024SourceId $SourceId -V2024XSailPointExperimental $XSailPointExperimental 
+    Test-V2024SourceConnection -V2024SourceId $SourceId  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Test-V2024SourceConnection -V2024SourceId $SourceId -V2024XSailPointExperimental $XSailPointExperimental  
@@ -2569,11 +2443,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## update-password-policy-holders
-
 This API can be used to set up or update Password Policy in IdentityNow for the specified Source.
 Source must support PASSWORD feature.
 
@@ -2585,7 +2456,6 @@ Path   | SourceId | **String** | True  | The Source id
  Body  | PasswordPolicyHoldersDtoInner | [**[]PasswordPolicyHoldersDtoInner**](../models/password-policy-holders-dto-inner) | True  | 
 
 ### Return type
-
 [**PasswordPolicyHoldersDtoInner[]**](../models/password-policy-holders-dto-inner)
 
 ### Responses
@@ -2600,20 +2470,20 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $SourceId = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
- # PasswordPolicyHoldersDtoInner[] | 
- $PasswordPolicyHoldersDtoInner = @""@ 
+ $PasswordPolicyHoldersDtoInner = @""@ # PasswordPolicyHoldersDtoInner[] | 
+ 
 
 # Update Password Policy
+
 try {
     $Result = ConvertFrom-JsonToPasswordPolicyHoldersDtoInner -Json $PasswordPolicyHoldersDtoInner
-    Update-V2024PasswordPolicyHolders-V2024SourceId $SourceId -V2024PasswordPolicyHoldersDtoInner $Result
+    Update-V2024PasswordPolicyHolders -V2024SourceId $SourceId  -V2024PasswordPolicyHoldersDtoInner $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024PasswordPolicyHolders -V2024SourceId $SourceId -V2024PasswordPolicyHoldersDtoInner $PasswordPolicyHoldersDtoInner  
@@ -2622,11 +2492,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## update-provisioning-policies-in-bulk
-
 This end-point updates a list of provisioning policies on the specified source in IdentityNow.
 
 ### Parameters 
@@ -2636,7 +2503,6 @@ Path   | SourceId | **String** | True  | The Source id.
  Body  | ProvisioningPolicyDto | [**[]ProvisioningPolicyDto**](../models/provisioning-policy-dto) | True  | 
 
 ### Return type
-
 [**ProvisioningPolicyDto[]**](../models/provisioning-policy-dto)
 
 ### Responses
@@ -2651,14 +2517,12 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
- # ProvisioningPolicyDto[] | 
  $ProvisioningPolicyDto = @"{
   "name" : "example provisioning policy for inactive identities",
   "description" : "this provisioning policy creates access based on an identity going inactive",
@@ -2698,12 +2562,14 @@ $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
     "type" : "string"
   } ],
   "usageType" : "CREATE"
-}"@ 
+}"@ # ProvisioningPolicyDto[] | 
+ 
 
 # Bulk Update Provisioning Policies
+
 try {
     $Result = ConvertFrom-JsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
-    Update-V2024ProvisioningPoliciesInBulk-V2024SourceId $SourceId -V2024ProvisioningPolicyDto $Result
+    Update-V2024ProvisioningPoliciesInBulk -V2024SourceId $SourceId  -V2024ProvisioningPolicyDto $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024ProvisioningPoliciesInBulk -V2024SourceId $SourceId -V2024ProvisioningPolicyDto $ProvisioningPolicyDto  
@@ -2712,11 +2578,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## update-provisioning-policy
-
 This API selectively updates an existing Provisioning Policy using a JSONPatch payload.
 Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning.
 Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information.
@@ -2729,7 +2592,6 @@ Path   | UsageType | [**UsageType**](../models/usage-type) | True  | The type of
  Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | The JSONPatch payload used to update the schema.
 
 ### Return type
-
 [**ProvisioningPolicyDto**](../models/provisioning-policy-dto)
 
 ### Responses
@@ -2744,7 +2606,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json-patch+json
 - **Accept**: application/json
 
@@ -2752,17 +2613,18 @@ Code | Description  | Data Type
 ```powershell
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
 $UsageType = "CREATE" # UsageType | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to 'Create Account Profile', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to 'Update Account Profile', the provisioning template for the 'Update' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to 'Enable Account Profile', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner's account is created.  DISABLE - This usage type relates to 'Disable Account Profile', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs. 
- # JsonPatchOperation[] | The JSONPatch payload used to update the schema.
  $JsonPatchOperation = @"{
   "op" : "replace",
   "path" : "/description",
   "value" : "New description"
-}"@ 
+}"@ # JsonPatchOperation[] | The JSONPatch payload used to update the schema.
+ 
 
 # Partial update of Provisioning Policy
+
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024ProvisioningPolicy-V2024SourceId $SourceId -V2024UsageType $UsageType -V2024JsonPatchOperation $Result
+    Update-V2024ProvisioningPolicy -V2024SourceId $SourceId  -V2024UsageType $UsageType  -V2024JsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024ProvisioningPolicy -V2024SourceId $SourceId -V2024UsageType $UsageType -V2024JsonPatchOperation $JsonPatchOperation  
@@ -2771,11 +2633,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## update-source
-
 Use this API to partially update a source in Identity Security Cloud (ISC), using a list of patch operations according to the
 [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
@@ -2800,7 +2659,6 @@ Path   | Id | **String** | True  | Source ID.
  Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Any password changes are submitted as plain-text and encrypted upon receipt in Identity Security Cloud (ISC).
 
 ### Return type
-
 [**Source**](../models/source)
 
 ### Responses
@@ -2815,24 +2673,24 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json-patch+json
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
- # JsonPatchOperation[] | A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Any password changes are submitted as plain-text and encrypted upon receipt in Identity Security Cloud (ISC).
  $JsonPatchOperation = @"{
   "op" : "replace",
   "path" : "/description",
   "value" : "New description"
-}"@ 
+}"@ # JsonPatchOperation[] | A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Any password changes are submitted as plain-text and encrypted upon receipt in Identity Security Cloud (ISC).
+ 
 
 # Update Source (Partial)
+
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024Source-V2024Id $Id -V2024JsonPatchOperation $Result
+    Update-V2024Source -V2024Id $Id  -V2024JsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024Source -V2024Id $Id -V2024JsonPatchOperation $JsonPatchOperation  
@@ -2841,11 +2699,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## update-source-entitlement-request-config
-
 This API replaces the current entitlement request configuration for a source. This source-level configuration should apply for all the entitlements in the source.
 
 Access request to any entitlements in the source should follow this configuration unless a separate entitlement-level configuration is defined.
@@ -2859,7 +2714,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | SourceEntitlementRequestConfig | [**SourceEntitlementRequestConfig**](../models/source-entitlement-request-config) | True  | 
 
 ### Return type
-
 [**SourceEntitlementRequestConfig**](../models/source-entitlement-request-config)
 
 ### Responses
@@ -2873,7 +2727,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -2893,10 +2746,12 @@ $SourceEntitlementRequestConfig = @"{
     "requestCommentRequired" : true
   }
 }"@
+
 # Update Source Entitlement Request Configuration
+
 try {
     $Result = ConvertFrom-JsonToSourceEntitlementRequestConfig -Json $SourceEntitlementRequestConfig
-    Update-V2024SourceEntitlementRequestConfig-V2024XSailPointExperimental $XSailPointExperimental -V2024SourceEntitlementRequestConfig $Result
+    Update-V2024SourceEntitlementRequestConfig -V2024XSailPointExperimental $XSailPointExperimental  -V2024SourceEntitlementRequestConfig $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024SourceEntitlementRequestConfig -V2024XSailPointExperimental $XSailPointExperimental -V2024SourceEntitlementRequestConfig $SourceEntitlementRequestConfig  
@@ -2905,11 +2760,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## update-source-schedule
-
 Use this API to selectively update an existing Schedule using a JSONPatch payload. 
 
 The following schedule fields are immutable and cannot be updated:
@@ -2925,7 +2777,6 @@ Path   | ScheduleType | **String** | True  | The Schedule type.
  Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | The JSONPatch payload used to update the schedule.
 
 ### Return type
-
 [**Schedule1**](../models/schedule1)
 
 ### Responses
@@ -2940,7 +2791,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json-patch+json
 - **Accept**: application/json
 
@@ -2948,17 +2798,18 @@ Code | Description  | Data Type
 ```powershell
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
 $ScheduleType = "ACCOUNT_AGGREGATION" # String | The Schedule type.
- # JsonPatchOperation[] | The JSONPatch payload used to update the schedule.
  $JsonPatchOperation = @"{
   "op" : "replace",
   "path" : "/description",
   "value" : "New description"
-}"@ 
+}"@ # JsonPatchOperation[] | The JSONPatch payload used to update the schedule.
+ 
 
 # Update Source Schedule (Partial)
+
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024SourceSchedule-V2024SourceId $SourceId -V2024ScheduleType $ScheduleType -V2024JsonPatchOperation $Result
+    Update-V2024SourceSchedule -V2024SourceId $SourceId  -V2024ScheduleType $ScheduleType  -V2024JsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024SourceSchedule -V2024SourceId $SourceId -V2024ScheduleType $ScheduleType -V2024JsonPatchOperation $JsonPatchOperation  
@@ -2967,11 +2818,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## update-source-schema
-
 Use this API to selectively update an existing Schema using a JSONPatch payload. 
 
 The following schema fields are immutable and cannot be updated:
@@ -3011,7 +2859,6 @@ Path   | SchemaId | **String** | True  | The Schema id.
  Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | The JSONPatch payload used to update the schema.
 
 ### Return type
-
 [**Schema**](../models/schema)
 
 ### Responses
@@ -3026,7 +2873,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json-patch+json
 - **Accept**: application/json
 
@@ -3034,17 +2880,18 @@ Code | Description  | Data Type
 ```powershell
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
 $SchemaId = "2c9180835d191a86015d28455b4a2329" # String | The Schema id.
- # JsonPatchOperation[] | The JSONPatch payload used to update the schema.
  $JsonPatchOperation = @"{
   "op" : "replace",
   "path" : "/description",
   "value" : "New description"
-}"@ 
+}"@ # JsonPatchOperation[] | The JSONPatch payload used to update the schema.
+ 
 
 # Update Source Schema (Partial)
+
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024SourceSchema-V2024SourceId $SourceId -V2024SchemaId $SchemaId -V2024JsonPatchOperation $Result
+    Update-V2024SourceSchema -V2024SourceId $SourceId  -V2024SchemaId $SchemaId  -V2024JsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024SourceSchema -V2024SourceId $SourceId -V2024SchemaId $SchemaId -V2024JsonPatchOperation $JsonPatchOperation  
@@ -3053,7 +2900,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

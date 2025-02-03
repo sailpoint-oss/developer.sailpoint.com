@@ -16,18 +16,18 @@ tags: ['SDK', 'Software Development Kit', 'LifecycleState', 'V2024LifecycleState
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | System-generated unique ID of the Object | [optional] [readonly] 
-**Name** |  **String** | Name of the Object | [required]
-**Created** |  Pointer to **System.DateTime** | Creation date of the Object | [optional] [readonly] 
-**Modified** |  Pointer to **System.DateTime** | Last modification date of the Object | [optional] [readonly] 
-**Enabled** |  Pointer to **Boolean** | Indicates whether the lifecycle state is enabled or disabled. | [optional] [default to $false]
-**TechnicalName** |  **String** | The lifecycle state's technical name. This is for internal use. | [required]
-**Description** |  Pointer to **String** | Lifecycle state's description. | [optional] 
-**IdentityCount** |  Pointer to **Int32** | Number of identities that have the lifecycle state. | [optional] [readonly] 
-**EmailNotificationOption** |  Pointer to [**EmailNotificationOption**](email-notification-option) |  | [optional] 
-**AccountActions** |  Pointer to [**[]AccountAction**](account-action) |  | [optional] 
-**AccessProfileIds** |  Pointer to **[]String** | List of unique access-profile IDs that are associated with the lifecycle state. | [optional] 
-**IdentityState** |  Pointer to **String** | The lifecycle state's associated identity state. This field is generally 'null'. | [optional] 
+**Id** | **String** | System-generated unique ID of the Object | [optional] [readonly] 
+**Name** | **String** | Name of the Object | [required]
+**Created** | **System.DateTime** | Creation date of the Object | [optional] [readonly] 
+**Modified** | **System.DateTime** | Last modification date of the Object | [optional] [readonly] 
+**Enabled** | **Boolean** | Indicates whether the lifecycle state is enabled or disabled. | [optional] [default to $false]
+**TechnicalName** | **String** | The lifecycle state's technical name. This is for internal use. | [required]
+**Description** | **String** | Lifecycle state's description. | [optional] 
+**IdentityCount** | **Int32** | Number of identities that have the lifecycle state. | [optional] [readonly] 
+**EmailNotificationOption** | [**EmailNotificationOption**](email-notification-option) |  | [optional] 
+**AccountActions** | [**[]AccountAction**](account-action) |  | [optional] 
+**AccessProfileIds** | **[]String** | List of unique access-profile IDs that are associated with the lifecycle state. | [optional] 
+**IdentityState** | **String** | The lifecycle state's associated identity state. This field is generally 'null'. | [optional] 
 
 ## Examples
 

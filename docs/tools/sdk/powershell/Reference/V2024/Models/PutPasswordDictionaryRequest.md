@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'PutPasswordDictionaryRequest', 'V2024
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**File** |  Pointer to **System.IO.FileInfo** |  | [optional] 
+**File** | **System.IO.FileInfo** |  | [optional] 
 
 ## Examples
 

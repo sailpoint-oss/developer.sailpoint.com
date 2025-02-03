@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'AccessRequestPreApproval1', 'V2024Acc
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Approved** |  **Boolean** | Whether or not to approve the access request. | [required]
-**Comment** |  **String** | A comment about the decision to approve or deny the request. | [required]
-**Approver** |  **String** | The name of the entity that approved or denied the request. | [required]
+**Approved** | **Boolean** | Whether or not to approve the access request. | [required]
+**Comment** | **String** | A comment about the decision to approve or deny the request. | [required]
+**Approver** | **String** | The name of the entity that approved or denied the request. | [required]
 
 ## Examples
 

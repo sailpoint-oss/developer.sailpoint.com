@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'AppAccountDetails', 'BetaAppAccountDe
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AppId** |  Pointer to **String** | The source app ID | [optional] 
-**AppDisplayName** |  Pointer to **String** | The source app display name | [optional] 
-**SourceAccount** |  Pointer to [**AppAccountDetailsSourceAccount**](app-account-details-source-account) |  | [optional] 
+**AppId** | **String** | The source app ID | [optional] 
+**AppDisplayName** | **String** | The source app display name | [optional] 
+**SourceAccount** | [**AppAccountDetailsSourceAccount**](app-account-details-source-account) |  | [optional] 
 
 ## Examples
 

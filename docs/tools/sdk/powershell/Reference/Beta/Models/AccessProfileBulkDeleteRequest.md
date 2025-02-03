@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'AccessProfileBulkDeleteRequest', 'Bet
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccessProfileIds** |  Pointer to **[]String** | List of IDs of Access Profiles to be deleted. | [optional] 
-**BestEffortOnly** |  Pointer to **Boolean** | If **true**, silently skip over any of the specified Access Profiles if they cannot be deleted because they are in use. If **false**, no deletions will be attempted if any of the Access Profiles are in use. | [optional] 
+**AccessProfileIds** | **[]String** | List of IDs of Access Profiles to be deleted. | [optional] 
+**BestEffortOnly** | **Boolean** | If **true**, silently skip over any of the specified Access Profiles if they cannot be deleted because they are in use. If **false**, no deletions will be attempted if any of the Access Profiles are in use. | [optional] 
 
 ## Examples
 

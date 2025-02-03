@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'CampaignEnded', 'BetaCampaignEnded']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Campaign** |  [**CampaignEndedCampaign**](campaign-ended-campaign) |  | [required]
+**Campaign** | [**CampaignEndedCampaign**](campaign-ended-campaign) |  | [required]
 
 ## Examples
 

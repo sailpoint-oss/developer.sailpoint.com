@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'TaskResultDto', 'BetaTaskResultDto']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to  **Enum** [  "TASK_RESULT" ] | Task result DTO type. | [optional] 
-**Id** |  Pointer to **String** | Task result ID. | [optional] 
-**Name** |  Pointer to **String** | Task result display name. | [optional] 
+**Type** |  **Enum** [  "TASK_RESULT" ] | Task result DTO type. | [optional] 
+**Id** | **String** | Task result ID. | [optional] 
+**Name** | **String** | Task result display name. | [optional] 
 
 ## Examples
 

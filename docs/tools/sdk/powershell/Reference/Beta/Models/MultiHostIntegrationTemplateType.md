@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'MultiHostIntegrationTemplateType', 'B
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** |  Pointer to **String** | This is the name of the type. | [optional] 
-**Type** |  **String** | This is the type value for the type. | [required]
-**ScriptName** |  **String** | This is the scriptName attribute value for the type. | [required]
+**Name** | **String** | This is the name of the type. | [optional] 
+**Type** | **String** | This is the type value for the type. | [required]
+**ScriptName** | **String** | This is the scriptName attribute value for the type. | [required]
 
 ## Examples
 

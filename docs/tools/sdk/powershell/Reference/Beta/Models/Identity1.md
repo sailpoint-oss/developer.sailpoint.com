@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'Identity1', 'BetaIdentity1']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | The ID of the object | [optional] 
-**Name** |  Pointer to **String** | Human-readable display name of the object | [optional] 
+**Id** | **String** | The ID of the object | [optional] 
+**Name** | **String** | Human-readable display name of the object | [optional] 
 
 ## Examples
 

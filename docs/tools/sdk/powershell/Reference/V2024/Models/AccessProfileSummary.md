@@ -16,14 +16,14 @@ tags: ['SDK', 'Software Development Kit', 'AccessProfileSummary', 'V2024AccessPr
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | The unique ID of the referenced object. | [optional] 
-**Name** |  Pointer to **String** | The human readable name of the referenced object. | [optional] 
-**DisplayName** |  Pointer to **String** |  | [optional] 
-**Type** |  Pointer to [**DtoType**](dto-type) |  | [optional] 
-**Description** |  Pointer to **String** |  | [optional] 
-**Source** |  Pointer to [**Reference1**](reference1) |  | [optional] 
-**Owner** |  Pointer to [**DisplayReference**](display-reference) |  | [optional] 
-**Revocable** |  Pointer to **Boolean** |  | [optional] 
+**Id** | **String** | The unique ID of the referenced object. | [optional] 
+**Name** | **String** | The human readable name of the referenced object. | [optional] 
+**DisplayName** | **String** |  | [optional] 
+**Type** | [**DtoType**](dto-type) |  | [optional] 
+**Description** | **String** |  | [optional] 
+**Source** | [**Reference1**](reference1) |  | [optional] 
+**Owner** | [**DisplayReference**](display-reference) |  | [optional] 
+**Revocable** | **Boolean** |  | [optional] 
 
 ## Examples
 

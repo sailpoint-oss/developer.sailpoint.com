@@ -9,7 +9,6 @@ slug: /tools/sdk/powershell/v3/methods/saved-search
 tags: ['SDK', 'Software Development Kit', 'SavedSearch', 'SavedSearch']
 ---
 
-
 # SavedSearch
   Use this API to implement saved search functionality. 
 With saved search functionality in place, users can save search queries and then view those saved searches, as well as rerun them. 
@@ -35,9 +34,7 @@ Method | HTTP request | Description
 [**Get-SavedSearches**](#list-saved-searches) | **GET** `/saved-searches` | A list of Saved Searches
 [**Send-SavedSearch**](#put-saved-search) | **PUT** `/saved-searches/{id}` | Updates an existing saved search 
 
-
 ## create-saved-search
-
 Creates a new saved search.
 
 
@@ -47,7 +44,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | CreateSavedSearchRequest | [**CreateSavedSearchRequest**](../models/create-saved-search-request) | True  | The saved search to persist.
 
 ### Return type
-
 [**SavedSearch**](../models/saved-search)
 
 ### Responses
@@ -61,17 +57,18 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $CreateSavedSearchRequest = @""@
+
 # Create a saved search
+
 try {
     $Result = ConvertFrom-JsonToCreateSavedSearchRequest -Json $CreateSavedSearchRequest
-    New-SavedSearch-CreateSavedSearchRequest $Result
+    New-SavedSearch -CreateSavedSearchRequest $Result
     
     # Below is a request that includes all optional parameters
     # New-SavedSearch -CreateSavedSearchRequest $CreateSavedSearchRequest  
@@ -80,11 +77,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## delete-saved-search
-
 Deletes the specified saved search.
 
 
@@ -94,7 +88,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | ID of the requested document.
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -109,16 +102,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document.
+
 # Delete document by ID
+
 try {
-    Remove-SavedSearch-Id $Id 
+    Remove-SavedSearch -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-SavedSearch -Id $Id  
@@ -127,11 +121,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## execute-saved-search
-
 Executes the specified saved search.
 
 
@@ -142,7 +133,6 @@ Path   | Id | **String** | True  | ID of the requested document.
  Body  | SearchArguments | [**SearchArguments**](../models/search-arguments) | True  | When saved search execution is triggered by a scheduled search, *scheduleId* will specify the ID of the triggering scheduled search.  If *scheduleId* is not specified (when execution is triggered by a UI test), the *owner* and *recipients* arguments must be provided. 
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -157,7 +147,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -175,10 +164,12 @@ $SearchArguments = @"{
   } ],
   "scheduleId" : "7a724640-0c17-4ce9-a8c3-4a89738459c8"
 }"@
+
 # Execute a saved search by ID
+
 try {
     $Result = ConvertFrom-JsonToSearchArguments -Json $SearchArguments
-    Invoke-ExecuteSavedSearch-Id $Id -SearchArguments $Result
+    Invoke-ExecuteSavedSearch -Id $Id  -SearchArguments $Result
     
     # Below is a request that includes all optional parameters
     # Invoke-ExecuteSavedSearch -Id $Id -SearchArguments $SearchArguments  
@@ -187,11 +178,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-saved-search
-
 Returns the specified saved search.
 
 
@@ -201,7 +189,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | ID of the requested document.
 
 ### Return type
-
 [**SavedSearch**](../models/saved-search)
 
 ### Responses
@@ -216,16 +203,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document.
+
 # Return saved search by ID
+
 try {
-    Get-SavedSearch-Id $Id 
+    Get-SavedSearch -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-SavedSearch -Id $Id  
@@ -234,11 +222,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-saved-searches
-
 Returns a list of saved searches.
 
 
@@ -251,7 +236,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **owner.id**: *eq*
 
 ### Return type
-
 [**SavedSearch[]**](../models/saved-search)
 
 ### Responses
@@ -265,7 +249,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -275,7 +258,9 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Filters = 'owner.id eq "7a724640-0c17-4ce9-a8c3-4a89738459c8"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **owner.id**: *eq* (optional)
+
 # A list of Saved Searches
+
 try {
     Get-SavedSearches
     
@@ -286,11 +271,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## put-saved-search
-
 Updates an existing saved search. 
 
 >**NOTE: You cannot update the `owner` of the saved search.**
@@ -303,7 +285,6 @@ Path   | Id | **String** | True  | ID of the requested document.
  Body  | SavedSearch | [**SavedSearch**](../models/saved-search) | True  | The saved search to persist.
 
 ### Return type
-
 [**SavedSearch**](../models/saved-search)
 
 ### Responses
@@ -317,7 +298,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -369,10 +349,12 @@ $SavedSearch = @"{
   "id" : "0de46054-fe90-434a-b84e-c6b3359d0c64",
   "fields" : [ "disabled" ]
 }"@
+
 # Updates an existing saved search 
+
 try {
     $Result = ConvertFrom-JsonToSavedSearch -Json $SavedSearch
-    Send-SavedSearch-Id $Id -SavedSearch $Result
+    Send-SavedSearch -Id $Id  -SavedSearch $Result
     
     # Below is a request that includes all optional parameters
     # Send-SavedSearch -Id $Id -SavedSearch $SavedSearch  
@@ -381,7 +363,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

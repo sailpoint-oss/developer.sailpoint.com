@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'ConflictingAccessCriteria', 'Conflict
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**LeftCriteria** |  Pointer to [**AccessCriteria**](access-criteria) |  | [optional] 
-**RightCriteria** |  Pointer to [**AccessCriteria**](access-criteria) |  | [optional] 
+**LeftCriteria** | [**AccessCriteria**](access-criteria) |  | [optional] 
+**RightCriteria** | [**AccessCriteria**](access-criteria) |  | [optional] 
 
 ## Examples
 

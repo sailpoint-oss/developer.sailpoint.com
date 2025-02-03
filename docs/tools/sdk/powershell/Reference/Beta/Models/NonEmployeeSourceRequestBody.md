@@ -16,12 +16,12 @@ tags: ['SDK', 'Software Development Kit', 'NonEmployeeSourceRequestBody', 'BetaN
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** |  **String** | Name of non-employee source. | [required]
-**Description** |  **String** | Description of non-employee source. | [required]
-**Owner** |  [**NonEmployeeIdnUserRequest**](non-employee-idn-user-request) |  | [required]
-**ManagementWorkgroup** |  Pointer to **String** | The ID for the management workgroup that contains source sub-admins | [optional] 
-**Approvers** |  Pointer to [**[]NonEmployeeIdnUserRequest**](non-employee-idn-user-request) | List of approvers. | [optional] 
-**AccountManagers** |  Pointer to [**[]NonEmployeeIdnUserRequest**](non-employee-idn-user-request) | List of account managers. | [optional] 
+**Name** | **String** | Name of non-employee source. | [required]
+**Description** | **String** | Description of non-employee source. | [required]
+**Owner** | [**NonEmployeeIdnUserRequest**](non-employee-idn-user-request) |  | [required]
+**ManagementWorkgroup** | **String** | The ID for the management workgroup that contains source sub-admins | [optional] 
+**Approvers** | [**[]NonEmployeeIdnUserRequest**](non-employee-idn-user-request) | List of approvers. | [optional] 
+**AccountManagers** | [**[]NonEmployeeIdnUserRequest**](non-employee-idn-user-request) | List of account managers. | [optional] 
 
 ## Examples
 

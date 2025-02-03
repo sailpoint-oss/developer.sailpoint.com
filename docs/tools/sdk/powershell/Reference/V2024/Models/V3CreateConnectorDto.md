@@ -16,11 +16,11 @@ tags: ['SDK', 'Software Development Kit', 'V3CreateConnectorDto', 'V2024V3Create
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** |  **String** | The connector name. Need to be unique per tenant. The name will able be used to derive a url friendly unique scriptname that will be in response. Script name can then be used for all update endpoints | [required]
-**Type** |  Pointer to **String** | The connector type. If not specified will be defaulted to 'custom '+name | [optional] 
-**ClassName** |  **String** | The connector class name. If you are implementing openconnector standard (what is recommended), then this need to be set to sailpoint.connector.OpenConnectorAdapter | [required]
-**DirectConnect** |  Pointer to **Boolean** | true if the source is a direct connect source | [optional] [default to $true]
-**Status** |  Pointer to  **Enum** [  "DEVELOPMENT",    "DEMO",    "RELEASED" ] | The connector status | [optional] 
+**Name** | **String** | The connector name. Need to be unique per tenant. The name will able be used to derive a url friendly unique scriptname that will be in response. Script name can then be used for all update endpoints | [required]
+**Type** | **String** | The connector type. If not specified will be defaulted to 'custom '+name | [optional] 
+**ClassName** | **String** | The connector class name. If you are implementing openconnector standard (what is recommended), then this need to be set to sailpoint.connector.OpenConnectorAdapter | [required]
+**DirectConnect** | **Boolean** | true if the source is a direct connect source | [optional] [default to $true]
+**Status** |  **Enum** [  "DEVELOPMENT",    "DEMO",    "RELEASED" ] | The connector status | [optional] 
 
 ## Examples
 

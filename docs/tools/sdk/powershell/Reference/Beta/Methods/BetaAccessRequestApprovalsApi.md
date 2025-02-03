@@ -9,7 +9,6 @@ slug: /tools/sdk/powershell/beta/methods/access-request-approvals
 tags: ['SDK', 'Software Development Kit', 'AccessRequestApprovals', 'BetaAccessRequestApprovals']
 ---
 
-
 # AccessRequestApprovals
   Use this API to implement and customize access request approval functionality.
 With this functionality in place, administrators can delegate qualified users to review users&#39; requests for access or managers&#39; requests to revoke team members&#39; access to applications, entitlements, or roles.
@@ -42,9 +41,7 @@ Method | HTTP request | Description
 [**Get-BetaPendingApprovals**](#list-pending-approvals) | **GET** `/access-request-approvals/pending` | Pending Access Request Approvals List
 [**Deny-BetaAccessRequest**](#reject-access-request) | **POST** `/access-request-approvals/{approvalId}/reject` | Reject Access Request Approval
 
-
 ## approve-access-request
-
 Use this endpoint to approve an access request approval. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action.
 
 ### Parameters 
@@ -54,7 +51,6 @@ Path   | ApprovalId | **String** | True  | Approval ID.
  Body  | CommentDto | [**CommentDto**](../models/comment-dto) | True  | Reviewer's comment.
 
 ### Return type
-
 [**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0)
 
 ### Responses
@@ -69,7 +65,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -85,10 +80,12 @@ $CommentDto = @"{
   "created" : "2017-07-11T18:45:37.098Z",
   "comment" : "This is a comment."
 }"@
+
 # Approve Access Request Approval
+
 try {
     $Result = ConvertFrom-JsonToCommentDto -Json $CommentDto
-    Approve-BetaAccessRequest-BetaApprovalId $ApprovalId -BetaCommentDto $Result
+    Approve-BetaAccessRequest -BetaApprovalId $ApprovalId  -BetaCommentDto $Result
     
     # Below is a request that includes all optional parameters
     # Approve-BetaAccessRequest -BetaApprovalId $ApprovalId -BetaCommentDto $CommentDto  
@@ -97,11 +94,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## forward-access-request
-
 Use this API to forward an access request approval to a new owner. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action.
 
 ### Parameters 
@@ -111,7 +105,6 @@ Path   | ApprovalId | **String** | True  | Approval ID.
  Body  | ForwardApprovalDto | [**ForwardApprovalDto**](../models/forward-approval-dto) | True  | Information about the forwarded approval.
 
 ### Return type
-
 [**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0)
 
 ### Responses
@@ -126,7 +119,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -137,10 +129,12 @@ $ForwardApprovalDto = @"{
   "newOwnerId" : "newOwnerId",
   "comment" : "comment"
 }"@
+
 # Forward Access Request Approval
+
 try {
     $Result = ConvertFrom-JsonToForwardApprovalDto -Json $ForwardApprovalDto
-    Invoke-BetaForwardAccessRequest-BetaApprovalId $ApprovalId -BetaForwardApprovalDto $Result
+    Invoke-BetaForwardAccessRequest -BetaApprovalId $ApprovalId  -BetaForwardApprovalDto $Result
     
     # Below is a request that includes all optional parameters
     # Invoke-BetaForwardAccessRequest -BetaApprovalId $ApprovalId -BetaForwardApprovalDto $ForwardApprovalDto  
@@ -149,11 +143,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-access-request-approval-summary
-
 Use this API to return the number of pending, approved and rejected access requests approvals. See the "owner-id" query parameter for authorization information.
 
 ### Parameters 
@@ -163,7 +154,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | FromDate | **String** |   (optional) | This is the date and time the results will be shown from. It must be in a valid ISO-8601 format.
 
 ### Return type
-
 [**ApprovalSummary**](../models/approval-summary)
 
 ### Responses
@@ -177,7 +167,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -185,7 +174,9 @@ Code | Description  | Data Type
 ```powershell
 $OwnerId = "2c91808568c529c60168cca6f90c1313" # String | The ID of the owner or approver identity of the approvals. If present, the value returns approval summary for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN user can also fetch all the approvals in the org, when owner-id is not used.    * Non ORG_ADMIN users can only specify *me* or pass their own identity ID value. (optional)
 $FromDate = "from-date=2020-03-19T19:59:11Z" # String | This is the date and time the results will be shown from. It must be in a valid ISO-8601 format. (optional)
+
 # Get Access Requests Approvals Number
+
 try {
     Get-BetaAccessRequestApprovalSummary
     
@@ -196,11 +187,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-completed-approvals
-
 This endpoint returns list of completed approvals. See *owner-id* query parameter below for authorization info.
 
 ### Parameters 
@@ -214,7 +202,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified**
 
 ### Return type
-
 [**CompletedApproval[]**](../models/completed-approval)
 
 ### Responses
@@ -227,7 +214,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -239,7 +225,9 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Filters = 'MyFilters' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **requestedFor.id**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **modified**: *gt, lt, ge, le, eq, in, ne, sw* (optional)
 $Sorters = "MySorters" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified** (optional)
+
 # Completed Access Request Approvals List
+
 try {
     Get-BetaCompletedApprovals
     
@@ -250,11 +238,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-pending-approvals
-
 This endpoint returns a list of pending approvals. See "owner-id" query parameter below for authorization info.
 
 ### Parameters 
@@ -268,7 +253,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified**
 
 ### Return type
-
 [**PendingApproval[]**](../models/pending-approval)
 
 ### Responses
@@ -281,7 +265,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -293,7 +276,9 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Filters = 'MyFilters' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **requestedFor.id**: *eq, in*  **modified**: *gt, lt, ge, le, eq, in* (optional)
 $Sorters = "MySorters" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified** (optional)
+
 # Pending Access Request Approvals List
+
 try {
     Get-BetaPendingApprovals
     
@@ -304,11 +289,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## reject-access-request
-
 Use this API to reject an access request approval. Only the owner of the approval and admin users are allowed to perform this action.
 
 ### Parameters 
@@ -318,7 +300,6 @@ Path   | ApprovalId | **String** | True  | Approval ID.
  Body  | CommentDto | [**CommentDto**](../models/comment-dto) | True  | Reviewer's comment.
 
 ### Return type
-
 [**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0)
 
 ### Responses
@@ -333,7 +314,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -349,10 +329,12 @@ $CommentDto = @"{
   "created" : "2017-07-11T18:45:37.098Z",
   "comment" : "This is a comment."
 }"@
+
 # Reject Access Request Approval
+
 try {
     $Result = ConvertFrom-JsonToCommentDto -Json $CommentDto
-    Deny-BetaAccessRequest-BetaApprovalId $ApprovalId -BetaCommentDto $Result
+    Deny-BetaAccessRequest -BetaApprovalId $ApprovalId  -BetaCommentDto $Result
     
     # Below is a request that includes all optional parameters
     # Deny-BetaAccessRequest -BetaApprovalId $ApprovalId -BetaCommentDto $CommentDto  
@@ -361,7 +343,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

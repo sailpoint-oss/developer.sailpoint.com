@@ -16,14 +16,14 @@ tags: ['SDK', 'Software Development Kit', 'BrandingItem', 'BrandingItem']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** |  Pointer to **String** | name of branding item | [optional] 
-**ProductName** |  Pointer to **String** | product name | [optional] 
-**ActionButtonColor** |  Pointer to **String** | hex value of color for action button | [optional] 
-**ActiveLinkColor** |  Pointer to **String** | hex value of color for link | [optional] 
-**NavigationColor** |  Pointer to **String** | hex value of color for navigation bar | [optional] 
-**EmailFromAddress** |  Pointer to **String** | email from address | [optional] 
-**StandardLogoURL** |  Pointer to **String** | url to standard logo | [optional] 
-**LoginInformationalMessage** |  Pointer to **String** | login information message | [optional] 
+**Name** | **String** | name of branding item | [optional] 
+**ProductName** | **String** | product name | [optional] 
+**ActionButtonColor** | **String** | hex value of color for action button | [optional] 
+**ActiveLinkColor** | **String** | hex value of color for link | [optional] 
+**NavigationColor** | **String** | hex value of color for navigation bar | [optional] 
+**EmailFromAddress** | **String** | email from address | [optional] 
+**StandardLogoURL** | **String** | url to standard logo | [optional] 
+**LoginInformationalMessage** | **String** | login information message | [optional] 
 
 ## Examples
 

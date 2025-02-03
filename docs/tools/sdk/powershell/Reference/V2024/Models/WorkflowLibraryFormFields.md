@@ -16,12 +16,12 @@ tags: ['SDK', 'Software Development Kit', 'WorkflowLibraryFormFields', 'V2024Wor
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Description** |  Pointer to **String** | Description of the form field | [optional] 
-**HelpText** |  Pointer to **String** | Describes the form field in the UI | [optional] 
-**Label** |  Pointer to **String** | A human readable name for this form field in the UI | [optional] 
-**Name** |  Pointer to **String** | The name of the input attribute | [optional] 
-**Required** |  Pointer to **Boolean** | Denotes if this field is a required attribute | [optional] [default to $false]
-**Type** |  Pointer to  **Enum** [  "text",    "textarea",    "boolean",    "email",    "url",    "number",    "json",    "checkbox",    "jsonpath",    "select",    "multiType",    "duration",    "toggle",    "formPicker",    "identityPicker",    "governanceGroupPicker",    "string",    "object",    "array",    "secret",    "keyValuePairs",    "emailPicker",    "advancedToggle",    "variableCreator",    "htmlEditor" ] | The type of the form field | [optional] 
+**Description** | **String** | Description of the form field | [optional] 
+**HelpText** | **String** | Describes the form field in the UI | [optional] 
+**Label** | **String** | A human readable name for this form field in the UI | [optional] 
+**Name** | **String** | The name of the input attribute | [optional] 
+**Required** | **Boolean** | Denotes if this field is a required attribute | [optional] [default to $false]
+**Type** |  **Enum** [  "text",    "textarea",    "boolean",    "email",    "url",    "number",    "json",    "checkbox",    "jsonpath",    "select",    "multiType",    "duration",    "toggle",    "formPicker",    "identityPicker",    "governanceGroupPicker",    "string",    "object",    "array",    "secret",    "keyValuePairs",    "emailPicker",    "advancedToggle",    "variableCreator",    "htmlEditor" ] | The type of the form field | [optional] 
 
 ## Examples
 

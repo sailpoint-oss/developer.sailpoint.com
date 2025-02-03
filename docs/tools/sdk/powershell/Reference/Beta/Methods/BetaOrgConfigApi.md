@@ -9,7 +9,6 @@ slug: /tools/sdk/powershell/beta/methods/org-config
 tags: ['SDK', 'Software Development Kit', 'OrgConfig', 'BetaOrgConfig']
 ---
 
-
 # OrgConfig
   Use this API to implement organization configuration functionality. 
 Administrators can use this functionality to manage organization settings, such as time zones. 
@@ -24,9 +23,7 @@ Method | HTTP request | Description
 [**Get-BetaValidTimeZones**](#get-valid-time-zones) | **GET** `/org-config/valid-time-zones` | Get list of time zones
 [**Update-BetaOrgConfig**](#patch-org-config) | **PATCH** `/org-config` | Patch an Org configuration property
 
-
 ## get-org-config
-
 Get org configuration with only external (org admin) accessible properties for the current org.
 
 ### Parameters 
@@ -34,7 +31,6 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 
 ### Return type
-
 [**OrgConfig**](../models/org-config)
 
 ### Responses
@@ -49,13 +45,14 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
+
 # Get Org configuration settings
+
 try {
     Get-BetaOrgConfig
     
@@ -66,11 +63,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-valid-time-zones
-
 Get a list of valid time zones that can be set in org configurations.
 
 ### Parameters 
@@ -78,7 +72,6 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 
 ### Return type
-
 **String[]**
 
 ### Responses
@@ -92,13 +85,14 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
+
 # Get list of time zones
+
 try {
     Get-BetaValidTimeZones
     
@@ -109,11 +103,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## patch-org-config
-
 Patch configuration of the current org using http://jsonpatch.com/ syntax.  Commonly used for changing the time zone of an org.
 
 ### Parameters 
@@ -122,7 +113,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
 ### Return type
-
 [**OrgConfig**](../models/org-config)
 
 ### Responses
@@ -137,23 +127,23 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json-patch+json
 - **Accept**: application/json
 
 ### Example
 ```powershell
- # JsonPatchOperation[] | A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
  $JsonPatchOperation = @"{
   "op" : "replace",
   "path" : "/description",
   "value" : "New description"
-}"@ 
+}"@ # JsonPatchOperation[] | A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+ 
 
 # Patch an Org configuration property
+
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-BetaOrgConfig-BetaJsonPatchOperation $Result
+    Update-BetaOrgConfig -BetaJsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-BetaOrgConfig -BetaJsonPatchOperation $JsonPatchOperation  
@@ -162,7 +152,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

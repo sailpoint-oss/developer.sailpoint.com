@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'IdentitySyncPayload', 'V2024IdentityS
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  **String** | Payload type. | [required]
-**DataJson** |  **String** | Payload type. | [required]
+**Type** | **String** | Payload type. | [required]
+**DataJson** | **String** | Payload type. | [required]
 
 ## Examples
 

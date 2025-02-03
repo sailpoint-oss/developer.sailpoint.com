@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'NonEmployeeIdnUserRequest', 'BetaNonE
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  **String** | Identity id. | [required]
+**Id** | **String** | Identity id. | [required]
 
 ## Examples
 

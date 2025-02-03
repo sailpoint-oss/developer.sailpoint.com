@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'IdentitiesReportArguments', 'V2024Ide
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CorrelatedOnly** |  Pointer to **Boolean** | Flag to specify if only correlated identities are included in report. | [optional] [default to $false]
+**CorrelatedOnly** | **Boolean** | Flag to specify if only correlated identities are included in report. | [optional] [default to $false]
 
 ## Examples
 

@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'DomainAddress', 'BetaDomainAddress']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Domain** |  Pointer to **String** | A domain address | [optional] 
+**Domain** | **String** | A domain address | [optional] 
 
 ## Examples
 

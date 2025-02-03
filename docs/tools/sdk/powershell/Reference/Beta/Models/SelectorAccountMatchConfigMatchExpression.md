@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'SelectorAccountMatchConfigMatchExpres
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**MatchTerms** |  Pointer to [**[]MatchTerm**](match-term) |  | [optional] 
-**And** |  Pointer to **Boolean** | If it is AND operators for match terms | [optional] [default to $true]
+**MatchTerms** | [**[]MatchTerm**](match-term) |  | [optional] 
+**And** | **Boolean** | If it is AND operators for match terms | [optional] [default to $true]
 
 ## Examples
 

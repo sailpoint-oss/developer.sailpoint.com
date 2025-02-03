@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'IdentitySummary', 'V2024IdentitySumma
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | ID of this identity summary | [optional] 
-**Name** |  Pointer to **String** | Human-readable display name of identity | [optional] 
-**IdentityId** |  Pointer to **String** | ID of the identity that this summary represents | [optional] 
-**Completed** |  Pointer to **Boolean** | Indicates if all access items for this summary have been decided on | [optional] [default to $false]
+**Id** | **String** | ID of this identity summary | [optional] 
+**Name** | **String** | Human-readable display name of identity | [optional] 
+**IdentityId** | **String** | ID of the identity that this summary represents | [optional] 
+**Completed** | **Boolean** | Indicates if all access items for this summary have been decided on | [optional] [default to $false]
 
 ## Examples
 

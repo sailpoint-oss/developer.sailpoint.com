@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'CommonAccessItemRequest', 'V2024Commo
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Access** |  Pointer to [**CommonAccessItemAccess**](common-access-item-access) |  | [optional] 
-**Status** |  Pointer to [**CommonAccessItemState**](common-access-item-state) |  | [optional] 
+**Access** | [**CommonAccessItemAccess**](common-access-item-access) |  | [optional] 
+**Status** | [**CommonAccessItemState**](common-access-item-state) |  | [optional] 
 
 ## Examples
 

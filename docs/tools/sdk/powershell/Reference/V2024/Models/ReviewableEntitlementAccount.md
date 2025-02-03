@@ -16,18 +16,18 @@ tags: ['SDK', 'Software Development Kit', 'ReviewableEntitlementAccount', 'V2024
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**NativeIdentity** |  Pointer to **String** | The native identity for this account | [optional] 
-**Disabled** |  Pointer to **Boolean** | Indicates whether this account is currently disabled | [optional] [default to $false]
-**Locked** |  Pointer to **Boolean** | Indicates whether this account is currently locked | [optional] [default to $false]
-**Type** |  Pointer to [**DtoType**](dto-type) |  | [optional] 
-**Id** |  Pointer to **String** | The id associated with the account | [optional] 
-**Name** |  Pointer to **String** | The account name | [optional] 
-**Created** |  Pointer to **System.DateTime** | When the account was created | [optional] 
-**Modified** |  Pointer to **System.DateTime** | When the account was last modified | [optional] 
-**ActivityInsights** |  Pointer to [**ActivityInsights**](activity-insights) |  | [optional] 
-**Description** |  Pointer to **String** | Information about the account | [optional] 
-**GovernanceGroupId** |  Pointer to **String** | The id associated with the machine Account Governance Group | [optional] 
-**Owner** |  Pointer to [**ReviewableEntitlementAccountOwner**](reviewable-entitlement-account-owner) |  | [optional] 
+**NativeIdentity** | **String** | The native identity for this account | [optional] 
+**Disabled** | **Boolean** | Indicates whether this account is currently disabled | [optional] [default to $false]
+**Locked** | **Boolean** | Indicates whether this account is currently locked | [optional] [default to $false]
+**Type** | [**DtoType**](dto-type) |  | [optional] 
+**Id** | **String** | The id associated with the account | [optional] 
+**Name** | **String** | The account name | [optional] 
+**Created** | **System.DateTime** | When the account was created | [optional] 
+**Modified** | **System.DateTime** | When the account was last modified | [optional] 
+**ActivityInsights** | [**ActivityInsights**](activity-insights) |  | [optional] 
+**Description** | **String** | Information about the account | [optional] 
+**GovernanceGroupId** | **String** | The id associated with the machine Account Governance Group | [optional] 
+**Owner** | [**ReviewableEntitlementAccountOwner**](reviewable-entitlement-account-owner) |  | [optional] 
 
 ## Examples
 

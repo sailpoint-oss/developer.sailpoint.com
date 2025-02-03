@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'WorkgroupBulkDeleteRequest', 'BetaWor
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Ids** |  Pointer to **[]String** | List of IDs of Governance Groups to be deleted. | [optional] 
+**Ids** | **[]String** | List of IDs of Governance Groups to be deleted. | [optional] 
 
 ## Examples
 

@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'ApprovalDescription', 'BetaApprovalDe
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Value** |  Pointer to **String** | The description of what the approval is asking for | [optional] 
-**Locale** |  Pointer to **String** | What locale the description of the approval is using | [optional] 
+**Value** | **String** | The description of what the approval is asking for | [optional] 
+**Locale** | **String** | What locale the description of the approval is using | [optional] 
 
 ## Examples
 

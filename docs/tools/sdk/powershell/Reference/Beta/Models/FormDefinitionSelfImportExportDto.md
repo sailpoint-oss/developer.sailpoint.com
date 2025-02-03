@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'FormDefinitionSelfImportExportDto', '
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to  **Enum** [  "FORM_DEFINITION" ] | Imported/exported object's DTO type. | [optional] 
-**Id** |  Pointer to **String** | Imported/exported object's ID. | [optional] 
-**Name** |  Pointer to **String** | Imported/exported object's display name. | [optional] 
+**Type** |  **Enum** [  "FORM_DEFINITION" ] | Imported/exported object's DTO type. | [optional] 
+**Id** | **String** | Imported/exported object's ID. | [optional] 
+**Name** | **String** | Imported/exported object's display name. | [optional] 
 
 ## Examples
 

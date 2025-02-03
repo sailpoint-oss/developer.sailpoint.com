@@ -16,11 +16,11 @@ tags: ['SDK', 'Software Development Kit', 'Access', 'Access']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | The unique ID of the referenced object. | [optional] 
-**Name** |  Pointer to **String** | The human readable name of the referenced object. | [optional] 
-**DisplayName** |  Pointer to **String** |  | [optional] 
-**Type** |  Pointer to [**DtoType**](dto-type) |  | [optional] 
-**Description** |  Pointer to **String** |  | [optional] 
+**Id** | **String** | The unique ID of the referenced object. | [optional] 
+**Name** | **String** | The human readable name of the referenced object. | [optional] 
+**DisplayName** | **String** |  | [optional] 
+**Type** | [**DtoType**](dto-type) |  | [optional] 
+**Description** | **String** |  | [optional] 
 
 ## Examples
 

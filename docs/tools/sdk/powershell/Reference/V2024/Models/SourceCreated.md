@@ -16,12 +16,12 @@ tags: ['SDK', 'Software Development Kit', 'SourceCreated', 'V2024SourceCreated']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  **String** | The unique ID of the source. | [required]
-**Name** |  **String** | Human friendly name of the source. | [required]
-**Type** |  **String** | The connection type. | [required]
-**Created** |  **System.DateTime** | The date and time the source was created. | [required]
-**Connector** |  **String** | The connector type used to connect to the source. | [required]
-**Actor** |  [**SourceCreatedActor**](source-created-actor) |  | [required]
+**Id** | **String** | The unique ID of the source. | [required]
+**Name** | **String** | Human friendly name of the source. | [required]
+**Type** | **String** | The connection type. | [required]
+**Created** | **System.DateTime** | The date and time the source was created. | [required]
+**Connector** | **String** | The connector type used to connect to the source. | [required]
+**Actor** | [**SourceCreatedActor**](source-created-actor) |  | [required]
 
 ## Examples
 

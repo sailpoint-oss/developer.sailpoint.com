@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'UserAppAccount', 'V2024UserAppAccount
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | the account ID | [optional] 
-**Type** |  Pointer to **String** | It will always be ""ACCOUNT"" | [optional] 
-**Name** |  Pointer to **String** | the account name | [optional] 
+**Id** | **String** | the account ID | [optional] 
+**Type** | **String** | It will always be ""ACCOUNT"" | [optional] 
+**Name** | **String** | the account name | [optional] 
 
 ## Examples
 

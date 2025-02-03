@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'Column', 'V2024Column']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Field** |  **String** | The name of the field.  | [required]
-**Header** |  Pointer to **String** | The value of the header.  | [optional] 
+**Field** | **String** | The name of the field.  | [required]
+**Header** | **String** | The value of the header.  | [optional] 
 
 ## Examples
 

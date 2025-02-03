@@ -16,19 +16,19 @@ tags: ['SDK', 'Software Development Kit', 'ScheduledSearch', 'V2024ScheduledSear
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** |  Pointer to **String** | The name of the scheduled search.  | [optional] 
-**Description** |  Pointer to **String** | The description of the scheduled search.  | [optional] 
-**SavedSearchId** |  **String** | The ID of the saved search that will be executed. | [required]
-**Created** |  Pointer to **System.DateTime** | The date the scheduled search was initially created. | [optional] [readonly] 
-**Modified** |  Pointer to **System.DateTime** | The last date the scheduled search was modified. | [optional] [readonly] 
-**Schedule** |  [**Schedule2**](schedule2) |  | [required]
-**Recipients** |  [**[]SearchScheduleRecipientsInner**](search-schedule-recipients-inner) | A list of identities that should receive the scheduled search report via email. | [required]
-**Enabled** |  Pointer to **Boolean** | Indicates if the scheduled search is enabled.  | [optional] [default to $false]
-**EmailEmptyResults** |  Pointer to **Boolean** | Indicates if email generation should occur when search returns no results.  | [optional] [default to $false]
-**DisplayQueryDetails** |  Pointer to **Boolean** | Indicates if the generated email should include the query and search results preview (which could include PII).  | [optional] [default to $false]
-**Id** |  **String** | The scheduled search ID. | [required][readonly] 
-**Owner** |  [**ScheduledSearchAllOfOwner**](scheduled-search-all-of-owner) |  | [required]
-**OwnerId** |  **String** | The ID of the scheduled search owner.  Please use the `id` in the `owner` object instead.  | [required][readonly] 
+**Name** | **String** | The name of the scheduled search.  | [optional] 
+**Description** | **String** | The description of the scheduled search.  | [optional] 
+**SavedSearchId** | **String** | The ID of the saved search that will be executed. | [required]
+**Created** | **System.DateTime** | The date the scheduled search was initially created. | [optional] [readonly] 
+**Modified** | **System.DateTime** | The last date the scheduled search was modified. | [optional] [readonly] 
+**Schedule** | [**Schedule2**](schedule2) |  | [required]
+**Recipients** | [**[]SearchScheduleRecipientsInner**](search-schedule-recipients-inner) | A list of identities that should receive the scheduled search report via email. | [required]
+**Enabled** | **Boolean** | Indicates if the scheduled search is enabled.  | [optional] [default to $false]
+**EmailEmptyResults** | **Boolean** | Indicates if email generation should occur when search returns no results.  | [optional] [default to $false]
+**DisplayQueryDetails** | **Boolean** | Indicates if the generated email should include the query and search results preview (which could include PII).  | [optional] [default to $false]
+**Id** | **String** | The scheduled search ID. | [required][readonly] 
+**Owner** | [**ScheduledSearchAllOfOwner**](scheduled-search-all-of-owner) |  | [required]
+**OwnerId** | **String** | The ID of the scheduled search owner.  Please use the `id` in the `owner` object instead.  | [required][readonly] 
 
 ## Examples
 

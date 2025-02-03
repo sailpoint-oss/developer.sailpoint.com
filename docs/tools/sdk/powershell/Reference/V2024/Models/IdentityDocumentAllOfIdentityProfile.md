@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'IdentityDocumentAllOfIdentityProfile'
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | Identity profile's ID. | [optional] 
-**Name** |  Pointer to **String** | Identity profile's name. | [optional] 
+**Id** | **String** | Identity profile's ID. | [optional] 
+**Name** | **String** | Identity profile's name. | [optional] 
 
 ## Examples
 

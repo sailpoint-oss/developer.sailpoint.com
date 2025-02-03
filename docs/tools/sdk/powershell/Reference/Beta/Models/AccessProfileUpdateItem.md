@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'AccessProfileUpdateItem', 'BetaAccess
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  **String** | Identifier of Access Profile in bulk update request. | [required]
-**Requestable** |  **Boolean** | Access Profile requestable or not. | [required]
-**Status** |  **String** |  The HTTP response status code returned for an individual Access Profile that is requested for update during a bulk update operation.  > 201   - Access profile is updated successfully.  > 404   - Access profile not found.  | [required]
-**Description** |  Pointer to **String** | Human readable status description and containing additional context information about success or failures etc.  | [optional] 
+**Id** | **String** | Identifier of Access Profile in bulk update request. | [required]
+**Requestable** | **Boolean** | Access Profile requestable or not. | [required]
+**Status** | **String** |  The HTTP response status code returned for an individual Access Profile that is requested for update during a bulk update operation.  > 201   - Access profile is updated successfully.  > 404   - Access profile not found.  | [required]
+**Description** | **String** | Human readable status description and containing additional context information about success or failures etc.  | [optional] 
 
 ## Examples
 

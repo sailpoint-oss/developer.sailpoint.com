@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'SourceUpdatedActor', 'V2024SourceUpda
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |   **Enum** [  "IDENTITY" ] | DTO type of identity who updated the source. | [required]
-**Id** |  Pointer to **String** | ID of identity who updated the source. | [optional] 
-**Name** |  **String** | Display name of identity who updated the source. | [required]
+**Type** |  **Enum** [  "IDENTITY" ] | DTO type of identity who updated the source. | [required]
+**Id** | **String** | ID of identity who updated the source. | [optional] 
+**Name** | **String** | Display name of identity who updated the source. | [required]
 
 ## Examples
 

@@ -9,7 +9,6 @@ slug: /tools/sdk/powershell/v3/methods/identity-profiles
 tags: ['SDK', 'Software Development Kit', 'IdentityProfiles', 'IdentityProfiles']
 ---
 
-
 # IdentityProfiles
   Use this API to implement identity profile functionality. 
 With this functionality in place, administrators can view identity profiles and their configurations. 
@@ -40,9 +39,7 @@ Method | HTTP request | Description
 [**Sync-IdentityProfile**](#sync-identity-profile) | **POST** `/identity-profiles/{identity-profile-id}/process-identities` | Process identities under profile
 [**Update-IdentityProfile**](#update-identity-profile) | **PATCH** `/identity-profiles/{identity-profile-id}` | Update the Identity Profile
 
-
 ## create-identity-profile
-
 This creates an Identity Profile.    
 
 ### Parameters 
@@ -51,7 +48,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | IdentityProfile | [**IdentityProfile**](../models/identity-profile) | True  | 
 
 ### Return type
-
 [**IdentityProfile**](../models/identity-profile)
 
 ### Responses
@@ -65,7 +61,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -120,10 +115,12 @@ $IdentityProfile = @"{
   "modified" : "2015-05-28T14:07:17Z",
   "id" : "id12345"
 }"@
+
 # Create an Identity Profile
+
 try {
     $Result = ConvertFrom-JsonToIdentityProfile -Json $IdentityProfile
-    New-IdentityProfile-IdentityProfile $Result
+    New-IdentityProfile -IdentityProfile $Result
     
     # Below is a request that includes all optional parameters
     # New-IdentityProfile -IdentityProfile $IdentityProfile  
@@ -132,11 +129,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## delete-identity-profile
-
 This deletes an Identity Profile based on ID.
 
 On success, this endpoint will return a reference to the bulk delete task result.
@@ -150,7 +144,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | IdentityProfileId | **String** | True  | The Identity Profile ID.
 
 ### Return type
-
 [**TaskResultSimplified**](../models/task-result-simplified)
 
 ### Responses
@@ -165,16 +158,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $IdentityProfileId = "ef38f94347e94562b5bb8424a56397d8" # String | The Identity Profile ID.
+
 # Delete an Identity Profile
+
 try {
-    Remove-IdentityProfile-IdentityProfileId $IdentityProfileId 
+    Remove-IdentityProfile -IdentityProfileId $IdentityProfileId 
     
     # Below is a request that includes all optional parameters
     # Remove-IdentityProfile -IdentityProfileId $IdentityProfileId  
@@ -183,11 +177,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## delete-identity-profiles
-
 This deletes multiple Identity Profiles via a list of supplied IDs.
 
 On success, this endpoint will return a reference to the bulk delete task result.
@@ -200,7 +191,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | RequestBody | **[]String** | True  | Identity Profile bulk delete request body.
 
 ### Return type
-
 [**TaskResultSimplified**](../models/task-result-simplified)
 
 ### Responses
@@ -214,19 +204,20 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $RequestBody = "MyRequestBody" # String[] | Identity Profile bulk delete request body.
- $RequestBody = @""@ 
+ $RequestBody = @""@ # String[] | Identity Profile bulk delete request body.
+ 
 
 # Delete Identity Profiles
+
 try {
     $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
-    Remove-IdentityProfiles-RequestBody $Result
+    Remove-IdentityProfiles -RequestBody $Result
     
     # Below is a request that includes all optional parameters
     # Remove-IdentityProfiles -RequestBody $RequestBody  
@@ -235,11 +226,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## export-identity-profiles
-
 This exports existing identity profiles in the format specified by the sp-config service.
 
 ### Parameters 
@@ -252,7 +240,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, priority**
 
 ### Return type
-
 [**IdentityProfileExportedObject[]**](../models/identity-profile-exported-object)
 
 ### Responses
@@ -266,7 +253,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -277,7 +263,9 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Filters = 'id eq "ef38f94347e94562b5bb8424a56397d8"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne*  **name**: *eq, ne*  **priority**: *eq, ne* (optional)
 $Sorters = "id,name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, priority** (optional)
+
 # Export Identity Profiles
+
 try {
     Export-IdentityProfiles
     
@@ -288,11 +276,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-default-identity-attribute-config
-
 This returns the default identity attribute config.
 
 ### Parameters 
@@ -301,7 +286,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | IdentityProfileId | **String** | True  | The Identity Profile ID.
 
 ### Return type
-
 [**IdentityAttributeConfig**](../models/identity-attribute-config)
 
 ### Responses
@@ -316,16 +300,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $IdentityProfileId = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | The Identity Profile ID.
+
 # Get default Identity Attribute Config
+
 try {
-    Get-DefaultIdentityAttributeConfig-IdentityProfileId $IdentityProfileId 
+    Get-DefaultIdentityAttributeConfig -IdentityProfileId $IdentityProfileId 
     
     # Below is a request that includes all optional parameters
     # Get-DefaultIdentityAttributeConfig -IdentityProfileId $IdentityProfileId  
@@ -334,11 +319,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-identity-profile
-
 This returns a single Identity Profile based on ID.
 
 ### Parameters 
@@ -347,7 +329,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | IdentityProfileId | **String** | True  | The Identity Profile ID.
 
 ### Return type
-
 [**IdentityProfile**](../models/identity-profile)
 
 ### Responses
@@ -362,16 +343,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $IdentityProfileId = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | The Identity Profile ID.
+
 # Get single Identity Profile
+
 try {
-    Get-IdentityProfile-IdentityProfileId $IdentityProfileId 
+    Get-IdentityProfile -IdentityProfileId $IdentityProfileId 
     
     # Below is a request that includes all optional parameters
     # Get-IdentityProfile -IdentityProfileId $IdentityProfileId  
@@ -380,11 +362,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## import-identity-profiles
-
 This imports previously exported identity profiles.
 
 ### Parameters 
@@ -393,7 +372,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | IdentityProfileExportedObject | [**[]IdentityProfileExportedObject**](../models/identity-profile-exported-object) | True  | Previously exported Identity Profiles.
 
 ### Return type
-
 [**ObjectImportResult**](../models/object-import-result)
 
 ### Responses
@@ -407,13 +385,16 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
 ### Example
 ```powershell
- # IdentityProfileExportedObject[] | Previously exported Identity Profiles.
+
+
+
+
+
  $IdentityProfileExportedObject = @"{
   "self" : {
     "name" : "HR Active Directory",
@@ -470,12 +451,14 @@ Code | Description  | Data Type
     "modified" : "2015-05-28T14:07:17Z",
     "id" : "id12345"
   }
-}"@ 
+}"@ # IdentityProfileExportedObject[] | Previously exported Identity Profiles.
+ 
 
 # Import Identity Profiles
+
 try {
     $Result = ConvertFrom-JsonToIdentityProfileExportedObject -Json $IdentityProfileExportedObject
-    Import-IdentityProfiles-IdentityProfileExportedObject $Result
+    Import-IdentityProfiles -IdentityProfileExportedObject $Result
     
     # Below is a request that includes all optional parameters
     # Import-IdentityProfiles -IdentityProfileExportedObject $IdentityProfileExportedObject  
@@ -484,11 +467,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-identity-profiles
-
 This returns a list of Identity Profiles based on the specified query parameters.
 
 ### Parameters 
@@ -501,7 +481,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, priority, created, modified, owner.id, owner.name**
 
 ### Return type
-
 [**IdentityProfile[]**](../models/identity-profile)
 
 ### Responses
@@ -515,7 +494,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -526,7 +504,9 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Filters = 'id eq "ef38f94347e94562b5bb8424a56397d8"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne, ge, gt, in, le, lt, isnull, sw*  **name**: *eq, ne, ge, gt, in, le, lt, isnull, sw*  **priority**: *eq, ne* (optional)
 $Sorters = "id,name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, priority, created, modified, owner.id, owner.name** (optional)
+
 # Identity Profiles List
+
 try {
     Get-IdentityProfiles
     
@@ -537,11 +517,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## show-identity-preview
-
 Use this API to generate a non-persisted preview of the identity object after applying `IdentityAttributeConfig` sent in request body.
 This API only allows `accountAttribute`, `reference` and `rule` transform types in the `IdentityAttributeConfig` sent in the request body.
 
@@ -551,7 +528,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | IdentityPreviewRequest | [**IdentityPreviewRequest**](../models/identity-preview-request) | True  | Identity Preview request body.
 
 ### Return type
-
 [**IdentityPreviewResponse**](../models/identity-preview-response)
 
 ### Responses
@@ -565,7 +541,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -598,10 +573,12 @@ $IdentityPreviewRequest = @"{
     "enabled" : true
   }
 }"@
+
 # Generate Identity Profile Preview
+
 try {
     $Result = ConvertFrom-JsonToIdentityPreviewRequest -Json $IdentityPreviewRequest
-    Show-IdentityPreview-IdentityPreviewRequest $Result
+    Show-IdentityPreview -IdentityPreviewRequest $Result
     
     # Below is a request that includes all optional parameters
     # Show-IdentityPreview -IdentityPreviewRequest $IdentityPreviewRequest  
@@ -610,11 +587,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## sync-identity-profile
-
 Process identities under the profile
 This operation should not be used to schedule your own identity processing or to perform system wide identity refreshes. The system will use a combination of [event-based processing](https://documentation.sailpoint.com/saas/help/setup/identity_processing.html?h=process#event-based-processing) and [scheduled processing](https://documentation.sailpoint.com/saas/help/setup/identity_processing.html?h=process#scheduled-processing) that runs every day at 8:00 AM and 8:00 PM in the tenant's timezone to keep your identities synchronized. 
 This should only be run on identity profiles that have the `identityRefreshRequired` attribute set to `true`. If `identityRefreshRequired` is false, then there is no benefit to running this operation. Typically, this operation is performed when a change is made to the identity profile or its related lifecycle states that requires a refresh.
@@ -627,7 +601,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | IdentityProfileId | **String** | True  | The Identity Profile ID to be processed
 
 ### Return type
-
 [**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0)
 
 ### Responses
@@ -642,16 +615,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $IdentityProfileId = "ef38f94347e94562b5bb8424a56397d8" # String | The Identity Profile ID to be processed
+
 # Process identities under profile
+
 try {
-    Sync-IdentityProfile-IdentityProfileId $IdentityProfileId 
+    Sync-IdentityProfile -IdentityProfileId $IdentityProfileId 
     
     # Below is a request that includes all optional parameters
     # Sync-IdentityProfile -IdentityProfileId $IdentityProfileId  
@@ -660,11 +634,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## update-identity-profile
-
 This updates the specified Identity Profile.
   
 
@@ -684,7 +655,6 @@ Path   | IdentityProfileId | **String** | True  | The Identity Profile ID
  Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | A list of Identity Profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
 ### Return type
-
 [**IdentityProfile**](../models/identity-profile)
 
 ### Responses
@@ -699,24 +669,24 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json-patch+json
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $IdentityProfileId = "ef38f94347e94562b5bb8424a56397d8" # String | The Identity Profile ID
- # JsonPatchOperation[] | A list of Identity Profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
  $JsonPatchOperation = @"{
   "op" : "replace",
   "path" : "/description",
   "value" : "New description"
-}"@ 
+}"@ # JsonPatchOperation[] | A list of Identity Profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+ 
 
 # Update the Identity Profile
+
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-IdentityProfile-IdentityProfileId $IdentityProfileId -JsonPatchOperation $Result
+    Update-IdentityProfile -IdentityProfileId $IdentityProfileId  -JsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-IdentityProfile -IdentityProfileId $IdentityProfileId -JsonPatchOperation $JsonPatchOperation  
@@ -725,7 +695,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

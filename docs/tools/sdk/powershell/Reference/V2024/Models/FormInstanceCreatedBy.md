@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'FormInstanceCreatedBy', 'V2024FormIns
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | ID is a unique identifier | [optional] 
-**Type** |  Pointer to  **Enum** [  "WORKFLOW_EXECUTION",    "SOURCE" ] | Type is a form instance created by type enum value WORKFLOW_EXECUTION FormInstanceCreatedByTypeWorkflowExecution SOURCE FormInstanceCreatedByTypeSource | [optional] 
+**Id** | **String** | ID is a unique identifier | [optional] 
+**Type** |  **Enum** [  "WORKFLOW_EXECUTION",    "SOURCE" ] | Type is a form instance created by type enum value WORKFLOW_EXECUTION FormInstanceCreatedByTypeWorkflowExecution SOURCE FormInstanceCreatedByTypeSource | [optional] 
 
 ## Examples
 

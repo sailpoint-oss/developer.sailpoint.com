@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'License', 'BetaLicense']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**LicenseId** |  Pointer to **String** | Name of the license | [optional] 
-**LegacyFeatureName** |  Pointer to **String** | Legacy name of the license | [optional] 
+**LicenseId** | **String** | Name of the license | [optional] 
+**LegacyFeatureName** | **String** | Legacy name of the license | [optional] 
 
 ## Examples
 

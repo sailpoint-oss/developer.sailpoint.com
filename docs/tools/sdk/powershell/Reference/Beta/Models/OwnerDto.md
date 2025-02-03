@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'OwnerDto', 'BetaOwnerDto']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to  **Enum** [  "IDENTITY" ] | Owner's DTO type. | [optional] 
-**Id** |  Pointer to **String** | Owner's identity ID. | [optional] 
-**Name** |  Pointer to **String** | Owner's name. | [optional] 
+**Type** |  **Enum** [  "IDENTITY" ] | Owner's DTO type. | [optional] 
+**Id** | **String** | Owner's identity ID. | [optional] 
+**Name** | **String** | Owner's name. | [optional] 
 
 ## Examples
 

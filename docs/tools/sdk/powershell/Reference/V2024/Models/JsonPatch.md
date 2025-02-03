@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'JsonPatch', 'V2024JsonPatch']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Operations** |  Pointer to [**[]JsonPatchOperation**](json-patch-operation) | Operations to be applied | [optional] 
+**Operations** | [**[]JsonPatchOperation**](json-patch-operation) | Operations to be applied | [optional] 
 
 ## Examples
 

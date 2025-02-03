@@ -16,14 +16,14 @@ tags: ['SDK', 'Software Development Kit', 'Segment', 'V2024Segment']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | The segment's ID. | [optional] 
-**Name** |  Pointer to **String** | The segment's business name. | [optional] 
-**Created** |  Pointer to **System.DateTime** | The time when the segment is created. | [optional] 
-**Modified** |  Pointer to **System.DateTime** | The time when the segment is modified. | [optional] 
-**Description** |  Pointer to **String** | The segment's optional description. | [optional] 
-**Owner** |  Pointer to [**OwnerReferenceSegments**](owner-reference-segments) |  | [optional] 
-**VisibilityCriteria** |  Pointer to [**SegmentVisibilityCriteria**](segment-visibility-criteria) |  | [optional] 
-**Active** |  Pointer to **Boolean** | This boolean indicates whether the segment is currently active. Inactive segments have no effect. | [optional] [default to $false]
+**Id** | **String** | The segment's ID. | [optional] 
+**Name** | **String** | The segment's business name. | [optional] 
+**Created** | **System.DateTime** | The time when the segment is created. | [optional] 
+**Modified** | **System.DateTime** | The time when the segment is modified. | [optional] 
+**Description** | **String** | The segment's optional description. | [optional] 
+**Owner** | [**OwnerReferenceSegments**](owner-reference-segments) |  | [optional] 
+**VisibilityCriteria** | [**SegmentVisibilityCriteria**](segment-visibility-criteria) |  | [optional] 
+**Active** | **Boolean** | This boolean indicates whether the segment is currently active. Inactive segments have no effect. | [optional] [default to $false]
 
 ## Examples
 

@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'ApprovalIdentity', 'BetaApprovalIdent
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | The identity ID | [optional] 
-**Type** |  Pointer to  **Enum** [  "IDENTITY" ] | Indication of what group the identity belongs to. Ie, IDENTITY, GOVERNANCE_GROUP, etc | [optional] 
-**Name** |  Pointer to **String** | Name of the identity | [optional] 
+**Id** | **String** | The identity ID | [optional] 
+**Type** |  **Enum** [  "IDENTITY" ] | Indication of what group the identity belongs to. Ie, IDENTITY, GOVERNANCE_GROUP, etc | [optional] 
+**Name** | **String** | Name of the identity | [optional] 
 
 ## Examples
 

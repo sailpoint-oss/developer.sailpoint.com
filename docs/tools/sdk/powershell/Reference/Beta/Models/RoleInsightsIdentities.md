@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'RoleInsightsIdentities', 'BetaRoleIns
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | Id for identity | [optional] 
-**Name** |  Pointer to **String** | Name for identity | [optional] 
-**Attributes** |  Pointer to **map[string]String** |  | [optional] 
+**Id** | **String** | Id for identity | [optional] 
+**Name** | **String** | Name for identity | [optional] 
+**Attributes** | **map[string]String** |  | [optional] 
 
 ## Examples
 

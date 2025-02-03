@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'RecommendationRequest', 'V2024Recomme
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**IdentityId** |  Pointer to **String** | The identity ID | [optional] 
-**Item** |  Pointer to [**AccessItemRef**](access-item-ref) |  | [optional] 
+**IdentityId** | **String** | The identity ID | [optional] 
+**Item** | [**AccessItemRef**](access-item-ref) |  | [optional] 
 
 ## Examples
 

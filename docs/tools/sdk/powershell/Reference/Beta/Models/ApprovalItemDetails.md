@@ -16,13 +16,13 @@ tags: ['SDK', 'Software Development Kit', 'ApprovalItemDetails', 'BetaApprovalIt
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | The approval item's ID | [optional] 
-**Account** |  Pointer to **String** | The account referenced by the approval item | [optional] 
-**Application** |  Pointer to **String** | The name of the application/source | [optional] 
-**Name** |  Pointer to **String** | The attribute's name | [optional] 
-**Operation** |  Pointer to **String** | The attribute's operation | [optional] 
-**Value** |  Pointer to **String** | The attribute's value | [optional] 
-**State** |  Pointer to [**WorkItemState**](work-item-state) |  | [optional] 
+**Id** | **String** | The approval item's ID | [optional] 
+**Account** | **String** | The account referenced by the approval item | [optional] 
+**Application** | **String** | The name of the application/source | [optional] 
+**Name** | **String** | The attribute's name | [optional] 
+**Operation** | **String** | The attribute's operation | [optional] 
+**Value** | **String** | The attribute's value | [optional] 
+**State** | [**WorkItemState**](work-item-state) |  | [optional] 
 
 ## Examples
 

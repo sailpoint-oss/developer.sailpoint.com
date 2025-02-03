@@ -16,12 +16,12 @@ tags: ['SDK', 'Software Development Kit', 'Schedule2', 'V2024Schedule2']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  [**ScheduleType**](schedule-type) |  | [required]
-**Months** |  Pointer to [**Schedule2Months**](schedule2-months) |  | [optional] 
-**Days** |  Pointer to [**Schedule2Days**](schedule2-days) |  | [optional] 
-**Hours** |  [**Schedule2Hours**](schedule2-hours) |  | [required]
-**Expiration** |  Pointer to **System.DateTime** | A date-time in ISO-8601 format | [optional] 
-**TimeZoneId** |  Pointer to **String** | The canonical TZ identifier the schedule will run in (ex. America/New_York).  If no timezone is specified, the org's default timezone is used. | [optional] 
+**Type** | [**ScheduleType**](schedule-type) |  | [required]
+**Months** | [**Schedule2Months**](schedule2-months) |  | [optional] 
+**Days** | [**Schedule2Days**](schedule2-days) |  | [optional] 
+**Hours** | [**Schedule2Hours**](schedule2-hours) |  | [required]
+**Expiration** | **System.DateTime** | A date-time in ISO-8601 format | [optional] 
+**TimeZoneId** | **String** | The canonical TZ identifier the schedule will run in (ex. America/New_York).  If no timezone is specified, the org's default timezone is used. | [optional] 
 
 ## Examples
 

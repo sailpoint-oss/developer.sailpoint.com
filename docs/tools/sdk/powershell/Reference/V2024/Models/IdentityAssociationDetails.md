@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'IdentityAssociationDetails', 'V2024Id
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Message** |  Pointer to **String** | any additional context information of the http call result | [optional] 
-**AssociationDetails** |  Pointer to [**[]IdentityAssociationDetailsAssociationDetailsInner**](identity-association-details-association-details-inner) | list of all the resource associations for the identity | [optional] 
+**Message** | **String** | any additional context information of the http call result | [optional] 
+**AssociationDetails** | [**[]IdentityAssociationDetailsAssociationDetailsInner**](identity-association-details-association-details-inner) | list of all the resource associations for the identity | [optional] 
 
 ## Examples
 

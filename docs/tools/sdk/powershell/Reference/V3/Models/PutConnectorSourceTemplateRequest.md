@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'PutConnectorSourceTemplateRequest', '
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**File** |  **System.IO.FileInfo** | connector source template xml file | [required]
+**File** | **System.IO.FileInfo** | connector source template xml file | [required]
 
 ## Examples
 

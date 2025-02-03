@@ -16,14 +16,14 @@ tags: ['SDK', 'Software Development Kit', 'PublicIdentity', 'V2024PublicIdentity
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | Identity id | [optional] 
-**Name** |  Pointer to **String** | Human-readable display name of identity. | [optional] 
-**Alias** |  Pointer to **String** | Alternate unique identifier for the identity. | [optional] 
-**Email** |  Pointer to **String** | Email address of identity. | [optional] 
-**Status** |  Pointer to **String** | The lifecycle status for the identity | [optional] 
-**IdentityState** |  Pointer to  **Enum** [  "ACTIVE",    "INACTIVE_SHORT_TERM",    "INACTIVE_LONG_TERM" ] | The current state of the identity, which determines how Identity Security Cloud interacts with the identity. An identity that is Active will be included identity picklists in Request Center, identity processing, and more. Identities that are Inactive will be excluded from these features.  | [optional] 
-**Manager** |  Pointer to [**IdentityReference**](identity-reference) |  | [optional] 
-**Attributes** |  Pointer to [**[]PublicIdentityAttributesInner**](public-identity-attributes-inner) | The public identity attributes of the identity | [optional] 
+**Id** | **String** | Identity id | [optional] 
+**Name** | **String** | Human-readable display name of identity. | [optional] 
+**Alias** | **String** | Alternate unique identifier for the identity. | [optional] 
+**Email** | **String** | Email address of identity. | [optional] 
+**Status** | **String** | The lifecycle status for the identity | [optional] 
+**IdentityState** |  **Enum** [  "ACTIVE",    "INACTIVE_SHORT_TERM",    "INACTIVE_LONG_TERM" ] | The current state of the identity, which determines how Identity Security Cloud interacts with the identity. An identity that is Active will be included identity picklists in Request Center, identity processing, and more. Identities that are Inactive will be excluded from these features.  | [optional] 
+**Manager** | [**IdentityReference**](identity-reference) |  | [optional] 
+**Attributes** | [**[]PublicIdentityAttributesInner**](public-identity-attributes-inner) | The public identity attributes of the identity | [optional] 
 
 ## Examples
 

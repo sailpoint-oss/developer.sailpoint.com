@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'AttributesChanged', 'BetaAttributesCh
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Changes** |  Pointer to [**[]AttributeChange**](attribute-change) |  | [optional] 
-**EventType** |  Pointer to **String** | the event type | [optional] 
-**IdentityId** |  Pointer to **String** | the identity id | [optional] 
-**Dt** |  Pointer to **String** | the date of event | [optional] 
+**Changes** | [**[]AttributeChange**](attribute-change) |  | [optional] 
+**EventType** | **String** | the event type | [optional] 
+**IdentityId** | **String** | the identity id | [optional] 
+**Dt** | **String** | the date of event | [optional] 
 
 ## Examples
 

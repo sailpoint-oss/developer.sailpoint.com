@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'ImportAccountsRequest1', 'BetaImportA
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DisableOptimization** |  Pointer to  **Enum** [  "true",    "false" ] | Use this flag to reprocess every account whether or not the data has changed. | [optional] 
+**DisableOptimization** |  **Enum** [  "true",    "false" ] | Use this flag to reprocess every account whether or not the data has changed. | [optional] 
 
 ## Examples
 

@@ -16,11 +16,11 @@ tags: ['SDK', 'Software Development Kit', 'ImportOptions', 'V2024ImportOptions']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ExcludeTypes** |  Pointer to **[]String** | Object type names to be excluded from an sp-config export command. | [optional] 
-**IncludeTypes** |  Pointer to **[]String** | Object type names to be included in an sp-config export command. IncludeTypes takes precedence over excludeTypes. | [optional] 
-**ObjectOptions** |  Pointer to [**map[string]ObjectExportImportOptions**](object-export-import-options) | Additional options targeting specific objects related to each item in the includeTypes field | [optional] 
-**DefaultReferences** |  Pointer to **[]String** | List of object types that can be used to resolve references on import. | [optional] 
-**ExcludeBackup** |  Pointer to **Boolean** | By default, every import will first export all existing objects supported by sp-config as a backup before the import is attempted. If excludeBackup is true, the backup will not be performed. | [optional] [default to $false]
+**ExcludeTypes** | **[]String** | Object type names to be excluded from an sp-config export command. | [optional] 
+**IncludeTypes** | **[]String** | Object type names to be included in an sp-config export command. IncludeTypes takes precedence over excludeTypes. | [optional] 
+**ObjectOptions** | [**map[string]ObjectExportImportOptions**](object-export-import-options) | Additional options targeting specific objects related to each item in the includeTypes field | [optional] 
+**DefaultReferences** | **[]String** | List of object types that can be used to resolve references on import. | [optional] 
+**ExcludeBackup** | **Boolean** | By default, every import will first export all existing objects supported by sp-config as a backup before the import is attempted. If excludeBackup is true, the backup will not be performed. | [optional] [default to $false]
 
 ## Examples
 

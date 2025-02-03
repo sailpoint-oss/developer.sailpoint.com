@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'CampaignReportsConfig', 'CampaignRepo
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**IdentityAttributeColumns** |  Pointer to **[]String** | list of identity attribute columns | [optional] 
+**IdentityAttributeColumns** | **[]String** | list of identity attribute columns | [optional] 
 
 ## Examples
 

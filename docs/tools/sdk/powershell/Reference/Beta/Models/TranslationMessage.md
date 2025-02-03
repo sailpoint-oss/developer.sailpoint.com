@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'TranslationMessage', 'BetaTranslation
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Key** |  Pointer to **String** | The key of the translation message | [optional] 
-**Values** |  Pointer to **[]String** | The values corresponding to the translation messages | [optional] 
+**Key** | **String** | The key of the translation message | [optional] 
+**Values** | **[]String** | The values corresponding to the translation messages | [optional] 
 
 ## Examples
 

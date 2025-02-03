@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'SearchFormDefinitionsByTenant400Respo
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DetailCode** |  Pointer to **String** |  | [optional] 
-**Messages** |  Pointer to [**[]ErrorMessage**](error-message) |  | [optional] 
-**StatusCode** |  Pointer to **Int64** |  | [optional] 
-**TrackingId** |  Pointer to **String** |  | [optional] 
+**DetailCode** | **String** |  | [optional] 
+**Messages** | [**[]ErrorMessage**](error-message) |  | [optional] 
+**StatusCode** | **Int64** |  | [optional] 
+**TrackingId** | **String** |  | [optional] 
 
 ## Examples
 

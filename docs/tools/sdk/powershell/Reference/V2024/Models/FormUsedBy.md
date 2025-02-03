@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'FormUsedBy', 'V2024FormUsedBy']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to  **Enum** [  "WORKFLOW",    "SOURCE",    "MySailPoint" ] | FormUsedByType value.  WORKFLOW FormUsedByTypeWorkflow SOURCE FormUsedByTypeSource MySailPoint FormUsedByType | [optional] 
-**Id** |  Pointer to **String** | Unique identifier of the system using the form. | [optional] 
-**Name** |  Pointer to **String** | Name of the system using the form. | [optional] 
+**Type** |  **Enum** [  "WORKFLOW",    "SOURCE",    "MySailPoint" ] | FormUsedByType value.  WORKFLOW FormUsedByTypeWorkflow SOURCE FormUsedByTypeSource MySailPoint FormUsedByType | [optional] 
+**Id** | **String** | Unique identifier of the system using the form. | [optional] 
+**Name** | **String** | Name of the system using the form. | [optional] 
 
 ## Examples
 

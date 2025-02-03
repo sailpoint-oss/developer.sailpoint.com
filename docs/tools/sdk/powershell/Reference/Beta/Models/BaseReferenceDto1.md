@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'BaseReferenceDto1', 'BetaBaseReferenc
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | the application ID | [optional] 
-**Name** |  Pointer to **String** | the application name | [optional] 
+**Id** | **String** | the application ID | [optional] 
+**Name** | **String** | the application name | [optional] 
 
 ## Examples
 

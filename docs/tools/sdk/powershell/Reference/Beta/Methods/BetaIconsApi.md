@@ -9,7 +9,6 @@ slug: /tools/sdk/powershell/beta/methods/icons
 tags: ['SDK', 'Software Development Kit', 'Icons', 'BetaIcons']
 ---
 
-
 # Icons
   Use this API to implement functionality related to object icons (application icons for example). 
 With this functionality in place, administrators can set or remove an icon for specific object type for use throughout Identity Security Cloud.
@@ -23,19 +22,16 @@ Method | HTTP request | Description
 [**Remove-BetaIcon**](#delete-icon) | **DELETE** `/icons/{objectType}/{objectId}` | Delete an icon
 [**Set-BetaIcon**](#set-icon) | **PUT** `/icons/{objectType}/{objectId}` | Update an icon
 
-
 ## delete-icon
-
 This API endpoint delete an icon by object type and object id. A token with ORG_ADMIN authority is required to call this API.
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | ObjectType | **String** | True  | Object type. Available options ['application']
+Path   | ObjectType | **String** | True  | Object type
 Path   | ObjectId | **String** | True  | Object id.
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -50,17 +46,18 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
-$ObjectType = "application" # String | Object type. Available options ['application']
+$ObjectType = "application" # String | Object type
 $ObjectId = "a291e870-48c3-4953-b656-fb5ce2a93169" # String | Object id.
+
 # Delete an icon
+
 try {
-    Remove-BetaIcon-BetaObjectType $ObjectType -BetaObjectId $ObjectId 
+    Remove-BetaIcon -BetaObjectType $ObjectType  -BetaObjectId $ObjectId 
     
     # Below is a request that includes all optional parameters
     # Remove-BetaIcon -BetaObjectType $ObjectType -BetaObjectId $ObjectId  
@@ -69,22 +66,18 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## set-icon
-
 This API endpoint updates an icon by object type and object id. A token with ORG_ADMIN authority is required to call this API.
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | ObjectType | **String** | True  | Object type. Available options ['application']
+Path   | ObjectType | **String** | True  | Object type
 Path   | ObjectId | **String** | True  | Object id.
    | Image | **System.IO.FileInfo** | True  | file with icon. Allowed mime-types ['image/png', 'image/jpeg']
 
 ### Return type
-
 [**SetIcon200Response**](../models/set-icon200-response)
 
 ### Responses
@@ -99,18 +92,19 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: multipart/form-data
 - **Accept**: application/json
 
 ### Example
 ```powershell
-$ObjectType = "application" # String | Object type. Available options ['application']
+$ObjectType = "application" # String | Object type
 $ObjectId = "a291e870-48c3-4953-b656-fb5ce2a93169" # String | Object id.
 $Image =  # System.IO.FileInfo | file with icon. Allowed mime-types ['image/png', 'image/jpeg']
+
 # Update an icon
+
 try {
-    Set-BetaIcon-BetaObjectType $ObjectType -BetaObjectId $ObjectId -BetaImage $Image 
+    Set-BetaIcon -BetaObjectType $ObjectType  -BetaObjectId $ObjectId  -BetaImage $Image 
     
     # Below is a request that includes all optional parameters
     # Set-BetaIcon -BetaObjectType $ObjectType -BetaObjectId $ObjectId -BetaImage $Image  
@@ -119,7 +113,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'EntitlementSourceResetBaseReferenceDt
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to **String** | The DTO type | [optional] 
-**Id** |  Pointer to **String** | The task ID of the object to which this reference applies | [optional] 
-**Name** |  Pointer to **String** | Human-readable display name of the object to which this reference applies | [optional] 
+**Type** | **String** | The DTO type | [optional] 
+**Id** | **String** | The task ID of the object to which this reference applies | [optional] 
+**Name** | **String** | Human-readable display name of the object to which this reference applies | [optional] 
 
 ## Examples
 

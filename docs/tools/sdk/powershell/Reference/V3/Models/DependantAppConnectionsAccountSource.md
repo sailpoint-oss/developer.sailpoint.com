@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'DependantAppConnectionsAccountSource'
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**UseForPasswordManagement** |  Pointer to **Boolean** | Use this Account Source for password management | [optional] [default to $false]
-**PasswordPolicies** |  Pointer to [**[]DependantAppConnectionsAccountSourcePasswordPoliciesInner**](dependant-app-connections-account-source-password-policies-inner) | A list of Password Policies for this Account Source | [optional] 
+**UseForPasswordManagement** | **Boolean** | Use this Account Source for password management | [optional] [default to $false]
+**PasswordPolicies** | [**[]DependantAppConnectionsAccountSourcePasswordPoliciesInner**](dependant-app-connections-account-source-password-policies-inner) | A list of Password Policies for this Account Source | [optional] 
 
 ## Examples
 

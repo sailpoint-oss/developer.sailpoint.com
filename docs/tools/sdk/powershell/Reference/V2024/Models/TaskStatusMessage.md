@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'TaskStatusMessage', 'V2024TaskStatusM
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |   **Enum** [  "INFO",    "WARN",    "ERROR" ] | Type of the message | [required]
-**LocalizedText** |  [**LocalizedMessage**](localized-message) |  | [required]
-**Key** |  **String** | Key of the message | [required]
-**Parameters** |  [**[]TaskStatusMessageParametersInner**](task-status-message-parameters-inner) | Message parameters for internationalization | [required]
+**Type** |  **Enum** [  "INFO",    "WARN",    "ERROR" ] | Type of the message | [required]
+**LocalizedText** | [**LocalizedMessage**](localized-message) |  | [required]
+**Key** | **String** | Key of the message | [required]
+**Parameters** | [**[]TaskStatusMessageParametersInner**](task-status-message-parameters-inner) | Message parameters for internationalization | [required]
 
 ## Examples
 

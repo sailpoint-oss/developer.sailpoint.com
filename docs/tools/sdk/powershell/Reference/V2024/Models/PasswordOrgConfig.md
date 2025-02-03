@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'PasswordOrgConfig', 'V2024PasswordOrg
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CustomInstructionsEnabled** |  Pointer to **Boolean** | Indicator whether custom password instructions feature is enabled. The default value is false. | [optional] [default to $false]
-**DigitTokenEnabled** |  Pointer to **Boolean** | Indicator whether ""digit token"" feature is enabled. The default value is false. | [optional] [default to $false]
-**DigitTokenDurationMinutes** |  Pointer to **Int32** | The duration of ""digit token"" in minutes. The default value is 5. | [optional] [default to 5]
-**DigitTokenLength** |  Pointer to **Int32** | The length of ""digit token"". The default value is 6. | [optional] [default to 6]
+**CustomInstructionsEnabled** | **Boolean** | Indicator whether custom password instructions feature is enabled. The default value is false. | [optional] [default to $false]
+**DigitTokenEnabled** | **Boolean** | Indicator whether ""digit token"" feature is enabled. The default value is false. | [optional] [default to $false]
+**DigitTokenDurationMinutes** | **Int32** | The duration of ""digit token"" in minutes. The default value is 5. | [optional] [default to 5]
+**DigitTokenLength** | **Int32** | The length of ""digit token"". The default value is 6. | [optional] [default to 6]
 
 ## Examples
 

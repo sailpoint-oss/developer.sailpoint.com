@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'ResourceBundleMessage', 'BetaResource
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Key** |  Pointer to **String** | The key of the message | [optional] 
-**Format** |  Pointer to **String** | The format of the message | [optional] 
+**Key** | **String** | The key of the message | [optional] 
+**Format** | **String** | The format of the message | [optional] 
 
 ## Examples
 

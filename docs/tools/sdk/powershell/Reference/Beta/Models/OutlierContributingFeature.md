@@ -16,14 +16,14 @@ tags: ['SDK', 'Software Development Kit', 'OutlierContributingFeature', 'BetaOut
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | Contributing feature id | [optional] 
-**Name** |  Pointer to **String** | The name of the feature | [optional] 
-**ValueType** |  Pointer to  **Enum** [  "INTEGER",    "FLOAT" ] | The data type of the value field | [optional] 
-**Value** |  Pointer to [**OutlierContributingFeatureValue**](outlier-contributing-feature-value) |  | [optional] 
-**Importance** |  Pointer to **Double** | The importance of the feature. This can also be a negative value | [optional] 
-**DisplayName** |  Pointer to **String** | The (translated if header is passed) displayName for the feature | [optional] 
-**Description** |  Pointer to **String** | The (translated if header is passed) description for the feature | [optional] 
-**TranslationMessages** |  Pointer to [**OutlierFeatureTranslation**](outlier-feature-translation) |  | [optional] 
+**Id** | **String** | Contributing feature id | [optional] 
+**Name** | **String** | The name of the feature | [optional] 
+**ValueType** |  **Enum** [  "INTEGER",    "FLOAT" ] | The data type of the value field | [optional] 
+**Value** | [**OutlierContributingFeatureValue**](outlier-contributing-feature-value) |  | [optional] 
+**Importance** | **Double** | The importance of the feature. This can also be a negative value | [optional] 
+**DisplayName** | **String** | The (translated if header is passed) displayName for the feature | [optional] 
+**Description** | **String** | The (translated if header is passed) description for the feature | [optional] 
+**TranslationMessages** | [**OutlierFeatureTranslation**](outlier-feature-translation) |  | [optional] 
 
 ## Examples
 

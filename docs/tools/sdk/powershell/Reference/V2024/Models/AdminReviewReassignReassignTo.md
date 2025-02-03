@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'AdminReviewReassignReassignTo', 'V202
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | The identity ID to which the review is being assigned. | [optional] 
-**Type** |  Pointer to  **Enum** [  "IDENTITY" ] | The type of the ID provided. | [optional] 
+**Id** | **String** | The identity ID to which the review is being assigned. | [optional] 
+**Type** |  **Enum** [  "IDENTITY" ] | The type of the ID provided. | [optional] 
 
 ## Examples
 

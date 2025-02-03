@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'AccountsExportReportArguments', 'V202
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Application** |  **String** | Source ID. | [required]
-**SourceName** |  **String** | Source name. | [required]
+**Application** | **String** | Source ID. | [required]
+**SourceName** | **String** | Source name. | [required]
 
 ## Examples
 

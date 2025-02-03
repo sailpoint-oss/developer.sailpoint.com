@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'IdentityProfileExportedObject', 'Iden
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Version** |  Pointer to **Int32** | Version or object from the target service. | [optional] 
-**Self** |  Pointer to [**IdentityProfileExportedObjectSelf**](identity-profile-exported-object-self) |  | [optional] 
-**Object** |  Pointer to [**IdentityProfile**](identity-profile) |  | [optional] 
+**Version** | **Int32** | Version or object from the target service. | [optional] 
+**Self** | [**IdentityProfileExportedObjectSelf**](identity-profile-exported-object-self) |  | [optional] 
+**Object** | [**IdentityProfile**](identity-profile) |  | [optional] 
 
 ## Examples
 

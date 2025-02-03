@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'AccessItemReviewedBy', 'BetaAccessIte
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to  **Enum** [  "IDENTITY" ] | DTO type of identity who reviewed the access item request. | [optional] 
-**Id** |  Pointer to **String** | ID of identity who reviewed the access item request. | [optional] 
-**Name** |  Pointer to **String** | Human-readable display name of identity who reviewed the access item request. | [optional] 
+**Type** |  **Enum** [  "IDENTITY" ] | DTO type of identity who reviewed the access item request. | [optional] 
+**Id** | **String** | ID of identity who reviewed the access item request. | [optional] 
+**Name** | **String** | Human-readable display name of identity who reviewed the access item request. | [optional] 
 
 ## Examples
 

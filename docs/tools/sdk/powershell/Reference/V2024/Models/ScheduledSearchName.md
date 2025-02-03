@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'ScheduledSearchName', 'V2024Scheduled
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** |  Pointer to **String** | The name of the scheduled search.  | [optional] 
-**Description** |  Pointer to **String** | The description of the scheduled search.  | [optional] 
+**Name** | **String** | The name of the scheduled search.  | [optional] 
+**Description** | **String** | The description of the scheduled search.  | [optional] 
 
 ## Examples
 

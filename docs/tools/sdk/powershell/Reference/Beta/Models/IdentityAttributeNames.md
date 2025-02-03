@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'IdentityAttributeNames', 'BetaIdentit
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Ids** |  Pointer to **[]String** | List of identity attributes' technical names. | [optional] 
+**Ids** | **[]String** | List of identity attributes' technical names. | [optional] 
 
 ## Examples
 

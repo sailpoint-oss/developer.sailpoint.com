@@ -16,12 +16,12 @@ tags: ['SDK', 'Software Development Kit', 'CreateWorkflowRequest', 'V2024CreateW
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** |  **String** | The name of the workflow | [required]
-**Owner** |  Pointer to [**WorkflowBodyOwner**](workflow-body-owner) |  | [optional] 
-**Description** |  Pointer to **String** | Description of what the workflow accomplishes | [optional] 
-**Definition** |  Pointer to [**WorkflowDefinition**](workflow-definition) |  | [optional] 
-**Enabled** |  Pointer to **Boolean** | Enable or disable the workflow.  Workflows cannot be created in an enabled state. | [optional] [default to $false]
-**Trigger** |  Pointer to [**WorkflowTrigger**](workflow-trigger) |  | [optional] 
+**Name** | **String** | The name of the workflow | [required]
+**Owner** | [**WorkflowBodyOwner**](workflow-body-owner) |  | [optional] 
+**Description** | **String** | Description of what the workflow accomplishes | [optional] 
+**Definition** | [**WorkflowDefinition**](workflow-definition) |  | [optional] 
+**Enabled** | **Boolean** | Enable or disable the workflow.  Workflows cannot be created in an enabled state. | [optional] [default to $false]
+**Trigger** | [**WorkflowTrigger**](workflow-trigger) |  | [optional] 
 
 ## Examples
 

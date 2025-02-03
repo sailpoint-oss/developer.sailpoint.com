@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'VendorConnectorMappingDeletedBy', 'V2
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**String** |  Pointer to **String** | The identifier of the user who deleted the mapping, if applicable. | [optional] 
-**Valid** |  Pointer to **Boolean** | A flag indicating if the 'String' field is set and valid, i.e., if the mapping has been deleted. | [optional] [default to $false]
+**String** | **String** | The identifier of the user who deleted the mapping, if applicable. | [optional] 
+**Valid** | **Boolean** | A flag indicating if the 'String' field is set and valid, i.e., if the mapping has been deleted. | [optional] [default to $false]
 
 ## Examples
 

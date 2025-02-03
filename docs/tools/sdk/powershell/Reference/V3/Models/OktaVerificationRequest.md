@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'OktaVerificationRequest', 'OktaVerifi
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**UserId** |  **String** | User identifier for Verification request. The value of the user's attribute. | [required]
+**UserId** | **String** | User identifier for Verification request. The value of the user's attribute. | [required]
 
 ## Examples
 

@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'BulkApproveAccessRequest', 'V2024Bulk
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ApprovalIds** |  **[]String** | List of approval ids to approve the pending requests | [required]
-**Comment** |  **String** | Reason for approving the pending access request. | [required]
+**ApprovalIds** | **[]String** | List of approval ids to approve the pending requests | [required]
+**Comment** | **String** | Reason for approving the pending access request. | [required]
 
 ## Examples
 

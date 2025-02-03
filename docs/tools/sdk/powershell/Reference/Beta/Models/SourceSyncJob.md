@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'SourceSyncJob', 'BetaSourceSyncJob']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  **String** | Job ID. | [required]
-**Status** |   **Enum** [  "QUEUED",    "IN_PROGRESS",    "SUCCESS",    "ERROR" ] | The job status. | [required]
-**Payload** |  [**SourceSyncPayload**](source-sync-payload) |  | [required]
+**Id** | **String** | Job ID. | [required]
+**Status** |  **Enum** [  "QUEUED",    "IN_PROGRESS",    "SUCCESS",    "ERROR" ] | The job status. | [required]
+**Payload** | [**SourceSyncPayload**](source-sync-payload) |  | [required]
 
 ## Examples
 

@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'AccessRequestResponse', 'AccessReques
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**NewRequests** |  Pointer to [**[]AccessRequestTracking**](access-request-tracking) | A list of new access request tracking data mapped to the values requested. | [optional] 
-**ExistingRequests** |  Pointer to [**[]AccessRequestTracking**](access-request-tracking) | A list of existing access request tracking data mapped to the values requested.  This indicates access has already been requested for this item. | [optional] 
+**NewRequests** | [**[]AccessRequestTracking**](access-request-tracking) | A list of new access request tracking data mapped to the values requested. | [optional] 
+**ExistingRequests** | [**[]AccessRequestTracking**](access-request-tracking) | A list of existing access request tracking data mapped to the values requested.  This indicates access has already been requested for this item. | [optional] 
 
 ## Examples
 

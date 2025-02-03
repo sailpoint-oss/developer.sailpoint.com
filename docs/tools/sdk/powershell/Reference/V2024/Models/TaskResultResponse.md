@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'TaskResultResponse', 'V2024TaskResult
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to **String** | the type of response reference | [optional] 
-**Id** |  Pointer to **String** | the task ID | [optional] 
-**Name** |  Pointer to **String** | the task name (not used in this endpoint, always null) | [optional] 
+**Type** | **String** | the type of response reference | [optional] 
+**Id** | **String** | the task ID | [optional] 
+**Name** | **String** | the task name (not used in this endpoint, always null) | [optional] 
 
 ## Examples
 

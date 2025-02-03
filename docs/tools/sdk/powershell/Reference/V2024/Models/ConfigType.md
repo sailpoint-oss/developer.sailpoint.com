@@ -16,11 +16,11 @@ tags: ['SDK', 'Software Development Kit', 'ConfigType', 'V2024ConfigType']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Priority** |  Pointer to **Int32** |  | [optional] 
-**InternalName** |  Pointer to [**ConfigTypeEnumCamel**](config-type-enum-camel) |  | [optional] 
-**InternalNameCamel** |  Pointer to [**ConfigTypeEnum**](config-type-enum) |  | [optional] 
-**DisplayName** |  Pointer to **String** | Human readable display name of the type to be shown on UI | [optional] 
-**Description** |  Pointer to **String** | Description of the type of work to be reassigned, displayed by the UI. | [optional] 
+**Priority** | **Int32** |  | [optional] 
+**InternalName** | [**ConfigTypeEnumCamel**](config-type-enum-camel) |  | [optional] 
+**InternalNameCamel** | [**ConfigTypeEnum**](config-type-enum) |  | [optional] 
+**DisplayName** | **String** | Human readable display name of the type to be shown on UI | [optional] 
+**Description** | **String** | Description of the type of work to be reassigned, displayed by the UI. | [optional] 
 
 ## Examples
 

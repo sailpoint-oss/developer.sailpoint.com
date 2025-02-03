@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'PasswordPolicyHoldersDtoAttributesIde
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** |  Pointer to **String** | Attribute's name | [optional] 
-**Value** |  Pointer to **String** | Attribute's value | [optional] 
+**Name** | **String** | Attribute's name | [optional] 
+**Value** | **String** | Attribute's value | [optional] 
 
 ## Examples
 

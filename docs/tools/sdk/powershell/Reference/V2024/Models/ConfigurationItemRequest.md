@@ -16,11 +16,11 @@ tags: ['SDK', 'Software Development Kit', 'ConfigurationItemRequest', 'V2024Conf
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ReassignedFromId** |  Pointer to **String** | The identity id to reassign an item from | [optional] 
-**ReassignedToId** |  Pointer to **String** | The identity id to reassign an item to | [optional] 
-**ConfigType** |  Pointer to [**ConfigTypeEnum**](config-type-enum) |  | [optional] 
-**StartDate** |  Pointer to **System.DateTime** | The date from which to start reassigning work items | [optional] 
-**EndDate** |  Pointer to **System.DateTime** | The date from which to stop reassigning work items.  If this is an null string it indicates a permanent reassignment. | [optional] 
+**ReassignedFromId** | **String** | The identity id to reassign an item from | [optional] 
+**ReassignedToId** | **String** | The identity id to reassign an item to | [optional] 
+**ConfigType** | [**ConfigTypeEnum**](config-type-enum) |  | [optional] 
+**StartDate** | **System.DateTime** | The date from which to start reassigning work items | [optional] 
+**EndDate** | **System.DateTime** | The date from which to stop reassigning work items.  If this is an null string it indicates a permanent reassignment. | [optional] 
 
 ## Examples
 

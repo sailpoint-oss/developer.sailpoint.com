@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'EmailStatusDto', 'BetaEmailStatusDto'
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** |  | [optional] 
-**Email** |  Pointer to **String** |  | [optional] 
-**IsVerifiedByDomain** |  Pointer to **Boolean** |  | [optional] 
-**VerificationStatus** |  Pointer to  **Enum** [  "PENDING",    "SUCCESS",    "FAILED" ] |  | [optional] 
+**Id** | **String** |  | [optional] 
+**Email** | **String** |  | [optional] 
+**IsVerifiedByDomain** | **Boolean** |  | [optional] 
+**VerificationStatus** |  **Enum** [  "PENDING",    "SUCCESS",    "FAILED" ] |  | [optional] 
 
 ## Examples
 

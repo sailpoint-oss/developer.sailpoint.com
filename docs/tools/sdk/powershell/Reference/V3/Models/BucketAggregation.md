@@ -16,11 +16,11 @@ tags: ['SDK', 'Software Development Kit', 'BucketAggregation', 'BucketAggregatio
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** |  **String** | The name of the bucket aggregate to be included in the result. | [required]
-**Type** |  Pointer to [**BucketType**](bucket-type) |  | [optional] 
-**Field** |  **String** | The field to bucket on. Prefix the field name with '@' to reference a nested object. | [required]
-**Size** |  Pointer to **Int32** | Maximum number of buckets to include. | [optional] 
-**MinDocCount** |  Pointer to **Int32** | Minimum number of documents a bucket should have. | [optional] 
+**Name** | **String** | The name of the bucket aggregate to be included in the result. | [required]
+**Type** | [**BucketType**](bucket-type) |  | [optional] 
+**Field** | **String** | The field to bucket on. Prefix the field name with '@' to reference a nested object. | [required]
+**Size** | **Int32** | Maximum number of buckets to include. | [optional] 
+**MinDocCount** | **Int32** | Minimum number of documents a bucket should have. | [optional] 
 
 ## Examples
 

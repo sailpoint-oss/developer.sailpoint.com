@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'SedBatchResponse', 'BetaSedBatchRespo
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**BatchId** |  Pointer to **String** | BatchId that groups all the ids together | [optional] 
+**BatchId** | **String** | BatchId that groups all the ids together | [optional] 
 
 ## Examples
 

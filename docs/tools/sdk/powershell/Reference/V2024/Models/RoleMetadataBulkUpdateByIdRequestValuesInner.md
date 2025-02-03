@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'RoleMetadataBulkUpdateByIdRequestValu
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Attribute** |  **String** | the key of metadata attribute | [required]
-**Values** |  **[]String** | the values of attribute to be updated | [required]
+**Attribute** | **String** | the key of metadata attribute | [required]
+**Values** | **[]String** | the values of attribute to be updated | [required]
 
 ## Examples
 

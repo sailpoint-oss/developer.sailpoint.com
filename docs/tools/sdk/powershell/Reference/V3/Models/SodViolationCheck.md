@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'SodViolationCheck', 'SodViolationChec
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**RequestId** |  **String** | The id of the original request | [required]
-**Created** |  Pointer to **System.DateTime** | The date-time when this request was created. | [optional] [readonly] 
+**RequestId** | **String** | The id of the original request | [required]
+**Created** | **System.DateTime** | The date-time when this request was created. | [optional] [readonly] 
 
 ## Examples
 

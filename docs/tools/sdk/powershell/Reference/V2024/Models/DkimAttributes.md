@@ -16,11 +16,11 @@ tags: ['SDK', 'Software Development Kit', 'DkimAttributes', 'V2024DkimAttributes
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | UUID associated with domain to be verified | [optional] 
-**Address** |  Pointer to **String** | The identity or domain address | [optional] 
-**DkimEnabled** |  Pointer to **Boolean** | Whether or not DKIM has been enabled for this domain / identity | [optional] [default to $false]
-**DkimTokens** |  Pointer to **[]String** | The tokens to be added to a DNS for verification | [optional] 
-**DkimVerificationStatus** |  Pointer to **String** | The current status if the domain /identity has been verified. Ie Success, Failed, Pending | [optional] 
+**Id** | **String** | UUID associated with domain to be verified | [optional] 
+**Address** | **String** | The identity or domain address | [optional] 
+**DkimEnabled** | **Boolean** | Whether or not DKIM has been enabled for this domain / identity | [optional] [default to $false]
+**DkimTokens** | **[]String** | The tokens to be added to a DNS for verification | [optional] 
+**DkimVerificationStatus** | **String** | The current status if the domain /identity has been verified. Ie Success, Failed, Pending | [optional] 
 
 ## Examples
 

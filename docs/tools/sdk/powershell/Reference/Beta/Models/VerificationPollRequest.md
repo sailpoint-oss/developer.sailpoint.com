@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'VerificationPollRequest', 'BetaVerifi
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**RequestId** |  **String** | Verification request Id | [required]
+**RequestId** | **String** | Verification request Id | [required]
 
 ## Examples
 

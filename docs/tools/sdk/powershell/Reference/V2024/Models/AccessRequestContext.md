@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'AccessRequestContext', 'V2024AccessRe
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ContextAttributes** |  Pointer to [**[]ContextAttributeDto**](context-attribute-dto) |  | [optional] 
+**ContextAttributes** | [**[]ContextAttributeDto**](context-attribute-dto) |  | [optional] 
 
 ## Examples
 

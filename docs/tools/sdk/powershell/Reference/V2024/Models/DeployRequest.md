@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'DeployRequest', 'V2024DeployRequest']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DraftId** |  **String** | The id of the draft to be used by this deploy. | [required]
+**DraftId** | **String** | The id of the draft to be used by this deploy. | [required]
 
 ## Examples
 

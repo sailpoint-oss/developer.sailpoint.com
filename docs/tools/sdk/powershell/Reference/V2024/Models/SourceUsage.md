@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'SourceUsage', 'V2024SourceUsage']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Date** |  Pointer to **System.DateTime** | The first day of the month for which activity is aggregated. | [optional] 
-**Count** |  Pointer to **Double** | The average number of days that accounts were active within this source, for the month. | [optional] 
+**Date** | **System.DateTime** | The first day of the month for which activity is aggregated. | [optional] 
+**Count** | **Double** | The average number of days that accounts were active within this source, for the month. | [optional] 
 
 ## Examples
 

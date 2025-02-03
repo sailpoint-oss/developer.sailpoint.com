@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'FormOwner', 'V2024FormOwner']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to  **Enum** [  "IDENTITY" ] | FormOwnerType value. IDENTITY FormOwnerTypeIdentity | [optional] 
-**Id** |  Pointer to **String** | Unique identifier of the form's owner. | [optional] 
-**Name** |  Pointer to **String** | Name of the form's owner. | [optional] 
+**Type** |  **Enum** [  "IDENTITY" ] | FormOwnerType value. IDENTITY FormOwnerTypeIdentity | [optional] 
+**Id** | **String** | Unique identifier of the form's owner. | [optional] 
+**Name** | **String** | Name of the form's owner. | [optional] 
 
 ## Examples
 

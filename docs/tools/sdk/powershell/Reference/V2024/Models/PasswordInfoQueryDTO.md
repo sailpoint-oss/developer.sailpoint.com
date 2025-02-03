@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'PasswordInfoQueryDTO', 'V2024Password
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**UserName** |  Pointer to **String** | The login name of the user | [optional] 
-**SourceName** |  Pointer to **String** | The display name of the source | [optional] 
+**UserName** | **String** | The login name of the user | [optional] 
+**SourceName** | **String** | The display name of the source | [optional] 
 
 ## Examples
 

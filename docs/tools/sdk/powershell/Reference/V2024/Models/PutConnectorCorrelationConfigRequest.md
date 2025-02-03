@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'PutConnectorCorrelationConfigRequest'
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**File** |  **System.IO.FileInfo** | connector correlation config xml file | [required]
+**File** | **System.IO.FileInfo** | connector correlation config xml file | [required]
 
 ## Examples
 

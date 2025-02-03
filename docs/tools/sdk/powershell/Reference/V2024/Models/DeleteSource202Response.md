@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'DeleteSource202Response', 'V2024Delet
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to  **Enum** [  "TASK_RESULT" ] | Type of object being referenced. | [optional] 
-**Id** |  Pointer to **String** | Task result ID. | [optional] 
-**Name** |  Pointer to **String** | Task result's human-readable display name (this should be null/empty). | [optional] 
+**Type** |  **Enum** [  "TASK_RESULT" ] | Type of object being referenced. | [optional] 
+**Id** | **String** | Task result ID. | [optional] 
+**Name** | **String** | Task result's human-readable display name (this should be null/empty). | [optional] 
 
 ## Examples
 

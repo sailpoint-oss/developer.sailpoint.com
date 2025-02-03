@@ -16,12 +16,12 @@ tags: ['SDK', 'Software Development Kit', 'Approval', 'Approval']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Comments** |  Pointer to [**[]ApprovalComment**](approval-comment) |  | [optional] 
-**Created** |  Pointer to **System.DateTime** | A date-time in ISO-8601 format | [optional] 
-**Modified** |  Pointer to **System.DateTime** | A date-time in ISO-8601 format | [optional] 
-**Owner** |  Pointer to [**AccountSource**](account-source) |  | [optional] 
-**Result** |  Pointer to **String** | The result of the approval | [optional] 
-**Type** |  Pointer to **String** |  | [optional] 
+**Comments** | [**[]ApprovalComment**](approval-comment) |  | [optional] 
+**Created** | **System.DateTime** | A date-time in ISO-8601 format | [optional] 
+**Modified** | **System.DateTime** | A date-time in ISO-8601 format | [optional] 
+**Owner** | [**AccountSource**](account-source) |  | [optional] 
+**Result** | **String** | The result of the approval | [optional] 
+**Type** | **String** |  | [optional] 
 
 ## Examples
 

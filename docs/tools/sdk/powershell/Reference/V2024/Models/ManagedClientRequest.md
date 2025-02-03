@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'ManagedClientRequest', 'V2024ManagedC
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClusterId** |  **String** | Cluster ID that the ManagedClient is linked to | [required]
-**Description** |  Pointer to **String** | description for the ManagedClient to create | [optional] 
-**Name** |  Pointer to **String** | name for the ManagedClient to create | [optional] 
-**Type** |  Pointer to **String** | Type of the ManagedClient (VA, CCG) to create | [optional] 
+**ClusterId** | **String** | Cluster ID that the ManagedClient is linked to | [required]
+**Description** | **String** | description for the ManagedClient to create | [optional] 
+**Name** | **String** | name for the ManagedClient to create | [optional] 
+**Type** | **String** | Type of the ManagedClient (VA, CCG) to create | [optional] 
 
 ## Examples
 

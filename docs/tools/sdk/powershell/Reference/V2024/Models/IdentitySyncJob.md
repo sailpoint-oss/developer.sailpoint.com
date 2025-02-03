@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'IdentitySyncJob', 'V2024IdentitySyncJ
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  **String** | Job ID. | [required]
-**Status** |   **Enum** [  "QUEUED",    "IN_PROGRESS",    "SUCCESS",    "ERROR" ] | The job status. | [required]
-**Payload** |  [**IdentitySyncPayload**](identity-sync-payload) |  | [required]
+**Id** | **String** | Job ID. | [required]
+**Status** |  **Enum** [  "QUEUED",    "IN_PROGRESS",    "SUCCESS",    "ERROR" ] | The job status. | [required]
+**Payload** | [**IdentitySyncPayload**](identity-sync-payload) |  | [required]
 
 ## Examples
 

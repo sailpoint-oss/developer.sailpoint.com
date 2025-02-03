@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'CreateFormDefinitionFileRequestReques
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**File** |  **System.IO.FileInfo** | File specifying the multipart | [required]
+**File** | **System.IO.FileInfo** | File specifying the multipart | [required]
 
 ## Examples
 

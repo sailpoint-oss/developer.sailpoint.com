@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'SodRecipient', 'SodRecipient']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to  **Enum** [  "IDENTITY" ] | SOD policy recipient DTO type. | [optional] 
-**Id** |  Pointer to **String** | SOD policy recipient's identity ID. | [optional] 
-**Name** |  Pointer to **String** | SOD policy recipient's display name. | [optional] 
+**Type** |  **Enum** [  "IDENTITY" ] | SOD policy recipient DTO type. | [optional] 
+**Id** | **String** | SOD policy recipient's identity ID. | [optional] 
+**Name** | **String** | SOD policy recipient's display name. | [optional] 
 
 ## Examples
 

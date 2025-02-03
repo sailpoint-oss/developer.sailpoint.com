@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'SedBatchRequest', 'V2024SedBatchReque
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Entitlements** |  Pointer to **[]String** | list of entitlement ids | [optional] 
-**Seds** |  Pointer to **[]String** | list of sed ids | [optional] 
+**Entitlements** | **[]String** | list of entitlement ids | [optional] 
+**Seds** | **[]String** | list of sed ids | [optional] 
 
 ## Examples
 

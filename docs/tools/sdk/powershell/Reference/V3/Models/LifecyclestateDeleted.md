@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'LifecyclestateDeleted', 'Lifecyclesta
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to  **Enum** [  "LIFECYCLE_STATE" ] | Deleted lifecycle state's DTO type. | [optional] 
-**Id** |  Pointer to **String** | Deleted lifecycle state ID. | [optional] 
-**Name** |  Pointer to **String** | Deleted lifecycle state's display name. | [optional] 
+**Type** |  **Enum** [  "LIFECYCLE_STATE" ] | Deleted lifecycle state's DTO type. | [optional] 
+**Id** | **String** | Deleted lifecycle state ID. | [optional] 
+**Name** | **String** | Deleted lifecycle state's display name. | [optional] 
 
 ## Examples
 

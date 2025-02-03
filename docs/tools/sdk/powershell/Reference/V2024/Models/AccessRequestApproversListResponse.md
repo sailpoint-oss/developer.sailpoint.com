@@ -16,11 +16,11 @@ tags: ['SDK', 'Software Development Kit', 'AccessRequestApproversListResponse', 
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | Approver id. | [optional] 
-**Email** |  Pointer to **String** | Email of the approver. | [optional] 
-**Name** |  Pointer to **String** | Name of the approver. | [optional] 
-**ApprovalId** |  Pointer to **String** | Id of the approval item. | [optional] 
-**Type** |  Pointer to **String** | Type of the object returned. In this case, the value for this field will always Identity. | [optional] 
+**Id** | **String** | Approver id. | [optional] 
+**Email** | **String** | Email of the approver. | [optional] 
+**Name** | **String** | Name of the approver. | [optional] 
+**ApprovalId** | **String** | Id of the approval item. | [optional] 
+**Type** | **String** | Type of the object returned. In this case, the value for this field will always Identity. | [optional] 
 
 ## Examples
 

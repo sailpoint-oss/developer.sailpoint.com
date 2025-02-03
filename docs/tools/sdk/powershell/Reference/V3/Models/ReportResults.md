@@ -16,14 +16,14 @@ tags: ['SDK', 'Software Development Kit', 'ReportResults', 'ReportResults']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ReportType** |  Pointer to  **Enum** [  "ACCOUNTS",    "IDENTITIES_DETAILS",    "IDENTITIES",    "IDENTITY_PROFILE_IDENTITY_ERROR",    "ORPHAN_IDENTITIES",    "SEARCH_EXPORT",    "UNCORRELATED_ACCOUNTS" ] | Use this property to define what report should be processed in the RDE service. | [optional] 
-**TaskDefName** |  Pointer to **String** | Name of the task definition which is started to process requesting report. Usually the same as report name | [optional] 
-**Id** |  Pointer to **String** | Unique task definition identifier. | [optional] 
-**Created** |  Pointer to **System.DateTime** | Report processing start date | [optional] 
-**Status** |  Pointer to  **Enum** [  "SUCCESS",    "FAILURE",    "WARNING",    "TERMINATED" ] | Report current state or result status. | [optional] 
-**Duration** |  Pointer to **Int64** | Report processing time in ms. | [optional] 
-**Rows** |  Pointer to **Int64** | Report size in rows. | [optional] 
-**AvailableFormats** |  Pointer to **[]String** | Output report file formats. This are formats for calling get endpoint as a query parameter 'fileFormat'.  In case report won't have this argument there will be ['CSV', 'PDF'] as default. | [optional] 
+**ReportType** |  **Enum** [  "ACCOUNTS",    "IDENTITIES_DETAILS",    "IDENTITIES",    "IDENTITY_PROFILE_IDENTITY_ERROR",    "ORPHAN_IDENTITIES",    "SEARCH_EXPORT",    "UNCORRELATED_ACCOUNTS" ] | Use this property to define what report should be processed in the RDE service. | [optional] 
+**TaskDefName** | **String** | Name of the task definition which is started to process requesting report. Usually the same as report name | [optional] 
+**Id** | **String** | Unique task definition identifier. | [optional] 
+**Created** | **System.DateTime** | Report processing start date | [optional] 
+**Status** |  **Enum** [  "SUCCESS",    "FAILURE",    "WARNING",    "TERMINATED" ] | Report current state or result status. | [optional] 
+**Duration** | **Int64** | Report processing time in ms. | [optional] 
+**Rows** | **Int64** | Report size in rows. | [optional] 
+**AvailableFormats** | **[]String** | Output report file formats. This are formats for calling get endpoint as a query parameter 'fileFormat'.  In case report won't have this argument there will be ['CSV', 'PDF'] as default. | [optional] 
 
 ## Examples
 

@@ -9,7 +9,6 @@ slug: /tools/sdk/powershell/v2024/methods/access-model-metadata
 tags: ['SDK', 'Software Development Kit', 'AccessModelMetadata', 'V2024AccessModelMetadata']
 ---
 
-
 # AccessModelMetadata
   Use this API to create and manage metadata attributes for your Access Model.
 Access Model Metadata allows you to add contextual information to your ISC Access Model items using pre-defined metadata for risk, regulations, privacy levels, etc., or by creating your own metadata attributes to reflect the unique needs of your organization. This release of the API includes support for entitlement metadata. Support for role and access profile metadata will be introduced in a subsequent release.
@@ -33,9 +32,7 @@ Method | HTTP request | Description
 [**Get-V2024AccessModelMetadataAttribute**](#list-access-model-metadata-attribute) | **GET** `/access-model-metadata/attributes` | List Access Model Metadata Attributes
 [**Get-V2024AccessModelMetadataAttributeValue**](#list-access-model-metadata-attribute-value) | **GET** `/access-model-metadata/attributes/{key}/values` | List Access Model Metadata Values
 
-
 ## get-access-model-metadata-attribute
-
 Get single Access Model Metadata Attribute
 
 ### Parameters 
@@ -45,7 +42,6 @@ Path   | Key | **String** | True  | Technical name of the Attribute.
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-
 [**AttributeDTO**](../models/attribute-dto)
 
 ### Responses
@@ -59,7 +55,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -67,9 +62,11 @@ Code | Description  | Data Type
 ```powershell
 $Key = "iscPrivacy" # String | Technical name of the Attribute.
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
 # Get Access Model Metadata Attribute
+
 try {
-    Get-V2024AccessModelMetadataAttribute-V2024Key $Key -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024AccessModelMetadataAttribute -V2024Key $Key  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024AccessModelMetadataAttribute -V2024Key $Key -V2024XSailPointExperimental $XSailPointExperimental  
@@ -78,11 +75,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-access-model-metadata-attribute-value
-
 Get single Access Model Metadata Attribute Value
 
 ### Parameters 
@@ -93,7 +87,6 @@ Path   | Value | **String** | True  | Technical name of the Attribute value.
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-
 [**AttributeValueDTO**](../models/attribute-value-dto)
 
 ### Responses
@@ -107,7 +100,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -116,9 +108,11 @@ Code | Description  | Data Type
 $Key = "iscPrivacy" # String | Technical name of the Attribute.
 $Value = "public" # String | Technical name of the Attribute value.
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
 # Get Access Model Metadata Value
+
 try {
-    Get-V2024AccessModelMetadataAttributeValue-V2024Key $Key -V2024Value $Value -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024AccessModelMetadataAttributeValue -V2024Key $Key  -V2024Value $Value  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024AccessModelMetadataAttributeValue -V2024Key $Key -V2024Value $Value -V2024XSailPointExperimental $XSailPointExperimental  
@@ -127,11 +121,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-access-model-metadata-attribute
-
 Get a list of Access Model Metadata Attributes
 
 ### Parameters 
@@ -141,7 +132,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq*  **type**: *eq*  **status**: *eq*  **objectTypes**: *eq*  Supported composite operators: *and*
 
 ### Return type
-
 [**AttributeDTO[]**](../models/attribute-dto)
 
 ### Responses
@@ -155,7 +145,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -163,9 +152,11 @@ Code | Description  | Data Type
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $Filters = 'name eq "Privacy"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq*  **type**: *eq*  **status**: *eq*  **objectTypes**: *eq*  Supported composite operators: *and* (optional)
+
 # List Access Model Metadata Attributes
+
 try {
-    Get-V2024AccessModelMetadataAttribute-V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024AccessModelMetadataAttribute -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024AccessModelMetadataAttribute -V2024XSailPointExperimental $XSailPointExperimental -V2024Filters $Filters  
@@ -174,11 +165,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-access-model-metadata-attribute-value
-
 Get a list of Access Model Metadata Attribute Values
 
 ### Parameters 
@@ -188,7 +176,6 @@ Path   | Key | **String** | True  | Technical name of the Attribute.
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-
 [**AttributeValueDTO[]**](../models/attribute-value-dto)
 
 ### Responses
@@ -202,7 +189,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -210,9 +196,11 @@ Code | Description  | Data Type
 ```powershell
 $Key = "iscPrivacy" # String | Technical name of the Attribute.
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
 # List Access Model Metadata Values
+
 try {
-    Get-V2024AccessModelMetadataAttributeValue-V2024Key $Key -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024AccessModelMetadataAttributeValue -V2024Key $Key  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024AccessModelMetadataAttributeValue -V2024Key $Key -V2024XSailPointExperimental $XSailPointExperimental  
@@ -221,7 +209,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

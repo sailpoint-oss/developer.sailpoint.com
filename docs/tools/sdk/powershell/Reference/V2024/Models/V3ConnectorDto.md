@@ -16,14 +16,14 @@ tags: ['SDK', 'Software Development Kit', 'V3ConnectorDto', 'V2024V3ConnectorDto
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** |  Pointer to **String** | The connector name | [optional] 
-**Type** |  Pointer to **String** | The connector type | [optional] 
-**ScriptName** |  Pointer to **String** | The connector script name | [optional] 
-**ClassName** |  Pointer to **String** | The connector class name. | [optional] 
-**Features** |  Pointer to **[]String** | The list of features supported by the connector | [optional] 
-**DirectConnect** |  Pointer to **Boolean** | true if the source is a direct connect source | [optional] [default to $false]
-**ConnectorMetadata** |  Pointer to [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | A map containing metadata pertinent to the connector | [optional] 
-**Status** |  Pointer to  **Enum** [  "DEPRECATED",    "DEVELOPMENT",    "DEMO",    "RELEASED" ] | The connector status | [optional] 
+**Name** | **String** | The connector name | [optional] 
+**Type** | **String** | The connector type | [optional] 
+**ScriptName** | **String** | The connector script name | [optional] 
+**ClassName** | **String** | The connector class name. | [optional] 
+**Features** | **[]String** | The list of features supported by the connector | [optional] 
+**DirectConnect** | **Boolean** | true if the source is a direct connect source | [optional] [default to $false]
+**ConnectorMetadata** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | A map containing metadata pertinent to the connector | [optional] 
+**Status** |  **Enum** [  "DEPRECATED",    "DEVELOPMENT",    "DEMO",    "RELEASED" ] | The connector status | [optional] 
 
 ## Examples
 

@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'ConnectedObject', 'V2024ConnectedObje
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to [**ConnectedObjectType**](connected-object-type) |  | [optional] 
-**Id** |  Pointer to **String** | ID of the object to which this reference applies | [optional] 
-**Name** |  Pointer to **String** | Human-readable name of Connected object | [optional] 
-**Description** |  Pointer to **String** | Description of the Connected object. | [optional] 
+**Type** | [**ConnectedObjectType**](connected-object-type) |  | [optional] 
+**Id** | **String** | ID of the object to which this reference applies | [optional] 
+**Name** | **String** | Human-readable name of Connected object | [optional] 
+**Description** | **String** | Description of the Connected object. | [optional] 
 
 ## Examples
 

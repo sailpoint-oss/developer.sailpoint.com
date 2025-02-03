@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'SpConfigMessage', 'BetaSpConfigMessag
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Key** |  **String** | Message key. | [required]
-**Text** |  **String** | Message text. | [required]
-**Details** |  [**map[string]SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | Message details if any, in key:value pairs. | [required]
+**Key** | **String** | Message key. | [required]
+**Text** | **String** | Message text. | [required]
+**Details** | [**map[string]SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | Message details if any, in key:value pairs. | [required]
 
 ## Examples
 

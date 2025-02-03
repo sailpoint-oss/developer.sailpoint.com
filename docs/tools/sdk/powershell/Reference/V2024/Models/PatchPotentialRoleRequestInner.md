@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'PatchPotentialRoleRequestInner', 'V20
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Op** |  Pointer to  **Enum** [  "remove",    "replace" ] | The operation to be performed | [optional] 
-**Path** |  **String** | A string JSON Pointer representing the target path to an element to be affected by the operation | [required]
-**Value** |  Pointer to [**JsonPatchOperationValue**](json-patch-operation-value) |  | [optional] 
+**Op** |  **Enum** [  "remove",    "replace" ] | The operation to be performed | [optional] 
+**Path** | **String** | A string JSON Pointer representing the target path to an element to be affected by the operation | [required]
+**Value** | [**JsonPatchOperationValue**](json-patch-operation-value) |  | [optional] 
 
 ## Examples
 

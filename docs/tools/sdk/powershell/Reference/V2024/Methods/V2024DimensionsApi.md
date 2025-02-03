@@ -9,7 +9,6 @@ slug: /tools/sdk/powershell/v2024/methods/dimensions
 tags: ['SDK', 'Software Development Kit', 'Dimensions', 'V2024Dimensions']
 ---
 
-
 # Dimensions
   Use this API to implement and customize dynamic role functionality. With this functionality in place, administrators can create dimensions and configure them for use throughout Identity Security Cloud. Identity Security Cloud can use established criteria to automatically assign the dimensions to qualified users. This enables users to get all the access they need quickly and securely and administrators to spend their time on other tasks. Entitlements represent the most granular level of access in Identity Security Cloud.
 Access profiles represent the next level and often group entitlements. Dimension represent access selectively based on the evaluation of contextual information that is available or provided. Each Dimension include context attributes and access selection expressions which map criteria to access right assignments. Each dimension can contain up to 5 context attributes. Dynamic Access Roles represent the broadest level of access and often group access profiles ,entitlements and dimensions.Each Dynamic Access Role may contain one or more Dimensions. 
@@ -28,9 +27,7 @@ Method | HTTP request | Description
 [**Get-V2024Dimensions**](#list-dimensions) | **GET** `/roles/{roleId}/dimensions` | List Dimensions
 [**Update-V2024Dimension**](#patch-dimension) | **PATCH** `/roles/{roleId}/dimensions/{dimensionId}` | Patch a specified Dimension
 
-
 ## create-dimension
-
 This API creates a dimension.
 You must have a token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority to call this API. 
 Additionally, a ROLE_SUBADMIN cannot create a dimension that includes an access profile or entitlement if that access profile or entitlement is linked to a source that the ROLE_SUBADMIN is not associated with. 
@@ -43,7 +40,6 @@ Path   | RoleId | **String** | True  | Parent Role Id of the dimension.
  Body  | Dimension | [**Dimension**](../models/dimension) | True  | 
 
 ### Return type
-
 [**Dimension**](../models/dimension)
 
 ### Responses
@@ -57,7 +53,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -151,10 +146,12 @@ $Dimension = @"{
   },
   "parentId" : "2c918086749d78830174a1a40e121518"
 }"@
+
 # Create a Dimension
+
 try {
     $Result = ConvertFrom-JsonToDimension -Json $Dimension
-    New-V2024Dimension-V2024RoleId $RoleId -V2024Dimension $Result
+    New-V2024Dimension -V2024RoleId $RoleId  -V2024Dimension $Result
     
     # Below is a request that includes all optional parameters
     # New-V2024Dimension -V2024RoleId $RoleId -V2024Dimension $Dimension  
@@ -163,11 +160,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## delete-bulk-dimensions
-
 This endpoint initiates a bulk deletion of one or more dimensions.
 When the request is successful, the endpoint returns the bulk delete's task result ID.  To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/beta/get-task-status), which will return the task result's status and information. 
 This endpoint can only bulk delete up to a limit of 50 roles per request. 
@@ -180,7 +174,6 @@ Path   | RoleId | **String** | True  | Parent Role Id of the dimensions.
  Body  | DimensionBulkDeleteRequest | [**DimensionBulkDeleteRequest**](../models/dimension-bulk-delete-request) | True  | 
 
 ### Return type
-
 [**TaskResultDto**](../models/task-result-dto)
 
 ### Responses
@@ -194,7 +187,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -204,10 +196,12 @@ $RoleId = "6603fba3004f43c687610a29195252ce" # String | Parent Role Id of the di
 $DimensionBulkDeleteRequest = @"{
   "dimensionIds" : [ "2c9180847812e0b1017817051919ecca", "2c9180887812e0b201781e129f151816" ]
 }"@
+
 # Delete Dimension(s)
+
 try {
     $Result = ConvertFrom-JsonToDimensionBulkDeleteRequest -Json $DimensionBulkDeleteRequest
-    Remove-V2024BulkDimensions-V2024RoleId $RoleId -V2024DimensionBulkDeleteRequest $Result
+    Remove-V2024BulkDimensions -V2024RoleId $RoleId  -V2024DimensionBulkDeleteRequest $Result
     
     # Below is a request that includes all optional parameters
     # Remove-V2024BulkDimensions -V2024RoleId $RoleId -V2024DimensionBulkDeleteRequest $DimensionBulkDeleteRequest  
@@ -216,11 +210,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## delete-dimension
-
 This API deletes a Dimension by its ID.
 A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles/Entitlements included in the Dimension are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
 
@@ -231,7 +222,6 @@ Path   | RoleId | **String** | True  | Parent Role Id of the dimension.
 Path   | DimensionId | **String** | True  | Id of the Dimension
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -245,7 +235,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -253,9 +242,11 @@ Code | Description  | Data Type
 ```powershell
 $RoleId = "6603fba3004f43c687610a29195252ce" # String | Parent Role Id of the dimension.
 $DimensionId = "2c9180835d191a86015d28455b4a2329" # String | Id of the Dimension
+
 # Delete a Dimension
+
 try {
-    Remove-V2024Dimension-V2024RoleId $RoleId -V2024DimensionId $DimensionId 
+    Remove-V2024Dimension -V2024RoleId $RoleId  -V2024DimensionId $DimensionId 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024Dimension -V2024RoleId $RoleId -V2024DimensionId $DimensionId  
@@ -264,11 +255,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-dimension
-
 This API returns a Dimension by its ID.
 
 A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles or Entitlements included in the Dimension or Parent Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
@@ -280,7 +268,6 @@ Path   | RoleId | **String** | True  | Parent Role Id of the dimension.
 Path   | DimensionId | **String** | True  | Id of the Dimension
 
 ### Return type
-
 [**Dimension**](../models/dimension)
 
 ### Responses
@@ -294,7 +281,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -302,9 +288,11 @@ Code | Description  | Data Type
 ```powershell
 $RoleId = "6603fba3004f43c687610a29195252ce" # String | Parent Role Id of the dimension.
 $DimensionId = "2c9180835d191a86015d28455b4a2329" # String | Id of the Dimension
+
 # Get a Dimension under Role.
+
 try {
-    Get-V2024Dimension-V2024RoleId $RoleId -V2024DimensionId $DimensionId 
+    Get-V2024Dimension -V2024RoleId $RoleId  -V2024DimensionId $DimensionId 
     
     # Below is a request that includes all optional parameters
     # Get-V2024Dimension -V2024RoleId $RoleId -V2024DimensionId $DimensionId  
@@ -313,11 +301,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-dimension-entitlements
-
 This API lists the Entitlements associated with a given dimension.
 
 A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API.
@@ -334,7 +319,6 @@ Path   | DimensionId | **String** | True  | Id of the Dimension
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, attribute, value, created, modified**
 
 ### Return type
-
 [**Entitlement1[]**](../models/entitlement1)
 
 ### Responses
@@ -348,7 +332,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -361,9 +344,11 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Filters = 'attribute eq "memberOf"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **attribute**: *eq, sw*  **value**: *eq, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **source.id**: *eq, in* (optional)
 $Sorters = "name,-modified" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, attribute, value, created, modified** (optional)
+
 # List Dimension's Entitlements
+
 try {
-    Get-V2024DimensionEntitlements-V2024RoleId $RoleId -V2024DimensionId $DimensionId 
+    Get-V2024DimensionEntitlements -V2024RoleId $RoleId  -V2024DimensionId $DimensionId 
     
     # Below is a request that includes all optional parameters
     # Get-V2024DimensionEntitlements -V2024RoleId $RoleId -V2024DimensionId $DimensionId -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Filters $Filters -V2024Sorters $Sorters  
@@ -372,11 +357,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-dimension-access-profiles
-
 This API lists the Access Profiles associated with a given Dimension
 
 A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
@@ -385,7 +367,7 @@ A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | RoleId | **String** | True  | Parent Role Id of the dimension.
-Path   | DimensionId | **String** | True  | Id of the Dimension
+Path   | DimensionId | **String** | True  | ID of the Dimension
   Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -393,7 +375,6 @@ Path   | DimensionId | **String** | True  | Id of the Dimension
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified**
 
 ### Return type
-
 [**AccessProfile[]**](../models/access-profile)
 
 ### Responses
@@ -408,22 +389,23 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $RoleId = "6603fba3004f43c687610a29195252ce" # String | Parent Role Id of the dimension.
-$DimensionId = "2c9180835d191a86015d28455b4a2329" # String | Id of the Dimension
+$DimensionId = "2c9180835d191a86015d28455b4a2329" # String | ID of the Dimension
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Filters = 'source.id eq "2c91808982f979270182f99e386d00fa"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **source.id**: *eq, in* (optional)
 $Sorters = "name,-modified" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified** (optional)
+
 # List Dimension's Access Profiles
+
 try {
-    Get-V2024DimensionAccessProfiles-V2024RoleId $RoleId -V2024DimensionId $DimensionId 
+    Get-V2024DimensionAccessProfiles -V2024RoleId $RoleId  -V2024DimensionId $DimensionId 
     
     # Below is a request that includes all optional parameters
     # Get-V2024DimensionAccessProfiles -V2024RoleId $RoleId -V2024DimensionId $DimensionId -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Filters $Filters -V2024Sorters $Sorters  
@@ -432,11 +414,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-dimensions
-
 This API returns a list of dimensions under a specified role.
 
 A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API.
@@ -453,7 +432,6 @@ Path   | RoleId | **String** | True  | Parent Role Id of the dimension.
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified**
 
 ### Return type
-
 [**Dimension[]**](../models/dimension)
 
 ### Responses
@@ -467,7 +445,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -480,9 +457,11 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Filters = 'id eq '2c918086749d78830174a1a40e121518'' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in* (optional)
 $Sorters = "name,-modified" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified** (optional)
+
 # List Dimensions
+
 try {
-    Get-V2024Dimensions-V2024RoleId $RoleId 
+    Get-V2024Dimensions -V2024RoleId $RoleId 
     
     # Below is a request that includes all optional parameters
     # Get-V2024Dimensions -V2024RoleId $RoleId -V2024ForSubadmin $ForSubadmin -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Filters $Filters -V2024Sorters $Sorters  
@@ -491,11 +470,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## patch-dimension
-
 This API updates an existing dimension using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
 The following fields are patchable: **name** **description** **owner** **accessProfiles** **entitlements** **membership**
 A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all access profiles/entitlements included in the dimension are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
@@ -510,7 +486,6 @@ Path   | DimensionId | **String** | True  | Id of the Dimension
  Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | 
 
 ### Return type
-
 [**Dimension**](../models/dimension)
 
 ### Responses
@@ -524,7 +499,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json-patch+json
 - **Accept**: application/json
 
@@ -532,17 +506,18 @@ Code | Description  | Data Type
 ```powershell
 $RoleId = "6603fba3004f43c687610a29195252ce" # String | Parent Role Id of the dimension.
 $DimensionId = "2c9180835d191a86015d28455b4a2329" # String | Id of the Dimension
- # JsonPatchOperation[] | 
  $JsonPatchOperation = @"{
   "op" : "replace",
   "path" : "/description",
   "value" : "New description"
-}"@ 
+}"@ # JsonPatchOperation[] | 
+ 
 
 # Patch a specified Dimension
+
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024Dimension-V2024RoleId $RoleId -V2024DimensionId $DimensionId -V2024JsonPatchOperation $Result
+    Update-V2024Dimension -V2024RoleId $RoleId  -V2024DimensionId $DimensionId  -V2024JsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024Dimension -V2024RoleId $RoleId -V2024DimensionId $DimensionId -V2024JsonPatchOperation $JsonPatchOperation  
@@ -551,7 +526,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

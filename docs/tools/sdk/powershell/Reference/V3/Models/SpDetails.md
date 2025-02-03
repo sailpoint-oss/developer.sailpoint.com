@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'SpDetails', 'SpDetails']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Role** |  Pointer to  **Enum** [  "SAML_SP" ] | Federation protocol role | [optional] 
-**EntityId** |  Pointer to **String** | An entity ID is a globally unique name for a SAML entity, either an Identity Provider (IDP) or a Service Provider (SP). | [optional] 
-**Alias** |  Pointer to **String** | Unique alias used to identify the selected local service provider based on used URL. Used with SP configurations. | [optional] 
-**CallbackUrl** |  Pointer to **String** | The allowed callback URL where users will be redirected to after authentication. Used with SP configurations. | [optional] 
+**Role** |  **Enum** [  "SAML_SP" ] | Federation protocol role | [optional] 
+**EntityId** | **String** | An entity ID is a globally unique name for a SAML entity, either an Identity Provider (IDP) or a Service Provider (SP). | [optional] 
+**Alias** | **String** | Unique alias used to identify the selected local service provider based on used URL. Used with SP configurations. | [optional] 
+**CallbackUrl** | **String** | The allowed callback URL where users will be redirected to after authentication. Used with SP configurations. | [optional] 
 
 ## Examples
 

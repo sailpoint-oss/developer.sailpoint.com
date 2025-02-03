@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'IdentityDocumentAllOfManager', 'Ident
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | ID of identity's manager. | [optional] 
-**Name** |  Pointer to **String** | Name of identity's manager. | [optional] 
-**DisplayName** |  Pointer to **String** | Display name of identity's manager. | [optional] 
+**Id** | **String** | ID of identity's manager. | [optional] 
+**Name** | **String** | Name of identity's manager. | [optional] 
+**DisplayName** | **String** | Display name of identity's manager. | [optional] 
 
 ## Examples
 

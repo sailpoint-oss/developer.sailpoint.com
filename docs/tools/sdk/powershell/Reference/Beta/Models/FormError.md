@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'FormError', 'BetaFormError']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Key** |  Pointer to **String** | Key is the technical key | [optional] 
-**Messages** |  Pointer to [**[]ErrorMessage**](error-message) | Messages is a list of web.ErrorMessage items | [optional] 
-**Value** |  Pointer to [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | Value is the value associated with a Key | [optional] 
+**Key** | **String** | Key is the technical key | [optional] 
+**Messages** | [**[]ErrorMessage**](error-message) | Messages is a list of web.ErrorMessage items | [optional] 
+**Value** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | Value is the value associated with a Key | [optional] 
 
 ## Examples
 

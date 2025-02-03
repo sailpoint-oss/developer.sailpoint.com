@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'JsonPatchOperation', 'V2024JsonPatchO
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Op** |   **Enum** [  "add",    "remove",    "replace",    "move",    "copy",    "test" ] | The operation to be performed | [required]
-**Path** |  **String** | A string JSON Pointer representing the target path to an element to be affected by the operation | [required]
-**Value** |  Pointer to [**JsonPatchOperationValue**](json-patch-operation-value) |  | [optional] 
+**Op** |  **Enum** [  "add",    "remove",    "replace",    "move",    "copy",    "test" ] | The operation to be performed | [required]
+**Path** | **String** | A string JSON Pointer representing the target path to an element to be affected by the operation | [required]
+**Value** | [**JsonPatchOperationValue**](json-patch-operation-value) |  | [optional] 
 
 ## Examples
 

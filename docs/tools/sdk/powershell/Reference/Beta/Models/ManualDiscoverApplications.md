@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'ManualDiscoverApplications', 'BetaMan
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**File** |  **System.IO.FileInfo** | The CSV file to upload containing `application_name` and `description` columns. Each row represents an application to be discovered. | [required]
+**File** | **System.IO.FileInfo** | The CSV file to upload containing `application_name` and `description` columns. Each row represents an application to be discovered. | [required]
 
 ## Examples
 

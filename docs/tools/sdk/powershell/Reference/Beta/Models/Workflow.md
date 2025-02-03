@@ -16,19 +16,19 @@ tags: ['SDK', 'Software Development Kit', 'Workflow', 'BetaWorkflow']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** |  Pointer to **String** | The name of the workflow | [optional] 
-**Owner** |  Pointer to [**WorkflowBodyOwner**](workflow-body-owner) |  | [optional] 
-**Description** |  Pointer to **String** | Description of what the workflow accomplishes | [optional] 
-**Definition** |  Pointer to [**WorkflowDefinition**](workflow-definition) |  | [optional] 
-**Enabled** |  Pointer to **Boolean** | Enable or disable the workflow.  Workflows cannot be created in an enabled state. | [optional] [default to $false]
-**Trigger** |  Pointer to [**WorkflowTrigger**](workflow-trigger) |  | [optional] 
-**Id** |  Pointer to **String** | Workflow ID. This is a UUID generated upon creation. | [optional] 
-**Modified** |  Pointer to **System.DateTime** | The date and time the workflow was modified. | [optional] 
-**ModifiedBy** |  Pointer to [**WorkflowModifiedBy**](workflow-modified-by) |  | [optional] 
-**ExecutionCount** |  Pointer to **Int32** | The number of times this workflow has been executed. | [optional] 
-**FailureCount** |  Pointer to **Int32** | The number of times this workflow has failed during execution. | [optional] 
-**Created** |  Pointer to **System.DateTime** | The date and time the workflow was created. | [optional] 
-**Creator** |  Pointer to [**WorkflowAllOfCreator**](workflow-all-of-creator) |  | [optional] 
+**Name** | **String** | The name of the workflow | [optional] 
+**Owner** | [**WorkflowBodyOwner**](workflow-body-owner) |  | [optional] 
+**Description** | **String** | Description of what the workflow accomplishes | [optional] 
+**Definition** | [**WorkflowDefinition**](workflow-definition) |  | [optional] 
+**Enabled** | **Boolean** | Enable or disable the workflow.  Workflows cannot be created in an enabled state. | [optional] [default to $false]
+**Trigger** | [**WorkflowTrigger**](workflow-trigger) |  | [optional] 
+**Id** | **String** | Workflow ID. This is a UUID generated upon creation. | [optional] 
+**Modified** | **System.DateTime** | The date and time the workflow was modified. | [optional] 
+**ModifiedBy** | [**WorkflowModifiedBy**](workflow-modified-by) |  | [optional] 
+**ExecutionCount** | **Int32** | The number of times this workflow has been executed. | [optional] 
+**FailureCount** | **Int32** | The number of times this workflow has failed during execution. | [optional] 
+**Created** | **System.DateTime** | The date and time the workflow was created. | [optional] 
+**Creator** | [**WorkflowAllOfCreator**](workflow-all-of-creator) |  | [optional] 
 
 ## Examples
 

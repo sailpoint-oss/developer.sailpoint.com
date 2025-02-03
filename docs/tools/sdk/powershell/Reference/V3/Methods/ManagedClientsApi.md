@@ -9,7 +9,6 @@ slug: /tools/sdk/powershell/v3/methods/managed-clients
 tags: ['SDK', 'Software Development Kit', 'ManagedClients', 'ManagedClients']
 ---
 
-
 # ManagedClients
   Use this API to implement managed client functionality. 
 With this functionality in place, administrators can modify and delete existing managed clients, create new ones, and view and make changes to their log configurations. 
@@ -27,9 +26,7 @@ Method | HTTP request | Description
 [**Get-ManagedClients**](#get-managed-clients) | **GET** `/managed-clients` | Get Managed Clients
 [**Update-ManagedClient**](#update-managed-client) | **PATCH** `/managed-clients/{id}` | Update Managed Client
 
-
 ## create-managed-client
-
 Create a new managed client.
 The API returns a result that includes the managed client ID.
 
@@ -39,7 +36,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | ManagedClientRequest | [**ManagedClientRequest**](../models/managed-client-request) | True  | 
 
 ### Return type
-
 [**ManagedClient**](../models/managed-client)
 
 ### Responses
@@ -53,7 +49,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -65,10 +60,12 @@ $ManagedClientRequest = @"{
   "clusterId" : "aClusterId",
   "type" : "VA"
 }"@
+
 # Create Managed Client
+
 try {
     $Result = ConvertFrom-JsonToManagedClientRequest -Json $ManagedClientRequest
-    New-ManagedClient-ManagedClientRequest $Result
+    New-ManagedClient -ManagedClientRequest $Result
     
     # Below is a request that includes all optional parameters
     # New-ManagedClient -ManagedClientRequest $ManagedClientRequest  
@@ -77,11 +74,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## delete-managed-client
-
 Delete an existing managed client.
 
 ### Parameters 
@@ -90,7 +84,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | Managed client ID.
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -104,16 +97,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7" # String | Managed client ID.
+
 # Delete Managed Client
+
 try {
-    Remove-ManagedClient-Id $Id 
+    Remove-ManagedClient -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-ManagedClient -Id $Id  
@@ -122,11 +116,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-managed-client
-
 Get managed client by ID. 
 
 ### Parameters 
@@ -135,7 +126,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | Managed client ID.
 
 ### Return type
-
 [**ManagedClient**](../models/managed-client)
 
 ### Responses
@@ -150,16 +140,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7" # String | Managed client ID.
+
 # Get Managed Client
+
 try {
-    Get-ManagedClient-Id $Id 
+    Get-ManagedClient -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-ManagedClient -Id $Id  
@@ -168,11 +159,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-managed-client-status
-
 Get a managed client's status, using its ID.
 
 ### Parameters 
@@ -182,7 +170,6 @@ Path   | Id | **String** | True  | Managed client ID to get status for.
   Query | Type | [**ManagedClientType**](../models/managed-client-type) | True  | Managed client type to get status for.
 
 ### Return type
-
 [**ManagedClientStatus**](../models/managed-client-status)
 
 ### Responses
@@ -197,7 +184,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -205,9 +191,11 @@ Code | Description  | Data Type
 ```powershell
 $Id = "aClientId" # String | Managed client ID to get status for.
 $Type = "CCG" # ManagedClientType | Managed client type to get status for.
+
 # Get Managed Client Status
+
 try {
-    Get-ManagedClientStatus-Id $Id -Type $Type 
+    Get-ManagedClientStatus -Id $Id  -Type $Type 
     
     # Below is a request that includes all optional parameters
     # Get-ManagedClientStatus -Id $Id -Type $Type  
@@ -216,11 +204,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-managed-clients
-
 List managed clients.
 
 ### Parameters 
@@ -232,7 +217,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **name**: *eq*  **clientId**: *eq*  **clusterId**: *eq*
 
 ### Return type
-
 [**ManagedClient[]**](../models/managed-client)
 
 ### Responses
@@ -246,7 +230,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -256,7 +239,9 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Filters = 'name eq "client name"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **name**: *eq*  **clientId**: *eq*  **clusterId**: *eq* (optional)
+
 # Get Managed Clients
+
 try {
     Get-ManagedClients
     
@@ -267,11 +252,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## update-managed-client
-
 Update an existing managed client.
 
 ### Parameters 
@@ -281,7 +263,6 @@ Path   | Id | **String** | True  | Managed client ID.
  Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | JSONPatch payload used to update the object.
 
 ### Return type
-
 [**ManagedClient**](../models/managed-client)
 
 ### Responses
@@ -296,24 +277,24 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json-patch+json
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7" # String | Managed client ID.
- # JsonPatchOperation[] | JSONPatch payload used to update the object.
  $JsonPatchOperation = @"{
   "op" : "replace",
   "path" : "/description",
   "value" : "New description"
-}"@ 
+}"@ # JsonPatchOperation[] | JSONPatch payload used to update the object.
+ 
 
 # Update Managed Client
+
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-ManagedClient-Id $Id -JsonPatchOperation $Result
+    Update-ManagedClient -Id $Id  -JsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-ManagedClient -Id $Id -JsonPatchOperation $JsonPatchOperation  
@@ -322,7 +303,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

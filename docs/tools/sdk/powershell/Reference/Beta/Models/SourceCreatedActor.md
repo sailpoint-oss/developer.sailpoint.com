@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'SourceCreatedActor', 'BetaSourceCreat
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |   **Enum** [  "IDENTITY" ] | DTO type of identity who created the source. | [required]
-**Id** |  **String** | ID of identity who created the source. | [required]
-**Name** |  **String** | Display name of identity who created the source. | [required]
+**Type** |  **Enum** [  "IDENTITY" ] | DTO type of identity who created the source. | [required]
+**Id** | **String** | ID of identity who created the source. | [required]
+**Name** | **String** | Display name of identity who created the source. | [required]
 
 ## Examples
 

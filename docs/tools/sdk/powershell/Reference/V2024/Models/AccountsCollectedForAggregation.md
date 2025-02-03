@@ -16,13 +16,13 @@ tags: ['SDK', 'Software Development Kit', 'AccountsCollectedForAggregation', 'V2
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Source** |  [**AccountsCollectedForAggregationSource**](accounts-collected-for-aggregation-source) |  | [required]
-**Status** |   **Enum** [  "Success",    "Failed",    "Terminated" ] | The overall status of the collection. | [required]
-**Started** |  **System.DateTime** | The date and time when the account collection started. | [required]
-**Completed** |  **System.DateTime** | The date and time when the account collection finished. | [required]
-**Errors** |  **[]String** | A list of errors that occurred during the collection. | [required]
-**Warnings** |  **[]String** | A list of warnings that occurred during the collection. | [required]
-**Stats** |  [**AccountsCollectedForAggregationStats**](accounts-collected-for-aggregation-stats) |  | [required]
+**Source** | [**AccountsCollectedForAggregationSource**](accounts-collected-for-aggregation-source) |  | [required]
+**Status** |  **Enum** [  "Success",    "Failed",    "Terminated" ] | The overall status of the collection. | [required]
+**Started** | **System.DateTime** | The date and time when the account collection started. | [required]
+**Completed** | **System.DateTime** | The date and time when the account collection finished. | [required]
+**Errors** | **[]String** | A list of errors that occurred during the collection. | [required]
+**Warnings** | **[]String** | A list of warnings that occurred during the collection. | [required]
+**Stats** | [**AccountsCollectedForAggregationStats**](accounts-collected-for-aggregation-stats) |  | [required]
 
 ## Examples
 

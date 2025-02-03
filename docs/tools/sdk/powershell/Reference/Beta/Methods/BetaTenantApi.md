@@ -9,7 +9,6 @@ slug: /tools/sdk/powershell/beta/methods/tenant
 tags: ['SDK', 'Software Development Kit', 'Tenant', 'BetaTenant']
 ---
 
-
 # Tenant
   API for reading tenant details. 
   
@@ -20,9 +19,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Get-BetaTenant**](#get-tenant) | **GET** `/tenant` | Get Tenant Information.
 
-
 ## get-tenant
-
 This rest endpoint can be used to retrieve tenant details.
 
 ### Parameters 
@@ -30,7 +27,6 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 
 ### Return type
-
 [**Tenant**](../models/tenant)
 
 ### Responses
@@ -45,13 +41,14 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
+
 # Get Tenant Information.
+
 try {
     Get-BetaTenant
     
@@ -62,7 +59,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

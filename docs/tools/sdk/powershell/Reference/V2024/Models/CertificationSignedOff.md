@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'CertificationSignedOff', 'V2024Certif
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Certification** |  [**CertificationSignedOffCertification**](certification-signed-off-certification) |  | [required]
+**Certification** | [**CertificationSignedOffCertification**](certification-signed-off-certification) |  | [required]
 
 ## Examples
 

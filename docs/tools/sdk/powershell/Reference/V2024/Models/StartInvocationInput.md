@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'StartInvocationInput', 'V2024StartInv
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TriggerId** |  Pointer to **String** | Trigger ID | [optional] 
-**VarInput** |  Pointer to [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | Trigger input payload. Its schema is defined in the trigger definition. | [optional] 
-**ContentJson** |  Pointer to [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | JSON map of invocation metadata | [optional] 
+**TriggerId** | **String** | Trigger ID | [optional] 
+**VarInput** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | Trigger input payload. Its schema is defined in the trigger definition. | [optional] 
+**ContentJson** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | JSON map of invocation metadata | [optional] 
 
 ## Examples
 

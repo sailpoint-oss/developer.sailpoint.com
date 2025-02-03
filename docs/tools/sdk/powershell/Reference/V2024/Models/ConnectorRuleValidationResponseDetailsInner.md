@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'ConnectorRuleValidationResponseDetail
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Line** |  **Int32** | The line number where the issue occurred | [required]
-**Column** |  **Int32** | the column number where the issue occurred | [required]
-**Messsage** |  Pointer to **String** | a description of the issue in the code | [optional] 
+**Line** | **Int32** | The line number where the issue occurred | [required]
+**Column** | **Int32** | the column number where the issue occurred | [required]
+**Messsage** | **String** | a description of the issue in the code | [optional] 
 
 ## Examples
 

@@ -16,11 +16,11 @@ tags: ['SDK', 'Software Development Kit', 'PasswordChangeRequest', 'BetaPassword
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**IdentityId** |  Pointer to **String** | The identity ID that requested the password change | [optional] 
-**EncryptedPassword** |  Pointer to **String** | The RSA encrypted password | [optional] 
-**PublicKeyId** |  Pointer to **String** | The encryption key ID | [optional] 
-**AccountId** |  Pointer to **String** | Account ID of the account This is specified per account schema in the source configuration. It is used to distinguish accounts. More info can be found here https://community.sailpoint.com/t5/IdentityNow-Connectors/How-do-I-designate-an-account-attribute-as-the-Account-ID-for-a/ta-p/80350 | [optional] 
-**SourceId** |  Pointer to **String** | The ID of the source for which identity is requesting the password change | [optional] 
+**IdentityId** | **String** | The identity ID that requested the password change | [optional] 
+**EncryptedPassword** | **String** | The RSA encrypted password | [optional] 
+**PublicKeyId** | **String** | The encryption key ID | [optional] 
+**AccountId** | **String** | Account ID of the account This is specified per account schema in the source configuration. It is used to distinguish accounts. More info can be found here https://community.sailpoint.com/t5/IdentityNow-Connectors/How-do-I-designate-an-account-attribute-as-the-Account-ID-for-a/ta-p/80350 | [optional] 
+**SourceId** | **String** | The ID of the source for which identity is requesting the password change | [optional] 
 
 ## Examples
 

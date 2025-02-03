@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'NotificationTemplateContext', 'V2024N
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Attributes** |  Pointer to [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | A JSON object that stores the context. | [optional] 
-**Created** |  Pointer to **System.DateTime** | When the global context was created | [optional] 
-**Modified** |  Pointer to **System.DateTime** | When the global context was last modified | [optional] 
+**Attributes** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | A JSON object that stores the context. | [optional] 
+**Created** | **System.DateTime** | When the global context was created | [optional] 
+**Modified** | **System.DateTime** | When the global context was last modified | [optional] 
 
 ## Examples
 

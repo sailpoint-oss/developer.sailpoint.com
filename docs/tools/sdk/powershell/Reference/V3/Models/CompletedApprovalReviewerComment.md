@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'CompletedApprovalReviewerComment', 'C
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Comment** |  Pointer to **String** | Comment content. | [optional] 
-**Created** |  Pointer to **System.DateTime** | Date and time comment was created. | [optional] 
-**Author** |  Pointer to [**CommentDtoAuthor**](comment-dto-author) |  | [optional] 
+**Comment** | **String** | Comment content. | [optional] 
+**Created** | **System.DateTime** | Date and time comment was created. | [optional] 
+**Author** | [**CommentDtoAuthor**](comment-dto-author) |  | [optional] 
 
 ## Examples
 

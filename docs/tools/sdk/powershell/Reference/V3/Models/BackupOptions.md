@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'BackupOptions', 'BackupOptions']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**IncludeTypes** |  Pointer to **[]String** | Object type names to be included in a Configuration Hub backup command. | [optional] 
-**ObjectOptions** |  Pointer to [**map[string]ObjectExportImportNames**](object-export-import-names) | Additional options targeting specific objects related to each item in the includeTypes field. | [optional] 
+**IncludeTypes** | **[]String** | Object type names to be included in a Configuration Hub backup command. | [optional] 
+**ObjectOptions** | [**map[string]ObjectExportImportNames**](object-export-import-names) | Additional options targeting specific objects related to each item in the includeTypes field. | [optional] 
 
 ## Examples
 

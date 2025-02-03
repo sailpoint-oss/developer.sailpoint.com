@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'BaseAccessProfile', 'V2024BaseAccessP
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | Access profile's unique ID. | [optional] 
-**Name** |  Pointer to **String** | Access profile's display name. | [optional] 
+**Id** | **String** | Access profile's unique ID. | [optional] 
+**Name** | **String** | Access profile's display name. | [optional] 
 
 ## Examples
 

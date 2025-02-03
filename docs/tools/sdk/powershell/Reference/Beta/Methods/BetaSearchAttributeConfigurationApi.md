@@ -9,7 +9,6 @@ slug: /tools/sdk/powershell/beta/methods/search-attribute-configuration
 tags: ['SDK', 'Software Development Kit', 'SearchAttributeConfiguration', 'BetaSearchAttributeConfiguration']
 ---
 
-
 # SearchAttributeConfiguration
   Use this API to implement search attribute configuration functionality, along with [Search](https://developer.sailpoint.com/docs/api/v3/search).
 With this functionality in place, administrators can create custom search attributes that and run extended searches based on those attributes to further narrow down their searches and get the information and insights they want. 
@@ -42,9 +41,7 @@ Method | HTTP request | Description
 [**Get-BetaSingleSearchAttributeConfig**](#get-single-search-attribute-config) | **GET** `/accounts/search-attribute-config/{name}` | Get Extended Search Attribute
 [**Update-BetaSearchAttributeConfig**](#patch-search-attribute-config) | **PATCH** `/accounts/search-attribute-config/{name}` | Update Extended Search Attribute
 
-
 ## create-search-attribute-config
-
 Create and configure extended search attributes. This API accepts an attribute name, an attribute display name and a list of name/value pair associates of application IDs to attribute names. It will then validate the inputs and configure/create and attribute promotion configuration in the Link ObjectConfig.
 A token with ORG_ADMIN authority is required to call this API.
 
@@ -54,7 +51,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | SearchAttributeConfig | [**SearchAttributeConfig**](../models/search-attribute-config) | True  | 
 
 ### Return type
-
 [**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0)
 
 ### Responses
@@ -69,7 +65,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -83,10 +78,12 @@ $SearchAttributeConfig = @"{
     "2c91808b79fd2422017a0b36008f396b" : "employeeNumber"
   }
 }"@
+
 # Create Extended Search Attributes
+
 try {
     $Result = ConvertFrom-JsonToSearchAttributeConfig -Json $SearchAttributeConfig
-    New-BetaSearchAttributeConfig-BetaSearchAttributeConfig $Result
+    New-BetaSearchAttributeConfig -BetaSearchAttributeConfig $Result
     
     # Below is a request that includes all optional parameters
     # New-BetaSearchAttributeConfig -BetaSearchAttributeConfig $SearchAttributeConfig  
@@ -95,11 +92,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## delete-search-attribute-config
-
 Delete an extended attribute configuration by name.
 
 ### Parameters 
@@ -108,7 +102,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Name | **String** | True  | Name of the extended search attribute configuration to delete.
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -122,16 +115,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Name = "newMailAttribute" # String | Name of the extended search attribute configuration to delete.
+
 # Delete Extended Search Attribute
+
 try {
-    Remove-BetaSearchAttributeConfig-BetaName $Name 
+    Remove-BetaSearchAttributeConfig -BetaName $Name 
     
     # Below is a request that includes all optional parameters
     # Remove-BetaSearchAttributeConfig -BetaName $Name  
@@ -140,11 +134,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-search-attribute-config
-
 Get a list of attribute/application associates currently configured in Identity Security Cloud (ISC).
 A token with ORG_ADMIN authority is required to call this API.
 
@@ -153,7 +144,6 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 
 ### Return type
-
 [**SearchAttributeConfig[]**](../models/search-attribute-config)
 
 ### Responses
@@ -166,13 +156,14 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
+
 # List Extended Search Attributes
+
 try {
     Get-BetaSearchAttributeConfig
     
@@ -183,11 +174,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-single-search-attribute-config
-
 Get an extended attribute configuration by name.
 
 ### Parameters 
@@ -196,7 +184,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Name | **String** | True  | Name of the extended search attribute configuration to get.
 
 ### Return type
-
 [**SearchAttributeConfig[]**](../models/search-attribute-config)
 
 ### Responses
@@ -211,16 +198,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Name = "newMailAttribute" # String | Name of the extended search attribute configuration to get.
+
 # Get Extended Search Attribute
+
 try {
-    Get-BetaSingleSearchAttributeConfig-BetaName $Name 
+    Get-BetaSingleSearchAttributeConfig -BetaName $Name 
     
     # Below is a request that includes all optional parameters
     # Get-BetaSingleSearchAttributeConfig -BetaName $Name  
@@ -229,11 +217,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## patch-search-attribute-config
-
 Update an existing search attribute configuration. 
 You can patch these fields:
 * name  * displayName * applicationAttributes
@@ -245,7 +230,6 @@ Path   | Name | **String** | True  | Name of the extended search attribute confi
  Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | 
 
 ### Return type
-
 [**SearchAttributeConfig**](../models/search-attribute-config)
 
 ### Responses
@@ -260,24 +244,24 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json-patch+json
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Name = "promotedMailAttribute" # String | Name of the extended search attribute configuration to patch.
- # JsonPatchOperation[] | 
  $JsonPatchOperation = @"{
   "op" : "replace",
   "path" : "/description",
   "value" : "New description"
-}"@ 
+}"@ # JsonPatchOperation[] | 
+ 
 
 # Update Extended Search Attribute
+
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-BetaSearchAttributeConfig-BetaName $Name -BetaJsonPatchOperation $Result
+    Update-BetaSearchAttributeConfig -BetaName $Name  -BetaJsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-BetaSearchAttributeConfig -BetaName $Name -BetaJsonPatchOperation $JsonPatchOperation  
@@ -286,7 +270,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

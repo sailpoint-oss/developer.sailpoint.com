@@ -16,11 +16,11 @@ tags: ['SDK', 'Software Development Kit', 'VAClusterStatusChangeEvent', 'V2024VA
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Created** |  **System.DateTime** | The date and time the status change occurred. | [required]
-**Type** |   **Enum** [  "SOURCE",    "CLUSTER" ] | The type of the object that initiated this event. | [required]
-**Application** |  [**VAClusterStatusChangeEventApplication**](va-cluster-status-change-event-application) |  | [required]
-**HealthCheckResult** |  [**VAClusterStatusChangeEventHealthCheckResult**](va-cluster-status-change-event-health-check-result) |  | [required]
-**PreviousHealthCheckResult** |  [**VAClusterStatusChangeEventPreviousHealthCheckResult**](va-cluster-status-change-event-previous-health-check-result) |  | [required]
+**Created** | **System.DateTime** | The date and time the status change occurred. | [required]
+**Type** |  **Enum** [  "SOURCE",    "CLUSTER" ] | The type of the object that initiated this event. | [required]
+**Application** | [**VAClusterStatusChangeEventApplication**](va-cluster-status-change-event-application) |  | [required]
+**HealthCheckResult** | [**VAClusterStatusChangeEventHealthCheckResult**](va-cluster-status-change-event-health-check-result) |  | [required]
+**PreviousHealthCheckResult** | [**VAClusterStatusChangeEventPreviousHealthCheckResult**](va-cluster-status-change-event-previous-health-check-result) |  | [required]
 
 ## Examples
 

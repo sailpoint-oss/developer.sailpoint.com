@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'AccessConstraint', 'AccessConstraint'
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |   **Enum** [  "ENTITLEMENT",    "ACCESS_PROFILE",    "ROLE" ] | Type of Access | [required]
-**Ids** |  Pointer to **[]String** | Must be set only if operator is SELECTED. | [optional] 
-**Operator** |   **Enum** [  "ALL",    "SELECTED" ] | Used to determine whether the scope of the campaign should be reduced for selected ids or all. | [required]
+**Type** |  **Enum** [  "ENTITLEMENT",    "ACCESS_PROFILE",    "ROLE" ] | Type of Access | [required]
+**Ids** | **[]String** | Must be set only if operator is SELECTED. | [optional] 
+**Operator** |  **Enum** [  "ALL",    "SELECTED" ] | Used to determine whether the scope of the campaign should be reduced for selected ids or all. | [required]
 
 ## Examples
 

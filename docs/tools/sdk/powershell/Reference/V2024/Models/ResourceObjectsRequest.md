@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'ResourceObjectsRequest', 'V2024Resour
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ObjectType** |  Pointer to **String** | The type of resource objects to iterate over. | [optional] [default to "account"]
-**MaxCount** |  Pointer to **Int32** | The maximum number of resource objects to iterate over and return. | [optional] [default to 25]
+**ObjectType** | **String** | The type of resource objects to iterate over. | [optional] [default to "account"]
+**MaxCount** | **Int32** | The maximum number of resource objects to iterate over and return. | [optional] [default to 25]
 
 ## Examples
 

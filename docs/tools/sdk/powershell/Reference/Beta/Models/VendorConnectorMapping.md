@@ -16,15 +16,15 @@ tags: ['SDK', 'Software Development Kit', 'VendorConnectorMapping', 'BetaVendorC
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | The unique identifier for the vendor-connector mapping. | [optional] 
-**Vendor** |  Pointer to **String** | The name of the vendor. | [optional] 
-**Connector** |  Pointer to **String** | The name of the connector. | [optional] 
-**CreatedAt** |  Pointer to **System.DateTime** | The creation timestamp of the mapping. | [optional] 
-**CreatedBy** |  Pointer to **String** | The identifier of the user who created the mapping. | [optional] 
-**UpdatedAt** |  Pointer to [**VendorConnectorMappingUpdatedAt**](vendor-connector-mapping-updated-at) |  | [optional] 
-**UpdatedBy** |  Pointer to [**VendorConnectorMappingUpdatedBy**](vendor-connector-mapping-updated-by) |  | [optional] 
-**DeletedAt** |  Pointer to [**VendorConnectorMappingDeletedAt**](vendor-connector-mapping-deleted-at) |  | [optional] 
-**DeletedBy** |  Pointer to [**VendorConnectorMappingDeletedBy**](vendor-connector-mapping-deleted-by) |  | [optional] 
+**Id** | **String** | The unique identifier for the vendor-connector mapping. | [optional] 
+**Vendor** | **String** | The name of the vendor. | [optional] 
+**Connector** | **String** | The name of the connector. | [optional] 
+**CreatedAt** | **System.DateTime** | The creation timestamp of the mapping. | [optional] 
+**CreatedBy** | **String** | The identifier of the user who created the mapping. | [optional] 
+**UpdatedAt** | [**VendorConnectorMappingUpdatedAt**](vendor-connector-mapping-updated-at) |  | [optional] 
+**UpdatedBy** | [**VendorConnectorMappingUpdatedBy**](vendor-connector-mapping-updated-by) |  | [optional] 
+**DeletedAt** | [**VendorConnectorMappingDeletedAt**](vendor-connector-mapping-deleted-at) |  | [optional] 
+**DeletedBy** | [**VendorConnectorMappingDeletedBy**](vendor-connector-mapping-deleted-by) |  | [optional] 
 
 ## Examples
 

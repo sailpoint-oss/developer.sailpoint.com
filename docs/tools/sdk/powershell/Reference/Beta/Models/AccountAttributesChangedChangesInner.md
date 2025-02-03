@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'AccountAttributesChangedChangesInner'
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Attribute** |  **String** | The name of the attribute. | [required]
-**OldValue** |  [**AccountAttributesChangedChangesInnerOldValue**](account-attributes-changed-changes-inner-old-value) |  | [required]
-**NewValue** |  [**AccountAttributesChangedChangesInnerNewValue**](account-attributes-changed-changes-inner-new-value) |  | [required]
+**Attribute** | **String** | The name of the attribute. | [required]
+**OldValue** | [**AccountAttributesChangedChangesInnerOldValue**](account-attributes-changed-changes-inner-old-value) |  | [required]
+**NewValue** | [**AccountAttributesChangedChangesInnerNewValue**](account-attributes-changed-changes-inner-new-value) |  | [required]
 
 ## Examples
 

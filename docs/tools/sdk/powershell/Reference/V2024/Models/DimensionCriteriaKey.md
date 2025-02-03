@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'DimensionCriteriaKey', 'V2024Dimensio
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  [**DimensionCriteriaKeyType**](dimension-criteria-key-type) |  | [required]
-**Property** |  **String** | The name of the identity attribute to which the associated criteria applies. | [required]
+**Type** | [**DimensionCriteriaKeyType**](dimension-criteria-key-type) |  | [required]
+**Property** | **String** | The name of the identity attribute to which the associated criteria applies. | [required]
 
 ## Examples
 

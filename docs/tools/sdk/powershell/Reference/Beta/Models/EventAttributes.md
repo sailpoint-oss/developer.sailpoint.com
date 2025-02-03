@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'EventAttributes', 'BetaEventAttribute
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  **String** | The unique ID of the trigger | [required]
-**VarFilter** |  Pointer to **String** | JSON path expression that will limit which events the trigger will fire on | [optional] 
-**Description** |  Pointer to **String** | Description of the event trigger | [optional] 
+**Id** | **String** | The unique ID of the trigger | [required]
+**VarFilter** | **String** | JSON path expression that will limit which events the trigger will fire on | [optional] 
+**Description** | **String** | Description of the event trigger | [optional] 
 
 ## Examples
 

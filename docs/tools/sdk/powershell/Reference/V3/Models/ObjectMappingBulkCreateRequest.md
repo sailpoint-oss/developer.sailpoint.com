@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'ObjectMappingBulkCreateRequest', 'Obj
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**NewObjectsMappings** |  [**[]ObjectMappingRequest**](object-mapping-request) |  | [required]
+**NewObjectsMappings** | [**[]ObjectMappingRequest**](object-mapping-request) |  | [required]
 
 ## Examples
 

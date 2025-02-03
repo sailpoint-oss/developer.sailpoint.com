@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'DimensionCriteriaLevel3', 'V2024Dimen
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Operation** |  Pointer to [**DimensionCriteriaOperation**](dimension-criteria-operation) |  | [optional] 
-**Key** |  Pointer to [**DimensionCriteriaKey**](dimension-criteria-key) |  | [optional] 
-**StringValue** |  Pointer to **String** | String value to test the Identity attribute specified in the key w/r/t the specified operation. If this criteria is a leaf node, that is, if the operation is one of EQUALS, this field is required. Otherwise, specifying it is an error. | [optional] 
+**Operation** | [**DimensionCriteriaOperation**](dimension-criteria-operation) |  | [optional] 
+**Key** | [**DimensionCriteriaKey**](dimension-criteria-key) |  | [optional] 
+**StringValue** | **String** | String value to test the Identity attribute specified in the key w/r/t the specified operation. If this criteria is a leaf node, that is, if the operation is one of EQUALS, this field is required. Otherwise, specifying it is an error. | [optional] 
 
 ## Examples
 

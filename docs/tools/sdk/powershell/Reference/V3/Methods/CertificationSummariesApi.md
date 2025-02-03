@@ -9,7 +9,6 @@ slug: /tools/sdk/powershell/v3/methods/certification-summaries
 tags: ['SDK', 'Software Development Kit', 'CertificationSummaries', 'CertificationSummaries']
 ---
 
-
 # CertificationSummaries
   Use this API to implement certification summary functionality. 
 With this functionality in place, administrators and designated certification reviewers can review summaries of identity certification campaigns and draw conclusions about the campaigns&#39; scope, security, and effectiveness. 
@@ -37,9 +36,7 @@ Method | HTTP request | Description
 [**Get-IdentitySummaries**](#get-identity-summaries) | **GET** `/certifications/{id}/identity-summaries` | Identity Summaries for Campaign Certification
 [**Get-IdentitySummary**](#get-identity-summary) | **GET** `/certifications/{id}/identity-summaries/{identitySummaryId}` | Summary for Identity
 
-
 ## get-identity-access-summaries
-
 This API returns a list of access summaries for the specified identity campaign certification and type. Reviewers for this certification can also call this API.
 
 ### Parameters 
@@ -54,7 +51,6 @@ Path   | Type | **String** | True  | The type of access review item to retrieve 
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **access.name**
 
 ### Return type
-
 [**AccessSummary[]**](../models/access-summary)
 
 ### Responses
@@ -69,7 +65,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -82,9 +77,11 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Filters = 'access.id eq "ef38f94347e94562b5bb8424a56397d8"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **completed**: *eq, ne*  **access.id**: *eq, in*  **access.name**: *eq, sw*  **entitlement.sourceName**: *eq, sw*  **accessProfile.sourceName**: *eq, sw* (optional)
 $Sorters = "access.name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **access.name** (optional)
+
 # Access Summaries
+
 try {
-    Get-IdentityAccessSummaries-Id $Id -Type $Type 
+    Get-IdentityAccessSummaries -Id $Id  -Type $Type 
     
     # Below is a request that includes all optional parameters
     # Get-IdentityAccessSummaries -Id $Id -Type $Type -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
@@ -93,11 +90,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-identity-decision-summary
-
 This API returns a summary of the decisions made on an identity campaign certification. The decisions are summarized by type. Reviewers for this certification can also call this API.
 
 ### Parameters 
@@ -107,7 +101,6 @@ Path   | Id | **String** | True  | The certification ID
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **identitySummary.id**: *eq, in*
 
 ### Return type
-
 [**IdentityCertDecisionSummary**](../models/identity-cert-decision-summary)
 
 ### Responses
@@ -122,7 +115,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -130,9 +122,11 @@ Code | Description  | Data Type
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The certification ID
 $Filters = 'identitySummary.id eq "ef38f94347e94562b5bb8424a56397d8"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **identitySummary.id**: *eq, in* (optional)
+
 # Summary of Certification Decisions
+
 try {
-    Get-IdentityDecisionSummary-Id $Id 
+    Get-IdentityDecisionSummary -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-IdentityDecisionSummary -Id $Id -Filters $Filters  
@@ -141,11 +135,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-identity-summaries
-
 This API returns a list of the identity summaries for a specific identity campaign certification. Reviewers for this certification can also call this API.
 
 ### Parameters 
@@ -159,7 +150,6 @@ Path   | Id | **String** | True  | The identity campaign certification ID
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name**
 
 ### Return type
-
 [**CertificationIdentitySummary[]**](../models/certification-identity-summary)
 
 ### Responses
@@ -174,7 +164,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -186,9 +175,11 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Filters = 'id eq "ef38f94347e94562b5bb8424a56397d8"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **completed**: *eq, ne*  **name**: *eq, sw* (optional)
 $Sorters = "name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name** (optional)
+
 # Identity Summaries for Campaign Certification
+
 try {
-    Get-IdentitySummaries-Id $Id 
+    Get-IdentitySummaries -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-IdentitySummaries -Id $Id -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
@@ -197,11 +188,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-identity-summary
-
 This API returns the summary for an identity on a specified identity campaign certification. Reviewers for this certification can also call this API.
 
 ### Parameters 
@@ -211,7 +199,6 @@ Path   | Id | **String** | True  | The identity campaign certification ID
 Path   | IdentitySummaryId | **String** | True  | The identity summary ID
 
 ### Return type
-
 [**CertificationIdentitySummary**](../models/certification-identity-summary)
 
 ### Responses
@@ -226,7 +213,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -234,9 +220,11 @@ Code | Description  | Data Type
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The identity campaign certification ID
 $IdentitySummaryId = "2c91808772a504f50172a9540e501ba8" # String | The identity summary ID
+
 # Summary for Identity
+
 try {
-    Get-IdentitySummary-Id $Id -IdentitySummaryId $IdentitySummaryId 
+    Get-IdentitySummary -Id $Id  -IdentitySummaryId $IdentitySummaryId 
     
     # Below is a request that includes all optional parameters
     # Get-IdentitySummary -Id $Id -IdentitySummaryId $IdentitySummaryId  
@@ -245,7 +233,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

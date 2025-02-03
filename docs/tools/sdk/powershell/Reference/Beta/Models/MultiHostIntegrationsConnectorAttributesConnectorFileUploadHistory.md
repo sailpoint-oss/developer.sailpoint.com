@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'MultiHostIntegrationsConnectorAttribu
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ConnectorFileNameUploadedDate** |  Pointer to **String** | File name of the connector JAR | [optional] 
+**ConnectorFileNameUploadedDate** | **String** | File name of the connector JAR | [optional] 
 
 ## Examples
 

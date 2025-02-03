@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'CertificationReference', 'BetaCertifi
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to  **Enum** [  "CERTIFICATION" ] | DTO type of certification for review. | [optional] 
-**Id** |  Pointer to **String** | ID of certification for review. | [optional] 
-**Name** |  Pointer to **String** | Display name of certification for review. | [optional] 
-**Reviewer** |  Pointer to [**Reviewer**](reviewer) |  | [optional] 
+**Type** |  **Enum** [  "CERTIFICATION" ] | DTO type of certification for review. | [optional] 
+**Id** | **String** | ID of certification for review. | [optional] 
+**Name** | **String** | Display name of certification for review. | [optional] 
+**Reviewer** | [**Reviewer**](reviewer) |  | [optional] 
 
 ## Examples
 

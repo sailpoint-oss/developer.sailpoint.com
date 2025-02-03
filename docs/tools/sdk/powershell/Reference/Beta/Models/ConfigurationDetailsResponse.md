@@ -16,11 +16,11 @@ tags: ['SDK', 'Software Development Kit', 'ConfigurationDetailsResponse', 'BetaC
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ConfigType** |  Pointer to [**ConfigTypeEnum**](config-type-enum) |  | [optional] 
-**TargetIdentity** |  Pointer to [**Identity1**](identity1) |  | [optional] 
-**StartDate** |  Pointer to **System.DateTime** | The date from which to start reassigning work items | [optional] 
-**EndDate** |  Pointer to **System.DateTime** | The date from which to stop reassigning work items.  If this is an empty string it indicates a permanent reassignment. | [optional] 
-**AuditDetails** |  Pointer to [**AuditDetails**](audit-details) |  | [optional] 
+**ConfigType** | [**ConfigTypeEnum**](config-type-enum) |  | [optional] 
+**TargetIdentity** | [**Identity1**](identity1) |  | [optional] 
+**StartDate** | **System.DateTime** | The date from which to start reassigning work items | [optional] 
+**EndDate** | **System.DateTime** | The date from which to stop reassigning work items.  If this is an empty string it indicates a permanent reassignment. | [optional] 
+**AuditDetails** | [**AuditDetails**](audit-details) |  | [optional] 
 
 ## Examples
 

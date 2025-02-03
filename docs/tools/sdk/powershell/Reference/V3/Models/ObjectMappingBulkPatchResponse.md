@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'ObjectMappingBulkPatchResponse', 'Obj
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PatchedObjects** |  Pointer to [**[]ObjectMappingResponse**](object-mapping-response) |  | [optional] 
+**PatchedObjects** | [**[]ObjectMappingResponse**](object-mapping-response) |  | [optional] 
 
 ## Examples
 

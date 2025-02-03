@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'PasswordDigitToken', 'BetaPasswordDig
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DigitToken** |  Pointer to **String** | The digit token for password management | [optional] 
-**RequestId** |  Pointer to **String** | The reference ID of the digit token generation request | [optional] 
+**DigitToken** | **String** | The digit token for password management | [optional] 
+**RequestId** | **String** | The reference ID of the digit token generation request | [optional] 
 
 ## Examples
 

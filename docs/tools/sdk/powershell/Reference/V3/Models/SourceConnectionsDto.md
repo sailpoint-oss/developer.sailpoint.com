@@ -16,13 +16,13 @@ tags: ['SDK', 'Software Development Kit', 'SourceConnectionsDto', 'SourceConnect
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**IdentityProfiles** |  Pointer to [**[]IdentityProfilesConnections**](identity-profiles-connections) | The IdentityProfile attached to this source | [optional] 
-**CredentialProfiles** |  Pointer to **[]String** | Name of the CredentialProfile attached to this source | [optional] 
-**SourceAttributes** |  Pointer to **[]String** | The attributes attached to this source | [optional] 
-**MappingProfiles** |  Pointer to **[]String** | The profiles attached to this source | [optional] 
-**DependentCustomTransforms** |  Pointer to [**[]Transform**](transform) |  | [optional] 
-**DependentApps** |  Pointer to [**[]DependantAppConnections**](dependant-app-connections) |  | [optional] 
-**MissingDependents** |  Pointer to [**[]DependantConnectionsMissingDto**](dependant-connections-missing-dto) |  | [optional] 
+**IdentityProfiles** | [**[]IdentityProfilesConnections**](identity-profiles-connections) | The IdentityProfile attached to this source | [optional] 
+**CredentialProfiles** | **[]String** | Name of the CredentialProfile attached to this source | [optional] 
+**SourceAttributes** | **[]String** | The attributes attached to this source | [optional] 
+**MappingProfiles** | **[]String** | The profiles attached to this source | [optional] 
+**DependentCustomTransforms** | [**[]Transform**](transform) |  | [optional] 
+**DependentApps** | [**[]DependantAppConnections**](dependant-app-connections) |  | [optional] 
+**MissingDependents** | [**[]DependantConnectionsMissingDto**](dependant-connections-missing-dto) |  | [optional] 
 
 ## Examples
 

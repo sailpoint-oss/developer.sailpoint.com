@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'PasswordPolicyHoldersDtoInner', 'V202
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PolicyId** |  Pointer to **String** | The password policy Id. | [optional] 
-**PolicyName** |  Pointer to **String** | The name of the password policy. | [optional] 
-**Selectors** |  Pointer to [**PasswordPolicyHoldersDtoAttributes**](password-policy-holders-dto-attributes) |  | [optional] 
+**PolicyId** | **String** | The password policy Id. | [optional] 
+**PolicyName** | **String** | The name of the password policy. | [optional] 
+**Selectors** | [**PasswordPolicyHoldersDtoAttributes**](password-policy-holders-dto-attributes) |  | [optional] 
 
 ## Examples
 

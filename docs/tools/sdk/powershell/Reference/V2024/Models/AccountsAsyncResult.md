@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'AccountsAsyncResult', 'V2024AccountsA
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  **String** | id of the task | [required]
+**Id** | **String** | id of the task | [required]
 
 ## Examples
 

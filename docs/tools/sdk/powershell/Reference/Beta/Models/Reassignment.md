@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'Reassignment', 'BetaReassignment']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**VarFrom** |  Pointer to [**CertificationReference**](certification-reference) |  | [optional] 
-**Comment** |  Pointer to **String** | Comments from the previous reviewer. | [optional] 
+**VarFrom** | [**CertificationReference**](certification-reference) |  | [optional] 
+**Comment** | **String** | Comments from the previous reviewer. | [optional] 
 
 ## Examples
 

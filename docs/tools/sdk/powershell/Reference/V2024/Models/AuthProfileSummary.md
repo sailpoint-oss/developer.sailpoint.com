@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'AuthProfileSummary', 'V2024AuthProfil
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Tenant** |  Pointer to **String** | Tenant name. | [optional] 
-**Id** |  Pointer to **String** | Identity ID. | [optional] 
+**Tenant** | **String** | Tenant name. | [optional] 
+**Id** | **String** | Identity ID. | [optional] 
 
 ## Examples
 

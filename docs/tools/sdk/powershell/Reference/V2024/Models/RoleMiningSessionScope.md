@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'RoleMiningSessionScope', 'V2024RoleMi
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**IdentityIds** |  Pointer to **[]String** | The list of identities for this role mining session. | [optional] 
-**Criteria** |  Pointer to **String** | The ""search"" criteria that produces the list of identities for this role mining session. | [optional] 
-**AttributeFilterCriteria** |  Pointer to [**[]SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | The filter criteria for this role mining session. | [optional] 
+**IdentityIds** | **[]String** | The list of identities for this role mining session. | [optional] 
+**Criteria** | **String** | The ""search"" criteria that produces the list of identities for this role mining session. | [optional] 
+**AttributeFilterCriteria** | [**[]SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | The filter criteria for this role mining session. | [optional] 
 
 ## Examples
 

@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'AccountAttributesChangedSource', 'V20
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  **String** | ID of the object to which this reference applies | [required]
-**Type** |   **Enum** [  "SOURCE" ] | The type of object that is referenced | [required]
-**Name** |  **String** | Human-readable display name of the object to which this reference applies | [required]
+**Id** | **String** | ID of the object to which this reference applies | [required]
+**Type** |  **Enum** [  "SOURCE" ] | The type of object that is referenced | [required]
+**Name** | **String** | Human-readable display name of the object to which this reference applies | [required]
 
 ## Examples
 

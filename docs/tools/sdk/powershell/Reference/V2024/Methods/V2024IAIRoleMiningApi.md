@@ -9,7 +9,6 @@ slug: /tools/sdk/powershell/v2024/methods/iai-role-mining
 tags: ['SDK', 'Software Development Kit', 'IAIRoleMining', 'V2024IAIRoleMining']
 ---
 
-
 # IAIRoleMining
    
   
@@ -44,9 +43,7 @@ Method | HTTP request | Description
 [**Update-V2024RoleMiningSession**](#patch-role-mining-session) | **PATCH** `/role-mining-sessions/{sessionId}` | Patch a role mining session
 [**Update-V2024EntitlementsPotentialRole**](#update-entitlements-potential-role) | **POST** `/role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/edit-entitlements` | Edit entitlements for a potential role to exclude some entitlements
 
-
 ## create-potential-role-provision-request
-
 This method starts a job to provision a potential role
 
 ### Parameters 
@@ -60,7 +57,6 @@ Path   | PotentialRoleId | **String** | True  | A potential role id in a role mi
  Body  | RoleMiningPotentialRoleProvisionRequest | [**RoleMiningPotentialRoleProvisionRequest**](../models/role-mining-potential-role-provision-request) |   (optional) | Required information to create a new role
 
 ### Return type
-
 [**RoleMiningPotentialRoleSummary**](../models/role-mining-potential-role-summary)
 
 ### Responses
@@ -74,7 +70,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -92,9 +87,11 @@ $RoleMiningPotentialRoleProvisionRequest = @"{
   "roleDescription" : "General access for accounting department",
   "directlyAssignedEntitlements" : false
 }"@
+
 # Create request to provision a potential role into an actual role.
+
 try {
-    New-V2024PotentialRoleProvisionRequest-V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental 
+    New-V2024PotentialRoleProvisionRequest -V2024SessionId $SessionId  -V2024PotentialRoleId $PotentialRoleId  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # New-V2024PotentialRoleProvisionRequest -V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental -V2024MinEntitlementPopularity $MinEntitlementPopularity -V2024IncludeCommonAccess $IncludeCommonAccess -V2024RoleMiningPotentialRoleProvisionRequest $RoleMiningPotentialRoleProvisionRequest  
@@ -103,11 +100,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## create-role-mining-sessions
-
 This submits a create role mining session request to the role mining application.
 
 ### Parameters 
@@ -117,7 +111,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | RoleMiningSessionDto | [**RoleMiningSessionDto**](../models/role-mining-session-dto) | True  | Role mining session parameters
 
 ### Return type
-
 [**RoleMiningSessionResponse**](../models/role-mining-session-response)
 
 ### Responses
@@ -131,7 +124,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -170,10 +162,12 @@ $RoleMiningSessionDto = @"{
   "identityCount" : 0,
   "type" : "SPECIALIZED"
 }"@
+
 # Create a role mining session
+
 try {
     $Result = ConvertFrom-JsonToRoleMiningSessionDto -Json $RoleMiningSessionDto
-    New-V2024RoleMiningSessions-V2024XSailPointExperimental $XSailPointExperimental -V2024RoleMiningSessionDto $Result
+    New-V2024RoleMiningSessions -V2024XSailPointExperimental $XSailPointExperimental  -V2024RoleMiningSessionDto $Result
     
     # Below is a request that includes all optional parameters
     # New-V2024RoleMiningSessions -V2024XSailPointExperimental $XSailPointExperimental -V2024RoleMiningSessionDto $RoleMiningSessionDto  
@@ -182,11 +176,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## download-role-mining-potential-role-zip
-
 This endpoint downloads a completed export of information for a potential role in a role mining session.
 
 ### Parameters 
@@ -198,7 +189,6 @@ Path   | ExportId | **String** | True  | The id of a previously run export job f
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-
 **System.IO.FileInfo**
 
 ### Responses
@@ -211,7 +201,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/zip, application/json
 
@@ -221,9 +210,11 @@ $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining s
 $PotentialRoleId = "278359a6-04b7-4669-9468-924cf580964a" # String | A potential role id in a role mining session
 $ExportId = "4940ffd4-836f-48a3-b2b0-6d498c3fdf40" # String | The id of a previously run export job for this potential role
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
 # Export (download) details for a potential role in a role mining session
+
 try {
-    Invoke-V2024DownloadRoleMiningPotentialRoleZip-V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024ExportId $ExportId -V2024XSailPointExperimental $XSailPointExperimental 
+    Invoke-V2024DownloadRoleMiningPotentialRoleZip -V2024SessionId $SessionId  -V2024PotentialRoleId $PotentialRoleId  -V2024ExportId $ExportId  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Invoke-V2024DownloadRoleMiningPotentialRoleZip -V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024ExportId $ExportId -V2024XSailPointExperimental $XSailPointExperimental  
@@ -232,11 +223,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## export-role-mining-potential-role
-
 This endpoint downloads all the information for a potential role in a role mining session. Includes identities and entitlements in the potential role.
 
 ### Parameters 
@@ -247,7 +235,6 @@ Path   | PotentialRoleId | **String** | True  | A potential role id in a role mi
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-
 **System.IO.FileInfo**
 
 ### Responses
@@ -260,7 +247,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/zip, application/json
 
@@ -269,9 +255,11 @@ Code | Description  | Data Type
 $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining session id
 $PotentialRoleId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | A potential role id in a role mining session
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
 # Export (download) details for a potential role in a role mining session
+
 try {
-    Export-V2024RoleMiningPotentialRole-V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental 
+    Export-V2024RoleMiningPotentialRole -V2024SessionId $SessionId  -V2024PotentialRoleId $PotentialRoleId  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Export-V2024RoleMiningPotentialRole -V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental  
@@ -280,11 +268,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## export-role-mining-potential-role-async
-
 This endpoint uploads all the information for a potential role in a role mining session to S3 as a downloadable zip archive.  Includes identities and entitlements in the potential role.
 
 ### Parameters 
@@ -296,7 +281,6 @@ Path   | PotentialRoleId | **String** | True  | A potential role id in a role mi
  Body  | RoleMiningPotentialRoleExportRequest | [**RoleMiningPotentialRoleExportRequest**](../models/role-mining-potential-role-export-request) |   (optional) | 
 
 ### Return type
-
 [**RoleMiningPotentialRoleExportResponse**](../models/role-mining-potential-role-export-response)
 
 ### Responses
@@ -309,7 +293,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -322,9 +305,11 @@ $RoleMiningPotentialRoleExportRequest = @"{
   "minEntitlementPopularity" : 0,
   "includeCommonAccess" : true
 }"@
+
 # Asynchronously export details for a potential role in a role mining session and upload to S3
+
 try {
-    Export-V2024RoleMiningPotentialRoleAsync-V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental 
+    Export-V2024RoleMiningPotentialRoleAsync -V2024SessionId $SessionId  -V2024PotentialRoleId $PotentialRoleId  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Export-V2024RoleMiningPotentialRoleAsync -V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental -V2024RoleMiningPotentialRoleExportRequest $RoleMiningPotentialRoleExportRequest  
@@ -333,11 +318,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## export-role-mining-potential-role-status
-
 This endpoint retrieves information about the current status of a potential role export.
 
 ### Parameters 
@@ -349,7 +331,6 @@ Path   | ExportId | **String** | True  | The id of a previously run export job f
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-
 [**RoleMiningPotentialRoleExportResponse**](../models/role-mining-potential-role-export-response)
 
 ### Responses
@@ -362,7 +343,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -372,9 +352,11 @@ $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining s
 $PotentialRoleId = "278359a6-04b7-4669-9468-924cf580964a" # String | A potential role id in a role mining session
 $ExportId = "4940ffd4-836f-48a3-b2b0-6d498c3fdf40" # String | The id of a previously run export job for this potential role
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
 # Retrieve status of a potential role export job
+
 try {
-    Export-V2024RoleMiningPotentialRoleStatus-V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024ExportId $ExportId -V2024XSailPointExperimental $XSailPointExperimental 
+    Export-V2024RoleMiningPotentialRoleStatus -V2024SessionId $SessionId  -V2024PotentialRoleId $PotentialRoleId  -V2024ExportId $ExportId  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Export-V2024RoleMiningPotentialRoleStatus -V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024ExportId $ExportId -V2024XSailPointExperimental $XSailPointExperimental  
@@ -383,11 +365,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-all-potential-role-summaries
-
 Returns all potential role summaries that match the query parameters
 
 ### Parameters 
@@ -401,7 +380,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-
 [**RoleMiningPotentialRoleSummary[]**](../models/role-mining-potential-role-summary)
 
 ### Responses
@@ -415,7 +393,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -427,9 +404,11 @@ $Filters = '(createdByName co "int") and (createdById sw "2c9180907") and (type 
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+
 # Retrieves all potential role summaries
+
 try {
-    Get-V2024AllPotentialRoleSummaries-V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024AllPotentialRoleSummaries -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024AllPotentialRoleSummaries -V2024XSailPointExperimental $XSailPointExperimental -V2024Sorters $Sorters -V2024Filters $Filters -V2024Offset $Offset -V2024Limit $Limit -V2024Count $Count  
@@ -438,11 +417,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-entitlement-distribution-potential-role
-
 This method returns entitlement popularity distribution for a potential role in a role mining session.
 
 ### Parameters 
@@ -454,7 +430,6 @@ Path   | PotentialRoleId | **String** | True  | A potential role id in a role mi
   Query | IncludeCommonAccess | **Boolean** |   (optional) | Boolean determining whether common access entitlements will be included or not
 
 ### Return type
-
 **System.Collections.Hashtable**
 
 ### Responses
@@ -467,7 +442,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -477,9 +451,11 @@ $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining s
 $PotentialRoleId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | A potential role id in a role mining session
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $IncludeCommonAccess = $true # Boolean | Boolean determining whether common access entitlements will be included or not (optional)
+
 # Retrieves entitlement popularity distribution for a potential role in a role mining session
+
 try {
-    Get-V2024EntitlementDistributionPotentialRole-V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024EntitlementDistributionPotentialRole -V2024SessionId $SessionId  -V2024PotentialRoleId $PotentialRoleId  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024EntitlementDistributionPotentialRole -V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental -V2024IncludeCommonAccess $IncludeCommonAccess  
@@ -488,11 +464,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-entitlements-potential-role
-
 This method returns entitlements for a potential role in a role mining session.
 
 ### Parameters 
@@ -509,7 +482,6 @@ Path   | PotentialRoleId | **String** | True  | A potential role id in a role mi
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-
 [**RoleMiningEntitlement[]**](../models/role-mining-entitlement)
 
 ### Responses
@@ -523,7 +495,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -538,9 +509,11 @@ $Filters = 'applicationName sw "AD"' # String | Filter results using the standar
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+
 # Retrieves entitlements for a potential role in a role mining session
+
 try {
-    Get-V2024EntitlementsPotentialRole-V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024EntitlementsPotentialRole -V2024SessionId $SessionId  -V2024PotentialRoleId $PotentialRoleId  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024EntitlementsPotentialRole -V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental -V2024IncludeCommonAccess $IncludeCommonAccess -V2024Sorters $Sorters -V2024Filters $Filters -V2024Offset $Offset -V2024Limit $Limit -V2024Count $Count  
@@ -549,11 +522,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-excluded-entitlements-potential-role
-
 This method returns excluded entitlements for a potential role in a role mining session.
 
 ### Parameters 
@@ -569,7 +539,6 @@ Path   | PotentialRoleId | **String** | True  | A potential role id in a role mi
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-
 [**RoleMiningEntitlement[]**](../models/role-mining-entitlement)
 
 ### Responses
@@ -582,7 +551,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -596,9 +564,11 @@ $Filters = 'applicationName sw "AD"' # String | Filter results using the standar
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+
 # Retrieves excluded entitlements for a potential role in a role mining session
+
 try {
-    Get-V2024ExcludedEntitlementsPotentialRole-V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024ExcludedEntitlementsPotentialRole -V2024SessionId $SessionId  -V2024PotentialRoleId $PotentialRoleId  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024ExcludedEntitlementsPotentialRole -V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental -V2024Sorters $Sorters -V2024Filters $Filters -V2024Offset $Offset -V2024Limit $Limit -V2024Count $Count  
@@ -607,11 +577,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-identities-potential-role
-
 This method returns identities for a potential role in a role mining session.
 
 ### Parameters 
@@ -627,7 +594,6 @@ Path   | PotentialRoleId | **String** | True  | A potential role id in a role mi
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-
 [**RoleMiningIdentity[]**](../models/role-mining-identity)
 
 ### Responses
@@ -640,7 +606,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -654,9 +619,11 @@ $Filters = 'MyFilters' # String | Filter results using the standard syntax descr
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+
 # Retrieves identities for a potential role in a role mining session
+
 try {
-    Get-V2024IdentitiesPotentialRole-V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024IdentitiesPotentialRole -V2024SessionId $SessionId  -V2024PotentialRoleId $PotentialRoleId  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024IdentitiesPotentialRole -V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental -V2024Sorters $Sorters -V2024Filters $Filters -V2024Offset $Offset -V2024Limit $Limit -V2024Count $Count  
@@ -665,11 +632,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-potential-role
-
 This method returns a specific potential role for a role mining session.
 
 ### Parameters 
@@ -680,7 +644,6 @@ Path   | PotentialRoleId | **String** | True  | A potential role id in a role mi
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-
 [**RoleMiningPotentialRole**](../models/role-mining-potential-role)
 
 ### Responses
@@ -694,7 +657,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -703,9 +665,11 @@ Code | Description  | Data Type
 $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining session id
 $PotentialRoleId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | A potential role id in a role mining session
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
 # Retrieves a specific potential role
+
 try {
-    Get-V2024PotentialRole-V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024PotentialRole -V2024SessionId $SessionId  -V2024PotentialRoleId $PotentialRoleId  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024PotentialRole -V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental  
@@ -714,11 +678,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-potential-role-applications
-
 This method returns the applications of a potential role for a role mining session.
 
 ### Parameters 
@@ -733,7 +694,6 @@ Path   | PotentialRoleId | **String** | True  | A potential role id in a role mi
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-
 [**RoleMiningPotentialRoleApplication[]**](../models/role-mining-potential-role-application)
 
 ### Responses
@@ -747,7 +707,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -760,9 +719,11 @@ $Filters = 'applicationName sw "test"' # String | Filter results using the stand
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+
 # Retrieves the applications of a potential role for a role mining session
+
 try {
-    Get-V2024PotentialRoleApplications-V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024PotentialRoleApplications -V2024SessionId $SessionId  -V2024PotentialRoleId $PotentialRoleId  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024PotentialRoleApplications -V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental -V2024Filters $Filters -V2024Offset $Offset -V2024Limit $Limit -V2024Count $Count  
@@ -771,11 +732,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-potential-role-entitlements
-
 This method returns the entitlements of a potential role for a role mining session.
 
 ### Parameters 
@@ -790,7 +748,6 @@ Path   | PotentialRoleId | **String** | True  | A potential role id in a role mi
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-
 [**RoleMiningPotentialRoleEntitlements[]**](../models/role-mining-potential-role-entitlements)
 
 ### Responses
@@ -804,7 +761,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -817,9 +773,11 @@ $Filters = 'entitlementRef.name sw "test"' # String | Filter results using the s
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+
 # Retrieves the entitlements of a potential role for a role mining session
+
 try {
-    Get-V2024PotentialRoleEntitlements-V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024PotentialRoleEntitlements -V2024SessionId $SessionId  -V2024PotentialRoleId $PotentialRoleId  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024PotentialRoleEntitlements -V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental -V2024Filters $Filters -V2024Offset $Offset -V2024Limit $Limit -V2024Count $Count  
@@ -828,11 +786,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-potential-role-source-identity-usage
-
 This method returns source usageCount (as number of days in the last 90 days) for each identity in a potential role.
 
 ### Parameters 
@@ -847,7 +802,6 @@ Path   | SourceId | **String** | True  | A source id
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-
 [**RoleMiningPotentialRoleSourceUsage[]**](../models/role-mining-potential-role-source-usage)
 
 ### Responses
@@ -861,7 +815,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -874,9 +827,11 @@ $Sorters = "-usageCount" # String | Sort results using the standard syntax descr
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+
 # Retrieves potential role source usage
+
 try {
-    Get-V2024PotentialRoleSourceIdentityUsage-V2024PotentialRoleId $PotentialRoleId -V2024SourceId $SourceId -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024PotentialRoleSourceIdentityUsage -V2024PotentialRoleId $PotentialRoleId  -V2024SourceId $SourceId  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024PotentialRoleSourceIdentityUsage -V2024PotentialRoleId $PotentialRoleId -V2024SourceId $SourceId -V2024XSailPointExperimental $XSailPointExperimental -V2024Sorters $Sorters -V2024Offset $Offset -V2024Limit $Limit -V2024Count $Count  
@@ -885,11 +840,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-potential-role-summaries
-
 This method returns the potential role summaries for a role mining session.
 
 ### Parameters 
@@ -904,7 +856,6 @@ Path   | SessionId | **String** | True  | The role mining session id
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-
 [**RoleMiningPotentialRoleSummary[]**](../models/role-mining-potential-role-summary)
 
 ### Responses
@@ -918,7 +869,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -931,9 +881,11 @@ $Filters = '(createdByName co "int")and (createdById sw "2c9180907")and (type eq
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+
 # Retrieves all potential role summaries
+
 try {
-    Get-V2024PotentialRoleSummaries-V2024SessionId $SessionId -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024PotentialRoleSummaries -V2024SessionId $SessionId  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024PotentialRoleSummaries -V2024SessionId $SessionId -V2024XSailPointExperimental $XSailPointExperimental -V2024Sorters $Sorters -V2024Filters $Filters -V2024Offset $Offset -V2024Limit $Limit -V2024Count $Count  
@@ -942,11 +894,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-role-mining-potential-role
-
 This method returns a specific potential role.
 
 ### Parameters 
@@ -956,7 +905,6 @@ Path   | PotentialRoleId | **String** | True  | A potential role id
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-
 [**RoleMiningPotentialRole**](../models/role-mining-potential-role)
 
 ### Responses
@@ -970,7 +918,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -978,9 +925,11 @@ Code | Description  | Data Type
 ```powershell
 $PotentialRoleId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | A potential role id
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
 # Retrieves a specific potential role
+
 try {
-    Get-V2024RoleMiningPotentialRole-V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024RoleMiningPotentialRole -V2024PotentialRoleId $PotentialRoleId  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024RoleMiningPotentialRole -V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental  
@@ -989,11 +938,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-role-mining-session
-
 The method retrieves a role mining session.
 
 ### Parameters 
@@ -1003,7 +949,6 @@ Path   | SessionId | **String** | True  | The role mining session id to be retri
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-
 [**RoleMiningSessionResponse**](../models/role-mining-session-response)
 
 ### Responses
@@ -1018,7 +963,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -1026,9 +970,11 @@ Code | Description  | Data Type
 ```powershell
 $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining session id to be retrieved.
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
 # Get a role mining session
+
 try {
-    Get-V2024RoleMiningSession-V2024SessionId $SessionId -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024RoleMiningSession -V2024SessionId $SessionId  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024RoleMiningSession -V2024SessionId $SessionId -V2024XSailPointExperimental $XSailPointExperimental  
@@ -1037,11 +983,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-role-mining-session-status
-
 This method returns a role mining session status for a customer.
 
 ### Parameters 
@@ -1051,7 +994,6 @@ Path   | SessionId | **String** | True  | The role mining session id
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-
 [**RoleMiningSessionStatus**](../models/role-mining-session-status)
 
 ### Responses
@@ -1064,7 +1006,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -1072,9 +1013,11 @@ Code | Description  | Data Type
 ```powershell
 $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining session id
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
 # Get role mining session status state
+
 try {
-    Get-V2024RoleMiningSessionStatus-V2024SessionId $SessionId -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024RoleMiningSessionStatus -V2024SessionId $SessionId  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024RoleMiningSessionStatus -V2024SessionId $SessionId -V2024XSailPointExperimental $XSailPointExperimental  
@@ -1083,11 +1026,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-role-mining-sessions
-
 Returns all role mining sessions that match the query parameters
 
 ### Parameters 
@@ -1101,7 +1041,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-
 [**RoleMiningSessionDto[]**](../models/role-mining-session-dto)
 
 ### Responses
@@ -1115,7 +1054,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -1127,9 +1065,11 @@ $Sorters = "createdBy,createdDate" # String | Sort results using the standard sy
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+
 # Retrieves all role mining sessions
+
 try {
-    Get-V2024RoleMiningSessions-V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024RoleMiningSessions -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024RoleMiningSessions -V2024XSailPointExperimental $XSailPointExperimental -V2024Filters $Filters -V2024Sorters $Sorters -V2024Offset $Offset -V2024Limit $Limit -V2024Count $Count  
@@ -1138,11 +1078,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-saved-potential-roles
-
 This method returns all saved potential roles (draft roles).
 
 ### Parameters 
@@ -1155,7 +1092,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-
 [**RoleMiningSessionDraftRoleDto[]**](../models/role-mining-session-draft-role-dto)
 
 ### Responses
@@ -1169,7 +1105,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -1180,9 +1115,11 @@ $Sorters = "modified" # String | Sort results using the standard syntax describe
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+
 # Retrieves all saved potential roles
+
 try {
-    Get-V2024SavedPotentialRoles-V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024SavedPotentialRoles -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024SavedPotentialRoles -V2024XSailPointExperimental $XSailPointExperimental -V2024Sorters $Sorters -V2024Offset $Offset -V2024Limit $Limit -V2024Count $Count  
@@ -1191,11 +1128,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## patch-potential-role
-
 The method updates an existing potential role using.
 
 The following fields can be modified:
@@ -1219,7 +1153,6 @@ Path   | PotentialRoleId | **String** | True  | The potential role summary id
  Body  | PatchPotentialRoleRequestInner | [**[]PatchPotentialRoleRequestInner**](../models/patch-potential-role-request-inner) | True  | 
 
 ### Return type
-
 [**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0)
 
 ### Responses
@@ -1234,7 +1167,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json-patch+json
 - **Accept**: application/json
 
@@ -1243,13 +1175,14 @@ Code | Description  | Data Type
 $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining session id
 $PotentialRoleId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The potential role summary id
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
- # PatchPotentialRoleRequestInner[] | 
- $PatchPotentialRoleRequestInner = @"[{op=remove, path=/description}, {op=replace, path=/description, value=Acct I - Potential Role}, {op=remove, path=/saved}, {op=replace, path=/saved, value=false}, {op=remove, path=/name}, {op=replace, path=/name, value=Potential Role Accounting}]"@ 
+ $PatchPotentialRoleRequestInner = @"[{op=remove, path=/description}, {op=replace, path=/description, value=Acct I - Potential Role}, {op=remove, path=/saved}, {op=replace, path=/saved, value=false}, {op=remove, path=/name}, {op=replace, path=/name, value=Potential Role Accounting}]"@ # PatchPotentialRoleRequestInner[] | 
+ 
 
 # Update a potential role
+
 try {
     $Result = ConvertFrom-JsonToPatchPotentialRoleRequestInner -Json $PatchPotentialRoleRequestInner
-    Update-V2024PotentialRole-V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental -V2024PatchPotentialRoleRequestInner $Result
+    Update-V2024PotentialRole -V2024SessionId $SessionId  -V2024PotentialRoleId $PotentialRoleId  -V2024XSailPointExperimental $XSailPointExperimental  -V2024PatchPotentialRoleRequestInner $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024PotentialRole -V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental -V2024PatchPotentialRoleRequestInner $PatchPotentialRoleRequestInner  
@@ -1258,11 +1191,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## patch-potential-role-0
-
 The method updates an existing potential role using.
 
 The following fields can be modified:
@@ -1286,7 +1216,6 @@ Path   | PotentialRoleId | **String** | True  | The potential role summary id
  Body  | PatchPotentialRoleRequestInner | [**[]PatchPotentialRoleRequestInner**](../models/patch-potential-role-request-inner) | True  | 
 
 ### Return type
-
 [**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0)
 
 ### Responses
@@ -1301,7 +1230,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json-patch+json
 - **Accept**: application/json
 
@@ -1310,13 +1238,14 @@ Code | Description  | Data Type
 $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining session id
 $PotentialRoleId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The potential role summary id
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
- # PatchPotentialRoleRequestInner[] | 
- $PatchPotentialRoleRequestInner = @"[{op=remove, path=/description}, {op=replace, path=/description, value=Acct I - Potential Role}, {op=remove, path=/saved}, {op=replace, path=/saved, value=false}, {op=remove, path=/name}, {op=replace, path=/name, value=Potential Role Accounting}]"@ 
+ $PatchPotentialRoleRequestInner = @"[{op=remove, path=/description}, {op=replace, path=/description, value=Acct I - Potential Role}, {op=remove, path=/saved}, {op=replace, path=/saved, value=false}, {op=remove, path=/name}, {op=replace, path=/name, value=Potential Role Accounting}]"@ # PatchPotentialRoleRequestInner[] | 
+ 
 
 # Update a potential role
+
 try {
     $Result = ConvertFrom-JsonToPatchPotentialRoleRequestInner -Json $PatchPotentialRoleRequestInner
-    Update-V2024PotentialRole0-V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental -V2024PatchPotentialRoleRequestInner $Result
+    Update-V2024PotentialRole0 -V2024SessionId $SessionId  -V2024PotentialRoleId $PotentialRoleId  -V2024XSailPointExperimental $XSailPointExperimental  -V2024PatchPotentialRoleRequestInner $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024PotentialRole0 -V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental -V2024PatchPotentialRoleRequestInner $PatchPotentialRoleRequestInner  
@@ -1325,11 +1254,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## patch-role-mining-session
-
 The  method updates an existing role mining session using PATCH. Supports op in {"replace"} and changes to pruneThreshold and/or minNumIdentitiesInPotentialRole. The potential roles in this role mining session is then re-calculated.
 
 ### Parameters 
@@ -1340,7 +1266,6 @@ Path   | SessionId | **String** | True  | The role mining session id to be patch
  Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | Replace pruneThreshold and/or minNumIdentitiesInPotentialRole in role mining session. Update saved status or saved name for a role mining session.
 
 ### Return type
-
 [**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0)
 
 ### Responses
@@ -1355,7 +1280,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json-patch+json
 - **Accept**: application/json
 
@@ -1363,17 +1287,18 @@ Code | Description  | Data Type
 ```powershell
 $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining session id to be patched
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
- # JsonPatchOperation[] | Replace pruneThreshold and/or minNumIdentitiesInPotentialRole in role mining session. Update saved status or saved name for a role mining session.
  $JsonPatchOperation = @"{
   "op" : "replace",
   "path" : "/description",
   "value" : "New description"
-}"@ 
+}"@ # JsonPatchOperation[] | Replace pruneThreshold and/or minNumIdentitiesInPotentialRole in role mining session. Update saved status or saved name for a role mining session.
+ 
 
 # Patch a role mining session
+
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024RoleMiningSession-V2024SessionId $SessionId -V2024XSailPointExperimental $XSailPointExperimental -V2024JsonPatchOperation $Result
+    Update-V2024RoleMiningSession -V2024SessionId $SessionId  -V2024XSailPointExperimental $XSailPointExperimental  -V2024JsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024RoleMiningSession -V2024SessionId $SessionId -V2024XSailPointExperimental $XSailPointExperimental -V2024JsonPatchOperation $JsonPatchOperation  
@@ -1382,11 +1307,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## update-entitlements-potential-role
-
 This endpoint adds or removes entitlements from an exclusion list for a potential role.
 
 ### Parameters 
@@ -1398,7 +1320,6 @@ Path   | PotentialRoleId | **String** | True  | A potential role id in a role mi
  Body  | RoleMiningPotentialRoleEditEntitlements | [**RoleMiningPotentialRoleEditEntitlements**](../models/role-mining-potential-role-edit-entitlements) | True  | Role mining session parameters
 
 ### Return type
-
 [**RoleMiningPotentialRole**](../models/role-mining-potential-role)
 
 ### Responses
@@ -1411,7 +1332,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -1424,10 +1344,12 @@ $RoleMiningPotentialRoleEditEntitlements = @"{
   "ids" : [ "entId1", "entId2" ],
   "exclude" : true
 }"@
+
 # Edit entitlements for a potential role to exclude some entitlements
+
 try {
     $Result = ConvertFrom-JsonToRoleMiningPotentialRoleEditEntitlements -Json $RoleMiningPotentialRoleEditEntitlements
-    Update-V2024EntitlementsPotentialRole-V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental -V2024RoleMiningPotentialRoleEditEntitlements $Result
+    Update-V2024EntitlementsPotentialRole -V2024SessionId $SessionId  -V2024PotentialRoleId $PotentialRoleId  -V2024XSailPointExperimental $XSailPointExperimental  -V2024RoleMiningPotentialRoleEditEntitlements $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024EntitlementsPotentialRole -V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental -V2024RoleMiningPotentialRoleEditEntitlements $RoleMiningPotentialRoleEditEntitlements  
@@ -1436,7 +1358,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

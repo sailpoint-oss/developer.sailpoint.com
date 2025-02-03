@@ -9,7 +9,6 @@ slug: /tools/sdk/powershell/v3/methods/certification-campaign-filters
 tags: ['SDK', 'Software Development Kit', 'CertificationCampaignFilters', 'CertificationCampaignFilters']
 ---
 
-
 # CertificationCampaignFilters
   Use this API to implement the certification campaign filter functionality. These filters can be used to create a certification campaign that includes a subset of your entitlements or users to certify.
 
@@ -51,9 +50,7 @@ Method | HTTP request | Description
 [**Get-CampaignFilters**](#list-campaign-filters) | **GET** `/campaign-filters` | List Campaign Filters
 [**Update-CampaignFilter**](#update-campaign-filter) | **POST** `/campaign-filters/{id}` | Updates a Campaign Filter
 
-
 ## create-campaign-filter
-
 Use this API to create a campaign filter based on filter details and criteria.
 
 ### Parameters 
@@ -62,7 +59,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | CampaignFilterDetails | [**CampaignFilterDetails**](../models/campaign-filter-details) | True  | 
 
 ### Return type
-
 [**CampaignFilterDetails**](../models/campaign-filter-details)
 
 ### Responses
@@ -76,7 +72,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -100,10 +95,12 @@ $CampaignFilterDetails = @"{
     "suppressMatchedItems" : false
   } ]
 }"@
+
 # Create Campaign Filter
+
 try {
     $Result = ConvertFrom-JsonToCampaignFilterDetails -Json $CampaignFilterDetails
-    New-CampaignFilter-CampaignFilterDetails $Result
+    New-CampaignFilter -CampaignFilterDetails $Result
     
     # Below is a request that includes all optional parameters
     # New-CampaignFilter -CampaignFilterDetails $CampaignFilterDetails  
@@ -112,11 +109,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## delete-campaign-filters
-
 Deletes campaign filters whose Ids are specified in the provided list of campaign filter Ids. Authorized callers must be an ORG_ADMIN or a CERT_ADMIN.
 
 ### Parameters 
@@ -125,7 +119,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | RequestBody | **[]String** | True  | A json list of IDs of campaign filters to delete.
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -140,19 +133,20 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $RequestBody = "MyRequestBody" # String[] | A json list of IDs of campaign filters to delete.
- $RequestBody = @""@ 
+ $RequestBody = @""@ # String[] | A json list of IDs of campaign filters to delete.
+ 
 
 # Deletes Campaign Filters
+
 try {
     $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
-    Remove-CampaignFilters-RequestBody $Result
+    Remove-CampaignFilters -RequestBody $Result
     
     # Below is a request that includes all optional parameters
     # Remove-CampaignFilters -RequestBody $RequestBody  
@@ -161,11 +155,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-campaign-filter-by-id
-
 Retrieves information for an existing campaign filter using the filter's ID.
 
 ### Parameters 
@@ -174,7 +165,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | The ID of the campaign filter to be retrieved.
 
 ### Return type
-
 [**CampaignFilterDetails**](../models/campaign-filter-details)
 
 ### Responses
@@ -189,16 +179,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "e9f9a1397b842fd5a65842087040d3ac" # String | The ID of the campaign filter to be retrieved.
+
 # Get Campaign Filter by ID
+
 try {
-    Get-CampaignFilterById-Id $Id 
+    Get-CampaignFilterById -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-CampaignFilterById -Id $Id  
@@ -207,11 +198,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-campaign-filters
-
 Use this API to list all campaign filters. You can reduce scope with standard V3 query parameters.
 
 ### Parameters 
@@ -222,7 +210,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | IncludeSystemFilters | **Boolean** |   (optional) (default to $true) | If this is true, the API includes system filters in the count and results. Otherwise it excludes them. If no value is provided, the default is true. 
 
 ### Return type
-
 [**ListCampaignFilters200Response**](../models/list-campaign-filters200-response)
 
 ### Responses
@@ -236,7 +223,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -245,7 +231,9 @@ Code | Description  | Data Type
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Start = 0 # Int32 | Start/Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $IncludeSystemFilters = $true # Boolean | If this is true, the API includes system filters in the count and results. Otherwise it excludes them. If no value is provided, the default is true.  (optional) (default to $true)
+
 # List Campaign Filters
+
 try {
     Get-CampaignFilters
     
@@ -256,11 +244,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## update-campaign-filter
-
 Updates an existing campaign filter using the filter's ID.
 
 ### Parameters 
@@ -270,7 +255,6 @@ Path   | FilterId | **String** | True  | The ID of the campaign filter being mod
  Body  | CampaignFilterDetails | [**CampaignFilterDetails**](../models/campaign-filter-details) | True  | A campaign filter details with updated field values.
 
 ### Return type
-
 [**CampaignFilterDetails**](../models/campaign-filter-details)
 
 ### Responses
@@ -284,7 +268,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -309,10 +292,12 @@ $CampaignFilterDetails = @"{
     "suppressMatchedItems" : false
   } ]
 }"@
+
 # Updates a Campaign Filter
+
 try {
     $Result = ConvertFrom-JsonToCampaignFilterDetails -Json $CampaignFilterDetails
-    Update-CampaignFilter-FilterId $FilterId -CampaignFilterDetails $Result
+    Update-CampaignFilter -FilterId $FilterId  -CampaignFilterDetails $Result
     
     # Below is a request that includes all optional parameters
     # Update-CampaignFilter -FilterId $FilterId -CampaignFilterDetails $CampaignFilterDetails  
@@ -321,7 +306,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

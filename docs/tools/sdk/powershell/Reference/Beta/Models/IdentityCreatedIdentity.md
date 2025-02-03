@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'IdentityCreatedIdentity', 'BetaIdenti
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |   **Enum** [  "IDENTITY" ] | Created identity's DTO type. | [required]
-**Id** |  **String** | Created identity ID. | [required]
-**Name** |  **String** | Created identity's display name. | [required]
+**Type** |  **Enum** [  "IDENTITY" ] | Created identity's DTO type. | [required]
+**Id** | **String** | Created identity ID. | [required]
+**Name** | **String** | Created identity's display name. | [required]
 
 ## Examples
 

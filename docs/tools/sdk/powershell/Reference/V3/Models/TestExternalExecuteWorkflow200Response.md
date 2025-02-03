@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'TestExternalExecuteWorkflow200Respons
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Payload** |  Pointer to [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | The input that was received | [optional] 
+**Payload** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | The input that was received | [optional] 
 
 ## Examples
 

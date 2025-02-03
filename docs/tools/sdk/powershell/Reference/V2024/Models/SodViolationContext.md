@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'SodViolationContext', 'V2024SodViolat
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Policy** |  Pointer to [**SodPolicyDto**](sod-policy-dto) |  | [optional] 
-**ConflictingAccessCriteria** |  Pointer to [**SodViolationContextConflictingAccessCriteria**](sod-violation-context-conflicting-access-criteria) |  | [optional] 
+**Policy** | [**SodPolicyDto**](sod-policy-dto) |  | [optional] 
+**ConflictingAccessCriteria** | [**SodViolationContextConflictingAccessCriteria**](sod-violation-context-conflicting-access-criteria) |  | [optional] 
 
 ## Examples
 

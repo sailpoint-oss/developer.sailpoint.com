@@ -16,15 +16,15 @@ tags: ['SDK', 'Software Development Kit', 'WorkflowLibraryOperator', 'WorkflowLi
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | Operator ID. | [optional] 
-**Name** |  Pointer to **String** | Operator friendly name | [optional] 
-**Type** |  Pointer to **String** | Operator type | [optional] 
-**Description** |  Pointer to **String** | Description of the operator | [optional] 
-**IsDynamicSchema** |  Pointer to **Boolean** | Determines whether the dynamic output schema is returned in place of the action's output schema. The dynamic schema lists non-static properties, like properties of a workflow form where each form has different fields. These will be provided dynamically based on available form fields. | [optional] 
-**Deprecated** |  Pointer to **Boolean** |  | [optional] 
-**DeprecatedBy** |  Pointer to **System.DateTime** |  | [optional] 
-**IsSimulationEnabled** |  Pointer to **Boolean** |  | [optional] 
-**FormFields** |  Pointer to [**[]WorkflowLibraryFormFields**](workflow-library-form-fields) | One or more inputs that the operator accepts | [optional] 
+**Id** | **String** | Operator ID. | [optional] 
+**Name** | **String** | Operator friendly name | [optional] 
+**Type** | **String** | Operator type | [optional] 
+**Description** | **String** | Description of the operator | [optional] 
+**IsDynamicSchema** | **Boolean** | Determines whether the dynamic output schema is returned in place of the action's output schema. The dynamic schema lists non-static properties, like properties of a workflow form where each form has different fields. These will be provided dynamically based on available form fields. | [optional] 
+**Deprecated** | **Boolean** |  | [optional] 
+**DeprecatedBy** | **System.DateTime** |  | [optional] 
+**IsSimulationEnabled** | **Boolean** |  | [optional] 
+**FormFields** | [**[]WorkflowLibraryFormFields**](workflow-library-form-fields) | One or more inputs that the operator accepts | [optional] 
 
 ## Examples
 

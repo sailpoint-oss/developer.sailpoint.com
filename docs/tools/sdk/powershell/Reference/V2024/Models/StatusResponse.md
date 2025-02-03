@@ -16,11 +16,11 @@ tags: ['SDK', 'Software Development Kit', 'StatusResponse', 'V2024StatusResponse
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | ID of the source | [optional] [readonly] 
-**Name** |  Pointer to **String** | Name of the source | [optional] [readonly] 
-**Status** |  Pointer to  **Enum** [  "SUCCESS",    "FAILURE" ] | The status of the health check. | [optional] [readonly] 
-**ElapsedMillis** |  Pointer to **Int32** | The number of milliseconds spent on the entire request. | [optional] [readonly] 
-**Details** |  Pointer to [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | The document contains the results of the health check. The schema of this document depends on the type of source used.  | [optional] [readonly] 
+**Id** | **String** | ID of the source | [optional] [readonly] 
+**Name** | **String** | Name of the source | [optional] [readonly] 
+**Status** |  **Enum** [  "SUCCESS",    "FAILURE" ] | The status of the health check. | [optional] [readonly] 
+**ElapsedMillis** | **Int32** | The number of milliseconds spent on the entire request. | [optional] [readonly] 
+**Details** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | The document contains the results of the health check. The schema of this document depends on the type of source used.  | [optional] [readonly] 
 
 ## Examples
 

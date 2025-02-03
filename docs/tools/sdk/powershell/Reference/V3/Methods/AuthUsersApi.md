@@ -9,7 +9,6 @@ slug: /tools/sdk/powershell/v3/methods/auth-users
 tags: ['SDK', 'Software Development Kit', 'AuthUsers', 'AuthUsers']
 ---
 
-
 # AuthUsers
   Use this API to implement user authentication system functionality. 
 With this functionality in place, users can get a user&#39;s authentication system details, including their capabilities, and modify those capabilities. 
@@ -26,9 +25,7 @@ Method | HTTP request | Description
 [**Get-AuthUser**](#get-auth-user) | **GET** `/auth-users/{id}` | Auth User Details
 [**Update-AuthUser**](#patch-auth-user) | **PATCH** `/auth-users/{id}` | Auth User Update
 
-
 ## get-auth-user
-
 Return the specified user's authentication system details.
 
 ### Parameters 
@@ -37,7 +34,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | Identity ID
 
 ### Return type
-
 [**AuthUser**](../models/auth-user)
 
 ### Responses
@@ -52,16 +48,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Identity ID
+
 # Auth User Details
+
 try {
-    Get-AuthUser-Id $Id 
+    Get-AuthUser -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-AuthUser -Id $Id  
@@ -70,11 +67,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## patch-auth-user
-
 Use a PATCH request to update an existing user in the authentication system.
 Use this endpoint to modify these fields: 
   * `capabilities`
@@ -88,7 +82,6 @@ Path   | Id | **String** | True  | Identity ID
  Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | A list of auth user update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
 ### Return type
-
 [**AuthUser**](../models/auth-user)
 
 ### Responses
@@ -103,24 +96,24 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json-patch+json
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Identity ID
- # JsonPatchOperation[] | A list of auth user update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
  $JsonPatchOperation = @"{
   "op" : "replace",
   "path" : "/description",
   "value" : "New description"
-}"@ 
+}"@ # JsonPatchOperation[] | A list of auth user update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+ 
 
 # Auth User Update
+
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-AuthUser-Id $Id -JsonPatchOperation $Result
+    Update-AuthUser -Id $Id  -JsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-AuthUser -Id $Id -JsonPatchOperation $JsonPatchOperation  
@@ -129,7 +122,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

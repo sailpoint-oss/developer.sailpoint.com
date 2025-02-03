@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'ReportResultReference', 'BetaReportRe
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to  **Enum** [  "REPORT_RESULT" ] | SOD policy violation report result DTO type. | [optional] 
-**Id** |  Pointer to **String** | SOD policy violation report result ID. | [optional] 
-**Name** |  Pointer to **String** | Human-readable name of the SOD policy violation report result. | [optional] 
-**Status** |  Pointer to  **Enum** [  "SUCCESS",    "WARNING",    "ERROR",    "TERMINATED",    "TEMP_ERROR",    "PENDING" ] | Status of a SOD policy violation report. | [optional] 
+**Type** |  **Enum** [  "REPORT_RESULT" ] | SOD policy violation report result DTO type. | [optional] 
+**Id** | **String** | SOD policy violation report result ID. | [optional] 
+**Name** | **String** | Human-readable name of the SOD policy violation report result. | [optional] 
+**Status** |  **Enum** [  "SUCCESS",    "WARNING",    "ERROR",    "TERMINATED",    "TEMP_ERROR",    "PENDING" ] | Status of a SOD policy violation report. | [optional] 
 
 ## Examples
 

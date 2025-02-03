@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'MultiPolicyRequest', 'BetaMultiPolicy
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**FilteredPolicyList** |  Pointer to **[]String** | Multi-policy report will be run for this list of ids | [optional] 
+**FilteredPolicyList** | **[]String** | Multi-policy report will be run for this list of ids | [optional] 
 
 ## Examples
 

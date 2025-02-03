@@ -9,7 +9,6 @@ slug: /tools/sdk/powershell/v3/methods/certifications
 tags: ['SDK', 'Software Development Kit', 'Certifications', 'Certifications']
 ---
 
-
 # Certifications
   Use this API to implement certification functionality. 
 With this functionality in place, administrators and designated certification reviewers can review users&#39; access certifications and decide whether to approve access, revoke it, or reassign the review to another reviewer. 
@@ -53,9 +52,7 @@ Method | HTTP request | Description
 [**Invoke-SignOffIdentityCertification**](#sign-off-identity-certification) | **POST** `/certifications/{id}/sign-off` | Finalize Identity Certification Decisions
 [**Submit-ReassignCertsAsync**](#submit-reassign-certs-async) | **POST** `/certifications/{id}/reassign-async` | Reassign Certifications Asynchronously
 
-
 ## get-certification-task
-
 This API returns the certification task for the specified ID. Reviewers for the specified certification can also call this API.
 
 ### Parameters 
@@ -64,7 +61,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | The task ID
 
 ### Return type
-
 [**CertificationTask**](../models/certification-task)
 
 ### Responses
@@ -79,16 +75,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "63b32151-26c0-42f4-9299-8898dc1c9daa" # String | The task ID
+
 # Certification Task by ID
+
 try {
-    Get-CertificationTask-Id $Id 
+    Get-CertificationTask -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-CertificationTask -Id $Id  
@@ -97,11 +94,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-identity-certification
-
 This API returns a single identity campaign certification by its ID. Reviewers for this certification can also call this API. This API does not support requests for certifications assigned to Governance Groups.
 
 ### Parameters 
@@ -110,7 +104,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | The certification id
 
 ### Return type
-
 [**IdentityCertificationDto**](../models/identity-certification-dto)
 
 ### Responses
@@ -125,16 +118,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The certification id
+
 # Identity Certification by ID
+
 try {
-    Get-IdentityCertification-Id $Id 
+    Get-IdentityCertification -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-IdentityCertification -Id $Id  
@@ -143,11 +137,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-identity-certification-item-permissions
-
 This API returns the permissions associated with an entitlement certification item based on the certification item's ID. Reviewers for this certification can also call this API.
 
 ### Parameters 
@@ -161,7 +152,6 @@ Path   | ItemId | **String** | True  | The certification item ID
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-
 [**PermissionDto[]**](../models/permission-dto)
 
 ### Responses
@@ -176,7 +166,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -188,9 +177,11 @@ $Filters = 'target eq "SYS.OBJAUTH2"' # String | Filter results using the standa
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+
 # Permissions for Entitlement Certification Item
+
 try {
-    Get-IdentityCertificationItemPermissions-CertificationId $CertificationId -ItemId $ItemId 
+    Get-IdentityCertificationItemPermissions -CertificationId $CertificationId  -ItemId $ItemId 
     
     # Below is a request that includes all optional parameters
     # Get-IdentityCertificationItemPermissions -CertificationId $CertificationId -ItemId $ItemId -Filters $Filters -Limit $Limit -Offset $Offset -Count $Count  
@@ -199,11 +190,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-pending-certification-tasks
-
 This API returns a list of pending (`QUEUED` or `IN_PROGRESS`) certification tasks. Any authenticated token can call this API, but only certification tasks you are authorized to review will be returned.
 
 ### Parameters 
@@ -216,7 +204,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **targetId**: *eq, in*  **type**: *eq, in*
 
 ### Return type
-
 [**CertificationTask[]**](../models/certification-task)
 
 ### Responses
@@ -231,7 +218,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -242,7 +228,9 @@ $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Col
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Filters = 'type eq "ADMIN_REASSIGN"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **targetId**: *eq, in*  **type**: *eq, in* (optional)
+
 # List of Pending Certification Tasks
+
 try {
     Get-PendingCertificationTasks
     
@@ -253,11 +241,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-certification-reviewers
-
 This API returns a list of reviewers for the certification. Reviewers for this certification can also call this API.
 
 ### Parameters 
@@ -271,7 +256,6 @@ Path   | Id | **String** | True  | The certification ID
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, email**
 
 ### Return type
-
 [**IdentityReferenceWithNameAndEmail[]**](../models/identity-reference-with-name-and-email)
 
 ### Responses
@@ -286,7 +270,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -298,9 +281,11 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Filters = 'name eq "Bob"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **email**: *eq, sw* (optional)
 $Sorters = "name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, email** (optional)
+
 # List of Reviewers for certification
+
 try {
-    Get-CertificationReviewers-Id $Id 
+    Get-CertificationReviewers -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-CertificationReviewers -Id $Id -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
@@ -309,11 +294,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-identity-access-review-items
-
 This API returns a list of access review items for an identity campaign certification. Reviewers for this certification can also call this API. This API does not support requests for certifications assigned to Governance Groups.
 
 ### Parameters 
@@ -330,7 +312,6 @@ Path   | Id | **String** | True  | The identity campaign certification ID
   Query | Roles | **String** |   (optional) | Filter results to view access review items that pertain to any of the specified comma-separated role IDs.  An error will occur if this param is used with **entitlements** or **access-profiles** as only one of these query params can be used at a time.
 
 ### Return type
-
 [**AccessReviewItem[]**](../models/access-review-item)
 
 ### Responses
@@ -345,7 +326,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -360,9 +340,11 @@ $Sorters = "access.name,-accessProfile.sourceName" # String | Sort results using
 $Entitlements = "identityEntitlement" # String | Filter results to view access review items that pertain to any of the specified comma-separated entitlement IDs.  An error will occur if this param is used with **access-profiles** or **roles** as only one of these query params can be used at a time. (optional)
 $AccessProfiles = "accessProfile1" # String | Filter results to view access review items that pertain to any of the specified comma-separated access-profle IDs.  An error will occur if this param is used with **entitlements** or **roles** as only one of these query params can be used at a time. (optional)
 $Roles = "userRole" # String | Filter results to view access review items that pertain to any of the specified comma-separated role IDs.  An error will occur if this param is used with **entitlements** or **access-profiles** as only one of these query params can be used at a time. (optional)
+
 # List of Access Review Items
+
 try {
-    Get-IdentityAccessReviewItems-Id $Id 
+    Get-IdentityAccessReviewItems -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-IdentityAccessReviewItems -Id $Id -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters -Entitlements $Entitlements -AccessProfiles $AccessProfiles -Roles $Roles  
@@ -371,11 +353,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-identity-certifications
-
 Use this API to get a list of identity campaign certifications for the specified query parameters. Any authenticated token can call this API, but only certifications you are authorized to review will be returned. This API does not support requests for certifications assigned to governance groups.
 
 ### Parameters 
@@ -389,7 +368,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, due, signed**
 
 ### Return type
-
 [**IdentityCertificationDto[]**](../models/identity-certification-dto)
 
 ### Responses
@@ -403,7 +381,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -415,7 +392,9 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Filters = 'id eq "ef38f94347e94562b5bb8424a56397d8"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **campaign.id**: *eq, in*  **phase**: *eq*  **completed**: *eq* (optional)
 $Sorters = "name,due" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, due, signed** (optional)
+
 # List Identity Campaign Certifications
+
 try {
     Get-IdentityCertifications
     
@@ -426,11 +405,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## make-identity-decision
-
 The API makes a decision to approve or revoke one or more identity campaign certification items. Reviewers for this certification can also call this API. This API does not support requests for certifications assigned to Governance Groups.
 
 ### Parameters 
@@ -440,7 +416,6 @@ Path   | Id | **String** | True  | The ID of the identity campaign certification
  Body  | ReviewDecision | [**[]ReviewDecision**](../models/review-decision) | True  | A non-empty array of decisions to be made.
 
 ### Return type
-
 [**IdentityCertificationDto**](../models/identity-certification-dto)
 
 ### Responses
@@ -455,14 +430,12 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the identity campaign certification on which to make decisions
- # ReviewDecision[] | A non-empty array of decisions to be made.
  $ReviewDecision = @"{
   "comments" : "This user no longer needs access to this source",
   "decision" : "APPROVE",
@@ -474,12 +447,14 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the identity campa
   },
   "id" : "ef38f94347e94562b5bb8424a56397d8",
   "bulk" : true
-}"@ 
+}"@ # ReviewDecision[] | A non-empty array of decisions to be made.
+ 
 
 # Decide on a Certification Item
+
 try {
     $Result = ConvertFrom-JsonToReviewDecision -Json $ReviewDecision
-    Select-IdentityDecision-Id $Id -ReviewDecision $Result
+    Select-IdentityDecision -Id $Id  -ReviewDecision $Result
     
     # Below is a request that includes all optional parameters
     # Select-IdentityDecision -Id $Id -ReviewDecision $ReviewDecision  
@@ -488,11 +463,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## reassign-identity-certifications
-
 This API reassigns up to 50 identities or items in an identity campaign certification to another reviewer. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API. This API does not support requests for certifications assigned to Governance Groups.
 
 ### Parameters 
@@ -502,7 +474,6 @@ Path   | Id | **String** | True  | The identity campaign certification ID
  Body  | ReviewReassign | [**ReviewReassign**](../models/review-reassign) | True  | 
 
 ### Return type
-
 [**IdentityCertificationDto**](../models/identity-certification-dto)
 
 ### Responses
@@ -517,7 +488,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -535,10 +505,12 @@ $ReviewReassign = @"{
     "type" : "ITEM"
   } ]
 }"@
+
 # Reassign Identities or Items
+
 try {
     $Result = ConvertFrom-JsonToReviewReassign -Json $ReviewReassign
-    Invoke-ReassignIdentityCertifications-Id $Id -ReviewReassign $Result
+    Invoke-ReassignIdentityCertifications -Id $Id  -ReviewReassign $Result
     
     # Below is a request that includes all optional parameters
     # Invoke-ReassignIdentityCertifications -Id $Id -ReviewReassign $ReviewReassign  
@@ -547,11 +519,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## sign-off-identity-certification
-
 This API finalizes all decisions made on an identity campaign certification and initiates any remediations required. Reviewers for this certification can also call this API. This API does not support requests for certifications assigned to Governance Groups.
 
 ### Parameters 
@@ -560,7 +529,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | The identity campaign certification ID
 
 ### Return type
-
 [**IdentityCertificationDto**](../models/identity-certification-dto)
 
 ### Responses
@@ -575,16 +543,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The identity campaign certification ID
+
 # Finalize Identity Certification Decisions
+
 try {
-    Invoke-SignOffIdentityCertification-Id $Id 
+    Invoke-SignOffIdentityCertification -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Invoke-SignOffIdentityCertification -Id $Id  
@@ -593,11 +562,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## submit-reassign-certs-async
-
 This API initiates a task to reassign up to 500 identities or items in an identity campaign certification to another
 reviewer. The `certification-tasks` API can be used to get an updated status on the task and determine when the
 reassignment is complete. 
@@ -612,7 +578,6 @@ Path   | Id | **String** | True  | The identity campaign certification ID
  Body  | ReviewReassign | [**ReviewReassign**](../models/review-reassign) | True  | 
 
 ### Return type
-
 [**CertificationTask**](../models/certification-task)
 
 ### Responses
@@ -627,7 +592,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -645,10 +609,12 @@ $ReviewReassign = @"{
     "type" : "ITEM"
   } ]
 }"@
+
 # Reassign Certifications Asynchronously
+
 try {
     $Result = ConvertFrom-JsonToReviewReassign -Json $ReviewReassign
-    Submit-ReassignCertsAsync-Id $Id -ReviewReassign $Result
+    Submit-ReassignCertsAsync -Id $Id  -ReviewReassign $Result
     
     # Below is a request that includes all optional parameters
     # Submit-ReassignCertsAsync -Id $Id -ReviewReassign $ReviewReassign  
@@ -657,7 +623,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

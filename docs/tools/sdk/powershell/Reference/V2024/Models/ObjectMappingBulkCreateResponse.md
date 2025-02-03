@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'ObjectMappingBulkCreateResponse', 'V2
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AddedObjects** |  Pointer to [**[]ObjectMappingResponse**](object-mapping-response) |  | [optional] 
+**AddedObjects** | [**[]ObjectMappingResponse**](object-mapping-response) |  | [optional] 
 
 ## Examples
 

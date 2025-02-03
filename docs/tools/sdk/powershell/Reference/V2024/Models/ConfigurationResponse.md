@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'ConfigurationResponse', 'V2024Configu
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Identity** |  Pointer to [**Identity1**](identity1) |  | [optional] 
-**ConfigDetails** |  Pointer to [**[]ConfigurationDetailsResponse**](configuration-details-response) | Details of how work should be reassigned for an Identity | [optional] 
+**Identity** | [**Identity1**](identity1) |  | [optional] 
+**ConfigDetails** | [**[]ConfigurationDetailsResponse**](configuration-details-response) | Details of how work should be reassigned for an Identity | [optional] 
 
 ## Examples
 

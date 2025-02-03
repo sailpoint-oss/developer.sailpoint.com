@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'SourceCode', 'V2024SourceCode']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Version** |  **String** | the version of the code | [required]
-**Script** |  **String** | The code | [required]
+**Version** | **String** | the version of the code | [required]
+**Script** | **String** | The code | [required]
 
 ## Examples
 

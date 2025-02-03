@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'SpConfigImportResults', 'BetaSpConfig
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Results** |  [**map[string]ObjectImportResult**](object-import-result) | The results of an object configuration import job. | [required]
-**ExportJobId** |  Pointer to **String** | If a backup was performed before the import, this will contain the jobId of the backup job. This id can be used to retrieve the json file of the backup export. | [optional] 
+**Results** | [**map[string]ObjectImportResult**](object-import-result) | The results of an object configuration import job. | [required]
+**ExportJobId** | **String** | If a backup was performed before the import, this will contain the jobId of the backup job. This id can be used to retrieve the json file of the backup export. | [optional] 
 
 ## Examples
 

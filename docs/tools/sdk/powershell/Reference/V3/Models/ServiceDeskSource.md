@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'ServiceDeskSource', 'ServiceDeskSourc
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to  **Enum** [  "SOURCE" ] | DTO type of source for service desk integration template. | [optional] 
-**Id** |  Pointer to **String** | ID of source for service desk integration template. | [optional] 
-**Name** |  Pointer to **String** | Human-readable name of source for service desk integration template. | [optional] 
+**Type** |  **Enum** [  "SOURCE" ] | DTO type of source for service desk integration template. | [optional] 
+**Id** | **String** | ID of source for service desk integration template. | [optional] 
+**Name** | **String** | Human-readable name of source for service desk integration template. | [optional] 
 
 ## Examples
 

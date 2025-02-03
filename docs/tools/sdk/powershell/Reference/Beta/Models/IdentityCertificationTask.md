@@ -16,11 +16,11 @@ tags: ['SDK', 'Software Development Kit', 'IdentityCertificationTask', 'BetaIden
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | The task id | [optional] 
-**CertificationId** |  Pointer to **String** | The certification id | [optional] 
-**Type** |  Pointer to  **Enum** [  "REASSIGN" ] |  | [optional] 
-**Status** |  Pointer to  **Enum** [  "QUEUED",    "IN_PROGRESS",    "SUCCESS",    "ERROR" ] |  | [optional] 
-**Errors** |  Pointer to **[]String** | Any errors executing the task (Optional). | [optional] 
+**Id** | **String** | The task id | [optional] 
+**CertificationId** | **String** | The certification id | [optional] 
+**Type** |  **Enum** [  "REASSIGN" ] |  | [optional] 
+**Status** |  **Enum** [  "QUEUED",    "IN_PROGRESS",    "SUCCESS",    "ERROR" ] |  | [optional] 
+**Errors** | **[]String** | Any errors executing the task (Optional). | [optional] 
 
 ## Examples
 

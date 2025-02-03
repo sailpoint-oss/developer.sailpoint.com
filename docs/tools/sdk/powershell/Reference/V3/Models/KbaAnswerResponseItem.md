@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'KbaAnswerResponseItem', 'KbaAnswerRes
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  **String** | Question Id | [required]
-**Question** |  **String** | Question description | [required]
-**HasAnswer** |  **Boolean** | Denotes whether the KBA question has an answer configured for the current user | [required]
+**Id** | **String** | Question Id | [required]
+**Question** | **String** | Question description | [required]
+**HasAnswer** | **Boolean** | Denotes whether the KBA question has an answer configured for the current user | [required]
 
 ## Examples
 

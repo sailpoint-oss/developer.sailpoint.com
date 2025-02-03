@@ -16,12 +16,12 @@ tags: ['SDK', 'Software Development Kit', 'NativeChangeDetectionConfig', 'BetaNa
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Enabled** |  Pointer to **Boolean** | A flag indicating if Native Change Detection is enabled for a source. | [optional] [default to $false]
-**Operations** |  Pointer to **[]String** | Operation types for which Native Change Detection is enabled for a source. | [optional] 
-**AllEntitlements** |  Pointer to **Boolean** | A flag indicating that all entitlements participate in Native Change Detection. | [optional] [default to $false]
-**AllNonEntitlementAttributes** |  Pointer to **Boolean** | A flag indicating that all non-entitlement account attributes participate in Native Change Detection. | [optional] [default to $false]
-**SelectedEntitlements** |  Pointer to **[]String** | If allEntitlements flag is off this field lists entitlements that participate in Native Change Detection. | [optional] 
-**SelectedNonEntitlementAttributes** |  Pointer to **[]String** | If allNonEntitlementAttributes flag is off this field lists non-entitlement account attributes that participate in Native Change Detection. | [optional] 
+**Enabled** | **Boolean** | A flag indicating if Native Change Detection is enabled for a source. | [optional] [default to $false]
+**Operations** | **[]String** | Operation types for which Native Change Detection is enabled for a source. | [optional] 
+**AllEntitlements** | **Boolean** | A flag indicating that all entitlements participate in Native Change Detection. | [optional] [default to $false]
+**AllNonEntitlementAttributes** | **Boolean** | A flag indicating that all non-entitlement account attributes participate in Native Change Detection. | [optional] [default to $false]
+**SelectedEntitlements** | **[]String** | If allEntitlements flag is off this field lists entitlements that participate in Native Change Detection. | [optional] 
+**SelectedNonEntitlementAttributes** | **[]String** | If allNonEntitlementAttributes flag is off this field lists non-entitlement account attributes that participate in Native Change Detection. | [optional] 
 
 ## Examples
 

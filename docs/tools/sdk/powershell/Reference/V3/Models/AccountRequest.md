@@ -16,12 +16,12 @@ tags: ['SDK', 'Software Development Kit', 'AccountRequest', 'AccountRequest']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccountId** |  Pointer to **String** | Unique ID of the account | [optional] 
-**AttributeRequests** |  Pointer to [**[]AttributeRequest**](attribute-request) |  | [optional] 
-**Op** |  Pointer to **String** | The operation that was performed | [optional] 
-**ProvisioningTarget** |  Pointer to [**AccountSource**](account-source) |  | [optional] 
-**Result** |  Pointer to [**AccountRequestResult**](account-request-result) |  | [optional] 
-**Source** |  Pointer to [**AccountSource**](account-source) |  | [optional] 
+**AccountId** | **String** | Unique ID of the account | [optional] 
+**AttributeRequests** | [**[]AttributeRequest**](attribute-request) |  | [optional] 
+**Op** | **String** | The operation that was performed | [optional] 
+**ProvisioningTarget** | [**AccountSource**](account-source) |  | [optional] 
+**Result** | [**AccountRequestResult**](account-request-result) |  | [optional] 
+**Source** | [**AccountSource**](account-source) |  | [optional] 
 
 ## Examples
 

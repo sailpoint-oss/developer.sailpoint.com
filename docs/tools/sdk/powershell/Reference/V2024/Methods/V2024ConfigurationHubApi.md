@@ -9,7 +9,6 @@ slug: /tools/sdk/powershell/v2024/methods/configuration-hub
 tags: ['SDK', 'Software Development Kit', 'ConfigurationHub', 'V2024ConfigurationHub']
 ---
 
-
 # ConfigurationHub
   Use this API to implement and customize configuration settings management. With this functionality, you can access the Configuration Hub actions and build your own automated pipeline for Identity Security Cloud configuration change delivery and deployment.
 
@@ -46,9 +45,7 @@ Method | HTTP request | Description
 [**Get-V2024UploadedConfigurations**](#list-uploaded-configurations) | **GET** `/configuration-hub/backups/uploads` | List Uploaded Configurations
 [**Update-V2024ObjectMappings**](#update-object-mappings) | **POST** `/configuration-hub/object-mappings/{sourceOrg}/bulk-patch` | Bulk updates object mappings
 
-
 ## create-deploy
-
 This API performs a deploy based on an existing daft.
 
 ### Parameters 
@@ -57,7 +54,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | DeployRequest | [**DeployRequest**](../models/deploy-request) | True  | The deploy request body.
 
 ### Return type
-
 [**DeployResponse**](../models/deploy-response)
 
 ### Responses
@@ -71,7 +67,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -80,10 +75,12 @@ Code | Description  | Data Type
 $DeployRequest = @"{
   "draftId" : "3d0fe04b-57df-4a46-a83b-8f04b0f9d10b"
 }"@
+
 # Create a Deploy
+
 try {
     $Result = ConvertFrom-JsonToDeployRequest -Json $DeployRequest
-    New-V2024Deploy-V2024DeployRequest $Result
+    New-V2024Deploy -V2024DeployRequest $Result
     
     # Below is a request that includes all optional parameters
     # New-V2024Deploy -V2024DeployRequest $DeployRequest  
@@ -92,11 +89,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## create-object-mapping
-
 This creates an object mapping between current org and source org.
 Source org should be "default" when creating an object mapping that is not to be associated to any particular org.
 The request will need the following security scope:
@@ -109,7 +103,6 @@ Path   | SourceOrg | **String** | True  | The name of the source org.
  Body  | ObjectMappingRequest | [**ObjectMappingRequest**](../models/object-mapping-request) | True  | The object mapping request body.
 
 ### Return type
-
 [**ObjectMappingResponse**](../models/object-mapping-response)
 
 ### Responses
@@ -124,7 +117,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -138,10 +130,12 @@ $ObjectMappingRequest = @"{
   "enabled" : false,
   "objectType" : "IDENTITY"
 }"@
+
 # Creates an object mapping
+
 try {
     $Result = ConvertFrom-JsonToObjectMappingRequest -Json $ObjectMappingRequest
-    New-V2024ObjectMapping-V2024SourceOrg $SourceOrg -V2024ObjectMappingRequest $Result
+    New-V2024ObjectMapping -V2024SourceOrg $SourceOrg  -V2024ObjectMappingRequest $Result
     
     # Below is a request that includes all optional parameters
     # New-V2024ObjectMapping -V2024SourceOrg $SourceOrg -V2024ObjectMappingRequest $ObjectMappingRequest  
@@ -150,11 +144,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## create-object-mappings
-
 This creates a set of object mappings (Max 25) between current org and source org.
 Source org should be "default" when creating object mappings that are not to be associated to any particular org.
 The request will need the following security scope:
@@ -167,7 +158,6 @@ Path   | SourceOrg | **String** | True  | The name of the source org.
  Body  | ObjectMappingBulkCreateRequest | [**ObjectMappingBulkCreateRequest**](../models/object-mapping-bulk-create-request) | True  | The bulk create object mapping request body.
 
 ### Return type
-
 [**ObjectMappingBulkCreateResponse**](../models/object-mapping-bulk-create-response)
 
 ### Responses
@@ -182,7 +172,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -204,10 +193,12 @@ $ObjectMappingBulkCreateRequest = @"{
     "objectType" : "IDENTITY"
   } ]
 }"@
+
 # Bulk creates object mappings
+
 try {
     $Result = ConvertFrom-JsonToObjectMappingBulkCreateRequest -Json $ObjectMappingBulkCreateRequest
-    New-V2024ObjectMappings-V2024SourceOrg $SourceOrg -V2024ObjectMappingBulkCreateRequest $Result
+    New-V2024ObjectMappings -V2024SourceOrg $SourceOrg  -V2024ObjectMappingBulkCreateRequest $Result
     
     # Below is a request that includes all optional parameters
     # New-V2024ObjectMappings -V2024SourceOrg $SourceOrg -V2024ObjectMappingBulkCreateRequest $ObjectMappingBulkCreateRequest  
@@ -216,11 +207,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## create-uploaded-configuration
-
 This API uploads a JSON configuration file into a tenant.
 
 Configuration files can be managed and deployed via Configuration Hub by uploading a json file which contains configuration data. The JSON file should be the same as the one used by our import endpoints. The object types supported by upload configuration file functionality are the same as the ones supported by our regular backup functionality.
@@ -234,7 +222,6 @@ Param Type | Name | Data Type | Required  | Description
    | Name | **String** | True  | Name that will be assigned to the uploaded configuration file.
 
 ### Return type
-
 [**BackupResponse**](../models/backup-response)
 
 ### Responses
@@ -248,7 +235,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: multipart/form-data
 - **Accept**: application/json
 
@@ -256,9 +242,11 @@ Code | Description  | Data Type
 ```powershell
 $Data =  # System.IO.FileInfo | JSON file containing the objects to be imported.
 $Name = "MyName" # String | Name that will be assigned to the uploaded configuration file.
+
 # Upload a Configuration
+
 try {
-    New-V2024UploadedConfiguration-V2024Data $Data -V2024Name $Name 
+    New-V2024UploadedConfiguration -V2024Data $Data  -V2024Name $Name 
     
     # Below is a request that includes all optional parameters
     # New-V2024UploadedConfiguration -V2024Data $Data -V2024Name $Name  
@@ -267,11 +255,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## delete-backup
-
 This API deletes an existing backup for the current tenant.
 
 On success, this endpoint will return an empty response.
@@ -284,7 +269,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | The id of the backup to delete.
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -299,16 +283,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "07659d7d-2cce-47c0-9e49-185787ee565a" # String | The id of the backup to delete.
+
 # Delete a Backup
+
 try {
-    Remove-V2024Backup-V2024Id $Id 
+    Remove-V2024Backup -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024Backup -V2024Id $Id  
@@ -317,11 +302,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## delete-draft
-
 This API deletes an existing draft for the current tenant.
 
 On success, this endpoint will return an empty response.
@@ -334,7 +316,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | The id of the draft to delete.
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -349,16 +330,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "07659d7d-2cce-47c0-9e49-185787ee565a" # String | The id of the draft to delete.
+
 # Delete a draft
+
 try {
-    Remove-V2024Draft-V2024Id $Id 
+    Remove-V2024Draft -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024Draft -V2024Id $Id  
@@ -367,11 +349,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## delete-object-mapping
-
 This deletes an existing object mapping.
 Source org should be "default" when deleting an object mapping that is not associated to any particular org.
 The request will need the following security scope:
@@ -384,7 +363,6 @@ Path   | SourceOrg | **String** | True  | The name of the source org.
 Path   | ObjectMappingId | **String** | True  | The id of the object mapping to be deleted.
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -399,7 +377,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -407,9 +384,11 @@ Code | Description  | Data Type
 ```powershell
 $SourceOrg = "source-org" # String | The name of the source org.
 $ObjectMappingId = "3d6e0144-963f-4bd6-8d8d-d77b4e507ce4" # String | The id of the object mapping to be deleted.
+
 # Deletes an object mapping
+
 try {
-    Remove-V2024ObjectMapping-V2024SourceOrg $SourceOrg -V2024ObjectMappingId $ObjectMappingId 
+    Remove-V2024ObjectMapping -V2024SourceOrg $SourceOrg  -V2024ObjectMappingId $ObjectMappingId 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024ObjectMapping -V2024SourceOrg $SourceOrg -V2024ObjectMappingId $ObjectMappingId  
@@ -418,11 +397,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## delete-uploaded-configuration
-
 This API deletes an uploaded configuration based on Id.
 
 On success, this endpoint will return an empty response.
@@ -435,7 +411,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | The id of the uploaded configuration.
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -450,16 +425,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "3d0fe04b-57df-4a46-a83b-8f04b0f9d10b" # String | The id of the uploaded configuration.
+
 # Delete an Uploaded Configuration
+
 try {
-    Remove-V2024UploadedConfiguration-V2024Id $Id 
+    Remove-V2024UploadedConfiguration -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-V2024UploadedConfiguration -V2024Id $Id  
@@ -468,11 +444,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-deploy
-
 This API gets an existing deploy for the current tenant.
 
 ### Parameters 
@@ -481,7 +454,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | The id of the deploy.
 
 ### Return type
-
 [**DeployResponse**](../models/deploy-response)
 
 ### Responses
@@ -496,16 +468,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "3d0fe04b-57df-4a46-a83b-8f04b0f9d10b" # String | The id of the deploy.
+
 # Get a Deploy
+
 try {
-    Get-V2024Deploy-V2024Id $Id 
+    Get-V2024Deploy -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-V2024Deploy -V2024Id $Id  
@@ -514,11 +487,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-object-mappings
-
 This gets a list of existing object mappings between current org and source org.
 Source org should be "default" when getting object mappings that are not associated to any particular org.
 The request will need the following security scope:
@@ -530,7 +500,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | SourceOrg | **String** | True  | The name of the source org.
 
 ### Return type
-
 [**ObjectMappingResponse[]**](../models/object-mapping-response)
 
 ### Responses
@@ -545,16 +514,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $SourceOrg = "source-org" # String | The name of the source org.
+
 # Gets list of object mappings
+
 try {
-    Get-V2024ObjectMappings-V2024SourceOrg $SourceOrg 
+    Get-V2024ObjectMappings -V2024SourceOrg $SourceOrg 
     
     # Below is a request that includes all optional parameters
     # Get-V2024ObjectMappings -V2024SourceOrg $SourceOrg  
@@ -563,11 +533,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-uploaded-configuration
-
 This API gets an existing uploaded configuration for the current tenant.
 
 ### Parameters 
@@ -576,7 +543,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | The id of the uploaded configuration.
 
 ### Return type
-
 [**BackupResponse**](../models/backup-response)
 
 ### Responses
@@ -591,16 +557,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "3d0fe04b-57df-4a46-a83b-8f04b0f9d10b" # String | The id of the uploaded configuration.
+
 # Get an Uploaded Configuration
+
 try {
-    Get-V2024UploadedConfiguration-V2024Id $Id 
+    Get-V2024UploadedConfiguration -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-V2024UploadedConfiguration -V2024Id $Id  
@@ -609,11 +576,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-backups
-
 This API gets a list of existing backups for the current tenant.
 
 ### Parameters 
@@ -622,7 +586,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq*
 
 ### Return type
-
 [**BackupResponse[]**](../models/backup-response)
 
 ### Responses
@@ -636,14 +599,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Filters = 'status eq "COMPLETE"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq* (optional)
+
 # List Backups
+
 try {
     Get-V2024Backups
     
@@ -654,11 +618,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-deploys
-
 This API gets a list of deploys for the current tenant.
 
 ### Parameters 
@@ -666,7 +627,6 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 
 ### Return type
-
 [**DeployResponse[]**](../models/deploy-response)
 
 ### Responses
@@ -680,13 +640,14 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
+
 # List Deploys
+
 try {
     Get-V2024Deploys
     
@@ -697,11 +658,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-drafts
-
 This API gets a list of existing drafts for the current tenant.
 
 ### Parameters 
@@ -710,7 +668,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq*  **approvalStatus**: *eq*
 
 ### Return type
-
 [**DraftResponse[]**](../models/draft-response)
 
 ### Responses
@@ -724,14 +681,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Filters = 'status eq "COMPLETE"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq*  **approvalStatus**: *eq* (optional)
+
 # List Drafts
+
 try {
     Get-V2024Drafts
     
@@ -742,11 +700,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-uploaded-configurations
-
 This API gets a list of existing uploaded configurations for the current tenant.
 
 ### Parameters 
@@ -755,7 +710,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq*
 
 ### Return type
-
 [**BackupResponse[]**](../models/backup-response)
 
 ### Responses
@@ -770,14 +724,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Filters = 'status eq "COMPLETE"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq* (optional)
+
 # List Uploaded Configurations
+
 try {
     Get-V2024UploadedConfigurations
     
@@ -788,11 +743,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## update-object-mappings
-
 This updates a set of object mappings, only enabled and targetValue fields can be updated.
 Source org should be "default" when updating object mappings that are not associated to any particular org.
 The request will need the following security scope:
@@ -805,7 +757,6 @@ Path   | SourceOrg | **String** | True  | The name of the source org.
  Body  | ObjectMappingBulkPatchRequest | [**ObjectMappingBulkPatchRequest**](../models/object-mapping-bulk-patch-request) | True  | The object mapping request body.
 
 ### Return type
-
 [**ObjectMappingBulkPatchResponse**](../models/object-mapping-bulk-patch-response)
 
 ### Responses
@@ -820,7 +771,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -841,10 +791,12 @@ $ObjectMappingBulkPatchRequest = @"{
     } ]
   }
 }"@
+
 # Bulk updates object mappings
+
 try {
     $Result = ConvertFrom-JsonToObjectMappingBulkPatchRequest -Json $ObjectMappingBulkPatchRequest
-    Update-V2024ObjectMappings-V2024SourceOrg $SourceOrg -V2024ObjectMappingBulkPatchRequest $Result
+    Update-V2024ObjectMappings -V2024SourceOrg $SourceOrg  -V2024ObjectMappingBulkPatchRequest $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024ObjectMappings -V2024SourceOrg $SourceOrg -V2024ObjectMappingBulkPatchRequest $ObjectMappingBulkPatchRequest  
@@ -853,7 +805,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

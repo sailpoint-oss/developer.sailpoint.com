@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'NonEmployeeApprovalSummary', 'BetaNon
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Approved** |  Pointer to **Decimal** | The number of approved non-employee approval requests. | [optional] 
-**Pending** |  Pointer to **Decimal** | The number of pending non-employee approval requests. | [optional] 
-**Rejected** |  Pointer to **Decimal** | The number of rejected non-employee approval requests. | [optional] 
+**Approved** | **Decimal** | The number of approved non-employee approval requests. | [optional] 
+**Pending** | **Decimal** | The number of pending non-employee approval requests. | [optional] 
+**Rejected** | **Decimal** | The number of rejected non-employee approval requests. | [optional] 
 
 ## Examples
 

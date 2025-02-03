@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'AccessProfileUsageUsedByInner', 'Acce
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to  **Enum** [  "ROLE" ] | DTO type of role using the access profile. | [optional] 
-**Id** |  Pointer to **String** | ID of role using the access profile. | [optional] 
-**Name** |  Pointer to **String** | Display name of role using the access profile. | [optional] 
+**Type** |  **Enum** [  "ROLE" ] | DTO type of role using the access profile. | [optional] 
+**Id** | **String** | ID of role using the access profile. | [optional] 
+**Name** | **String** | Display name of role using the access profile. | [optional] 
 
 ## Examples
 

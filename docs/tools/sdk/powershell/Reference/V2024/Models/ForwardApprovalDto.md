@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'ForwardApprovalDto', 'V2024ForwardApp
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**NewOwnerId** |  **String** | The Id of the new owner | [required]
-**Comment** |  **String** | The comment provided by the forwarder | [required]
+**NewOwnerId** | **String** | The Id of the new owner | [required]
+**Comment** | **String** | The comment provided by the forwarder | [required]
 
 ## Examples
 

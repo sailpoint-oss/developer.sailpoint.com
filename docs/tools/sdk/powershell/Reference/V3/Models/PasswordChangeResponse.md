@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'PasswordChangeResponse', 'PasswordCha
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**RequestId** |  Pointer to **String** | The password change request ID | [optional] 
-**State** |  Pointer to  **Enum** [  "IN_PROGRESS",    "FINISHED",    "FAILED" ] | Password change state | [optional] 
+**RequestId** | **String** | The password change request ID | [optional] 
+**State** |  **Enum** [  "IN_PROGRESS",    "FINISHED",    "FAILED" ] | Password change state | [optional] 
 
 ## Examples
 

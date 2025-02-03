@@ -9,7 +9,6 @@ slug: /tools/sdk/powershell/v3/methods/configuration-hub
 tags: ['SDK', 'Software Development Kit', 'ConfigurationHub', 'ConfigurationHub']
 ---
 
-
 # ConfigurationHub
   Upload configurations and manage object mappings between tenants.
 
@@ -37,9 +36,7 @@ Method | HTTP request | Description
 [**Get-UploadedConfigurations**](#list-uploaded-configurations) | **GET** `/configuration-hub/backups/uploads` | List Uploaded Configurations
 [**Update-ObjectMappings**](#update-object-mappings) | **POST** `/configuration-hub/object-mappings/{sourceOrg}/bulk-patch` | Bulk updates object mappings
 
-
 ## create-object-mapping
-
 This creates an object mapping between current org and source org.
 Source org should be "default" when creating an object mapping that is not to be associated to any particular org.
 The request will need the following security scope:
@@ -52,7 +49,6 @@ Path   | SourceOrg | **String** | True  | The name of the source org.
  Body  | ObjectMappingRequest | [**ObjectMappingRequest**](../models/object-mapping-request) | True  | The object mapping request body.
 
 ### Return type
-
 [**ObjectMappingResponse**](../models/object-mapping-response)
 
 ### Responses
@@ -67,7 +63,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -81,10 +76,12 @@ $ObjectMappingRequest = @"{
   "enabled" : false,
   "objectType" : "IDENTITY"
 }"@
+
 # Creates an object mapping
+
 try {
     $Result = ConvertFrom-JsonToObjectMappingRequest -Json $ObjectMappingRequest
-    New-ObjectMapping-SourceOrg $SourceOrg -ObjectMappingRequest $Result
+    New-ObjectMapping -SourceOrg $SourceOrg  -ObjectMappingRequest $Result
     
     # Below is a request that includes all optional parameters
     # New-ObjectMapping -SourceOrg $SourceOrg -ObjectMappingRequest $ObjectMappingRequest  
@@ -93,11 +90,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## create-object-mappings
-
 This creates a set of object mappings (Max 25) between current org and source org.
 Source org should be "default" when creating object mappings that are not to be associated to any particular org.
 The request will need the following security scope:
@@ -110,7 +104,6 @@ Path   | SourceOrg | **String** | True  | The name of the source org.
  Body  | ObjectMappingBulkCreateRequest | [**ObjectMappingBulkCreateRequest**](../models/object-mapping-bulk-create-request) | True  | The bulk create object mapping request body.
 
 ### Return type
-
 [**ObjectMappingBulkCreateResponse**](../models/object-mapping-bulk-create-response)
 
 ### Responses
@@ -125,7 +118,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -147,10 +139,12 @@ $ObjectMappingBulkCreateRequest = @"{
     "objectType" : "IDENTITY"
   } ]
 }"@
+
 # Bulk creates object mappings
+
 try {
     $Result = ConvertFrom-JsonToObjectMappingBulkCreateRequest -Json $ObjectMappingBulkCreateRequest
-    New-ObjectMappings-SourceOrg $SourceOrg -ObjectMappingBulkCreateRequest $Result
+    New-ObjectMappings -SourceOrg $SourceOrg  -ObjectMappingBulkCreateRequest $Result
     
     # Below is a request that includes all optional parameters
     # New-ObjectMappings -SourceOrg $SourceOrg -ObjectMappingBulkCreateRequest $ObjectMappingBulkCreateRequest  
@@ -159,11 +153,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## create-uploaded-configuration
-
 This API uploads a JSON configuration file into a tenant.
 
 Configuration files can be managed and deployed via Configuration Hub by uploading a json file which contains configuration data. The JSON file should be the same as the one used by our import endpoints. The object types supported by upload configuration file functionality are the same as the ones supported by our regular backup functionality.
@@ -177,7 +168,6 @@ Param Type | Name | Data Type | Required  | Description
    | Name | **String** | True  | Name that will be assigned to the uploaded configuration file.
 
 ### Return type
-
 [**BackupResponse**](../models/backup-response)
 
 ### Responses
@@ -191,7 +181,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: multipart/form-data
 - **Accept**: application/json
 
@@ -199,9 +188,11 @@ Code | Description  | Data Type
 ```powershell
 $Data =  # System.IO.FileInfo | JSON file containing the objects to be imported.
 $Name = "MyName" # String | Name that will be assigned to the uploaded configuration file.
+
 # Upload a Configuration
+
 try {
-    New-UploadedConfiguration-Data $Data -Name $Name 
+    New-UploadedConfiguration -Data $Data  -Name $Name 
     
     # Below is a request that includes all optional parameters
     # New-UploadedConfiguration -Data $Data -Name $Name  
@@ -210,11 +201,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## delete-object-mapping
-
 This deletes an existing object mapping.
 Source org should be "default" when deleting an object mapping that is not associated to any particular org.
 The request will need the following security scope:
@@ -227,7 +215,6 @@ Path   | SourceOrg | **String** | True  | The name of the source org.
 Path   | ObjectMappingId | **String** | True  | The id of the object mapping to be deleted.
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -242,7 +229,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -250,9 +236,11 @@ Code | Description  | Data Type
 ```powershell
 $SourceOrg = "source-org" # String | The name of the source org.
 $ObjectMappingId = "3d6e0144-963f-4bd6-8d8d-d77b4e507ce4" # String | The id of the object mapping to be deleted.
+
 # Deletes an object mapping
+
 try {
-    Remove-ObjectMapping-SourceOrg $SourceOrg -ObjectMappingId $ObjectMappingId 
+    Remove-ObjectMapping -SourceOrg $SourceOrg  -ObjectMappingId $ObjectMappingId 
     
     # Below is a request that includes all optional parameters
     # Remove-ObjectMapping -SourceOrg $SourceOrg -ObjectMappingId $ObjectMappingId  
@@ -261,11 +249,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## delete-uploaded-configuration
-
 This API deletes an uploaded configuration based on Id.
 
 On success, this endpoint will return an empty response.
@@ -278,7 +263,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | The id of the uploaded configuration.
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -293,16 +277,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "3d0fe04b-57df-4a46-a83b-8f04b0f9d10b" # String | The id of the uploaded configuration.
+
 # Delete an Uploaded Configuration
+
 try {
-    Remove-UploadedConfiguration-Id $Id 
+    Remove-UploadedConfiguration -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-UploadedConfiguration -Id $Id  
@@ -311,11 +296,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-object-mappings
-
 This gets a list of existing object mappings between current org and source org.
 Source org should be "default" when getting object mappings that are not associated to any particular org.
 The request will need the following security scope:
@@ -327,7 +309,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | SourceOrg | **String** | True  | The name of the source org.
 
 ### Return type
-
 [**ObjectMappingResponse[]**](../models/object-mapping-response)
 
 ### Responses
@@ -342,16 +323,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $SourceOrg = "source-org" # String | The name of the source org.
+
 # Gets list of object mappings
+
 try {
-    Get-ObjectMappings-SourceOrg $SourceOrg 
+    Get-ObjectMappings -SourceOrg $SourceOrg 
     
     # Below is a request that includes all optional parameters
     # Get-ObjectMappings -SourceOrg $SourceOrg  
@@ -360,11 +342,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-uploaded-configuration
-
 This API gets an existing uploaded configuration for the current tenant.
 
 ### Parameters 
@@ -373,7 +352,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | The id of the uploaded configuration.
 
 ### Return type
-
 [**BackupResponse**](../models/backup-response)
 
 ### Responses
@@ -388,16 +366,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "3d0fe04b-57df-4a46-a83b-8f04b0f9d10b" # String | The id of the uploaded configuration.
+
 # Get an Uploaded Configuration
+
 try {
-    Get-UploadedConfiguration-Id $Id 
+    Get-UploadedConfiguration -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-UploadedConfiguration -Id $Id  
@@ -406,11 +385,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-uploaded-configurations
-
 This API gets a list of existing uploaded configurations for the current tenant.
 
 ### Parameters 
@@ -419,7 +395,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq*
 
 ### Return type
-
 [**BackupResponse[]**](../models/backup-response)
 
 ### Responses
@@ -434,14 +409,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Filters = 'status eq "COMPLETE"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq* (optional)
+
 # List Uploaded Configurations
+
 try {
     Get-UploadedConfigurations
     
@@ -452,11 +428,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## update-object-mappings
-
 This updates a set of object mappings, only enabled and targetValue fields can be updated.
 Source org should be "default" when updating object mappings that are not associated to any particular org.
 The request will need the following security scope:
@@ -469,7 +442,6 @@ Path   | SourceOrg | **String** | True  | The name of the source org.
  Body  | ObjectMappingBulkPatchRequest | [**ObjectMappingBulkPatchRequest**](../models/object-mapping-bulk-patch-request) | True  | The object mapping request body.
 
 ### Return type
-
 [**ObjectMappingBulkPatchResponse**](../models/object-mapping-bulk-patch-response)
 
 ### Responses
@@ -484,7 +456,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -505,10 +476,12 @@ $ObjectMappingBulkPatchRequest = @"{
     } ]
   }
 }"@
+
 # Bulk updates object mappings
+
 try {
     $Result = ConvertFrom-JsonToObjectMappingBulkPatchRequest -Json $ObjectMappingBulkPatchRequest
-    Update-ObjectMappings-SourceOrg $SourceOrg -ObjectMappingBulkPatchRequest $Result
+    Update-ObjectMappings -SourceOrg $SourceOrg  -ObjectMappingBulkPatchRequest $Result
     
     # Below is a request that includes all optional parameters
     # Update-ObjectMappings -SourceOrg $SourceOrg -ObjectMappingBulkPatchRequest $ObjectMappingBulkPatchRequest  
@@ -517,7 +490,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

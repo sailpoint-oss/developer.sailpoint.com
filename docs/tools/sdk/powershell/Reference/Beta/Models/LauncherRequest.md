@@ -16,12 +16,12 @@ tags: ['SDK', 'Software Development Kit', 'LauncherRequest', 'BetaLauncherReques
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** |  **String** | Name of the Launcher, limited to 255 characters | [required]
-**Description** |  **String** | Description of the Launcher, limited to 2000 characters | [required]
-**Type** |   **Enum** [  "INTERACTIVE_PROCESS" ] | Launcher type | [required]
-**Disabled** |  **Boolean** | State of the Launcher | [required]
-**Reference** |  Pointer to [**LauncherRequestReference**](launcher-request-reference) |  | [optional] 
-**Config** |  **String** | JSON configuration associated with this Launcher, restricted to a max size of 4KB  | [required]
+**Name** | **String** | Name of the Launcher, limited to 255 characters | [required]
+**Description** | **String** | Description of the Launcher, limited to 2000 characters | [required]
+**Type** |  **Enum** [  "INTERACTIVE_PROCESS" ] | Launcher type | [required]
+**Disabled** | **Boolean** | State of the Launcher | [required]
+**Reference** | [**LauncherRequestReference**](launcher-request-reference) |  | [optional] 
+**Config** | **String** | JSON configuration associated with this Launcher, restricted to a max size of 4KB  | [required]
 
 ## Examples
 

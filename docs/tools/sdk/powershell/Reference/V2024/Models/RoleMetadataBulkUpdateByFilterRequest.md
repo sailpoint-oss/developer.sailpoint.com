@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'RoleMetadataBulkUpdateByFilterRequest
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Filters** |  **String** | Filtering is supported for the following fields and operators:  **id** : *eq, in*  **name** : *eq, sw*  **created** : *gt, lt, ge, le*  **modified** : *gt, lt, ge, le*  **owner.id** : *eq, in*  **requestable** : *eq* | [required]
-**Operation** |   **Enum** [  "ADD",    "REMOVE",    "REPLACE" ] | The operation to be performed | [required]
-**ReplaceScope** |  Pointer to  **Enum** [  "ALL",    "ATTRIBUTE" ] | The choice of update scope. | [optional] 
-**Values** |  [**[]RoleMetadataBulkUpdateByFilterRequestValuesInner**](role-metadata-bulk-update-by-filter-request-values-inner) | The metadata to be updated, including attribute key and value. | [required]
+**Filters** | **String** | Filtering is supported for the following fields and operators:  **id** : *eq, in*  **name** : *eq, sw*  **created** : *gt, lt, ge, le*  **modified** : *gt, lt, ge, le*  **owner.id** : *eq, in*  **requestable** : *eq* | [required]
+**Operation** |  **Enum** [  "ADD",    "REMOVE",    "REPLACE" ] | The operation to be performed | [required]
+**ReplaceScope** |  **Enum** [  "ALL",    "ATTRIBUTE" ] | The choice of update scope. | [optional] 
+**Values** | [**[]RoleMetadataBulkUpdateByFilterRequestValuesInner**](role-metadata-bulk-update-by-filter-request-values-inner) | The metadata to be updated, including attribute key and value. | [required]
 
 ## Examples
 

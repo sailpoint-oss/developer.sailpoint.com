@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'WorkgroupConnectionDto', 'BetaWorkgro
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Object** |  Pointer to [**ConnectedObject**](connected-object) |  | [optional] 
-**ConnectionType** |  Pointer to  **Enum** [  "AccessRequestReviewer",    "Owner",    "ManagementWorkgroup" ] | Connection Type. | [optional] 
+**Object** | [**ConnectedObject**](connected-object) |  | [optional] 
+**ConnectionType** |  **Enum** [  "AccessRequestReviewer",    "Owner",    "ManagementWorkgroup" ] | Connection Type. | [optional] 
 
 ## Examples
 

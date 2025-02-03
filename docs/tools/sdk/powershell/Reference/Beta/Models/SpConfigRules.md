@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'SpConfigRules', 'BetaSpConfigRules']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TakeFromTargetRules** |  Pointer to [**[]SpConfigRule**](sp-config-rule) |  | [optional] 
-**DefaultRules** |  Pointer to [**[]SpConfigRule**](sp-config-rule) |  | [optional] 
-**Editable** |  Pointer to **Boolean** | Whether this object can be edited | [optional] [default to $false]
+**TakeFromTargetRules** | [**[]SpConfigRule**](sp-config-rule) |  | [optional] 
+**DefaultRules** | [**[]SpConfigRule**](sp-config-rule) |  | [optional] 
+**Editable** | **Boolean** | Whether this object can be edited | [optional] [default to $false]
 
 ## Examples
 

@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'EntitlementSource', 'BetaEntitlementS
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | The source ID | [optional] 
-**Type** |  Pointer to **String** | The source type, will always be ""SOURCE"" | [optional] 
-**Name** |  Pointer to **String** | The source name | [optional] 
+**Id** | **String** | The source ID | [optional] 
+**Type** | **String** | The source type, will always be ""SOURCE"" | [optional] 
+**Name** | **String** | The source name | [optional] 
 
 ## Examples
 

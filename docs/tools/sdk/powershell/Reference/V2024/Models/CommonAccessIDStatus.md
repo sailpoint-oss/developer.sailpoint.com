@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'CommonAccessIDStatus', 'V2024CommonAc
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ConfirmedIds** |  Pointer to **[]String** | List of confirmed common access ids. | [optional] 
-**DeniedIds** |  Pointer to **[]String** | List of denied common access ids. | [optional] 
+**ConfirmedIds** | **[]String** | List of confirmed common access ids. | [optional] 
+**DeniedIds** | **[]String** | List of denied common access ids. | [optional] 
 
 ## Examples
 

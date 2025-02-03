@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'Invocation', 'BetaInvocation']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | Invocation ID | [optional] 
-**TriggerId** |  Pointer to **String** | Trigger ID | [optional] 
-**Secret** |  Pointer to **String** | Unique invocation secret. | [optional] 
-**ContentJson** |  Pointer to [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | JSON map of invocation metadata. | [optional] 
+**Id** | **String** | Invocation ID | [optional] 
+**TriggerId** | **String** | Trigger ID | [optional] 
+**Secret** | **String** | Unique invocation secret. | [optional] 
+**ContentJson** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | JSON map of invocation metadata. | [optional] 
 
 ## Examples
 

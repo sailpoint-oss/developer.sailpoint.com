@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'NetworkConfiguration', 'NetworkConfig
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Range** |  Pointer to **[]String** | The collection of ip ranges. | [optional] 
-**Geolocation** |  Pointer to **[]String** | The collection of country codes. | [optional] 
-**Whitelisted** |  Pointer to **Boolean** | Denotes whether the provided lists are whitelisted or blacklisted for geo location. | [optional] [default to $false]
+**Range** | **[]String** | The collection of ip ranges. | [optional] 
+**Geolocation** | **[]String** | The collection of country codes. | [optional] 
+**Whitelisted** | **Boolean** | Denotes whether the provided lists are whitelisted or blacklisted for geo location. | [optional] [default to $false]
 
 ## Examples
 

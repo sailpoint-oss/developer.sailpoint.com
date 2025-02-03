@@ -16,12 +16,12 @@ tags: ['SDK', 'Software Development Kit', 'CommonAccessItemAccess', 'V2024Common
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | Common access ID | [optional] 
-**Type** |  Pointer to [**CommonAccessType**](common-access-type) |  | [optional] 
-**Name** |  Pointer to **String** | Common access name | [optional] 
-**Description** |  Pointer to **String** | Common access description | [optional] 
-**OwnerName** |  Pointer to **String** | Common access owner name | [optional] 
-**OwnerId** |  Pointer to **String** | Common access owner ID | [optional] 
+**Id** | **String** | Common access ID | [optional] 
+**Type** | [**CommonAccessType**](common-access-type) |  | [optional] 
+**Name** | **String** | Common access name | [optional] 
+**Description** | **String** | Common access description | [optional] 
+**OwnerName** | **String** | Common access owner name | [optional] 
+**OwnerId** | **String** | Common access owner ID | [optional] 
 
 ## Examples
 

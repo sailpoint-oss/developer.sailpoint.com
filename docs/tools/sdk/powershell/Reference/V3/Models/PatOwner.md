@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'PatOwner', 'PatOwner']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to  **Enum** [  "IDENTITY" ] | Personal access token owner's DTO type. | [optional] 
-**Id** |  Pointer to **String** | Personal access token owner's identity ID. | [optional] 
-**Name** |  Pointer to **String** | Personal access token owner's human-readable display name. | [optional] 
+**Type** |  **Enum** [  "IDENTITY" ] | Personal access token owner's DTO type. | [optional] 
+**Id** | **String** | Personal access token owner's identity ID. | [optional] 
+**Name** | **String** | Personal access token owner's human-readable display name. | [optional] 
 
 ## Examples
 

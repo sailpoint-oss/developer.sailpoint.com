@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'ExceptionAccessCriteria', 'BetaExcept
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**LeftCriteria** |  Pointer to [**ExceptionCriteria**](exception-criteria) |  | [optional] 
-**RightCriteria** |  Pointer to [**ExceptionCriteria**](exception-criteria) |  | [optional] 
+**LeftCriteria** | [**ExceptionCriteria**](exception-criteria) |  | [optional] 
+**RightCriteria** | [**ExceptionCriteria**](exception-criteria) |  | [optional] 
 
 ## Examples
 

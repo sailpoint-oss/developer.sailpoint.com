@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'LocalizedMessage', 'V2024LocalizedMes
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Locale** |  **String** | Message locale | [required]
-**Message** |  **String** | Message text | [required]
+**Locale** | **String** | Message locale | [required]
+**Message** | **String** | Message text | [required]
 
 ## Examples
 

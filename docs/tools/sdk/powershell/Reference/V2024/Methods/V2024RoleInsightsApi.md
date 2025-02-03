@@ -9,7 +9,6 @@ slug: /tools/sdk/powershell/v2024/methods/role-insights
 tags: ['SDK', 'Software Development Kit', 'RoleInsights', 'V2024RoleInsights']
 ---
 
-
 # RoleInsights
    
   
@@ -28,9 +27,7 @@ Method | HTTP request | Description
 [**Get-V2024RoleInsightsRequests**](#get-role-insights-requests) | **GET** `/role-insights/requests/{id}` | Returns metadata from prior request.
 [**Get-V2024RoleInsightsSummary**](#get-role-insights-summary) | **GET** `/role-insights/summary` | Get role insights summary information
 
-
 ## create-role-insight-requests
-
 Submits a create role insights request to the role insights application. At this time there are no parameters. All business roles will be processed for the customer.
 
 ### Parameters 
@@ -39,7 +36,6 @@ Param Type | Name | Data Type | Required  | Description
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-
 [**RoleInsightsResponse**](../models/role-insights-response)
 
 ### Responses
@@ -53,16 +49,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
 # Generate insights for roles
+
 try {
-    New-V2024RoleInsightRequests-V2024XSailPointExperimental $XSailPointExperimental 
+    New-V2024RoleInsightRequests -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # New-V2024RoleInsightRequests -V2024XSailPointExperimental $XSailPointExperimental  
@@ -71,11 +68,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## download-role-insights-entitlements-changes
-
 This endpoint returns the entitlement insights for a role.
 
 ### Parameters 
@@ -87,7 +81,6 @@ Path   | InsightId | **String** | True  | The role insight id
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *sw*  **description**: *sw*
 
 ### Return type
-
 **String**
 
 ### Responses
@@ -100,7 +93,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: text/csv, application/json
 
@@ -110,9 +102,11 @@ $InsightId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role insight 
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $Sorters = "identitiesWithAccess" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **identitiesWithAccess**  The default sort is **identitiesWithAccess** in descending order. (optional)
 $Filters = 'name sw "r"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *sw*  **description**: *sw* (optional)
+
 # Download entitlement insights for a role
+
 try {
-    Invoke-V2024DownloadRoleInsightsEntitlementsChanges-V2024InsightId $InsightId -V2024XSailPointExperimental $XSailPointExperimental 
+    Invoke-V2024DownloadRoleInsightsEntitlementsChanges -V2024InsightId $InsightId  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Invoke-V2024DownloadRoleInsightsEntitlementsChanges -V2024InsightId $InsightId -V2024XSailPointExperimental $XSailPointExperimental -V2024Sorters $Sorters -V2024Filters $Filters  
@@ -121,11 +115,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-entitlement-changes-identities
-
 Role insights suggests entitlements to be added for a role. This endpoint returns a list of identities in the role, with or without the entitlements, for a suggested entitlement so that the user can see which identities would be affected if the suggested entitlement were to be added to the role.
 
 ### Parameters 
@@ -142,7 +133,6 @@ Path   | EntitlementId | **String** | True  | The entitlement id
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *sw*
 
 ### Return type
-
 [**RoleInsightsIdentities[]**](../models/role-insights-identities)
 
 ### Responses
@@ -155,7 +145,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -170,9 +159,11 @@ $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Col
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Sorters = "name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name** (optional)
 $Filters = 'name sw "Jan"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *sw* (optional)
+
 # Get identities for a suggested entitlement (for a role)
+
 try {
-    Get-V2024EntitlementChangesIdentities-V2024InsightId $InsightId -V2024EntitlementId $EntitlementId -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024EntitlementChangesIdentities -V2024InsightId $InsightId  -V2024EntitlementId $EntitlementId  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024EntitlementChangesIdentities -V2024InsightId $InsightId -V2024EntitlementId $EntitlementId -V2024XSailPointExperimental $XSailPointExperimental -V2024HasEntitlement $HasEntitlement -V2024Offset $Offset -V2024Limit $Limit -V2024Count $Count -V2024Sorters $Sorters -V2024Filters $Filters  
@@ -181,11 +172,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-role-insight
-
 This endpoint gets role insights information for a role.
 
 ### Parameters 
@@ -195,7 +183,6 @@ Path   | InsightId | **String** | True  | The role insight id
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-
 [**RoleInsight**](../models/role-insight)
 
 ### Responses
@@ -208,7 +195,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -216,9 +202,11 @@ Code | Description  | Data Type
 ```powershell
 $InsightId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role insight id
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
 # Get a single role insight
+
 try {
-    Get-V2024RoleInsight-V2024InsightId $InsightId -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024RoleInsight -V2024InsightId $InsightId  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024RoleInsight -V2024InsightId $InsightId -V2024XSailPointExperimental $XSailPointExperimental  
@@ -227,11 +215,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-role-insights
-
 This method returns detailed role insights for each role.
 
 ### Parameters 
@@ -245,7 +230,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *sw*  **ownerName**: *sw*  **description**: *sw*
 
 ### Return type
-
 [**RoleInsight[]**](../models/role-insight)
 
 ### Responses
@@ -258,7 +242,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -270,9 +253,11 @@ $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Col
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Sorters = "numberOfUpdates" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **numberOfUpdates, identitiesWithAccess, totalNumberOfIdentities** (optional)
 $Filters = 'name sw "John"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *sw*  **ownerName**: *sw*  **description**: *sw* (optional)
+
 # Get role insights
+
 try {
-    Get-V2024RoleInsights-V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024RoleInsights -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024RoleInsights -V2024XSailPointExperimental $XSailPointExperimental -V2024Offset $Offset -V2024Limit $Limit -V2024Count $Count -V2024Sorters $Sorters -V2024Filters $Filters  
@@ -281,11 +266,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-role-insights-current-entitlements
-
 This endpoint gets the entitlements for a role. The term "current" is to distinguish from the entitlement(s) an insight might recommend adding.
 
 ### Parameters 
@@ -296,7 +278,6 @@ Path   | InsightId | **String** | True  | The role insight id
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *sw*  **description**: *sw*
 
 ### Return type
-
 [**RoleInsightsEntitlement[]**](../models/role-insights-entitlement)
 
 ### Responses
@@ -309,7 +290,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -318,9 +298,11 @@ Code | Description  | Data Type
 $InsightId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role insight id
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $Filters = 'name sw "r"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *sw*  **description**: *sw* (optional)
+
 # Get current entitlement for a role
+
 try {
-    Get-V2024RoleInsightsCurrentEntitlements-V2024InsightId $InsightId -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024RoleInsightsCurrentEntitlements -V2024InsightId $InsightId  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024RoleInsightsCurrentEntitlements -V2024InsightId $InsightId -V2024XSailPointExperimental $XSailPointExperimental -V2024Filters $Filters  
@@ -329,11 +311,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-role-insights-entitlements-changes
-
 This endpoint returns entitlement insights for a role.
 
 ### Parameters 
@@ -345,7 +324,6 @@ Path   | InsightId | **String** | True  | The role insight id
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *sw*  **description**: *sw*
 
 ### Return type
-
 [**RoleInsightsEntitlementChanges[]**](../models/role-insights-entitlement-changes)
 
 ### Responses
@@ -358,7 +336,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -368,9 +345,11 @@ $InsightId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role insight 
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $Sorters = "MySorters" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **identitiesWithAccess, name** (optional)
 $Filters = 'name sw "Admin"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *sw*  **description**: *sw* (optional)
+
 # Get entitlement insights for a role
+
 try {
-    Get-V2024RoleInsightsEntitlementsChanges-V2024InsightId $InsightId -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024RoleInsightsEntitlementsChanges -V2024InsightId $InsightId  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024RoleInsightsEntitlementsChanges -V2024InsightId $InsightId -V2024XSailPointExperimental $XSailPointExperimental -V2024Sorters $Sorters -V2024Filters $Filters  
@@ -379,11 +358,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-role-insights-requests
-
 This endpoint returns details of a prior role insights request. 
 
 ### Parameters 
@@ -393,7 +369,6 @@ Path   | Id | **String** | True  | The role insights request id
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-
 [**RoleInsightsResponse**](../models/role-insights-response)
 
 ### Responses
@@ -407,7 +382,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -415,9 +389,11 @@ Code | Description  | Data Type
 ```powershell
 $Id = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role insights request id
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
 # Returns metadata from prior request.
+
 try {
-    Get-V2024RoleInsightsRequests-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024RoleInsightsRequests -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024RoleInsightsRequests -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
@@ -426,11 +402,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-role-insights-summary
-
 This method returns high level summary information for role insights for a customer.
 
 ### Parameters 
@@ -439,7 +412,6 @@ Param Type | Name | Data Type | Required  | Description
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-
 [**RoleInsightsSummary**](../models/role-insights-summary)
 
 ### Responses
@@ -452,16 +424,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
 # Get role insights summary information
+
 try {
-    Get-V2024RoleInsightsSummary-V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024RoleInsightsSummary -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024RoleInsightsSummary -V2024XSailPointExperimental $XSailPointExperimental  
@@ -470,7 +443,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

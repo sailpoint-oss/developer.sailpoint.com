@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'SourceSchemasInner', 'SourceSchemasIn
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to  **Enum** [  "CONNECTOR_SCHEMA" ] | Type of object being referenced. | [optional] 
-**Id** |  Pointer to **String** | Schema ID. | [optional] 
-**Name** |  Pointer to **String** | Schema's human-readable display name. | [optional] 
+**Type** |  **Enum** [  "CONNECTOR_SCHEMA" ] | Type of object being referenced. | [optional] 
+**Id** | **String** | Schema ID. | [optional] 
+**Name** | **String** | Schema's human-readable display name. | [optional] 
 
 ## Examples
 

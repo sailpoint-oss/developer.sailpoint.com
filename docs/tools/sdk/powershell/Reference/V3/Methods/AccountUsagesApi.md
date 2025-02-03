@@ -9,7 +9,6 @@ slug: /tools/sdk/powershell/v3/methods/account-usages
 tags: ['SDK', 'Software Development Kit', 'AccountUsages', 'AccountUsages']
 ---
 
-
 # AccountUsages
   Use this API to implement account usage insight functionality.
 With this functionality in place, administrators can gather information and insights about how their tenants&#39; source accounts are being used.
@@ -23,9 +22,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Get-UsagesByAccountId**](#get-usages-by-account-id) | **GET** `/account-usages/{accountId}/summaries` | Returns account usage insights
 
-
 ## get-usages-by-account-id
-
 This API returns a summary of account usage insights for past 12 months.
 
 ### Parameters 
@@ -38,7 +35,6 @@ Path   | AccountId | **String** | True  | ID of IDN account
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **date**
 
 ### Return type
-
 [**AccountUsage[]**](../models/account-usage)
 
 ### Responses
@@ -52,7 +48,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -63,9 +58,11 @@ $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Col
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Sorters = "-date" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **date** (optional)
+
 # Returns account usage insights
+
 try {
-    Get-UsagesByAccountId-AccountId $AccountId 
+    Get-UsagesByAccountId -AccountId $AccountId 
     
     # Below is a request that includes all optional parameters
     # Get-UsagesByAccountId -AccountId $AccountId -Limit $Limit -Offset $Offset -Count $Count -Sorters $Sorters  
@@ -74,7 +71,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

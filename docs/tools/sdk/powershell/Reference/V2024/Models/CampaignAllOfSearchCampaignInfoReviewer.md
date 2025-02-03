@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'CampaignAllOfSearchCampaignInfoReview
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to  **Enum** [  "GOVERNANCE_GROUP",    "IDENTITY" ] | The reviewer's DTO type. | [optional] 
-**Id** |  Pointer to **String** | The reviewer's ID. | [optional] 
-**Name** |  Pointer to **String** | The reviewer's name. | [optional] 
+**Type** |  **Enum** [  "GOVERNANCE_GROUP",    "IDENTITY" ] | The reviewer's DTO type. | [optional] 
+**Id** | **String** | The reviewer's ID. | [optional] 
+**Name** | **String** | The reviewer's name. | [optional] 
 
 ## Examples
 

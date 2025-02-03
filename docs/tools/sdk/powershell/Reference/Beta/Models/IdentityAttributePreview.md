@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'IdentityAttributePreview', 'BetaIdent
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** |  Pointer to **String** | Name of the attribute that is being previewed. | [optional] 
-**Value** |  Pointer to **String** | Value that was derived during the preview. | [optional] 
-**PreviousValue** |  Pointer to **String** | The value of the attribute before the preview. | [optional] 
-**ErrorMessages** |  Pointer to [**[]ErrorMessageDto**](error-message-dto) |  | [optional] 
+**Name** | **String** | Name of the attribute that is being previewed. | [optional] 
+**Value** | **String** | Value that was derived during the preview. | [optional] 
+**PreviousValue** | **String** | The value of the attribute before the preview. | [optional] 
+**ErrorMessages** | [**[]ErrorMessageDto**](error-message-dto) |  | [optional] 
 
 ## Examples
 

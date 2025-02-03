@@ -16,18 +16,18 @@ tags: ['SDK', 'Software Development Kit', 'WorkflowLibraryAction', 'V2024Workflo
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | Action ID. This is a static namespaced ID for the action | [optional] 
-**Name** |  Pointer to **String** | Action Name | [optional] 
-**Type** |  Pointer to **String** | Action type | [optional] 
-**Description** |  Pointer to **String** | Action Description | [optional] 
-**FormFields** |  Pointer to [**[]WorkflowLibraryFormFields**](workflow-library-form-fields) | One or more inputs that the action accepts | [optional] 
-**ExampleOutput** |  Pointer to [**WorkflowLibraryActionExampleOutput**](workflow-library-action-example-output) |  | [optional] 
-**Deprecated** |  Pointer to **Boolean** |  | [optional] 
-**DeprecatedBy** |  Pointer to **System.DateTime** |  | [optional] 
-**VersionNumber** |  Pointer to **Int32** | Version number | [optional] 
-**IsSimulationEnabled** |  Pointer to **Boolean** |  | [optional] 
-**IsDynamicSchema** |  Pointer to **Boolean** | Determines whether the dynamic output schema is returned in place of the action's output schema. The dynamic schema lists non-static properties, like properties of a workflow form where each form has different fields. These will be provided dynamically based on available form fields. | [optional] [default to $false]
-**OutputSchema** |  Pointer to [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | Defines the output schema, if any, that this action produces. | [optional] 
+**Id** | **String** | Action ID. This is a static namespaced ID for the action | [optional] 
+**Name** | **String** | Action Name | [optional] 
+**Type** | **String** | Action type | [optional] 
+**Description** | **String** | Action Description | [optional] 
+**FormFields** | [**[]WorkflowLibraryFormFields**](workflow-library-form-fields) | One or more inputs that the action accepts | [optional] 
+**ExampleOutput** | [**WorkflowLibraryActionExampleOutput**](workflow-library-action-example-output) |  | [optional] 
+**Deprecated** | **Boolean** |  | [optional] 
+**DeprecatedBy** | **System.DateTime** |  | [optional] 
+**VersionNumber** | **Int32** | Version number | [optional] 
+**IsSimulationEnabled** | **Boolean** |  | [optional] 
+**IsDynamicSchema** | **Boolean** | Determines whether the dynamic output schema is returned in place of the action's output schema. The dynamic schema lists non-static properties, like properties of a workflow form where each form has different fields. These will be provided dynamically based on available form fields. | [optional] [default to $false]
+**OutputSchema** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | Defines the output schema, if any, that this action produces. | [optional] 
 
 ## Examples
 

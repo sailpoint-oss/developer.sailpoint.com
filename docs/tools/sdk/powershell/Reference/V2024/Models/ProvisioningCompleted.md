@@ -16,14 +16,14 @@ tags: ['SDK', 'Software Development Kit', 'ProvisioningCompleted', 'V2024Provisi
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TrackingNumber** |  **String** | The reference number of the provisioning request. Useful for tracking status in the Account Activity search interface. | [required]
-**Sources** |  **String** | One or more sources that the provisioning transaction(s) were done against.  Sources are comma separated. | [required]
-**Action** |  Pointer to **String** | Origin of where the provisioning request came from. | [optional] 
-**Errors** |  Pointer to **[]String** | A list of any accumulated error messages that occurred during provisioning. | [optional] 
-**Warnings** |  Pointer to **[]String** | A list of any accumulated warning messages that occurred during provisioning. | [optional] 
-**Recipient** |  [**ProvisioningCompletedRecipient**](provisioning-completed-recipient) |  | [required]
-**Requester** |  Pointer to [**ProvisioningCompletedRequester**](provisioning-completed-requester) |  | [optional] 
-**AccountRequests** |  [**[]ProvisioningCompletedAccountRequestsInner**](provisioning-completed-account-requests-inner) | A list of provisioning instructions to perform on an account-by-account basis. | [required]
+**TrackingNumber** | **String** | The reference number of the provisioning request. Useful for tracking status in the Account Activity search interface. | [required]
+**Sources** | **String** | One or more sources that the provisioning transaction(s) were done against.  Sources are comma separated. | [required]
+**Action** | **String** | Origin of where the provisioning request came from. | [optional] 
+**Errors** | **[]String** | A list of any accumulated error messages that occurred during provisioning. | [optional] 
+**Warnings** | **[]String** | A list of any accumulated warning messages that occurred during provisioning. | [optional] 
+**Recipient** | [**ProvisioningCompletedRecipient**](provisioning-completed-recipient) |  | [required]
+**Requester** | [**ProvisioningCompletedRequester**](provisioning-completed-requester) |  | [optional] 
+**AccountRequests** | [**[]ProvisioningCompletedAccountRequestsInner**](provisioning-completed-account-requests-inner) | A list of provisioning instructions to perform on an account-by-account basis. | [required]
 
 ## Examples
 

@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'SourceClusterDto', 'SourceClusterDto'
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to  **Enum** [  "CLUSTER" ] | Source cluster DTO type. | [optional] 
-**Id** |  Pointer to **String** | Source cluster ID. | [optional] 
-**Name** |  Pointer to **String** | Source cluster display name. | [optional] 
+**Type** |  **Enum** [  "CLUSTER" ] | Source cluster DTO type. | [optional] 
+**Id** | **String** | Source cluster ID. | [optional] 
+**Name** | **String** | Source cluster display name. | [optional] 
 
 ## Examples
 

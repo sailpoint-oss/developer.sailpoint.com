@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'AccountCorrelatedSource', 'V2024Accou
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |   **Enum** [  "SOURCE" ] | The DTO type of the source the accounts are being correlated from. | [required]
-**Id** |  **String** | The ID of the source the accounts are being correlated from. | [required]
-**Name** |  **String** | Display name of the source the accounts are being correlated from. | [required]
+**Type** |  **Enum** [  "SOURCE" ] | The DTO type of the source the accounts are being correlated from. | [required]
+**Id** | **String** | The ID of the source the accounts are being correlated from. | [required]
+**Name** | **String** | Display name of the source the accounts are being correlated from. | [required]
 
 ## Examples
 

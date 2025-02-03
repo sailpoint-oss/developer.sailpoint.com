@@ -16,13 +16,13 @@ tags: ['SDK', 'Software Development Kit', 'AccountStatusChangedAccount', 'BetaAc
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | the ID of the account in the database | [optional] 
-**NativeIdentity** |  Pointer to **String** | the native identifier of the account | [optional] 
-**DisplayName** |  Pointer to **String** | the display name of the account | [optional] 
-**SourceId** |  Pointer to **String** | the ID of the source for this account | [optional] 
-**SourceName** |  Pointer to **String** | the name of the source for this account | [optional] 
-**EntitlementCount** |  Pointer to **Int32** | the number of entitlements on this account | [optional] 
-**AccessType** |  Pointer to **String** | this value is always ""account"" | [optional] 
+**Id** | **String** | the ID of the account in the database | [optional] 
+**NativeIdentity** | **String** | the native identifier of the account | [optional] 
+**DisplayName** | **String** | the display name of the account | [optional] 
+**SourceId** | **String** | the ID of the source for this account | [optional] 
+**SourceName** | **String** | the name of the source for this account | [optional] 
+**EntitlementCount** | **Int32** | the number of entitlements on this account | [optional] 
+**AccessType** | **String** | this value is always ""account"" | [optional] 
 
 ## Examples
 

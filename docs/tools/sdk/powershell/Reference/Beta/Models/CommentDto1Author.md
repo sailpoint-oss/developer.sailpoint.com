@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'CommentDto1Author', 'BetaCommentDto1A
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to  **Enum** [  "IDENTITY" ] | The type of object | [optional] 
-**Id** |  Pointer to **String** | The unique ID of the object | [optional] 
-**Name** |  Pointer to **String** | The display name of the object | [optional] 
+**Type** |  **Enum** [  "IDENTITY" ] | The type of object | [optional] 
+**Id** | **String** | The unique ID of the object | [optional] 
+**Name** | **String** | The display name of the object | [optional] 
 
 ## Examples
 

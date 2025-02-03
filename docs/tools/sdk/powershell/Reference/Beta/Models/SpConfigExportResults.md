@@ -16,12 +16,12 @@ tags: ['SDK', 'Software Development Kit', 'SpConfigExportResults', 'BetaSpConfig
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Version** |  Pointer to **Int32** | Current version of the export results object. | [optional] 
-**Timestamp** |  Pointer to **System.DateTime** | Time the export was completed. | [optional] 
-**Tenant** |  Pointer to **String** | Name of the tenant where this export originated. | [optional] 
-**Description** |  Pointer to **String** | Optional user defined description/name for export job. | [optional] 
-**Options** |  Pointer to [**ExportOptions**](export-options) |  | [optional] 
-**Objects** |  Pointer to [**[]ConfigObject**](config-object) |  | [optional] 
+**Version** | **Int32** | Current version of the export results object. | [optional] 
+**Timestamp** | **System.DateTime** | Time the export was completed. | [optional] 
+**Tenant** | **String** | Name of the tenant where this export originated. | [optional] 
+**Description** | **String** | Optional user defined description/name for export job. | [optional] 
+**Options** | [**ExportOptions**](export-options) |  | [optional] 
+**Objects** | [**[]ConfigObject**](config-object) |  | [optional] 
 
 ## Examples
 

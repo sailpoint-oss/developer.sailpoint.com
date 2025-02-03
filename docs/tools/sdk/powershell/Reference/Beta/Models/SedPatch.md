@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'SedPatch', 'BetaSedPatch']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Op** |  Pointer to **String** | desired operation | [optional] 
-**Path** |  Pointer to **String** | field to be patched | [optional] 
-**Value** |  Pointer to [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | value to replace with | [optional] 
+**Op** | **String** | desired operation | [optional] 
+**Path** | **String** | field to be patched | [optional] 
+**Value** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | value to replace with | [optional] 
 
 ## Examples
 

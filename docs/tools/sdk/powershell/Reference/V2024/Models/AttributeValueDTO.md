@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'AttributeValueDTO', 'V2024AttributeVa
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Value** |  Pointer to **String** | Technical name of the Attribute value. This is unique and cannot be changed after creation. | [optional] 
-**Name** |  Pointer to **String** | The display name of the Attribute value. | [optional] 
-**Status** |  Pointer to **String** | The status of the Attribute value. | [optional] 
+**Value** | **String** | Technical name of the Attribute value. This is unique and cannot be changed after creation. | [optional] 
+**Name** | **String** | The display name of the Attribute value. | [optional] 
+**Status** | **String** | The status of the Attribute value. | [optional] 
 
 ## Examples
 

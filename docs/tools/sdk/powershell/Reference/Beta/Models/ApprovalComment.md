@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'ApprovalComment', 'BetaApprovalCommen
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Author** |  Pointer to [**ApprovalIdentity**](approval-identity) |  | [optional] 
-**Comment** |  Pointer to **String** | Comment to be left on an approval | [optional] 
-**CreatedDate** |  Pointer to **String** | Date the comment was created | [optional] 
+**Author** | [**ApprovalIdentity**](approval-identity) |  | [optional] 
+**Comment** | **String** | Comment to be left on an approval | [optional] 
+**CreatedDate** | **String** | Date the comment was created | [optional] 
 
 ## Examples
 

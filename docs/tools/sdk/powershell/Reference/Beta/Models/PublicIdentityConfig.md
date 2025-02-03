@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'PublicIdentityConfig', 'BetaPublicIde
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Attributes** |  Pointer to [**[]PublicIdentityAttributeConfig**](public-identity-attribute-config) |  | [optional] 
-**ModifiedBy** |  Pointer to [**IdentityReference**](identity-reference) |  | [optional] 
-**Modified** |  Pointer to **System.DateTime** | the date/time of the modification | [optional] 
+**Attributes** | [**[]PublicIdentityAttributeConfig**](public-identity-attribute-config) |  | [optional] 
+**ModifiedBy** | [**IdentityReference**](identity-reference) |  | [optional] 
+**Modified** | **System.DateTime** | the date/time of the modification | [optional] 
 
 ## Examples
 

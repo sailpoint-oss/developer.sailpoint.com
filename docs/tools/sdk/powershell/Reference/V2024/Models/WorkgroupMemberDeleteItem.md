@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'WorkgroupMemberDeleteItem', 'V2024Wor
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  **String** | Identifier of identity in bulk member add /remove request. | [required]
-**Status** |  **Int32** | The HTTP response status code returned for an individual  member that is requested for deletion during a bulk delete operation.  > 204   - Identity is removed from Governance Group members list.  > 404   - Identity is not member of Governance Group.  | [required]
-**Description** |  Pointer to **String** | Human readable status description and containing additional context information about success or failures etc.  | [optional] 
+**Id** | **String** | Identifier of identity in bulk member add /remove request. | [required]
+**Status** | **Int32** | The HTTP response status code returned for an individual  member that is requested for deletion during a bulk delete operation.  > 204   - Identity is removed from Governance Group members list.  > 404   - Identity is not member of Governance Group.  | [required]
+**Description** | **String** | Human readable status description and containing additional context information about success or failures etc.  | [optional] 
 
 ## Examples
 

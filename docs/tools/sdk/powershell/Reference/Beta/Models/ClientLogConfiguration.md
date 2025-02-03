@@ -16,11 +16,11 @@ tags: ['SDK', 'Software Development Kit', 'ClientLogConfiguration', 'BetaClientL
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClientId** |  Pointer to **String** | Log configuration's client ID | [optional] 
-**DurationMinutes** |  **Int32** | Duration in minutes for log configuration to remain in effect before resetting to defaults | [required]
-**Expiration** |  Pointer to **System.DateTime** | Expiration date-time of the log configuration request | [optional] 
-**RootLevel** |  [**StandardLevel**](standard-level) |  | [required]
-**LogLevels** |  Pointer to [**map[string]StandardLevel**](standard-level) | Mapping of identifiers to Standard Log Level values | [optional] 
+**ClientId** | **String** | Log configuration's client ID | [optional] 
+**DurationMinutes** | **Int32** | Duration in minutes for log configuration to remain in effect before resetting to defaults | [required]
+**Expiration** | **System.DateTime** | Expiration date-time of the log configuration request | [optional] 
+**RootLevel** | [**StandardLevel**](standard-level) |  | [required]
+**LogLevels** | [**map[string]StandardLevel**](standard-level) | Mapping of identifiers to Standard Log Level values | [optional] 
 
 ## Examples
 

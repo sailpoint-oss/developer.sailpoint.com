@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'IdentityProfilesConnections', 'Identi
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | ID of the IdentityProfile this reference applies | [optional] 
-**Name** |  Pointer to **String** | Human-readable display name of the IdentityProfile to which this reference applies | [optional] 
-**IdentityCount** |  Pointer to **Int64** | The Number of Identities managed by this IdentityProfile | [optional] 
+**Id** | **String** | ID of the IdentityProfile this reference applies | [optional] 
+**Name** | **String** | Human-readable display name of the IdentityProfile to which this reference applies | [optional] 
+**IdentityCount** | **Int64** | The Number of Identities managed by this IdentityProfile | [optional] 
 
 ## Examples
 

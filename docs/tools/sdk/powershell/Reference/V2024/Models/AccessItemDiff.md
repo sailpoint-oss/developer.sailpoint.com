@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'AccessItemDiff', 'V2024AccessItemDiff
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | the id of the access item | [optional] 
-**EventType** |  Pointer to  **Enum** [  "ADD",    "REMOVE" ] |  | [optional] 
-**DisplayName** |  Pointer to **String** | the display name of the access item | [optional] 
-**SourceName** |  Pointer to **String** | the source name of the access item | [optional] 
+**Id** | **String** | the id of the access item | [optional] 
+**EventType** |  **Enum** [  "ADD",    "REMOVE" ] |  | [optional] 
+**DisplayName** | **String** | the display name of the access item | [optional] 
+**SourceName** | **String** | the source name of the access item | [optional] 
 
 ## Examples
 

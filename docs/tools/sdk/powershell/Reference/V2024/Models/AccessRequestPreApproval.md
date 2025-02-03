@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'AccessRequestPreApproval', 'V2024Acce
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccessRequestId** |  **String** | The unique ID of the access request. | [required]
-**RequestedFor** |  [**[]AccessItemRequestedForDto**](access-item-requested-for-dto) | Identities access was requested for. | [required]
-**RequestedItems** |  [**[]AccessRequestPreApprovalRequestedItemsInner**](access-request-pre-approval-requested-items-inner) | Details of the access items being requested. | [required]
-**RequestedBy** |  [**AccessItemRequesterDto**](access-item-requester-dto) |  | [required]
+**AccessRequestId** | **String** | The unique ID of the access request. | [required]
+**RequestedFor** | [**[]AccessItemRequestedForDto**](access-item-requested-for-dto) | Identities access was requested for. | [required]
+**RequestedItems** | [**[]AccessRequestPreApprovalRequestedItemsInner**](access-request-pre-approval-requested-items-inner) | Details of the access items being requested. | [required]
+**RequestedBy** | [**AccessItemRequesterDto**](access-item-requester-dto) |  | [required]
 
 ## Examples
 

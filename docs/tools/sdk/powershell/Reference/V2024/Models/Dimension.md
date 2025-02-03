@@ -16,16 +16,16 @@ tags: ['SDK', 'Software Development Kit', 'Dimension', 'V2024Dimension']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | The id of the Dimension. This field must be left null when creating a dimension, otherwise a 400 Bad Request error will result. | [optional] 
-**Name** |  **String** | The human-readable display name of the Dimension | [required]
-**Created** |  Pointer to **System.DateTime** | Date the Dimension was created | [optional] [readonly] 
-**Modified** |  Pointer to **System.DateTime** | Date the Dimension was last modified. | [optional] [readonly] 
-**Description** |  Pointer to **String** | A human-readable description of the Dimension | [optional] 
-**Owner** |  [**OwnerReference**](owner-reference) |  | [required]
-**AccessProfiles** |  Pointer to [**[]AccessProfileRef**](access-profile-ref) |  | [optional] 
-**Entitlements** |  Pointer to [**[]EntitlementRef**](entitlement-ref) |  | [optional] 
-**Membership** |  Pointer to [**DimensionMembershipSelector**](dimension-membership-selector) |  | [optional] 
-**ParentId** |  Pointer to **String** | The ID of the parent role. This field can be left null when creating a dimension, but if provided, it must match the role ID specified in the path variable of the API call. | [optional] 
+**Id** | **String** | The id of the Dimension. This field must be left null when creating a dimension, otherwise a 400 Bad Request error will result. | [optional] 
+**Name** | **String** | The human-readable display name of the Dimension | [required]
+**Created** | **System.DateTime** | Date the Dimension was created | [optional] [readonly] 
+**Modified** | **System.DateTime** | Date the Dimension was last modified. | [optional] [readonly] 
+**Description** | **String** | A human-readable description of the Dimension | [optional] 
+**Owner** | [**OwnerReference**](owner-reference) |  | [required]
+**AccessProfiles** | [**[]AccessProfileRef**](access-profile-ref) |  | [optional] 
+**Entitlements** | [**[]EntitlementRef**](entitlement-ref) |  | [optional] 
+**Membership** | [**DimensionMembershipSelector**](dimension-membership-selector) |  | [optional] 
+**ParentId** | **String** | The ID of the parent role. This field can be left null when creating a dimension, but if provided, it must match the role ID specified in the path variable of the API call. | [optional] 
 
 ## Examples
 

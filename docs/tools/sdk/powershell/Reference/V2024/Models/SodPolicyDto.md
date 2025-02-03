@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'SodPolicyDto', 'V2024SodPolicyDto']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to  **Enum** [  "SOD_POLICY" ] | SOD policy DTO type. | [optional] 
-**Id** |  Pointer to **String** | SOD policy ID. | [optional] 
-**Name** |  Pointer to **String** | SOD policy display name. | [optional] 
+**Type** |  **Enum** [  "SOD_POLICY" ] | SOD policy DTO type. | [optional] 
+**Id** | **String** | SOD policy ID. | [optional] 
+**Name** | **String** | SOD policy display name. | [optional] 
 
 ## Examples
 

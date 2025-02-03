@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'IdentitiesAccountsBulkRequest', 'Beta
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**IdentityIds** |  Pointer to **[]String** | The ids of the identities for which enable/disable accounts. | [optional] 
+**IdentityIds** | **[]String** | The ids of the identities for which enable/disable accounts. | [optional] 
 
 ## Examples
 

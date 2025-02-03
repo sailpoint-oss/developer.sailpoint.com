@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'AccountUsage', 'BetaAccountUsage']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Date** |  Pointer to **System.DateTime** | The first day of the month for which activity is aggregated. | [optional] 
-**Count** |  Pointer to **Int64** | The number of days within the month that the account was active in a source. | [optional] 
+**Date** | **System.DateTime** | The first day of the month for which activity is aggregated. | [optional] 
+**Count** | **Int64** | The number of days within the month that the account was active in a source. | [optional] 
 
 ## Examples
 

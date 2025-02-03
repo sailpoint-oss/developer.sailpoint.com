@@ -9,7 +9,6 @@ slug: /tools/sdk/powershell/beta/methods/managed-clients
 tags: ['SDK', 'Software Development Kit', 'ManagedClients', 'BetaManagedClients']
 ---
 
-
 # ManagedClients
   Use this API to implement managed client functionality. 
 With this functionality in place, administrators can modify and delete existing managed clients, create new ones, and view and make changes to their log configurations. 
@@ -23,9 +22,7 @@ Method | HTTP request | Description
 [**Get-BetaManagedClientStatus**](#get-managed-client-status) | **GET** `/managed-clients/{id}/status` | Specified Managed Client Status.
 [**Update-BetaManagedClientStatus**](#update-managed-client-status) | **POST** `/managed-clients/{id}/status` | Handle status request from client
 
-
 ## get-managed-client-status
-
 Retrieve Managed Client Status by ID.
 
 ### Parameters 
@@ -35,7 +32,6 @@ Path   | Id | **String** | True  | ID of the Managed Client Status to get
   Query | Type | [**ManagedClientType**](../models/managed-client-type) | True  | Type of the Managed Client Status to get
 
 ### Return type
-
 [**ManagedClientStatus**](../models/managed-client-status)
 
 ### Responses
@@ -50,7 +46,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -58,9 +53,11 @@ Code | Description  | Data Type
 ```powershell
 $Id = "aClientId" # String | ID of the Managed Client Status to get
 $Type = "CCG" # ManagedClientType | Type of the Managed Client Status to get
+
 # Specified Managed Client Status.
+
 try {
-    Get-BetaManagedClientStatus-BetaId $Id -BetaType $Type 
+    Get-BetaManagedClientStatus -BetaId $Id  -BetaType $Type 
     
     # Below is a request that includes all optional parameters
     # Get-BetaManagedClientStatus -BetaId $Id -BetaType $Type  
@@ -69,11 +66,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## update-managed-client-status
-
 Update a status detail passed in from the client
 
 ### Parameters 
@@ -83,7 +77,6 @@ Path   | Id | **String** | True  | ID of the Managed Client Status to update
  Body  | ManagedClientStatus | [**ManagedClientStatus**](../models/managed-client-status) | True  | 
 
 ### Return type
-
 [**ManagedClientStatusAggResponse**](../models/managed-client-status-agg-response)
 
 ### Responses
@@ -98,7 +91,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -131,10 +123,12 @@ $ManagedClientStatus = @"{
   "status" : "NORMAL",
   "timestamp" : "2020-01-01T00:00:00Z"
 }"@
+
 # Handle status request from client
+
 try {
     $Result = ConvertFrom-JsonToManagedClientStatus -Json $ManagedClientStatus
-    Update-BetaManagedClientStatus-BetaId $Id -BetaManagedClientStatus $Result
+    Update-BetaManagedClientStatus -BetaId $Id  -BetaManagedClientStatus $Result
     
     # Below is a request that includes all optional parameters
     # Update-BetaManagedClientStatus -BetaId $Id -BetaManagedClientStatus $ManagedClientStatus  
@@ -143,7 +137,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

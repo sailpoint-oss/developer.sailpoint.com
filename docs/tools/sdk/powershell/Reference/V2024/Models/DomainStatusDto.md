@@ -16,11 +16,11 @@ tags: ['SDK', 'Software Development Kit', 'DomainStatusDto', 'V2024DomainStatusD
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | New UUID associated with domain to be verified | [optional] 
-**Domain** |  Pointer to **String** | A domain address | [optional] 
-**DkimEnabled** |  Pointer to [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | DKIM is enabled for this domain | [optional] 
-**DkimTokens** |  Pointer to **[]String** | DKIM tokens required for authentication | [optional] 
-**DkimVerificationStatus** |  Pointer to **String** | Status of DKIM authentication | [optional] 
+**Id** | **String** | New UUID associated with domain to be verified | [optional] 
+**Domain** | **String** | A domain address | [optional] 
+**DkimEnabled** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | DKIM is enabled for this domain | [optional] 
+**DkimTokens** | **[]String** | DKIM tokens required for authentication | [optional] 
+**DkimVerificationStatus** | **String** | Status of DKIM authentication | [optional] 
 
 ## Examples
 

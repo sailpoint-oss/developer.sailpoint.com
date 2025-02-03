@@ -16,11 +16,11 @@ tags: ['SDK', 'Software Development Kit', 'ResourceObjectsResponse', 'BetaResour
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | ID of the source | [optional] [readonly] 
-**Name** |  Pointer to **String** | Name of the source | [optional] [readonly] 
-**ObjectCount** |  Pointer to **Int32** | The number of objects that were fetched by the connector. | [optional] [readonly] 
-**ElapsedMillis** |  Pointer to **Int32** | The number of milliseconds spent on the entire request. | [optional] [readonly] 
-**ResourceObjects** |  Pointer to [**[]ResourceObject**](resource-object) | Fetched objects from the source connector. | [optional] [readonly] 
+**Id** | **String** | ID of the source | [optional] [readonly] 
+**Name** | **String** | Name of the source | [optional] [readonly] 
+**ObjectCount** | **Int32** | The number of objects that were fetched by the connector. | [optional] [readonly] 
+**ElapsedMillis** | **Int32** | The number of milliseconds spent on the entire request. | [optional] [readonly] 
+**ResourceObjects** | [**[]ResourceObject**](resource-object) | Fetched objects from the source connector. | [optional] [readonly] 
 
 ## Examples
 

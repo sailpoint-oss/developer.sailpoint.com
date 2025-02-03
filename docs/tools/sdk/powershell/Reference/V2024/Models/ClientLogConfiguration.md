@@ -16,11 +16,11 @@ tags: ['SDK', 'Software Development Kit', 'ClientLogConfiguration', 'V2024Client
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClientId** |  Pointer to **String** | Log configuration's client ID | [optional] 
-**DurationMinutes** |  Pointer to **Int32** | Duration in minutes for log configuration to remain in effect before resetting to defaults. | [optional] [default to 240]
-**Expiration** |  Pointer to **System.DateTime** | Expiration date-time of the log configuration request.  Can be no greater than 24 hours from current date-time. | [optional] 
-**RootLevel** |  [**StandardLevel**](standard-level) |  | [required]
-**LogLevels** |  Pointer to [**map[string]StandardLevel**](standard-level) | Mapping of identifiers to Standard Log Level values | [optional] 
+**ClientId** | **String** | Log configuration's client ID | [optional] 
+**DurationMinutes** | **Int32** | Duration in minutes for log configuration to remain in effect before resetting to defaults. | [optional] [default to 240]
+**Expiration** | **System.DateTime** | Expiration date-time of the log configuration request.  Can be no greater than 24 hours from current date-time. | [optional] 
+**RootLevel** | [**StandardLevel**](standard-level) |  | [required]
+**LogLevels** | [**map[string]StandardLevel**](standard-level) | Mapping of identifiers to Standard Log Level values | [optional] 
 
 ## Examples
 

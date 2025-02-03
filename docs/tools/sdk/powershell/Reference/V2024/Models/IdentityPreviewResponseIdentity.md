@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'IdentityPreviewResponseIdentity', 'V2
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  Pointer to  **Enum** [  "IDENTITY" ] | Identity's DTO type. | [optional] 
-**Id** |  Pointer to **String** | Identity ID. | [optional] 
-**Name** |  Pointer to **String** | Identity's display name. | [optional] 
+**Type** |  **Enum** [  "IDENTITY" ] | Identity's DTO type. | [optional] 
+**Id** | **String** | Identity ID. | [optional] 
+**Name** | **String** | Identity's display name. | [optional] 
 
 ## Examples
 

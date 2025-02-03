@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'OrphanIdentitiesReportArguments', 'V2
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**SelectedFormats** |  Pointer to **[]String** | Output report file formats. These are formats for calling GET endpoint as query parameter 'fileFormat'.  In case report won't have this argument there will be ['CSV', 'PDF'] as default. | [optional] 
+**SelectedFormats** | **[]String** | Output report file formats. These are formats for calling GET endpoint as query parameter 'fileFormat'.  In case report won't have this argument there will be ['CSV', 'PDF'] as default. | [optional] 
 
 ## Examples
 

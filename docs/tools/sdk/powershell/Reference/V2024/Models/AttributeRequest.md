@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'AttributeRequest', 'V2024AttributeReq
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** |  Pointer to **String** | Attribute name. | [optional] 
-**Op** |  Pointer to **String** | Operation to perform on attribute. | [optional] 
-**Value** |  Pointer to **String** | Value of attribute. | [optional] 
+**Name** | **String** | Attribute name. | [optional] 
+**Op** | **String** | Operation to perform on attribute. | [optional] 
+**Value** | **String** | Value of attribute. | [optional] 
 
 ## Examples
 

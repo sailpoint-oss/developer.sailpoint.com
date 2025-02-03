@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'SetIcon200Response', 'BetaSetIcon200R
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Icon** |  Pointer to **String** | url to file with icon | [optional] 
+**Icon** | **String** | url to file with icon | [optional] 
 
 ## Examples
 

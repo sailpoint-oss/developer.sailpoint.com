@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'SearchAttributeConfig', 'SearchAttrib
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** |  Pointer to **String** | Name of the new attribute | [optional] 
-**DisplayName** |  Pointer to **String** | The display name of the new attribute | [optional] 
-**ApplicationAttributes** |  Pointer to [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | Map of application id and their associated attribute. | [optional] 
+**Name** | **String** | Name of the new attribute | [optional] 
+**DisplayName** | **String** | The display name of the new attribute | [optional] 
+**ApplicationAttributes** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | Map of application id and their associated attribute. | [optional] 
 
 ## Examples
 

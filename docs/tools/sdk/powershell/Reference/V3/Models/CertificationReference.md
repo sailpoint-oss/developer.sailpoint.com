@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'CertificationReference', 'Certificati
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | The id of the certification. | [optional] 
-**Name** |  Pointer to **String** | The name of the certification. | [optional] 
-**Type** |  Pointer to  **Enum** [  "CERTIFICATION" ] |  | [optional] 
-**Reviewer** |  Pointer to [**Reviewer**](reviewer) |  | [optional] 
+**Id** | **String** | The id of the certification. | [optional] 
+**Name** | **String** | The name of the certification. | [optional] 
+**Type** |  **Enum** [  "CERTIFICATION" ] |  | [optional] 
+**Reviewer** | [**Reviewer**](reviewer) |  | [optional] 
 
 ## Examples
 

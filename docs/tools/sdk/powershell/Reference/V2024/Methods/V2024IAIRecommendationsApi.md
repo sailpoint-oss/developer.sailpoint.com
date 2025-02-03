@@ -9,7 +9,6 @@ slug: /tools/sdk/powershell/v2024/methods/iai-recommendations
 tags: ['SDK', 'Software Development Kit', 'IAIRecommendations', 'V2024IAIRecommendations']
 ---
 
-
 # IAIRecommendations
    
   
@@ -22,9 +21,7 @@ Method | HTTP request | Description
 [**Get-V2024RecommendationsConfig**](#get-recommendations-config) | **GET** `/recommendations/config` | Get certification recommendation config values
 [**Update-V2024RecommendationsConfig**](#update-recommendations-config) | **PUT** `/recommendations/config` | Update certification recommendation config values
 
-
 ## get-recommendations
-
 The getRecommendations API returns recommendations based on the requested object. The recommendations are invoked by IdentityIQ and IdentityNow plug-ins that retrieve recommendations based on the performed calculations.
 
 ### Parameters 
@@ -34,7 +31,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | RecommendationRequestDto | [**RecommendationRequestDto**](../models/recommendation-request-dto) | True  | 
 
 ### Return type
-
 [**RecommendationResponseDto**](../models/recommendation-response-dto)
 
 ### Responses
@@ -48,7 +44,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -74,10 +69,12 @@ $RecommendationRequestDto = @"{
   "includeTranslationMessages" : false,
   "includeDebugInformation" : true
 }"@
+
 # Returns a Recommendation Based on Object
+
 try {
     $Result = ConvertFrom-JsonToRecommendationRequestDto -Json $RecommendationRequestDto
-    Get-V2024Recommendations-V2024XSailPointExperimental $XSailPointExperimental -V2024RecommendationRequestDto $Result
+    Get-V2024Recommendations -V2024XSailPointExperimental $XSailPointExperimental  -V2024RecommendationRequestDto $Result
     
     # Below is a request that includes all optional parameters
     # Get-V2024Recommendations -V2024XSailPointExperimental $XSailPointExperimental -V2024RecommendationRequestDto $RecommendationRequestDto  
@@ -86,11 +83,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-recommendations-config
-
 Retrieves configuration attributes used by certification recommendations.
 
 ### Parameters 
@@ -99,7 +93,6 @@ Param Type | Name | Data Type | Required  | Description
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-
 [**RecommendationConfigDto**](../models/recommendation-config-dto)
 
 ### Responses
@@ -112,16 +105,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
 # Get certification recommendation config values
+
 try {
-    Get-V2024RecommendationsConfig-V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024RecommendationsConfig -V2024XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
     # Get-V2024RecommendationsConfig -V2024XSailPointExperimental $XSailPointExperimental  
@@ -130,11 +124,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## update-recommendations-config
-
 Updates configuration attributes used by certification recommendations.
 
 ### Parameters 
@@ -144,7 +135,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | RecommendationConfigDto | [**RecommendationConfigDto**](../models/recommendation-config-dto) | True  | 
 
 ### Return type
-
 [**RecommendationConfigDto**](../models/recommendation-config-dto)
 
 ### Responses
@@ -157,7 +147,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -170,10 +159,12 @@ $RecommendationConfigDto = @"{
   "runAutoSelectOnce" : false,
   "onlyTuneThreshold" : false
 }"@
+
 # Update certification recommendation config values
+
 try {
     $Result = ConvertFrom-JsonToRecommendationConfigDto -Json $RecommendationConfigDto
-    Update-V2024RecommendationsConfig-V2024XSailPointExperimental $XSailPointExperimental -V2024RecommendationConfigDto $Result
+    Update-V2024RecommendationsConfig -V2024XSailPointExperimental $XSailPointExperimental  -V2024RecommendationConfigDto $Result
     
     # Below is a request that includes all optional parameters
     # Update-V2024RecommendationsConfig -V2024XSailPointExperimental $XSailPointExperimental -V2024RecommendationConfigDto $RecommendationConfigDto  
@@ -182,7 +173,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

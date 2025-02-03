@@ -9,7 +9,6 @@ slug: /tools/sdk/powershell/v3/methods/certification-campaigns
 tags: ['SDK', 'Software Development Kit', 'CertificationCampaigns', 'CertificationCampaigns']
 ---
 
-
 # CertificationCampaigns
   Use this API to implement certification campaign functionality.
 With this functionality in place, administrators can create, customize, and manage certification campaigns for their organizations&#39; use. 
@@ -106,9 +105,7 @@ Method | HTTP request | Description
 [**Start-GenerateCampaignTemplate**](#start-generate-campaign-template) | **POST** `/campaign-templates/{id}/generate` | Generate a Campaign from Template
 [**Update-Campaign**](#update-campaign) | **PATCH** `/campaigns/{id}` | Update a Campaign
 
-
 ## complete-campaign
-
 :::caution
 
 This endpoint will run successfully for any campaigns that are **past due**.
@@ -128,7 +125,6 @@ Path   | Id | **String** | True  | Campaign ID.
  Body  | CampaignCompleteOptions | [**CampaignCompleteOptions**](../models/campaign-complete-options) |   (optional) | Optional. Default behavior is for the campaign to auto-approve upon completion, unless autoCompleteAction=REVOKE
 
 ### Return type
-
 [**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0)
 
 ### Responses
@@ -143,7 +139,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -153,9 +148,11 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Campaign ID.
 $CampaignCompleteOptions = @"{
   "autoCompleteAction" : "REVOKE"
 }"@
+
 # Complete a Campaign
+
 try {
-    Complete-Campaign-Id $Id 
+    Complete-Campaign -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Complete-Campaign -Id $Id -CampaignCompleteOptions $CampaignCompleteOptions  
@@ -164,11 +161,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## create-campaign
-
 Use this API to create a certification campaign with the information provided in the request body.    
 
 
@@ -178,7 +172,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | Campaign | [**Campaign**](../models/campaign) | True  | 
 
 ### Return type
-
 [**Campaign**](../models/campaign)
 
 ### Responses
@@ -192,7 +185,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -307,10 +299,12 @@ $Campaign = @"{
   "status" : "ACTIVE",
   "correlatedStatus" : "CORRELATED"
 }"@
+
 # Create a campaign
+
 try {
     $Result = ConvertFrom-JsonToCampaign -Json $Campaign
-    New-Campaign-Campaign $Result
+    New-Campaign -Campaign $Result
     
     # Below is a request that includes all optional parameters
     # New-Campaign -Campaign $Campaign  
@@ -319,11 +313,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## create-campaign-template
-
 Use this API to create a certification campaign template based on campaign.
 
 
@@ -333,7 +324,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | CampaignTemplate | [**CampaignTemplate**](../models/campaign-template) | True  | 
 
 ### Return type
-
 [**CampaignTemplate**](../models/campaign-template)
 
 ### Responses
@@ -347,7 +337,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -477,10 +466,12 @@ $CampaignTemplate = @"{
   },
   "id" : "2c9079b270a266a60170a277bb960008"
 }"@
+
 # Create a Campaign Template
+
 try {
     $Result = ConvertFrom-JsonToCampaignTemplate -Json $CampaignTemplate
-    New-CampaignTemplate-CampaignTemplate $Result
+    New-CampaignTemplate -CampaignTemplate $Result
     
     # Below is a request that includes all optional parameters
     # New-CampaignTemplate -CampaignTemplate $CampaignTemplate  
@@ -489,11 +480,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## delete-campaign-template
-
 Use this API to delete a certification campaign template by ID.
 
 
@@ -503,7 +491,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | ID of the campaign template being deleted.
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -518,16 +505,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "2c9180835d191a86015d28455b4a2329" # String | ID of the campaign template being deleted.
+
 # Delete a Campaign Template
+
 try {
-    Remove-CampaignTemplate-Id $Id 
+    Remove-CampaignTemplate -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-CampaignTemplate -Id $Id  
@@ -536,11 +524,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## delete-campaign-template-schedule
-
 Use this API to delete the schedule for a certification campaign template. The API returns a 404 if there is no schedule set.
 
 
@@ -550,7 +535,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | ID of the campaign template whose schedule is being deleted.
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -565,16 +549,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "04bedce387bd47b2ae1f86eb0bb36dee" # String | ID of the campaign template whose schedule is being deleted.
+
 # Delete Campaign Template Schedule
+
 try {
-    Remove-CampaignTemplateSchedule-Id $Id 
+    Remove-CampaignTemplateSchedule -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-CampaignTemplateSchedule -Id $Id  
@@ -583,11 +568,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## delete-campaigns
-
 Use this API to delete certification campaigns whose IDs are specified in the provided list of campaign IDs.
 
 
@@ -597,7 +579,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | CampaignsDeleteRequest | [**CampaignsDeleteRequest**](../models/campaigns-delete-request) | True  | IDs of the campaigns to delete.
 
 ### Return type
-
 [**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0)
 
 ### Responses
@@ -612,7 +593,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -621,10 +601,12 @@ Code | Description  | Data Type
 $CampaignsDeleteRequest = @"{
   "ids" : [ "2c9180887335cee10173490db1776c26", "2c9180836a712436016a7125a90c0021" ]
 }"@
+
 # Delete Campaigns
+
 try {
     $Result = ConvertFrom-JsonToCampaignsDeleteRequest -Json $CampaignsDeleteRequest
-    Remove-Campaigns-CampaignsDeleteRequest $Result
+    Remove-Campaigns -CampaignsDeleteRequest $Result
     
     # Below is a request that includes all optional parameters
     # Remove-Campaigns -CampaignsDeleteRequest $CampaignsDeleteRequest  
@@ -633,11 +615,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-active-campaigns
-
 Use this API to get a list of campaigns. This API can provide increased level of detail for each campaign for the correct provided query.
 
 
@@ -652,7 +631,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created**
 
 ### Return type
-
 [**GetActiveCampaigns200ResponseInner[]**](../models/get-active-campaigns200-response-inner)
 
 ### Responses
@@ -666,7 +644,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -678,7 +655,9 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Filters = 'name eq "Manager Campaign"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **status**: *eq, in* (optional)
 $Sorters = "name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created** (optional)
+
 # List Campaigns
+
 try {
     Get-ActiveCampaigns
     
@@ -689,11 +668,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-campaign
-
 Use this API to get information for an existing certification campaign by the campaign's ID.
 
 
@@ -704,7 +680,6 @@ Path   | Id | **String** | True  | ID of the campaign to be retrieved.
   Query | Detail | **String** |   (optional) | Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior.
 
 ### Return type
-
 [**GetActiveCampaigns200ResponseInner**](../models/get-active-campaigns200-response-inner)
 
 ### Responses
@@ -719,7 +694,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -727,9 +701,11 @@ Code | Description  | Data Type
 ```powershell
 $Id = "2c91808571bcfcf80171c23e4b4221fc" # String | ID of the campaign to be retrieved.
 $Detail = "SLIM" # String | Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior. (optional)
+
 # Get Campaign
+
 try {
-    Get-Campaign-Id $Id 
+    Get-Campaign -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-Campaign -Id $Id -Detail $Detail  
@@ -738,11 +714,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-campaign-reports
-
 Use this API to fetch all reports for a certification campaign by campaign ID.
 
 
@@ -752,7 +725,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | ID of the campaign whose reports are being fetched.
 
 ### Return type
-
 [**CampaignReport[]**](../models/campaign-report)
 
 ### Responses
@@ -767,16 +739,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "2c91808571bcfcf80171c23e4b4221fc" # String | ID of the campaign whose reports are being fetched.
+
 # Get Campaign Reports
+
 try {
-    Get-CampaignReports-Id $Id 
+    Get-CampaignReports -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-CampaignReports -Id $Id  
@@ -785,11 +758,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-campaign-reports-config
-
 Use this API to fetch the configuration for certification campaign reports. The configuration includes only one element - identity attributes defined as custom report columns. 
 
 
@@ -798,7 +768,6 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 
 ### Return type
-
 [**CampaignReportsConfig**](../models/campaign-reports-config)
 
 ### Responses
@@ -812,13 +781,14 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
+
 # Get Campaign Reports Configuration
+
 try {
     Get-CampaignReportsConfig
     
@@ -829,11 +799,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-campaign-template
-
 Use this API to fetch a certification campaign template by ID.
 
 
@@ -843,7 +810,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | Requested campaign template's ID.
 
 ### Return type
-
 [**CampaignTemplate**](../models/campaign-template)
 
 ### Responses
@@ -858,16 +824,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "2c9180835d191a86015d28455b4a2329" # String | Requested campaign template's ID.
+
 # Get a Campaign Template
+
 try {
-    Get-CampaignTemplate-Id $Id 
+    Get-CampaignTemplate -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-CampaignTemplate -Id $Id  
@@ -876,11 +843,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-campaign-template-schedule
-
 Use this API to get the schedule for a certification campaign template. The API returns a 404 if there is no schedule set.
 
 
@@ -890,7 +854,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | ID of the campaign template whose schedule is being fetched.
 
 ### Return type
-
 [**Schedule**](../models/schedule)
 
 ### Responses
@@ -905,16 +868,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "04bedce387bd47b2ae1f86eb0bb36dee" # String | ID of the campaign template whose schedule is being fetched.
+
 # Get Campaign Template Schedule
+
 try {
-    Get-CampaignTemplateSchedule-Id $Id 
+    Get-CampaignTemplateSchedule -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-CampaignTemplateSchedule -Id $Id  
@@ -923,11 +887,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-campaign-templates
-
 Use this API to get a list of all campaign templates. Scope can be reduced through standard V3 query params.
 
 The API returns all campaign templates matching the query parameters. 
@@ -943,7 +904,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq, ge, gt, in, le, lt, ne, sw*  **id**: *eq, ge, gt, in, le, lt, ne, sw*
 
 ### Return type
-
 [**CampaignTemplate[]**](../models/campaign-template)
 
 ### Responses
@@ -957,7 +917,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -968,7 +927,9 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Sorters = "name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified** (optional)
 $Filters = 'name eq "manager template"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq, ge, gt, in, le, lt, ne, sw*  **id**: *eq, ge, gt, in, le, lt, ne, sw* (optional)
+
 # List Campaign Templates
+
 try {
     Get-CampaignTemplates
     
@@ -979,11 +940,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## move
-
 This API reassigns the specified certifications from one identity to another.    
 
 
@@ -994,7 +952,6 @@ Path   | Id | **String** | True  | The certification campaign ID
  Body  | AdminReviewReassign | [**AdminReviewReassign**](../models/admin-review-reassign) | True  | 
 
 ### Return type
-
 [**CertificationTask**](../models/certification-task)
 
 ### Responses
@@ -1009,7 +966,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -1024,10 +980,12 @@ $AdminReviewReassign = @"{
     "type" : "IDENTITY"
   }
 }"@
+
 # Reassign Certifications
+
 try {
     $Result = ConvertFrom-JsonToAdminReviewReassign -Json $AdminReviewReassign
-    Move--Id $Id -AdminReviewReassign $Result
+    Move- -Id $Id  -AdminReviewReassign $Result
     
     # Below is a request that includes all optional parameters
     # Move- -Id $Id -AdminReviewReassign $AdminReviewReassign  
@@ -1036,11 +994,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## patch-campaign-template
-
 Use this API to update individual fields on a certification campaign template, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
 
@@ -1051,7 +1006,6 @@ Path   | Id | **String** | True  | ID of the campaign template being modified.
  Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * deadlineDuration * campaign (all fields that are allowed during create) 
 
 ### Return type
-
 [**CampaignTemplate**](../models/campaign-template)
 
 ### Responses
@@ -1066,24 +1020,24 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json-patch+json
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "2c9180835d191a86015d28455b4a2329" # String | ID of the campaign template being modified.
- # JsonPatchOperation[] | A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * deadlineDuration * campaign (all fields that are allowed during create) 
  $JsonPatchOperation = @"{
   "op" : "replace",
   "path" : "/description",
   "value" : "New description"
-}"@ 
+}"@ # JsonPatchOperation[] | A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * deadlineDuration * campaign (all fields that are allowed during create) 
+ 
 
 # Update a Campaign Template
+
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-CampaignTemplate-Id $Id -JsonPatchOperation $Result
+    Update-CampaignTemplate -Id $Id  -JsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-CampaignTemplate -Id $Id -JsonPatchOperation $JsonPatchOperation  
@@ -1092,11 +1046,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## set-campaign-reports-config
-
 Use this API to overwrite the configuration for campaign reports. 
 
 
@@ -1106,7 +1057,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | CampaignReportsConfig | [**CampaignReportsConfig**](../models/campaign-reports-config) | True  | Campaign report configuration.
 
 ### Return type
-
 [**CampaignReportsConfig**](../models/campaign-reports-config)
 
 ### Responses
@@ -1120,7 +1070,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -1129,10 +1078,12 @@ Code | Description  | Data Type
 $CampaignReportsConfig = @"{
   "identityAttributeColumns" : [ "firstname", "lastname" ]
 }"@
+
 # Set Campaign Reports Configuration
+
 try {
     $Result = ConvertFrom-JsonToCampaignReportsConfig -Json $CampaignReportsConfig
-    Set-CampaignReportsConfig-CampaignReportsConfig $Result
+    Set-CampaignReportsConfig -CampaignReportsConfig $Result
     
     # Below is a request that includes all optional parameters
     # Set-CampaignReportsConfig -CampaignReportsConfig $CampaignReportsConfig  
@@ -1141,11 +1092,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## set-campaign-template-schedule
-
 Use this API to set the schedule for a certification campaign template. If a schedule already exists, the API overwrites it with the new one.
 
 
@@ -1156,7 +1104,6 @@ Path   | Id | **String** | True  | ID of the campaign template being scheduled.
  Body  | Schedule | [**Schedule**](../models/schedule) |   (optional) | 
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -1171,7 +1118,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -1198,9 +1144,11 @@ $Schedule = @"{
   "expiration" : "2000-01-23T04:56:07.000+00:00",
   "type" : "WEEKLY"
 }"@
+
 # Set Campaign Template Schedule
+
 try {
-    Set-CampaignTemplateSchedule-Id $Id 
+    Set-CampaignTemplateSchedule -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Set-CampaignTemplateSchedule -Id $Id -Schedule $Schedule  
@@ -1209,11 +1157,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## start-campaign
-
 Use this API to submit a job to activate the certified campaign with the specified ID. The campaign must be staged.
 
 
@@ -1224,7 +1169,6 @@ Path   | Id | **String** | True  | Campaign ID.
  Body  | ActivateCampaignOptions | [**ActivateCampaignOptions**](../models/activate-campaign-options) |   (optional) | Optional. If no timezone is specified, the standard UTC timezone is used (i.e. UTC+00:00). Although this can take any timezone, the intended value is the caller's timezone. The activation time calculated from the given timezone may cause the campaign deadline time to be modified, but it will remain within the original date. The timezone must be in a valid ISO 8601 format.
 
 ### Return type
-
 [**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0)
 
 ### Responses
@@ -1239,7 +1183,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -1249,9 +1192,11 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Campaign ID.
 $ActivateCampaignOptions = @"{
   "timeZone" : "-05:00"
 }"@
+
 # Activate a Campaign
+
 try {
-    Start-Campaign-Id $Id 
+    Start-Campaign -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Start-Campaign -Id $Id -ActivateCampaignOptions $ActivateCampaignOptions  
@@ -1260,11 +1205,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## start-campaign-remediation-scan
-
 Use this API to run a remediation scan task for a certification campaign.
 
 
@@ -1274,7 +1216,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | ID of the campaign the remediation scan is being run for.
 
 ### Return type
-
 [**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0)
 
 ### Responses
@@ -1289,16 +1230,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "2c91808571bcfcf80171c23e4b4221fc" # String | ID of the campaign the remediation scan is being run for.
+
 # Run Campaign Remediation Scan
+
 try {
-    Start-CampaignRemediationScan-Id $Id 
+    Start-CampaignRemediationScan -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Start-CampaignRemediationScan -Id $Id  
@@ -1307,11 +1249,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## start-campaign-report
-
 Use this API to run a report for a certification campaign.
 
 
@@ -1322,7 +1261,6 @@ Path   | Id | **String** | True  | ID of the campaign the report is being run fo
 Path   | Type | [**ReportType**](../models/report-type) | True  | Type of the report to run.
 
 ### Return type
-
 [**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0)
 
 ### Responses
@@ -1337,7 +1275,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -1345,9 +1282,11 @@ Code | Description  | Data Type
 ```powershell
 $Id = "2c91808571bcfcf80171c23e4b4221fc" # String | ID of the campaign the report is being run for.
 $Type = "CAMPAIGN_COMPOSITION_REPORT" # ReportType | Type of the report to run.
+
 # Run Campaign Report
+
 try {
-    Start-CampaignReport-Id $Id -Type $Type 
+    Start-CampaignReport -Id $Id  -Type $Type 
     
     # Below is a request that includes all optional parameters
     # Start-CampaignReport -Id $Id -Type $Type  
@@ -1356,11 +1295,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## start-generate-campaign-template
-
 Use this API to generate a new certification campaign from a campaign template.
 
 The campaign object contained in the template has special formatting applied to its name and description
@@ -1380,7 +1316,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | ID of the campaign template to use for generation.
 
 ### Return type
-
 [**CampaignReference**](../models/campaign-reference)
 
 ### Responses
@@ -1394,16 +1329,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "2c9180835d191a86015d28455b4a2329" # String | ID of the campaign template to use for generation.
+
 # Generate a Campaign from Template
+
 try {
-    Start-GenerateCampaignTemplate-Id $Id 
+    Start-GenerateCampaignTemplate -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Start-GenerateCampaignTemplate -Id $Id  
@@ -1412,11 +1348,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## update-campaign
-
 Use this API to update individual fields on a certification campaign, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
 
@@ -1427,7 +1360,6 @@ Path   | Id | **String** | True  | ID of the campaign template being modified.
  Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The fields that can be patched differ based on the status of the campaign.  When the campaign is in the *STAGED* status, you can patch these fields: * name * description * recommendationsEnabled * deadline * emailNotificationEnabled * autoRevokeAllowed  When the campaign is in the *ACTIVE* status, you can patch these fields: * deadline 
 
 ### Return type
-
 [**SlimCampaign**](../models/slim-campaign)
 
 ### Responses
@@ -1442,24 +1374,24 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json-patch+json
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "2c91808571bcfcf80171c23e4b4221fc" # String | ID of the campaign template being modified.
- # JsonPatchOperation[] | A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The fields that can be patched differ based on the status of the campaign.  When the campaign is in the *STAGED* status, you can patch these fields: * name * description * recommendationsEnabled * deadline * emailNotificationEnabled * autoRevokeAllowed  When the campaign is in the *ACTIVE* status, you can patch these fields: * deadline 
  $JsonPatchOperation = @"{
   "op" : "replace",
   "path" : "/description",
   "value" : "New description"
-}"@ 
+}"@ # JsonPatchOperation[] | A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The fields that can be patched differ based on the status of the campaign.  When the campaign is in the *STAGED* status, you can patch these fields: * name * description * recommendationsEnabled * deadline * emailNotificationEnabled * autoRevokeAllowed  When the campaign is in the *ACTIVE* status, you can patch these fields: * deadline 
+ 
 
 # Update a Campaign
+
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-Campaign-Id $Id -JsonPatchOperation $Result
+    Update-Campaign -Id $Id  -JsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-Campaign -Id $Id -JsonPatchOperation $JsonPatchOperation  
@@ -1468,7 +1400,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

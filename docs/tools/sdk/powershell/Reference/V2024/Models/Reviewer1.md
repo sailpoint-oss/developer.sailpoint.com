@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'Reviewer1', 'V2024Reviewer1']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |   **Enum** [  "IDENTITY",    "GOVERNANCE_GROUP" ] | The reviewer's DTO type. | [required]
-**Id** |  **String** | The reviewer's ID. | [required]
-**Name** |  **String** | The reviewer's display name. | [required]
-**Email** |  Pointer to **String** | The reviewing identity's email. Only applicable to `IDENTITY`. | [optional] 
+**Type** |  **Enum** [  "IDENTITY",    "GOVERNANCE_GROUP" ] | The reviewer's DTO type. | [required]
+**Id** | **String** | The reviewer's ID. | [required]
+**Name** | **String** | The reviewer's display name. | [required]
+**Email** | **String** | The reviewing identity's email. Only applicable to `IDENTITY`. | [optional] 
 
 ## Examples
 

@@ -9,7 +9,6 @@ slug: /tools/sdk/powershell/v3/methods/access-profiles
 tags: ['SDK', 'Software Development Kit', 'AccessProfiles', 'AccessProfiles']
 ---
 
-
 # AccessProfiles
   Use this API to implement and customize access profile functionality. 
 With this functionality in place, administrators can create access profiles and configure them for use throughout Identity Security Cloud, enabling users to get the access they need quickly and securely.
@@ -60,9 +59,7 @@ Method | HTTP request | Description
 [**Get-AccessProfiles**](#list-access-profiles) | **GET** `/access-profiles` | List Access Profiles
 [**Update-AccessProfile**](#patch-access-profile) | **PATCH** `/access-profiles/{id}` | Patch a specified Access Profile
 
-
 ## create-access-profile
-
 Use this API to create an access profile.
 A user with only ROLE_SUBADMIN or SOURCE_SUBADMIN authority must be associated with the access profile's Source.
 The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles. However, any new access profiles as well as any updates to existing descriptions are limited to 2000 characters.
@@ -73,7 +70,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | AccessProfile | [**AccessProfile**](../models/access-profile) | True  | 
 
 ### Return type
-
 [**AccessProfile**](../models/access-profile)
 
 ### Responses
@@ -87,7 +83,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -178,10 +173,12 @@ $AccessProfile = @"{
   "id" : "2c91808a7190d06e01719938fcd20792",
   "requestable" : true
 }"@
+
 # Create Access Profile
+
 try {
     $Result = ConvertFrom-JsonToAccessProfile -Json $AccessProfile
-    New-AccessProfile-AccessProfile $Result
+    New-AccessProfile -AccessProfile $Result
     
     # Below is a request that includes all optional parameters
     # New-AccessProfile -AccessProfile $AccessProfile  
@@ -190,11 +187,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## delete-access-profile
-
 This API deletes an existing Access Profile.
 
 The Access Profile must not be in use, for example, Access Profile can not be deleted if they belong to an Application, Life Cycle State or a Role. If it is, a 400 error is returned.
@@ -207,7 +201,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | ID of the Access Profile to delete
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -221,16 +214,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "2c91808a7813090a017814121919ecca" # String | ID of the Access Profile to delete
+
 # Delete the specified Access Profile
+
 try {
-    Remove-AccessProfile-Id $Id 
+    Remove-AccessProfile -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-AccessProfile -Id $Id  
@@ -239,11 +233,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## delete-access-profiles-in-bulk
-
 This endpoint initiates a bulk deletion of one or more access profiles.
 When the request is successful, the endpoint returns the bulk delete's task result ID.  To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/beta/get-task-status), which will return the task result's status and information. 
 This endpoint can only bulk delete up to a limit of 50 access profiles per request. 
@@ -256,7 +247,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | AccessProfileBulkDeleteRequest | [**AccessProfileBulkDeleteRequest**](../models/access-profile-bulk-delete-request) | True  | 
 
 ### Return type
-
 [**AccessProfileBulkDeleteResponse**](../models/access-profile-bulk-delete-response)
 
 ### Responses
@@ -271,7 +261,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -281,10 +270,12 @@ $AccessProfileBulkDeleteRequest = @"{
   "accessProfileIds" : [ "2c9180847812e0b1017817051919ecca", "2c9180887812e0b201781e129f151816" ],
   "bestEffortOnly" : true
 }"@
+
 # Delete Access Profile(s)
+
 try {
     $Result = ConvertFrom-JsonToAccessProfileBulkDeleteRequest -Json $AccessProfileBulkDeleteRequest
-    Remove-AccessProfilesInBulk-AccessProfileBulkDeleteRequest $Result
+    Remove-AccessProfilesInBulk -AccessProfileBulkDeleteRequest $Result
     
     # Below is a request that includes all optional parameters
     # Remove-AccessProfilesInBulk -AccessProfileBulkDeleteRequest $AccessProfileBulkDeleteRequest  
@@ -293,11 +284,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-access-profile
-
 This API returns an Access Profile by its ID.
 
 ### Parameters 
@@ -306,7 +294,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | ID of the Access Profile
 
 ### Return type
-
 [**AccessProfile**](../models/access-profile)
 
 ### Responses
@@ -320,16 +307,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "2c9180837ca6693d017ca8d097500149" # String | ID of the Access Profile
+
 # Get an Access Profile
+
 try {
-    Get-AccessProfile-Id $Id 
+    Get-AccessProfile -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-AccessProfile -Id $Id  
@@ -338,11 +326,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-access-profile-entitlements
-
 Use this API to get a list of an access profile's entitlements. 
 A SOURCE_SUBADMIN user must have access to the source associated with the specified access profile.
 >**Note:** When you filter for access profiles that have the '+' symbol in their names, the response is blank. 
@@ -358,7 +343,6 @@ Path   | Id | **String** | True  | ID of the access profile containing the entit
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, attribute, value, created, modified**
 
 ### Return type
-
 [**Entitlement[]**](../models/entitlement)
 
 ### Responses
@@ -372,7 +356,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -384,9 +367,11 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Filters = 'attribute eq "memberOf"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **attribute**: *eq, sw*  **value**: *eq, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **source.id**: *eq, in*  Filtering is not supported for access profiles and entitlements that have the '+' symbol in their names.  (optional)
 $Sorters = "name,-modified" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, attribute, value, created, modified** (optional)
+
 # List Access Profile's Entitlements
+
 try {
-    Get-AccessProfileEntitlements-Id $Id 
+    Get-AccessProfileEntitlements -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-AccessProfileEntitlements -Id $Id -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
@@ -395,11 +380,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-access-profiles
-
 Use this API to get a list of access profiles.
 >**Note:** When you filter for access profiles that have the '+' symbol in their names, the response is blank. 
 
@@ -416,7 +398,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | IncludeUnsegmented | **Boolean** |   (optional) (default to $true) | Indicates whether the response list should contain unsegmented access profiles. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error.
 
 ### Return type
-
 [**AccessProfile[]**](../models/access-profile)
 
 ### Responses
@@ -430,7 +411,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -444,7 +424,9 @@ $Filters = 'name eq "SailPoint Support"' # String | Filter results using the sta
 $Sorters = "name,-modified" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified** (optional)
 $ForSegmentIds = "0b5c9f25-83c6-4762-9073-e38f7bb2ae26,2e8d8180-24bc-4d21-91c6-7affdb473b0d" # String | If present and not empty, additionally filters access profiles to those which are assigned to the segment(s) with the specified IDs.  If segmentation is currently unavailable, specifying this parameter results in an error. (optional)
 $IncludeUnsegmented = $false # Boolean | Indicates whether the response list should contain unsegmented access profiles. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error. (optional) (default to $true)
+
 # List Access Profiles
+
 try {
     Get-AccessProfiles
     
@@ -455,11 +437,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## patch-access-profile
-
 This API updates an existing Access Profile. The following fields are patchable:
 
 **name**
@@ -498,7 +477,6 @@ Path   | Id | **String** | True  | ID of the Access Profile to patch
  Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | 
 
 ### Return type
-
 [**AccessProfile**](../models/access-profile)
 
 ### Responses
@@ -512,24 +490,24 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json-patch+json
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "2c91808a7813090a017814121919ecca" # String | ID of the Access Profile to patch
- # JsonPatchOperation[] | 
  $JsonPatchOperation = @"{
   "op" : "replace",
   "path" : "/description",
   "value" : "New description"
-}"@ 
+}"@ # JsonPatchOperation[] | 
+ 
 
 # Patch a specified Access Profile
+
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-AccessProfile-Id $Id -JsonPatchOperation $Result
+    Update-AccessProfile -Id $Id  -JsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
     # Update-AccessProfile -Id $Id -JsonPatchOperation $JsonPatchOperation  
@@ -538,7 +516,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

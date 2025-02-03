@@ -16,14 +16,14 @@ tags: ['SDK', 'Software Development Kit', 'AccessRequestPostApprovalRequestedIte
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  **String** | The unique ID of the access item being requested. | [required]
-**Name** |  **String** | The human friendly name of the access item. | [required]
-**Description** |  Pointer to **String** | Detailed description of the access item. | [optional] 
-**Type** |   **Enum** [  "ACCESS_PROFILE",    "ROLE",    "ENTITLEMENT" ] | The type of access item. | [required]
-**Operation** |   **Enum** [  "Add",    "Remove" ] | The action to perform on the access item. | [required]
-**Comment** |  Pointer to **String** | A comment from the identity requesting the access. | [optional] 
-**ClientMetadata** |  Pointer to [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | Additional customer defined metadata about the access item. | [optional] 
-**ApprovalInfo** |  [**[]AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInner**](access-request-post-approval-requested-items-status-inner-approval-info-inner) | A list of one or more approvers for the access request. | [required]
+**Id** | **String** | The unique ID of the access item being requested. | [required]
+**Name** | **String** | The human friendly name of the access item. | [required]
+**Description** | **String** | Detailed description of the access item. | [optional] 
+**Type** |  **Enum** [  "ACCESS_PROFILE",    "ROLE",    "ENTITLEMENT" ] | The type of access item. | [required]
+**Operation** |  **Enum** [  "Add",    "Remove" ] | The action to perform on the access item. | [required]
+**Comment** | **String** | A comment from the identity requesting the access. | [optional] 
+**ClientMetadata** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | Additional customer defined metadata about the access item. | [optional] 
+**ApprovalInfo** | [**[]AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInner**](access-request-post-approval-requested-items-status-inner-approval-info-inner) | A list of one or more approvers for the access request. | [required]
 
 ## Examples
 

@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'CampaignAlert', 'CampaignAlert']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Level** |  Pointer to  **Enum** [  "ERROR",    "WARN",    "INFO" ] | Denotes the level of the message | [optional] 
-**Localizations** |  Pointer to [**[]ErrorMessageDto**](error-message-dto) |  | [optional] 
+**Level** |  **Enum** [  "ERROR",    "WARN",    "INFO" ] | Denotes the level of the message | [optional] 
+**Localizations** | [**[]ErrorMessageDto**](error-message-dto) |  | [optional] 
 
 ## Examples
 

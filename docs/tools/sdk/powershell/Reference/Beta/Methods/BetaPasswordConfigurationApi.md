@@ -9,7 +9,6 @@ slug: /tools/sdk/powershell/beta/methods/password-configuration
 tags: ['SDK', 'Software Development Kit', 'PasswordConfiguration', 'BetaPasswordConfiguration']
 ---
 
-
 # PasswordConfiguration
   Use this API to implement organization password configuration functionality.
 With this functionality in place, organization administrators can create organization-specific password configurations.
@@ -28,9 +27,7 @@ Method | HTTP request | Description
 [**Get-BetaPasswordOrgConfig**](#get-password-org-config) | **GET** `/password-org-config` | Get Password Org Config
 [**Send-BetaPasswordOrgConfig**](#put-password-org-config) | **PUT** `/password-org-config` | Update Password Org Config
 
-
 ## create-password-org-config
-
 This API creates the password org config. Unspecified fields will use default value.
 To be able to use the custom password instructions, you must set the `customInstructionsEnabled` field to "true".
 Requires ORG_ADMIN, API role or authorization scope of 'idn:password-org-config:write'
@@ -41,7 +38,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | PasswordOrgConfig | [**PasswordOrgConfig**](../models/password-org-config) | True  | 
 
 ### Return type
-
 [**PasswordOrgConfig**](../models/password-org-config)
 
 ### Responses
@@ -55,7 +51,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -67,10 +62,12 @@ $PasswordOrgConfig = @"{
   "digitTokenDurationMinutes" : 10,
   "customInstructionsEnabled" : true
 }"@
+
 # Create Password Org Config
+
 try {
     $Result = ConvertFrom-JsonToPasswordOrgConfig -Json $PasswordOrgConfig
-    New-BetaPasswordOrgConfig-BetaPasswordOrgConfig $Result
+    New-BetaPasswordOrgConfig -BetaPasswordOrgConfig $Result
     
     # Below is a request that includes all optional parameters
     # New-BetaPasswordOrgConfig -BetaPasswordOrgConfig $PasswordOrgConfig  
@@ -79,11 +76,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-password-org-config
-
 This API returns the password org config . Requires ORG_ADMIN, API role or authorization scope of 'idn:password-org-config:read'
 
 ### Parameters 
@@ -91,7 +85,6 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 
 ### Return type
-
 [**PasswordOrgConfig**](../models/password-org-config)
 
 ### Responses
@@ -105,13 +98,14 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
+
 # Get Password Org Config
+
 try {
     Get-BetaPasswordOrgConfig
     
@@ -122,11 +116,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## put-password-org-config
-
 This API updates the password org config for specified fields. Other fields will keep original value.
 You must set the `customInstructionsEnabled` field to "true" to be able to use custom password instructions. 
 Requires ORG_ADMIN, API role or authorization scope of 'idn:password-org-config:write'
@@ -137,7 +128,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | PasswordOrgConfig | [**PasswordOrgConfig**](../models/password-org-config) | True  | 
 
 ### Return type
-
 [**PasswordOrgConfig**](../models/password-org-config)
 
 ### Responses
@@ -151,7 +141,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -163,10 +152,12 @@ $PasswordOrgConfig = @"{
   "digitTokenDurationMinutes" : 10,
   "customInstructionsEnabled" : true
 }"@
+
 # Update Password Org Config
+
 try {
     $Result = ConvertFrom-JsonToPasswordOrgConfig -Json $PasswordOrgConfig
-    Send-BetaPasswordOrgConfig-BetaPasswordOrgConfig $Result
+    Send-BetaPasswordOrgConfig -BetaPasswordOrgConfig $Result
     
     # Below is a request that includes all optional parameters
     # Send-BetaPasswordOrgConfig -BetaPasswordOrgConfig $PasswordOrgConfig  
@@ -175,7 +166,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

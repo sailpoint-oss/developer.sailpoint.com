@@ -16,11 +16,11 @@ tags: ['SDK', 'Software Development Kit', 'SedBatchStats', 'V2024SedBatchStats']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**BatchComplete** |  Pointer to **Boolean** | batch complete | [optional] [default to $false]
-**BatchId** |  Pointer to **String** | batch Id | [optional] 
-**DiscoveredCount** |  Pointer to **Int64** | discovered count | [optional] 
-**DiscoveryComplete** |  Pointer to **Boolean** | discovery complete | [optional] [default to $false]
-**ProcessedCount** |  Pointer to **Int64** | processed count | [optional] 
+**BatchComplete** | **Boolean** | batch complete | [optional] [default to $false]
+**BatchId** | **String** | batch Id | [optional] 
+**DiscoveredCount** | **Int64** | discovered count | [optional] 
+**DiscoveryComplete** | **Boolean** | discovery complete | [optional] [default to $false]
+**ProcessedCount** | **Int64** | processed count | [optional] 
 
 ## Examples
 

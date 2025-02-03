@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'IdentityDeleted', 'V2024IdentityDelet
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Identity** |  [**IdentityDeletedIdentity**](identity-deleted-identity) |  | [required]
-**Attributes** |  [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | The attributes assigned to the identity. Attributes are determined by the identity profile. | [required]
+**Identity** | [**IdentityDeletedIdentity**](identity-deleted-identity) |  | [required]
+**Attributes** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | The attributes assigned to the identity. Attributes are determined by the identity profile. | [required]
 
 ## Examples
 

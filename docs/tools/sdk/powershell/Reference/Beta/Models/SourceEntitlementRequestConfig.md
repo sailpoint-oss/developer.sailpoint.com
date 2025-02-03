@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'SourceEntitlementRequestConfig', 'Bet
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccessRequestConfig** |  Pointer to [**EntitlementAccessRequestConfig**](entitlement-access-request-config) |  | [optional] 
+**AccessRequestConfig** | [**EntitlementAccessRequestConfig**](entitlement-access-request-config) |  | [optional] 
 
 ## Examples
 

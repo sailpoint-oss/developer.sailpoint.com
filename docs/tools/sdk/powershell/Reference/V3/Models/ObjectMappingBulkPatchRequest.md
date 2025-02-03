@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'ObjectMappingBulkPatchRequest', 'Obje
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Patches** |  [**map[string]JsonPatchOperation[]**](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_arrays?view=powershell-7.4) | Map of id of the object mapping to a JsonPatchOperation describing what to patch on that object mapping. | [required]
+**Patches** | [**map[string]JsonPatchOperation[]**](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_arrays?view=powershell-7.4) | Map of id of the object mapping to a JsonPatchOperation describing what to patch on that object mapping. | [required]
 
 ## Examples
 

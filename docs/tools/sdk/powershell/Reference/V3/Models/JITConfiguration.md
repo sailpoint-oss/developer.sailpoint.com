@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'JITConfiguration', 'JITConfiguration'
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Enabled** |  Pointer to **Boolean** | The indicator for just-in-time provisioning enabled | [optional] [default to $false]
-**SourceId** |  Pointer to **String** | the sourceId that mapped to just-in-time provisioning configuration | [optional] 
-**SourceAttributeMappings** |  Pointer to **map[string]String** | A mapping of identity profile attribute names to SAML assertion attribute names | [optional] 
+**Enabled** | **Boolean** | The indicator for just-in-time provisioning enabled | [optional] [default to $false]
+**SourceId** | **String** | the sourceId that mapped to just-in-time provisioning configuration | [optional] 
+**SourceAttributeMappings** | **map[string]String** | A mapping of identity profile attribute names to SAML assertion attribute names | [optional] 
 
 ## Examples
 

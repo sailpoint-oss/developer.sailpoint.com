@@ -16,17 +16,17 @@ tags: ['SDK', 'Software Development Kit', 'UserApp', 'V2024UserApp']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | The user app id | [optional] 
-**Created** |  Pointer to **System.DateTime** | Time when the user app was created | [optional] 
-**Modified** |  Pointer to **System.DateTime** | Time when the user app was last modified | [optional] 
-**HasMultipleAccounts** |  Pointer to **Boolean** | True if the owner has multiple accounts for the source | [optional] [default to $false]
-**UseForPasswordManagement** |  Pointer to **Boolean** | True if the source has password feature | [optional] [default to $false]
-**ProvisionRequestEnabled** |  Pointer to **Boolean** | True if the source app related to the user app is provision request enabled | [optional] [default to $false]
-**AppCenterEnabled** |  Pointer to **Boolean** | True if the source app related to the user app is shown in the app center | [optional] [default to $true]
-**SourceApp** |  Pointer to [**UserAppSourceApp**](user-app-source-app) |  | [optional] 
-**Source** |  Pointer to [**UserAppSource**](user-app-source) |  | [optional] 
-**Account** |  Pointer to [**UserAppAccount**](user-app-account) |  | [optional] 
-**Owner** |  Pointer to [**UserAppOwner**](user-app-owner) |  | [optional] 
+**Id** | **String** | The user app id | [optional] 
+**Created** | **System.DateTime** | Time when the user app was created | [optional] 
+**Modified** | **System.DateTime** | Time when the user app was last modified | [optional] 
+**HasMultipleAccounts** | **Boolean** | True if the owner has multiple accounts for the source | [optional] [default to $false]
+**UseForPasswordManagement** | **Boolean** | True if the source has password feature | [optional] [default to $false]
+**ProvisionRequestEnabled** | **Boolean** | True if the source app related to the user app is provision request enabled | [optional] [default to $false]
+**AppCenterEnabled** | **Boolean** | True if the source app related to the user app is shown in the app center | [optional] [default to $true]
+**SourceApp** | [**UserAppSourceApp**](user-app-source-app) |  | [optional] 
+**Source** | [**UserAppSource**](user-app-source) |  | [optional] 
+**Account** | [**UserAppAccount**](user-app-account) |  | [optional] 
+**Owner** | [**UserAppOwner**](user-app-owner) |  | [optional] 
 
 ## Examples
 

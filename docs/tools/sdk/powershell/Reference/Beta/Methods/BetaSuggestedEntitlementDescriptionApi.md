@@ -9,7 +9,6 @@ slug: /tools/sdk/powershell/beta/methods/suggested-entitlement-description
 tags: ['SDK', 'Software Development Kit', 'SuggestedEntitlementDescription', 'BetaSuggestedEntitlementDescription']
 ---
 
-
 # SuggestedEntitlementDescription
   Use this API to implement Suggested Entitlement Description (SED) functionality. 
 SED functionality leverages the power of LLM to generate suggested entitlement descriptions. 
@@ -29,9 +28,7 @@ Method | HTTP request | Description
 [**Submit-BetaSedAssignment**](#submit-sed-assignment) | **POST** `/suggested-entitlement-description-assignments` | Submit Sed Assignment Request
 [**Submit-BetaSedBatchRequest**](#submit-sed-batch-request) | **POST** `/suggested-entitlement-description-batches` | Submit Sed Batch Request
 
-
 ## get-sed-batch-stats
-
 Submit Sed Batch Stats Request.
 
 Submits batchId in the path param `(e.g. {batchId}/stats)`.
@@ -44,7 +41,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | BatchId | **String** | True  | Batch Id
 
 ### Return type
-
 [**SedBatchStats**](../models/sed-batch-stats)
 
 ### Responses
@@ -59,16 +55,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $BatchId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | Batch Id
+
 # Submit Sed Batch Stats Request
+
 try {
-    Get-BetaSedBatchStats-BetaBatchId $BatchId 
+    Get-BetaSedBatchStats -BetaBatchId $BatchId 
     
     # Below is a request that includes all optional parameters
     # Get-BetaSedBatchStats -BetaBatchId $BatchId  
@@ -77,11 +74,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-sed-batches
-
 List Sed Batches.
 API responses with Sed Batch Status
 
@@ -90,7 +84,6 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 
 ### Return type
-
 [**SedBatchStatus**](../models/sed-batch-status)
 
 ### Responses
@@ -105,13 +98,14 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
+
 # List Sed Batch Request
+
 try {
     Get-BetaSedBatches
     
@@ -122,11 +116,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-seds
-
 List of Suggested Entitlement Descriptions (SED)
 
 SED field descriptions:
@@ -155,7 +146,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | ShowPendingStatusOnly | **Boolean** |   (optional) | Will limit records to items that are in ""suggested"" or ""approved"" status
 
 ### Return type
-
 [**Sed[]**](../models/sed)
 
 ### Responses
@@ -170,7 +160,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -183,7 +172,9 @@ $Count = $false # Boolean | If `true` it will populate the `X-Total-Count` respo
 $CountOnly = $false # Boolean | If `true` it will populate the `X-Total-Count` response header with the number of results that would be returned if `limit` and `offset` were ignored. This parameter differs from the Coun parameter in that this one skip executing the actual query and always return an empty array. (optional)
 $RequestedByAnyone = $false # Boolean | By default, the ListSeds API will only return items that you have requested to be generated.   This option will allow you to see all items that have been requested (optional)
 $ShowPendingStatusOnly = $false # Boolean | Will limit records to items that are in ""suggested"" or ""approved"" status (optional)
+
 # List Suggested Entitlement Descriptions
+
 try {
     Get-BetaSeds
     
@@ -194,11 +185,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## patch-sed
-
 Patch Suggested Entitlement Description
 
 ### Parameters 
@@ -208,7 +196,6 @@ Path   | Id | **String** | True  | id is sed id
  Body  | SedPatch | [**[]SedPatch**](../models/sed-patch) | True  | Sed Patch Request
 
 ### Return type
-
 [**Sed**](../models/sed)
 
 ### Responses
@@ -223,24 +210,24 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json-patch+json
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "ebab396f-0af1-4050-89b7-dafc63ec70e7" # String | id is sed id
- # SedPatch[] | Sed Patch Request
  $SedPatch = @"{
   "op" : "replace",
   "path" : "status",
   "value" : "approved"
-}"@ 
+}"@ # SedPatch[] | Sed Patch Request
+ 
 
 # Patch Suggested Entitlement Description
+
 try {
     $Result = ConvertFrom-JsonToSedPatch -Json $SedPatch
-    Update-BetaSed-BetaId $Id -BetaSedPatch $Result
+    Update-BetaSed -BetaId $Id  -BetaSedPatch $Result
     
     # Below is a request that includes all optional parameters
     # Update-BetaSed -BetaId $Id -BetaSedPatch $SedPatch  
@@ -249,11 +236,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## submit-sed-approval
-
 Submit Bulk Approval Request for SED.
 Request body takes list of SED Ids. API responses with list of SED Approval Status
 
@@ -263,7 +247,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | SedApproval | [**[]SedApproval**](../models/sed-approval) | True  | Sed Approval
 
 ### Return type
-
 [**SedApprovalStatus[]**](../models/sed-approval-status)
 
 ### Responses
@@ -278,21 +261,21 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json-patch+json
 - **Accept**: application/json
 
 ### Example
 ```powershell
- # SedApproval[] | Sed Approval
  $SedApproval = @"{
   "items" : "016629d1-1d25-463f-97f3-c6686846650"
-}"@ 
+}"@ # SedApproval[] | Sed Approval
+ 
 
 # Submit Bulk Approval Request
+
 try {
     $Result = ConvertFrom-JsonToSedApproval -Json $SedApproval
-    Submit-BetaSedApproval-BetaSedApproval $Result
+    Submit-BetaSedApproval -BetaSedApproval $Result
     
     # Below is a request that includes all optional parameters
     # Submit-BetaSedApproval -BetaSedApproval $SedApproval  
@@ -301,11 +284,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## submit-sed-assignment
-
 Submit Assignment Request.
 Request body has an assignee, and list of SED Ids that are assigned to that assignee API responses with batchId that groups all approval requests together
 
@@ -315,7 +295,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | SedAssignment | [**SedAssignment**](../models/sed-assignment) | True  | Sed Assignment Request
 
 ### Return type
-
 [**SedAssignmentResponse**](../models/sed-assignment-response)
 
 ### Responses
@@ -330,7 +309,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json-patch+json
 - **Accept**: application/json
 
@@ -343,10 +321,12 @@ $SedAssignment = @"{
   },
   "items" : [ "016629d1-1d25-463f-97f3-0c6686846650", "016629d1-1d25-463f-97f3-0c6686846650" ]
 }"@
+
 # Submit Sed Assignment Request
+
 try {
     $Result = ConvertFrom-JsonToSedAssignment -Json $SedAssignment
-    Submit-BetaSedAssignment-BetaSedAssignment $Result
+    Submit-BetaSedAssignment -BetaSedAssignment $Result
     
     # Below is a request that includes all optional parameters
     # Submit-BetaSedAssignment -BetaSedAssignment $SedAssignment  
@@ -355,11 +335,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## submit-sed-batch-request
-
 Submit Sed Batch Request.
 Request body has one of the following:
   - a list of entitlement Ids
@@ -372,7 +349,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | SedBatchRequest | [**SedBatchRequest**](../models/sed-batch-request) |   (optional) | Sed Batch Request
 
 ### Return type
-
 [**SedBatchResponse**](../models/sed-batch-response)
 
 ### Responses
@@ -387,7 +363,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json-patch+json
 - **Accept**: application/json
 
@@ -397,7 +372,9 @@ $SedBatchRequest = @"{
   "entitlements" : [ "016629d1-1d25-463f-97f3-c6686846650", "016629d1-1d25-463f-97f3-c6686846650" ],
   "seds" : [ "016629d1-1d25-463f-97f3-c6686846650", "016629d1-1d25-463f-97f3-c6686846650" ]
 }"@
+
 # Submit Sed Batch Request
+
 try {
     Submit-BetaSedBatchRequest
     
@@ -408,7 +385,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'AccessProfileSourceRef', 'V2024Access
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | The ID of the Source with with which the Access Profile is associated | [optional] 
-**Type** |  Pointer to  **Enum** [  "SOURCE" ] | The type of the Source, will always be SOURCE | [optional] 
-**Name** |  Pointer to **String** | The display name of the associated Source | [optional] 
+**Id** | **String** | The ID of the Source with with which the Access Profile is associated | [optional] 
+**Type** |  **Enum** [  "SOURCE" ] | The type of the Source, will always be SOURCE | [optional] 
+**Name** | **String** | The display name of the associated Source | [optional] 
 
 ## Examples
 

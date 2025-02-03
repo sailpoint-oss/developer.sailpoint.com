@@ -16,14 +16,14 @@ tags: ['SDK', 'Software Development Kit', 'NonEmployeeSource', 'V2024NonEmployee
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** |  Pointer to **String** | Non-Employee source id. | [optional] 
-**SourceId** |  Pointer to **String** | Source Id associated with this non-employee source. | [optional] 
-**Name** |  Pointer to **String** | Source name associated with this non-employee source. | [optional] 
-**Description** |  Pointer to **String** | Source description associated with this non-employee source. | [optional] 
-**Approvers** |  Pointer to [**[]NonEmployeeIdentityReferenceWithId**](non-employee-identity-reference-with-id) | List of approvers | [optional] 
-**AccountManagers** |  Pointer to [**[]NonEmployeeIdentityReferenceWithId**](non-employee-identity-reference-with-id) | List of account managers | [optional] 
-**Modified** |  Pointer to **System.DateTime** | When the request was last modified. | [optional] 
-**Created** |  Pointer to **System.DateTime** | When the request was created. | [optional] 
+**Id** | **String** | Non-Employee source id. | [optional] 
+**SourceId** | **String** | Source Id associated with this non-employee source. | [optional] 
+**Name** | **String** | Source name associated with this non-employee source. | [optional] 
+**Description** | **String** | Source description associated with this non-employee source. | [optional] 
+**Approvers** | [**[]NonEmployeeIdentityReferenceWithId**](non-employee-identity-reference-with-id) | List of approvers | [optional] 
+**AccountManagers** | [**[]NonEmployeeIdentityReferenceWithId**](non-employee-identity-reference-with-id) | List of account managers | [optional] 
+**Modified** | **System.DateTime** | When the request was last modified. | [optional] 
+**Created** | **System.DateTime** | When the request was created. | [optional] 
 
 ## Examples
 

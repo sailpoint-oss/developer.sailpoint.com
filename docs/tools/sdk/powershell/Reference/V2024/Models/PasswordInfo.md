@@ -16,12 +16,12 @@ tags: ['SDK', 'Software Development Kit', 'PasswordInfo', 'V2024PasswordInfo']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**IdentityId** |  Pointer to **String** | Identity ID | [optional] 
-**SourceId** |  Pointer to **String** | source ID | [optional] 
-**PublicKeyId** |  Pointer to **String** | public key ID | [optional] 
-**PublicKey** |  Pointer to **String** | User's public key with Base64 encoding | [optional] 
-**Accounts** |  Pointer to [**[]PasswordInfoAccount**](password-info-account) | Account info related to queried identity and source | [optional] 
-**Policies** |  Pointer to **[]String** | Password constraints | [optional] 
+**IdentityId** | **String** | Identity ID | [optional] 
+**SourceId** | **String** | source ID | [optional] 
+**PublicKeyId** | **String** | public key ID | [optional] 
+**PublicKey** | **String** | User's public key with Base64 encoding | [optional] 
+**Accounts** | [**[]PasswordInfoAccount**](password-info-account) | Account info related to queried identity and source | [optional] 
+**Policies** | **[]String** | Password constraints | [optional] 
 
 ## Examples
 

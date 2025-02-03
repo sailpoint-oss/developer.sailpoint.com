@@ -9,7 +9,6 @@ slug: /tools/sdk/powershell/beta/methods/sod-policies
 tags: ['SDK', 'Software Development Kit', 'SODPolicies', 'BetaSODPolicies']
 ---
 
-
 # SODPolicies
   Use this API to implement and manage &quot;separation of duties&quot; (SOD) policies. 
 With SOD policy functionality in place, administrators can organize the access in their tenants to prevent individuals from gaining conflicting or excessive access. 
@@ -61,9 +60,7 @@ Method | HTTP request | Description
 [**Start-BetaSodAllPoliciesForOrg**](#start-sod-all-policies-for-org) | **POST** `/sod-violation-report/run` | Runs all policies for org
 [**Start-BetaSodPolicy**](#start-sod-policy) | **POST** `/sod-policies/{id}/violation-report/run` | Runs SOD policy violation report
 
-
 ## create-sod-policy
-
 This creates both General and Conflicting Access Based policy, with a limit of 50 entitlements for each (left & right) criteria for Conflicting Access Based SOD policy.
 Requires role of ORG_ADMIN.
 
@@ -73,7 +70,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | SodPolicy | [**SodPolicy**](../models/sod-policy) | True  | 
 
 ### Return type
-
 [**SodPolicy**](../models/sod-policy)
 
 ### Responses
@@ -87,7 +83,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -149,10 +144,12 @@ $SodPolicy = @"{
   "state" : "ENFORCED",
   "externalPolicyReference" : "XYZ policy"
 }"@
+
 # Create SOD policy
+
 try {
     $Result = ConvertFrom-JsonToSodPolicy -Json $SodPolicy
-    New-BetaSodPolicy-BetaSodPolicy $Result
+    New-BetaSodPolicy -BetaSodPolicy $Result
     
     # Below is a request that includes all optional parameters
     # New-BetaSodPolicy -BetaSodPolicy $SodPolicy  
@@ -161,11 +158,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## delete-sod-policy
-
 This deletes a specified SOD policy.
 Requires role of ORG_ADMIN.
 
@@ -176,7 +170,6 @@ Path   | Id | **String** | True  | The ID of the SOD Policy to delete.
   Query | Logical | **Boolean** |   (optional) (default to $true) | Indicates whether this is a soft delete (logical true) or a hard delete.
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -191,7 +184,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -199,9 +191,11 @@ Code | Description  | Data Type
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the SOD Policy to delete.
 $Logical = $true # Boolean | Indicates whether this is a soft delete (logical true) or a hard delete. (optional) (default to $true)
+
 # Delete SOD policy by ID
+
 try {
-    Remove-BetaSodPolicy-BetaId $Id 
+    Remove-BetaSodPolicy -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-BetaSodPolicy -BetaId $Id -BetaLogical $Logical  
@@ -210,11 +204,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## delete-sod-policy-schedule
-
 This deletes schedule for a specified SOD policy.
 Requires role of ORG_ADMIN.
 
@@ -224,7 +215,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | The ID of the SOD policy the schedule must be deleted for.
 
 ### Return type
-
  (empty response body)
 
 ### Responses
@@ -239,16 +229,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the SOD policy the schedule must be deleted for.
+
 # Delete SOD policy schedule
+
 try {
-    Remove-BetaSodPolicySchedule-BetaId $Id 
+    Remove-BetaSodPolicySchedule -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-BetaSodPolicySchedule -BetaId $Id  
@@ -257,11 +248,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-custom-violation-report
-
 This allows to download a specified named violation report for a given report reference.
 Requires role of ORG_ADMIN.
 
@@ -272,7 +260,6 @@ Path   | ReportResultId | **String** | True  | The ID of the report reference to
 Path   | FileName | **String** | True  | Custom Name for the  file.
 
 ### Return type
-
 **System.IO.FileInfo**
 
 ### Responses
@@ -287,7 +274,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/zip, application/json
 
@@ -295,9 +281,11 @@ Code | Description  | Data Type
 ```powershell
 $ReportResultId = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the report reference to download.
 $FileName = "custom-name" # String | Custom Name for the  file.
+
 # Download custom violation report
+
 try {
-    Get-BetaCustomViolationReport-BetaReportResultId $ReportResultId -BetaFileName $FileName 
+    Get-BetaCustomViolationReport -BetaReportResultId $ReportResultId  -BetaFileName $FileName 
     
     # Below is a request that includes all optional parameters
     # Get-BetaCustomViolationReport -BetaReportResultId $ReportResultId -BetaFileName $FileName  
@@ -306,11 +294,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-default-violation-report
-
 This allows to download a violation report for a given report reference.
 Requires role of ORG_ADMIN.
 
@@ -320,7 +305,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | ReportResultId | **String** | True  | The ID of the report reference to download.
 
 ### Return type
-
 **System.IO.FileInfo**
 
 ### Responses
@@ -335,16 +319,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/zip, application/json
 
 ### Example
 ```powershell
 $ReportResultId = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the report reference to download.
+
 # Download violation report
+
 try {
-    Get-BetaDefaultViolationReport-BetaReportResultId $ReportResultId 
+    Get-BetaDefaultViolationReport -BetaReportResultId $ReportResultId 
     
     # Below is a request that includes all optional parameters
     # Get-BetaDefaultViolationReport -BetaReportResultId $ReportResultId  
@@ -353,11 +338,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-sod-all-report-run-status
-
 This endpoint gets the status for a violation report for all policy run.
 Requires role of ORG_ADMIN.
 
@@ -366,7 +348,6 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 
 ### Return type
-
 [**ReportResultReference**](../models/report-result-reference)
 
 ### Responses
@@ -380,13 +361,14 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
+
 # Get multi-report run task status
+
 try {
     Get-BetaSodAllReportRunStatus
     
@@ -397,11 +379,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-sod-policy
-
 This gets specified SOD policy.
 Requires role of ORG_ADMIN.
 
@@ -411,7 +390,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | The ID of the object reference to retrieve.
 
 ### Return type
-
 [**SodPolicy**](../models/sod-policy)
 
 ### Responses
@@ -426,16 +404,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the object reference to retrieve.
+
 # Get SOD policy by ID
+
 try {
-    Get-BetaSodPolicy-BetaId $Id 
+    Get-BetaSodPolicy -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaSodPolicy -BetaId $Id  
@@ -444,11 +423,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-sod-policy-schedule
-
 This endpoint gets a specified SOD policy's schedule.
 Requires the role of ORG_ADMIN.
 
@@ -458,7 +434,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | The ID of the object reference to retrieve.
 
 ### Return type
-
 [**SodPolicySchedule**](../models/sod-policy-schedule)
 
 ### Responses
@@ -472,16 +447,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the object reference to retrieve.
+
 # Get SOD policy schedule
+
 try {
-    Get-BetaSodPolicySchedule-BetaId $Id 
+    Get-BetaSodPolicySchedule -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaSodPolicySchedule -BetaId $Id  
@@ -490,11 +466,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-sod-violation-report-run-status
-
 This gets the status for a violation report run task that has already been invoked.
 Requires role of ORG_ADMIN.
 
@@ -504,7 +477,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | ReportResultId | **String** | True  | The ID of the report reference to retrieve.
 
 ### Return type
-
 [**ReportResultReference**](../models/report-result-reference)
 
 ### Responses
@@ -519,16 +491,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $ReportResultId = "2e8d8180-24bc-4d21-91c6-7affdb473b0d" # String | The ID of the report reference to retrieve.
+
 # Get violation report run status
+
 try {
-    Get-BetaSodViolationReportRunStatus-BetaReportResultId $ReportResultId 
+    Get-BetaSodViolationReportRunStatus -BetaReportResultId $ReportResultId 
     
     # Below is a request that includes all optional parameters
     # Get-BetaSodViolationReportRunStatus -BetaReportResultId $ReportResultId  
@@ -537,11 +510,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-sod-violation-report-status
-
 This gets the status for a violation report run task that has already been invoked.
 Requires role of ORG_ADMIN.
 
@@ -551,7 +521,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | The ID of the object reference to retrieve.
 
 ### Return type
-
 [**ReportResultReference**](../models/report-result-reference)
 
 ### Responses
@@ -566,16 +535,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the object reference to retrieve.
+
 # Get SOD violation report status
+
 try {
-    Get-BetaSodViolationReportStatus-BetaId $Id 
+    Get-BetaSodViolationReportStatus -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Get-BetaSodViolationReportStatus -BetaId $Id  
@@ -584,11 +554,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## list-sod-policies
-
 This gets list of all SOD policies.
 Requires role of ORG_ADMIN
 
@@ -602,7 +569,6 @@ Param Type | Name | Data Type | Required  | Description
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, description**
 
 ### Return type
-
 [**SodPolicy[]**](../models/sod-policy)
 
 ### Responses
@@ -616,7 +582,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
@@ -627,7 +592,9 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Filters = 'id eq "bc693f07e7b645539626c25954c58554"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in*  **state**: *eq, in* (optional)
 $Sorters = "id,name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, description** (optional)
+
 # List SOD policies
+
 try {
     Get-BetaSodPolicies
     
@@ -638,11 +605,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## patch-sod-policy
-
 Allows updating SOD Policy fields other than ["id","created","creatorId","policyQuery","type"] using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 Requires role of ORG_ADMIN.
 This endpoint can only patch CONFLICTING_ACCESS_BASED type policies. Do not use this endpoint to patch general policies - doing so will build an API exception.
@@ -654,7 +618,6 @@ Path   | Id | **String** | True  | The ID of the SOD policy being modified.
  Body  | RequestBody | [**[]SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0) | True  | A list of SOD Policy update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * ownerRef * externalPolicyReference * compensatingControls * correctionAdvice * state * tags * violationOwnerAssignmentConfig * scheduled * conflictingAccessCriteria 
 
 ### Return type
-
 [**SodPolicy**](../models/sod-policy)
 
 ### Responses
@@ -669,7 +632,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json-patch+json
 - **Accept**: application/json
 
@@ -677,12 +639,14 @@ Code | Description  | Data Type
 ```powershell
 $Id = "2c9180835d191a86015d28455b4a2329" # String | The ID of the SOD policy being modified.
 $RequestBody =  # SystemCollectionsHashtable[] | A list of SOD Policy update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * ownerRef * externalPolicyReference * compensatingControls * correctionAdvice * state * tags * violationOwnerAssignmentConfig * scheduled * conflictingAccessCriteria 
- $RequestBody = @"[{op=replace, path=/description, value=Modified description}, {op=replace, path=/conflictingAccessCriteria/leftCriteria/name, value=money-in-modified}, {op=replace, path=/conflictingAccessCriteria/rightCriteria, value={name=money-out-modified, criteriaList=[{type=ENTITLEMENT, id=2c918087682f9a86016839c0509c1ab2}]}}]"@ 
+ $RequestBody = @"[{op=replace, path=/description, value=Modified description}, {op=replace, path=/conflictingAccessCriteria/leftCriteria/name, value=money-in-modified}, {op=replace, path=/conflictingAccessCriteria/rightCriteria, value={name=money-out-modified, criteriaList=[{type=ENTITLEMENT, id=2c918087682f9a86016839c0509c1ab2}]}}]"@ # SystemCollectionsHashtable[] | A list of SOD Policy update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * ownerRef * externalPolicyReference * compensatingControls * correctionAdvice * state * tags * violationOwnerAssignmentConfig * scheduled * conflictingAccessCriteria 
+ 
 
 # Patch a SOD policy
+
 try {
     $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
-    Update-BetaSodPolicy-BetaId $Id -BetaRequestBody $Result
+    Update-BetaSodPolicy -BetaId $Id  -BetaRequestBody $Result
     
     # Below is a request that includes all optional parameters
     # Update-BetaSodPolicy -BetaId $Id -BetaRequestBody $RequestBody  
@@ -691,11 +655,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## put-policy-schedule
-
 This updates schedule for a specified SOD policy.
 Requires role of ORG_ADMIN.
 
@@ -706,7 +667,6 @@ Path   | Id | **String** | True  | The ID of the SOD policy to update its schedu
  Body  | SodPolicySchedule | [**SodPolicySchedule**](../models/sod-policy-schedule) | True  | 
 
 ### Return type
-
 [**SodPolicySchedule**](../models/sod-policy-schedule)
 
 ### Responses
@@ -720,7 +680,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -813,10 +772,12 @@ $SodPolicySchedule = @"{
   "description" : "Schedule for policy xyz",
   "emailEmptyResults" : false
 }"@
+
 # Update SOD Policy schedule
+
 try {
     $Result = ConvertFrom-JsonToSodPolicySchedule -Json $SodPolicySchedule
-    Send-BetaPolicySchedule-BetaId $Id -BetaSodPolicySchedule $Result
+    Send-BetaPolicySchedule -BetaId $Id  -BetaSodPolicySchedule $Result
     
     # Below is a request that includes all optional parameters
     # Send-BetaPolicySchedule -BetaId $Id -BetaSodPolicySchedule $SodPolicySchedule  
@@ -825,11 +786,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## put-sod-policy
-
 This updates a specified SOD policy.
 Requires role of ORG_ADMIN.
 
@@ -840,7 +798,6 @@ Path   | Id | **String** | True  | The ID of the SOD policy to update.
  Body  | SodPolicy | [**SodPolicy**](../models/sod-policy) | True  | 
 
 ### Return type
-
 [**SodPolicy**](../models/sod-policy)
 
 ### Responses
@@ -855,7 +812,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -918,10 +874,12 @@ $SodPolicy = @"{
   "state" : "ENFORCED",
   "externalPolicyReference" : "XYZ policy"
 }"@
+
 # Update SOD policy by ID
+
 try {
     $Result = ConvertFrom-JsonToSodPolicy -Json $SodPolicy
-    Send-BetaSodPolicy-BetaId $Id -BetaSodPolicy $Result
+    Send-BetaSodPolicy -BetaId $Id  -BetaSodPolicy $Result
     
     # Below is a request that includes all optional parameters
     # Send-BetaSodPolicy -BetaId $Id -BetaSodPolicy $SodPolicy  
@@ -930,11 +888,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## start-sod-all-policies-for-org
-
 Runs multi-policy report for the org. If a policy reports more than 5000 violations, the report mentions that the violation limit was exceeded for that policy. If the request is empty, the report runs for all policies. Otherwise, the report runs for only the filtered policy list provided.
 Requires role of ORG_ADMIN.
 
@@ -944,7 +899,6 @@ Param Type | Name | Data Type | Required  | Description
  Body  | MultiPolicyRequest | [**MultiPolicyRequest**](../models/multi-policy-request) |   (optional) | 
 
 ### Return type
-
 [**ReportResultReference**](../models/report-result-reference)
 
 ### Responses
@@ -958,7 +912,6 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json
 - **Accept**: application/json
 
@@ -967,7 +920,9 @@ Code | Description  | Data Type
 $MultiPolicyRequest = @"{
   "filteredPolicyList" : [ "filteredPolicyList", "filteredPolicyList" ]
 }"@
+
 # Runs all policies for org
+
 try {
     Start-BetaSodAllPoliciesForOrg
     
@@ -978,11 +933,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## start-sod-policy
-
 This invokes processing of violation report for given SOD policy. If the policy reports more than 5000 violations, the report returns with violation limit exceeded message.
 Requires role of ORG_ADMIN.
 
@@ -992,7 +944,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | The SOD policy ID to run.
 
 ### Return type
-
 [**ReportResultReference**](../models/report-result-reference)
 
 ### Responses
@@ -1007,16 +958,17 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The SOD policy ID to run.
+
 # Runs SOD policy violation report
+
 try {
-    Start-BetaSodPolicy-BetaId $Id 
+    Start-BetaSodPolicy -BetaId $Id 
     
     # Below is a request that includes all optional parameters
     # Start-BetaSodPolicy -BetaId $Id  
@@ -1025,7 +977,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

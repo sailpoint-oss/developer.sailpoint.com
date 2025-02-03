@@ -16,16 +16,16 @@ tags: ['SDK', 'Software Development Kit', 'OrgConfig', 'BetaOrgConfig']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**OrgName** |  Pointer to **String** | The name of the org. | [optional] 
-**TimeZone** |  Pointer to **String** | The selected time zone which is to be used for the org.  This directly affects when scheduled tasks are executed.  Valid options can be found at /beta/org-config/valid-time-zones | [optional] 
-**LcsChangeHonorsSourceEnableFeature** |  Pointer to **Boolean** | Flag to determine whether the LCS_CHANGE_HONORS_SOURCE_ENABLE_FEATURE flag is enabled for the current org. | [optional] 
-**ArmCustomerId** |  Pointer to **String** | ARM Customer ID | [optional] 
-**ArmSapSystemIdMappings** |  Pointer to **String** | A list of IDN::sourceId to ARM::systemId mappings. | [optional] 
-**ArmAuth** |  Pointer to **String** | ARM authentication string | [optional] 
-**ArmDb** |  Pointer to **String** | ARM database name | [optional] 
-**ArmSsoUrl** |  Pointer to **String** | ARM SSO URL | [optional] 
-**IaiEnableCertificationRecommendations** |  Pointer to **Boolean** | Flag to determine whether IAI Certification Recommendations are enabled for the current org | [optional] 
-**SodReportConfigs** |  Pointer to [**[]ReportConfigDTO**](report-config-dto) |  | [optional] 
+**OrgName** | **String** | The name of the org. | [optional] 
+**TimeZone** | **String** | The selected time zone which is to be used for the org.  This directly affects when scheduled tasks are executed.  Valid options can be found at /beta/org-config/valid-time-zones | [optional] 
+**LcsChangeHonorsSourceEnableFeature** | **Boolean** | Flag to determine whether the LCS_CHANGE_HONORS_SOURCE_ENABLE_FEATURE flag is enabled for the current org. | [optional] 
+**ArmCustomerId** | **String** | ARM Customer ID | [optional] 
+**ArmSapSystemIdMappings** | **String** | A list of IDN::sourceId to ARM::systemId mappings. | [optional] 
+**ArmAuth** | **String** | ARM authentication string | [optional] 
+**ArmDb** | **String** | ARM database name | [optional] 
+**ArmSsoUrl** | **String** | ARM SSO URL | [optional] 
+**IaiEnableCertificationRecommendations** | **Boolean** | Flag to determine whether IAI Certification Recommendations are enabled for the current org | [optional] 
+**SodReportConfigs** | [**[]ReportConfigDTO**](report-config-dto) |  | [optional] 
 
 ## Examples
 

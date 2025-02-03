@@ -66,6 +66,11 @@ export function getCodeSampleSourceFromLanguage(language: Language) {
 
 export function generateLanguageSet() {
   const languageSet: Language[] = [];
+
+  // Create a list of prioritized languages (in order)
+  const priorityOrder = ['go', 'powershell', 'python', 'typescript'];
+
+  // First, push all languages into the languageSet
   codegen.getLanguageList().forEach((language: any) => {
     const variants: any = [];
     language.variants.forEach((variant: any) => {
@@ -85,5 +90,25 @@ export function generateLanguageSet() {
       variants: variants,
     });
   });
+
+  // Sort the languageSet based on the priority order
+  languageSet.sort((a, b) => {
+    const aPriority = priorityOrder.indexOf(a.language);
+    const bPriority = priorityOrder.indexOf(b.language);
+
+    // If both languages are in the priority list, sort by their priority
+    if (aPriority !== -1 && bPriority !== -1) {
+      return aPriority - bPriority;
+    }
+    
+    // If only one language is in the priority list, place that one first
+    if (aPriority !== -1) return -1;
+    if (bPriority !== -1) return 1;
+
+    // If neither language is in the priority list, keep original order
+    return 0;
+  });
+
+  
   return languageSet;
 }

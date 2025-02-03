@@ -235,7 +235,6 @@ function CodeSnippets({postman, codeSamples}: Props) {
         defaultValue={defaultLang[0]?.language ?? mergedLangs[0].language}
         lazy>
         {mergedLangs.map((lang) => {
-          
           return (
             <CodeTab
               value={lang.language}
@@ -261,32 +260,31 @@ function CodeSnippets({postman, codeSamples}: Props) {
                 {/* Render Sample Tabs */}
                 {lang.samples &&
                   lang.samples.map((sample, index) => {
-                    console.log(lang.samplesLabels);
-                    console.log(lang);
-                    console.log(lang.sample);
                     return (
                       <CodeTab
                         value={sample}
                         label={
                           lang.samplesLabels
-                            ? lang.samplesLabels[index]
+                            ? lang.samplesLabels[index].slice(0, 3)
                             : sample
                         }
                         key={`${lang.language}-sample-${index}`} // Unique key for each sample
                         attributes={{
                           className: `openapi-tabs__code-item--sample`,
                         }}>
-                        
-                          <p>
-                            <a
-                              href="(https://developer.sailpoint.com/docs/tools/sdk/powershell"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="sample-doc-link">
-                              View SDK Reference
-                            </a>
-                          </p>
-                        
+                        <p>
+                          <a
+                            href={`https://developer.sailpoint.com/docs/${
+                              lang.samplesLabels
+                                ? lang.samplesLabels[index].slice(4)
+                                : ''
+                            }`} // Add everything after the first 4 characters
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="sample-doc-link">
+                            View SDK Reference
+                          </a>
+                        </p>
 
                         {/* @ts-ignore */}
                         <ApiCodeBlock

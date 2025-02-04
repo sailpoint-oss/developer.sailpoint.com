@@ -238,7 +238,40 @@ function CodeSnippets({postman, codeSamples}: Props) {
           return (
             <CodeTab
               value={lang.language}
-              label={lang.language}
+              label={
+                <>
+                  {lang.tag !== 'sailpoint-sdk' && lang.language}
+
+                  {/* If the language has the 'sailpoint-sdk' tag, display the special badge */}
+                  {lang.tag === 'sailpoint-sdk' && (
+                    <span
+                      style={{
+                        display: 'inline-block', // Change to inline-block for stacking
+                        fontSize: '12px', // Optional: Adjust font size for lang.language (e.g., "go")
+                        textAlign: 'center', // Ensure content is horizontally centered
+                        width: '100%', // Ensure the container takes up full width to allow centering
+                      }}>
+                      {/* Display lang.language */}
+                      <div>{lang.language}</div>
+
+                      {/* Display the 'SailPoint SDK' badge */}
+                      <div>
+                        <span
+                          style={{
+                            marginTop: '5px', // Space between language and tag
+                            backgroundColor: '#df61ca',
+                            color: 'white',
+                            padding: '2px 8px',
+                            borderRadius: '12px',
+                            fontSize: '8px',
+                          }}>
+                          SailPoint SDK
+                        </span>
+                      </div>
+                    </span>
+                  )}
+                </>
+              }
               key={lang.language}
               attributes={{
                 className: `openapi-tabs__code-item--${lang.logoClass}`,

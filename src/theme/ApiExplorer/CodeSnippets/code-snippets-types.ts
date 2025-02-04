@@ -40,6 +40,7 @@ export interface Language {
   samples?: string[];
   samplesSources?: string[];
   samplesLabels?: string[];
+  tag?: string;
 }
 
 // https://redocly.com/docs/api-reference-docs/specification-extensions/x-code-samples

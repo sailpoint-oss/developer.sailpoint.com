@@ -76,6 +76,11 @@ export function generateLanguageSet() {
     language.variants.forEach((variant: any) => {
       variants.push(variant.key);
     });
+
+    // Determine if the current language is in the priority list
+    const isPriority = priorityOrder.includes(language.key);
+
+    // Add the language object to the languageSet
     languageSet.push({
       highlight: language.syntax_mode,
       language: language.key,
@@ -88,6 +93,7 @@ export function generateLanguageSet() {
       },
       variant: variants[0],
       variants: variants,
+      tag: isPriority ? 'sailpoint-sdk' : '', // Assign the "sailpoint-sdk" tag if it's a priority language
     });
   });
 
@@ -109,6 +115,7 @@ export function generateLanguageSet() {
     return 0;
   });
 
-  
+  console.log('languageSet: ', languageSet);
   return languageSet;
 }
+

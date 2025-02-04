@@ -63,7 +63,7 @@ tsc src/index.ts && node src/index.js
 | Composite Filter                                                     | Pattern              | Valid Examples |
 | --------------------------------------------------------- | --------------------- |--|
 | AND   | ```( {expression} && {expression} )```	 |```( type != "Employee" && location == "Austin" && name.isNull() )```|
-| OR   | ```( {expression} \|\| {expression} )```	 |```( type == "Employee" && location == "Austin" && name.isNull() )```|
+| OR   | ```( {expression} \|\| {expression} )```	 |```( type == "Employee" \|\| location == "Austin" \|\| name.isNull() )```|
 | NOT   | ```!( {expression} )```	 |```!( company == "SailPoint" )```|
 
 :::caution Important

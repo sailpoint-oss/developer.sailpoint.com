@@ -589,3 +589,14 @@ div[id^='discourse-comments'] {
   position: relative;
   right: 103%;
 }
+
+li.tabs__item.openapi-tabs__code-item.openapi-tabs__code-item--typescript::after {
+  content: "";
+  width: 24px; /* Adjust image width */
+  height: 24px; /* Adjust image height */
+  background-image: url('../../static/icons/typescript-svgrepo-com.svg'); /* Replace with your image URL */
+  background-size: contain; /* Ensure image fits properly */
+  background-repeat: no-repeat;
+  z-index: 1; /* Ensure it is above other content */
+  
+}

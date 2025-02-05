@@ -1,0 +1,210 @@
+get:
+  operationId: getDataSegment
+  security:
+    - userAuth: [ idn:data-segments:read ]
+    - applicationAuth: [ idn:data-segments:read ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  tags:
+    - Data Segmentation
+  summary: Get Segment by ID
+  description: >-
+    This API returns the segment specified by the given ID.
+
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The segment ID to retrieve.
+      example: ef38f943-47e9-4562-b5bb-8424a56397d8
+  responses:
+    '200':
+      description: Segment
+      content:
+        application/json:
+          schema:
+            $ref: '../../internal/schemas/data-segment/Data-Segment.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+post:
+  operationId: publishDataSegment
+  security:
+    - userAuth: [ idn:data-segments:write ]
+    - applicationAuth: [ idn:data-segments:write ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  tags:
+    - Data Segmentation
+  summary: Publish segment by ID
+  description: >-
+    This will publish the segment so that it starts applying the segmentation to the desired users if enabled
+  parameters:
+    - in: query
+      name: publishAll
+      schema:
+        type: boolean
+        default: true
+      required: false
+      description: This flag decides whether you want to publish all unpublished or a list of specific segment ids
+      example: true
+  requestBody:
+    required: true
+    description: A list of segment ids that you wish to publish
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            type: string
+  responses:
+    '200':
+      description: Segments published
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+patch:
+  operationId: patchDataSegment
+  security:
+    - userAuth: [ idn:data-segments:write ]
+    - applicationAuth: [ idn:data-segments:write ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  tags:
+    - Data Segmentation
+  summary: Update Segment
+  description: >-
+    Use this API to update segment fields by using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The segment ID to modify.
+      example: ef38f943-47e9-4562-b5bb-8424a56397d8
+  requestBody:
+    required: true
+    description: |
+      A list of segment update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+
+      The following fields are patchable:
+      * name
+      * description
+      * membership
+      * memberFilter
+      * memberSelection
+      * scopes
+      * enabled
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            type: object
+        examples:
+            Set Visibility Criteria:
+                description: Set the member filter
+                value:
+                  - op: "replace"
+                    path: "/memberFilter"
+                    value:
+                      expression:
+                        operator: "AND"
+                        children:
+                          - operator: "EQUALS"
+                            attribute: "location"
+                            value:
+                              type: "STRING"
+                              value: "Philadelphia"
+                          - operator: "EQUALS"
+                            attribute: "department"
+                            value:
+                              type: "STRING"
+                              value: "HR"
+                            
+  responses:
+    '200':
+      description: >-
+        Indicates the PATCH operation succeeded, and returns the segment's new representation.
+      content:
+        application/json:
+          schema:
+            $ref: '../../internal/schemas/data-segment/Data-Segment.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+delete:
+  operationId: deleteDataSegment
+  security:
+    - userAuth: [ idn:data-segments:write ]
+    - applicationAuth: [ idn:data-segments:write ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  tags:
+    - Data Segmentation
+  summary: Delete Segment by ID
+  description: >-
+    This API deletes the segment specified by the given ID.
+
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The segment ID to delete.
+      example: ef38f943-47e9-4562-b5bb-8424a56397d8
+    - in: query
+      name: published
+      schema:
+        type: boolean
+        default: false
+      required: false
+      description: This determines which version of the segment to delete
+      example: false
+  responses:
+    '204':
+      description: No content.
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

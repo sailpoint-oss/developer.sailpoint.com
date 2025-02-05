@@ -1,0 +1,40 @@
+get:
+  operationId: getDataSegmentIdentityMembership
+  security:
+    - userAuth: [ idn:data-segments:read ]
+    - applicationAuth: [ idn:data-segments:read ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  tags:
+    - Data Segmentation
+  summary: Get SegmentMembership by Identity ID
+  description: >-
+    This API returns the segment membership specified by the given identity ID.
+  parameters:
+    - in: path
+      name: identityId
+      schema:
+        type: string
+      required: true
+      description: The identity ID to retrieve the segments they are in.
+      example: ef38f943-47e9-4562-b5bb-8424a56397d8
+  responses:
+    '200':
+      description: Segment Memberships for specified identity
+      content:
+        application/json:
+          schema:
+            items:
+              $ref: '../../internal/schemas/data-segment/SegmentMembership.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

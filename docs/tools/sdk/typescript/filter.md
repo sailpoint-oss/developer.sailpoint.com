@@ -96,3 +96,13 @@ Equivalent Valid Example : ```( type != "Employee" ) || (type == "Contractor" )`
 |Like, Anywhere (Ignoring Case)|	```{property}.containsIgnoreCase( {value} )```|```email.containsIgnoreCase( "sail" )```|
 |Contains All|	```{property}.containsAll({value}, {value}, {value}, ...)	```|```Groups.containsAll( "A", "B", "C" )```|
 |Contains All (Ignoring Case)|	```{property}.containsAllIgnoreCase( {value}, {value}, {value}, ... )```|	```Groups.containsAllIgnoreCase( "A", "B", "C" )```|
+
+#### Complex Filters
+
+Filters embedded into an another filter by separating it with && or || operations.
+
+| Valid Examples|
+|--------|
+|```(((login == \"ritesh\" && name.isNull()) && company == \"sailpoint\") \|\| city == \"pune\")```|
+|```((login == \"ritesh\" \|\| name == null) && (company == \"sailpoint\" \|\| city == \"pune\"))```|
+|```((login == \"ritesh\" && name == null) \|\| (company == \"sailpoint\" && city == \"pune\"))```|

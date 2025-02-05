@@ -69,6 +69,7 @@ export function generateLanguageSet() {
 
   // Create a list of prioritized languages (in order)
   const priorityOrder = ['go', 'powershell', 'python', 'typescript'];
+  
   // First, push all languages into the languageSet
   codegen.getLanguageList().forEach((language: any) => {
     const variants: any = [];
@@ -92,27 +93,25 @@ export function generateLanguageSet() {
       },
       variant: variants[0],
       variants: variants,
-      tag: isPriority ? 'sailpoint-sdk' : '', // Assign the "sailpoint-sdk" tag if it's a priority language
+      tag: language.key === 'powershell' ? 'sailpoint-sdk' : '', // Only add the "sailpoint-sdk" tag for PowerShell
     });
   });
 
-  
-
   // Add TypeScript to the languageSet with a similar structure (assuming TypeScript has similar variants)
-  languageSet.push({
-    highlight: 'typescript', // Syntax highlighting for TypeScript
-    language: 'typescript', // The language key
-    codeSampleLanguage: 'TypeScript', // Label for TypeScript
-    logoClass: 'typescript', // Logo class for TypeScript
-    options: {
-      longFormat: false,
-      followRedirect: true,
-      trimRequestBody: true,
-    },
-    variant: null, // Example variant for TypeScript (you can add more variants as needed)
-    variants: null, // Add more variants as needed
-    tag: priorityOrder.includes('typescript') ? 'sailpoint-sdk' : '', // If TypeScript is a priority, add the tag
-  });
+  // languageSet.push({
+  //   highlight: 'typescript', // Syntax highlighting for TypeScript
+  //   language: 'typescript', // The language key
+  //   codeSampleLanguage: 'TypeScript', // Label for TypeScript
+  //   logoClass: 'typescript', // Logo class for TypeScript
+  //   options: {
+  //     longFormat: false,
+  //     followRedirect: true,
+  //     trimRequestBody: true,
+  //   },
+  //   variant: null, // Example variant for TypeScript (you can add more variants as needed)
+  //   variants: null, // Add more variants as needed
+  //   tag: '', // No tag for TypeScript at the moment
+  // });
 
   // Sort the languageSet based on the priority order
   languageSet.sort((a, b) => {

@@ -9,7 +9,7 @@ post:
     To reload the accounts along with the entitlements you removed, you must run an unoptimized aggregation. 
     To do so, use [Import Accounts](https://developer.sailpoint.com/docs/api/beta/import-accounts/) with `disableOptimization` = `true`. 
   parameters:
-    - name: id
+    - name: sourceId
       in: path
       description: ID of source for the entitlement reset
       required: true

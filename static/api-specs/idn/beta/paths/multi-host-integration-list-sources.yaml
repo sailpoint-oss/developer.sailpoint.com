@@ -9,6 +9,16 @@ get:
     A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
   operationId: getSourcesWithinMultiHost
   parameters:
+    - name: multihostId
+      in: path
+      description: ID of the Multi-Host Integration to update
+      required: true
+      x-sailpoint-resource-operation-id: getMultiHostIntegrations
+      style: simple
+      explode: false
+      schema:
+        type: string
+        example: aMultiHostId
     - $ref: '../../v3/parameters/offset.yaml'
     - $ref: '../../v3/parameters/limit.yaml'
     - name: sorters

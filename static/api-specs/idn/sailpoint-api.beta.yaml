@@ -1329,7 +1329,7 @@ paths:
     $ref: './beta/paths/ears-entitlement-bulk-update.yaml'
   /entitlements/{id}/entitlement-request-config:
     $ref: "./beta/paths/entitlement-request-config.yaml"
-  /entitlements/reset/sources/{id}:
+  /entitlements/reset/sources/{sourceId}:
     $ref: './beta/paths/reset-entitlements.yaml'
   /entitlements/{id}/access-model-metadata/{attributeKey}/values/{attributeValue}:
     $ref: './beta/paths/entitlement-access-model-metadata.yaml'
@@ -1361,7 +1361,7 @@ paths:
     $ref: './beta/paths/historical-identity-start-date.yaml'
   /historical-identities/{id}/compare:
     $ref: './beta/paths/historical-identity-compare.yaml'
-  /historical-identities/{id}/compare/{access-type}:
+  /historical-identities/{id}/compare/{accessType}:
     $ref: './beta/paths/historical-identity-compare-type.yaml'
   /identities/{identityId}/synchronize-attributes:
     $ref: './beta/paths/identity-synchronize-attributes.yaml'
@@ -1377,7 +1377,7 @@ paths:
     $ref: './beta/paths/identity-send-account-verification.yaml'
   /identities/process:
     $ref: './beta/paths/identities-process.yaml'
-  /identities/{id}/reset:
+  /identities/{identityId}/reset:
     $ref: './beta/paths/identity-reset.yaml'
   /identities/{identityId}/role-assignments:
     $ref: './beta/paths/identities-role-assignments.yaml'
@@ -1411,13 +1411,13 @@ paths:
     $ref: './beta/paths/multi-host-integration.yaml'
   /multihosts/types:
     $ref: './beta/paths/multi-host-integration-types.yaml'
-  /multihosts/{id}:
+  /multihosts/{multihostId}:
     $ref: './beta/paths/multi-host-integrations.yaml'
-  /multihosts/{multihost_id}/sources/testConnection:
+  /multihosts/{multihostId}/sources/testConnection:
     $ref: './beta/paths/multi-host-integration-test-connection.yaml'
-  /multihosts/{multihost_id}/sources/{sourceId}/testConnection:
+  /multihosts/{multihostId}/sources/{sourceId}/testConnection:
     $ref: './beta/paths/multi-host-integration-test-connection-source.yaml'
-  /multihosts/{id}/sources:
+  /multihosts/{multihostId}/sources:
     $ref: './beta/paths/multi-host-integration-list-sources.yaml'
   /multihosts/{multiHostId}/sources/errors:
     $ref: './beta/paths/multi-host-integration-sources-creation-error.yaml'
@@ -1473,7 +1473,7 @@ paths:
     $ref: './beta/paths/managed-clusters.yaml'
   /mail-from-attributes:
     $ref: './beta/paths/mail-from-attributes.yaml'
-  /mail-from-attributes/{identity}:
+  /mail-from-attributes/{identityId}:
     $ref: './beta/paths/mail-from-attribute.yaml'
   /generic-approvals:
     $ref: './beta/paths/approvals.yaml'
@@ -1715,29 +1715,29 @@ paths:
     $ref: './v3/paths/provisioning-policy.yaml'
   /sources/{sourceId}/provisioning-policies/bulk-update:
     $ref: './v3/paths/provisioning-policies-bulk-update.yaml'
-  /sources/{id}/remove-accounts:
+  /sources/{sourceId}/remove-accounts:
     $ref: './beta/paths/remove-accounts.yaml'
   /sources/{sourceId}/schemas:
     $ref: './beta/paths/schemas.yaml'
   /sources/{sourceId}/schemas/{schemaId}:
     $ref: './beta/paths/schema.yaml'
-  /sources/{id}/schemas/accounts:
+  /sources/{sourceId}/schemas/accounts:
     $ref: './beta/paths/source-accounts-schema.yaml'
-  /sources/{id}/schemas/entitlements:
+  /sources/{sourceId}/schemas/entitlements:
     $ref: './beta/paths/source-entitlements-schema.yaml'
   /sources/{sourceId}/upload-connector-file:
     $ref: './beta/paths/source-upload-connector-file.yaml'
-  /sources/{id}/synchronize-attributes:
+  /sources/{sourceId}/synchronize-attributes:
     $ref: './beta/paths/source-synchronize-attributes.yaml'
-  /sources/{id}/entitlement-request-config:
+  /sources/{sourceId}/entitlement-request-config:
     $ref: './beta/paths/sources-entitlement-request-config.yaml'
-  /sources/{id}/load-accounts:
+  /sources/{sourceId}/load-accounts:
     $ref: './beta/paths/load-accounts.yaml'
-  /sources/{id}/load-entitlements:
+  /sources/{sourceId}/load-entitlements:
     $ref: './beta/paths/load-entitlements.yaml'
-  /sources/{id}/load-uncorrelated-accounts:
+  /sources/{sourceId}/load-uncorrelated-accounts:
     $ref: './beta/paths/load-uncorrelated-accounts.yaml'
-  /sources/{id}/correlation-config:
+  /sources/{sourceId}/correlation-config:
     $ref: './beta/paths/correlation-config.yaml'
   /source-apps/{id}:
     $ref: './beta/paths/ears-source-app.yaml'

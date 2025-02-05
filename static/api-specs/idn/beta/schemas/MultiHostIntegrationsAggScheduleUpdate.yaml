@@ -2,14 +2,14 @@ allOf:
   - type: object
     description: Multi-Host Integration's aggregation schedule specification. 
     required:
-      - multihost_id
+      - multihostId
       - aggregation_grp_id
       - aggregation_grp_name
       - aggregation_cron_schedule
       - enableSchedule
       - source_id_list
     properties:
-      multihost_id: 
+      multihostId: 
         description: Multi-Host Integration ID. The ID must be unique
         type: string
         example: 004091cb79b04636b88662afa50a4456

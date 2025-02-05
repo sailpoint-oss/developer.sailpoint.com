@@ -8,8 +8,8 @@ get:
   description: >-
     Retrieve MAIL FROM attributes for a given AWS SES identity.
   parameters:
-    - in: query
-      name: id
+    - name: identityId
+      in: path
       required: true
       schema:
         type: string

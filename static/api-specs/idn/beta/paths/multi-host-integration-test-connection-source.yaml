@@ -9,7 +9,7 @@ get:
     A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
   operationId: testSourceConnectionMultihost
   parameters:
-    - name: multihost_id
+    - name: multihostId
       in: path
       description: ID of the Multi-Host Integration
       required: true

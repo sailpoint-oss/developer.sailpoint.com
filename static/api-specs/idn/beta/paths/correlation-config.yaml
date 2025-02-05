@@ -14,7 +14,7 @@ get:
     given ID.
   parameters:
     - in: path
-      name: id
+      name: sourceId
       required: true
       schema:
         type: string
@@ -57,7 +57,7 @@ put:
     configuration provided in the request body.
   parameters:
     - in: path
-      name: id
+      name: sourceId
       required: true
       schema:
         type: string

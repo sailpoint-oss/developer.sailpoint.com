@@ -10,10 +10,9 @@ post:
     * Removing accounts that no longer exist on the source.
     * Removing accounts that won't be aggregated following updates to the source configuration.
     * Forcing accounts to be re-created following the next aggregation to re-run account processing, support testing, etc.
-
   parameters:
     - in: path
-      name: id
+      name: sourceId
       schema:
         type: string
       required: true

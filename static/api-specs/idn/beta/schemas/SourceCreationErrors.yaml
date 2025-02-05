@@ -1,6 +1,6 @@
 type: object
 properties:
-  multihost_id:
+  multihostId:
     type: string
     readOnly: true
     description: Multi-Host Integration ID.

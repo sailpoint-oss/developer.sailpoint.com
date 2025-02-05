@@ -9,7 +9,7 @@ post:
     - userAuth: [ idn:sources:manage ]
   parameters:
     - in: path
-      name: id
+      name: sourceId
       schema:
         type: string
       required: true

@@ -5,7 +5,7 @@ get:
   operationId: getSourceAccountsSchema
   parameters:
     - in: path
-      name: id
+      name: sourceId
       required: true
       x-sailpoint-resource-operation-id: listSources
       schema:
@@ -41,7 +41,7 @@ post:
   operationId: importSourceAccountsSchema
   parameters:
     - in: path
-      name: id
+      name: sourceId
       required: true
       x-sailpoint-resource-operation-id: listSources
       schema:

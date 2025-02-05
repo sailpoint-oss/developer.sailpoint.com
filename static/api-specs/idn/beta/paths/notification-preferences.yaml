@@ -7,6 +7,15 @@ get:
     Returns a list of notification preferences for tenant.
   security:
   - userAuth: [ idn:notification-preferences:read ]
+  parameters:
+    - in: path
+      name: key
+      required: true
+      x-sailpoint-resource-operation-id: listNotificationPreferences
+      example: cloud_manual_work_item_summary
+      schema:
+        type: string
+      description: The notification key.
   responses:
     '200':
       description: Return preference for the given notification key.

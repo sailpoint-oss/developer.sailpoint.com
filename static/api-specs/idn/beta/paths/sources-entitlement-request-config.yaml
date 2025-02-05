@@ -19,6 +19,15 @@ get:
 
 
     A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+  parameters:
+    - in: path
+      name: sourceId
+      required: true
+      x-sailpoint-resource-operation-id: listSources
+      schema:
+        type: string
+      description: The Source id
+      example: '8c190e6787aa4ed9a90bd9d5344523fb'
   responses:
     '200':
       description: Source Entitlement Request Configuration Details.
@@ -110,6 +119,15 @@ put:
 
 
     A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+  parameters:
+    - in: path
+      name: sourceId
+      required: true
+      x-sailpoint-resource-operation-id: listSources
+      schema:
+        type: string
+      description: The Source id
+      example: '8c190e6787aa4ed9a90bd9d5344523fb'
   requestBody:
     required: true
     content:

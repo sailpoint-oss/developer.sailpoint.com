@@ -33,8 +33,8 @@ export interface Language {
   language: string;
   codeSampleLanguage: CodeSampleLanguage;
   logoClass: string;
-  variant: string;
-  variants: string[];
+  variant: string | null;
+  variants: string[] | null;
   options?: { [key: string]: boolean };
   sample?: string;
   samples?: string[];

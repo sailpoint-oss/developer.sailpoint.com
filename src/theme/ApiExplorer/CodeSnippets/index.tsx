@@ -97,7 +97,7 @@ function CodeSnippets({postman, codeSamples}: Props) {
       setCodeSampleCodeText(getCodeSampleSourceFromLanguage(language));
     }
 
-    if (language && !!language.options) {
+    if (language && !!language.options && language.language !== 'typescript') {
       const postmanRequest = buildPostmanRequest(postman, {
         queryParams,
         pathParams,
@@ -245,6 +245,7 @@ function CodeSnippets({postman, codeSamples}: Props) {
                   {/* If the language has the 'sailpoint-sdk' tag, display the special badge */}
                   {lang.tag === 'sailpoint-sdk' && (
                     <span
+                      className="sailpoint-sdk-badge"
                       style={{
                         display: 'inline-block', // Change to inline-block for stacking
                         fontSize: '12px', // Optional: Adjust font size for lang.language (e.g., "go")
@@ -277,81 +278,84 @@ function CodeSnippets({postman, codeSamples}: Props) {
                 className: `openapi-tabs__code-item--${lang.logoClass}`,
               }}>
               {/* Merged CodeTabs for both samples and variants */}
-              <CodeTabs
-                className="openapi-tabs__code-container-inner"
-                action={{
-                  setLanguage: setLanguage,
-                  setSelectedSample: setSelectedSample,
-                  setSelectedVariant: setSelectedVariant,
-                }}
-                includeSample={true}
-                includeVariant={true}
-                currentLanguage={lang.language}
-                defaultValue={selectedSample || selectedVariant} // Set default value based on whichever is selected
-                languageSet={mergedLangs}
-                lazy>
-                {/* Render Sample Tabs */}
-                {lang.samples &&
-                  lang.samples.map((sample, index) => {
-                    return (
-                      <CodeTab
-                        value={sample}
-                        label={
-                          lang.samplesLabels
-                            ? lang.samplesLabels[index].slice(0, 3)
-                            : sample
-                        }
-                        key={`${lang.language}-sample-${index}`} // Unique key for each sample
-                        attributes={{
-                          className: `openapi-tabs__code-item--sample`,
-                        }}>
-                        <p>
-                          <a
-                            href={`https://developer.sailpoint.com/docs/${
-                              lang.samplesLabels
-                                ? lang.samplesLabels[index].slice(4)
-                                : ''
-                            }`} // Add everything after the first 4 characters
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="sample-doc-link">
-                            View SDK Reference
-                          </a>
-                        </p>
+              {((lang.samples && lang.samples.length > 0) ||
+                (lang.variants && lang.variants.length > 0)) && (
+                <CodeTabs
+                  className="openapi-tabs__code-container-inner"
+                  action={{
+                    setLanguage: setLanguage,
+                    setSelectedSample: setSelectedSample,
+                    setSelectedVariant: setSelectedVariant,
+                  }}
+                  includeSample={true}
+                  includeVariant={true}
+                  currentLanguage={lang.language}
+                  defaultValue={selectedSample || selectedVariant} // Set default value based on whichever is selected
+                  languageSet={mergedLangs}
+                  lazy>
+                  {/* Render Sample Tabs */}
+                  {lang.samples &&
+                    lang.samples.map((sample, index) => {
+                      return (
+                        <CodeTab
+                          value={sample}
+                          label={
+                            lang.samplesLabels
+                              ? lang.samplesLabels[index].slice(0, 3)
+                              : sample
+                          }
+                          key={`${lang.language}-sample-${index}`} // Unique key for each sample
+                          attributes={{
+                            className: `openapi-tabs__code-item--sample`,
+                          }}>
+                          <p>
+                            <a
+                              href={`https://developer.sailpoint.com/docs/${
+                                lang.samplesLabels
+                                  ? lang.samplesLabels[index].slice(4)
+                                  : ''
+                              }`} // Add everything after the first 4 characters
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="sample-doc-link">
+                              View SDK Reference
+                            </a>
+                          </p>
 
-                        {/* @ts-ignore */}
-                        <ApiCodeBlock
-                          language={lang.highlight}
-                          className="openapi-explorer__code-block"
-                          showLineNumbers={true}>
-                          {codeSampleCodeText}
-                        </ApiCodeBlock>
-                      </CodeTab>
-                    );
-                  })}
+                          {/* @ts-ignore */}
+                          <ApiCodeBlock
+                            language={lang.highlight}
+                            className="openapi-explorer__code-block"
+                            showLineNumbers={true}>
+                            {codeSampleCodeText}
+                          </ApiCodeBlock>
+                        </CodeTab>
+                      );
+                    })}
 
-                {/* Render Variant Tabs */}
-                {lang.variants &&
-                  lang.variants.map((variant, index) => {
-                    return (
-                      <CodeTab
-                        value={variant.toLowerCase()}
-                        label={variant.toUpperCase()}
-                        key={`${lang.language}-variant-${index}`} // Unique key for each variant
-                        attributes={{
-                          className: `openapi-tabs__code-item--variant`,
-                        }}>
-                        {/* @ts-ignore */}
-                        <ApiCodeBlock
-                          language={lang.highlight}
-                          className="openapi-explorer__code-block"
-                          showLineNumbers={true}>
-                          {codeText}
-                        </ApiCodeBlock>
-                      </CodeTab>
-                    );
-                  })}
-              </CodeTabs>
+                  {/* Render Variant Tabs */}
+                  {lang.variants &&
+                    lang.variants.map((variant, index) => {
+                      return (
+                        <CodeTab
+                          value={variant.toLowerCase()}
+                          label={variant.toUpperCase()}
+                          key={`${lang.language}-variant-${index}`} // Unique key for each variant
+                          attributes={{
+                            className: `openapi-tabs__code-item--variant`,
+                          }}>
+                          {/* @ts-ignore */}
+                          <ApiCodeBlock
+                            language={lang.highlight}
+                            className="openapi-explorer__code-block"
+                            showLineNumbers={true}>
+                            {codeText}
+                          </ApiCodeBlock>
+                        </CodeTab>
+                      );
+                    })}
+                </CodeTabs>
+              )}
             </CodeTab>
           );
         })}

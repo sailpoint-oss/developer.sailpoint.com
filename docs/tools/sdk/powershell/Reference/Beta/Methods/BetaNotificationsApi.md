@@ -23,7 +23,7 @@ Method | HTTP request | Description
 [**Remove-BetaNotificationTemplatesInBulk**](#delete-notification-templates-in-bulk) | **POST** `/notification-templates/bulk-delete` | Bulk Delete Notification Templates
 [**Remove-BetaVerifiedFromAddress**](#delete-verified-from-address) | **DELETE** `/verified-from-addresses/{id}` | Delete Verified From Address
 [**Get-BetaDkimAttributes**](#get-dkim-attributes) | **GET** `/verified-domains` | Get DKIM Attributes
-[**Get-BetaMailFromAttributes**](#get-mail-from-attributes) | **GET** `/mail-from-attributes/{identity}` | Get MAIL FROM Attributes
+[**Get-BetaMailFromAttributes**](#get-mail-from-attributes) | **GET** `/mail-from-attributes/{identityId}` | Get MAIL FROM Attributes
 [**Get-BetaNotificationTemplate**](#get-notification-template) | **GET** `/notification-templates/{id}` | Get Notification Template By Id
 [**Get-BetaNotificationsTemplateContext**](#get-notifications-template-context) | **GET** `/notification-template-context` | Get Notification Template Context
 [**Get-BetaFromAddresses**](#list-from-addresses) | **GET** `/verified-from-addresses` | List From Addresses
@@ -326,7 +326,7 @@ Retrieve MAIL FROM attributes for a given AWS SES identity.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-  Query | Id | **String** | True  | Returns the MX and TXT record to be put in your DNS, as well as the MAIL FROM domain status
+Path   | IdentityId | **String** | True  | Returns the MX and TXT record to be put in your DNS, as well as the MAIL FROM domain status
 
 ### Return type
 [**MailFromAttributes**](../models/mail-from-attributes)
@@ -347,15 +347,15 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Id = "bobsmith@sailpoint.com" # String | Returns the MX and TXT record to be put in your DNS, as well as the MAIL FROM domain status
+$IdentityId = "bobsmith@sailpoint.com" # String | Returns the MX and TXT record to be put in your DNS, as well as the MAIL FROM domain status
 
 # Get MAIL FROM Attributes
 
 try {
-    Get-BetaMailFromAttributes -BetaId $Id 
+    Get-BetaMailFromAttributes -BetaIdentityId $IdentityId 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaMailFromAttributes -BetaId $Id  
+    # Get-BetaMailFromAttributes -BetaIdentityId $IdentityId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaMailFromAttributes"
     Write-Host $_.ErrorDetails
@@ -500,6 +500,7 @@ Returns a list of notification preferences for tenant.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | Key | **String** | True  | The notification key.
 
 ### Return type
 [**PreferencesDto[]**](../models/preferences-dto)
@@ -521,14 +522,15 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
+$Key = "cloud_manual_work_item_summary" # String | The notification key.
 
 # List Notification Preferences for tenant.
 
 try {
-    Get-BetaNotificationPreferences
+    Get-BetaNotificationPreferences -BetaKey $Key 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaNotificationPreferences  
+    # Get-BetaNotificationPreferences -BetaKey $Key  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaNotificationPreferences"
     Write-Host $_.ErrorDetails

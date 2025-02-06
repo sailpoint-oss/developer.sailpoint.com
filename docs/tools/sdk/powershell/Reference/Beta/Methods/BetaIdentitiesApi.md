@@ -38,7 +38,7 @@ Method | HTTP request | Description
 [**Get-BetaRoleAssignment**](#get-role-assignment) | **GET** `/identities/{identityId}/role-assignments/{assignmentId}` | Role assignment details
 [**Get-BetaRoleAssignments**](#get-role-assignments) | **GET** `/identities/{identityId}/role-assignments` | List role assignments
 [**Get-BetaIdentities**](#list-identities) | **GET** `/identities` | List Identities
-[**Reset-BetaIdentity**](#reset-identity) | **POST** `/identities/{id}/reset` | Reset an identity
+[**Reset-BetaIdentity**](#reset-identity) | **POST** `/identities/{identityId}/reset` | Reset an identity
 [**Send-BetaIdentityVerificationAccountToken**](#send-identity-verification-account-token) | **POST** `/identities/{id}/verification/account/send` | Send password reset email
 [**Start-BetaIdentitiesInvite**](#start-identities-invite) | **POST** `/identities/invite` | Invite identities to register
 [**Start-BetaIdentityProcessing**](#start-identity-processing) | **POST** `/identities/process` | Process a list of identityIds

@@ -76,7 +76,7 @@ Method | HTTP request | Description
 [**Get-BetaEntitlements**](#list-entitlements) | **GET** `/entitlements` | Gets a list of entitlements.
 [**Update-BetaEntitlement**](#patch-entitlement) | **PATCH** `/entitlements/{id}` | Patch an entitlement
 [**Send-BetaEntitlementRequestConfig**](#put-entitlement-request-config) | **PUT** `/entitlements/{id}/entitlement-request-config` | Replace Entitlement Request Config
-[**Reset-BetaSourceEntitlements**](#reset-source-entitlements) | **POST** `/entitlements/reset/sources/{id}` | Reset Source Entitlements
+[**Reset-BetaSourceEntitlements**](#reset-source-entitlements) | **POST** `/entitlements/reset/sources/{sourceId}` | Reset Source Entitlements
 [**Update-BetaEntitlementsInBulk**](#update-entitlements-in-bulk) | **POST** `/entitlements/bulk-update` | Bulk update an entitlement list
 
 ## create-access-model-metadata-for-entitlement
@@ -594,7 +594,7 @@ To reload the accounts along with the entitlements you removed, you must run an 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | Id | **String** | True  | ID of source for the entitlement reset
+Path   | SourceId | **String** | True  | ID of source for the entitlement reset
 
 ### Return type
 [**EntitlementSourceResetBaseReferenceDto**](../models/entitlement-source-reset-base-reference-dto)
@@ -615,15 +615,15 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Id = "2c91808a7813090a017814121919ecca" # String | ID of source for the entitlement reset
+$SourceId = "2c91808a7813090a017814121919ecca" # String | ID of source for the entitlement reset
 
 # Reset Source Entitlements
 
 try {
-    Reset-BetaSourceEntitlements -BetaId $Id 
+    Reset-BetaSourceEntitlements -BetaSourceId $SourceId 
     
     # Below is a request that includes all optional parameters
-    # Reset-BetaSourceEntitlements -BetaId $Id  
+    # Reset-BetaSourceEntitlements -BetaSourceId $SourceId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Reset-BetaSourceEntitlements"
     Write-Host $_.ErrorDetails

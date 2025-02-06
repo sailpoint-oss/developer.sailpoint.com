@@ -431,10 +431,6 @@ tags:
       For example, an administrator can use the pageId forget-username:user-email to set the custom text for the case when users forget their usernames and must enter their emails.
 
       Refer to [Creating Custom Instruction Text](https://documentation.sailpoint.com/saas/help/pwd/pwd_reset.html#creating-custom-instruction-text) for more information about creating custom password instructions.
-  - name: Data Segmentation
-    description: |
-      This service is responsible for creating segments that will determine how access is delegated to identities
-      withing the organization.
   - name: Dimensions
     description:
       Use this API to implement and customize dynamic role functionality.
@@ -1433,14 +1429,6 @@ paths:
     $ref: ./v3/paths/connectors-source-template.yaml
   /connectors/{scriptName}/correlation-config:
     $ref: ./v3/paths/connectors-correlation-config.yaml
-  /data-segments/membership/{identityId}:
-    $ref: "./v2024/paths/data-segment-membership.yaml"
-  /data-segments/user-enabled/{identityId}:
-    $ref: "./v2024/paths/data-segment-user-enabled.yaml"
-  /data-segments/{segmentId}:
-    $ref: "./v2024/paths/data-segment.yaml"
-  /data-segments:
-    $ref: "./v2024/paths/data-segments.yaml"
   /identities/{identity-id}/set-lifecycle-state:
     $ref: ./v3/paths/identity-set-lifecycle-state.yaml
   /identity-profiles/{identity-profile-id}/lifecycle-states:

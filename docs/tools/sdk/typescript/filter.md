@@ -101,7 +101,7 @@ Equivalent Valid Example : ```( type != "Employee" ) || (type == "Contractor" )`
 
 #### Complex Filters
 
-Filters embedded into an another filter by grouping it with `&&` or `||` operations:
+Filters embedded into an another filter by grouping it with && or || operations:
 
 | Valid Examples|
 |--------|

@@ -60,7 +60,7 @@ tsc src/index.ts && node src/index.js
 
 #### Composite Filters
 
-Filters can also be grouped and used together as composite filters:
+Filters can also be grouped and used together as composite filters.
 
 | Composite Filter                                                     | Pattern              | Valid Examples |
 | --------------------------------------------------------- | --------------------- |--|
@@ -101,7 +101,7 @@ Equivalent Valid Example : ```( type != "Employee" ) || (type == "Contractor" )`
 
 #### Complex Filters
 
-Filters embedded into an another filter by grouping it with && or || operations:
+Filters embedded into an another filter by grouping it with && or || operations.
 
 | Valid Examples|
 |--------|

@@ -215,7 +215,7 @@ tags:
       
       An authentication profile represents an identity profile's authentication configuration. 
       When the identity profile is created, its authentication profile is also created. 
-      An authentication profile includes information like its authentication profile type (`BLOCK`, `MFA`, `NON_PTA`, PTA`) and settings controlling whether or not it blocks access from off network or untrusted geographies. 
+      An authentication profile includes information like its authentication profile type (`BLOCK`, `MFA`, `NON_PTA`, PTA`) and settings controlling whether or not it blocks access from off network or untrusted geographies.
   - name: Certification Campaigns
     description: |
       Use this API to implement certification campaign functionality.
@@ -494,11 +494,11 @@ tags:
   - name: Managed Clients
     description: |
       Use this API to implement managed client functionality. 
-      With this functionality in place, administrators can modify and delete existing managed clients, create new ones, and view and make changes to their log configurations. 
+      With this functionality in place, administrators can modify and delete existing managed clients, create new ones, and view and make changes to their log configurations.
   - name: Managed Clusters
     description: |
       Use this API to implement managed cluster functionality. 
-      With this functionality in place, administrators can modify and delete existing managed clients, get their statuses, and create new ones. 
+      With this functionality in place, administrators can modify and delete existing managed clients, get their statuses, and create new ones.
   - name: MFA Configuration
     description: Configure and test multifactor authentication (MFA) methods
   - name: MFA Controller
@@ -550,7 +550,7 @@ tags:
   - name: Org Config
     description: |
       Use this API to implement organization configuration functionality. 
-      Administrators can use this functionality to manage organization settings, such as time zones. 
+      Administrators can use this functionality to manage organization settings, such as time zones.
   - name: Password Configuration
     description: |
       Use this API to implement organization password configuration functionality.
@@ -941,7 +941,7 @@ tags:
     description: |
       Use this API to implement Suggested Entitlement Description (SED) functionality. 
       SED functionality leverages the power of LLM to generate suggested entitlement descriptions. 
-      Refer to [GenAI Entitlement Descriptions](https://documentation.sailpoint.com/saas/help/access/entitlements.html#genai-entitlement-descriptions) to learn more about SED in Identity Security Cloud (ISC). 
+      Refer to [GenAI Entitlement Descriptions](https://documentation.sailpoint.com/saas/help/access/entitlements.html#genai-entitlement-descriptions) to learn more about SED in Identity Security Cloud (ISC).
   - name: Tagged Objects
     description: |
       Use this API to implement object tagging functionality. 

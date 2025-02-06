@@ -78,44 +78,44 @@ Method | HTTP request | Description
 [**New-BetaSource**](#create-source) | **POST** `/sources` | Creates a source in IdentityNow.
 [**New-BetaSourceSchema**](#create-source-schema) | **POST** `/sources/{sourceId}/schemas` | Create Schema on Source
 [**Remove-Beta**](#delete) | **DELETE** `/sources/{id}` | Delete Source by ID
-[**Remove-BetaAccountsAsync**](#delete-accounts-async) | **POST** `/sources/{id}/remove-accounts` | Remove All Accounts in a Source
+[**Remove-BetaAccountsAsync**](#delete-accounts-async) | **POST** `/sources/{sourceId}/remove-accounts` | Remove All Accounts in a Source
 [**Remove-BetaNativeChangeDetectionConfig**](#delete-native-change-detection-config) | **DELETE** `/sources/{sourceId}/native-change-detection-config` | Delete Native Change Detection Configuration
 [**Remove-BetaProvisioningPolicy**](#delete-provisioning-policy) | **DELETE** `/sources/{sourceId}/provisioning-policies/{usageType}` | Delete Provisioning Policy by UsageType
 [**Remove-BetaSourceSchema**](#delete-source-schema) | **DELETE** `/sources/{sourceId}/schemas/{schemaId}` | Delete Source Schema by ID
-[**Get-BetaCorrelationConfig**](#get-correlation-config) | **GET** `/sources/{id}/correlation-config` | Get Source Correlation Configuration
+[**Get-BetaCorrelationConfig**](#get-correlation-config) | **GET** `/sources/{sourceId}/correlation-config` | Get Source Correlation Configuration
 [**Get-BetaNativeChangeDetectionConfig**](#get-native-change-detection-config) | **GET** `/sources/{sourceId}/native-change-detection-config` | Native Change Detection Configuration
 [**Get-BetaProvisioningPolicy**](#get-provisioning-policy) | **GET** `/sources/{sourceId}/provisioning-policies/{usageType}` | Get Provisioning Policy by UsageType
 [**Get-BetaSource**](#get-source) | **GET** `/sources/{id}` | Get Source by ID
-[**Get-BetaSourceAccountsSchema**](#get-source-accounts-schema) | **GET** `/sources/{id}/schemas/accounts` | Downloads source accounts schema template
+[**Get-BetaSourceAccountsSchema**](#get-source-accounts-schema) | **GET** `/sources/{sourceId}/schemas/accounts` | Downloads source accounts schema template
 [**Get-BetaSourceAttrSyncConfig**](#get-source-attr-sync-config) | **GET** `/sources/{id}/attribute-sync-config` | Attribute Sync Config
 [**Get-BetaSourceConfig**](#get-source-config) | **GET** `/sources/{id}/connectors/source-config` | Gets source config with language translations
-[**Get-BetaSourceEntitlementRequestConfig**](#get-source-entitlement-request-config) | **GET** `/sources/{id}/entitlement-request-config` | Get Source Entitlement Request Configuration
-[**Get-BetaSourceEntitlementsSchema**](#get-source-entitlements-schema) | **GET** `/sources/{id}/schemas/entitlements` | Downloads source entitlements schema template
+[**Get-BetaSourceEntitlementRequestConfig**](#get-source-entitlement-request-config) | **GET** `/sources/{sourceId}/entitlement-request-config` | Get Source Entitlement Request Configuration
+[**Get-BetaSourceEntitlementsSchema**](#get-source-entitlements-schema) | **GET** `/sources/{sourceId}/schemas/entitlements` | Downloads source entitlements schema template
 [**Get-BetaSourceSchema**](#get-source-schema) | **GET** `/sources/{sourceId}/schemas/{schemaId}` | Get Source Schema by ID
 [**Get-BetaSourceSchemas**](#get-source-schemas) | **GET** `/sources/{sourceId}/schemas` | List Schemas on Source
-[**Import-BetaAccounts**](#import-accounts) | **POST** `/sources/{id}/load-accounts` | Account Aggregation
-[**Import-BetaEntitlements**](#import-entitlements) | **POST** `/sources/{id}/load-entitlements` | Entitlement Aggregation
-[**Import-BetaSourceAccountsSchema**](#import-source-accounts-schema) | **POST** `/sources/{id}/schemas/accounts` | Uploads source accounts schema template
+[**Import-BetaAccounts**](#import-accounts) | **POST** `/sources/{sourceId}/load-accounts` | Account Aggregation
+[**Import-BetaEntitlements**](#import-entitlements) | **POST** `/sources/{sourceId}/load-entitlements` | Entitlement Aggregation
+[**Import-BetaSourceAccountsSchema**](#import-source-accounts-schema) | **POST** `/sources/{sourceId}/schemas/accounts` | Uploads source accounts schema template
 [**Import-BetaSourceConnectorFile**](#import-source-connector-file) | **POST** `/sources/{sourceId}/upload-connector-file` | Upload connector file to source
-[**Import-BetaSourceEntitlementsSchema**](#import-source-entitlements-schema) | **POST** `/sources/{id}/schemas/entitlements` | Uploads source entitlements schema template
-[**Import-BetaUncorrelatedAccounts**](#import-uncorrelated-accounts) | **POST** `/sources/{id}/load-uncorrelated-accounts` | Process Uncorrelated Accounts
+[**Import-BetaSourceEntitlementsSchema**](#import-source-entitlements-schema) | **POST** `/sources/{sourceId}/schemas/entitlements` | Uploads source entitlements schema template
+[**Import-BetaUncorrelatedAccounts**](#import-uncorrelated-accounts) | **POST** `/sources/{sourceId}/load-uncorrelated-accounts` | Process Uncorrelated Accounts
 [**Get-BetaProvisioningPolicies**](#list-provisioning-policies) | **GET** `/sources/{sourceId}/provisioning-policies` | Lists ProvisioningPolicies
 [**Get-BetaSources**](#list-sources) | **GET** `/sources` | Lists all sources in IdentityNow.
 [**Receive-BetaResourceObjects**](#peek-resource-objects) | **POST** `/sources/{sourceId}/connector/peek-resource-objects` | Peek source connector&#39;s resource objects
 [**Ping-BetaCluster**](#ping-cluster) | **POST** `/sources/{sourceId}/connector/ping-cluster` | Ping cluster for source connector
-[**Send-BetaCorrelationConfig**](#put-correlation-config) | **PUT** `/sources/{id}/correlation-config` | Update Source Correlation Configuration
+[**Send-BetaCorrelationConfig**](#put-correlation-config) | **PUT** `/sources/{sourceId}/correlation-config` | Update Source Correlation Configuration
 [**Send-BetaNativeChangeDetectionConfig**](#put-native-change-detection-config) | **PUT** `/sources/{sourceId}/native-change-detection-config` | Update Native Change Detection Configuration
 [**Send-BetaProvisioningPolicy**](#put-provisioning-policy) | **PUT** `/sources/{sourceId}/provisioning-policies/{usageType}` | Update Provisioning Policy by UsageType
 [**Send-BetaSource**](#put-source) | **PUT** `/sources/{id}` | Update Source (Full)
 [**Send-BetaSourceAttrSyncConfig**](#put-source-attr-sync-config) | **PUT** `/sources/{id}/attribute-sync-config` | Update Attribute Sync Config
 [**Send-BetaSourceSchema**](#put-source-schema) | **PUT** `/sources/{sourceId}/schemas/{schemaId}` | Update Source Schema (Full)
-[**Sync-BetaAttributesForSource**](#sync-attributes-for-source) | **POST** `/sources/{id}/synchronize-attributes` | Synchronize single source attributes.
+[**Sync-BetaAttributesForSource**](#sync-attributes-for-source) | **POST** `/sources/{sourceId}/synchronize-attributes` | Synchronize single source attributes.
 [**Test-BetaSourceConfiguration**](#test-source-configuration) | **POST** `/sources/{sourceId}/connector/test-configuration` | Test configuration for source connector
 [**Test-BetaSourceConnection**](#test-source-connection) | **POST** `/sources/{sourceId}/connector/check-connection` | Check connection for source connector.
 [**Update-BetaProvisioningPoliciesInBulk**](#update-provisioning-policies-in-bulk) | **POST** `/sources/{sourceId}/provisioning-policies/bulk-update` | Bulk Update Provisioning Policies
 [**Update-BetaProvisioningPolicy**](#update-provisioning-policy) | **PATCH** `/sources/{sourceId}/provisioning-policies/{usageType}` | Partial update of Provisioning Policy
 [**Update-BetaSource**](#update-source) | **PATCH** `/sources/{id}` | Update Source (Partial)
-[**Update-BetaSourceEntitlementRequestConfig**](#update-source-entitlement-request-config) | **PUT** `/sources/{id}/entitlement-request-config` | Update Source Entitlement Request Configuration
+[**Update-BetaSourceEntitlementRequestConfig**](#update-source-entitlement-request-config) | **PUT** `/sources/{sourceId}/entitlement-request-config` | Update Source Entitlement Request Configuration
 [**Update-BetaSourceSchema**](#update-source-schema) | **PATCH** `/sources/{sourceId}/schemas/{schemaId}` | Update Source Schema (Partial)
 
 ## create-provisioning-policy
@@ -468,7 +468,7 @@ This endpoint is good for:
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | Id | **String** | True  | The source id
+Path   | SourceId | **String** | True  | The source id
 
 ### Return type
 [**TaskResultDto**](../models/task-result-dto)
@@ -489,15 +489,15 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Id = "ebbf35756e1140699ce52b233121384a" # String | The source id
+$SourceId = "ebbf35756e1140699ce52b233121384a" # String | The source id
 
 # Remove All Accounts in a Source
 
 try {
-    Remove-BetaAccountsAsync -BetaId $Id 
+    Remove-BetaAccountsAsync -BetaSourceId $SourceId 
     
     # Below is a request that includes all optional parameters
-    # Remove-BetaAccountsAsync -BetaId $Id  
+    # Remove-BetaAccountsAsync -BetaSourceId $SourceId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaAccountsAsync"
     Write-Host $_.ErrorDetails
@@ -511,7 +511,7 @@ A token with API, or ORG_ADMIN authority is required to call this API.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | Id | **String** | True  | The source id
+Path   | SourceId | **String** | True  | The source id
 
 ### Return type
  (empty response body)
@@ -533,15 +533,15 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Id = "2c9180835d191a86015d28455b4a2329" # String | The source id
+$SourceId = "2c9180835d191a86015d28455b4a2329" # String | The source id
 
 # Delete Native Change Detection Configuration
 
 try {
-    Remove-BetaNativeChangeDetectionConfig -BetaId $Id 
+    Remove-BetaNativeChangeDetectionConfig -BetaSourceId $SourceId 
     
     # Below is a request that includes all optional parameters
-    # Remove-BetaNativeChangeDetectionConfig -BetaId $Id  
+    # Remove-BetaNativeChangeDetectionConfig -BetaSourceId $SourceId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaNativeChangeDetectionConfig"
     Write-Host $_.ErrorDetails
@@ -644,7 +644,7 @@ This API returns the existing correlation configuration for a source specified b
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | Id | **String** | True  | The source id
+Path   | SourceId | **String** | True  | The source id
 
 ### Return type
 [**CorrelationConfig**](../models/correlation-config)
@@ -666,15 +666,15 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Id = "2c9180835d191a86015d28455b4a2329" # String | The source id
+$SourceId = "2c9180835d191a86015d28455b4a2329" # String | The source id
 
 # Get Source Correlation Configuration
 
 try {
-    Get-BetaCorrelationConfig -BetaId $Id 
+    Get-BetaCorrelationConfig -BetaSourceId $SourceId 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaCorrelationConfig -BetaId $Id  
+    # Get-BetaCorrelationConfig -BetaSourceId $SourceId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaCorrelationConfig"
     Write-Host $_.ErrorDetails
@@ -688,7 +688,7 @@ A token with ORG_ADMIN authority is required to call this API.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | Id | **String** | True  | The source id
+Path   | SourceId | **String** | True  | The source id
 
 ### Return type
 [**NativeChangeDetectionConfig**](../models/native-change-detection-config)
@@ -710,15 +710,15 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Id = "2c9180835d191a86015d28455b4a2329" # String | The source id
+$SourceId = "2c9180835d191a86015d28455b4a2329" # String | The source id
 
 # Native Change Detection Configuration
 
 try {
-    Get-BetaNativeChangeDetectionConfig -BetaId $Id 
+    Get-BetaNativeChangeDetectionConfig -BetaSourceId $SourceId 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaNativeChangeDetectionConfig -BetaId $Id  
+    # Get-BetaNativeChangeDetectionConfig -BetaSourceId $SourceId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaNativeChangeDetectionConfig"
     Write-Host $_.ErrorDetails
@@ -820,7 +820,7 @@ try {
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | Id | **String** | True  | The Source id
+Path   | SourceId | **String** | True  | The Source id
 
 ### Return type
  (empty response body)
@@ -842,15 +842,15 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
+$SourceId = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
 
 # Downloads source accounts schema template
 
 try {
-    Get-BetaSourceAccountsSchema -BetaId $Id 
+    Get-BetaSourceAccountsSchema -BetaSourceId $SourceId 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaSourceAccountsSchema -BetaId $Id  
+    # Get-BetaSourceAccountsSchema -BetaSourceId $SourceId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaSourceAccountsSchema"
     Write-Host $_.ErrorDetails
@@ -958,6 +958,7 @@ A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required t
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | SourceId | **String** | True  | The Source id
 
 ### Return type
 [**SourceEntitlementRequestConfig**](../models/source-entitlement-request-config)
@@ -978,14 +979,15 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
+$SourceId = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
 
 # Get Source Entitlement Request Configuration
 
 try {
-    Get-BetaSourceEntitlementRequestConfig
+    Get-BetaSourceEntitlementRequestConfig -BetaSourceId $SourceId 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaSourceEntitlementRequestConfig  
+    # Get-BetaSourceEntitlementRequestConfig -BetaSourceId $SourceId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaSourceEntitlementRequestConfig"
     Write-Host $_.ErrorDetails
@@ -998,7 +1000,7 @@ try {
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | Id | **String** | True  | The Source id
+Path   | SourceId | **String** | True  | The Source id
   Query | SchemaName | **String** |   (optional) | Name of entitlement schema
 
 ### Return type
@@ -1021,16 +1023,16 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
+$SourceId = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
 $SchemaName = "?schemaName=group" # String | Name of entitlement schema (optional)
 
 # Downloads source entitlements schema template
 
 try {
-    Get-BetaSourceEntitlementsSchema -BetaId $Id 
+    Get-BetaSourceEntitlementsSchema -BetaSourceId $SourceId 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaSourceEntitlementsSchema -BetaId $Id -BetaSchemaName $SchemaName  
+    # Get-BetaSourceEntitlementsSchema -BetaSourceId $SourceId -BetaSchemaName $SchemaName  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaSourceEntitlementsSchema"
     Write-Host $_.ErrorDetails
@@ -1139,7 +1141,7 @@ A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required t
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | Id | **String** | True  | Source Id
+Path   | SourceId | **String** | True  | Source Id
    | File | **System.IO.FileInfo** |   (optional) | The CSV file containing the source accounts to aggregate.
    | DisableOptimization | **String** |   (optional) | Use this flag to reprocess every account whether or not the data has changed.
 
@@ -1162,17 +1164,17 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Id = "ef38f94347e94562b5bb8424a56397d8" # String | Source Id
+$SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | Source Id
 $File =  # System.IO.FileInfo | The CSV file containing the source accounts to aggregate. (optional)
 $DisableOptimization = "true" # String | Use this flag to reprocess every account whether or not the data has changed. (optional)
 
 # Account Aggregation
 
 try {
-    Import-BetaAccounts -BetaId $Id 
+    Import-BetaAccounts -BetaSourceId $SourceId 
     
     # Below is a request that includes all optional parameters
-    # Import-BetaAccounts -BetaId $Id -BetaFile $File -BetaDisableOptimization $DisableOptimization  
+    # Import-BetaAccounts -BetaSourceId $SourceId -BetaFile $File -BetaDisableOptimization $DisableOptimization  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Import-BetaAccounts"
     Write-Host $_.ErrorDetails
@@ -1188,7 +1190,7 @@ A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required t
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | Id | **String** | True  | Source Id
+Path   | SourceId | **String** | True  | Source Id
    | File | **System.IO.FileInfo** |   (optional) | The CSV file containing the source entitlements to aggregate.
 
 ### Return type
@@ -1210,16 +1212,16 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Id = "ef38f94347e94562b5bb8424a56397d8" # String | Source Id
+$SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | Source Id
 $File =  # System.IO.FileInfo | The CSV file containing the source entitlements to aggregate. (optional)
 
 # Entitlement Aggregation
 
 try {
-    Import-BetaEntitlements -BetaId $Id 
+    Import-BetaEntitlements -BetaSourceId $SourceId 
     
     # Below is a request that includes all optional parameters
-    # Import-BetaEntitlements -BetaId $Id -BetaFile $File  
+    # Import-BetaEntitlements -BetaSourceId $SourceId -BetaFile $File  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Import-BetaEntitlements"
     Write-Host $_.ErrorDetails
@@ -1232,7 +1234,7 @@ This API uploads a source schema template file to configure a source's account a
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | Id | **String** | True  | The Source id
+Path   | SourceId | **String** | True  | The Source id
    | File | **System.IO.FileInfo** |   (optional) | 
 
 ### Return type
@@ -1254,16 +1256,16 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
+$SourceId = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
 $File =  # System.IO.FileInfo |  (optional)
 
 # Uploads source accounts schema template
 
 try {
-    Import-BetaSourceAccountsSchema -BetaId $Id 
+    Import-BetaSourceAccountsSchema -BetaSourceId $SourceId 
     
     # Below is a request that includes all optional parameters
-    # Import-BetaSourceAccountsSchema -BetaId $Id -BetaFile $File  
+    # Import-BetaSourceAccountsSchema -BetaSourceId $SourceId -BetaFile $File  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Import-BetaSourceAccountsSchema"
     Write-Host $_.ErrorDetails
@@ -1321,7 +1323,7 @@ This API uploads a source schema template file to configure a source's entitleme
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | Id | **String** | True  | The Source id
+Path   | SourceId | **String** | True  | The Source id
   Query | SchemaName | **String** |   (optional) | Name of entitlement schema
    | File | **System.IO.FileInfo** |   (optional) | 
 
@@ -1344,17 +1346,17 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
+$SourceId = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
 $SchemaName = "?schemaName=group" # String | Name of entitlement schema (optional)
 $File =  # System.IO.FileInfo |  (optional)
 
 # Uploads source entitlements schema template
 
 try {
-    Import-BetaSourceEntitlementsSchema -BetaId $Id 
+    Import-BetaSourceEntitlementsSchema -BetaSourceId $SourceId 
     
     # Below is a request that includes all optional parameters
-    # Import-BetaSourceEntitlementsSchema -BetaId $Id -BetaSchemaName $SchemaName -BetaFile $File  
+    # Import-BetaSourceEntitlementsSchema -BetaSourceId $SourceId -BetaSchemaName $SchemaName -BetaFile $File  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Import-BetaSourceEntitlementsSchema"
     Write-Host $_.ErrorDetails
@@ -1367,7 +1369,7 @@ File is required for upload. You will also need to set the Content-Type header t
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | Id | **String** | True  | Source Id
+Path   | SourceId | **String** | True  | Source Id
    | File | **System.IO.FileInfo** |   (optional) | 
 
 ### Return type
@@ -1389,16 +1391,16 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Id = "75dbec1ebe154d5785da27b95e1dd5d7" # String | Source Id
+$SourceId = "75dbec1ebe154d5785da27b95e1dd5d7" # String | Source Id
 $File =  # System.IO.FileInfo |  (optional)
 
 # Process Uncorrelated Accounts
 
 try {
-    Import-BetaUncorrelatedAccounts -BetaId $Id 
+    Import-BetaUncorrelatedAccounts -BetaSourceId $SourceId 
     
     # Below is a request that includes all optional parameters
-    # Import-BetaUncorrelatedAccounts -BetaId $Id -BetaFile $File  
+    # Import-BetaUncorrelatedAccounts -BetaSourceId $SourceId -BetaFile $File  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Import-BetaUncorrelatedAccounts"
     Write-Host $_.ErrorDetails
@@ -1605,7 +1607,7 @@ Replaces the correlation configuration for the source specified by the given ID 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | Id | **String** | True  | The source id
+Path   | SourceId | **String** | True  | The source id
  Body  | CorrelationConfig | [**CorrelationConfig**](../models/correlation-config) | True  | 
 
 ### Return type
@@ -1628,7 +1630,7 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Id = "2c9180835d191a86015d28455b4a2329" # String | The source id
+$SourceId = "2c9180835d191a86015d28455b4a2329" # String | The source id
 $CorrelationConfig = @"{
   "attributeAssignments" : [ {
     "filterString" : "first_name == \"John\"",
@@ -1655,10 +1657,10 @@ $CorrelationConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToCorrelationConfig -Json $CorrelationConfig
-    Send-BetaCorrelationConfig -BetaId $Id  -BetaCorrelationConfig $Result
+    Send-BetaCorrelationConfig -BetaSourceId $SourceId  -BetaCorrelationConfig $Result
     
     # Below is a request that includes all optional parameters
-    # Send-BetaCorrelationConfig -BetaId $Id -BetaCorrelationConfig $CorrelationConfig  
+    # Send-BetaCorrelationConfig -BetaSourceId $SourceId -BetaCorrelationConfig $CorrelationConfig  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaCorrelationConfig"
     Write-Host $_.ErrorDetails
@@ -1673,7 +1675,7 @@ A token with ORG_ADMIN authority is required to call this API.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | Id | **String** | True  | The source id
+Path   | SourceId | **String** | True  | The source id
  Body  | NativeChangeDetectionConfig | [**NativeChangeDetectionConfig**](../models/native-change-detection-config) | True  | 
 
 ### Return type
@@ -1696,7 +1698,7 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Id = "2c9180835d191a86015d28455b4a2329" # String | The source id
+$SourceId = "2c9180835d191a86015d28455b4a2329" # String | The source id
 $NativeChangeDetectionConfig = @"{
   "selectedEntitlements" : [ "memberOf", "memberOfSharedMailbox" ],
   "operations" : [ "ACCOUNT_UPDATED", "ACCOUNT_DELETED" ],
@@ -1710,10 +1712,10 @@ $NativeChangeDetectionConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToNativeChangeDetectionConfig -Json $NativeChangeDetectionConfig
-    Send-BetaNativeChangeDetectionConfig -BetaId $Id  -BetaNativeChangeDetectionConfig $Result
+    Send-BetaNativeChangeDetectionConfig -BetaSourceId $SourceId  -BetaNativeChangeDetectionConfig $Result
     
     # Below is a request that includes all optional parameters
-    # Send-BetaNativeChangeDetectionConfig -BetaId $Id -BetaNativeChangeDetectionConfig $NativeChangeDetectionConfig  
+    # Send-BetaNativeChangeDetectionConfig -BetaSourceId $SourceId -BetaNativeChangeDetectionConfig $NativeChangeDetectionConfig  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaNativeChangeDetectionConfig"
     Write-Host $_.ErrorDetails
@@ -2109,7 +2111,7 @@ A token with ORG_ADMIN or SOURCE_ADMIN authority is required to call this API.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | Id | **String** | True  | The Source id
+Path   | SourceId | **String** | True  | The Source id
 
 ### Return type
 [**SourceSyncJob**](../models/source-sync-job)
@@ -2131,15 +2133,15 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Id = "MyId" # String | The Source id
+$SourceId = "MySourceId" # String | The Source id
 
 # Synchronize single source attributes.
 
 try {
-    Sync-BetaAttributesForSource -BetaId $Id 
+    Sync-BetaAttributesForSource -BetaSourceId $SourceId 
     
     # Below is a request that includes all optional parameters
-    # Sync-BetaAttributesForSource -BetaId $Id  
+    # Sync-BetaAttributesForSource -BetaSourceId $SourceId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Sync-BetaAttributesForSource"
     Write-Host $_.ErrorDetails
@@ -2454,6 +2456,7 @@ A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required t
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | SourceId | **String** | True  | The Source id
  Body  | SourceEntitlementRequestConfig | [**SourceEntitlementRequestConfig**](../models/source-entitlement-request-config) | True  | 
 
 ### Return type
@@ -2475,6 +2478,7 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
+$SourceId = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
 $SourceEntitlementRequestConfig = @"{
   "accessRequestConfig" : {
     "denialCommentRequired" : false,
@@ -2493,10 +2497,10 @@ $SourceEntitlementRequestConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToSourceEntitlementRequestConfig -Json $SourceEntitlementRequestConfig
-    Update-BetaSourceEntitlementRequestConfig -BetaSourceEntitlementRequestConfig $Result
+    Update-BetaSourceEntitlementRequestConfig -BetaSourceId $SourceId  -BetaSourceEntitlementRequestConfig $Result
     
     # Below is a request that includes all optional parameters
-    # Update-BetaSourceEntitlementRequestConfig -BetaSourceEntitlementRequestConfig $SourceEntitlementRequestConfig  
+    # Update-BetaSourceEntitlementRequestConfig -BetaSourceId $SourceId -BetaSourceEntitlementRequestConfig $SourceEntitlementRequestConfig  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaSourceEntitlementRequestConfig"
     Write-Host $_.ErrorDetails

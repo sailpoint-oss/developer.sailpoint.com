@@ -11,7 +11,7 @@ tags: ['SDK', 'Software Development Kit', 'ManagedClusters', 'BetaManagedCluster
 
 # ManagedClusters
   Use this API to implement managed cluster functionality. 
-With this functionality in place, administrators can modify and delete existing managed clients, get their statuses, and create new ones. 
+With this functionality in place, administrators can modify and delete existing managed clients, get their statuses, and create new ones.
  
   
 

@@ -11,7 +11,7 @@ tags: ['SDK', 'Software Development Kit', 'ManagedClients', 'BetaManagedClients'
 
 # ManagedClients
   Use this API to implement managed client functionality. 
-With this functionality in place, administrators can modify and delete existing managed clients, create new ones, and view and make changes to their log configurations. 
+With this functionality in place, administrators can modify and delete existing managed clients, create new ones, and view and make changes to their log configurations.
  
   
 

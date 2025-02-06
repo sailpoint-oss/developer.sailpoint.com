@@ -4642,6 +4642,183 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024CustomPasswordInstructions"
             Write-Host $_.ErrorDetails
         }
+- path: /data-segments
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/data-segmentation#create-data-segment
+      source: |
+        $DataSegment = @"
+        
+        "@
+        
+        # Create Segment
+        
+        try {
+            $Result = ConvertFrom-JsonToDataSegment -Json $DataSegment
+            New-V2024DataSegment-V2024DataSegment $Result
+            
+            # Below is a request that includes all optional parameters
+            # New-V2024DataSegment -V2024DataSegment $DataSegment  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024DataSegment"
+            Write-Host $_.ErrorDetails
+        }
+- path: /data-segments/{segmentId}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/data-segmentation#delete-data-segment
+      source: |
+        $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The segment ID to delete.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Published = $false # Boolean | This determines which version of the segment to delete (optional) (default to $false)
+        
+        # Delete Segment by ID
+        
+        try {
+            Remove-V2024DataSegment-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
+            
+            # Below is a request that includes all optional parameters
+            # Remove-V2024DataSegment -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024Published $Published  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024DataSegment"
+            Write-Host $_.ErrorDetails
+        }
+- path: /data-segments/{segmentId}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/data-segmentation#get-data-segment
+      source: |
+        $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The segment ID to retrieve.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # Get Segment by ID
+        
+        try {
+            Get-V2024DataSegment-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental 
+            
+            # Below is a request that includes all optional parameters
+            # Get-V2024DataSegment -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024DataSegment"
+            Write-Host $_.ErrorDetails
+        }
+- path: /data-segments/membership/{identityId}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/data-segmentation#get-data-segment-identity-membership
+      source: |
+        $IdentityId = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The identity ID to retrieve the segments they are in.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # Get SegmentMembership by Identity ID
+        
+        try {
+            Get-V2024DataSegmentIdentityMembership-V2024IdentityId $IdentityId -V2024XSailPointExperimental $XSailPointExperimental 
+            
+            # Below is a request that includes all optional parameters
+            # Get-V2024DataSegmentIdentityMembership -V2024IdentityId $IdentityId -V2024XSailPointExperimental $XSailPointExperimental  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024DataSegmentIdentityMembership"
+            Write-Host $_.ErrorDetails
+        }
+- path: /data-segments/user-enabled/{identityId}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/data-segmentation#get-data-segmentation-enabled-for-user
+      source: |
+        $IdentityId = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The identity ID to retrieve if segmentation is enabled for the identity.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # Is Segmentation enabled by Identity
+        
+        try {
+            Get-V2024DataSegmentationEnabledForUser-V2024IdentityId $IdentityId -V2024XSailPointExperimental $XSailPointExperimental 
+            
+            # Below is a request that includes all optional parameters
+            # Get-V2024DataSegmentationEnabledForUser -V2024IdentityId $IdentityId -V2024XSailPointExperimental $XSailPointExperimental  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024DataSegmentationEnabledForUser"
+            Write-Host $_.ErrorDetails
+        }
+- path: /data-segments
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/data-segmentation#list-data-segments
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Enabled = $true # Boolean | This boolean indicates whether the segment is currently active. Inactive segments have no effect. (optional) (default to $true)
+        $Unique = $false # Boolean | This returns only one record if set to true and that would be the published record if exists. (optional) (default to $false)
+        $Published = $true # Boolean | This boolean indicates whether the segment is being applied to the accounts. If unpublished its being actively modified until published (optional) (default to $true)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Filters = "name eq """ # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **name**: *eq, in, sw* (optional)
+        
+        # Get Segments
+        
+        try {
+            Get-V2024DataSegments-V2024XSailPointExperimental $XSailPointExperimental 
+            
+            # Below is a request that includes all optional parameters
+            # Get-V2024DataSegments -V2024XSailPointExperimental $XSailPointExperimental -V2024Enabled $Enabled -V2024Unique $Unique -V2024Published $Published -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Filters $Filters  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024DataSegments"
+            Write-Host $_.ErrorDetails
+        }
+- path: /data-segments/{segmentId}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/data-segmentation#patch-data-segment
+      source: |
+        $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The segment ID to modify.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $RequestBody =  # SystemCollectionsHashtable[] | A list of segment update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * membership * memberFilter * memberSelection * scopes * enabled 
+        $RequestBody = @"[{op=replace, path=/memberFilter, value={expression={operator=AND, children=[{operator=EQUALS, attribute=location, value={type=STRING, value=Philadelphia}}, {operator=EQUALS, attribute=department, value={type=STRING, value=HR}}]}}}]"@ 
+        
+        
+        # Update Segment
+        
+        try {
+            $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
+            Update-V2024DataSegment-V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024RequestBody $Result
+            
+            # Below is a request that includes all optional parameters
+            # Update-V2024DataSegment -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024RequestBody $RequestBody  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024DataSegment"
+            Write-Host $_.ErrorDetails
+        }
+- path: /data-segments/{segmentId}
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/data-segmentation#publish-data-segment
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $RequestBody = "MyRequestBody" # String[] | A list of segment ids that you wish to publish
+        $RequestBody = @""@ 
+        
+        $PublishAll = $true # Boolean | This flag decides whether you want to publish all unpublished or a list of specific segment ids (optional) (default to $true)
+        
+        # Publish segment by ID
+        
+        try {
+            $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
+            Publish-V2024DataSegment-V2024XSailPointExperimental $XSailPointExperimental -V2024RequestBody $Result
+            
+            # Below is a request that includes all optional parameters
+            # Publish-V2024DataSegment -V2024XSailPointExperimental $XSailPointExperimental -V2024RequestBody $RequestBody -V2024PublishAll $PublishAll  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Publish-V2024DataSegment"
+            Write-Host $_.ErrorDetails
+        }
 - path: /roles/{roleId}/dimensions
   method: POST
   xCodeSample:

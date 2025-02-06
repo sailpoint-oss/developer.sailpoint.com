@@ -15,7 +15,7 @@ With this functionality in place, users can read authentication profiles and mak
 
 An authentication profile represents an identity profile&#39;s authentication configuration. 
 When the identity profile is created, its authentication profile is also created. 
-An authentication profile includes information like its authentication profile type (&#x60;BLOCK&#x60;, &#x60;MFA&#x60;, &#x60;NON_PTA&#x60;, PTA&#x60;) and settings controlling whether or not it blocks access from off network or untrusted geographies. 
+An authentication profile includes information like its authentication profile type (&#x60;BLOCK&#x60;, &#x60;MFA&#x60;, &#x60;NON_PTA&#x60;, PTA&#x60;) and settings controlling whether or not it blocks access from off network or untrusted geographies.
  
   
 

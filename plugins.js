@@ -1626,6 +1626,7 @@ module.exports = [
           },
           version: 'v2024',
           label: 'v2024',
+          downloadUrl: 'https://raw.githubusercontent.com/sailpoint-oss/api-specs/refs/heads/main/dereferenced/deref-sailpoint-api.v2024.yaml',
           baseUrl: '/docs/api/v2024',
           template: 'api.mustache',
           markdownGenerators: {

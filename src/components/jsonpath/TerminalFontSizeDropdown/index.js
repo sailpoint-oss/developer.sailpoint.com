@@ -69,7 +69,7 @@ const TerminalFontSizeDropdown = ({ fontSize, onFontSizeChange, onFocus, onBlur 
 
   return (
     <ThemeProvider theme={theme}>
-      <FormControl sx={{ m: 1, minWidth: 220 }}>
+      <FormControl sx={{ m: 1, minWidth: 220, maxWidth: 220 }}>
         <InputLabel id="terminal-font-size-label" sx={{
           '&.Mui-focused': {
             color: isFocused ? (colorMode === 'dark' ? 'rgb(115,200,235)' : 'rgb(4,125,246)') : 'initial', // Ensure the label text changes color on focus

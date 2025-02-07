@@ -21,7 +21,7 @@ const ResultTerminal = ({ result, fontSize }) => {
     const { colorMode } = useColorMode();
 
     return (
-        <div className="col" style={{ marginRight: 75, marginBottom: 50 }}>
+        <div className="col" style={{ marginBottom: 50 }}>
             <h2>Evaluation Results</h2>
 
             <AceEditor

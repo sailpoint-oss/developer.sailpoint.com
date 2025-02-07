@@ -81,7 +81,7 @@ export default function JsonPathEvaluator() {
       } catch (error) {
         result = error.message;
       }
-      
+
       setResult((result.length > 0 || typeof result === 'number' || typeof result === 'object' || typeof result === 'boolean') ? JSON.stringify(result, null, 2) : 'No match');
       setQueryParseError('');
       setJsonParseError(false);
@@ -140,8 +140,8 @@ export default function JsonPathEvaluator() {
       <main>
         <div className={styles.containerFluid}>
           <div className={styles.actionBar}>
-            <Stack sx={{ justifyContent: 'center' }} direction="row" spacing={2}>
-              <Stack sx={{ justifyContent: 'center' }} spacing={2}>
+            <Stack sx={{ justifyContent: 'center' }} direction={{ xs: 'column', sm: 'column', md: 'column', lg: 'column', xl: 'row' }} spacing={1}>
+              <Stack sx={{ justifyContent: 'center' }} spacing={1}>
                 <JsonPathQueryInput
                   value={query}
                   onChange={handleQueryChange}
@@ -158,48 +158,54 @@ export default function JsonPathEvaluator() {
                     {documentationLinks[implementation].text}
                   </Link>
                 )}
-                <div className={styles.alertContainer}>
-                  {queryParseError && <Alert id='jsonpathalert' severity="error">{queryParseError}</Alert>}
-                </div>
+                {queryParseError &&
+                  <div className={styles.alertContainer}>
+                    <Alert id='jsonpathalert' severity="error">{queryParseError}</Alert>
+                  </div>
+                }
               </Stack>
 
-              <ImplementationDropdown
-                implementation={implementation}
-                onImplementationChange={handleImplementationChange}
-                onFocus={handleDropdownFocus}
-                onBlur={handleDropdownBlur}
-              />
+              <Stack sx={{ justifyContent: 'flex-start' }} direction={'row'} spacing={1}>
+                <ImplementationDropdown
+                  implementation={implementation}
+                  onImplementationChange={handleImplementationChange}
+                  onFocus={handleDropdownFocus}
+                  onBlur={handleDropdownBlur}
+                />
 
-              <Button
-                variant="contained"
-                color="primary"
-                onClick={handleRunQuery}
-                sx={{ height: '56px' }}
-              >
-                Run
-              </Button>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={handleRunQuery}
+                  sx={{ height: '56px', minWidth: 220, maxWidth: 220 }}
+                >
+                  Run
+                </Button>
 
-              <TerminalFontSizeDropdown
-                fontSize={fontSize}
-                onFontSizeChange={setFontSize}
-                onFocus={handleDropdownFocus}
-                onBlur={handleDropdownBlur}
-              />
+                <TerminalFontSizeDropdown
+                  fontSize={fontSize}
+                  onFontSizeChange={setFontSize}
+                  onFocus={handleDropdownFocus}
+                  onBlur={handleDropdownBlur}
+                />
+              </Stack>
             </Stack>
           </div>
 
-          <div className="row row-cols-1 row-cols-md-2">
-            <InputTerminal
-              fontSize={fontSize}
-              value={localJson}
-              onChange={handleJsonChange}
-              hasJsonParseError={jsonParseError}
-            />
-            <ResultTerminal
-              result={result}
-              fontSize={fontSize}
-            />
-          </div>
+          
+            <Stack sx={{ justifyContent: 'center' }} direction={{ xs: 'column', sm: 'column', md: 'column', lg: 'row', xl: 'row' }} spacing={1}>
+              <InputTerminal
+                fontSize={fontSize}
+                value={localJson}
+                onChange={handleJsonChange}
+                hasJsonParseError={jsonParseError}
+              />
+              <ResultTerminal
+                result={result}
+                fontSize={fontSize}
+              />
+            </Stack>
+          
         </div>
       </main>
     </Layout>

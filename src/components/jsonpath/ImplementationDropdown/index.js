@@ -70,7 +70,7 @@ const ImplementationDropdown = ({ implementation, onImplementationChange, onFocu
 
   return (
     <ThemeProvider theme={theme}>
-      <FormControl sx={{ m: 1, minWidth: 220 }}>
+      <FormControl sx={{ m: 1, minWidth: 220, maxWidth: 220 }}>
         <InputLabel
           id="implementation-dropdown-label"
           sx={{

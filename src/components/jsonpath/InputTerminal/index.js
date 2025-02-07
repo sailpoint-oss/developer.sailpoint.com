@@ -25,7 +25,7 @@ const InputTerminal = ({ fontSize, value, onChange, hasJsonParseError }) => {
         : styles.terminalContainerDefault;
 
     return (
-        <div className="col" style={{ marginLeft: 75 }}>
+        <div className="col">
             <h2>Inputs</h2>
             <AceEditor
                 className={terminalClass}

@@ -50,8 +50,11 @@ Method | HTTP request | Description
 [**Get-CampaignFilters**](#list-campaign-filters) | **GET** `/campaign-filters` | List Campaign Filters
 [**Update-CampaignFilter**](#update-campaign-filter) | **POST** `/campaign-filters/{id}` | Updates a Campaign Filter
 
+
 ## create-campaign-filter
 Use this API to create a campaign filter based on filter details and criteria.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/create-campaign-filter)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -100,18 +103,21 @@ $CampaignFilterDetails = @"{
 
 try {
     $Result = ConvertFrom-JsonToCampaignFilterDetails -Json $CampaignFilterDetails
-    New-CampaignFilter -CampaignFilterDetails $Result
+    New-CampaignFilter -CampaignFilterDetails $Result 
     
     # Below is a request that includes all optional parameters
-    # New-CampaignFilter -CampaignFilterDetails $CampaignFilterDetails  
+    # New-CampaignFilter -CampaignFilterDetails $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-CampaignFilter"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## delete-campaign-filters
 Deletes campaign filters whose Ids are specified in the provided list of campaign filter Ids. Authorized callers must be an ORG_ADMIN or a CERT_ADMIN.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/delete-campaign-filters)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -146,18 +152,21 @@ $RequestBody = "MyRequestBody" # String[] | A json list of IDs of campaign filte
 
 try {
     $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
-    Remove-CampaignFilters -RequestBody $Result
+    Remove-CampaignFilters -RequestBody $Result 
     
     # Below is a request that includes all optional parameters
-    # Remove-CampaignFilters -RequestBody $RequestBody  
+    # Remove-CampaignFilters -RequestBody $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-CampaignFilters"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-campaign-filter-by-id
 Retrieves information for an existing campaign filter using the filter's ID.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-campaign-filter-by-id)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -199,8 +208,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-campaign-filters
 Use this API to list all campaign filters. You can reduce scope with standard V3 query parameters.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/list-campaign-filters)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -235,7 +247,7 @@ $IncludeSystemFilters = $true # Boolean | If this is true, the API includes syst
 # List Campaign Filters
 
 try {
-    Get-CampaignFilters
+    Get-CampaignFilters 
     
     # Below is a request that includes all optional parameters
     # Get-CampaignFilters -Limit $Limit -Start $Start -IncludeSystemFilters $IncludeSystemFilters  
@@ -245,8 +257,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## update-campaign-filter
 Updates an existing campaign filter using the filter's ID.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/update-campaign-filter)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -297,10 +312,10 @@ $CampaignFilterDetails = @"{
 
 try {
     $Result = ConvertFrom-JsonToCampaignFilterDetails -Json $CampaignFilterDetails
-    Update-CampaignFilter -FilterId $FilterId  -CampaignFilterDetails $Result
+    Update-CampaignFilter -FilterId $FilterId -CampaignFilterDetails $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-CampaignFilter -FilterId $FilterId -CampaignFilterDetails $CampaignFilterDetails  
+    # Update-CampaignFilter -FilterId $FilterId -CampaignFilterDetails $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-CampaignFilter"
     Write-Host $_.ErrorDetails

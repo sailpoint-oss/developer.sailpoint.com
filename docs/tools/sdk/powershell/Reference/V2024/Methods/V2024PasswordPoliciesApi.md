@@ -31,8 +31,11 @@ Method | HTTP request | Description
 [**Get-V2024PasswordPolicies**](#list-password-policies) | **GET** `/password-policies` | List Password Policies
 [**Set-V2024PasswordPolicy**](#set-password-policy) | **PUT** `/password-policies/{id}` | Update Password Policy by ID
 
+
 ## create-password-policy
 This API creates the specified password policy.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-password-policy)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -97,18 +100,21 @@ $PasswordPolicyV3Dto = @"{
 
 try {
     $Result = ConvertFrom-JsonToPasswordPolicyV3Dto -Json $PasswordPolicyV3Dto
-    New-V2024PasswordPolicy -V2024PasswordPolicyV3Dto $Result
+    New-V2024PasswordPolicy -V2024PasswordPolicyV3Dto $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024PasswordPolicy -V2024PasswordPolicyV3Dto $PasswordPolicyV3Dto  
+    # New-V2024PasswordPolicy -V2024PasswordPolicyV3Dto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024PasswordPolicy"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## delete-password-policy
 This API deletes the specified password policy.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-password-policy)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -140,18 +146,21 @@ $Id = "ff808081838d9e9d01838da6a03e0002" # String | The ID of password policy to
 # Delete Password Policy by ID
 
 try {
-    Remove-V2024PasswordPolicy -V2024Id $Id 
+    Remove-V2024PasswordPolicy -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024PasswordPolicy -V2024Id $Id  
+    # Remove-V2024PasswordPolicy -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024PasswordPolicy"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-password-policy-by-id
 This API returns the password policy for the specified ID.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-password-policy-by-id)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -183,19 +192,22 @@ $Id = "ff808081838d9e9d01838da6a03e0005" # String | The ID of password policy to
 # Get Password Policy by ID
 
 try {
-    Get-V2024PasswordPolicyById -V2024Id $Id 
+    Get-V2024PasswordPolicyById -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024PasswordPolicyById -V2024Id $Id  
+    # Get-V2024PasswordPolicyById -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024PasswordPolicyById"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-password-policies
 This gets list of all Password Policies.
 Requires role of ORG_ADMIN
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-password-policies)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -230,18 +242,21 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # List Password Policies
 
 try {
-    Get-V2024PasswordPolicies
+    Get-V2024PasswordPolicies 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024PasswordPolicies -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count  
+    # Get-V2024PasswordPolicies -Limit $Limit -Offset $Offset -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024PasswordPolicies"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## set-password-policy
 This API updates the specified password policy.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/set-password-policy)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -308,10 +323,10 @@ $PasswordPolicyV3Dto = @"{
 
 try {
     $Result = ConvertFrom-JsonToPasswordPolicyV3Dto -Json $PasswordPolicyV3Dto
-    Set-V2024PasswordPolicy -V2024Id $Id  -V2024PasswordPolicyV3Dto $Result
+    Set-V2024PasswordPolicy -Id $Id -V2024PasswordPolicyV3Dto $Result 
     
     # Below is a request that includes all optional parameters
-    # Set-V2024PasswordPolicy -V2024Id $Id -V2024PasswordPolicyV3Dto $PasswordPolicyV3Dto  
+    # Set-V2024PasswordPolicy -Id $Id -V2024PasswordPolicyV3Dto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-V2024PasswordPolicy"
     Write-Host $_.ErrorDetails

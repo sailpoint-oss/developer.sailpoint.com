@@ -25,8 +25,11 @@ Method | HTTP request | Description
 [**Get-AuthUser**](#get-auth-user) | **GET** `/auth-users/{id}` | Auth User Details
 [**Update-AuthUser**](#patch-auth-user) | **PATCH** `/auth-users/{id}` | Auth User Update
 
+
 ## get-auth-user
 Return the specified user's authentication system details.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-auth-user)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -68,12 +71,15 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## patch-auth-user
 Use a PATCH request to update an existing user in the authentication system.
 Use this endpoint to modify these fields: 
   * `capabilities`
 
 A '400.1.1 Illegal update attempt' detail code indicates that you attempted to PATCH a field that is not allowed.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/patch-auth-user)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -113,10 +119,10 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Identity ID
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-AuthUser -Id $Id  -JsonPatchOperation $Result
+    Update-AuthUser -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-AuthUser -Id $Id -JsonPatchOperation $JsonPatchOperation  
+    # Update-AuthUser -Id $Id -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-AuthUser"
     Write-Host $_.ErrorDetails

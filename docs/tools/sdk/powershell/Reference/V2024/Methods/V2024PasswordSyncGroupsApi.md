@@ -55,8 +55,11 @@ Method | HTTP request | Description
 [**Get-V2024PasswordSyncGroups**](#get-password-sync-groups) | **GET** `/password-sync-groups` | Get Password Sync Group List
 [**Update-V2024PasswordSyncGroup**](#update-password-sync-group) | **PUT** `/password-sync-groups/{id}` | Update Password Sync Group by ID
 
+
 ## create-password-sync-group
 This API creates a password sync group based on the specifications provided.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-password-sync-group)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -95,18 +98,21 @@ $PasswordSyncGroup = @"{
 
 try {
     $Result = ConvertFrom-JsonToPasswordSyncGroup -Json $PasswordSyncGroup
-    New-V2024PasswordSyncGroup -V2024PasswordSyncGroup $Result
+    New-V2024PasswordSyncGroup -V2024PasswordSyncGroup $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024PasswordSyncGroup -V2024PasswordSyncGroup $PasswordSyncGroup  
+    # New-V2024PasswordSyncGroup -V2024PasswordSyncGroup $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024PasswordSyncGroup"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## delete-password-sync-group
 This API deletes the specified password sync group.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-password-sync-group)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -137,18 +143,21 @@ $Id = "6881f631-3bd5-4213-9c75-8e05cc3e35dd" # String | The ID of password sync 
 # Delete Password Sync Group by ID
 
 try {
-    Remove-V2024PasswordSyncGroup -V2024Id $Id 
+    Remove-V2024PasswordSyncGroup -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024PasswordSyncGroup -V2024Id $Id  
+    # Remove-V2024PasswordSyncGroup -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024PasswordSyncGroup"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-password-sync-group
 This API returns the sync group for the specified ID.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-password-sync-group)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -180,18 +189,21 @@ $Id = "6881f631-3bd5-4213-9c75-8e05cc3e35dd" # String | The ID of password sync 
 # Get Password Sync Group by ID
 
 try {
-    Get-V2024PasswordSyncGroup -V2024Id $Id 
+    Get-V2024PasswordSyncGroup -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024PasswordSyncGroup -V2024Id $Id  
+    # Get-V2024PasswordSyncGroup -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024PasswordSyncGroup"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-password-sync-groups
 This API returns a list of password sync groups.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-password-sync-groups)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -226,18 +238,21 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Get Password Sync Group List
 
 try {
-    Get-V2024PasswordSyncGroups
+    Get-V2024PasswordSyncGroups 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024PasswordSyncGroups -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count  
+    # Get-V2024PasswordSyncGroups -Limit $Limit -Offset $Offset -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024PasswordSyncGroups"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## update-password-sync-group
 This API updates the specified password sync group.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/update-password-sync-group)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -279,10 +294,10 @@ $PasswordSyncGroup = @"{
 
 try {
     $Result = ConvertFrom-JsonToPasswordSyncGroup -Json $PasswordSyncGroup
-    Update-V2024PasswordSyncGroup -V2024Id $Id  -V2024PasswordSyncGroup $Result
+    Update-V2024PasswordSyncGroup -Id $Id -V2024PasswordSyncGroup $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024PasswordSyncGroup -V2024Id $Id -V2024PasswordSyncGroup $PasswordSyncGroup  
+    # Update-V2024PasswordSyncGroup -Id $Id -V2024PasswordSyncGroup $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024PasswordSyncGroup"
     Write-Host $_.ErrorDetails

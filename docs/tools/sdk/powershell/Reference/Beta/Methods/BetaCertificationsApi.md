@@ -38,8 +38,14 @@ Method | HTTP request | Description
 [**Get-BetaCertificationReviewers**](#list-certification-reviewers) | **GET** `/certifications/{id}/reviewers` | List of Reviewers for certification
 [**Submit-BetaReassignCertsAsync**](#submit-reassign-certs-async) | **POST** `/certifications/{id}/reassign-async` | Reassign Certifications Asynchronously
 
+
 ## get-identity-certification-item-permissions
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This API returns the permissions associated with an entitlement certification item based on the certification item's ID. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-identity-certification-item-permissions)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -81,18 +87,21 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Permissions for Entitlement Certification Item
 
 try {
-    Get-BetaIdentityCertificationItemPermissions -BetaCertificationId $CertificationId  -BetaItemId $ItemId 
+    Get-BetaIdentityCertificationItemPermissions -CertificationId $CertificationId -ItemId $ItemId 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaIdentityCertificationItemPermissions -BetaCertificationId $CertificationId -BetaItemId $ItemId -BetaFilters $Filters -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count  
+    # Get-BetaIdentityCertificationItemPermissions -CertificationId $CertificationId -ItemId $ItemId -Filters $Filters -Limit $Limit -Offset $Offset -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaIdentityCertificationItemPermissions"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-identity-certification-pending-tasks
 This API returns the status of all pending (`QUEUED` or `IN_PROGRESS`) tasks for an identity campaign certification. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-identity-certification-pending-tasks)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -124,18 +133,21 @@ $Id = "MyId" # String | The identity campaign certification ID
 # Pending Certification Tasks
 
 try {
-    Get-BetaIdentityCertificationPendingTasks -BetaId $Id 
+    Get-BetaIdentityCertificationPendingTasks -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaIdentityCertificationPendingTasks -BetaId $Id  
+    # Get-BetaIdentityCertificationPendingTasks -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaIdentityCertificationPendingTasks"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-identity-certification-task-status
 This API returns the status of a certification task. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-identity-certification-task-status)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -169,18 +181,24 @@ $TaskId = "MyTaskId" # String | The certification task ID
 # Certification Task Status
 
 try {
-    Get-BetaIdentityCertificationTaskStatus -BetaId $Id  -BetaTaskId $TaskId 
+    Get-BetaIdentityCertificationTaskStatus -Id $Id -TaskId $TaskId 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaIdentityCertificationTaskStatus -BetaId $Id -BetaTaskId $TaskId  
+    # Get-BetaIdentityCertificationTaskStatus -Id $Id -TaskId $TaskId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaIdentityCertificationTaskStatus"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-certification-reviewers
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This API returns a list of reviewers for the certification. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/list-certification-reviewers)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -222,18 +240,24 @@ $Sorters = "name" # String | Sort results using the standard syntax described in
 # List of Reviewers for certification
 
 try {
-    Get-BetaCertificationReviewers -BetaId $Id 
+    Get-BetaCertificationReviewers -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaCertificationReviewers -BetaId $Id -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count -BetaFilters $Filters -BetaSorters $Sorters  
+    # Get-BetaCertificationReviewers -Id $Id -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaCertificationReviewers"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## submit-reassign-certs-async
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This API initiates a task to reassign up to 500 identities or items in an identity campaign certification to another reviewer. The `certification-tasks` API can be used to get an updated status on the task and determine when the reassignment is complete. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/submit-reassign-certs-async)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -278,10 +302,10 @@ $ReviewReassign = @"{
 
 try {
     $Result = ConvertFrom-JsonToReviewReassign -Json $ReviewReassign
-    Submit-BetaReassignCertsAsync -BetaId $Id  -BetaReviewReassign $Result
+    Submit-BetaReassignCertsAsync -Id $Id -BetaReviewReassign $Result 
     
     # Below is a request that includes all optional parameters
-    # Submit-BetaReassignCertsAsync -BetaId $Id -BetaReviewReassign $ReviewReassign  
+    # Submit-BetaReassignCertsAsync -Id $Id -BetaReviewReassign $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Submit-BetaReassignCertsAsync"
     Write-Host $_.ErrorDetails

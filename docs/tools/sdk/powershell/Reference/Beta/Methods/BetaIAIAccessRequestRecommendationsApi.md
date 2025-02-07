@@ -26,8 +26,11 @@ Method | HTTP request | Description
 [**Get-BetaAccessRequestRecommendationsRequestedItems**](#get-access-request-recommendations-requested-items) | **GET** `/ai-access-request-recommendations/requested-items` | List of Requested Access Request Recommendations
 [**Get-BetaAccessRequestRecommendationsViewedItems**](#get-access-request-recommendations-viewed-items) | **GET** `/ai-access-request-recommendations/viewed-items` | List of Viewed Access Request Recommendations
 
+
 ## add-access-request-recommendations-ignored-item
 This API ignores a recommended access request item. Once an item is ignored, it will be marked as ignored=true if it is still a recommended item. The consumer can decide to hide ignored recommendations.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/add-access-request-recommendations-ignored-item)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -65,18 +68,21 @@ $AccessRequestRecommendationActionItemDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
-    Add-BetaAccessRequestRecommendationsIgnoredItem -BetaAccessRequestRecommendationActionItemDto $Result
+    Add-BetaAccessRequestRecommendationsIgnoredItem -BetaAccessRequestRecommendationActionItemDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Add-BetaAccessRequestRecommendationsIgnoredItem -BetaAccessRequestRecommendationActionItemDto $AccessRequestRecommendationActionItemDto  
+    # Add-BetaAccessRequestRecommendationsIgnoredItem -BetaAccessRequestRecommendationActionItemDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Add-BetaAccessRequestRecommendationsIgnoredItem"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## add-access-request-recommendations-requested-item
 This API consumes a notification that a recommended access request item was requested. This API does not actually make the request, it is just a notification. This will help provide feedback in order to improve our recommendations.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/add-access-request-recommendations-requested-item)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -114,18 +120,21 @@ $AccessRequestRecommendationActionItemDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
-    Add-BetaAccessRequestRecommendationsRequestedItem -BetaAccessRequestRecommendationActionItemDto $Result
+    Add-BetaAccessRequestRecommendationsRequestedItem -BetaAccessRequestRecommendationActionItemDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Add-BetaAccessRequestRecommendationsRequestedItem -BetaAccessRequestRecommendationActionItemDto $AccessRequestRecommendationActionItemDto  
+    # Add-BetaAccessRequestRecommendationsRequestedItem -BetaAccessRequestRecommendationActionItemDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Add-BetaAccessRequestRecommendationsRequestedItem"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## add-access-request-recommendations-viewed-item
 This API consumes a notification that a recommended access request item was viewed. Future recommendations with this item will be marked with viewed=true. This can be useful for the consumer to determine if there are any new/unviewed recommendations.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/add-access-request-recommendations-viewed-item)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -163,18 +172,21 @@ $AccessRequestRecommendationActionItemDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
-    Add-BetaAccessRequestRecommendationsViewedItem -BetaAccessRequestRecommendationActionItemDto $Result
+    Add-BetaAccessRequestRecommendationsViewedItem -BetaAccessRequestRecommendationActionItemDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Add-BetaAccessRequestRecommendationsViewedItem -BetaAccessRequestRecommendationActionItemDto $AccessRequestRecommendationActionItemDto  
+    # Add-BetaAccessRequestRecommendationsViewedItem -BetaAccessRequestRecommendationActionItemDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Add-BetaAccessRequestRecommendationsViewedItem"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## add-access-request-recommendations-viewed-items
 This API consumes a notification that a set of recommended access request item were viewed. Future recommendations with these items will be marked with viewed=true. This can be useful for the consumer to determine if there are any new/unviewed recommendations.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/add-access-request-recommendations-viewed-items)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -213,18 +225,21 @@ Code | Description  | Data Type
 
 try {
     $Result = ConvertFrom-JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
-    Add-BetaAccessRequestRecommendationsViewedItems -BetaAccessRequestRecommendationActionItemDto $Result
+    Add-BetaAccessRequestRecommendationsViewedItems -BetaAccessRequestRecommendationActionItemDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Add-BetaAccessRequestRecommendationsViewedItems -BetaAccessRequestRecommendationActionItemDto $AccessRequestRecommendationActionItemDto  
+    # Add-BetaAccessRequestRecommendationsViewedItems -BetaAccessRequestRecommendationActionItemDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Add-BetaAccessRequestRecommendationsViewedItems"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-access-request-recommendations
 This API returns the access request recommendations for the specified identity. The default identity is *me* which indicates the current user.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-access-request-recommendations)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -267,18 +282,21 @@ $Sorters = "MySorters" # String | Sort results using the standard syntax describ
 # Identity Access Request Recommendations
 
 try {
-    Get-BetaAccessRequestRecommendations
+    Get-BetaAccessRequestRecommendations 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaAccessRequestRecommendations -BetaIdentityId $IdentityId -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count -BetaIncludeTranslationMessages $IncludeTranslationMessages -BetaFilters $Filters -BetaSorters $Sorters  
+    # Get-BetaAccessRequestRecommendations -IdentityId $IdentityId -Limit $Limit -Offset $Offset -Count $Count -IncludeTranslationMessages $IncludeTranslationMessages -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaAccessRequestRecommendations"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-access-request-recommendations-ignored-items
 This API returns the list of ignored access request recommendations.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-access-request-recommendations-ignored-items)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -317,18 +335,21 @@ $Sorters = "access.id" # String | Sort results using the standard syntax describ
 # List of Ignored Access Request Recommendations
 
 try {
-    Get-BetaAccessRequestRecommendationsIgnoredItems
+    Get-BetaAccessRequestRecommendationsIgnoredItems 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaAccessRequestRecommendationsIgnoredItems -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count -BetaFilters $Filters -BetaSorters $Sorters  
+    # Get-BetaAccessRequestRecommendationsIgnoredItems -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaAccessRequestRecommendationsIgnoredItems"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-access-request-recommendations-requested-items
 This API returns a list of requested access request recommendations.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-access-request-recommendations-requested-items)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -367,18 +388,21 @@ $Sorters = "MySorters" # String | Sort results using the standard syntax describ
 # List of Requested Access Request Recommendations
 
 try {
-    Get-BetaAccessRequestRecommendationsRequestedItems
+    Get-BetaAccessRequestRecommendationsRequestedItems 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaAccessRequestRecommendationsRequestedItems -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count -BetaFilters $Filters -BetaSorters $Sorters  
+    # Get-BetaAccessRequestRecommendationsRequestedItems -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaAccessRequestRecommendationsRequestedItems"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-access-request-recommendations-viewed-items
 This API returns the list of viewed access request recommendations.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-access-request-recommendations-viewed-items)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -417,10 +441,10 @@ $Sorters = "MySorters" # String | Sort results using the standard syntax describ
 # List of Viewed Access Request Recommendations
 
 try {
-    Get-BetaAccessRequestRecommendationsViewedItems
+    Get-BetaAccessRequestRecommendationsViewedItems 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaAccessRequestRecommendationsViewedItems -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count -BetaFilters $Filters -BetaSorters $Sorters  
+    # Get-BetaAccessRequestRecommendationsViewedItems -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaAccessRequestRecommendationsViewedItems"
     Write-Host $_.ErrorDetails

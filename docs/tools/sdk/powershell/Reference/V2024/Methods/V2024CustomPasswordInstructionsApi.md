@@ -32,8 +32,14 @@ Method | HTTP request | Description
 [**Remove-V2024CustomPasswordInstructions**](#delete-custom-password-instructions) | **DELETE** `/custom-password-instructions/{pageId}` | Delete Custom Password Instructions by page ID
 [**Get-V2024CustomPasswordInstructions**](#get-custom-password-instructions) | **GET** `/custom-password-instructions/{pageId}` | Get Custom Password Instructions by Page ID
 
+
 ## create-custom-password-instructions
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This API creates the custom password instructions for the specified page ID.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-custom-password-instructions)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -69,18 +75,24 @@ $CustomPasswordInstruction = @"{
 
 try {
     $Result = ConvertFrom-JsonToCustomPasswordInstruction -Json $CustomPasswordInstruction
-    New-V2024CustomPasswordInstructions -V2024XSailPointExperimental $XSailPointExperimental  -V2024CustomPasswordInstruction $Result
+    New-V2024CustomPasswordInstructions -XSailPointExperimental $XSailPointExperimental -V2024CustomPasswordInstruction $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024CustomPasswordInstructions -V2024XSailPointExperimental $XSailPointExperimental -V2024CustomPasswordInstruction $CustomPasswordInstruction  
+    # New-V2024CustomPasswordInstructions -XSailPointExperimental $XSailPointExperimental -V2024CustomPasswordInstruction $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024CustomPasswordInstructions"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## delete-custom-password-instructions
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This API delete the custom password instructions for the specified page ID.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-custom-password-instructions)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -114,18 +126,24 @@ $Locale = "MyLocale" # String | The locale for the custom instructions, a BCP47 
 # Delete Custom Password Instructions by page ID
 
 try {
-    Remove-V2024CustomPasswordInstructions -V2024PageId $PageId  -V2024XSailPointExperimental $XSailPointExperimental 
+    Remove-V2024CustomPasswordInstructions -PageId $PageId -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024CustomPasswordInstructions -V2024PageId $PageId -V2024XSailPointExperimental $XSailPointExperimental -V2024Locale $Locale  
+    # Remove-V2024CustomPasswordInstructions -PageId $PageId -XSailPointExperimental $XSailPointExperimental -Locale $Locale  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024CustomPasswordInstructions"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-custom-password-instructions
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This API returns the custom password instructions for the specified page ID.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-custom-password-instructions)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -159,10 +177,10 @@ $Locale = "MyLocale" # String | The locale for the custom instructions, a BCP47 
 # Get Custom Password Instructions by Page ID
 
 try {
-    Get-V2024CustomPasswordInstructions -V2024PageId $PageId  -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024CustomPasswordInstructions -PageId $PageId -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024CustomPasswordInstructions -V2024PageId $PageId -V2024XSailPointExperimental $XSailPointExperimental -V2024Locale $Locale  
+    # Get-V2024CustomPasswordInstructions -PageId $PageId -XSailPointExperimental $XSailPointExperimental -Locale $Locale  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024CustomPasswordInstructions"
     Write-Host $_.ErrorDetails

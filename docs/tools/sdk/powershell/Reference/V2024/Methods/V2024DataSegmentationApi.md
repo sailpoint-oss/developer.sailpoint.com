@@ -28,9 +28,12 @@ Method | HTTP request | Description
 [**Update-V2024DataSegment**](#patch-data-segment) | **PATCH** `/data-segments/{segmentId}` | Update Segment
 [**Publish-V2024DataSegment**](#publish-data-segment) | **POST** `/data-segments/{segmentId}` | Publish segment by ID
 
+
 ## create-data-segment
 This API creates a segment. 
 >**Note:** Segment definitions may take time to propagate to all identities.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-data-segment)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -62,18 +65,24 @@ $DataSegment = @""@
 
 try {
     $Result = ConvertFrom-JsonToDataSegment -Json $DataSegment
-    New-V2024DataSegment -V2024DataSegment $Result
+    New-V2024DataSegment -V2024DataSegment $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024DataSegment -V2024DataSegment $DataSegment  
+    # New-V2024DataSegment -V2024DataSegment $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024DataSegment"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## delete-data-segment
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This API deletes the segment specified by the given ID.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-data-segment)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -109,18 +118,24 @@ $Published = $false # Boolean | This determines which version of the segment to 
 # Delete Segment by ID
 
 try {
-    Remove-V2024DataSegment -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
+    Remove-V2024DataSegment -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024DataSegment -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024Published $Published  
+    # Remove-V2024DataSegment -Id $Id -XSailPointExperimental $XSailPointExperimental -Published $Published  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024DataSegment"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-data-segment
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This API returns the segment specified by the given ID.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-data-segment)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -154,18 +169,24 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Get Segment by ID
 
 try {
-    Get-V2024DataSegment -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024DataSegment -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024DataSegment -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
+    # Get-V2024DataSegment -Id $Id -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024DataSegment"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-data-segment-identity-membership
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This API returns the segment membership specified by the given identity ID.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-data-segment-identity-membership)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -199,18 +220,24 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Get SegmentMembership by Identity ID
 
 try {
-    Get-V2024DataSegmentIdentityMembership -V2024IdentityId $IdentityId  -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024DataSegmentIdentityMembership -IdentityId $IdentityId -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024DataSegmentIdentityMembership -V2024IdentityId $IdentityId -V2024XSailPointExperimental $XSailPointExperimental  
+    # Get-V2024DataSegmentIdentityMembership -IdentityId $IdentityId -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024DataSegmentIdentityMembership"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-data-segmentation-enabled-for-user
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This API returns whether or not segmentation is enabled for the identity.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-data-segmentation-enabled-for-user)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -244,18 +271,24 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Is Segmentation enabled by Identity
 
 try {
-    Get-V2024DataSegmentationEnabledForUser -V2024IdentityId $IdentityId  -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024DataSegmentationEnabledForUser -IdentityId $IdentityId -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024DataSegmentationEnabledForUser -V2024IdentityId $IdentityId -V2024XSailPointExperimental $XSailPointExperimental  
+    # Get-V2024DataSegmentationEnabledForUser -IdentityId $IdentityId -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024DataSegmentationEnabledForUser"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-data-segments
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This API returns the segment specified by the given ID.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-data-segments)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -301,18 +334,24 @@ $Filters = 'name eq ""' # String | Filter results using the standard syntax desc
 # Get Segments
 
 try {
-    Get-V2024DataSegments -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024DataSegments -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024DataSegments -V2024XSailPointExperimental $XSailPointExperimental -V2024Enabled $Enabled -V2024Unique $Unique -V2024Published $Published -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Filters $Filters  
+    # Get-V2024DataSegments -XSailPointExperimental $XSailPointExperimental -Enabled $Enabled -Unique $Unique -Published $Published -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024DataSegments"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## patch-data-segment
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Use this API to update segment fields by using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/patch-data-segment)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -351,18 +390,24 @@ $RequestBody =  # SystemCollectionsHashtable[] | A list of segment update operat
 
 try {
     $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
-    Update-V2024DataSegment -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental  -V2024RequestBody $Result
+    Update-V2024DataSegment -Id $Id -XSailPointExperimental $XSailPointExperimental -RequestBody $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024DataSegment -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024RequestBody $RequestBody  
+    # Update-V2024DataSegment -Id $Id -XSailPointExperimental $XSailPointExperimental -RequestBody $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024DataSegment"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## publish-data-segment
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This will publish the segment so that it starts applying the segmentation to the desired users if enabled
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/publish-data-segment)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -401,10 +446,10 @@ $PublishAll = $true # Boolean | This flag decides whether you want to publish al
 
 try {
     $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
-    Publish-V2024DataSegment -V2024XSailPointExperimental $XSailPointExperimental  -V2024RequestBody $Result
+    Publish-V2024DataSegment -XSailPointExperimental $XSailPointExperimental -RequestBody $Result 
     
     # Below is a request that includes all optional parameters
-    # Publish-V2024DataSegment -V2024XSailPointExperimental $XSailPointExperimental -V2024RequestBody $RequestBody -V2024PublishAll $PublishAll  
+    # Publish-V2024DataSegment -XSailPointExperimental $XSailPointExperimental -RequestBody $Result -PublishAll $PublishAll  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Publish-V2024DataSegment"
     Write-Host $_.ErrorDetails

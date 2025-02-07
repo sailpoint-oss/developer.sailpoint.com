@@ -24,8 +24,11 @@ Method | HTTP request | Description
 [**Send-BetaOktaVerifyRequest**](#send-okta-verify-request) | **POST** `/mfa/okta-verify/verify` | Verifying authentication via Okta method
 [**Send-BetaTokenAuthRequest**](#send-token-auth-request) | **POST** `/mfa/token/authenticate` | Authenticate Token provided MFA method
 
+
 ## create-send-token
 This API send token request.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/create-send-token)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -60,18 +63,21 @@ $SendTokenRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToSendTokenRequest -Json $SendTokenRequest
-    New-BetaSendToken -BetaSendTokenRequest $Result
+    New-BetaSendToken -BetaSendTokenRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaSendToken -BetaSendTokenRequest $SendTokenRequest  
+    # New-BetaSendToken -BetaSendTokenRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaSendToken"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## ping-verification-status
 This API poll the VerificationPollRequest for the specified MFA method.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/ping-verification-status)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -107,18 +113,21 @@ $VerificationPollRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToVerificationPollRequest -Json $VerificationPollRequest
-    Ping-BetaVerificationStatus -BetaMethod $Method  -BetaVerificationPollRequest $Result
+    Ping-BetaVerificationStatus -Method $Method -BetaVerificationPollRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Ping-BetaVerificationStatus -BetaMethod $Method -BetaVerificationPollRequest $VerificationPollRequest  
+    # Ping-BetaVerificationStatus -Method $Method -BetaVerificationPollRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Ping-BetaVerificationStatus"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## send-duo-verify-request
 This API Authenticates the user via Duo-Web MFA method.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/send-duo-verify-request)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -153,18 +162,21 @@ $DuoVerificationRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToDuoVerificationRequest -Json $DuoVerificationRequest
-    Send-BetaDuoVerifyRequest -BetaDuoVerificationRequest $Result
+    Send-BetaDuoVerifyRequest -BetaDuoVerificationRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-BetaDuoVerifyRequest -BetaDuoVerificationRequest $DuoVerificationRequest  
+    # Send-BetaDuoVerifyRequest -BetaDuoVerificationRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaDuoVerifyRequest"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## send-kba-answers
 This API Authenticate user in KBA MFA method.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/send-kba-answers)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -200,18 +212,21 @@ Code | Description  | Data Type
 
 try {
     $Result = ConvertFrom-JsonToKbaAnswerRequestItem -Json $KbaAnswerRequestItem
-    Send-BetaKbaAnswers -BetaKbaAnswerRequestItem $Result
+    Send-BetaKbaAnswers -BetaKbaAnswerRequestItem $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-BetaKbaAnswers -BetaKbaAnswerRequestItem $KbaAnswerRequestItem  
+    # Send-BetaKbaAnswers -BetaKbaAnswerRequestItem $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaKbaAnswers"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## send-okta-verify-request
 This API Authenticates the user via Okta-Verify MFA method. Request requires a header called 'slpt-forwarding', and it must contain a remote IP Address of caller.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/send-okta-verify-request)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -245,18 +260,21 @@ $OktaVerificationRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToOktaVerificationRequest -Json $OktaVerificationRequest
-    Send-BetaOktaVerifyRequest -BetaOktaVerificationRequest $Result
+    Send-BetaOktaVerifyRequest -BetaOktaVerificationRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-BetaOktaVerifyRequest -BetaOktaVerificationRequest $OktaVerificationRequest  
+    # Send-BetaOktaVerifyRequest -BetaOktaVerificationRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaOktaVerifyRequest"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## send-token-auth-request
 This API Authenticate user in Token MFA method.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/send-token-auth-request)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -292,10 +310,10 @@ $TokenAuthRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToTokenAuthRequest -Json $TokenAuthRequest
-    Send-BetaTokenAuthRequest -BetaTokenAuthRequest $Result
+    Send-BetaTokenAuthRequest -BetaTokenAuthRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-BetaTokenAuthRequest -BetaTokenAuthRequest $TokenAuthRequest  
+    # Send-BetaTokenAuthRequest -BetaTokenAuthRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaTokenAuthRequest"
     Write-Host $_.ErrorDetails

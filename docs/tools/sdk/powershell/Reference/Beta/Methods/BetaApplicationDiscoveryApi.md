@@ -25,9 +25,12 @@ Method | HTTP request | Description
 [**Update-BetaDiscoveredApplicationByID**](#patch-discovered-application-by-id) | **PATCH** `/discovered-applications/{id}` | Patch Discovered Application by ID
 [**Send-BetaManualDiscoverApplicationsCsvTemplate**](#send-manual-discover-applications-csv-template) | **POST** `/manual-discover-applications` | Upload CSV to Discover Applications
 
+
 ## get-discovered-application-by-id
 Get the discovered application, along with with its associated sources, based on the provided ID.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-discovered-application-by-id)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -58,19 +61,22 @@ $Id = "123e4567-e89b-12d3-a456-426655440000" # String | Discovered application's
 # Get Discovered Application by ID
 
 try {
-    Get-BetaDiscoveredApplicationByID -BetaId $Id 
+    Get-BetaDiscoveredApplicationByID -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaDiscoveredApplicationByID -BetaId $Id  
+    # Get-BetaDiscoveredApplicationByID -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaDiscoveredApplicationByID"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-discovered-applications
 Get a list of applications that have been identified within the environment. This includes details such as application names, discovery dates, potential correlated saas_vendors and related suggested connectors.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-discovered-applications)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -109,21 +115,24 @@ $Sorters = "name" # String | Sort results using the standard syntax described in
 # Retrieve discovered applications for tenant
 
 try {
-    Get-BetaDiscoveredApplications
+    Get-BetaDiscoveredApplications 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaDiscoveredApplications -BetaLimit $Limit -BetaOffset $Offset -BetaDetail $Detail -BetaFilter $Filter -BetaSorters $Sorters  
+    # Get-BetaDiscoveredApplications -Limit $Limit -Offset $Offset -Detail $Detail -Filter $Filter -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaDiscoveredApplications"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-manual-discover-applications-csv-template
 Download an example CSV file with two columns `application_name` and `description`.  The CSV file contains a single row with the values 'Example Application' and 'Example Description'.
 
 The downloaded template is specifically designed for use with the `/manual-discover-applications` endpoint.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-manual-discover-applications-csv-template)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -152,7 +161,7 @@ Code | Description  | Data Type
 # Download CSV Template for Discovery
 
 try {
-    Get-BetaManualDiscoverApplicationsCsvTemplate
+    Get-BetaManualDiscoverApplicationsCsvTemplate 
     
     # Below is a request that includes all optional parameters
     # Get-BetaManualDiscoverApplicationsCsvTemplate  
@@ -162,9 +171,12 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## patch-discovered-application-by-id
 Update an existing discovered application by using a limited version of the [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
 You can patch these fields: - **associatedSources** - **dismissed**
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/patch-discovered-application-by-id)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -202,19 +214,22 @@ $Id = "123e4567-e89b-12d3-a456-426655440000" # String | Discovered application's
 # Patch Discovered Application by ID
 
 try {
-    Update-BetaDiscoveredApplicationByID -BetaId $Id 
+    Update-BetaDiscoveredApplicationByID -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaDiscoveredApplicationByID -BetaId $Id -BetaJsonPatchOperations $JsonPatchOperations  
+    # Update-BetaDiscoveredApplicationByID -Id $Id -BetaJsonPatchOperations $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaDiscoveredApplicationByID"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## send-manual-discover-applications-csv-template
 Upload a CSV file with application data for manual correlation to specific ISC connectors. 
 If a suitable ISC connector is unavailable, the system will recommend generic connectors instead.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/send-manual-discover-applications-csv-template)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -245,10 +260,10 @@ $File =  # System.IO.FileInfo | The CSV file to upload containing `application_n
 # Upload CSV to Discover Applications
 
 try {
-    Send-BetaManualDiscoverApplicationsCsvTemplate -BetaFile $File 
+    Send-BetaManualDiscoverApplicationsCsvTemplate -File $File 
     
     # Below is a request that includes all optional parameters
-    # Send-BetaManualDiscoverApplicationsCsvTemplate -BetaFile $File  
+    # Send-BetaManualDiscoverApplicationsCsvTemplate -File $File  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaManualDiscoverApplicationsCsvTemplate"
     Write-Host $_.ErrorDetails

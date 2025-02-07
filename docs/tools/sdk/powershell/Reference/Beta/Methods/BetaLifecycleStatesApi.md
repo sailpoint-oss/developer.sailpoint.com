@@ -56,11 +56,14 @@ Method | HTTP request | Description
 [**Get-BetaLifecycleStates**](#get-lifecycle-states) | **GET** `/identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id}` | Get Lifecycle State
 [**Update-BetaLifecycleStates**](#update-lifecycle-states) | **PATCH** `/identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id}` | Update Lifecycle State
 
+
 ## get-lifecycle-states
 Use this endpoint to get a lifecycle state by its ID and its associated identity profile ID. 
 
 A token with ORG_ADMIN or API authority is required to call this API.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-lifecycle-states)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -93,21 +96,24 @@ $LifecycleStateId = "ef38f94347e94562b5bb8424a56397d8" # String | Lifecycle Stat
 # Get Lifecycle State
 
 try {
-    Get-BetaLifecycleStates -BetaIdentityProfileId $IdentityProfileId  -BetaLifecycleStateId $LifecycleStateId 
+    Get-BetaLifecycleStates -IdentityProfileId $IdentityProfileId -LifecycleStateId $LifecycleStateId 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaLifecycleStates -BetaIdentityProfileId $IdentityProfileId -BetaLifecycleStateId $LifecycleStateId  
+    # Get-BetaLifecycleStates -IdentityProfileId $IdentityProfileId -LifecycleStateId $LifecycleStateId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaLifecycleStates"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## update-lifecycle-states
 Use this endpoint to update individual lifecycle state fields, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
 A token with ORG_ADMIN or API authority is required to call this API.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/update-lifecycle-states)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -148,10 +154,10 @@ $LifecycleStateId = "ef38f94347e94562b5bb8424a56397d8" # String | Lifecycle Stat
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-BetaLifecycleStates -BetaIdentityProfileId $IdentityProfileId  -BetaLifecycleStateId $LifecycleStateId  -BetaJsonPatchOperation $Result
+    Update-BetaLifecycleStates -IdentityProfileId $IdentityProfileId -LifecycleStateId $LifecycleStateId -BetaJsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaLifecycleStates -BetaIdentityProfileId $IdentityProfileId -BetaLifecycleStateId $LifecycleStateId -BetaJsonPatchOperation $JsonPatchOperation  
+    # Update-BetaLifecycleStates -IdentityProfileId $IdentityProfileId -LifecycleStateId $LifecycleStateId -BetaJsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaLifecycleStates"
     Write-Host $_.ErrorDetails

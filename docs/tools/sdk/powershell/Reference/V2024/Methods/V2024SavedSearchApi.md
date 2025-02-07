@@ -34,9 +34,12 @@ Method | HTTP request | Description
 [**Get-V2024SavedSearches**](#list-saved-searches) | **GET** `/saved-searches` | A list of Saved Searches
 [**Send-V2024SavedSearch**](#put-saved-search) | **PUT** `/saved-searches/{id}` | Updates an existing saved search 
 
+
 ## create-saved-search
 Creates a new saved search.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-saved-search)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -68,19 +71,22 @@ $CreateSavedSearchRequest = @""@
 
 try {
     $Result = ConvertFrom-JsonToCreateSavedSearchRequest -Json $CreateSavedSearchRequest
-    New-V2024SavedSearch -V2024CreateSavedSearchRequest $Result
+    New-V2024SavedSearch -V2024CreateSavedSearchRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024SavedSearch -V2024CreateSavedSearchRequest $CreateSavedSearchRequest  
+    # New-V2024SavedSearch -V2024CreateSavedSearchRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024SavedSearch"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## delete-saved-search
 Deletes the specified saved search.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-saved-search)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -112,19 +118,22 @@ $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document
 # Delete document by ID
 
 try {
-    Remove-V2024SavedSearch -V2024Id $Id 
+    Remove-V2024SavedSearch -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024SavedSearch -V2024Id $Id  
+    # Remove-V2024SavedSearch -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024SavedSearch"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## execute-saved-search
 Executes the specified saved search.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/execute-saved-search)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -169,19 +178,22 @@ $SearchArguments = @"{
 
 try {
     $Result = ConvertFrom-JsonToSearchArguments -Json $SearchArguments
-    Invoke-V2024ExecuteSavedSearch -V2024Id $Id  -V2024SearchArguments $Result
+    Invoke-V2024ExecuteSavedSearch -Id $Id -V2024SearchArguments $Result 
     
     # Below is a request that includes all optional parameters
-    # Invoke-V2024ExecuteSavedSearch -V2024Id $Id -V2024SearchArguments $SearchArguments  
+    # Invoke-V2024ExecuteSavedSearch -Id $Id -V2024SearchArguments $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-V2024ExecuteSavedSearch"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-saved-search
 Returns the specified saved search.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-saved-search)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -213,19 +225,22 @@ $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document
 # Return saved search by ID
 
 try {
-    Get-V2024SavedSearch -V2024Id $Id 
+    Get-V2024SavedSearch -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024SavedSearch -V2024Id $Id  
+    # Get-V2024SavedSearch -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SavedSearch"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-saved-searches
 Returns a list of saved searches.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-saved-searches)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -262,21 +277,24 @@ $Filters = 'owner.id eq "7a724640-0c17-4ce9-a8c3-4a89738459c8"' # String | Filte
 # A list of Saved Searches
 
 try {
-    Get-V2024SavedSearches
+    Get-V2024SavedSearches 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024SavedSearches -V2024Offset $Offset -V2024Limit $Limit -V2024Count $Count -V2024Filters $Filters  
+    # Get-V2024SavedSearches -Offset $Offset -Limit $Limit -Count $Count -Filters $Filters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SavedSearches"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## put-saved-search
 Updates an existing saved search. 
 
 >**NOTE: You cannot update the `owner` of the saved search.**
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/put-saved-search)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -354,10 +372,10 @@ $SavedSearch = @"{
 
 try {
     $Result = ConvertFrom-JsonToSavedSearch -Json $SavedSearch
-    Send-V2024SavedSearch -V2024Id $Id  -V2024SavedSearch $Result
+    Send-V2024SavedSearch -Id $Id -V2024SavedSearch $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-V2024SavedSearch -V2024Id $Id -V2024SavedSearch $SavedSearch  
+    # Send-V2024SavedSearch -Id $Id -V2024SavedSearch $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024SavedSearch"
     Write-Host $_.ErrorDetails

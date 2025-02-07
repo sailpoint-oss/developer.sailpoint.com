@@ -22,8 +22,11 @@ Method | HTTP request | Description
 [**Remove-BetaIcon**](#delete-icon) | **DELETE** `/icons/{objectType}/{objectId}` | Delete an icon
 [**Set-BetaIcon**](#set-icon) | **PUT** `/icons/{objectType}/{objectId}` | Update an icon
 
+
 ## delete-icon
 This API endpoint delete an icon by object type and object id. A token with ORG_ADMIN authority is required to call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-icon)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -57,18 +60,21 @@ $ObjectId = "a291e870-48c3-4953-b656-fb5ce2a93169" # String | Object id.
 # Delete an icon
 
 try {
-    Remove-BetaIcon -BetaObjectType $ObjectType  -BetaObjectId $ObjectId 
+    Remove-BetaIcon -ObjectType $ObjectType -ObjectId $ObjectId 
     
     # Below is a request that includes all optional parameters
-    # Remove-BetaIcon -BetaObjectType $ObjectType -BetaObjectId $ObjectId  
+    # Remove-BetaIcon -ObjectType $ObjectType -ObjectId $ObjectId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaIcon"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## set-icon
 This API endpoint updates an icon by object type and object id. A token with ORG_ADMIN authority is required to call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/set-icon)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -104,10 +110,10 @@ $Image =  # System.IO.FileInfo | file with icon. Allowed mime-types ['image/png'
 # Update an icon
 
 try {
-    Set-BetaIcon -BetaObjectType $ObjectType  -BetaObjectId $ObjectId  -BetaImage $Image 
+    Set-BetaIcon -ObjectType $ObjectType -ObjectId $ObjectId -Image $Image 
     
     # Below is a request that includes all optional parameters
-    # Set-BetaIcon -BetaObjectType $ObjectType -BetaObjectId $ObjectId -BetaImage $Image  
+    # Set-BetaIcon -ObjectType $ObjectType -ObjectId $ObjectId -Image $Image  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-BetaIcon"
     Write-Host $_.ErrorDetails

@@ -26,8 +26,11 @@ Method | HTTP request | Description
 [**Set-BetaMFAOktaConfig**](#set-mfa-okta-config) | **PUT** `/mfa/okta-verify/config` | Set Okta MFA configuration
 [**Test-BetaMFAConfig**](#test-mfa-config) | **GET** `/mfa/{method}/test` | MFA method&#39;s test configuration
 
+
 ## delete-mfa-config
 This API removes the configuration for the specified MFA method.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-mfa-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -58,18 +61,21 @@ $Method = "okta-verify" # String | The name of the MFA method. The currently sup
 # Delete MFA method configuration
 
 try {
-    Remove-BetaMFAConfig -BetaMethod $Method 
+    Remove-BetaMFAConfig -Method $Method 
     
     # Below is a request that includes all optional parameters
-    # Remove-BetaMFAConfig -BetaMethod $Method  
+    # Remove-BetaMFAConfig -Method $Method  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaMFAConfig"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-mfa-duo-config
 This API returns the configuration of an Duo MFA method.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-mfa-duo-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -98,7 +104,7 @@ Code | Description  | Data Type
 # Configuration of Duo MFA method
 
 try {
-    Get-BetaMFADuoConfig
+    Get-BetaMFADuoConfig 
     
     # Below is a request that includes all optional parameters
     # Get-BetaMFADuoConfig  
@@ -108,8 +114,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-mfa-kba-config
 This API returns the KBA configuration for MFA.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-mfa-kba-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -140,18 +149,21 @@ $AllLanguages = $false # Boolean | Indicator whether the question text should be
 # Configuration of KBA MFA method
 
 try {
-    Get-BetaMFAKbaConfig
+    Get-BetaMFAKbaConfig 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaMFAKbaConfig -BetaAllLanguages $AllLanguages  
+    # Get-BetaMFAKbaConfig -AllLanguages $AllLanguages  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaMFAKbaConfig"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-mfa-okta-config
 This API returns the configuration of an Okta MFA method.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-mfa-okta-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -180,7 +192,7 @@ Code | Description  | Data Type
 # Configuration of Okta MFA method
 
 try {
-    Get-BetaMFAOktaConfig
+    Get-BetaMFAOktaConfig 
     
     # Below is a request that includes all optional parameters
     # Get-BetaMFAOktaConfig  
@@ -190,8 +202,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## set-mfa-duo-config
 This API sets the configuration of an Duo MFA method.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/set-mfa-duo-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -233,18 +248,21 @@ $MfaDuoConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToMfaDuoConfig -Json $MfaDuoConfig
-    Set-BetaMFADuoConfig -BetaMfaDuoConfig $Result
+    Set-BetaMFADuoConfig -BetaMfaDuoConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # Set-BetaMFADuoConfig -BetaMfaDuoConfig $MfaDuoConfig  
+    # Set-BetaMFADuoConfig -BetaMfaDuoConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-BetaMFADuoConfig"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## set-mfakba-config
 This API sets answers to challenge questions.  Any configured questions omitted from the request are removed from user KBA configuration.    
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/set-mfakba-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -280,18 +298,21 @@ Code | Description  | Data Type
 
 try {
     $Result = ConvertFrom-JsonToKbaAnswerRequestItem -Json $KbaAnswerRequestItem
-    Set-BetaMFAKBAConfig -BetaKbaAnswerRequestItem $Result
+    Set-BetaMFAKBAConfig -BetaKbaAnswerRequestItem $Result 
     
     # Below is a request that includes all optional parameters
-    # Set-BetaMFAKBAConfig -BetaKbaAnswerRequestItem $KbaAnswerRequestItem  
+    # Set-BetaMFAKBAConfig -BetaKbaAnswerRequestItem $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-BetaMFAKBAConfig"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## set-mfa-okta-config
 This API sets the configuration of an Okta MFA method.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/set-mfa-okta-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -329,18 +350,21 @@ $MfaOktaConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToMfaOktaConfig -Json $MfaOktaConfig
-    Set-BetaMFAOktaConfig -BetaMfaOktaConfig $Result
+    Set-BetaMFAOktaConfig -BetaMfaOktaConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # Set-BetaMFAOktaConfig -BetaMfaOktaConfig $MfaOktaConfig  
+    # Set-BetaMFAOktaConfig -BetaMfaOktaConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-BetaMFAOktaConfig"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## test-mfa-config
 This API validates that the configuration is valid and will properly authenticate with the MFA provider identified by the method path parameter.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/test-mfa-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -371,10 +395,10 @@ $Method = "okta-verify" # String | The name of the MFA method. The currently sup
 # MFA method's test configuration
 
 try {
-    Test-BetaMFAConfig -BetaMethod $Method 
+    Test-BetaMFAConfig -Method $Method 
     
     # Below is a request that includes all optional parameters
-    # Test-BetaMFAConfig -BetaMethod $Method  
+    # Test-BetaMFAConfig -Method $Method  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Test-BetaMFAConfig"
     Write-Host $_.ErrorDetails

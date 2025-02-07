@@ -25,8 +25,11 @@ Method | HTTP request | Description
 [**Get-V2024ReportResult**](#get-report-result) | **GET** `/reports/{taskResultId}/result` | Get Report Result
 [**Start-V2024Report**](#start-report) | **POST** `/reports/run` | Run Report
 
+
 ## cancel-report
 Cancels a running report.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/cancel-report)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -57,18 +60,21 @@ $Id = "a1ed223247144cc29d23c632624b4767" # String | ID of the running Report to 
 # Cancel Report
 
 try {
-    Suspend-V2024Report -V2024Id $Id 
+    Suspend-V2024Report -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Suspend-V2024Report -V2024Id $Id  
+    # Suspend-V2024Report -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Suspend-V2024Report"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-report
 Gets a report in file format.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-report)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -106,18 +112,21 @@ $Auditable = $true # Boolean | Enables auditing for current report download. Wil
 # Get Report File
 
 try {
-    Get-V2024Report -V2024TaskResultId $TaskResultId  -V2024FileFormat $FileFormat 
+    Get-V2024Report -TaskResultId $TaskResultId -FileFormat $FileFormat 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024Report -V2024TaskResultId $TaskResultId -V2024FileFormat $FileFormat -V2024Name $Name -V2024Auditable $Auditable  
+    # Get-V2024Report -TaskResultId $TaskResultId -FileFormat $FileFormat -Name $Name -Auditable $Auditable  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024Report"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-report-result
 Get the report results for a report that was run or is running. Returns empty report result in case there are no active task definitions with used in payload task definition name.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-report-result)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -150,18 +159,21 @@ $Completed = $true # Boolean | state of task result to apply ordering when resul
 # Get Report Result
 
 try {
-    Get-V2024ReportResult -V2024TaskResultId $TaskResultId 
+    Get-V2024ReportResult -TaskResultId $TaskResultId 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024ReportResult -V2024TaskResultId $TaskResultId -V2024Completed $Completed  
+    # Get-V2024ReportResult -TaskResultId $TaskResultId -Completed $Completed  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024ReportResult"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## start-report
 Use this API to run a report according to report input details. If non-concurrent task is already running then it returns, otherwise new task creates and returns.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/start-report)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -199,10 +211,10 @@ $ReportDetails = @"{
 
 try {
     $Result = ConvertFrom-JsonToReportDetails -Json $ReportDetails
-    Start-V2024Report -V2024ReportDetails $Result
+    Start-V2024Report -V2024ReportDetails $Result 
     
     # Below is a request that includes all optional parameters
-    # Start-V2024Report -V2024ReportDetails $ReportDetails  
+    # Start-V2024Report -V2024ReportDetails $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-V2024Report"
     Write-Host $_.ErrorDetails

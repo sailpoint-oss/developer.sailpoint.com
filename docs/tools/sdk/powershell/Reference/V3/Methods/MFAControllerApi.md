@@ -24,8 +24,11 @@ Method | HTTP request | Description
 [**Send-OktaVerifyRequest**](#send-okta-verify-request) | **POST** `/mfa/okta-verify/verify` | Verifying authentication via Okta method
 [**Send-TokenAuthRequest**](#send-token-auth-request) | **POST** `/mfa/token/authenticate` | Authenticate Token provided MFA method
 
+
 ## create-send-token
 This API send token request.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/create-send-token)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -60,18 +63,21 @@ $SendTokenRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToSendTokenRequest -Json $SendTokenRequest
-    New-SendToken -SendTokenRequest $Result
+    New-SendToken -SendTokenRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-SendToken -SendTokenRequest $SendTokenRequest  
+    # New-SendToken -SendTokenRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-SendToken"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## ping-verification-status
 This API poll the VerificationPollRequest for the specified MFA method.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/ping-verification-status)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -107,18 +113,21 @@ $VerificationPollRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToVerificationPollRequest -Json $VerificationPollRequest
-    Ping-VerificationStatus -Method $Method  -VerificationPollRequest $Result
+    Ping-VerificationStatus -Method $Method -VerificationPollRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Ping-VerificationStatus -Method $Method -VerificationPollRequest $VerificationPollRequest  
+    # Ping-VerificationStatus -Method $Method -VerificationPollRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Ping-VerificationStatus"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## send-duo-verify-request
 This API Authenticates the user via Duo-Web MFA method.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/send-duo-verify-request)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -153,18 +162,21 @@ $DuoVerificationRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToDuoVerificationRequest -Json $DuoVerificationRequest
-    Send-DuoVerifyRequest -DuoVerificationRequest $Result
+    Send-DuoVerifyRequest -DuoVerificationRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-DuoVerifyRequest -DuoVerificationRequest $DuoVerificationRequest  
+    # Send-DuoVerifyRequest -DuoVerificationRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-DuoVerifyRequest"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## send-kba-answers
 This API Authenticate user in KBA MFA method.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/send-kba-answers)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -200,18 +212,21 @@ Code | Description  | Data Type
 
 try {
     $Result = ConvertFrom-JsonToKbaAnswerRequestItem -Json $KbaAnswerRequestItem
-    Send-KbaAnswers -KbaAnswerRequestItem $Result
+    Send-KbaAnswers -KbaAnswerRequestItem $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-KbaAnswers -KbaAnswerRequestItem $KbaAnswerRequestItem  
+    # Send-KbaAnswers -KbaAnswerRequestItem $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-KbaAnswers"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## send-okta-verify-request
 This API Authenticates the user via Okta-Verify MFA method. Request requires a header called 'slpt-forwarding', and it must contain a remote IP Address of caller.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/send-okta-verify-request)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -245,18 +260,21 @@ $OktaVerificationRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToOktaVerificationRequest -Json $OktaVerificationRequest
-    Send-OktaVerifyRequest -OktaVerificationRequest $Result
+    Send-OktaVerifyRequest -OktaVerificationRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-OktaVerifyRequest -OktaVerificationRequest $OktaVerificationRequest  
+    # Send-OktaVerifyRequest -OktaVerificationRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-OktaVerifyRequest"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## send-token-auth-request
 This API Authenticate user in Token MFA method.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/send-token-auth-request)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -292,10 +310,10 @@ $TokenAuthRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToTokenAuthRequest -Json $TokenAuthRequest
-    Send-TokenAuthRequest -TokenAuthRequest $Result
+    Send-TokenAuthRequest -TokenAuthRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-TokenAuthRequest -TokenAuthRequest $TokenAuthRequest  
+    # Send-TokenAuthRequest -TokenAuthRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-TokenAuthRequest"
     Write-Host $_.ErrorDetails

@@ -29,6 +29,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Get-BetaAccountAggregationStatus**](#get-account-aggregation-status) | **GET** `/account-aggregations/{id}/status` | In-progress Account Aggregation status
 
+
 ## get-account-aggregation-status
 This API returns the status of an *in-progress* account aggregation, along with the total number of **NEW**, **CHANGED** and **DELETED** accounts found since the previous aggregation, and the number of those accounts that have been processed so far.
 
@@ -39,6 +40,8 @@ Since this endpoint reports on the status of an *in-progress* account aggregatio
 *Only available up to an hour after the aggregation completes. May respond with *404 Not Found* after that.*
 
 A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN or DASHBOARD authority is required to call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-account-aggregation-status)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -69,10 +72,10 @@ $Id = "2c91808477a6b0c60177a81146b8110b" # String | The account aggregation id
 # In-progress Account Aggregation status
 
 try {
-    Get-BetaAccountAggregationStatus -BetaId $Id 
+    Get-BetaAccountAggregationStatus -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaAccountAggregationStatus -BetaId $Id  
+    # Get-BetaAccountAggregationStatus -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaAccountAggregationStatus"
     Write-Host $_.ErrorDetails

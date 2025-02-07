@@ -17,6 +17,7 @@ tags: ['SDK', 'Software Development Kit', 'PendingApproval', 'V2024PendingApprov
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** | The approval id. | [optional] 
+**AccessRequestId** | **String** | This is the access request id. | [optional] 
 **Name** | **String** | The name of the approval. | [optional] 
 **Created** | **System.DateTime** | When the approval was created. | [optional] 
 **Modified** | **System.DateTime** | When the approval was modified last time. | [optional] 
@@ -41,6 +42,7 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $PendingApproval = Initialize-PSSailpoint.V2024PendingApproval  -Id id12345 `
+ -AccessRequestId 2b838de9db9babcfe646d4f274ad4238 `
  -Name aName `
  -Created 2017-07-11T18:45:37.098Z `
  -Modified 2018-07-25T20:22:28.104Z `

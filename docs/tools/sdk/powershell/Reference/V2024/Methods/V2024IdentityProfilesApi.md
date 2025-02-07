@@ -39,8 +39,11 @@ Method | HTTP request | Description
 [**Sync-V2024IdentityProfile**](#sync-identity-profile) | **POST** `/identity-profiles/{identity-profile-id}/process-identities` | Process identities under profile
 [**Update-V2024IdentityProfile**](#update-identity-profile) | **PATCH** `/identity-profiles/{identity-profile-id}` | Update the Identity Profile
 
+
 ## create-identity-profile
 This creates an Identity Profile.    
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-identity-profile)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -120,16 +123,17 @@ $IdentityProfile = @"{
 
 try {
     $Result = ConvertFrom-JsonToIdentityProfile -Json $IdentityProfile
-    New-V2024IdentityProfile -V2024IdentityProfile $Result
+    New-V2024IdentityProfile -V2024IdentityProfile $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024IdentityProfile -V2024IdentityProfile $IdentityProfile  
+    # New-V2024IdentityProfile -V2024IdentityProfile $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024IdentityProfile"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## delete-identity-profile
 This deletes an Identity Profile based on ID.
 
@@ -137,6 +141,8 @@ On success, this endpoint will return a reference to the bulk delete task result
     
 
 The following rights are required to access this endpoint: idn:identity-profile:delete
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-identity-profile)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -168,22 +174,25 @@ $IdentityProfileId = "ef38f94347e94562b5bb8424a56397d8" # String | The Identity 
 # Delete an Identity Profile
 
 try {
-    Remove-V2024IdentityProfile -V2024IdentityProfileId $IdentityProfileId 
+    Remove-V2024IdentityProfile -IdentityProfileId $IdentityProfileId 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024IdentityProfile -V2024IdentityProfileId $IdentityProfileId  
+    # Remove-V2024IdentityProfile -IdentityProfileId $IdentityProfileId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024IdentityProfile"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## delete-identity-profiles
 This deletes multiple Identity Profiles via a list of supplied IDs.
 
 On success, this endpoint will return a reference to the bulk delete task result.
 
 The following rights are required to access this endpoint: idn:identity-profile:delete
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-identity-profiles)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -217,18 +226,21 @@ $RequestBody = "MyRequestBody" # String[] | Identity Profile bulk delete request
 
 try {
     $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
-    Remove-V2024IdentityProfiles -V2024RequestBody $Result
+    Remove-V2024IdentityProfiles -RequestBody $Result 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024IdentityProfiles -V2024RequestBody $RequestBody  
+    # Remove-V2024IdentityProfiles -RequestBody $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024IdentityProfiles"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## export-identity-profiles
 This exports existing identity profiles in the format specified by the sp-config service.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/export-identity-profiles)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -267,18 +279,21 @@ $Sorters = "id,name" # String | Sort results using the standard syntax described
 # Export Identity Profiles
 
 try {
-    Export-V2024IdentityProfiles
+    Export-V2024IdentityProfiles 
     
     # Below is a request that includes all optional parameters
-    # Export-V2024IdentityProfiles -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Filters $Filters -V2024Sorters $Sorters  
+    # Export-V2024IdentityProfiles -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Export-V2024IdentityProfiles"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-default-identity-attribute-config
 This returns the default identity attribute config.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-default-identity-attribute-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -310,18 +325,21 @@ $IdentityProfileId = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | The Ident
 # Get default Identity Attribute Config
 
 try {
-    Get-V2024DefaultIdentityAttributeConfig -V2024IdentityProfileId $IdentityProfileId 
+    Get-V2024DefaultIdentityAttributeConfig -IdentityProfileId $IdentityProfileId 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024DefaultIdentityAttributeConfig -V2024IdentityProfileId $IdentityProfileId  
+    # Get-V2024DefaultIdentityAttributeConfig -IdentityProfileId $IdentityProfileId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024DefaultIdentityAttributeConfig"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-identity-profile
 This returns a single Identity Profile based on ID.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-identity-profile)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -353,18 +371,21 @@ $IdentityProfileId = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | The Ident
 # Get single Identity Profile
 
 try {
-    Get-V2024IdentityProfile -V2024IdentityProfileId $IdentityProfileId 
+    Get-V2024IdentityProfile -IdentityProfileId $IdentityProfileId 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024IdentityProfile -V2024IdentityProfileId $IdentityProfileId  
+    # Get-V2024IdentityProfile -IdentityProfileId $IdentityProfileId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024IdentityProfile"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## import-identity-profiles
 This imports previously exported identity profiles.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/import-identity-profiles)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -458,18 +479,21 @@ Code | Description  | Data Type
 
 try {
     $Result = ConvertFrom-JsonToIdentityProfileExportedObject -Json $IdentityProfileExportedObject
-    Import-V2024IdentityProfiles -V2024IdentityProfileExportedObject $Result
+    Import-V2024IdentityProfiles -V2024IdentityProfileExportedObject $Result 
     
     # Below is a request that includes all optional parameters
-    # Import-V2024IdentityProfiles -V2024IdentityProfileExportedObject $IdentityProfileExportedObject  
+    # Import-V2024IdentityProfiles -V2024IdentityProfileExportedObject $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Import-V2024IdentityProfiles"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-identity-profiles
 This returns a list of Identity Profiles based on the specified query parameters.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-identity-profiles)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -508,19 +532,22 @@ $Sorters = "id,name" # String | Sort results using the standard syntax described
 # Identity Profiles List
 
 try {
-    Get-V2024IdentityProfiles
+    Get-V2024IdentityProfiles 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024IdentityProfiles -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Filters $Filters -V2024Sorters $Sorters  
+    # Get-V2024IdentityProfiles -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024IdentityProfiles"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## show-identity-preview
 Use this API to generate a non-persisted preview of the identity object after applying `IdentityAttributeConfig` sent in request body.
 This API only allows `accountAttribute`, `reference` and `rule` transform types in the `IdentityAttributeConfig` sent in the request body.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/show-identity-preview)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -578,22 +605,25 @@ $IdentityPreviewRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToIdentityPreviewRequest -Json $IdentityPreviewRequest
-    Show-V2024IdentityPreview -V2024IdentityPreviewRequest $Result
+    Show-V2024IdentityPreview -V2024IdentityPreviewRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Show-V2024IdentityPreview -V2024IdentityPreviewRequest $IdentityPreviewRequest  
+    # Show-V2024IdentityPreview -V2024IdentityPreviewRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Show-V2024IdentityPreview"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## sync-identity-profile
 Process identities under the profile
 This operation should not be used to schedule your own identity processing or to perform system wide identity refreshes. The system will use a combination of [event-based processing](https://documentation.sailpoint.com/saas/help/setup/identity_processing.html?h=process#event-based-processing) and [scheduled processing](https://documentation.sailpoint.com/saas/help/setup/identity_processing.html?h=process#scheduled-processing) that runs every day at 8:00 AM and 8:00 PM in the tenant's timezone to keep your identities synchronized. 
 This should only be run on identity profiles that have the `identityRefreshRequired` attribute set to `true`. If `identityRefreshRequired` is false, then there is no benefit to running this operation. Typically, this operation is performed when a change is made to the identity profile or its related lifecycle states that requires a refresh.
 This operation will perform the following activities on all identities under the identity profile.
 1. Updates identity attribute according to the identity profile mappings. 2. Determines the identity's correct manager through manager correlation. 3. Updates the identity's access according to their assigned lifecycle state. 4. Updates the identity's access based on role assignment criteria.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/sync-identity-profile)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -625,16 +655,17 @@ $IdentityProfileId = "ef38f94347e94562b5bb8424a56397d8" # String | The Identity 
 # Process identities under profile
 
 try {
-    Sync-V2024IdentityProfile -V2024IdentityProfileId $IdentityProfileId 
+    Sync-V2024IdentityProfile -IdentityProfileId $IdentityProfileId 
     
     # Below is a request that includes all optional parameters
-    # Sync-V2024IdentityProfile -V2024IdentityProfileId $IdentityProfileId  
+    # Sync-V2024IdentityProfile -IdentityProfileId $IdentityProfileId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Sync-V2024IdentityProfile"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## update-identity-profile
 This updates the specified Identity Profile.
   
@@ -647,6 +678,8 @@ Some fields of the Schema cannot be updated. These fields are listed below:
 * identityCount
 * identityRefreshRequired
 * Authoritative Source and Identity Attribute Configuration cannot be modified at once.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/update-identity-profile)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -686,10 +719,10 @@ $IdentityProfileId = "ef38f94347e94562b5bb8424a56397d8" # String | The Identity 
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024IdentityProfile -V2024IdentityProfileId $IdentityProfileId  -V2024JsonPatchOperation $Result
+    Update-V2024IdentityProfile -IdentityProfileId $IdentityProfileId -V2024JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024IdentityProfile -V2024IdentityProfileId $IdentityProfileId -V2024JsonPatchOperation $JsonPatchOperation  
+    # Update-V2024IdentityProfile -IdentityProfileId $IdentityProfileId -V2024JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024IdentityProfile"
     Write-Host $_.ErrorDetails

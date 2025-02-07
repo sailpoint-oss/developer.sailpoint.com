@@ -50,9 +50,12 @@ Method | HTTP request | Description
 [**Invoke-UnsubscribeScheduledSearch**](#unsubscribe-scheduled-search) | **POST** `/scheduled-searches/{id}/unsubscribe` | Unsubscribe a recipient from Scheduled Search
 [**Update-ScheduledSearch**](#update-scheduled-search) | **PUT** `/scheduled-searches/{id}` | Update an existing Scheduled Search
 
+
 ## create-scheduled-search
 Creates a new scheduled search.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/create-scheduled-search)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -85,19 +88,22 @@ $CreateScheduledSearchRequest = @"{savedSearchId=9c620e13-cd33-4804-a13d-403bd7b
 
 try {
     $Result = ConvertFrom-JsonToCreateScheduledSearchRequest -Json $CreateScheduledSearchRequest
-    New-ScheduledSearch -CreateScheduledSearchRequest $Result
+    New-ScheduledSearch -CreateScheduledSearchRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-ScheduledSearch -CreateScheduledSearchRequest $CreateScheduledSearchRequest  
+    # New-ScheduledSearch -CreateScheduledSearchRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-ScheduledSearch"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## delete-scheduled-search
 Deletes the specified scheduled search.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/delete-scheduled-search)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -139,8 +145,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-scheduled-search
 Returns the specified scheduled search.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-scheduled-search)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -182,9 +191,12 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-scheduled-search
 Returns a list of scheduled searches.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/list-scheduled-search)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -222,7 +234,7 @@ $Filters = 'savedSearchId eq "6cc0945d-9eeb-4948-9033-72d066e1153e"' # String | 
 # List scheduled searches
 
 try {
-    Get-ScheduledSearch
+    Get-ScheduledSearch 
     
     # Below is a request that includes all optional parameters
     # Get-ScheduledSearch -Offset $Offset -Limit $Limit -Count $Count -Filters $Filters  
@@ -232,9 +244,12 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## unsubscribe-scheduled-search
 Unsubscribes a recipient from the specified scheduled search.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/unsubscribe-scheduled-search)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -269,19 +284,22 @@ $TypedReference = @"{
 
 try {
     $Result = ConvertFrom-JsonToTypedReference -Json $TypedReference
-    Invoke-UnsubscribeScheduledSearch -Id $Id  -TypedReference $Result
+    Invoke-UnsubscribeScheduledSearch -Id $Id -TypedReference $Result 
     
     # Below is a request that includes all optional parameters
-    # Invoke-UnsubscribeScheduledSearch -Id $Id -TypedReference $TypedReference  
+    # Invoke-UnsubscribeScheduledSearch -Id $Id -TypedReference $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-UnsubscribeScheduledSearch"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## update-scheduled-search
 Updates an existing scheduled search.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/update-scheduled-search)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -358,10 +376,10 @@ $ScheduledSearch = @"{
 
 try {
     $Result = ConvertFrom-JsonToScheduledSearch -Json $ScheduledSearch
-    Update-ScheduledSearch -Id $Id  -ScheduledSearch $Result
+    Update-ScheduledSearch -Id $Id -ScheduledSearch $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-ScheduledSearch -Id $Id -ScheduledSearch $ScheduledSearch  
+    # Update-ScheduledSearch -Id $Id -ScheduledSearch $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-ScheduledSearch"
     Write-Host $_.ErrorDetails

@@ -33,8 +33,11 @@ Method | HTTP request | Description
 [**Get-V2024PersonalAccessTokens**](#list-personal-access-tokens) | **GET** `/personal-access-tokens` | List Personal Access Tokens
 [**Update-V2024PersonalAccessToken**](#patch-personal-access-token) | **PATCH** `/personal-access-tokens/{id}` | Patch Personal Access Token
 
+
 ## create-personal-access-token
 This creates a personal access token.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-personal-access-token)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -70,18 +73,21 @@ $CreatePersonalAccessTokenRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToCreatePersonalAccessTokenRequest -Json $CreatePersonalAccessTokenRequest
-    New-V2024PersonalAccessToken -V2024CreatePersonalAccessTokenRequest $Result
+    New-V2024PersonalAccessToken -V2024CreatePersonalAccessTokenRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024PersonalAccessToken -V2024CreatePersonalAccessTokenRequest $CreatePersonalAccessTokenRequest  
+    # New-V2024PersonalAccessToken -V2024CreatePersonalAccessTokenRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024PersonalAccessToken"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## delete-personal-access-token
 This deletes a personal access token.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-personal-access-token)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -113,18 +119,21 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The personal access token id
 # Delete Personal Access Token
 
 try {
-    Remove-V2024PersonalAccessToken -V2024Id $Id 
+    Remove-V2024PersonalAccessToken -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024PersonalAccessToken -V2024Id $Id  
+    # Remove-V2024PersonalAccessToken -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024PersonalAccessToken"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-personal-access-tokens
 This gets a collection of personal access tokens associated with the optional `owner-id`.  query parameter. If the `owner-id` query parameter is omitted, all personal access tokens  for a tenant will be retrieved, but the caller must have the 'idn:all-personal-access-tokens:read' right.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-personal-access-tokens)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -157,19 +166,22 @@ $Filters = 'lastUsed le 2023-02-05T10:59:27.214Z' # String | Filter results usin
 # List Personal Access Tokens
 
 try {
-    Get-V2024PersonalAccessTokens
+    Get-V2024PersonalAccessTokens 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024PersonalAccessTokens -V2024OwnerId $OwnerId -V2024Filters $Filters  
+    # Get-V2024PersonalAccessTokens -OwnerId $OwnerId -Filters $Filters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024PersonalAccessTokens"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## patch-personal-access-token
 This performs a targeted update to the field(s) of a Personal Access Token.
 Changing scopes for a Personal Access Token does not impact existing bearer tokens. You will need to create a new bearer token to have the new scopes. Please note that it can take up to 20 minutes for scope changes to be seen on new bearer tokens.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/patch-personal-access-token)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -209,10 +221,10 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The Personal Access Token id
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024PersonalAccessToken -V2024Id $Id  -V2024JsonPatchOperation $Result
+    Update-V2024PersonalAccessToken -Id $Id -V2024JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024PersonalAccessToken -V2024Id $Id -V2024JsonPatchOperation $JsonPatchOperation  
+    # Update-V2024PersonalAccessToken -Id $Id -V2024JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024PersonalAccessToken"
     Write-Host $_.ErrorDetails

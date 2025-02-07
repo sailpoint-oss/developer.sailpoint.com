@@ -60,10 +60,13 @@ Method | HTTP request | Description
 [**Update-BetaAccessProfile**](#patch-access-profile) | **PATCH** `/access-profiles/{id}` | Patch a specified Access Profile
 [**Update-BetaAccessProfilesInBulk**](#update-access-profiles-in-bulk) | **POST** `/access-profiles/bulk-update-requestable` | Update Access Profile(s) requestable field.
 
+
 ## create-access-profile
 Use this API to create an access profile.
 A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. In addition, a token with only ROLE_SUBADMIN or SOURCE_SUBADMIN authority must be associated with the access profile's Source.
 The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles, however, any new access profiles as well as any updates to existing descriptions will be limited to 2000 characters.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/create-access-profile)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -179,22 +182,25 @@ $AccessProfile = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccessProfile -Json $AccessProfile
-    New-BetaAccessProfile -BetaAccessProfile $Result
+    New-BetaAccessProfile -BetaAccessProfile $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaAccessProfile -BetaAccessProfile $AccessProfile  
+    # New-BetaAccessProfile -BetaAccessProfile $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaAccessProfile"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## delete-access-profile
 This API deletes an existing Access Profile.
 
 The Access Profile must not be in use, for example, Access Profile can not be deleted if they belong to an Application, Life Cycle State or a Role. If it is, a 400 error is returned.
 
 A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to invoke this API. In addition, a SOURCE_SUBADMIN token must be able to administer the Source associated with the Access Profile.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-access-profile)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -225,21 +231,24 @@ $Id = "2c91808a7813090a017814121919ecca" # String | ID of the Access Profile to 
 # Delete the specified Access Profile
 
 try {
-    Remove-BetaAccessProfile -BetaId $Id 
+    Remove-BetaAccessProfile -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Remove-BetaAccessProfile -BetaId $Id  
+    # Remove-BetaAccessProfile -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaAccessProfile"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## delete-access-profiles-in-bulk
 This endpoint initiates a bulk deletion of one or more access profiles.
 When the request is successful, the endpoint returns the bulk delete's task result ID.  To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/beta/get-task-status), which will return the task result's status and information. 
 This endpoint can only bulk delete up to a limit of 50 access profiles per request. 
 By default, if any of the indicated access profiles are in use, no deletions will be performed and the **inUse** field of the response indicates the usages that must be removed first. If the request field **bestEffortOnly** is **true**, however, usages are reported in the **inUse** response field but all other indicated access profiles will be deleted.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-access-profiles-in-bulk)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -275,18 +284,21 @@ $AccessProfileBulkDeleteRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccessProfileBulkDeleteRequest -Json $AccessProfileBulkDeleteRequest
-    Remove-BetaAccessProfilesInBulk -BetaAccessProfileBulkDeleteRequest $Result
+    Remove-BetaAccessProfilesInBulk -BetaAccessProfileBulkDeleteRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Remove-BetaAccessProfilesInBulk -BetaAccessProfileBulkDeleteRequest $AccessProfileBulkDeleteRequest  
+    # Remove-BetaAccessProfilesInBulk -BetaAccessProfileBulkDeleteRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaAccessProfilesInBulk"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-access-profile
 This API returns an Access Profile by its ID.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-access-profile)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -317,19 +329,22 @@ $Id = "2c9180837ca6693d017ca8d097500149" # String | ID of the Access Profile
 # Get an Access Profile
 
 try {
-    Get-BetaAccessProfile -BetaId $Id 
+    Get-BetaAccessProfile -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaAccessProfile -BetaId $Id  
+    # Get-BetaAccessProfile -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaAccessProfile"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-access-profile-entitlements
 Use this API to get a list of an access profile's entitlements. 
 A user with SOURCE_SUBADMIN authority must have access to the source associated with the specified access profile.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-access-profile-entitlements)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -370,19 +385,22 @@ $Sorters = "name,-modified" # String | Sort results using the standard syntax de
 # List Access Profile's Entitlements
 
 try {
-    Get-BetaAccessProfileEntitlements -BetaId $Id 
+    Get-BetaAccessProfileEntitlements -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaAccessProfileEntitlements -BetaId $Id -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count -BetaFilters $Filters -BetaSorters $Sorters  
+    # Get-BetaAccessProfileEntitlements -Id $Id -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaAccessProfileEntitlements"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-access-profiles
 Use this API to get a list of access profiles.
 A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/list-access-profiles)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -427,16 +445,17 @@ $IncludeUnsegmented = $false # Boolean | Indicates whether the response list sho
 # List Access Profiles
 
 try {
-    Get-BetaAccessProfiles
+    Get-BetaAccessProfiles 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaAccessProfiles -BetaForSubadmin $ForSubadmin -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count -BetaFilters $Filters -BetaSorters $Sorters -BetaForSegmentIds $ForSegmentIds -BetaIncludeUnsegmented $IncludeUnsegmented  
+    # Get-BetaAccessProfiles -ForSubadmin $ForSubadmin -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters -ForSegmentIds $ForSegmentIds -IncludeUnsegmented $IncludeUnsegmented  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaAccessProfiles"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## patch-access-profile
 This API updates an existing Access Profile. The following fields are patchable:
 **name**, **description**, **enabled**, **owner**, **requestable**, **accessRequestConfig**, **revokeRequestConfig**, **segments**, **entitlements**, **provisioningCriteria**
@@ -444,6 +463,8 @@ A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is requi
 >  The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles, however, any new access profiles as well as any updates to existing descriptions will be limited to 2000 characters.
 
 > You can only add or replace **entitlements** that exist on the source that the access profile is attached to. You can use the **list entitlements** endpoint with the **filters** query parameter to get a list of available entitlements on the access profile's source.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/patch-access-profile)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -482,16 +503,17 @@ $Id = "2c91808a7813090a017814121919ecca" # String | ID of the Access Profile to 
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-BetaAccessProfile -BetaId $Id  -BetaJsonPatchOperation $Result
+    Update-BetaAccessProfile -Id $Id -BetaJsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaAccessProfile -BetaId $Id -BetaJsonPatchOperation $JsonPatchOperation  
+    # Update-BetaAccessProfile -Id $Id -BetaJsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaAccessProfile"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## update-access-profiles-in-bulk
 This API initiates a bulk update of field requestable for one or more Access Profiles.
 
@@ -500,6 +522,8 @@ This API initiates a bulk update of field requestable for one or more Access Pro
 
 >  If any of the indicated Access Profiles is not does not exists in Organization,then those Access Profiles will be added in **notFound** list of the response. Access Profiles marked as **notFound** will not be updated.
 A SOURCE_SUBADMIN user may only use this API to update Access Profiles which are associated with Sources they are able to administer.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/update-access-profiles-in-bulk)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -533,10 +557,10 @@ Code | Description  | Data Type
 
 try {
     $Result = ConvertFrom-JsonToAccessProfileBulkUpdateRequestInner -Json $AccessProfileBulkUpdateRequestInner
-    Update-BetaAccessProfilesInBulk -BetaAccessProfileBulkUpdateRequestInner $Result
+    Update-BetaAccessProfilesInBulk -BetaAccessProfileBulkUpdateRequestInner $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaAccessProfilesInBulk -BetaAccessProfileBulkUpdateRequestInner $AccessProfileBulkUpdateRequestInner  
+    # Update-BetaAccessProfilesInBulk -BetaAccessProfileBulkUpdateRequestInner $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaAccessProfilesInBulk"
     Write-Host $_.ErrorDetails

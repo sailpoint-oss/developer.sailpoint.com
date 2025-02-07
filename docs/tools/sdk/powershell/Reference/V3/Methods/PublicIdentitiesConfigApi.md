@@ -30,8 +30,11 @@ Method | HTTP request | Description
 [**Get-PublicIdentityConfig**](#get-public-identity-config) | **GET** `/public-identities-config` | Get the Public Identities Configuration
 [**Update-PublicIdentityConfig**](#update-public-identity-config) | **PUT** `/public-identities-config` | Update the Public Identities Configuration
 
+
 ## get-public-identity-config
 Returns the publicly visible attributes of an identity available to request approvers for Access Requests and Certification Campaigns.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-public-identity-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -60,7 +63,7 @@ Code | Description  | Data Type
 # Get the Public Identities Configuration
 
 try {
-    Get-PublicIdentityConfig
+    Get-PublicIdentityConfig 
     
     # Below is a request that includes all optional parameters
     # Get-PublicIdentityConfig  
@@ -70,8 +73,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## update-public-identity-config
 Updates the publicly visible attributes of an identity available to request approvers for Access Requests and Certification Campaigns.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/update-public-identity-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -117,10 +123,10 @@ $PublicIdentityConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToPublicIdentityConfig -Json $PublicIdentityConfig
-    Update-PublicIdentityConfig -PublicIdentityConfig $Result
+    Update-PublicIdentityConfig -PublicIdentityConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-PublicIdentityConfig -PublicIdentityConfig $PublicIdentityConfig  
+    # Update-PublicIdentityConfig -PublicIdentityConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-PublicIdentityConfig"
     Write-Host $_.ErrorDetails

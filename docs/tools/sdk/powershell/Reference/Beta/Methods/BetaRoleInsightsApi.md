@@ -27,8 +27,14 @@ Method | HTTP request | Description
 [**Get-BetaRoleInsightsRequests**](#get-role-insights-requests) | **GET** `/role-insights/requests/{id}` | Returns metadata from prior request.
 [**Get-BetaRoleInsightsSummary**](#get-role-insights-summary) | **GET** `/role-insights/summary` | Get role insights summary information
 
+
 ## create-role-insight-requests
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Submits a create role insights request to the role insights application. At this time there are no parameters. All business roles will be processed for the customer.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/create-role-insight-requests)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -57,7 +63,7 @@ Code | Description  | Data Type
 # Generate insights for roles
 
 try {
-    New-BetaRoleInsightRequests
+    New-BetaRoleInsightRequests 
     
     # Below is a request that includes all optional parameters
     # New-BetaRoleInsightRequests  
@@ -67,8 +73,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## download-role-insights-entitlements-changes
 This endpoint returns the entitlement insights for a role.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/download-role-insights-entitlements-changes)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -102,18 +111,21 @@ $Filters = 'name sw "r"' # String | Filter results using the standard syntax des
 # Download entitlement insights for a role
 
 try {
-    Invoke-BetaDownloadRoleInsightsEntitlementsChanges -BetaInsightId $InsightId 
+    Invoke-BetaDownloadRoleInsightsEntitlementsChanges -InsightId $InsightId 
     
     # Below is a request that includes all optional parameters
-    # Invoke-BetaDownloadRoleInsightsEntitlementsChanges -BetaInsightId $InsightId -BetaSorters $Sorters -BetaFilters $Filters  
+    # Invoke-BetaDownloadRoleInsightsEntitlementsChanges -InsightId $InsightId -Sorters $Sorters -Filters $Filters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-BetaDownloadRoleInsightsEntitlementsChanges"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-entitlement-changes-identities
 Role insights suggests entitlements to be added for a role. This endpoint returns a list of identities in the role, with or without the entitlements, for a suggested entitlement so that the user can see which identities would be affected if the suggested entitlement were to be added to the role.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-entitlement-changes-identities)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -157,18 +169,21 @@ $Filters = 'name sw "Jan"' # String | Filter results using the standard syntax d
 # Get identities for a suggested entitlement (for a role)
 
 try {
-    Get-BetaEntitlementChangesIdentities -BetaInsightId $InsightId  -BetaEntitlementId $EntitlementId 
+    Get-BetaEntitlementChangesIdentities -InsightId $InsightId -EntitlementId $EntitlementId 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaEntitlementChangesIdentities -BetaInsightId $InsightId -BetaEntitlementId $EntitlementId -BetaHasEntitlement $HasEntitlement -BetaOffset $Offset -BetaLimit $Limit -BetaCount $Count -BetaSorters $Sorters -BetaFilters $Filters  
+    # Get-BetaEntitlementChangesIdentities -InsightId $InsightId -EntitlementId $EntitlementId -HasEntitlement $HasEntitlement -Offset $Offset -Limit $Limit -Count $Count -Sorters $Sorters -Filters $Filters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaEntitlementChangesIdentities"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-role-insight
 This endpoint gets role insights information for a role.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-role-insight)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -198,18 +213,21 @@ $InsightId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role insight 
 # Get a single role insight
 
 try {
-    Get-BetaRoleInsight -BetaInsightId $InsightId 
+    Get-BetaRoleInsight -InsightId $InsightId 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaRoleInsight -BetaInsightId $InsightId  
+    # Get-BetaRoleInsight -InsightId $InsightId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaRoleInsight"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-role-insights
 This method returns detailed role insights for each role.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-role-insights)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -247,18 +265,21 @@ $Filters = 'name sw "John"' # String | Filter results using the standard syntax 
 # Get role insights
 
 try {
-    Get-BetaRoleInsights
+    Get-BetaRoleInsights 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaRoleInsights -BetaOffset $Offset -BetaLimit $Limit -BetaCount $Count -BetaSorters $Sorters -BetaFilters $Filters  
+    # Get-BetaRoleInsights -Offset $Offset -Limit $Limit -Count $Count -Sorters $Sorters -Filters $Filters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaRoleInsights"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-role-insights-current-entitlements
 This endpoint gets the entitlements for a role. The term "current" is to distinguish from the entitlement(s) an insight might recommend adding.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-role-insights-current-entitlements)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -290,18 +311,21 @@ $Filters = 'name sw "r"' # String | Filter results using the standard syntax des
 # Get current entitlement for a role
 
 try {
-    Get-BetaRoleInsightsCurrentEntitlements -BetaInsightId $InsightId 
+    Get-BetaRoleInsightsCurrentEntitlements -InsightId $InsightId 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaRoleInsightsCurrentEntitlements -BetaInsightId $InsightId -BetaFilters $Filters  
+    # Get-BetaRoleInsightsCurrentEntitlements -InsightId $InsightId -Filters $Filters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaRoleInsightsCurrentEntitlements"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-role-insights-entitlements-changes
 This endpoint returns entitlement insights for a role.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-role-insights-entitlements-changes)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -335,18 +359,24 @@ $Filters = 'name sw "Admin"' # String | Filter results using the standard syntax
 # Get entitlement insights for a role
 
 try {
-    Get-BetaRoleInsightsEntitlementsChanges -BetaInsightId $InsightId 
+    Get-BetaRoleInsightsEntitlementsChanges -InsightId $InsightId 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaRoleInsightsEntitlementsChanges -BetaInsightId $InsightId -BetaSorters $Sorters -BetaFilters $Filters  
+    # Get-BetaRoleInsightsEntitlementsChanges -InsightId $InsightId -Sorters $Sorters -Filters $Filters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaRoleInsightsEntitlementsChanges"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-role-insights-requests
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This endpoint returns details of a prior role insights request. 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-role-insights-requests)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -377,18 +407,21 @@ $Id = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role insights reques
 # Returns metadata from prior request.
 
 try {
-    Get-BetaRoleInsightsRequests -BetaId $Id 
+    Get-BetaRoleInsightsRequests -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaRoleInsightsRequests -BetaId $Id  
+    # Get-BetaRoleInsightsRequests -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaRoleInsightsRequests"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-role-insights-summary
 This method returns high level summary information for role insights for a customer.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-role-insights-summary)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -416,7 +449,7 @@ Code | Description  | Data Type
 # Get role insights summary information
 
 try {
-    Get-BetaRoleInsightsSummary
+    Get-BetaRoleInsightsSummary 
     
     # Below is a request that includes all optional parameters
     # Get-BetaRoleInsightsSummary  

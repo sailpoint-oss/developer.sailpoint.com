@@ -27,10 +27,13 @@ Method | HTTP request | Description
 [**Get-PasswordOrgConfig**](#get-password-org-config) | **GET** `/password-org-config` | Get Password Org Config
 [**Send-PasswordOrgConfig**](#put-password-org-config) | **PUT** `/password-org-config` | Update Password Org Config
 
+
 ## create-password-org-config
 This API creates the password org config. Unspecified fields will use default value.
 To be able to use the custom password instructions, you must set the `customInstructionsEnabled` field to "true".
 Requires ORG_ADMIN, API role or authorization scope of 'idn:password-org-config:write'
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/create-password-org-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -67,18 +70,21 @@ $PasswordOrgConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToPasswordOrgConfig -Json $PasswordOrgConfig
-    New-PasswordOrgConfig -PasswordOrgConfig $Result
+    New-PasswordOrgConfig -PasswordOrgConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # New-PasswordOrgConfig -PasswordOrgConfig $PasswordOrgConfig  
+    # New-PasswordOrgConfig -PasswordOrgConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-PasswordOrgConfig"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-password-org-config
 This API returns the password org config . Requires ORG_ADMIN, API role or authorization scope of 'idn:password-org-config:read'
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-password-org-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -107,7 +113,7 @@ Code | Description  | Data Type
 # Get Password Org Config
 
 try {
-    Get-PasswordOrgConfig
+    Get-PasswordOrgConfig 
     
     # Below is a request that includes all optional parameters
     # Get-PasswordOrgConfig  
@@ -117,10 +123,13 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## put-password-org-config
 This API updates the password org config for specified fields. Other fields will keep original value.
 You must set the `customInstructionsEnabled` field to "true" to be able to use custom password instructions. 
 Requires ORG_ADMIN, API role or authorization scope of 'idn:password-org-config:write'
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/put-password-org-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -157,10 +166,10 @@ $PasswordOrgConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToPasswordOrgConfig -Json $PasswordOrgConfig
-    Send-PasswordOrgConfig -PasswordOrgConfig $Result
+    Send-PasswordOrgConfig -PasswordOrgConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-PasswordOrgConfig -PasswordOrgConfig $PasswordOrgConfig  
+    # Send-PasswordOrgConfig -PasswordOrgConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-PasswordOrgConfig"
     Write-Host $_.ErrorDetails

@@ -36,11 +36,14 @@ Method | HTTP request | Description
 [**Get-UploadedConfigurations**](#list-uploaded-configurations) | **GET** `/configuration-hub/backups/uploads` | List Uploaded Configurations
 [**Update-ObjectMappings**](#update-object-mappings) | **POST** `/configuration-hub/object-mappings/{sourceOrg}/bulk-patch` | Bulk updates object mappings
 
+
 ## create-object-mapping
 This creates an object mapping between current org and source org.
 Source org should be "default" when creating an object mapping that is not to be associated to any particular org.
 The request will need the following security scope:
 - sp:config-object-mapping:manage
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/create-object-mapping)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -81,21 +84,24 @@ $ObjectMappingRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToObjectMappingRequest -Json $ObjectMappingRequest
-    New-ObjectMapping -SourceOrg $SourceOrg  -ObjectMappingRequest $Result
+    New-ObjectMapping -SourceOrg $SourceOrg -ObjectMappingRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-ObjectMapping -SourceOrg $SourceOrg -ObjectMappingRequest $ObjectMappingRequest  
+    # New-ObjectMapping -SourceOrg $SourceOrg -ObjectMappingRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-ObjectMapping"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## create-object-mappings
 This creates a set of object mappings (Max 25) between current org and source org.
 Source org should be "default" when creating object mappings that are not to be associated to any particular org.
 The request will need the following security scope:
 - sp:config-object-mapping:manage
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/create-object-mappings)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -144,22 +150,25 @@ $ObjectMappingBulkCreateRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToObjectMappingBulkCreateRequest -Json $ObjectMappingBulkCreateRequest
-    New-ObjectMappings -SourceOrg $SourceOrg  -ObjectMappingBulkCreateRequest $Result
+    New-ObjectMappings -SourceOrg $SourceOrg -ObjectMappingBulkCreateRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-ObjectMappings -SourceOrg $SourceOrg -ObjectMappingBulkCreateRequest $ObjectMappingBulkCreateRequest  
+    # New-ObjectMappings -SourceOrg $SourceOrg -ObjectMappingBulkCreateRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-ObjectMappings"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## create-uploaded-configuration
 This API uploads a JSON configuration file into a tenant.
 
 Configuration files can be managed and deployed via Configuration Hub by uploading a json file which contains configuration data. The JSON file should be the same as the one used by our import endpoints. The object types supported by upload configuration file functionality are the same as the ones supported by our regular backup functionality.
 
 Refer to [SaaS Configuration](https://developer.sailpoint.com/idn/docs/saas-configuration/#supported-objects) for more information about supported objects.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/create-uploaded-configuration)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -192,7 +201,7 @@ $Name = "MyName" # String | Name that will be assigned to the uploaded configura
 # Upload a Configuration
 
 try {
-    New-UploadedConfiguration -Data $Data  -Name $Name 
+    New-UploadedConfiguration -Data $Data -Name $Name 
     
     # Below is a request that includes all optional parameters
     # New-UploadedConfiguration -Data $Data -Name $Name  
@@ -202,11 +211,14 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## delete-object-mapping
 This deletes an existing object mapping.
 Source org should be "default" when deleting an object mapping that is not associated to any particular org.
 The request will need the following security scope:
 - sp:config-object-mapping:manage
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/delete-object-mapping)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -240,7 +252,7 @@ $ObjectMappingId = "3d6e0144-963f-4bd6-8d8d-d77b4e507ce4" # String | The id of t
 # Deletes an object mapping
 
 try {
-    Remove-ObjectMapping -SourceOrg $SourceOrg  -ObjectMappingId $ObjectMappingId 
+    Remove-ObjectMapping -SourceOrg $SourceOrg -ObjectMappingId $ObjectMappingId 
     
     # Below is a request that includes all optional parameters
     # Remove-ObjectMapping -SourceOrg $SourceOrg -ObjectMappingId $ObjectMappingId  
@@ -250,12 +262,15 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## delete-uploaded-configuration
 This API deletes an uploaded configuration based on Id.
 
 On success, this endpoint will return an empty response.
 
 The uploaded configuration id can be obtained from the response after a successful upload, or the list uploaded configurations endpoint.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/delete-uploaded-configuration)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -297,11 +312,14 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-object-mappings
 This gets a list of existing object mappings between current org and source org.
 Source org should be "default" when getting object mappings that are not associated to any particular org.
 The request will need the following security scope:
 - sp:config-object-mapping:read
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-object-mappings)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -343,8 +361,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-uploaded-configuration
 This API gets an existing uploaded configuration for the current tenant.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-uploaded-configuration)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -386,8 +407,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-uploaded-configurations
 This API gets a list of existing uploaded configurations for the current tenant.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/list-uploaded-configurations)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -419,7 +443,7 @@ $Filters = 'status eq "COMPLETE"' # String | Filter results using the standard s
 # List Uploaded Configurations
 
 try {
-    Get-UploadedConfigurations
+    Get-UploadedConfigurations 
     
     # Below is a request that includes all optional parameters
     # Get-UploadedConfigurations -Filters $Filters  
@@ -429,11 +453,14 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## update-object-mappings
 This updates a set of object mappings, only enabled and targetValue fields can be updated.
 Source org should be "default" when updating object mappings that are not associated to any particular org.
 The request will need the following security scope:
 - sp:config-object-mapping:manage
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/update-object-mappings)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -481,10 +508,10 @@ $ObjectMappingBulkPatchRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToObjectMappingBulkPatchRequest -Json $ObjectMappingBulkPatchRequest
-    Update-ObjectMappings -SourceOrg $SourceOrg  -ObjectMappingBulkPatchRequest $Result
+    Update-ObjectMappings -SourceOrg $SourceOrg -ObjectMappingBulkPatchRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-ObjectMappings -SourceOrg $SourceOrg -ObjectMappingBulkPatchRequest $ObjectMappingBulkPatchRequest  
+    # Update-ObjectMappings -SourceOrg $SourceOrg -ObjectMappingBulkPatchRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-ObjectMappings"
     Write-Host $_.ErrorDetails

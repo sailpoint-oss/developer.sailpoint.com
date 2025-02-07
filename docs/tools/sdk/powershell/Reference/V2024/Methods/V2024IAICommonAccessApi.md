@@ -21,8 +21,14 @@ Method | HTTP request | Description
 [**Get-V2024CommonAccess**](#get-common-access) | **GET** `/common-access` | Get a paginated list of common access
 [**Update-V2024CommonAccessStatusInBulk**](#update-common-access-status-in-bulk) | **POST** `/common-access/update-status` | Bulk update common access status
 
+
 ## create-common-access
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This API is used to add roles/access profiles to the list of common access for a customer. Requires authorization scope of iai:access-modeling:create
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-common-access)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -66,18 +72,24 @@ $CommonAccessItemRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToCommonAccessItemRequest -Json $CommonAccessItemRequest
-    New-V2024CommonAccess -V2024XSailPointExperimental $XSailPointExperimental  -V2024CommonAccessItemRequest $Result
+    New-V2024CommonAccess -XSailPointExperimental $XSailPointExperimental -V2024CommonAccessItemRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024CommonAccess -V2024XSailPointExperimental $XSailPointExperimental -V2024CommonAccessItemRequest $CommonAccessItemRequest  
+    # New-V2024CommonAccess -XSailPointExperimental $XSailPointExperimental -V2024CommonAccessItemRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024CommonAccess"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-common-access
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This endpoint returns the current common access for a customer. The returned items can be filtered and sorted. Requires authorization scope of iai:access-modeling:read
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-common-access)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -117,18 +129,24 @@ $Sorters = "access.name" # String | Sort results using the standard syntax descr
 # Get a paginated list of common access
 
 try {
-    Get-V2024CommonAccess -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024CommonAccess -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024CommonAccess -V2024XSailPointExperimental $XSailPointExperimental -V2024Offset $Offset -V2024Limit $Limit -V2024Count $Count -V2024Filters $Filters -V2024Sorters $Sorters  
+    # Get-V2024CommonAccess -XSailPointExperimental $XSailPointExperimental -Offset $Offset -Limit $Limit -Count $Count -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024CommonAccess"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## update-common-access-status-in-bulk
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This submits an update request to the common access application. At this time there are no parameters. Requires authorization scope of iai:access-modeling:update
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/update-common-access-status-in-bulk)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -166,10 +184,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 
 try {
     $Result = ConvertFrom-JsonToCommonAccessIDStatus -Json $CommonAccessIDStatus
-    Update-V2024CommonAccessStatusInBulk -V2024XSailPointExperimental $XSailPointExperimental  -V2024CommonAccessIDStatus $Result
+    Update-V2024CommonAccessStatusInBulk -XSailPointExperimental $XSailPointExperimental -V2024CommonAccessIDStatus $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024CommonAccessStatusInBulk -V2024XSailPointExperimental $XSailPointExperimental -V2024CommonAccessIDStatus $CommonAccessIDStatus  
+    # Update-V2024CommonAccessStatusInBulk -XSailPointExperimental $XSailPointExperimental -V2024CommonAccessIDStatus $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024CommonAccessStatusInBulk"
     Write-Host $_.ErrorDetails

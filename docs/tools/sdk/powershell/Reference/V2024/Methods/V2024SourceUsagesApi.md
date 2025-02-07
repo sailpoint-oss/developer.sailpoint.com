@@ -23,8 +23,11 @@ Method | HTTP request | Description
 [**Get-V2024StatusBySourceId**](#get-status-by-source-id) | **GET** `/source-usages/{sourceId}/status` | Finds status of source usage
 [**Get-V2024UsagesBySourceId**](#get-usages-by-source-id) | **GET** `/source-usages/{sourceId}/summaries` | Returns source usage insights
 
+
 ## get-status-by-source-id
 This API returns the status of the source usage insights setup by IDN source ID.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-status-by-source-id)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -55,18 +58,21 @@ $SourceId = "2c9180835d191a86015d28455b4a2329" # String | ID of IDN source
 # Finds status of source usage
 
 try {
-    Get-V2024StatusBySourceId -V2024SourceId $SourceId 
+    Get-V2024StatusBySourceId -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024StatusBySourceId -V2024SourceId $SourceId  
+    # Get-V2024StatusBySourceId -SourceId $SourceId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024StatusBySourceId"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-usages-by-source-id
 This API returns a summary of source usage insights for past 12 months.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-usages-by-source-id)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -105,10 +111,10 @@ $Sorters = "-date" # String | Sort results using the standard syntax described i
 # Returns source usage insights
 
 try {
-    Get-V2024UsagesBySourceId -V2024SourceId $SourceId 
+    Get-V2024UsagesBySourceId -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024UsagesBySourceId -V2024SourceId $SourceId -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Sorters $Sorters  
+    # Get-V2024UsagesBySourceId -SourceId $SourceId -Limit $Limit -Offset $Offset -Count $Count -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024UsagesBySourceId"
     Write-Host $_.ErrorDetails

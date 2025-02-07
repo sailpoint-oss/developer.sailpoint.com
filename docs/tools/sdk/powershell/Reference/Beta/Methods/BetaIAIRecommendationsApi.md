@@ -21,8 +21,11 @@ Method | HTTP request | Description
 [**Get-BetaRecommendationsConfig**](#get-recommendations-config) | **GET** `/recommendations/config` | Get certification recommendation config values
 [**Update-BetaRecommendationsConfig**](#update-recommendations-config) | **PUT** `/recommendations/config` | Update certification recommendation config values
 
+
 ## get-recommendations
 The getRecommendations API returns recommendations based on the requested object. The recommendations are invoked by IdentityIQ and IdentityNow plug-ins that retrieve recommendations based on the performed calculations.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-recommendations)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -72,18 +75,21 @@ $RecommendationRequestDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToRecommendationRequestDto -Json $RecommendationRequestDto
-    Get-BetaRecommendations -BetaRecommendationRequestDto $Result
+    Get-BetaRecommendations -BetaRecommendationRequestDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaRecommendations -BetaRecommendationRequestDto $RecommendationRequestDto  
+    # Get-BetaRecommendations -BetaRecommendationRequestDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaRecommendations"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-recommendations-config
 Retrieves configuration attributes used by certification recommendations.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-recommendations-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -111,7 +117,7 @@ Code | Description  | Data Type
 # Get certification recommendation config values
 
 try {
-    Get-BetaRecommendationsConfig
+    Get-BetaRecommendationsConfig 
     
     # Below is a request that includes all optional parameters
     # Get-BetaRecommendationsConfig  
@@ -121,8 +127,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## update-recommendations-config
 Updates configuration attributes used by certification recommendations.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/update-recommendations-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -158,10 +167,10 @@ $RecommendationConfigDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToRecommendationConfigDto -Json $RecommendationConfigDto
-    Update-BetaRecommendationsConfig -BetaRecommendationConfigDto $Result
+    Update-BetaRecommendationsConfig -BetaRecommendationConfigDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaRecommendationsConfig -BetaRecommendationConfigDto $RecommendationConfigDto  
+    # Update-BetaRecommendationsConfig -BetaRecommendationConfigDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaRecommendationsConfig"
     Write-Host $_.ErrorDetails

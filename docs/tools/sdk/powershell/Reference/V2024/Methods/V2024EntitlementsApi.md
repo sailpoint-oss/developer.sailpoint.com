@@ -79,8 +79,14 @@ Method | HTTP request | Description
 [**Reset-V2024SourceEntitlements**](#reset-source-entitlements) | **POST** `/entitlements/reset/sources/{id}` | Reset Source Entitlements
 [**Update-V2024EntitlementsInBulk**](#update-entitlements-in-bulk) | **POST** `/entitlements/bulk-update` | Bulk update an entitlement list
 
+
 ## create-access-model-metadata-for-entitlement
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Add single Access Model Metadata to an entitlement.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-access-model-metadata-for-entitlement)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -117,18 +123,24 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Add metadata to an entitlement.
 
 try {
-    New-V2024AccessModelMetadataForEntitlement -V2024Id $Id  -V2024AttributeKey $AttributeKey  -V2024AttributeValue $AttributeValue  -V2024XSailPointExperimental $XSailPointExperimental 
+    New-V2024AccessModelMetadataForEntitlement -Id $Id -AttributeKey $AttributeKey -AttributeValue $AttributeValue -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # New-V2024AccessModelMetadataForEntitlement -V2024Id $Id -V2024AttributeKey $AttributeKey -V2024AttributeValue $AttributeValue -V2024XSailPointExperimental $XSailPointExperimental  
+    # New-V2024AccessModelMetadataForEntitlement -Id $Id -AttributeKey $AttributeKey -AttributeValue $AttributeValue -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024AccessModelMetadataForEntitlement"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## delete-access-model-metadata-from-entitlement
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Remove single Access Model Metadata from an entitlement.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-access-model-metadata-from-entitlement)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -165,18 +177,24 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Remove metadata from an entitlement.
 
 try {
-    Remove-V2024AccessModelMetadataFromEntitlement -V2024Id $Id  -V2024AttributeKey $AttributeKey  -V2024AttributeValue $AttributeValue  -V2024XSailPointExperimental $XSailPointExperimental 
+    Remove-V2024AccessModelMetadataFromEntitlement -Id $Id -AttributeKey $AttributeKey -AttributeValue $AttributeValue -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024AccessModelMetadataFromEntitlement -V2024Id $Id -V2024AttributeKey $AttributeKey -V2024AttributeValue $AttributeValue -V2024XSailPointExperimental $XSailPointExperimental  
+    # Remove-V2024AccessModelMetadataFromEntitlement -Id $Id -AttributeKey $AttributeKey -AttributeValue $AttributeValue -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024AccessModelMetadataFromEntitlement"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-entitlement
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This API returns an entitlement by its ID.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-entitlement)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -210,18 +228,24 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Get an entitlement
 
 try {
-    Get-V2024Entitlement -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024Entitlement -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024Entitlement -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
+    # Get-V2024Entitlement -Id $Id -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024Entitlement"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-entitlement-request-config
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This API returns the entitlement request config for a specified entitlement.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-entitlement-request-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -255,22 +279,31 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Get Entitlement Request Config
 
 try {
-    Get-V2024EntitlementRequestConfig -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024EntitlementRequestConfig -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024EntitlementRequestConfig -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
+    # Get-V2024EntitlementRequestConfig -Id $Id -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024EntitlementRequestConfig"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## import-entitlements-by-source
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Starts an entitlement aggregation on the specified source. Though this endpoint has been deprecated, you can find its Beta equivalent [here](https://developer.sailpoint.com/docs/api/beta/import-entitlements).
 
 If the target source is a direct connection, then the request body must be empty. You will also need to make sure the Content-Type header is not set. If you set the Content-Type header without specifying a body, then you will receive a 500 error.
 
 If the target source is a delimited file source, then the CSV file needs to be included in the request body. You will also need to set the Content-Type header to `multipart/form-data`.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/import-entitlements-by-source)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -305,18 +338,24 @@ $CsvFile =  # System.IO.FileInfo | The CSV file containing the source entitlemen
 # Aggregate Entitlements
 
 try {
-    Import-V2024EntitlementsBySource -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
+    Import-V2024EntitlementsBySource -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Import-V2024EntitlementsBySource -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024CsvFile $CsvFile  
+    # Import-V2024EntitlementsBySource -Id $Id -XSailPointExperimental $XSailPointExperimental -CsvFile $CsvFile  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Import-V2024EntitlementsBySource"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-entitlement-children
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This API returns a list of all child entitlements of a given entitlement.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-entitlement-children)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -360,18 +399,24 @@ $Filters = 'attribute eq "memberOf"' # String | Filter results using the standar
 # List of entitlements children
 
 try {
-    Get-V2024EntitlementChildren -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024EntitlementChildren -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024EntitlementChildren -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Sorters $Sorters -V2024Filters $Filters  
+    # Get-V2024EntitlementChildren -Id $Id -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Count $Count -Sorters $Sorters -Filters $Filters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024EntitlementChildren"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-entitlement-parents
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This API returns a list of all parent entitlements of a given entitlement.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-entitlement-parents)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -415,22 +460,28 @@ $Filters = 'attribute eq "memberOf"' # String | Filter results using the standar
 # List of entitlements parents
 
 try {
-    Get-V2024EntitlementParents -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024EntitlementParents -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024EntitlementParents -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Sorters $Sorters -V2024Filters $Filters  
+    # Get-V2024EntitlementParents -Id $Id -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Count $Count -Sorters $Sorters -Filters $Filters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024EntitlementParents"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-entitlements
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This API returns a list of entitlements.
 
 This API can be used in one of the two following ways: either getting entitlements for a specific **account-id**, or getting via use of **filters** (those two options are exclusive).
 
 Any authenticated token can call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-entitlements)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -479,22 +530,28 @@ $Filters = 'attribute eq "memberOf"' # String | Filter results using the standar
 # Gets a list of entitlements.
 
 try {
-    Get-V2024Entitlements -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024Entitlements -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024Entitlements -V2024XSailPointExperimental $XSailPointExperimental -V2024AccountId $AccountId -V2024SegmentedForIdentity $SegmentedForIdentity -V2024ForSegmentIds $ForSegmentIds -V2024IncludeUnsegmented $IncludeUnsegmented -V2024Offset $Offset -V2024Limit $Limit -V2024Count $Count -V2024Sorters $Sorters -V2024Filters $Filters  
+    # Get-V2024Entitlements -XSailPointExperimental $XSailPointExperimental -AccountId $AccountId -SegmentedForIdentity $SegmentedForIdentity -ForSegmentIds $ForSegmentIds -IncludeUnsegmented $IncludeUnsegmented -Offset $Offset -Limit $Limit -Count $Count -Sorters $Sorters -Filters $Filters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024Entitlements"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## patch-entitlement
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This API updates an existing entitlement using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
 
 The following fields are patchable: **requestable**, **privileged**, **segments**, **owner**, **name**, **description**, and **manuallyUpdatedFields**
 
 When you're patching owner, only owner type and owner id must be provided. Owner name is optional, and it won't be modified. If the owner name is provided, it should correspond to the real name. The only owner type currently supported is IDENTITY.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/patch-entitlement)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -535,18 +592,24 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Patch an entitlement
 
 try {
-    Update-V2024Entitlement -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
+    Update-V2024Entitlement -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024Entitlement -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024JsonPatchOperation $JsonPatchOperation  
+    # Update-V2024Entitlement -Id $Id -XSailPointExperimental $XSailPointExperimental -V2024JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024Entitlement"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## put-entitlement-request-config
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This API replaces the entitlement request config for a specified entitlement.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/put-entitlement-request-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -595,19 +658,25 @@ $EntitlementRequestConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToEntitlementRequestConfig -Json $EntitlementRequestConfig
-    Send-V2024EntitlementRequestConfig -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental  -V2024EntitlementRequestConfig $Result
+    Send-V2024EntitlementRequestConfig -Id $Id -XSailPointExperimental $XSailPointExperimental -V2024EntitlementRequestConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-V2024EntitlementRequestConfig -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024EntitlementRequestConfig $EntitlementRequestConfig  
+    # Send-V2024EntitlementRequestConfig -Id $Id -XSailPointExperimental $XSailPointExperimental -V2024EntitlementRequestConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024EntitlementRequestConfig"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## reset-source-entitlements
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Remove all entitlements from a specific source.
 To reload the accounts along with the entitlements you removed, you must run an unoptimized aggregation.  To do so, use [Account Aggregation](https://developer.sailpoint.com/docs/api/v2024/import-accounts/) with `disableOptimization` = `true`. 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/reset-source-entitlements)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -640,17 +709,21 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Reset Source Entitlements
 
 try {
-    Reset-V2024SourceEntitlements -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
+    Reset-V2024SourceEntitlements -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Reset-V2024SourceEntitlements -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
+    # Reset-V2024SourceEntitlements -Id $Id -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Reset-V2024SourceEntitlements"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## update-entitlements-in-bulk
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 "This API applies an update to every entitlement of the list.\n\nThe\
  \ number of entitlements to update is limited to 50 items maximum.\n\nThe JsonPatch\
  \ update follows the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.\
@@ -658,6 +731,8 @@ try {
  value\": boolean }**  **{ \"op\": \"replace\", \"path\": \"/requestable\",\"value\"\
  : boolean }**`"
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/update-entitlements-in-bulk)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -702,10 +777,10 @@ $EntitlementBulkUpdateRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToEntitlementBulkUpdateRequest -Json $EntitlementBulkUpdateRequest
-    Update-V2024EntitlementsInBulk -V2024XSailPointExperimental $XSailPointExperimental  -V2024EntitlementBulkUpdateRequest $Result
+    Update-V2024EntitlementsInBulk -XSailPointExperimental $XSailPointExperimental -V2024EntitlementBulkUpdateRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024EntitlementsInBulk -V2024XSailPointExperimental $XSailPointExperimental -V2024EntitlementBulkUpdateRequest $EntitlementBulkUpdateRequest  
+    # Update-V2024EntitlementsInBulk -XSailPointExperimental $XSailPointExperimental -V2024EntitlementBulkUpdateRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024EntitlementsInBulk"
     Write-Host $_.ErrorDetails

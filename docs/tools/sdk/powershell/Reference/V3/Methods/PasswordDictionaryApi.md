@@ -67,6 +67,7 @@ Method | HTTP request | Description
 [**Get-PasswordDictionary**](#get-password-dictionary) | **GET** `/password-dictionary` | Get Password Dictionary
 [**Send-PasswordDictionary**](#put-password-dictionary) | **PUT** `/password-dictionary` | Update Password Dictionary
 
+
 ## get-password-dictionary
 This gets password dictionary for the organization.
 The password dictionary file can contain lines that are:
@@ -98,6 +99,8 @@ qazxsws
 
 ```
 
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-password-dictionary)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -126,7 +129,7 @@ Code | Description  | Data Type
 # Get Password Dictionary
 
 try {
-    Get-PasswordDictionary
+    Get-PasswordDictionary 
     
     # Below is a request that includes all optional parameters
     # Get-PasswordDictionary  
@@ -136,6 +139,7 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## put-password-dictionary
 This updates password dictionary for the organization.
 The password dictionary file can contain lines that are:
@@ -166,6 +170,8 @@ password
 qazxsws
 
 ```
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/put-password-dictionary)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -198,7 +204,7 @@ $File =  # System.IO.FileInfo |  (optional)
 # Update Password Dictionary
 
 try {
-    Send-PasswordDictionary
+    Send-PasswordDictionary 
     
     # Below is a request that includes all optional parameters
     # Send-PasswordDictionary -File $File  

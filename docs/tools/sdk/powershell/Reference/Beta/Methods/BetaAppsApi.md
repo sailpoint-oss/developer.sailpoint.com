@@ -34,8 +34,11 @@ Method | HTTP request | Description
 [**Update-BetaUserApp**](#patch-user-app) | **PATCH** `/user-apps/{id}` | Patch user app by ID
 [**Update-BetaSourceAppsInBulk**](#update-source-apps-in-bulk) | **POST** `/source-apps/bulk-update` | Bulk update source apps
 
+
 ## create-source-app
 This endpoint creates a source app using the given source app payload
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/create-source-app)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -76,18 +79,21 @@ $SourceAppCreateDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToSourceAppCreateDto -Json $SourceAppCreateDto
-    New-BetaSourceApp -BetaSourceAppCreateDto $Result
+    New-BetaSourceApp -BetaSourceAppCreateDto $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaSourceApp -BetaSourceAppCreateDto $SourceAppCreateDto  
+    # New-BetaSourceApp -BetaSourceAppCreateDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaSourceApp"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## delete-access-profiles-from-source-app-by-bulk
 This API returns the final list of access profiles for the specified source app after removing
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-access-profiles-from-source-app-by-bulk)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -125,18 +131,21 @@ $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Col
 
 try {
     $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
-    Remove-BetaAccessProfilesFromSourceAppByBulk -BetaId $Id  -BetaRequestBody $Result
+    Remove-BetaAccessProfilesFromSourceAppByBulk -Id $Id -RequestBody $Result 
     
     # Below is a request that includes all optional parameters
-    # Remove-BetaAccessProfilesFromSourceAppByBulk -BetaId $Id -BetaRequestBody $RequestBody -BetaLimit $Limit  
+    # Remove-BetaAccessProfilesFromSourceAppByBulk -Id $Id -RequestBody $Result -Limit $Limit  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaAccessProfilesFromSourceAppByBulk"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## delete-source-app
 Use this API to delete a specific source app
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-source-app)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -167,18 +176,21 @@ $Id = "2c9180835d191a86015d28455b4a2329" # String | source app ID.
 # Delete source app by ID
 
 try {
-    Remove-BetaSourceApp -BetaId $Id 
+    Remove-BetaSourceApp -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Remove-BetaSourceApp -BetaId $Id  
+    # Remove-BetaSourceApp -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaSourceApp"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-source-app
 This API returns a source app by its ID.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-source-app)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -210,18 +222,21 @@ $Id = "2c91808a7813090a017814121e121518" # String | ID of the source app
 # Get source app by ID
 
 try {
-    Get-BetaSourceApp -BetaId $Id 
+    Get-BetaSourceApp -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaSourceApp -BetaId $Id  
+    # Get-BetaSourceApp -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaSourceApp"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-access-profiles-for-source-app
 This API returns the list of access profiles for the specified source app
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/list-access-profiles-for-source-app)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -258,20 +273,23 @@ $Filters = 'name eq "developer access profile"' # String | Filter results using 
 # List access profiles for the specified source app
 
 try {
-    Get-BetaAccessProfilesForSourceApp -BetaId $Id 
+    Get-BetaAccessProfilesForSourceApp -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaAccessProfilesForSourceApp -BetaId $Id -BetaLimit $Limit -BetaOffset $Offset -BetaFilters $Filters  
+    # Get-BetaAccessProfilesForSourceApp -Id $Id -Limit $Limit -Offset $Offset -Filters $Filters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaAccessProfilesForSourceApp"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-all-source-app
 This API returns the list of all source apps for the org.
 
 A token with ORG_ADMIN authority is required to call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/list-all-source-app)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -310,19 +328,22 @@ $Filters = 'enabled eq true' # String | Filter results using the standard syntax
 # List all source apps
 
 try {
-    Get-BetaAllSourceApp
+    Get-BetaAllSourceApp 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaAllSourceApp -BetaLimit $Limit -BetaCount $Count -BetaOffset $Offset -BetaSorters $Sorters -BetaFilters $Filters  
+    # Get-BetaAllSourceApp -Limit $Limit -Count $Count -Offset $Offset -Sorters $Sorters -Filters $Filters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaAllSourceApp"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-all-user-apps
 This API returns the list of all user apps with specified filters.
 This API must be used with **filters** query parameter.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/list-all-user-apps)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -359,18 +380,21 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 # List all user apps
 
 try {
-    Get-BetaAllUserApps -BetaFilters $Filters 
+    Get-BetaAllUserApps -Filters $Filters 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaAllUserApps -BetaFilters $Filters -BetaLimit $Limit -BetaCount $Count -BetaOffset $Offset  
+    # Get-BetaAllUserApps -Filters $Filters -Limit $Limit -Count $Count -Offset $Offset  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaAllUserApps"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-assigned-source-app
 This API returns the list of source apps assigned for logged in user.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/list-assigned-source-app)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -409,18 +433,21 @@ $Filters = 'name eq "source app name"' # String | Filter results using the stand
 # List assigned source apps
 
 try {
-    Get-BetaAssignedSourceApp
+    Get-BetaAssignedSourceApp 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaAssignedSourceApp -BetaLimit $Limit -BetaCount $Count -BetaOffset $Offset -BetaSorters $Sorters -BetaFilters $Filters  
+    # Get-BetaAssignedSourceApp -Limit $Limit -Count $Count -Offset $Offset -Sorters $Sorters -Filters $Filters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaAssignedSourceApp"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-available-accounts-for-user-app
 This API returns the list of available accounts for the specified user app. The user app needs to belong lo logged in user.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/list-available-accounts-for-user-app)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -457,18 +484,21 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 # List available accounts for user app
 
 try {
-    Get-BetaAvailableAccountsForUserApp -BetaId $Id 
+    Get-BetaAvailableAccountsForUserApp -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaAvailableAccountsForUserApp -BetaId $Id -BetaLimit $Limit -BetaCount $Count -BetaOffset $Offset  
+    # Get-BetaAvailableAccountsForUserApp -Id $Id -Limit $Limit -Count $Count -Offset $Offset  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaAvailableAccountsForUserApp"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-available-source-apps
 This API returns the list of source apps available for access request.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/list-available-source-apps)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -507,18 +537,21 @@ $Filters = 'name eq "source app name"' # String | Filter results using the stand
 # List available source apps
 
 try {
-    Get-BetaAvailableSourceApps
+    Get-BetaAvailableSourceApps 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaAvailableSourceApps -BetaLimit $Limit -BetaCount $Count -BetaOffset $Offset -BetaSorters $Sorters -BetaFilters $Filters  
+    # Get-BetaAvailableSourceApps -Limit $Limit -Count $Count -Offset $Offset -Sorters $Sorters -Filters $Filters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaAvailableSourceApps"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-owned-user-apps
 This API returns the list of user apps assigned to logged in user
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/list-owned-user-apps)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -555,20 +588,23 @@ $Filters = 'name eq "user app name"' # String | Filter results using the standar
 # List owned user apps
 
 try {
-    Get-BetaOwnedUserApps
+    Get-BetaOwnedUserApps 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaOwnedUserApps -BetaLimit $Limit -BetaCount $Count -BetaOffset $Offset -BetaFilters $Filters  
+    # Get-BetaOwnedUserApps -Limit $Limit -Count $Count -Offset $Offset -Filters $Filters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaOwnedUserApps"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## patch-source-app
 This API updates an existing source app using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
 The following fields are patchable: **name**, **description**, **enabled**, **owner**, **provisionRequestEnabled**, **appCenterEnabled**, **accountSource**,  **matchAllAccounts** and **accessProfiles**.
 Name, description and owner can't be empty or null.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/patch-source-app)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -607,19 +643,22 @@ $Id = "2c91808a7813090a017814121e121518" # String | ID of the source app to patc
 # Patch source app by ID
 
 try {
-    Update-BetaSourceApp -BetaId $Id 
+    Update-BetaSourceApp -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaSourceApp -BetaId $Id -BetaJsonPatchOperation $JsonPatchOperation  
+    # Update-BetaSourceApp -Id $Id -BetaJsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaSourceApp"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## patch-user-app
 This API updates an existing user app using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
 The following fields are patchable: **account**
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/patch-user-app)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -658,20 +697,23 @@ $Id = "2c91808a7813090a017814121e121518" # String | ID of the user app to patch
 # Patch user app by ID
 
 try {
-    Update-BetaUserApp -BetaId $Id 
+    Update-BetaUserApp -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaUserApp -BetaId $Id -BetaJsonPatchOperation $JsonPatchOperation  
+    # Update-BetaUserApp -Id $Id -BetaJsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaUserApp"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## update-source-apps-in-bulk
 This API updates source apps using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  It can update up to 50 source apps in a batch.
 The following fields can be updated: **name**, **description**, **enabled**, **owner**, **provisionRequestEnabled**, **appCenterEnabled**, **accountSource**,  **matchAllAccounts**, and **accessProfiles**.
 Name, description and owner can't be empty or null.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/update-source-apps-in-bulk)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -714,10 +756,10 @@ $SourceAppBulkUpdateRequest = @"{
 # Bulk update source apps
 
 try {
-    Update-BetaSourceAppsInBulk
+    Update-BetaSourceAppsInBulk 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaSourceAppsInBulk -BetaSourceAppBulkUpdateRequest $SourceAppBulkUpdateRequest  
+    # Update-BetaSourceAppsInBulk -BetaSourceAppBulkUpdateRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaSourceAppsInBulk"
     Write-Host $_.ErrorDetails

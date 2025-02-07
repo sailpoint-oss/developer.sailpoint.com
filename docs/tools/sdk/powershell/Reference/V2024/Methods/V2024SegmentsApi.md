@@ -40,9 +40,12 @@ Method | HTTP request | Description
 [**Get-V2024Segments**](#list-segments) | **GET** `/segments` | List Segments
 [**Update-V2024Segment**](#patch-segment) | **PATCH** `/segments/{id}` | Update Segment
 
+
 ## create-segment
 This API creates a segment. 
 >**Note:** Segment definitions may take time to propagate to all identities.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-segment)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -97,19 +100,22 @@ $Segment = @"{
 
 try {
     $Result = ConvertFrom-JsonToSegment -Json $Segment
-    New-V2024Segment -V2024Segment $Result
+    New-V2024Segment -V2024Segment $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024Segment -V2024Segment $Segment  
+    # New-V2024Segment -V2024Segment $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024Segment"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## delete-segment
 This API deletes the segment specified by the given ID.
 >**Note:** that segment deletion may take some time to become effective.    
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-segment)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -141,18 +147,21 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The segment ID to delete.
 # Delete Segment by ID
 
 try {
-    Remove-V2024Segment -V2024Id $Id 
+    Remove-V2024Segment -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024Segment -V2024Id $Id  
+    # Remove-V2024Segment -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024Segment"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-segment
 This API returns the segment specified by the given ID.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-segment)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -184,18 +193,21 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The segment ID to retrieve.
 # Get Segment by ID
 
 try {
-    Get-V2024Segment -V2024Id $Id 
+    Get-V2024Segment -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024Segment -V2024Id $Id  
+    # Get-V2024Segment -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024Segment"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-segments
 This API returns a list of all segments. 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-segments)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -230,19 +242,22 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # List Segments
 
 try {
-    Get-V2024Segments
+    Get-V2024Segments 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024Segments -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count  
+    # Get-V2024Segments -Limit $Limit -Offset $Offset -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024Segments"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## patch-segment
 Use this API to update segment fields by using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 >**Note:** Changes to a segment may take some time to propagate to all identities.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/patch-segment)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -279,10 +294,10 @@ $RequestBody =  # SystemCollectionsHashtable[] | A list of segment update operat
 
 try {
     $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
-    Update-V2024Segment -V2024Id $Id  -V2024RequestBody $Result
+    Update-V2024Segment -Id $Id -RequestBody $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024Segment -V2024Id $Id -V2024RequestBody $RequestBody  
+    # Update-V2024Segment -Id $Id -RequestBody $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024Segment"
     Write-Host $_.ErrorDetails

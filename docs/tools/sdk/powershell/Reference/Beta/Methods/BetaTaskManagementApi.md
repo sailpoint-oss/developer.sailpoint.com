@@ -23,8 +23,11 @@ Method | HTTP request | Description
 [**Get-BetaTaskStatusList**](#get-task-status-list) | **GET** `/task-status` | Retrieve Task Status List
 [**Update-BetaTaskStatus**](#update-task-status) | **PATCH** `/task-status/{id}` | Update Task Status by ID
 
+
 ## get-pending-task-headers
 Responds with headers only for list of task statuses for pending tasks.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-pending-task-headers)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -60,18 +63,21 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Retrieve Pending Task List Headers
 
 try {
-    Get-BetaPendingTaskHeaders
+    Get-BetaPendingTaskHeaders 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaPendingTaskHeaders -BetaOffset $Offset -BetaLimit $Limit -BetaCount $Count  
+    # Get-BetaPendingTaskHeaders -Offset $Offset -Limit $Limit -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaPendingTaskHeaders"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-pending-tasks
 Retrieve a list of statuses for pending tasks. Types of tasks include account and entitlement aggregation and other general background processing tasks.  Data for tasks older than 90 days will not be returned.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-pending-tasks)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -107,18 +113,21 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Retrieve Pending Task Status List
 
 try {
-    Get-BetaPendingTasks
+    Get-BetaPendingTasks 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaPendingTasks -BetaOffset $Offset -BetaLimit $Limit -BetaCount $Count  
+    # Get-BetaPendingTasks -Offset $Offset -Limit $Limit -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaPendingTasks"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-task-status
 Get task status by task ID. Types of tasks include account and entitlement aggregation and other general background processing tasks.  Data for tasks older than 90 days will not be returned.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-task-status)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -150,19 +159,22 @@ $Id = "00eebcf881994e419d72e757fd30dc0e" # String | Task ID.
 # Get Task Status by ID
 
 try {
-    Get-BetaTaskStatus -BetaId $Id 
+    Get-BetaTaskStatus -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaTaskStatus -BetaId $Id  
+    # Get-BetaTaskStatus -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaTaskStatus"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-task-status-list
 Use this endpoint to get a list of statuses for **completed** tasks. Types of tasks include account and entitlement aggregation and other general background processing tasks.  Data for tasks older than 90 days will not be returned. To get a list of statuses for **in-progress** tasks, please use the [retrieve pending task status list](https://developer.sailpoint.com/docs/api/beta/get-pending-tasks) endpoint.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-task-status-list)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -202,18 +214,21 @@ $Sorters = "-created" # String | Sort results using the standard syntax describe
 # Retrieve Task Status List
 
 try {
-    Get-BetaTaskStatusList
+    Get-BetaTaskStatusList 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaTaskStatusList -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count -BetaFilters $Filters -BetaSorters $Sorters  
+    # Get-BetaTaskStatusList -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaTaskStatusList"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## update-task-status
 Update a current task status by task ID. Use this API to clear a pending task by updating the completionStatus and completed attributes.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/update-task-status)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -253,10 +268,10 @@ $Id = "00eebcf881994e419d72e757fd30dc0e" # String | Task ID.
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-BetaTaskStatus -BetaId $Id  -BetaJsonPatchOperation $Result
+    Update-BetaTaskStatus -Id $Id -BetaJsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaTaskStatus -BetaId $Id -BetaJsonPatchOperation $JsonPatchOperation  
+    # Update-BetaTaskStatus -Id $Id -BetaJsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaTaskStatus"
     Write-Host $_.ErrorDetails

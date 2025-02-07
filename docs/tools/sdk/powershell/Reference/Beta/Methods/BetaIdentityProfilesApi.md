@@ -40,10 +40,13 @@ Method | HTTP request | Description
 [**Sync-BetaIdentityProfile**](#sync-identity-profile) | **POST** `/identity-profiles/{identity-profile-id}/process-identities` | Process identities under profile
 [**Update-BetaIdentityProfile**](#update-identity-profile) | **PATCH** `/identity-profiles/{identity-profile-id}` | Update the Identity Profile
 
+
 ## create-identity-profile
 This creates an Identity Profile.
 
 A token with ORG_ADMIN authority is required to call this API to create an Identity Profile.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/create-identity-profile)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -123,16 +126,17 @@ $IdentityProfile = @"{
 
 try {
     $Result = ConvertFrom-JsonToIdentityProfile -Json $IdentityProfile
-    New-BetaIdentityProfile -BetaIdentityProfile $Result
+    New-BetaIdentityProfile -BetaIdentityProfile $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaIdentityProfile -BetaIdentityProfile $IdentityProfile  
+    # New-BetaIdentityProfile -BetaIdentityProfile $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaIdentityProfile"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## delete-identity-profile
 This deletes an Identity Profile based on ID.
 
@@ -141,6 +145,8 @@ On success, this endpoint will return a reference to the bulk delete task result
 A token with ORG_ADMIN authority is required to call this API.
 
 The following rights are required to access this endpoint: idn:identity-profile:delete
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-identity-profile)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -172,16 +178,17 @@ $IdentityProfileId = "ef38f94347e94562b5bb8424a56397d8" # String | The Identity 
 # Delete an Identity Profile
 
 try {
-    Remove-BetaIdentityProfile -BetaIdentityProfileId $IdentityProfileId 
+    Remove-BetaIdentityProfile -IdentityProfileId $IdentityProfileId 
     
     # Below is a request that includes all optional parameters
-    # Remove-BetaIdentityProfile -BetaIdentityProfileId $IdentityProfileId  
+    # Remove-BetaIdentityProfile -IdentityProfileId $IdentityProfileId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaIdentityProfile"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## delete-identity-profiles
 This deletes multiple Identity Profiles via a list of supplied IDs.
 
@@ -190,6 +197,8 @@ On success, this endpoint will return a reference to the bulk delete task result
 A token with ORG_ADMIN authority is required to call this API.
 
 The following rights are required to access this endpoint: idn:identity-profile:delete
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-identity-profiles)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -223,18 +232,21 @@ $RequestBody = "MyRequestBody" # String[] | Identity Profile bulk delete request
 
 try {
     $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
-    Remove-BetaIdentityProfiles -BetaRequestBody $Result
+    Remove-BetaIdentityProfiles -RequestBody $Result 
     
     # Below is a request that includes all optional parameters
-    # Remove-BetaIdentityProfiles -BetaRequestBody $RequestBody  
+    # Remove-BetaIdentityProfiles -RequestBody $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaIdentityProfiles"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## export-identity-profiles
 This exports existing identity profiles in the format specified by the sp-config service.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/export-identity-profiles)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -274,19 +286,22 @@ $Sorters = "name,-priority" # String | Sort results using the standard syntax de
 # Export Identity Profiles
 
 try {
-    Export-BetaIdentityProfiles
+    Export-BetaIdentityProfiles 
     
     # Below is a request that includes all optional parameters
-    # Export-BetaIdentityProfiles -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count -BetaFilters $Filters -BetaSorters $Sorters  
+    # Export-BetaIdentityProfiles -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Export-BetaIdentityProfiles"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-default-identity-attribute-config
 This returns the default identity attribute config
 A token with ORG_ADMIN authority is required to call this API to get the default identity attribute config.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-default-identity-attribute-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -318,20 +333,23 @@ $IdentityProfileId = "ef38f94347e94562b5bb8424a56397d8" # String | The Identity 
 # Default identity attribute config
 
 try {
-    Get-BetaDefaultIdentityAttributeConfig -BetaIdentityProfileId $IdentityProfileId 
+    Get-BetaDefaultIdentityAttributeConfig -IdentityProfileId $IdentityProfileId 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaDefaultIdentityAttributeConfig -BetaIdentityProfileId $IdentityProfileId  
+    # Get-BetaDefaultIdentityAttributeConfig -IdentityProfileId $IdentityProfileId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaDefaultIdentityAttributeConfig"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-identity-profile
 This returns a single Identity Profile based on ID.
 
 A token with ORG_ADMIN or API authority is required to call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-identity-profile)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -363,18 +381,21 @@ $IdentityProfileId = "ef38f94347e94562b5bb8424a56397d8" # String | The Identity 
 # Gets a single Identity Profile
 
 try {
-    Get-BetaIdentityProfile -BetaIdentityProfileId $IdentityProfileId 
+    Get-BetaIdentityProfile -IdentityProfileId $IdentityProfileId 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaIdentityProfile -BetaIdentityProfileId $IdentityProfileId  
+    # Get-BetaIdentityProfile -IdentityProfileId $IdentityProfileId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaIdentityProfile"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## import-identity-profiles
 This imports previously exported identity profiles.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/import-identity-profiles)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -468,19 +489,22 @@ Code | Description  | Data Type
 
 try {
     $Result = ConvertFrom-JsonToIdentityProfileExportedObject -Json $IdentityProfileExportedObject
-    Import-BetaIdentityProfiles -BetaIdentityProfileExportedObject $Result
+    Import-BetaIdentityProfiles -BetaIdentityProfileExportedObject $Result 
     
     # Below is a request that includes all optional parameters
-    # Import-BetaIdentityProfiles -BetaIdentityProfileExportedObject $IdentityProfileExportedObject  
+    # Import-BetaIdentityProfiles -BetaIdentityProfileExportedObject $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Import-BetaIdentityProfiles"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-identity-profiles
 This returns a list of Identity Profiles based on the specified query parameters.
 A token with ORG_ADMIN or API authority is required to call this API to get a list of Identity Profiles.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/list-identity-profiles)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -519,20 +543,23 @@ $Sorters = "name,-priority" # String | Sort results using the standard syntax de
 # Identity Profiles List
 
 try {
-    Get-BetaIdentityProfiles
+    Get-BetaIdentityProfiles 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaIdentityProfiles -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count -BetaFilters $Filters -BetaSorters $Sorters  
+    # Get-BetaIdentityProfiles -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaIdentityProfiles"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## show-generate-identity-preview
 Use this API to generate a non-persisted preview of the identity object after applying `IdentityAttributeConfig` sent in request body.
 This API only allows `accountAttribute`, `reference` and `rule` transform types in the `IdentityAttributeConfig` sent in the request body.
 A token with ORG_ADMIN authority is required to call this API to generate an identity preview.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/show-generate-identity-preview)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -590,16 +617,17 @@ $IdentityPreviewRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToIdentityPreviewRequest -Json $IdentityPreviewRequest
-    Show-BetaGenerateIdentityPreview -BetaIdentityPreviewRequest $Result
+    Show-BetaGenerateIdentityPreview -BetaIdentityPreviewRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Show-BetaGenerateIdentityPreview -BetaIdentityPreviewRequest $IdentityPreviewRequest  
+    # Show-BetaGenerateIdentityPreview -BetaIdentityPreviewRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Show-BetaGenerateIdentityPreview"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## sync-identity-profile
 Process identities under the profile
 This operation should not be used to schedule your own identity processing or to perform system wide identity refreshes. The system will use a combination of [event-based processing](https://documentation.sailpoint.com/saas/help/setup/identity_processing.html?h=process#event-based-processing) and [scheduled processing](https://documentation.sailpoint.com/saas/help/setup/identity_processing.html?h=process#scheduled-processing) that runs every day at 8:00 AM and 8:00 PM in the tenant's timezone to keep your identities synchronized. 
@@ -607,6 +635,8 @@ This should only be run on identity profiles that have the `identityRefreshRequi
 This operation will perform the following activities on all identities under the identity profile.
 1. Updates identity attribute according to the identity profile mappings. 2. Determines the identity's correct manager through manager correlation. 3. Updates the identity's access according to their assigned lifecycle state. 4. Updates the identity's access based on role assignment criteria.
 A token with ORG_ADMIN authority is required to call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/sync-identity-profile)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -638,16 +668,17 @@ $IdentityProfileId = "ef38f94347e94562b5bb8424a56397d8" # String | The Identity 
 # Process identities under profile
 
 try {
-    Sync-BetaIdentityProfile -BetaIdentityProfileId $IdentityProfileId 
+    Sync-BetaIdentityProfile -IdentityProfileId $IdentityProfileId 
     
     # Below is a request that includes all optional parameters
-    # Sync-BetaIdentityProfile -BetaIdentityProfileId $IdentityProfileId  
+    # Sync-BetaIdentityProfile -IdentityProfileId $IdentityProfileId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Sync-BetaIdentityProfile"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## update-identity-profile
 This updates the specified Identity Profile.
 
@@ -661,6 +692,8 @@ Some fields of the Schema cannot be updated. These fields are listed below:
 * identityCount
 * identityRefreshRequired
 * Authoritative Source and Identity Attribute Configuration cannot be modified at once.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/update-identity-profile)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -700,10 +733,10 @@ $IdentityProfileId = "ef38f94347e94562b5bb8424a56397d8" # String | The Identity 
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-BetaIdentityProfile -BetaIdentityProfileId $IdentityProfileId  -BetaJsonPatchOperation $Result
+    Update-BetaIdentityProfile -IdentityProfileId $IdentityProfileId -BetaJsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaIdentityProfile -BetaIdentityProfileId $IdentityProfileId -BetaJsonPatchOperation $JsonPatchOperation  
+    # Update-BetaIdentityProfile -IdentityProfileId $IdentityProfileId -BetaJsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaIdentityProfile"
     Write-Host $_.ErrorDetails

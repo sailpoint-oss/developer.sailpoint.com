@@ -29,8 +29,11 @@ Method | HTTP request | Description
 [**Get-BetaIdentitySnapshotAccessItems**](#list-identity-snapshot-access-items) | **GET** `/historical-identities/{id}/snapshots/{date}/access-items` | Get Identity Access Items Snapshot
 [**Get-BetaIdentitySnapshots**](#list-identity-snapshots) | **GET** `/historical-identities/{id}/snapshots` | Lists all the snapshots for the identity
 
+
 ## compare-identity-snapshots
 This method gets a difference of count for each access item types for the given identity between 2 snapshots Requires authorization scope of 'idn:identity-history:read' 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/compare-identity-snapshots)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -75,18 +78,21 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Gets a difference of count for each access item types for the given identity between 2 snapshots
 
 try {
-    Compare-BetaIdentitySnapshots -BetaId $Id 
+    Compare-BetaIdentitySnapshots -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Compare-BetaIdentitySnapshots -BetaId $Id -BetaSnapshot1 $Snapshot1 -BetaSnapshot2 $Snapshot2 -BetaAccessItemTypes $AccessItemTypes -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count  
+    # Compare-BetaIdentitySnapshots -Id $Id -Snapshot1 $Snapshot1 -Snapshot2 $Snapshot2 -AccessItemTypes $AccessItemTypes -Limit $Limit -Offset $Offset -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Compare-BetaIdentitySnapshots"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## compare-identity-snapshots-access-type
 This method gets a list of differences of specific accessType for the given identity between 2 snapshots Requires authorization scope of 'idn:identity-history:read' 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/compare-identity-snapshots-access-type)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -131,18 +137,21 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Gets a list of differences of specific accessType for the given identity between 2 snapshots
 
 try {
-    Compare-BetaIdentitySnapshotsAccessType -BetaId $Id  -BetaAccessType $AccessType 
+    Compare-BetaIdentitySnapshotsAccessType -Id $Id -AccessType $AccessType 
     
     # Below is a request that includes all optional parameters
-    # Compare-BetaIdentitySnapshotsAccessType -BetaId $Id -BetaAccessType $AccessType -BetaAccessAssociated $AccessAssociated -BetaSnapshot1 $Snapshot1 -BetaSnapshot2 $Snapshot2 -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count  
+    # Compare-BetaIdentitySnapshotsAccessType -Id $Id -AccessType $AccessType -AccessAssociated $AccessAssociated -Snapshot1 $Snapshot1 -Snapshot2 $Snapshot2 -Limit $Limit -Offset $Offset -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Compare-BetaIdentitySnapshotsAccessType"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-historical-identity
 This method retrieves a specified identity Requires authorization scope of 'idn:identity-history:read'
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-historical-identity)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -173,18 +182,21 @@ $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The identity id
 # Get latest snapshot of identity
 
 try {
-    Get-BetaHistoricalIdentity -BetaId $Id 
+    Get-BetaHistoricalIdentity -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaHistoricalIdentity -BetaId $Id  
+    # Get-BetaHistoricalIdentity -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaHistoricalIdentity"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-historical-identity-events
 This method retrieves all access events for the identity Requires authorization scope of 'idn:identity-history:read' 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-historical-identity-events)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -232,18 +244,21 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Lists all events for the given identity
 
 try {
-    Get-BetaHistoricalIdentityEvents -BetaId $Id 
+    Get-BetaHistoricalIdentityEvents -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaHistoricalIdentityEvents -BetaId $Id -BetaFrom $From -BetaEventTypes $EventTypes -BetaAccessItemTypes $AccessItemTypes -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count  
+    # Get-BetaHistoricalIdentityEvents -Id $Id -From $From -EventTypes $EventTypes -AccessItemTypes $AccessItemTypes -Limit $Limit -Offset $Offset -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaHistoricalIdentityEvents"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-identity-snapshot
 This method retrieves a specified identity snapshot at a given date Requires authorization scope of 'idn:identity-history:read' 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-identity-snapshot)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -276,18 +291,21 @@ $Date = "2007-03-01T13:00:00Z" # String | The specified date
 # Gets an identity snapshot at a given date
 
 try {
-    Get-BetaIdentitySnapshot -BetaId $Id  -BetaDate $Date 
+    Get-BetaIdentitySnapshot -Id $Id -Date $Date 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaIdentitySnapshot -BetaId $Id -BetaDate $Date  
+    # Get-BetaIdentitySnapshot -Id $Id -Date $Date  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaIdentitySnapshot"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-identity-snapshot-summary
 This method gets the summary for the event count for a specific identity by month/day Requires authorization scope of 'idn:identity-history:read' 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-identity-snapshot-summary)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -330,18 +348,21 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Gets the summary for the event count for a specific identity
 
 try {
-    Get-BetaIdentitySnapshotSummary -BetaId $Id 
+    Get-BetaIdentitySnapshotSummary -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaIdentitySnapshotSummary -BetaId $Id -BetaBefore $Before -BetaInterval $Interval -BetaTimeZone $TimeZone -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count  
+    # Get-BetaIdentitySnapshotSummary -Id $Id -Before $Before -Interval $Interval -TimeZone $TimeZone -Limit $Limit -Offset $Offset -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaIdentitySnapshotSummary"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-identity-start-date
 This method retrieves start date of the identity Requires authorization scope of 'idn:identity-history:read' 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-identity-start-date)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -372,18 +393,21 @@ $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The identity id
 # Gets the start date of the identity
 
 try {
-    Get-BetaIdentityStartDate -BetaId $Id 
+    Get-BetaIdentityStartDate -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaIdentityStartDate -BetaId $Id  
+    # Get-BetaIdentityStartDate -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaIdentityStartDate"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-historical-identities
 This gets the list of identities for the customer. This list end point does not support count=true request param. The total  count of identities would never be returned even if the count param is specified in the request Requires authorization scope of 'idn:identity-history:read'
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/list-historical-identities)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -422,18 +446,21 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 # Lists all the identities
 
 try {
-    Get-BetaHistoricalIdentities
+    Get-BetaHistoricalIdentities 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaHistoricalIdentities -BetaStartsWithQuery $StartsWithQuery -BetaIsDeleted $IsDeleted -BetaIsActive $IsActive -BetaLimit $Limit -BetaOffset $Offset  
+    # Get-BetaHistoricalIdentities -StartsWithQuery $StartsWithQuery -IsDeleted $IsDeleted -IsActive $IsActive -Limit $Limit -Offset $Offset  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaHistoricalIdentities"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-identity-access-items
 This method retrieves a list of access item for the identity filtered by the access item type
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/list-identity-access-items)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -479,18 +506,21 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 # List Access Items by Identity
 
 try {
-    Get-BetaIdentityAccessItems -BetaId $Id 
+    Get-BetaIdentityAccessItems -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaIdentityAccessItems -BetaId $Id -BetaType $Type -BetaFilters $Filters -BetaSorters $Sorters -BetaQuery $Query -BetaLimit $Limit -BetaCount $Count -BetaOffset $Offset  
+    # Get-BetaIdentityAccessItems -Id $Id -Type $Type -Filters $Filters -Sorters $Sorters -Query $Query -Limit $Limit -Count $Count -Offset $Offset  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaIdentityAccessItems"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-identity-snapshot-access-items
 Use this API to get a list of identity access items at a specified date, filtered by item type.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/list-identity-snapshot-access-items)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -526,18 +556,21 @@ $Type = "role" # String | Access item type. (optional)
 # Get Identity Access Items Snapshot
 
 try {
-    Get-BetaIdentitySnapshotAccessItems -BetaId $Id  -BetaDate $Date 
+    Get-BetaIdentitySnapshotAccessItems -Id $Id -Date $Date 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaIdentitySnapshotAccessItems -BetaId $Id -BetaDate $Date -BetaType $Type  
+    # Get-BetaIdentitySnapshotAccessItems -Id $Id -Date $Date -Type $Type  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaIdentitySnapshotAccessItems"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-identity-snapshots
 This method retrieves all the snapshots for the identity Requires authorization scope of 'idn:identity-history:read' 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/list-identity-snapshots)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -578,10 +611,10 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Lists all the snapshots for the identity
 
 try {
-    Get-BetaIdentitySnapshots -BetaId $Id 
+    Get-BetaIdentitySnapshots -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaIdentitySnapshots -BetaId $Id -BetaStart $Start -BetaInterval $Interval -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count  
+    # Get-BetaIdentitySnapshots -Id $Id -Start $Start -Interval $Interval -Limit $Limit -Offset $Offset -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaIdentitySnapshots"
     Write-Host $_.ErrorDetails

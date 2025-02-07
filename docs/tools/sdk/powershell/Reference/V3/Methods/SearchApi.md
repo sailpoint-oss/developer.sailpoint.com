@@ -45,8 +45,11 @@ Method | HTTP request | Description
 [**Search-Get**](#search-get) | **GET** `/search/{index}/{id}` | Get a Document by ID
 [**Search-Post**](#search-post) | **POST** `/search` | Perform Search
 
+
 ## search-aggregate
 Performs a search query aggregation and returns the aggregation result. By default, you can page a maximum of 10,000 search result records.  To page past 10,000 records, you can use searchAfter paging.  Refer to [Paginating Search Queries](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-search-queries) for more information about how to implement searchAfter paging. 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/search-aggregate)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -200,18 +203,21 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 
 try {
     $Result = ConvertFrom-JsonToSearch -Json $Search
-    Search-Aggregate -Search $Result
+    Search-Aggregate -Search $Result 
     
     # Below is a request that includes all optional parameters
-    # Search-Aggregate -Search $Search -Offset $Offset -Limit $Limit -Count $Count  
+    # Search-Aggregate -Search $Result -Offset $Offset -Limit $Limit -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Search-Aggregate"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## search-count
 Performs a search with a provided query and returns the count of results in the X-Total-Count header.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/search-count)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -359,18 +365,21 @@ $Search = @"{
 
 try {
     $Result = ConvertFrom-JsonToSearch -Json $Search
-    Search-Count -Search $Result
+    Search-Count -Search $Result 
     
     # Below is a request that includes all optional parameters
-    # Search-Count -Search $Search  
+    # Search-Count -Search $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Search-Count"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## search-get
 Fetches a single document from the specified index, using the specified document ID.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/search-get)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -379,12 +388,12 @@ Path   | Index | **String** | True  | The index from which to fetch the specifie
 Path   | Id | **String** | True  | ID of the requested document.
 
 ### Return type
-[**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0)
+[**SearchDocument**](../models/search-document)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | The requested document. | SystemCollectionsHashtable
+200 | The requested document. | SearchDocument
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
@@ -404,7 +413,7 @@ $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document
 # Get a Document by ID
 
 try {
-    Search-Get -Index $Index  -Id $Id 
+    Search-Get -Index $Index -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Search-Get -Index $Index -Id $Id  
@@ -414,8 +423,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## search-post
 Perform a search with the provided query and return a matching result collection. To page past 10,000 records, you can use `searchAfter` paging.  Refer to [Paginating Search Queries](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-search-queries) for more information about how to implement `searchAfter` paging. 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/search-post)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -426,12 +438,12 @@ Param Type | Name | Data Type | Required  | Description
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-[**SystemCollectionsHashtable[]**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0)
+[**SearchDocument[]**](../models/search-document)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of matching documents. | SystemCollectionsHashtable[]
+200 | List of matching documents. | SearchDocument[]
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
@@ -569,10 +581,10 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 
 try {
     $Result = ConvertFrom-JsonToSearch -Json $Search
-    Search-Post -Search $Result
+    Search-Post -Search $Result 
     
     # Below is a request that includes all optional parameters
-    # Search-Post -Search $Search -Offset $Offset -Limit $Limit -Count $Count  
+    # Search-Post -Search $Result -Offset $Offset -Limit $Limit -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Search-Post"
     Write-Host $_.ErrorDetails

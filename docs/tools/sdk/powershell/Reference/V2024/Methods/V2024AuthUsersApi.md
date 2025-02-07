@@ -25,8 +25,11 @@ Method | HTTP request | Description
 [**Get-V2024AuthUser**](#get-auth-user) | **GET** `/auth-users/{id}` | Auth User Details
 [**Update-V2024AuthUser**](#patch-auth-user) | **PATCH** `/auth-users/{id}` | Auth User Update
 
+
 ## get-auth-user
 Return the specified user's authentication system details.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-auth-user)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -58,22 +61,25 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Identity ID
 # Auth User Details
 
 try {
-    Get-V2024AuthUser -V2024Id $Id 
+    Get-V2024AuthUser -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024AuthUser -V2024Id $Id  
+    # Get-V2024AuthUser -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024AuthUser"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## patch-auth-user
 Use a PATCH request to update an existing user in the authentication system.
 Use this endpoint to modify these fields: 
   * `capabilities`
 
 A '400.1.1 Illegal update attempt' detail code indicates that you attempted to PATCH a field that is not allowed.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/patch-auth-user)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -113,10 +119,10 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Identity ID
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024AuthUser -V2024Id $Id  -V2024JsonPatchOperation $Result
+    Update-V2024AuthUser -Id $Id -V2024JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024AuthUser -V2024Id $Id -V2024JsonPatchOperation $JsonPatchOperation  
+    # Update-V2024AuthUser -Id $Id -V2024JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024AuthUser"
     Write-Host $_.ErrorDetails

@@ -22,8 +22,11 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Get-PublicIdentities**](#get-public-identities) | **GET** `/public-identities` | Get list of public identities
 
+
 ## get-public-identities
 Get a list of public identities.  Set `add-core-filters` to `true` to exclude incomplete identities and uncorrelated accounts.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-public-identities)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -64,7 +67,7 @@ $Sorters = "name" # String | Sort results using the standard syntax described in
 # Get list of public identities
 
 try {
-    Get-PublicIdentities
+    Get-PublicIdentities 
     
     # Below is a request that includes all optional parameters
     # Get-PublicIdentities -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -AddCoreFilters $AddCoreFilters -Sorters $Sorters  

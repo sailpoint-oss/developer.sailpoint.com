@@ -22,9 +22,12 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Get-V2024RequestableObjects**](#list-requestable-objects) | **GET** `/requestable-objects` | Requestable Objects List
 
+
 ## list-requestable-objects
 This endpoint returns a list of acccess items that that can be requested through the Access Request endpoints. Access items are marked with AVAILABLE, PENDING or ASSIGNED with respect to the identity provided using *identity-id* query param.
 Any authenticated token can call this endpoint to see their requestable access items.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-requestable-objects)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -75,10 +78,10 @@ $Sorters = "name" # String | Sort results using the standard syntax described in
 # Requestable Objects List
 
 try {
-    Get-V2024RequestableObjects
+    Get-V2024RequestableObjects 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024RequestableObjects -V2024IdentityId $IdentityId -V2024Types $Types -V2024Term $Term -V2024Statuses $Statuses -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Filters $Filters -V2024Sorters $Sorters  
+    # Get-V2024RequestableObjects -IdentityId $IdentityId -Types $Types -Term $Term -Statuses $Statuses -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024RequestableObjects"
     Write-Host $_.ErrorDetails

@@ -45,8 +45,11 @@ Method | HTTP request | Description
 [**Send-V2024WorkItemForward**](#send-work-item-forward) | **POST** `/work-items/{id}/forward` | Forward a Work Item
 [**Submit-V2024AccountSelection**](#submit-account-selection) | **POST** `/work-items/{id}/submit-account-selection` | Submit Account Selections
 
+
 ## approve-approval-item
 This API approves an Approval Item. Either an admin, or the owning/current user must make this request.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/approve-approval-item)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -80,18 +83,21 @@ $ApprovalItemId = "1211bcaa32112bcef6122adb21cef1ac" # String | The ID of the ap
 # Approve an Approval Item
 
 try {
-    Approve-V2024ApprovalItem -V2024Id $Id  -V2024ApprovalItemId $ApprovalItemId 
+    Approve-V2024ApprovalItem -Id $Id -ApprovalItemId $ApprovalItemId 
     
     # Below is a request that includes all optional parameters
-    # Approve-V2024ApprovalItem -V2024Id $Id -V2024ApprovalItemId $ApprovalItemId  
+    # Approve-V2024ApprovalItem -Id $Id -ApprovalItemId $ApprovalItemId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Approve-V2024ApprovalItem"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## approve-approval-items-in-bulk
 This API bulk approves Approval Items. Either an admin, or the owning/current user must make this request.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/approve-approval-items-in-bulk)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -123,18 +129,21 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
 # Bulk approve Approval Items
 
 try {
-    Approve-V2024ApprovalItemsInBulk -V2024Id $Id 
+    Approve-V2024ApprovalItemsInBulk -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Approve-V2024ApprovalItemsInBulk -V2024Id $Id  
+    # Approve-V2024ApprovalItemsInBulk -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Approve-V2024ApprovalItemsInBulk"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## complete-work-item
 This API completes a work item. Either an admin, or the owning/current user must make this request.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/complete-work-item)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -166,18 +175,21 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
 # Complete a Work Item
 
 try {
-    Complete-V2024WorkItem -V2024Id $Id 
+    Complete-V2024WorkItem -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Complete-V2024WorkItem -V2024Id $Id  
+    # Complete-V2024WorkItem -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Complete-V2024WorkItem"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-completed-work-items
 This gets a collection of completed work items belonging to either the specified user(admin required), or the current user.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-completed-work-items)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -214,18 +226,21 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Completed Work Items
 
 try {
-    Get-V2024CompletedWorkItems
+    Get-V2024CompletedWorkItems 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024CompletedWorkItems -V2024OwnerId $OwnerId -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count  
+    # Get-V2024CompletedWorkItems -OwnerId $OwnerId -Limit $Limit -Offset $Offset -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024CompletedWorkItems"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-count-completed-work-items
 This gets a count of completed work items belonging to either the specified user(admin required), or the current user.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-count-completed-work-items)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -256,18 +271,21 @@ $OwnerId = "1211bcaa32112bcef6122adb21cef1ac" # String | ID of the work item own
 # Count Completed Work Items
 
 try {
-    Get-V2024CountCompletedWorkItems
+    Get-V2024CountCompletedWorkItems 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024CountCompletedWorkItems -V2024OwnerId $OwnerId  
+    # Get-V2024CountCompletedWorkItems -OwnerId $OwnerId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024CountCompletedWorkItems"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-count-work-items
 This gets a count of work items belonging to either the specified user(admin required), or the current user.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-count-work-items)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -298,18 +316,21 @@ $OwnerId = "ef38f94347e94562b5bb8424a56397d8" # String | ID of the work item own
 # Count Work Items
 
 try {
-    Get-V2024CountWorkItems
+    Get-V2024CountWorkItems 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024CountWorkItems -V2024OwnerId $OwnerId  
+    # Get-V2024CountWorkItems -OwnerId $OwnerId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024CountWorkItems"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-work-item
 This gets the details of a Work Item belonging to either the specified user(admin required), or the current user.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-work-item)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -340,18 +361,21 @@ $Id = "2c9180835d191a86015d28455b4a2329" # String | ID of the work item.
 # Get a Work Item
 
 try {
-    Get-V2024WorkItem -V2024Id $Id 
+    Get-V2024WorkItem -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024WorkItem -V2024Id $Id  
+    # Get-V2024WorkItem -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024WorkItem"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-work-items-summary
 This gets a summary of work items belonging to either the specified user(admin required), or the current user.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-work-items-summary)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -382,18 +406,21 @@ $OwnerId = "1211bcaa32112bcef6122adb21cef1ac" # String | ID of the work item own
 # Work Items Summary
 
 try {
-    Get-V2024WorkItemsSummary
+    Get-V2024WorkItemsSummary 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024WorkItemsSummary -V2024OwnerId $OwnerId  
+    # Get-V2024WorkItemsSummary -OwnerId $OwnerId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024WorkItemsSummary"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-work-items
 This gets a collection of work items belonging to either the specified user(admin required), or the current user.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-work-items)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -430,18 +457,21 @@ $OwnerId = "1211bcaa32112bcef6122adb21cef1ac" # String | ID of the work item own
 # List Work Items
 
 try {
-    Get-V2024WorkItems
+    Get-V2024WorkItems 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024WorkItems -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024OwnerId $OwnerId  
+    # Get-V2024WorkItems -Limit $Limit -Offset $Offset -Count $Count -OwnerId $OwnerId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024WorkItems"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## reject-approval-item
 This API rejects an Approval Item. Either an admin, or the owning/current user must make this request.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/reject-approval-item)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -475,18 +505,21 @@ $ApprovalItemId = "1211bcaa32112bcef6122adb21cef1ac" # String | The ID of the ap
 # Reject an Approval Item
 
 try {
-    Deny-V2024ApprovalItem -V2024Id $Id  -V2024ApprovalItemId $ApprovalItemId 
+    Deny-V2024ApprovalItem -Id $Id -ApprovalItemId $ApprovalItemId 
     
     # Below is a request that includes all optional parameters
-    # Deny-V2024ApprovalItem -V2024Id $Id -V2024ApprovalItemId $ApprovalItemId  
+    # Deny-V2024ApprovalItem -Id $Id -ApprovalItemId $ApprovalItemId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Deny-V2024ApprovalItem"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## reject-approval-items-in-bulk
 This API bulk rejects Approval Items. Either an admin, or the owning/current user must make this request.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/reject-approval-items-in-bulk)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -518,18 +551,21 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
 # Bulk reject Approval Items
 
 try {
-    Deny-V2024ApprovalItemsInBulk -V2024Id $Id 
+    Deny-V2024ApprovalItemsInBulk -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Deny-V2024ApprovalItemsInBulk -V2024Id $Id  
+    # Deny-V2024ApprovalItemsInBulk -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Deny-V2024ApprovalItemsInBulk"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## send-work-item-forward
 This API forwards a work item to a new owner. Either an admin, or the owning/current user must make this request. Accessible to work-item Owner, ORG_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/send-work-item-forward)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -567,18 +603,21 @@ $WorkItemForward = @"{
 
 try {
     $Result = ConvertFrom-JsonToWorkItemForward -Json $WorkItemForward
-    Send-V2024WorkItemForward -V2024Id $Id  -V2024WorkItemForward $Result
+    Send-V2024WorkItemForward -Id $Id -V2024WorkItemForward $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-V2024WorkItemForward -V2024Id $Id -V2024WorkItemForward $WorkItemForward  
+    # Send-V2024WorkItemForward -Id $Id -V2024WorkItemForward $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024WorkItemForward"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## submit-account-selection
 This API submits account selections. Either an admin, or the owning/current user must make this request.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/submit-account-selection)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -613,10 +652,10 @@ $RequestBody = @{ key_example =  } # System.Collections.Hashtable | Account Sele
 
 try {
     $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
-    Submit-V2024AccountSelection -V2024Id $Id  -V2024RequestBody $Result
+    Submit-V2024AccountSelection -Id $Id -RequestBody $Result 
     
     # Below is a request that includes all optional parameters
-    # Submit-V2024AccountSelection -V2024Id $Id -V2024RequestBody $RequestBody  
+    # Submit-V2024AccountSelection -Id $Id -RequestBody $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Submit-V2024AccountSelection"
     Write-Host $_.ErrorDetails

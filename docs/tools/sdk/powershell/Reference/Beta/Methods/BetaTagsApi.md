@@ -22,10 +22,13 @@ Method | HTTP request | Description
 [**Get-BetaTagById**](#get-tag-by-id) | **GET** `/tags/{id}` | Get Tag By Id
 [**Get-BetaTags**](#list-tags) | **GET** `/tags` | List Tags
 
+
 ## create-tag
 This API creates new tag.
 
 A token with API, ORG_ADMIN, CERT_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/create-tag)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -71,20 +74,23 @@ $Tag = @"{
 
 try {
     $Result = ConvertFrom-JsonToTag -Json $Tag
-    New-BetaTag -BetaTag $Result
+    New-BetaTag -BetaTag $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaTag -BetaTag $Tag  
+    # New-BetaTag -BetaTag $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaTag"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## delete-tag-by-id
 This API deletes a tag by specified id.
 
 A token with API, ORG_ADMIN, CERT_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-tag-by-id)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -116,20 +122,23 @@ $Id = "329d96cf-3bdb-40a9-988a-b5037ab89022" # String | The ID of the object ref
 # Delete Tag
 
 try {
-    Remove-BetaTagById -BetaId $Id 
+    Remove-BetaTagById -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Remove-BetaTagById -BetaId $Id  
+    # Remove-BetaTagById -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaTagById"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-tag-by-id
 Returns a tag by its id.
 
 A token with API, ORG_ADMIN, CERT_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-tag-by-id)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -161,20 +170,23 @@ $Id = "329d96cf-3bdb-40a9-988a-b5037ab89022" # String | The ID of the object ref
 # Get Tag By Id
 
 try {
-    Get-BetaTagById -BetaId $Id 
+    Get-BetaTagById -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaTagById -BetaId $Id  
+    # Get-BetaTagById -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaTagById"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-tags
 This API returns a list of tags.
 
 A token with API, ORG_ADMIN, CERT_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/list-tags)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -213,10 +225,10 @@ $Sorters = "name,-modified" # String | Sort results using the standard syntax de
 # List Tags
 
 try {
-    Get-BetaTags
+    Get-BetaTags 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaTags -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count -BetaFilters $Filters -BetaSorters $Sorters  
+    # Get-BetaTags -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaTags"
     Write-Host $_.ErrorDetails

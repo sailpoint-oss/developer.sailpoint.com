@@ -26,8 +26,11 @@ Method | HTTP request | Description
 [**Get-OauthClients**](#list-oauth-clients) | **GET** `/oauth-clients` | List OAuth Clients
 [**Update-OauthClient**](#patch-oauth-client) | **PATCH** `/oauth-clients/{id}` | Patch OAuth Client
 
+
 ## create-oauth-client
 This creates an OAuth client.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/create-oauth-client)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -75,18 +78,21 @@ $CreateOAuthClientRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToCreateOAuthClientRequest -Json $CreateOAuthClientRequest
-    New-OauthClient -CreateOAuthClientRequest $Result
+    New-OauthClient -CreateOAuthClientRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-OauthClient -CreateOAuthClientRequest $CreateOAuthClientRequest  
+    # New-OauthClient -CreateOAuthClientRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-OauthClient"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## delete-oauth-client
 This deletes an OAuth client.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/delete-oauth-client)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -128,8 +134,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-oauth-client
 This gets details of an OAuth client.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-oauth-client)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -171,8 +180,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-oauth-clients
 This gets a list of OAuth clients.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/list-oauth-clients)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -203,7 +215,7 @@ $Filters = 'lastUsed le 2023-02-05T10:59:27.214Z' # String | Filter results usin
 # List OAuth Clients
 
 try {
-    Get-OauthClients
+    Get-OauthClients 
     
     # Below is a request that includes all optional parameters
     # Get-OauthClients -Filters $Filters  
@@ -213,8 +225,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## patch-oauth-client
 This performs a targeted update to the field(s) of an OAuth client.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/patch-oauth-client)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -254,10 +269,10 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The OAuth client id
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-OauthClient -Id $Id  -JsonPatchOperation $Result
+    Update-OauthClient -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-OauthClient -Id $Id -JsonPatchOperation $JsonPatchOperation  
+    # Update-OauthClient -Id $Id -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-OauthClient"
     Write-Host $_.ErrorDetails

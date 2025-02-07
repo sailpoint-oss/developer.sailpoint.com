@@ -23,8 +23,11 @@ Method | HTTP request | Description
 [**Get-BetaTransforms**](#list-transforms) | **GET** `/transforms` | List transforms
 [**Update-BetaTransform**](#update-transform) | **PUT** `/transforms/{id}` | Update a transform
 
+
 ## create-transform
 Creates a new transform object immediately. By default, the internal flag is set to false to indicate that this is a custom transform. Only SailPoint employees have the ability to create a transform with internal set to true. Newly created Transforms can be used in the Identity Profile mappings within the UI. A token with transform write authority is required to call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/create-transform)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -77,19 +80,22 @@ $Transform = @"{
 
 try {
     $Result = ConvertFrom-JsonToTransform -Json $Transform
-    New-BetaTransform -BetaTransform $Result
+    New-BetaTransform -BetaTransform $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaTransform -BetaTransform $Transform  
+    # New-BetaTransform -BetaTransform $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaTransform"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## delete-transform
 Deletes the transform specified by the given ID. Attempting to delete a transform that is used in one or more Identity Profile mappings will result in an error. If this occurs, you must first remove the transform from all mappings before deleting the transform.
 A token with transform delete authority is required to call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-transform)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -121,19 +127,22 @@ $Id = "2cd78adghjkja34jh2b1hkjhasuecd" # String | ID of the transform to delete
 # Delete a transform
 
 try {
-    Remove-BetaTransform -BetaId $Id 
+    Remove-BetaTransform -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Remove-BetaTransform -BetaId $Id  
+    # Remove-BetaTransform -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaTransform"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-transform
 This API returns the transform specified by the given ID.
 A token with transform read authority is required to call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-transform)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -165,19 +174,22 @@ $Id = "2cd78adghjkja34jh2b1hkjhasuecd" # String | ID of the transform to retriev
 # Transform by ID
 
 try {
-    Get-BetaTransform -BetaId $Id 
+    Get-BetaTransform -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaTransform -BetaId $Id  
+    # Get-BetaTransform -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaTransform"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-transforms
 Gets a list of all saved transform objects.
 A token with transforms-list read authority is required to call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/list-transforms)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -217,19 +229,22 @@ $Filters = 'name eq "Uppercase"' # String | Filter results using the standard sy
 # List transforms
 
 try {
-    Get-BetaTransforms
+    Get-BetaTransforms 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaTransforms -BetaOffset $Offset -BetaLimit $Limit -BetaCount $Count -BetaName $Name -BetaFilters $Filters  
+    # Get-BetaTransforms -Offset $Offset -Limit $Limit -Count $Count -Name $Name -Filters $Filters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaTransforms"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## update-transform
 Replaces the transform specified by the given ID with the transform provided in the request body. Only the "attributes" field is mutable. Attempting to change other properties (ex. "name" and "type") will result in an error.
 A token with transform write authority is required to call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/update-transform)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -283,10 +298,10 @@ $Transform = @"{
 # Update a transform
 
 try {
-    Update-BetaTransform -BetaId $Id 
+    Update-BetaTransform -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaTransform -BetaId $Id -BetaTransform $Transform  
+    # Update-BetaTransform -Id $Id -BetaTransform $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaTransform"
     Write-Host $_.ErrorDetails

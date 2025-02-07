@@ -22,8 +22,14 @@ Method | HTTP request | Description
 [**Remove-V2024Icon**](#delete-icon) | **DELETE** `/icons/{objectType}/{objectId}` | Delete an icon
 [**Set-V2024Icon**](#set-icon) | **PUT** `/icons/{objectType}/{objectId}` | Update an icon
 
+
 ## delete-icon
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This API endpoint delete an icon by object type and object id. A token with ORG_ADMIN authority is required to call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-icon)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -59,18 +65,24 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Delete an icon
 
 try {
-    Remove-V2024Icon -V2024ObjectType $ObjectType  -V2024ObjectId $ObjectId  -V2024XSailPointExperimental $XSailPointExperimental 
+    Remove-V2024Icon -ObjectType $ObjectType -ObjectId $ObjectId -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024Icon -V2024ObjectType $ObjectType -V2024ObjectId $ObjectId -V2024XSailPointExperimental $XSailPointExperimental  
+    # Remove-V2024Icon -ObjectType $ObjectType -ObjectId $ObjectId -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024Icon"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## set-icon
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This API endpoint updates an icon by object type and object id. A token with ORG_ADMIN authority is required to call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/set-icon)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -108,10 +120,10 @@ $Image =  # System.IO.FileInfo | file with icon. Allowed mime-types ['image/png'
 # Update an icon
 
 try {
-    Set-V2024Icon -V2024ObjectType $ObjectType  -V2024ObjectId $ObjectId  -V2024XSailPointExperimental $XSailPointExperimental  -V2024Image $Image 
+    Set-V2024Icon -ObjectType $ObjectType -ObjectId $ObjectId -XSailPointExperimental $XSailPointExperimental -Image $Image 
     
     # Below is a request that includes all optional parameters
-    # Set-V2024Icon -V2024ObjectType $ObjectType -V2024ObjectId $ObjectId -V2024XSailPointExperimental $XSailPointExperimental -V2024Image $Image  
+    # Set-V2024Icon -ObjectType $ObjectType -ObjectId $ObjectId -XSailPointExperimental $XSailPointExperimental -Image $Image  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-V2024Icon"
     Write-Host $_.ErrorDetails

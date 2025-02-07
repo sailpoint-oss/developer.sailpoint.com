@@ -69,8 +69,14 @@ Method | HTTP request | Description
 [**Test-V2024SubscriptionFilter**](#test-subscription-filter) | **POST** `/trigger-subscriptions/validate-filter` | Validate a Subscription Filter
 [**Update-V2024Subscription**](#update-subscription) | **PUT** `/trigger-subscriptions/{id}` | Update a Subscription
 
+
 ## complete-trigger-invocation
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Completes an invocation to a REQUEST_RESPONSE type trigger.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/complete-trigger-invocation)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -112,20 +118,26 @@ $CompleteInvocation = @"{
 
 try {
     $Result = ConvertFrom-JsonToCompleteInvocation -Json $CompleteInvocation
-    Complete-V2024TriggerInvocation -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental  -V2024CompleteInvocation $Result
+    Complete-V2024TriggerInvocation -Id $Id -XSailPointExperimental $XSailPointExperimental -V2024CompleteInvocation $Result 
     
     # Below is a request that includes all optional parameters
-    # Complete-V2024TriggerInvocation -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024CompleteInvocation $CompleteInvocation  
+    # Complete-V2024TriggerInvocation -Id $Id -XSailPointExperimental $XSailPointExperimental -V2024CompleteInvocation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Complete-V2024TriggerInvocation"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## create-subscription
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This API creates a new subscription to a trigger and defines trigger invocation details. The type of subscription determines which config object is required:
 * HTTP subscriptions require httpConfig
 * EventBridge subscriptions require eventBridgeConfig
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-subscription)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -183,18 +195,24 @@ $SubscriptionPostRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToSubscriptionPostRequest -Json $SubscriptionPostRequest
-    New-V2024Subscription -V2024XSailPointExperimental $XSailPointExperimental  -V2024SubscriptionPostRequest $Result
+    New-V2024Subscription -XSailPointExperimental $XSailPointExperimental -V2024SubscriptionPostRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024Subscription -V2024XSailPointExperimental $XSailPointExperimental -V2024SubscriptionPostRequest $SubscriptionPostRequest  
+    # New-V2024Subscription -XSailPointExperimental $XSailPointExperimental -V2024SubscriptionPostRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024Subscription"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## delete-subscription
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Deletes an existing subscription to a trigger.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-subscription)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -228,18 +246,24 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Delete a Subscription
 
 try {
-    Remove-V2024Subscription -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
+    Remove-V2024Subscription -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024Subscription -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
+    # Remove-V2024Subscription -Id $Id -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024Subscription"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-subscriptions
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Gets a list of all trigger subscriptions.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-subscriptions)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -280,20 +304,26 @@ $Sorters = "triggerName" # String | Sort results using the standard syntax descr
 # List Subscriptions
 
 try {
-    Get-V2024Subscriptions -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024Subscriptions -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024Subscriptions -V2024XSailPointExperimental $XSailPointExperimental -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Filters $Filters -V2024Sorters $Sorters  
+    # Get-V2024Subscriptions -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024Subscriptions"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-trigger-invocation-status
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Gets a list of latest invocation statuses.
 Statuses of successful invocations are available for up to 24 hours. Statuses of failed invocations are available for up to 48 hours.
 This endpoint may only fetch up to 2000 invocations, and should not be treated as a representation of the full history of invocations.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-trigger-invocation-status)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -334,18 +364,24 @@ $Sorters = "created" # String | Sort results using the standard syntax described
 # List Latest Invocation Statuses
 
 try {
-    Get-V2024TriggerInvocationStatus -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024TriggerInvocationStatus -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024TriggerInvocationStatus -V2024XSailPointExperimental $XSailPointExperimental -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Filters $Filters -V2024Sorters $Sorters  
+    # Get-V2024TriggerInvocationStatus -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024TriggerInvocationStatus"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-triggers
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Gets a list of triggers that are available in the tenant.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-triggers)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -386,20 +422,26 @@ $Sorters = "name" # String | Sort results using the standard syntax described in
 # List Triggers
 
 try {
-    Get-V2024Triggers -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024Triggers -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024Triggers -V2024XSailPointExperimental $XSailPointExperimental -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Filters $Filters -V2024Sorters $Sorters  
+    # Get-V2024Triggers -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024Triggers"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## patch-subscription
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This API updates a trigger subscription in IdentityNow, using a set of instructions to modify a subscription partially. The following fields are patchable:
 
 **name**, **description**, **enabled**, **type**, **filter**, **responseDeadline**, **httpConfig**, **eventBridgeConfig**, **workflowConfig**
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/patch-subscription)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -437,18 +479,24 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 
 try {
     $Result = ConvertFrom-JsonToSubscriptionPatchRequestInner -Json $SubscriptionPatchRequestInner
-    Update-V2024Subscription -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental  -V2024SubscriptionPatchRequestInner $Result
+    Update-V2024Subscription -Id $Id -XSailPointExperimental $XSailPointExperimental -V2024SubscriptionPatchRequestInner $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024Subscription -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024SubscriptionPatchRequestInner $SubscriptionPatchRequestInner  
+    # Update-V2024Subscription -Id $Id -XSailPointExperimental $XSailPointExperimental -V2024SubscriptionPatchRequestInner $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024Subscription"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## start-test-trigger-invocation
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Initiate a test event for all subscribers of the specified event trigger.  If there are no subscribers to the specified trigger in the tenant, then no test event will be sent.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/start-test-trigger-invocation)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -492,19 +540,25 @@ $TestInvocation = @"{
 
 try {
     $Result = ConvertFrom-JsonToTestInvocation -Json $TestInvocation
-    Start-V2024TestTriggerInvocation -V2024XSailPointExperimental $XSailPointExperimental  -V2024TestInvocation $Result
+    Start-V2024TestTriggerInvocation -XSailPointExperimental $XSailPointExperimental -V2024TestInvocation $Result 
     
     # Below is a request that includes all optional parameters
-    # Start-V2024TestTriggerInvocation -V2024XSailPointExperimental $XSailPointExperimental -V2024TestInvocation $TestInvocation  
+    # Start-V2024TestTriggerInvocation -XSailPointExperimental $XSailPointExperimental -V2024TestInvocation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-V2024TestTriggerInvocation"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## test-subscription-filter
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Validates a JSONPath filter expression against a provided mock input.
 Request requires a security scope of: 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/test-subscription-filter)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -543,17 +597,21 @@ $ValidateFilterInputDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToValidateFilterInputDto -Json $ValidateFilterInputDto
-    Test-V2024SubscriptionFilter -V2024XSailPointExperimental $XSailPointExperimental  -V2024ValidateFilterInputDto $Result
+    Test-V2024SubscriptionFilter -XSailPointExperimental $XSailPointExperimental -V2024ValidateFilterInputDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Test-V2024SubscriptionFilter -V2024XSailPointExperimental $XSailPointExperimental -V2024ValidateFilterInputDto $ValidateFilterInputDto  
+    # Test-V2024SubscriptionFilter -XSailPointExperimental $XSailPointExperimental -V2024ValidateFilterInputDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Test-V2024SubscriptionFilter"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## update-subscription
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This API updates a trigger subscription in IdentityNow, using a full object representation. In other words, the existing
   Subscription is completely replaced. The following fields are immutable:
 
@@ -564,6 +622,8 @@ This API updates a trigger subscription in IdentityNow, using a full object repr
 
 
   Attempts to modify these fields result in 400.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/update-subscription)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -623,10 +683,10 @@ $SubscriptionPutRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToSubscriptionPutRequest -Json $SubscriptionPutRequest
-    Update-V2024Subscription -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental  -V2024SubscriptionPutRequest $Result
+    Update-V2024Subscription -Id $Id -XSailPointExperimental $XSailPointExperimental -V2024SubscriptionPutRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024Subscription -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024SubscriptionPutRequest $SubscriptionPutRequest  
+    # Update-V2024Subscription -Id $Id -XSailPointExperimental $XSailPointExperimental -V2024SubscriptionPutRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024Subscription"
     Write-Host $_.ErrorDetails

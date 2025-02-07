@@ -33,8 +33,11 @@ Method | HTTP request | Description
 [**Update-BetaWorkgroup**](#patch-workgroup) | **PATCH** `/workgroups/{id}` | Patch a Governance Group
 [**Update-BetaWorkgroupMembers**](#update-workgroup-members) | **POST** `/workgroups/{workgroupId}/members/bulk-add` | Add members to Governance Group
 
+
 ## create-workgroup
 This API creates a new Governance Group.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/create-workgroup)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -81,18 +84,21 @@ $WorkgroupDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToWorkgroupDto -Json $WorkgroupDto
-    New-BetaWorkgroup -BetaWorkgroupDto $Result
+    New-BetaWorkgroup -BetaWorkgroupDto $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaWorkgroup -BetaWorkgroupDto $WorkgroupDto  
+    # New-BetaWorkgroup -BetaWorkgroupDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaWorkgroup"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## delete-workgroup
 This API deletes a Governance Group by its ID.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-workgroup)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -123,22 +129,25 @@ $Id = "2c9180837ca6693d017ca8d097500149" # String | ID of the Governance Group
 # Delete a Governance Group
 
 try {
-    Remove-BetaWorkgroup -BetaId $Id 
+    Remove-BetaWorkgroup -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Remove-BetaWorkgroup -BetaId $Id  
+    # Remove-BetaWorkgroup -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaWorkgroup"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## delete-workgroup-members
 This API removes one or more  members from a Governance Group.  A token with API, ORG_ADMIN authority is required to call this API.
 
 >  **Following field of Identity is an optional field in the request.**
 
 >  **name**
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-workgroup-members)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -173,16 +182,17 @@ $WorkgroupId = "2c91808a7813090a017814121919ecca" # String | ID of the Governanc
 
 try {
     $Result = ConvertFrom-JsonToBulkWorkgroupMembersRequestInner -Json $BulkWorkgroupMembersRequestInner
-    Remove-BetaWorkgroupMembers -BetaWorkgroupId $WorkgroupId  -BetaBulkWorkgroupMembersRequestInner $Result
+    Remove-BetaWorkgroupMembers -WorkgroupId $WorkgroupId -BetaBulkWorkgroupMembersRequestInner $Result 
     
     # Below is a request that includes all optional parameters
-    # Remove-BetaWorkgroupMembers -BetaWorkgroupId $WorkgroupId -BetaBulkWorkgroupMembersRequestInner $BulkWorkgroupMembersRequestInner  
+    # Remove-BetaWorkgroupMembers -WorkgroupId $WorkgroupId -BetaBulkWorkgroupMembersRequestInner $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaWorkgroupMembers"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## delete-workgroups-in-bulk
 
 This API initiates a bulk deletion of one or more Governance Groups.
@@ -196,6 +206,8 @@ This API initiates a bulk deletion of one or more Governance Groups.
 >  If the request contains any **inUse** or **notFound** Governance Group IDs then it skips only these Governance Groups for deletion and deletes the rest of Governance Groups which have no connections associated with it. 
 
 >  **This API has limit number of Governance Groups can be deleted at one time. If the request contains more then 100 Governance Groups IDs to be deleted then the API will throw an exception.**
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-workgroups-in-bulk)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -229,18 +241,21 @@ $WorkgroupBulkDeleteRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToWorkgroupBulkDeleteRequest -Json $WorkgroupBulkDeleteRequest
-    Remove-BetaWorkgroupsInBulk -BetaWorkgroupBulkDeleteRequest $Result
+    Remove-BetaWorkgroupsInBulk -BetaWorkgroupBulkDeleteRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Remove-BetaWorkgroupsInBulk -BetaWorkgroupBulkDeleteRequest $WorkgroupBulkDeleteRequest  
+    # Remove-BetaWorkgroupsInBulk -BetaWorkgroupBulkDeleteRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaWorkgroupsInBulk"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-workgroup
 This API returns a Governance Groups by its ID.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-workgroup)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -271,18 +286,21 @@ $Id = "2c9180837ca6693d017ca8d097500149" # String | ID of the Governance Group
 # Get Governance Group by Id
 
 try {
-    Get-BetaWorkgroup -BetaId $Id 
+    Get-BetaWorkgroup -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaWorkgroup -BetaId $Id  
+    # Get-BetaWorkgroup -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaWorkgroup"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-connections
 This API returns list of connections associated with a Governance Group.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/list-connections)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -321,18 +339,21 @@ $Sorters = "name,-modified" # String | Sort results using the standard syntax de
 # List connections for Governance Group
 
 try {
-    Get-BetaConnections -BetaWorkgroupId $WorkgroupId 
+    Get-BetaConnections -WorkgroupId $WorkgroupId 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaConnections -BetaWorkgroupId $WorkgroupId -BetaOffset $Offset -BetaLimit $Limit -BetaCount $Count -BetaSorters $Sorters  
+    # Get-BetaConnections -WorkgroupId $WorkgroupId -Offset $Offset -Limit $Limit -Count $Count -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaConnections"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-workgroup-members
 This API returns list of members associated with a Governance Group.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/list-workgroup-members)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -371,18 +392,21 @@ $Sorters = "name,-modified" # String | Sort results using the standard syntax de
 # List Governance Group Members
 
 try {
-    Get-BetaWorkgroupMembers -BetaWorkgroupId $WorkgroupId 
+    Get-BetaWorkgroupMembers -WorkgroupId $WorkgroupId 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaWorkgroupMembers -BetaWorkgroupId $WorkgroupId -BetaOffset $Offset -BetaLimit $Limit -BetaCount $Count -BetaSorters $Sorters  
+    # Get-BetaWorkgroupMembers -WorkgroupId $WorkgroupId -Offset $Offset -Limit $Limit -Count $Count -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaWorkgroupMembers"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-workgroups
 This API returns list of Governance Groups
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/list-workgroups)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -421,16 +445,17 @@ $Sorters = "name,-modified" # String | Sort results using the standard syntax de
 # List Governance Groups
 
 try {
-    Get-BetaWorkgroups
+    Get-BetaWorkgroups 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaWorkgroups -BetaOffset $Offset -BetaLimit $Limit -BetaCount $Count -BetaFilters $Filters -BetaSorters $Sorters  
+    # Get-BetaWorkgroups -Offset $Offset -Limit $Limit -Count $Count -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaWorkgroups"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## patch-workgroup
 This API updates an existing governance group by ID. 
 The following fields and objects are patchable:
@@ -439,6 +464,8 @@ The following fields and objects are patchable:
   * owner
 
 A token with API or ORG_ADMIN authority is required to call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/patch-workgroup)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -476,22 +503,25 @@ $Id = "2c9180837ca6693d017ca8d097500149" # String | ID of the Governance Group
 # Patch a Governance Group
 
 try {
-    Update-BetaWorkgroup -BetaId $Id 
+    Update-BetaWorkgroup -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaWorkgroup -BetaId $Id -BetaJsonPatchOperation $JsonPatchOperation  
+    # Update-BetaWorkgroup -Id $Id -BetaJsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaWorkgroup"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## update-workgroup-members
 This API adds one or more members to a Governance Group.  A token with API, ORG_ADMIN authority is required to call this API.
 
 >  **Following field of Identity is an optional field in the request.**
 
 >  **name**
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/update-workgroup-members)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -526,10 +556,10 @@ $WorkgroupId = "2c91808a7813090a017814121919ecca" # String | ID of the Governanc
 
 try {
     $Result = ConvertFrom-JsonToBulkWorkgroupMembersRequestInner -Json $BulkWorkgroupMembersRequestInner
-    Update-BetaWorkgroupMembers -BetaWorkgroupId $WorkgroupId  -BetaBulkWorkgroupMembersRequestInner $Result
+    Update-BetaWorkgroupMembers -WorkgroupId $WorkgroupId -BetaBulkWorkgroupMembersRequestInner $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaWorkgroupMembers -BetaWorkgroupId $WorkgroupId -BetaBulkWorkgroupMembersRequestInner $BulkWorkgroupMembersRequestInner  
+    # Update-BetaWorkgroupMembers -WorkgroupId $WorkgroupId -BetaBulkWorkgroupMembersRequestInner $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaWorkgroupMembers"
     Write-Host $_.ErrorDetails

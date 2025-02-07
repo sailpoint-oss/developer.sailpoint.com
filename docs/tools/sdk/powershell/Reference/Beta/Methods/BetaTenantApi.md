@@ -19,8 +19,11 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Get-BetaTenant**](#get-tenant) | **GET** `/tenant` | Get Tenant Information.
 
+
 ## get-tenant
 This rest endpoint can be used to retrieve tenant details.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-tenant)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -50,7 +53,7 @@ Code | Description  | Data Type
 # Get Tenant Information.
 
 try {
-    Get-BetaTenant
+    Get-BetaTenant 
     
     # Below is a request that includes all optional parameters
     # Get-BetaTenant  

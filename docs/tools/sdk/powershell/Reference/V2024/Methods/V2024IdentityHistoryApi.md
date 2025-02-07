@@ -29,8 +29,14 @@ Method | HTTP request | Description
 [**Get-V2024IdentitySnapshotAccessItems**](#list-identity-snapshot-access-items) | **GET** `/historical-identities/{id}/snapshots/{date}/access-items` | Gets the list of identity access items at a given date filterd by item type
 [**Get-V2024IdentitySnapshots**](#list-identity-snapshots) | **GET** `/historical-identities/{id}/snapshots` | Lists all the snapshots for the identity
 
+
 ## compare-identity-snapshots
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This method gets a difference of count for each access item types for the given identity between 2 snapshots Requires authorization scope of 'idn:identity-history:read' 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/compare-identity-snapshots)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -77,18 +83,24 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Gets a difference of count for each access item types for the given identity between 2 snapshots
 
 try {
-    Compare-V2024IdentitySnapshots -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
+    Compare-V2024IdentitySnapshots -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Compare-V2024IdentitySnapshots -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024Snapshot1 $Snapshot1 -V2024Snapshot2 $Snapshot2 -V2024AccessItemTypes $AccessItemTypes -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count  
+    # Compare-V2024IdentitySnapshots -Id $Id -XSailPointExperimental $XSailPointExperimental -Snapshot1 $Snapshot1 -Snapshot2 $Snapshot2 -AccessItemTypes $AccessItemTypes -Limit $Limit -Offset $Offset -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Compare-V2024IdentitySnapshots"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## compare-identity-snapshots-access-type
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This method gets a list of differences of specific accessType for the given identity between 2 snapshots Requires authorization scope of 'idn:identity-history:read' 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/compare-identity-snapshots-access-type)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -135,18 +147,24 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Gets a list of differences of specific accessType for the given identity between 2 snapshots
 
 try {
-    Compare-V2024IdentitySnapshotsAccessType -V2024Id $Id  -V2024AccessType $AccessType  -V2024XSailPointExperimental $XSailPointExperimental 
+    Compare-V2024IdentitySnapshotsAccessType -Id $Id -AccessType $AccessType -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Compare-V2024IdentitySnapshotsAccessType -V2024Id $Id -V2024AccessType $AccessType -V2024XSailPointExperimental $XSailPointExperimental -V2024AccessAssociated $AccessAssociated -V2024Snapshot1 $Snapshot1 -V2024Snapshot2 $Snapshot2 -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count  
+    # Compare-V2024IdentitySnapshotsAccessType -Id $Id -AccessType $AccessType -XSailPointExperimental $XSailPointExperimental -AccessAssociated $AccessAssociated -Snapshot1 $Snapshot1 -Snapshot2 $Snapshot2 -Limit $Limit -Offset $Offset -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Compare-V2024IdentitySnapshotsAccessType"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-historical-identity
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This method retrieves a specified identity Requires authorization scope of 'idn:identity-history:read'
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-historical-identity)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -179,18 +197,24 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Get latest snapshot of identity
 
 try {
-    Get-V2024HistoricalIdentity -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024HistoricalIdentity -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024HistoricalIdentity -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
+    # Get-V2024HistoricalIdentity -Id $Id -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024HistoricalIdentity"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-historical-identity-events
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This method retrieves all access events for the identity Requires authorization scope of 'idn:identity-history:read' 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-historical-identity-events)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -240,18 +264,24 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Lists all events for the given identity
 
 try {
-    Get-V2024HistoricalIdentityEvents -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024HistoricalIdentityEvents -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024HistoricalIdentityEvents -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024From $From -V2024EventTypes $EventTypes -V2024AccessItemTypes $AccessItemTypes -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count  
+    # Get-V2024HistoricalIdentityEvents -Id $Id -XSailPointExperimental $XSailPointExperimental -From $From -EventTypes $EventTypes -AccessItemTypes $AccessItemTypes -Limit $Limit -Offset $Offset -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024HistoricalIdentityEvents"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-identity-snapshot
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This method retrieves a specified identity snapshot at a given date Requires authorization scope of 'idn:identity-history:read' 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-identity-snapshot)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -286,18 +316,24 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Gets an identity snapshot at a given date
 
 try {
-    Get-V2024IdentitySnapshot -V2024Id $Id  -V2024Date $Date  -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024IdentitySnapshot -Id $Id -Date $Date -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024IdentitySnapshot -V2024Id $Id -V2024Date $Date -V2024XSailPointExperimental $XSailPointExperimental  
+    # Get-V2024IdentitySnapshot -Id $Id -Date $Date -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024IdentitySnapshot"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-identity-snapshot-summary
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This method gets the summary for the event count for a specific identity by month/day Requires authorization scope of 'idn:identity-history:read' 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-identity-snapshot-summary)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -342,18 +378,24 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Gets the summary for the event count for a specific identity
 
 try {
-    Get-V2024IdentitySnapshotSummary -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024IdentitySnapshotSummary -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024IdentitySnapshotSummary -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024Before $Before -V2024Interval $Interval -V2024TimeZone $TimeZone -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count  
+    # Get-V2024IdentitySnapshotSummary -Id $Id -XSailPointExperimental $XSailPointExperimental -Before $Before -Interval $Interval -TimeZone $TimeZone -Limit $Limit -Offset $Offset -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024IdentitySnapshotSummary"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-identity-start-date
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This method retrieves start date of the identity Requires authorization scope of 'idn:identity-history:read' 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-identity-start-date)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -386,18 +428,24 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Gets the start date of the identity
 
 try {
-    Get-V2024IdentityStartDate -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024IdentityStartDate -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024IdentityStartDate -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
+    # Get-V2024IdentityStartDate -Id $Id -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024IdentityStartDate"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-historical-identities
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This gets the list of identities for the customer. This list end point does not support count=true request param. The total  count of identities would never be returned even if the count param is specified in the request Requires authorization scope of 'idn:identity-history:read'
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-historical-identities)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -438,19 +486,25 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 # Lists all the identities
 
 try {
-    Get-V2024HistoricalIdentities -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024HistoricalIdentities -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024HistoricalIdentities -V2024XSailPointExperimental $XSailPointExperimental -V2024StartsWithQuery $StartsWithQuery -V2024IsDeleted $IsDeleted -V2024IsActive $IsActive -V2024Limit $Limit -V2024Offset $Offset  
+    # Get-V2024HistoricalIdentities -XSailPointExperimental $XSailPointExperimental -StartsWithQuery $StartsWithQuery -IsDeleted $IsDeleted -IsActive $IsActive -Limit $Limit -Offset $Offset  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024HistoricalIdentities"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-identity-access-items
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This method retrieves a list of access item for the identity filtered by the access item type
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-identity-access-items)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -492,18 +546,24 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 # List Access Items by Identity
 
 try {
-    Get-V2024IdentityAccessItems -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024IdentityAccessItems -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024IdentityAccessItems -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024Type $Type -V2024Limit $Limit -V2024Count $Count -V2024Offset $Offset  
+    # Get-V2024IdentityAccessItems -Id $Id -XSailPointExperimental $XSailPointExperimental -Type $Type -Limit $Limit -Count $Count -Offset $Offset  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024IdentityAccessItems"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-identity-snapshot-access-items
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This method retrieves the list of identity access items at a given date filterd by item type Requires authorization scope of 'idn:identity-history:read' 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-identity-snapshot-access-items)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -540,18 +600,24 @@ $Type = "account" # String | The access item type (optional)
 # Gets the list of identity access items at a given date filterd by item type
 
 try {
-    Get-V2024IdentitySnapshotAccessItems -V2024Id $Id  -V2024Date $Date  -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024IdentitySnapshotAccessItems -Id $Id -Date $Date -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024IdentitySnapshotAccessItems -V2024Id $Id -V2024Date $Date -V2024XSailPointExperimental $XSailPointExperimental -V2024Type $Type  
+    # Get-V2024IdentitySnapshotAccessItems -Id $Id -Date $Date -XSailPointExperimental $XSailPointExperimental -Type $Type  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024IdentitySnapshotAccessItems"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-identity-snapshots
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This method retrieves all the snapshots for the identity Requires authorization scope of 'idn:identity-history:read' 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-identity-snapshots)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -594,10 +660,10 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Lists all the snapshots for the identity
 
 try {
-    Get-V2024IdentitySnapshots -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024IdentitySnapshots -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024IdentitySnapshots -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024Start $Start -V2024Interval $Interval -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count  
+    # Get-V2024IdentitySnapshots -Id $Id -XSailPointExperimental $XSailPointExperimental -Start $Start -Interval $Interval -Limit $Limit -Offset $Offset -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024IdentitySnapshots"
     Write-Host $_.ErrorDetails

@@ -63,6 +63,7 @@ Method | HTTP request | Description
 [**Get-BetaRoles**](#list-roles) | **GET** `/roles` | List Roles
 [**Update-BetaRole**](#patch-role) | **PATCH** `/roles/{id}` | Patch a specified Role
 
+
 ## create-role
 This API creates a role.
 
@@ -71,6 +72,8 @@ You must have a token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authorit
 In addition, a ROLE_SUBADMIN may not create a role including an access profile if that access profile is associated with a source the ROLE_SUBADMIN is not associated with themselves. 
 
 The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing roles. However, any new roles as well as any updates to existing descriptions will be limited to 2000 characters.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/create-role)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -259,21 +262,24 @@ $Role = @"{
 
 try {
     $Result = ConvertFrom-JsonToRole -Json $Role
-    New-BetaRole -BetaRole $Result
+    New-BetaRole -BetaRole $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaRole -BetaRole $Role  
+    # New-BetaRole -BetaRole $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaRole"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## delete-bulk-roles
 This endpoint initiates a bulk deletion of one or more roles.
 When the request is successful, the endpoint returns the bulk delete's task result ID.  To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/beta/get-task-status), which will return the task result's status and information. 
 This endpoint can only bulk delete up to a limit of 50 roles per request. 
 A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this endpoint. In addition, a token with ROLE_SUBADMIN authority can only call this endpoint if all roles included in the request are associated with sources with management workgroups the ROLE_SUBADMIN is a member of.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-bulk-roles)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -307,20 +313,23 @@ $RoleBulkDeleteRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToRoleBulkDeleteRequest -Json $RoleBulkDeleteRequest
-    Remove-BetaBulkRoles -BetaRoleBulkDeleteRequest $Result
+    Remove-BetaBulkRoles -BetaRoleBulkDeleteRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Remove-BetaBulkRoles -BetaRoleBulkDeleteRequest $RoleBulkDeleteRequest  
+    # Remove-BetaBulkRoles -BetaRoleBulkDeleteRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaBulkRoles"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## delete-role
 This API deletes a Role by its ID.
 
 A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-role)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -351,19 +360,22 @@ $Id = "2c91808a7813090a017814121e121518" # String | ID of the Role
 # Delete a Role
 
 try {
-    Remove-BetaRole -BetaId $Id 
+    Remove-BetaRole -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Remove-BetaRole -BetaId $Id  
+    # Remove-BetaRole -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaRole"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-role
 This API returns a Role by its ID.
 A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-role)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -394,18 +406,21 @@ $Id = "2c91808a7813090a017814121e121518" # String | ID of the Role
 # Get a Role
 
 try {
-    Get-BetaRole -BetaId $Id 
+    Get-BetaRole -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaRole -BetaId $Id  
+    # Get-BetaRole -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaRole"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-role-assigned-identities
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-role-assigned-identities)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -446,20 +461,23 @@ $Sorters = "aliasName,name" # String | Sort results using the standard syntax de
 # Identities assigned a Role
 
 try {
-    Get-BetaRoleAssignedIdentities -BetaId $Id 
+    Get-BetaRoleAssignedIdentities -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaRoleAssignedIdentities -BetaId $Id -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count -BetaFilters $Filters -BetaSorters $Sorters  
+    # Get-BetaRoleAssignedIdentities -Id $Id -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaRoleAssignedIdentities"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-role-entitlements
 This API lists the Entitlements associated with a given role.
 
 A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-role-entitlements)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -500,20 +518,23 @@ $Sorters = "name,-modified" # String | Sort results using the standard syntax de
 # List role's Entitlements
 
 try {
-    Get-BetaRoleEntitlements -BetaId $Id 
+    Get-BetaRoleEntitlements -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaRoleEntitlements -BetaId $Id -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count -BetaFilters $Filters -BetaSorters $Sorters  
+    # Get-BetaRoleEntitlements -Id $Id -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaRoleEntitlements"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-roles
 This API returns a list of Roles.
 
 A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/list-roles)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -558,16 +579,17 @@ $IncludeUnsegmented = $false # Boolean | Whether or not the response list should
 # List Roles
 
 try {
-    Get-BetaRoles
+    Get-BetaRoles 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaRoles -BetaForSubadmin $ForSubadmin -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count -BetaFilters $Filters -BetaSorters $Sorters -BetaForSegmentIds $ForSegmentIds -BetaIncludeUnsegmented $IncludeUnsegmented  
+    # Get-BetaRoles -ForSubadmin $ForSubadmin -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters -ForSegmentIds $ForSegmentIds -IncludeUnsegmented $IncludeUnsegmented  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaRoles"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## patch-role
 This API updates an existing role using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
 
@@ -590,6 +612,8 @@ A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required 
 The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing roles, however, any new roles as well as any updates to existing descriptions will be limited to 2000 characters.
 
 When you use this API to modify a role's membership identities, you can only modify up to a limit of 500 membership identities at a time. 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/patch-role)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -628,10 +652,10 @@ $Id = "2c91808a7813090a017814121e121518" # String | ID of the Role to patch
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-BetaRole -BetaId $Id  -BetaJsonPatchOperation $Result
+    Update-BetaRole -Id $Id -BetaJsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaRole -BetaId $Id -BetaJsonPatchOperation $JsonPatchOperation  
+    # Update-BetaRole -Id $Id -BetaJsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaRole"
     Write-Host $_.ErrorDetails

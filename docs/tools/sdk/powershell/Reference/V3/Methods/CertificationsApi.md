@@ -52,8 +52,11 @@ Method | HTTP request | Description
 [**Invoke-SignOffIdentityCertification**](#sign-off-identity-certification) | **POST** `/certifications/{id}/sign-off` | Finalize Identity Certification Decisions
 [**Submit-ReassignCertsAsync**](#submit-reassign-certs-async) | **POST** `/certifications/{id}/reassign-async` | Reassign Certifications Asynchronously
 
+
 ## get-certification-task
 This API returns the certification task for the specified ID. Reviewers for the specified certification can also call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-certification-task)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -95,8 +98,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-identity-certification
 This API returns a single identity campaign certification by its ID. Reviewers for this certification can also call this API. This API does not support requests for certifications assigned to Governance Groups.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-identity-certification)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -138,8 +144,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-identity-certification-item-permissions
 This API returns the permissions associated with an entitlement certification item based on the certification item's ID. Reviewers for this certification can also call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-identity-certification-item-permissions)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -181,7 +190,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Permissions for Entitlement Certification Item
 
 try {
-    Get-IdentityCertificationItemPermissions -CertificationId $CertificationId  -ItemId $ItemId 
+    Get-IdentityCertificationItemPermissions -CertificationId $CertificationId -ItemId $ItemId 
     
     # Below is a request that includes all optional parameters
     # Get-IdentityCertificationItemPermissions -CertificationId $CertificationId -ItemId $ItemId -Filters $Filters -Limit $Limit -Offset $Offset -Count $Count  
@@ -191,8 +200,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-pending-certification-tasks
 This API returns a list of pending (`QUEUED` or `IN_PROGRESS`) certification tasks. Any authenticated token can call this API, but only certification tasks you are authorized to review will be returned.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-pending-certification-tasks)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -232,7 +244,7 @@ $Filters = 'type eq "ADMIN_REASSIGN"' # String | Filter results using the standa
 # List of Pending Certification Tasks
 
 try {
-    Get-PendingCertificationTasks
+    Get-PendingCertificationTasks 
     
     # Below is a request that includes all optional parameters
     # Get-PendingCertificationTasks -ReviewerIdentity $ReviewerIdentity -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters  
@@ -242,8 +254,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-certification-reviewers
 This API returns a list of reviewers for the certification. Reviewers for this certification can also call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/list-certification-reviewers)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -295,8 +310,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-identity-access-review-items
 This API returns a list of access review items for an identity campaign certification. Reviewers for this certification can also call this API. This API does not support requests for certifications assigned to Governance Groups.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/list-identity-access-review-items)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -354,8 +372,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-identity-certifications
 Use this API to get a list of identity campaign certifications for the specified query parameters. Any authenticated token can call this API, but only certifications you are authorized to review will be returned. This API does not support requests for certifications assigned to governance groups.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/list-identity-certifications)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -396,7 +417,7 @@ $Sorters = "name,due" # String | Sort results using the standard syntax describe
 # List Identity Campaign Certifications
 
 try {
-    Get-IdentityCertifications
+    Get-IdentityCertifications 
     
     # Below is a request that includes all optional parameters
     # Get-IdentityCertifications -ReviewerIdentity $ReviewerIdentity -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
@@ -406,8 +427,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## make-identity-decision
 The API makes a decision to approve or revoke one or more identity campaign certification items. Reviewers for this certification can also call this API. This API does not support requests for certifications assigned to Governance Groups.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/make-identity-decision)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -454,18 +478,21 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the identity campa
 
 try {
     $Result = ConvertFrom-JsonToReviewDecision -Json $ReviewDecision
-    Select-IdentityDecision -Id $Id  -ReviewDecision $Result
+    Select-IdentityDecision -Id $Id -ReviewDecision $Result 
     
     # Below is a request that includes all optional parameters
-    # Select-IdentityDecision -Id $Id -ReviewDecision $ReviewDecision  
+    # Select-IdentityDecision -Id $Id -ReviewDecision $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Select-IdentityDecision"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## reassign-identity-certifications
 This API reassigns up to 50 identities or items in an identity campaign certification to another reviewer. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API. This API does not support requests for certifications assigned to Governance Groups.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/reassign-identity-certifications)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -510,18 +537,21 @@ $ReviewReassign = @"{
 
 try {
     $Result = ConvertFrom-JsonToReviewReassign -Json $ReviewReassign
-    Invoke-ReassignIdentityCertifications -Id $Id  -ReviewReassign $Result
+    Invoke-ReassignIdentityCertifications -Id $Id -ReviewReassign $Result 
     
     # Below is a request that includes all optional parameters
-    # Invoke-ReassignIdentityCertifications -Id $Id -ReviewReassign $ReviewReassign  
+    # Invoke-ReassignIdentityCertifications -Id $Id -ReviewReassign $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-ReassignIdentityCertifications"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## sign-off-identity-certification
 This API finalizes all decisions made on an identity campaign certification and initiates any remediations required. Reviewers for this certification can also call this API. This API does not support requests for certifications assigned to Governance Groups.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/sign-off-identity-certification)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -563,6 +593,7 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## submit-reassign-certs-async
 This API initiates a task to reassign up to 500 identities or items in an identity campaign certification to another
 reviewer. The `certification-tasks` API can be used to get an updated status on the task and determine when the
@@ -570,6 +601,8 @@ reassignment is complete.
 
 Reviewers for this certification can also call this API.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/submit-reassign-certs-async)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -614,10 +647,10 @@ $ReviewReassign = @"{
 
 try {
     $Result = ConvertFrom-JsonToReviewReassign -Json $ReviewReassign
-    Submit-ReassignCertsAsync -Id $Id  -ReviewReassign $Result
+    Submit-ReassignCertsAsync -Id $Id -ReviewReassign $Result 
     
     # Below is a request that includes all optional parameters
-    # Submit-ReassignCertsAsync -Id $Id -ReviewReassign $ReviewReassign  
+    # Submit-ReassignCertsAsync -Id $Id -ReviewReassign $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Submit-ReassignCertsAsync"
     Write-Host $_.ErrorDetails

@@ -21,9 +21,12 @@ Method | HTTP request | Description
 [**Remove-VendorConnectorMapping**](#delete-vendor-connector-mapping) | **DELETE** `/vendor-connector-mappings` | Delete Vendor Connector Mapping
 [**Get-VendorConnectorMappings**](#get-vendor-connector-mappings) | **GET** `/vendor-connector-mappings` | List Vendor Connector Mappings
 
+
 ## create-vendor-connector-mapping
 Create a new mapping between a SaaS vendor and an ISC connector to establish correlation paths.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/create-vendor-connector-mapping)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -78,19 +81,22 @@ $VendorConnectorMapping = @"{
 
 try {
     $Result = ConvertFrom-JsonToVendorConnectorMapping -Json $VendorConnectorMapping
-    New-VendorConnectorMapping -VendorConnectorMapping $Result
+    New-VendorConnectorMapping -VendorConnectorMapping $Result 
     
     # Below is a request that includes all optional parameters
-    # New-VendorConnectorMapping -VendorConnectorMapping $VendorConnectorMapping  
+    # New-VendorConnectorMapping -VendorConnectorMapping $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-VendorConnectorMapping"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## delete-vendor-connector-mapping
 Soft delete a mapping between a SaaS vendor and an ISC connector, removing the established correlation.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/delete-vendor-connector-mapping)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -145,19 +151,22 @@ $VendorConnectorMapping = @"{
 
 try {
     $Result = ConvertFrom-JsonToVendorConnectorMapping -Json $VendorConnectorMapping
-    Remove-VendorConnectorMapping -VendorConnectorMapping $Result
+    Remove-VendorConnectorMapping -VendorConnectorMapping $Result 
     
     # Below is a request that includes all optional parameters
-    # Remove-VendorConnectorMapping -VendorConnectorMapping $VendorConnectorMapping  
+    # Remove-VendorConnectorMapping -VendorConnectorMapping $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-VendorConnectorMapping"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-vendor-connector-mappings
 Get a list of mappings between SaaS vendors and ISC connectors, detailing the connections established for correlation.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-vendor-connector-mappings)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -187,7 +196,7 @@ Code | Description  | Data Type
 # List Vendor Connector Mappings
 
 try {
-    Get-VendorConnectorMappings
+    Get-VendorConnectorMappings 
     
     # Below is a request that includes all optional parameters
     # Get-VendorConnectorMappings  

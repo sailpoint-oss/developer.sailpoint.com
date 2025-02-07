@@ -22,8 +22,11 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Get-V2024PublicIdentities**](#get-public-identities) | **GET** `/public-identities` | Get list of public identities
 
+
 ## get-public-identities
 Get a list of public identities.  Set `add-core-filters` to `true` to exclude incomplete identities and uncorrelated accounts.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-public-identities)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -64,10 +67,10 @@ $Sorters = "name" # String | Sort results using the standard syntax described in
 # Get list of public identities
 
 try {
-    Get-V2024PublicIdentities
+    Get-V2024PublicIdentities 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024PublicIdentities -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Filters $Filters -V2024AddCoreFilters $AddCoreFilters -V2024Sorters $Sorters  
+    # Get-V2024PublicIdentities -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -AddCoreFilters $AddCoreFilters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024PublicIdentities"
     Write-Host $_.ErrorDetails

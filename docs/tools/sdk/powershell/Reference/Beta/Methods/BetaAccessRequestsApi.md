@@ -39,9 +39,12 @@ Method | HTTP request | Description
 [**Get-BetaAccessRequestStatus**](#list-access-request-status) | **GET** `/access-request-status` | Access Request Status
 [**Set-BetaAccessRequestConfig**](#set-access-request-config) | **PUT** `/access-request-config` | Update Access Request Configuration
 
+
 ## cancel-access-request
 This API endpoint cancels a pending access request. An access request can be cancelled only if it has not passed the approval step.
 In addition to users with ORG_ADMIN, any user who originally submitted the access request may cancel it.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/cancel-access-request)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -77,16 +80,17 @@ $CancelAccessRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToCancelAccessRequest -Json $CancelAccessRequest
-    Suspend-BetaAccessRequest -BetaCancelAccessRequest $Result
+    Suspend-BetaAccessRequest -BetaCancelAccessRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Suspend-BetaAccessRequest -BetaCancelAccessRequest $CancelAccessRequest  
+    # Suspend-BetaAccessRequest -BetaCancelAccessRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Suspend-BetaAccessRequest"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## close-access-request
 This endpoint closes access requests that are stuck in a pending state. It can be used throughout a request's lifecycle even after the approval state, unlike the [Cancel Access Request endpoint](https://developer.sailpoint.com/idn/api/v3/cancel-access-request/).
 
@@ -100,6 +104,8 @@ To track the status of endpoint requests, navigate to Search and use this query:
 
 This API triggers the [Provisioning Completed event trigger](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/provisioning-completed/) for each access request that is closed.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/close-access-request)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -136,16 +142,17 @@ $CloseAccessRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToCloseAccessRequest -Json $CloseAccessRequest
-    Close-BetaAccessRequest -BetaCloseAccessRequest $Result
+    Close-BetaAccessRequest -BetaCloseAccessRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Close-BetaAccessRequest -BetaCloseAccessRequest $CloseAccessRequest  
+    # Close-BetaAccessRequest -BetaCloseAccessRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Close-BetaAccessRequest"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## create-access-request
 Use this API to submit an access request in Identity Security Cloud (ISC), where it follows any ISC approval processes.
 
@@ -178,6 +185,8 @@ __REVOKE_ACCESS__
 * You can specify a `removeDate` if the access doesn't already have a sunset date. The `removeDate` must be a future date, in the UTC timezone. 
 * Allows a manager to request to revoke access for direct employees. A user with ORG_ADMIN authority can also request to revoke access from anyone.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/create-access-request)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -262,18 +271,21 @@ $AccessRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccessRequest -Json $AccessRequest
-    New-BetaAccessRequest -BetaAccessRequest $Result
+    New-BetaAccessRequest -BetaAccessRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaAccessRequest -BetaAccessRequest $AccessRequest  
+    # New-BetaAccessRequest -BetaAccessRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaAccessRequest"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-access-request-config
 This endpoint returns the current access-request configuration.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-access-request-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -302,7 +314,7 @@ Code | Description  | Data Type
 # Get Access Request Configuration
 
 try {
-    Get-BetaAccessRequestConfig
+    Get-BetaAccessRequestConfig 
     
     # Below is a request that includes all optional parameters
     # Get-BetaAccessRequestConfig  
@@ -312,10 +324,13 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-access-request-status
 Use this API to return a list of access request statuses based on the specified query parameters.
 If an access request was made for access that an identity already has, the API ignores the access request.  These ignored requests do not display in the list of access request statuses.
 Any user with any user level can get the status of their own access requests. A user with ORG_ADMIN is required to call this API to get a list of statuses for other users.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/list-access-request-status)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -364,18 +379,21 @@ $RequestState = "request-state=EXECUTING" # String | Filter the results by the s
 # Access Request Status
 
 try {
-    Get-BetaAccessRequestStatus
+    Get-BetaAccessRequestStatus 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaAccessRequestStatus -BetaRequestedFor $RequestedFor -BetaRequestedBy $RequestedBy -BetaRegardingIdentity $RegardingIdentity -BetaAssignedTo $AssignedTo -BetaCount $Count -BetaLimit $Limit -BetaOffset $Offset -BetaFilters $Filters -BetaSorters $Sorters -BetaRequestState $RequestState  
+    # Get-BetaAccessRequestStatus -RequestedFor $RequestedFor -RequestedBy $RequestedBy -RegardingIdentity $RegardingIdentity -AssignedTo $AssignedTo -Count $Count -Limit $Limit -Offset $Offset -Filters $Filters -Sorters $Sorters -RequestState $RequestState  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaAccessRequestStatus"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## set-access-request-config
 This endpoint replaces the current access-request configuration.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/set-access-request-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -432,10 +450,10 @@ $AccessRequestConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccessRequestConfig -Json $AccessRequestConfig
-    Set-BetaAccessRequestConfig -BetaAccessRequestConfig $Result
+    Set-BetaAccessRequestConfig -BetaAccessRequestConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # Set-BetaAccessRequestConfig -BetaAccessRequestConfig $AccessRequestConfig  
+    # Set-BetaAccessRequestConfig -BetaAccessRequestConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-BetaAccessRequestConfig"
     Write-Host $_.ErrorDetails

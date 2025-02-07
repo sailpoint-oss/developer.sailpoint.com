@@ -79,8 +79,11 @@ Method | HTTP request | Description
 [**Set-TagToObject**](#set-tag-to-object) | **POST** `/tagged-objects` | Add Tag to Object
 [**Set-TagsToManyObjects**](#set-tags-to-many-objects) | **POST** `/tagged-objects/bulk-add` | Tag Multiple Objects
 
+
 ## delete-tagged-object
 Delete all tags from a tagged object.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/delete-tagged-object)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -113,7 +116,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the object to dele
 # Delete Object Tags
 
 try {
-    Remove-TaggedObject -Type $Type  -Id $Id 
+    Remove-TaggedObject -Type $Type -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Remove-TaggedObject -Type $Type -Id $Id  
@@ -123,8 +126,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## delete-tags-to-many-object
 This API removes tags from multiple objects.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/delete-tags-to-many-object)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -167,18 +173,21 @@ $BulkRemoveTaggedObject = @"{
 
 try {
     $Result = ConvertFrom-JsonToBulkRemoveTaggedObject -Json $BulkRemoveTaggedObject
-    Remove-TagsToManyObject -BulkRemoveTaggedObject $Result
+    Remove-TagsToManyObject -BulkRemoveTaggedObject $Result 
     
     # Below is a request that includes all optional parameters
-    # Remove-TagsToManyObject -BulkRemoveTaggedObject $BulkRemoveTaggedObject  
+    # Remove-TagsToManyObject -BulkRemoveTaggedObject $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-TagsToManyObject"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-tagged-object
 This gets a tagged object for the specified type.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-tagged-object)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -211,7 +220,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the object referen
 # Get Tagged Object
 
 try {
-    Get-TaggedObject -Type $Type  -Id $Id 
+    Get-TaggedObject -Type $Type -Id $Id 
     
     # Below is a request that includes all optional parameters
     # Get-TaggedObject -Type $Type -Id $Id  
@@ -221,10 +230,13 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-tagged-objects
 This API returns a list of all tagged objects.
 
 Any authenticated token may be used to call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/list-tagged-objects)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -261,7 +273,7 @@ $Filters = 'tagName eq "BU_FINANCE"' # String | Filter results using the standar
 # List Tagged Objects
 
 try {
-    Get-TaggedObjects
+    Get-TaggedObjects 
     
     # Below is a request that includes all optional parameters
     # Get-TaggedObjects -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters  
@@ -271,10 +283,13 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-tagged-objects-by-type
 This API returns a list of all tagged objects by type.
 
 Any authenticated token may be used to call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/list-tagged-objects-by-type)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -323,8 +338,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## put-tagged-object
 This updates a tagged object for the specified type.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/put-tagged-object)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -367,20 +385,23 @@ $TaggedObject = @"{
 
 try {
     $Result = ConvertFrom-JsonToTaggedObject -Json $TaggedObject
-    Send-TaggedObject -Type $Type  -Id $Id  -TaggedObject $Result
+    Send-TaggedObject -Type $Type -Id $Id -TaggedObject $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-TaggedObject -Type $Type -Id $Id -TaggedObject $TaggedObject  
+    # Send-TaggedObject -Type $Type -Id $Id -TaggedObject $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-TaggedObject"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## set-tag-to-object
 This adds a tag to an object.
 
 Any authenticated token may be used to call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/set-tag-to-object)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -419,18 +440,21 @@ $TaggedObject = @"{
 
 try {
     $Result = ConvertFrom-JsonToTaggedObject -Json $TaggedObject
-    Set-TagToObject -TaggedObject $Result
+    Set-TagToObject -TaggedObject $Result 
     
     # Below is a request that includes all optional parameters
-    # Set-TagToObject -TaggedObject $TaggedObject  
+    # Set-TagToObject -TaggedObject $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-TagToObject"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## set-tags-to-many-objects
 This API adds tags to multiple objects.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/set-tags-to-many-objects)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -474,10 +498,10 @@ $BulkAddTaggedObject = @"{
 
 try {
     $Result = ConvertFrom-JsonToBulkAddTaggedObject -Json $BulkAddTaggedObject
-    Set-TagsToManyObjects -BulkAddTaggedObject $Result
+    Set-TagsToManyObjects -BulkAddTaggedObject $Result 
     
     # Below is a request that includes all optional parameters
-    # Set-TagsToManyObjects -BulkAddTaggedObject $BulkAddTaggedObject  
+    # Set-TagsToManyObjects -BulkAddTaggedObject $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-TagsToManyObjects"
     Write-Host $_.ErrorDetails

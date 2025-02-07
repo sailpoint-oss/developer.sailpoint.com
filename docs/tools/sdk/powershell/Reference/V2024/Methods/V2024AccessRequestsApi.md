@@ -42,8 +42,11 @@ Method | HTTP request | Description
 [**Get-V2024AdministratorsAccessRequestStatus**](#list-administrators-access-request-status) | **GET** `/access-request-administration` | Access Request Status for Administrators
 [**Set-V2024AccessRequestConfig**](#set-access-request-config) | **PUT** `/access-request-config` | Update Access Request Configuration
 
+
 ## approve-bulk-access-request
 This API endpoint allows approving pending access requests in bulk. Maximum of 50 approval ids can be  provided in the request for one single invocation.  ORG_ADMIN or users with rights "idn:access-request-administration:write" can approve the access requests in bulk.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/approve-bulk-access-request)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -79,19 +82,22 @@ $BulkApproveAccessRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToBulkApproveAccessRequest -Json $BulkApproveAccessRequest
-    Approve-V2024BulkAccessRequest -V2024BulkApproveAccessRequest $Result
+    Approve-V2024BulkAccessRequest -V2024BulkApproveAccessRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Approve-V2024BulkAccessRequest -V2024BulkApproveAccessRequest $BulkApproveAccessRequest  
+    # Approve-V2024BulkAccessRequest -V2024BulkApproveAccessRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Approve-V2024BulkAccessRequest"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## cancel-access-request
 This API endpoint cancels a pending access request. An access request can be cancelled only if it has not passed the approval step.
 In addition to users with ORG_ADMIN, any user who originally submitted the access request may cancel it.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/cancel-access-request)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -127,19 +133,22 @@ $CancelAccessRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToCancelAccessRequest -Json $CancelAccessRequest
-    Suspend-V2024AccessRequest -V2024CancelAccessRequest $Result
+    Suspend-V2024AccessRequest -V2024CancelAccessRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Suspend-V2024AccessRequest -V2024CancelAccessRequest $CancelAccessRequest  
+    # Suspend-V2024AccessRequest -V2024CancelAccessRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Suspend-V2024AccessRequest"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## cancel-access-request-in-bulk
 This API endpoint allows cancelling pending access requests in bulk. Maximum of 50 access request ids can be  provided in the request for one single invocation. 
 Only ORG_ADMIN or users with rights "idn:access-request-administration:write" can cancel the access requests in  bulk.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/cancel-access-request-in-bulk)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -175,17 +184,21 @@ $BulkCancelAccessRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToBulkCancelAccessRequest -Json $BulkCancelAccessRequest
-    Suspend-V2024AccessRequestInBulk -V2024BulkCancelAccessRequest $Result
+    Suspend-V2024AccessRequestInBulk -V2024BulkCancelAccessRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Suspend-V2024AccessRequestInBulk -V2024BulkCancelAccessRequest $BulkCancelAccessRequest  
+    # Suspend-V2024AccessRequestInBulk -V2024BulkCancelAccessRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Suspend-V2024AccessRequestInBulk"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## close-access-request
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This endpoint closes access requests that are stuck in a pending state. It can be used throughout a request's lifecycle even after the approval state, unlike the [Cancel Access Request endpoint](https://developer.sailpoint.com/idn/api/v3/cancel-access-request/).
 
 To find pending access requests with the UI, navigate to Search and use this query: status: Pending AND "Access Request". Use the Column Chooser to select 'Tracking Number', and use the 'Download' button to export a CSV containing the tracking numbers.
@@ -198,6 +211,8 @@ To track the status of endpoint requests, navigate to Search and use this query:
 
 This API triggers the [Provisioning Completed event trigger](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/provisioning-completed/) for each access request that is closed.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/close-access-request)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -236,16 +251,17 @@ $CloseAccessRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToCloseAccessRequest -Json $CloseAccessRequest
-    Close-V2024AccessRequest -V2024XSailPointExperimental $XSailPointExperimental  -V2024CloseAccessRequest $Result
+    Close-V2024AccessRequest -XSailPointExperimental $XSailPointExperimental -V2024CloseAccessRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Close-V2024AccessRequest -V2024XSailPointExperimental $XSailPointExperimental -V2024CloseAccessRequest $CloseAccessRequest  
+    # Close-V2024AccessRequest -XSailPointExperimental $XSailPointExperimental -V2024CloseAccessRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Close-V2024AccessRequest"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## create-access-request
 Use this API to submit an access request in Identity Security Cloud (ISC), where it follows any ISC approval processes.
 
@@ -278,6 +294,8 @@ __REVOKE_ACCESS__
 * You can specify a `removeDate` if the access doesn't already have a sunset date. The `removeDate` must be a future date, in the UTC timezone. 
 * Allows a manager to request to revoke access for direct employees. A user with ORG_ADMIN authority can also request to revoke access from anyone.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-access-request)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -362,18 +380,21 @@ $AccessRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccessRequest -Json $AccessRequest
-    New-V2024AccessRequest -V2024AccessRequest $Result
+    New-V2024AccessRequest -V2024AccessRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024AccessRequest -V2024AccessRequest $AccessRequest  
+    # New-V2024AccessRequest -V2024AccessRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024AccessRequest"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-access-request-config
 This endpoint returns the current access-request configuration.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-access-request-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -402,7 +423,7 @@ Code | Description  | Data Type
 # Get Access Request Configuration
 
 try {
-    Get-V2024AccessRequestConfig
+    Get-V2024AccessRequestConfig 
     
     # Below is a request that includes all optional parameters
     # Get-V2024AccessRequestConfig  
@@ -412,10 +433,13 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-access-request-status
 Use this API to return a list of access request statuses based on the specified query parameters.
 If an access request was made for access that an identity already has, the API ignores the access request.  These ignored requests do not display in the list of access request statuses.
 Any user with any user level can get the status of their own access requests. A user with ORG_ADMIN is required to call this API to get a list of statuses for other users.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-access-request-status)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -464,19 +488,22 @@ $RequestState = "request-state=EXECUTING" # String | Filter the results by the s
 # Access Request Status
 
 try {
-    Get-V2024AccessRequestStatus
+    Get-V2024AccessRequestStatus 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024AccessRequestStatus -V2024RequestedFor $RequestedFor -V2024RequestedBy $RequestedBy -V2024RegardingIdentity $RegardingIdentity -V2024AssignedTo $AssignedTo -V2024Count $Count -V2024Limit $Limit -V2024Offset $Offset -V2024Filters $Filters -V2024Sorters $Sorters -V2024RequestState $RequestState  
+    # Get-V2024AccessRequestStatus -RequestedFor $RequestedFor -RequestedBy $RequestedBy -RegardingIdentity $RegardingIdentity -AssignedTo $AssignedTo -Count $Count -Limit $Limit -Offset $Offset -Filters $Filters -Sorters $Sorters -RequestState $RequestState  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024AccessRequestStatus"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-administrators-access-request-status
 Use this API to get access request statuses of all the access requests in the org based on the specified query  parameters.
 Any user with user level ORG_ADMIN or scope idn:access-request-administration:read can access this endpoint to get  the  access request statuses
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-administrators-access-request-status)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -525,18 +552,21 @@ $RequestState = "request-state=EXECUTING" # String | Filter the results by the s
 # Access Request Status for Administrators
 
 try {
-    Get-V2024AdministratorsAccessRequestStatus
+    Get-V2024AdministratorsAccessRequestStatus 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024AdministratorsAccessRequestStatus -V2024RequestedFor $RequestedFor -V2024RequestedBy $RequestedBy -V2024RegardingIdentity $RegardingIdentity -V2024AssignedTo $AssignedTo -V2024Count $Count -V2024Limit $Limit -V2024Offset $Offset -V2024Filters $Filters -V2024Sorters $Sorters -V2024RequestState $RequestState  
+    # Get-V2024AdministratorsAccessRequestStatus -RequestedFor $RequestedFor -RequestedBy $RequestedBy -RegardingIdentity $RegardingIdentity -AssignedTo $AssignedTo -Count $Count -Limit $Limit -Offset $Offset -Filters $Filters -Sorters $Sorters -RequestState $RequestState  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024AdministratorsAccessRequestStatus"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## set-access-request-config
 This endpoint replaces the current access-request configuration.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/set-access-request-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -593,10 +623,10 @@ $AccessRequestConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccessRequestConfig -Json $AccessRequestConfig
-    Set-V2024AccessRequestConfig -V2024AccessRequestConfig $Result
+    Set-V2024AccessRequestConfig -V2024AccessRequestConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # Set-V2024AccessRequestConfig -V2024AccessRequestConfig $AccessRequestConfig  
+    # Set-V2024AccessRequestConfig -V2024AccessRequestConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-V2024AccessRequestConfig"
     Write-Host $_.ErrorDetails

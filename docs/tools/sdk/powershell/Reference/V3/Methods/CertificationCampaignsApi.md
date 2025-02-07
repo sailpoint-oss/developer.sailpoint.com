@@ -105,6 +105,7 @@ Method | HTTP request | Description
 [**Start-GenerateCampaignTemplate**](#start-generate-campaign-template) | **POST** `/campaign-templates/{id}/generate` | Generate a Campaign from Template
 [**Update-Campaign**](#update-campaign) | **PATCH** `/campaigns/{id}` | Update a Campaign
 
+
 ## complete-campaign
 :::caution
 
@@ -117,6 +118,8 @@ This endpoint will return a content error if the campaign is **not past due**.
 Use this API to complete a certification campaign. This functionality is provided to admins so that they
 can complete a certification even if all items have not been completed.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/complete-campaign)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -155,16 +158,19 @@ try {
     Complete-Campaign -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Complete-Campaign -Id $Id -CampaignCompleteOptions $CampaignCompleteOptions  
+    # Complete-Campaign -Id $Id -CampaignCompleteOptions $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Complete-Campaign"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## create-campaign
 Use this API to create a certification campaign with the information provided in the request body.    
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/create-campaign)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -304,19 +310,22 @@ $Campaign = @"{
 
 try {
     $Result = ConvertFrom-JsonToCampaign -Json $Campaign
-    New-Campaign -Campaign $Result
+    New-Campaign -Campaign $Result 
     
     # Below is a request that includes all optional parameters
-    # New-Campaign -Campaign $Campaign  
+    # New-Campaign -Campaign $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-Campaign"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## create-campaign-template
 Use this API to create a certification campaign template based on campaign.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/create-campaign-template)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -471,19 +480,22 @@ $CampaignTemplate = @"{
 
 try {
     $Result = ConvertFrom-JsonToCampaignTemplate -Json $CampaignTemplate
-    New-CampaignTemplate -CampaignTemplate $Result
+    New-CampaignTemplate -CampaignTemplate $Result 
     
     # Below is a request that includes all optional parameters
-    # New-CampaignTemplate -CampaignTemplate $CampaignTemplate  
+    # New-CampaignTemplate -CampaignTemplate $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-CampaignTemplate"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## delete-campaign-template
 Use this API to delete a certification campaign template by ID.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/delete-campaign-template)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -525,9 +537,12 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## delete-campaign-template-schedule
 Use this API to delete the schedule for a certification campaign template. The API returns a 404 if there is no schedule set.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/delete-campaign-template-schedule)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -569,9 +584,12 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## delete-campaigns
 Use this API to delete certification campaigns whose IDs are specified in the provided list of campaign IDs.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/delete-campaigns)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -606,19 +624,22 @@ $CampaignsDeleteRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToCampaignsDeleteRequest -Json $CampaignsDeleteRequest
-    Remove-Campaigns -CampaignsDeleteRequest $Result
+    Remove-Campaigns -CampaignsDeleteRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Remove-Campaigns -CampaignsDeleteRequest $CampaignsDeleteRequest  
+    # Remove-Campaigns -CampaignsDeleteRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-Campaigns"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-active-campaigns
 Use this API to get a list of campaigns. This API can provide increased level of detail for each campaign for the correct provided query.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-active-campaigns)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -659,7 +680,7 @@ $Sorters = "name" # String | Sort results using the standard syntax described in
 # List Campaigns
 
 try {
-    Get-ActiveCampaigns
+    Get-ActiveCampaigns 
     
     # Below is a request that includes all optional parameters
     # Get-ActiveCampaigns -Detail $Detail -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
@@ -669,9 +690,12 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-campaign
 Use this API to get information for an existing certification campaign by the campaign's ID.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-campaign)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -715,9 +739,12 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-campaign-reports
 Use this API to fetch all reports for a certification campaign by campaign ID.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-campaign-reports)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -759,9 +786,12 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-campaign-reports-config
 Use this API to fetch the configuration for certification campaign reports. The configuration includes only one element - identity attributes defined as custom report columns. 
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-campaign-reports-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -790,7 +820,7 @@ Code | Description  | Data Type
 # Get Campaign Reports Configuration
 
 try {
-    Get-CampaignReportsConfig
+    Get-CampaignReportsConfig 
     
     # Below is a request that includes all optional parameters
     # Get-CampaignReportsConfig  
@@ -800,9 +830,12 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-campaign-template
 Use this API to fetch a certification campaign template by ID.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-campaign-template)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -844,9 +877,12 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-campaign-template-schedule
 Use this API to get the schedule for a certification campaign template. The API returns a 404 if there is no schedule set.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-campaign-template-schedule)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -888,11 +924,14 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-campaign-templates
 Use this API to get a list of all campaign templates. Scope can be reduced through standard V3 query params.
 
 The API returns all campaign templates matching the query parameters. 
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-campaign-templates)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -931,7 +970,7 @@ $Filters = 'name eq "manager template"' # String | Filter results using the stan
 # List Campaign Templates
 
 try {
-    Get-CampaignTemplates
+    Get-CampaignTemplates 
     
     # Below is a request that includes all optional parameters
     # Get-CampaignTemplates -Limit $Limit -Offset $Offset -Count $Count -Sorters $Sorters -Filters $Filters  
@@ -941,9 +980,12 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## move
 This API reassigns the specified certifications from one identity to another.    
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/move)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -985,19 +1027,22 @@ $AdminReviewReassign = @"{
 
 try {
     $Result = ConvertFrom-JsonToAdminReviewReassign -Json $AdminReviewReassign
-    Move- -Id $Id  -AdminReviewReassign $Result
+    Move- -Id $Id -AdminReviewReassign $Result 
     
     # Below is a request that includes all optional parameters
-    # Move- -Id $Id -AdminReviewReassign $AdminReviewReassign  
+    # Move- -Id $Id -AdminReviewReassign $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Move-"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## patch-campaign-template
 Use this API to update individual fields on a certification campaign template, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/patch-campaign-template)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1037,19 +1082,22 @@ $Id = "2c9180835d191a86015d28455b4a2329" # String | ID of the campaign template 
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-CampaignTemplate -Id $Id  -JsonPatchOperation $Result
+    Update-CampaignTemplate -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-CampaignTemplate -Id $Id -JsonPatchOperation $JsonPatchOperation  
+    # Update-CampaignTemplate -Id $Id -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-CampaignTemplate"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## set-campaign-reports-config
 Use this API to overwrite the configuration for campaign reports. 
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/set-campaign-reports-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1083,19 +1131,22 @@ $CampaignReportsConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToCampaignReportsConfig -Json $CampaignReportsConfig
-    Set-CampaignReportsConfig -CampaignReportsConfig $Result
+    Set-CampaignReportsConfig -CampaignReportsConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # Set-CampaignReportsConfig -CampaignReportsConfig $CampaignReportsConfig  
+    # Set-CampaignReportsConfig -CampaignReportsConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-CampaignReportsConfig"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## set-campaign-template-schedule
 Use this API to set the schedule for a certification campaign template. If a schedule already exists, the API overwrites it with the new one.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/set-campaign-template-schedule)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1151,16 +1202,19 @@ try {
     Set-CampaignTemplateSchedule -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Set-CampaignTemplateSchedule -Id $Id -Schedule $Schedule  
+    # Set-CampaignTemplateSchedule -Id $Id -Schedule $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-CampaignTemplateSchedule"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## start-campaign
 Use this API to submit a job to activate the certified campaign with the specified ID. The campaign must be staged.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/start-campaign)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1199,16 +1253,19 @@ try {
     Start-Campaign -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Start-Campaign -Id $Id -ActivateCampaignOptions $ActivateCampaignOptions  
+    # Start-Campaign -Id $Id -ActivateCampaignOptions $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-Campaign"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## start-campaign-remediation-scan
 Use this API to run a remediation scan task for a certification campaign.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/start-campaign-remediation-scan)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1250,9 +1307,12 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## start-campaign-report
 Use this API to run a report for a certification campaign.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/start-campaign-report)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1286,7 +1346,7 @@ $Type = "CAMPAIGN_COMPOSITION_REPORT" # ReportType | Type of the report to run.
 # Run Campaign Report
 
 try {
-    Start-CampaignReport -Id $Id  -Type $Type 
+    Start-CampaignReport -Id $Id -Type $Type 
     
     # Below is a request that includes all optional parameters
     # Start-CampaignReport -Id $Id -Type $Type  
@@ -1296,6 +1356,7 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## start-generate-campaign-template
 Use this API to generate a new certification campaign from a campaign template.
 
@@ -1309,6 +1370,8 @@ campaign called "Campaign for 2020" (assuming the year at generation time is 202
 
 Valid placeholders are the date/time conversion suffix characters supported by [java.util.Formatter](https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html).
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/start-generate-campaign-template)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1349,9 +1412,12 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## update-campaign
 Use this API to update individual fields on a certification campaign, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/update-campaign)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1391,10 +1457,10 @@ $Id = "2c91808571bcfcf80171c23e4b4221fc" # String | ID of the campaign template 
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-Campaign -Id $Id  -JsonPatchOperation $Result
+    Update-Campaign -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-Campaign -Id $Id -JsonPatchOperation $JsonPatchOperation  
+    # Update-Campaign -Id $Id -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-Campaign"
     Write-Host $_.ErrorDetails

@@ -19,8 +19,17 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Get-V2024PeerGroupOutliers**](#get-peer-group-outliers) | **GET** `/peer-group-strategies/{strategy}/identity-outliers` | Identity Outliers List
 
+
 ## get-peer-group-outliers
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 -- Deprecated : See 'IAI Outliers' This API will be used by Identity Governance systems to identify identities that are not included in an organization's peer groups. By default, 250 identities are returned. You can specify between 1 and 1000 number of identities that can be returned.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-peer-group-outliers)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -59,10 +68,10 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Identity Outliers List
 
 try {
-    Get-V2024PeerGroupOutliers -V2024Strategy $Strategy  -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024PeerGroupOutliers -Strategy $Strategy -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024PeerGroupOutliers -V2024Strategy $Strategy -V2024XSailPointExperimental $XSailPointExperimental -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count  
+    # Get-V2024PeerGroupOutliers -Strategy $Strategy -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024PeerGroupOutliers"
     Write-Host $_.ErrorDetails

@@ -43,8 +43,14 @@ Method | HTTP request | Description
 [**Update-V2024RoleMiningSession**](#patch-role-mining-session) | **PATCH** `/role-mining-sessions/{sessionId}` | Patch a role mining session
 [**Update-V2024EntitlementsPotentialRole**](#update-entitlements-potential-role) | **POST** `/role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/edit-entitlements` | Edit entitlements for a potential role to exclude some entitlements
 
+
 ## create-potential-role-provision-request
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This method starts a job to provision a potential role
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-potential-role-provision-request)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -91,18 +97,24 @@ $RoleMiningPotentialRoleProvisionRequest = @"{
 # Create request to provision a potential role into an actual role.
 
 try {
-    New-V2024PotentialRoleProvisionRequest -V2024SessionId $SessionId  -V2024PotentialRoleId $PotentialRoleId  -V2024XSailPointExperimental $XSailPointExperimental 
+    New-V2024PotentialRoleProvisionRequest -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # New-V2024PotentialRoleProvisionRequest -V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental -V2024MinEntitlementPopularity $MinEntitlementPopularity -V2024IncludeCommonAccess $IncludeCommonAccess -V2024RoleMiningPotentialRoleProvisionRequest $RoleMiningPotentialRoleProvisionRequest  
+    # New-V2024PotentialRoleProvisionRequest -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -MinEntitlementPopularity $MinEntitlementPopularity -IncludeCommonAccess $IncludeCommonAccess -V2024RoleMiningPotentialRoleProvisionRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024PotentialRoleProvisionRequest"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## create-role-mining-sessions
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This submits a create role mining session request to the role mining application.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-role-mining-sessions)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -167,18 +179,24 @@ $RoleMiningSessionDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToRoleMiningSessionDto -Json $RoleMiningSessionDto
-    New-V2024RoleMiningSessions -V2024XSailPointExperimental $XSailPointExperimental  -V2024RoleMiningSessionDto $Result
+    New-V2024RoleMiningSessions -XSailPointExperimental $XSailPointExperimental -V2024RoleMiningSessionDto $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024RoleMiningSessions -V2024XSailPointExperimental $XSailPointExperimental -V2024RoleMiningSessionDto $RoleMiningSessionDto  
+    # New-V2024RoleMiningSessions -XSailPointExperimental $XSailPointExperimental -V2024RoleMiningSessionDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024RoleMiningSessions"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## download-role-mining-potential-role-zip
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This endpoint downloads a completed export of information for a potential role in a role mining session.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/download-role-mining-potential-role-zip)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -214,18 +232,24 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Export (download) details for a potential role in a role mining session
 
 try {
-    Invoke-V2024DownloadRoleMiningPotentialRoleZip -V2024SessionId $SessionId  -V2024PotentialRoleId $PotentialRoleId  -V2024ExportId $ExportId  -V2024XSailPointExperimental $XSailPointExperimental 
+    Invoke-V2024DownloadRoleMiningPotentialRoleZip -SessionId $SessionId -PotentialRoleId $PotentialRoleId -ExportId $ExportId -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Invoke-V2024DownloadRoleMiningPotentialRoleZip -V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024ExportId $ExportId -V2024XSailPointExperimental $XSailPointExperimental  
+    # Invoke-V2024DownloadRoleMiningPotentialRoleZip -SessionId $SessionId -PotentialRoleId $PotentialRoleId -ExportId $ExportId -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-V2024DownloadRoleMiningPotentialRoleZip"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## export-role-mining-potential-role
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This endpoint downloads all the information for a potential role in a role mining session. Includes identities and entitlements in the potential role.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/export-role-mining-potential-role)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -259,18 +283,24 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Export (download) details for a potential role in a role mining session
 
 try {
-    Export-V2024RoleMiningPotentialRole -V2024SessionId $SessionId  -V2024PotentialRoleId $PotentialRoleId  -V2024XSailPointExperimental $XSailPointExperimental 
+    Export-V2024RoleMiningPotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Export-V2024RoleMiningPotentialRole -V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental  
+    # Export-V2024RoleMiningPotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Export-V2024RoleMiningPotentialRole"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## export-role-mining-potential-role-async
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This endpoint uploads all the information for a potential role in a role mining session to S3 as a downloadable zip archive.  Includes identities and entitlements in the potential role.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/export-role-mining-potential-role-async)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -309,18 +339,24 @@ $RoleMiningPotentialRoleExportRequest = @"{
 # Asynchronously export details for a potential role in a role mining session and upload to S3
 
 try {
-    Export-V2024RoleMiningPotentialRoleAsync -V2024SessionId $SessionId  -V2024PotentialRoleId $PotentialRoleId  -V2024XSailPointExperimental $XSailPointExperimental 
+    Export-V2024RoleMiningPotentialRoleAsync -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Export-V2024RoleMiningPotentialRoleAsync -V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental -V2024RoleMiningPotentialRoleExportRequest $RoleMiningPotentialRoleExportRequest  
+    # Export-V2024RoleMiningPotentialRoleAsync -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -V2024RoleMiningPotentialRoleExportRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Export-V2024RoleMiningPotentialRoleAsync"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## export-role-mining-potential-role-status
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This endpoint retrieves information about the current status of a potential role export.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/export-role-mining-potential-role-status)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -356,18 +392,24 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Retrieve status of a potential role export job
 
 try {
-    Export-V2024RoleMiningPotentialRoleStatus -V2024SessionId $SessionId  -V2024PotentialRoleId $PotentialRoleId  -V2024ExportId $ExportId  -V2024XSailPointExperimental $XSailPointExperimental 
+    Export-V2024RoleMiningPotentialRoleStatus -SessionId $SessionId -PotentialRoleId $PotentialRoleId -ExportId $ExportId -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Export-V2024RoleMiningPotentialRoleStatus -V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024ExportId $ExportId -V2024XSailPointExperimental $XSailPointExperimental  
+    # Export-V2024RoleMiningPotentialRoleStatus -SessionId $SessionId -PotentialRoleId $PotentialRoleId -ExportId $ExportId -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Export-V2024RoleMiningPotentialRoleStatus"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-all-potential-role-summaries
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Returns all potential role summaries that match the query parameters
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-all-potential-role-summaries)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -408,18 +450,24 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Retrieves all potential role summaries
 
 try {
-    Get-V2024AllPotentialRoleSummaries -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024AllPotentialRoleSummaries -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024AllPotentialRoleSummaries -V2024XSailPointExperimental $XSailPointExperimental -V2024Sorters $Sorters -V2024Filters $Filters -V2024Offset $Offset -V2024Limit $Limit -V2024Count $Count  
+    # Get-V2024AllPotentialRoleSummaries -XSailPointExperimental $XSailPointExperimental -Sorters $Sorters -Filters $Filters -Offset $Offset -Limit $Limit -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024AllPotentialRoleSummaries"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-entitlement-distribution-potential-role
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This method returns entitlement popularity distribution for a potential role in a role mining session.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-entitlement-distribution-potential-role)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -455,18 +503,24 @@ $IncludeCommonAccess = $true # Boolean | Boolean determining whether common acce
 # Retrieves entitlement popularity distribution for a potential role in a role mining session
 
 try {
-    Get-V2024EntitlementDistributionPotentialRole -V2024SessionId $SessionId  -V2024PotentialRoleId $PotentialRoleId  -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024EntitlementDistributionPotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024EntitlementDistributionPotentialRole -V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental -V2024IncludeCommonAccess $IncludeCommonAccess  
+    # Get-V2024EntitlementDistributionPotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -IncludeCommonAccess $IncludeCommonAccess  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024EntitlementDistributionPotentialRole"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-entitlements-potential-role
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This method returns entitlements for a potential role in a role mining session.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-entitlements-potential-role)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -513,18 +567,24 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Retrieves entitlements for a potential role in a role mining session
 
 try {
-    Get-V2024EntitlementsPotentialRole -V2024SessionId $SessionId  -V2024PotentialRoleId $PotentialRoleId  -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024EntitlementsPotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024EntitlementsPotentialRole -V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental -V2024IncludeCommonAccess $IncludeCommonAccess -V2024Sorters $Sorters -V2024Filters $Filters -V2024Offset $Offset -V2024Limit $Limit -V2024Count $Count  
+    # Get-V2024EntitlementsPotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -IncludeCommonAccess $IncludeCommonAccess -Sorters $Sorters -Filters $Filters -Offset $Offset -Limit $Limit -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024EntitlementsPotentialRole"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-excluded-entitlements-potential-role
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This method returns excluded entitlements for a potential role in a role mining session.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-excluded-entitlements-potential-role)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -568,18 +628,24 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Retrieves excluded entitlements for a potential role in a role mining session
 
 try {
-    Get-V2024ExcludedEntitlementsPotentialRole -V2024SessionId $SessionId  -V2024PotentialRoleId $PotentialRoleId  -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024ExcludedEntitlementsPotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024ExcludedEntitlementsPotentialRole -V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental -V2024Sorters $Sorters -V2024Filters $Filters -V2024Offset $Offset -V2024Limit $Limit -V2024Count $Count  
+    # Get-V2024ExcludedEntitlementsPotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -Sorters $Sorters -Filters $Filters -Offset $Offset -Limit $Limit -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024ExcludedEntitlementsPotentialRole"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-identities-potential-role
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This method returns identities for a potential role in a role mining session.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-identities-potential-role)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -623,18 +689,24 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Retrieves identities for a potential role in a role mining session
 
 try {
-    Get-V2024IdentitiesPotentialRole -V2024SessionId $SessionId  -V2024PotentialRoleId $PotentialRoleId  -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024IdentitiesPotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024IdentitiesPotentialRole -V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental -V2024Sorters $Sorters -V2024Filters $Filters -V2024Offset $Offset -V2024Limit $Limit -V2024Count $Count  
+    # Get-V2024IdentitiesPotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -Sorters $Sorters -Filters $Filters -Offset $Offset -Limit $Limit -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024IdentitiesPotentialRole"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-potential-role
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This method returns a specific potential role for a role mining session.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-potential-role)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -669,18 +741,24 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Retrieves a specific potential role
 
 try {
-    Get-V2024PotentialRole -V2024SessionId $SessionId  -V2024PotentialRoleId $PotentialRoleId  -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024PotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024PotentialRole -V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental  
+    # Get-V2024PotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024PotentialRole"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-potential-role-applications
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This method returns the applications of a potential role for a role mining session.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-potential-role-applications)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -723,18 +801,24 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Retrieves the applications of a potential role for a role mining session
 
 try {
-    Get-V2024PotentialRoleApplications -V2024SessionId $SessionId  -V2024PotentialRoleId $PotentialRoleId  -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024PotentialRoleApplications -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024PotentialRoleApplications -V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental -V2024Filters $Filters -V2024Offset $Offset -V2024Limit $Limit -V2024Count $Count  
+    # Get-V2024PotentialRoleApplications -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -Filters $Filters -Offset $Offset -Limit $Limit -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024PotentialRoleApplications"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-potential-role-entitlements
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This method returns the entitlements of a potential role for a role mining session.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-potential-role-entitlements)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -777,18 +861,24 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Retrieves the entitlements of a potential role for a role mining session
 
 try {
-    Get-V2024PotentialRoleEntitlements -V2024SessionId $SessionId  -V2024PotentialRoleId $PotentialRoleId  -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024PotentialRoleEntitlements -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024PotentialRoleEntitlements -V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental -V2024Filters $Filters -V2024Offset $Offset -V2024Limit $Limit -V2024Count $Count  
+    # Get-V2024PotentialRoleEntitlements -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -Filters $Filters -Offset $Offset -Limit $Limit -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024PotentialRoleEntitlements"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-potential-role-source-identity-usage
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This method returns source usageCount (as number of days in the last 90 days) for each identity in a potential role.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-potential-role-source-identity-usage)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -831,18 +921,24 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Retrieves potential role source usage
 
 try {
-    Get-V2024PotentialRoleSourceIdentityUsage -V2024PotentialRoleId $PotentialRoleId  -V2024SourceId $SourceId  -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024PotentialRoleSourceIdentityUsage -PotentialRoleId $PotentialRoleId -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024PotentialRoleSourceIdentityUsage -V2024PotentialRoleId $PotentialRoleId -V2024SourceId $SourceId -V2024XSailPointExperimental $XSailPointExperimental -V2024Sorters $Sorters -V2024Offset $Offset -V2024Limit $Limit -V2024Count $Count  
+    # Get-V2024PotentialRoleSourceIdentityUsage -PotentialRoleId $PotentialRoleId -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -Sorters $Sorters -Offset $Offset -Limit $Limit -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024PotentialRoleSourceIdentityUsage"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-potential-role-summaries
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This method returns the potential role summaries for a role mining session.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-potential-role-summaries)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -885,18 +981,24 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Retrieves all potential role summaries
 
 try {
-    Get-V2024PotentialRoleSummaries -V2024SessionId $SessionId  -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024PotentialRoleSummaries -SessionId $SessionId -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024PotentialRoleSummaries -V2024SessionId $SessionId -V2024XSailPointExperimental $XSailPointExperimental -V2024Sorters $Sorters -V2024Filters $Filters -V2024Offset $Offset -V2024Limit $Limit -V2024Count $Count  
+    # Get-V2024PotentialRoleSummaries -SessionId $SessionId -XSailPointExperimental $XSailPointExperimental -Sorters $Sorters -Filters $Filters -Offset $Offset -Limit $Limit -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024PotentialRoleSummaries"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-role-mining-potential-role
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This method returns a specific potential role.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-role-mining-potential-role)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -929,18 +1031,24 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Retrieves a specific potential role
 
 try {
-    Get-V2024RoleMiningPotentialRole -V2024PotentialRoleId $PotentialRoleId  -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024RoleMiningPotentialRole -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024RoleMiningPotentialRole -V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental  
+    # Get-V2024RoleMiningPotentialRole -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024RoleMiningPotentialRole"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-role-mining-session
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 The method retrieves a role mining session.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-role-mining-session)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -974,18 +1082,24 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Get a role mining session
 
 try {
-    Get-V2024RoleMiningSession -V2024SessionId $SessionId  -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024RoleMiningSession -SessionId $SessionId -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024RoleMiningSession -V2024SessionId $SessionId -V2024XSailPointExperimental $XSailPointExperimental  
+    # Get-V2024RoleMiningSession -SessionId $SessionId -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024RoleMiningSession"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-role-mining-session-status
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This method returns a role mining session status for a customer.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-role-mining-session-status)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1017,18 +1131,24 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Get role mining session status state
 
 try {
-    Get-V2024RoleMiningSessionStatus -V2024SessionId $SessionId  -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024RoleMiningSessionStatus -SessionId $SessionId -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024RoleMiningSessionStatus -V2024SessionId $SessionId -V2024XSailPointExperimental $XSailPointExperimental  
+    # Get-V2024RoleMiningSessionStatus -SessionId $SessionId -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024RoleMiningSessionStatus"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-role-mining-sessions
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Returns all role mining sessions that match the query parameters
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-role-mining-sessions)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1069,18 +1189,24 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Retrieves all role mining sessions
 
 try {
-    Get-V2024RoleMiningSessions -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024RoleMiningSessions -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024RoleMiningSessions -V2024XSailPointExperimental $XSailPointExperimental -V2024Filters $Filters -V2024Sorters $Sorters -V2024Offset $Offset -V2024Limit $Limit -V2024Count $Count  
+    # Get-V2024RoleMiningSessions -XSailPointExperimental $XSailPointExperimental -Filters $Filters -Sorters $Sorters -Offset $Offset -Limit $Limit -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024RoleMiningSessions"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-saved-potential-roles
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This method returns all saved potential roles (draft roles).
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-saved-potential-roles)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1119,17 +1245,21 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Retrieves all saved potential roles
 
 try {
-    Get-V2024SavedPotentialRoles -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024SavedPotentialRoles -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024SavedPotentialRoles -V2024XSailPointExperimental $XSailPointExperimental -V2024Sorters $Sorters -V2024Offset $Offset -V2024Limit $Limit -V2024Count $Count  
+    # Get-V2024SavedPotentialRoles -XSailPointExperimental $XSailPointExperimental -Sorters $Sorters -Offset $Offset -Limit $Limit -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SavedPotentialRoles"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## patch-potential-role
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 The method updates an existing potential role using.
 
 The following fields can be modified:
@@ -1143,6 +1273,8 @@ The following fields can be modified:
 
 >**NOTE: All other fields cannot be modified.**
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/patch-potential-role)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1182,17 +1314,21 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 
 try {
     $Result = ConvertFrom-JsonToPatchPotentialRoleRequestInner -Json $PatchPotentialRoleRequestInner
-    Update-V2024PotentialRole -V2024SessionId $SessionId  -V2024PotentialRoleId $PotentialRoleId  -V2024XSailPointExperimental $XSailPointExperimental  -V2024PatchPotentialRoleRequestInner $Result
+    Update-V2024PotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -V2024PatchPotentialRoleRequestInner $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024PotentialRole -V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental -V2024PatchPotentialRoleRequestInner $PatchPotentialRoleRequestInner  
+    # Update-V2024PotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -V2024PatchPotentialRoleRequestInner $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024PotentialRole"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## patch-potential-role-0
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 The method updates an existing potential role using.
 
 The following fields can be modified:
@@ -1206,6 +1342,8 @@ The following fields can be modified:
 
 >**NOTE: All other fields cannot be modified.**
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/patch-potential-role-0)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1245,18 +1383,24 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 
 try {
     $Result = ConvertFrom-JsonToPatchPotentialRoleRequestInner -Json $PatchPotentialRoleRequestInner
-    Update-V2024PotentialRole0 -V2024SessionId $SessionId  -V2024PotentialRoleId $PotentialRoleId  -V2024XSailPointExperimental $XSailPointExperimental  -V2024PatchPotentialRoleRequestInner $Result
+    Update-V2024PotentialRole0 -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -V2024PatchPotentialRoleRequestInner $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024PotentialRole0 -V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental -V2024PatchPotentialRoleRequestInner $PatchPotentialRoleRequestInner  
+    # Update-V2024PotentialRole0 -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -V2024PatchPotentialRoleRequestInner $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024PotentialRole0"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## patch-role-mining-session
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 The  method updates an existing role mining session using PATCH. Supports op in {"replace"} and changes to pruneThreshold and/or minNumIdentitiesInPotentialRole. The potential roles in this role mining session is then re-calculated.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/patch-role-mining-session)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1298,18 +1442,24 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024RoleMiningSession -V2024SessionId $SessionId  -V2024XSailPointExperimental $XSailPointExperimental  -V2024JsonPatchOperation $Result
+    Update-V2024RoleMiningSession -SessionId $SessionId -XSailPointExperimental $XSailPointExperimental -V2024JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024RoleMiningSession -V2024SessionId $SessionId -V2024XSailPointExperimental $XSailPointExperimental -V2024JsonPatchOperation $JsonPatchOperation  
+    # Update-V2024RoleMiningSession -SessionId $SessionId -XSailPointExperimental $XSailPointExperimental -V2024JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024RoleMiningSession"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## update-entitlements-potential-role
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This endpoint adds or removes entitlements from an exclusion list for a potential role.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/update-entitlements-potential-role)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1349,10 +1499,10 @@ $RoleMiningPotentialRoleEditEntitlements = @"{
 
 try {
     $Result = ConvertFrom-JsonToRoleMiningPotentialRoleEditEntitlements -Json $RoleMiningPotentialRoleEditEntitlements
-    Update-V2024EntitlementsPotentialRole -V2024SessionId $SessionId  -V2024PotentialRoleId $PotentialRoleId  -V2024XSailPointExperimental $XSailPointExperimental  -V2024RoleMiningPotentialRoleEditEntitlements $Result
+    Update-V2024EntitlementsPotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -V2024RoleMiningPotentialRoleEditEntitlements $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024EntitlementsPotentialRole -V2024SessionId $SessionId -V2024PotentialRoleId $PotentialRoleId -V2024XSailPointExperimental $XSailPointExperimental -V2024RoleMiningPotentialRoleEditEntitlements $RoleMiningPotentialRoleEditEntitlements  
+    # Update-V2024EntitlementsPotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -V2024RoleMiningPotentialRoleEditEntitlements $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024EntitlementsPotentialRole"
     Write-Host $_.ErrorDetails

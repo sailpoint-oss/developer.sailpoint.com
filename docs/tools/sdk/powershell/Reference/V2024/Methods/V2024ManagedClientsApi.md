@@ -26,9 +26,12 @@ Method | HTTP request | Description
 [**Get-V2024ManagedClients**](#get-managed-clients) | **GET** `/managed-clients` | Get Managed Clients
 [**Update-V2024ManagedClient**](#update-managed-client) | **PATCH** `/managed-clients/{id}` | Update Managed Client
 
+
 ## create-managed-client
 Create a new managed client.
 The API returns a result that includes the managed client ID.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-managed-client)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -65,18 +68,21 @@ $ManagedClientRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToManagedClientRequest -Json $ManagedClientRequest
-    New-V2024ManagedClient -V2024ManagedClientRequest $Result
+    New-V2024ManagedClient -V2024ManagedClientRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024ManagedClient -V2024ManagedClientRequest $ManagedClientRequest  
+    # New-V2024ManagedClient -V2024ManagedClientRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024ManagedClient"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## delete-managed-client
 Delete an existing managed client.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-managed-client)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -107,18 +113,21 @@ $Id = "4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7" # String | Managed client ID.
 # Delete Managed Client
 
 try {
-    Remove-V2024ManagedClient -V2024Id $Id 
+    Remove-V2024ManagedClient -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024ManagedClient -V2024Id $Id  
+    # Remove-V2024ManagedClient -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024ManagedClient"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-managed-client
 Get managed client by ID. 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-managed-client)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -150,18 +159,21 @@ $Id = "4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7" # String | Managed client ID.
 # Get Managed Client
 
 try {
-    Get-V2024ManagedClient -V2024Id $Id 
+    Get-V2024ManagedClient -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024ManagedClient -V2024Id $Id  
+    # Get-V2024ManagedClient -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024ManagedClient"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-managed-client-status
 Get a managed client's status, using its ID.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-managed-client-status)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -195,18 +207,21 @@ $Type = "CCG" # ManagedClientType | Managed client type to get status for.
 # Get Managed Client Status
 
 try {
-    Get-V2024ManagedClientStatus -V2024Id $Id  -V2024Type $Type 
+    Get-V2024ManagedClientStatus -Id $Id -Type $Type 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024ManagedClientStatus -V2024Id $Id -V2024Type $Type  
+    # Get-V2024ManagedClientStatus -Id $Id -Type $Type  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024ManagedClientStatus"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-managed-clients
 List managed clients.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-managed-clients)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -243,18 +258,21 @@ $Filters = 'name eq "client name"' # String | Filter results using the standard 
 # Get Managed Clients
 
 try {
-    Get-V2024ManagedClients
+    Get-V2024ManagedClients 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024ManagedClients -V2024Offset $Offset -V2024Limit $Limit -V2024Count $Count -V2024Filters $Filters  
+    # Get-V2024ManagedClients -Offset $Offset -Limit $Limit -Count $Count -Filters $Filters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024ManagedClients"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## update-managed-client
 Update an existing managed client.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/update-managed-client)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -294,10 +312,10 @@ $Id = "4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7" # String | Managed client ID.
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024ManagedClient -V2024Id $Id  -V2024JsonPatchOperation $Result
+    Update-V2024ManagedClient -Id $Id -V2024JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024ManagedClient -V2024Id $Id -V2024JsonPatchOperation $JsonPatchOperation  
+    # Update-V2024ManagedClient -Id $Id -V2024JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024ManagedClient"
     Write-Host $_.ErrorDetails

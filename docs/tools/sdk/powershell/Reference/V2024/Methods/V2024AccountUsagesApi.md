@@ -22,8 +22,11 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Get-V2024UsagesByAccountId**](#get-usages-by-account-id) | **GET** `/account-usages/{accountId}/summaries` | Returns account usage insights
 
+
 ## get-usages-by-account-id
 This API returns a summary of account usage insights for past 12 months.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-usages-by-account-id)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -62,10 +65,10 @@ $Sorters = "-date" # String | Sort results using the standard syntax described i
 # Returns account usage insights
 
 try {
-    Get-V2024UsagesByAccountId -V2024AccountId $AccountId 
+    Get-V2024UsagesByAccountId -AccountId $AccountId 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024UsagesByAccountId -V2024AccountId $AccountId -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Sorters $Sorters  
+    # Get-V2024UsagesByAccountId -AccountId $AccountId -Limit $Limit -Offset $Offset -Count $Count -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024UsagesByAccountId"
     Write-Host $_.ErrorDetails

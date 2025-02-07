@@ -19,8 +19,11 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Get-BetaMessageCatalogs**](#get-message-catalogs) | **GET** `/translation-catalogs/{catalog-id}` | Get Message catalogs
 
+
 ## get-message-catalogs
 The getMessageCatalogs API returns message catalog based on the language headers in the requested object.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-message-catalogs)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -51,10 +54,10 @@ $CatalogId = "recommender" # String | The ID of the message catalog.
 # Get Message catalogs
 
 try {
-    Get-BetaMessageCatalogs -BetaCatalogId $CatalogId 
+    Get-BetaMessageCatalogs -CatalogId $CatalogId 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaMessageCatalogs -BetaCatalogId $CatalogId  
+    # Get-BetaMessageCatalogs -CatalogId $CatalogId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaMessageCatalogs"
     Write-Host $_.ErrorDetails

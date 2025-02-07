@@ -81,8 +81,11 @@ Method | HTTP request | Description
 [**Deny-BetaNonEmployeeRequest**](#reject-non-employee-request) | **POST** `/non-employee-approvals/{id}/reject` | Reject a Non-Employee Request
 [**Update-BetaNonEmployeeRecord**](#update-non-employee-record) | **PUT** `/non-employee-records/{id}` | Update Non-Employee Record
 
+
 ## approve-non-employee-request
 Approves a non-employee approval request and notifies the next approver.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/approve-non-employee-request)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -118,20 +121,23 @@ $NonEmployeeApprovalDecision = @"{
 
 try {
     $Result = ConvertFrom-JsonToNonEmployeeApprovalDecision -Json $NonEmployeeApprovalDecision
-    Approve-BetaNonEmployeeRequest -BetaId $Id  -BetaNonEmployeeApprovalDecision $Result
+    Approve-BetaNonEmployeeRequest -Id $Id -BetaNonEmployeeApprovalDecision $Result 
     
     # Below is a request that includes all optional parameters
-    # Approve-BetaNonEmployeeRequest -BetaId $Id -BetaNonEmployeeApprovalDecision $NonEmployeeApprovalDecision  
+    # Approve-BetaNonEmployeeRequest -Id $Id -BetaNonEmployeeApprovalDecision $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Approve-BetaNonEmployeeRequest"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## create-non-employee-record
 This request will create a non-employee record.
 Request will require the following security scope:
 'idn:nesr:create'
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/create-non-employee-record)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -176,18 +182,21 @@ $NonEmployeeRequestBody = @"{
 
 try {
     $Result = ConvertFrom-JsonToNonEmployeeRequestBody -Json $NonEmployeeRequestBody
-    New-BetaNonEmployeeRecord -BetaNonEmployeeRequestBody $Result
+    New-BetaNonEmployeeRecord -BetaNonEmployeeRequestBody $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaNonEmployeeRecord -BetaNonEmployeeRequestBody $NonEmployeeRequestBody  
+    # New-BetaNonEmployeeRecord -BetaNonEmployeeRequestBody $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaNonEmployeeRecord"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## create-non-employee-request
 This request will create a non-employee request and notify the approver
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/create-non-employee-request)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -232,20 +241,23 @@ $NonEmployeeRequestBody = @"{
 
 try {
     $Result = ConvertFrom-JsonToNonEmployeeRequestBody -Json $NonEmployeeRequestBody
-    New-BetaNonEmployeeRequest -BetaNonEmployeeRequestBody $Result
+    New-BetaNonEmployeeRequest -BetaNonEmployeeRequestBody $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaNonEmployeeRequest -BetaNonEmployeeRequestBody $NonEmployeeRequestBody  
+    # New-BetaNonEmployeeRequest -BetaNonEmployeeRequestBody $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaNonEmployeeRequest"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## create-non-employee-source
 This request will create a non-employee source.
 Request will require the following security scope:
 'idn:nesr:create'
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/create-non-employee-source)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -302,18 +314,21 @@ $NonEmployeeSourceRequestBody = @"{
 
 try {
     $Result = ConvertFrom-JsonToNonEmployeeSourceRequestBody -Json $NonEmployeeSourceRequestBody
-    New-BetaNonEmployeeSource -BetaNonEmployeeSourceRequestBody $Result
+    New-BetaNonEmployeeSource -BetaNonEmployeeSourceRequestBody $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaNonEmployeeSource -BetaNonEmployeeSourceRequestBody $NonEmployeeSourceRequestBody  
+    # New-BetaNonEmployeeSource -BetaNonEmployeeSourceRequestBody $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaNonEmployeeSource"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## create-non-employee-source-schema-attributes
 This API creates a new schema attribute for Non-Employee Source. The schema technical name must be unique in the source. Attempts to create a schema attribute with an existing name will result in a "400.1.409 Reference conflict" response. At most, 10 custom attributes can be created per schema. Attempts to create more than 10 will result in a "400.1.4 Limit violation" response.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/create-non-employee-source-schema-attributes)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -354,18 +369,21 @@ $NonEmployeeSchemaAttributeBody = @"{
 
 try {
     $Result = ConvertFrom-JsonToNonEmployeeSchemaAttributeBody -Json $NonEmployeeSchemaAttributeBody
-    New-BetaNonEmployeeSourceSchemaAttributes -BetaSourceId $SourceId  -BetaNonEmployeeSchemaAttributeBody $Result
+    New-BetaNonEmployeeSourceSchemaAttributes -SourceId $SourceId -BetaNonEmployeeSchemaAttributeBody $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaNonEmployeeSourceSchemaAttributes -BetaSourceId $SourceId -BetaNonEmployeeSchemaAttributeBody $NonEmployeeSchemaAttributeBody  
+    # New-BetaNonEmployeeSourceSchemaAttributes -SourceId $SourceId -BetaNonEmployeeSchemaAttributeBody $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaNonEmployeeSourceSchemaAttributes"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## delete-non-employee-record
 This request will delete a non-employee record.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-non-employee-record)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -396,20 +414,23 @@ $Id = "2c91808b6ef1d43e016efba0ce470904" # String | Non-Employee record id (UUID
 # Delete Non-Employee Record
 
 try {
-    Remove-BetaNonEmployeeRecord -BetaId $Id 
+    Remove-BetaNonEmployeeRecord -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Remove-BetaNonEmployeeRecord -BetaId $Id  
+    # Remove-BetaNonEmployeeRecord -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaNonEmployeeRecord"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## delete-non-employee-record-in-bulk
 This request will delete multiple non-employee records based on the non-employee ids provided.
 Request will require the following scope:
 'idn:nesr:delete'
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-non-employee-record-in-bulk)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -441,18 +462,21 @@ $DeleteNonEmployeeRecordInBulkRequest = @""@
 
 try {
     $Result = ConvertFrom-JsonToDeleteNonEmployeeRecordInBulkRequest -Json $DeleteNonEmployeeRecordInBulkRequest
-    Remove-BetaNonEmployeeRecordInBulk -BetaDeleteNonEmployeeRecordInBulkRequest $Result
+    Remove-BetaNonEmployeeRecordInBulk -BetaDeleteNonEmployeeRecordInBulkRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Remove-BetaNonEmployeeRecordInBulk -BetaDeleteNonEmployeeRecordInBulkRequest $DeleteNonEmployeeRecordInBulkRequest  
+    # Remove-BetaNonEmployeeRecordInBulk -BetaDeleteNonEmployeeRecordInBulkRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaNonEmployeeRecordInBulk"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## delete-non-employee-request
 This request will delete a non-employee request.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-non-employee-request)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -484,19 +508,22 @@ $Id = "2c91808b6ef1d43e016efba0ce470904" # String | Non-Employee request id in t
 # Delete Non-Employee Request
 
 try {
-    Remove-BetaNonEmployeeRequest -BetaId $Id 
+    Remove-BetaNonEmployeeRequest -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Remove-BetaNonEmployeeRequest -BetaId $Id  
+    # Remove-BetaNonEmployeeRequest -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaNonEmployeeRequest"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## delete-non-employee-schema-attribute
 This end-point deletes a specific schema attribute for a non-employee source.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-non-employee-schema-attribute)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -529,18 +556,21 @@ $SourceId = "2c91808b6ef1d43e016efba0ce470904" # String | The Source id
 # Delete Non-Employee Source's Schema Attribute
 
 try {
-    Remove-BetaNonEmployeeSchemaAttribute -BetaAttributeId $AttributeId  -BetaSourceId $SourceId 
+    Remove-BetaNonEmployeeSchemaAttribute -AttributeId $AttributeId -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
-    # Remove-BetaNonEmployeeSchemaAttribute -BetaAttributeId $AttributeId -BetaSourceId $SourceId  
+    # Remove-BetaNonEmployeeSchemaAttribute -AttributeId $AttributeId -SourceId $SourceId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaNonEmployeeSchemaAttribute"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## delete-non-employee-source
 This request will delete a non-employee source.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-non-employee-source)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -571,18 +601,21 @@ $SourceId = "2c91808b6ef1d43e016efba0ce470904" # String | Source Id
 # Delete Non-Employee Source
 
 try {
-    Remove-BetaNonEmployeeSource -BetaSourceId $SourceId 
+    Remove-BetaNonEmployeeSource -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
-    # Remove-BetaNonEmployeeSource -BetaSourceId $SourceId  
+    # Remove-BetaNonEmployeeSource -SourceId $SourceId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaNonEmployeeSource"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## delete-non-employee-source-schema-attributes
 This end-point deletes all custom schema attributes for a non-employee source.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-non-employee-source-schema-attributes)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -613,18 +646,21 @@ $SourceId = "2c91808b6ef1d43e016efba0ce470904" # String | The Source id
 # Delete all custom schema attributes
 
 try {
-    Remove-BetaNonEmployeeSourceSchemaAttributes -BetaSourceId $SourceId 
+    Remove-BetaNonEmployeeSourceSchemaAttributes -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
-    # Remove-BetaNonEmployeeSourceSchemaAttributes -BetaSourceId $SourceId  
+    # Remove-BetaNonEmployeeSourceSchemaAttributes -SourceId $SourceId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaNonEmployeeSourceSchemaAttributes"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## export-non-employee-records
 This requests a CSV download for all non-employees from a provided source.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/export-non-employee-records)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -656,20 +692,23 @@ $Id = "2c918085842e69ae018432d22ccb212f" # String | Source Id (UUID)
 # Exports Non-Employee Records to CSV
 
 try {
-    Export-BetaNonEmployeeRecords -BetaId $Id 
+    Export-BetaNonEmployeeRecords -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Export-BetaNonEmployeeRecords -BetaId $Id  
+    # Export-BetaNonEmployeeRecords -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Export-BetaNonEmployeeRecords"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## export-non-employee-source-schema-template
 This requests a download for the Source Schema Template for a provided source.
 Request will require the following security scope:
 idn:nesr:read'
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/export-non-employee-source-schema-template)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -701,18 +740,21 @@ $Id = "2c918085842e69ae018432d22ccb212f" # String | Source Id (UUID)
 # Exports Source Schema Template
 
 try {
-    Export-BetaNonEmployeeSourceSchemaTemplate -BetaId $Id 
+    Export-BetaNonEmployeeSourceSchemaTemplate -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Export-BetaNonEmployeeSourceSchemaTemplate -BetaId $Id  
+    # Export-BetaNonEmployeeSourceSchemaTemplate -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Export-BetaNonEmployeeSourceSchemaTemplate"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-non-employee-approval
 Approves a non-employee approval request and notifies the next approver.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-non-employee-approval)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -745,18 +787,21 @@ $IncludeDetail = "include-detail=false" # String | The object nonEmployeeRequest
 # Get a non-employee approval item detail
 
 try {
-    Get-BetaNonEmployeeApproval -BetaId $Id 
+    Get-BetaNonEmployeeApproval -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaNonEmployeeApproval -BetaId $Id -BetaIncludeDetail $IncludeDetail  
+    # Get-BetaNonEmployeeApproval -Id $Id -IncludeDetail $IncludeDetail  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaNonEmployeeApproval"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-non-employee-approval-summary
 This request will retrieve a summary of non-employee approval requests. There are two contextual uses for the `requested-for` path parameter: 1. The current user is the Org Admin, in which case he or she may request a summary of all non-employee approval requests assigned to a particular approver by passing in that approver's id. 2. The current user is an approver, in which case "me" should be provided as the `requested-for` value. This will provide the approver with a summary of the approval items assigned to him or her.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-non-employee-approval-summary)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -787,19 +832,22 @@ $RequestedFor = "ac10d20a-841e-1e7d-8184-32d2e22c0179" # String | The identity (
 # Get Summary of Non-Employee Approval Requests
 
 try {
-    Get-BetaNonEmployeeApprovalSummary -BetaRequestedFor $RequestedFor 
+    Get-BetaNonEmployeeApprovalSummary -RequestedFor $RequestedFor 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaNonEmployeeApprovalSummary -BetaRequestedFor $RequestedFor  
+    # Get-BetaNonEmployeeApprovalSummary -RequestedFor $RequestedFor  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaNonEmployeeApprovalSummary"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-non-employee-bulk-upload-status
 The nonEmployeeBulkUploadStatus API returns the status of the newest bulk upload job for the specified source.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-non-employee-bulk-upload-status)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -830,18 +878,21 @@ $Id = "2c918085842e69ae018432d22ccb212f" # String | Source ID (UUID)
 # Bulk upload status on source
 
 try {
-    Get-BetaNonEmployeeBulkUploadStatus -BetaId $Id 
+    Get-BetaNonEmployeeBulkUploadStatus -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaNonEmployeeBulkUploadStatus -BetaId $Id  
+    # Get-BetaNonEmployeeBulkUploadStatus -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaNonEmployeeBulkUploadStatus"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-non-employee-record
 This gets a non-employee record.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-non-employee-record)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -872,18 +923,21 @@ $Id = "2c91808b6ef1d43e016efba0ce470904" # String | Non-Employee record id (UUID
 # Get a Non-Employee Record
 
 try {
-    Get-BetaNonEmployeeRecord -BetaId $Id 
+    Get-BetaNonEmployeeRecord -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaNonEmployeeRecord -BetaId $Id  
+    # Get-BetaNonEmployeeRecord -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaNonEmployeeRecord"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-non-employee-request
 This gets a non-employee request.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-non-employee-request)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -915,18 +969,21 @@ $Id = "2c91808b6ef1d43e016efba0ce470904" # String | Non-Employee request id (UUI
 # Get a Non-Employee Request
 
 try {
-    Get-BetaNonEmployeeRequest -BetaId $Id 
+    Get-BetaNonEmployeeRequest -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaNonEmployeeRequest -BetaId $Id  
+    # Get-BetaNonEmployeeRequest -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaNonEmployeeRequest"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-non-employee-request-summary
 This request will retrieve a summary of non-employee requests. There are two contextual uses for the `requested-for` path parameter: 1. The current user is the Org Admin, in which case he or she may request a summary of all non-employee approval requests assigned to a particular account manager by passing in that manager's id. 2. The current user is an account manager, in which case "me" should be provided as the `requested-for` value. This will provide the user with a summary of the non-employee requests in the source(s) he or she manages.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-non-employee-request-summary)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -957,18 +1014,21 @@ $RequestedFor = "ac10d20a-841e-1e7d-8184-32d2e22c0179" # String | The identity (
 # Get Summary of Non-Employee Requests
 
 try {
-    Get-BetaNonEmployeeRequestSummary -BetaRequestedFor $RequestedFor 
+    Get-BetaNonEmployeeRequestSummary -RequestedFor $RequestedFor 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaNonEmployeeRequestSummary -BetaRequestedFor $RequestedFor  
+    # Get-BetaNonEmployeeRequestSummary -RequestedFor $RequestedFor  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaNonEmployeeRequestSummary"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-non-employee-schema-attribute
 This API gets a schema attribute by Id for the specified Non-Employee SourceId.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-non-employee-schema-attribute)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1001,18 +1061,21 @@ $SourceId = "2c918085842e69ae018432d22ccb212f" # String | The Source id
 # Get Schema Attribute Non-Employee Source
 
 try {
-    Get-BetaNonEmployeeSchemaAttribute -BetaAttributeId $AttributeId  -BetaSourceId $SourceId 
+    Get-BetaNonEmployeeSchemaAttribute -AttributeId $AttributeId -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaNonEmployeeSchemaAttribute -BetaAttributeId $AttributeId -BetaSourceId $SourceId  
+    # Get-BetaNonEmployeeSchemaAttribute -AttributeId $AttributeId -SourceId $SourceId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaNonEmployeeSchemaAttribute"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-non-employee-source
 This gets a non-employee source.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-non-employee-source)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1043,18 +1106,21 @@ $SourceId = "2c91808b7c28b350017c2a2ec5790aa1" # String | Source Id
 # Get a Non-Employee Source
 
 try {
-    Get-BetaNonEmployeeSource -BetaSourceId $SourceId 
+    Get-BetaNonEmployeeSource -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaNonEmployeeSource -BetaSourceId $SourceId  
+    # Get-BetaNonEmployeeSource -SourceId $SourceId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaNonEmployeeSource"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-non-employee-source-schema-attributes
 This API gets the list of schema attributes for the specified Non-Employee SourceId. There are 8 mandatory attributes added to each new Non-Employee Source automatically. Additionaly, user can add up to 10 custom attributes. This interface returns all the mandatory attributes followed by any custom attributes. At most, a total of 18 attributes will be returned.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-non-employee-source-schema-attributes)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1086,20 +1152,23 @@ $SourceId = "2c918085842e69ae018432d22ccb212f" # String | The Source id
 # List Schema Attributes Non-Employee Source
 
 try {
-    Get-BetaNonEmployeeSourceSchemaAttributes -BetaSourceId $SourceId 
+    Get-BetaNonEmployeeSourceSchemaAttributes -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaNonEmployeeSourceSchemaAttributes -BetaSourceId $SourceId  
+    # Get-BetaNonEmployeeSourceSchemaAttributes -SourceId $SourceId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaNonEmployeeSourceSchemaAttributes"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## import-non-employee-records-in-bulk
 This post will import, or update, Non-Employee records found in the CSV.
 Request will need the following security scope:
 'idn:nesr:create'
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/import-non-employee-records-in-bulk)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1133,18 +1202,21 @@ $Data =  # System.IO.FileInfo |
 # Imports, or Updates, Non-Employee Records
 
 try {
-    Import-BetaNonEmployeeRecordsInBulk -BetaId $Id  -BetaData $Data 
+    Import-BetaNonEmployeeRecordsInBulk -Id $Id -Data $Data 
     
     # Below is a request that includes all optional parameters
-    # Import-BetaNonEmployeeRecordsInBulk -BetaId $Id -BetaData $Data  
+    # Import-BetaNonEmployeeRecordsInBulk -Id $Id -Data $Data  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Import-BetaNonEmployeeRecordsInBulk"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-non-employee-approval
 This gets a list of non-employee approval requests.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/list-non-employee-approval)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1185,18 +1257,21 @@ $Sorters = "created" # String | Sort results using the standard syntax described
 # Get List of Non-Employee Approval Requests
 
 try {
-    Get-BetaNonEmployeeApproval
+    Get-BetaNonEmployeeApproval 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaNonEmployeeApproval -BetaRequestedFor $RequestedFor -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count -BetaFilters $Filters -BetaSorters $Sorters  
+    # Get-BetaNonEmployeeApproval -RequestedFor $RequestedFor -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaNonEmployeeApproval"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-non-employee-records
 This gets a list of non-employee records.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/list-non-employee-records)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1235,18 +1310,21 @@ $Filters = 'sourceId eq "2c91808568c529c60168cca6f90c1313"' # String | Filter re
 # List Non-Employee Records
 
 try {
-    Get-BetaNonEmployeeRecords
+    Get-BetaNonEmployeeRecords 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaNonEmployeeRecords -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count -BetaSorters $Sorters -BetaFilters $Filters  
+    # Get-BetaNonEmployeeRecords -Limit $Limit -Offset $Offset -Count $Count -Sorters $Sorters -Filters $Filters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaNonEmployeeRecords"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-non-employee-requests
 This gets a list of non-employee requests.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/list-non-employee-requests)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1287,18 +1365,21 @@ $Filters = 'sourceId eq "2c91808568c529c60168cca6f90c1313"' # String | Filter re
 # List Non-Employee Requests
 
 try {
-    Get-BetaNonEmployeeRequests -BetaRequestedFor $RequestedFor 
+    Get-BetaNonEmployeeRequests -RequestedFor $RequestedFor 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaNonEmployeeRequests -BetaRequestedFor $RequestedFor -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count -BetaSorters $Sorters -BetaFilters $Filters  
+    # Get-BetaNonEmployeeRequests -RequestedFor $RequestedFor -Limit $Limit -Offset $Offset -Count $Count -Sorters $Sorters -Filters $Filters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaNonEmployeeRequests"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-non-employee-sources
 This gets a list of non-employee sources.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/list-non-employee-sources)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1339,18 +1420,21 @@ $Sorters = "name,created" # String | Sort results using the standard syntax desc
 # List Non-Employee Sources
 
 try {
-    Get-BetaNonEmployeeSources -BetaRequestedFor $RequestedFor  -BetaNonEmployeeCount $NonEmployeeCount 
+    Get-BetaNonEmployeeSources -RequestedFor $RequestedFor -NonEmployeeCount $NonEmployeeCount 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaNonEmployeeSources -BetaRequestedFor $RequestedFor -BetaNonEmployeeCount $NonEmployeeCount -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count -BetaSorters $Sorters  
+    # Get-BetaNonEmployeeSources -RequestedFor $RequestedFor -NonEmployeeCount $NonEmployeeCount -Limit $Limit -Offset $Offset -Count $Count -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaNonEmployeeSources"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## patch-non-employee-record
 This request will patch a non-employee record.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/patch-non-employee-record)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1390,19 +1474,22 @@ $Id = "2c91808b6ef1d43e016efba0ce470904" # String | Non-employee record id (UUID
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-BetaNonEmployeeRecord -BetaId $Id  -BetaJsonPatchOperation $Result
+    Update-BetaNonEmployeeRecord -Id $Id -BetaJsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaNonEmployeeRecord -BetaId $Id -BetaJsonPatchOperation $JsonPatchOperation  
+    # Update-BetaNonEmployeeRecord -Id $Id -BetaJsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaNonEmployeeRecord"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## patch-non-employee-schema-attribute
 This end-point patches a specific schema attribute for a non-employee SourceId.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/patch-non-employee-schema-attribute)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1444,18 +1531,21 @@ $SourceId = "2c91808b6ef1d43e016efba0ce470904" # String | The Source id
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-BetaNonEmployeeSchemaAttribute -BetaAttributeId $AttributeId  -BetaSourceId $SourceId  -BetaJsonPatchOperation $Result
+    Update-BetaNonEmployeeSchemaAttribute -AttributeId $AttributeId -SourceId $SourceId -BetaJsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaNonEmployeeSchemaAttribute -BetaAttributeId $AttributeId -BetaSourceId $SourceId -BetaJsonPatchOperation $JsonPatchOperation  
+    # Update-BetaNonEmployeeSchemaAttribute -AttributeId $AttributeId -SourceId $SourceId -BetaJsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaNonEmployeeSchemaAttribute"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## patch-non-employee-source
 patch a non-employee source. (Partial Update)  Patchable field: **name, description, approvers, accountManagers**
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/patch-non-employee-source)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1494,18 +1584,21 @@ $SourceId = "2c91808b6ef1d43e016efba0ce470904" # String | Source Id
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-BetaNonEmployeeSource -BetaSourceId $SourceId  -BetaJsonPatchOperation $Result
+    Update-BetaNonEmployeeSource -SourceId $SourceId -BetaJsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaNonEmployeeSource -BetaSourceId $SourceId -BetaJsonPatchOperation $JsonPatchOperation  
+    # Update-BetaNonEmployeeSource -SourceId $SourceId -BetaJsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaNonEmployeeSource"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## reject-non-employee-request
 This endpoint will reject an approval item request and notify user.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/reject-non-employee-request)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1541,18 +1634,21 @@ $NonEmployeeRejectApprovalDecision = @"{
 
 try {
     $Result = ConvertFrom-JsonToNonEmployeeRejectApprovalDecision -Json $NonEmployeeRejectApprovalDecision
-    Deny-BetaNonEmployeeRequest -BetaId $Id  -BetaNonEmployeeRejectApprovalDecision $Result
+    Deny-BetaNonEmployeeRequest -Id $Id -BetaNonEmployeeRejectApprovalDecision $Result 
     
     # Below is a request that includes all optional parameters
-    # Deny-BetaNonEmployeeRequest -BetaId $Id -BetaNonEmployeeRejectApprovalDecision $NonEmployeeRejectApprovalDecision  
+    # Deny-BetaNonEmployeeRequest -Id $Id -BetaNonEmployeeRejectApprovalDecision $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Deny-BetaNonEmployeeRequest"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## update-non-employee-record
 This request will update a non-employee record.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/update-non-employee-record)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1600,10 +1696,10 @@ $NonEmployeeRequestBody = @"{
 
 try {
     $Result = ConvertFrom-JsonToNonEmployeeRequestBody -Json $NonEmployeeRequestBody
-    Update-BetaNonEmployeeRecord -BetaId $Id  -BetaNonEmployeeRequestBody $Result
+    Update-BetaNonEmployeeRecord -Id $Id -BetaNonEmployeeRequestBody $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaNonEmployeeRecord -BetaId $Id -BetaNonEmployeeRequestBody $NonEmployeeRequestBody  
+    # Update-BetaNonEmployeeRecord -Id $Id -BetaNonEmployeeRequestBody $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaNonEmployeeRecord"
     Write-Host $_.ErrorDetails

@@ -23,8 +23,11 @@ Method | HTTP request | Description
 [**Get-BetaValidTimeZones**](#get-valid-time-zones) | **GET** `/org-config/valid-time-zones` | Get list of time zones
 [**Update-BetaOrgConfig**](#patch-org-config) | **PATCH** `/org-config` | Patch an Org configuration property
 
+
 ## get-org-config
 Get org configuration with only external (org admin) accessible properties for the current org.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-org-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -54,7 +57,7 @@ Code | Description  | Data Type
 # Get Org configuration settings
 
 try {
-    Get-BetaOrgConfig
+    Get-BetaOrgConfig 
     
     # Below is a request that includes all optional parameters
     # Get-BetaOrgConfig  
@@ -64,8 +67,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-valid-time-zones
 Get a list of valid time zones that can be set in org configurations.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-valid-time-zones)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -94,7 +100,7 @@ Code | Description  | Data Type
 # Get list of time zones
 
 try {
-    Get-BetaValidTimeZones
+    Get-BetaValidTimeZones 
     
     # Below is a request that includes all optional parameters
     # Get-BetaValidTimeZones  
@@ -104,8 +110,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## patch-org-config
 Patch configuration of the current org using http://jsonpatch.com/ syntax.  Commonly used for changing the time zone of an org.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/patch-org-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -143,10 +152,10 @@ Code | Description  | Data Type
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-BetaOrgConfig -BetaJsonPatchOperation $Result
+    Update-BetaOrgConfig -BetaJsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaOrgConfig -BetaJsonPatchOperation $JsonPatchOperation  
+    # Update-BetaOrgConfig -BetaJsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaOrgConfig"
     Write-Host $_.ErrorDetails

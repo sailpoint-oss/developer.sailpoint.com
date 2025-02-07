@@ -37,8 +37,11 @@ Method | HTTP request | Description
 [**Test-BetaWorkflow**](#test-workflow) | **POST** `/workflows/{id}/test` | Test Workflow By Id
 [**Update-BetaWorkflow**](#update-workflow) | **PUT** `/workflows/{id}` | Update Workflow
 
+
 ## cancel-workflow-execution
 Use this API to cancel a running workflow execution.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/cancel-workflow-execution)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -70,18 +73,21 @@ $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | The workflow execution I
 # Cancel Workflow Execution by ID
 
 try {
-    Suspend-BetaWorkflowExecution -BetaId $Id 
+    Suspend-BetaWorkflowExecution -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Suspend-BetaWorkflowExecution -BetaId $Id  
+    # Suspend-BetaWorkflowExecution -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Suspend-BetaWorkflowExecution"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## create-workflow
 Create a new workflow with the desired trigger and steps specified in the request body.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/create-workflow)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -113,18 +119,21 @@ $CreateWorkflowRequest = @"{name=Send Email, owner={type=IDENTITY, id=2c91808568
 
 try {
     $Result = ConvertFrom-JsonToCreateWorkflowRequest -Json $CreateWorkflowRequest
-    New-BetaWorkflow -BetaCreateWorkflowRequest $Result
+    New-BetaWorkflow -BetaCreateWorkflowRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaWorkflow -BetaCreateWorkflowRequest $CreateWorkflowRequest  
+    # New-BetaWorkflow -BetaCreateWorkflowRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaWorkflow"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## delete-workflow
 Delete a workflow.  **Enabled workflows cannot be deleted**.  They must first be disabled.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-workflow)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -155,18 +164,21 @@ $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the Workflow
 # Delete Workflow By Id
 
 try {
-    Remove-BetaWorkflow -BetaId $Id 
+    Remove-BetaWorkflow -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Remove-BetaWorkflow -BetaId $Id  
+    # Remove-BetaWorkflow -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaWorkflow"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-workflow
 Get a single workflow by id.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-workflow)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -197,18 +209,21 @@ $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow
 # Get Workflow By Id
 
 try {
-    Get-BetaWorkflow -BetaId $Id 
+    Get-BetaWorkflow -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaWorkflow -BetaId $Id  
+    # Get-BetaWorkflow -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaWorkflow"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-workflow-execution
 Use this API to get a single workflow execution. Workflow executions are available for up to 90 days before being archived. If you attempt to access a workflow execution that has been archived, you will receive a "404 Not Found" response.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-workflow-execution)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -240,18 +255,21 @@ $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Workflow execution ID.
 # Get Workflow Execution
 
 try {
-    Get-BetaWorkflowExecution -BetaId $Id 
+    Get-BetaWorkflowExecution -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaWorkflowExecution -BetaId $Id  
+    # Get-BetaWorkflowExecution -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaWorkflowExecution"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-workflow-execution-history
 Get a detailed history of a single workflow execution.  Workflow executions are available for up to 90 days before being archived.  If you attempt to access a workflow execution that has been archived, you will receive a 404 Not Found.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-workflow-execution-history)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -283,16 +301,17 @@ $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow execu
 # Get Workflow Execution History
 
 try {
-    Get-BetaWorkflowExecutionHistory -BetaId $Id 
+    Get-BetaWorkflowExecutionHistory -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaWorkflowExecutionHistory -BetaId $Id  
+    # Get-BetaWorkflowExecutionHistory -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaWorkflowExecutionHistory"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-workflow-executions
 Use this API to list a specified workflow's executions. Workflow executions are available for up to 90 days before being archived. By default, you can get a maximum of 250 executions.  To get executions past the first 250 records, you can do the following: 
 1. Use the [Get Workflows](https://developer.sailpoint.com/idn/api/beta/list-workflows) endpoint to get your workflows. 
@@ -305,6 +324,8 @@ Use this API to list a specified workflow's executions. Workflow executions are 
   - Paginate through results with the `offset` parameter. 
   For example, you can page through 50 executions per page and use that as a way to get to the records past the first 250. 
   Refer to [Paginating Results](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results) for more information about the query parameters you can use to achieve pagination. 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-workflow-executions)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -344,18 +365,21 @@ $Filters = 'status eq "Failed"' # String | Filter results using the standard syn
 # List Workflow Executions
 
 try {
-    Get-BetaWorkflowExecutions -BetaId $Id 
+    Get-BetaWorkflowExecutions -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaWorkflowExecutions -BetaId $Id -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count -BetaFilters $Filters  
+    # Get-BetaWorkflowExecutions -Id $Id -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaWorkflowExecutions"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-complete-workflow-library
 This lists all triggers, actions, and operators in the library
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/list-complete-workflow-library)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -388,18 +412,21 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 # List Complete Workflow Library
 
 try {
-    Get-BetaCompleteWorkflowLibrary
+    Get-BetaCompleteWorkflowLibrary 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaCompleteWorkflowLibrary -BetaLimit $Limit -BetaOffset $Offset  
+    # Get-BetaCompleteWorkflowLibrary -Limit $Limit -Offset $Offset  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaCompleteWorkflowLibrary"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-workflow-library-actions
 This lists the workflow actions available to you.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/list-workflow-library-actions)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -434,18 +461,21 @@ $Filters = 'id eq "sp:create-campaign"' # String | Filter results using the stan
 # List Workflow Library Actions
 
 try {
-    Get-BetaWorkflowLibraryActions
+    Get-BetaWorkflowLibraryActions 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaWorkflowLibraryActions -BetaLimit $Limit -BetaOffset $Offset -BetaFilters $Filters  
+    # Get-BetaWorkflowLibraryActions -Limit $Limit -Offset $Offset -Filters $Filters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaWorkflowLibraryActions"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-workflow-library-operators
 This lists the workflow operators available to you
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/list-workflow-library-operators)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -474,7 +504,7 @@ Code | Description  | Data Type
 # List Workflow Library Operators
 
 try {
-    Get-BetaWorkflowLibraryOperators
+    Get-BetaWorkflowLibraryOperators 
     
     # Below is a request that includes all optional parameters
     # Get-BetaWorkflowLibraryOperators  
@@ -484,8 +514,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-workflow-library-triggers
 This lists the workflow triggers available to you
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/list-workflow-library-triggers)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -520,18 +553,21 @@ $Filters = 'id eq "idn:identity-attributes-changed"' # String | Filter results u
 # List Workflow Library Triggers
 
 try {
-    Get-BetaWorkflowLibraryTriggers
+    Get-BetaWorkflowLibraryTriggers 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaWorkflowLibraryTriggers -BetaLimit $Limit -BetaOffset $Offset -BetaFilters $Filters  
+    # Get-BetaWorkflowLibraryTriggers -Limit $Limit -Offset $Offset -Filters $Filters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaWorkflowLibraryTriggers"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-workflows
 List all workflows in the tenant.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/list-workflows)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -560,7 +596,7 @@ Code | Description  | Data Type
 # List Workflows
 
 try {
-    Get-BetaWorkflows
+    Get-BetaWorkflows 
     
     # Below is a request that includes all optional parameters
     # Get-BetaWorkflows  
@@ -570,8 +606,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## patch-workflow
 Partially update an existing Workflow using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/patch-workflow)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -610,18 +649,21 @@ $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the Workflow
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-BetaWorkflow -BetaId $Id  -BetaJsonPatchOperation $Result
+    Update-BetaWorkflow -Id $Id -BetaJsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaWorkflow -BetaId $Id -BetaJsonPatchOperation $JsonPatchOperation  
+    # Update-BetaWorkflow -Id $Id -BetaJsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaWorkflow"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## post-external-execute-workflow
 This endpoint allows a service outside of IdentityNow to initiate a workflow that uses the "External Trigger" step.  The external service will invoke this endpoint with the input data it wants to send to the workflow in the body.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/post-external-execute-workflow)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -654,18 +696,21 @@ $PostExternalExecuteWorkflowRequest = @""@
 # Execute Workflow via External Trigger
 
 try {
-    Submit-BetaExternalExecuteWorkflow -BetaId $Id 
+    Submit-BetaExternalExecuteWorkflow -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Submit-BetaExternalExecuteWorkflow -BetaId $Id -BetaPostExternalExecuteWorkflowRequest $PostExternalExecuteWorkflowRequest  
+    # Submit-BetaExternalExecuteWorkflow -Id $Id -BetaPostExternalExecuteWorkflowRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Submit-BetaExternalExecuteWorkflow"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## post-workflow-external-trigger
 Create OAuth client ID, client secret, and callback URL for use in an external trigger.  External triggers will need this information to generate an access token to authenticate to the callback URL and submit a trigger payload that will initiate the workflow.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/post-workflow-external-trigger)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -696,18 +741,21 @@ $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow
 # Generate External Trigger OAuth Client
 
 try {
-    Submit-BetaWorkflowExternalTrigger -BetaId $Id 
+    Submit-BetaWorkflowExternalTrigger -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Submit-BetaWorkflowExternalTrigger -BetaId $Id  
+    # Submit-BetaWorkflowExternalTrigger -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Submit-BetaWorkflowExternalTrigger"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## test-external-execute-workflow
 Validate a workflow with an "External Trigger" can receive input.  The response includes the input that the workflow received, which can be used to validate that the input is intact when it reaches the workflow.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/test-external-execute-workflow)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -740,20 +788,23 @@ $TestExternalExecuteWorkflowRequest = @""@
 # Test Workflow via External Trigger
 
 try {
-    Test-BetaExternalExecuteWorkflow -BetaId $Id 
+    Test-BetaExternalExecuteWorkflow -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Test-BetaExternalExecuteWorkflow -BetaId $Id -BetaTestExternalExecuteWorkflowRequest $TestExternalExecuteWorkflowRequest  
+    # Test-BetaExternalExecuteWorkflow -Id $Id -BetaTestExternalExecuteWorkflowRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Test-BetaExternalExecuteWorkflow"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## test-workflow
 Test a workflow with the provided input data.  The input data should resemble the input that the trigger will send the workflow.  See the [event trigger documentation](https://developer.sailpoint.com/idn/docs/event-triggers/available) for an example input for the trigger that initiates this workflow.
 This endpoint will return an execution ID, which can be used to lookup more information about the execution using the `Get a Workflow Execution` endpoint.
 **This will cause a live run of the workflow, which could result in unintended modifications to your IDN tenant.**
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/test-workflow)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -787,18 +838,21 @@ $TestWorkflowRequest = @"{input={identity={id=ee769173319b41d19ccec6cea52f237b, 
 
 try {
     $Result = ConvertFrom-JsonToTestWorkflowRequest -Json $TestWorkflowRequest
-    Test-BetaWorkflow -BetaId $Id  -BetaTestWorkflowRequest $Result
+    Test-BetaWorkflow -Id $Id -BetaTestWorkflowRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Test-BetaWorkflow -BetaId $Id -BetaTestWorkflowRequest $TestWorkflowRequest  
+    # Test-BetaWorkflow -Id $Id -BetaTestWorkflowRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Test-BetaWorkflow"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## update-workflow
 Perform a full update of a workflow.  The updated workflow object is returned in the response.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/update-workflow)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -869,10 +923,10 @@ $WorkflowBody = @"{
 
 try {
     $Result = ConvertFrom-JsonToWorkflowBody -Json $WorkflowBody
-    Update-BetaWorkflow -BetaId $Id  -BetaWorkflowBody $Result
+    Update-BetaWorkflow -Id $Id -BetaWorkflowBody $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaWorkflow -BetaId $Id -BetaWorkflowBody $WorkflowBody  
+    # Update-BetaWorkflow -Id $Id -BetaWorkflowBody $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaWorkflow"
     Write-Host $_.ErrorDetails

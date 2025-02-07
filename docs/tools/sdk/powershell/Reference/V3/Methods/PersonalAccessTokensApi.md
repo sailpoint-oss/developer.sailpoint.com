@@ -33,8 +33,11 @@ Method | HTTP request | Description
 [**Get-PersonalAccessTokens**](#list-personal-access-tokens) | **GET** `/personal-access-tokens` | List Personal Access Tokens
 [**Update-PersonalAccessToken**](#patch-personal-access-token) | **PATCH** `/personal-access-tokens/{id}` | Patch Personal Access Token
 
+
 ## create-personal-access-token
 This creates a personal access token.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/create-personal-access-token)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -70,18 +73,21 @@ $CreatePersonalAccessTokenRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToCreatePersonalAccessTokenRequest -Json $CreatePersonalAccessTokenRequest
-    New-PersonalAccessToken -CreatePersonalAccessTokenRequest $Result
+    New-PersonalAccessToken -CreatePersonalAccessTokenRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-PersonalAccessToken -CreatePersonalAccessTokenRequest $CreatePersonalAccessTokenRequest  
+    # New-PersonalAccessToken -CreatePersonalAccessTokenRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-PersonalAccessToken"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## delete-personal-access-token
 This deletes a personal access token.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/delete-personal-access-token)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -123,8 +129,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-personal-access-tokens
 This gets a collection of personal access tokens associated with the optional `owner-id`.  query parameter. If the `owner-id` query parameter is omitted, all personal access tokens  for a tenant will be retrieved, but the caller must have the 'idn:all-personal-access-tokens:read' right.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/list-personal-access-tokens)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -157,7 +166,7 @@ $Filters = 'lastUsed le 2023-02-05T10:59:27.214Z' # String | Filter results usin
 # List Personal Access Tokens
 
 try {
-    Get-PersonalAccessTokens
+    Get-PersonalAccessTokens 
     
     # Below is a request that includes all optional parameters
     # Get-PersonalAccessTokens -OwnerId $OwnerId -Filters $Filters  
@@ -167,9 +176,12 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## patch-personal-access-token
 This performs a targeted update to the field(s) of a Personal Access Token.
 Changing scopes for a Personal Access Token does not impact existing bearer tokens. You will need to create a new bearer token to have the new scopes. Please note that it can take up to 20 minutes for scope changes to be seen on new bearer tokens.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/patch-personal-access-token)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -209,10 +221,10 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The Personal Access Token id
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-PersonalAccessToken -Id $Id  -JsonPatchOperation $Result
+    Update-PersonalAccessToken -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-PersonalAccessToken -Id $Id -JsonPatchOperation $JsonPatchOperation  
+    # Update-PersonalAccessToken -Id $Id -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-PersonalAccessToken"
     Write-Host $_.ErrorDetails

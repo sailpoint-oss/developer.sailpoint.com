@@ -55,8 +55,11 @@ Method | HTTP request | Description
 [**Get-BetaPasswordSyncGroups**](#get-password-sync-groups) | **GET** `/password-sync-groups` | Get Password Sync Group List
 [**Update-BetaPasswordSyncGroup**](#update-password-sync-group) | **PUT** `/password-sync-groups/{id}` | Update Password Sync Group by ID
 
+
 ## create-password-sync-group
 This API creates a password sync group based on the specifications provided.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/create-password-sync-group)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -95,18 +98,21 @@ $PasswordSyncGroup = @"{
 
 try {
     $Result = ConvertFrom-JsonToPasswordSyncGroup -Json $PasswordSyncGroup
-    New-BetaPasswordSyncGroup -BetaPasswordSyncGroup $Result
+    New-BetaPasswordSyncGroup -BetaPasswordSyncGroup $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaPasswordSyncGroup -BetaPasswordSyncGroup $PasswordSyncGroup  
+    # New-BetaPasswordSyncGroup -BetaPasswordSyncGroup $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaPasswordSyncGroup"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## delete-password-sync-group
 This API deletes the specified password sync group.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-password-sync-group)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -137,18 +143,21 @@ $Id = "6881f631-3bd5-4213-9c75-8e05cc3e35dd" # String | The ID of password sync 
 # Delete Password Sync Group by ID
 
 try {
-    Remove-BetaPasswordSyncGroup -BetaId $Id 
+    Remove-BetaPasswordSyncGroup -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Remove-BetaPasswordSyncGroup -BetaId $Id  
+    # Remove-BetaPasswordSyncGroup -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaPasswordSyncGroup"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-password-sync-group
 This API returns the sync group for the specified ID.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-password-sync-group)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -180,18 +189,21 @@ $Id = "6881f631-3bd5-4213-9c75-8e05cc3e35dd" # String | The ID of password sync 
 # Get Password Sync Group by ID
 
 try {
-    Get-BetaPasswordSyncGroup -BetaId $Id 
+    Get-BetaPasswordSyncGroup -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaPasswordSyncGroup -BetaId $Id  
+    # Get-BetaPasswordSyncGroup -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaPasswordSyncGroup"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-password-sync-groups
 This API returns a list of password sync groups.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-password-sync-groups)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -226,18 +238,21 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Get Password Sync Group List
 
 try {
-    Get-BetaPasswordSyncGroups
+    Get-BetaPasswordSyncGroups 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaPasswordSyncGroups -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count  
+    # Get-BetaPasswordSyncGroups -Limit $Limit -Offset $Offset -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaPasswordSyncGroups"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## update-password-sync-group
 This API updates the specified password sync group.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/update-password-sync-group)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -279,10 +294,10 @@ $PasswordSyncGroup = @"{
 
 try {
     $Result = ConvertFrom-JsonToPasswordSyncGroup -Json $PasswordSyncGroup
-    Update-BetaPasswordSyncGroup -BetaId $Id  -BetaPasswordSyncGroup $Result
+    Update-BetaPasswordSyncGroup -Id $Id -BetaPasswordSyncGroup $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaPasswordSyncGroup -BetaId $Id -BetaPasswordSyncGroup $PasswordSyncGroup  
+    # Update-BetaPasswordSyncGroup -Id $Id -BetaPasswordSyncGroup $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaPasswordSyncGroup"
     Write-Host $_.ErrorDetails

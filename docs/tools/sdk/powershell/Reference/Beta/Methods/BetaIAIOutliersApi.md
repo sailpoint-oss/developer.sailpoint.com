@@ -27,11 +27,14 @@ Method | HTTP request | Description
 [**Get-BetaOutliersContributingFeatureAccessItems**](#list-outliers-contributing-feature-access-items) | **GET** `/outliers/{outlierId}/feature-details/{contributingFeatureName}/access-items` | Gets a list of access items associated with each identity outlier contributing feature
 [**Invoke-BetaUnIgnoreIdentityOutliers**](#un-ignore-identity-outliers) | **POST** `/outliers/unignore` | IAI Identity Outliers Unignore
 
+
 ## export-outliers-zip
 This API exports a list of ignored outliers to a CSV as well as list of non-ignored outliers to a CSV. These two CSVs will be zipped and exported.
 
 Columns will include: identityId, type, firstDetectionDate, latestDetectionDate, ignored, & attributes (defined set of identity attributes).
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/export-outliers-zip)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -62,18 +65,21 @@ $Type = "LOW_SIMILARITY" # String | Type of the identity outliers snapshot to fi
 # IAI Identity Outliers Export
 
 try {
-    Export-BetaOutliersZip
+    Export-BetaOutliersZip 
     
     # Below is a request that includes all optional parameters
-    # Export-BetaOutliersZip -BetaType $Type  
+    # Export-BetaOutliersZip -Type $Type  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Export-BetaOutliersZip"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-identity-outlier-snapshots
 This API returns a summary containing the number of identities that customer has, the number of outliers, and the type of outlier.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-identity-outlier-snapshots)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -113,18 +119,21 @@ $Sorters = "snapshotDate" # String | Sort results using the standard syntax desc
 # IAI Identity Outliers Summary
 
 try {
-    Get-BetaIdentityOutlierSnapshots
+    Get-BetaIdentityOutlierSnapshots 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaIdentityOutlierSnapshots -BetaLimit $Limit -BetaOffset $Offset -BetaType $Type -BetaFilters $Filters -BetaSorters $Sorters  
+    # Get-BetaIdentityOutlierSnapshots -Limit $Limit -Offset $Offset -Type $Type -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaIdentityOutlierSnapshots"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-identity-outliers
 This API returns a list of outliers, containing data such as identity ID, outlier type, detection dates, identity attributes, if identity is ignored, and certification information.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-identity-outliers)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -165,18 +174,21 @@ $Sorters = "attributes.displayName,firstDetectionDate,-score" # String | Sort re
 # IAI Get Identity Outliers
 
 try {
-    Get-BetaIdentityOutliers
+    Get-BetaIdentityOutliers 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaIdentityOutliers -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count -BetaType $Type -BetaFilters $Filters -BetaSorters $Sorters  
+    # Get-BetaIdentityOutliers -Limit $Limit -Offset $Offset -Count $Count -Type $Type -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaIdentityOutliers"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-latest-identity-outlier-snapshots
 This API returns a most recent snapshot of each outlier type, each containing the number of identities that customer has, the number of outliers, and the type of outlier.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-latest-identity-outlier-snapshots)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -208,21 +220,24 @@ $Type = "LOW_SIMILARITY" # String | Type of the identity outliers snapshot to fi
 # IAI Identity Outliers Latest Summary
 
 try {
-    Get-BetaLatestIdentityOutlierSnapshots
+    Get-BetaLatestIdentityOutlierSnapshots 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaLatestIdentityOutlierSnapshots -BetaType $Type  
+    # Get-BetaLatestIdentityOutlierSnapshots -Type $Type  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaLatestIdentityOutlierSnapshots"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-outlier-contributing-feature-summary
 This API returns a summary of a contributing feature for an identity outlier.
 
 The object contains: contributing feature name (translated text or message key), identity outlier display name, feature values, feature definition and explanation (translated text or message key), peer display name and identityId, access item reference, translation messages object.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-outlier-contributing-feature-summary)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -254,21 +269,24 @@ $OutlierFeatureId = "04654b66-7561-4090-94f9-abee0722a1af" # String | Contributi
 # Get identity outlier contibuting feature summary
 
 try {
-    Get-BetaOutlierContributingFeatureSummary -BetaOutlierFeatureId $OutlierFeatureId 
+    Get-BetaOutlierContributingFeatureSummary -OutlierFeatureId $OutlierFeatureId 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaOutlierContributingFeatureSummary -BetaOutlierFeatureId $OutlierFeatureId  
+    # Get-BetaOutlierContributingFeatureSummary -OutlierFeatureId $OutlierFeatureId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaOutlierContributingFeatureSummary"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-peer-group-outliers-contributing-features
 This API returns a list of contributing feature objects for a single outlier.
 
 The object contains: feature name, feature value type, value, importance, display name (translated text or message key), description (translated text or message key), translation messages object.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-peer-group-outliers-contributing-features)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -310,18 +328,21 @@ $Sorters = "importance" # String | Sort results using the standard syntax descri
 # Get identity outlier's contibuting features
 
 try {
-    Get-BetaPeerGroupOutliersContributingFeatures -BetaOutlierId $OutlierId 
+    Get-BetaPeerGroupOutliersContributingFeatures -OutlierId $OutlierId 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaPeerGroupOutliersContributingFeatures -BetaOutlierId $OutlierId -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count -BetaIncludeTranslationMessages $IncludeTranslationMessages -BetaSorters $Sorters  
+    # Get-BetaPeerGroupOutliersContributingFeatures -OutlierId $OutlierId -Limit $Limit -Offset $Offset -Count $Count -IncludeTranslationMessages $IncludeTranslationMessages -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaPeerGroupOutliersContributingFeatures"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## ignore-identity-outliers
 This API receives a list of identity IDs in the request, changes the outliers to be ignored.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/ignore-identity-outliers)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -355,21 +376,24 @@ $RequestBody = "MyRequestBody" # String[] |
 
 try {
     $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
-    Invoke-BetaIgnoreIdentityOutliers -BetaRequestBody $Result
+    Invoke-BetaIgnoreIdentityOutliers -RequestBody $Result 
     
     # Below is a request that includes all optional parameters
-    # Invoke-BetaIgnoreIdentityOutliers -BetaRequestBody $RequestBody  
+    # Invoke-BetaIgnoreIdentityOutliers -RequestBody $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-BetaIgnoreIdentityOutliers"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-outliers-contributing-feature-access-items
 This API returns a list of the enriched access items associated with each feature filtered by the access item type.
 
 The object contains: accessItemId, display name (translated text or message key), description (translated text or message key), accessType, sourceName, extremelyRare.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/list-outliers-contributing-feature-access-items)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -413,18 +437,21 @@ $Sorters = "displayName" # String | Sort results using the standard syntax descr
 # Gets a list of access items associated with each identity outlier contributing feature
 
 try {
-    Get-BetaOutliersContributingFeatureAccessItems -BetaOutlierId $OutlierId  -BetaContributingFeatureName $ContributingFeatureName 
+    Get-BetaOutliersContributingFeatureAccessItems -OutlierId $OutlierId -ContributingFeatureName $ContributingFeatureName 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaOutliersContributingFeatureAccessItems -BetaOutlierId $OutlierId -BetaContributingFeatureName $ContributingFeatureName -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count -BetaAccessType $AccessType -BetaSorters $Sorters  
+    # Get-BetaOutliersContributingFeatureAccessItems -OutlierId $OutlierId -ContributingFeatureName $ContributingFeatureName -Limit $Limit -Offset $Offset -Count $Count -AccessType $AccessType -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaOutliersContributingFeatureAccessItems"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## un-ignore-identity-outliers
 This API receives a list of identity IDs in the request, changes the outliers to be un-ignored.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/un-ignore-identity-outliers)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -458,10 +485,10 @@ $RequestBody = "MyRequestBody" # String[] |
 
 try {
     $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
-    Invoke-BetaUnIgnoreIdentityOutliers -BetaRequestBody $Result
+    Invoke-BetaUnIgnoreIdentityOutliers -RequestBody $Result 
     
     # Below is a request that includes all optional parameters
-    # Invoke-BetaUnIgnoreIdentityOutliers -BetaRequestBody $RequestBody  
+    # Invoke-BetaUnIgnoreIdentityOutliers -RequestBody $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-BetaUnIgnoreIdentityOutliers"
     Write-Host $_.ErrorDetails

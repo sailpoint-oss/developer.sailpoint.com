@@ -11,7 +11,6 @@ tags: ['SDK', 'Software Development Kit', 'v2024', 'methods']
 ---
 
 Method documents provide detailed information about each API operation (or method). They describe what the method does and details its input parameters, expected return values, and any considerations to be aware of when using it.
-
 ## Key Features
 - Purpose & Overview: Explains the purpose of the method and its role in the API.
 - Parameters: Describe the required input parameters, including their data types.

@@ -45,8 +45,11 @@ Method | HTTP request | Description
 [**Send-V2024ConnectorTranslations**](#put-connector-translations) | **PUT** `/connectors/{scriptName}/translations/{locale}` | Update Connector Translations
 [**Update-V2024Connector**](#update-connector) | **PATCH** `/connectors/{scriptName}` | Update Connector by Script Name
 
+
 ## create-custom-connector
 Create custom connector.    
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-custom-connector)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -85,18 +88,21 @@ $V3CreateConnectorDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToV3CreateConnectorDto -Json $V3CreateConnectorDto
-    New-V2024CustomConnector -V2024V3CreateConnectorDto $Result
+    New-V2024CustomConnector -V2024V3CreateConnectorDto $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024CustomConnector -V2024V3CreateConnectorDto $V3CreateConnectorDto  
+    # New-V2024CustomConnector -V2024V3CreateConnectorDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024CustomConnector"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## delete-custom-connector
 Delete a custom connector that using its script name.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-custom-connector)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -128,18 +134,21 @@ $ScriptName = "aScriptName" # String | The scriptName value of the connector. Sc
 # Delete Connector by Script Name
 
 try {
-    Remove-V2024CustomConnector -V2024ScriptName $ScriptName 
+    Remove-V2024CustomConnector -ScriptName $ScriptName 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024CustomConnector -V2024ScriptName $ScriptName  
+    # Remove-V2024CustomConnector -ScriptName $ScriptName  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024CustomConnector"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-connector
 Fetches a connector that using its script name.    
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-connector)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -173,18 +182,21 @@ $Locale = "de" # String | The locale to apply to the config. If no viable locale
 # Get Connector by Script Name
 
 try {
-    Get-V2024Connector -V2024ScriptName $ScriptName 
+    Get-V2024Connector -ScriptName $ScriptName 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024Connector -V2024ScriptName $ScriptName -V2024Locale $Locale  
+    # Get-V2024Connector -ScriptName $ScriptName -Locale $Locale  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024Connector"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-connector-correlation-config
 Fetches a connector's correlation config using its script name.    
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-connector-correlation-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -216,18 +228,21 @@ $ScriptName = "aScriptName" # String | The scriptName value of the connector. Sc
 # Get Connector Correlation Configuration
 
 try {
-    Get-V2024ConnectorCorrelationConfig -V2024ScriptName $ScriptName 
+    Get-V2024ConnectorCorrelationConfig -ScriptName $ScriptName 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024ConnectorCorrelationConfig -V2024ScriptName $ScriptName  
+    # Get-V2024ConnectorCorrelationConfig -ScriptName $ScriptName  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024ConnectorCorrelationConfig"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-connector-list
 Fetches list of connectors that have 'RELEASED' status using filtering and pagination.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-connector-list)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -267,18 +282,21 @@ $Locale = "de" # String | The locale to apply to the config. If no viable locale
 # Get Connector List
 
 try {
-    Get-V2024ConnectorList
+    Get-V2024ConnectorList 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024ConnectorList -V2024Filters $Filters -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Locale $Locale  
+    # Get-V2024ConnectorList -Filters $Filters -Limit $Limit -Offset $Offset -Count $Count -Locale $Locale  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024ConnectorList"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-connector-source-config
 Fetches a connector's source config using its script name.    
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-connector-source-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -310,18 +328,21 @@ $ScriptName = "aScriptName" # String | The scriptName value of the connector. Sc
 # Get Connector Source Configuration
 
 try {
-    Get-V2024ConnectorSourceConfig -V2024ScriptName $ScriptName 
+    Get-V2024ConnectorSourceConfig -ScriptName $ScriptName 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024ConnectorSourceConfig -V2024ScriptName $ScriptName  
+    # Get-V2024ConnectorSourceConfig -ScriptName $ScriptName  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024ConnectorSourceConfig"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-connector-source-template
 Fetches a connector's source template using its script name.    
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-connector-source-template)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -353,18 +374,21 @@ $ScriptName = "aScriptName" # String | The scriptName value of the connector. Sc
 # Get Connector Source Template
 
 try {
-    Get-V2024ConnectorSourceTemplate -V2024ScriptName $ScriptName 
+    Get-V2024ConnectorSourceTemplate -ScriptName $ScriptName 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024ConnectorSourceTemplate -V2024ScriptName $ScriptName  
+    # Get-V2024ConnectorSourceTemplate -ScriptName $ScriptName  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024ConnectorSourceTemplate"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-connector-translations
 Fetches a connector's translations using its script name.    
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-connector-translations)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -398,18 +422,21 @@ $Locale = "de" # String | The locale to apply to the config. If no viable locale
 # Get Connector Translations
 
 try {
-    Get-V2024ConnectorTranslations -V2024ScriptName $ScriptName  -V2024Locale $Locale 
+    Get-V2024ConnectorTranslations -ScriptName $ScriptName -Locale $Locale 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024ConnectorTranslations -V2024ScriptName $ScriptName -V2024Locale $Locale  
+    # Get-V2024ConnectorTranslations -ScriptName $ScriptName -Locale $Locale  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024ConnectorTranslations"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## put-connector-correlation-config
 Update a connector's correlation config using its script name.    
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/put-connector-correlation-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -443,18 +470,21 @@ $File =  # System.IO.FileInfo | connector correlation config xml file
 # Update Connector Correlation Configuration
 
 try {
-    Send-V2024ConnectorCorrelationConfig -V2024ScriptName $ScriptName  -V2024File $File 
+    Send-V2024ConnectorCorrelationConfig -ScriptName $ScriptName -File $File 
     
     # Below is a request that includes all optional parameters
-    # Send-V2024ConnectorCorrelationConfig -V2024ScriptName $ScriptName -V2024File $File  
+    # Send-V2024ConnectorCorrelationConfig -ScriptName $ScriptName -File $File  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024ConnectorCorrelationConfig"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## put-connector-source-config
 Update a connector's source config using its script name.    
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/put-connector-source-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -488,18 +518,21 @@ $File =  # System.IO.FileInfo | connector source config xml file
 # Update Connector Source Configuration
 
 try {
-    Send-V2024ConnectorSourceConfig -V2024ScriptName $ScriptName  -V2024File $File 
+    Send-V2024ConnectorSourceConfig -ScriptName $ScriptName -File $File 
     
     # Below is a request that includes all optional parameters
-    # Send-V2024ConnectorSourceConfig -V2024ScriptName $ScriptName -V2024File $File  
+    # Send-V2024ConnectorSourceConfig -ScriptName $ScriptName -File $File  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024ConnectorSourceConfig"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## put-connector-source-template
 Update a connector's source template using its script name.    
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/put-connector-source-template)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -533,18 +566,21 @@ $File =  # System.IO.FileInfo | connector source template xml file
 # Update Connector Source Template
 
 try {
-    Send-V2024ConnectorSourceTemplate -V2024ScriptName $ScriptName  -V2024File $File 
+    Send-V2024ConnectorSourceTemplate -ScriptName $ScriptName -File $File 
     
     # Below is a request that includes all optional parameters
-    # Send-V2024ConnectorSourceTemplate -V2024ScriptName $ScriptName -V2024File $File  
+    # Send-V2024ConnectorSourceTemplate -ScriptName $ScriptName -File $File  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024ConnectorSourceTemplate"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## put-connector-translations
 Update a connector's translations using its script name.    
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/put-connector-translations)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -578,16 +614,17 @@ $Locale = "de" # String | The locale to apply to the config. If no viable locale
 # Update Connector Translations
 
 try {
-    Send-V2024ConnectorTranslations -V2024ScriptName $ScriptName  -V2024Locale $Locale 
+    Send-V2024ConnectorTranslations -ScriptName $ScriptName -Locale $Locale 
     
     # Below is a request that includes all optional parameters
-    # Send-V2024ConnectorTranslations -V2024ScriptName $ScriptName -V2024Locale $Locale  
+    # Send-V2024ConnectorTranslations -ScriptName $ScriptName -Locale $Locale  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024ConnectorTranslations"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## update-connector
 This API updates a custom connector by script name using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
 
@@ -602,6 +639,8 @@ The following fields are patchable:
 
 * sourceConfigXml
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/update-connector)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -641,10 +680,10 @@ $ScriptName = "aScriptName" # String | The scriptName value of the connector. Sc
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024Connector -V2024ScriptName $ScriptName  -V2024JsonPatchOperation $Result
+    Update-V2024Connector -ScriptName $ScriptName -V2024JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024Connector -V2024ScriptName $ScriptName -V2024JsonPatchOperation $JsonPatchOperation  
+    # Update-V2024Connector -ScriptName $ScriptName -V2024JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024Connector"
     Write-Host $_.ErrorDetails

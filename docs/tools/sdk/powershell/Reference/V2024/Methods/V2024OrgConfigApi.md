@@ -23,8 +23,14 @@ Method | HTTP request | Description
 [**Get-V2024ValidTimeZones**](#get-valid-time-zones) | **GET** `/org-config/valid-time-zones` | Get Valid Time Zones
 [**Update-V2024OrgConfig**](#patch-org-config) | **PATCH** `/org-config` | Patch Org Config
 
+
 ## get-org-config
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Get the current organization's configuration settings, only external accessible properties.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-org-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -56,18 +62,24 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Get Org Config Settings
 
 try {
-    Get-V2024OrgConfig -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024OrgConfig -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024OrgConfig -V2024XSailPointExperimental $XSailPointExperimental  
+    # Get-V2024OrgConfig -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024OrgConfig"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-valid-time-zones
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 List the valid time zones that can be set in organization configurations.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-valid-time-zones)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -104,18 +116,24 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Get Valid Time Zones
 
 try {
-    Get-V2024ValidTimeZones -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024ValidTimeZones -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024ValidTimeZones -V2024XSailPointExperimental $XSailPointExperimental -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count  
+    # Get-V2024ValidTimeZones -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024ValidTimeZones"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## patch-org-config
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Patch the current organization's configuration, using http://jsonpatch.com/ syntax. This is commonly used to changing an organization's time zone.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/patch-org-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -155,10 +173,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024OrgConfig -V2024XSailPointExperimental $XSailPointExperimental  -V2024JsonPatchOperation $Result
+    Update-V2024OrgConfig -XSailPointExperimental $XSailPointExperimental -V2024JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024OrgConfig -V2024XSailPointExperimental $XSailPointExperimental -V2024JsonPatchOperation $JsonPatchOperation  
+    # Update-V2024OrgConfig -XSailPointExperimental $XSailPointExperimental -V2024JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024OrgConfig"
     Write-Host $_.ErrorDetails

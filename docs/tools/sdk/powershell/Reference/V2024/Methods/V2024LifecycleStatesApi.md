@@ -62,8 +62,11 @@ Method | HTTP request | Description
 [**Set-V2024LifecycleState**](#set-lifecycle-state) | **POST** `/identities/{identity-id}/set-lifecycle-state` | Set Lifecycle State
 [**Update-V2024LifecycleStates**](#update-lifecycle-states) | **PATCH** `/identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id}` | Update Lifecycle State
 
+
 ## create-lifecycle-state
 Use this endpoint to create a lifecycle state.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-lifecycle-state)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -121,18 +124,21 @@ $LifecycleState = @"{
 
 try {
     $Result = ConvertFrom-JsonToLifecycleState -Json $LifecycleState
-    New-V2024LifecycleState -V2024IdentityProfileId $IdentityProfileId  -V2024LifecycleState $Result
+    New-V2024LifecycleState -IdentityProfileId $IdentityProfileId -V2024LifecycleState $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024LifecycleState -V2024IdentityProfileId $IdentityProfileId -V2024LifecycleState $LifecycleState  
+    # New-V2024LifecycleState -IdentityProfileId $IdentityProfileId -V2024LifecycleState $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024LifecycleState"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## delete-lifecycle-state
 Use this endpoint to delete the lifecycle state by its ID. 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-lifecycle-state)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -166,18 +172,21 @@ $LifecycleStateId = "ef38f94347e94562b5bb8424a56397d8" # String | Lifecycle stat
 # Delete Lifecycle State
 
 try {
-    Remove-V2024LifecycleState -V2024IdentityProfileId $IdentityProfileId  -V2024LifecycleStateId $LifecycleStateId 
+    Remove-V2024LifecycleState -IdentityProfileId $IdentityProfileId -LifecycleStateId $LifecycleStateId 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024LifecycleState -V2024IdentityProfileId $IdentityProfileId -V2024LifecycleStateId $LifecycleStateId  
+    # Remove-V2024LifecycleState -IdentityProfileId $IdentityProfileId -LifecycleStateId $LifecycleStateId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024LifecycleState"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-lifecycle-state
 Use this endpoint to get a lifecycle state by its ID and its associated identity profile ID. 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-lifecycle-state)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -211,18 +220,21 @@ $LifecycleStateId = "ef38f94347e94562b5bb8424a56397d8" # String | Lifecycle stat
 # Get Lifecycle State
 
 try {
-    Get-V2024LifecycleState -V2024IdentityProfileId $IdentityProfileId  -V2024LifecycleStateId $LifecycleStateId 
+    Get-V2024LifecycleState -IdentityProfileId $IdentityProfileId -LifecycleStateId $LifecycleStateId 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024LifecycleState -V2024IdentityProfileId $IdentityProfileId -V2024LifecycleStateId $LifecycleStateId  
+    # Get-V2024LifecycleState -IdentityProfileId $IdentityProfileId -LifecycleStateId $LifecycleStateId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024LifecycleState"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-lifecycle-states
 Use this endpoint to list all lifecycle states by their associated identity profiles. 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-lifecycle-states)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -261,18 +273,21 @@ $Sorters = "created,modified" # String | Sort results using the standard syntax 
 # Lists LifecycleStates
 
 try {
-    Get-V2024LifecycleStates -V2024IdentityProfileId $IdentityProfileId 
+    Get-V2024LifecycleStates -IdentityProfileId $IdentityProfileId 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024LifecycleStates -V2024IdentityProfileId $IdentityProfileId -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Sorters $Sorters  
+    # Get-V2024LifecycleStates -IdentityProfileId $IdentityProfileId -Limit $Limit -Offset $Offset -Count $Count -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024LifecycleStates"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## set-lifecycle-state
 Use this API to set/update an identity's lifecycle state to the one provided and update the corresponding identity profile.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/set-lifecycle-state)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -307,18 +322,21 @@ $SetLifecycleStateRequest = @""@
 
 try {
     $Result = ConvertFrom-JsonToSetLifecycleStateRequest -Json $SetLifecycleStateRequest
-    Set-V2024LifecycleState -V2024IdentityId $IdentityId  -V2024SetLifecycleStateRequest $Result
+    Set-V2024LifecycleState -IdentityId $IdentityId -V2024SetLifecycleStateRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Set-V2024LifecycleState -V2024IdentityId $IdentityId -V2024SetLifecycleStateRequest $SetLifecycleStateRequest  
+    # Set-V2024LifecycleState -IdentityId $IdentityId -V2024SetLifecycleStateRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-V2024LifecycleState"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## update-lifecycle-states
 Use this endpoint to update individual lifecycle state fields, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/update-lifecycle-states)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -360,10 +378,10 @@ $LifecycleStateId = "ef38f94347e94562b5bb8424a56397d8" # String | Lifecycle stat
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024LifecycleStates -V2024IdentityProfileId $IdentityProfileId  -V2024LifecycleStateId $LifecycleStateId  -V2024JsonPatchOperation $Result
+    Update-V2024LifecycleStates -IdentityProfileId $IdentityProfileId -LifecycleStateId $LifecycleStateId -V2024JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024LifecycleStates -V2024IdentityProfileId $IdentityProfileId -V2024LifecycleStateId $LifecycleStateId -V2024JsonPatchOperation $JsonPatchOperation  
+    # Update-V2024LifecycleStates -IdentityProfileId $IdentityProfileId -LifecycleStateId $LifecycleStateId -V2024JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024LifecycleStates"
     Write-Host $_.ErrorDetails

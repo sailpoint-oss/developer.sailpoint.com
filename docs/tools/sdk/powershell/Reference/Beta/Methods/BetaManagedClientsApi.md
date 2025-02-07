@@ -22,8 +22,14 @@ Method | HTTP request | Description
 [**Get-BetaManagedClientStatus**](#get-managed-client-status) | **GET** `/managed-clients/{id}/status` | Specified Managed Client Status.
 [**Update-BetaManagedClientStatus**](#update-managed-client-status) | **POST** `/managed-clients/{id}/status` | Handle status request from client
 
+
 ## get-managed-client-status
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Retrieve Managed Client Status by ID.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-managed-client-status)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -57,18 +63,24 @@ $Type = "CCG" # ManagedClientType | Type of the Managed Client Status to get
 # Specified Managed Client Status.
 
 try {
-    Get-BetaManagedClientStatus -BetaId $Id  -BetaType $Type 
+    Get-BetaManagedClientStatus -Id $Id -Type $Type 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaManagedClientStatus -BetaId $Id -BetaType $Type  
+    # Get-BetaManagedClientStatus -Id $Id -Type $Type  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaManagedClientStatus"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## update-managed-client-status
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Update a status detail passed in from the client
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/update-managed-client-status)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -128,10 +140,10 @@ $ManagedClientStatus = @"{
 
 try {
     $Result = ConvertFrom-JsonToManagedClientStatus -Json $ManagedClientStatus
-    Update-BetaManagedClientStatus -BetaId $Id  -BetaManagedClientStatus $Result
+    Update-BetaManagedClientStatus -Id $Id -BetaManagedClientStatus $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaManagedClientStatus -BetaId $Id -BetaManagedClientStatus $ManagedClientStatus  
+    # Update-BetaManagedClientStatus -Id $Id -BetaManagedClientStatus $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaManagedClientStatus"
     Write-Host $_.ErrorDetails

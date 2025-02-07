@@ -43,8 +43,11 @@ Method | HTTP request | Description
 [**Update-BetaRoleMiningSession**](#patch-role-mining-session) | **PATCH** `/role-mining-sessions/{sessionId}` | Patch a role mining session
 [**Update-BetaEntitlementsPotentialRole**](#update-entitlements-potential-role) | **POST** `/role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/edit-entitlements` | Edit entitlements for a potential role to exclude some entitlements
 
+
 ## create-potential-role-provision-request
 This method starts a job to provision a potential role
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/create-potential-role-provision-request)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -89,18 +92,21 @@ $RoleMiningPotentialRoleProvisionRequest = @"{
 # Create request to provision a potential role into an actual role.
 
 try {
-    New-BetaPotentialRoleProvisionRequest -BetaSessionId $SessionId  -BetaPotentialRoleId $PotentialRoleId 
+    New-BetaPotentialRoleProvisionRequest -SessionId $SessionId -PotentialRoleId $PotentialRoleId 
     
     # Below is a request that includes all optional parameters
-    # New-BetaPotentialRoleProvisionRequest -BetaSessionId $SessionId -BetaPotentialRoleId $PotentialRoleId -BetaMinEntitlementPopularity $MinEntitlementPopularity -BetaIncludeCommonAccess $IncludeCommonAccess -BetaRoleMiningPotentialRoleProvisionRequest $RoleMiningPotentialRoleProvisionRequest  
+    # New-BetaPotentialRoleProvisionRequest -SessionId $SessionId -PotentialRoleId $PotentialRoleId -MinEntitlementPopularity $MinEntitlementPopularity -IncludeCommonAccess $IncludeCommonAccess -BetaRoleMiningPotentialRoleProvisionRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaPotentialRoleProvisionRequest"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## create-role-mining-sessions
 This submits a create role mining session request to the role mining application.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/create-role-mining-sessions)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -163,18 +169,21 @@ $RoleMiningSessionDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToRoleMiningSessionDto -Json $RoleMiningSessionDto
-    New-BetaRoleMiningSessions -BetaRoleMiningSessionDto $Result
+    New-BetaRoleMiningSessions -BetaRoleMiningSessionDto $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaRoleMiningSessions -BetaRoleMiningSessionDto $RoleMiningSessionDto  
+    # New-BetaRoleMiningSessions -BetaRoleMiningSessionDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaRoleMiningSessions"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## download-role-mining-potential-role-zip
 This endpoint downloads a completed export of information for a potential role in a role mining session.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/download-role-mining-potential-role-zip)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -208,18 +217,21 @@ $ExportId = "4940ffd4-836f-48a3-b2b0-6d498c3fdf40" # String | The id of a previo
 # Export (download) details for a potential role in a role mining session
 
 try {
-    Invoke-BetaDownloadRoleMiningPotentialRoleZip -BetaSessionId $SessionId  -BetaPotentialRoleId $PotentialRoleId  -BetaExportId $ExportId 
+    Invoke-BetaDownloadRoleMiningPotentialRoleZip -SessionId $SessionId -PotentialRoleId $PotentialRoleId -ExportId $ExportId 
     
     # Below is a request that includes all optional parameters
-    # Invoke-BetaDownloadRoleMiningPotentialRoleZip -BetaSessionId $SessionId -BetaPotentialRoleId $PotentialRoleId -BetaExportId $ExportId  
+    # Invoke-BetaDownloadRoleMiningPotentialRoleZip -SessionId $SessionId -PotentialRoleId $PotentialRoleId -ExportId $ExportId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-BetaDownloadRoleMiningPotentialRoleZip"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## export-role-mining-potential-role
 This endpoint downloads all the information for a potential role in a role mining session. Includes identities and entitlements in the potential role.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/export-role-mining-potential-role)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -251,18 +263,21 @@ $PotentialRoleId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | A potential
 # Export (download) details for a potential role in a role mining session
 
 try {
-    Export-BetaRoleMiningPotentialRole -BetaSessionId $SessionId  -BetaPotentialRoleId $PotentialRoleId 
+    Export-BetaRoleMiningPotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId 
     
     # Below is a request that includes all optional parameters
-    # Export-BetaRoleMiningPotentialRole -BetaSessionId $SessionId -BetaPotentialRoleId $PotentialRoleId  
+    # Export-BetaRoleMiningPotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Export-BetaRoleMiningPotentialRole"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## export-role-mining-potential-role-async
 This endpoint uploads all the information for a potential role in a role mining session to S3 as a downloadable zip archive.  Includes identities and entitlements in the potential role.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/export-role-mining-potential-role-async)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -299,18 +314,21 @@ $RoleMiningPotentialRoleExportRequest = @"{
 # Asynchronously export details for a potential role in a role mining session and upload to S3
 
 try {
-    Export-BetaRoleMiningPotentialRoleAsync -BetaSessionId $SessionId  -BetaPotentialRoleId $PotentialRoleId 
+    Export-BetaRoleMiningPotentialRoleAsync -SessionId $SessionId -PotentialRoleId $PotentialRoleId 
     
     # Below is a request that includes all optional parameters
-    # Export-BetaRoleMiningPotentialRoleAsync -BetaSessionId $SessionId -BetaPotentialRoleId $PotentialRoleId -BetaRoleMiningPotentialRoleExportRequest $RoleMiningPotentialRoleExportRequest  
+    # Export-BetaRoleMiningPotentialRoleAsync -SessionId $SessionId -PotentialRoleId $PotentialRoleId -BetaRoleMiningPotentialRoleExportRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Export-BetaRoleMiningPotentialRoleAsync"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## export-role-mining-potential-role-status
 This endpoint retrieves information about the current status of a potential role export.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/export-role-mining-potential-role-status)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -344,18 +362,21 @@ $ExportId = "4940ffd4-836f-48a3-b2b0-6d498c3fdf40" # String | The id of a previo
 # Retrieve status of a potential role export job
 
 try {
-    Export-BetaRoleMiningPotentialRoleStatus -BetaSessionId $SessionId  -BetaPotentialRoleId $PotentialRoleId  -BetaExportId $ExportId 
+    Export-BetaRoleMiningPotentialRoleStatus -SessionId $SessionId -PotentialRoleId $PotentialRoleId -ExportId $ExportId 
     
     # Below is a request that includes all optional parameters
-    # Export-BetaRoleMiningPotentialRoleStatus -BetaSessionId $SessionId -BetaPotentialRoleId $PotentialRoleId -BetaExportId $ExportId  
+    # Export-BetaRoleMiningPotentialRoleStatus -SessionId $SessionId -PotentialRoleId $PotentialRoleId -ExportId $ExportId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Export-BetaRoleMiningPotentialRoleStatus"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-all-potential-role-summaries
 Returns all potential role summaries that match the query parameters
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-all-potential-role-summaries)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -394,18 +415,21 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Retrieves all potential role summaries
 
 try {
-    Get-BetaAllPotentialRoleSummaries
+    Get-BetaAllPotentialRoleSummaries 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaAllPotentialRoleSummaries -BetaSorters $Sorters -BetaFilters $Filters -BetaOffset $Offset -BetaLimit $Limit -BetaCount $Count  
+    # Get-BetaAllPotentialRoleSummaries -Sorters $Sorters -Filters $Filters -Offset $Offset -Limit $Limit -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaAllPotentialRoleSummaries"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-entitlement-distribution-potential-role
 This method returns entitlement popularity distribution for a potential role in a role mining session.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-entitlement-distribution-potential-role)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -439,18 +463,21 @@ $IncludeCommonAccess = $true # Boolean | Boolean determining whether common acce
 # Retrieves entitlement popularity distribution for a potential role in a role mining session
 
 try {
-    Get-BetaEntitlementDistributionPotentialRole -BetaSessionId $SessionId  -BetaPotentialRoleId $PotentialRoleId 
+    Get-BetaEntitlementDistributionPotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaEntitlementDistributionPotentialRole -BetaSessionId $SessionId -BetaPotentialRoleId $PotentialRoleId -BetaIncludeCommonAccess $IncludeCommonAccess  
+    # Get-BetaEntitlementDistributionPotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId -IncludeCommonAccess $IncludeCommonAccess  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaEntitlementDistributionPotentialRole"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-entitlements-potential-role
 This method returns entitlements for a potential role in a role mining session.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-entitlements-potential-role)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -495,18 +522,21 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Retrieves entitlements for a potential role in a role mining session
 
 try {
-    Get-BetaEntitlementsPotentialRole -BetaSessionId $SessionId  -BetaPotentialRoleId $PotentialRoleId 
+    Get-BetaEntitlementsPotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaEntitlementsPotentialRole -BetaSessionId $SessionId -BetaPotentialRoleId $PotentialRoleId -BetaIncludeCommonAccess $IncludeCommonAccess -BetaSorters $Sorters -BetaFilters $Filters -BetaOffset $Offset -BetaLimit $Limit -BetaCount $Count  
+    # Get-BetaEntitlementsPotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId -IncludeCommonAccess $IncludeCommonAccess -Sorters $Sorters -Filters $Filters -Offset $Offset -Limit $Limit -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaEntitlementsPotentialRole"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-excluded-entitlements-potential-role
 This method returns excluded entitlements for a potential role in a role mining session.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-excluded-entitlements-potential-role)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -548,18 +578,21 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Retrieves excluded entitlements for a potential role in a role mining session
 
 try {
-    Get-BetaExcludedEntitlementsPotentialRole -BetaSessionId $SessionId  -BetaPotentialRoleId $PotentialRoleId 
+    Get-BetaExcludedEntitlementsPotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaExcludedEntitlementsPotentialRole -BetaSessionId $SessionId -BetaPotentialRoleId $PotentialRoleId -BetaSorters $Sorters -BetaFilters $Filters -BetaOffset $Offset -BetaLimit $Limit -BetaCount $Count  
+    # Get-BetaExcludedEntitlementsPotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId -Sorters $Sorters -Filters $Filters -Offset $Offset -Limit $Limit -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaExcludedEntitlementsPotentialRole"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-identities-potential-role
 This method returns identities for a potential role in a role mining session.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-identities-potential-role)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -601,18 +634,21 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Retrieves identities for a potential role in a role mining session
 
 try {
-    Get-BetaIdentitiesPotentialRole -BetaSessionId $SessionId  -BetaPotentialRoleId $PotentialRoleId 
+    Get-BetaIdentitiesPotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaIdentitiesPotentialRole -BetaSessionId $SessionId -BetaPotentialRoleId $PotentialRoleId -BetaSorters $Sorters -BetaFilters $Filters -BetaOffset $Offset -BetaLimit $Limit -BetaCount $Count  
+    # Get-BetaIdentitiesPotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId -Sorters $Sorters -Filters $Filters -Offset $Offset -Limit $Limit -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaIdentitiesPotentialRole"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-potential-role
 This method returns a specific potential role for a role mining session.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-potential-role)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -645,18 +681,21 @@ $PotentialRoleId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | A potential
 # Retrieve potential role in session
 
 try {
-    Get-BetaPotentialRole -BetaSessionId $SessionId  -BetaPotentialRoleId $PotentialRoleId 
+    Get-BetaPotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaPotentialRole -BetaSessionId $SessionId -BetaPotentialRoleId $PotentialRoleId  
+    # Get-BetaPotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaPotentialRole"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-potential-role-applications
 This method returns the applications of a potential role for a role mining session.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-potential-role-applications)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -697,18 +736,21 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Retrieves the applications of a potential role for a role mining session
 
 try {
-    Get-BetaPotentialRoleApplications -BetaSessionId $SessionId  -BetaPotentialRoleId $PotentialRoleId 
+    Get-BetaPotentialRoleApplications -SessionId $SessionId -PotentialRoleId $PotentialRoleId 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaPotentialRoleApplications -BetaSessionId $SessionId -BetaPotentialRoleId $PotentialRoleId -BetaFilters $Filters -BetaOffset $Offset -BetaLimit $Limit -BetaCount $Count  
+    # Get-BetaPotentialRoleApplications -SessionId $SessionId -PotentialRoleId $PotentialRoleId -Filters $Filters -Offset $Offset -Limit $Limit -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaPotentialRoleApplications"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-potential-role-entitlements
 This method returns the entitlements of a potential role for a role mining session.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-potential-role-entitlements)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -749,18 +791,21 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Retrieves the entitlements of a potential role for a role mining session
 
 try {
-    Get-BetaPotentialRoleEntitlements -BetaSessionId $SessionId  -BetaPotentialRoleId $PotentialRoleId 
+    Get-BetaPotentialRoleEntitlements -SessionId $SessionId -PotentialRoleId $PotentialRoleId 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaPotentialRoleEntitlements -BetaSessionId $SessionId -BetaPotentialRoleId $PotentialRoleId -BetaFilters $Filters -BetaOffset $Offset -BetaLimit $Limit -BetaCount $Count  
+    # Get-BetaPotentialRoleEntitlements -SessionId $SessionId -PotentialRoleId $PotentialRoleId -Filters $Filters -Offset $Offset -Limit $Limit -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaPotentialRoleEntitlements"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-potential-role-source-identity-usage
 This method returns source usageCount (as number of days in the last 90 days) for each identity in a potential role.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-potential-role-source-identity-usage)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -801,18 +846,21 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Retrieves potential role source usage
 
 try {
-    Get-BetaPotentialRoleSourceIdentityUsage -BetaPotentialRoleId $PotentialRoleId  -BetaSourceId $SourceId 
+    Get-BetaPotentialRoleSourceIdentityUsage -PotentialRoleId $PotentialRoleId -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaPotentialRoleSourceIdentityUsage -BetaPotentialRoleId $PotentialRoleId -BetaSourceId $SourceId -BetaSorters $Sorters -BetaOffset $Offset -BetaLimit $Limit -BetaCount $Count  
+    # Get-BetaPotentialRoleSourceIdentityUsage -PotentialRoleId $PotentialRoleId -SourceId $SourceId -Sorters $Sorters -Offset $Offset -Limit $Limit -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaPotentialRoleSourceIdentityUsage"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-potential-role-summaries
 This method returns the potential role summaries for a role mining session.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-potential-role-summaries)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -853,18 +901,21 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Retrieve session's potential role summaries
 
 try {
-    Get-BetaPotentialRoleSummaries -BetaSessionId $SessionId 
+    Get-BetaPotentialRoleSummaries -SessionId $SessionId 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaPotentialRoleSummaries -BetaSessionId $SessionId -BetaSorters $Sorters -BetaFilters $Filters -BetaOffset $Offset -BetaLimit $Limit -BetaCount $Count  
+    # Get-BetaPotentialRoleSummaries -SessionId $SessionId -Sorters $Sorters -Filters $Filters -Offset $Offset -Limit $Limit -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaPotentialRoleSummaries"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-role-mining-potential-role
 This method returns a specific potential role.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-role-mining-potential-role)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -895,18 +946,21 @@ $PotentialRoleId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | A potential
 # Retrieves a specific potential role
 
 try {
-    Get-BetaRoleMiningPotentialRole -BetaPotentialRoleId $PotentialRoleId 
+    Get-BetaRoleMiningPotentialRole -PotentialRoleId $PotentialRoleId 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaRoleMiningPotentialRole -BetaPotentialRoleId $PotentialRoleId  
+    # Get-BetaRoleMiningPotentialRole -PotentialRoleId $PotentialRoleId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaRoleMiningPotentialRole"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-role-mining-session
 The method retrieves a role mining session.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-role-mining-session)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -938,18 +992,21 @@ $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining s
 # Get a role mining session
 
 try {
-    Get-BetaRoleMiningSession -BetaSessionId $SessionId 
+    Get-BetaRoleMiningSession -SessionId $SessionId 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaRoleMiningSession -BetaSessionId $SessionId  
+    # Get-BetaRoleMiningSession -SessionId $SessionId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaRoleMiningSession"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-role-mining-session-status
 This method returns a role mining session status for a customer.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-role-mining-session-status)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -979,18 +1036,21 @@ $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining s
 # Get role mining session status state
 
 try {
-    Get-BetaRoleMiningSessionStatus -BetaSessionId $SessionId 
+    Get-BetaRoleMiningSessionStatus -SessionId $SessionId 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaRoleMiningSessionStatus -BetaSessionId $SessionId  
+    # Get-BetaRoleMiningSessionStatus -SessionId $SessionId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaRoleMiningSessionStatus"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-role-mining-sessions
 Returns all role mining sessions that match the query parameters
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-role-mining-sessions)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1029,18 +1089,21 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Retrieves all role mining sessions
 
 try {
-    Get-BetaRoleMiningSessions
+    Get-BetaRoleMiningSessions 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaRoleMiningSessions -BetaFilters $Filters -BetaSorters $Sorters -BetaOffset $Offset -BetaLimit $Limit -BetaCount $Count  
+    # Get-BetaRoleMiningSessions -Filters $Filters -Sorters $Sorters -Offset $Offset -Limit $Limit -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaRoleMiningSessions"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-saved-potential-roles
 This method returns all saved potential roles (draft roles).
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-saved-potential-roles)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1077,16 +1140,17 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Retrieves all saved potential roles
 
 try {
-    Get-BetaSavedPotentialRoles
+    Get-BetaSavedPotentialRoles 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaSavedPotentialRoles -BetaSorters $Sorters -BetaOffset $Offset -BetaLimit $Limit -BetaCount $Count  
+    # Get-BetaSavedPotentialRoles -Sorters $Sorters -Offset $Offset -Limit $Limit -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaSavedPotentialRoles"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## patch-potential-role
 This method updates an existing potential role using the role mining session id and the potential role summary id.
 
@@ -1101,6 +1165,8 @@ The following fields can be modified:
 
 >**NOTE: All other fields cannot be modified.**
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/patch-potential-role)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1138,16 +1204,17 @@ $PotentialRoleId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The potenti
 
 try {
     $Result = ConvertFrom-JsonToPatchPotentialRoleRequestInner -Json $PatchPotentialRoleRequestInner
-    Update-BetaPotentialRole -BetaSessionId $SessionId  -BetaPotentialRoleId $PotentialRoleId  -BetaPatchPotentialRoleRequestInner $Result
+    Update-BetaPotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId -BetaPatchPotentialRoleRequestInner $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaPotentialRole -BetaSessionId $SessionId -BetaPotentialRoleId $PotentialRoleId -BetaPatchPotentialRoleRequestInner $PatchPotentialRoleRequestInner  
+    # Update-BetaPotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId -BetaPatchPotentialRoleRequestInner $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaPotentialRole"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## patch-role-mining-potential-role
 This method updates an existing potential role.
 
@@ -1162,6 +1229,8 @@ The following fields can be modified:
 
 >**NOTE: All other fields cannot be modified.**
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/patch-role-mining-potential-role)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1197,18 +1266,21 @@ $PotentialRoleId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The potenti
 
 try {
     $Result = ConvertFrom-JsonToPatchPotentialRoleRequestInner -Json $PatchPotentialRoleRequestInner
-    Update-BetaRoleMiningPotentialRole -BetaPotentialRoleId $PotentialRoleId  -BetaPatchPotentialRoleRequestInner $Result
+    Update-BetaRoleMiningPotentialRole -PotentialRoleId $PotentialRoleId -BetaPatchPotentialRoleRequestInner $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaRoleMiningPotentialRole -BetaPotentialRoleId $PotentialRoleId -BetaPatchPotentialRoleRequestInner $PatchPotentialRoleRequestInner  
+    # Update-BetaRoleMiningPotentialRole -PotentialRoleId $PotentialRoleId -BetaPatchPotentialRoleRequestInner $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaRoleMiningPotentialRole"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## patch-role-mining-session
 The  method updates an existing role mining session using PATCH. Supports op in {"replace"} and changes to pruneThreshold and/or minNumIdentitiesInPotentialRole. The potential roles in this role mining session is then re-calculated.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/patch-role-mining-session)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1248,18 +1320,21 @@ $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining s
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-BetaRoleMiningSession -BetaSessionId $SessionId  -BetaJsonPatchOperation $Result
+    Update-BetaRoleMiningSession -SessionId $SessionId -BetaJsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaRoleMiningSession -BetaSessionId $SessionId -BetaJsonPatchOperation $JsonPatchOperation  
+    # Update-BetaRoleMiningSession -SessionId $SessionId -BetaJsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaRoleMiningSession"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## update-entitlements-potential-role
 This endpoint adds or removes entitlements from an exclusion list for a potential role.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/update-entitlements-potential-role)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1297,10 +1372,10 @@ $RoleMiningPotentialRoleEditEntitlements = @"{
 
 try {
     $Result = ConvertFrom-JsonToRoleMiningPotentialRoleEditEntitlements -Json $RoleMiningPotentialRoleEditEntitlements
-    Update-BetaEntitlementsPotentialRole -BetaSessionId $SessionId  -BetaPotentialRoleId $PotentialRoleId  -BetaRoleMiningPotentialRoleEditEntitlements $Result
+    Update-BetaEntitlementsPotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId -BetaRoleMiningPotentialRoleEditEntitlements $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaEntitlementsPotentialRole -BetaSessionId $SessionId -BetaPotentialRoleId $PotentialRoleId -BetaRoleMiningPotentialRoleEditEntitlements $RoleMiningPotentialRoleEditEntitlements  
+    # Update-BetaEntitlementsPotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId -BetaRoleMiningPotentialRoleEditEntitlements $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaEntitlementsPotentialRole"
     Write-Host $_.ErrorDetails

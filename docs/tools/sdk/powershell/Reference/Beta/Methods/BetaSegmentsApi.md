@@ -40,10 +40,13 @@ Method | HTTP request | Description
 [**Get-BetaSegments**](#list-segments) | **GET** `/segments` | List Segments
 [**Update-BetaSegment**](#patch-segment) | **PATCH** `/segments/{id}` | Update Segment
 
+
 ## create-segment
 This API creates a segment. 
 >**Note:** Segment definitions may take time to propagate to all identities.
 A token with ORG_ADMIN or API authority is required to call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/create-segment)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -98,20 +101,23 @@ $Segment = @"{
 
 try {
     $Result = ConvertFrom-JsonToSegment -Json $Segment
-    New-BetaSegment -BetaSegment $Result
+    New-BetaSegment -BetaSegment $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaSegment -BetaSegment $Segment  
+    # New-BetaSegment -BetaSegment $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaSegment"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## delete-segment
 This API deletes the segment specified by the given ID.
 >**Note:** Segment deletion may take some time to go into effect. 
 A token with ORG_ADMIN or API authority is required to call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-segment)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -143,19 +149,22 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The segment ID to delete.
 # Delete Segment by ID
 
 try {
-    Remove-BetaSegment -BetaId $Id 
+    Remove-BetaSegment -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Remove-BetaSegment -BetaId $Id  
+    # Remove-BetaSegment -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaSegment"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-segment
 This API returns the segment specified by the given ID.
 A token with ORG_ADMIN or API authority is required to call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-segment)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -187,19 +196,22 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The segment ID to retrieve.
 # Get Segment by ID
 
 try {
-    Get-BetaSegment -BetaId $Id 
+    Get-BetaSegment -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaSegment -BetaId $Id  
+    # Get-BetaSegment -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaSegment"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-segments
 This API returns a list of all segments.
 A token with ORG_ADMIN or API authority is required to call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/list-segments)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -234,20 +246,23 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # List Segments
 
 try {
-    Get-BetaSegments
+    Get-BetaSegments 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaSegments -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count  
+    # Get-BetaSegments -Limit $Limit -Offset $Offset -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaSegments"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## patch-segment
 Use this API to update segment fields by using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 >**Note:** Changes to a segment may take some time to propagate to all identities.
 A token with ORG_ADMIN or API authority is required to call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/patch-segment)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -284,10 +299,10 @@ $RequestBody =  # SystemCollectionsHashtable[] | A list of segment update operat
 
 try {
     $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
-    Update-BetaSegment -BetaId $Id  -BetaRequestBody $Result
+    Update-BetaSegment -Id $Id -RequestBody $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaSegment -BetaId $Id -BetaRequestBody $RequestBody  
+    # Update-BetaSegment -Id $Id -RequestBody $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaSegment"
     Write-Host $_.ErrorDetails

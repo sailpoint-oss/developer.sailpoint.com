@@ -37,8 +37,14 @@ Method | HTTP request | Description
 [**Send-V2024ReassignmentConfig**](#put-reassignment-config) | **PUT** `/reassignment-configurations/{identityId}` | Update Reassignment Configuration
 [**Send-V2024TenantConfiguration**](#put-tenant-configuration) | **PUT** `/reassignment-configurations/tenant-config` | Update Tenant-wide Reassignment Configuration settings
 
+
 ## create-reassignment-configuration
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Creates a new Reassignment Configuration for the specified identity.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-reassignment-configuration)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -78,18 +84,24 @@ $ConfigurationItemRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToConfigurationItemRequest -Json $ConfigurationItemRequest
-    New-V2024ReassignmentConfiguration -V2024XSailPointExperimental $XSailPointExperimental  -V2024ConfigurationItemRequest $Result
+    New-V2024ReassignmentConfiguration -XSailPointExperimental $XSailPointExperimental -V2024ConfigurationItemRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024ReassignmentConfiguration -V2024XSailPointExperimental $XSailPointExperimental -V2024ConfigurationItemRequest $ConfigurationItemRequest  
+    # New-V2024ReassignmentConfiguration -XSailPointExperimental $XSailPointExperimental -V2024ConfigurationItemRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024ReassignmentConfiguration"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## delete-reassignment-configuration
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Deletes a single reassignment configuration for the specified identity
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-reassignment-configuration)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -124,18 +136,24 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Delete Reassignment Configuration
 
 try {
-    Remove-V2024ReassignmentConfiguration -V2024IdentityId $IdentityId  -V2024ConfigType $ConfigType  -V2024XSailPointExperimental $XSailPointExperimental 
+    Remove-V2024ReassignmentConfiguration -IdentityId $IdentityId -ConfigType $ConfigType -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024ReassignmentConfiguration -V2024IdentityId $IdentityId -V2024ConfigType $ConfigType -V2024XSailPointExperimental $XSailPointExperimental  
+    # Remove-V2024ReassignmentConfiguration -IdentityId $IdentityId -ConfigType $ConfigType -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024ReassignmentConfiguration"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-evaluate-reassignment-configuration
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Evaluates the Reassignment Configuration for an `Identity` to determine if work items for the specified type should be reassigned. If a valid Reassignment Configuration is found for the identity & work type, then a lookup is initiated which recursively fetches the Reassignment Configuration for the next `TargetIdentity` until no more results are found or a max depth of 5. That lookup trail is provided in the response and the final reassigned identity in the lookup list is returned as the `reassignToId` property. If no Reassignment Configuration is found for the specified identity & config type then the requested Identity ID will be used as the `reassignToId` value and the lookupTrail node will be empty.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-evaluate-reassignment-configuration)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -174,18 +192,24 @@ $ExclusionFilters = @"SELF_REVIEW_DELEGATION"@ # String[] | Exclusion filters th
 # Evaluate Reassignment Configuration
 
 try {
-    Get-V2024EvaluateReassignmentConfiguration -V2024IdentityId $IdentityId  -V2024ConfigType $ConfigType  -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024EvaluateReassignmentConfiguration -IdentityId $IdentityId -ConfigType $ConfigType -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024EvaluateReassignmentConfiguration -V2024IdentityId $IdentityId -V2024ConfigType $ConfigType -V2024XSailPointExperimental $XSailPointExperimental -V2024ExclusionFilters $ExclusionFilters  
+    # Get-V2024EvaluateReassignmentConfiguration -IdentityId $IdentityId -ConfigType $ConfigType -XSailPointExperimental $XSailPointExperimental -ExclusionFilters $ExclusionFilters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024EvaluateReassignmentConfiguration"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-reassignment-config-types
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Gets a collection of types which are available in the Reassignment Configuration UI.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-reassignment-config-types)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -216,18 +240,24 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # List Reassignment Config Types
 
 try {
-    Get-V2024ReassignmentConfigTypes -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024ReassignmentConfigTypes -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024ReassignmentConfigTypes -V2024XSailPointExperimental $XSailPointExperimental  
+    # Get-V2024ReassignmentConfigTypes -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024ReassignmentConfigTypes"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-reassignment-configuration
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Gets the Reassignment Configuration for an identity.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-reassignment-configuration)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -261,18 +291,24 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Get Reassignment Configuration
 
 try {
-    Get-V2024ReassignmentConfiguration -V2024IdentityId $IdentityId  -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024ReassignmentConfiguration -IdentityId $IdentityId -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024ReassignmentConfiguration -V2024IdentityId $IdentityId -V2024XSailPointExperimental $XSailPointExperimental  
+    # Get-V2024ReassignmentConfiguration -IdentityId $IdentityId -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024ReassignmentConfiguration"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-tenant-config-configuration
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Gets the global Reassignment Configuration settings for the requestor's tenant.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-tenant-config-configuration)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -304,18 +340,24 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Get Tenant-wide Reassignment Configuration settings
 
 try {
-    Get-V2024TenantConfigConfiguration -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024TenantConfigConfiguration -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024TenantConfigConfiguration -V2024XSailPointExperimental $XSailPointExperimental  
+    # Get-V2024TenantConfigConfiguration -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024TenantConfigConfiguration"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-reassignment-configurations
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Gets all Reassignment configuration for the current org.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-reassignment-configurations)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -347,18 +389,24 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # List Reassignment Configurations
 
 try {
-    Get-V2024ReassignmentConfigurations -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024ReassignmentConfigurations -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024ReassignmentConfigurations -V2024XSailPointExperimental $XSailPointExperimental  
+    # Get-V2024ReassignmentConfigurations -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024ReassignmentConfigurations"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## put-reassignment-config
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Replaces existing Reassignment configuration for an identity with the newly provided configuration.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/put-reassignment-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -400,18 +448,24 @@ $ConfigurationItemRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToConfigurationItemRequest -Json $ConfigurationItemRequest
-    Send-V2024ReassignmentConfig -V2024IdentityId $IdentityId  -V2024XSailPointExperimental $XSailPointExperimental  -V2024ConfigurationItemRequest $Result
+    Send-V2024ReassignmentConfig -IdentityId $IdentityId -XSailPointExperimental $XSailPointExperimental -V2024ConfigurationItemRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-V2024ReassignmentConfig -V2024IdentityId $IdentityId -V2024XSailPointExperimental $XSailPointExperimental -V2024ConfigurationItemRequest $ConfigurationItemRequest  
+    # Send-V2024ReassignmentConfig -IdentityId $IdentityId -XSailPointExperimental $XSailPointExperimental -V2024ConfigurationItemRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024ReassignmentConfig"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## put-tenant-configuration
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Replaces existing Tenant-wide Reassignment Configuration settings with the newly provided settings.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/put-tenant-configuration)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -449,10 +503,10 @@ $TenantConfigurationRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToTenantConfigurationRequest -Json $TenantConfigurationRequest
-    Send-V2024TenantConfiguration -V2024XSailPointExperimental $XSailPointExperimental  -V2024TenantConfigurationRequest $Result
+    Send-V2024TenantConfiguration -XSailPointExperimental $XSailPointExperimental -V2024TenantConfigurationRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-V2024TenantConfiguration -V2024XSailPointExperimental $XSailPointExperimental -V2024TenantConfigurationRequest $TenantConfigurationRequest  
+    # Send-V2024TenantConfiguration -XSailPointExperimental $XSailPointExperimental -V2024TenantConfigurationRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024TenantConfiguration"
     Write-Host $_.ErrorDetails

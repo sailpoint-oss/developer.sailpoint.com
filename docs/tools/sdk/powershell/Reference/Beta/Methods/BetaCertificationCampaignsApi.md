@@ -105,7 +105,11 @@ Method | HTTP request | Description
 [**Start-BetaGenerateCampaignTemplate**](#start-generate-campaign-template) | **POST** `/campaign-templates/{id}/generate` | Generate a Campaign from Template
 [**Update-BetaCampaign**](#update-campaign) | **PATCH** `/campaigns/{id}` | Update a Campaign
 
+
 ## complete-campaign
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 :::caution
 
 This endpoint will run successfully for any campaigns that are **past due**.
@@ -119,6 +123,8 @@ can complete a certification even if all items have not been completed. Though t
 
 A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/complete-campaign)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -154,21 +160,27 @@ $CompleteCampaignOptions = @"{
 # Complete a Campaign
 
 try {
-    Complete-BetaCampaign -BetaId $Id 
+    Complete-BetaCampaign -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Complete-BetaCampaign -BetaId $Id -BetaCompleteCampaignOptions $CompleteCampaignOptions  
+    # Complete-BetaCampaign -Id $Id -BetaCompleteCampaignOptions $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Complete-BetaCampaign"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## create-campaign
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Use this API to create a certification campaign with the information provided in the request body. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/create-campaign).
 
 A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/create-campaign)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -308,21 +320,27 @@ $Campaign = @"{
 
 try {
     $Result = ConvertFrom-JsonToCampaign -Json $Campaign
-    New-BetaCampaign -BetaCampaign $Result
+    New-BetaCampaign -BetaCampaign $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaCampaign -BetaCampaign $Campaign  
+    # New-BetaCampaign -BetaCampaign $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaCampaign"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## create-campaign-template
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Use this API to create a campaign template based on campaign. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/create-campaign-template).
 
 A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/create-campaign-template)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -477,21 +495,27 @@ $CampaignTemplate = @"{
 
 try {
     $Result = ConvertFrom-JsonToCampaignTemplate -Json $CampaignTemplate
-    New-BetaCampaignTemplate -BetaCampaignTemplate $Result
+    New-BetaCampaignTemplate -BetaCampaignTemplate $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaCampaignTemplate -BetaCampaignTemplate $CampaignTemplate  
+    # New-BetaCampaignTemplate -BetaCampaignTemplate $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaCampaignTemplate"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## delete-campaign-template
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Use this API to delete a certification campaign template by ID. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/delete-campaign-template).
 
 A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-campaign-template)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -523,21 +547,27 @@ $Id = "2c9180835d191a86015d28455b4a2329" # String | ID of the campaign template 
 # Delete a Campaign Template
 
 try {
-    Remove-BetaCampaignTemplate -BetaId $Id 
+    Remove-BetaCampaignTemplate -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Remove-BetaCampaignTemplate -BetaId $Id  
+    # Remove-BetaCampaignTemplate -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaCampaignTemplate"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## delete-campaign-template-schedule
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Use this API to delete the schedule for a certification campaign template. The API returns a 404 if there is no schedule set. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/delete-campaign-template-schedule).
 
 A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-campaign-template-schedule)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -569,21 +599,27 @@ $Id = "04bedce387bd47b2ae1f86eb0bb36dee" # String | ID of the campaign template 
 # Delete Campaign Template Schedule
 
 try {
-    Remove-BetaCampaignTemplateSchedule -BetaId $Id 
+    Remove-BetaCampaignTemplateSchedule -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Remove-BetaCampaignTemplateSchedule -BetaId $Id  
+    # Remove-BetaCampaignTemplateSchedule -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaCampaignTemplateSchedule"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## delete-campaigns
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Use this API to delete certification campaigns whose IDs are specified in the provided list of campaign IDs. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/delete-campaigns).
 
 A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-campaigns)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -618,21 +654,27 @@ $DeleteCampaignsRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToDeleteCampaignsRequest -Json $DeleteCampaignsRequest
-    Remove-BetaCampaigns -BetaDeleteCampaignsRequest $Result
+    Remove-BetaCampaigns -BetaDeleteCampaignsRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Remove-BetaCampaigns -BetaDeleteCampaignsRequest $DeleteCampaignsRequest  
+    # Remove-BetaCampaigns -BetaDeleteCampaignsRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaCampaigns"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-active-campaigns
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Use this API to get a list of campaigns. The API can provide increased level of detail for each campaign for the correct provided query. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/get-active-campaigns).
 
 A token with ORG_ADMIN, CERT_ADMIN or REPORT_ADMIN authority is required to call this API.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-active-campaigns)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -673,21 +715,27 @@ $Sorters = "name" # String | Sort results using the standard syntax described in
 # List Campaigns
 
 try {
-    Get-BetaActiveCampaigns
+    Get-BetaActiveCampaigns 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaActiveCampaigns -BetaDetail $Detail -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count -BetaFilters $Filters -BetaSorters $Sorters  
+    # Get-BetaActiveCampaigns -Detail $Detail -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaActiveCampaigns"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-campaign
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Use this API to get information for an existing certification campaign by the campaign's ID. Though this endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/get-campaign).
 
 A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-campaign)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -719,21 +767,27 @@ $Id = "2c91808571bcfcf80171c23e4b4221fc" # String | ID of the campaign to be ret
 # Get Campaign
 
 try {
-    Get-BetaCampaign -BetaId $Id 
+    Get-BetaCampaign -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaCampaign -BetaId $Id  
+    # Get-BetaCampaign -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaCampaign"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-campaign-reports
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Use this API to fetch all reports for a certification campaign by campaign ID. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/get-campaign-reports).
 
 A token with ORG_ADMIN, CERT_ADMIN or REPORT_ADMIN authority is required to call this API.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-campaign-reports)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -765,21 +819,27 @@ $Id = "2c91808571bcfcf80171c23e4b4221fc" # String | ID of the campaign whose rep
 # Get Campaign Reports
 
 try {
-    Get-BetaCampaignReports -BetaId $Id 
+    Get-BetaCampaignReports -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaCampaignReports -BetaId $Id  
+    # Get-BetaCampaignReports -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaCampaignReports"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-campaign-reports-config
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Use this API to fetch the configuration for certification campaign reports. The configuration includes only one element - identity attributes defined as custom report columns. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/get-campaign-reports-config).
 
 A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-campaign-reports-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -808,7 +868,7 @@ Code | Description  | Data Type
 # Get Campaign Reports Configuration
 
 try {
-    Get-BetaCampaignReportsConfig
+    Get-BetaCampaignReportsConfig 
     
     # Below is a request that includes all optional parameters
     # Get-BetaCampaignReportsConfig  
@@ -818,11 +878,17 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-campaign-template
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Use this API to fetch a certification campaign template by ID. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/get-campaign-template).
 
 A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-campaign-template)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -854,21 +920,27 @@ $Id = "2c9180835d191a86015d28455b4a2329" # String | Requested campaign template'
 # Get a Campaign Template
 
 try {
-    Get-BetaCampaignTemplate -BetaId $Id 
+    Get-BetaCampaignTemplate -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaCampaignTemplate -BetaId $Id  
+    # Get-BetaCampaignTemplate -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaCampaignTemplate"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-campaign-template-schedule
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Use this API to get the schedule for a certification campaign template. The API returns a 404 if there is no schedule set. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/get-campaign-template-schedule).
 
 A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-campaign-template-schedule)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -900,23 +972,29 @@ $Id = "04bedce387bd47b2ae1f86eb0bb36dee" # String | ID of the campaign template 
 # Get Campaign Template Schedule
 
 try {
-    Get-BetaCampaignTemplateSchedule -BetaId $Id 
+    Get-BetaCampaignTemplateSchedule -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaCampaignTemplateSchedule -BetaId $Id  
+    # Get-BetaCampaignTemplateSchedule -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaCampaignTemplateSchedule"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-campaign-templates
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Use this API to get a list of all campaign templates. Scope can be reduced through standard V3 query params. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/list-campaign-templates).
 
 The endpoint returns all campaign templates matching the query parameters.
 
 A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-campaign-templates)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -955,21 +1033,27 @@ $Filters = 'name eq "manager template"' # String | Filter results using the stan
 # List Campaign Templates
 
 try {
-    Get-BetaCampaignTemplates
+    Get-BetaCampaignTemplates 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaCampaignTemplates -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count -BetaSorters $Sorters -BetaFilters $Filters  
+    # Get-BetaCampaignTemplates -Limit $Limit -Offset $Offset -Count $Count -Sorters $Sorters -Filters $Filters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaCampaignTemplates"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## move
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This API reassigns the specified certifications from one identity to another.  Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/move).
 
 A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/move)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1011,21 +1095,27 @@ $AdminReviewReassign = @"{
 
 try {
     $Result = ConvertFrom-JsonToAdminReviewReassign -Json $AdminReviewReassign
-    Move-Beta -BetaId $Id  -BetaAdminReviewReassign $Result
+    Move-Beta -Id $Id -BetaAdminReviewReassign $Result 
     
     # Below is a request that includes all optional parameters
-    # Move-Beta -BetaId $Id -BetaAdminReviewReassign $AdminReviewReassign  
+    # Move-Beta -Id $Id -BetaAdminReviewReassign $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Move-Beta"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## patch-campaign-template
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Use this API to update individual fields on a certification campaign template, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/patch-campaign-template).
 
 A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/patch-campaign-template)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1065,21 +1155,27 @@ $Id = "2c9180835d191a86015d28455b4a2329" # String | ID of the campaign template 
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-BetaCampaignTemplate -BetaId $Id  -BetaJsonPatchOperation $Result
+    Update-BetaCampaignTemplate -Id $Id -BetaJsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaCampaignTemplate -BetaId $Id -BetaJsonPatchOperation $JsonPatchOperation  
+    # Update-BetaCampaignTemplate -Id $Id -BetaJsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaCampaignTemplate"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## set-campaign-reports-config
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Use this API to overwrite the configuration for campaign reports. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/set-campaign-reports-config).
 
 A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/set-campaign-reports-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1113,22 +1209,28 @@ $CampaignReportsConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToCampaignReportsConfig -Json $CampaignReportsConfig
-    Set-BetaCampaignReportsConfig -BetaCampaignReportsConfig $Result
+    Set-BetaCampaignReportsConfig -BetaCampaignReportsConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # Set-BetaCampaignReportsConfig -BetaCampaignReportsConfig $CampaignReportsConfig  
+    # Set-BetaCampaignReportsConfig -BetaCampaignReportsConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-BetaCampaignReportsConfig"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## set-campaign-template-schedule
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Use this API to set the schedule for a certification campaign template. If a schedule already exists, the API overwrites it with the new one. 
 Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/set-campaign-template-schedule).
 
 A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/set-campaign-template-schedule)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1181,21 +1283,27 @@ $Schedule = @"{
 # Set Campaign Template Schedule
 
 try {
-    Set-BetaCampaignTemplateSchedule -BetaId $Id 
+    Set-BetaCampaignTemplateSchedule -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Set-BetaCampaignTemplateSchedule -BetaId $Id -BetaSchedule $Schedule  
+    # Set-BetaCampaignTemplateSchedule -Id $Id -BetaSchedule $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-BetaCampaignTemplateSchedule"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## start-campaign
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Use this API to submit a job to activate the certified campaign with the specified ID. The campaign must be staged. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/start-campaign).
 
 A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/start-campaign)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1231,21 +1339,27 @@ $ActivateCampaignOptions = @"{
 # Activate a Campaign
 
 try {
-    Start-BetaCampaign -BetaId $Id 
+    Start-BetaCampaign -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Start-BetaCampaign -BetaId $Id -BetaActivateCampaignOptions $ActivateCampaignOptions  
+    # Start-BetaCampaign -Id $Id -BetaActivateCampaignOptions $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-BetaCampaign"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## start-campaign-remediation-scan
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Use this API to run a remediation scan task for a certification campaign. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/start-campaign-remediation-scan).
 
 A token with ORG_ADMIN, CERT_ADMIN or REPORT_ADMIN authority is required to call this API.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/start-campaign-remediation-scan)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1277,21 +1391,27 @@ $Id = "2c91808571bcfcf80171c23e4b4221fc" # String | ID of the campaign the remed
 # Run Campaign Remediation Scan
 
 try {
-    Start-BetaCampaignRemediationScan -BetaId $Id 
+    Start-BetaCampaignRemediationScan -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Start-BetaCampaignRemediationScan -BetaId $Id  
+    # Start-BetaCampaignRemediationScan -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-BetaCampaignRemediationScan"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## start-campaign-report
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Use this API to run a report for a certification campaign. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/start-campaign-report).
 
 A token with ORG_ADMIN, CERT_ADMIN or REPORT_ADMIN authority is required to call this API.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/start-campaign-report)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1325,17 +1445,21 @@ $Type = "CAMPAIGN_COMPOSITION_REPORT" # ReportType | Type of report to run.
 # Run Campaign Report
 
 try {
-    Start-BetaCampaignReport -BetaId $Id  -BetaType $Type 
+    Start-BetaCampaignReport -Id $Id -Type $Type 
     
     # Below is a request that includes all optional parameters
-    # Start-BetaCampaignReport -BetaId $Id -BetaType $Type  
+    # Start-BetaCampaignReport -Id $Id -Type $Type  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-BetaCampaignReport"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## start-generate-campaign-template
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Use this API to generate a new certification campaign from a campaign template.
 
 The campaign object contained in the template has special formatting applied to its name and description
@@ -1352,6 +1476,8 @@ Though this Beta endpoint has been deprecated, you can find its V3 equivalent [h
 
 A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/start-generate-campaign-template)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1382,21 +1508,27 @@ $Id = "2c9180835d191a86015d28455b4a2329" # String | ID of the campaign template 
 # Generate a Campaign from Template
 
 try {
-    Start-BetaGenerateCampaignTemplate -BetaId $Id 
+    Start-BetaGenerateCampaignTemplate -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Start-BetaGenerateCampaignTemplate -BetaId $Id  
+    # Start-BetaGenerateCampaignTemplate -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-BetaGenerateCampaignTemplate"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## update-campaign
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Use this API to update individual fields on a certification campaign, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Though this endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/update-campaign).
 
 A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/update-campaign)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1433,10 +1565,10 @@ $RequestBody =  # SystemCollectionsHashtable[] | A list of campaign update opera
 
 try {
     $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
-    Update-BetaCampaign -BetaId $Id  -BetaRequestBody $Result
+    Update-BetaCampaign -Id $Id -RequestBody $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaCampaign -BetaId $Id -BetaRequestBody $RequestBody  
+    # Update-BetaCampaign -Id $Id -RequestBody $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaCampaign"
     Write-Host $_.ErrorDetails

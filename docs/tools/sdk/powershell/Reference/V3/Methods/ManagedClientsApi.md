@@ -26,9 +26,12 @@ Method | HTTP request | Description
 [**Get-ManagedClients**](#get-managed-clients) | **GET** `/managed-clients` | Get Managed Clients
 [**Update-ManagedClient**](#update-managed-client) | **PATCH** `/managed-clients/{id}` | Update Managed Client
 
+
 ## create-managed-client
 Create a new managed client.
 The API returns a result that includes the managed client ID.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/create-managed-client)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -65,18 +68,21 @@ $ManagedClientRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToManagedClientRequest -Json $ManagedClientRequest
-    New-ManagedClient -ManagedClientRequest $Result
+    New-ManagedClient -ManagedClientRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-ManagedClient -ManagedClientRequest $ManagedClientRequest  
+    # New-ManagedClient -ManagedClientRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-ManagedClient"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## delete-managed-client
 Delete an existing managed client.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/delete-managed-client)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -117,8 +123,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-managed-client
 Get managed client by ID. 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-managed-client)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -160,8 +169,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-managed-client-status
 Get a managed client's status, using its ID.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-managed-client-status)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -195,7 +207,7 @@ $Type = "CCG" # ManagedClientType | Managed client type to get status for.
 # Get Managed Client Status
 
 try {
-    Get-ManagedClientStatus -Id $Id  -Type $Type 
+    Get-ManagedClientStatus -Id $Id -Type $Type 
     
     # Below is a request that includes all optional parameters
     # Get-ManagedClientStatus -Id $Id -Type $Type  
@@ -205,8 +217,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-managed-clients
 List managed clients.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-managed-clients)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -243,7 +258,7 @@ $Filters = 'name eq "client name"' # String | Filter results using the standard 
 # Get Managed Clients
 
 try {
-    Get-ManagedClients
+    Get-ManagedClients 
     
     # Below is a request that includes all optional parameters
     # Get-ManagedClients -Offset $Offset -Limit $Limit -Count $Count -Filters $Filters  
@@ -253,8 +268,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## update-managed-client
 Update an existing managed client.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/update-managed-client)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -294,10 +312,10 @@ $Id = "4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7" # String | Managed client ID.
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-ManagedClient -Id $Id  -JsonPatchOperation $Result
+    Update-ManagedClient -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-ManagedClient -Id $Id -JsonPatchOperation $JsonPatchOperation  
+    # Update-ManagedClient -Id $Id -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-ManagedClient"
     Write-Host $_.ErrorDetails

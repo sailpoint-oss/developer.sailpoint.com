@@ -34,10 +34,13 @@ Method | HTTP request | Description
 [**Test-BetaSourceConnectionMultihost**](#test-source-connection-multihost) | **GET** `/multihosts/{multihostId}/sources/{sourceId}/testConnection` | Test Configuration For Multi-Host Integration&#39;s Single Source
 [**Update-BetaMultiHostSources**](#update-multi-host-sources) | **PATCH** `/multihosts/{multihostId}` | Update Multi-Host Integration
 
+
 ## create-multi-host-integration
 This API is used to create Multi-Host Integration. Multi-host Integration holds similar types of sources.
 
 A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/create-multi-host-integration)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -95,20 +98,23 @@ $MultiHostIntegrationsCreate = @"{
 
 try {
     $Result = ConvertFrom-JsonToMultiHostIntegrationsCreate -Json $MultiHostIntegrationsCreate
-    New-BetaMultiHostIntegration -BetaMultiHostIntegrationsCreate $Result
+    New-BetaMultiHostIntegration -BetaMultiHostIntegrationsCreate $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaMultiHostIntegration -BetaMultiHostIntegrationsCreate $MultiHostIntegrationsCreate  
+    # New-BetaMultiHostIntegration -BetaMultiHostIntegrationsCreate $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaMultiHostIntegration"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## create-sources-within-multi-host
 This API is used to create sources within Multi-Host Integration. Multi-Host Integration holds similar types of sources.
 
 A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/create-sources-within-multi-host)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -155,20 +161,23 @@ $MultihostId = "2c91808568c529c60168cca6f90c1326" # String | ID of the Multi-Hos
 
 try {
     $Result = ConvertFrom-JsonToMultiHostIntegrationsCreateSources -Json $MultiHostIntegrationsCreateSources
-    New-BetaSourcesWithinMultiHost -BetaMultihostId $MultihostId  -BetaMultiHostIntegrationsCreateSources $Result
+    New-BetaSourcesWithinMultiHost -MultihostId $MultihostId -BetaMultiHostIntegrationsCreateSources $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaSourcesWithinMultiHost -BetaMultihostId $MultihostId -BetaMultiHostIntegrationsCreateSources $MultiHostIntegrationsCreateSources  
+    # New-BetaSourcesWithinMultiHost -MultihostId $MultihostId -BetaMultiHostIntegrationsCreateSources $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaSourcesWithinMultiHost"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## delete-multi-host
 Delete an existing Multi-Host Integration by ID.  
 
 A token with Org Admin or Multi Host Admin authority is required to access this endpoint.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-multi-host)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -200,20 +209,23 @@ $MultihostId = "2c91808568c529c60168cca6f90c1326" # String | ID of Multi-Host In
 # Delete Multi-Host Integration
 
 try {
-    Remove-BetaMultiHost -BetaMultihostId $MultihostId 
+    Remove-BetaMultiHost -MultihostId $MultihostId 
     
     # Below is a request that includes all optional parameters
-    # Remove-BetaMultiHost -BetaMultihostId $MultihostId  
+    # Remove-BetaMultiHost -MultihostId $MultihostId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaMultiHost"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-acct-aggregation-groups
 This API will return array of account aggregation groups within provided Multi-Host Integration ID.
 
 A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-acct-aggregation-groups)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -245,20 +257,23 @@ $MultihostId = "aMultiHostId" # String | ID of the Multi-Host Integration to upd
 # Get Account Aggregation Groups Within Multi-Host Integration ID
 
 try {
-    Get-BetaAcctAggregationGroups -BetaMultihostId $MultihostId 
+    Get-BetaAcctAggregationGroups -MultihostId $MultihostId 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaAcctAggregationGroups -BetaMultihostId $MultihostId  
+    # Get-BetaAcctAggregationGroups -MultihostId $MultihostId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaAcctAggregationGroups"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-entitlement-aggregation-groups
 This API will return array of aggregation groups within provided Multi-Host Integration ID.  
 
 A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-entitlement-aggregation-groups)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -290,20 +305,23 @@ $MultiHostId = "aMultiHostId" # String | ID of the Multi-Host Integration to upd
 # Get Entitlement Aggregation Groups Within Multi-Host Integration ID
 
 try {
-    Get-BetaEntitlementAggregationGroups -BetaMultiHostId $MultiHostId 
+    Get-BetaEntitlementAggregationGroups -MultiHostId $MultiHostId 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaEntitlementAggregationGroups -BetaMultiHostId $MultiHostId  
+    # Get-BetaEntitlementAggregationGroups -MultiHostId $MultiHostId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaEntitlementAggregationGroups"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-multi-host-integrations
 Get an existing Multi-Host Integration. 
 
 A token with Org Admin or Multi-Host Integration Admin authority is required to access this endpoint.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-multi-host-integrations)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -335,20 +353,23 @@ $MultihostId = "2c91808568c529c60168cca6f90c1326" # String | ID of the Multi-Hos
 # Get Multi-Host Integration By ID
 
 try {
-    Get-BetaMultiHostIntegrations -BetaMultihostId $MultihostId 
+    Get-BetaMultiHostIntegrations -MultihostId $MultihostId 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaMultiHostIntegrations -BetaMultihostId $MultihostId  
+    # Get-BetaMultiHostIntegrations -MultihostId $MultihostId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaMultiHostIntegrations"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-multi-host-integrations-list
 Get a list of Multi-Host Integrations.  
 
 A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-multi-host-integrations-list)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -390,20 +411,23 @@ $ForSubadmin = "5168015d32f890ca15812c9180835d2e" # String | If provided, filter
 # List All Existing Multi-Host Integrations
 
 try {
-    Get-BetaMultiHostIntegrationsList
+    Get-BetaMultiHostIntegrationsList 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaMultiHostIntegrationsList -BetaOffset $Offset -BetaLimit $Limit -BetaSorters $Sorters -BetaFilters $Filters -BetaCount $Count -BetaForSubadmin $ForSubadmin  
+    # Get-BetaMultiHostIntegrationsList -Offset $Offset -Limit $Limit -Sorters $Sorters -Filters $Filters -Count $Count -ForSubadmin $ForSubadmin  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaMultiHostIntegrationsList"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-multi-host-source-creation-errors
 Get a list of sources creation errors within Multi-Host Integration ID.  
 
 A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-multi-host-source-creation-errors)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -435,20 +459,23 @@ $MultiHostId = "004091cb79b04636b88662afa50a4440" # String | ID of the Multi-Hos
 # List Multi-Host Source Creation Errors
 
 try {
-    Get-BetaMultiHostSourceCreationErrors -BetaMultiHostId $MultiHostId 
+    Get-BetaMultiHostSourceCreationErrors -MultiHostId $MultiHostId 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaMultiHostSourceCreationErrors -BetaMultiHostId $MultiHostId  
+    # Get-BetaMultiHostSourceCreationErrors -MultiHostId $MultiHostId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaMultiHostSourceCreationErrors"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-multihost-integration-types
 This API endpoint returns the current list of supported Multi-Host Integration types.  
 
 A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-multihost-integration-types)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -478,7 +505,7 @@ Code | Description  | Data Type
 # List Multi-Host Integration Types
 
 try {
-    Get-BetaMultihostIntegrationTypes
+    Get-BetaMultihostIntegrationTypes 
     
     # Below is a request that includes all optional parameters
     # Get-BetaMultihostIntegrationTypes  
@@ -488,10 +515,13 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-sources-within-multi-host
 Get a list of sources within Multi-Host Integration ID.  
 
 A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-sources-within-multi-host)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -533,20 +563,23 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # List Sources Within Multi-Host Integration
 
 try {
-    Get-BetaSourcesWithinMultiHost -BetaMultihostId $MultihostId 
+    Get-BetaSourcesWithinMultiHost -MultihostId $MultihostId 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaSourcesWithinMultiHost -BetaMultihostId $MultihostId -BetaOffset $Offset -BetaLimit $Limit -BetaSorters $Sorters -BetaFilters $Filters -BetaCount $Count  
+    # Get-BetaSourcesWithinMultiHost -MultihostId $MultihostId -Offset $Offset -Limit $Limit -Sorters $Sorters -Filters $Filters -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaSourcesWithinMultiHost"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## test-connection-multi-host-sources
 This endpoint performs a more detailed validation of the Multi-Host Integration's configuration.
 
 A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/test-connection-multi-host-sources)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -578,20 +611,23 @@ $MultihostId = "2c91808568c529c60168cca6f90c1324" # String | ID of the Multi-Hos
 # Test Configuration For Multi-Host Integration
 
 try {
-    Test-BetaConnectionMultiHostSources -BetaMultihostId $MultihostId 
+    Test-BetaConnectionMultiHostSources -MultihostId $MultihostId 
     
     # Below is a request that includes all optional parameters
-    # Test-BetaConnectionMultiHostSources -BetaMultihostId $MultihostId  
+    # Test-BetaConnectionMultiHostSources -MultihostId $MultihostId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Test-BetaConnectionMultiHostSources"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## test-source-connection-multihost
 This endpoint performs a more detailed validation of the source's configuration.  
 
 A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/test-source-connection-multihost)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -625,20 +661,23 @@ $SourceId = "2c91808568c529f60168cca6f90c1324" # String | ID of the source withi
 # Test Configuration For Multi-Host Integration's Single Source
 
 try {
-    Test-BetaSourceConnectionMultihost -BetaMultihostId $MultihostId  -BetaSourceId $SourceId 
+    Test-BetaSourceConnectionMultihost -MultihostId $MultihostId -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
-    # Test-BetaSourceConnectionMultihost -BetaMultihostId $MultihostId -BetaSourceId $SourceId  
+    # Test-BetaSourceConnectionMultihost -MultihostId $MultihostId -SourceId $SourceId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Test-BetaSourceConnectionMultihost"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## update-multi-host-sources
 Update existing sources within Multi-Host Integration.
 
 A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/update-multi-host-sources)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -674,10 +713,10 @@ $MultihostId = "anId" # String | ID of the Multi-Host Integration to update.
 
 try {
     $Result = ConvertFrom-JsonToUpdateMultiHostSourcesRequestInner -Json $UpdateMultiHostSourcesRequestInner
-    Update-BetaMultiHostSources -BetaMultihostId $MultihostId  -BetaUpdateMultiHostSourcesRequestInner $Result
+    Update-BetaMultiHostSources -MultihostId $MultihostId -BetaUpdateMultiHostSourcesRequestInner $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaMultiHostSources -BetaMultihostId $MultihostId -BetaUpdateMultiHostSourcesRequestInner $UpdateMultiHostSourcesRequestInner  
+    # Update-BetaMultiHostSources -MultihostId $MultihostId -BetaUpdateMultiHostSourcesRequestInner $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaMultiHostSources"
     Write-Host $_.ErrorDetails

@@ -33,8 +33,11 @@ Method | HTTP request | Description
 [**Get-BetaPersonalAccessTokens**](#list-personal-access-tokens) | **GET** `/personal-access-tokens` | List Personal Access Tokens
 [**Update-BetaPersonalAccessToken**](#patch-personal-access-token) | **PATCH** `/personal-access-tokens/{id}` | Patch Personal Access Token
 
+
 ## create-personal-access-token
 This creates a personal access token.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/create-personal-access-token)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -70,18 +73,21 @@ $CreatePersonalAccessTokenRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToCreatePersonalAccessTokenRequest -Json $CreatePersonalAccessTokenRequest
-    New-BetaPersonalAccessToken -BetaCreatePersonalAccessTokenRequest $Result
+    New-BetaPersonalAccessToken -BetaCreatePersonalAccessTokenRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaPersonalAccessToken -BetaCreatePersonalAccessTokenRequest $CreatePersonalAccessTokenRequest  
+    # New-BetaPersonalAccessToken -BetaCreatePersonalAccessTokenRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaPersonalAccessToken"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## delete-personal-access-token
 This deletes a personal access token.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-personal-access-token)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -113,18 +119,21 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The personal access token id
 # Delete Personal Access Token
 
 try {
-    Remove-BetaPersonalAccessToken -BetaId $Id 
+    Remove-BetaPersonalAccessToken -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Remove-BetaPersonalAccessToken -BetaId $Id  
+    # Remove-BetaPersonalAccessToken -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaPersonalAccessToken"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-personal-access-tokens
 This gets a collection of personal access tokens associated with the optional `owner-id`.  query parameter. If the `owner-id` query parameter is omitted, all personal access tokens  for a tenant will be retrieved, but the caller must have the 'idn:all-personal-access-tokens:read' right.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/list-personal-access-tokens)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -157,18 +166,21 @@ $Filters = 'lastUsed le 2023-02-05T10:59:27.214Z' # String | Filter results usin
 # List Personal Access Tokens
 
 try {
-    Get-BetaPersonalAccessTokens
+    Get-BetaPersonalAccessTokens 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaPersonalAccessTokens -BetaOwnerId $OwnerId -BetaFilters $Filters  
+    # Get-BetaPersonalAccessTokens -OwnerId $OwnerId -Filters $Filters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaPersonalAccessTokens"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## patch-personal-access-token
 This performs a targeted update to the field(s) of a Personal Access Token.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/patch-personal-access-token)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -208,10 +220,10 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The Personal Access Token id
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-BetaPersonalAccessToken -BetaId $Id  -BetaJsonPatchOperation $Result
+    Update-BetaPersonalAccessToken -Id $Id -BetaJsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaPersonalAccessToken -BetaId $Id -BetaJsonPatchOperation $JsonPatchOperation  
+    # Update-BetaPersonalAccessToken -Id $Id -BetaJsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaPersonalAccessToken"
     Write-Host $_.ErrorDetails

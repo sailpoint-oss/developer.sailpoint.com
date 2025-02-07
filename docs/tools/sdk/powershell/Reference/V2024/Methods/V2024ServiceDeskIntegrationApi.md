@@ -52,8 +52,11 @@ Method | HTTP request | Description
 [**Send-V2024ServiceDeskIntegration**](#put-service-desk-integration) | **PUT** `/service-desk-integrations/{id}` | Update a Service Desk integration
 [**Update-V2024StatusCheckDetails**](#update-status-check-details) | **PUT** `/service-desk-integrations/status-check-configuration` | Update the time check configuration
 
+
 ## create-service-desk-integration
 Create a new Service Desk integration.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-service-desk-integration)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -119,18 +122,21 @@ $ServiceDeskIntegrationDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToServiceDeskIntegrationDto -Json $ServiceDeskIntegrationDto
-    New-V2024ServiceDeskIntegration -V2024ServiceDeskIntegrationDto $Result
+    New-V2024ServiceDeskIntegration -V2024ServiceDeskIntegrationDto $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024ServiceDeskIntegration -V2024ServiceDeskIntegrationDto $ServiceDeskIntegrationDto  
+    # New-V2024ServiceDeskIntegration -V2024ServiceDeskIntegrationDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024ServiceDeskIntegration"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## delete-service-desk-integration
 Delete an existing Service Desk integration by ID.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-service-desk-integration)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -162,18 +168,21 @@ $Id = "anId" # String | ID of Service Desk integration to delete
 # Delete a Service Desk integration
 
 try {
-    Remove-V2024ServiceDeskIntegration -V2024Id $Id 
+    Remove-V2024ServiceDeskIntegration -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024ServiceDeskIntegration -V2024Id $Id  
+    # Remove-V2024ServiceDeskIntegration -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024ServiceDeskIntegration"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-service-desk-integration
 Get an existing Service Desk integration by ID.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-service-desk-integration)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -205,18 +214,21 @@ $Id = "anId" # String | ID of the Service Desk integration to get
 # Get a Service Desk integration
 
 try {
-    Get-V2024ServiceDeskIntegration -V2024Id $Id 
+    Get-V2024ServiceDeskIntegration -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024ServiceDeskIntegration -V2024Id $Id  
+    # Get-V2024ServiceDeskIntegration -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024ServiceDeskIntegration"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-service-desk-integration-template
 This API endpoint returns an existing Service Desk integration template by scriptName.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-service-desk-integration-template)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -248,18 +260,21 @@ $ScriptName = "aScriptName" # String | The scriptName value of the Service Desk 
 # Service Desk integration template by scriptName
 
 try {
-    Get-V2024ServiceDeskIntegrationTemplate -V2024ScriptName $ScriptName 
+    Get-V2024ServiceDeskIntegrationTemplate -ScriptName $ScriptName 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024ServiceDeskIntegrationTemplate -V2024ScriptName $ScriptName  
+    # Get-V2024ServiceDeskIntegrationTemplate -ScriptName $ScriptName  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024ServiceDeskIntegrationTemplate"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-service-desk-integration-types
 This API endpoint returns the current list of supported Service Desk integration types.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-service-desk-integration-types)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -289,7 +304,7 @@ Code | Description  | Data Type
 # List Service Desk integration types
 
 try {
-    Get-V2024ServiceDeskIntegrationTypes
+    Get-V2024ServiceDeskIntegrationTypes 
     
     # Below is a request that includes all optional parameters
     # Get-V2024ServiceDeskIntegrationTypes  
@@ -299,8 +314,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-service-desk-integrations
 Get a list of Service Desk integration objects.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-service-desk-integrations)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -340,18 +358,21 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # List existing Service Desk integrations
 
 try {
-    Get-V2024ServiceDeskIntegrations
+    Get-V2024ServiceDeskIntegrations 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024ServiceDeskIntegrations -V2024Offset $Offset -V2024Limit $Limit -V2024Sorters $Sorters -V2024Filters $Filters -V2024Count $Count  
+    # Get-V2024ServiceDeskIntegrations -Offset $Offset -Limit $Limit -Sorters $Sorters -Filters $Filters -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024ServiceDeskIntegrations"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-status-check-details
 Get the time check configuration of queued SDIM tickets.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-status-check-details)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -381,7 +402,7 @@ Code | Description  | Data Type
 # Get the time check configuration
 
 try {
-    Get-V2024StatusCheckDetails
+    Get-V2024StatusCheckDetails 
     
     # Below is a request that includes all optional parameters
     # Get-V2024StatusCheckDetails  
@@ -391,8 +412,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## patch-service-desk-integration
 Update an existing Service Desk integration by ID with a PATCH request.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/patch-service-desk-integration)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -427,18 +451,21 @@ $PatchServiceDeskIntegrationRequest = @""@
 
 try {
     $Result = ConvertFrom-JsonToPatchServiceDeskIntegrationRequest -Json $PatchServiceDeskIntegrationRequest
-    Update-V2024ServiceDeskIntegration -V2024Id $Id  -V2024PatchServiceDeskIntegrationRequest $Result
+    Update-V2024ServiceDeskIntegration -Id $Id -V2024PatchServiceDeskIntegrationRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024ServiceDeskIntegration -V2024Id $Id -V2024PatchServiceDeskIntegrationRequest $PatchServiceDeskIntegrationRequest  
+    # Update-V2024ServiceDeskIntegration -Id $Id -V2024PatchServiceDeskIntegrationRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024ServiceDeskIntegration"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## put-service-desk-integration
 Update an existing Service Desk integration by ID.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/put-service-desk-integration)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -506,18 +533,21 @@ $ServiceDeskIntegrationDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToServiceDeskIntegrationDto -Json $ServiceDeskIntegrationDto
-    Send-V2024ServiceDeskIntegration -V2024Id $Id  -V2024ServiceDeskIntegrationDto $Result
+    Send-V2024ServiceDeskIntegration -Id $Id -V2024ServiceDeskIntegrationDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-V2024ServiceDeskIntegration -V2024Id $Id -V2024ServiceDeskIntegrationDto $ServiceDeskIntegrationDto  
+    # Send-V2024ServiceDeskIntegration -Id $Id -V2024ServiceDeskIntegrationDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024ServiceDeskIntegration"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## update-status-check-details
 Update the time check configuration of queued SDIM tickets.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/update-status-check-details)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -553,10 +583,10 @@ $QueuedCheckConfigDetails = @"{
 
 try {
     $Result = ConvertFrom-JsonToQueuedCheckConfigDetails -Json $QueuedCheckConfigDetails
-    Update-V2024StatusCheckDetails -V2024QueuedCheckConfigDetails $Result
+    Update-V2024StatusCheckDetails -V2024QueuedCheckConfigDetails $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024StatusCheckDetails -V2024QueuedCheckConfigDetails $QueuedCheckConfigDetails  
+    # Update-V2024StatusCheckDetails -V2024QueuedCheckConfigDetails $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024StatusCheckDetails"
     Write-Host $_.ErrorDetails

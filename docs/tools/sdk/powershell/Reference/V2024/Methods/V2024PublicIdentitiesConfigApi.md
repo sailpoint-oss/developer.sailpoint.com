@@ -30,8 +30,11 @@ Method | HTTP request | Description
 [**Get-V2024PublicIdentityConfig**](#get-public-identity-config) | **GET** `/public-identities-config` | Get the Public Identities Configuration
 [**Update-V2024PublicIdentityConfig**](#update-public-identity-config) | **PUT** `/public-identities-config` | Update the Public Identities Configuration
 
+
 ## get-public-identity-config
 Returns the publicly visible attributes of an identity available to request approvers for Access Requests and Certification Campaigns.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-public-identity-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -60,7 +63,7 @@ Code | Description  | Data Type
 # Get the Public Identities Configuration
 
 try {
-    Get-V2024PublicIdentityConfig
+    Get-V2024PublicIdentityConfig 
     
     # Below is a request that includes all optional parameters
     # Get-V2024PublicIdentityConfig  
@@ -70,8 +73,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## update-public-identity-config
 Updates the publicly visible attributes of an identity available to request approvers for Access Requests and Certification Campaigns.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/update-public-identity-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -117,10 +123,10 @@ $PublicIdentityConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToPublicIdentityConfig -Json $PublicIdentityConfig
-    Update-V2024PublicIdentityConfig -V2024PublicIdentityConfig $Result
+    Update-V2024PublicIdentityConfig -V2024PublicIdentityConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024PublicIdentityConfig -V2024PublicIdentityConfig $PublicIdentityConfig  
+    # Update-V2024PublicIdentityConfig -V2024PublicIdentityConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024PublicIdentityConfig"
     Write-Host $_.ErrorDetails

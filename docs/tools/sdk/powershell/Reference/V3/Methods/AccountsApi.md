@@ -56,6 +56,7 @@ Method | HTTP request | Description
 [**Unlock-Account**](#unlock-account) | **POST** `/accounts/{id}/unlock` | Unlock Account
 [**Update-Account**](#update-account) | **PATCH** `/accounts/{id}` | Update Account
 
+
 ## create-account
 Submit an account creation task - the API then returns the task ID.  
 
@@ -69,6 +70,8 @@ The endpoint doesn't actually provision the account on the target source, which 
 
 By providing the account ID of an existing account in the request body, this API will function as a PATCH operation and update the account.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/create-account)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -109,21 +112,24 @@ $AccountAttributesCreate = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccountAttributesCreate -Json $AccountAttributesCreate
-    New-Account -AccountAttributesCreate $Result
+    New-Account -AccountAttributesCreate $Result 
     
     # Below is a request that includes all optional parameters
-    # New-Account -AccountAttributesCreate $AccountAttributesCreate  
+    # New-Account -AccountAttributesCreate $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-Account"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## delete-account
 Use this API to delete an account. 
 This endpoint submits an account delete task and returns the task ID. 
 This endpoint only deletes the account from IdentityNow, not the source itself, which can result in the account's returning with the next aggregation between the source and IdentityNow.  To avoid this scenario, it is recommended that you [disable accounts](https://developer.sailpoint.com/idn/api/v3/disable-account) rather than delete them. This will also allow you to reenable the accounts in the future. 
 >**NOTE: You can only delete accounts from sources of the "DelimitedFile" type.**
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/delete-account)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -165,8 +171,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## disable-account
 This API submits a task to disable the account and returns the task ID.      
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/disable-account)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -204,18 +213,21 @@ $AccountToggleRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccountToggleRequest -Json $AccountToggleRequest
-    Disable-Account -Id $Id  -AccountToggleRequest $Result
+    Disable-Account -Id $Id -AccountToggleRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Disable-Account -Id $Id -AccountToggleRequest $AccountToggleRequest  
+    # Disable-Account -Id $Id -AccountToggleRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Disable-Account"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## enable-account
 This API submits a task to enable account and returns the task ID.      
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/enable-account)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -253,18 +265,21 @@ $AccountToggleRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccountToggleRequest -Json $AccountToggleRequest
-    Enable-Account -Id $Id  -AccountToggleRequest $Result
+    Enable-Account -Id $Id -AccountToggleRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Enable-Account -Id $Id -AccountToggleRequest $AccountToggleRequest  
+    # Enable-Account -Id $Id -AccountToggleRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Enable-Account"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-account
 Use this API to return the details for a single account by its ID.  
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-account)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -306,8 +321,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-account-entitlements
 This API returns entitlements of the account.      
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-account-entitlements)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -355,8 +373,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-accounts
 List accounts. 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/list-accounts)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -397,7 +418,7 @@ $Sorters = "id,name" # String | Sort results using the standard syntax described
 # Accounts List
 
 try {
-    Get-Accounts
+    Get-Accounts 
     
     # Below is a request that includes all optional parameters
     # Get-Accounts -Limit $Limit -Offset $Offset -Count $Count -DetailLevel $DetailLevel -Filters $Filters -Sorters $Sorters  
@@ -407,6 +428,7 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## put-account
 Use this API to update an account with a PUT request. 
 
@@ -414,6 +436,8 @@ This endpoint submits an account update task and returns the task ID.
 
 >**Note: You can only use this PUT endpoint to update accounts from flat file sources.**
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/put-account)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -456,18 +480,21 @@ $AccountAttributes = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccountAttributes -Json $AccountAttributes
-    Send-Account -Id $Id  -AccountAttributes $Result
+    Send-Account -Id $Id -AccountAttributes $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-Account -Id $Id -AccountAttributes $AccountAttributes  
+    # Send-Account -Id $Id -AccountAttributes $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-Account"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## submit-reload-account
 This API asynchronously reloads the account directly from the connector and performs a one-time aggregation process.      
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/submit-reload-account)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -509,9 +536,12 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## unlock-account
 This API submits a task to unlock an account and returns the task ID.  
 To use this endpoint to unlock an account that has the `forceProvisioning` option set to true, the `idn:accounts-provisioning:manage` scope is required. 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/unlock-account)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -550,16 +580,17 @@ $AccountUnlockRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccountUnlockRequest -Json $AccountUnlockRequest
-    Unlock-Account -Id $Id  -AccountUnlockRequest $Result
+    Unlock-Account -Id $Id -AccountUnlockRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Unlock-Account -Id $Id -AccountUnlockRequest $AccountUnlockRequest  
+    # Unlock-Account -Id $Id -AccountUnlockRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Unlock-Account"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## update-account
 Use this API to update account details. 
 
@@ -572,6 +603,8 @@ All accounts that are reassigned will be set to `manuallyCorrelated: true` unles
 
 >**Note:** The `attributes` field can only be modified for flat file accounts. 
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/update-account)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -608,10 +641,10 @@ $RequestBody =  # SystemCollectionsHashtable[] | A list of account update operat
 
 try {
     $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
-    Update-Account -Id $Id  -RequestBody $Result
+    Update-Account -Id $Id -RequestBody $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-Account -Id $Id -RequestBody $RequestBody  
+    # Update-Account -Id $Id -RequestBody $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-Account"
     Write-Host $_.ErrorDetails

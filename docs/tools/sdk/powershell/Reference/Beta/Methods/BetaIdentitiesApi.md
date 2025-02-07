@@ -44,8 +44,11 @@ Method | HTTP request | Description
 [**Start-BetaIdentityProcessing**](#start-identity-processing) | **POST** `/identities/process` | Process a list of identityIds
 [**Sync-BetahronizeAttributesForIdentity**](#synchronize-attributes-for-identity) | **POST** `/identities/{identityId}/synchronize-attributes` | Attribute synchronization for single identity.
 
+
 ## delete-identity
 The API returns successful response if the requested identity was deleted.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-identity)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -77,18 +80,21 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Identity Id
 # Delete identity
 
 try {
-    Remove-BetaIdentity -BetaId $Id 
+    Remove-BetaIdentity -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Remove-BetaIdentity -BetaId $Id  
+    # Remove-BetaIdentity -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaIdentity"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-identity
 This API returns a single identity using the Identity ID.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-identity)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -120,20 +126,23 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Identity Id
 # Identity Details
 
 try {
-    Get-BetaIdentity -BetaId $Id 
+    Get-BetaIdentity -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaIdentity -BetaId $Id  
+    # Get-BetaIdentity -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaIdentity"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-identity-ownership-details
 Use this API to return an identity's owned objects that will cause problems for deleting the identity. 
 Use this API as a checklist of objects that you need to reassign to a different identity before you can delete the identity. 
 For a full list of objects owned by an identity, use the [Search API](https://developer.sailpoint.com/docs/api/v3/search-post/).  When you search for identities, the returned identities have a property, `owns`, that contains a more comprehensive list of identity's owned objects.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-identity-ownership-details)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -165,18 +174,21 @@ $IdentityId = "ff8081814d2a8036014d701f3fbf53fa" # String | Identity ID.
 # Get ownership details
 
 try {
-    Get-BetaIdentityOwnershipDetails -BetaIdentityId $IdentityId 
+    Get-BetaIdentityOwnershipDetails -IdentityId $IdentityId 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaIdentityOwnershipDetails -BetaIdentityId $IdentityId  
+    # Get-BetaIdentityOwnershipDetails -IdentityId $IdentityId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaIdentityOwnershipDetails"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-role-assignment
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-role-assignment)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -210,18 +222,21 @@ $AssignmentId = "1cbb0705b38c4226b1334eadd8874086" # String | Assignment Id
 # Role assignment details
 
 try {
-    Get-BetaRoleAssignment -BetaIdentityId $IdentityId  -BetaAssignmentId $AssignmentId 
+    Get-BetaRoleAssignment -IdentityId $IdentityId -AssignmentId $AssignmentId 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaRoleAssignment -BetaIdentityId $IdentityId -BetaAssignmentId $AssignmentId  
+    # Get-BetaRoleAssignment -IdentityId $IdentityId -AssignmentId $AssignmentId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaRoleAssignment"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-role-assignments
 This returns either a list of Role Assignments when querying with either a Role Id or Role Name, or a list of Role Assignment References if querying with only identity Id.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-role-assignments)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -257,18 +272,21 @@ $RoleName = "Engineer" # String | Role name to filter the role assignments with 
 # List role assignments
 
 try {
-    Get-BetaRoleAssignments -BetaIdentityId $IdentityId 
+    Get-BetaRoleAssignments -IdentityId $IdentityId 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaRoleAssignments -BetaIdentityId $IdentityId -BetaRoleId $RoleId -BetaRoleName $RoleName  
+    # Get-BetaRoleAssignments -IdentityId $IdentityId -RoleId $RoleId -RoleName $RoleName  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaRoleAssignments"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-identities
 This API returns a list of identities.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/list-identities)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -309,18 +327,21 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 # List Identities
 
 try {
-    Get-BetaIdentities
+    Get-BetaIdentities 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaIdentities -BetaFilters $Filters -BetaSorters $Sorters -BetaDefaultFilter $DefaultFilter -BetaCount $Count -BetaLimit $Limit -BetaOffset $Offset  
+    # Get-BetaIdentities -Filters $Filters -Sorters $Sorters -DefaultFilter $DefaultFilter -Count $Count -Limit $Limit -Offset $Offset  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaIdentities"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## reset-identity
 Use this endpoint to reset a user's identity if they have forgotten their authentication information like their answers to knowledge-based questions. Resetting an identity de-registers the user and removes any elevated user levels they have.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/reset-identity)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -352,19 +373,22 @@ $IdentityId = "ef38f94347e94562b5bb8424a56397d8" # String | Identity Id
 # Reset an identity
 
 try {
-    Reset-BetaIdentity -BetaIdentityId $IdentityId 
+    Reset-BetaIdentity -IdentityId $IdentityId 
     
     # Below is a request that includes all optional parameters
-    # Reset-BetaIdentity -BetaIdentityId $IdentityId  
+    # Reset-BetaIdentity -IdentityId $IdentityId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Reset-BetaIdentity"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## send-identity-verification-account-token
 This API sends an email with the link to start Password Reset. After selecting the link an identity will be able to set up a new password. Emails expire after 2 hours.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/send-identity-verification-account-token)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -402,16 +426,17 @@ $SendAccountVerificationRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToSendAccountVerificationRequest -Json $SendAccountVerificationRequest
-    Send-BetaIdentityVerificationAccountToken -BetaId $Id  -BetaSendAccountVerificationRequest $Result
+    Send-BetaIdentityVerificationAccountToken -Id $Id -BetaSendAccountVerificationRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-BetaIdentityVerificationAccountToken -BetaId $Id -BetaSendAccountVerificationRequest $SendAccountVerificationRequest  
+    # Send-BetaIdentityVerificationAccountToken -Id $Id -BetaSendAccountVerificationRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaIdentityVerificationAccountToken"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## start-identities-invite
 This API submits a task for inviting given identities via email to complete registration. The invitation email will include the link. After selecting the link an identity will be able to set up password and log in into the system. Invitations expire after 7 days. By default invitations send to the work identity email. It can be changed in Admin > Identities > Identity Profiles by selecting corresponding profile and editing Invitation Options.
 
@@ -419,6 +444,8 @@ This task will send an invitation email only for unregistered identities.
 
 The executed task status can be checked by Task Management > [Get task status by ID](https://developer.sailpoint.com/docs/api/beta/get-task-status).
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/start-identities-invite)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -454,16 +481,17 @@ $InviteIdentitiesRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToInviteIdentitiesRequest -Json $InviteIdentitiesRequest
-    Start-BetaIdentitiesInvite -BetaInviteIdentitiesRequest $Result
+    Start-BetaIdentitiesInvite -BetaInviteIdentitiesRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Start-BetaIdentitiesInvite -BetaInviteIdentitiesRequest $InviteIdentitiesRequest  
+    # Start-BetaIdentitiesInvite -BetaInviteIdentitiesRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-BetaIdentitiesInvite"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## start-identity-processing
 This operation should not be used to schedule your own identity processing or to perform system wide identity refreshes. The system will use a combination of [event-based processing](https://documentation.sailpoint.com/saas/help/setup/identity_processing.html?h=process#event-based-processing) and [scheduled processing](https://documentation.sailpoint.com/saas/help/setup/identity_processing.html?h=process#scheduled-processing) that runs every day at 8:00 AM and 8:00 PM in the tenant's timezone to keep your identities synchronized. 
 
@@ -476,6 +504,8 @@ This endpoint will perform the following tasks:
 
 A token with ORG_ADMIN or HELPDESK authority is required to call this API.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/start-identity-processing)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -510,18 +540,21 @@ $ProcessIdentitiesRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToProcessIdentitiesRequest -Json $ProcessIdentitiesRequest
-    Start-BetaIdentityProcessing -BetaProcessIdentitiesRequest $Result
+    Start-BetaIdentityProcessing -BetaProcessIdentitiesRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Start-BetaIdentityProcessing -BetaProcessIdentitiesRequest $ProcessIdentitiesRequest  
+    # Start-BetaIdentityProcessing -BetaProcessIdentitiesRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-BetaIdentityProcessing"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## synchronize-attributes-for-identity
 This end-point performs attribute synchronization for a selected identity. The endpoint can be called once in 10 seconds per identity. A token with ORG_ADMIN or API authority is required to call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/synchronize-attributes-for-identity)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -553,10 +586,10 @@ $IdentityId = "MyIdentityId" # String | The Identity id
 # Attribute synchronization for single identity.
 
 try {
-    Sync-BetahronizeAttributesForIdentity -BetaIdentityId $IdentityId 
+    Sync-BetahronizeAttributesForIdentity -IdentityId $IdentityId 
     
     # Below is a request that includes all optional parameters
-    # Sync-BetahronizeAttributesForIdentity -BetaIdentityId $IdentityId  
+    # Sync-BetahronizeAttributesForIdentity -IdentityId $IdentityId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Sync-BetahronizeAttributesForIdentity"
     Write-Host $_.ErrorDetails

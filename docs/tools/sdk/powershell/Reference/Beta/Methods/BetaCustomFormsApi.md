@@ -45,8 +45,11 @@ Method | HTTP request | Description
 [**Search-BetaPreDefinedSelectOptions**](#search-pre-defined-select-options) | **GET** `/form-definitions/predefined-select-options` | List predefined select options.
 [**Show-BetaPreviewDataSource**](#show-preview-data-source) | **POST** `/form-definitions/{formDefinitionID}/data-source` | Preview form definition data source.
 
+
 ## create-form-definition
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/create-form-definition)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -187,18 +190,21 @@ $CreateFormDefinitionRequest = @"{
 # Creates a form definition.
 
 try {
-    New-BetaFormDefinition
+    New-BetaFormDefinition 
     
     # Below is a request that includes all optional parameters
-    # New-BetaFormDefinition -BetaCreateFormDefinitionRequest $CreateFormDefinitionRequest  
+    # New-BetaFormDefinition -BetaCreateFormDefinitionRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaFormDefinition"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## create-form-definition-by-template
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/create-form-definition-by-template)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -339,18 +345,21 @@ $CreateFormDefinitionRequest = @"{
 # Create a form definition by template.
 
 try {
-    New-BetaFormDefinitionByTemplate
+    New-BetaFormDefinitionByTemplate 
     
     # Below is a request that includes all optional parameters
-    # New-BetaFormDefinitionByTemplate -BetaCreateFormDefinitionRequest $CreateFormDefinitionRequest  
+    # New-BetaFormDefinitionByTemplate -BetaCreateFormDefinitionRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaFormDefinitionByTemplate"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## create-form-definition-dynamic-schema
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/create-form-definition-dynamic-schema)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -390,18 +399,21 @@ $Body = @"{
 # Generate JSON Schema dynamically.
 
 try {
-    New-BetaFormDefinitionDynamicSchema
+    New-BetaFormDefinitionDynamicSchema 
     
     # Below is a request that includes all optional parameters
-    # New-BetaFormDefinitionDynamicSchema -BetaBody $Body  
+    # New-BetaFormDefinitionDynamicSchema -BetaBody $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaFormDefinitionDynamicSchema"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## create-form-definition-file-request
 Parameter `{formDefinitionID}` should match a form definition ID.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/create-form-definition-file-request)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -438,18 +450,21 @@ $File =  # System.IO.FileInfo | File specifying the multipart
 # Upload new form definition file.
 
 try {
-    New-BetaFormDefinitionFileRequest -BetaFormDefinitionID $FormDefinitionID  -BetaFile $File 
+    New-BetaFormDefinitionFileRequest -FormDefinitionID $FormDefinitionID -File $File 
     
     # Below is a request that includes all optional parameters
-    # New-BetaFormDefinitionFileRequest -BetaFormDefinitionID $FormDefinitionID -BetaFile $File  
+    # New-BetaFormDefinitionFileRequest -FormDefinitionID $FormDefinitionID -File $File  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaFormDefinitionFileRequest"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## create-form-instance
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/create-form-instance)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -500,18 +515,21 @@ $Body = @"{
 # Creates a form instance.
 
 try {
-    New-BetaFormInstance
+    New-BetaFormInstance 
     
     # Below is a request that includes all optional parameters
-    # New-BetaFormInstance -BetaBody $Body  
+    # New-BetaFormInstance -BetaBody $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaFormInstance"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## delete-form-definition
 Parameter `{formDefinitionID}` should match a form definition ID.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-form-definition)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -543,18 +561,21 @@ $FormDefinitionID = "00000000-0000-0000-0000-000000000000" # String | Form defin
 # Deletes a form definition.
 
 try {
-    Remove-BetaFormDefinition -BetaFormDefinitionID $FormDefinitionID 
+    Remove-BetaFormDefinition -FormDefinitionID $FormDefinitionID 
     
     # Below is a request that includes all optional parameters
-    # Remove-BetaFormDefinition -BetaFormDefinitionID $FormDefinitionID  
+    # Remove-BetaFormDefinition -FormDefinitionID $FormDefinitionID  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaFormDefinition"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## export-form-definitions-by-tenant
 No parameters required.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/export-form-definitions-by-tenant)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -591,18 +612,21 @@ $Sorters = "name" # String | Sort results using the standard syntax described in
 # List form definitions by tenant.
 
 try {
-    Export-BetaFormDefinitionsByTenant
+    Export-BetaFormDefinitionsByTenant 
     
     # Below is a request that includes all optional parameters
-    # Export-BetaFormDefinitionsByTenant -BetaOffset $Offset -BetaLimit $Limit -BetaFilters $Filters -BetaSorters $Sorters  
+    # Export-BetaFormDefinitionsByTenant -Offset $Offset -Limit $Limit -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Export-BetaFormDefinitionsByTenant"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-file-from-s3
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-file-from-s3)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -637,18 +661,21 @@ $FileID = "00000031N0J7R2B57M8YG73J7M.png" # String | FileID  String specifying 
 # Download definition file by fileId.
 
 try {
-    Get-BetaFileFromS3 -BetaFormDefinitionID $FormDefinitionID  -BetaFileID $FileID 
+    Get-BetaFileFromS3 -FormDefinitionID $FormDefinitionID -FileID $FileID 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaFileFromS3 -BetaFormDefinitionID $FormDefinitionID -BetaFileID $FileID  
+    # Get-BetaFileFromS3 -FormDefinitionID $FormDefinitionID -FileID $FileID  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaFileFromS3"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-form-definition-by-key
 Parameter `{formDefinitionID}` should match a form definition ID.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-form-definition-by-key)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -680,18 +707,21 @@ $FormDefinitionID = "00000000-0000-0000-0000-000000000000" # String | Form defin
 # Return a form definition.
 
 try {
-    Get-BetaFormDefinitionByKey -BetaFormDefinitionID $FormDefinitionID 
+    Get-BetaFormDefinitionByKey -FormDefinitionID $FormDefinitionID 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaFormDefinitionByKey -BetaFormDefinitionID $FormDefinitionID  
+    # Get-BetaFormDefinitionByKey -FormDefinitionID $FormDefinitionID  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaFormDefinitionByKey"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-form-instance-by-key
 Parameter `{formInstanceID}` should match a form instance ID.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-form-instance-by-key)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -723,18 +753,21 @@ $FormInstanceID = "00000000-0000-0000-0000-000000000000" # String | Form instanc
 # Returns a form instance.
 
 try {
-    Get-BetaFormInstanceByKey -BetaFormInstanceID $FormInstanceID 
+    Get-BetaFormInstanceByKey -FormInstanceID $FormInstanceID 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaFormInstanceByKey -BetaFormInstanceID $FormInstanceID  
+    # Get-BetaFormInstanceByKey -FormInstanceID $FormInstanceID  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaFormInstanceByKey"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-form-instance-file
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-form-instance-file)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -769,18 +802,21 @@ $FileID = "00000031N0J7R2B57M8YG73J7M.png" # String | FileID  String specifying 
 # Download instance file by fileId.
 
 try {
-    Get-BetaFormInstanceFile -BetaFormInstanceID $FormInstanceID  -BetaFileID $FileID 
+    Get-BetaFormInstanceFile -FormInstanceID $FormInstanceID -FileID $FileID 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaFormInstanceFile -BetaFormInstanceID $FormInstanceID -BetaFileID $FileID  
+    # Get-BetaFormInstanceFile -FormInstanceID $FormInstanceID -FileID $FileID  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaFormInstanceFile"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## import-form-definitions
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/import-form-definitions)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -818,18 +854,21 @@ Code | Description  | Data Type
 # Import form definitions from export.
 
 try {
-    Import-BetaFormDefinitions
+    Import-BetaFormDefinitions 
     
     # Below is a request that includes all optional parameters
-    # Import-BetaFormDefinitions -BetaBody $Body  
+    # Import-BetaFormDefinitions -BetaBody $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Import-BetaFormDefinitions"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## patch-form-definition
 Parameter `{formDefinitionID}` should match a form definition ID.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/patch-form-definition)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -865,18 +904,21 @@ $Body = @{ key_example =  } # Map[] | Body is the request payload to patch a for
 # Patch a form definition.
 
 try {
-    Update-BetaFormDefinition -BetaFormDefinitionID $FormDefinitionID 
+    Update-BetaFormDefinition -FormDefinitionID $FormDefinitionID 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaFormDefinition -BetaFormDefinitionID $FormDefinitionID -BetaBody $Body  
+    # Update-BetaFormDefinition -FormDefinitionID $FormDefinitionID -Body $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaFormDefinition"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## patch-form-instance
 Parameter `{formInstanceID}` should match a form instance ID.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/patch-form-instance)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -913,18 +955,21 @@ $Body = @{ key_example =  } # Map[] | Body is the request payload to patch a for
 # Patch a form instance.
 
 try {
-    Update-BetaFormInstance -BetaFormInstanceID $FormInstanceID 
+    Update-BetaFormInstance -FormInstanceID $FormInstanceID 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaFormInstance -BetaFormInstanceID $FormInstanceID -BetaBody $Body  
+    # Update-BetaFormInstance -FormInstanceID $FormInstanceID -Body $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaFormInstance"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## search-form-definitions-by-tenant
 No parameters required.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/search-form-definitions-by-tenant)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -961,19 +1006,22 @@ $Sorters = "name" # String | Sort results using the standard syntax described in
 # Export form definitions by tenant.
 
 try {
-    Search-BetaFormDefinitionsByTenant
+    Search-BetaFormDefinitionsByTenant 
     
     # Below is a request that includes all optional parameters
-    # Search-BetaFormDefinitionsByTenant -BetaOffset $Offset -BetaLimit $Limit -BetaFilters $Filters -BetaSorters $Sorters  
+    # Search-BetaFormDefinitionsByTenant -Offset $Offset -Limit $Limit -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Search-BetaFormDefinitionsByTenant"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## search-form-element-data-by-element-id
 Parameter `{formInstanceID}` should match a form instance ID.
 Parameter `{formElementID}` should match a form element ID at the data source configuration.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/search-form-element-data-by-element-id)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1013,18 +1061,21 @@ $Query = "support" # String | String that is passed to the underlying API to fil
 # Retrieves dynamic data by element.
 
 try {
-    Search-BetaFormElementDataByElementID -BetaFormInstanceID $FormInstanceID  -BetaFormElementID $FormElementID 
+    Search-BetaFormElementDataByElementID -FormInstanceID $FormInstanceID -FormElementID $FormElementID 
     
     # Below is a request that includes all optional parameters
-    # Search-BetaFormElementDataByElementID -BetaFormInstanceID $FormInstanceID -BetaFormElementID $FormElementID -BetaLimit $Limit -BetaFilters $Filters -BetaQuery $Query  
+    # Search-BetaFormElementDataByElementID -FormInstanceID $FormInstanceID -FormElementID $FormElementID -Limit $Limit -Filters $Filters -Query $Query  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Search-BetaFormElementDataByElementID"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## search-form-instances-by-tenant
 No parameters required.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/search-form-instances-by-tenant)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1053,7 +1104,7 @@ Code | Description  | Data Type
 # List form instances by tenant.
 
 try {
-    Search-BetaFormInstancesByTenant
+    Search-BetaFormInstancesByTenant 
     
     # Below is a request that includes all optional parameters
     # Search-BetaFormInstancesByTenant  
@@ -1063,8 +1114,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## search-pre-defined-select-options
 No parameters required.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/search-pre-defined-select-options)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1093,7 +1147,7 @@ Code | Description  | Data Type
 # List predefined select options.
 
 try {
-    Search-BetaPreDefinedSelectOptions
+    Search-BetaPreDefinedSelectOptions 
     
     # Below is a request that includes all optional parameters
     # Search-BetaPreDefinedSelectOptions  
@@ -1103,8 +1157,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## show-preview-data-source
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/show-preview-data-source)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1154,10 +1211,10 @@ $FormElementPreviewRequest = @"{
 # Preview form definition data source.
 
 try {
-    Show-BetaPreviewDataSource -BetaFormDefinitionID $FormDefinitionID 
+    Show-BetaPreviewDataSource -FormDefinitionID $FormDefinitionID 
     
     # Below is a request that includes all optional parameters
-    # Show-BetaPreviewDataSource -BetaFormDefinitionID $FormDefinitionID -BetaLimit $Limit -BetaFilters $Filters -BetaQuery $Query -BetaFormElementPreviewRequest $FormElementPreviewRequest  
+    # Show-BetaPreviewDataSource -FormDefinitionID $FormDefinitionID -Limit $Limit -Filters $Filters -Query $Query -BetaFormElementPreviewRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Show-BetaPreviewDataSource"
     Write-Host $_.ErrorDetails

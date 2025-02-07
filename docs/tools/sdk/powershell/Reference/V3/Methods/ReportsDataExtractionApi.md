@@ -25,8 +25,11 @@ Method | HTTP request | Description
 [**Get-ReportResult**](#get-report-result) | **GET** `/reports/{taskResultId}/result` | Get Report Result
 [**Start-Report**](#start-report) | **POST** `/reports/run` | Run Report
 
+
 ## cancel-report
 Cancels a running report.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/cancel-report)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -67,8 +70,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-report
 Gets a report in file format.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-report)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -106,7 +112,7 @@ $Auditable = $true # Boolean | Enables auditing for current report download. Wil
 # Get Report File
 
 try {
-    Get-Report -TaskResultId $TaskResultId  -FileFormat $FileFormat 
+    Get-Report -TaskResultId $TaskResultId -FileFormat $FileFormat 
     
     # Below is a request that includes all optional parameters
     # Get-Report -TaskResultId $TaskResultId -FileFormat $FileFormat -Name $Name -Auditable $Auditable  
@@ -116,8 +122,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-report-result
 Get the report results for a report that was run or is running. Returns empty report result in case there are no active task definitions with used in payload task definition name.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-report-result)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -160,8 +169,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## start-report
 Use this API to run a report according to report input details. If non-concurrent task is already running then it returns, otherwise new task creates and returns.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/start-report)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -199,10 +211,10 @@ $ReportDetails = @"{
 
 try {
     $Result = ConvertFrom-JsonToReportDetails -Json $ReportDetails
-    Start-Report -ReportDetails $Result
+    Start-Report -ReportDetails $Result 
     
     # Below is a request that includes all optional parameters
-    # Start-Report -ReportDetails $ReportDetails  
+    # Start-Report -ReportDetails $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-Report"
     Write-Host $_.ErrorDetails

@@ -22,8 +22,11 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Get-BetaUsagesByAccountId**](#get-usages-by-account-id) | **GET** `/account-usages/{accountId}/summaries` | Returns account usage insights
 
+
 ## get-usages-by-account-id
 This API returns a summary of account usage insights for past 12 months.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-usages-by-account-id)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -62,10 +65,10 @@ $Sorters = "-date" # String | Sort results using the standard syntax described i
 # Returns account usage insights
 
 try {
-    Get-BetaUsagesByAccountId -BetaAccountId $AccountId 
+    Get-BetaUsagesByAccountId -AccountId $AccountId 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaUsagesByAccountId -BetaAccountId $AccountId -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count -BetaSorters $Sorters  
+    # Get-BetaUsagesByAccountId -AccountId $AccountId -Limit $Limit -Offset $Offset -Count $Count -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaUsagesByAccountId"
     Write-Host $_.ErrorDetails

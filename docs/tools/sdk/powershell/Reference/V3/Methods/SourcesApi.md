@@ -101,10 +101,13 @@ Method | HTTP request | Description
 [**Update-Source**](#update-source) | **PATCH** `/sources/{id}` | Update Source (Partial)
 [**Update-SourceSchema**](#update-source-schema) | **PATCH** `/sources/{sourceId}/schemas/{schemaId}` | Update Source Schema (Partial)
 
+
 ## create-provisioning-policy
 This API generates a create policy/template based on field value transforms. This API is intended for use when setting up JDBC Provisioning type sources, but it will also work on other source types.
 Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning.
 Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/create-provisioning-policy)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -178,18 +181,21 @@ $ProvisioningPolicyDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
-    New-ProvisioningPolicy -SourceId $SourceId  -ProvisioningPolicyDto $Result
+    New-ProvisioningPolicy -SourceId $SourceId -ProvisioningPolicyDto $Result 
     
     # Below is a request that includes all optional parameters
-    # New-ProvisioningPolicy -SourceId $SourceId -ProvisioningPolicyDto $ProvisioningPolicyDto  
+    # New-ProvisioningPolicy -SourceId $SourceId -ProvisioningPolicyDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-ProvisioningPolicy"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## create-source
 This creates a specific source with a full source JSON representation. Any passwords are submitted as plain-text and encrypted upon receipt in IdentityNow.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/create-source)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -305,19 +311,22 @@ $ProvisionAsCsv = $false # Boolean | If this parameter is `true`, it configures 
 
 try {
     $Result = ConvertFrom-JsonToSource -Json $Source
-    New-Source -Source $Result
+    New-Source -Source $Result 
     
     # Below is a request that includes all optional parameters
-    # New-Source -Source $Source -ProvisionAsCsv $ProvisionAsCsv  
+    # New-Source -Source $Result -ProvisionAsCsv $ProvisionAsCsv  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-Source"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## create-source-schema
 Use this API to create a new schema on the specified source in Identity Security Cloud (ISC).
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/create-source-schema)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -384,18 +393,21 @@ $Schema = @"{
 
 try {
     $Result = ConvertFrom-JsonToSchema -Json $Schema
-    New-SourceSchema -SourceId $SourceId  -Schema $Result
+    New-SourceSchema -SourceId $SourceId -Schema $Result 
     
     # Below is a request that includes all optional parameters
-    # New-SourceSchema -SourceId $SourceId -Schema $Schema  
+    # New-SourceSchema -SourceId $SourceId -Schema $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-SourceSchema"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## delete-provisioning-policy
 Deletes the provisioning policy with the specified usage on an application.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/delete-provisioning-policy)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -429,7 +441,7 @@ $UsageType = "CREATE" # UsageType | The type of provisioning policy usage.  In I
 # Delete Provisioning Policy by UsageType
 
 try {
-    Remove-ProvisioningPolicy -SourceId $SourceId  -UsageType $UsageType 
+    Remove-ProvisioningPolicy -SourceId $SourceId -UsageType $UsageType 
     
     # Below is a request that includes all optional parameters
     # Remove-ProvisioningPolicy -SourceId $SourceId -UsageType $UsageType  
@@ -439,9 +451,12 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## delete-source
 Use this API to delete a specific source in Identity Security Cloud (ISC).
 The API removes all the accounts on the source first, and then it deletes the source. You can retrieve the actual task execution status with this method: GET `/task-status/{id}`
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/delete-source)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -483,8 +498,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## delete-source-schema
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/delete-source-schema)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -518,7 +536,7 @@ $SchemaId = "2c9180835d191a86015d28455b4a2329" # String | The Schema id.
 # Delete Source Schema by ID
 
 try {
-    Remove-SourceSchema -SourceId $SourceId  -SchemaId $SchemaId 
+    Remove-SourceSchema -SourceId $SourceId -SchemaId $SchemaId 
     
     # Below is a request that includes all optional parameters
     # Remove-SourceSchema -SourceId $SourceId -SchemaId $SchemaId  
@@ -528,9 +546,12 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-accounts-schema
 This API downloads the CSV schema that defines the account attributes on a source.
 >**NOTE: This API is designated only for Delimited File sources.**
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-accounts-schema)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -572,10 +593,13 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-entitlements-schema
 This API downloads the CSV schema that defines the entitlement attributes on a source.
 
 >**NOTE: This API is designated only for Delimited File sources.**
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-entitlements-schema)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -619,8 +643,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-provisioning-policy
 This end-point retrieves the ProvisioningPolicy with the specified usage on the specified Source in IdentityNow.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-provisioning-policy)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -654,7 +681,7 @@ $UsageType = "CREATE" # UsageType | The type of provisioning policy usage.  In I
 # Get Provisioning Policy by UsageType
 
 try {
-    Get-ProvisioningPolicy -SourceId $SourceId  -UsageType $UsageType 
+    Get-ProvisioningPolicy -SourceId $SourceId -UsageType $UsageType 
     
     # Below is a request that includes all optional parameters
     # Get-ProvisioningPolicy -SourceId $SourceId -UsageType $UsageType  
@@ -664,8 +691,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-source
 Use this API to get a source by a specified ID in Identity Security Cloud (ISC).
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-source)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -707,8 +737,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-source-connections
 Use this API to get all dependent Profiles, Attributes, Applications and Custom Transforms for a source by a specified ID in Identity Security Cloud (ISC).
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-source-connections)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -750,8 +783,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-source-health
 This endpoint fetches source health by source's id
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-source-health)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -793,9 +829,12 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-source-schema
 Get the Source Schema by ID in IdentityNow.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-source-schema)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -829,7 +868,7 @@ $SchemaId = "2c9180835d191a86015d28455b4a2329" # String | The Schema id.
 # Get Source Schema by ID
 
 try {
-    Get-SourceSchema -SourceId $SourceId  -SchemaId $SchemaId 
+    Get-SourceSchema -SourceId $SourceId -SchemaId $SchemaId 
     
     # Below is a request that includes all optional parameters
     # Get-SourceSchema -SourceId $SourceId -SchemaId $SchemaId  
@@ -839,8 +878,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-source-schemas
 Use this API to list the schemas that exist on the specified source in Identity Security Cloud (ISC).
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-source-schemas)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -886,6 +928,7 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## import-accounts-schema
 This API uploads a source schema template file to configure a source's account attributes.
 
@@ -894,6 +937,8 @@ To retrieve the file to modify and upload, log into Identity Now.
 Click **Admin** -> **Connections** -> **Sources** -> **`{SourceName}`** -> **Import Data** -> **Account Schema** -> **Options** -> **Download Schema**
 
 >**NOTE: This API is designated only for Delimited File sources.**
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/import-accounts-schema)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -936,8 +981,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## import-connector-file
 This uploads a supplemental source connector file (like jdbc driver jars) to a source's S3 bucket. This also sends ETS and Audit events.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/import-connector-file)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -980,6 +1028,7 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## import-entitlements-schema
 This API uploads a source schema template file to configure a source's entitlement attributes.
 
@@ -988,6 +1037,8 @@ To retrieve the file to modify and upload, log into Identity Now.
 Click **Admin** -> **Connections** -> **Sources** -> **`{SourceName}`** -> **Import Data** -> **Import Entitlements** -> **Download**
 
 >**NOTE: This API is designated only for Delimited File sources.**
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/import-entitlements-schema)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1032,8 +1083,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-provisioning-policies
 This end-point lists all the ProvisioningPolicies in IdentityNow.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/list-provisioning-policies)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1075,8 +1129,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-sources
 This end-point lists all the sources in IdentityNow.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/list-sources)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1120,7 +1177,7 @@ $IncludeIDNSource = $true # Boolean | Include the IdentityNow source in the resp
 # Lists all sources in IdentityNow.
 
 try {
-    Get-Sources
+    Get-Sources 
     
     # Below is a request that includes all optional parameters
     # Get-Sources -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters -ForSubadmin $ForSubadmin -IncludeIDNSource $IncludeIDNSource  
@@ -1130,10 +1187,13 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## put-provisioning-policy
 This end-point updates the provisioning policy with the specified usage on the specified source in IdentityNow.
 Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning.
 Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/put-provisioning-policy)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1209,16 +1269,17 @@ $ProvisioningPolicyDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
-    Send-ProvisioningPolicy -SourceId $SourceId  -UsageType $UsageType  -ProvisioningPolicyDto $Result
+    Send-ProvisioningPolicy -SourceId $SourceId -UsageType $UsageType -ProvisioningPolicyDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-ProvisioningPolicy -SourceId $SourceId -UsageType $UsageType -ProvisioningPolicyDto $ProvisioningPolicyDto  
+    # Send-ProvisioningPolicy -SourceId $SourceId -UsageType $UsageType -ProvisioningPolicyDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-ProvisioningPolicy"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## put-source
 Use this API to update a source in Identity Security Cloud (ISC), using a full object representation. This means that when you use this API, it completely replaces the existing source configuration.
 
@@ -1233,6 +1294,8 @@ These fields are immutable, so they cannot be changed:
 
 Attempts to modify these fields will result in a 400 error.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/put-source)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1349,16 +1412,17 @@ $Source = @"{
 
 try {
     $Result = ConvertFrom-JsonToSource -Json $Source
-    Send-Source -Id $Id  -Source $Result
+    Send-Source -Id $Id -Source $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-Source -Id $Id -Source $Source  
+    # Send-Source -Id $Id -Source $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-Source"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## put-source-schema
 This API will completely replace an existing Schema with the submitted payload. Some fields of the Schema cannot be updated. These fields are listed below.
 
@@ -1371,6 +1435,8 @@ Any attempt to modify these fields will result in an error response with a statu
 
 > `id` must remain in the request body, but it cannot be changed.  If `id` is omitted from the request body, the result will be a 400 error.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/put-source-schema)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1440,18 +1506,21 @@ $Schema = @"{
 
 try {
     $Result = ConvertFrom-JsonToSchema -Json $Schema
-    Send-SourceSchema -SourceId $SourceId  -SchemaId $SchemaId  -Schema $Result
+    Send-SourceSchema -SourceId $SourceId -SchemaId $SchemaId -Schema $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-SourceSchema -SourceId $SourceId -SchemaId $SchemaId -Schema $Schema  
+    # Send-SourceSchema -SourceId $SourceId -SchemaId $SchemaId -Schema $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-SourceSchema"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## update-provisioning-policies-in-bulk
 This end-point updates a list of provisioning policies on the specified source in IdentityNow.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/update-provisioning-policies-in-bulk)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1526,20 +1595,23 @@ $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
 
 try {
     $Result = ConvertFrom-JsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
-    Update-ProvisioningPoliciesInBulk -SourceId $SourceId  -ProvisioningPolicyDto $Result
+    Update-ProvisioningPoliciesInBulk -SourceId $SourceId -ProvisioningPolicyDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-ProvisioningPoliciesInBulk -SourceId $SourceId -ProvisioningPolicyDto $ProvisioningPolicyDto  
+    # Update-ProvisioningPoliciesInBulk -SourceId $SourceId -ProvisioningPolicyDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-ProvisioningPoliciesInBulk"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## update-provisioning-policy
 This API selectively updates an existing Provisioning Policy using a JSONPatch payload.
 Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning.
 Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/update-provisioning-policy)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1581,16 +1653,17 @@ $UsageType = "CREATE" # UsageType | The type of provisioning policy usage.  In I
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-ProvisioningPolicy -SourceId $SourceId  -UsageType $UsageType  -JsonPatchOperation $Result
+    Update-ProvisioningPolicy -SourceId $SourceId -UsageType $UsageType -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-ProvisioningPolicy -SourceId $SourceId -UsageType $UsageType -JsonPatchOperation $JsonPatchOperation  
+    # Update-ProvisioningPolicy -SourceId $SourceId -UsageType $UsageType -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-ProvisioningPolicy"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## update-source
 Use this API to partially update a source in Identity Security Cloud (ISC), using a list of patch operations according to the
 [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
@@ -1608,6 +1681,8 @@ These fields are immutable, so they cannot be changed:
 
 Attempts to modify these fields will result in a 400 error.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/update-source)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1647,16 +1722,17 @@ $Id = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-Source -Id $Id  -JsonPatchOperation $Result
+    Update-Source -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-Source -Id $Id -JsonPatchOperation $JsonPatchOperation  
+    # Update-Source -Id $Id -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-Source"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## update-source-schema
 Use this API to selectively update an existing Schema using a JSONPatch payload. 
 
@@ -1688,6 +1764,8 @@ To switch an account attribute to a group entitlement, you need to have the foll
 }
 ```
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/update-source-schema)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1729,10 +1807,10 @@ $SchemaId = "2c9180835d191a86015d28455b4a2329" # String | The Schema id.
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-SourceSchema -SourceId $SourceId  -SchemaId $SchemaId  -JsonPatchOperation $Result
+    Update-SourceSchema -SourceId $SourceId -SchemaId $SchemaId -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-SourceSchema -SourceId $SourceId -SchemaId $SchemaId -JsonPatchOperation $JsonPatchOperation  
+    # Update-SourceSchema -SourceId $SourceId -SchemaId $SchemaId -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-SourceSchema"
     Write-Host $_.ErrorDetails

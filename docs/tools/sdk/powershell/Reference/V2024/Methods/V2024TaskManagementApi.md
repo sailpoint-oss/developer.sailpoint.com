@@ -23,8 +23,14 @@ Method | HTTP request | Description
 [**Get-V2024TaskStatusList**](#get-task-status-list) | **GET** `/task-status` | Retrieve Task Status List
 [**Update-V2024TaskStatus**](#update-task-status) | **PATCH** `/task-status/{id}` | Update Task Status by ID
 
+
 ## get-pending-task-headers
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Responds with headers only for list of task statuses for pending tasks.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-pending-task-headers)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -62,18 +68,24 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Retrieve Pending Task List Headers
 
 try {
-    Get-V2024PendingTaskHeaders -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024PendingTaskHeaders -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024PendingTaskHeaders -V2024XSailPointExperimental $XSailPointExperimental -V2024Offset $Offset -V2024Limit $Limit -V2024Count $Count  
+    # Get-V2024PendingTaskHeaders -XSailPointExperimental $XSailPointExperimental -Offset $Offset -Limit $Limit -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024PendingTaskHeaders"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-pending-tasks
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Retrieve a list of statuses for pending tasks. Types of tasks include account and entitlement aggregation and other general background processing tasks.  Data for tasks older than 90 days will not be returned.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-pending-tasks)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -111,18 +123,24 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Retrieve Pending Task Status List
 
 try {
-    Get-V2024PendingTasks -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024PendingTasks -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024PendingTasks -V2024XSailPointExperimental $XSailPointExperimental -V2024Offset $Offset -V2024Limit $Limit -V2024Count $Count  
+    # Get-V2024PendingTasks -XSailPointExperimental $XSailPointExperimental -Offset $Offset -Limit $Limit -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024PendingTasks"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-task-status
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Get task status by task ID. Types of tasks include account and entitlement aggregation and other general background processing tasks.  Data for tasks older than 90 days will not be returned.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-task-status)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -156,19 +174,25 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Get Task Status by ID
 
 try {
-    Get-V2024TaskStatus -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024TaskStatus -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024TaskStatus -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
+    # Get-V2024TaskStatus -Id $Id -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024TaskStatus"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-task-status-list
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Use this endpoint to get a list of statuses for **completed** tasks. Types of tasks include account and entitlement aggregation and other general background processing tasks.  Data for tasks older than 90 days will not be returned. To get a list of statuses for **in-progress** tasks, please use the [retrieve pending task status list](https://developer.sailpoint.com/docs/api/v2024/get-pending-tasks) endpoint.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-task-status-list)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -210,18 +234,24 @@ $Sorters = "-created" # String | Sort results using the standard syntax describe
 # Retrieve Task Status List
 
 try {
-    Get-V2024TaskStatusList -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024TaskStatusList -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024TaskStatusList -V2024XSailPointExperimental $XSailPointExperimental -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Filters $Filters -V2024Sorters $Sorters  
+    # Get-V2024TaskStatusList -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024TaskStatusList"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## update-task-status
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Update a current task status by task ID. Use this API to clear a pending task by updating the completionStatus and completed attributes.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/update-task-status)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -263,10 +293,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024TaskStatus -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental  -V2024JsonPatchOperation $Result
+    Update-V2024TaskStatus -Id $Id -XSailPointExperimental $XSailPointExperimental -V2024JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024TaskStatus -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024JsonPatchOperation $JsonPatchOperation  
+    # Update-V2024TaskStatus -Id $Id -XSailPointExperimental $XSailPointExperimental -V2024JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024TaskStatus"
     Write-Host $_.ErrorDetails

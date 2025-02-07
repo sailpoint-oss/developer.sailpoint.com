@@ -79,8 +79,11 @@ Method | HTTP request | Description
 [**Reset-BetaSourceEntitlements**](#reset-source-entitlements) | **POST** `/entitlements/reset/sources/{sourceId}` | Reset Source Entitlements
 [**Update-BetaEntitlementsInBulk**](#update-entitlements-in-bulk) | **POST** `/entitlements/bulk-update` | Bulk update an entitlement list
 
+
 ## create-access-model-metadata-for-entitlement
 Add single Access Model Metadata to an entitlement.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/create-access-model-metadata-for-entitlement)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -115,18 +118,21 @@ $AttributeValue = "public" # String | Technical name of the Attribute Value.
 # Add metadata to an entitlement.
 
 try {
-    New-BetaAccessModelMetadataForEntitlement -BetaId $Id  -BetaAttributeKey $AttributeKey  -BetaAttributeValue $AttributeValue 
+    New-BetaAccessModelMetadataForEntitlement -Id $Id -AttributeKey $AttributeKey -AttributeValue $AttributeValue 
     
     # Below is a request that includes all optional parameters
-    # New-BetaAccessModelMetadataForEntitlement -BetaId $Id -BetaAttributeKey $AttributeKey -BetaAttributeValue $AttributeValue  
+    # New-BetaAccessModelMetadataForEntitlement -Id $Id -AttributeKey $AttributeKey -AttributeValue $AttributeValue  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaAccessModelMetadataForEntitlement"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## delete-access-model-metadata-from-entitlement
 Remove single Access Model Metadata from an entitlement.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-access-model-metadata-from-entitlement)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -161,18 +167,21 @@ $AttributeValue = "public" # String | Technical name of the Attribute Value.
 # Remove metadata from an entitlement.
 
 try {
-    Remove-BetaAccessModelMetadataFromEntitlement -BetaId $Id  -BetaAttributeKey $AttributeKey  -BetaAttributeValue $AttributeValue 
+    Remove-BetaAccessModelMetadataFromEntitlement -Id $Id -AttributeKey $AttributeKey -AttributeValue $AttributeValue 
     
     # Below is a request that includes all optional parameters
-    # Remove-BetaAccessModelMetadataFromEntitlement -BetaId $Id -BetaAttributeKey $AttributeKey -BetaAttributeValue $AttributeValue  
+    # Remove-BetaAccessModelMetadataFromEntitlement -Id $Id -AttributeKey $AttributeKey -AttributeValue $AttributeValue  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaAccessModelMetadataFromEntitlement"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-entitlement
 This API returns an entitlement by its ID.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-entitlement)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -204,18 +213,21 @@ $Id = "2c91808874ff91550175097daaec161c" # String | The entitlement ID
 # Get an entitlement
 
 try {
-    Get-BetaEntitlement -BetaId $Id 
+    Get-BetaEntitlement -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaEntitlement -BetaId $Id  
+    # Get-BetaEntitlement -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaEntitlement"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-entitlement-request-config
 This API returns the entitlement request config for a specified entitlement.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-entitlement-request-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -247,22 +259,28 @@ $Id = "2c91808874ff91550175097daaec161c" # String | Entitlement Id
 # Get Entitlement Request Config
 
 try {
-    Get-BetaEntitlementRequestConfig -BetaId $Id 
+    Get-BetaEntitlementRequestConfig -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaEntitlementRequestConfig -BetaId $Id  
+    # Get-BetaEntitlementRequestConfig -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaEntitlementRequestConfig"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## import-entitlements-by-source
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Starts an entitlement aggregation on the specified source. Though this endpoint has been deprecated, you can find its Beta equivalent [here](https://developer.sailpoint.com/docs/api/beta/import-entitlements).
 
 If the target source is a direct connection, then the request body must be empty. You will also need to make sure the Content-Type header is not set. If you set the Content-Type header without specifying a body, then you will receive a 500 error.
 
 If the target source is a delimited file source, then the CSV file needs to be included in the request body. You will also need to set the Content-Type header to `multipart/form-data`.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/import-entitlements-by-source)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -295,18 +313,21 @@ $CsvFile =  # System.IO.FileInfo | The CSV file containing the source entitlemen
 # Aggregate Entitlements
 
 try {
-    Import-BetaEntitlementsBySource -BetaId $Id 
+    Import-BetaEntitlementsBySource -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Import-BetaEntitlementsBySource -BetaId $Id -BetaCsvFile $CsvFile  
+    # Import-BetaEntitlementsBySource -Id $Id -CsvFile $CsvFile  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Import-BetaEntitlementsBySource"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-entitlement-children
 This API returns a list of all child entitlements of a given entitlement.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/list-entitlement-children)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -348,18 +369,21 @@ $Filters = 'attribute eq "memberOf"' # String | Filter results using the standar
 # List of entitlements children
 
 try {
-    Get-BetaEntitlementChildren -BetaId $Id 
+    Get-BetaEntitlementChildren -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaEntitlementChildren -BetaId $Id -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count -BetaSorters $Sorters -BetaFilters $Filters  
+    # Get-BetaEntitlementChildren -Id $Id -Limit $Limit -Offset $Offset -Count $Count -Sorters $Sorters -Filters $Filters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaEntitlementChildren"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-entitlement-parents
 This API returns a list of all parent entitlements of a given entitlement.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/list-entitlement-parents)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -401,22 +425,25 @@ $Filters = 'attribute eq "memberOf"' # String | Filter results using the standar
 # List of entitlements parents
 
 try {
-    Get-BetaEntitlementParents -BetaId $Id 
+    Get-BetaEntitlementParents -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaEntitlementParents -BetaId $Id -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count -BetaSorters $Sorters -BetaFilters $Filters  
+    # Get-BetaEntitlementParents -Id $Id -Limit $Limit -Offset $Offset -Count $Count -Sorters $Sorters -Filters $Filters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaEntitlementParents"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-entitlements
 This API returns a list of entitlements.
 
 This API can be used in one of the two following ways: either getting entitlements for a specific **account-id**, or getting via use of **filters** (those two options are exclusive).
 
 Any authenticated token can call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/list-entitlements)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -463,16 +490,17 @@ $Filters = 'attribute eq "memberOf"' # String | Filter results using the standar
 # Gets a list of entitlements.
 
 try {
-    Get-BetaEntitlements
+    Get-BetaEntitlements 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaEntitlements -BetaAccountId $AccountId -BetaSegmentedForIdentity $SegmentedForIdentity -BetaForSegmentIds $ForSegmentIds -BetaIncludeUnsegmented $IncludeUnsegmented -BetaOffset $Offset -BetaLimit $Limit -BetaCount $Count -BetaSorters $Sorters -BetaFilters $Filters  
+    # Get-BetaEntitlements -AccountId $AccountId -SegmentedForIdentity $SegmentedForIdentity -ForSegmentIds $ForSegmentIds -IncludeUnsegmented $IncludeUnsegmented -Offset $Offset -Limit $Limit -Count $Count -Sorters $Sorters -Filters $Filters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaEntitlements"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## patch-entitlement
 This API updates an existing entitlement using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
 
@@ -481,6 +509,8 @@ The following fields are patchable: **requestable**, **privileged**, **segments*
 When you're patching owner, only owner type and owner id must be provided. Owner name is optional, and it won't be modified. If the owner name is provided, it should correspond to the real name. The only owner type currently supported is IDENTITY.
 
 A token with ORG_ADMIN or SOURCE_ADMIN authority is required to call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/patch-entitlement)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -519,18 +549,21 @@ $Id = "2c91808a7813090a017814121e121518" # String | ID of the entitlement to pat
 # Patch an entitlement
 
 try {
-    Update-BetaEntitlement -BetaId $Id 
+    Update-BetaEntitlement -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaEntitlement -BetaId $Id -BetaJsonPatchOperation $JsonPatchOperation  
+    # Update-BetaEntitlement -Id $Id -BetaJsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaEntitlement"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## put-entitlement-request-config
 This API replaces the entitlement request config for a specified entitlement.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/put-entitlement-request-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -577,19 +610,22 @@ $EntitlementRequestConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToEntitlementRequestConfig -Json $EntitlementRequestConfig
-    Send-BetaEntitlementRequestConfig -BetaId $Id  -BetaEntitlementRequestConfig $Result
+    Send-BetaEntitlementRequestConfig -Id $Id -BetaEntitlementRequestConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-BetaEntitlementRequestConfig -BetaId $Id -BetaEntitlementRequestConfig $EntitlementRequestConfig  
+    # Send-BetaEntitlementRequestConfig -Id $Id -BetaEntitlementRequestConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaEntitlementRequestConfig"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## reset-source-entitlements
 Remove all entitlements from a specific source.
 To reload the accounts along with the entitlements you removed, you must run an unoptimized aggregation.  To do so, use [Import Accounts](https://developer.sailpoint.com/docs/api/beta/import-accounts/) with `disableOptimization` = `true`. 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/reset-source-entitlements)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -620,16 +656,17 @@ $SourceId = "2c91808a7813090a017814121919ecca" # String | ID of source for the e
 # Reset Source Entitlements
 
 try {
-    Reset-BetaSourceEntitlements -BetaSourceId $SourceId 
+    Reset-BetaSourceEntitlements -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
-    # Reset-BetaSourceEntitlements -BetaSourceId $SourceId  
+    # Reset-BetaSourceEntitlements -SourceId $SourceId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Reset-BetaSourceEntitlements"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## update-entitlements-in-bulk
 This API applies an update to every entitlement of the list.
 
@@ -645,6 +682,8 @@ Patch](https://tools.ietf.org/html/rfc6902) standard. allowed operations :
 
 A token with ORG_ADMIN or API authority is required to call this API.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/update-entitlements-in-bulk)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -687,10 +726,10 @@ $EntitlementBulkUpdateRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToEntitlementBulkUpdateRequest -Json $EntitlementBulkUpdateRequest
-    Update-BetaEntitlementsInBulk -BetaEntitlementBulkUpdateRequest $Result
+    Update-BetaEntitlementsInBulk -BetaEntitlementBulkUpdateRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaEntitlementsInBulk -BetaEntitlementBulkUpdateRequest $EntitlementBulkUpdateRequest  
+    # Update-BetaEntitlementsInBulk -BetaEntitlementBulkUpdateRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaEntitlementsInBulk"
     Write-Host $_.ErrorDetails

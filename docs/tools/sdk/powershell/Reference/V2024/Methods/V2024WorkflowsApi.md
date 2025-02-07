@@ -37,8 +37,11 @@ Method | HTTP request | Description
 [**Test-V2024ExternalExecuteWorkflow**](#test-external-execute-workflow) | **POST** `/workflows/execute/external/{id}/test` | Test Workflow via External Trigger
 [**Test-V2024Workflow**](#test-workflow) | **POST** `/workflows/{id}/test` | Test Workflow By Id
 
+
 ## cancel-workflow-execution
 Use this API to cancel a running workflow execution.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/cancel-workflow-execution)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -70,18 +73,21 @@ $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | The workflow execution I
 # Cancel Workflow Execution by ID
 
 try {
-    Suspend-V2024WorkflowExecution -V2024Id $Id 
+    Suspend-V2024WorkflowExecution -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Suspend-V2024WorkflowExecution -V2024Id $Id  
+    # Suspend-V2024WorkflowExecution -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Suspend-V2024WorkflowExecution"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## create-external-execute-workflow
 This endpoint allows a service outside of IdentityNow to initiate a workflow that uses the "External Trigger" step.  The external service will invoke this endpoint with the input data it wants to send to the workflow in the body.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-external-execute-workflow)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -114,18 +120,21 @@ $CreateExternalExecuteWorkflowRequest = @""@
 # Execute Workflow via External Trigger
 
 try {
-    New-V2024ExternalExecuteWorkflow -V2024Id $Id 
+    New-V2024ExternalExecuteWorkflow -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # New-V2024ExternalExecuteWorkflow -V2024Id $Id -V2024CreateExternalExecuteWorkflowRequest $CreateExternalExecuteWorkflowRequest  
+    # New-V2024ExternalExecuteWorkflow -Id $Id -V2024CreateExternalExecuteWorkflowRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024ExternalExecuteWorkflow"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## create-workflow
 Create a new workflow with the desired trigger and steps specified in the request body.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-workflow)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -157,18 +166,21 @@ $CreateWorkflowRequest = @"{name=Send Email, owner={type=IDENTITY, id=2c91808568
 
 try {
     $Result = ConvertFrom-JsonToCreateWorkflowRequest -Json $CreateWorkflowRequest
-    New-V2024Workflow -V2024CreateWorkflowRequest $Result
+    New-V2024Workflow -V2024CreateWorkflowRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024Workflow -V2024CreateWorkflowRequest $CreateWorkflowRequest  
+    # New-V2024Workflow -V2024CreateWorkflowRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024Workflow"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## create-workflow-external-trigger
 Create OAuth client ID, client secret, and callback URL for use in an external trigger.  External triggers will need this information to generate an access token to authenticate to the callback URL and submit a trigger payload that will initiate the workflow.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-workflow-external-trigger)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -199,18 +211,21 @@ $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow
 # Generate External Trigger OAuth Client
 
 try {
-    New-V2024WorkflowExternalTrigger -V2024Id $Id 
+    New-V2024WorkflowExternalTrigger -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # New-V2024WorkflowExternalTrigger -V2024Id $Id  
+    # New-V2024WorkflowExternalTrigger -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024WorkflowExternalTrigger"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## delete-workflow
 Delete a workflow.  **Enabled workflows cannot be deleted**.  They must first be disabled.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-workflow)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -241,18 +256,21 @@ $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the Workflow
 # Delete Workflow By Id
 
 try {
-    Remove-V2024Workflow -V2024Id $Id 
+    Remove-V2024Workflow -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024Workflow -V2024Id $Id  
+    # Remove-V2024Workflow -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024Workflow"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-workflow
 Get a single workflow by id.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-workflow)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -283,18 +301,21 @@ $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow
 # Get Workflow By Id
 
 try {
-    Get-V2024Workflow -V2024Id $Id 
+    Get-V2024Workflow -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024Workflow -V2024Id $Id  
+    # Get-V2024Workflow -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024Workflow"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-workflow-execution
 Use this API to get a single workflow execution. Workflow executions are available for up to 90 days before being archived. If you attempt to access a workflow execution that has been archived, you will receive a "404 Not Found" response.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-workflow-execution)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -326,18 +347,21 @@ $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Workflow execution ID.
 # Get Workflow Execution
 
 try {
-    Get-V2024WorkflowExecution -V2024Id $Id 
+    Get-V2024WorkflowExecution -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024WorkflowExecution -V2024Id $Id  
+    # Get-V2024WorkflowExecution -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024WorkflowExecution"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-workflow-execution-history
 Get a detailed history of a single workflow execution.  Workflow executions are available for up to 90 days before being archived.  If you attempt to access a workflow execution that has been archived, you will receive a 404 Not Found.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-workflow-execution-history)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -369,16 +393,17 @@ $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow execu
 # Get Workflow Execution History
 
 try {
-    Get-V2024WorkflowExecutionHistory -V2024Id $Id 
+    Get-V2024WorkflowExecutionHistory -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024WorkflowExecutionHistory -V2024Id $Id  
+    # Get-V2024WorkflowExecutionHistory -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024WorkflowExecutionHistory"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-workflow-executions
 Use this API to list a specified workflow's executions. Workflow executions are available for up to 90 days before being archived. By default, you can get a maximum of 250 executions. To get executions past the first 250 records, you can do the following:
 1. Use the [Get Workflows](https://developer.sailpoint.com/idn/api/beta/list-workflows) endpoint to get your workflows.
@@ -391,6 +416,8 @@ Use this API to list a specified workflow's executions. Workflow executions are 
   - Paginate through results with the `offset` parameter.
   For example, you can page through 50 executions per page and use that as a way to get to the records past the first 250.
   Refer to [Paginating Results](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results) for more information about the query parameters you can use to achieve pagination.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-workflow-executions)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -430,18 +457,21 @@ $Filters = 'status eq "Failed"' # String | Filter results using the standard syn
 # List Workflow Executions
 
 try {
-    Get-V2024WorkflowExecutions -V2024Id $Id 
+    Get-V2024WorkflowExecutions -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024WorkflowExecutions -V2024Id $Id -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Filters $Filters  
+    # Get-V2024WorkflowExecutions -Id $Id -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024WorkflowExecutions"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-complete-workflow-library
 This lists all triggers, actions, and operators in the library
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-complete-workflow-library)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -474,18 +504,21 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 # List Complete Workflow Library
 
 try {
-    Get-V2024CompleteWorkflowLibrary
+    Get-V2024CompleteWorkflowLibrary 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024CompleteWorkflowLibrary -V2024Limit $Limit -V2024Offset $Offset  
+    # Get-V2024CompleteWorkflowLibrary -Limit $Limit -Offset $Offset  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024CompleteWorkflowLibrary"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-workflow-library-actions
 This lists the workflow actions available to you.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-workflow-library-actions)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -520,18 +553,21 @@ $Filters = 'id eq "sp:create-campaign"' # String | Filter results using the stan
 # List Workflow Library Actions
 
 try {
-    Get-V2024WorkflowLibraryActions
+    Get-V2024WorkflowLibraryActions 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024WorkflowLibraryActions -V2024Limit $Limit -V2024Offset $Offset -V2024Filters $Filters  
+    # Get-V2024WorkflowLibraryActions -Limit $Limit -Offset $Offset -Filters $Filters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024WorkflowLibraryActions"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-workflow-library-operators
 This lists the workflow operators available to you
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-workflow-library-operators)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -560,7 +596,7 @@ Code | Description  | Data Type
 # List Workflow Library Operators
 
 try {
-    Get-V2024WorkflowLibraryOperators
+    Get-V2024WorkflowLibraryOperators 
     
     # Below is a request that includes all optional parameters
     # Get-V2024WorkflowLibraryOperators  
@@ -570,8 +606,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-workflow-library-triggers
 This lists the workflow triggers available to you
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-workflow-library-triggers)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -606,18 +645,21 @@ $Filters = 'id eq "idn:identity-attributes-changed"' # String | Filter results u
 # List Workflow Library Triggers
 
 try {
-    Get-V2024WorkflowLibraryTriggers
+    Get-V2024WorkflowLibraryTriggers 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024WorkflowLibraryTriggers -V2024Limit $Limit -V2024Offset $Offset -V2024Filters $Filters  
+    # Get-V2024WorkflowLibraryTriggers -Limit $Limit -Offset $Offset -Filters $Filters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024WorkflowLibraryTriggers"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-workflows
 List all workflows in the tenant.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-workflows)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -646,7 +688,7 @@ Code | Description  | Data Type
 # List Workflows
 
 try {
-    Get-V2024Workflows
+    Get-V2024Workflows 
     
     # Below is a request that includes all optional parameters
     # Get-V2024Workflows  
@@ -656,8 +698,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## patch-workflow
 Partially update an existing Workflow using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/patch-workflow)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -696,18 +741,21 @@ $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the Workflow
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024Workflow -V2024Id $Id  -V2024JsonPatchOperation $Result
+    Update-V2024Workflow -Id $Id -V2024JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024Workflow -V2024Id $Id -V2024JsonPatchOperation $JsonPatchOperation  
+    # Update-V2024Workflow -Id $Id -V2024JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024Workflow"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## put-workflow
 Perform a full update of a workflow.  The updated workflow object is returned in the response.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/put-workflow)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -779,18 +827,21 @@ $WorkflowBody = @"{
 
 try {
     $Result = ConvertFrom-JsonToWorkflowBody -Json $WorkflowBody
-    Send-V2024Workflow -V2024Id $Id  -V2024WorkflowBody $Result
+    Send-V2024Workflow -Id $Id -V2024WorkflowBody $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-V2024Workflow -V2024Id $Id -V2024WorkflowBody $WorkflowBody  
+    # Send-V2024Workflow -Id $Id -V2024WorkflowBody $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024Workflow"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## test-external-execute-workflow
 Validate a workflow with an "External Trigger" can receive input.  The response includes the input that the workflow received, which can be used to validate that the input is intact when it reaches the workflow.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/test-external-execute-workflow)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -823,20 +874,23 @@ $TestExternalExecuteWorkflowRequest = @""@
 # Test Workflow via External Trigger
 
 try {
-    Test-V2024ExternalExecuteWorkflow -V2024Id $Id 
+    Test-V2024ExternalExecuteWorkflow -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Test-V2024ExternalExecuteWorkflow -V2024Id $Id -V2024TestExternalExecuteWorkflowRequest $TestExternalExecuteWorkflowRequest  
+    # Test-V2024ExternalExecuteWorkflow -Id $Id -V2024TestExternalExecuteWorkflowRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Test-V2024ExternalExecuteWorkflow"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## test-workflow
 Test a workflow with the provided input data.  The input data should resemble the input that the trigger will send the workflow.  See the [event trigger documentation](https://developer.sailpoint.com/idn/docs/event-triggers/available) for an example input for the trigger that initiates this workflow.
 This endpoint will return an execution ID, which can be used to lookup more information about the execution using the `Get a Workflow Execution` endpoint.
 **This will cause a live run of the workflow, which could result in unintended modifications to your IDN tenant.**
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/test-workflow)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -870,10 +924,10 @@ $TestWorkflowRequest = @"{input={identity={id=ee769173319b41d19ccec6cea52f237b, 
 
 try {
     $Result = ConvertFrom-JsonToTestWorkflowRequest -Json $TestWorkflowRequest
-    Test-V2024Workflow -V2024Id $Id  -V2024TestWorkflowRequest $Result
+    Test-V2024Workflow -Id $Id -V2024TestWorkflowRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Test-V2024Workflow -V2024Id $Id -V2024TestWorkflowRequest $TestWorkflowRequest  
+    # Test-V2024Workflow -Id $Id -V2024TestWorkflowRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Test-V2024Workflow"
     Write-Host $_.ErrorDetails

@@ -27,11 +27,14 @@ Method | HTTP request | Description
 [**Get-V2024Dimensions**](#list-dimensions) | **GET** `/roles/{roleId}/dimensions` | List Dimensions
 [**Update-V2024Dimension**](#patch-dimension) | **PATCH** `/roles/{roleId}/dimensions/{dimensionId}` | Patch a specified Dimension
 
+
 ## create-dimension
 This API creates a dimension.
 You must have a token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority to call this API. 
 Additionally, a ROLE_SUBADMIN cannot create a dimension that includes an access profile or entitlement if that access profile or entitlement is linked to a source that the ROLE_SUBADMIN is not associated with. 
 The maximum supported length for the description field is 2000 characters.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-dimension)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -151,21 +154,24 @@ $Dimension = @"{
 
 try {
     $Result = ConvertFrom-JsonToDimension -Json $Dimension
-    New-V2024Dimension -V2024RoleId $RoleId  -V2024Dimension $Result
+    New-V2024Dimension -RoleId $RoleId -V2024Dimension $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024Dimension -V2024RoleId $RoleId -V2024Dimension $Dimension  
+    # New-V2024Dimension -RoleId $RoleId -V2024Dimension $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024Dimension"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## delete-bulk-dimensions
 This endpoint initiates a bulk deletion of one or more dimensions.
 When the request is successful, the endpoint returns the bulk delete's task result ID.  To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/beta/get-task-status), which will return the task result's status and information. 
 This endpoint can only bulk delete up to a limit of 50 roles per request. 
 A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this endpoint. In addition, a token with ROLE_SUBADMIN authority can only call this endpoint if all dimensions included in the request are associated with sources with management workgroups the ROLE_SUBADMIN is a member of.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-bulk-dimensions)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -201,19 +207,22 @@ $DimensionBulkDeleteRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToDimensionBulkDeleteRequest -Json $DimensionBulkDeleteRequest
-    Remove-V2024BulkDimensions -V2024RoleId $RoleId  -V2024DimensionBulkDeleteRequest $Result
+    Remove-V2024BulkDimensions -RoleId $RoleId -V2024DimensionBulkDeleteRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024BulkDimensions -V2024RoleId $RoleId -V2024DimensionBulkDeleteRequest $DimensionBulkDeleteRequest  
+    # Remove-V2024BulkDimensions -RoleId $RoleId -V2024DimensionBulkDeleteRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024BulkDimensions"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## delete-dimension
 This API deletes a Dimension by its ID.
 A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles/Entitlements included in the Dimension are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-dimension)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -246,20 +255,23 @@ $DimensionId = "2c9180835d191a86015d28455b4a2329" # String | Id of the Dimension
 # Delete a Dimension
 
 try {
-    Remove-V2024Dimension -V2024RoleId $RoleId  -V2024DimensionId $DimensionId 
+    Remove-V2024Dimension -RoleId $RoleId -DimensionId $DimensionId 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024Dimension -V2024RoleId $RoleId -V2024DimensionId $DimensionId  
+    # Remove-V2024Dimension -RoleId $RoleId -DimensionId $DimensionId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024Dimension"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-dimension
 This API returns a Dimension by its ID.
 
 A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles or Entitlements included in the Dimension or Parent Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-dimension)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -292,20 +304,23 @@ $DimensionId = "2c9180835d191a86015d28455b4a2329" # String | Id of the Dimension
 # Get a Dimension under Role.
 
 try {
-    Get-V2024Dimension -V2024RoleId $RoleId  -V2024DimensionId $DimensionId 
+    Get-V2024Dimension -RoleId $RoleId -DimensionId $DimensionId 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024Dimension -V2024RoleId $RoleId -V2024DimensionId $DimensionId  
+    # Get-V2024Dimension -RoleId $RoleId -DimensionId $DimensionId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024Dimension"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-dimension-entitlements
 This API lists the Entitlements associated with a given dimension.
 
 A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-dimension-entitlements)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -348,20 +363,23 @@ $Sorters = "name,-modified" # String | Sort results using the standard syntax de
 # List Dimension's Entitlements
 
 try {
-    Get-V2024DimensionEntitlements -V2024RoleId $RoleId  -V2024DimensionId $DimensionId 
+    Get-V2024DimensionEntitlements -RoleId $RoleId -DimensionId $DimensionId 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024DimensionEntitlements -V2024RoleId $RoleId -V2024DimensionId $DimensionId -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Filters $Filters -V2024Sorters $Sorters  
+    # Get-V2024DimensionEntitlements -RoleId $RoleId -DimensionId $DimensionId -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024DimensionEntitlements"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-dimension-access-profiles
 This API lists the Access Profiles associated with a given Dimension
 
 A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-dimension-access-profiles)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -405,20 +423,23 @@ $Sorters = "name,-modified" # String | Sort results using the standard syntax de
 # List Dimension's Access Profiles
 
 try {
-    Get-V2024DimensionAccessProfiles -V2024RoleId $RoleId  -V2024DimensionId $DimensionId 
+    Get-V2024DimensionAccessProfiles -RoleId $RoleId -DimensionId $DimensionId 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024DimensionAccessProfiles -V2024RoleId $RoleId -V2024DimensionId $DimensionId -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Filters $Filters -V2024Sorters $Sorters  
+    # Get-V2024DimensionAccessProfiles -RoleId $RoleId -DimensionId $DimensionId -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024DimensionAccessProfiles"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-dimensions
 This API returns a list of dimensions under a specified role.
 
 A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-dimensions)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -461,22 +482,25 @@ $Sorters = "name,-modified" # String | Sort results using the standard syntax de
 # List Dimensions
 
 try {
-    Get-V2024Dimensions -V2024RoleId $RoleId 
+    Get-V2024Dimensions -RoleId $RoleId 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024Dimensions -V2024RoleId $RoleId -V2024ForSubadmin $ForSubadmin -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Filters $Filters -V2024Sorters $Sorters  
+    # Get-V2024Dimensions -RoleId $RoleId -ForSubadmin $ForSubadmin -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024Dimensions"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## patch-dimension
 This API updates an existing dimension using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
 The following fields are patchable: **name** **description** **owner** **accessProfiles** **entitlements** **membership**
 A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all access profiles/entitlements included in the dimension are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
 The maximum supported length for the description field is 2000 characters.
 When you use this API to modify a dimension's membership identities, you can only modify up to a limit of 500 membership identities at a time.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/patch-dimension)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -517,10 +541,10 @@ $DimensionId = "2c9180835d191a86015d28455b4a2329" # String | Id of the Dimension
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024Dimension -V2024RoleId $RoleId  -V2024DimensionId $DimensionId  -V2024JsonPatchOperation $Result
+    Update-V2024Dimension -RoleId $RoleId -DimensionId $DimensionId -V2024JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024Dimension -V2024RoleId $RoleId -V2024DimensionId $DimensionId -V2024JsonPatchOperation $JsonPatchOperation  
+    # Update-V2024Dimension -RoleId $RoleId -DimensionId $DimensionId -V2024JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024Dimension"
     Write-Host $_.ErrorDetails

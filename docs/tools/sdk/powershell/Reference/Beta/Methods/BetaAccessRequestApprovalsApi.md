@@ -41,8 +41,11 @@ Method | HTTP request | Description
 [**Get-BetaPendingApprovals**](#list-pending-approvals) | **GET** `/access-request-approvals/pending` | Pending Access Request Approvals List
 [**Deny-BetaAccessRequest**](#reject-access-request) | **POST** `/access-request-approvals/{approvalId}/reject` | Reject Access Request Approval
 
+
 ## approve-access-request
 Use this endpoint to approve an access request approval. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/approve-access-request)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -85,18 +88,21 @@ $CommentDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToCommentDto -Json $CommentDto
-    Approve-BetaAccessRequest -BetaApprovalId $ApprovalId  -BetaCommentDto $Result
+    Approve-BetaAccessRequest -ApprovalId $ApprovalId -BetaCommentDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Approve-BetaAccessRequest -BetaApprovalId $ApprovalId -BetaCommentDto $CommentDto  
+    # Approve-BetaAccessRequest -ApprovalId $ApprovalId -BetaCommentDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Approve-BetaAccessRequest"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## forward-access-request
 Use this API to forward an access request approval to a new owner. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/forward-access-request)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -134,18 +140,21 @@ $ForwardApprovalDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToForwardApprovalDto -Json $ForwardApprovalDto
-    Invoke-BetaForwardAccessRequest -BetaApprovalId $ApprovalId  -BetaForwardApprovalDto $Result
+    Invoke-BetaForwardAccessRequest -ApprovalId $ApprovalId -BetaForwardApprovalDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Invoke-BetaForwardAccessRequest -BetaApprovalId $ApprovalId -BetaForwardApprovalDto $ForwardApprovalDto  
+    # Invoke-BetaForwardAccessRequest -ApprovalId $ApprovalId -BetaForwardApprovalDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-BetaForwardAccessRequest"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-access-request-approval-summary
 Use this API to return the number of pending, approved and rejected access requests approvals. See the "owner-id" query parameter for authorization information.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-access-request-approval-summary)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -178,18 +187,21 @@ $FromDate = "from-date=2020-03-19T19:59:11Z" # String | This is the date and tim
 # Get Access Requests Approvals Number
 
 try {
-    Get-BetaAccessRequestApprovalSummary
+    Get-BetaAccessRequestApprovalSummary 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaAccessRequestApprovalSummary -BetaOwnerId $OwnerId -BetaFromDate $FromDate  
+    # Get-BetaAccessRequestApprovalSummary -OwnerId $OwnerId -FromDate $FromDate  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaAccessRequestApprovalSummary"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-completed-approvals
 This endpoint returns list of completed approvals. See *owner-id* query parameter below for authorization info.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/list-completed-approvals)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -229,18 +241,21 @@ $Sorters = "MySorters" # String | Sort results using the standard syntax describ
 # Completed Access Request Approvals List
 
 try {
-    Get-BetaCompletedApprovals
+    Get-BetaCompletedApprovals 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaCompletedApprovals -BetaOwnerId $OwnerId -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count -BetaFilters $Filters -BetaSorters $Sorters  
+    # Get-BetaCompletedApprovals -OwnerId $OwnerId -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaCompletedApprovals"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-pending-approvals
 This endpoint returns a list of pending approvals. See "owner-id" query parameter below for authorization info.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/list-pending-approvals)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -280,18 +295,21 @@ $Sorters = "MySorters" # String | Sort results using the standard syntax describ
 # Pending Access Request Approvals List
 
 try {
-    Get-BetaPendingApprovals
+    Get-BetaPendingApprovals 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaPendingApprovals -BetaOwnerId $OwnerId -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count -BetaFilters $Filters -BetaSorters $Sorters  
+    # Get-BetaPendingApprovals -OwnerId $OwnerId -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaPendingApprovals"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## reject-access-request
 Use this API to reject an access request approval. Only the owner of the approval and admin users are allowed to perform this action.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/reject-access-request)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -334,10 +352,10 @@ $CommentDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToCommentDto -Json $CommentDto
-    Deny-BetaAccessRequest -BetaApprovalId $ApprovalId  -BetaCommentDto $Result
+    Deny-BetaAccessRequest -ApprovalId $ApprovalId -BetaCommentDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Deny-BetaAccessRequest -BetaApprovalId $ApprovalId -BetaCommentDto $CommentDto  
+    # Deny-BetaAccessRequest -ApprovalId $ApprovalId -BetaCommentDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Deny-BetaAccessRequest"
     Write-Host $_.ErrorDetails

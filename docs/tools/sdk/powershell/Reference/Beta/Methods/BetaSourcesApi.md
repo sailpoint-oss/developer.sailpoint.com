@@ -118,10 +118,13 @@ Method | HTTP request | Description
 [**Update-BetaSourceEntitlementRequestConfig**](#update-source-entitlement-request-config) | **PUT** `/sources/{sourceId}/entitlement-request-config` | Update Source Entitlement Request Configuration
 [**Update-BetaSourceSchema**](#update-source-schema) | **PATCH** `/sources/{sourceId}/schemas/{schemaId}` | Update Source Schema (Partial)
 
+
 ## create-provisioning-policy
 This API generates a create policy/template based on field value transforms. This API is intended for use when setting up JDBC Provisioning type sources, but it will also work on other source types.
 Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning.
 Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/create-provisioning-policy)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -195,19 +198,22 @@ $ProvisioningPolicyDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
-    New-BetaProvisioningPolicy -BetaSourceId $SourceId  -BetaProvisioningPolicyDto $Result
+    New-BetaProvisioningPolicy -SourceId $SourceId -BetaProvisioningPolicyDto $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaProvisioningPolicy -BetaSourceId $SourceId -BetaProvisioningPolicyDto $ProvisioningPolicyDto  
+    # New-BetaProvisioningPolicy -SourceId $SourceId -BetaProvisioningPolicyDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaProvisioningPolicy"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## create-source
 This creates a specific source with a full source JSON representation. Any passwords are submitted as plain-text and encrypted upon receipt in IdentityNow.
 A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/create-source)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -323,18 +329,21 @@ $ProvisionAsCsv = $false # Boolean | If this parameter is `true`, it configures 
 
 try {
     $Result = ConvertFrom-JsonToSource -Json $Source
-    New-BetaSource -BetaSource $Result
+    New-BetaSource -BetaSource $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaSource -BetaSource $Source -BetaProvisionAsCsv $ProvisionAsCsv  
+    # New-BetaSource -BetaSource $Result -ProvisionAsCsv $ProvisionAsCsv  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaSource"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## create-source-schema
 Use this API to create a new schema on the specified source in Identity Security Cloud (ISC).
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/create-source-schema)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -401,20 +410,23 @@ $Schema = @"{
 
 try {
     $Result = ConvertFrom-JsonToSchema -Json $Schema
-    New-BetaSourceSchema -BetaSourceId $SourceId  -BetaSchema $Result
+    New-BetaSourceSchema -SourceId $SourceId -BetaSchema $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaSourceSchema -BetaSourceId $SourceId -BetaSchema $Schema  
+    # New-BetaSourceSchema -SourceId $SourceId -BetaSchema $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaSourceSchema"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## delete
 Use this API to delete a specific source in Identity Security Cloud (ISC).
 The API removes all the accounts on the source first, and then it deletes the source. You can retrieve the actual task execution status with this method: GET `/task-status/{id}`
 A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/delete)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -446,16 +458,17 @@ $Id = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
 # Delete Source by ID
 
 try {
-    Remove-Beta -BetaId $Id 
+    Remove-Beta -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Remove-Beta -BetaId $Id  
+    # Remove-Beta -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-Beta"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## delete-accounts-async
 Use this endpoint to remove all accounts from the system without provisioning changes to the source. Accounts that are removed could be re-created during the next aggregation.
 
@@ -464,6 +477,8 @@ This endpoint is good for:
 * Removing accounts that won't be aggregated following updates to the source configuration.
 * Forcing accounts to be re-created following the next aggregation to re-run account processing, support testing, etc.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-accounts-async)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -494,19 +509,22 @@ $SourceId = "ebbf35756e1140699ce52b233121384a" # String | The source id
 # Remove All Accounts in a Source
 
 try {
-    Remove-BetaAccountsAsync -BetaSourceId $SourceId 
+    Remove-BetaAccountsAsync -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
-    # Remove-BetaAccountsAsync -BetaSourceId $SourceId  
+    # Remove-BetaAccountsAsync -SourceId $SourceId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaAccountsAsync"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## delete-native-change-detection-config
 Deletes the native change detection configuration for the source specified by the given ID.
 A token with API, or ORG_ADMIN authority is required to call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-native-change-detection-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -538,18 +556,21 @@ $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The source id
 # Delete Native Change Detection Configuration
 
 try {
-    Remove-BetaNativeChangeDetectionConfig -BetaSourceId $SourceId 
+    Remove-BetaNativeChangeDetectionConfig -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
-    # Remove-BetaNativeChangeDetectionConfig -BetaSourceId $SourceId  
+    # Remove-BetaNativeChangeDetectionConfig -SourceId $SourceId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaNativeChangeDetectionConfig"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## delete-provisioning-policy
 Deletes the provisioning policy with the specified usage on an application.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-provisioning-policy)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -583,18 +604,21 @@ $UsageType = "CREATE" # UsageType | The type of provisioning policy usage.  In I
 # Delete Provisioning Policy by UsageType
 
 try {
-    Remove-BetaProvisioningPolicy -BetaSourceId $SourceId  -BetaUsageType $UsageType 
+    Remove-BetaProvisioningPolicy -SourceId $SourceId -UsageType $UsageType 
     
     # Below is a request that includes all optional parameters
-    # Remove-BetaProvisioningPolicy -BetaSourceId $SourceId -BetaUsageType $UsageType  
+    # Remove-BetaProvisioningPolicy -SourceId $SourceId -UsageType $UsageType  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaProvisioningPolicy"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## delete-source-schema
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-source-schema)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -628,18 +652,21 @@ $SchemaId = "2c9180835d191a86015d28455b4a2329" # String | The Schema ID.
 # Delete Source Schema by ID
 
 try {
-    Remove-BetaSourceSchema -BetaSourceId $SourceId  -BetaSchemaId $SchemaId 
+    Remove-BetaSourceSchema -SourceId $SourceId -SchemaId $SchemaId 
     
     # Below is a request that includes all optional parameters
-    # Remove-BetaSourceSchema -BetaSourceId $SourceId -BetaSchemaId $SchemaId  
+    # Remove-BetaSourceSchema -SourceId $SourceId -SchemaId $SchemaId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaSourceSchema"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-correlation-config
 This API returns the existing correlation configuration for a source specified by the given ID.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-correlation-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -671,19 +698,22 @@ $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The source id
 # Get Source Correlation Configuration
 
 try {
-    Get-BetaCorrelationConfig -BetaSourceId $SourceId 
+    Get-BetaCorrelationConfig -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaCorrelationConfig -BetaSourceId $SourceId  
+    # Get-BetaCorrelationConfig -SourceId $SourceId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaCorrelationConfig"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-native-change-detection-config
 This API returns the existing native change detection configuration for a source specified by the given ID.
 A token with ORG_ADMIN authority is required to call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-native-change-detection-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -715,18 +745,21 @@ $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The source id
 # Native Change Detection Configuration
 
 try {
-    Get-BetaNativeChangeDetectionConfig -BetaSourceId $SourceId 
+    Get-BetaNativeChangeDetectionConfig -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaNativeChangeDetectionConfig -BetaSourceId $SourceId  
+    # Get-BetaNativeChangeDetectionConfig -SourceId $SourceId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaNativeChangeDetectionConfig"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-provisioning-policy
 This end-point retrieves the ProvisioningPolicy with the specified usage on the specified Source in IdentityNow.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-provisioning-policy)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -760,19 +793,22 @@ $UsageType = "CREATE" # UsageType | The type of provisioning policy usage.  In I
 # Get Provisioning Policy by UsageType
 
 try {
-    Get-BetaProvisioningPolicy -BetaSourceId $SourceId  -BetaUsageType $UsageType 
+    Get-BetaProvisioningPolicy -SourceId $SourceId -UsageType $UsageType 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaProvisioningPolicy -BetaSourceId $SourceId -BetaUsageType $UsageType  
+    # Get-BetaProvisioningPolicy -SourceId $SourceId -UsageType $UsageType  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaProvisioningPolicy"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-source
 Use this API to get a source by a specified ID in Identity Security Cloud (ISC).
 A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-source)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -804,18 +840,21 @@ $Id = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
 # Get Source by ID
 
 try {
-    Get-BetaSource -BetaId $Id 
+    Get-BetaSource -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaSource -BetaId $Id  
+    # Get-BetaSource -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaSource"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-source-accounts-schema
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-source-accounts-schema)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -847,19 +886,22 @@ $SourceId = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
 # Downloads source accounts schema template
 
 try {
-    Get-BetaSourceAccountsSchema -BetaSourceId $SourceId 
+    Get-BetaSourceAccountsSchema -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaSourceAccountsSchema -BetaSourceId $SourceId  
+    # Get-BetaSourceAccountsSchema -SourceId $SourceId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaSourceAccountsSchema"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-source-attr-sync-config
 This API returns the existing attribute synchronization configuration for a source specified by the given ID. The response contains all attributes, regardless of whether they enabled or not.
 A token with ORG_ADMIN or HELPDESK authority is required to call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-source-attr-sync-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -891,19 +933,22 @@ $Id = "2c9180835d191a86015d28455b4a2329" # String | The source id
 # Attribute Sync Config
 
 try {
-    Get-BetaSourceAttrSyncConfig -BetaId $Id 
+    Get-BetaSourceAttrSyncConfig -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaSourceAttrSyncConfig -BetaId $Id  
+    # Get-BetaSourceAttrSyncConfig -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaSourceAttrSyncConfig"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-source-config
 Looks up and returns the source config for the requested source id after populating the source config values and applying language translations.
 A token with ORG_ADMIN authority is required to call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-source-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -936,16 +981,17 @@ $Locale = "de" # String | The locale to apply to the config. If no viable locale
 # Gets source config with language translations
 
 try {
-    Get-BetaSourceConfig -BetaId $Id 
+    Get-BetaSourceConfig -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaSourceConfig -BetaId $Id -BetaLocale $Locale  
+    # Get-BetaSourceConfig -Id $Id -Locale $Locale  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaSourceConfig"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-source-entitlement-request-config
 This API gets the current entitlement request configuration for a source. This source-level configuration should apply for all the entitlements in the source.
 
@@ -954,6 +1000,8 @@ Access request to any entitlements in the source should follow this configuratio
 - However, the entitlement-level configuration (if defined) overrides this source-level configuration.
 
 A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-source-entitlement-request-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -984,18 +1032,21 @@ $SourceId = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
 # Get Source Entitlement Request Configuration
 
 try {
-    Get-BetaSourceEntitlementRequestConfig -BetaSourceId $SourceId 
+    Get-BetaSourceEntitlementRequestConfig -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaSourceEntitlementRequestConfig -BetaSourceId $SourceId  
+    # Get-BetaSourceEntitlementRequestConfig -SourceId $SourceId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaSourceEntitlementRequestConfig"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-source-entitlements-schema
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-source-entitlements-schema)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1029,19 +1080,22 @@ $SchemaName = "?schemaName=group" # String | Name of entitlement schema (optiona
 # Downloads source entitlements schema template
 
 try {
-    Get-BetaSourceEntitlementsSchema -BetaSourceId $SourceId 
+    Get-BetaSourceEntitlementsSchema -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaSourceEntitlementsSchema -BetaSourceId $SourceId -BetaSchemaName $SchemaName  
+    # Get-BetaSourceEntitlementsSchema -SourceId $SourceId -SchemaName $SchemaName  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaSourceEntitlementsSchema"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-source-schema
 Get the Source Schema by ID in IdentityNow.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-source-schema)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1075,18 +1129,21 @@ $SchemaId = "2c9180835d191a86015d28455b4a2329" # String | The Schema ID.
 # Get Source Schema by ID
 
 try {
-    Get-BetaSourceSchema -BetaSourceId $SourceId  -BetaSchemaId $SchemaId 
+    Get-BetaSourceSchema -SourceId $SourceId -SchemaId $SchemaId 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaSourceSchema -BetaSourceId $SourceId -BetaSchemaId $SchemaId  
+    # Get-BetaSourceSchema -SourceId $SourceId -SchemaId $SchemaId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaSourceSchema"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-source-schemas
 Use this API to list the schemas that exist on the specified source in Identity Security Cloud (ISC).
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-source-schemas)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1122,21 +1179,24 @@ $IncludeNames = "account" # String | A comma-separated list of schema names to f
 # List Schemas on Source
 
 try {
-    Get-BetaSourceSchemas -BetaSourceId $SourceId 
+    Get-BetaSourceSchemas -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaSourceSchemas -BetaSourceId $SourceId -BetaIncludeTypes $IncludeTypes -BetaIncludeNames $IncludeNames  
+    # Get-BetaSourceSchemas -SourceId $SourceId -IncludeTypes $IncludeTypes -IncludeNames $IncludeNames  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaSourceSchemas"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## import-accounts
 Starts an account aggregation on the specified source. 
 If the target source is a delimited file source, then the CSV file needs to be included in the request body.
 You will also need to set the Content-Type header to `multipart/form-data`.
 A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/import-accounts)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1171,21 +1231,24 @@ $DisableOptimization = "true" # String | Use this flag to reprocess every accoun
 # Account Aggregation
 
 try {
-    Import-BetaAccounts -BetaSourceId $SourceId 
+    Import-BetaAccounts -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
-    # Import-BetaAccounts -BetaSourceId $SourceId -BetaFile $File -BetaDisableOptimization $DisableOptimization  
+    # Import-BetaAccounts -SourceId $SourceId -File $File -DisableOptimization $DisableOptimization  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Import-BetaAccounts"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## import-entitlements
 Starts an entitlement aggregation on the specified source. 
 If the target source is a delimited file source, then the CSV file needs to be included in the request body. 
 You will also need to set the Content-Type header to `multipart/form-data`.
 A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/import-entitlements)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1218,18 +1281,21 @@ $File =  # System.IO.FileInfo | The CSV file containing the source entitlements 
 # Entitlement Aggregation
 
 try {
-    Import-BetaEntitlements -BetaSourceId $SourceId 
+    Import-BetaEntitlements -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
-    # Import-BetaEntitlements -BetaSourceId $SourceId -BetaFile $File  
+    # Import-BetaEntitlements -SourceId $SourceId -File $File  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Import-BetaEntitlements"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## import-source-accounts-schema
 This API uploads a source schema template file to configure a source's account attributes.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/import-source-accounts-schema)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1262,19 +1328,22 @@ $File =  # System.IO.FileInfo |  (optional)
 # Uploads source accounts schema template
 
 try {
-    Import-BetaSourceAccountsSchema -BetaSourceId $SourceId 
+    Import-BetaSourceAccountsSchema -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
-    # Import-BetaSourceAccountsSchema -BetaSourceId $SourceId -BetaFile $File  
+    # Import-BetaSourceAccountsSchema -SourceId $SourceId -File $File  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Import-BetaSourceAccountsSchema"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## import-source-connector-file
 This uploads a supplemental source connector file (like jdbc driver jars) to a source's S3 bucket. This also sends ETS and Audit events.
 A token with ORG_ADMIN authority is required to call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/import-source-connector-file)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1307,18 +1376,21 @@ $File =  # System.IO.FileInfo |  (optional)
 # Upload connector file to source
 
 try {
-    Import-BetaSourceConnectorFile -BetaSourceId $SourceId 
+    Import-BetaSourceConnectorFile -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
-    # Import-BetaSourceConnectorFile -BetaSourceId $SourceId -BetaFile $File  
+    # Import-BetaSourceConnectorFile -SourceId $SourceId -File $File  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Import-BetaSourceConnectorFile"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## import-source-entitlements-schema
 This API uploads a source schema template file to configure a source's entitlement attributes.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/import-source-entitlements-schema)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1353,18 +1425,21 @@ $File =  # System.IO.FileInfo |  (optional)
 # Uploads source entitlements schema template
 
 try {
-    Import-BetaSourceEntitlementsSchema -BetaSourceId $SourceId 
+    Import-BetaSourceEntitlementsSchema -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
-    # Import-BetaSourceEntitlementsSchema -BetaSourceId $SourceId -BetaSchemaName $SchemaName -BetaFile $File  
+    # Import-BetaSourceEntitlementsSchema -SourceId $SourceId -SchemaName $SchemaName -File $File  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Import-BetaSourceEntitlementsSchema"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## import-uncorrelated-accounts
 File is required for upload. You will also need to set the Content-Type header to `multipart/form-data`
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/import-uncorrelated-accounts)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1397,18 +1472,21 @@ $File =  # System.IO.FileInfo |  (optional)
 # Process Uncorrelated Accounts
 
 try {
-    Import-BetaUncorrelatedAccounts -BetaSourceId $SourceId 
+    Import-BetaUncorrelatedAccounts -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
-    # Import-BetaUncorrelatedAccounts -BetaSourceId $SourceId -BetaFile $File  
+    # Import-BetaUncorrelatedAccounts -SourceId $SourceId -File $File  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Import-BetaUncorrelatedAccounts"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-provisioning-policies
 This end-point lists all the ProvisioningPolicies in IdentityNow.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/list-provisioning-policies)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1440,20 +1518,23 @@ $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id
 # Lists ProvisioningPolicies
 
 try {
-    Get-BetaProvisioningPolicies -BetaSourceId $SourceId 
+    Get-BetaProvisioningPolicies -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaProvisioningPolicies -BetaSourceId $SourceId  
+    # Get-BetaProvisioningPolicies -SourceId $SourceId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaProvisioningPolicies"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-sources
 This end-point lists all the sources in IdentityNow.
 
 A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or ROLE_SUBADMIN authority is required to call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/list-sources)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1497,19 +1578,22 @@ $IncludeIDNSource = $true # Boolean | Include the IdentityNow source in the resp
 # Lists all sources in IdentityNow.
 
 try {
-    Get-BetaSources
+    Get-BetaSources 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaSources -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count -BetaFilters $Filters -BetaSorters $Sorters -BetaForSubadmin $ForSubadmin -BetaIncludeIDNSource $IncludeIDNSource  
+    # Get-BetaSources -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters -ForSubadmin $ForSubadmin -IncludeIDNSource $IncludeIDNSource  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaSources"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## peek-resource-objects
 Retrieves a sample of data returned from account and group aggregation requests.
 A token with ORG_ADMIN authority is required to call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/peek-resource-objects)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1547,19 +1631,22 @@ $ResourceObjectsRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToResourceObjectsRequest -Json $ResourceObjectsRequest
-    Receive-BetaResourceObjects -BetaSourceId $SourceId  -BetaResourceObjectsRequest $Result
+    Receive-BetaResourceObjects -SourceId $SourceId -BetaResourceObjectsRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Receive-BetaResourceObjects -BetaSourceId $SourceId -BetaResourceObjectsRequest $ResourceObjectsRequest  
+    # Receive-BetaResourceObjects -SourceId $SourceId -BetaResourceObjectsRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Receive-BetaResourceObjects"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## ping-cluster
 This endpoint validates that the cluster being used by the source is reachable from IdentityNow.
 A token with ORG_ADMIN authority is required to call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/ping-cluster)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1591,18 +1678,21 @@ $SourceId = "cef3ee201db947c5912551015ba0c679" # String | The ID of the Source
 # Ping cluster for source connector
 
 try {
-    Ping-BetaCluster -BetaSourceId $SourceId 
+    Ping-BetaCluster -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
-    # Ping-BetaCluster -BetaSourceId $SourceId  
+    # Ping-BetaCluster -SourceId $SourceId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Ping-BetaCluster"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## put-correlation-config
 Replaces the correlation configuration for the source specified by the given ID with the configuration provided in the request body.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/put-correlation-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1657,20 +1747,23 @@ $CorrelationConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToCorrelationConfig -Json $CorrelationConfig
-    Send-BetaCorrelationConfig -BetaSourceId $SourceId  -BetaCorrelationConfig $Result
+    Send-BetaCorrelationConfig -SourceId $SourceId -BetaCorrelationConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-BetaCorrelationConfig -BetaSourceId $SourceId -BetaCorrelationConfig $CorrelationConfig  
+    # Send-BetaCorrelationConfig -SourceId $SourceId -BetaCorrelationConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaCorrelationConfig"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## put-native-change-detection-config
 Replaces the native change detection configuration for the source specified by the given ID with the configuration provided in the request body.
     
 A token with ORG_ADMIN authority is required to call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/put-native-change-detection-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1712,20 +1805,23 @@ $NativeChangeDetectionConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToNativeChangeDetectionConfig -Json $NativeChangeDetectionConfig
-    Send-BetaNativeChangeDetectionConfig -BetaSourceId $SourceId  -BetaNativeChangeDetectionConfig $Result
+    Send-BetaNativeChangeDetectionConfig -SourceId $SourceId -BetaNativeChangeDetectionConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-BetaNativeChangeDetectionConfig -BetaSourceId $SourceId -BetaNativeChangeDetectionConfig $NativeChangeDetectionConfig  
+    # Send-BetaNativeChangeDetectionConfig -SourceId $SourceId -BetaNativeChangeDetectionConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaNativeChangeDetectionConfig"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## put-provisioning-policy
 This end-point updates the provisioning policy with the specified usage on the specified source in IdentityNow.
 Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning.
 Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/put-provisioning-policy)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1801,16 +1897,17 @@ $ProvisioningPolicyDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
-    Send-BetaProvisioningPolicy -BetaSourceId $SourceId  -BetaUsageType $UsageType  -BetaProvisioningPolicyDto $Result
+    Send-BetaProvisioningPolicy -SourceId $SourceId -UsageType $UsageType -BetaProvisioningPolicyDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-BetaProvisioningPolicy -BetaSourceId $SourceId -BetaUsageType $UsageType -BetaProvisioningPolicyDto $ProvisioningPolicyDto  
+    # Send-BetaProvisioningPolicy -SourceId $SourceId -UsageType $UsageType -BetaProvisioningPolicyDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaProvisioningPolicy"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## put-source
 Use this API to update a source in Identity Security Cloud (ISC), using a full object representation. This means that when you use this API, it completely replaces the existing source configuration.
 
@@ -1827,6 +1924,8 @@ Attempts to modify these fields will result in a 400 error.
 
 A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/put-source)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1943,20 +2042,23 @@ $Source = @"{
 
 try {
     $Result = ConvertFrom-JsonToSource -Json $Source
-    Send-BetaSource -BetaId $Id  -BetaSource $Result
+    Send-BetaSource -Id $Id -BetaSource $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-BetaSource -BetaId $Id -BetaSource $Source  
+    # Send-BetaSource -Id $Id -BetaSource $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaSource"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## put-source-attr-sync-config
 Replaces the attribute synchronization configuration for the source specified by the given ID with the configuration provided in the request body. Only the "enabled" field of the values in the "attributes" array is mutable. Attempting to change other attributes or add new values to the "attributes" array will result in an error.
     
 A token with ORG_ADMIN authority is required to call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/put-source-attr-sync-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -2008,16 +2110,17 @@ $AttrSyncSourceConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToAttrSyncSourceConfig -Json $AttrSyncSourceConfig
-    Send-BetaSourceAttrSyncConfig -BetaId $Id  -BetaAttrSyncSourceConfig $Result
+    Send-BetaSourceAttrSyncConfig -Id $Id -BetaAttrSyncSourceConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-BetaSourceAttrSyncConfig -BetaId $Id -BetaAttrSyncSourceConfig $AttrSyncSourceConfig  
+    # Send-BetaSourceAttrSyncConfig -Id $Id -BetaAttrSyncSourceConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaSourceAttrSyncConfig"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## put-source-schema
 This API will completely replace an existing Schema with the submitted payload. Some fields of the Schema cannot be updated. These fields are listed below.
 * id
@@ -2025,6 +2128,8 @@ This API will completely replace an existing Schema with the submitted payload. 
 * created
 * modified
 Any attempt to modify these fields will result in an error response with a status code of 400.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/put-source-schema)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -2094,19 +2199,22 @@ $Schema = @"{
 
 try {
     $Result = ConvertFrom-JsonToSchema -Json $Schema
-    Send-BetaSourceSchema -BetaSourceId $SourceId  -BetaSchemaId $SchemaId  -BetaSchema $Result
+    Send-BetaSourceSchema -SourceId $SourceId -SchemaId $SchemaId -BetaSchema $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-BetaSourceSchema -BetaSourceId $SourceId -BetaSchemaId $SchemaId -BetaSchema $Schema  
+    # Send-BetaSourceSchema -SourceId $SourceId -SchemaId $SchemaId -BetaSchema $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaSourceSchema"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## sync-attributes-for-source
 This end-point performs attribute synchronization for a selected source.
 A token with ORG_ADMIN or SOURCE_ADMIN authority is required to call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/sync-attributes-for-source)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -2138,19 +2246,22 @@ $SourceId = "MySourceId" # String | The Source id
 # Synchronize single source attributes.
 
 try {
-    Sync-BetaAttributesForSource -BetaSourceId $SourceId 
+    Sync-BetaAttributesForSource -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
-    # Sync-BetaAttributesForSource -BetaSourceId $SourceId  
+    # Sync-BetaAttributesForSource -SourceId $SourceId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Sync-BetaAttributesForSource"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## test-source-configuration
 This endpoint performs a more detailed validation of the source's configuration that can take longer than the lighter weight credential validation performed by the checkConnection API.
 A token with ORG_ADMIN authority is required to call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/test-source-configuration)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -2182,19 +2293,22 @@ $SourceId = "cef3ee201db947c5912551015ba0c679" # String | The ID of the Source
 # Test configuration for source connector
 
 try {
-    Test-BetaSourceConfiguration -BetaSourceId $SourceId 
+    Test-BetaSourceConfiguration -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
-    # Test-BetaSourceConfiguration -BetaSourceId $SourceId  
+    # Test-BetaSourceConfiguration -SourceId $SourceId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Test-BetaSourceConfiguration"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## test-source-connection
 This endpoint validates that the configured credentials are valid and will properly authenticate with the source identified by the sourceId path parameter.
 A token with ORG_ADMIN authority is required to call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/test-source-connection)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -2226,18 +2340,21 @@ $SourceId = "cef3ee201db947c5912551015ba0c679" # String | The ID of the Source.
 # Check connection for source connector.
 
 try {
-    Test-BetaSourceConnection -BetaSourceId $SourceId 
+    Test-BetaSourceConnection -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
-    # Test-BetaSourceConnection -BetaSourceId $SourceId  
+    # Test-BetaSourceConnection -SourceId $SourceId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Test-BetaSourceConnection"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## update-provisioning-policies-in-bulk
 This end-point updates a list of provisioning policies on the specified source in IdentityNow.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/update-provisioning-policies-in-bulk)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -2312,20 +2429,23 @@ $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
 
 try {
     $Result = ConvertFrom-JsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
-    Update-BetaProvisioningPoliciesInBulk -BetaSourceId $SourceId  -BetaProvisioningPolicyDto $Result
+    Update-BetaProvisioningPoliciesInBulk -SourceId $SourceId -BetaProvisioningPolicyDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaProvisioningPoliciesInBulk -BetaSourceId $SourceId -BetaProvisioningPolicyDto $ProvisioningPolicyDto  
+    # Update-BetaProvisioningPoliciesInBulk -SourceId $SourceId -BetaProvisioningPolicyDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaProvisioningPoliciesInBulk"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## update-provisioning-policy
 This API selectively updates an existing Provisioning Policy using a JSONPatch payload.
 Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning.
 Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/update-provisioning-policy)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -2367,16 +2487,17 @@ $UsageType = "CREATE" # UsageType | The type of provisioning policy usage.  In I
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-BetaProvisioningPolicy -BetaSourceId $SourceId  -BetaUsageType $UsageType  -BetaJsonPatchOperation $Result
+    Update-BetaProvisioningPolicy -SourceId $SourceId -UsageType $UsageType -BetaJsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaProvisioningPolicy -BetaSourceId $SourceId -BetaUsageType $UsageType -BetaJsonPatchOperation $JsonPatchOperation  
+    # Update-BetaProvisioningPolicy -SourceId $SourceId -UsageType $UsageType -BetaJsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaProvisioningPolicy"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## update-source
 Use this API to partially update a source in Identity Security Cloud (ISC), using a list of patch operations according to the
 [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
@@ -2395,6 +2516,8 @@ Attempts to modify these fields will result in a 400 error.
 
 A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or API authority is required to call this API.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/update-source)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -2434,16 +2557,17 @@ $Id = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-BetaSource -BetaId $Id  -BetaJsonPatchOperation $Result
+    Update-BetaSource -Id $Id -BetaJsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaSource -BetaId $Id -BetaJsonPatchOperation $JsonPatchOperation  
+    # Update-BetaSource -Id $Id -BetaJsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaSource"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## update-source-entitlement-request-config
 This API replaces the current entitlement request configuration for a source. This source-level configuration should apply for all the entitlements in the source.
 
@@ -2452,6 +2576,8 @@ Access request to any entitlements in the source should follow this configuratio
 - However, the entitlement-level configuration (if defined) overrides this source-level configuration.
 
 A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/update-source-entitlement-request-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -2497,16 +2623,17 @@ $SourceEntitlementRequestConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToSourceEntitlementRequestConfig -Json $SourceEntitlementRequestConfig
-    Update-BetaSourceEntitlementRequestConfig -BetaSourceId $SourceId  -BetaSourceEntitlementRequestConfig $Result
+    Update-BetaSourceEntitlementRequestConfig -SourceId $SourceId -BetaSourceEntitlementRequestConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaSourceEntitlementRequestConfig -BetaSourceId $SourceId -BetaSourceEntitlementRequestConfig $SourceEntitlementRequestConfig  
+    # Update-BetaSourceEntitlementRequestConfig -SourceId $SourceId -BetaSourceEntitlementRequestConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaSourceEntitlementRequestConfig"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## update-source-schema
 Use this API to selectively update an existing Schema using a JSONPatch payload. 
 
@@ -2538,6 +2665,8 @@ To switch an account attribute to a group entitlement, you need to have the foll
 }
 ```
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/update-source-schema)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -2579,10 +2708,10 @@ $SchemaId = "2c9180835d191a86015d28455b4a2329" # String | The Schema id.
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-BetaSourceSchema -BetaSourceId $SourceId  -BetaSchemaId $SchemaId  -BetaJsonPatchOperation $Result
+    Update-BetaSourceSchema -SourceId $SourceId -SchemaId $SchemaId -BetaJsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaSourceSchema -BetaSourceId $SourceId -BetaSchemaId $SchemaId -BetaJsonPatchOperation $JsonPatchOperation  
+    # Update-BetaSourceSchema -SourceId $SourceId -SchemaId $SchemaId -BetaJsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaSourceSchema"
     Write-Host $_.ErrorDetails

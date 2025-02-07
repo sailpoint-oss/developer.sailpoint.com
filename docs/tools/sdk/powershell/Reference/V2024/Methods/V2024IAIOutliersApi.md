@@ -27,11 +27,17 @@ Method | HTTP request | Description
 [**Get-V2024OutliersContributingFeatureAccessItems**](#list-outliers-contributing-feature-access-items) | **GET** `/outliers/{outlierId}/feature-details/{contributingFeatureName}/access-items` | Gets a list of access items associated with each identity outlier contributing feature
 [**Invoke-V2024UnIgnoreIdentityOutliers**](#un-ignore-identity-outliers) | **POST** `/outliers/unignore` | IAI Identity Outliers Unignore
 
+
 ## export-outliers-zip
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This API exports a list of ignored outliers to a CSV as well as list of non-ignored outliers to a CSV. These two CSVs will be zipped and exported.
 
 Columns will include: identityId, type, firstDetectionDate, latestDetectionDate, ignored, & attributes (defined set of identity attributes).
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/export-outliers-zip)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -64,18 +70,24 @@ $Type = "LOW_SIMILARITY" # String | Type of the identity outliers snapshot to fi
 # IAI Identity Outliers Export
 
 try {
-    Export-V2024OutliersZip -V2024XSailPointExperimental $XSailPointExperimental 
+    Export-V2024OutliersZip -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Export-V2024OutliersZip -V2024XSailPointExperimental $XSailPointExperimental -V2024Type $Type  
+    # Export-V2024OutliersZip -XSailPointExperimental $XSailPointExperimental -Type $Type  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Export-V2024OutliersZip"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-identity-outlier-snapshots
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This API returns a summary containing the number of identities that customer has, the number of outliers, and the type of outlier.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-identity-outlier-snapshots)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -117,18 +129,24 @@ $Sorters = "snapshotDate" # String | Sort results using the standard syntax desc
 # IAI Identity Outliers Summary
 
 try {
-    Get-V2024IdentityOutlierSnapshots -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024IdentityOutlierSnapshots -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024IdentityOutlierSnapshots -V2024XSailPointExperimental $XSailPointExperimental -V2024Limit $Limit -V2024Offset $Offset -V2024Type $Type -V2024Filters $Filters -V2024Sorters $Sorters  
+    # Get-V2024IdentityOutlierSnapshots -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Type $Type -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024IdentityOutlierSnapshots"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-identity-outliers
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This API returns a list of outliers, containing data such as identity ID, outlier type, detection dates, identity attributes, if identity is ignored, and certification information.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-identity-outliers)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -171,18 +189,24 @@ $Sorters = "attributes.displayName,firstDetectionDate,-score" # String | Sort re
 # IAI Get Identity Outliers
 
 try {
-    Get-V2024IdentityOutliers -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024IdentityOutliers -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024IdentityOutliers -V2024XSailPointExperimental $XSailPointExperimental -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Type $Type -V2024Filters $Filters -V2024Sorters $Sorters  
+    # Get-V2024IdentityOutliers -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Count $Count -Type $Type -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024IdentityOutliers"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-latest-identity-outlier-snapshots
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This API returns a most recent snapshot of each outlier type, each containing the number of identities that customer has, the number of outliers, and the type of outlier.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-latest-identity-outlier-snapshots)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -216,21 +240,27 @@ $Type = "LOW_SIMILARITY" # String | Type of the identity outliers snapshot to fi
 # IAI Identity Outliers Latest Summary
 
 try {
-    Get-V2024LatestIdentityOutlierSnapshots -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024LatestIdentityOutlierSnapshots -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024LatestIdentityOutlierSnapshots -V2024XSailPointExperimental $XSailPointExperimental -V2024Type $Type  
+    # Get-V2024LatestIdentityOutlierSnapshots -XSailPointExperimental $XSailPointExperimental -Type $Type  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024LatestIdentityOutlierSnapshots"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-outlier-contributing-feature-summary
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This API returns a summary of a contributing feature for an identity outlier.
 
 The object contains: contributing feature name (translated text or message key), identity outlier display name, feature values, feature definition and explanation (translated text or message key), peer display name and identityId, access item reference, translation messages object.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-outlier-contributing-feature-summary)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -264,21 +294,27 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Get identity outlier contibuting feature summary
 
 try {
-    Get-V2024OutlierContributingFeatureSummary -V2024OutlierFeatureId $OutlierFeatureId  -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024OutlierContributingFeatureSummary -OutlierFeatureId $OutlierFeatureId -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024OutlierContributingFeatureSummary -V2024OutlierFeatureId $OutlierFeatureId -V2024XSailPointExperimental $XSailPointExperimental  
+    # Get-V2024OutlierContributingFeatureSummary -OutlierFeatureId $OutlierFeatureId -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024OutlierContributingFeatureSummary"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-peer-group-outliers-contributing-features
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This API returns a list of contributing feature objects for a single outlier.
 
 The object contains: feature name, feature value type, value, importance, display name (translated text or message key), description (translated text or message key), translation messages object.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-peer-group-outliers-contributing-features)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -322,18 +358,24 @@ $Sorters = "importance" # String | Sort results using the standard syntax descri
 # Get identity outlier's contibuting features
 
 try {
-    Get-V2024PeerGroupOutliersContributingFeatures -V2024OutlierId $OutlierId  -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024PeerGroupOutliersContributingFeatures -OutlierId $OutlierId -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024PeerGroupOutliersContributingFeatures -V2024OutlierId $OutlierId -V2024XSailPointExperimental $XSailPointExperimental -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024IncludeTranslationMessages $IncludeTranslationMessages -V2024Sorters $Sorters  
+    # Get-V2024PeerGroupOutliersContributingFeatures -OutlierId $OutlierId -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Count $Count -IncludeTranslationMessages $IncludeTranslationMessages -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024PeerGroupOutliersContributingFeatures"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## ignore-identity-outliers
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This API receives a list of identity IDs in the request, changes the outliers to be ignored.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/ignore-identity-outliers)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -369,21 +411,27 @@ $RequestBody = "MyRequestBody" # String[] |
 
 try {
     $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
-    Invoke-V2024IgnoreIdentityOutliers -V2024XSailPointExperimental $XSailPointExperimental  -V2024RequestBody $Result
+    Invoke-V2024IgnoreIdentityOutliers -XSailPointExperimental $XSailPointExperimental -RequestBody $Result 
     
     # Below is a request that includes all optional parameters
-    # Invoke-V2024IgnoreIdentityOutliers -V2024XSailPointExperimental $XSailPointExperimental -V2024RequestBody $RequestBody  
+    # Invoke-V2024IgnoreIdentityOutliers -XSailPointExperimental $XSailPointExperimental -RequestBody $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-V2024IgnoreIdentityOutliers"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-outliers-contributing-feature-access-items
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This API returns a list of the enriched access items associated with each feature filtered by the access item type.
 
 The object contains: accessItemId, display name (translated text or message key), description (translated text or message key), accessType, sourceName, extremelyRare.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-outliers-contributing-feature-access-items)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -429,18 +477,24 @@ $Sorters = "displayName" # String | Sort results using the standard syntax descr
 # Gets a list of access items associated with each identity outlier contributing feature
 
 try {
-    Get-V2024OutliersContributingFeatureAccessItems -V2024OutlierId $OutlierId  -V2024ContributingFeatureName $ContributingFeatureName  -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024OutliersContributingFeatureAccessItems -OutlierId $OutlierId -ContributingFeatureName $ContributingFeatureName -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024OutliersContributingFeatureAccessItems -V2024OutlierId $OutlierId -V2024ContributingFeatureName $ContributingFeatureName -V2024XSailPointExperimental $XSailPointExperimental -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024AccessType $AccessType -V2024Sorters $Sorters  
+    # Get-V2024OutliersContributingFeatureAccessItems -OutlierId $OutlierId -ContributingFeatureName $ContributingFeatureName -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Count $Count -AccessType $AccessType -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024OutliersContributingFeatureAccessItems"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## un-ignore-identity-outliers
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This API receives a list of identity IDs in the request, changes the outliers to be un-ignored.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/un-ignore-identity-outliers)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -476,10 +530,10 @@ $RequestBody = "MyRequestBody" # String[] |
 
 try {
     $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
-    Invoke-V2024UnIgnoreIdentityOutliers -V2024XSailPointExperimental $XSailPointExperimental  -V2024RequestBody $Result
+    Invoke-V2024UnIgnoreIdentityOutliers -XSailPointExperimental $XSailPointExperimental -RequestBody $Result 
     
     # Below is a request that includes all optional parameters
-    # Invoke-V2024UnIgnoreIdentityOutliers -V2024XSailPointExperimental $XSailPointExperimental -V2024RequestBody $RequestBody  
+    # Invoke-V2024UnIgnoreIdentityOutliers -XSailPointExperimental $XSailPointExperimental -RequestBody $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-V2024UnIgnoreIdentityOutliers"
     Write-Host $_.ErrorDetails

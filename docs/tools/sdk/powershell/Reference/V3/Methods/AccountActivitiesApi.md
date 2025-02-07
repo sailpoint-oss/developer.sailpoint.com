@@ -53,8 +53,11 @@ Method | HTTP request | Description
 [**Get-AccountActivity**](#get-account-activity) | **GET** `/account-activities/{id}` | Get an Account Activity
 [**Get-AccountActivities**](#list-account-activities) | **GET** `/account-activities` | List Account Activities
 
+
 ## get-account-activity
 This gets a single account activity by its id.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-account-activity)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -96,8 +99,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-account-activities
 This gets a collection of account activities that satisfy the given query parameters.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/list-account-activities)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -142,7 +148,7 @@ $Sorters = "created" # String | Sort results using the standard syntax described
 # List Account Activities
 
 try {
-    Get-AccountActivities
+    Get-AccountActivities 
     
     # Below is a request that includes all optional parameters
     # Get-AccountActivities -RequestedFor $RequestedFor -RequestedBy $RequestedBy -RegardingIdentity $RegardingIdentity -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  

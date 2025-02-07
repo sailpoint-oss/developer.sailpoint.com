@@ -28,8 +28,11 @@ Method | HTTP request | Description
 [**Get-V2024BrandingList**](#get-branding-list) | **GET** `/brandings` | List of branding items
 [**Set-V2024BrandingItem**](#set-branding-item) | **PUT** `/brandings/{name}` | Update a branding item
 
+
 ## create-branding-item
 This API endpoint creates a branding item.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-branding-item)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -74,18 +77,21 @@ $FileStandard =  # System.IO.FileInfo | png file with logo (optional)
 # Create a branding item
 
 try {
-    New-V2024BrandingItem -V2024Name $Name  -V2024ProductName $ProductName 
+    New-V2024BrandingItem -Name $Name -ProductName $ProductName 
     
     # Below is a request that includes all optional parameters
-    # New-V2024BrandingItem -V2024Name $Name -V2024ProductName $ProductName -V2024ActionButtonColor $ActionButtonColor -V2024ActiveLinkColor $ActiveLinkColor -V2024NavigationColor $NavigationColor -V2024EmailFromAddress $EmailFromAddress -V2024LoginInformationalMessage $LoginInformationalMessage -V2024FileStandard $FileStandard  
+    # New-V2024BrandingItem -Name $Name -ProductName $ProductName -ActionButtonColor $ActionButtonColor -ActiveLinkColor $ActiveLinkColor -NavigationColor $NavigationColor -EmailFromAddress $EmailFromAddress -LoginInformationalMessage $LoginInformationalMessage -FileStandard $FileStandard  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024BrandingItem"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## delete-branding
 This API endpoint delete information for an existing branding item by name.    
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-branding)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -117,18 +123,21 @@ $Name = "default" # String | The name of the branding item to be deleted
 # Delete a branding item
 
 try {
-    Remove-V2024Branding -V2024Name $Name 
+    Remove-V2024Branding -Name $Name 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024Branding -V2024Name $Name  
+    # Remove-V2024Branding -Name $Name  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024Branding"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-branding
 This API endpoint retrieves information for an existing branding item by name.    
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-branding)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -160,18 +169,21 @@ $Name = "default" # String | The name of the branding item to be retrieved
 # Get a branding item
 
 try {
-    Get-V2024Branding -V2024Name $Name 
+    Get-V2024Branding -Name $Name 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024Branding -V2024Name $Name  
+    # Get-V2024Branding -Name $Name  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024Branding"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-branding-list
 This API endpoint returns a list of branding items.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-branding-list)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -200,7 +212,7 @@ Code | Description  | Data Type
 # List of branding items
 
 try {
-    Get-V2024BrandingList
+    Get-V2024BrandingList 
     
     # Below is a request that includes all optional parameters
     # Get-V2024BrandingList  
@@ -210,8 +222,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## set-branding-item
 This API endpoint updates information for an existing branding item.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/set-branding-item)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -259,10 +274,10 @@ $FileStandard =  # System.IO.FileInfo | png file with logo (optional)
 # Update a branding item
 
 try {
-    Set-V2024BrandingItem -V2024Name $Name  -V2024Name2 $Name2  -V2024ProductName $ProductName 
+    Set-V2024BrandingItem -Name $Name -Name2 $Name2 -ProductName $ProductName 
     
     # Below is a request that includes all optional parameters
-    # Set-V2024BrandingItem -V2024Name $Name -V2024Name2 $Name2 -V2024ProductName $ProductName -V2024ActionButtonColor $ActionButtonColor -V2024ActiveLinkColor $ActiveLinkColor -V2024NavigationColor $NavigationColor -V2024EmailFromAddress $EmailFromAddress -V2024LoginInformationalMessage $LoginInformationalMessage -V2024FileStandard $FileStandard  
+    # Set-V2024BrandingItem -Name $Name -Name2 $Name2 -ProductName $ProductName -ActionButtonColor $ActionButtonColor -ActiveLinkColor $ActiveLinkColor -NavigationColor $NavigationColor -EmailFromAddress $EmailFromAddress -LoginInformationalMessage $LoginInformationalMessage -FileStandard $FileStandard  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-V2024BrandingItem"
     Write-Host $_.ErrorDetails

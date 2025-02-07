@@ -23,8 +23,11 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Get-BetaAccessRequestIdentityMetrics**](#get-access-request-identity-metrics) | **GET** `/access-request-identity-metrics/{identityId}/requested-objects/{requestedObjectId}/type/{type}` | Return access request identity metrics
 
+
 ## get-access-request-identity-metrics
 Use this API to return information access metrics.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-access-request-identity-metrics)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -59,10 +62,10 @@ $Type = "ENTITLEMENT" # String | Requested access item's type.
 # Return access request identity metrics
 
 try {
-    Get-BetaAccessRequestIdentityMetrics -BetaIdentityId $IdentityId  -BetaRequestedObjectId $RequestedObjectId  -BetaType $Type 
+    Get-BetaAccessRequestIdentityMetrics -IdentityId $IdentityId -RequestedObjectId $RequestedObjectId -Type $Type 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaAccessRequestIdentityMetrics -BetaIdentityId $IdentityId -BetaRequestedObjectId $RequestedObjectId -BetaType $Type  
+    # Get-BetaAccessRequestIdentityMetrics -IdentityId $IdentityId -RequestedObjectId $RequestedObjectId -Type $Type  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaAccessRequestIdentityMetrics"
     Write-Host $_.ErrorDetails

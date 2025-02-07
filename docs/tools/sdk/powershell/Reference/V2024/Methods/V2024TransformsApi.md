@@ -29,8 +29,11 @@ Method | HTTP request | Description
 [**Get-V2024Transforms**](#list-transforms) | **GET** `/transforms` | List transforms
 [**Update-V2024Transform**](#update-transform) | **PUT** `/transforms/{id}` | Update a transform
 
+
 ## create-transform
 Creates a new transform object immediately. By default, the internal flag is set to false to indicate that this is a custom transform. Only SailPoint employees have the ability to create a transform with internal set to true. Newly created Transforms can be used in the Identity Profile mappings within the UI.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-transform)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -83,18 +86,21 @@ $Transform = @"{
 
 try {
     $Result = ConvertFrom-JsonToTransform -Json $Transform
-    New-V2024Transform -V2024Transform $Result
+    New-V2024Transform -V2024Transform $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024Transform -V2024Transform $Transform  
+    # New-V2024Transform -V2024Transform $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024Transform"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## delete-transform
 Deletes the transform specified by the given ID. Attempting to delete a transform that is used in one or more Identity Profile mappings will result in an error. If this occurs, you must first remove the transform from all mappings before deleting the transform.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-transform)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -126,18 +132,21 @@ $Id = "2cd78adghjkja34jh2b1hkjhasuecd" # String | ID of the transform to delete
 # Delete a transform
 
 try {
-    Remove-V2024Transform -V2024Id $Id 
+    Remove-V2024Transform -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024Transform -V2024Id $Id  
+    # Remove-V2024Transform -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024Transform"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-transform
 This API returns the transform specified by the given ID.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-transform)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -169,18 +178,21 @@ $Id = "2cd78adghjkja34jh2b1hkjhasuecd" # String | ID of the transform to retriev
 # Transform by ID
 
 try {
-    Get-V2024Transform -V2024Id $Id 
+    Get-V2024Transform -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024Transform -V2024Id $Id  
+    # Get-V2024Transform -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024Transform"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-transforms
 Gets a list of all saved transform objects.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-transforms)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -220,18 +232,21 @@ $Filters = 'name eq "Uppercase"' # String | Filter results using the standard sy
 # List transforms
 
 try {
-    Get-V2024Transforms
+    Get-V2024Transforms 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024Transforms -V2024Offset $Offset -V2024Limit $Limit -V2024Count $Count -V2024Name $Name -V2024Filters $Filters  
+    # Get-V2024Transforms -Offset $Offset -Limit $Limit -Count $Count -Name $Name -Filters $Filters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024Transforms"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## update-transform
 Replaces the transform specified by the given ID with the transform provided in the request body. Only the "attributes" field is mutable. Attempting to change other properties (ex. "name" and "type") will result in an error.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/update-transform)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -285,10 +300,10 @@ $Transform = @"{
 # Update a transform
 
 try {
-    Update-V2024Transform -V2024Id $Id 
+    Update-V2024Transform -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024Transform -V2024Id $Id -V2024Transform $Transform  
+    # Update-V2024Transform -Id $Id -V2024Transform $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024Transform"
     Write-Host $_.ErrorDetails

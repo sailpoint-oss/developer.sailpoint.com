@@ -67,6 +67,7 @@ Method | HTTP request | Description
 [**Get-V2024PasswordDictionary**](#get-password-dictionary) | **GET** `/password-dictionary` | Get Password Dictionary
 [**Send-V2024PasswordDictionary**](#put-password-dictionary) | **PUT** `/password-dictionary` | Update Password Dictionary
 
+
 ## get-password-dictionary
 This gets password dictionary for the organization.
 The password dictionary file can contain lines that are:
@@ -98,6 +99,8 @@ qazxsws
 
 ```
 
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-password-dictionary)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -126,7 +129,7 @@ Code | Description  | Data Type
 # Get Password Dictionary
 
 try {
-    Get-V2024PasswordDictionary
+    Get-V2024PasswordDictionary 
     
     # Below is a request that includes all optional parameters
     # Get-V2024PasswordDictionary  
@@ -136,6 +139,7 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## put-password-dictionary
 This updates password dictionary for the organization.
 The password dictionary file can contain lines that are:
@@ -166,6 +170,8 @@ password
 qazxsws
 
 ```
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/put-password-dictionary)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -198,10 +204,10 @@ $File =  # System.IO.FileInfo |  (optional)
 # Update Password Dictionary
 
 try {
-    Send-V2024PasswordDictionary
+    Send-V2024PasswordDictionary 
     
     # Below is a request that includes all optional parameters
-    # Send-V2024PasswordDictionary -V2024File $File  
+    # Send-V2024PasswordDictionary -File $File  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024PasswordDictionary"
     Write-Host $_.ErrorDetails

@@ -43,8 +43,11 @@ Method | HTTP request | Description
 [**Send-ConnectorTranslations**](#put-connector-translations) | **PUT** `/connectors/{scriptName}/translations/{locale}` | Update Connector Translations
 [**Update-Connector**](#update-connector) | **PATCH** `/connectors/{scriptName}` | Update Connector by Script Name
 
+
 ## create-custom-connector
 Create custom connector.    
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/create-custom-connector)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -83,18 +86,21 @@ $V3CreateConnectorDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToV3CreateConnectorDto -Json $V3CreateConnectorDto
-    New-CustomConnector -V3CreateConnectorDto $Result
+    New-CustomConnector -V3CreateConnectorDto $Result 
     
     # Below is a request that includes all optional parameters
-    # New-CustomConnector -V3CreateConnectorDto $V3CreateConnectorDto  
+    # New-CustomConnector -V3CreateConnectorDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-CustomConnector"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## delete-custom-connector
 Delete a custom connector that using its script name.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/delete-custom-connector)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -136,8 +142,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-connector
 Fetches a connector that using its script name.    
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-connector)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -181,8 +190,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-connector-list
 Fetches list of connectors that have 'RELEASED' status using filtering and pagination.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-connector-list)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -222,7 +234,7 @@ $Locale = "de" # String | The locale to apply to the config. If no viable locale
 # Get Connector List
 
 try {
-    Get-ConnectorList
+    Get-ConnectorList 
     
     # Below is a request that includes all optional parameters
     # Get-ConnectorList -Filters $Filters -Limit $Limit -Offset $Offset -Count $Count -Locale $Locale  
@@ -232,8 +244,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-connector-source-config
 Fetches a connector's source config using its script name.    
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-connector-source-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -275,8 +290,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-connector-source-template
 Fetches a connector's source template using its script name.    
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-connector-source-template)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -318,8 +336,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-connector-translations
 Fetches a connector's translations using its script name.    
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-connector-translations)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -353,7 +374,7 @@ $Locale = "de" # String | The locale to apply to the config. If no viable locale
 # Get Connector Translations
 
 try {
-    Get-ConnectorTranslations -ScriptName $ScriptName  -Locale $Locale 
+    Get-ConnectorTranslations -ScriptName $ScriptName -Locale $Locale 
     
     # Below is a request that includes all optional parameters
     # Get-ConnectorTranslations -ScriptName $ScriptName -Locale $Locale  
@@ -363,8 +384,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## put-connector-source-config
 Update a connector's source config using its script name.    
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/put-connector-source-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -398,7 +422,7 @@ $File =  # System.IO.FileInfo | connector source config xml file
 # Update Connector Source Configuration
 
 try {
-    Send-ConnectorSourceConfig -ScriptName $ScriptName  -File $File 
+    Send-ConnectorSourceConfig -ScriptName $ScriptName -File $File 
     
     # Below is a request that includes all optional parameters
     # Send-ConnectorSourceConfig -ScriptName $ScriptName -File $File  
@@ -408,8 +432,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## put-connector-source-template
 Update a connector's source template using its script name.    
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/put-connector-source-template)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -443,7 +470,7 @@ $File =  # System.IO.FileInfo | connector source template xml file
 # Update Connector Source Template
 
 try {
-    Send-ConnectorSourceTemplate -ScriptName $ScriptName  -File $File 
+    Send-ConnectorSourceTemplate -ScriptName $ScriptName -File $File 
     
     # Below is a request that includes all optional parameters
     # Send-ConnectorSourceTemplate -ScriptName $ScriptName -File $File  
@@ -453,8 +480,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## put-connector-translations
 Update a connector's translations using its script name.    
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/put-connector-translations)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -488,7 +518,7 @@ $Locale = "de" # String | The locale to apply to the config. If no viable locale
 # Update Connector Translations
 
 try {
-    Send-ConnectorTranslations -ScriptName $ScriptName  -Locale $Locale 
+    Send-ConnectorTranslations -ScriptName $ScriptName -Locale $Locale 
     
     # Below is a request that includes all optional parameters
     # Send-ConnectorTranslations -ScriptName $ScriptName -Locale $Locale  
@@ -498,6 +528,7 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## update-connector
 This API updates a custom connector by script name using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
 
@@ -512,6 +543,8 @@ The following fields are patchable:
 
 * sourceConfigXml
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/update-connector)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -551,10 +584,10 @@ $ScriptName = "aScriptName" # String | The scriptName value of the connector. Sc
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-Connector -ScriptName $ScriptName  -JsonPatchOperation $Result
+    Update-Connector -ScriptName $ScriptName -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-Connector -ScriptName $ScriptName -JsonPatchOperation $JsonPatchOperation  
+    # Update-Connector -ScriptName $ScriptName -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-Connector"
     Write-Host $_.ErrorDetails

@@ -22,9 +22,12 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Get-BetaRequestableObjects**](#list-requestable-objects) | **GET** `/requestable-objects` | Requestable Objects List
 
+
 ## list-requestable-objects
 This endpoint returns a list of acccess items that that can be requested through the Access Request endpoints. Access items are marked with AVAILABLE, PENDING or ASSIGNED with respect to the identity provided using *identity-id* query param.
 Any authenticated token can call this endpoint to see their requestable access items.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/list-requestable-objects)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -75,10 +78,10 @@ $Sorters = "name" # String | Sort results using the standard syntax described in
 # Requestable Objects List
 
 try {
-    Get-BetaRequestableObjects
+    Get-BetaRequestableObjects 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaRequestableObjects -BetaIdentityId $IdentityId -BetaTypes $Types -BetaTerm $Term -BetaStatuses $Statuses -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count -BetaFilters $Filters -BetaSorters $Sorters  
+    # Get-BetaRequestableObjects -IdentityId $IdentityId -Types $Types -Term $Term -Statuses $Statuses -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaRequestableObjects"
     Write-Host $_.ErrorDetails

@@ -25,9 +25,15 @@ Method | HTTP request | Description
 [**Import-V2024SpConfig**](#import-sp-config) | **POST** `/sp-config/import` | Initiates configuration objects import job
 [**Get-V2024SpConfigObjects**](#list-sp-config-objects) | **GET** `/sp-config/config-objects` | Get config object details
 
+
 ## export-sp-config
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This post will export objects from the tenant to a JSON configuration file.
 For more information about the object types that currently support export functionality, refer to [SaaS Configuration](https://developer.sailpoint.com/idn/docs/saas-configuration/#supported-objects).
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/export-sp-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -64,20 +70,26 @@ $ExportPayload = @"{
 
 try {
     $Result = ConvertFrom-JsonToExportPayload -Json $ExportPayload
-    Export-V2024SpConfig -V2024XSailPointExperimental $XSailPointExperimental  -V2024ExportPayload $Result
+    Export-V2024SpConfig -XSailPointExperimental $XSailPointExperimental -V2024ExportPayload $Result 
     
     # Below is a request that includes all optional parameters
-    # Export-V2024SpConfig -V2024XSailPointExperimental $XSailPointExperimental -V2024ExportPayload $ExportPayload  
+    # Export-V2024SpConfig -XSailPointExperimental $XSailPointExperimental -V2024ExportPayload $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Export-V2024SpConfig"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-sp-config-export
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This endpoint gets the export file resulting from the export job with the requested `id` and downloads it to a file.
 The request will need one of the following security scopes:
 - sp:config:read - sp:config:manage
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-sp-config-export)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -111,20 +123,26 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Download export job result.
 
 try {
-    Get-V2024SpConfigExport -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024SpConfigExport -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024SpConfigExport -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
+    # Get-V2024SpConfigExport -Id $Id -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SpConfigExport"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-sp-config-export-status
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This gets the status of the export job identified by the `id` parameter.
 The request will need one of the following security scopes:
 - sp:config:read - sp:config:manage
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-sp-config-export-status)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -158,20 +176,26 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Get export job status
 
 try {
-    Get-V2024SpConfigExportStatus -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024SpConfigExportStatus -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024SpConfigExportStatus -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
+    # Get-V2024SpConfigExportStatus -Id $Id -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SpConfigExportStatus"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-sp-config-import
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This gets import file resulting from the import job with the requested id and downloads it to a file. The downloaded file will contain the results of the import operation, including any error, warning or informational messages associated with the import.
 The request will need the following security scope:
 - sp:config:manage
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-sp-config-import)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -205,22 +229,28 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Download import job result
 
 try {
-    Get-V2024SpConfigImport -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024SpConfigImport -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024SpConfigImport -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
+    # Get-V2024SpConfigImport -Id $Id -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SpConfigImport"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-sp-config-import-status
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 'This gets the status of the import job identified by the `id` parameter.
 
  For more information about the object types that currently support import functionality,
  refer to [SaaS Configuration](https://developer.sailpoint.com/idn/docs/saas-configuration/#supported-objects).'
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-sp-config-import-status)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -254,17 +284,21 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Get import job status
 
 try {
-    Get-V2024SpConfigImportStatus -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024SpConfigImportStatus -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024SpConfigImportStatus -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
+    # Get-V2024SpConfigImportStatus -Id $Id -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SpConfigImportStatus"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## import-sp-config
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 "This post will import objects from a JSON configuration file into\
  \ a tenant. By default, every import will first export all existing objects supported\
  \ by sp-config as a backup before the import is attempted. The backup is provided\
@@ -278,6 +312,8 @@ try {
  \ the object types that currently support import functionality, refer to [SaaS\
  \ Configuration](https://developer.sailpoint.com/idn/docs/saas-configuration/#supported-objects)."
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/import-sp-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -315,18 +351,24 @@ $Options = @""@
 # Initiates configuration objects import job
 
 try {
-    Import-V2024SpConfig -V2024XSailPointExperimental $XSailPointExperimental  -V2024Data $Data 
+    Import-V2024SpConfig -XSailPointExperimental $XSailPointExperimental -Data $Data 
     
     # Below is a request that includes all optional parameters
-    # Import-V2024SpConfig -V2024XSailPointExperimental $XSailPointExperimental -V2024Data $Data -V2024Preview $Preview -V2024Options $Options  
+    # Import-V2024SpConfig -XSailPointExperimental $XSailPointExperimental -Data $Data -Preview $Preview -V2024Options $Options  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Import-V2024SpConfig"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-sp-config-objects
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This gets the list of object configurations which are known to the tenant export/import service. Object configurations that contain "importUrl" and "exportUrl" are available for export/import.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-sp-config-objects)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -358,10 +400,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Get config object details
 
 try {
-    Get-V2024SpConfigObjects -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024SpConfigObjects -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024SpConfigObjects -V2024XSailPointExperimental $XSailPointExperimental  
+    # Get-V2024SpConfigObjects -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SpConfigObjects"
     Write-Host $_.ErrorDetails

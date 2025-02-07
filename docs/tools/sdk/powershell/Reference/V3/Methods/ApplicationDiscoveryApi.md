@@ -23,9 +23,12 @@ Method | HTTP request | Description
 [**Get-ManualDiscoverApplicationsCsvTemplate**](#get-manual-discover-applications-csv-template) | **GET** `/manual-discover-applications-template` | Download CSV Template for Discovery
 [**Send-ManualDiscoverApplicationsCsvTemplate**](#send-manual-discover-applications-csv-template) | **POST** `/manual-discover-applications` | Upload CSV to Discover Applications
 
+
 ## get-discovered-applications
 Get a list of applications that have been identified within the environment. This includes details such as application names, discovery dates, potential correlated saas_vendors and related suggested connectors.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-discovered-applications)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -64,7 +67,7 @@ $Sorters = "name" # String | Sort results using the standard syntax described in
 # Get Discovered Applications for Tenant
 
 try {
-    Get-DiscoveredApplications
+    Get-DiscoveredApplications 
     
     # Below is a request that includes all optional parameters
     # Get-DiscoveredApplications -Limit $Limit -Offset $Offset -Detail $Detail -Filter $Filter -Sorters $Sorters  
@@ -74,11 +77,14 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-manual-discover-applications-csv-template
 Download an example CSV file with two columns `application_name` and `description`.  The CSV file contains a single row with the values 'Example Application' and 'Example Description'.
 
 The downloaded template is specifically designed for use with the `/manual-discover-applications` endpoint.
 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-manual-discover-applications-csv-template)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -107,7 +113,7 @@ Code | Description  | Data Type
 # Download CSV Template for Discovery
 
 try {
-    Get-ManualDiscoverApplicationsCsvTemplate
+    Get-ManualDiscoverApplicationsCsvTemplate 
     
     # Below is a request that includes all optional parameters
     # Get-ManualDiscoverApplicationsCsvTemplate  
@@ -117,9 +123,12 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## send-manual-discover-applications-csv-template
 Uploading a CSV file with application data for manual correlation to specific ISC connectors. 
 If a suitable ISC connector is unavailable, the system will recommend generic connectors instead.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/send-manual-discover-applications-csv-template)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

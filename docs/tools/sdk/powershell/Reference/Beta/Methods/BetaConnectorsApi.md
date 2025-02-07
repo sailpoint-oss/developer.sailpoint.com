@@ -33,8 +33,11 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Get-BetaConnectorList**](#get-connector-list) | **GET** `/connectors` | Get Connector List
 
+
 ## get-connector-list
 Fetches list of connectors that have 'RELEASED' status using filtering and pagination.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-connector-list)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -74,10 +77,10 @@ $Locale = "de" # String | The locale to apply to the config. If no viable locale
 # Get Connector List
 
 try {
-    Get-BetaConnectorList
+    Get-BetaConnectorList 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaConnectorList -BetaFilters $Filters -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count -BetaLocale $Locale  
+    # Get-BetaConnectorList -Filters $Filters -Limit $Limit -Offset $Offset -Count $Count -Locale $Locale  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaConnectorList"
     Write-Host $_.ErrorDetails

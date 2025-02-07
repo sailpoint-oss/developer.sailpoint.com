@@ -32,8 +32,14 @@ Method | HTTP request | Description
 [**Get-V2024AccessModelMetadataAttribute**](#list-access-model-metadata-attribute) | **GET** `/access-model-metadata/attributes` | List Access Model Metadata Attributes
 [**Get-V2024AccessModelMetadataAttributeValue**](#list-access-model-metadata-attribute-value) | **GET** `/access-model-metadata/attributes/{key}/values` | List Access Model Metadata Values
 
+
 ## get-access-model-metadata-attribute
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Get single Access Model Metadata Attribute
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-access-model-metadata-attribute)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -66,18 +72,24 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Get Access Model Metadata Attribute
 
 try {
-    Get-V2024AccessModelMetadataAttribute -V2024Key $Key  -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024AccessModelMetadataAttribute -Key $Key -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024AccessModelMetadataAttribute -V2024Key $Key -V2024XSailPointExperimental $XSailPointExperimental  
+    # Get-V2024AccessModelMetadataAttribute -Key $Key -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024AccessModelMetadataAttribute"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-access-model-metadata-attribute-value
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Get single Access Model Metadata Attribute Value
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-access-model-metadata-attribute-value)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -112,18 +124,24 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Get Access Model Metadata Value
 
 try {
-    Get-V2024AccessModelMetadataAttributeValue -V2024Key $Key  -V2024Value $Value  -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024AccessModelMetadataAttributeValue -Key $Key -Value $Value -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024AccessModelMetadataAttributeValue -V2024Key $Key -V2024Value $Value -V2024XSailPointExperimental $XSailPointExperimental  
+    # Get-V2024AccessModelMetadataAttributeValue -Key $Key -Value $Value -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024AccessModelMetadataAttributeValue"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-access-model-metadata-attribute
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Get a list of Access Model Metadata Attributes
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-access-model-metadata-attribute)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -156,18 +174,24 @@ $Filters = 'name eq "Privacy"' # String | Filter results using the standard synt
 # List Access Model Metadata Attributes
 
 try {
-    Get-V2024AccessModelMetadataAttribute -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024AccessModelMetadataAttribute -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024AccessModelMetadataAttribute -V2024XSailPointExperimental $XSailPointExperimental -V2024Filters $Filters  
+    # Get-V2024AccessModelMetadataAttribute -XSailPointExperimental $XSailPointExperimental -Filters $Filters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024AccessModelMetadataAttribute"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-access-model-metadata-attribute-value
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Get a list of Access Model Metadata Attribute Values
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-access-model-metadata-attribute-value)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -200,10 +224,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # List Access Model Metadata Values
 
 try {
-    Get-V2024AccessModelMetadataAttributeValue -V2024Key $Key  -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024AccessModelMetadataAttributeValue -Key $Key -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024AccessModelMetadataAttributeValue -V2024Key $Key -V2024XSailPointExperimental $XSailPointExperimental  
+    # Get-V2024AccessModelMetadataAttributeValue -Key $Key -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024AccessModelMetadataAttributeValue"
     Write-Host $_.ErrorDetails

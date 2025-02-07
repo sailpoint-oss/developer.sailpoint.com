@@ -37,8 +37,11 @@ Method | HTTP request | Description
 [**Send-BetaReassignmentConfig**](#put-reassignment-config) | **PUT** `/reassignment-configurations/{identityId}` | Update Reassignment Configuration
 [**Send-BetaTenantConfiguration**](#put-tenant-configuration) | **PUT** `/reassignment-configurations/tenant-config` | Update Tenant-wide Reassignment Configuration settings
 
+
 ## create-reassignment-configuration
 Creates a new Reassignment Configuration for the specified identity.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/create-reassignment-configuration)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -76,18 +79,21 @@ $ConfigurationItemRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToConfigurationItemRequest -Json $ConfigurationItemRequest
-    New-BetaReassignmentConfiguration -BetaConfigurationItemRequest $Result
+    New-BetaReassignmentConfiguration -BetaConfigurationItemRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaReassignmentConfiguration -BetaConfigurationItemRequest $ConfigurationItemRequest  
+    # New-BetaReassignmentConfiguration -BetaConfigurationItemRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaReassignmentConfiguration"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## delete-reassignment-configuration
 Deletes a single reassignment configuration for the specified identity
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-reassignment-configuration)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -120,18 +126,21 @@ $ConfigType = "ACCESS_REQUESTS" # ConfigTypeEnum |
 # Delete Reassignment Configuration
 
 try {
-    Remove-BetaReassignmentConfiguration -BetaIdentityId $IdentityId  -BetaConfigType $ConfigType 
+    Remove-BetaReassignmentConfiguration -IdentityId $IdentityId -ConfigType $ConfigType 
     
     # Below is a request that includes all optional parameters
-    # Remove-BetaReassignmentConfiguration -BetaIdentityId $IdentityId -BetaConfigType $ConfigType  
+    # Remove-BetaReassignmentConfiguration -IdentityId $IdentityId -ConfigType $ConfigType  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaReassignmentConfiguration"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-evaluate-reassignment-configuration
 Evaluates the Reassignment Configuration for an `Identity` to determine if work items for the specified type should be reassigned. If a valid Reassignment Configuration is found for the identity & work type, then a lookup is initiated which recursively fetches the Reassignment Configuration for the next `TargetIdentity` until no more results are found or a max depth of 5. That lookup trail is provided in the response and the final reassigned identity in the lookup list is returned as the `reassignToId` property. If no Reassignment Configuration is found for the specified identity & config type then the requested Identity ID will be used as the `reassignToId` value and the lookupTrail node will be empty.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-evaluate-reassignment-configuration)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -168,18 +177,21 @@ $ExclusionFilters = @"SELF_REVIEW_DELEGATION"@ # String[] | Exclusion filters th
 # Evaluate Reassignment Configuration
 
 try {
-    Get-BetaEvaluateReassignmentConfiguration -BetaIdentityId $IdentityId  -BetaConfigType $ConfigType 
+    Get-BetaEvaluateReassignmentConfiguration -IdentityId $IdentityId -ConfigType $ConfigType 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaEvaluateReassignmentConfiguration -BetaIdentityId $IdentityId -BetaConfigType $ConfigType -BetaExclusionFilters $ExclusionFilters  
+    # Get-BetaEvaluateReassignmentConfiguration -IdentityId $IdentityId -ConfigType $ConfigType -ExclusionFilters $ExclusionFilters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaEvaluateReassignmentConfiguration"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-reassignment-config-types
 Gets a collection of types which are available in the Reassignment Configuration UI.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-reassignment-config-types)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -208,7 +220,7 @@ Code | Description  | Data Type
 # List Reassignment Config Types
 
 try {
-    Get-BetaReassignmentConfigTypes
+    Get-BetaReassignmentConfigTypes 
     
     # Below is a request that includes all optional parameters
     # Get-BetaReassignmentConfigTypes  
@@ -218,8 +230,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-reassignment-configuration
 Gets the Reassignment Configuration for an identity.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-reassignment-configuration)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -251,18 +266,21 @@ $IdentityId = "2c91808781a71ddb0181b9090b5c504f" # String | unique identity id
 # Get Reassignment Configuration
 
 try {
-    Get-BetaReassignmentConfiguration -BetaIdentityId $IdentityId 
+    Get-BetaReassignmentConfiguration -IdentityId $IdentityId 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaReassignmentConfiguration -BetaIdentityId $IdentityId  
+    # Get-BetaReassignmentConfiguration -IdentityId $IdentityId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaReassignmentConfiguration"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-tenant-config-configuration
 Gets the global Reassignment Configuration settings for the requestor's tenant.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-tenant-config-configuration)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -292,7 +310,7 @@ Code | Description  | Data Type
 # Get Tenant-wide Reassignment Configuration settings
 
 try {
-    Get-BetaTenantConfigConfiguration
+    Get-BetaTenantConfigConfiguration 
     
     # Below is a request that includes all optional parameters
     # Get-BetaTenantConfigConfiguration  
@@ -302,8 +320,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-reassignment-configurations
 Gets all Reassignment configuration for the current org.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/list-reassignment-configurations)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -333,7 +354,7 @@ Code | Description  | Data Type
 # List Reassignment Configurations
 
 try {
-    Get-BetaReassignmentConfigurations
+    Get-BetaReassignmentConfigurations 
     
     # Below is a request that includes all optional parameters
     # Get-BetaReassignmentConfigurations  
@@ -343,8 +364,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## put-reassignment-config
 Replaces existing Reassignment configuration for an identity with the newly provided configuration.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/put-reassignment-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -384,18 +408,21 @@ $ConfigurationItemRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToConfigurationItemRequest -Json $ConfigurationItemRequest
-    Send-BetaReassignmentConfig -BetaIdentityId $IdentityId  -BetaConfigurationItemRequest $Result
+    Send-BetaReassignmentConfig -IdentityId $IdentityId -BetaConfigurationItemRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-BetaReassignmentConfig -BetaIdentityId $IdentityId -BetaConfigurationItemRequest $ConfigurationItemRequest  
+    # Send-BetaReassignmentConfig -IdentityId $IdentityId -BetaConfigurationItemRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaReassignmentConfig"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## put-tenant-configuration
 Replaces existing Tenant-wide Reassignment Configuration settings with the newly provided settings.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/put-tenant-configuration)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -431,10 +458,10 @@ $TenantConfigurationRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToTenantConfigurationRequest -Json $TenantConfigurationRequest
-    Send-BetaTenantConfiguration -BetaTenantConfigurationRequest $Result
+    Send-BetaTenantConfiguration -BetaTenantConfigurationRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-BetaTenantConfiguration -BetaTenantConfigurationRequest $TenantConfigurationRequest  
+    # Send-BetaTenantConfiguration -BetaTenantConfigurationRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaTenantConfiguration"
     Write-Host $_.ErrorDetails

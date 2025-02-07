@@ -68,14 +68,6 @@ Filters can also be grouped and used together as composite filters.
 | OR   | ```( {expression} \|\| {expression} )```	 |```( type == "Employee" \|\| location == "Austin" \|\| name.isNull() )```|
 | NOT   | ```!( {expression} )```	 |```!( company == "SailPoint" )```|
 
-:::caution Important
-
-NOT (`!`) operation is not supported in composite group filters with AND (`&&`) and OR (`||`) operations.    
-Invalid Example : ```!( type == "Employee" ) || (type == "Contractor" )```  
-Equivalent Valid Example : ```( type != "Employee" ) || (type == "Contractor" )```
-
-:::
-
 #### Operation Filters
 
 |Operation	|Pattern	| Valid Examples|

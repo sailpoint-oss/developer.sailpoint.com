@@ -11,7 +11,7 @@ slug: /tools/powershell/reference/v3
 tags: ['v3']
 --- 
 
-Welcome to the PowerShell SDK documentation for API Version V3. This guide provides an overview of both Methods and Models, helping you understand how to interact with the API effectively.
+Welcome to the PowerShell SDK documentation for the Identity Security Cloud (ISC) V3 API. This reference guide provides an overview of both methods and models, which will help you understand how to interact with the API effectively.
 
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';

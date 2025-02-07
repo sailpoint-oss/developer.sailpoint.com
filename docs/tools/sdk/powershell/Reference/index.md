@@ -11,18 +11,18 @@ slug: /tools/powershell/reference
 tags: ['Reference']
 --- 
 
-Welcome to the **PowerShell SDK Reference**. This section provides detailed documentation on how to use the SDK to interact with our API, including available methods and models for each api version. Whether you're automating workflows, managing resources, or integrating with other systems, this guide will help you effectively leverage the PowerShell SDK.  
+Welcome to the **PowerShell SDK Reference**. This reference guide provides detailed documentation about how to use the SDK to interact with the Identity Security Cloud (ISC) API, including available methods and models for each API version (Beta, V3, and V2024). Whether you're automating workflows, managing resources, or integrating with other systems, this reference guide will help you effectively leverage the PowerShell SDK.  
 
 ### What You'll Find Here:  
-- **[Beta Method Reference](/docs/tools/sdk/powershell/beta/methods)** – A list of available cmdlets, their parameters, and expected outputs.  
-- **[Beta Model Definitions](/docs/tools/sdk/powershell/beta/models)** – Descriptions of objects and data structures used in the SDK.  
-- **[V3 Method Reference](/docs/tools/sdk/powershell/v3/methods)** – A list of available cmdlets, their parameters, and expected outputs.  
-- **[V3 Model Definitions](/docs/tools/sdk/powershell/v3/models)** – Descriptions of objects and data structures used in the SDK.
-- **[V2024 Method Reference](/docs/tools/sdk/powershell/v3/methods)** – A list of available cmdlets, their parameters, and expected outputs.  
-- **[V2024 Model Definitions](/docs/tools/sdk/powershell/v2024/models)** – Descriptions of objects and data structures used in the SDK.
+- **[Beta Method Reference](/docs/tools/sdk/powershell/beta/methods)** – List of available Beta cmdlets, their parameters, and expected outputs.  
+- **[Beta Model Definitions](/docs/tools/sdk/powershell/beta/models)** – Descriptions of Beta objects and data structures the SDK uses.  
+- **[V3 Method Reference](/docs/tools/sdk/powershell/v3/methods)** – List of available V3 cmdlets, their parameters, and expected outputs.  
+- **[V3 Model Definitions](/docs/tools/sdk/powershell/v3/models)** – Descriptions of V3 objects and data structures the SDK uses.
+- **[V2024 Method Reference](/docs/tools/sdk/powershell/v3/methods)** – List of available V2024 cmdlets, their parameters, and expected outputs.  
+- **[V2024 Model Definitions](/docs/tools/sdk/powershell/v2024/models)** – Descriptions of V2024 objects and data structures the SDK uses.
 - **Usage Examples** – Practical PowerShell scripts demonstrating common tasks.  
 
-Use this reference as a companion while scripting and automating tasks. If you're new to the SDK, check out the [Installation & Setup](/docs/tools/sdk/powershell) guide before diving in.
+Use this reference guide as a companion while scripting and automating tasks. If you're new to the SDK, check out [Installation & Setup](/docs/tools/sdk/powershell) before you get started.
 
 
 ```mdx-code-block

@@ -10,16 +10,17 @@ slug: /tools/sdk/powershell/v3/methods
 tags: ['SDK', 'Software Development Kit', 'v3', 'methods']
 ---
 
-Method docs provide detailed information about each API operation (or method). They describe what the method does, its input parameters, expected return values, and any considerations to keep in mind when using it.
+Method documents provide detailed information about each API operation (or method). They describe what the method does and details its input parameters, expected return values, and any considerations to be aware of when using it.
 
 ## Key Features
 - Purpose & Overview: Explains the purpose of the method and its role in the API.
-- Parameters: Describes the required input parameters, including their data types.
+- Parameters: Describe the required input parameters, including their data types.
 - Response Format: Details the expected return format or structure.
-- Error Scenarios: Outlines potential errors or issues that may arise during method execution.
+- Error Scenarios: Outline potential errors or issues that may arise during method execution.
+- Example: Provides a sample of how the API uses the method. 
 
 ## Available Methods
-Below you'll find a list of the core methods available in the PowerShell SDK for **v3** endpoints:
+This is a list of the core methods available in the PowerShell SDK for **V3** endpoints:
 
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';

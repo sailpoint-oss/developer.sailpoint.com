@@ -12,7 +12,7 @@ tags: ['beta']
 --- 
 
 
-Welcome to the PowerShell SDK documentation for API Version Beta. This guide provides an overview of both Methods and Models, helping you understand how to interact with the API effectively.
+Welcome to the PowerShell SDK documentation for the Identity Security Cloud (ISC) Beta API. This reference guide provides an overview of both methods and models, which will help you understand how to interact with the API effectively.
 
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';

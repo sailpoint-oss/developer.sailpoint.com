@@ -348,4 +348,4 @@ In the above example, we are setting the constructor with filter string value fe
 })
 ```
 
-Reference doc link Filter : [Filter Class](/docs/tools/sdk/typescript/filter.md)
+Reference doc link Filter : [Filter Class](/docs/connectivity/saas-connectivity/in-depth/filter.md)

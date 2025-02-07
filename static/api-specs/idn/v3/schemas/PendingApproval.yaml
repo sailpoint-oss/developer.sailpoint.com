@@ -4,6 +4,10 @@ properties:
     type: string
     description: The approval id.
     example: id12345
+  accessRequestId:
+    type: string
+    description: This is the access request id.
+    example: 2b838de9db9babcfe646d4f274ad4238
   name:
     type: string
     description: The name of the approval.

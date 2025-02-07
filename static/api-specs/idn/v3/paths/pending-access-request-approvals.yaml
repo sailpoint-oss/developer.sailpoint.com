@@ -1,5 +1,9 @@
 get:
   operationId: listPendingApprovals
+  security:
+    - userAuth: [ idn:access-request-approvals:read ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   summary: Pending Access Request Approvals List
   tags:
     - Access Request Approvals
@@ -41,6 +45,9 @@ get:
 
 
         **modified**: *gt, lt, ge, le, eq, in*
+        
+        
+        **accessRequestId**: *eq, in*
       example: id eq "2c91808568c529c60168cca6f90c1313"
     - in: query
       name: sorters

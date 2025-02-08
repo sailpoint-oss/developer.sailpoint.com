@@ -1,11 +1,11 @@
 ---
-id: v2024-index
-title: Index
-pagination_label: Index
-sidebar_label: Index
+id: v2024-indices
+title: Indices
+pagination_label: Indices
+sidebar_label: Indices
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Index', 'V2024Index'] 
-slug: /tools/sdk/powershell/v2024/models/index
+slug: /tools/sdk/powershell/v2024/models/indices
 tags: ['SDK', 'Software Development Kit', 'Index', 'V2024Index']
 ---
 

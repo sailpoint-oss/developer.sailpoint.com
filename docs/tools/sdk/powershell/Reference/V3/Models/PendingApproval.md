@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 **RequestCreated** | **System.DateTime** | When the access-request was created. | [optional] 
 **RequestType** | [**AccessRequestType**](access-request-type) |  | [optional] 
 **Requester** | [**AccessItemRequester**](access-item-requester) |  | [optional] 
-**RequestedFor** | [**[]AccessItemRequestedFor**](access-item-requested-for) | Identities access was requested for. | [optional] 
+**RequestedFor** | [**AccessItemRequestedFor**](access-item-requested-for) |  | [optional] 
 **Owner** | [**PendingApprovalOwner**](pending-approval-owner) |  | [optional] 
 **RequestedObject** | [**RequestableObjectReference**](requestable-object-reference) |  | [optional] 
 **RequesterComment** | [**CommentDto**](comment-dto) |  | [optional] 

@@ -18,7 +18,7 @@ Welcome to the **PowerShell SDK Reference**. This reference guide provides detai
 - **[Beta Model Definitions](/docs/tools/sdk/powershell/beta/models)** – Descriptions of Beta objects and data structures the SDK uses.  
 - **[V3 Method Reference](/docs/tools/sdk/powershell/v3/methods)** – List of available V3 cmdlets, their parameters, and expected outputs.  
 - **[V3 Model Definitions](/docs/tools/sdk/powershell/v3/models)** – Descriptions of V3 objects and data structures the SDK uses.
-- **[V2024 Method Reference](/docs/tools/sdk/powershell/v3/methods)** – List of available V2024 cmdlets, their parameters, and expected outputs.  
+- **[V2024 Method Reference](/docs/tools/sdk/powershell/v2024/methods)** – List of available V2024 cmdlets, their parameters, and expected outputs.  
 - **[V2024 Model Definitions](/docs/tools/sdk/powershell/v2024/models)** – Descriptions of V2024 objects and data structures the SDK uses.
 - **Usage Examples** – Practical PowerShell scripts demonstrating common tasks.  
 

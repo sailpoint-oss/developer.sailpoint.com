@@ -1,11 +1,11 @@
 ---
-id: indices
-title: Indices
-pagination_label: Indices
-sidebar_label: Indices
+id: index
+title: Index
+pagination_label: Index
+sidebar_label: Index
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Index', 'Index'] 
-slug: /tools/sdk/powershell/v3/models/indices
+slug: /tools/sdk/powershell/v3/models/index
 tags: ['SDK', 'Software Development Kit', 'Index', 'Index']
 ---
 

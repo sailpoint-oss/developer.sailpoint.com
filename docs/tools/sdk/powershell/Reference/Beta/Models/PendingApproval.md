@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 **RequestCreated** | **System.DateTime** | When the access-request was created. | [optional] 
 **RequestType** | [**AccessRequestType**](access-request-type) |  | [optional] 
 **Requester** | [**AccessItemRequesterDto**](access-item-requester-dto) |  | [optional] 
-**RequestedFor** | [**[]AccessItemRequestedForDto**](access-item-requested-for-dto) | Identities access was requested for. | [optional] 
+**RequestedFor** | [**AccessItemRequestedForDto**](access-item-requested-for-dto) |  | [optional] 
 **Owner** | [**AccessItemOwnerDto**](access-item-owner-dto) |  | [optional] 
 **RequestedObject** | [**RequestableObjectReference**](requestable-object-reference) |  | [optional] 
 **RequesterComment** | [**CommentDto1**](comment-dto1) |  | [optional] 

@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Created** | **System.DateTime** | A date-time in ISO-8601 format | [optional] 
 **Modified** | **System.DateTime** | A date-time in ISO-8601 format | [optional] 
-**Indices** | [**[]Index**](Indices) | The names of the Elasticsearch indices in which to search.  | [required]
+**Indices** | [**[]Index**](indices) | The names of the Elasticsearch indices in which to search.  | [required]
 **Columns** | [**map[string]Column[]**](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_arrays?view=powershell-7.4) | The columns to be returned (specifies the order in which they will be presented) for each document type.  The currently supported document types are: _accessprofile_, _accountactivity_, _account_, _aggregation_, _entitlement_, _event_, _identity_, and _role_.  | [optional] 
 **Query** | **String** | The search query using Elasticsearch [Query String Query](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/query-dsl-query-string-query.html#query-string) syntax from the Query DSL.  | [required]
 **Fields** | **[]String** | The fields to be searched against in a multi-field query.  | [optional] 

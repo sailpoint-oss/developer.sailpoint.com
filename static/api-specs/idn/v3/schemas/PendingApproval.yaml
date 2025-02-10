@@ -33,12 +33,7 @@ properties:
   requester:
     $ref: './AccessItemRequester.yaml'
   requestedFor:
-    type: array
-    description: Identities access was requested for. 
-    items: 
-      $ref: './AccessItemRequestedFor.yaml'
-    minItems: 1
-    maxItems: 10
+    $ref: './AccessItemRequestedFor.yaml'
   owner:
     type: object
     description: Access item owner's identity. 

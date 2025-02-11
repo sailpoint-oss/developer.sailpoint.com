@@ -76,3 +76,5 @@ Use this logic to implement the command:
 ```
 
 The `output` object can be mutated and returned, but the same data type must still be returned.
+
+CAUTION - There will be delay in the aggregation process due to this customization process that involves additional processing.

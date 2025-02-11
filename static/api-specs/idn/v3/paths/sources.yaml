@@ -1,7 +1,8 @@
 get:
   operationId: listSources
   security:
-    - userAuth: [ idn:sources:read ]
+    - userAuth: [idn:sources:read, idn:sources:manage]
+    - applicationAuth: [idn:sources:read, idn:sources:manage] 
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - SOURCE_ADMIN

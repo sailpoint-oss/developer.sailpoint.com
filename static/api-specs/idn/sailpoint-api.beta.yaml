@@ -1305,6 +1305,8 @@ paths:
     $ref: './beta/paths/identity-certifications-item-permissions.yaml'
   /certifications/{id}/reviewers:
     $ref: './beta/paths/certifications-reviewers.yaml'
+  /certifications:
+    $ref: './beta/paths/certifications.yaml'
   /connector-rules:
     $ref: './beta/paths/connector-rules.yaml'
   /connector-rules/{id}:

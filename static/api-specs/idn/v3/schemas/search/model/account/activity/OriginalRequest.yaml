@@ -4,6 +4,8 @@ properties:
     type: string
     description: Account ID. 
     example: CN=Abby Smith,OU=Austin,OU=Americas,OU=Demo,DC=seri,DC=acme,DC=com
+  result:
+    $ref: "Result.yaml"
   attributeRequests:
     type: array
     description: Attribute changes requested for account. 

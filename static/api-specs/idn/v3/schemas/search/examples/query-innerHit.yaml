@@ -6,4 +6,4 @@ value:
     query: '"John Doe"'
     innerHit:
       type: 'access'
-      query: 'source.name:\"Active Directory\"'
+      query: 'source.name:"Active Directory"'

@@ -2,9 +2,8 @@ allOf:
   - $ref: "../base/DisplayReference.yaml"
   - type: object
     properties:
-      type:
-        $ref: "../../../DtoType.yaml"
       description:
+        description: Description of access item.
         type: string
         nullable: true
         example: null

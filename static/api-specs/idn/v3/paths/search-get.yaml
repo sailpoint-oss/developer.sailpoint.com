@@ -6,6 +6,16 @@ get:
   operationId: searchGet
   security:
     - userAuth: [ sp:search:read ]
+    - applicationAuth: [ sp:search:read ] 
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - CERT_ADMIN
+    - REPORT_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+    - ROLE_ADMIN
+    - ROLE_SUBADMIN
+    - HELPDESK
   summary: "Get a Document by ID"
   parameters:
   - $ref: '../parameters/path/search/index.yaml'
@@ -20,6 +30,8 @@ get:
           examples: 
             accessProfile:
               $ref: '../schemas/search/documents/examples/accessProfile.yaml'
+            accountActivity:
+              $ref: '../schemas/search/documents/examples/accountActivity.yaml'
             entitlement:
               $ref: '../schemas/search/documents/examples/entitlement.yaml'
             event:

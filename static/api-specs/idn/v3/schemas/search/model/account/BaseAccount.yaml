@@ -45,3 +45,17 @@ allOf:
         nullable: true
         format: 'date-time'
         example: '2018-06-25T20:22:28.104Z'
+      supportsPasswordChange:
+        type: boolean
+        description: Indicates whether the account supports password change. 
+        default: false
+        example: false
+      accountAttributes:
+        type: object
+        nullable: true
+        description: Map or dictionary of key/value pairs.
+        additionalProperties: true
+        example:
+          type: global
+          admin: true
+          trust_level: "4"

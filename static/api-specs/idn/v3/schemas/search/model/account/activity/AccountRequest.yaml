@@ -27,6 +27,7 @@ properties:
             [\n      \"groups\"\n    ],\n    \"path\": [],\n    \"message\":
             \"Unrecognized key(s) in object: 'groups'\"\n  }\n] (requestId:
             5e9d6df5-9b1b-47d9-9bf1-dc3a2893299e)"
+        description: Error message.
       status:
         type: string
         description: The status of the account request
@@ -35,5 +36,6 @@ properties:
         type: string
         nullable: true
         example: null
+        description: ID of associated ticket.
   source:
     $ref: "../AccountSource.yaml"

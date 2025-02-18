@@ -32,4 +32,4 @@ properties:
       The results of the aggregation search query.
     type: array
     items:
-      $ref: 'SearchDocument.yaml'
+      $ref: 'SearchDocuments.yaml'

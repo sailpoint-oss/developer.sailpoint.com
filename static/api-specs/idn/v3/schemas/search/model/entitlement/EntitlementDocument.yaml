@@ -33,9 +33,13 @@ allOf:
             type: string
             description: Display name of entitlement's source.
             example: ODS-HR-Employees
+          type:
+            type: string
+            example: SOURCE
+            description: Type of object.
       segments:
         type: array
-        description: Segments with the role. 
+        description: Segments with the entitlement. 
         items:
           $ref: '../base/BaseSegment.yaml'
       segmentCount:
@@ -64,10 +68,66 @@ allOf:
         description: Indicates whether the entitlement is privileged. 
         default: false
         example: false
-      identityCount:
-        type: integer
-        description: Number of identities who have access to the entitlement. 
-        format: int32
-        example: 3
       tags:
         $ref: "../base/Tags.yaml"
+      attribute:
+        type: string
+        description: Attribute information for the entitlement. 
+        example: groups
+      value:
+        type: string
+        description: Value of the entitlement.
+        example: 1733ff75-441e-4327-9bfc-3ac445fd8cd1
+      sourceSchemaObjectType:
+        type: string
+        description: Source schema object type of the entitlement.
+        example: group
+      schema:
+        type: string
+        description: Schema type of the entitlement.
+        example: group
+      hash:
+        type: string
+        description: Read-only calculated hash value of an entitlement.
+        example: c6fab95235584cca98a454a2f51e5683bc77d6a0
+      attributes:
+        type: object
+        additionalProperties: true
+        description: Attributes of the entitlement.
+      truncatedAttributes:
+        type: array
+        description: Truncated attributes of the entitlement.
+        items:
+          type: string
+      containsDataAccess:
+        type: boolean
+        description: Indicates whether the entitlement contains data access. 
+        default: false
+      manuallyUpdatedFields:
+        type: object
+        description: Indicates whether the entitlement's display name and/or description have been manually updated.
+        nullable: true
+        properties:
+          DESCRIPTION:
+            type: boolean
+            default: false
+            example: false
+          DISPLAY_NAME:
+            type: boolean
+            default: false
+            example: false
+      permissions:
+        type: array
+        items:
+          type: object
+          properties:
+            target:
+              type: string
+              description: The target the permission would grants rights on.
+              example: SYS.GV_$TRANSACTION
+            rights:
+              type: array
+              description: All the rights (e.g. actions) that this permission allows on the target
+              items:
+                type: string
+                example: SELECT

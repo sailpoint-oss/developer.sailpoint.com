@@ -7,8 +7,6 @@ type: string
 enum:
   - accessprofile
   - accountactivity
-  - account
-  - aggregation
   - entitlement
   - event
   - identity

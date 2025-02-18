@@ -1,4 +1,4 @@
-summary: TypeAheadQuery with NestedType
+summary: TypeAhead Query with NestedType
 value:
   indices:
   - 'identities'

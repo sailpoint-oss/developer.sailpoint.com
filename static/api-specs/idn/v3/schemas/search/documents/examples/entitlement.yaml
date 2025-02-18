@@ -1,23 +1,21 @@
 summary: Entitlement
 value:
-  id: '2c9180946ed0c43d016eec1a80892fbd'
-  name: 'entitlement.aa415ae7'
-  description: 'null'
-  attribute: 'groups'
-  value: 'entitlement.aa415ae7'
-  modified: '2019-12-09T19:19:50.154Z'
-  created: '2018-12-07T01:07:48Z'
-  synced: '2020-02-19T04:30:32.906Z'
-  displayName: 'entitlement.aa415ae7'
-  source:
-    id: '2c91808b6e9e6fb8016eec1a2b6f7b5f'
-    name: 'ODS-HR-Employees'
-  owner:
-    type: 'IDENTITY'
-    id: '2c9180858315595501831958427e5424'
-    name: 'Addie Lee'
+  id: 2c9180867dde18d1017de8ea1f5c130f
+  name: Vendor Creation
+  displayName: Vendor Creation
+  created: 2021-12-23T20:09:57.340Z
+  modified: 2023-05-02T06:31:19.357Z
+  attribute: groups
+  value: VC
+  sourceSchemaObjectType: group
+  schema: group
   privileged: false
-  identityCount: 68
-  tags:
-    - 'TAG_1'
-    - 'TAG_2'
+  cloudGoverned: false
+  hash: 22ac1f7a13c8a462c67ee74f5fcbf06a277cce50
+  description: Set up new AP vendors
+  requestable: false
+  source:
+    id: 2c9180887de347a7017de8e75fa5570a
+    type: SOURCE
+    name: Finance
+  containsDataAccess: "false"

@@ -5,6 +5,10 @@ allOf:
     properties:
       source:
         $ref: "../base/Reference.yaml"
+      type:
+        type: string
+        description: Type of the access item.
+        example: ENTITLEMENT
       privileged:
         type: boolean
         example: false

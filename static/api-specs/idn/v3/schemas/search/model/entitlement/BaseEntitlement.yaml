@@ -8,6 +8,7 @@ properties:
   description:
     type: string
     description: Entitlement's description. 
+    nullable: true
     example: Cloud engineering 
   attribute:
     type: string

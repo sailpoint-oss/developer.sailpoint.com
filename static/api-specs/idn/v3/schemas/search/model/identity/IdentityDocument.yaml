@@ -115,11 +115,21 @@ allOf:
         country: "US"
         firstname: "Carol"
         cloudStatus: "UNREGISTERED"
+    disabled:
+      type: boolean
+      description: Indicates whether the identity is disabled.
+      default: false
+      example: false
+    locked:
+      type: boolean
+      description: Indicates whether the identity is locked.
+      default: false
+      example: false
     processingState:
       type: string
       description: Identity's processing state. 
       nullable: true
-      example: null
+      example: ERROR
     processingDetails:
       $ref: 'ProcessingDetails.yaml'
       description: Identity's processing details. 
@@ -181,3 +191,19 @@ allOf:
       example: 5
     tags:
       $ref: '../base/Tags.yaml'
+    tagsCount:
+      type: integer
+      format: int32
+      description: Number of tags on the identity.
+    visibleSegments:
+      type: array
+      description: List of segments that the identity is in.
+      items:
+        type: string
+      nullable: true
+      example: [ "All Employees" ]
+    visibleSegmentCount:
+      type: integer
+      format: int32
+      description: Number of segments the identity is in.
+      example: 1

@@ -14,4 +14,4 @@ schema:
     - identities
     - roles
 required: true
-example: accounts
+example: identities

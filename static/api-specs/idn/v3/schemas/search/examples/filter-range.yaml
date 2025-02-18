@@ -15,7 +15,7 @@ value:
       type: 'RANGE'
       range:
         lower:
-          value: '2019-12-01'
+          value: '2023-12-01'
           inclusive: true
         upper:
-          value: '2020-01-01'
+          value: '2025-01-01'

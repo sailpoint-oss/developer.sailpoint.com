@@ -7,13 +7,20 @@ properties:
   cause:
     type: string
     example: Role
+    description: Cause of the expansion item.
   name:
     type: string
     description: The name of the item
     example: smartsheet-role
-  attributeRequests:
-    type: array
-    items:
-      $ref: "AttributeRequest.yaml"
+  attributeRequest:
+    $ref: "AttributeRequest.yaml"
   source:
     $ref: "../AccountSource.yaml"
+  id:
+    type: string
+    description: ID of the expansion item
+    example: ac2887ffe0e7435a8c18c73f7ae94c7b
+  state:
+    type: string
+    description: State of the expansion item
+    example: EXECUTING

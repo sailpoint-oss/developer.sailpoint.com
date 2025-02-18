@@ -1,24 +1,27 @@
 summary: Event
 value:
-  id: 'e092842f-c904-4b59-aac8-2544abeeef4b'
-  name: 'Update Task Schedule Passed'
-  created: '2020-02-17T16:23:18.327Z'
-  synced: '2020-02-17T16:23:18.388Z'
-  action: 'TASK_SCHEDULE_UPDATE_PASSED'
-  type: 'SYSTEM_CONFIG'
-  actor:
-    name: 'MantisTaskScheduler'
-  target:
-    name: 'Perform provisioning activity search delete synchronization'
-  stack: 'tpe'
-  trackingNumber: 'c6b98bc39ece48b080826d16c76b166c'
-  ipAddress: '207.189.160.158'
-  details: "null"
-  attributes:
-    sourceName: 'SailPoint'
+  id: 001909ce8cc3b519436197105426b18b5fc6ca179803c0c3702e9038107bec78
+  stack: wps
+  synced: 2023-06-01T22:01:38.170Z
+  created: 2023-06-01T22:01:37.818Z
   objects:
-  - 'TASK'
-  - 'SCHEDULE'
-  operation: 'UPDATE'
-  status: 'PASSED'
-  technicalName: 'TASK_SCHEDULE_UPDATE_PASSED'
+    - ACCOUNT
+  type: PROVISIONING
+  technicalName: ACCOUNT_MODIFY_PASSED
+  target:
+    name: Colt.Spears
+  actor:
+    name: System
+  name: Modify Account Passed
+  action: ModifyAccount
+  attributes:
+    accountUuid: "{2d1ec18a-84cc-4659-bf75-a1ce4d56a9c5}"
+    cloudAppName: Active Directory
+    appId: 5c71ff71195b4794a0b87e7cf36fb017
+    sourceId: source
+    sourceName: Active Directory
+    accountName: CN=Colt Spears,OU=Sales,OU=AI,OU=Demo,DC=seri,DC=sailpoint,DC=com
+    interface: Identity Refresh
+    trackingNumber: 1f74901adbc0412d9fa51314195155be
+  operation: MODIFY
+  status: PASSED

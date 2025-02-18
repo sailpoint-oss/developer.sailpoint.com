@@ -11,6 +11,16 @@ post:
   operationId: searchPost
   security:
     - userAuth: [ sp:search:read ]
+    - applicationAuth: [ sp:search:read ] 
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - CERT_ADMIN
+    - REPORT_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+    - ROLE_ADMIN
+    - ROLE_SUBADMIN
+    - HELPDESK
   summary: "Perform Search"
   parameters:
   - $ref: '../parameters/offset.yaml'
@@ -22,6 +32,18 @@ post:
         schema:
           $ref: '../schemas/search/Search.yaml'
         examples:
+          accessProfiles:
+            $ref: '../schemas/search/examples/query-accessprofiles.yaml'
+          accountActivities:
+            $ref: '../schemas/search/examples/query-accountactivities.yaml'
+          entitlements:
+            $ref: '../schemas/search/examples/query-entitlements.yaml'
+          events:
+            $ref: '../schemas/search/examples/query-events.yaml'
+          identities:
+            $ref: '../schemas/search/examples/query-identities.yaml'
+          roles:
+            $ref: '../schemas/search/examples/query-roles.yaml'
           query-fields:
             $ref: '../schemas/search/examples/query-fields.yaml'
           query-timeZone:
@@ -47,10 +69,12 @@ post:
           schema:
             type: array
             items:
-              $ref: '../schemas/search/documents/SearchDocument.yaml'
+              $ref: '../schemas/search/documents/SearchDocuments.yaml'
           examples: 
             accessProfiles: 
               $ref: '../schemas/search/documents/examples/accessProfiles.yaml'
+            accountActivities: 
+              $ref: '../schemas/search/documents/examples/accountActivities.yaml'
             entitlements:
               $ref: '../schemas/search/documents/examples/entitlements.yaml'
             events:
@@ -59,6 +83,22 @@ post:
               $ref: '../schemas/search/documents/examples/identities.yaml'
             roles:
               $ref: '../schemas/search/documents/examples/roles.yaml'
+            query-fields:
+              $ref: '../schemas/search/documents/examples/queryFields.yaml'
+            query-timeZone:
+              $ref: '../schemas/search/documents/examples/queryTimeZone.yaml'
+            query-innerHit:
+              $ref: '../schemas/search/documents/examples/queryInnerHit.yaml'
+            typeAheadQuery:
+              $ref: '../schemas/search/documents/examples/typeAheadQuery.yaml'
+            typeAheadQuery-nestedType:
+              $ref: '../schemas/search/documents/examples/typeAheadQueryNestedType.yaml'
+            filter-exists:
+              $ref: '../schemas/search/documents/examples/filterExists.yaml'
+            filter-range:
+              $ref: '../schemas/search/documents/examples/filterRange.yaml'    
+            filter-terms:
+              $ref: '../schemas/search/documents/examples/filterTerms.yaml'       
       headers:
         X-Total-Count:
           schema:

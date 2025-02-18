@@ -3,8 +3,8 @@ value:
   indices:
   - 'identities'
   query:
-    query: 'attributes.city:London'
+    query: 'attributes.city:Austin'
   filters:
-    attributes.cloudAuthoritativeSource:
+    attributes.personalEmail:
       type: 'EXISTS'
       exclude: true

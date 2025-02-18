@@ -11,7 +11,7 @@ value:
       - 'HR Employees'
       - 'Corporate Active Directory'
       exclude: true
-    protected:
+    isManager:
       type: 'TERMS'
       terms:
         - 'true'

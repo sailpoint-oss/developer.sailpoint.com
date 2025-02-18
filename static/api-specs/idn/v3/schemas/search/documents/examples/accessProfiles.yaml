@@ -1,32 +1,40 @@
-summary: 'A collection of AccessProfiles'
+summary: 'A collection of Access Profiles'
 value:
-  - id: '2c9180825a6c1adc015a71c9023f0818'
-    name: 'Cloud Eng'
-    _type: 'accessprofile'
-    description: 'Cloud Eng'
-    created: '2017-02-24T20:21:23.145Z'
-    modified: '2019-05-24T20:36:04.312Z'
-    synced: '2020-02-18T05:30:20.414Z'
+  - id: 13b856dd9a264206954b63ecbb57a853
+    name: Cloud Eng
+    description: Cloud Eng
+    source:
+      id: 5c71ff71195b4794a0b87e7cf36fb017
+      name: Active Directory
+    entitlements:
+      - hasPermissions: false
+        attribute: memberOf
+        value: CN=Cloud Engineering,DC=sailpoint,DC=com
+        schema: group
+        privileged: false
+        id: 7372eaddd75749bd89a2e76a363eb891
+        name: Cloud Engineering
+        description: Cloud Engineering
+    entitlementCount: 1
+    segments: []
+    segmentCount: 0
+    apps: []
+    created: 2024-09-16T17:41:25Z
+    modified: 2024-09-16T19:30:54Z
+    synced: 2025-02-12T06:32:40.156Z
     enabled: true
     requestable: true
     requestCommentsRequired: false
     owner:
-      id: 'ff8081815757d36a015757d42e56031e'
-      name: 'SailPoint Support'
-      type: 'IDENTITY'
-      email: 'cloud-support@sailpoint.com'
-    source:
-      id: 'ff8081815757d4fb0157588f3d9d008f'
-      name: 'Employees'
-    entitlements:
-    - id: '2c918084575812550157589064f33b89'
-      name: 'CN=Cloud Engineering,DC=sailpoint,DC=COM'
-      description: mull
-      attribute: 'memberOf'
-      value: 'CN=Cloud Engineering,DC=sailpoint,DC=COM'
-    entitlementCount: 1
+      id: ff8081815757d36a015757d42e56031e
+      name: SailPoint Support
+      type: IDENTITY
+      email: cloud-support@sailpoint.com
     tags:
-    - 'TAG_1'
-    - 'TAG_2'
-
-      
+      - TAG_1
+      - TAG_2
+    _type: accessprofile
+    type: accessprofile
+    pod: pod01-useast1
+    org: org-name
+    _version: v2

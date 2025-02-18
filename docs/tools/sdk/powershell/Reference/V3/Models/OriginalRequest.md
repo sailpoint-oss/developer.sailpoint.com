@@ -17,6 +17,7 @@ tags: ['SDK', 'Software Development Kit', 'OriginalRequest', 'OriginalRequest']
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AccountId** | **String** | Account ID. | [optional] 
+**Result** | [**Result**](result) |  | [optional] 
 **AttributeRequests** | [**[]AttributeRequest**](attribute-request) | Attribute changes requested for account. | [optional] 
 **Op** | **String** | Operation used. | [optional] 
 **Source** | [**AccountSource**](account-source) |  | [optional] 
@@ -26,6 +27,7 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $OriginalRequest = Initialize-PSSailpoint.V3OriginalRequest  -AccountId CN&#x3D;Abby Smith,OU&#x3D;Austin,OU&#x3D;Americas,OU&#x3D;Demo,DC&#x3D;seri,DC&#x3D;acme,DC&#x3D;com `
+ -Result null `
  -AttributeRequests null `
  -Op add `
  -Source null

@@ -1,16 +1,16 @@
 ---
-id: base-access-all-of-owner
-title: BaseAccessAllOfOwner
-pagination_label: BaseAccessAllOfOwner
-sidebar_label: BaseAccessAllOfOwner
+id: base-access-owner
+title: BaseAccessOwner
+pagination_label: BaseAccessOwner
+sidebar_label: BaseAccessOwner
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'BaseAccessAllOfOwner', 'BaseAccessAllOfOwner'] 
-slug: /tools/sdk/powershell/v3/models/base-access-all-of-owner
-tags: ['SDK', 'Software Development Kit', 'BaseAccessAllOfOwner', 'BaseAccessAllOfOwner']
+keywords: ['powershell', 'PowerShell', 'sdk', 'BaseAccessOwner', 'BaseAccessOwner'] 
+slug: /tools/sdk/powershell/v3/models/base-access-owner
+tags: ['SDK', 'Software Development Kit', 'BaseAccessOwner', 'BaseAccessOwner']
 ---
 
 
-# BaseAccessAllOfOwner
+# BaseAccessOwner
 
 ## Properties
 
@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$BaseAccessAllOfOwner = Initialize-PSSailpoint.V3BaseAccessAllOfOwner  -Type IDENTITY `
+$BaseAccessOwner = Initialize-PSSailpoint.V3BaseAccessOwner  -Type IDENTITY `
  -Id 2c9180a46faadee4016fb4e018c20639 `
  -Name Support `
  -Email cloud-support@sailpoint.com
@@ -33,7 +33,7 @@ $BaseAccessAllOfOwner = Initialize-PSSailpoint.V3BaseAccessAllOfOwner  -Type IDE
 
 - Convert the resource to JSON
 ```powershell
-$BaseAccessAllOfOwner | ConvertTo-JSON
+$BaseAccessOwner | ConvertTo-JSON
 ```
 
 

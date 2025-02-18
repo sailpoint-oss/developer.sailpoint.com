@@ -19,8 +19,8 @@ Name | Type | Description | Notes
 **Id** | **String** | The unique ID of the referenced object. | [optional] 
 **Name** | **String** | The human readable name of the referenced object. | [optional] 
 **DisplayName** | **String** |  | [optional] 
-**Type** | [**DtoType**](dto-type) |  | [optional] 
-**Description** | **String** |  | [optional] 
+**Description** | **String** | Description of access item. | [optional] 
+**Type** | **String** | Type of the access item. | [optional] 
 **Source** | [**Reference1**](reference1) |  | [optional] 
 **Owner** | [**DisplayReference**](display-reference) |  | [optional] 
 **Revocable** | **Boolean** |  | [optional] 
@@ -37,8 +37,8 @@ Name | Type | Description | Notes
 $IdentityAccess = Initialize-PSSailpoint.V3IdentityAccess  -Id 2c91808568c529c60168cca6f90c1313 `
  -Name John Doe `
  -DisplayName John Q. Doe `
- -Type null `
  -Description null `
+ -Type ROLE `
  -Source null `
  -Owner null `
  -Revocable null `

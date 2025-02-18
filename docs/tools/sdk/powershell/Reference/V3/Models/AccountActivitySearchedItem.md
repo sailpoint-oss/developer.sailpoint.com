@@ -16,17 +16,15 @@ tags: ['SDK', 'Software Development Kit', 'AccountActivitySearchedItem', 'Accoun
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **String** |  | [required]
-**Name** | **String** |  | [required]
-**Type** | [**DocumentType**](document-type) |  | [required]
+**Id** | **String** | ID of account activity. | [optional] 
 **Action** | **String** | Type of action performed in the activity. | [optional] 
 **Created** | **System.DateTime** | ISO-8601 date-time referring to the time when the object was created. | [optional] 
 **Modified** | **System.DateTime** | ISO-8601 date-time referring to the time when the object was last modified. | [optional] 
+**Synced** | **String** | ISO-8601 date-time referring to the date-time when object was queued to be synced into search database for use in the search API.   This date-time changes anytime there is an update to the object, which triggers a synchronization event being sent to the search database.  There may be some delay between the `synced` time and the time when the updated data is actually available in the search API.  | [optional] 
 **Stage** | **String** | Activity's current stage. | [optional] 
-**Origin** | **String** | Activity's origin. | [optional] 
 **Status** | **String** | Activity's current status. | [optional] 
-**Requester** | [**AccountSource**](account-source) |  | [optional] 
-**Recipient** | [**AccountSource**](account-source) |  | [optional] 
+**Requester** | [**ActivityIdentity**](activity-identity) |  | [optional] 
+**Recipient** | [**ActivityIdentity**](activity-identity) |  | [optional] 
 **TrackingNumber** | **String** | Account activity's tracking number. | [optional] 
 **Errors** | **[]String** | Errors provided by the source while completing account actions. | [optional] 
 **Warnings** | **[]String** | Warnings provided by the source while completing account actions. | [optional] 
@@ -41,13 +39,11 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $AccountActivitySearchedItem = Initialize-PSSailpoint.V3AccountActivitySearchedItem  -Id 2c91808375d8e80a0175e1f88a575222 `
- -Name john.doe `
- -Type null `
  -Action Identity Refresh. `
  -Created 2018-06-25T20:22:28.104Z `
  -Modified 2018-06-25T20:22:28.104Z `
+ -Synced 2018-06-25T20:22:28.104Z `
  -Stage Completed `
- -Origin null `
  -Status Complete `
  -Requester null `
  -Recipient null `

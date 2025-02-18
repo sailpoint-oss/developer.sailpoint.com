@@ -27,6 +27,8 @@ Name | Type | Description | Notes
 **PasswordLastSet** | **System.DateTime** | A date-time in ISO-8601 format | [optional] 
 **EntitlementAttributes** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | Map or dictionary of key/value pairs. | [optional] 
 **Created** | **System.DateTime** | ISO-8601 date-time referring to the time when the object was created. | [optional] 
+**SupportsPasswordChange** | **Boolean** | Indicates whether the account supports password change. | [optional] [default to $false]
+**AccountAttributes** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | Map or dictionary of key/value pairs. | [optional] 
 
 ## Examples
 
@@ -42,7 +44,9 @@ $BaseAccount = Initialize-PSSailpoint.V3BaseAccount  -Id 2c91808568c529c60168cca
  -ManuallyCorrelated false `
  -PasswordLastSet 2018-06-25T20:22:28.104Z `
  -EntitlementAttributes {moderator&#x3D;true, admin&#x3D;true, trust_level&#x3D;4} `
- -Created 2018-06-25T20:22:28.104Z
+ -Created 2018-06-25T20:22:28.104Z `
+ -SupportsPasswordChange false `
+ -AccountAttributes {type&#x3D;global, admin&#x3D;true, trust_level&#x3D;4}
 ```
 
 - Convert the resource to JSON

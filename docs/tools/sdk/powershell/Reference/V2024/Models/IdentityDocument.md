@@ -18,7 +18,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** | The unique ID of the referenced object. | [required]
 **Name** | **String** | The human readable name of the referenced object. | [required]
-**Type** | [**DocumentType**](document-type) |  | [required]
 **DisplayName** | **String** | Identity's display name. | [optional] 
 **FirstName** | **String** | Identity's first name. | [optional] 
 **LastName** | **String** | Identity's last name. | [optional] 
@@ -36,6 +35,8 @@ Name | Type | Description | Notes
 **IdentityProfile** | [**IdentityDocumentAllOfIdentityProfile**](identity-document-all-of-identity-profile) |  | [optional] 
 **Source** | [**IdentityDocumentAllOfSource**](identity-document-all-of-source) |  | [optional] 
 **Attributes** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | Map or dictionary of key/value pairs. | [optional] 
+**Disabled** | **Boolean** | Indicates whether the identity is disabled. | [optional] [default to $false]
+**Locked** | **Boolean** | Indicates whether the identity is locked. | [optional] [default to $false]
 **ProcessingState** | **String** | Identity's processing state. | [optional] 
 **ProcessingDetails** | [**ProcessingDetails**](processing-details) |  | [optional] 
 **Accounts** | [**[]BaseAccount**](base-account) | List of accounts associated with the identity. | [optional] 
@@ -50,6 +51,9 @@ Name | Type | Description | Notes
 **Owns** | [**[]Owns**](owns) | Access items the identity owns. | [optional] 
 **OwnsCount** | **Int32** | Number of access items the identity owns. | [optional] 
 **Tags** | **[]String** | Tags that have been applied to the object. | [optional] 
+**TagsCount** | **Int32** | Number of tags on the identity. | [optional] 
+**VisibleSegments** | **[]String** | List of segments that the identity is in. | [optional] 
+**VisibleSegmentCount** | **Int32** | Number of segments the identity is in. | [optional] 
 
 ## Examples
 
@@ -57,7 +61,6 @@ Name | Type | Description | Notes
 ```powershell
 $IdentityDocument = Initialize-PSSailpoint.V2024IdentityDocument  -Id 2c91808568c529c60168cca6f90c1313 `
  -Name John Doe `
- -Type null `
  -DisplayName Carol.Adams `
  -FirstName Carol `
  -LastName Adams `
@@ -75,7 +78,9 @@ $IdentityDocument = Initialize-PSSailpoint.V2024IdentityDocument  -Id 2c91808568
  -IdentityProfile null `
  -Source null `
  -Attributes {country&#x3D;US, firstname&#x3D;Carol, cloudStatus&#x3D;UNREGISTERED} `
- -ProcessingState null `
+ -Disabled false `
+ -Locked false `
+ -ProcessingState ERROR `
  -ProcessingDetails null `
  -Accounts null `
  -AccountCount 3 `
@@ -88,7 +93,10 @@ $IdentityDocument = Initialize-PSSailpoint.V2024IdentityDocument  -Id 2c91808568
  -AccessProfileCount 1 `
  -Owns null `
  -OwnsCount 5 `
- -Tags [TAG_1, TAG_2]
+ -Tags [TAG_1, TAG_2] `
+ -TagsCount null `
+ -VisibleSegments [All Employees] `
+ -VisibleSegmentCount 1
 ```
 
 - Convert the resource to JSON

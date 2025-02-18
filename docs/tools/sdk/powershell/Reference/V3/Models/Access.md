@@ -19,8 +19,7 @@ Name | Type | Description | Notes
 **Id** | **String** | The unique ID of the referenced object. | [optional] 
 **Name** | **String** | The human readable name of the referenced object. | [optional] 
 **DisplayName** | **String** |  | [optional] 
-**Type** | [**DtoType**](dto-type) |  | [optional] 
-**Description** | **String** |  | [optional] 
+**Description** | **String** | Description of access item. | [optional] 
 
 ## Examples
 
@@ -29,7 +28,6 @@ Name | Type | Description | Notes
 $Access = Initialize-PSSailpoint.V3Access  -Id 2c91808568c529c60168cca6f90c1313 `
  -Name John Doe `
  -DisplayName John Q. Doe `
- -Type null `
  -Description null
 ```
 

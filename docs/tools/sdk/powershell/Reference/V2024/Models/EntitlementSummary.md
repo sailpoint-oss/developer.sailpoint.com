@@ -19,9 +19,9 @@ Name | Type | Description | Notes
 **Id** | **String** | The unique ID of the referenced object. | [optional] 
 **Name** | **String** | The human readable name of the referenced object. | [optional] 
 **DisplayName** | **String** |  | [optional] 
-**Type** | [**DtoType**](dto-type) |  | [optional] 
-**Description** | **String** |  | [optional] 
+**Description** | **String** | Description of access item. | [optional] 
 **Source** | [**Reference1**](reference1) |  | [optional] 
+**Type** | **String** | Type of the access item. | [optional] 
 **Privileged** | **Boolean** |  | [optional] 
 **Attribute** | **String** |  | [optional] 
 **Value** | **String** |  | [optional] 
@@ -34,9 +34,9 @@ Name | Type | Description | Notes
 $EntitlementSummary = Initialize-PSSailpoint.V2024EntitlementSummary  -Id 2c91808568c529c60168cca6f90c1313 `
  -Name John Doe `
  -DisplayName John Q. Doe `
- -Type null `
  -Description null `
  -Source null `
+ -Type ENTITLEMENT `
  -Privileged false `
  -Attribute memberOf `
  -Value CN&#x3D;Buyer,OU&#x3D;Groups,OU&#x3D;Demo,DC&#x3D;seri,DC&#x3D;sailpointdemo,DC&#x3D;com `

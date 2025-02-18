@@ -17,22 +17,22 @@ tags: ['SDK', 'Software Development Kit', 'Approval', 'Approval']
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Comments** | [**[]ApprovalComment**](approval-comment) |  | [optional] 
-**Created** | **System.DateTime** | A date-time in ISO-8601 format | [optional] 
 **Modified** | **System.DateTime** | A date-time in ISO-8601 format | [optional] 
-**Owner** | [**AccountSource**](account-source) |  | [optional] 
+**Owner** | [**ActivityIdentity**](activity-identity) |  | [optional] 
 **Result** | **String** | The result of the approval | [optional] 
-**Type** | **String** |  | [optional] 
+**AttributeRequest** | [**AttributeRequest**](attribute-request) |  | [optional] 
+**Source** | [**AccountSource**](account-source) |  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
 $Approval = Initialize-PSSailpoint.V3Approval  -Comments null `
- -Created 2018-06-25T20:22:28.104Z `
  -Modified 2018-06-25T20:22:28.104Z `
  -Owner null `
  -Result Finished `
- -Type null
+ -AttributeRequest null `
+ -Source null
 ```
 
 - Convert the resource to JSON

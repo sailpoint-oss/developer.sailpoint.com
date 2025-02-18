@@ -16,15 +16,14 @@ tags: ['SDK', 'Software Development Kit', 'ModelEvent', 'V2024ModelEvent']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **String** |  | [required]
-**Name** | **String** |  | [required]
-**Type** | [**DocumentType**](document-type) |  | [required]
+**Id** | **String** | ID of the entitlement. | [optional] 
+**Name** | **String** | Name of the entitlement. | [optional] 
 **Created** | **System.DateTime** | ISO-8601 date-time referring to the time when the object was created. | [optional] 
 **Synced** | **String** | ISO-8601 date-time referring to the date-time when object was queued to be synced into search database for use in the search API.   This date-time changes anytime there is an update to the object, which triggers a synchronization event being sent to the search database.  There may be some delay between the `synced` time and the time when the updated data is actually available in the search API.  | [optional] 
 **Action** | **String** | Name of the event as it's displayed in audit reports. | [optional] 
 **Type** | **String** | Event type. Refer to [Event Types](https://documentation.sailpoint.com/saas/help/search/index.html#event-types) for a list of event types and their meanings. | [optional] 
-**Actor** | **String** | Name of the actor that generated the event. | [optional] 
-**Target** | **String** | Name of the target, or recipient, of the event. | [optional] 
+**Actor** | [**EventActor**](event-actor) |  | [optional] 
+**Target** | [**EventTarget**](event-target) |  | [optional] 
 **Stack** | **String** | The event's stack. | [optional] 
 **TrackingNumber** | **String** | ID of the group of events. | [optional] 
 **IpAddress** | **String** | Target system's IP address. | [optional] 
@@ -40,23 +39,22 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $ModelEvent = Initialize-PSSailpoint.V2024ModelEvent  -Id 2c91808375d8e80a0175e1f88a575222 `
- -Name john.doe `
- -Type null `
+ -Name Add Entitlement Passed `
  -Created 2018-06-25T20:22:28.104Z `
- -Synced null `
- -Action update `
- -Type SYSTEM_CONFIG `
- -Actor System `
- -Target Carol.Adams `
+ -Synced 2018-06-25T20:22:28.104Z `
+ -Action AddEntitlement `
+ -Type ACCESS_ITEM `
+ -Actor null `
+ -Target null `
  -Stack tpe `
  -TrackingNumber 63f891e0735f4cc8bf1968144a1e7440 `
  -IpAddress 52.52.97.85 `
  -Details 73b65dfbed1842548c207432a18c84b0 `
  -Attributes {pod&#x3D;stg03-useast1, org&#x3D;acme, sourceName&#x3D;SailPoint} `
  -Objects null `
- -Operation REQUEST `
+ -Operation ADD `
  -Status PASSED `
- -TechnicalName AUTHENTICATION_REQUEST_PASSED
+ -TechnicalName ENTITLEMENT_ADD_PASSED
 ```
 
 - Convert the resource to JSON

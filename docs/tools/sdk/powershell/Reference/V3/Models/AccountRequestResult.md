@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'AccountRequestResult', 'AccountReques
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Errors** | **[]String** |  | [optional] 
+**Errors** | **[]String** | Error message. | [optional] 
 **Status** | **String** | The status of the account request | [optional] 
-**TicketId** | **String** |  | [optional] 
+**TicketId** | **String** | ID of associated ticket. | [optional] 
 
 ## Examples
 

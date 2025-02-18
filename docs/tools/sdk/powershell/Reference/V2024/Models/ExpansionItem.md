@@ -17,10 +17,12 @@ tags: ['SDK', 'Software Development Kit', 'ExpansionItem', 'V2024ExpansionItem']
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AccountId** | **String** | The ID of the account | [optional] 
-**Cause** | **String** |  | [optional] 
+**Cause** | **String** | Cause of the expansion item. | [optional] 
 **Name** | **String** | The name of the item | [optional] 
-**AttributeRequests** | [**[]AttributeRequest**](attribute-request) |  | [optional] 
+**AttributeRequest** | [**AttributeRequest**](attribute-request) |  | [optional] 
 **Source** | [**AccountSource**](account-source) |  | [optional] 
+**Id** | **String** | ID of the expansion item | [optional] 
+**State** | **String** | State of the expansion item | [optional] 
 
 ## Examples
 
@@ -29,8 +31,10 @@ Name | Type | Description | Notes
 $ExpansionItem = Initialize-PSSailpoint.V2024ExpansionItem  -AccountId 2c91808981f58ea601821c3e93482e6f `
  -Cause Role `
  -Name smartsheet-role `
- -AttributeRequests null `
- -Source null
+ -AttributeRequest null `
+ -Source null `
+ -Id ac2887ffe0e7435a8c18c73f7ae94c7b `
+ -State EXECUTING
 ```
 
 - Convert the resource to JSON

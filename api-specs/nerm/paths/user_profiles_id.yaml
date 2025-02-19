@@ -1,0 +1,32 @@
+get:
+  summary: Find user-profile contributor relationship by id
+  operationId: getUserProfile
+  description: Find user-profile contributor relationship by id
+  tags:
+    - user profiles
+  parameters:
+    - $ref: "../parameters/path/id.yaml"
+  responses:
+    '200':
+      $ref: "../responses/UserProfile.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"
+patch:
+  summary: Update a user-profile contributor relationship by id
+  operationId: patchUserProfile
+  description: Update a user-profile contributor relationship by id
+  tags:
+    - user profiles
+  parameters:
+    - $ref: "../parameters/path/id.yaml"
+  requestBody:
+    $ref: "../requestBodies/PATCH/UserProfile.yaml"
+  responses:
+    '200':
+      $ref: "../responses/UserProfile.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"

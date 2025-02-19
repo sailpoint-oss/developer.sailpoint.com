@@ -1,0 +1,55 @@
+post:
+  operationId: disableAccountsForIdentities
+  tags:
+  - Accounts
+  summary: Disable IDN Accounts for Identities
+  description: This API submits tasks to disable IDN account for each identity provided
+    in the request body.
+  externalDocs:
+    description: Learn more about disabling identities here
+    url: https://documentation.sailpoint.com/saas/help/common/users/user_access.html#disabling-user-identities
+  security:
+  - userAuth:
+    - idn:accounts-state:manage
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../../beta/schemas/IdentitiesAccountsBulkRequest.yaml
+  responses:
+    '207':
+      description: Bulk response details.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../../beta/schemas/BulkIdentitiesAccountsResponse.yaml
+            example:
+            - id: 2c9180858082150f0180893dbaf553fe
+              statusCode: 404
+              message: Referenced identity "2c9180858082150f0180893dbaf553fe" was
+                not found.
+            - id: 2c91808384203c2d018437e631158308
+              statusCode: 202
+              message: null
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '429':
+      $ref: ../../v3/responses/429.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml
+  parameters:
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true

@@ -1,0 +1,66 @@
+type : object
+properties:
+  id:
+    type: string
+    description: The identity's unique identifier for the outlier record
+    example: 5be33d3e-c54d-4ed7-af73-2380543e8283
+  identityId:
+    type: string
+    description: The ID of the identity that is detected as an outlier
+    example: 5be33d3e-c54d-4ed7-af73-2380543e8283
+  type:
+    type: string
+    enum:
+      - LOW_SIMILARITY
+      - STRUCTURAL
+    description: The type of outlier summary
+    example: LOW_SIMILARITY
+  firstDetectionDate:
+    type: string
+    format: date-time
+    description: The first date the outlier was detected
+    example: "2021-05-01T18:40:35.772Z"
+  latestDetectionDate:
+    type: string
+    format: date-time
+    description: The most recent date the outlier was detected
+    example: "2021-05-03T18:40:35.772Z"
+  ignored:
+    type: boolean
+    description: Flag whether or not the outlier has been ignored
+    example: false
+  attributes:
+    type: object
+    description: Object containing mapped identity attributes
+    example:
+      {
+        displayName: "John Smith",
+        jobTitle: "Software Engineer",
+        department: "Engineering"
+      }
+  score:
+    type: number
+    format: float
+    description: The outlier score determined by the detection engine ranging from 0..1
+    example: 0.92
+  unignoreType:
+    type: string
+    enum:
+      - MANUAL
+      - AUTOMATIC
+      - null
+    description: Enum value of if the outlier manually or automatically un-ignored. Will be NULL if outlier is not ignored
+    example: MANUAL
+    nullable: true
+  unignoreDate:
+    type: string
+    format: date-time
+    description: shows date when last time has been unignored outlier
+    example: "2021-06-01T18:40:35.772Z"
+    nullable: true
+  ignoreDate:
+    type: string
+    format: date-time
+    description: shows date when last time has been ignored outlier
+    example: "2021-06-01T18:40:35.772Z"
+    nullable: true

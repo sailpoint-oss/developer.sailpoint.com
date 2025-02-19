@@ -1,0 +1,14 @@
+type: object
+properties:
+  comment:
+    type: string
+    description: Comment made by the owner when cancelling the associated request.
+    example: This request must be cancelled. 
+  owner:
+    $ref: '../../v3/schemas/OwnerDto.yaml'
+  modified:
+    type: string
+    format: date-time
+    description: Date comment was added by the owner when cancelling the associated request.
+    example: '2019-12-20T09:17:12.192Z'
+description: Provides additional details for a request that has been cancelled.

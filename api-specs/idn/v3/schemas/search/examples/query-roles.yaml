@@ -1,0 +1,6 @@
+summary: Query for Roles
+value:
+  indices:
+    - roles
+  query:
+    query: 'enabled:true'

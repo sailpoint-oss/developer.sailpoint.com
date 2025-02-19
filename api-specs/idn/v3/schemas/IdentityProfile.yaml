@@ -1,0 +1,71 @@
+allOf:
+- $ref: './BaseCommonDto.yaml'
+- type: object
+  required:
+    - authoritativeSource
+  properties:
+    description:
+      type: string
+      description: The description of the Identity Profile.
+      example: My custom flat file profile
+      nullable: true
+    owner:
+      type: object
+      description: The owner of the Identity Profile.
+      nullable: true
+      properties:
+        type:
+          type: string
+          enum:
+            - IDENTITY
+          description: Type of the object to which this reference applies
+          example: IDENTITY
+        id:
+          type: string
+          description: ID of the object to which this reference applies
+          example: 2c9180835d191a86015d28455b4b232a
+        name:
+          type: string
+          description: Human-readable display name of the object to which this reference applies
+          example: William Wilson
+    priority:
+      type: integer
+      format: int64
+      description: The priority for an Identity Profile.
+      example: 10
+    authoritativeSource:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+            - SOURCE
+          description: Type of the object to which this reference applies
+          example: SOURCE
+        id:
+          type: string
+          description: ID of the object to which this reference applies
+          example: 2c9180835d191a86015d28455b4b232a
+        name:
+          type: string
+          description: Human-readable display name of the object to which this reference applies
+          example: HR Active Directory
+    identityRefreshRequired:
+      type: boolean
+      default: false
+      description: True if a identity refresh is needed. Typically triggered when a change on the source has been made.
+      example: true
+    identityCount:
+      type: integer
+      description: The number of identities that belong to the Identity Profile.
+      format: int32
+      example: 8
+    identityAttributeConfig:
+      $ref: './IdentityAttributeConfig.yaml'
+    identityExceptionReportReference:
+      $ref: './IdentityExceptionReportReference.yaml'
+    hasTimeBasedAttr:
+      description: Indicates the value of requiresPeriodicRefresh attribute for the Identity Profile.
+      type: boolean
+      default: false
+      example: true

@@ -1,0 +1,14 @@
+type : object
+description: Request body payload for cancel access request endpoint.
+required:
+  - accountActivityId
+  - comment
+properties:
+  accountActivityId:
+    type: string
+    description: This refers to the identityRequestId. To successfully cancel an access request, you must provide the identityRequestId. 
+    example: 2c9180835d2e5168015d32f890ca1581
+  comment:
+    type: string
+    description: Reason for cancelling the pending access request.
+    example: "I requested this role by mistake."

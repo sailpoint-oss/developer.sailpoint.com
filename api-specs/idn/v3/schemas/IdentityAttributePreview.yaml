@@ -1,0 +1,17 @@
+type: object
+properties:
+  name:
+    type: string
+    description: Name of the attribute that is being previewed.
+    example: email
+  value:
+    type: string
+    description: Value that was derived during the preview.
+    example: email@mail.com
+  previousValue:
+    type: string
+    description: The value of the attribute before the preview.
+    example: oldEmail@mail.com
+  errorMessages:
+    $ref: '../schemas/ErrorMessageDtoList.yaml'
+    description: A list of errors that may have been encountered.

@@ -1,0 +1,120 @@
+get:
+  operationId: listTags
+  tags:
+    - Tags
+  summary: List Tags
+  description: >-
+    This API returns a list of tags.
+
+
+    A token with API, ORG_ADMIN, CERT_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN
+    authority is required to call this API.
+  parameters:
+    - $ref: '../../v3/parameters/limit.yaml'
+    - $ref: '../../v3/parameters/offset.yaml'
+    - $ref: '../../v3/parameters/count.yaml'
+    - in: query
+      name: filters
+      schema:
+        type: string
+      description: >-
+          Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+          Filtering is supported for the following fields and operators:
+
+
+          **id**: *eq, in*
+
+
+          **name**: *eq, in, sw*
+      example: id eq "27462f54-61c7-4140-b5da-d5dbe27fc6db"
+      required: false
+    - in: query
+      name: sorters
+      schema:
+        type: string
+        format: comma-separated
+      description: >-
+        Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
+
+
+        Sorting is supported for the following fields: **id, name, created, modified**
+      example: name,-modified
+      required: false
+  responses:
+    '200':
+      description: List of all tags.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/Tag.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+post:
+  operationId: createTag
+  tags:
+    - Tags
+  summary: Create Tag
+  description: >-
+    This API creates new tag.
+
+
+    A token with API, ORG_ADMIN, CERT_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN
+    authority is required to call this API.
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/Tag.yaml'
+  responses:
+    '201':
+      description: Created tag.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/Tag.yaml'
+    '400':
+      description: Client Error - Returned if the request body is invalid.
+      content:
+        application/json:
+          schema:
+            $ref: '../../v3/schemas/ErrorResponseDto.yaml'
+          examples:
+            400.1 Bad Request Content:
+              description: Response for bad request content
+              value:
+                detailCode: 400.1 Bad Request Content
+                trackingId: 1ea1adcb84da4dcb890145e05745774e
+                messages:
+                  - locale: en-US
+                    localeOrigin: DEFAULT
+                    text: The request was syntactically correct but its content is semantically invalid.
+            400.1.2 Value length out of range:
+              description: Response for invalid tag name
+              value:
+                detailCode: 400.2.1 Referential integrity violation
+                trackingId: 2241d18b9e7d4350a9acfe69f8ce47f1
+                messages:
+                  - locale: en-US
+                    localeOrigin: DEFAULT
+                    text: Field "Tag Name" length is outside of range [3,128].
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

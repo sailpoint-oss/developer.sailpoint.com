@@ -1,0 +1,41 @@
+post:
+  operationId: updateRolesMetadataByIds
+  summary: Bulk-Update Roles' Metadata by ID
+  description: >-
+    This API initiates a bulk update of metadata for one or more Roles by a list of Role Ids.
+    
+    A token with ORG_ADMIN, ROLE_ADMIN ROLE_SUBADMIN authority is required to call this API.
+    
+    The maximum role count in a single update request is 3000.
+    The maximum metadata value count for a single role is 25.
+    
+    Custom metadata update, including add, replace need suit licensed.
+  tags:
+    - Roles
+  security:
+    - UserContextAuth:
+        - idn:role:update
+        - idn:role-checked:update
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas/role-metadata/RoleMetadataBulkUpdateByIdRequest.yaml"
+  responses:
+    "202":
+      description: Returned if bulk update request created
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/role-metadata/RoleBulkUpdateResponse.yaml"
+    '400':
+      $ref: '../../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../../v3/responses/500.yaml'

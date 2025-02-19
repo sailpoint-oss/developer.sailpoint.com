@@ -1,0 +1,38 @@
+get:
+  operationId: getLoginInfo
+  tags:
+    - Login Info
+  summary: Get Login Info
+  description: >-
+    Fetches the PTA or Non-PTA information from a user's Auth Profile. This endpoint will be called by UI before
+    authentication to determine if a password should be hashed (Non-PTA) or encrypted with a public key (PTA).
+    The public key (if available) and encryption type (PKI or HASH) are returned by this endpoint.
+  parameters:
+    - in: query
+      name: uid
+      schema:
+        type: string
+      required: true
+      description: The user ID
+      example: Esperanza.roleadmf
+  responses:
+    '200':
+      description: Request succeeded.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/LoginInfoResponse.yaml'
+    '400':
+      description: Request failed due to missing uid param.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/LoginInfoErrorResponse.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

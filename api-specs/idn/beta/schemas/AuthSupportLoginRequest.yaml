@@ -1,0 +1,12 @@
+type: object
+properties:
+  authTenant:
+    type: string
+    description: The tenant providing support (can't be the same as request tenant)
+    default: sailpoint
+    example: sailpoint
+  expirationDate:
+    type: string
+    format: date-time
+    description: When the auth support login access expires. (must be within a year's time from when the auth support login is created or updated)
+    example: "2019-08-23T18:52:59.162Z"

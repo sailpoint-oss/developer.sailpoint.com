@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **name** | **str** | Human-readable display name of the item being requested. | [optional] 
 **type** |  **Enum** [  'ACCESS_PROFILE',    'ROLE',    'ENTITLEMENT' ] | Type of requested object. | [optional] 
 **cancelled_request_details** | [**AccessRequestAdminItemStatusCancelledRequestDetails**](access-request-admin-item-status-cancelled-request-details) |  | [optional] 
-**error_messages** | [**[]List[ErrorMessageDto1]**](list-error-message-dto1) | List of localized error messages, if any, encountered during the approval/provisioning process. | [optional] 
+**error_messages** | [**[]List[ErrorMessageDto1]**](error-message-dto) | List of localized error messages, if any, encountered during the approval/provisioning process. | [optional] 
 **state** | [**RequestedItemStatusRequestState**](requested-item-status-request-state) |  | [optional] 
 **approval_details** | [**[]ApprovalStatusDto1**](approval-status-dto1) | Approval details for each item. | [optional] 
 **manual_work_item_details** | [**[]ManualWorkItemDetails1**](manual-work-item-details1) | Manual work items created for provisioning the item. | [optional] 

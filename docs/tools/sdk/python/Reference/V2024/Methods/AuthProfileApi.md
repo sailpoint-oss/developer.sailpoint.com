@@ -1,0 +1,222 @@
+---
+id: v2024-auth-profile
+title: Auth_Profile
+pagination_label: Auth_Profile
+sidebar_label: Auth_Profile
+sidebar_class_name: pythonsdk
+keywords: ['python', 'Python', 'sdk', 'Auth_Profile', 'V2024Auth_Profile'] 
+slug: /tools/sdk/python/v2024/methods/auth-profile
+tags: ['SDK', 'Software Development Kit', 'Auth_Profile', 'V2024Auth_Profile']
+---
+
+# sailpoint.v2024.AuthProfileApi
+  Use this API to implement Auth Profile functionality. 
+With this functionality in place, users can read authentication profiles and make changes to them. 
+
+An authentication profile represents an identity profile&#39;s authentication configuration. 
+When the identity profile is created, its authentication profile is also created. 
+An authentication profile includes information like its authentication profile type (&#x60;BLOCK&#x60;, &#x60;MFA&#x60;, &#x60;NON_PTA&#x60;, PTA&#x60;) and settings controlling whether or not it blocks access from off network or untrusted geographies. 
+ 
+All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
+
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**get_profile_config**](AuthProfileApi#get-profile-config) | **GET** `/auth-profiles/{id}` | Get Auth Profile.
+[**get_profile_config_list**](AuthProfileApi#get-profile-config-list) | **GET** `/auth-profiles` | Get list of Auth Profiles.
+[**patch_profile_config**](AuthProfileApi#patch-profile-config) | **PATCH** `/auth-profiles/{id}` | Patch a specified Auth Profile
+
+
+## get-profile-config
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Get Auth Profile.
+This API returns auth profile information.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-profile-config)
+
+### Parameters 
+
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
+Path   | id | **str** | True  | ID of the Auth Profile to patch.
+
+### Return type
+[**AuthProfile**](../models/auth-profile)
+
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | Auth Profile | AuthProfile |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
+
+### HTTP request headers
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### Example
+
+```python
+import sailpoint.v2024
+from sailpoint.v2024.models.auth_profile import AuthProfile
+from sailpoint.v2024.rest import ApiException
+from pprint import pprint
+
+    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
+    id = '2c91808a7813090a017814121919ecca' # str | ID of the Auth Profile to patch. # str | ID of the Auth Profile to patch.
+
+    try:
+        # Get Auth Profile.
+        
+        api_response = api_instance.get_profile_config(x_sail_point_experimental, id)
+        
+        # Below is a request that includes all optional parameters
+        # api_response = api_instance.get_profile_config(x_sail_point_experimental, id)
+        print("The response of AuthProfileApi->get_profile_config:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling AuthProfileApi->get_profile_config: %s\n" % e)
+```
+
+
+
+[[Back to top]](#) 
+
+## get-profile-config-list
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Get list of Auth Profiles.
+This API returns a list of auth profiles.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-profile-config-list)
+
+### Parameters 
+
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
+
+### Return type
+[**AuthProfileSummary**](../models/auth-profile-summary)
+
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | List of Auth Profiles | AuthProfileSummary |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
+
+### HTTP request headers
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### Example
+
+```python
+import sailpoint.v2024
+from sailpoint.v2024.models.auth_profile_summary import AuthProfileSummary
+from sailpoint.v2024.rest import ApiException
+from pprint import pprint
+
+    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
+
+    try:
+        # Get list of Auth Profiles.
+        
+        api_response = api_instance.get_profile_config_list(x_sail_point_experimental)
+        
+        # Below is a request that includes all optional parameters
+        # api_response = api_instance.get_profile_config_list(x_sail_point_experimental)
+        print("The response of AuthProfileApi->get_profile_config_list:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling AuthProfileApi->get_profile_config_list: %s\n" % e)
+```
+
+
+
+[[Back to top]](#) 
+
+## patch-profile-config
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Patch a specified Auth Profile
+This API updates an existing Auth Profile. The following fields are patchable:
+**offNetwork**, **untrustedGeography**, **applicationId**, **applicationName**, **type**
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/patch-profile-config)
+
+### Parameters 
+
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | id | **str** | True  | ID of the Auth Profile to patch.
+   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
+ Body  | json_patch_operation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | 
+
+### Return type
+[**AuthProfile**](../models/auth-profile)
+
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | Responds with the Auth Profile as updated. | AuthProfile |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
+
+### HTTP request headers
+ - **Content-Type**: application/json-patch+json
+ - **Accept**: application/json
+
+### Example
+
+```python
+import sailpoint.v2024
+from sailpoint.v2024.models.auth_profile import AuthProfile
+from sailpoint.v2024.models.json_patch_operation import JsonPatchOperation
+from sailpoint.v2024.rest import ApiException
+from pprint import pprint
+
+    id = '2c91808a7813090a017814121919ecca' # str | ID of the Auth Profile to patch. # str | ID of the Auth Profile to patch.
+    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
+    [sailpoint.v2024.JsonPatchOperation()] # List[JsonPatchOperation] | 
+     json_patch_operation = {
+          "op" : "replace",
+          "path" : "/description",
+          "value" : "New description"
+        } # List[JsonPatchOperation] | 
+    
+
+    try:
+        # Patch a specified Auth Profile
+        Result = json_patch_operation.from_json(json_patch_operation)
+        api_response = api_instance.patch_profile_config(id, x_sail_point_experimental, Result)
+        
+        # Below is a request that includes all optional parameters
+        # api_response = api_instance.patch_profile_config(id, x_sail_point_experimental, Result)
+        print("The response of AuthProfileApi->patch_profile_config:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling AuthProfileApi->patch_profile_config: %s\n" % e)
+```
+
+
+
+[[Back to top]](#) 
+
+
+

@@ -39,16 +39,16 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_service_desk_integration**](ServiceDeskIntegrationApi#create-service-desk-integration) | **POST** `/service-desk-integrations` | Create new Service Desk integration
-[**delete_service_desk_integration**](ServiceDeskIntegrationApi#delete-service-desk-integration) | **DELETE** `/service-desk-integrations/{id}` | Delete a Service Desk integration
-[**get_service_desk_integration**](ServiceDeskIntegrationApi#get-service-desk-integration) | **GET** `/service-desk-integrations/{id}` | Get a Service Desk integration
-[**get_service_desk_integration_list**](ServiceDeskIntegrationApi#get-service-desk-integration-list) | **GET** `/service-desk-integrations` | List existing Service Desk integrations
-[**get_service_desk_integration_template**](ServiceDeskIntegrationApi#get-service-desk-integration-template) | **GET** `/service-desk-integrations/templates/{scriptName}` | Service Desk integration template by scriptName
-[**get_service_desk_integration_types**](ServiceDeskIntegrationApi#get-service-desk-integration-types) | **GET** `/service-desk-integrations/types` | List Service Desk integration types
-[**get_status_check_details**](ServiceDeskIntegrationApi#get-status-check-details) | **GET** `/service-desk-integrations/status-check-configuration` | Get the time check configuration
-[**patch_service_desk_integration**](ServiceDeskIntegrationApi#patch-service-desk-integration) | **PATCH** `/service-desk-integrations/{id}` | Patch a Service Desk Integration
-[**put_service_desk_integration**](ServiceDeskIntegrationApi#put-service-desk-integration) | **PUT** `/service-desk-integrations/{id}` | Update a Service Desk integration
-[**update_status_check_details**](ServiceDeskIntegrationApi#update-status-check-details) | **PUT** `/service-desk-integrations/status-check-configuration` | Update the time check configuration
+[**create-service-desk-integration**](#create-service-desk-integration) | **POST** `/service-desk-integrations` | Create new Service Desk integration
+[**delete-service-desk-integration**](#delete-service-desk-integration) | **DELETE** `/service-desk-integrations/{id}` | Delete a Service Desk integration
+[**get-service-desk-integration**](#get-service-desk-integration) | **GET** `/service-desk-integrations/{id}` | Get a Service Desk integration
+[**get-service-desk-integration-list**](#get-service-desk-integration-list) | **GET** `/service-desk-integrations` | List existing Service Desk integrations
+[**get-service-desk-integration-template**](#get-service-desk-integration-template) | **GET** `/service-desk-integrations/templates/{scriptName}` | Service Desk integration template by scriptName
+[**get-service-desk-integration-types**](#get-service-desk-integration-types) | **GET** `/service-desk-integrations/types` | List Service Desk integration types
+[**get-status-check-details**](#get-status-check-details) | **GET** `/service-desk-integrations/status-check-configuration` | Get the time check configuration
+[**patch-service-desk-integration**](#patch-service-desk-integration) | **PATCH** `/service-desk-integrations/{id}` | Patch a Service Desk Integration
+[**put-service-desk-integration**](#put-service-desk-integration) | **PUT** `/service-desk-integrations/{id}` | Update a Service Desk integration
+[**update-status-check-details**](#update-status-check-details) | **PUT** `/service-desk-integrations/status-check-configuration` | Update the time check configuration
 
 
 ## create-service-desk-integration

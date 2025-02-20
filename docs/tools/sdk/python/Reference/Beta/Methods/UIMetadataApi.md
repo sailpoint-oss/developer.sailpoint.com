@@ -16,8 +16,8 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_tenant_ui_metadata**](UIMetadataApi#get-tenant-ui-metadata) | **GET** `/ui-metadata/tenant` | Get a tenant UI metadata
-[**set_tenant_ui_metadata**](UIMetadataApi#set-tenant-ui-metadata) | **PUT** `/ui-metadata/tenant` | Update tenant UI metadata
+[**get-tenant-ui-metadata**](#get-tenant-ui-metadata) | **GET** `/ui-metadata/tenant` | Get a tenant UI metadata
+[**set-tenant-ui-metadata**](#set-tenant-ui-metadata) | **PUT** `/ui-metadata/tenant` | Update tenant UI metadata
 
 
 ## get-tenant-ui-metadata

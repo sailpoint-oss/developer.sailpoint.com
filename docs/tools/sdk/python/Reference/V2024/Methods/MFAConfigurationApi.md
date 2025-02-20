@@ -15,13 +15,13 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_mfa_duo_config**](MFAConfigurationApi#get-mfa-duo-config) | **GET** `/mfa/duo-web/config` | Configuration of Duo MFA method
-[**get_mfa_kba_config**](MFAConfigurationApi#get-mfa-kba-config) | **GET** `/mfa/kba/config` | Configuration of KBA MFA method
-[**get_mfa_okta_config**](MFAConfigurationApi#get-mfa-okta-config) | **GET** `/mfa/okta-verify/config` | Configuration of Okta MFA method
-[**set_mfa_duo_config**](MFAConfigurationApi#set-mfa-duo-config) | **PUT** `/mfa/duo-web/config` | Set Duo MFA configuration
-[**set_mfa_okta_config**](MFAConfigurationApi#set-mfa-okta-config) | **PUT** `/mfa/okta-verify/config` | Set Okta MFA configuration
-[**set_mfakba_config**](MFAConfigurationApi#set-mfakba-config) | **POST** `/mfa/kba/config/answers` | Set MFA KBA configuration
-[**test_mfa_config**](MFAConfigurationApi#test-mfa-config) | **GET** `/mfa/{method}/test` | MFA method&#39;s test configuration
+[**get-mfa-duo-config**](#get-mfa-duo-config) | **GET** `/mfa/duo-web/config` | Configuration of Duo MFA method
+[**get-mfa-kba-config**](#get-mfa-kba-config) | **GET** `/mfa/kba/config` | Configuration of KBA MFA method
+[**get-mfa-okta-config**](#get-mfa-okta-config) | **GET** `/mfa/okta-verify/config` | Configuration of Okta MFA method
+[**set-mfa-duo-config**](#set-mfa-duo-config) | **PUT** `/mfa/duo-web/config` | Set Duo MFA configuration
+[**set-mfa-okta-config**](#set-mfa-okta-config) | **PUT** `/mfa/okta-verify/config` | Set Okta MFA configuration
+[**set-mfakba-config**](#set-mfakba-config) | **POST** `/mfa/kba/config/answers` | Set MFA KBA configuration
+[**test-mfa-config**](#test-mfa-config) | **GET** `/mfa/{method}/test` | MFA method&#39;s test configuration
 
 
 ## get-mfa-duo-config

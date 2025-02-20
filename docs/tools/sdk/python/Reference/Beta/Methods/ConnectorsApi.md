@@ -29,7 +29,7 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_connector_list**](ConnectorsApi#get-connector-list) | **GET** `/connectors` | Get Connector List
+[**get-connector-list**](#get-connector-list) | **GET** `/connectors` | Get Connector List
 
 
 ## get-connector-list

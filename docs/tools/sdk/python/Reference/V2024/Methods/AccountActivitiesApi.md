@@ -48,8 +48,8 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_account_activity**](AccountActivitiesApi#get-account-activity) | **GET** `/account-activities/{id}` | Get an Account Activity
-[**list_account_activities**](AccountActivitiesApi#list-account-activities) | **GET** `/account-activities` | List Account Activities
+[**get-account-activity**](#get-account-activity) | **GET** `/account-activities/{id}` | Get an Account Activity
+[**list-account-activities**](#list-account-activities) | **GET** `/account-activities` | List Account Activities
 
 
 ## get-account-activity

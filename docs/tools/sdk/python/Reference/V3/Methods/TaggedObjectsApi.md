@@ -68,14 +68,14 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**delete_tagged_object**](TaggedObjectsApi#delete-tagged-object) | **DELETE** `/tagged-objects/{type}/{id}` | Delete Object Tags
-[**delete_tags_to_many_object**](TaggedObjectsApi#delete-tags-to-many-object) | **POST** `/tagged-objects/bulk-remove` | Remove Tags from Multiple Objects
-[**get_tagged_object**](TaggedObjectsApi#get-tagged-object) | **GET** `/tagged-objects/{type}/{id}` | Get Tagged Object
-[**list_tagged_objects**](TaggedObjectsApi#list-tagged-objects) | **GET** `/tagged-objects` | List Tagged Objects
-[**list_tagged_objects_by_type**](TaggedObjectsApi#list-tagged-objects-by-type) | **GET** `/tagged-objects/{type}` | List Tagged Objects by Type
-[**put_tagged_object**](TaggedObjectsApi#put-tagged-object) | **PUT** `/tagged-objects/{type}/{id}` | Update Tagged Object
-[**set_tag_to_object**](TaggedObjectsApi#set-tag-to-object) | **POST** `/tagged-objects` | Add Tag to Object
-[**set_tags_to_many_objects**](TaggedObjectsApi#set-tags-to-many-objects) | **POST** `/tagged-objects/bulk-add` | Tag Multiple Objects
+[**delete-tagged-object**](#delete-tagged-object) | **DELETE** `/tagged-objects/{type}/{id}` | Delete Object Tags
+[**delete-tags-to-many-object**](#delete-tags-to-many-object) | **POST** `/tagged-objects/bulk-remove` | Remove Tags from Multiple Objects
+[**get-tagged-object**](#get-tagged-object) | **GET** `/tagged-objects/{type}/{id}` | Get Tagged Object
+[**list-tagged-objects**](#list-tagged-objects) | **GET** `/tagged-objects` | List Tagged Objects
+[**list-tagged-objects-by-type**](#list-tagged-objects-by-type) | **GET** `/tagged-objects/{type}` | List Tagged Objects by Type
+[**put-tagged-object**](#put-tagged-object) | **PUT** `/tagged-objects/{type}/{id}` | Update Tagged Object
+[**set-tag-to-object**](#set-tag-to-object) | **POST** `/tagged-objects` | Add Tag to Object
+[**set-tags-to-many-objects**](#set-tags-to-many-objects) | **POST** `/tagged-objects/bulk-add` | Tag Multiple Objects
 
 
 ## delete-tagged-object

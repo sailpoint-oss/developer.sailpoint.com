@@ -15,9 +15,9 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_common_access**](IAICommonAccessApi#create-common-access) | **POST** `/common-access` | Create common access items
-[**get_common_access**](IAICommonAccessApi#get-common-access) | **GET** `/common-access` | Get a paginated list of common access
-[**update_common_access_status_in_bulk**](IAICommonAccessApi#update-common-access-status-in-bulk) | **POST** `/common-access/update-status` | Bulk update common access status
+[**create-common-access**](#create-common-access) | **POST** `/common-access` | Create common access items
+[**get-common-access**](#get-common-access) | **GET** `/common-access` | Get a paginated list of common access
+[**update-common-access-status-in-bulk**](#update-common-access-status-in-bulk) | **POST** `/common-access/update-status` | Bulk update common access status
 
 
 ## create-common-access

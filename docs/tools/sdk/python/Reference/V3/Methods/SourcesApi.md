@@ -72,32 +72,32 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_provisioning_policy**](SourcesApi#create-provisioning-policy) | **POST** `/sources/{sourceId}/provisioning-policies` | Create Provisioning Policy
-[**create_source**](SourcesApi#create-source) | **POST** `/sources` | Creates a source in IdentityNow.
-[**create_source_schema**](SourcesApi#create-source-schema) | **POST** `/sources/{sourceId}/schemas` | Create Schema on Source
-[**delete_provisioning_policy**](SourcesApi#delete-provisioning-policy) | **DELETE** `/sources/{sourceId}/provisioning-policies/{usageType}` | Delete Provisioning Policy by UsageType
-[**delete_source**](SourcesApi#delete-source) | **DELETE** `/sources/{id}` | Delete Source by ID
-[**delete_source_schema**](SourcesApi#delete-source-schema) | **DELETE** `/sources/{sourceId}/schemas/{schemaId}` | Delete Source Schema by ID
-[**get_accounts_schema**](SourcesApi#get-accounts-schema) | **GET** `/sources/{id}/schemas/accounts` | Downloads source accounts schema template
-[**get_entitlements_schema**](SourcesApi#get-entitlements-schema) | **GET** `/sources/{id}/schemas/entitlements` | Downloads source entitlements schema template
-[**get_provisioning_policy**](SourcesApi#get-provisioning-policy) | **GET** `/sources/{sourceId}/provisioning-policies/{usageType}` | Get Provisioning Policy by UsageType
-[**get_source**](SourcesApi#get-source) | **GET** `/sources/{id}` | Get Source by ID
-[**get_source_connections**](SourcesApi#get-source-connections) | **GET** `/sources/{sourceId}/connections` | Get Source Connections by ID
-[**get_source_health**](SourcesApi#get-source-health) | **GET** `/sources/{sourceId}/source-health` | Fetches source health by id
-[**get_source_schema**](SourcesApi#get-source-schema) | **GET** `/sources/{sourceId}/schemas/{schemaId}` | Get Source Schema by ID
-[**get_source_schemas**](SourcesApi#get-source-schemas) | **GET** `/sources/{sourceId}/schemas` | List Schemas on Source
-[**import_accounts_schema**](SourcesApi#import-accounts-schema) | **POST** `/sources/{id}/schemas/accounts` | Uploads source accounts schema template
-[**import_connector_file**](SourcesApi#import-connector-file) | **POST** `/sources/{sourceId}/upload-connector-file` | Upload connector file to source
-[**import_entitlements_schema**](SourcesApi#import-entitlements-schema) | **POST** `/sources/{id}/schemas/entitlements` | Uploads source entitlements schema template
-[**list_provisioning_policies**](SourcesApi#list-provisioning-policies) | **GET** `/sources/{sourceId}/provisioning-policies` | Lists ProvisioningPolicies
-[**list_sources**](SourcesApi#list-sources) | **GET** `/sources` | Lists all sources in IdentityNow.
-[**put_provisioning_policy**](SourcesApi#put-provisioning-policy) | **PUT** `/sources/{sourceId}/provisioning-policies/{usageType}` | Update Provisioning Policy by UsageType
-[**put_source**](SourcesApi#put-source) | **PUT** `/sources/{id}` | Update Source (Full)
-[**put_source_schema**](SourcesApi#put-source-schema) | **PUT** `/sources/{sourceId}/schemas/{schemaId}` | Update Source Schema (Full)
-[**update_provisioning_policies_in_bulk**](SourcesApi#update-provisioning-policies-in-bulk) | **POST** `/sources/{sourceId}/provisioning-policies/bulk-update` | Bulk Update Provisioning Policies
-[**update_provisioning_policy**](SourcesApi#update-provisioning-policy) | **PATCH** `/sources/{sourceId}/provisioning-policies/{usageType}` | Partial update of Provisioning Policy
-[**update_source**](SourcesApi#update-source) | **PATCH** `/sources/{id}` | Update Source (Partial)
-[**update_source_schema**](SourcesApi#update-source-schema) | **PATCH** `/sources/{sourceId}/schemas/{schemaId}` | Update Source Schema (Partial)
+[**create-provisioning-policy**](#create-provisioning-policy) | **POST** `/sources/{sourceId}/provisioning-policies` | Create Provisioning Policy
+[**create-source**](#create-source) | **POST** `/sources` | Creates a source in IdentityNow.
+[**create-source-schema**](#create-source-schema) | **POST** `/sources/{sourceId}/schemas` | Create Schema on Source
+[**delete-provisioning-policy**](#delete-provisioning-policy) | **DELETE** `/sources/{sourceId}/provisioning-policies/{usageType}` | Delete Provisioning Policy by UsageType
+[**delete-source**](#delete-source) | **DELETE** `/sources/{id}` | Delete Source by ID
+[**delete-source-schema**](#delete-source-schema) | **DELETE** `/sources/{sourceId}/schemas/{schemaId}` | Delete Source Schema by ID
+[**get-accounts-schema**](#get-accounts-schema) | **GET** `/sources/{id}/schemas/accounts` | Downloads source accounts schema template
+[**get-entitlements-schema**](#get-entitlements-schema) | **GET** `/sources/{id}/schemas/entitlements` | Downloads source entitlements schema template
+[**get-provisioning-policy**](#get-provisioning-policy) | **GET** `/sources/{sourceId}/provisioning-policies/{usageType}` | Get Provisioning Policy by UsageType
+[**get-source**](#get-source) | **GET** `/sources/{id}` | Get Source by ID
+[**get-source-connections**](#get-source-connections) | **GET** `/sources/{sourceId}/connections` | Get Source Connections by ID
+[**get-source-health**](#get-source-health) | **GET** `/sources/{sourceId}/source-health` | Fetches source health by id
+[**get-source-schema**](#get-source-schema) | **GET** `/sources/{sourceId}/schemas/{schemaId}` | Get Source Schema by ID
+[**get-source-schemas**](#get-source-schemas) | **GET** `/sources/{sourceId}/schemas` | List Schemas on Source
+[**import-accounts-schema**](#import-accounts-schema) | **POST** `/sources/{id}/schemas/accounts` | Uploads source accounts schema template
+[**import-connector-file**](#import-connector-file) | **POST** `/sources/{sourceId}/upload-connector-file` | Upload connector file to source
+[**import-entitlements-schema**](#import-entitlements-schema) | **POST** `/sources/{id}/schemas/entitlements` | Uploads source entitlements schema template
+[**list-provisioning-policies**](#list-provisioning-policies) | **GET** `/sources/{sourceId}/provisioning-policies` | Lists ProvisioningPolicies
+[**list-sources**](#list-sources) | **GET** `/sources` | Lists all sources in IdentityNow.
+[**put-provisioning-policy**](#put-provisioning-policy) | **PUT** `/sources/{sourceId}/provisioning-policies/{usageType}` | Update Provisioning Policy by UsageType
+[**put-source**](#put-source) | **PUT** `/sources/{id}` | Update Source (Full)
+[**put-source-schema**](#put-source-schema) | **PUT** `/sources/{sourceId}/schemas/{schemaId}` | Update Source Schema (Full)
+[**update-provisioning-policies-in-bulk**](#update-provisioning-policies-in-bulk) | **POST** `/sources/{sourceId}/provisioning-policies/bulk-update` | Bulk Update Provisioning Policies
+[**update-provisioning-policy**](#update-provisioning-policy) | **PATCH** `/sources/{sourceId}/provisioning-policies/{usageType}` | Partial update of Provisioning Policy
+[**update-source**](#update-source) | **PATCH** `/sources/{id}` | Update Source (Partial)
+[**update-source-schema**](#update-source-schema) | **PATCH** `/sources/{sourceId}/schemas/{schemaId}` | Update Source Schema (Partial)
 
 
 ## create-provisioning-policy

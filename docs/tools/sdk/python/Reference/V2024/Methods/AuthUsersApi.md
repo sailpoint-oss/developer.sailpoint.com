@@ -20,8 +20,8 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_auth_user**](AuthUsersApi#get-auth-user) | **GET** `/auth-users/{id}` | Auth User Details
-[**patch_auth_user**](AuthUsersApi#patch-auth-user) | **PATCH** `/auth-users/{id}` | Auth User Update
+[**get-auth-user**](#get-auth-user) | **GET** `/auth-users/{id}` | Auth User Details
+[**patch-auth-user**](#patch-auth-user) | **PATCH** `/auth-users/{id}` | Auth User Update
 
 
 ## get-auth-user

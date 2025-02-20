@@ -62,8 +62,8 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_password_dictionary**](PasswordDictionaryApi#get-password-dictionary) | **GET** `/password-dictionary` | Get Password Dictionary
-[**put_password_dictionary**](PasswordDictionaryApi#put-password-dictionary) | **PUT** `/password-dictionary` | Update Password Dictionary
+[**get-password-dictionary**](#get-password-dictionary) | **GET** `/password-dictionary` | Get Password Dictionary
+[**put-password-dictionary**](#put-password-dictionary) | **PUT** `/password-dictionary` | Update Password Dictionary
 
 
 ## get-password-dictionary

@@ -15,31 +15,31 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_potential_role_provision_request**](IAIRoleMiningApi#create-potential-role-provision-request) | **POST** `/role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/provision` | Create request to provision a potential role into an actual role.
-[**create_role_mining_sessions**](IAIRoleMiningApi#create-role-mining-sessions) | **POST** `/role-mining-sessions` | Create a role mining session
-[**download_role_mining_potential_role_zip**](IAIRoleMiningApi#download-role-mining-potential-role-zip) | **GET** `/role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/export-async/{exportId}/download` | Export (download) details for a potential role in a role mining session
-[**export_role_mining_potential_role**](IAIRoleMiningApi#export-role-mining-potential-role) | **GET** `/role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/export` | Export (download) details for a potential role in a role mining session
-[**export_role_mining_potential_role_async**](IAIRoleMiningApi#export-role-mining-potential-role-async) | **POST** `/role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/export-async` | Asynchronously export details for a potential role in a role mining session and upload to S3
-[**export_role_mining_potential_role_status**](IAIRoleMiningApi#export-role-mining-potential-role-status) | **GET** `/role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/export-async/{exportId}` | Retrieve status of a potential role export job
-[**get_all_potential_role_summaries**](IAIRoleMiningApi#get-all-potential-role-summaries) | **GET** `/role-mining-potential-roles` | Retrieves all potential role summaries
-[**get_entitlement_distribution_potential_role**](IAIRoleMiningApi#get-entitlement-distribution-potential-role) | **GET** `/role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/entitlement-popularity-distribution` | Retrieves entitlement popularity distribution for a potential role in a role mining session
-[**get_entitlements_potential_role**](IAIRoleMiningApi#get-entitlements-potential-role) | **GET** `/role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/entitlement-popularities` | Retrieves entitlements for a potential role in a role mining session
-[**get_excluded_entitlements_potential_role**](IAIRoleMiningApi#get-excluded-entitlements-potential-role) | **GET** `/role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/excluded-entitlements` | Retrieves excluded entitlements for a potential role in a role mining session
-[**get_identities_potential_role**](IAIRoleMiningApi#get-identities-potential-role) | **GET** `/role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/identities` | Retrieves identities for a potential role in a role mining session
-[**get_potential_role**](IAIRoleMiningApi#get-potential-role) | **GET** `/role-mining-sessions/{sessionId}/potential-role-summaries/{potentialRoleId}` | Retrieve potential role in session
-[**get_potential_role_applications**](IAIRoleMiningApi#get-potential-role-applications) | **GET** `/role-mining-sessions/{sessionId}/potential-role-summaries/{potentialRoleId}/applications` | Retrieves the applications of a potential role for a role mining session
-[**get_potential_role_entitlements**](IAIRoleMiningApi#get-potential-role-entitlements) | **GET** `/role-mining-sessions/{sessionId}/potential-role-summaries/{potentialRoleId}/entitlements` | Retrieves the entitlements of a potential role for a role mining session
-[**get_potential_role_source_identity_usage**](IAIRoleMiningApi#get-potential-role-source-identity-usage) | **GET** `/role-mining-potential-roles/{potentialRoleId}/sources/{sourceId}/identityUsage` | Retrieves potential role source usage
-[**get_potential_role_summaries**](IAIRoleMiningApi#get-potential-role-summaries) | **GET** `/role-mining-sessions/{sessionId}/potential-role-summaries` | Retrieve session&#39;s potential role summaries
-[**get_role_mining_potential_role**](IAIRoleMiningApi#get-role-mining-potential-role) | **GET** `/role-mining-potential-roles/{potentialRoleId}` | Retrieves a specific potential role
-[**get_role_mining_session**](IAIRoleMiningApi#get-role-mining-session) | **GET** `/role-mining-sessions/{sessionId}` | Get a role mining session
-[**get_role_mining_session_status**](IAIRoleMiningApi#get-role-mining-session-status) | **GET** `/role-mining-sessions/{sessionId}/status` | Get role mining session status state
-[**get_role_mining_sessions**](IAIRoleMiningApi#get-role-mining-sessions) | **GET** `/role-mining-sessions` | Retrieves all role mining sessions
-[**get_saved_potential_roles**](IAIRoleMiningApi#get-saved-potential-roles) | **GET** `/role-mining-potential-roles/saved` | Retrieves all saved potential roles
-[**patch_potential_role**](IAIRoleMiningApi#patch-potential-role) | **PATCH** `/role-mining-sessions/{sessionId}/potential-role-summaries/{potentialRoleId}` | Update a potential role in session
-[**patch_role_mining_potential_role**](IAIRoleMiningApi#patch-role-mining-potential-role) | **PATCH** `/role-mining-potential-roles/{potentialRoleId}` | Update a potential role
-[**patch_role_mining_session**](IAIRoleMiningApi#patch-role-mining-session) | **PATCH** `/role-mining-sessions/{sessionId}` | Patch a role mining session
-[**update_entitlements_potential_role**](IAIRoleMiningApi#update-entitlements-potential-role) | **POST** `/role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/edit-entitlements` | Edit entitlements for a potential role to exclude some entitlements
+[**create-potential-role-provision-request**](#create-potential-role-provision-request) | **POST** `/role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/provision` | Create request to provision a potential role into an actual role.
+[**create-role-mining-sessions**](#create-role-mining-sessions) | **POST** `/role-mining-sessions` | Create a role mining session
+[**download-role-mining-potential-role-zip**](#download-role-mining-potential-role-zip) | **GET** `/role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/export-async/{exportId}/download` | Export (download) details for a potential role in a role mining session
+[**export-role-mining-potential-role**](#export-role-mining-potential-role) | **GET** `/role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/export` | Export (download) details for a potential role in a role mining session
+[**export-role-mining-potential-role-async**](#export-role-mining-potential-role-async) | **POST** `/role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/export-async` | Asynchronously export details for a potential role in a role mining session and upload to S3
+[**export-role-mining-potential-role-status**](#export-role-mining-potential-role-status) | **GET** `/role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/export-async/{exportId}` | Retrieve status of a potential role export job
+[**get-all-potential-role-summaries**](#get-all-potential-role-summaries) | **GET** `/role-mining-potential-roles` | Retrieves all potential role summaries
+[**get-entitlement-distribution-potential-role**](#get-entitlement-distribution-potential-role) | **GET** `/role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/entitlement-popularity-distribution` | Retrieves entitlement popularity distribution for a potential role in a role mining session
+[**get-entitlements-potential-role**](#get-entitlements-potential-role) | **GET** `/role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/entitlement-popularities` | Retrieves entitlements for a potential role in a role mining session
+[**get-excluded-entitlements-potential-role**](#get-excluded-entitlements-potential-role) | **GET** `/role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/excluded-entitlements` | Retrieves excluded entitlements for a potential role in a role mining session
+[**get-identities-potential-role**](#get-identities-potential-role) | **GET** `/role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/identities` | Retrieves identities for a potential role in a role mining session
+[**get-potential-role**](#get-potential-role) | **GET** `/role-mining-sessions/{sessionId}/potential-role-summaries/{potentialRoleId}` | Retrieve potential role in session
+[**get-potential-role-applications**](#get-potential-role-applications) | **GET** `/role-mining-sessions/{sessionId}/potential-role-summaries/{potentialRoleId}/applications` | Retrieves the applications of a potential role for a role mining session
+[**get-potential-role-entitlements**](#get-potential-role-entitlements) | **GET** `/role-mining-sessions/{sessionId}/potential-role-summaries/{potentialRoleId}/entitlements` | Retrieves the entitlements of a potential role for a role mining session
+[**get-potential-role-source-identity-usage**](#get-potential-role-source-identity-usage) | **GET** `/role-mining-potential-roles/{potentialRoleId}/sources/{sourceId}/identityUsage` | Retrieves potential role source usage
+[**get-potential-role-summaries**](#get-potential-role-summaries) | **GET** `/role-mining-sessions/{sessionId}/potential-role-summaries` | Retrieve session&#39;s potential role summaries
+[**get-role-mining-potential-role**](#get-role-mining-potential-role) | **GET** `/role-mining-potential-roles/{potentialRoleId}` | Retrieves a specific potential role
+[**get-role-mining-session**](#get-role-mining-session) | **GET** `/role-mining-sessions/{sessionId}` | Get a role mining session
+[**get-role-mining-session-status**](#get-role-mining-session-status) | **GET** `/role-mining-sessions/{sessionId}/status` | Get role mining session status state
+[**get-role-mining-sessions**](#get-role-mining-sessions) | **GET** `/role-mining-sessions` | Retrieves all role mining sessions
+[**get-saved-potential-roles**](#get-saved-potential-roles) | **GET** `/role-mining-potential-roles/saved` | Retrieves all saved potential roles
+[**patch-potential-role**](#patch-potential-role) | **PATCH** `/role-mining-sessions/{sessionId}/potential-role-summaries/{potentialRoleId}` | Update a potential role in session
+[**patch-role-mining-potential-role**](#patch-role-mining-potential-role) | **PATCH** `/role-mining-potential-roles/{potentialRoleId}` | Update a potential role
+[**patch-role-mining-session**](#patch-role-mining-session) | **PATCH** `/role-mining-sessions/{sessionId}` | Patch a role mining session
+[**update-entitlements-potential-role**](#update-entitlements-potential-role) | **POST** `/role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/edit-entitlements` | Edit entitlements for a potential role to exclude some entitlements
 
 
 ## create-potential-role-provision-request

@@ -29,19 +29,19 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**approve_approval_item**](WorkItemsApi#approve-approval-item) | **POST** `/work-items/{id}/approve/{approvalItemId}` | Approve an Approval Item
-[**approve_approval_items_in_bulk**](WorkItemsApi#approve-approval-items-in-bulk) | **POST** `/work-items/bulk-approve/{id}` | Bulk approve Approval Items
-[**complete_work_item**](WorkItemsApi#complete-work-item) | **POST** `/work-items/{id}` | Complete a Work Item
-[**get_completed_work_items**](WorkItemsApi#get-completed-work-items) | **GET** `/work-items/completed` | Completed Work Items
-[**get_count_completed_work_items**](WorkItemsApi#get-count-completed-work-items) | **GET** `/work-items/completed/count` | Count Completed Work Items
-[**get_count_work_items**](WorkItemsApi#get-count-work-items) | **GET** `/work-items/count` | Count Work Items
-[**get_work_item**](WorkItemsApi#get-work-item) | **GET** `/work-items/{id}` | Get a Work Item
-[**get_work_items_summary**](WorkItemsApi#get-work-items-summary) | **GET** `/work-items/summary` | Work Items Summary
-[**list_work_items**](WorkItemsApi#list-work-items) | **GET** `/work-items` | List Work Items
-[**reject_approval_item**](WorkItemsApi#reject-approval-item) | **POST** `/work-items/{id}/reject/{approvalItemId}` | Reject an Approval Item
-[**reject_approval_items_in_bulk**](WorkItemsApi#reject-approval-items-in-bulk) | **POST** `/work-items/bulk-reject/{id}` | Bulk reject Approval Items
-[**send_work_item_forward**](WorkItemsApi#send-work-item-forward) | **POST** `/work-items/{id}/forward` | Forward a Work Item
-[**submit_account_selection**](WorkItemsApi#submit-account-selection) | **POST** `/work-items/{id}/submit-account-selection` | Submit Account Selections
+[**approve-approval-item**](#approve-approval-item) | **POST** `/work-items/{id}/approve/{approvalItemId}` | Approve an Approval Item
+[**approve-approval-items-in-bulk**](#approve-approval-items-in-bulk) | **POST** `/work-items/bulk-approve/{id}` | Bulk approve Approval Items
+[**complete-work-item**](#complete-work-item) | **POST** `/work-items/{id}` | Complete a Work Item
+[**get-completed-work-items**](#get-completed-work-items) | **GET** `/work-items/completed` | Completed Work Items
+[**get-count-completed-work-items**](#get-count-completed-work-items) | **GET** `/work-items/completed/count` | Count Completed Work Items
+[**get-count-work-items**](#get-count-work-items) | **GET** `/work-items/count` | Count Work Items
+[**get-work-item**](#get-work-item) | **GET** `/work-items/{id}` | Get a Work Item
+[**get-work-items-summary**](#get-work-items-summary) | **GET** `/work-items/summary` | Work Items Summary
+[**list-work-items**](#list-work-items) | **GET** `/work-items` | List Work Items
+[**reject-approval-item**](#reject-approval-item) | **POST** `/work-items/{id}/reject/{approvalItemId}` | Reject an Approval Item
+[**reject-approval-items-in-bulk**](#reject-approval-items-in-bulk) | **POST** `/work-items/bulk-reject/{id}` | Bulk reject Approval Items
+[**send-work-item-forward**](#send-work-item-forward) | **POST** `/work-items/{id}/forward` | Forward a Work Item
+[**submit-account-selection**](#submit-account-selection) | **POST** `/work-items/{id}/submit-account-selection` | Submit Account Selections
 
 
 ## approve-approval-item

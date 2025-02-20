@@ -18,12 +18,12 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_launcher**](LaunchersApi#create-launcher) | **POST** `/launchers` | Create launcher
-[**delete_launcher**](LaunchersApi#delete-launcher) | **DELETE** `/launchers/{launcherID}` | Delete Launcher
-[**get_launcher**](LaunchersApi#get-launcher) | **GET** `/launchers/{launcherID}` | Get Launcher by ID
-[**get_launchers**](LaunchersApi#get-launchers) | **GET** `/launchers` | List all Launchers for tenant
-[**put_launcher**](LaunchersApi#put-launcher) | **PUT** `/launchers/{launcherID}` | Replace Launcher
-[**start_launcher**](LaunchersApi#start-launcher) | **POST** `/beta/launchers/{launcherID}/launch` | Launch a Launcher
+[**create-launcher**](#create-launcher) | **POST** `/launchers` | Create launcher
+[**delete-launcher**](#delete-launcher) | **DELETE** `/launchers/{launcherID}` | Delete Launcher
+[**get-launcher**](#get-launcher) | **GET** `/launchers/{launcherID}` | Get Launcher by ID
+[**get-launchers**](#get-launchers) | **GET** `/launchers` | List all Launchers for tenant
+[**put-launcher**](#put-launcher) | **PUT** `/launchers/{launcherID}` | Replace Launcher
+[**start-launcher**](#start-launcher) | **POST** `/beta/launchers/{launcherID}/launch` | Launch a Launcher
 
 
 ## create-launcher

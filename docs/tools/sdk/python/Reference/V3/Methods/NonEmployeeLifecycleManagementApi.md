@@ -46,38 +46,38 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**approve_non_employee_request**](NonEmployeeLifecycleManagementApi#approve-non-employee-request) | **POST** `/non-employee-approvals/{id}/approve` | Approve a Non-Employee Request
-[**create_non_employee_record**](NonEmployeeLifecycleManagementApi#create-non-employee-record) | **POST** `/non-employee-records` | Create Non-Employee Record
-[**create_non_employee_request**](NonEmployeeLifecycleManagementApi#create-non-employee-request) | **POST** `/non-employee-requests` | Create Non-Employee Request
-[**create_non_employee_source**](NonEmployeeLifecycleManagementApi#create-non-employee-source) | **POST** `/non-employee-sources` | Create Non-Employee Source
-[**create_non_employee_source_schema_attributes**](NonEmployeeLifecycleManagementApi#create-non-employee-source-schema-attributes) | **POST** `/non-employee-sources/{sourceId}/schema-attributes` | Create a new Schema Attribute for Non-Employee Source
-[**delete_non_employee_record**](NonEmployeeLifecycleManagementApi#delete-non-employee-record) | **DELETE** `/non-employee-records/{id}` | Delete Non-Employee Record
-[**delete_non_employee_records_in_bulk**](NonEmployeeLifecycleManagementApi#delete-non-employee-records-in-bulk) | **POST** `/non-employee-records/bulk-delete` | Delete Multiple Non-Employee Records
-[**delete_non_employee_request**](NonEmployeeLifecycleManagementApi#delete-non-employee-request) | **DELETE** `/non-employee-requests/{id}` | Delete Non-Employee Request
-[**delete_non_employee_schema_attribute**](NonEmployeeLifecycleManagementApi#delete-non-employee-schema-attribute) | **DELETE** `/non-employee-sources/{sourceId}/schema-attributes/{attributeId}` | Delete a Schema Attribute for Non-Employee Source
-[**delete_non_employee_source**](NonEmployeeLifecycleManagementApi#delete-non-employee-source) | **DELETE** `/non-employee-sources/{sourceId}` | Delete Non-Employee Source
-[**delete_non_employee_source_schema_attributes**](NonEmployeeLifecycleManagementApi#delete-non-employee-source-schema-attributes) | **DELETE** `/non-employee-sources/{sourceId}/schema-attributes` | Delete all custom schema attributes for Non-Employee Source
-[**export_non_employee_records**](NonEmployeeLifecycleManagementApi#export-non-employee-records) | **GET** `/non-employee-sources/{id}/non-employees/download` | Exports Non-Employee Records to CSV
-[**export_non_employee_source_schema_template**](NonEmployeeLifecycleManagementApi#export-non-employee-source-schema-template) | **GET** `/non-employee-sources/{id}/schema-attributes-template/download` | Exports Source Schema Template
-[**get_non_employee_approval**](NonEmployeeLifecycleManagementApi#get-non-employee-approval) | **GET** `/non-employee-approvals/{id}` | Get a non-employee approval item detail
-[**get_non_employee_approval_summary**](NonEmployeeLifecycleManagementApi#get-non-employee-approval-summary) | **GET** `/non-employee-approvals/summary/{requested-for}` | Get Summary of Non-Employee Approval Requests
-[**get_non_employee_bulk_upload_status**](NonEmployeeLifecycleManagementApi#get-non-employee-bulk-upload-status) | **GET** `/non-employee-sources/{id}/non-employee-bulk-upload/status` | Obtain the status of bulk upload on the source
-[**get_non_employee_record**](NonEmployeeLifecycleManagementApi#get-non-employee-record) | **GET** `/non-employee-records/{id}` | Get a Non-Employee Record
-[**get_non_employee_request**](NonEmployeeLifecycleManagementApi#get-non-employee-request) | **GET** `/non-employee-requests/{id}` | Get a Non-Employee Request
-[**get_non_employee_request_summary**](NonEmployeeLifecycleManagementApi#get-non-employee-request-summary) | **GET** `/non-employee-requests/summary/{requested-for}` | Get Summary of Non-Employee Requests
-[**get_non_employee_schema_attribute**](NonEmployeeLifecycleManagementApi#get-non-employee-schema-attribute) | **GET** `/non-employee-sources/{sourceId}/schema-attributes/{attributeId}` | Get Schema Attribute Non-Employee Source
-[**get_non_employee_source**](NonEmployeeLifecycleManagementApi#get-non-employee-source) | **GET** `/non-employee-sources/{sourceId}` | Get a Non-Employee Source
-[**get_non_employee_source_schema_attributes**](NonEmployeeLifecycleManagementApi#get-non-employee-source-schema-attributes) | **GET** `/non-employee-sources/{sourceId}/schema-attributes` | List Schema Attributes Non-Employee Source
-[**import_non_employee_records_in_bulk**](NonEmployeeLifecycleManagementApi#import-non-employee-records-in-bulk) | **POST** `/non-employee-sources/{id}/non-employee-bulk-upload` | Imports, or Updates, Non-Employee Records
-[**list_non_employee_approvals**](NonEmployeeLifecycleManagementApi#list-non-employee-approvals) | **GET** `/non-employee-approvals` | Get List of Non-Employee Approval Requests
-[**list_non_employee_records**](NonEmployeeLifecycleManagementApi#list-non-employee-records) | **GET** `/non-employee-records` | List Non-Employee Records
-[**list_non_employee_requests**](NonEmployeeLifecycleManagementApi#list-non-employee-requests) | **GET** `/non-employee-requests` | List Non-Employee Requests
-[**list_non_employee_sources**](NonEmployeeLifecycleManagementApi#list-non-employee-sources) | **GET** `/non-employee-sources` | List Non-Employee Sources
-[**patch_non_employee_record**](NonEmployeeLifecycleManagementApi#patch-non-employee-record) | **PATCH** `/non-employee-records/{id}` | Patch Non-Employee Record
-[**patch_non_employee_schema_attribute**](NonEmployeeLifecycleManagementApi#patch-non-employee-schema-attribute) | **PATCH** `/non-employee-sources/{sourceId}/schema-attributes/{attributeId}` | Patch a Schema Attribute for Non-Employee Source
-[**patch_non_employee_source**](NonEmployeeLifecycleManagementApi#patch-non-employee-source) | **PATCH** `/non-employee-sources/{sourceId}` | Patch a Non-Employee Source
-[**reject_non_employee_request**](NonEmployeeLifecycleManagementApi#reject-non-employee-request) | **POST** `/non-employee-approvals/{id}/reject` | Reject a Non-Employee Request
-[**update_non_employee_record**](NonEmployeeLifecycleManagementApi#update-non-employee-record) | **PUT** `/non-employee-records/{id}` | Update Non-Employee Record
+[**approve-non-employee-request**](#approve-non-employee-request) | **POST** `/non-employee-approvals/{id}/approve` | Approve a Non-Employee Request
+[**create-non-employee-record**](#create-non-employee-record) | **POST** `/non-employee-records` | Create Non-Employee Record
+[**create-non-employee-request**](#create-non-employee-request) | **POST** `/non-employee-requests` | Create Non-Employee Request
+[**create-non-employee-source**](#create-non-employee-source) | **POST** `/non-employee-sources` | Create Non-Employee Source
+[**create-non-employee-source-schema-attributes**](#create-non-employee-source-schema-attributes) | **POST** `/non-employee-sources/{sourceId}/schema-attributes` | Create a new Schema Attribute for Non-Employee Source
+[**delete-non-employee-record**](#delete-non-employee-record) | **DELETE** `/non-employee-records/{id}` | Delete Non-Employee Record
+[**delete-non-employee-records-in-bulk**](#delete-non-employee-records-in-bulk) | **POST** `/non-employee-records/bulk-delete` | Delete Multiple Non-Employee Records
+[**delete-non-employee-request**](#delete-non-employee-request) | **DELETE** `/non-employee-requests/{id}` | Delete Non-Employee Request
+[**delete-non-employee-schema-attribute**](#delete-non-employee-schema-attribute) | **DELETE** `/non-employee-sources/{sourceId}/schema-attributes/{attributeId}` | Delete a Schema Attribute for Non-Employee Source
+[**delete-non-employee-source**](#delete-non-employee-source) | **DELETE** `/non-employee-sources/{sourceId}` | Delete Non-Employee Source
+[**delete-non-employee-source-schema-attributes**](#delete-non-employee-source-schema-attributes) | **DELETE** `/non-employee-sources/{sourceId}/schema-attributes` | Delete all custom schema attributes for Non-Employee Source
+[**export-non-employee-records**](#export-non-employee-records) | **GET** `/non-employee-sources/{id}/non-employees/download` | Exports Non-Employee Records to CSV
+[**export-non-employee-source-schema-template**](#export-non-employee-source-schema-template) | **GET** `/non-employee-sources/{id}/schema-attributes-template/download` | Exports Source Schema Template
+[**get-non-employee-approval**](#get-non-employee-approval) | **GET** `/non-employee-approvals/{id}` | Get a non-employee approval item detail
+[**get-non-employee-approval-summary**](#get-non-employee-approval-summary) | **GET** `/non-employee-approvals/summary/{requested-for}` | Get Summary of Non-Employee Approval Requests
+[**get-non-employee-bulk-upload-status**](#get-non-employee-bulk-upload-status) | **GET** `/non-employee-sources/{id}/non-employee-bulk-upload/status` | Obtain the status of bulk upload on the source
+[**get-non-employee-record**](#get-non-employee-record) | **GET** `/non-employee-records/{id}` | Get a Non-Employee Record
+[**get-non-employee-request**](#get-non-employee-request) | **GET** `/non-employee-requests/{id}` | Get a Non-Employee Request
+[**get-non-employee-request-summary**](#get-non-employee-request-summary) | **GET** `/non-employee-requests/summary/{requested-for}` | Get Summary of Non-Employee Requests
+[**get-non-employee-schema-attribute**](#get-non-employee-schema-attribute) | **GET** `/non-employee-sources/{sourceId}/schema-attributes/{attributeId}` | Get Schema Attribute Non-Employee Source
+[**get-non-employee-source**](#get-non-employee-source) | **GET** `/non-employee-sources/{sourceId}` | Get a Non-Employee Source
+[**get-non-employee-source-schema-attributes**](#get-non-employee-source-schema-attributes) | **GET** `/non-employee-sources/{sourceId}/schema-attributes` | List Schema Attributes Non-Employee Source
+[**import-non-employee-records-in-bulk**](#import-non-employee-records-in-bulk) | **POST** `/non-employee-sources/{id}/non-employee-bulk-upload` | Imports, or Updates, Non-Employee Records
+[**list-non-employee-approvals**](#list-non-employee-approvals) | **GET** `/non-employee-approvals` | Get List of Non-Employee Approval Requests
+[**list-non-employee-records**](#list-non-employee-records) | **GET** `/non-employee-records` | List Non-Employee Records
+[**list-non-employee-requests**](#list-non-employee-requests) | **GET** `/non-employee-requests` | List Non-Employee Requests
+[**list-non-employee-sources**](#list-non-employee-sources) | **GET** `/non-employee-sources` | List Non-Employee Sources
+[**patch-non-employee-record**](#patch-non-employee-record) | **PATCH** `/non-employee-records/{id}` | Patch Non-Employee Record
+[**patch-non-employee-schema-attribute**](#patch-non-employee-schema-attribute) | **PATCH** `/non-employee-sources/{sourceId}/schema-attributes/{attributeId}` | Patch a Schema Attribute for Non-Employee Source
+[**patch-non-employee-source**](#patch-non-employee-source) | **PATCH** `/non-employee-sources/{sourceId}` | Patch a Non-Employee Source
+[**reject-non-employee-request**](#reject-non-employee-request) | **POST** `/non-employee-approvals/{id}/reject` | Reject a Non-Employee Request
+[**update-non-employee-record**](#update-non-employee-record) | **PUT** `/non-employee-records/{id}` | Update Non-Employee Record
 
 
 ## approve-non-employee-request

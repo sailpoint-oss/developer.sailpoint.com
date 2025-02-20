@@ -18,15 +18,15 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_auth_org_network_config**](GlobalTenantSecuritySettingsApi#create-auth-org-network-config) | **POST** `/auth-org/network-config` | Create security network configuration.
-[**get_auth_org_lockout_config**](GlobalTenantSecuritySettingsApi#get-auth-org-lockout-config) | **GET** `/auth-org/lockout-config` | Get Auth Org Lockout Configuration.
-[**get_auth_org_network_config**](GlobalTenantSecuritySettingsApi#get-auth-org-network-config) | **GET** `/auth-org/network-config` | Get security network configuration.
-[**get_auth_org_service_provider_config**](GlobalTenantSecuritySettingsApi#get-auth-org-service-provider-config) | **GET** `/auth-org/service-provider-config` | Get Service Provider Configuration.
-[**get_auth_org_session_config**](GlobalTenantSecuritySettingsApi#get-auth-org-session-config) | **GET** `/auth-org/session-config` | Get Auth Org Session Configuration.
-[**patch_auth_org_lockout_config**](GlobalTenantSecuritySettingsApi#patch-auth-org-lockout-config) | **PATCH** `/auth-org/lockout-config` | Update Auth Org Lockout Configuration
-[**patch_auth_org_network_config**](GlobalTenantSecuritySettingsApi#patch-auth-org-network-config) | **PATCH** `/auth-org/network-config` | Update security network configuration.
-[**patch_auth_org_service_provider_config**](GlobalTenantSecuritySettingsApi#patch-auth-org-service-provider-config) | **PATCH** `/auth-org/service-provider-config` | Update Service Provider Configuration
-[**patch_auth_org_session_config**](GlobalTenantSecuritySettingsApi#patch-auth-org-session-config) | **PATCH** `/auth-org/session-config` | Update Auth Org Session Configuration
+[**create-auth-org-network-config**](#create-auth-org-network-config) | **POST** `/auth-org/network-config` | Create security network configuration.
+[**get-auth-org-lockout-config**](#get-auth-org-lockout-config) | **GET** `/auth-org/lockout-config` | Get Auth Org Lockout Configuration.
+[**get-auth-org-network-config**](#get-auth-org-network-config) | **GET** `/auth-org/network-config` | Get security network configuration.
+[**get-auth-org-service-provider-config**](#get-auth-org-service-provider-config) | **GET** `/auth-org/service-provider-config` | Get Service Provider Configuration.
+[**get-auth-org-session-config**](#get-auth-org-session-config) | **GET** `/auth-org/session-config` | Get Auth Org Session Configuration.
+[**patch-auth-org-lockout-config**](#patch-auth-org-lockout-config) | **PATCH** `/auth-org/lockout-config` | Update Auth Org Lockout Configuration
+[**patch-auth-org-network-config**](#patch-auth-org-network-config) | **PATCH** `/auth-org/network-config` | Update security network configuration.
+[**patch-auth-org-service-provider-config**](#patch-auth-org-service-provider-config) | **PATCH** `/auth-org/service-provider-config` | Update Service Provider Configuration
+[**patch-auth-org-session-config**](#patch-auth-org-session-config) | **PATCH** `/auth-org/session-config` | Update Auth Org Session Configuration
 
 
 ## create-auth-org-network-config

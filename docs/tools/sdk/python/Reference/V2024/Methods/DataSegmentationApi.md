@@ -17,14 +17,14 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_data_segment**](DataSegmentationApi#create-data-segment) | **POST** `/data-segments` | Create Segment
-[**delete_data_segment**](DataSegmentationApi#delete-data-segment) | **DELETE** `/data-segments/{segmentId}` | Delete Segment by ID
-[**get_data_segment**](DataSegmentationApi#get-data-segment) | **GET** `/data-segments/{segmentId}` | Get Segment by ID
-[**get_data_segment_identity_membership**](DataSegmentationApi#get-data-segment-identity-membership) | **GET** `/data-segments/membership/{identityId}` | Get SegmentMembership by Identity ID
-[**get_data_segmentation_enabled_for_user**](DataSegmentationApi#get-data-segmentation-enabled-for-user) | **GET** `/data-segments/user-enabled/{identityId}` | Is Segmentation enabled by Identity
-[**list_data_segments**](DataSegmentationApi#list-data-segments) | **GET** `/data-segments` | Get Segments
-[**patch_data_segment**](DataSegmentationApi#patch-data-segment) | **PATCH** `/data-segments/{segmentId}` | Update Segment
-[**publish_data_segment**](DataSegmentationApi#publish-data-segment) | **POST** `/data-segments/{segmentId}` | Publish segment by ID
+[**create-data-segment**](#create-data-segment) | **POST** `/data-segments` | Create Segment
+[**delete-data-segment**](#delete-data-segment) | **DELETE** `/data-segments/{segmentId}` | Delete Segment by ID
+[**get-data-segment**](#get-data-segment) | **GET** `/data-segments/{segmentId}` | Get Segment by ID
+[**get-data-segment-identity-membership**](#get-data-segment-identity-membership) | **GET** `/data-segments/membership/{identityId}` | Get SegmentMembership by Identity ID
+[**get-data-segmentation-enabled-for-user**](#get-data-segmentation-enabled-for-user) | **GET** `/data-segments/user-enabled/{identityId}` | Is Segmentation enabled by Identity
+[**list-data-segments**](#list-data-segments) | **GET** `/data-segments` | Get Segments
+[**patch-data-segment**](#patch-data-segment) | **PATCH** `/data-segments/{segmentId}` | Update Segment
+[**publish-data-segment**](#publish-data-segment) | **POST** `/data-segments/{segmentId}` | Publish segment by ID
 
 
 ## create-data-segment

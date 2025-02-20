@@ -15,7 +15,7 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_tenant**](TenantApi#get-tenant) | **GET** `/tenant` | Get Tenant Information.
+[**get-tenant**](#get-tenant) | **GET** `/tenant` | Get Tenant Information.
 
 
 ## get-tenant

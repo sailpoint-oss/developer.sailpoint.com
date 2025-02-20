@@ -25,17 +25,17 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_identity_profile**](IdentityProfilesApi#create-identity-profile) | **POST** `/identity-profiles` | Create an Identity Profile
-[**delete_identity_profile**](IdentityProfilesApi#delete-identity-profile) | **DELETE** `/identity-profiles/{identity-profile-id}` | Delete an Identity Profile
-[**delete_identity_profiles**](IdentityProfilesApi#delete-identity-profiles) | **POST** `/identity-profiles/bulk-delete` | Delete Identity Profiles
-[**export_identity_profiles**](IdentityProfilesApi#export-identity-profiles) | **GET** `/identity-profiles/export` | Export Identity Profiles
-[**get_default_identity_attribute_config**](IdentityProfilesApi#get-default-identity-attribute-config) | **GET** `/identity-profiles/{identity-profile-id}/default-identity-attribute-config` | Get default Identity Attribute Config
-[**get_identity_profile**](IdentityProfilesApi#get-identity-profile) | **GET** `/identity-profiles/{identity-profile-id}` | Get single Identity Profile
-[**import_identity_profiles**](IdentityProfilesApi#import-identity-profiles) | **POST** `/identity-profiles/import` | Import Identity Profiles
-[**list_identity_profiles**](IdentityProfilesApi#list-identity-profiles) | **GET** `/identity-profiles` | Identity Profiles List
-[**show_identity_preview**](IdentityProfilesApi#show-identity-preview) | **POST** `/identity-profiles/identity-preview` | Generate Identity Profile Preview
-[**sync_identity_profile**](IdentityProfilesApi#sync-identity-profile) | **POST** `/identity-profiles/{identity-profile-id}/process-identities` | Process identities under profile
-[**update_identity_profile**](IdentityProfilesApi#update-identity-profile) | **PATCH** `/identity-profiles/{identity-profile-id}` | Update the Identity Profile
+[**create-identity-profile**](#create-identity-profile) | **POST** `/identity-profiles` | Create an Identity Profile
+[**delete-identity-profile**](#delete-identity-profile) | **DELETE** `/identity-profiles/{identity-profile-id}` | Delete an Identity Profile
+[**delete-identity-profiles**](#delete-identity-profiles) | **POST** `/identity-profiles/bulk-delete` | Delete Identity Profiles
+[**export-identity-profiles**](#export-identity-profiles) | **GET** `/identity-profiles/export` | Export Identity Profiles
+[**get-default-identity-attribute-config**](#get-default-identity-attribute-config) | **GET** `/identity-profiles/{identity-profile-id}/default-identity-attribute-config` | Get default Identity Attribute Config
+[**get-identity-profile**](#get-identity-profile) | **GET** `/identity-profiles/{identity-profile-id}` | Get single Identity Profile
+[**import-identity-profiles**](#import-identity-profiles) | **POST** `/identity-profiles/import` | Import Identity Profiles
+[**list-identity-profiles**](#list-identity-profiles) | **GET** `/identity-profiles` | Identity Profiles List
+[**show-identity-preview**](#show-identity-preview) | **POST** `/identity-profiles/identity-preview` | Generate Identity Profile Preview
+[**sync-identity-profile**](#sync-identity-profile) | **POST** `/identity-profiles/{identity-profile-id}/process-identities` | Process identities under profile
+[**update-identity-profile**](#update-identity-profile) | **PATCH** `/identity-profiles/{identity-profile-id}` | Update the Identity Profile
 
 
 ## create-identity-profile

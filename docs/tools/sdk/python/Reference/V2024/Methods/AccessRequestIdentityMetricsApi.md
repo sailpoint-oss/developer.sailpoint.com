@@ -19,7 +19,7 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_access_request_identity_metrics**](AccessRequestIdentityMetricsApi#get-access-request-identity-metrics) | **GET** `/access-request-identity-metrics/{identityId}/requested-objects/{requestedObjectId}/type/{type}` | Return access request identity metrics
+[**get-access-request-identity-metrics**](#get-access-request-identity-metrics) | **GET** `/access-request-identity-metrics/{identityId}/requested-objects/{requestedObjectId}/type/{type}` | Return access request identity metrics
 
 
 ## get-access-request-identity-metrics

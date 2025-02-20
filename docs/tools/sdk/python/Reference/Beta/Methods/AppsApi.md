@@ -17,20 +17,20 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_source_app**](AppsApi#create-source-app) | **POST** `/source-apps` | Create source app
-[**delete_access_profiles_from_source_app_by_bulk**](AppsApi#delete-access-profiles-from-source-app-by-bulk) | **POST** `/source-apps/{id}/access-profiles/bulk-remove` | Bulk remove access profiles from the specified source app
-[**delete_source_app**](AppsApi#delete-source-app) | **DELETE** `/source-apps/{id}` | Delete source app by ID
-[**get_source_app**](AppsApi#get-source-app) | **GET** `/source-apps/{id}` | Get source app by ID
-[**list_access_profiles_for_source_app**](AppsApi#list-access-profiles-for-source-app) | **GET** `/source-apps/{id}/access-profiles` | List access profiles for the specified source app
-[**list_all_source_app**](AppsApi#list-all-source-app) | **GET** `/source-apps/all` | List all source apps
-[**list_all_user_apps**](AppsApi#list-all-user-apps) | **GET** `/user-apps/all` | List all user apps
-[**list_assigned_source_app**](AppsApi#list-assigned-source-app) | **GET** `/source-apps/assigned` | List assigned source apps
-[**list_available_accounts_for_user_app**](AppsApi#list-available-accounts-for-user-app) | **GET** `/user-apps/{id}/available-accounts` | List available accounts for user app
-[**list_available_source_apps**](AppsApi#list-available-source-apps) | **GET** `/source-apps` | List available source apps
-[**list_owned_user_apps**](AppsApi#list-owned-user-apps) | **GET** `/user-apps` | List owned user apps
-[**patch_source_app**](AppsApi#patch-source-app) | **PATCH** `/source-apps/{id}` | Patch source app by ID
-[**patch_user_app**](AppsApi#patch-user-app) | **PATCH** `/user-apps/{id}` | Patch user app by ID
-[**update_source_apps_in_bulk**](AppsApi#update-source-apps-in-bulk) | **POST** `/source-apps/bulk-update` | Bulk update source apps
+[**create-source-app**](#create-source-app) | **POST** `/source-apps` | Create source app
+[**delete-access-profiles-from-source-app-by-bulk**](#delete-access-profiles-from-source-app-by-bulk) | **POST** `/source-apps/{id}/access-profiles/bulk-remove` | Bulk remove access profiles from the specified source app
+[**delete-source-app**](#delete-source-app) | **DELETE** `/source-apps/{id}` | Delete source app by ID
+[**get-source-app**](#get-source-app) | **GET** `/source-apps/{id}` | Get source app by ID
+[**list-access-profiles-for-source-app**](#list-access-profiles-for-source-app) | **GET** `/source-apps/{id}/access-profiles` | List access profiles for the specified source app
+[**list-all-source-app**](#list-all-source-app) | **GET** `/source-apps/all` | List all source apps
+[**list-all-user-apps**](#list-all-user-apps) | **GET** `/user-apps/all` | List all user apps
+[**list-assigned-source-app**](#list-assigned-source-app) | **GET** `/source-apps/assigned` | List assigned source apps
+[**list-available-accounts-for-user-app**](#list-available-accounts-for-user-app) | **GET** `/user-apps/{id}/available-accounts` | List available accounts for user app
+[**list-available-source-apps**](#list-available-source-apps) | **GET** `/source-apps` | List available source apps
+[**list-owned-user-apps**](#list-owned-user-apps) | **GET** `/user-apps` | List owned user apps
+[**patch-source-app**](#patch-source-app) | **PATCH** `/source-apps/{id}` | Patch source app by ID
+[**patch-user-app**](#patch-user-app) | **PATCH** `/user-apps/{id}` | Patch user app by ID
+[**update-source-apps-in-bulk**](#update-source-apps-in-bulk) | **POST** `/source-apps/bulk-update` | Bulk update source apps
 
 
 ## create-source-app

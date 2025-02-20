@@ -72,49 +72,49 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_provisioning_policy**](SourcesApi#create-provisioning-policy) | **POST** `/sources/{sourceId}/provisioning-policies` | Create Provisioning Policy
-[**create_source**](SourcesApi#create-source) | **POST** `/sources` | Creates a source in IdentityNow.
-[**create_source_schema**](SourcesApi#create-source-schema) | **POST** `/sources/{sourceId}/schemas` | Create Schema on Source
-[**delete**](SourcesApi#delete) | **DELETE** `/sources/{id}` | Delete Source by ID
-[**delete_accounts_async**](SourcesApi#delete-accounts-async) | **POST** `/sources/{sourceId}/remove-accounts` | Remove All Accounts in a Source
-[**delete_native_change_detection_config**](SourcesApi#delete-native-change-detection-config) | **DELETE** `/sources/{sourceId}/native-change-detection-config` | Delete Native Change Detection Configuration
-[**delete_provisioning_policy**](SourcesApi#delete-provisioning-policy) | **DELETE** `/sources/{sourceId}/provisioning-policies/{usageType}` | Delete Provisioning Policy by UsageType
-[**delete_source_schema**](SourcesApi#delete-source-schema) | **DELETE** `/sources/{sourceId}/schemas/{schemaId}` | Delete Source Schema by ID
-[**get_correlation_config**](SourcesApi#get-correlation-config) | **GET** `/sources/{sourceId}/correlation-config` | Get Source Correlation Configuration
-[**get_native_change_detection_config**](SourcesApi#get-native-change-detection-config) | **GET** `/sources/{sourceId}/native-change-detection-config` | Native Change Detection Configuration
-[**get_provisioning_policy**](SourcesApi#get-provisioning-policy) | **GET** `/sources/{sourceId}/provisioning-policies/{usageType}` | Get Provisioning Policy by UsageType
-[**get_source**](SourcesApi#get-source) | **GET** `/sources/{id}` | Get Source by ID
-[**get_source_accounts_schema**](SourcesApi#get-source-accounts-schema) | **GET** `/sources/{sourceId}/schemas/accounts` | Downloads source accounts schema template
-[**get_source_attr_sync_config**](SourcesApi#get-source-attr-sync-config) | **GET** `/sources/{id}/attribute-sync-config` | Attribute Sync Config
-[**get_source_config**](SourcesApi#get-source-config) | **GET** `/sources/{id}/connectors/source-config` | Gets source config with language translations
-[**get_source_entitlement_request_config**](SourcesApi#get-source-entitlement-request-config) | **GET** `/sources/{sourceId}/entitlement-request-config` | Get Source Entitlement Request Configuration
-[**get_source_entitlements_schema**](SourcesApi#get-source-entitlements-schema) | **GET** `/sources/{sourceId}/schemas/entitlements` | Downloads source entitlements schema template
-[**get_source_schema**](SourcesApi#get-source-schema) | **GET** `/sources/{sourceId}/schemas/{schemaId}` | Get Source Schema by ID
-[**get_source_schemas**](SourcesApi#get-source-schemas) | **GET** `/sources/{sourceId}/schemas` | List Schemas on Source
-[**import_accounts**](SourcesApi#import-accounts) | **POST** `/sources/{sourceId}/load-accounts` | Account Aggregation
-[**import_entitlements**](SourcesApi#import-entitlements) | **POST** `/sources/{sourceId}/load-entitlements` | Entitlement Aggregation
-[**import_source_accounts_schema**](SourcesApi#import-source-accounts-schema) | **POST** `/sources/{sourceId}/schemas/accounts` | Uploads source accounts schema template
-[**import_source_connector_file**](SourcesApi#import-source-connector-file) | **POST** `/sources/{sourceId}/upload-connector-file` | Upload connector file to source
-[**import_source_entitlements_schema**](SourcesApi#import-source-entitlements-schema) | **POST** `/sources/{sourceId}/schemas/entitlements` | Uploads source entitlements schema template
-[**import_uncorrelated_accounts**](SourcesApi#import-uncorrelated-accounts) | **POST** `/sources/{sourceId}/load-uncorrelated-accounts` | Process Uncorrelated Accounts
-[**list_provisioning_policies**](SourcesApi#list-provisioning-policies) | **GET** `/sources/{sourceId}/provisioning-policies` | Lists ProvisioningPolicies
-[**list_sources**](SourcesApi#list-sources) | **GET** `/sources` | Lists all sources in IdentityNow.
-[**peek_resource_objects**](SourcesApi#peek-resource-objects) | **POST** `/sources/{sourceId}/connector/peek-resource-objects` | Peek source connector&#39;s resource objects
-[**ping_cluster**](SourcesApi#ping-cluster) | **POST** `/sources/{sourceId}/connector/ping-cluster` | Ping cluster for source connector
-[**put_correlation_config**](SourcesApi#put-correlation-config) | **PUT** `/sources/{sourceId}/correlation-config` | Update Source Correlation Configuration
-[**put_native_change_detection_config**](SourcesApi#put-native-change-detection-config) | **PUT** `/sources/{sourceId}/native-change-detection-config` | Update Native Change Detection Configuration
-[**put_provisioning_policy**](SourcesApi#put-provisioning-policy) | **PUT** `/sources/{sourceId}/provisioning-policies/{usageType}` | Update Provisioning Policy by UsageType
-[**put_source**](SourcesApi#put-source) | **PUT** `/sources/{id}` | Update Source (Full)
-[**put_source_attr_sync_config**](SourcesApi#put-source-attr-sync-config) | **PUT** `/sources/{id}/attribute-sync-config` | Update Attribute Sync Config
-[**put_source_schema**](SourcesApi#put-source-schema) | **PUT** `/sources/{sourceId}/schemas/{schemaId}` | Update Source Schema (Full)
-[**sync_attributes_for_source**](SourcesApi#sync-attributes-for-source) | **POST** `/sources/{sourceId}/synchronize-attributes` | Synchronize single source attributes.
-[**test_source_configuration**](SourcesApi#test-source-configuration) | **POST** `/sources/{sourceId}/connector/test-configuration` | Test configuration for source connector
-[**test_source_connection**](SourcesApi#test-source-connection) | **POST** `/sources/{sourceId}/connector/check-connection` | Check connection for source connector.
-[**update_provisioning_policies_in_bulk**](SourcesApi#update-provisioning-policies-in-bulk) | **POST** `/sources/{sourceId}/provisioning-policies/bulk-update` | Bulk Update Provisioning Policies
-[**update_provisioning_policy**](SourcesApi#update-provisioning-policy) | **PATCH** `/sources/{sourceId}/provisioning-policies/{usageType}` | Partial update of Provisioning Policy
-[**update_source**](SourcesApi#update-source) | **PATCH** `/sources/{id}` | Update Source (Partial)
-[**update_source_entitlement_request_config**](SourcesApi#update-source-entitlement-request-config) | **PUT** `/sources/{sourceId}/entitlement-request-config` | Update Source Entitlement Request Configuration
-[**update_source_schema**](SourcesApi#update-source-schema) | **PATCH** `/sources/{sourceId}/schemas/{schemaId}` | Update Source Schema (Partial)
+[**create-provisioning-policy**](#create-provisioning-policy) | **POST** `/sources/{sourceId}/provisioning-policies` | Create Provisioning Policy
+[**create-source**](#create-source) | **POST** `/sources` | Creates a source in IdentityNow.
+[**create-source-schema**](#create-source-schema) | **POST** `/sources/{sourceId}/schemas` | Create Schema on Source
+[**delete**](#delete) | **DELETE** `/sources/{id}` | Delete Source by ID
+[**delete-accounts-async**](#delete-accounts-async) | **POST** `/sources/{sourceId}/remove-accounts` | Remove All Accounts in a Source
+[**delete-native-change-detection-config**](#delete-native-change-detection-config) | **DELETE** `/sources/{sourceId}/native-change-detection-config` | Delete Native Change Detection Configuration
+[**delete-provisioning-policy**](#delete-provisioning-policy) | **DELETE** `/sources/{sourceId}/provisioning-policies/{usageType}` | Delete Provisioning Policy by UsageType
+[**delete-source-schema**](#delete-source-schema) | **DELETE** `/sources/{sourceId}/schemas/{schemaId}` | Delete Source Schema by ID
+[**get-correlation-config**](#get-correlation-config) | **GET** `/sources/{sourceId}/correlation-config` | Get Source Correlation Configuration
+[**get-native-change-detection-config**](#get-native-change-detection-config) | **GET** `/sources/{sourceId}/native-change-detection-config` | Native Change Detection Configuration
+[**get-provisioning-policy**](#get-provisioning-policy) | **GET** `/sources/{sourceId}/provisioning-policies/{usageType}` | Get Provisioning Policy by UsageType
+[**get-source**](#get-source) | **GET** `/sources/{id}` | Get Source by ID
+[**get-source-accounts-schema**](#get-source-accounts-schema) | **GET** `/sources/{sourceId}/schemas/accounts` | Downloads source accounts schema template
+[**get-source-attr-sync-config**](#get-source-attr-sync-config) | **GET** `/sources/{id}/attribute-sync-config` | Attribute Sync Config
+[**get-source-config**](#get-source-config) | **GET** `/sources/{id}/connectors/source-config` | Gets source config with language translations
+[**get-source-entitlement-request-config**](#get-source-entitlement-request-config) | **GET** `/sources/{sourceId}/entitlement-request-config` | Get Source Entitlement Request Configuration
+[**get-source-entitlements-schema**](#get-source-entitlements-schema) | **GET** `/sources/{sourceId}/schemas/entitlements` | Downloads source entitlements schema template
+[**get-source-schema**](#get-source-schema) | **GET** `/sources/{sourceId}/schemas/{schemaId}` | Get Source Schema by ID
+[**get-source-schemas**](#get-source-schemas) | **GET** `/sources/{sourceId}/schemas` | List Schemas on Source
+[**import-accounts**](#import-accounts) | **POST** `/sources/{sourceId}/load-accounts` | Account Aggregation
+[**import-entitlements**](#import-entitlements) | **POST** `/sources/{sourceId}/load-entitlements` | Entitlement Aggregation
+[**import-source-accounts-schema**](#import-source-accounts-schema) | **POST** `/sources/{sourceId}/schemas/accounts` | Uploads source accounts schema template
+[**import-source-connector-file**](#import-source-connector-file) | **POST** `/sources/{sourceId}/upload-connector-file` | Upload connector file to source
+[**import-source-entitlements-schema**](#import-source-entitlements-schema) | **POST** `/sources/{sourceId}/schemas/entitlements` | Uploads source entitlements schema template
+[**import-uncorrelated-accounts**](#import-uncorrelated-accounts) | **POST** `/sources/{sourceId}/load-uncorrelated-accounts` | Process Uncorrelated Accounts
+[**list-provisioning-policies**](#list-provisioning-policies) | **GET** `/sources/{sourceId}/provisioning-policies` | Lists ProvisioningPolicies
+[**list-sources**](#list-sources) | **GET** `/sources` | Lists all sources in IdentityNow.
+[**peek-resource-objects**](#peek-resource-objects) | **POST** `/sources/{sourceId}/connector/peek-resource-objects` | Peek source connector&#39;s resource objects
+[**ping-cluster**](#ping-cluster) | **POST** `/sources/{sourceId}/connector/ping-cluster` | Ping cluster for source connector
+[**put-correlation-config**](#put-correlation-config) | **PUT** `/sources/{sourceId}/correlation-config` | Update Source Correlation Configuration
+[**put-native-change-detection-config**](#put-native-change-detection-config) | **PUT** `/sources/{sourceId}/native-change-detection-config` | Update Native Change Detection Configuration
+[**put-provisioning-policy**](#put-provisioning-policy) | **PUT** `/sources/{sourceId}/provisioning-policies/{usageType}` | Update Provisioning Policy by UsageType
+[**put-source**](#put-source) | **PUT** `/sources/{id}` | Update Source (Full)
+[**put-source-attr-sync-config**](#put-source-attr-sync-config) | **PUT** `/sources/{id}/attribute-sync-config` | Update Attribute Sync Config
+[**put-source-schema**](#put-source-schema) | **PUT** `/sources/{sourceId}/schemas/{schemaId}` | Update Source Schema (Full)
+[**sync-attributes-for-source**](#sync-attributes-for-source) | **POST** `/sources/{sourceId}/synchronize-attributes` | Synchronize single source attributes.
+[**test-source-configuration**](#test-source-configuration) | **POST** `/sources/{sourceId}/connector/test-configuration` | Test configuration for source connector
+[**test-source-connection**](#test-source-connection) | **POST** `/sources/{sourceId}/connector/check-connection` | Check connection for source connector.
+[**update-provisioning-policies-in-bulk**](#update-provisioning-policies-in-bulk) | **POST** `/sources/{sourceId}/provisioning-policies/bulk-update` | Bulk Update Provisioning Policies
+[**update-provisioning-policy**](#update-provisioning-policy) | **PATCH** `/sources/{sourceId}/provisioning-policies/{usageType}` | Partial update of Provisioning Policy
+[**update-source**](#update-source) | **PATCH** `/sources/{id}` | Update Source (Partial)
+[**update-source-entitlement-request-config**](#update-source-entitlement-request-config) | **PUT** `/sources/{sourceId}/entitlement-request-config` | Update Source Entitlement Request Configuration
+[**update-source-schema**](#update-source-schema) | **PATCH** `/sources/{sourceId}/schemas/{schemaId}` | Update Source Schema (Partial)
 
 
 ## create-provisioning-policy

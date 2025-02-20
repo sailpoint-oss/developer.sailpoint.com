@@ -42,17 +42,17 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_account**](AccountsApi#create-account) | **POST** `/accounts` | Create Account
-[**delete_account**](AccountsApi#delete-account) | **DELETE** `/accounts/{id}` | Delete Account
-[**disable_account**](AccountsApi#disable-account) | **POST** `/accounts/{id}/disable` | Disable Account
-[**enable_account**](AccountsApi#enable-account) | **POST** `/accounts/{id}/enable` | Enable Account
-[**get_account**](AccountsApi#get-account) | **GET** `/accounts/{id}` | Account Details
-[**get_account_entitlements**](AccountsApi#get-account-entitlements) | **GET** `/accounts/{id}/entitlements` | Account Entitlements
-[**list_accounts**](AccountsApi#list-accounts) | **GET** `/accounts` | Accounts List
-[**put_account**](AccountsApi#put-account) | **PUT** `/accounts/{id}` | Update Account
-[**submit_reload_account**](AccountsApi#submit-reload-account) | **POST** `/accounts/{id}/reload` | Reload Account
-[**unlock_account**](AccountsApi#unlock-account) | **POST** `/accounts/{id}/unlock` | Unlock Account
-[**update_account**](AccountsApi#update-account) | **PATCH** `/accounts/{id}` | Update Account
+[**create-account**](#create-account) | **POST** `/accounts` | Create Account
+[**delete-account**](#delete-account) | **DELETE** `/accounts/{id}` | Delete Account
+[**disable-account**](#disable-account) | **POST** `/accounts/{id}/disable` | Disable Account
+[**enable-account**](#enable-account) | **POST** `/accounts/{id}/enable` | Enable Account
+[**get-account**](#get-account) | **GET** `/accounts/{id}` | Account Details
+[**get-account-entitlements**](#get-account-entitlements) | **GET** `/accounts/{id}/entitlements` | Account Entitlements
+[**list-accounts**](#list-accounts) | **GET** `/accounts` | Accounts List
+[**put-account**](#put-account) | **PUT** `/accounts/{id}` | Update Account
+[**submit-reload-account**](#submit-reload-account) | **POST** `/accounts/{id}/reload` | Reload Account
+[**unlock-account**](#unlock-account) | **POST** `/accounts/{id}/unlock` | Unlock Account
+[**update-account**](#update-account) | **PATCH** `/accounts/{id}` | Update Account
 
 
 ## create-account

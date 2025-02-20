@@ -80,28 +80,28 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**complete_campaign**](CertificationCampaignsApi#complete-campaign) | **POST** `/campaigns/{id}/complete` | Complete a Campaign
-[**create_campaign**](CertificationCampaignsApi#create-campaign) | **POST** `/campaigns` | Create a campaign
-[**create_campaign_template**](CertificationCampaignsApi#create-campaign-template) | **POST** `/campaign-templates` | Create a Campaign Template
-[**delete_campaign_template**](CertificationCampaignsApi#delete-campaign-template) | **DELETE** `/campaign-templates/{id}` | Delete a Campaign Template
-[**delete_campaign_template_schedule**](CertificationCampaignsApi#delete-campaign-template-schedule) | **DELETE** `/campaign-templates/{id}/schedule` | Delete Campaign Template Schedule
-[**delete_campaigns**](CertificationCampaignsApi#delete-campaigns) | **POST** `/campaigns/delete` | Delete Campaigns
-[**get_active_campaigns**](CertificationCampaignsApi#get-active-campaigns) | **GET** `/campaigns` | List Campaigns
-[**get_campaign**](CertificationCampaignsApi#get-campaign) | **GET** `/campaigns/{id}` | Get Campaign
-[**get_campaign_reports**](CertificationCampaignsApi#get-campaign-reports) | **GET** `/campaigns/{id}/reports` | Get Campaign Reports
-[**get_campaign_reports_config**](CertificationCampaignsApi#get-campaign-reports-config) | **GET** `/campaigns/reports-configuration` | Get Campaign Reports Configuration
-[**get_campaign_template**](CertificationCampaignsApi#get-campaign-template) | **GET** `/campaign-templates/{id}` | Get a Campaign Template
-[**get_campaign_template_schedule**](CertificationCampaignsApi#get-campaign-template-schedule) | **GET** `/campaign-templates/{id}/schedule` | Get Campaign Template Schedule
-[**get_campaign_templates**](CertificationCampaignsApi#get-campaign-templates) | **GET** `/campaign-templates` | List Campaign Templates
-[**move**](CertificationCampaignsApi#move) | **POST** `/campaigns/{id}/reassign` | Reassign Certifications
-[**patch_campaign_template**](CertificationCampaignsApi#patch-campaign-template) | **PATCH** `/campaign-templates/{id}` | Update a Campaign Template
-[**set_campaign_reports_config**](CertificationCampaignsApi#set-campaign-reports-config) | **PUT** `/campaigns/reports-configuration` | Set Campaign Reports Configuration
-[**set_campaign_template_schedule**](CertificationCampaignsApi#set-campaign-template-schedule) | **PUT** `/campaign-templates/{id}/schedule` | Set Campaign Template Schedule
-[**start_campaign**](CertificationCampaignsApi#start-campaign) | **POST** `/campaigns/{id}/activate` | Activate a Campaign
-[**start_campaign_remediation_scan**](CertificationCampaignsApi#start-campaign-remediation-scan) | **POST** `/campaigns/{id}/run-remediation-scan` | Run Campaign Remediation Scan
-[**start_campaign_report**](CertificationCampaignsApi#start-campaign-report) | **POST** `/campaigns/{id}/run-report/{type}` | Run Campaign Report
-[**start_generate_campaign_template**](CertificationCampaignsApi#start-generate-campaign-template) | **POST** `/campaign-templates/{id}/generate` | Generate a Campaign from Template
-[**update_campaign**](CertificationCampaignsApi#update-campaign) | **PATCH** `/campaigns/{id}` | Update a Campaign
+[**complete-campaign**](#complete-campaign) | **POST** `/campaigns/{id}/complete` | Complete a Campaign
+[**create-campaign**](#create-campaign) | **POST** `/campaigns` | Create a campaign
+[**create-campaign-template**](#create-campaign-template) | **POST** `/campaign-templates` | Create a Campaign Template
+[**delete-campaign-template**](#delete-campaign-template) | **DELETE** `/campaign-templates/{id}` | Delete a Campaign Template
+[**delete-campaign-template-schedule**](#delete-campaign-template-schedule) | **DELETE** `/campaign-templates/{id}/schedule` | Delete Campaign Template Schedule
+[**delete-campaigns**](#delete-campaigns) | **POST** `/campaigns/delete` | Delete Campaigns
+[**get-active-campaigns**](#get-active-campaigns) | **GET** `/campaigns` | List Campaigns
+[**get-campaign**](#get-campaign) | **GET** `/campaigns/{id}` | Get Campaign
+[**get-campaign-reports**](#get-campaign-reports) | **GET** `/campaigns/{id}/reports` | Get Campaign Reports
+[**get-campaign-reports-config**](#get-campaign-reports-config) | **GET** `/campaigns/reports-configuration` | Get Campaign Reports Configuration
+[**get-campaign-template**](#get-campaign-template) | **GET** `/campaign-templates/{id}` | Get a Campaign Template
+[**get-campaign-template-schedule**](#get-campaign-template-schedule) | **GET** `/campaign-templates/{id}/schedule` | Get Campaign Template Schedule
+[**get-campaign-templates**](#get-campaign-templates) | **GET** `/campaign-templates` | List Campaign Templates
+[**move**](#move) | **POST** `/campaigns/{id}/reassign` | Reassign Certifications
+[**patch-campaign-template**](#patch-campaign-template) | **PATCH** `/campaign-templates/{id}` | Update a Campaign Template
+[**set-campaign-reports-config**](#set-campaign-reports-config) | **PUT** `/campaigns/reports-configuration` | Set Campaign Reports Configuration
+[**set-campaign-template-schedule**](#set-campaign-template-schedule) | **PUT** `/campaign-templates/{id}/schedule` | Set Campaign Template Schedule
+[**start-campaign**](#start-campaign) | **POST** `/campaigns/{id}/activate` | Activate a Campaign
+[**start-campaign-remediation-scan**](#start-campaign-remediation-scan) | **POST** `/campaigns/{id}/run-remediation-scan` | Run Campaign Remediation Scan
+[**start-campaign-report**](#start-campaign-report) | **POST** `/campaigns/{id}/run-report/{type}` | Run Campaign Report
+[**start-generate-campaign-template**](#start-generate-campaign-template) | **POST** `/campaign-templates/{id}/generate` | Generate a Campaign from Template
+[**update-campaign**](#update-campaign) | **PATCH** `/campaigns/{id}` | Update a Campaign
 
 
 ## complete-campaign

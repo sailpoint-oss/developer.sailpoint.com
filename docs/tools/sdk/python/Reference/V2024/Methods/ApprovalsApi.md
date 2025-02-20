@@ -18,8 +18,8 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_approval**](ApprovalsApi#get-approval) | **GET** `/generic-approvals/{id}` | Get an approval
-[**get_approvals**](ApprovalsApi#get-approvals) | **GET** `/generic-approvals` | Get Approvals
+[**get-approval**](#get-approval) | **GET** `/generic-approvals/{id}` | Get an approval
+[**get-approvals**](#get-approvals) | **GET** `/generic-approvals` | Get Approvals
 
 
 ## get-approval

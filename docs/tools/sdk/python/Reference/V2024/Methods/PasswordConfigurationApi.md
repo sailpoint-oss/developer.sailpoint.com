@@ -21,9 +21,9 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_password_org_config**](PasswordConfigurationApi#create-password-org-config) | **POST** `/password-org-config` | Create Password Org Config
-[**get_password_org_config**](PasswordConfigurationApi#get-password-org-config) | **GET** `/password-org-config` | Get Password Org Config
-[**put_password_org_config**](PasswordConfigurationApi#put-password-org-config) | **PUT** `/password-org-config` | Update Password Org Config
+[**create-password-org-config**](#create-password-org-config) | **POST** `/password-org-config` | Create Password Org Config
+[**get-password-org-config**](#get-password-org-config) | **GET** `/password-org-config` | Get Password Org Config
+[**put-password-org-config**](#put-password-org-config) | **PUT** `/password-org-config` | Update Password Org Config
 
 
 ## create-password-org-config

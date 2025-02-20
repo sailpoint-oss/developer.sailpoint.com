@@ -17,9 +17,9 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_org_config**](OrgConfigApi#get-org-config) | **GET** `/org-config` | Get Org Config Settings
-[**get_valid_time_zones**](OrgConfigApi#get-valid-time-zones) | **GET** `/org-config/valid-time-zones` | Get Valid Time Zones
-[**patch_org_config**](OrgConfigApi#patch-org-config) | **PATCH** `/org-config` | Patch Org Config
+[**get-org-config**](#get-org-config) | **GET** `/org-config` | Get Org Config Settings
+[**get-valid-time-zones**](#get-valid-time-zones) | **GET** `/org-config/valid-time-zones` | Get Valid Time Zones
+[**patch-org-config**](#patch-org-config) | **PATCH** `/org-config` | Patch Org Config
 
 
 ## get-org-config

@@ -29,10 +29,10 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_identity_access_summaries**](CertificationSummariesApi#get-identity-access-summaries) | **GET** `/certifications/{id}/access-summaries/{type}` | Access Summaries
-[**get_identity_decision_summary**](CertificationSummariesApi#get-identity-decision-summary) | **GET** `/certifications/{id}/decision-summary` | Summary of Certification Decisions
-[**get_identity_summaries**](CertificationSummariesApi#get-identity-summaries) | **GET** `/certifications/{id}/identity-summaries` | Identity Summaries for Campaign Certification
-[**get_identity_summary**](CertificationSummariesApi#get-identity-summary) | **GET** `/certifications/{id}/identity-summaries/{identitySummaryId}` | Summary for Identity
+[**get-identity-access-summaries**](#get-identity-access-summaries) | **GET** `/certifications/{id}/access-summaries/{type}` | Access Summaries
+[**get-identity-decision-summary**](#get-identity-decision-summary) | **GET** `/certifications/{id}/decision-summary` | Summary of Certification Decisions
+[**get-identity-summaries**](#get-identity-summaries) | **GET** `/certifications/{id}/identity-summaries` | Identity Summaries for Campaign Certification
+[**get-identity-summary**](#get-identity-summary) | **GET** `/certifications/{id}/identity-summaries/{identitySummaryId}` | Summary for Identity
 
 
 ## get-identity-access-summaries

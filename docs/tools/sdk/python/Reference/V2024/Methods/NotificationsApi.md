@@ -15,21 +15,21 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_domain_dkim**](NotificationsApi#create-domain-dkim) | **POST** `/verified-domains` | Verify domain address via DKIM
-[**create_notification_template**](NotificationsApi#create-notification-template) | **POST** `/notification-templates` | Create Notification Template
-[**create_verified_from_address**](NotificationsApi#create-verified-from-address) | **POST** `/verified-from-addresses` | Create Verified From Address
-[**delete_notification_templates_in_bulk**](NotificationsApi#delete-notification-templates-in-bulk) | **POST** `/notification-templates/bulk-delete` | Bulk Delete Notification Templates
-[**delete_verified_from_address**](NotificationsApi#delete-verified-from-address) | **DELETE** `/verified-from-addresses/{id}` | Delete Verified From Address
-[**get_dkim_attributes**](NotificationsApi#get-dkim-attributes) | **GET** `/verified-domains` | Get DKIM Attributes
-[**get_mail_from_attributes**](NotificationsApi#get-mail-from-attributes) | **GET** `/mail-from-attributes/{identity}` | Get MAIL FROM Attributes
-[**get_notification_template**](NotificationsApi#get-notification-template) | **GET** `/notification-templates/{id}` | Get Notification Template By Id
-[**get_notifications_template_context**](NotificationsApi#get-notifications-template-context) | **GET** `/notification-template-context` | Get Notification Template Context
-[**list_from_addresses**](NotificationsApi#list-from-addresses) | **GET** `/verified-from-addresses` | List From Addresses
-[**list_notification_preferences**](NotificationsApi#list-notification-preferences) | **GET** `/notification-preferences/{key}` | List Notification Preferences for tenant.
-[**list_notification_template_defaults**](NotificationsApi#list-notification-template-defaults) | **GET** `/notification-template-defaults` | List Notification Template Defaults
-[**list_notification_templates**](NotificationsApi#list-notification-templates) | **GET** `/notification-templates` | List Notification Templates
-[**put_mail_from_attributes**](NotificationsApi#put-mail-from-attributes) | **PUT** `/mail-from-attributes` | Change MAIL FROM domain
-[**send_test_notification**](NotificationsApi#send-test-notification) | **POST** `/send-test-notification` | Send Test Notification
+[**create-domain-dkim**](#create-domain-dkim) | **POST** `/verified-domains` | Verify domain address via DKIM
+[**create-notification-template**](#create-notification-template) | **POST** `/notification-templates` | Create Notification Template
+[**create-verified-from-address**](#create-verified-from-address) | **POST** `/verified-from-addresses` | Create Verified From Address
+[**delete-notification-templates-in-bulk**](#delete-notification-templates-in-bulk) | **POST** `/notification-templates/bulk-delete` | Bulk Delete Notification Templates
+[**delete-verified-from-address**](#delete-verified-from-address) | **DELETE** `/verified-from-addresses/{id}` | Delete Verified From Address
+[**get-dkim-attributes**](#get-dkim-attributes) | **GET** `/verified-domains` | Get DKIM Attributes
+[**get-mail-from-attributes**](#get-mail-from-attributes) | **GET** `/mail-from-attributes/{identity}` | Get MAIL FROM Attributes
+[**get-notification-template**](#get-notification-template) | **GET** `/notification-templates/{id}` | Get Notification Template By Id
+[**get-notifications-template-context**](#get-notifications-template-context) | **GET** `/notification-template-context` | Get Notification Template Context
+[**list-from-addresses**](#list-from-addresses) | **GET** `/verified-from-addresses` | List From Addresses
+[**list-notification-preferences**](#list-notification-preferences) | **GET** `/notification-preferences/{key}` | List Notification Preferences for tenant.
+[**list-notification-template-defaults**](#list-notification-template-defaults) | **GET** `/notification-template-defaults` | List Notification Template Defaults
+[**list-notification-templates**](#list-notification-templates) | **GET** `/notification-templates` | List Notification Templates
+[**put-mail-from-attributes**](#put-mail-from-attributes) | **PUT** `/mail-from-attributes` | Change MAIL FROM domain
+[**send-test-notification**](#send-test-notification) | **POST** `/send-test-notification` | Send Test Notification
 
 
 ## create-domain-dkim

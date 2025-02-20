@@ -32,13 +32,13 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**approve_access_request**](AccessRequestApprovalsApi#approve-access-request) | **POST** `/access-request-approvals/{approvalId}/approve` | Approve Access Request Approval
-[**forward_access_request**](AccessRequestApprovalsApi#forward-access-request) | **POST** `/access-request-approvals/{approvalId}/forward` | Forward Access Request Approval
-[**get_access_request_approval_summary**](AccessRequestApprovalsApi#get-access-request-approval-summary) | **GET** `/access-request-approvals/approval-summary` | Get Access Requests Approvals Number
-[**list_access_request_approvers**](AccessRequestApprovalsApi#list-access-request-approvers) | **GET** `/access-request-approvals/{accessRequestId}/approvers` | Access Request Approvers
-[**list_completed_approvals**](AccessRequestApprovalsApi#list-completed-approvals) | **GET** `/access-request-approvals/completed` | Completed Access Request Approvals List
-[**list_pending_approvals**](AccessRequestApprovalsApi#list-pending-approvals) | **GET** `/access-request-approvals/pending` | Pending Access Request Approvals List
-[**reject_access_request**](AccessRequestApprovalsApi#reject-access-request) | **POST** `/access-request-approvals/{approvalId}/reject` | Reject Access Request Approval
+[**approve-access-request**](#approve-access-request) | **POST** `/access-request-approvals/{approvalId}/approve` | Approve Access Request Approval
+[**forward-access-request**](#forward-access-request) | **POST** `/access-request-approvals/{approvalId}/forward` | Forward Access Request Approval
+[**get-access-request-approval-summary**](#get-access-request-approval-summary) | **GET** `/access-request-approvals/approval-summary` | Get Access Requests Approvals Number
+[**list-access-request-approvers**](#list-access-request-approvers) | **GET** `/access-request-approvals/{accessRequestId}/approvers` | Access Request Approvers
+[**list-completed-approvals**](#list-completed-approvals) | **GET** `/access-request-approvals/completed` | Completed Access Request Approvals List
+[**list-pending-approvals**](#list-pending-approvals) | **GET** `/access-request-approvals/pending` | Pending Access Request Approvals List
+[**reject-access-request**](#reject-access-request) | **POST** `/access-request-approvals/{approvalId}/reject` | Reject Access Request Approval
 
 
 ## approve-access-request

@@ -20,11 +20,11 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_branding_item**](BrandingApi#create-branding-item) | **POST** `/brandings` | Create a branding item
-[**delete_branding**](BrandingApi#delete-branding) | **DELETE** `/brandings/{name}` | Delete a branding item
-[**get_branding**](BrandingApi#get-branding) | **GET** `/brandings/{name}` | Get a branding item
-[**get_branding_list**](BrandingApi#get-branding-list) | **GET** `/brandings` | List of branding items
-[**set_branding_item**](BrandingApi#set-branding-item) | **PUT** `/brandings/{name}` | Update a branding item
+[**create-branding-item**](#create-branding-item) | **POST** `/brandings` | Create a branding item
+[**delete-branding**](#delete-branding) | **DELETE** `/brandings/{name}` | Delete a branding item
+[**get-branding**](#get-branding) | **GET** `/brandings/{name}` | Get a branding item
+[**get-branding-list**](#get-branding-list) | **GET** `/brandings` | List of branding items
+[**set-branding-item**](#set-branding-item) | **PUT** `/brandings/{name}` | Update a branding item
 
 
 ## create-branding-item

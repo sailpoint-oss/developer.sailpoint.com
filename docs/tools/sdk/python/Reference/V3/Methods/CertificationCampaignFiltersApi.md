@@ -42,11 +42,11 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_campaign_filter**](CertificationCampaignFiltersApi#create-campaign-filter) | **POST** `/campaign-filters` | Create Campaign Filter
-[**delete_campaign_filters**](CertificationCampaignFiltersApi#delete-campaign-filters) | **POST** `/campaign-filters/delete` | Deletes Campaign Filters
-[**get_campaign_filter_by_id**](CertificationCampaignFiltersApi#get-campaign-filter-by-id) | **GET** `/campaign-filters/{id}` | Get Campaign Filter by ID
-[**list_campaign_filters**](CertificationCampaignFiltersApi#list-campaign-filters) | **GET** `/campaign-filters` | List Campaign Filters
-[**update_campaign_filter**](CertificationCampaignFiltersApi#update-campaign-filter) | **POST** `/campaign-filters/{id}` | Updates a Campaign Filter
+[**create-campaign-filter**](#create-campaign-filter) | **POST** `/campaign-filters` | Create Campaign Filter
+[**delete-campaign-filters**](#delete-campaign-filters) | **POST** `/campaign-filters/delete` | Deletes Campaign Filters
+[**get-campaign-filter-by-id**](#get-campaign-filter-by-id) | **GET** `/campaign-filters/{id}` | Get Campaign Filter by ID
+[**list-campaign-filters**](#list-campaign-filters) | **GET** `/campaign-filters` | List Campaign Filters
+[**update-campaign-filter**](#update-campaign-filter) | **POST** `/campaign-filters/{id}` | Updates a Campaign Filter
 
 
 ## create-campaign-filter

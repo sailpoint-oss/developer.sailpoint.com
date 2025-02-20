@@ -21,9 +21,9 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_profile_config**](AuthProfileApi#get-profile-config) | **GET** `/auth-profiles/{id}` | Get Auth Profile.
-[**get_profile_config_list**](AuthProfileApi#get-profile-config-list) | **GET** `/auth-profiles` | Get list of Auth Profiles.
-[**patch_profile_config**](AuthProfileApi#patch-profile-config) | **PATCH** `/auth-profiles/{id}` | Patch a specified Auth Profile
+[**get-profile-config**](#get-profile-config) | **GET** `/auth-profiles/{id}` | Get Auth Profile.
+[**get-profile-config-list**](#get-profile-config-list) | **GET** `/auth-profiles` | Get list of Auth Profiles.
+[**patch-profile-config**](#patch-profile-config) | **PATCH** `/auth-profiles/{id}` | Patch a specified Auth Profile
 
 
 ## get-profile-config

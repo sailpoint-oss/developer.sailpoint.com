@@ -17,13 +17,13 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_managed_cluster**](ManagedClustersApi#create-managed-cluster) | **POST** `/managed-clusters` | Create Create Managed Cluster
-[**delete_managed_cluster**](ManagedClustersApi#delete-managed-cluster) | **DELETE** `/managed-clusters/{id}` | Delete Managed Cluster
-[**get_client_log_configuration**](ManagedClustersApi#get-client-log-configuration) | **GET** `/managed-clusters/{id}/log-config` | Get Managed Cluster Log Configuration
-[**get_managed_cluster**](ManagedClustersApi#get-managed-cluster) | **GET** `/managed-clusters/{id}` | Get Managed Cluster
-[**get_managed_clusters**](ManagedClustersApi#get-managed-clusters) | **GET** `/managed-clusters` | Get Managed Clusters
-[**put_client_log_configuration**](ManagedClustersApi#put-client-log-configuration) | **PUT** `/managed-clusters/{id}/log-config` | Update Managed Cluster Log Configuration
-[**update_managed_cluster**](ManagedClustersApi#update-managed-cluster) | **PATCH** `/managed-clusters/{id}` | Update Managed Cluster
+[**create-managed-cluster**](#create-managed-cluster) | **POST** `/managed-clusters` | Create Create Managed Cluster
+[**delete-managed-cluster**](#delete-managed-cluster) | **DELETE** `/managed-clusters/{id}` | Delete Managed Cluster
+[**get-client-log-configuration**](#get-client-log-configuration) | **GET** `/managed-clusters/{id}/log-config` | Get Managed Cluster Log Configuration
+[**get-managed-cluster**](#get-managed-cluster) | **GET** `/managed-clusters/{id}` | Get Managed Cluster
+[**get-managed-clusters**](#get-managed-clusters) | **GET** `/managed-clusters` | Get Managed Clusters
+[**put-client-log-configuration**](#put-client-log-configuration) | **PUT** `/managed-clusters/{id}/log-config` | Update Managed Cluster Log Configuration
+[**update-managed-cluster**](#update-managed-cluster) | **PATCH** `/managed-clusters/{id}` | Update Managed Cluster
 
 
 ## create-managed-cluster

@@ -18,10 +18,10 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**cancel_report**](ReportsDataExtractionApi#cancel-report) | **POST** `/reports/{id}/cancel` | Cancel Report
-[**get_report**](ReportsDataExtractionApi#get-report) | **GET** `/reports/{taskResultId}` | Get Report File
-[**get_report_result**](ReportsDataExtractionApi#get-report-result) | **GET** `/reports/{taskResultId}/result` | Get Report Result
-[**start_report**](ReportsDataExtractionApi#start-report) | **POST** `/reports/run` | Run Report
+[**cancel-report**](#cancel-report) | **POST** `/reports/{id}/cancel` | Cancel Report
+[**get-report**](#get-report) | **GET** `/reports/{taskResultId}` | Get Report File
+[**get-report-result**](#get-report-result) | **GET** `/reports/{taskResultId}/result` | Get Report Result
+[**start-report**](#start-report) | **POST** `/reports/run` | Run Report
 
 
 ## cancel-report

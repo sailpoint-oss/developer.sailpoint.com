@@ -53,12 +53,12 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_lifecycle_state**](LifecycleStatesApi#create-lifecycle-state) | **POST** `/identity-profiles/{identity-profile-id}/lifecycle-states` | Create Lifecycle State
-[**delete_lifecycle_state**](LifecycleStatesApi#delete-lifecycle-state) | **DELETE** `/identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id}` | Delete Lifecycle State
-[**get_lifecycle_state**](LifecycleStatesApi#get-lifecycle-state) | **GET** `/identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id}` | Get Lifecycle State
-[**get_lifecycle_states**](LifecycleStatesApi#get-lifecycle-states) | **GET** `/identity-profiles/{identity-profile-id}/lifecycle-states` | Lists LifecycleStates
-[**set_lifecycle_state**](LifecycleStatesApi#set-lifecycle-state) | **POST** `/identities/{identity-id}/set-lifecycle-state` | Set Lifecycle State
-[**update_lifecycle_states**](LifecycleStatesApi#update-lifecycle-states) | **PATCH** `/identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id}` | Update Lifecycle State
+[**create-lifecycle-state**](#create-lifecycle-state) | **POST** `/identity-profiles/{identity-profile-id}/lifecycle-states` | Create Lifecycle State
+[**delete-lifecycle-state**](#delete-lifecycle-state) | **DELETE** `/identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id}` | Delete Lifecycle State
+[**get-lifecycle-state**](#get-lifecycle-state) | **GET** `/identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id}` | Get Lifecycle State
+[**get-lifecycle-states**](#get-lifecycle-states) | **GET** `/identity-profiles/{identity-profile-id}/lifecycle-states` | Lists LifecycleStates
+[**set-lifecycle-state**](#set-lifecycle-state) | **POST** `/identities/{identity-id}/set-lifecycle-state` | Set Lifecycle State
+[**update-lifecycle-states**](#update-lifecycle-states) | **PATCH** `/identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id}` | Update Lifecycle State
 
 
 ## create-lifecycle-state

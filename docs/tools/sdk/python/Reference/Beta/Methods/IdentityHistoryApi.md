@@ -15,17 +15,17 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**compare_identity_snapshots**](IdentityHistoryApi#compare-identity-snapshots) | **GET** `/historical-identities/{id}/compare` | Gets a difference of count for each access item types for the given identity between 2 snapshots
-[**compare_identity_snapshots_access_type**](IdentityHistoryApi#compare-identity-snapshots-access-type) | **GET** `/historical-identities/{id}/compare/{accessType}` | Gets a list of differences of specific accessType for the given identity between 2 snapshots
-[**get_historical_identity**](IdentityHistoryApi#get-historical-identity) | **GET** `/historical-identities/{id}` | Get latest snapshot of identity
-[**get_historical_identity_events**](IdentityHistoryApi#get-historical-identity-events) | **GET** `/historical-identities/{id}/events` | Lists all events for the given identity
-[**get_identity_snapshot**](IdentityHistoryApi#get-identity-snapshot) | **GET** `/historical-identities/{id}/snapshots/{date}` | Gets an identity snapshot at a given date
-[**get_identity_snapshot_summary**](IdentityHistoryApi#get-identity-snapshot-summary) | **GET** `/historical-identities/{id}/snapshot-summary` | Gets the summary for the event count for a specific identity
-[**get_identity_start_date**](IdentityHistoryApi#get-identity-start-date) | **GET** `/historical-identities/{id}/start-date` | Gets the start date of the identity
-[**list_historical_identities**](IdentityHistoryApi#list-historical-identities) | **GET** `/historical-identities` | Lists all the identities
-[**list_identity_access_items**](IdentityHistoryApi#list-identity-access-items) | **GET** `/historical-identities/{id}/access-items` | List Access Items by Identity
-[**list_identity_snapshot_access_items**](IdentityHistoryApi#list-identity-snapshot-access-items) | **GET** `/historical-identities/{id}/snapshots/{date}/access-items` | Get Identity Access Items Snapshot
-[**list_identity_snapshots**](IdentityHistoryApi#list-identity-snapshots) | **GET** `/historical-identities/{id}/snapshots` | Lists all the snapshots for the identity
+[**compare-identity-snapshots**](#compare-identity-snapshots) | **GET** `/historical-identities/{id}/compare` | Gets a difference of count for each access item types for the given identity between 2 snapshots
+[**compare-identity-snapshots-access-type**](#compare-identity-snapshots-access-type) | **GET** `/historical-identities/{id}/compare/{accessType}` | Gets a list of differences of specific accessType for the given identity between 2 snapshots
+[**get-historical-identity**](#get-historical-identity) | **GET** `/historical-identities/{id}` | Get latest snapshot of identity
+[**get-historical-identity-events**](#get-historical-identity-events) | **GET** `/historical-identities/{id}/events` | Lists all events for the given identity
+[**get-identity-snapshot**](#get-identity-snapshot) | **GET** `/historical-identities/{id}/snapshots/{date}` | Gets an identity snapshot at a given date
+[**get-identity-snapshot-summary**](#get-identity-snapshot-summary) | **GET** `/historical-identities/{id}/snapshot-summary` | Gets the summary for the event count for a specific identity
+[**get-identity-start-date**](#get-identity-start-date) | **GET** `/historical-identities/{id}/start-date` | Gets the start date of the identity
+[**list-historical-identities**](#list-historical-identities) | **GET** `/historical-identities` | Lists all the identities
+[**list-identity-access-items**](#list-identity-access-items) | **GET** `/historical-identities/{id}/access-items` | List Access Items by Identity
+[**list-identity-snapshot-access-items**](#list-identity-snapshot-access-items) | **GET** `/historical-identities/{id}/snapshots/{date}/access-items` | Get Identity Access Items Snapshot
+[**list-identity-snapshots**](#list-identity-snapshots) | **GET** `/historical-identities/{id}/snapshots` | Lists all the snapshots for the identity
 
 
 ## compare-identity-snapshots

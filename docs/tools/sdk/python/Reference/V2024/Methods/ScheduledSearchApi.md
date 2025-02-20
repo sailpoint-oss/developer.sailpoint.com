@@ -41,12 +41,12 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_scheduled_search**](ScheduledSearchApi#create-scheduled-search) | **POST** `/scheduled-searches` | Create a new scheduled search
-[**delete_scheduled_search**](ScheduledSearchApi#delete-scheduled-search) | **DELETE** `/scheduled-searches/{id}` | Delete a Scheduled Search
-[**get_scheduled_search**](ScheduledSearchApi#get-scheduled-search) | **GET** `/scheduled-searches/{id}` | Get a Scheduled Search
-[**list_scheduled_search**](ScheduledSearchApi#list-scheduled-search) | **GET** `/scheduled-searches` | List scheduled searches
-[**unsubscribe_scheduled_search**](ScheduledSearchApi#unsubscribe-scheduled-search) | **POST** `/scheduled-searches/{id}/unsubscribe` | Unsubscribe a recipient from Scheduled Search
-[**update_scheduled_search**](ScheduledSearchApi#update-scheduled-search) | **PUT** `/scheduled-searches/{id}` | Update an existing Scheduled Search
+[**create-scheduled-search**](#create-scheduled-search) | **POST** `/scheduled-searches` | Create a new scheduled search
+[**delete-scheduled-search**](#delete-scheduled-search) | **DELETE** `/scheduled-searches/{id}` | Delete a Scheduled Search
+[**get-scheduled-search**](#get-scheduled-search) | **GET** `/scheduled-searches/{id}` | Get a Scheduled Search
+[**list-scheduled-search**](#list-scheduled-search) | **GET** `/scheduled-searches` | List scheduled searches
+[**unsubscribe-scheduled-search**](#unsubscribe-scheduled-search) | **POST** `/scheduled-searches/{id}/unsubscribe` | Unsubscribe a recipient from Scheduled Search
+[**update-scheduled-search**](#update-scheduled-search) | **PUT** `/scheduled-searches/{id}` | Update an existing Scheduled Search
 
 
 ## create-scheduled-search

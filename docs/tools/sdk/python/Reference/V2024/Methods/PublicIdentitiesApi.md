@@ -18,7 +18,7 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_public_identities**](PublicIdentitiesApi#get-public-identities) | **GET** `/public-identities` | Get list of public identities
+[**get-public-identities**](#get-public-identities) | **GET** `/public-identities` | Get list of public identities
 
 
 ## get-public-identities

@@ -20,16 +20,16 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_workgroup**](GovernanceGroupsApi#create-workgroup) | **POST** `/workgroups` | Create a new Governance Group.
-[**delete_workgroup**](GovernanceGroupsApi#delete-workgroup) | **DELETE** `/workgroups/{id}` | Delete a Governance Group
-[**delete_workgroup_members**](GovernanceGroupsApi#delete-workgroup-members) | **POST** `/workgroups/{workgroupId}/members/bulk-delete` | Remove members from Governance Group
-[**delete_workgroups_in_bulk**](GovernanceGroupsApi#delete-workgroups-in-bulk) | **POST** `/workgroups/bulk-delete` | Delete Governance Group(s)
-[**get_workgroup**](GovernanceGroupsApi#get-workgroup) | **GET** `/workgroups/{id}` | Get Governance Group by Id
-[**list_connections**](GovernanceGroupsApi#list-connections) | **GET** `/workgroups/{workgroupId}/connections` | List connections for Governance Group
-[**list_workgroup_members**](GovernanceGroupsApi#list-workgroup-members) | **GET** `/workgroups/{workgroupId}/members` | List Governance Group Members
-[**list_workgroups**](GovernanceGroupsApi#list-workgroups) | **GET** `/workgroups` | List Governance Groups
-[**patch_workgroup**](GovernanceGroupsApi#patch-workgroup) | **PATCH** `/workgroups/{id}` | Patch a Governance Group
-[**update_workgroup_members**](GovernanceGroupsApi#update-workgroup-members) | **POST** `/workgroups/{workgroupId}/members/bulk-add` | Add members to Governance Group
+[**create-workgroup**](#create-workgroup) | **POST** `/workgroups` | Create a new Governance Group.
+[**delete-workgroup**](#delete-workgroup) | **DELETE** `/workgroups/{id}` | Delete a Governance Group
+[**delete-workgroup-members**](#delete-workgroup-members) | **POST** `/workgroups/{workgroupId}/members/bulk-delete` | Remove members from Governance Group
+[**delete-workgroups-in-bulk**](#delete-workgroups-in-bulk) | **POST** `/workgroups/bulk-delete` | Delete Governance Group(s)
+[**get-workgroup**](#get-workgroup) | **GET** `/workgroups/{id}` | Get Governance Group by Id
+[**list-connections**](#list-connections) | **GET** `/workgroups/{workgroupId}/connections` | List connections for Governance Group
+[**list-workgroup-members**](#list-workgroup-members) | **GET** `/workgroups/{workgroupId}/members` | List Governance Group Members
+[**list-workgroups**](#list-workgroups) | **GET** `/workgroups` | List Governance Groups
+[**patch-workgroup**](#patch-workgroup) | **PATCH** `/workgroups/{id}` | Patch a Governance Group
+[**update-workgroup-members**](#update-workgroup-members) | **POST** `/workgroups/{workgroupId}/members/bulk-add` | Add members to Governance Group
 
 
 ## create-workgroup

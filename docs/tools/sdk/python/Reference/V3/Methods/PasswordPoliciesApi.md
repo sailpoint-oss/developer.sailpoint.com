@@ -23,11 +23,11 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_password_policy**](PasswordPoliciesApi#create-password-policy) | **POST** `/password-policies` | Create Password Policy
-[**delete_password_policy**](PasswordPoliciesApi#delete-password-policy) | **DELETE** `/password-policies/{id}` | Delete Password Policy by ID
-[**get_password_policy_by_id**](PasswordPoliciesApi#get-password-policy-by-id) | **GET** `/password-policies/{id}` | Get Password Policy by ID
-[**list_password_policies**](PasswordPoliciesApi#list-password-policies) | **GET** `/password-policies` | List Password Policies
-[**set_password_policy**](PasswordPoliciesApi#set-password-policy) | **PUT** `/password-policies/{id}` | Update Password Policy by ID
+[**create-password-policy**](#create-password-policy) | **POST** `/password-policies` | Create Password Policy
+[**delete-password-policy**](#delete-password-policy) | **DELETE** `/password-policies/{id}` | Delete Password Policy by ID
+[**get-password-policy-by-id**](#get-password-policy-by-id) | **GET** `/password-policies/{id}` | Get Password Policy by ID
+[**list-password-policies**](#list-password-policies) | **GET** `/password-policies` | List Password Policies
+[**set-password-policy**](#set-password-policy) | **PUT** `/password-policies/{id}` | Update Password Policy by ID
 
 
 ## create-password-policy

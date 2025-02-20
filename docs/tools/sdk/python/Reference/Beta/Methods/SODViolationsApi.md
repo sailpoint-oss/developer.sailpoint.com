@@ -33,7 +33,7 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**start_predict_sod_violations**](SODViolationsApi#start-predict-sod-violations) | **POST** `/sod-violations/predict` | Predict SOD violations for identity.
+[**start-predict-sod-violations**](#start-predict-sod-violations) | **POST** `/sod-violations/predict` | Predict SOD violations for identity.
 
 
 ## start-predict-sod-violations

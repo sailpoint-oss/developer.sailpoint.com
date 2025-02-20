@@ -16,24 +16,24 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**cancel_workflow_execution**](WorkflowsApi#cancel-workflow-execution) | **POST** `/workflow-executions/{id}/cancel` | Cancel Workflow Execution by ID
-[**create_workflow**](WorkflowsApi#create-workflow) | **POST** `/workflows` | Create Workflow
-[**delete_workflow**](WorkflowsApi#delete-workflow) | **DELETE** `/workflows/{id}` | Delete Workflow By Id
-[**get_workflow**](WorkflowsApi#get-workflow) | **GET** `/workflows/{id}` | Get Workflow By Id
-[**get_workflow_execution**](WorkflowsApi#get-workflow-execution) | **GET** `/workflow-executions/{id}` | Get Workflow Execution
-[**get_workflow_execution_history**](WorkflowsApi#get-workflow-execution-history) | **GET** `/workflow-executions/{id}/history` | Get Workflow Execution History
-[**get_workflow_executions**](WorkflowsApi#get-workflow-executions) | **GET** `/workflows/{id}/executions` | List Workflow Executions
-[**list_complete_workflow_library**](WorkflowsApi#list-complete-workflow-library) | **GET** `/workflow-library` | List Complete Workflow Library
-[**list_workflow_library_actions**](WorkflowsApi#list-workflow-library-actions) | **GET** `/workflow-library/actions` | List Workflow Library Actions
-[**list_workflow_library_operators**](WorkflowsApi#list-workflow-library-operators) | **GET** `/workflow-library/operators` | List Workflow Library Operators
-[**list_workflow_library_triggers**](WorkflowsApi#list-workflow-library-triggers) | **GET** `/workflow-library/triggers` | List Workflow Library Triggers
-[**list_workflows**](WorkflowsApi#list-workflows) | **GET** `/workflows` | List Workflows
-[**patch_workflow**](WorkflowsApi#patch-workflow) | **PATCH** `/workflows/{id}` | Patch Workflow
-[**post_external_execute_workflow**](WorkflowsApi#post-external-execute-workflow) | **POST** `/workflows/execute/external/{id}` | Execute Workflow via External Trigger
-[**post_workflow_external_trigger**](WorkflowsApi#post-workflow-external-trigger) | **POST** `/workflows/{id}/external/oauth-clients` | Generate External Trigger OAuth Client
-[**test_external_execute_workflow**](WorkflowsApi#test-external-execute-workflow) | **POST** `/workflows/execute/external/{id}/test` | Test Workflow via External Trigger
-[**test_workflow**](WorkflowsApi#test-workflow) | **POST** `/workflows/{id}/test` | Test Workflow By Id
-[**update_workflow**](WorkflowsApi#update-workflow) | **PUT** `/workflows/{id}` | Update Workflow
+[**cancel-workflow-execution**](#cancel-workflow-execution) | **POST** `/workflow-executions/{id}/cancel` | Cancel Workflow Execution by ID
+[**create-workflow**](#create-workflow) | **POST** `/workflows` | Create Workflow
+[**delete-workflow**](#delete-workflow) | **DELETE** `/workflows/{id}` | Delete Workflow By Id
+[**get-workflow**](#get-workflow) | **GET** `/workflows/{id}` | Get Workflow By Id
+[**get-workflow-execution**](#get-workflow-execution) | **GET** `/workflow-executions/{id}` | Get Workflow Execution
+[**get-workflow-execution-history**](#get-workflow-execution-history) | **GET** `/workflow-executions/{id}/history` | Get Workflow Execution History
+[**get-workflow-executions**](#get-workflow-executions) | **GET** `/workflows/{id}/executions` | List Workflow Executions
+[**list-complete-workflow-library**](#list-complete-workflow-library) | **GET** `/workflow-library` | List Complete Workflow Library
+[**list-workflow-library-actions**](#list-workflow-library-actions) | **GET** `/workflow-library/actions` | List Workflow Library Actions
+[**list-workflow-library-operators**](#list-workflow-library-operators) | **GET** `/workflow-library/operators` | List Workflow Library Operators
+[**list-workflow-library-triggers**](#list-workflow-library-triggers) | **GET** `/workflow-library/triggers` | List Workflow Library Triggers
+[**list-workflows**](#list-workflows) | **GET** `/workflows` | List Workflows
+[**patch-workflow**](#patch-workflow) | **PATCH** `/workflows/{id}` | Patch Workflow
+[**post-external-execute-workflow**](#post-external-execute-workflow) | **POST** `/workflows/execute/external/{id}` | Execute Workflow via External Trigger
+[**post-workflow-external-trigger**](#post-workflow-external-trigger) | **POST** `/workflows/{id}/external/oauth-clients` | Generate External Trigger OAuth Client
+[**test-external-execute-workflow**](#test-external-execute-workflow) | **POST** `/workflows/execute/external/{id}/test` | Test Workflow via External Trigger
+[**test-workflow**](#test-workflow) | **POST** `/workflows/{id}/test` | Test Workflow By Id
+[**update-workflow**](#update-workflow) | **PUT** `/workflows/{id}` | Update Workflow
 
 
 ## cancel-workflow-execution

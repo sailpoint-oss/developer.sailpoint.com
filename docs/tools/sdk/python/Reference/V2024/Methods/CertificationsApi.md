@@ -38,17 +38,17 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_certification_task**](CertificationsApi#get-certification-task) | **GET** `/certification-tasks/{id}` | Certification Task by ID
-[**get_identity_certification**](CertificationsApi#get-identity-certification) | **GET** `/certifications/{id}` | Identity Certification by ID
-[**get_identity_certification_item_permissions**](CertificationsApi#get-identity-certification-item-permissions) | **GET** `/certifications/{certificationId}/access-review-items/{itemId}/permissions` | Permissions for Entitlement Certification Item
-[**get_pending_certification_tasks**](CertificationsApi#get-pending-certification-tasks) | **GET** `/certification-tasks` | List of Pending Certification Tasks
-[**list_certification_reviewers**](CertificationsApi#list-certification-reviewers) | **GET** `/certifications/{id}/reviewers` | List of Reviewers for certification
-[**list_identity_access_review_items**](CertificationsApi#list-identity-access-review-items) | **GET** `/certifications/{id}/access-review-items` | List of Access Review Items
-[**list_identity_certifications**](CertificationsApi#list-identity-certifications) | **GET** `/certifications` | List Identity Campaign Certifications
-[**make_identity_decision**](CertificationsApi#make-identity-decision) | **POST** `/certifications/{id}/decide` | Decide on a Certification Item
-[**reassign_identity_certifications**](CertificationsApi#reassign-identity-certifications) | **POST** `/certifications/{id}/reassign` | Reassign Identities or Items
-[**sign_off_identity_certification**](CertificationsApi#sign-off-identity-certification) | **POST** `/certifications/{id}/sign-off` | Finalize Identity Certification Decisions
-[**submit_reassign_certs_async**](CertificationsApi#submit-reassign-certs-async) | **POST** `/certifications/{id}/reassign-async` | Reassign Certifications Asynchronously
+[**get-certification-task**](#get-certification-task) | **GET** `/certification-tasks/{id}` | Certification Task by ID
+[**get-identity-certification**](#get-identity-certification) | **GET** `/certifications/{id}` | Identity Certification by ID
+[**get-identity-certification-item-permissions**](#get-identity-certification-item-permissions) | **GET** `/certifications/{certificationId}/access-review-items/{itemId}/permissions` | Permissions for Entitlement Certification Item
+[**get-pending-certification-tasks**](#get-pending-certification-tasks) | **GET** `/certification-tasks` | List of Pending Certification Tasks
+[**list-certification-reviewers**](#list-certification-reviewers) | **GET** `/certifications/{id}/reviewers` | List of Reviewers for certification
+[**list-identity-access-review-items**](#list-identity-access-review-items) | **GET** `/certifications/{id}/access-review-items` | List of Access Review Items
+[**list-identity-certifications**](#list-identity-certifications) | **GET** `/certifications` | List Identity Campaign Certifications
+[**make-identity-decision**](#make-identity-decision) | **POST** `/certifications/{id}/decide` | Decide on a Certification Item
+[**reassign-identity-certifications**](#reassign-identity-certifications) | **POST** `/certifications/{id}/reassign` | Reassign Identities or Items
+[**sign-off-identity-certification**](#sign-off-identity-certification) | **POST** `/certifications/{id}/sign-off` | Finalize Identity Certification Decisions
+[**submit-reassign-certs-async**](#submit-reassign-certs-async) | **POST** `/certifications/{id}/reassign-async` | Reassign Certifications Asynchronously
 
 
 ## get-certification-task

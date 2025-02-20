@@ -15,9 +15,9 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_recommendations**](IAIRecommendationsApi#get-recommendations) | **POST** `/recommendations/request` | Returns a Recommendation Based on Object
-[**get_recommendations_config**](IAIRecommendationsApi#get-recommendations-config) | **GET** `/recommendations/config` | Get certification recommendation config values
-[**update_recommendations_config**](IAIRecommendationsApi#update-recommendations-config) | **PUT** `/recommendations/config` | Update certification recommendation config values
+[**get-recommendations**](#get-recommendations) | **POST** `/recommendations/request` | Returns a Recommendation Based on Object
+[**get-recommendations-config**](#get-recommendations-config) | **GET** `/recommendations/config` | Get certification recommendation config values
+[**update-recommendations-config**](#update-recommendations-config) | **PUT** `/recommendations/config` | Update certification recommendation config values
 
 
 ## get-recommendations

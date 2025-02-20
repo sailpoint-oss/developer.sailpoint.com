@@ -17,8 +17,8 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_managed_client_status**](ManagedClientsApi#get-managed-client-status) | **GET** `/managed-clients/{id}/status` | Specified Managed Client Status.
-[**update_managed_client_status**](ManagedClientsApi#update-managed-client-status) | **POST** `/managed-clients/{id}/status` | Handle status request from client
+[**get-managed-client-status**](#get-managed-client-status) | **GET** `/managed-clients/{id}/status` | Specified Managed Client Status.
+[**update-managed-client-status**](#update-managed-client-status) | **POST** `/managed-clients/{id}/status` | Handle status request from client
 
 
 ## get-managed-client-status

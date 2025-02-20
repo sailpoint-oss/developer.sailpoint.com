@@ -15,11 +15,11 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_pending_task_headers**](TaskManagementApi#get-pending-task-headers) | **HEAD** `/task-status/pending-tasks` | Retrieve Pending Task List Headers
-[**get_pending_tasks**](TaskManagementApi#get-pending-tasks) | **GET** `/task-status/pending-tasks` | Retrieve Pending Task Status List
-[**get_task_status**](TaskManagementApi#get-task-status) | **GET** `/task-status/{id}` | Get Task Status by ID
-[**get_task_status_list**](TaskManagementApi#get-task-status-list) | **GET** `/task-status` | Retrieve Task Status List
-[**update_task_status**](TaskManagementApi#update-task-status) | **PATCH** `/task-status/{id}` | Update Task Status by ID
+[**get-pending-task-headers**](#get-pending-task-headers) | **HEAD** `/task-status/pending-tasks` | Retrieve Pending Task List Headers
+[**get-pending-tasks**](#get-pending-tasks) | **GET** `/task-status/pending-tasks` | Retrieve Pending Task Status List
+[**get-task-status**](#get-task-status) | **GET** `/task-status/{id}` | Get Task Status by ID
+[**get-task-status-list**](#get-task-status-list) | **GET** `/task-status` | Retrieve Task Status List
+[**update-task-status**](#update-task-status) | **PATCH** `/task-status/{id}` | Update Task Status by ID
 
 
 ## get-pending-task-headers

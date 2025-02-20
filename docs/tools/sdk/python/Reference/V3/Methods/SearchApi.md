@@ -38,10 +38,10 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**search_aggregate**](SearchApi#search-aggregate) | **POST** `/search/aggregate` | Perform a Search Query Aggregation
-[**search_count**](SearchApi#search-count) | **POST** `/search/count` | Count Documents Satisfying a Query
-[**search_get**](SearchApi#search-get) | **GET** `/search/{index}/{id}` | Get a Document by ID
-[**search_post**](SearchApi#search-post) | **POST** `/search` | Perform Search
+[**search-aggregate**](#search-aggregate) | **POST** `/search/aggregate` | Perform a Search Query Aggregation
+[**search-count**](#search-count) | **POST** `/search/count` | Count Documents Satisfying a Query
+[**search-get**](#search-get) | **GET** `/search/{index}/{id}` | Get a Document by ID
+[**search-post**](#search-post) | **POST** `/search` | Perform Search
 
 
 ## search-aggregate

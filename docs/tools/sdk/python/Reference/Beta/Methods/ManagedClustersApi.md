@@ -17,10 +17,10 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_client_log_configuration**](ManagedClustersApi#get-client-log-configuration) | **GET** `/managed-clusters/{id}/log-config` | Get managed cluster&#39;s log configuration
-[**get_managed_cluster**](ManagedClustersApi#get-managed-cluster) | **GET** `/managed-clusters/{id}` | Get a specified ManagedCluster.
-[**get_managed_clusters**](ManagedClustersApi#get-managed-clusters) | **GET** `/managed-clusters` | Retrieve all Managed Clusters.
-[**put_client_log_configuration**](ManagedClustersApi#put-client-log-configuration) | **PUT** `/managed-clusters/{id}/log-config` | Update managed cluster&#39;s log configuration
+[**get-client-log-configuration**](#get-client-log-configuration) | **GET** `/managed-clusters/{id}/log-config` | Get managed cluster&#39;s log configuration
+[**get-managed-cluster**](#get-managed-cluster) | **GET** `/managed-clusters/{id}` | Get a specified ManagedCluster.
+[**get-managed-clusters**](#get-managed-clusters) | **GET** `/managed-clusters` | Retrieve all Managed Clusters.
+[**put-client-log-configuration**](#put-client-log-configuration) | **PUT** `/managed-clusters/{id}/log-config` | Update managed cluster&#39;s log configuration
 
 
 ## get-client-log-configuration

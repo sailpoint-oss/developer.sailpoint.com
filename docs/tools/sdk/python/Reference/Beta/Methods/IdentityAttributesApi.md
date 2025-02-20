@@ -15,12 +15,12 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_identity_attribute**](IdentityAttributesApi#create-identity-attribute) | **POST** `/identity-attributes` | Create Identity Attribute
-[**delete_identity_attribute**](IdentityAttributesApi#delete-identity-attribute) | **DELETE** `/identity-attributes/{name}` | Delete Identity Attribute
-[**delete_identity_attributes_in_bulk**](IdentityAttributesApi#delete-identity-attributes-in-bulk) | **DELETE** `/identity-attributes/bulk-delete` | Bulk delete Identity Attributes
-[**get_identity_attribute**](IdentityAttributesApi#get-identity-attribute) | **GET** `/identity-attributes/{name}` | Get Identity Attribute
-[**list_identity_attributes**](IdentityAttributesApi#list-identity-attributes) | **GET** `/identity-attributes` | List Identity Attributes
-[**put_identity_attribute**](IdentityAttributesApi#put-identity-attribute) | **PUT** `/identity-attributes/{name}` | Update Identity Attribute
+[**create-identity-attribute**](#create-identity-attribute) | **POST** `/identity-attributes` | Create Identity Attribute
+[**delete-identity-attribute**](#delete-identity-attribute) | **DELETE** `/identity-attributes/{name}` | Delete Identity Attribute
+[**delete-identity-attributes-in-bulk**](#delete-identity-attributes-in-bulk) | **DELETE** `/identity-attributes/bulk-delete` | Bulk delete Identity Attributes
+[**get-identity-attribute**](#get-identity-attribute) | **GET** `/identity-attributes/{name}` | Get Identity Attribute
+[**list-identity-attributes**](#list-identity-attributes) | **GET** `/identity-attributes` | List Identity Attributes
+[**put-identity-attribute**](#put-identity-attribute) | **PUT** `/identity-attributes/{name}` | Update Identity Attribute
 
 
 ## create-identity-attribute

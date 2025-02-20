@@ -17,8 +17,8 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**delete_icon**](IconsApi#delete-icon) | **DELETE** `/icons/{objectType}/{objectId}` | Delete an icon
-[**set_icon**](IconsApi#set-icon) | **PUT** `/icons/{objectType}/{objectId}` | Update an icon
+[**delete-icon**](#delete-icon) | **DELETE** `/icons/{objectType}/{objectId}` | Delete an icon
+[**set-icon**](#set-icon) | **PUT** `/icons/{objectType}/{objectId}` | Update an icon
 
 
 ## delete-icon

@@ -30,11 +30,11 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_identity_certification_item_permissions**](CertificationsApi#get-identity-certification-item-permissions) | **GET** `/certifications/{certificationId}/access-review-items/{itemId}/permissions` | Permissions for Entitlement Certification Item
-[**get_identity_certification_pending_tasks**](CertificationsApi#get-identity-certification-pending-tasks) | **GET** `/certifications/{id}/tasks-pending` | Pending Certification Tasks
-[**get_identity_certification_task_status**](CertificationsApi#get-identity-certification-task-status) | **GET** `/certifications/{id}/tasks/{taskId}` | Certification Task Status
-[**list_certification_reviewers**](CertificationsApi#list-certification-reviewers) | **GET** `/certifications/{id}/reviewers` | List of Reviewers for certification
-[**submit_reassign_certs_async**](CertificationsApi#submit-reassign-certs-async) | **POST** `/certifications/{id}/reassign-async` | Reassign Certifications Asynchronously
+[**get-identity-certification-item-permissions**](#get-identity-certification-item-permissions) | **GET** `/certifications/{certificationId}/access-review-items/{itemId}/permissions` | Permissions for Entitlement Certification Item
+[**get-identity-certification-pending-tasks**](#get-identity-certification-pending-tasks) | **GET** `/certifications/{id}/tasks-pending` | Pending Certification Tasks
+[**get-identity-certification-task-status**](#get-identity-certification-task-status) | **GET** `/certifications/{id}/tasks/{taskId}` | Certification Task Status
+[**list-certification-reviewers**](#list-certification-reviewers) | **GET** `/certifications/{id}/reviewers` | List of Reviewers for certification
+[**submit-reassign-certs-async**](#submit-reassign-certs-async) | **POST** `/certifications/{id}/reassign-async` | Reassign Certifications Asynchronously
 
 
 ## get-identity-certification-item-permissions

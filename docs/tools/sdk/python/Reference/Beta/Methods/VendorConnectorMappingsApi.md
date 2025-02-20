@@ -19,9 +19,9 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_vendor_connector_mapping**](VendorConnectorMappingsApi#create-vendor-connector-mapping) | **POST** `/vendor-connector-mappings` | Create Vendor Connector Mapping
-[**delete_vendor_connector_mapping**](VendorConnectorMappingsApi#delete-vendor-connector-mapping) | **DELETE** `/vendor-connector-mappings` | Delete Vendor Connector Mapping
-[**get_vendor_connector_mappings**](VendorConnectorMappingsApi#get-vendor-connector-mappings) | **GET** `/vendor-connector-mappings` | List Vendor Connector Mappings
+[**create-vendor-connector-mapping**](#create-vendor-connector-mapping) | **POST** `/vendor-connector-mappings` | Create Vendor Connector Mapping
+[**delete-vendor-connector-mapping**](#delete-vendor-connector-mapping) | **DELETE** `/vendor-connector-mappings` | Delete Vendor Connector Mapping
+[**get-vendor-connector-mappings**](#get-vendor-connector-mappings) | **GET** `/vendor-connector-mappings` | List Vendor Connector Mappings
 
 
 ## create-vendor-connector-mapping

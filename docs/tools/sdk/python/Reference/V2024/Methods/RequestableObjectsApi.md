@@ -18,7 +18,7 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**list_requestable_objects**](RequestableObjectsApi#list-requestable-objects) | **GET** `/requestable-objects` | Requestable Objects List
+[**list-requestable-objects**](#list-requestable-objects) | **GET** `/requestable-objects` | Requestable Objects List
 
 
 ## list-requestable-objects

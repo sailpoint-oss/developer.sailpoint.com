@@ -18,7 +18,7 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_usages_by_account_id**](AccountUsagesApi#get-usages-by-account-id) | **GET** `/account-usages/{accountId}/summaries` | Returns account usage insights
+[**get-usages-by-account-id**](#get-usages-by-account-id) | **GET** `/account-usages/{accountId}/summaries` | Returns account usage insights
 
 
 ## get-usages-by-account-id

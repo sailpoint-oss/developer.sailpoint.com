@@ -21,11 +21,11 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_transform**](TransformsApi#create-transform) | **POST** `/transforms` | Create transform
-[**delete_transform**](TransformsApi#delete-transform) | **DELETE** `/transforms/{id}` | Delete a transform
-[**get_transform**](TransformsApi#get-transform) | **GET** `/transforms/{id}` | Transform by ID
-[**list_transforms**](TransformsApi#list-transforms) | **GET** `/transforms` | List transforms
-[**update_transform**](TransformsApi#update-transform) | **PUT** `/transforms/{id}` | Update a transform
+[**create-transform**](#create-transform) | **POST** `/transforms` | Create transform
+[**delete-transform**](#delete-transform) | **DELETE** `/transforms/{id}` | Delete a transform
+[**get-transform**](#get-transform) | **GET** `/transforms/{id}` | Transform by ID
+[**list-transforms**](#list-transforms) | **GET** `/transforms` | List transforms
+[**update-transform**](#update-transform) | **PUT** `/transforms/{id}` | Update a transform
 
 
 ## create-transform

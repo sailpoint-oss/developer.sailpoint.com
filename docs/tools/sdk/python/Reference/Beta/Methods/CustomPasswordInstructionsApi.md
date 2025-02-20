@@ -26,9 +26,9 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_custom_password_instructions**](CustomPasswordInstructionsApi#create-custom-password-instructions) | **POST** `/custom-password-instructions` | Create Custom Password Instructions
-[**delete_custom_password_instructions**](CustomPasswordInstructionsApi#delete-custom-password-instructions) | **DELETE** `/custom-password-instructions/{pageId}` | Delete Custom Password Instructions by page ID
-[**get_custom_password_instructions**](CustomPasswordInstructionsApi#get-custom-password-instructions) | **GET** `/custom-password-instructions/{pageId}` | Get Custom Password Instructions by Page ID
+[**create-custom-password-instructions**](#create-custom-password-instructions) | **POST** `/custom-password-instructions` | Create Custom Password Instructions
+[**delete-custom-password-instructions**](#delete-custom-password-instructions) | **DELETE** `/custom-password-instructions/{pageId}` | Delete Custom Password Instructions by page ID
+[**get-custom-password-instructions**](#get-custom-password-instructions) | **GET** `/custom-password-instructions/{pageId}` | Get Custom Password Instructions by Page ID
 
 
 ## create-custom-password-instructions

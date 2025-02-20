@@ -23,24 +23,24 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_form_definition**](CustomFormsApi#create-form-definition) | **POST** `/form-definitions` | Creates a form definition.
-[**create_form_definition_dynamic_schema**](CustomFormsApi#create-form-definition-dynamic-schema) | **POST** `/form-definitions/forms-action-dynamic-schema` | Generate JSON Schema dynamically.
-[**create_form_definition_file_request**](CustomFormsApi#create-form-definition-file-request) | **POST** `/form-definitions/{formDefinitionID}/upload` | Upload new form definition file.
-[**create_form_instance**](CustomFormsApi#create-form-instance) | **POST** `/form-instances` | Creates a form instance.
-[**delete_form_definition**](CustomFormsApi#delete-form-definition) | **DELETE** `/form-definitions/{formDefinitionID}` | Deletes a form definition.
-[**export_form_definitions_by_tenant**](CustomFormsApi#export-form-definitions-by-tenant) | **GET** `/form-definitions/export` | List form definitions by tenant.
-[**get_file_from_s3**](CustomFormsApi#get-file-from-s3) | **GET** `/form-definitions/{formDefinitionID}/file/{fileID}` | Download definition file by fileId.
-[**get_form_definition_by_key**](CustomFormsApi#get-form-definition-by-key) | **GET** `/form-definitions/{formDefinitionID}` | Return a form definition.
-[**get_form_instance_by_key**](CustomFormsApi#get-form-instance-by-key) | **GET** `/form-instances/{formInstanceID}` | Returns a form instance.
-[**get_form_instance_file**](CustomFormsApi#get-form-instance-file) | **GET** `/form-instances/{formInstanceID}/file/{fileID}` | Download instance file by fileId.
-[**import_form_definitions**](CustomFormsApi#import-form-definitions) | **POST** `/form-definitions/import` | Import form definitions from export.
-[**patch_form_definition**](CustomFormsApi#patch-form-definition) | **PATCH** `/form-definitions/{formDefinitionID}` | Patch a form definition.
-[**patch_form_instance**](CustomFormsApi#patch-form-instance) | **PATCH** `/form-instances/{formInstanceID}` | Patch a form instance.
-[**search_form_definitions_by_tenant**](CustomFormsApi#search-form-definitions-by-tenant) | **GET** `/form-definitions` | Export form definitions by tenant.
-[**search_form_element_data_by_element_id**](CustomFormsApi#search-form-element-data-by-element-id) | **GET** `/form-instances/{formInstanceID}/data-source/{formElementID}` | Retrieves dynamic data by element.
-[**search_form_instances_by_tenant**](CustomFormsApi#search-form-instances-by-tenant) | **GET** `/form-instances` | List form instances by tenant.
-[**search_pre_defined_select_options**](CustomFormsApi#search-pre-defined-select-options) | **GET** `/form-definitions/predefined-select-options` | List predefined select options.
-[**show_preview_data_source**](CustomFormsApi#show-preview-data-source) | **POST** `/form-definitions/{formDefinitionID}/data-source` | Preview form definition data source.
+[**create-form-definition**](#create-form-definition) | **POST** `/form-definitions` | Creates a form definition.
+[**create-form-definition-dynamic-schema**](#create-form-definition-dynamic-schema) | **POST** `/form-definitions/forms-action-dynamic-schema` | Generate JSON Schema dynamically.
+[**create-form-definition-file-request**](#create-form-definition-file-request) | **POST** `/form-definitions/{formDefinitionID}/upload` | Upload new form definition file.
+[**create-form-instance**](#create-form-instance) | **POST** `/form-instances` | Creates a form instance.
+[**delete-form-definition**](#delete-form-definition) | **DELETE** `/form-definitions/{formDefinitionID}` | Deletes a form definition.
+[**export-form-definitions-by-tenant**](#export-form-definitions-by-tenant) | **GET** `/form-definitions/export` | List form definitions by tenant.
+[**get-file-from-s3**](#get-file-from-s3) | **GET** `/form-definitions/{formDefinitionID}/file/{fileID}` | Download definition file by fileId.
+[**get-form-definition-by-key**](#get-form-definition-by-key) | **GET** `/form-definitions/{formDefinitionID}` | Return a form definition.
+[**get-form-instance-by-key**](#get-form-instance-by-key) | **GET** `/form-instances/{formInstanceID}` | Returns a form instance.
+[**get-form-instance-file**](#get-form-instance-file) | **GET** `/form-instances/{formInstanceID}/file/{fileID}` | Download instance file by fileId.
+[**import-form-definitions**](#import-form-definitions) | **POST** `/form-definitions/import` | Import form definitions from export.
+[**patch-form-definition**](#patch-form-definition) | **PATCH** `/form-definitions/{formDefinitionID}` | Patch a form definition.
+[**patch-form-instance**](#patch-form-instance) | **PATCH** `/form-instances/{formInstanceID}` | Patch a form instance.
+[**search-form-definitions-by-tenant**](#search-form-definitions-by-tenant) | **GET** `/form-definitions` | Export form definitions by tenant.
+[**search-form-element-data-by-element-id**](#search-form-element-data-by-element-id) | **GET** `/form-instances/{formInstanceID}/data-source/{formElementID}` | Retrieves dynamic data by element.
+[**search-form-instances-by-tenant**](#search-form-instances-by-tenant) | **GET** `/form-instances` | List form instances by tenant.
+[**search-pre-defined-select-options**](#search-pre-defined-select-options) | **GET** `/form-definitions/predefined-select-options` | List predefined select options.
+[**show-preview-data-source**](#show-preview-data-source) | **POST** `/form-definitions/{formDefinitionID}/data-source` | Preview form definition data source.
 
 
 ## create-form-definition

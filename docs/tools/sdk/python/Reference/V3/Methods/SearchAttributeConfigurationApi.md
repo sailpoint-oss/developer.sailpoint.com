@@ -33,11 +33,11 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_search_attribute_config**](SearchAttributeConfigurationApi#create-search-attribute-config) | **POST** `/accounts/search-attribute-config` | Create Extended Search Attributes
-[**delete_search_attribute_config**](SearchAttributeConfigurationApi#delete-search-attribute-config) | **DELETE** `/accounts/search-attribute-config/{name}` | Delete Extended Search Attribute
-[**get_search_attribute_config**](SearchAttributeConfigurationApi#get-search-attribute-config) | **GET** `/accounts/search-attribute-config` | List Extended Search Attributes
-[**get_single_search_attribute_config**](SearchAttributeConfigurationApi#get-single-search-attribute-config) | **GET** `/accounts/search-attribute-config/{name}` | Get Extended Search Attribute
-[**patch_search_attribute_config**](SearchAttributeConfigurationApi#patch-search-attribute-config) | **PATCH** `/accounts/search-attribute-config/{name}` | Update Extended Search Attribute
+[**create-search-attribute-config**](#create-search-attribute-config) | **POST** `/accounts/search-attribute-config` | Create Extended Search Attributes
+[**delete-search-attribute-config**](#delete-search-attribute-config) | **DELETE** `/accounts/search-attribute-config/{name}` | Delete Extended Search Attribute
+[**get-search-attribute-config**](#get-search-attribute-config) | **GET** `/accounts/search-attribute-config` | List Extended Search Attributes
+[**get-single-search-attribute-config**](#get-single-search-attribute-config) | **GET** `/accounts/search-attribute-config/{name}` | Get Extended Search Attribute
+[**patch-search-attribute-config**](#patch-search-attribute-config) | **PATCH** `/accounts/search-attribute-config/{name}` | Update Extended Search Attribute
 
 
 ## create-search-attribute-config

@@ -22,12 +22,12 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_connector_rule**](ConnectorRuleManagementApi#create-connector-rule) | **POST** `/connector-rules` | Create Connector Rule
-[**delete_connector_rule**](ConnectorRuleManagementApi#delete-connector-rule) | **DELETE** `/connector-rules/{id}` | Delete Connector Rule
-[**get_connector_rule**](ConnectorRuleManagementApi#get-connector-rule) | **GET** `/connector-rules/{id}` | Get Connector Rule
-[**get_connector_rule_list**](ConnectorRuleManagementApi#get-connector-rule-list) | **GET** `/connector-rules` | List Connector Rules
-[**put_connector_rule**](ConnectorRuleManagementApi#put-connector-rule) | **PUT** `/connector-rules/{id}` | Update Connector Rule
-[**test_connector_rule**](ConnectorRuleManagementApi#test-connector-rule) | **POST** `/connector-rules/validate` | Validate Connector Rule
+[**create-connector-rule**](#create-connector-rule) | **POST** `/connector-rules` | Create Connector Rule
+[**delete-connector-rule**](#delete-connector-rule) | **DELETE** `/connector-rules/{id}` | Delete Connector Rule
+[**get-connector-rule**](#get-connector-rule) | **GET** `/connector-rules/{id}` | Get Connector Rule
+[**get-connector-rule-list**](#get-connector-rule-list) | **GET** `/connector-rules` | List Connector Rules
+[**put-connector-rule**](#put-connector-rule) | **PUT** `/connector-rules/{id}` | Update Connector Rule
+[**test-connector-rule**](#test-connector-rule) | **POST** `/connector-rules/validate` | Validate Connector Rule
 
 
 ## create-connector-rule

@@ -15,10 +15,10 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_tag**](TagsApi#create-tag) | **POST** `/tags` | Create Tag
-[**delete_tag_by_id**](TagsApi#delete-tag-by-id) | **DELETE** `/tags/{id}` | Delete Tag
-[**get_tag_by_id**](TagsApi#get-tag-by-id) | **GET** `/tags/{id}` | Get Tag By Id
-[**list_tags**](TagsApi#list-tags) | **GET** `/tags` | List Tags
+[**create-tag**](#create-tag) | **POST** `/tags` | Create Tag
+[**delete-tag-by-id**](#delete-tag-by-id) | **DELETE** `/tags/{id}` | Delete Tag
+[**get-tag-by-id**](#get-tag-by-id) | **GET** `/tags/{id}` | Get Tag By Id
+[**list-tags**](#list-tags) | **GET** `/tags` | List Tags
 
 
 ## create-tag

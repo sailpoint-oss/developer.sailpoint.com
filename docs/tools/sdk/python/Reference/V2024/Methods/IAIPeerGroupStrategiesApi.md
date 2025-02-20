@@ -15,7 +15,7 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_peer_group_outliers**](IAIPeerGroupStrategiesApi#get-peer-group-outliers) | **GET** `/peer-group-strategies/{strategy}/identity-outliers` | Identity Outliers List
+[**get-peer-group-outliers**](#get-peer-group-outliers) | **GET** `/peer-group-strategies/{strategy}/identity-outliers` | Identity Outliers List
 
 
 ## get-peer-group-outliers

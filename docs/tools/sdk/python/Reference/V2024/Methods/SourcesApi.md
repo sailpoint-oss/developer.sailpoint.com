@@ -72,55 +72,55 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_provisioning_policy**](SourcesApi#create-provisioning-policy) | **POST** `/sources/{sourceId}/provisioning-policies` | Create Provisioning Policy
-[**create_source**](SourcesApi#create-source) | **POST** `/sources` | Creates a source in IdentityNow.
-[**create_source_schedule**](SourcesApi#create-source-schedule) | **POST** `/sources/{sourceId}/schedules` | Create Schedule on Source
-[**create_source_schema**](SourcesApi#create-source-schema) | **POST** `/sources/{sourceId}/schemas` | Create Schema on Source
-[**delete_accounts_async**](SourcesApi#delete-accounts-async) | **POST** `/sources/{id}/remove-accounts` | Remove All Accounts in a Source
-[**delete_native_change_detection_config**](SourcesApi#delete-native-change-detection-config) | **DELETE** `/sources/{sourceId}/native-change-detection-config` | Delete Native Change Detection Configuration
-[**delete_provisioning_policy**](SourcesApi#delete-provisioning-policy) | **DELETE** `/sources/{sourceId}/provisioning-policies/{usageType}` | Delete Provisioning Policy by UsageType
-[**delete_source**](SourcesApi#delete-source) | **DELETE** `/sources/{id}` | Delete Source by ID
-[**delete_source_schedule**](SourcesApi#delete-source-schedule) | **DELETE** `/sources/{sourceId}/schedules/{scheduleType}` | Delete Source Schedule by type.
-[**delete_source_schema**](SourcesApi#delete-source-schema) | **DELETE** `/sources/{sourceId}/schemas/{schemaId}` | Delete Source Schema by ID
-[**get_accounts_schema**](SourcesApi#get-accounts-schema) | **GET** `/sources/{id}/schemas/accounts` | Downloads source accounts schema template
-[**get_correlation_config**](SourcesApi#get-correlation-config) | **GET** `/sources/{id}/correlation-config` | Get Source Correlation Configuration
-[**get_entitlements_schema**](SourcesApi#get-entitlements-schema) | **GET** `/sources/{id}/schemas/entitlements` | Downloads source entitlements schema template
-[**get_native_change_detection_config**](SourcesApi#get-native-change-detection-config) | **GET** `/sources/{sourceId}/native-change-detection-config` | Native Change Detection Configuration
-[**get_provisioning_policy**](SourcesApi#get-provisioning-policy) | **GET** `/sources/{sourceId}/provisioning-policies/{usageType}` | Get Provisioning Policy by UsageType
-[**get_source**](SourcesApi#get-source) | **GET** `/sources/{id}` | Get Source by ID
-[**get_source_attr_sync_config**](SourcesApi#get-source-attr-sync-config) | **GET** `/sources/{id}/attribute-sync-config` | Attribute Sync Config
-[**get_source_config**](SourcesApi#get-source-config) | **GET** `/sources/{id}/connectors/source-config` | Gets source config with language translations
-[**get_source_entitlement_request_config**](SourcesApi#get-source-entitlement-request-config) | **GET** `/sources/{id}/entitlement-request-config` | Get Source Entitlement Request Configuration
-[**get_source_health**](SourcesApi#get-source-health) | **GET** `/sources/{sourceId}/source-health` | Fetches source health by id
-[**get_source_schedule**](SourcesApi#get-source-schedule) | **GET** `/sources/{sourceId}/schedules/{scheduleType}` | Get Source Schedule by Type
-[**get_source_schedules**](SourcesApi#get-source-schedules) | **GET** `/sources/{sourceId}/schedules` | List Schedules on Source
-[**get_source_schema**](SourcesApi#get-source-schema) | **GET** `/sources/{sourceId}/schemas/{schemaId}` | Get Source Schema by ID
-[**get_source_schemas**](SourcesApi#get-source-schemas) | **GET** `/sources/{sourceId}/schemas` | List Schemas on Source
-[**import_accounts**](SourcesApi#import-accounts) | **POST** `/sources/{id}/load-accounts` | Account Aggregation
-[**import_accounts_schema**](SourcesApi#import-accounts-schema) | **POST** `/sources/{id}/schemas/accounts` | Uploads source accounts schema template
-[**import_connector_file**](SourcesApi#import-connector-file) | **POST** `/sources/{sourceId}/upload-connector-file` | Upload connector file to source
-[**import_entitlements_schema**](SourcesApi#import-entitlements-schema) | **POST** `/sources/{id}/schemas/entitlements` | Uploads source entitlements schema template
-[**import_uncorrelated_accounts**](SourcesApi#import-uncorrelated-accounts) | **POST** `/sources/{id}/load-uncorrelated-accounts` | Process Uncorrelated Accounts
-[**list_provisioning_policies**](SourcesApi#list-provisioning-policies) | **GET** `/sources/{sourceId}/provisioning-policies` | Lists ProvisioningPolicies
-[**list_sources**](SourcesApi#list-sources) | **GET** `/sources` | Lists all sources in IdentityNow.
-[**peek_resource_objects**](SourcesApi#peek-resource-objects) | **POST** `/sources/{sourceId}/connector/peek-resource-objects` | Peek source connector&#39;s resource objects
-[**ping_cluster**](SourcesApi#ping-cluster) | **POST** `/sources/{sourceId}/connector/ping-cluster` | Ping cluster for source connector
-[**put_correlation_config**](SourcesApi#put-correlation-config) | **PUT** `/sources/{id}/correlation-config` | Update Source Correlation Configuration
-[**put_native_change_detection_config**](SourcesApi#put-native-change-detection-config) | **PUT** `/sources/{sourceId}/native-change-detection-config` | Update Native Change Detection Configuration
-[**put_provisioning_policy**](SourcesApi#put-provisioning-policy) | **PUT** `/sources/{sourceId}/provisioning-policies/{usageType}` | Update Provisioning Policy by UsageType
-[**put_source**](SourcesApi#put-source) | **PUT** `/sources/{id}` | Update Source (Full)
-[**put_source_attr_sync_config**](SourcesApi#put-source-attr-sync-config) | **PUT** `/sources/{id}/attribute-sync-config` | Update Attribute Sync Config
-[**put_source_schema**](SourcesApi#put-source-schema) | **PUT** `/sources/{sourceId}/schemas/{schemaId}` | Update Source Schema (Full)
-[**sync_attributes_for_source**](SourcesApi#sync-attributes-for-source) | **POST** `/sources/{id}/synchronize-attributes` | Synchronize single source attributes.
-[**test_source_configuration**](SourcesApi#test-source-configuration) | **POST** `/sources/{sourceId}/connector/test-configuration` | Test configuration for source connector
-[**test_source_connection**](SourcesApi#test-source-connection) | **POST** `/sources/{sourceId}/connector/check-connection` | Check connection for source connector.
-[**update_password_policy_holders**](SourcesApi#update-password-policy-holders) | **PATCH** `/sources/{sourceId}/password-policies` | Update Password Policy
-[**update_provisioning_policies_in_bulk**](SourcesApi#update-provisioning-policies-in-bulk) | **POST** `/sources/{sourceId}/provisioning-policies/bulk-update` | Bulk Update Provisioning Policies
-[**update_provisioning_policy**](SourcesApi#update-provisioning-policy) | **PATCH** `/sources/{sourceId}/provisioning-policies/{usageType}` | Partial update of Provisioning Policy
-[**update_source**](SourcesApi#update-source) | **PATCH** `/sources/{id}` | Update Source (Partial)
-[**update_source_entitlement_request_config**](SourcesApi#update-source-entitlement-request-config) | **PUT** `/sources/{id}/entitlement-request-config` | Update Source Entitlement Request Configuration
-[**update_source_schedule**](SourcesApi#update-source-schedule) | **PATCH** `/sources/{sourceId}/schedules/{scheduleType}` | Update Source Schedule (Partial)
-[**update_source_schema**](SourcesApi#update-source-schema) | **PATCH** `/sources/{sourceId}/schemas/{schemaId}` | Update Source Schema (Partial)
+[**create-provisioning-policy**](#create-provisioning-policy) | **POST** `/sources/{sourceId}/provisioning-policies` | Create Provisioning Policy
+[**create-source**](#create-source) | **POST** `/sources` | Creates a source in IdentityNow.
+[**create-source-schedule**](#create-source-schedule) | **POST** `/sources/{sourceId}/schedules` | Create Schedule on Source
+[**create-source-schema**](#create-source-schema) | **POST** `/sources/{sourceId}/schemas` | Create Schema on Source
+[**delete-accounts-async**](#delete-accounts-async) | **POST** `/sources/{id}/remove-accounts` | Remove All Accounts in a Source
+[**delete-native-change-detection-config**](#delete-native-change-detection-config) | **DELETE** `/sources/{sourceId}/native-change-detection-config` | Delete Native Change Detection Configuration
+[**delete-provisioning-policy**](#delete-provisioning-policy) | **DELETE** `/sources/{sourceId}/provisioning-policies/{usageType}` | Delete Provisioning Policy by UsageType
+[**delete-source**](#delete-source) | **DELETE** `/sources/{id}` | Delete Source by ID
+[**delete-source-schedule**](#delete-source-schedule) | **DELETE** `/sources/{sourceId}/schedules/{scheduleType}` | Delete Source Schedule by type.
+[**delete-source-schema**](#delete-source-schema) | **DELETE** `/sources/{sourceId}/schemas/{schemaId}` | Delete Source Schema by ID
+[**get-accounts-schema**](#get-accounts-schema) | **GET** `/sources/{id}/schemas/accounts` | Downloads source accounts schema template
+[**get-correlation-config**](#get-correlation-config) | **GET** `/sources/{id}/correlation-config` | Get Source Correlation Configuration
+[**get-entitlements-schema**](#get-entitlements-schema) | **GET** `/sources/{id}/schemas/entitlements` | Downloads source entitlements schema template
+[**get-native-change-detection-config**](#get-native-change-detection-config) | **GET** `/sources/{sourceId}/native-change-detection-config` | Native Change Detection Configuration
+[**get-provisioning-policy**](#get-provisioning-policy) | **GET** `/sources/{sourceId}/provisioning-policies/{usageType}` | Get Provisioning Policy by UsageType
+[**get-source**](#get-source) | **GET** `/sources/{id}` | Get Source by ID
+[**get-source-attr-sync-config**](#get-source-attr-sync-config) | **GET** `/sources/{id}/attribute-sync-config` | Attribute Sync Config
+[**get-source-config**](#get-source-config) | **GET** `/sources/{id}/connectors/source-config` | Gets source config with language translations
+[**get-source-entitlement-request-config**](#get-source-entitlement-request-config) | **GET** `/sources/{id}/entitlement-request-config` | Get Source Entitlement Request Configuration
+[**get-source-health**](#get-source-health) | **GET** `/sources/{sourceId}/source-health` | Fetches source health by id
+[**get-source-schedule**](#get-source-schedule) | **GET** `/sources/{sourceId}/schedules/{scheduleType}` | Get Source Schedule by Type
+[**get-source-schedules**](#get-source-schedules) | **GET** `/sources/{sourceId}/schedules` | List Schedules on Source
+[**get-source-schema**](#get-source-schema) | **GET** `/sources/{sourceId}/schemas/{schemaId}` | Get Source Schema by ID
+[**get-source-schemas**](#get-source-schemas) | **GET** `/sources/{sourceId}/schemas` | List Schemas on Source
+[**import-accounts**](#import-accounts) | **POST** `/sources/{id}/load-accounts` | Account Aggregation
+[**import-accounts-schema**](#import-accounts-schema) | **POST** `/sources/{id}/schemas/accounts` | Uploads source accounts schema template
+[**import-connector-file**](#import-connector-file) | **POST** `/sources/{sourceId}/upload-connector-file` | Upload connector file to source
+[**import-entitlements-schema**](#import-entitlements-schema) | **POST** `/sources/{id}/schemas/entitlements` | Uploads source entitlements schema template
+[**import-uncorrelated-accounts**](#import-uncorrelated-accounts) | **POST** `/sources/{id}/load-uncorrelated-accounts` | Process Uncorrelated Accounts
+[**list-provisioning-policies**](#list-provisioning-policies) | **GET** `/sources/{sourceId}/provisioning-policies` | Lists ProvisioningPolicies
+[**list-sources**](#list-sources) | **GET** `/sources` | Lists all sources in IdentityNow.
+[**peek-resource-objects**](#peek-resource-objects) | **POST** `/sources/{sourceId}/connector/peek-resource-objects` | Peek source connector&#39;s resource objects
+[**ping-cluster**](#ping-cluster) | **POST** `/sources/{sourceId}/connector/ping-cluster` | Ping cluster for source connector
+[**put-correlation-config**](#put-correlation-config) | **PUT** `/sources/{id}/correlation-config` | Update Source Correlation Configuration
+[**put-native-change-detection-config**](#put-native-change-detection-config) | **PUT** `/sources/{sourceId}/native-change-detection-config` | Update Native Change Detection Configuration
+[**put-provisioning-policy**](#put-provisioning-policy) | **PUT** `/sources/{sourceId}/provisioning-policies/{usageType}` | Update Provisioning Policy by UsageType
+[**put-source**](#put-source) | **PUT** `/sources/{id}` | Update Source (Full)
+[**put-source-attr-sync-config**](#put-source-attr-sync-config) | **PUT** `/sources/{id}/attribute-sync-config` | Update Attribute Sync Config
+[**put-source-schema**](#put-source-schema) | **PUT** `/sources/{sourceId}/schemas/{schemaId}` | Update Source Schema (Full)
+[**sync-attributes-for-source**](#sync-attributes-for-source) | **POST** `/sources/{id}/synchronize-attributes` | Synchronize single source attributes.
+[**test-source-configuration**](#test-source-configuration) | **POST** `/sources/{sourceId}/connector/test-configuration` | Test configuration for source connector
+[**test-source-connection**](#test-source-connection) | **POST** `/sources/{sourceId}/connector/check-connection` | Check connection for source connector.
+[**update-password-policy-holders**](#update-password-policy-holders) | **PATCH** `/sources/{sourceId}/password-policies` | Update Password Policy
+[**update-provisioning-policies-in-bulk**](#update-provisioning-policies-in-bulk) | **POST** `/sources/{sourceId}/provisioning-policies/bulk-update` | Bulk Update Provisioning Policies
+[**update-provisioning-policy**](#update-provisioning-policy) | **PATCH** `/sources/{sourceId}/provisioning-policies/{usageType}` | Partial update of Provisioning Policy
+[**update-source**](#update-source) | **PATCH** `/sources/{id}` | Update Source (Partial)
+[**update-source-entitlement-request-config**](#update-source-entitlement-request-config) | **PUT** `/sources/{id}/entitlement-request-config` | Update Source Entitlement Request Configuration
+[**update-source-schedule**](#update-source-schedule) | **PATCH** `/sources/{sourceId}/schedules/{scheduleType}` | Update Source Schedule (Partial)
+[**update-source-schema**](#update-source-schema) | **PATCH** `/sources/{sourceId}/schemas/{schemaId}` | Update Source Schema (Partial)
 
 
 ## create-provisioning-policy

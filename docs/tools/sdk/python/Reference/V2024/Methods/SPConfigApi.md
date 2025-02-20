@@ -15,13 +15,13 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**export_sp_config**](SPConfigApi#export-sp-config) | **POST** `/sp-config/export` | Initiates configuration objects export job
-[**get_sp_config_export**](SPConfigApi#get-sp-config-export) | **GET** `/sp-config/export/{id}/download` | Download export job result.
-[**get_sp_config_export_status**](SPConfigApi#get-sp-config-export-status) | **GET** `/sp-config/export/{id}` | Get export job status
-[**get_sp_config_import**](SPConfigApi#get-sp-config-import) | **GET** `/sp-config/import/{id}/download` | Download import job result
-[**get_sp_config_import_status**](SPConfigApi#get-sp-config-import-status) | **GET** `/sp-config/import/{id}` | Get import job status
-[**import_sp_config**](SPConfigApi#import-sp-config) | **POST** `/sp-config/import` | Initiates configuration objects import job
-[**list_sp_config_objects**](SPConfigApi#list-sp-config-objects) | **GET** `/sp-config/config-objects` | Get config object details
+[**export-sp-config**](#export-sp-config) | **POST** `/sp-config/export` | Initiates configuration objects export job
+[**get-sp-config-export**](#get-sp-config-export) | **GET** `/sp-config/export/{id}/download` | Download export job result.
+[**get-sp-config-export-status**](#get-sp-config-export-status) | **GET** `/sp-config/export/{id}` | Get export job status
+[**get-sp-config-import**](#get-sp-config-import) | **GET** `/sp-config/import/{id}/download` | Download import job result
+[**get-sp-config-import-status**](#get-sp-config-import-status) | **GET** `/sp-config/import/{id}` | Get import job status
+[**import-sp-config**](#import-sp-config) | **POST** `/sp-config/import` | Initiates configuration objects import job
+[**list-sp-config-objects**](#list-sp-config-objects) | **GET** `/sp-config/config-objects` | Get config object details
 
 
 ## export-sp-config

@@ -52,13 +52,13 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_role**](RolesApi#create-role) | **POST** `/roles` | Create a Role
-[**delete_bulk_roles**](RolesApi#delete-bulk-roles) | **POST** `/roles/bulk-delete` | Delete Role(s)
-[**delete_role**](RolesApi#delete-role) | **DELETE** `/roles/{id}` | Delete a Role
-[**get_role**](RolesApi#get-role) | **GET** `/roles/{id}` | Get a Role
-[**get_role_assigned_identities**](RolesApi#get-role-assigned-identities) | **GET** `/roles/{id}/assigned-identities` | List Identities assigned a Role
-[**list_roles**](RolesApi#list-roles) | **GET** `/roles` | List Roles
-[**patch_role**](RolesApi#patch-role) | **PATCH** `/roles/{id}` | Patch a specified Role
+[**create-role**](#create-role) | **POST** `/roles` | Create a Role
+[**delete-bulk-roles**](#delete-bulk-roles) | **POST** `/roles/bulk-delete` | Delete Role(s)
+[**delete-role**](#delete-role) | **DELETE** `/roles/{id}` | Delete a Role
+[**get-role**](#get-role) | **GET** `/roles/{id}` | Get a Role
+[**get-role-assigned-identities**](#get-role-assigned-identities) | **GET** `/roles/{id}/assigned-identities` | List Identities assigned a Role
+[**list-roles**](#list-roles) | **GET** `/roles` | List Roles
+[**patch-role**](#patch-role) | **PATCH** `/roles/{id}` | Patch a specified Role
 
 
 ## create-role

@@ -47,11 +47,11 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_password_sync_group**](PasswordSyncGroupsApi#create-password-sync-group) | **POST** `/password-sync-groups` | Create Password Sync Group
-[**delete_password_sync_group**](PasswordSyncGroupsApi#delete-password-sync-group) | **DELETE** `/password-sync-groups/{id}` | Delete Password Sync Group by ID
-[**get_password_sync_group**](PasswordSyncGroupsApi#get-password-sync-group) | **GET** `/password-sync-groups/{id}` | Get Password Sync Group by ID
-[**get_password_sync_groups**](PasswordSyncGroupsApi#get-password-sync-groups) | **GET** `/password-sync-groups` | Get Password Sync Group List
-[**update_password_sync_group**](PasswordSyncGroupsApi#update-password-sync-group) | **PUT** `/password-sync-groups/{id}` | Update Password Sync Group by ID
+[**create-password-sync-group**](#create-password-sync-group) | **POST** `/password-sync-groups` | Create Password Sync Group
+[**delete-password-sync-group**](#delete-password-sync-group) | **DELETE** `/password-sync-groups/{id}` | Delete Password Sync Group by ID
+[**get-password-sync-group**](#get-password-sync-group) | **GET** `/password-sync-groups/{id}` | Get Password Sync Group by ID
+[**get-password-sync-groups**](#get-password-sync-groups) | **GET** `/password-sync-groups` | Get Password Sync Group List
+[**update-password-sync-group**](#update-password-sync-group) | **PUT** `/password-sync-groups/{id}` | Update Password Sync Group by ID
 
 
 ## create-password-sync-group

@@ -18,11 +18,11 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_oauth_client**](OAuthClientsApi#create-oauth-client) | **POST** `/oauth-clients` | Create OAuth Client
-[**delete_oauth_client**](OAuthClientsApi#delete-oauth-client) | **DELETE** `/oauth-clients/{id}` | Delete OAuth Client
-[**get_oauth_client**](OAuthClientsApi#get-oauth-client) | **GET** `/oauth-clients/{id}` | Get OAuth Client
-[**list_oauth_clients**](OAuthClientsApi#list-oauth-clients) | **GET** `/oauth-clients` | List OAuth Clients
-[**patch_oauth_client**](OAuthClientsApi#patch-oauth-client) | **PATCH** `/oauth-clients/{id}` | Patch OAuth Client
+[**create-oauth-client**](#create-oauth-client) | **POST** `/oauth-clients` | Create OAuth Client
+[**delete-oauth-client**](#delete-oauth-client) | **DELETE** `/oauth-clients/{id}` | Delete OAuth Client
+[**get-oauth-client**](#get-oauth-client) | **GET** `/oauth-clients/{id}` | Get OAuth Client
+[**list-oauth-clients**](#list-oauth-clients) | **GET** `/oauth-clients` | List OAuth Clients
+[**patch-oauth-client**](#patch-oauth-client) | **PATCH** `/oauth-clients/{id}` | Patch OAuth Client
 
 
 ## create-oauth-client

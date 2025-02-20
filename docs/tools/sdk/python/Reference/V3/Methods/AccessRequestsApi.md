@@ -30,11 +30,11 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**cancel_access_request**](AccessRequestsApi#cancel-access-request) | **POST** `/access-requests/cancel` | Cancel Access Request
-[**create_access_request**](AccessRequestsApi#create-access-request) | **POST** `/access-requests` | Submit Access Request
-[**get_access_request_config**](AccessRequestsApi#get-access-request-config) | **GET** `/access-request-config` | Get Access Request Configuration
-[**list_access_request_status**](AccessRequestsApi#list-access-request-status) | **GET** `/access-request-status` | Access Request Status
-[**set_access_request_config**](AccessRequestsApi#set-access-request-config) | **PUT** `/access-request-config` | Update Access Request Configuration
+[**cancel-access-request**](#cancel-access-request) | **POST** `/access-requests/cancel` | Cancel Access Request
+[**create-access-request**](#create-access-request) | **POST** `/access-requests` | Submit Access Request
+[**get-access-request-config**](#get-access-request-config) | **GET** `/access-request-config` | Get Access Request Configuration
+[**list-access-request-status**](#list-access-request-status) | **GET** `/access-request-status` | Access Request Status
+[**set-access-request-config**](#set-access-request-config) | **PUT** `/access-request-config` | Update Access Request Configuration
 
 
 ## cancel-access-request

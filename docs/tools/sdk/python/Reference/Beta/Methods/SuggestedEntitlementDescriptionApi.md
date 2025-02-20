@@ -18,13 +18,13 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_sed_batch_stats**](SuggestedEntitlementDescriptionApi#get-sed-batch-stats) | **GET** `/suggested-entitlement-description-batches/{batchId}/stats` | Submit Sed Batch Stats Request
-[**get_sed_batches**](SuggestedEntitlementDescriptionApi#get-sed-batches) | **GET** `/suggested-entitlement-description-batches` | List Sed Batch Request
-[**list_seds**](SuggestedEntitlementDescriptionApi#list-seds) | **GET** `/suggested-entitlement-descriptions` | List Suggested Entitlement Descriptions
-[**patch_sed**](SuggestedEntitlementDescriptionApi#patch-sed) | **PATCH** `/suggested-entitlement-descriptions` | Patch Suggested Entitlement Description
-[**submit_sed_approval**](SuggestedEntitlementDescriptionApi#submit-sed-approval) | **POST** `/suggested-entitlement-description-approvals` | Submit Bulk Approval Request
-[**submit_sed_assignment**](SuggestedEntitlementDescriptionApi#submit-sed-assignment) | **POST** `/suggested-entitlement-description-assignments` | Submit Sed Assignment Request
-[**submit_sed_batch_request**](SuggestedEntitlementDescriptionApi#submit-sed-batch-request) | **POST** `/suggested-entitlement-description-batches` | Submit Sed Batch Request
+[**get-sed-batch-stats**](#get-sed-batch-stats) | **GET** `/suggested-entitlement-description-batches/{batchId}/stats` | Submit Sed Batch Stats Request
+[**get-sed-batches**](#get-sed-batches) | **GET** `/suggested-entitlement-description-batches` | List Sed Batch Request
+[**list-seds**](#list-seds) | **GET** `/suggested-entitlement-descriptions` | List Suggested Entitlement Descriptions
+[**patch-sed**](#patch-sed) | **PATCH** `/suggested-entitlement-descriptions` | Patch Suggested Entitlement Description
+[**submit-sed-approval**](#submit-sed-approval) | **POST** `/suggested-entitlement-description-approvals` | Submit Bulk Approval Request
+[**submit-sed-assignment**](#submit-sed-assignment) | **POST** `/suggested-entitlement-description-assignments` | Submit Sed Assignment Request
+[**submit-sed-batch-request**](#submit-sed-batch-request) | **POST** `/suggested-entitlement-description-batches` | Submit Sed Batch Request
 
 
 ## get-sed-batch-stats

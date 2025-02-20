@@ -39,10 +39,10 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_digit_token**](PasswordManagementApi#create-digit-token) | **POST** `/generate-password-reset-token/digit` | Generate a digit token
-[**get_password_change_status**](PasswordManagementApi#get-password-change-status) | **GET** `/password-change-status/{id}` | Get Password Change Request Status
-[**query_password_info**](PasswordManagementApi#query-password-info) | **POST** `/query-password-info` | Query Password Info
-[**set_password**](PasswordManagementApi#set-password) | **POST** `/set-password` | Set Identity&#39;s Password
+[**create-digit-token**](#create-digit-token) | **POST** `/generate-password-reset-token/digit` | Generate a digit token
+[**get-password-change-status**](#get-password-change-status) | **GET** `/password-change-status/{id}` | Get Password Change Request Status
+[**query-password-info**](#query-password-info) | **POST** `/query-password-info` | Query Password Info
+[**set-password**](#set-password) | **POST** `/set-password` | Set Identity&#39;s Password
 
 
 ## create-digit-token

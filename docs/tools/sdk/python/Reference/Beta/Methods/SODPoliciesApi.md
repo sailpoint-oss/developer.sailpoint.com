@@ -41,22 +41,22 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_sod_policy**](SODPoliciesApi#create-sod-policy) | **POST** `/sod-policies` | Create SOD policy
-[**delete_sod_policy**](SODPoliciesApi#delete-sod-policy) | **DELETE** `/sod-policies/{id}` | Delete SOD policy by ID
-[**delete_sod_policy_schedule**](SODPoliciesApi#delete-sod-policy-schedule) | **DELETE** `/sod-policies/{id}/schedule` | Delete SOD policy schedule
-[**get_custom_violation_report**](SODPoliciesApi#get-custom-violation-report) | **GET** `/sod-violation-report/{reportResultId}/download/{fileName}` | Download custom violation report
-[**get_default_violation_report**](SODPoliciesApi#get-default-violation-report) | **GET** `/sod-violation-report/{reportResultId}/download` | Download violation report
-[**get_sod_all_report_run_status**](SODPoliciesApi#get-sod-all-report-run-status) | **GET** `/sod-violation-report` | Get multi-report run task status
-[**get_sod_policy**](SODPoliciesApi#get-sod-policy) | **GET** `/sod-policies/{id}` | Get SOD policy by ID
-[**get_sod_policy_schedule**](SODPoliciesApi#get-sod-policy-schedule) | **GET** `/sod-policies/{id}/schedule` | Get SOD policy schedule
-[**get_sod_violation_report_run_status**](SODPoliciesApi#get-sod-violation-report-run-status) | **GET** `/sod-policies/sod-violation-report-status/{reportResultId}` | Get violation report run status
-[**get_sod_violation_report_status**](SODPoliciesApi#get-sod-violation-report-status) | **GET** `/sod-policies/{id}/violation-report` | Get SOD violation report status
-[**list_sod_policies**](SODPoliciesApi#list-sod-policies) | **GET** `/sod-policies` | List SOD policies
-[**patch_sod_policy**](SODPoliciesApi#patch-sod-policy) | **PATCH** `/sod-policies/{id}` | Patch a SOD policy
-[**put_policy_schedule**](SODPoliciesApi#put-policy-schedule) | **PUT** `/sod-policies/{id}/schedule` | Update SOD Policy schedule
-[**put_sod_policy**](SODPoliciesApi#put-sod-policy) | **PUT** `/sod-policies/{id}` | Update SOD policy by ID
-[**start_sod_all_policies_for_org**](SODPoliciesApi#start-sod-all-policies-for-org) | **POST** `/sod-violation-report/run` | Runs all policies for org
-[**start_sod_policy**](SODPoliciesApi#start-sod-policy) | **POST** `/sod-policies/{id}/violation-report/run` | Runs SOD policy violation report
+[**create-sod-policy**](#create-sod-policy) | **POST** `/sod-policies` | Create SOD policy
+[**delete-sod-policy**](#delete-sod-policy) | **DELETE** `/sod-policies/{id}` | Delete SOD policy by ID
+[**delete-sod-policy-schedule**](#delete-sod-policy-schedule) | **DELETE** `/sod-policies/{id}/schedule` | Delete SOD policy schedule
+[**get-custom-violation-report**](#get-custom-violation-report) | **GET** `/sod-violation-report/{reportResultId}/download/{fileName}` | Download custom violation report
+[**get-default-violation-report**](#get-default-violation-report) | **GET** `/sod-violation-report/{reportResultId}/download` | Download violation report
+[**get-sod-all-report-run-status**](#get-sod-all-report-run-status) | **GET** `/sod-violation-report` | Get multi-report run task status
+[**get-sod-policy**](#get-sod-policy) | **GET** `/sod-policies/{id}` | Get SOD policy by ID
+[**get-sod-policy-schedule**](#get-sod-policy-schedule) | **GET** `/sod-policies/{id}/schedule` | Get SOD policy schedule
+[**get-sod-violation-report-run-status**](#get-sod-violation-report-run-status) | **GET** `/sod-policies/sod-violation-report-status/{reportResultId}` | Get violation report run status
+[**get-sod-violation-report-status**](#get-sod-violation-report-status) | **GET** `/sod-policies/{id}/violation-report` | Get SOD violation report status
+[**list-sod-policies**](#list-sod-policies) | **GET** `/sod-policies` | List SOD policies
+[**patch-sod-policy**](#patch-sod-policy) | **PATCH** `/sod-policies/{id}` | Patch a SOD policy
+[**put-policy-schedule**](#put-policy-schedule) | **PUT** `/sod-policies/{id}/schedule` | Update SOD Policy schedule
+[**put-sod-policy**](#put-sod-policy) | **PUT** `/sod-policies/{id}` | Update SOD policy by ID
+[**start-sod-all-policies-for-org**](#start-sod-all-policies-for-org) | **POST** `/sod-violation-report/run` | Runs all policies for org
+[**start-sod-policy**](#start-sod-policy) | **POST** `/sod-policies/{id}/violation-report/run` | Runs SOD policy violation report
 
 
 ## create-sod-policy

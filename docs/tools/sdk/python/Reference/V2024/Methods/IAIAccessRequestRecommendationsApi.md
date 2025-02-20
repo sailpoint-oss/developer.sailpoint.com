@@ -15,14 +15,14 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**add_access_request_recommendations_ignored_item**](IAIAccessRequestRecommendationsApi#add-access-request-recommendations-ignored-item) | **POST** `/ai-access-request-recommendations/ignored-items` | Notification of Ignored Access Request Recommendations
-[**add_access_request_recommendations_requested_item**](IAIAccessRequestRecommendationsApi#add-access-request-recommendations-requested-item) | **POST** `/ai-access-request-recommendations/requested-items` | Notification of Requested Access Request Recommendations
-[**add_access_request_recommendations_viewed_item**](IAIAccessRequestRecommendationsApi#add-access-request-recommendations-viewed-item) | **POST** `/ai-access-request-recommendations/viewed-items` | Notification of Viewed Access Request Recommendations
-[**add_access_request_recommendations_viewed_items**](IAIAccessRequestRecommendationsApi#add-access-request-recommendations-viewed-items) | **POST** `/ai-access-request-recommendations/viewed-items/bulk-create` | Notification of Viewed Access Request Recommendations in Bulk
-[**get_access_request_recommendations**](IAIAccessRequestRecommendationsApi#get-access-request-recommendations) | **GET** `/ai-access-request-recommendations` | Identity Access Request Recommendations
-[**get_access_request_recommendations_ignored_items**](IAIAccessRequestRecommendationsApi#get-access-request-recommendations-ignored-items) | **GET** `/ai-access-request-recommendations/ignored-items` | List of Ignored Access Request Recommendations
-[**get_access_request_recommendations_requested_items**](IAIAccessRequestRecommendationsApi#get-access-request-recommendations-requested-items) | **GET** `/ai-access-request-recommendations/requested-items` | List of Requested Access Request Recommendations
-[**get_access_request_recommendations_viewed_items**](IAIAccessRequestRecommendationsApi#get-access-request-recommendations-viewed-items) | **GET** `/ai-access-request-recommendations/viewed-items` | List of Viewed Access Request Recommendations
+[**add-access-request-recommendations-ignored-item**](#add-access-request-recommendations-ignored-item) | **POST** `/ai-access-request-recommendations/ignored-items` | Notification of Ignored Access Request Recommendations
+[**add-access-request-recommendations-requested-item**](#add-access-request-recommendations-requested-item) | **POST** `/ai-access-request-recommendations/requested-items` | Notification of Requested Access Request Recommendations
+[**add-access-request-recommendations-viewed-item**](#add-access-request-recommendations-viewed-item) | **POST** `/ai-access-request-recommendations/viewed-items` | Notification of Viewed Access Request Recommendations
+[**add-access-request-recommendations-viewed-items**](#add-access-request-recommendations-viewed-items) | **POST** `/ai-access-request-recommendations/viewed-items/bulk-create` | Notification of Viewed Access Request Recommendations in Bulk
+[**get-access-request-recommendations**](#get-access-request-recommendations) | **GET** `/ai-access-request-recommendations` | Identity Access Request Recommendations
+[**get-access-request-recommendations-ignored-items**](#get-access-request-recommendations-ignored-items) | **GET** `/ai-access-request-recommendations/ignored-items` | List of Ignored Access Request Recommendations
+[**get-access-request-recommendations-requested-items**](#get-access-request-recommendations-requested-items) | **GET** `/ai-access-request-recommendations/requested-items` | List of Requested Access Request Recommendations
+[**get-access-request-recommendations-viewed-items**](#get-access-request-recommendations-viewed-items) | **GET** `/ai-access-request-recommendations/viewed-items` | List of Viewed Access Request Recommendations
 
 
 ## add-access-request-recommendations-ignored-item

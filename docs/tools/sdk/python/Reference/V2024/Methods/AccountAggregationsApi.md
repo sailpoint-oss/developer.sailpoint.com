@@ -25,7 +25,7 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_account_aggregation_status**](AccountAggregationsApi#get-account-aggregation-status) | **GET** `/account-aggregations/{id}/status` | In-progress Account Aggregation status
+[**get-account-aggregation-status**](#get-account-aggregation-status) | **GET** `/account-aggregations/{id}/status` | In-progress Account Aggregation status
 
 
 ## get-account-aggregation-status

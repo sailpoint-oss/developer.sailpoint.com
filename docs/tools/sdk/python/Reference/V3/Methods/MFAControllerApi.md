@@ -15,12 +15,12 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_send_token**](MFAControllerApi#create-send-token) | **POST** `/mfa/token/send` | Create and send user token
-[**ping_verification_status**](MFAControllerApi#ping-verification-status) | **POST** `/mfa/{method}/poll` | Polling MFA method by VerificationPollRequest
-[**send_duo_verify_request**](MFAControllerApi#send-duo-verify-request) | **POST** `/mfa/duo-web/verify` | Verifying authentication via Duo method
-[**send_kba_answers**](MFAControllerApi#send-kba-answers) | **POST** `/mfa/kba/authenticate` | Authenticate KBA provided MFA method
-[**send_okta_verify_request**](MFAControllerApi#send-okta-verify-request) | **POST** `/mfa/okta-verify/verify` | Verifying authentication via Okta method
-[**send_token_auth_request**](MFAControllerApi#send-token-auth-request) | **POST** `/mfa/token/authenticate` | Authenticate Token provided MFA method
+[**create-send-token**](#create-send-token) | **POST** `/mfa/token/send` | Create and send user token
+[**ping-verification-status**](#ping-verification-status) | **POST** `/mfa/{method}/poll` | Polling MFA method by VerificationPollRequest
+[**send-duo-verify-request**](#send-duo-verify-request) | **POST** `/mfa/duo-web/verify` | Verifying authentication via Duo method
+[**send-kba-answers**](#send-kba-answers) | **POST** `/mfa/kba/authenticate` | Authenticate KBA provided MFA method
+[**send-okta-verify-request**](#send-okta-verify-request) | **POST** `/mfa/okta-verify/verify` | Verifying authentication via Okta method
+[**send-token-auth-request**](#send-token-auth-request) | **POST** `/mfa/token/authenticate` | Authenticate Token provided MFA method
 
 
 ## create-send-token

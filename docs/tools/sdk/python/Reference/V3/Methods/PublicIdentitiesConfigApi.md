@@ -25,8 +25,8 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_public_identity_config**](PublicIdentitiesConfigApi#get-public-identity-config) | **GET** `/public-identities-config` | Get the Public Identities Configuration
-[**update_public_identity_config**](PublicIdentitiesConfigApi#update-public-identity-config) | **PUT** `/public-identities-config` | Update the Public Identities Configuration
+[**get-public-identity-config**](#get-public-identity-config) | **GET** `/public-identities-config` | Get the Public Identities Configuration
+[**update-public-identity-config**](#update-public-identity-config) | **PUT** `/public-identities-config` | Update the Public Identities Configuration
 
 
 ## get-public-identity-config

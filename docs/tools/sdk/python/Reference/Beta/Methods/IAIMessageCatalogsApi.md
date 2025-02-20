@@ -15,7 +15,7 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_message_catalogs**](IAIMessageCatalogsApi#get-message-catalogs) | **GET** `/translation-catalogs/{catalog-id}` | Get Message catalogs
+[**get-message-catalogs**](#get-message-catalogs) | **GET** `/translation-catalogs/{catalog-id}` | Get Message catalogs
 
 
 ## get-message-catalogs

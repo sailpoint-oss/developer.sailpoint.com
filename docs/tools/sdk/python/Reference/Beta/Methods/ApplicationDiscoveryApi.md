@@ -17,11 +17,11 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_discovered_application_by_id**](ApplicationDiscoveryApi#get-discovered-application-by-id) | **GET** `/discovered-applications/{id}` | Get Discovered Application by ID
-[**get_discovered_applications**](ApplicationDiscoveryApi#get-discovered-applications) | **GET** `/discovered-applications` | Retrieve discovered applications for tenant
-[**get_manual_discover_applications_csv_template**](ApplicationDiscoveryApi#get-manual-discover-applications-csv-template) | **GET** `/manual-discover-applications-template` | Download CSV Template for Discovery
-[**patch_discovered_application_by_id**](ApplicationDiscoveryApi#patch-discovered-application-by-id) | **PATCH** `/discovered-applications/{id}` | Patch Discovered Application by ID
-[**send_manual_discover_applications_csv_template**](ApplicationDiscoveryApi#send-manual-discover-applications-csv-template) | **POST** `/manual-discover-applications` | Upload CSV to Discover Applications
+[**get-discovered-application-by-id**](#get-discovered-application-by-id) | **GET** `/discovered-applications/{id}` | Get Discovered Application by ID
+[**get-discovered-applications**](#get-discovered-applications) | **GET** `/discovered-applications` | Retrieve discovered applications for tenant
+[**get-manual-discover-applications-csv-template**](#get-manual-discover-applications-csv-template) | **GET** `/manual-discover-applications-template` | Download CSV Template for Discovery
+[**patch-discovered-application-by-id**](#patch-discovered-application-by-id) | **PATCH** `/discovered-applications/{id}` | Patch Discovered Application by ID
+[**send-manual-discover-applications-csv-template**](#send-manual-discover-applications-csv-template) | **POST** `/manual-discover-applications` | Upload CSV to Discover Applications
 
 
 ## get-discovered-application-by-id

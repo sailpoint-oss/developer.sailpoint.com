@@ -18,19 +18,19 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_multi_host_integration**](MultiHostIntegrationApi#create-multi-host-integration) | **POST** `/multihosts` | Create Multi-Host Integration
-[**create_sources_within_multi_host**](MultiHostIntegrationApi#create-sources-within-multi-host) | **POST** `/multihosts/{multihostId}` | Create Sources Within Multi-Host Integration
-[**delete_multi_host**](MultiHostIntegrationApi#delete-multi-host) | **DELETE** `/multihosts/{multihostId}` | Delete Multi-Host Integration
-[**get_acct_aggregation_groups**](MultiHostIntegrationApi#get-acct-aggregation-groups) | **GET** `/multihosts/{multihostId}/acctAggregationGroups` | Get Account Aggregation Groups Within Multi-Host Integration ID
-[**get_entitlement_aggregation_groups**](MultiHostIntegrationApi#get-entitlement-aggregation-groups) | **GET** `/multihosts/{multiHostId}/entitlementAggregationGroups` | Get Entitlement Aggregation Groups Within Multi-Host Integration ID
-[**get_multi_host_integrations**](MultiHostIntegrationApi#get-multi-host-integrations) | **GET** `/multihosts/{multihostId}` | Get Multi-Host Integration By ID
-[**get_multi_host_integrations_list**](MultiHostIntegrationApi#get-multi-host-integrations-list) | **GET** `/multihosts` | List All Existing Multi-Host Integrations
-[**get_multi_host_source_creation_errors**](MultiHostIntegrationApi#get-multi-host-source-creation-errors) | **GET** `/multihosts/{multiHostId}/sources/errors` | List Multi-Host Source Creation Errors
-[**get_multihost_integration_types**](MultiHostIntegrationApi#get-multihost-integration-types) | **GET** `/multihosts/types` | List Multi-Host Integration Types
-[**get_sources_within_multi_host**](MultiHostIntegrationApi#get-sources-within-multi-host) | **GET** `/multihosts/{multihostId}/sources` | List Sources Within Multi-Host Integration
-[**test_connection_multi_host_sources**](MultiHostIntegrationApi#test-connection-multi-host-sources) | **POST** `/multihosts/{multihostId}/sources/testConnection` | Test Configuration For Multi-Host Integration
-[**test_source_connection_multihost**](MultiHostIntegrationApi#test-source-connection-multihost) | **GET** `/multihosts/{multihostId}/sources/{sourceId}/testConnection` | Test Configuration For Multi-Host Integration&#39;s Single Source
-[**update_multi_host_sources**](MultiHostIntegrationApi#update-multi-host-sources) | **PATCH** `/multihosts/{multihostId}` | Update Multi-Host Integration
+[**create-multi-host-integration**](#create-multi-host-integration) | **POST** `/multihosts` | Create Multi-Host Integration
+[**create-sources-within-multi-host**](#create-sources-within-multi-host) | **POST** `/multihosts/{multihostId}` | Create Sources Within Multi-Host Integration
+[**delete-multi-host**](#delete-multi-host) | **DELETE** `/multihosts/{multihostId}` | Delete Multi-Host Integration
+[**get-acct-aggregation-groups**](#get-acct-aggregation-groups) | **GET** `/multihosts/{multihostId}/acctAggregationGroups` | Get Account Aggregation Groups Within Multi-Host Integration ID
+[**get-entitlement-aggregation-groups**](#get-entitlement-aggregation-groups) | **GET** `/multihosts/{multiHostId}/entitlementAggregationGroups` | Get Entitlement Aggregation Groups Within Multi-Host Integration ID
+[**get-multi-host-integrations**](#get-multi-host-integrations) | **GET** `/multihosts/{multihostId}` | Get Multi-Host Integration By ID
+[**get-multi-host-integrations-list**](#get-multi-host-integrations-list) | **GET** `/multihosts` | List All Existing Multi-Host Integrations
+[**get-multi-host-source-creation-errors**](#get-multi-host-source-creation-errors) | **GET** `/multihosts/{multiHostId}/sources/errors` | List Multi-Host Source Creation Errors
+[**get-multihost-integration-types**](#get-multihost-integration-types) | **GET** `/multihosts/types` | List Multi-Host Integration Types
+[**get-sources-within-multi-host**](#get-sources-within-multi-host) | **GET** `/multihosts/{multihostId}/sources` | List Sources Within Multi-Host Integration
+[**test-connection-multi-host-sources**](#test-connection-multi-host-sources) | **POST** `/multihosts/{multihostId}/sources/testConnection` | Test Configuration For Multi-Host Integration
+[**test-source-connection-multihost**](#test-source-connection-multihost) | **GET** `/multihosts/{multihostId}/sources/{sourceId}/testConnection` | Test Configuration For Multi-Host Integration&#39;s Single Source
+[**update-multi-host-sources**](#update-multi-host-sources) | **PATCH** `/multihosts/{multihostId}` | Update Multi-Host Integration
 
 
 ## create-multi-host-integration

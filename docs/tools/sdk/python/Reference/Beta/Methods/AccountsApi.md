@@ -42,22 +42,22 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_account**](AccountsApi#create-account) | **POST** `/accounts` | Create Account
-[**delete_account**](AccountsApi#delete-account) | **DELETE** `/accounts/{id}` | Delete Account
-[**delete_account_async**](AccountsApi#delete-account-async) | **POST** `/accounts/{id}/remove` | Remove Account
-[**disable_account**](AccountsApi#disable-account) | **POST** `/accounts/{id}/disable` | Disable Account
-[**disable_account_for_identity**](AccountsApi#disable-account-for-identity) | **POST** `/identities-accounts/{id}/disable` | Disable IDN Account for Identity
-[**disable_accounts_for_identities**](AccountsApi#disable-accounts-for-identities) | **POST** `/identities-accounts/disable` | Disable IDN Accounts for Identities
-[**enable_account**](AccountsApi#enable-account) | **POST** `/accounts/{id}/enable` | Enable Account
-[**enable_account_for_identity**](AccountsApi#enable-account-for-identity) | **POST** `/identities-accounts/{id}/enable` | Enable IDN Account for Identity
-[**enable_accounts_for_identities**](AccountsApi#enable-accounts-for-identities) | **POST** `/identities-accounts/enable` | Enable IDN Accounts for Identities
-[**get_account**](AccountsApi#get-account) | **GET** `/accounts/{id}` | Account Details
-[**get_account_entitlements**](AccountsApi#get-account-entitlements) | **GET** `/accounts/{id}/entitlements` | Account Entitlements
-[**list_accounts**](AccountsApi#list-accounts) | **GET** `/accounts` | Accounts List
-[**put_account**](AccountsApi#put-account) | **PUT** `/accounts/{id}` | Update Account
-[**submit_reload_account**](AccountsApi#submit-reload-account) | **POST** `/accounts/{id}/reload` | Reload Account
-[**unlock_account**](AccountsApi#unlock-account) | **POST** `/accounts/{id}/unlock` | Unlock Account
-[**update_account**](AccountsApi#update-account) | **PATCH** `/accounts/{id}` | Update Account
+[**create-account**](#create-account) | **POST** `/accounts` | Create Account
+[**delete-account**](#delete-account) | **DELETE** `/accounts/{id}` | Delete Account
+[**delete-account-async**](#delete-account-async) | **POST** `/accounts/{id}/remove` | Remove Account
+[**disable-account**](#disable-account) | **POST** `/accounts/{id}/disable` | Disable Account
+[**disable-account-for-identity**](#disable-account-for-identity) | **POST** `/identities-accounts/{id}/disable` | Disable IDN Account for Identity
+[**disable-accounts-for-identities**](#disable-accounts-for-identities) | **POST** `/identities-accounts/disable` | Disable IDN Accounts for Identities
+[**enable-account**](#enable-account) | **POST** `/accounts/{id}/enable` | Enable Account
+[**enable-account-for-identity**](#enable-account-for-identity) | **POST** `/identities-accounts/{id}/enable` | Enable IDN Account for Identity
+[**enable-accounts-for-identities**](#enable-accounts-for-identities) | **POST** `/identities-accounts/enable` | Enable IDN Accounts for Identities
+[**get-account**](#get-account) | **GET** `/accounts/{id}` | Account Details
+[**get-account-entitlements**](#get-account-entitlements) | **GET** `/accounts/{id}/entitlements` | Account Entitlements
+[**list-accounts**](#list-accounts) | **GET** `/accounts` | Accounts List
+[**put-account**](#put-account) | **PUT** `/accounts/{id}` | Update Account
+[**submit-reload-account**](#submit-reload-account) | **POST** `/accounts/{id}/reload` | Reload Account
+[**unlock-account**](#unlock-account) | **POST** `/accounts/{id}/unlock` | Unlock Account
+[**update-account**](#update-account) | **PATCH** `/accounts/{id}` | Update Account
 
 
 ## create-account

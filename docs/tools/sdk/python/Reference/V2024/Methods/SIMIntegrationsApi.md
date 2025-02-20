@@ -22,13 +22,13 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_sim_integration**](SIMIntegrationsApi#create-sim-integration) | **POST** `/sim-integrations` | Create new SIM integration
-[**delete_sim_integration**](SIMIntegrationsApi#delete-sim-integration) | **DELETE** `/sim-integrations/{id}` | Delete a SIM integration
-[**get_sim_integration**](SIMIntegrationsApi#get-sim-integration) | **GET** `/sim-integrations/{id}` | Get a SIM integration details.
-[**get_sim_integrations**](SIMIntegrationsApi#get-sim-integrations) | **GET** `/sim-integrations` | List the existing SIM integrations.
-[**patch_before_provisioning_rule**](SIMIntegrationsApi#patch-before-provisioning-rule) | **PATCH** `/sim-integrations/{id}/beforeProvisioningRule` | Patch a SIM beforeProvisioningRule attribute.
-[**patch_sim_attributes**](SIMIntegrationsApi#patch-sim-attributes) | **PATCH** `/sim-integrations/{id}` | Patch a SIM attribute.
-[**put_sim_integration**](SIMIntegrationsApi#put-sim-integration) | **PUT** `/sim-integrations/{id}` | Update an existing SIM integration
+[**create-sim-integration**](#create-sim-integration) | **POST** `/sim-integrations` | Create new SIM integration
+[**delete-sim-integration**](#delete-sim-integration) | **DELETE** `/sim-integrations/{id}` | Delete a SIM integration
+[**get-sim-integration**](#get-sim-integration) | **GET** `/sim-integrations/{id}` | Get a SIM integration details.
+[**get-sim-integrations**](#get-sim-integrations) | **GET** `/sim-integrations` | List the existing SIM integrations.
+[**patch-before-provisioning-rule**](#patch-before-provisioning-rule) | **PATCH** `/sim-integrations/{id}/beforeProvisioningRule` | Patch a SIM beforeProvisioningRule attribute.
+[**patch-sim-attributes**](#patch-sim-attributes) | **PATCH** `/sim-integrations/{id}` | Patch a SIM attribute.
+[**put-sim-integration**](#put-sim-integration) | **PUT** `/sim-integrations/{id}` | Update an existing SIM integration
 
 
 ## create-sim-integration

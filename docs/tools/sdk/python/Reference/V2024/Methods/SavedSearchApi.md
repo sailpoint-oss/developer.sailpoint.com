@@ -25,12 +25,12 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_saved_search**](SavedSearchApi#create-saved-search) | **POST** `/saved-searches` | Create a saved search
-[**delete_saved_search**](SavedSearchApi#delete-saved-search) | **DELETE** `/saved-searches/{id}` | Delete document by ID
-[**execute_saved_search**](SavedSearchApi#execute-saved-search) | **POST** `/saved-searches/{id}/execute` | Execute a saved search by ID
-[**get_saved_search**](SavedSearchApi#get-saved-search) | **GET** `/saved-searches/{id}` | Return saved search by ID
-[**list_saved_searches**](SavedSearchApi#list-saved-searches) | **GET** `/saved-searches` | A list of Saved Searches
-[**put_saved_search**](SavedSearchApi#put-saved-search) | **PUT** `/saved-searches/{id}` | Updates an existing saved search 
+[**create-saved-search**](#create-saved-search) | **POST** `/saved-searches` | Create a saved search
+[**delete-saved-search**](#delete-saved-search) | **DELETE** `/saved-searches/{id}` | Delete document by ID
+[**execute-saved-search**](#execute-saved-search) | **POST** `/saved-searches/{id}/execute` | Execute a saved search by ID
+[**get-saved-search**](#get-saved-search) | **GET** `/saved-searches/{id}` | Return saved search by ID
+[**list-saved-searches**](#list-saved-searches) | **GET** `/saved-searches` | A list of Saved Searches
+[**put-saved-search**](#put-saved-search) | **PUT** `/saved-searches/{id}` | Updates an existing saved search 
 
 
 ## create-saved-search

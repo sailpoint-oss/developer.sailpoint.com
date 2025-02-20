@@ -29,17 +29,17 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_custom_connector**](ConnectorsApi#create-custom-connector) | **POST** `/connectors` | Create Custom Connector
-[**delete_custom_connector**](ConnectorsApi#delete-custom-connector) | **DELETE** `/connectors/{scriptName}` | Delete Connector by Script Name
-[**get_connector**](ConnectorsApi#get-connector) | **GET** `/connectors/{scriptName}` | Get Connector by Script Name
-[**get_connector_list**](ConnectorsApi#get-connector-list) | **GET** `/connectors` | Get Connector List
-[**get_connector_source_config**](ConnectorsApi#get-connector-source-config) | **GET** `/connectors/{scriptName}/source-config` | Get Connector Source Configuration
-[**get_connector_source_template**](ConnectorsApi#get-connector-source-template) | **GET** `/connectors/{scriptName}/source-template` | Get Connector Source Template
-[**get_connector_translations**](ConnectorsApi#get-connector-translations) | **GET** `/connectors/{scriptName}/translations/{locale}` | Get Connector Translations
-[**put_connector_source_config**](ConnectorsApi#put-connector-source-config) | **PUT** `/connectors/{scriptName}/source-config` | Update Connector Source Configuration
-[**put_connector_source_template**](ConnectorsApi#put-connector-source-template) | **PUT** `/connectors/{scriptName}/source-template` | Update Connector Source Template
-[**put_connector_translations**](ConnectorsApi#put-connector-translations) | **PUT** `/connectors/{scriptName}/translations/{locale}` | Update Connector Translations
-[**update_connector**](ConnectorsApi#update-connector) | **PATCH** `/connectors/{scriptName}` | Update Connector by Script Name
+[**create-custom-connector**](#create-custom-connector) | **POST** `/connectors` | Create Custom Connector
+[**delete-custom-connector**](#delete-custom-connector) | **DELETE** `/connectors/{scriptName}` | Delete Connector by Script Name
+[**get-connector**](#get-connector) | **GET** `/connectors/{scriptName}` | Get Connector by Script Name
+[**get-connector-list**](#get-connector-list) | **GET** `/connectors` | Get Connector List
+[**get-connector-source-config**](#get-connector-source-config) | **GET** `/connectors/{scriptName}/source-config` | Get Connector Source Configuration
+[**get-connector-source-template**](#get-connector-source-template) | **GET** `/connectors/{scriptName}/source-template` | Get Connector Source Template
+[**get-connector-translations**](#get-connector-translations) | **GET** `/connectors/{scriptName}/translations/{locale}` | Get Connector Translations
+[**put-connector-source-config**](#put-connector-source-config) | **PUT** `/connectors/{scriptName}/source-config` | Update Connector Source Configuration
+[**put-connector-source-template**](#put-connector-source-template) | **PUT** `/connectors/{scriptName}/source-template` | Update Connector Source Template
+[**put-connector-translations**](#put-connector-translations) | **PUT** `/connectors/{scriptName}/translations/{locale}` | Update Connector Translations
+[**update-connector**](#update-connector) | **PATCH** `/connectors/{scriptName}` | Update Connector by Script Name
 
 
 ## create-custom-connector

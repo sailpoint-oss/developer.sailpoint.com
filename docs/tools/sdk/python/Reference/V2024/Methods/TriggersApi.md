@@ -56,16 +56,16 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**complete_trigger_invocation**](TriggersApi#complete-trigger-invocation) | **POST** `/trigger-invocations/{id}/complete` | Complete Trigger Invocation
-[**create_subscription**](TriggersApi#create-subscription) | **POST** `/trigger-subscriptions` | Create a Subscription
-[**delete_subscription**](TriggersApi#delete-subscription) | **DELETE** `/trigger-subscriptions/{id}` | Delete a Subscription
-[**list_subscriptions**](TriggersApi#list-subscriptions) | **GET** `/trigger-subscriptions` | List Subscriptions
-[**list_trigger_invocation_status**](TriggersApi#list-trigger-invocation-status) | **GET** `/trigger-invocations/status` | List Latest Invocation Statuses
-[**list_triggers**](TriggersApi#list-triggers) | **GET** `/triggers` | List Triggers
-[**patch_subscription**](TriggersApi#patch-subscription) | **PATCH** `/trigger-subscriptions/{id}` | Patch a Subscription
-[**start_test_trigger_invocation**](TriggersApi#start-test-trigger-invocation) | **POST** `/trigger-invocations/test` | Start a Test Invocation
-[**test_subscription_filter**](TriggersApi#test-subscription-filter) | **POST** `/trigger-subscriptions/validate-filter` | Validate a Subscription Filter
-[**update_subscription**](TriggersApi#update-subscription) | **PUT** `/trigger-subscriptions/{id}` | Update a Subscription
+[**complete-trigger-invocation**](#complete-trigger-invocation) | **POST** `/trigger-invocations/{id}/complete` | Complete Trigger Invocation
+[**create-subscription**](#create-subscription) | **POST** `/trigger-subscriptions` | Create a Subscription
+[**delete-subscription**](#delete-subscription) | **DELETE** `/trigger-subscriptions/{id}` | Delete a Subscription
+[**list-subscriptions**](#list-subscriptions) | **GET** `/trigger-subscriptions` | List Subscriptions
+[**list-trigger-invocation-status**](#list-trigger-invocation-status) | **GET** `/trigger-invocations/status` | List Latest Invocation Statuses
+[**list-triggers**](#list-triggers) | **GET** `/triggers` | List Triggers
+[**patch-subscription**](#patch-subscription) | **PATCH** `/trigger-subscriptions/{id}` | Patch a Subscription
+[**start-test-trigger-invocation**](#start-test-trigger-invocation) | **POST** `/trigger-invocations/test` | Start a Test Invocation
+[**test-subscription-filter**](#test-subscription-filter) | **POST** `/trigger-subscriptions/validate-filter` | Validate a Subscription Filter
+[**update-subscription**](#update-subscription) | **PUT** `/trigger-subscriptions/{id}` | Update a Subscription
 
 
 ## complete-trigger-invocation

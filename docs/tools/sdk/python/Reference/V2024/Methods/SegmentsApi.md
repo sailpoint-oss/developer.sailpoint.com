@@ -32,11 +32,11 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_segment**](SegmentsApi#create-segment) | **POST** `/segments` | Create Segment
-[**delete_segment**](SegmentsApi#delete-segment) | **DELETE** `/segments/{id}` | Delete Segment by ID
-[**get_segment**](SegmentsApi#get-segment) | **GET** `/segments/{id}` | Get Segment by ID
-[**list_segments**](SegmentsApi#list-segments) | **GET** `/segments` | List Segments
-[**patch_segment**](SegmentsApi#patch-segment) | **PATCH** `/segments/{id}` | Update Segment
+[**create-segment**](#create-segment) | **POST** `/segments` | Create Segment
+[**delete-segment**](#delete-segment) | **DELETE** `/segments/{id}` | Delete Segment by ID
+[**get-segment**](#get-segment) | **GET** `/segments/{id}` | Get Segment by ID
+[**list-segments**](#list-segments) | **GET** `/segments` | List Segments
+[**patch-segment**](#patch-segment) | **PATCH** `/segments/{id}` | Update Segment
 
 
 ## create-segment

@@ -17,12 +17,12 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_managed_client**](ManagedClientsApi#create-managed-client) | **POST** `/managed-clients` | Create Managed Client
-[**delete_managed_client**](ManagedClientsApi#delete-managed-client) | **DELETE** `/managed-clients/{id}` | Delete Managed Client
-[**get_managed_client**](ManagedClientsApi#get-managed-client) | **GET** `/managed-clients/{id}` | Get Managed Client
-[**get_managed_client_status**](ManagedClientsApi#get-managed-client-status) | **GET** `/managed-clients/{id}/status` | Get Managed Client Status
-[**get_managed_clients**](ManagedClientsApi#get-managed-clients) | **GET** `/managed-clients` | Get Managed Clients
-[**update_managed_client**](ManagedClientsApi#update-managed-client) | **PATCH** `/managed-clients/{id}` | Update Managed Client
+[**create-managed-client**](#create-managed-client) | **POST** `/managed-clients` | Create Managed Client
+[**delete-managed-client**](#delete-managed-client) | **DELETE** `/managed-clients/{id}` | Delete Managed Client
+[**get-managed-client**](#get-managed-client) | **GET** `/managed-clients/{id}` | Get Managed Client
+[**get-managed-client-status**](#get-managed-client-status) | **GET** `/managed-clients/{id}/status` | Get Managed Client Status
+[**get-managed-clients**](#get-managed-clients) | **GET** `/managed-clients` | Get Managed Clients
+[**update-managed-client**](#update-managed-client) | **PATCH** `/managed-clients/{id}` | Update Managed Client
 
 
 ## create-managed-client

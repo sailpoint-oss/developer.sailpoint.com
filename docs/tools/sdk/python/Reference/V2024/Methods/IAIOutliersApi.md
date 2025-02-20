@@ -15,15 +15,15 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**export_outliers_zip**](IAIOutliersApi#export-outliers-zip) | **GET** `/outliers/export` | IAI Identity Outliers Export
-[**get_identity_outlier_snapshots**](IAIOutliersApi#get-identity-outlier-snapshots) | **GET** `/outlier-summaries` | IAI Identity Outliers Summary
-[**get_identity_outliers**](IAIOutliersApi#get-identity-outliers) | **GET** `/outliers` | IAI Get Identity Outliers
-[**get_latest_identity_outlier_snapshots**](IAIOutliersApi#get-latest-identity-outlier-snapshots) | **GET** `/outlier-summaries/latest` | IAI Identity Outliers Latest Summary
-[**get_outlier_contributing_feature_summary**](IAIOutliersApi#get-outlier-contributing-feature-summary) | **GET** `/outlier-feature-summaries/{outlierFeatureId}` | Get identity outlier contibuting feature summary
-[**get_peer_group_outliers_contributing_features**](IAIOutliersApi#get-peer-group-outliers-contributing-features) | **GET** `/outliers/{outlierId}/contributing-features` | Get identity outlier&#39;s contibuting features
-[**ignore_identity_outliers**](IAIOutliersApi#ignore-identity-outliers) | **POST** `/outliers/ignore` | IAI Identity Outliers Ignore
-[**list_outliers_contributing_feature_access_items**](IAIOutliersApi#list-outliers-contributing-feature-access-items) | **GET** `/outliers/{outlierId}/feature-details/{contributingFeatureName}/access-items` | Gets a list of access items associated with each identity outlier contributing feature
-[**un_ignore_identity_outliers**](IAIOutliersApi#un-ignore-identity-outliers) | **POST** `/outliers/unignore` | IAI Identity Outliers Unignore
+[**export-outliers-zip**](#export-outliers-zip) | **GET** `/outliers/export` | IAI Identity Outliers Export
+[**get-identity-outlier-snapshots**](#get-identity-outlier-snapshots) | **GET** `/outlier-summaries` | IAI Identity Outliers Summary
+[**get-identity-outliers**](#get-identity-outliers) | **GET** `/outliers` | IAI Get Identity Outliers
+[**get-latest-identity-outlier-snapshots**](#get-latest-identity-outlier-snapshots) | **GET** `/outlier-summaries/latest` | IAI Identity Outliers Latest Summary
+[**get-outlier-contributing-feature-summary**](#get-outlier-contributing-feature-summary) | **GET** `/outlier-feature-summaries/{outlierFeatureId}` | Get identity outlier contibuting feature summary
+[**get-peer-group-outliers-contributing-features**](#get-peer-group-outliers-contributing-features) | **GET** `/outliers/{outlierId}/contributing-features` | Get identity outlier&#39;s contibuting features
+[**ignore-identity-outliers**](#ignore-identity-outliers) | **POST** `/outliers/ignore` | IAI Identity Outliers Ignore
+[**list-outliers-contributing-feature-access-items**](#list-outliers-contributing-feature-access-items) | **GET** `/outliers/{outlierId}/feature-details/{contributingFeatureName}/access-items` | Gets a list of access items associated with each identity outlier contributing feature
+[**un-ignore-identity-outliers**](#un-ignore-identity-outliers) | **POST** `/outliers/unignore` | IAI Identity Outliers Unignore
 
 
 ## export-outliers-zip

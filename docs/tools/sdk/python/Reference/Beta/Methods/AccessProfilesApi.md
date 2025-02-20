@@ -49,14 +49,14 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_access_profile**](AccessProfilesApi#create-access-profile) | **POST** `/access-profiles` | Create Access Profile
-[**delete_access_profile**](AccessProfilesApi#delete-access-profile) | **DELETE** `/access-profiles/{id}` | Delete the specified Access Profile
-[**delete_access_profiles_in_bulk**](AccessProfilesApi#delete-access-profiles-in-bulk) | **POST** `/access-profiles/bulk-delete` | Delete Access Profile(s)
-[**get_access_profile**](AccessProfilesApi#get-access-profile) | **GET** `/access-profiles/{id}` | Get an Access Profile
-[**get_access_profile_entitlements**](AccessProfilesApi#get-access-profile-entitlements) | **GET** `/access-profiles/{id}/entitlements` | List Access Profile&#39;s Entitlements
-[**list_access_profiles**](AccessProfilesApi#list-access-profiles) | **GET** `/access-profiles` | List Access Profiles
-[**patch_access_profile**](AccessProfilesApi#patch-access-profile) | **PATCH** `/access-profiles/{id}` | Patch a specified Access Profile
-[**update_access_profiles_in_bulk**](AccessProfilesApi#update-access-profiles-in-bulk) | **POST** `/access-profiles/bulk-update-requestable` | Update Access Profile(s) requestable field.
+[**create-access-profile**](#create-access-profile) | **POST** `/access-profiles` | Create Access Profile
+[**delete-access-profile**](#delete-access-profile) | **DELETE** `/access-profiles/{id}` | Delete the specified Access Profile
+[**delete-access-profiles-in-bulk**](#delete-access-profiles-in-bulk) | **POST** `/access-profiles/bulk-delete` | Delete Access Profile(s)
+[**get-access-profile**](#get-access-profile) | **GET** `/access-profiles/{id}` | Get an Access Profile
+[**get-access-profile-entitlements**](#get-access-profile-entitlements) | **GET** `/access-profiles/{id}/entitlements` | List Access Profile&#39;s Entitlements
+[**list-access-profiles**](#list-access-profiles) | **GET** `/access-profiles` | List Access Profiles
+[**patch-access-profile**](#patch-access-profile) | **PATCH** `/access-profiles/{id}` | Patch a specified Access Profile
+[**update-access-profiles-in-bulk**](#update-access-profiles-in-bulk) | **POST** `/access-profiles/bulk-update-requestable` | Update Access Profile(s) requestable field.
 
 
 ## create-access-profile

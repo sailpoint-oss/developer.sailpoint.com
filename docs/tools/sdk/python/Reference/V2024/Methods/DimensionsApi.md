@@ -16,14 +16,14 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_dimension**](DimensionsApi#create-dimension) | **POST** `/roles/{roleId}/dimensions` | Create a Dimension
-[**delete_bulk_dimensions**](DimensionsApi#delete-bulk-dimensions) | **POST** `/roles/{roleId}/dimensions/bulk-delete` | Delete Dimension(s)
-[**delete_dimension**](DimensionsApi#delete-dimension) | **DELETE** `/roles/{roleId}/dimensions/{dimensionId}` | Delete a Dimension
-[**get_dimension**](DimensionsApi#get-dimension) | **GET** `/roles/{roleId}/dimensions/{dimensionId}` | Get a Dimension under Role.
-[**get_dimension_entitlements**](DimensionsApi#get-dimension-entitlements) | **GET** `/roles/{roleId}/dimensions/{dimensionId}/entitlements` | List Dimension&#39;s Entitlements
-[**list_dimension_access_profiles**](DimensionsApi#list-dimension-access-profiles) | **GET** `/roles/{roleId}/dimensions/{dimensionId}/access-profiles` | List Dimension&#39;s Access Profiles
-[**list_dimensions**](DimensionsApi#list-dimensions) | **GET** `/roles/{roleId}/dimensions` | List Dimensions
-[**patch_dimension**](DimensionsApi#patch-dimension) | **PATCH** `/roles/{roleId}/dimensions/{dimensionId}` | Patch a specified Dimension
+[**create-dimension**](#create-dimension) | **POST** `/roles/{roleId}/dimensions` | Create a Dimension
+[**delete-bulk-dimensions**](#delete-bulk-dimensions) | **POST** `/roles/{roleId}/dimensions/bulk-delete` | Delete Dimension(s)
+[**delete-dimension**](#delete-dimension) | **DELETE** `/roles/{roleId}/dimensions/{dimensionId}` | Delete a Dimension
+[**get-dimension**](#get-dimension) | **GET** `/roles/{roleId}/dimensions/{dimensionId}` | Get a Dimension under Role.
+[**get-dimension-entitlements**](#get-dimension-entitlements) | **GET** `/roles/{roleId}/dimensions/{dimensionId}/entitlements` | List Dimension&#39;s Entitlements
+[**list-dimension-access-profiles**](#list-dimension-access-profiles) | **GET** `/roles/{roleId}/dimensions/{dimensionId}/access-profiles` | List Dimension&#39;s Access Profiles
+[**list-dimensions**](#list-dimensions) | **GET** `/roles/{roleId}/dimensions` | List Dimensions
+[**patch-dimension**](#patch-dimension) | **PATCH** `/roles/{roleId}/dimensions/{dimensionId}` | Patch a specified Dimension
 
 
 ## create-dimension

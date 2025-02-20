@@ -52,22 +52,22 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_role**](RolesApi#create-role) | **POST** `/roles` | Create a Role
-[**delete_bulk_roles**](RolesApi#delete-bulk-roles) | **POST** `/roles/bulk-delete` | Delete Role(s)
-[**delete_metadata_from_role_by_key_and_value**](RolesApi#delete-metadata-from-role-by-key-and-value) | **DELETE** `/roles/{id}/access-model-metadata/{attributeKey}/values/{attributeValue}` | Remove a Metadata From Role.
-[**delete_role**](RolesApi#delete-role) | **DELETE** `/roles/{id}` | Delete a Role
-[**get_bulk_update_status**](RolesApi#get-bulk-update-status) | **GET** `/roles/access-model-metadata/bulk-update` | Get Bulk-Update Statuses
-[**get_bulk_update_status_by_id**](RolesApi#get-bulk-update-status-by-id) | **GET** `/roles/access-model-metadata/bulk-update/id` | Get Bulk-Update Status by ID
-[**get_role**](RolesApi#get-role) | **GET** `/roles/{id}` | Get a Role
-[**get_role_assigned_identities**](RolesApi#get-role-assigned-identities) | **GET** `/roles/{id}/assigned-identities` | List Identities assigned a Role
-[**get_role_entitlements**](RolesApi#get-role-entitlements) | **GET** `/roles/{id}/entitlements` | List role&#39;s Entitlements
-[**list_roles**](RolesApi#list-roles) | **GET** `/roles` | List Roles
-[**patch_role**](RolesApi#patch-role) | **PATCH** `/roles/{id}` | Patch a specified Role
-[**search_roles_by_filter**](RolesApi#search-roles-by-filter) | **POST** `/roles/filter` | Filter Roles by Metadata
-[**update_attribute_key_and_value_to_role**](RolesApi#update-attribute-key-and-value-to-role) | **POST** `/roles/{id}/access-model-metadata/{attributeKey}/values/{attributeValue}` | Add a Metadata to Role.
-[**update_roles_metadata_by_filter**](RolesApi#update-roles-metadata-by-filter) | **POST** `/roles/access-model-metadata/bulk-update/filter` | Bulk-Update Roles&#39; Metadata by Filters
-[**update_roles_metadata_by_ids**](RolesApi#update-roles-metadata-by-ids) | **POST** `/roles/access-model-metadata/bulk-update/ids` | Bulk-Update Roles&#39; Metadata by ID
-[**update_roles_metadata_by_query**](RolesApi#update-roles-metadata-by-query) | **POST** `/roles/access-model-metadata/bulk-update/query` | Bulk-Update Roles&#39; Metadata by Query
+[**create-role**](#create-role) | **POST** `/roles` | Create a Role
+[**delete-bulk-roles**](#delete-bulk-roles) | **POST** `/roles/bulk-delete` | Delete Role(s)
+[**delete-metadata-from-role-by-key-and-value**](#delete-metadata-from-role-by-key-and-value) | **DELETE** `/roles/{id}/access-model-metadata/{attributeKey}/values/{attributeValue}` | Remove a Metadata From Role.
+[**delete-role**](#delete-role) | **DELETE** `/roles/{id}` | Delete a Role
+[**get-bulk-update-status**](#get-bulk-update-status) | **GET** `/roles/access-model-metadata/bulk-update` | Get Bulk-Update Statuses
+[**get-bulk-update-status-by-id**](#get-bulk-update-status-by-id) | **GET** `/roles/access-model-metadata/bulk-update/id` | Get Bulk-Update Status by ID
+[**get-role**](#get-role) | **GET** `/roles/{id}` | Get a Role
+[**get-role-assigned-identities**](#get-role-assigned-identities) | **GET** `/roles/{id}/assigned-identities` | List Identities assigned a Role
+[**get-role-entitlements**](#get-role-entitlements) | **GET** `/roles/{id}/entitlements` | List role&#39;s Entitlements
+[**list-roles**](#list-roles) | **GET** `/roles` | List Roles
+[**patch-role**](#patch-role) | **PATCH** `/roles/{id}` | Patch a specified Role
+[**search-roles-by-filter**](#search-roles-by-filter) | **POST** `/roles/filter` | Filter Roles by Metadata
+[**update-attribute-key-and-value-to-role**](#update-attribute-key-and-value-to-role) | **POST** `/roles/{id}/access-model-metadata/{attributeKey}/values/{attributeValue}` | Add a Metadata to Role.
+[**update-roles-metadata-by-filter**](#update-roles-metadata-by-filter) | **POST** `/roles/access-model-metadata/bulk-update/filter` | Bulk-Update Roles&#39; Metadata by Filters
+[**update-roles-metadata-by-ids**](#update-roles-metadata-by-ids) | **POST** `/roles/access-model-metadata/bulk-update/ids` | Bulk-Update Roles&#39; Metadata by ID
+[**update-roles-metadata-by-query**](#update-roles-metadata-by-query) | **POST** `/roles/access-model-metadata/bulk-update/query` | Bulk-Update Roles&#39; Metadata by Query
 
 
 ## create-role

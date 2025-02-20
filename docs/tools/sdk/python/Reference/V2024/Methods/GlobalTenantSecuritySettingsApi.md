@@ -18,9 +18,9 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_auth_org_network_config**](GlobalTenantSecuritySettingsApi#create-auth-org-network-config) | **POST** `/auth-org/network-config` | Create security network configuration.
-[**get_auth_org_network_config**](GlobalTenantSecuritySettingsApi#get-auth-org-network-config) | **GET** `/auth-org/network-config` | Get security network configuration.
-[**patch_auth_org_network_config**](GlobalTenantSecuritySettingsApi#patch-auth-org-network-config) | **PATCH** `/auth-org/network-config` | Update security network configuration.
+[**create-auth-org-network-config**](#create-auth-org-network-config) | **POST** `/auth-org/network-config` | Create security network configuration.
+[**get-auth-org-network-config**](#get-auth-org-network-config) | **GET** `/auth-org/network-config` | Get security network configuration.
+[**patch-auth-org-network-config**](#patch-auth-org-network-config) | **PATCH** `/auth-org/network-config` | Update security network configuration.
 
 
 ## create-auth-org-network-config

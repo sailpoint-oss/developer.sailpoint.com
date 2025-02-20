@@ -24,15 +24,15 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_object_mapping**](ConfigurationHubApi#create-object-mapping) | **POST** `/configuration-hub/object-mappings/{sourceOrg}` | Creates an object mapping
-[**create_object_mappings**](ConfigurationHubApi#create-object-mappings) | **POST** `/configuration-hub/object-mappings/{sourceOrg}/bulk-create` | Bulk creates object mappings
-[**create_uploaded_configuration**](ConfigurationHubApi#create-uploaded-configuration) | **POST** `/configuration-hub/backups/uploads` | Upload a Configuration
-[**delete_object_mapping**](ConfigurationHubApi#delete-object-mapping) | **DELETE** `/configuration-hub/object-mappings/{sourceOrg}/{objectMappingId}` | Deletes an object mapping
-[**delete_uploaded_configuration**](ConfigurationHubApi#delete-uploaded-configuration) | **DELETE** `/configuration-hub/backups/uploads/{id}` | Delete an Uploaded Configuration
-[**get_object_mappings**](ConfigurationHubApi#get-object-mappings) | **GET** `/configuration-hub/object-mappings/{sourceOrg}` | Gets list of object mappings
-[**get_uploaded_configuration**](ConfigurationHubApi#get-uploaded-configuration) | **GET** `/configuration-hub/backups/uploads/{id}` | Get an Uploaded Configuration
-[**list_uploaded_configurations**](ConfigurationHubApi#list-uploaded-configurations) | **GET** `/configuration-hub/backups/uploads` | List Uploaded Configurations
-[**update_object_mappings**](ConfigurationHubApi#update-object-mappings) | **POST** `/configuration-hub/object-mappings/{sourceOrg}/bulk-patch` | Bulk updates object mappings
+[**create-object-mapping**](#create-object-mapping) | **POST** `/configuration-hub/object-mappings/{sourceOrg}` | Creates an object mapping
+[**create-object-mappings**](#create-object-mappings) | **POST** `/configuration-hub/object-mappings/{sourceOrg}/bulk-create` | Bulk creates object mappings
+[**create-uploaded-configuration**](#create-uploaded-configuration) | **POST** `/configuration-hub/backups/uploads` | Upload a Configuration
+[**delete-object-mapping**](#delete-object-mapping) | **DELETE** `/configuration-hub/object-mappings/{sourceOrg}/{objectMappingId}` | Deletes an object mapping
+[**delete-uploaded-configuration**](#delete-uploaded-configuration) | **DELETE** `/configuration-hub/backups/uploads/{id}` | Delete an Uploaded Configuration
+[**get-object-mappings**](#get-object-mappings) | **GET** `/configuration-hub/object-mappings/{sourceOrg}` | Gets list of object mappings
+[**get-uploaded-configuration**](#get-uploaded-configuration) | **GET** `/configuration-hub/backups/uploads/{id}` | Get an Uploaded Configuration
+[**list-uploaded-configurations**](#list-uploaded-configurations) | **GET** `/configuration-hub/backups/uploads` | List Uploaded Configurations
+[**update-object-mappings**](#update-object-mappings) | **POST** `/configuration-hub/object-mappings/{sourceOrg}/bulk-patch` | Bulk updates object mappings
 
 
 ## create-object-mapping

@@ -15,15 +15,15 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_role_insight_requests**](RoleInsightsApi#create-role-insight-requests) | **POST** `/role-insights/requests` | Generate insights for roles
-[**download_role_insights_entitlements_changes**](RoleInsightsApi#download-role-insights-entitlements-changes) | **GET** `/role-insights/{insightId}/entitlement-changes/download` | Download entitlement insights for a role
-[**get_entitlement_changes_identities**](RoleInsightsApi#get-entitlement-changes-identities) | **GET** `/role-insights/{insightId}/entitlement-changes/{entitlementId}/identities` | Get identities for a suggested entitlement (for a role)
-[**get_role_insight**](RoleInsightsApi#get-role-insight) | **GET** `/role-insights/{insightId}` | Get a single role insight
-[**get_role_insights**](RoleInsightsApi#get-role-insights) | **GET** `/role-insights` | Get role insights
-[**get_role_insights_current_entitlements**](RoleInsightsApi#get-role-insights-current-entitlements) | **GET** `/role-insights/{insightId}/current-entitlements` | Get current entitlement for a role
-[**get_role_insights_entitlements_changes**](RoleInsightsApi#get-role-insights-entitlements-changes) | **GET** `/role-insights/{insightId}/entitlement-changes` | Get entitlement insights for a role
-[**get_role_insights_requests**](RoleInsightsApi#get-role-insights-requests) | **GET** `/role-insights/requests/{id}` | Returns metadata from prior request.
-[**get_role_insights_summary**](RoleInsightsApi#get-role-insights-summary) | **GET** `/role-insights/summary` | Get role insights summary information
+[**create-role-insight-requests**](#create-role-insight-requests) | **POST** `/role-insights/requests` | Generate insights for roles
+[**download-role-insights-entitlements-changes**](#download-role-insights-entitlements-changes) | **GET** `/role-insights/{insightId}/entitlement-changes/download` | Download entitlement insights for a role
+[**get-entitlement-changes-identities**](#get-entitlement-changes-identities) | **GET** `/role-insights/{insightId}/entitlement-changes/{entitlementId}/identities` | Get identities for a suggested entitlement (for a role)
+[**get-role-insight**](#get-role-insight) | **GET** `/role-insights/{insightId}` | Get a single role insight
+[**get-role-insights**](#get-role-insights) | **GET** `/role-insights` | Get role insights
+[**get-role-insights-current-entitlements**](#get-role-insights-current-entitlements) | **GET** `/role-insights/{insightId}/current-entitlements` | Get current entitlement for a role
+[**get-role-insights-entitlements-changes**](#get-role-insights-entitlements-changes) | **GET** `/role-insights/{insightId}/entitlement-changes` | Get entitlement insights for a role
+[**get-role-insights-requests**](#get-role-insights-requests) | **GET** `/role-insights/requests/{id}` | Returns metadata from prior request.
+[**get-role-insights-summary**](#get-role-insights-summary) | **GET** `/role-insights/summary` | Get role insights summary information
 
 
 ## create-role-insight-requests

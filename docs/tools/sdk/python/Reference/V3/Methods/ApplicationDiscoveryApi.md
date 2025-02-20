@@ -17,9 +17,9 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_discovered_applications**](ApplicationDiscoveryApi#get-discovered-applications) | **GET** `/discovered-applications` | Get Discovered Applications for Tenant
-[**get_manual_discover_applications_csv_template**](ApplicationDiscoveryApi#get-manual-discover-applications-csv-template) | **GET** `/manual-discover-applications-template` | Download CSV Template for Discovery
-[**send_manual_discover_applications_csv_template**](ApplicationDiscoveryApi#send-manual-discover-applications-csv-template) | **POST** `/manual-discover-applications` | Upload CSV to Discover Applications
+[**get-discovered-applications**](#get-discovered-applications) | **GET** `/discovered-applications` | Get Discovered Applications for Tenant
+[**get-manual-discover-applications-csv-template**](#get-manual-discover-applications-csv-template) | **GET** `/manual-discover-applications-template` | Download CSV Template for Discovery
+[**send-manual-discover-applications-csv-template**](#send-manual-discover-applications-csv-template) | **POST** `/manual-discover-applications` | Upload CSV to Discover Applications
 
 
 ## get-discovered-applications

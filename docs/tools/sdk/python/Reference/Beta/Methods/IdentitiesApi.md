@@ -30,17 +30,17 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**delete_identity**](IdentitiesApi#delete-identity) | **DELETE** `/identities/{id}` | Delete identity
-[**get_identity**](IdentitiesApi#get-identity) | **GET** `/identities/{id}` | Identity Details
-[**get_identity_ownership_details**](IdentitiesApi#get-identity-ownership-details) | **GET** `/identities/{identityId}/ownership` | Get ownership details
-[**get_role_assignment**](IdentitiesApi#get-role-assignment) | **GET** `/identities/{identityId}/role-assignments/{assignmentId}` | Role assignment details
-[**get_role_assignments**](IdentitiesApi#get-role-assignments) | **GET** `/identities/{identityId}/role-assignments` | List role assignments
-[**list_identities**](IdentitiesApi#list-identities) | **GET** `/identities` | List Identities
-[**reset_identity**](IdentitiesApi#reset-identity) | **POST** `/identities/{identityId}/reset` | Reset an identity
-[**send_identity_verification_account_token**](IdentitiesApi#send-identity-verification-account-token) | **POST** `/identities/{id}/verification/account/send` | Send password reset email
-[**start_identities_invite**](IdentitiesApi#start-identities-invite) | **POST** `/identities/invite` | Invite identities to register
-[**start_identity_processing**](IdentitiesApi#start-identity-processing) | **POST** `/identities/process` | Process a list of identityIds
-[**synchronize_attributes_for_identity**](IdentitiesApi#synchronize-attributes-for-identity) | **POST** `/identities/{identityId}/synchronize-attributes` | Attribute synchronization for single identity.
+[**delete-identity**](#delete-identity) | **DELETE** `/identities/{id}` | Delete identity
+[**get-identity**](#get-identity) | **GET** `/identities/{id}` | Identity Details
+[**get-identity-ownership-details**](#get-identity-ownership-details) | **GET** `/identities/{identityId}/ownership` | Get ownership details
+[**get-role-assignment**](#get-role-assignment) | **GET** `/identities/{identityId}/role-assignments/{assignmentId}` | Role assignment details
+[**get-role-assignments**](#get-role-assignments) | **GET** `/identities/{identityId}/role-assignments` | List role assignments
+[**list-identities**](#list-identities) | **GET** `/identities` | List Identities
+[**reset-identity**](#reset-identity) | **POST** `/identities/{identityId}/reset` | Reset an identity
+[**send-identity-verification-account-token**](#send-identity-verification-account-token) | **POST** `/identities/{id}/verification/account/send` | Send password reset email
+[**start-identities-invite**](#start-identities-invite) | **POST** `/identities/invite` | Invite identities to register
+[**start-identity-processing**](#start-identity-processing) | **POST** `/identities/process` | Process a list of identityIds
+[**synchronize-attributes-for-identity**](#synchronize-attributes-for-identity) | **POST** `/identities/{identityId}/synchronize-attributes` | Attribute synchronization for single identity.
 
 
 ## delete-identity

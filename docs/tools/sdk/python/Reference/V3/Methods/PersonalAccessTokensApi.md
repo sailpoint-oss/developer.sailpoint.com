@@ -26,10 +26,10 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_personal_access_token**](PersonalAccessTokensApi#create-personal-access-token) | **POST** `/personal-access-tokens` | Create Personal Access Token
-[**delete_personal_access_token**](PersonalAccessTokensApi#delete-personal-access-token) | **DELETE** `/personal-access-tokens/{id}` | Delete Personal Access Token
-[**list_personal_access_tokens**](PersonalAccessTokensApi#list-personal-access-tokens) | **GET** `/personal-access-tokens` | List Personal Access Tokens
-[**patch_personal_access_token**](PersonalAccessTokensApi#patch-personal-access-token) | **PATCH** `/personal-access-tokens/{id}` | Patch Personal Access Token
+[**create-personal-access-token**](#create-personal-access-token) | **POST** `/personal-access-tokens` | Create Personal Access Token
+[**delete-personal-access-token**](#delete-personal-access-token) | **DELETE** `/personal-access-tokens/{id}` | Delete Personal Access Token
+[**list-personal-access-tokens**](#list-personal-access-tokens) | **GET** `/personal-access-tokens` | List Personal Access Tokens
+[**patch-personal-access-token**](#patch-personal-access-token) | **PATCH** `/personal-access-tokens/{id}` | Patch Personal Access Token
 
 
 ## create-personal-access-token

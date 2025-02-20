@@ -64,18 +64,18 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_access_model_metadata_for_entitlement**](EntitlementsApi#create-access-model-metadata-for-entitlement) | **POST** `/entitlements/{id}/access-model-metadata/{attributeKey}/values/{attributeValue}` | Add metadata to an entitlement.
-[**delete_access_model_metadata_from_entitlement**](EntitlementsApi#delete-access-model-metadata-from-entitlement) | **DELETE** `/entitlements/{id}/access-model-metadata/{attributeKey}/values/{attributeValue}` | Remove metadata from an entitlement.
-[**get_entitlement**](EntitlementsApi#get-entitlement) | **GET** `/entitlements/{id}` | Get an entitlement
-[**get_entitlement_request_config**](EntitlementsApi#get-entitlement-request-config) | **GET** `/entitlements/{id}/entitlement-request-config` | Get Entitlement Request Config
-[**import_entitlements_by_source**](EntitlementsApi#import-entitlements-by-source) | **POST** `/entitlements/aggregate/sources/{id}` | Aggregate Entitlements
-[**list_entitlement_children**](EntitlementsApi#list-entitlement-children) | **GET** `/entitlements/{id}/children` | List of entitlements children
-[**list_entitlement_parents**](EntitlementsApi#list-entitlement-parents) | **GET** `/entitlements/{id}/parents` | List of entitlements parents
-[**list_entitlements**](EntitlementsApi#list-entitlements) | **GET** `/entitlements` | Gets a list of entitlements.
-[**patch_entitlement**](EntitlementsApi#patch-entitlement) | **PATCH** `/entitlements/{id}` | Patch an entitlement
-[**put_entitlement_request_config**](EntitlementsApi#put-entitlement-request-config) | **PUT** `/entitlements/{id}/entitlement-request-config` | Replace Entitlement Request Config
-[**reset_source_entitlements**](EntitlementsApi#reset-source-entitlements) | **POST** `/entitlements/reset/sources/{id}` | Reset Source Entitlements
-[**update_entitlements_in_bulk**](EntitlementsApi#update-entitlements-in-bulk) | **POST** `/entitlements/bulk-update` | Bulk update an entitlement list
+[**create-access-model-metadata-for-entitlement**](#create-access-model-metadata-for-entitlement) | **POST** `/entitlements/{id}/access-model-metadata/{attributeKey}/values/{attributeValue}` | Add metadata to an entitlement.
+[**delete-access-model-metadata-from-entitlement**](#delete-access-model-metadata-from-entitlement) | **DELETE** `/entitlements/{id}/access-model-metadata/{attributeKey}/values/{attributeValue}` | Remove metadata from an entitlement.
+[**get-entitlement**](#get-entitlement) | **GET** `/entitlements/{id}` | Get an entitlement
+[**get-entitlement-request-config**](#get-entitlement-request-config) | **GET** `/entitlements/{id}/entitlement-request-config` | Get Entitlement Request Config
+[**import-entitlements-by-source**](#import-entitlements-by-source) | **POST** `/entitlements/aggregate/sources/{id}` | Aggregate Entitlements
+[**list-entitlement-children**](#list-entitlement-children) | **GET** `/entitlements/{id}/children` | List of entitlements children
+[**list-entitlement-parents**](#list-entitlement-parents) | **GET** `/entitlements/{id}/parents` | List of entitlements parents
+[**list-entitlements**](#list-entitlements) | **GET** `/entitlements` | Gets a list of entitlements.
+[**patch-entitlement**](#patch-entitlement) | **PATCH** `/entitlements/{id}` | Patch an entitlement
+[**put-entitlement-request-config**](#put-entitlement-request-config) | **PUT** `/entitlements/{id}/entitlement-request-config` | Replace Entitlement Request Config
+[**reset-source-entitlements**](#reset-source-entitlements) | **POST** `/entitlements/reset/sources/{id}` | Reset Source Entitlements
+[**update-entitlements-in-bulk**](#update-entitlements-in-bulk) | **POST** `/entitlements/bulk-update` | Bulk update an entitlement list
 
 
 ## create-access-model-metadata-for-entitlement

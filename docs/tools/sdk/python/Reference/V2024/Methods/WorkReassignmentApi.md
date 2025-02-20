@@ -25,15 +25,15 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_reassignment_configuration**](WorkReassignmentApi#create-reassignment-configuration) | **POST** `/reassignment-configurations` | Create a Reassignment Configuration
-[**delete_reassignment_configuration**](WorkReassignmentApi#delete-reassignment-configuration) | **DELETE** `/reassignment-configurations/{identityId}/{configType}` | Delete Reassignment Configuration
-[**get_evaluate_reassignment_configuration**](WorkReassignmentApi#get-evaluate-reassignment-configuration) | **GET** `/reassignment-configurations/{identityId}/evaluate/{configType}` | Evaluate Reassignment Configuration
-[**get_reassignment_config_types**](WorkReassignmentApi#get-reassignment-config-types) | **GET** `/reassignment-configurations/types` | List Reassignment Config Types
-[**get_reassignment_configuration**](WorkReassignmentApi#get-reassignment-configuration) | **GET** `/reassignment-configurations/{identityId}` | Get Reassignment Configuration
-[**get_tenant_config_configuration**](WorkReassignmentApi#get-tenant-config-configuration) | **GET** `/reassignment-configurations/tenant-config` | Get Tenant-wide Reassignment Configuration settings
-[**list_reassignment_configurations**](WorkReassignmentApi#list-reassignment-configurations) | **GET** `/reassignment-configurations` | List Reassignment Configurations
-[**put_reassignment_config**](WorkReassignmentApi#put-reassignment-config) | **PUT** `/reassignment-configurations/{identityId}` | Update Reassignment Configuration
-[**put_tenant_configuration**](WorkReassignmentApi#put-tenant-configuration) | **PUT** `/reassignment-configurations/tenant-config` | Update Tenant-wide Reassignment Configuration settings
+[**create-reassignment-configuration**](#create-reassignment-configuration) | **POST** `/reassignment-configurations` | Create a Reassignment Configuration
+[**delete-reassignment-configuration**](#delete-reassignment-configuration) | **DELETE** `/reassignment-configurations/{identityId}/{configType}` | Delete Reassignment Configuration
+[**get-evaluate-reassignment-configuration**](#get-evaluate-reassignment-configuration) | **GET** `/reassignment-configurations/{identityId}/evaluate/{configType}` | Evaluate Reassignment Configuration
+[**get-reassignment-config-types**](#get-reassignment-config-types) | **GET** `/reassignment-configurations/types` | List Reassignment Config Types
+[**get-reassignment-configuration**](#get-reassignment-configuration) | **GET** `/reassignment-configurations/{identityId}` | Get Reassignment Configuration
+[**get-tenant-config-configuration**](#get-tenant-config-configuration) | **GET** `/reassignment-configurations/tenant-config` | Get Tenant-wide Reassignment Configuration settings
+[**list-reassignment-configurations**](#list-reassignment-configurations) | **GET** `/reassignment-configurations` | List Reassignment Configurations
+[**put-reassignment-config**](#put-reassignment-config) | **PUT** `/reassignment-configurations/{identityId}` | Update Reassignment Configuration
+[**put-tenant-configuration**](#put-tenant-configuration) | **PUT** `/reassignment-configurations/tenant-config` | Update Tenant-wide Reassignment Configuration settings
 
 
 ## create-reassignment-configuration

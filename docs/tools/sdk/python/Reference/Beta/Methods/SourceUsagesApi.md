@@ -18,8 +18,8 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_status_by_source_id**](SourceUsagesApi#get-status-by-source-id) | **GET** `/source-usages/{sourceId}/status` | Finds status of source usage
-[**get_usages_by_source_id**](SourceUsagesApi#get-usages-by-source-id) | **GET** `/source-usages/{sourceId}/summaries` | Returns source usage insights
+[**get-status-by-source-id**](#get-status-by-source-id) | **GET** `/source-usages/{sourceId}/status` | Finds status of source usage
+[**get-usages-by-source-id**](#get-usages-by-source-id) | **GET** `/source-usages/{sourceId}/summaries` | Returns source usage insights
 
 
 ## get-status-by-source-id

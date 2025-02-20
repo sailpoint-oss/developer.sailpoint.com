@@ -30,15 +30,15 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**approve_bulk_access_request**](AccessRequestsApi#approve-bulk-access-request) | **POST** `/access-request-approvals/bulk-approve` | Bulk Approve Access Request
-[**cancel_access_request**](AccessRequestsApi#cancel-access-request) | **POST** `/access-requests/cancel` | Cancel Access Request
-[**cancel_access_request_in_bulk**](AccessRequestsApi#cancel-access-request-in-bulk) | **POST** `/access-requests/bulk-cancel` | Bulk Cancel Access Request
-[**close_access_request**](AccessRequestsApi#close-access-request) | **POST** `/access-requests/close` | Close Access Request
-[**create_access_request**](AccessRequestsApi#create-access-request) | **POST** `/access-requests` | Submit Access Request
-[**get_access_request_config**](AccessRequestsApi#get-access-request-config) | **GET** `/access-request-config` | Get Access Request Configuration
-[**list_access_request_status**](AccessRequestsApi#list-access-request-status) | **GET** `/access-request-status` | Access Request Status
-[**list_administrators_access_request_status**](AccessRequestsApi#list-administrators-access-request-status) | **GET** `/access-request-administration` | Access Request Status for Administrators
-[**set_access_request_config**](AccessRequestsApi#set-access-request-config) | **PUT** `/access-request-config` | Update Access Request Configuration
+[**approve-bulk-access-request**](#approve-bulk-access-request) | **POST** `/access-request-approvals/bulk-approve` | Bulk Approve Access Request
+[**cancel-access-request**](#cancel-access-request) | **POST** `/access-requests/cancel` | Cancel Access Request
+[**cancel-access-request-in-bulk**](#cancel-access-request-in-bulk) | **POST** `/access-requests/bulk-cancel` | Bulk Cancel Access Request
+[**close-access-request**](#close-access-request) | **POST** `/access-requests/close` | Close Access Request
+[**create-access-request**](#create-access-request) | **POST** `/access-requests` | Submit Access Request
+[**get-access-request-config**](#get-access-request-config) | **GET** `/access-request-config` | Get Access Request Configuration
+[**list-access-request-status**](#list-access-request-status) | **GET** `/access-request-status` | Access Request Status
+[**list-administrators-access-request-status**](#list-administrators-access-request-status) | **GET** `/access-request-administration` | Access Request Status for Administrators
+[**set-access-request-config**](#set-access-request-config) | **PUT** `/access-request-config` | Update Access Request Configuration
 
 
 ## approve-bulk-access-request

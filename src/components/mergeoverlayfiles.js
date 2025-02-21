@@ -65,8 +65,10 @@ const mergeCodeSamples = (powershellData, pythonData) => {
 // Merge the data
 const mergedCode = mergeCodeSamples(powershellData, pythonData);
 
-// Convert the merged data to YAML format
-const mergedYaml = yaml.dump(mergedCode);
+// Convert the merged data to YAML format with lineWidth: -1 to avoid block-style strings
+const mergedYaml = yaml.dump(mergedCode, {
+  lineWidth: -1  // Avoid wrapping strings into block-style format
+});
 
 // Derive the output directory and file name
 const pythonFileDir = path.dirname(pythonFilePath);

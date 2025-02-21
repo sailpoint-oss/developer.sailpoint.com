@@ -76,7 +76,7 @@ const powershellFileDir = path.dirname(powershellFilePath);
 const commonDir = pythonFileDir;
 
 // Create the output file path
-const outputFilePath = path.join(commonDir, 'merged_code_examples.yml');
+const outputFilePath = path.join(commonDir, 'merged_code_examples.yaml');
 
 // Write the merged result to the output file
 fs.writeFileSync(outputFilePath, mergedYaml, 'utf8');

@@ -15804,15 +15804,14 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2024/methods/tenant#get-tenant
       source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # Get Tenant Information.
         
         try {
-            Get-V2024Tenant -XSailPointExperimental $XSailPointExperimental 
+            Get-V2024Tenant 
     
             # Below is a request that includes all optional parameters
-            # Get-V2024Tenant -XSailPointExperimental $XSailPointExperimental   
+            # Get-V2024Tenant   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024Tenant"
             Write-Host $_.ErrorDetails

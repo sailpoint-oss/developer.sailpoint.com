@@ -5851,6 +5851,25 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024AccessRequestRecommendations"
             Write-Host $_.ErrorDetails
         }
+- path: /ai-access-request-recommendations/config
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/iai-access-request-recommendations#get-access-request-recommendations-config
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # Get Access Request Recommendations config
+        
+        try {
+            Get-V2024AccessRequestRecommendationsConfig -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2024AccessRequestRecommendationsConfig -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024AccessRequestRecommendationsConfig"
+            Write-Host $_.ErrorDetails
+        }
 - path: /ai-access-request-recommendations/ignored-items
   method: GET
   xCodeSample:
@@ -5921,6 +5940,36 @@
             # Get-V2024AccessRequestRecommendationsViewedItems -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024AccessRequestRecommendationsViewedItems"
+            Write-Host $_.ErrorDetails
+        }
+- path: /ai-access-request-recommendations/config
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/iai-access-request-recommendations#set-access-request-recommendations-config
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $AccessRequestRecommendationConfigDto = @"
+        {
+          "scoreThreshold" : 0.5,
+          "startDateAttribute" : "startDate",
+          "restrictionAttribute" : "location",
+          "moverAttribute" : "isMover",
+          "joinerAttribute" : "isJoiner",
+          "useRestrictionAttribute" : true
+        }
+        "@
+        
+        # Update Access Request Recommendations config
+        
+        try {
+            $Result = ConvertFrom-JsonToAccessRequestRecommendationConfigDto -Json $AccessRequestRecommendationConfigDto
+            Set-V2024AccessRequestRecommendationsConfig -XSailPointExperimental $XSailPointExperimental -V2024AccessRequestRecommendationConfigDto $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Set-V2024AccessRequestRecommendationsConfig -XSailPointExperimental $XSailPointExperimental -V2024AccessRequestRecommendationConfigDto $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-V2024AccessRequestRecommendationsConfig"
             Write-Host $_.ErrorDetails
         }
 - path: /common-access

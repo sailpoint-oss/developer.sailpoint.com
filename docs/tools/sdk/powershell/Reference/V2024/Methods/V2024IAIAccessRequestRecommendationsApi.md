@@ -22,9 +22,11 @@ Method | HTTP request | Description
 [**Add-V2024AccessRequestRecommendationsViewedItem**](#add-access-request-recommendations-viewed-item) | **POST** `/ai-access-request-recommendations/viewed-items` | Notification of Viewed Access Request Recommendations
 [**Add-V2024AccessRequestRecommendationsViewedItems**](#add-access-request-recommendations-viewed-items) | **POST** `/ai-access-request-recommendations/viewed-items/bulk-create` | Notification of Viewed Access Request Recommendations in Bulk
 [**Get-V2024AccessRequestRecommendations**](#get-access-request-recommendations) | **GET** `/ai-access-request-recommendations` | Identity Access Request Recommendations
+[**Get-V2024AccessRequestRecommendationsConfig**](#get-access-request-recommendations-config) | **GET** `/ai-access-request-recommendations/config` | Get Access Request Recommendations config
 [**Get-V2024AccessRequestRecommendationsIgnoredItems**](#get-access-request-recommendations-ignored-items) | **GET** `/ai-access-request-recommendations/ignored-items` | List of Ignored Access Request Recommendations
 [**Get-V2024AccessRequestRecommendationsRequestedItems**](#get-access-request-recommendations-requested-items) | **GET** `/ai-access-request-recommendations/requested-items` | List of Requested Access Request Recommendations
 [**Get-V2024AccessRequestRecommendationsViewedItems**](#get-access-request-recommendations-viewed-items) | **GET** `/ai-access-request-recommendations/viewed-items` | List of Viewed Access Request Recommendations
+[**Set-V2024AccessRequestRecommendationsConfig**](#set-access-request-recommendations-config) | **PUT** `/ai-access-request-recommendations/config` | Update Access Request Recommendations config
 
 
 ## add-access-request-recommendations-ignored-item
@@ -318,6 +320,54 @@ try {
 ```
 [[Back to top]](#) 
 
+## get-access-request-recommendations-config
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This API returns the configurations for Access Request Recommender for the tenant.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-access-request-recommendations-config)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
+
+### Return type
+[**AccessRequestRecommendationConfigDto**](../models/access-request-recommendation-config-dto)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | Configurations for Access Request Recommender for the tenant. | AccessRequestRecommendationConfigDto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+```powershell
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
+# Get Access Request Recommendations config
+
+try {
+    Get-V2024AccessRequestRecommendationsConfig -XSailPointExperimental $XSailPointExperimental 
+    
+    # Below is a request that includes all optional parameters
+    # Get-V2024AccessRequestRecommendationsConfig -XSailPointExperimental $XSailPointExperimental  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024AccessRequestRecommendationsConfig"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
 ## get-access-request-recommendations-ignored-items
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
@@ -487,6 +537,64 @@ try {
     # Get-V2024AccessRequestRecommendationsViewedItems -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024AccessRequestRecommendationsViewedItems"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## set-access-request-recommendations-config
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This API updates the configurations for Access Request Recommender for the tenant.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/set-access-request-recommendations-config)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
+ Body  | AccessRequestRecommendationConfigDto | [**AccessRequestRecommendationConfigDto**](../models/access-request-recommendation-config-dto) | True  | The desired configurations for Access Request Recommender for the tenant.
+
+### Return type
+[**AccessRequestRecommendationConfigDto**](../models/access-request-recommendation-config-dto)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | Successfully updated configurations for Access Request Recommender for the tenant. | AccessRequestRecommendationConfigDto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+```powershell
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+$AccessRequestRecommendationConfigDto = @"{
+  "scoreThreshold" : 0.5,
+  "startDateAttribute" : "startDate",
+  "restrictionAttribute" : "location",
+  "moverAttribute" : "isMover",
+  "joinerAttribute" : "isJoiner",
+  "useRestrictionAttribute" : true
+}"@
+
+# Update Access Request Recommendations config
+
+try {
+    $Result = ConvertFrom-JsonToAccessRequestRecommendationConfigDto -Json $AccessRequestRecommendationConfigDto
+    Set-V2024AccessRequestRecommendationsConfig -XSailPointExperimental $XSailPointExperimental -V2024AccessRequestRecommendationConfigDto $Result 
+    
+    # Below is a request that includes all optional parameters
+    # Set-V2024AccessRequestRecommendationsConfig -XSailPointExperimental $XSailPointExperimental -V2024AccessRequestRecommendationConfigDto $Result  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-V2024AccessRequestRecommendationsConfig"
     Write-Host $_.ErrorDetails
 }
 ```

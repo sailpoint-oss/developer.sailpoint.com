@@ -1,0 +1,63 @@
+post:
+  tags:
+    - Reports Data Extraction
+  description: >-
+    Use this API to run a report according to report input details.
+    If non-concurrent task is already running then it returns, otherwise new task creates and returns.
+  operationId: startReport
+  summary: "Run Report"
+  security:
+    - userAuth: [sp:report:manage]
+    - applicationAuth: [sp:report:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - CERT_ADMIN
+    - REPORT_ADMIN
+    - ROLE_ADMIN
+    - ROLE_SUBADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/reports/ReportDetails.yaml'
+        examples:
+          Account Export Report:
+            $ref: '../schemas/reports/examples/account-export-report-details.yaml'
+          Identities Details Report:
+            $ref: '../schemas/reports/examples/identities-details-report-details.yaml'
+          Identities Report:
+            $ref: '../schemas/reports/examples/identities-report-details.yaml'
+          Identity Profile Identity Error Report:
+            $ref: '../schemas/reports/examples/identity-profile-identity-error-report-details.yaml'
+          Orphan Identities Report:
+            $ref: '../schemas/reports/examples/orphan-identities-report-details.yaml'
+          Search Export Report:
+            $ref: '../schemas/reports/examples/search-export-report-details.yaml'
+          Uncorrelated Accounts Report:
+            $ref: '../schemas/reports/examples/uncorrelated-accounts-report-details.yaml'
+          
+    required: true
+  responses:
+    '200':
+      description: Details about running report task.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/reports/TaskResultDetails.yaml'
+          examples:
+            identityDetailsReport:
+              $ref: '../schemas/reports/examples/identities-details-report-task-result.yaml'
+            searchExportReport:
+              $ref: '../schemas/reports/examples/search-export-report-task-result.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

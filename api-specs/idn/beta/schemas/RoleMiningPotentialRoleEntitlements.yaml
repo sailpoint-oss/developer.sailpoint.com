@@ -1,0 +1,12 @@
+type : object
+properties:
+  id:
+    type: string
+    description: Id of the entitlement
+    example:
+      id: "2c9180877212632a017228d5a796292c"
+  name:
+    type: string
+    description: Name of the entitlement
+    example:
+      name: "LauncherTest2"

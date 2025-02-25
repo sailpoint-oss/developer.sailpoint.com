@@ -1,0 +1,86 @@
+post:
+  operationId: deleteBulkRoles
+  summary: Delete Role(s)
+  tags:
+    - Roles
+  description: >-
+    This endpoint initiates a bulk deletion of one or more roles.
+
+    When the request is successful, the endpoint returns the bulk delete's task result ID. 
+    To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/beta/get-task-status), which will return the task result's status and information. 
+
+    This endpoint can only bulk delete up to a limit of 50 roles per request. 
+
+    A user with ROLE_SUBADMIN authority can only call this endpoint if all roles included in the request are associated
+    with sources with management workgroups the ROLE_SUBADMIN is a member of.
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../../v3/schemas/access/RoleBulkDeleteRequest.yaml'
+        example:
+          {
+            "roleIds": [ "2c91808876438bb2017668b91919ecca","2c91808876438ba801766e129f151816" ]
+          }
+  responses:
+    '202':
+      description: Returns an object with the id of the task performing the delete operation.
+      content:
+        application/json:
+          schema:
+            $ref: '../../v3/schemas/TaskResultDto.yaml'
+          example:
+            {
+              "type": "TASK_RESULT",
+              "id": "464ae7bf791e49fdb74606a2e4a89635",
+              "name": null
+            }
+    '400':
+      description: Client Error - Returned if the request body is invalid.
+      content:
+        application/json:
+          schema:
+            $ref: '../../v3/schemas/ErrorResponseDto.yaml'
+          examples:
+            400.1 Bad Request Content:
+              description: Response for bad request content
+              value:
+                detailCode: 400.1 Bad Request Content
+                trackingId: 1ea1adcb84da4dcb890145e05745774e
+                messages:
+                  - locale: en-US
+                    localeOrigin: DEFAULT
+                    text: The request was syntactically correct but its content is semantically invalid.
+            400.1 Role ids limit violation:
+              description: Role ids limit violation response
+              value:
+                detailCode: 400.1 Bad Request Content
+                trackingId: 77aa89ac6f0e422dbc588866abc22be9
+                messages:
+                  - locale: en-US
+                    localeOrigin: DEFAULT
+                    text: roleIds count exceeded max limit of 50 for bulk-delete.
+            400.1.404 Referenced object not found:
+              description: Referenced object not found response
+              value:
+                detailCode: 400.1.404 Referenced object not found
+                trackingId: 77aa89ac6f0e422dbc588866abc22be9
+                messages:
+                  - locale: en-US
+                    localeOrigin: DEFAULT
+                    text: Referenced roleIds ["2c91808876438bb2017668b91919ecca"] was not found.
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - userAuth: [idn:role-unchecked:manage, idn:role-checked:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - ROLE_ADMIN
+    - ROLE_SUBADMIN

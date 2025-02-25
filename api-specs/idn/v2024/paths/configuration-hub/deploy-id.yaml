@@ -1,0 +1,52 @@
+get:
+  operationId: getDeploy
+  security:
+    - userAuth: [sp:config-deploy:read, sp:config-deploy:manage]
+  tags:
+    - Configuration Hub
+  summary: Get a Deploy
+  description: >-
+    This API gets an existing deploy for the current tenant.
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The id of the deploy.
+      example: 3d0fe04b-57df-4a46-a83b-8f04b0f9d10b
+  responses:
+    '200':
+      description: >-
+        Gets the details of a deploy.
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/configuration-hub/DeployResponse.yaml'
+          example:
+            {
+              "jobId": "3d0fe04b-57df-4a46-a83b-8f04b0f9d10b",
+              "status": "COMPLETE",
+              "type": "CONFIG_DEPLOY_DRAFT",
+              "message": "Deploy outcome message",
+              "requesterName": "requester.name",
+              "fileExists": true,
+              "created": "2023-08-29T01:54:37.069Z",
+              "modified": "2024-07-15T16:53:45.925Z",
+              "completed": "2023-08-29T01:54:41.924Z",
+              "draftId": "925e34e3-fa7c-4e7a-9b9a-cf3b8b4b1068",
+              "draftName": "Source draft name",
+              "cloudStorageStatus": "SYNCED"
+            }
+    '400':
+      $ref: '../../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../../v3/responses/500.yaml'

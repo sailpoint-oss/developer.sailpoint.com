@@ -1,0 +1,15 @@
+post:
+  summary: Create a new user-manager relationship
+  operationId: postUserManager
+  description: Create a new user-manager relationship
+  tags:
+    - user managers
+  requestBody:
+    $ref: "../requestBodies/POST/UserManager.yaml"
+  responses:
+    '200':
+      $ref: "../responses/UserManager.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"

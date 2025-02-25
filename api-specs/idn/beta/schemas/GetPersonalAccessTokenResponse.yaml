@@ -1,0 +1,42 @@
+type: object
+properties:
+  id:
+    type: string
+    description: The ID of the personal access token (to be used as the username for Basic Auth).
+    example: "86f1dc6fe8f54414950454cbb11278fa"
+  name:
+    type: string
+    description: The name of the personal access token. Cannot be the same as other personal access tokens owned by a user.
+    example: "NodeJS Integration"
+  scope:
+    type: array
+    nullable: true
+    items:
+      type: string
+      default: "sp:scopes:all"
+    description: Scopes of the personal  access token.
+    example: [ "demo:personal-access-token-scope:first", "demo:personal-access-token-scope:second" ]
+  owner:
+    $ref: '../../v3/schemas/PatOwner.yaml'
+  created:
+    type: string
+    format: 'date-time'
+    description: The date and time, down to the millisecond, when this personal access token was created.
+    example: '2017-07-11T18:45:37.098Z'
+  lastUsed:
+    type: string
+    nullable: true
+    format: 'date-time'
+    description: The date and time, down to the millisecond, when this personal access token was last used to generate an access token. This timestamp does not get updated on every PAT usage, but only once a day. This property can be useful for identifying which PATs are no longer actively used and can be removed.
+    example: '2017-07-11T18:45:37.098Z'
+  managed:
+    type: boolean
+    default: false
+    example: false
+    description: If true, this token is managed by the SailPoint platform, and is not visible in the user interface. For example, Workflows will create managed personal access tokens for users who create workflows.
+required:
+  - id
+  - name
+  - scope
+  - owner
+  - created

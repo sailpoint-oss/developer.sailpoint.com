@@ -1,0 +1,82 @@
+get:
+  operationId: getAccessRequestRecommendationsConfig
+  tags:
+    - IAI Access Request Recommendations
+  security:
+    - userAuth: [ iai:configuration:read ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  summary: Get Access Request Recommendations config
+  description: >-
+    This API returns the configurations for Access Request Recommender for the tenant.
+  parameters:
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
+  responses:
+    '200':
+      description: Configurations for Access Request Recommender for the tenant.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/AccessRequestRecommendationConfigDto.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+
+put:
+  operationId: setAccessRequestRecommendationsConfig
+  tags:
+    - IAI Access Request Recommendations
+  security:
+    - userAuth: [ iai:configuration:update ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  summary: Update Access Request Recommendations config
+  description: >-
+    This API updates the configurations for Access Request Recommender for the tenant.
+  requestBody:
+    description: The desired configurations for Access Request Recommender for the tenant.
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/AccessRequestRecommendationConfigDto.yaml'
+  parameters:
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
+  responses:
+    '200':
+      description: Successfully updated configurations for Access Request Recommender for the tenant.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/AccessRequestRecommendationConfigDto.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

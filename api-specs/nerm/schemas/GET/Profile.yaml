@@ -1,0 +1,67 @@
+type: object
+properties:
+  id:
+    type: string
+    format: uuid
+    readOnly: true
+    description: The objects ID
+    example: 33f072dd-13b4-41e1-8ea0-16f2a59b57c8
+  uid:
+    type: string
+    minLength: 32
+    maxLength: 32
+    readOnly: true
+    description: The objects UID
+    example: profileUid
+  name:
+    type: string
+    description: This is the name of the profile.
+    example: Profile Name
+  profile_type_id:
+    type: string
+    format: uuid
+    description: This is the ID of the profile type the profile belongs to
+    example: 33f072dd-13b4-41e1-8ea0-16f2a59b57c8
+  status:
+    type: string
+    enum: [Active, Inactive, On Leave, Terminated]
+    description: This is the status of the profile
+    example: Active
+  id_proofing_status:
+    type: string
+    enum: [pending, pass, fail]
+    description: This is the ID proofing staus of the profile
+    example: pending
+  created_at:
+    type: string
+    format: date-time
+    description: The date and time the profile was created
+    example: 2023-11-21T14:23:54.256-05:00
+  updated_at:
+    type: string
+    format: date-time
+    description: The date and time the profile was updated
+    example: 2023-11-21T14:23:54.256-05:00
+  attributes:
+    type: object
+    additionalProperties:
+      type: string
+    description: Attributes that belong to this profile.
+    example:
+      text_attribute_uid: static text
+      date_attribute_uid: 01/15/2020
+      profile_select_attribute_uid: Profile Name
+      profile_search_attribute_uid: Profile Name
+      multiple_profile_search_attribute_uid: Profile Name,Second Profile Name,Third Profile Name
+      multiple_profile_select_attribute_uid: Profile Name,Second Profile Name,Third Profile Name
+      contributor_select_attribute_uid: User Name (user_email@test.com)
+      contributor_search_attribute_uid: User Name (user_email@test.com)
+      multiple_contributor_search_attribute_uid: User Name (user_email@test.com),Second User Name (user_email@test.com),Third User Name (user_email@test.com)
+      owner_select_attribute_uid: User Name (user_email@test.com)
+      owner_search_attribute_uid: User Name (user_email@test.com)
+      dropdown_attribute_uid: yes, no
+      tags_attribute_uid: yes, no
+      checkbox_attribute_uid: yes, no
+      text_area_uid: static text
+      radio_attribute_uid: yes, no
+      

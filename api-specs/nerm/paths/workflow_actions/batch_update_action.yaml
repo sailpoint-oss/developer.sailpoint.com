@@ -1,0 +1,15 @@
+post:
+  summary: Create a batch update action
+  operationId: createBatchUpdateAction
+  description: Create a batch update action
+  tags:
+    - workflow actions
+  requestBody:
+    $ref: "../../requestBodies/POST/WorkflowActions/BatchUpdateAction.yaml"
+  responses:
+    '200':
+      $ref: "../../responses/WorkflowAction.yaml"
+    '400':
+      $ref: "../../responses/400.yaml"
+    '500':
+      $ref: "../../responses/500.yaml"

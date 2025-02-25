@@ -1,0 +1,31 @@
+type : object
+properties:
+  requestedFor:
+    description: A list of Identity IDs for whom the Access is requested. If it's a Revoke request, there can only be one Identity ID.
+    type: array
+    items:
+      type: string
+      example: 2c918084660f45d6016617daa9210584
+  requestType:
+    $ref: 'AccessRequestType.yaml'
+  requestedItems:
+    type: array
+    items:
+      $ref: 'AccessRequestItem.yaml'
+    minItems: 1
+    maxItems: 25
+  clientMetadata:
+    type: object
+    additionalProperties:
+      type: string
+      example:
+        requestedAppId: 2c91808f7892918f0178b78da4a305a1
+        requestedAppName: test-app
+    example:
+      requestedAppId: 2c91808f7892918f0178b78da4a305a1
+      requestedAppName: test-app
+    description: >-
+      Arbitrary key-value pairs. They will never be processed by the IdentityNow system but will be returned on
+      associated APIs such as /account-activities.
+
+required : ["requestedFor", "requestedItems"]

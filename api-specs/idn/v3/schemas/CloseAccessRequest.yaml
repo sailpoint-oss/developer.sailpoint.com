@@ -1,0 +1,33 @@
+type : object
+description: Request body payload for close access requests endpoint.
+required:
+  - accessRequestIds
+properties:
+  accessRequestIds:
+    type: array
+    description: Access Request IDs for the requests to be closed. Accepts 1-500 Identity Request IDs per request.
+    items:
+      type: string
+    example: ["2c90ad2a70ace7d50170acf22ca90010"]
+  message:
+    type: string
+    description: Reason for closing the access request. Displayed under Warnings in IdentityNow.
+    default: "The IdentityNow Administrator manually closed this request."
+    example: "The IdentityNow Administrator manually closed this request."
+  executionStatus:
+    type: string
+    enum:
+      - Terminated
+      - Completed
+    description: The request's provisioning status. Displayed as Stage in IdentityNow.
+    default: "Terminated"
+    example: "Terminated"
+  completionStatus:
+    type: string
+    enum:
+      - Success
+      - Incomplete
+      - Failure
+    description: The request's overall status. Displayed as Status in IdentityNow.
+    default: "Failure"
+    example: "Failure"

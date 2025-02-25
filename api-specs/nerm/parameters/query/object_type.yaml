@@ -1,0 +1,7 @@
+name: object_type
+in: query
+description: Type of object that object_id represents
+required: false
+schema:
+  type: string
+  enum: [Profile, WorkflowSession]

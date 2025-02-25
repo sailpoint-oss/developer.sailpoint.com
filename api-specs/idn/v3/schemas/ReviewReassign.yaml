@@ -1,0 +1,18 @@
+type: object
+properties:
+  reassign:
+    type: array
+    items:
+      $ref: './ReassignReference.yaml'
+  reassignTo:
+    type: string
+    description: The ID of the identity to which the certification is reassigned
+    example: ef38f94347e94562b5bb8424a56397d8
+  reason:
+    type: string
+    description: The reason comment for why the reassign was made
+    example: 'reassigned for some reason'
+required:
+  - reassign
+  - reassignTo
+  - reason

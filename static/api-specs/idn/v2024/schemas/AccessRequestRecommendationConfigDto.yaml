@@ -1,0 +1,30 @@
+type: object
+properties:
+  scoreThreshold:
+    type: number
+    format: float
+    description: The value that internal calculations need to exceed for recommendations to be made.
+    example: 0.5
+  startDateAttribute:
+    type: string
+    description: Use to map an attribute name for determining identities' start date.
+    example: startDate
+  restrictionAttribute:
+    type: string
+    description: Use to only give recommendations based on this attribute.
+    example: location
+  moverAttribute:
+    type: string
+    description: Use to map an attribute name for determining whether identities are movers.
+    example: isMover
+  joinerAttribute:
+    type: string
+    description: Use to map an attribute name for determining whether identities are joiners.
+    example: isJoiner
+  useRestrictionAttribute:
+    type: boolean
+    description: Use only the attribute named in restrictionAttribute to make recommendations.
+    example: true
+    default: false
+required:
+  - scoreThreshold

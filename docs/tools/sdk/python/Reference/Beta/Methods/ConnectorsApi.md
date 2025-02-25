@@ -70,10 +70,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.connectors_api import ConnectorsApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.v3_connector_dto import V3ConnectorDto
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     filters = 'directConnect eq \"true\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *sw*  **type**: *eq*  **directConnect**: *eq*  **category**: *eq*  **features**: *ca* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *sw*  **type**: *eq*  **directConnect**: *eq*  **category**: *eq*  **features**: *ca* (optional)
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -83,13 +87,12 @@ from pprint import pprint
     try:
         # Get Connector List
         
-        api_response = api_instance.get_connector_list()
-        
+        results =ConnectorsApi(api_client).get_connector_list()
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_connector_list(filters, limit, offset, count, locale)
+        # results = ConnectorsApi(api_client).get_connector_list(filters, limit, offset, count, locale)
         print("The response of ConnectorsApi->get_connector_list:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling ConnectorsApi->get_connector_list: %s\n" % e)
 ```
 

@@ -102,10 +102,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.triggers_api import TriggersApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.complete_invocation import CompleteInvocation
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = '0f11f2a4-7c94-4bf3-a2bd-742580fe3bde' # str | The ID of the invocation to complete. # str | The ID of the invocation to complete.
     complete_invocation = {
           "output" : {
@@ -117,12 +121,12 @@ from pprint import pprint
 
     try:
         # Complete Trigger Invocation
-        Result = complete_invocation.from_json(complete_invocation)
-        api_instance.complete_trigger_invocation(id, Result)
-        
+        new_complete_invocation = CompleteInvocation()
+        new_complete_invocation.from_json(complete_invocation)
+        TriggersApi(api_client).complete_trigger_invocation(id, new_complete_invocation)
         # Below is a request that includes all optional parameters
-        # api_instance.complete_trigger_invocation(id, Result)
-    except Exception as e:
+        # TriggersApi(api_client).complete_trigger_invocation(id, new_complete_invocation)
+        except Exception as e:
         print("Exception when calling TriggersApi->complete_trigger_invocation: %s\n" % e)
 ```
 
@@ -165,11 +169,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.triggers_api import TriggersApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.subscription import Subscription
 from sailpoint.beta.models.subscription_post_request import SubscriptionPostRequest
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     subscription_post_request = {
           "filter" : "$[?($.identityId == \"201327fda1c44704ac01181e963d463c\")]",
           "httpConfig" : {
@@ -198,14 +206,14 @@ from pprint import pprint
 
     try:
         # Create a Subscription
-        Result = subscription_post_request.from_json(subscription_post_request)
-        api_response = api_instance.create_subscription(Result)
-        
+        new_subscription_post_request = SubscriptionPostRequest()
+        new_subscription_post_request.from_json(subscription_post_request)
+        results =TriggersApi(api_client).create_subscription(new_subscription_post_request)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.create_subscription(Result)
+        # results = TriggersApi(api_client).create_subscription(new_subscription_post_request)
         print("The response of TriggersApi->create_subscription:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling TriggersApi->create_subscription: %s\n" % e)
 ```
 
@@ -247,19 +255,22 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
-from sailpoint.beta.rest import ApiException
+from sailpoint.beta.api.triggers_api import TriggersApi
+from sailpoint.beta.api_client import ApiClient
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = '0f11f2a4-7c94-4bf3-a2bd-742580fe3bde' # str | Subscription ID # str | Subscription ID
 
     try:
         # Delete a Subscription
         
-        api_instance.delete_subscription(id)
-        
+        TriggersApi(api_client).delete_subscription(id)
         # Below is a request that includes all optional parameters
-        # api_instance.delete_subscription(id)
-    except Exception as e:
+        # TriggersApi(api_client).delete_subscription(id)
+        except Exception as e:
         print("Exception when calling TriggersApi->delete_subscription: %s\n" % e)
 ```
 
@@ -304,10 +315,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.triggers_api import TriggersApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.subscription import Subscription
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
     count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
@@ -317,13 +332,12 @@ from pprint import pprint
     try:
         # List Subscriptions
         
-        api_response = api_instance.list_subscriptions()
-        
+        results =TriggersApi(api_client).list_subscriptions()
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.list_subscriptions(limit, offset, count, filters, sorters)
+        # results = TriggersApi(api_client).list_subscriptions(limit, offset, count, filters, sorters)
         print("The response of TriggersApi->list_subscriptions:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling TriggersApi->list_subscriptions: %s\n" % e)
 ```
 
@@ -370,10 +384,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.triggers_api import TriggersApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.invocation_status import InvocationStatus
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
     count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
@@ -383,13 +401,12 @@ from pprint import pprint
     try:
         # List Latest Invocation Statuses
         
-        api_response = api_instance.list_trigger_invocation_status()
-        
+        results =TriggersApi(api_client).list_trigger_invocation_status()
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.list_trigger_invocation_status(limit, offset, count, filters, sorters)
+        # results = TriggersApi(api_client).list_trigger_invocation_status(limit, offset, count, filters, sorters)
         print("The response of TriggersApi->list_trigger_invocation_status:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling TriggersApi->list_trigger_invocation_status: %s\n" % e)
 ```
 
@@ -434,10 +451,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.triggers_api import TriggersApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.trigger import Trigger
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
     count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
@@ -447,13 +468,12 @@ from pprint import pprint
     try:
         # List Triggers
         
-        api_response = api_instance.list_triggers()
-        
+        results =TriggersApi(api_client).list_triggers()
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.list_triggers(limit, offset, count, filters, sorters)
+        # results = TriggersApi(api_client).list_triggers(limit, offset, count, filters, sorters)
         print("The response of TriggersApi->list_triggers:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling TriggersApi->list_triggers: %s\n" % e)
 ```
 
@@ -498,11 +518,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.triggers_api import TriggersApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.subscription import Subscription
 from sailpoint.beta.models.subscription_patch_request_inner import SubscriptionPatchRequestInner
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = '0f11f2a4-7c94-4bf3-a2bd-742580fe3bde' # str | ID of the Subscription to patch # str | ID of the Subscription to patch
     [sailpoint.beta.SubscriptionPatchRequestInner()] # List[SubscriptionPatchRequestInner] | 
      subscription_patch_request_inner = [sailpoint.beta.SubscriptionPatchRequestInner()] # List[SubscriptionPatchRequestInner] | 
@@ -510,14 +534,14 @@ from pprint import pprint
 
     try:
         # Patch a Subscription
-        Result = subscription_patch_request_inner.from_json(subscription_patch_request_inner)
-        api_response = api_instance.patch_subscription(id, Result)
-        
+        new_subscription_patch_request_inner = SubscriptionPatchRequestInner()
+        new_subscription_patch_request_inner.from_json(subscription_patch_request_inner)
+        results =TriggersApi(api_client).patch_subscription(id, new_subscription_patch_request_inner)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.patch_subscription(id, Result)
+        # results = TriggersApi(api_client).patch_subscription(id, new_subscription_patch_request_inner)
         print("The response of TriggersApi->patch_subscription:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling TriggersApi->patch_subscription: %s\n" % e)
 ```
 
@@ -559,11 +583,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.triggers_api import TriggersApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.invocation import Invocation
 from sailpoint.beta.models.test_invocation import TestInvocation
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     test_invocation = {
           "input" : {
             "identityId" : "201327fda1c44704ac01181e963d463c"
@@ -577,14 +605,14 @@ from pprint import pprint
 
     try:
         # Start a Test Invocation
-        Result = test_invocation.from_json(test_invocation)
-        api_response = api_instance.start_test_trigger_invocation(Result)
-        
+        new_test_invocation = TestInvocation()
+        new_test_invocation.from_json(test_invocation)
+        results =TriggersApi(api_client).start_test_trigger_invocation(new_test_invocation)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.start_test_trigger_invocation(Result)
+        # results = TriggersApi(api_client).start_test_trigger_invocation(new_test_invocation)
         print("The response of TriggersApi->start_test_trigger_invocation:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling TriggersApi->start_test_trigger_invocation: %s\n" % e)
 ```
 
@@ -626,11 +654,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.triggers_api import TriggersApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.validate_filter_input_dto import ValidateFilterInputDto
 from sailpoint.beta.models.validate_filter_output_dto import ValidateFilterOutputDto
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     validate_filter_input_dto = {
           "filter" : "$[?($.identityId == \"201327fda1c44704ac01181e963d463c\")]",
           "input" : {
@@ -640,14 +672,14 @@ from pprint import pprint
 
     try:
         # Validate a Subscription Filter
-        Result = validate_filter_input_dto.from_json(validate_filter_input_dto)
-        api_response = api_instance.test_subscription_filter(Result)
-        
+        new_validate_filter_input_dto = ValidateFilterInputDto()
+        new_validate_filter_input_dto.from_json(validate_filter_input_dto)
+        results =TriggersApi(api_client).test_subscription_filter(new_validate_filter_input_dto)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.test_subscription_filter(Result)
+        # results = TriggersApi(api_client).test_subscription_filter(new_validate_filter_input_dto)
         print("The response of TriggersApi->test_subscription_filter:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling TriggersApi->test_subscription_filter: %s\n" % e)
 ```
 
@@ -699,11 +731,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.triggers_api import TriggersApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.subscription import Subscription
 from sailpoint.beta.models.subscription_put_request import SubscriptionPutRequest
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = '0f11f2a4-7c94-4bf3-a2bd-742580fe3bde' # str | Subscription ID # str | Subscription ID
     subscription_put_request = {
           "filter" : "$[?($.identityId == \"201327fda1c44704ac01181e963d463c\")]",
@@ -732,14 +768,14 @@ from pprint import pprint
 
     try:
         # Update a Subscription
-        Result = subscription_put_request.from_json(subscription_put_request)
-        api_response = api_instance.update_subscription(id, Result)
-        
+        new_subscription_put_request = SubscriptionPutRequest()
+        new_subscription_put_request.from_json(subscription_put_request)
+        results =TriggersApi(api_client).update_subscription(id, new_subscription_put_request)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.update_subscription(id, Result)
+        # results = TriggersApi(api_client).update_subscription(id, new_subscription_put_request)
         print("The response of TriggersApi->update_subscription:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling TriggersApi->update_subscription: %s\n" % e)
 ```
 

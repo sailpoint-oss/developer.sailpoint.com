@@ -58,9 +58,13 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
-from sailpoint.beta.rest import ApiException
+from sailpoint.beta.api.task_management_api import TaskManagementApi
+from sailpoint.beta.api_client import ApiClient
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
@@ -68,11 +72,10 @@ from pprint import pprint
     try:
         # Retrieve Pending Task List Headers
         
-        api_instance.get_pending_task_headers()
-        
+        TaskManagementApi(api_client).get_pending_task_headers()
         # Below is a request that includes all optional parameters
-        # api_instance.get_pending_task_headers(offset, limit, count)
-    except Exception as e:
+        # TaskManagementApi(api_client).get_pending_task_headers(offset, limit, count)
+        except Exception as e:
         print("Exception when calling TaskManagementApi->get_pending_task_headers: %s\n" % e)
 ```
 
@@ -116,10 +119,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.task_management_api import TaskManagementApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.task_status import TaskStatus
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
@@ -127,13 +134,12 @@ from pprint import pprint
     try:
         # Retrieve Pending Task Status List
         
-        api_response = api_instance.get_pending_tasks()
-        
+        results =TaskManagementApi(api_client).get_pending_tasks()
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_pending_tasks(offset, limit, count)
+        # results = TaskManagementApi(api_client).get_pending_tasks(offset, limit, count)
         print("The response of TaskManagementApi->get_pending_tasks:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling TaskManagementApi->get_pending_tasks: %s\n" % e)
 ```
 
@@ -175,22 +181,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.task_management_api import TaskManagementApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.task_status import TaskStatus
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = '00eebcf881994e419d72e757fd30dc0e' # str | Task ID. # str | Task ID.
 
     try:
         # Get Task Status by ID
         
-        api_response = api_instance.get_task_status(id)
-        
+        results =TaskManagementApi(api_client).get_task_status(id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_task_status(id)
+        # results = TaskManagementApi(api_client).get_task_status(id)
         print("The response of TaskManagementApi->get_task_status:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling TaskManagementApi->get_task_status: %s\n" % e)
 ```
 
@@ -237,10 +246,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.task_management_api import TaskManagementApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.task_status import TaskStatus
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
     count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
@@ -250,13 +263,12 @@ from pprint import pprint
     try:
         # Retrieve Task Status List
         
-        api_response = api_instance.get_task_status_list()
-        
+        results =TaskManagementApi(api_client).get_task_status_list()
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_task_status_list(limit, offset, count, filters, sorters)
+        # results = TaskManagementApi(api_client).get_task_status_list(limit, offset, count, filters, sorters)
         print("The response of TaskManagementApi->get_task_status_list:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling TaskManagementApi->get_task_status_list: %s\n" % e)
 ```
 
@@ -299,11 +311,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.task_management_api import TaskManagementApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.json_patch_operation import JsonPatchOperation
 from sailpoint.beta.models.task_status import TaskStatus
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = '00eebcf881994e419d72e757fd30dc0e' # str | Task ID. # str | Task ID.
     [sailpoint.beta.JsonPatchOperation()] # List[JsonPatchOperation] | The JSONPatch payload used to update the object.
      json_patch_operation = {
@@ -315,14 +331,14 @@ from pprint import pprint
 
     try:
         # Update Task Status by ID
-        Result = json_patch_operation.from_json(json_patch_operation)
-        api_response = api_instance.update_task_status(id, Result)
-        
+        new_json_patch_operation = JsonPatchOperation()
+        new_json_patch_operation.from_json(json_patch_operation)
+        results =TaskManagementApi(api_client).update_task_status(id, new_json_patch_operation)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.update_task_status(id, Result)
+        # results = TaskManagementApi(api_client).update_task_status(id, new_json_patch_operation)
         print("The response of TaskManagementApi->update_task_status:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling TaskManagementApi->update_task_status: %s\n" % e)
 ```
 

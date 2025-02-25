@@ -95,10 +95,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.lifecycle_states_api import LifecycleStatesApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.lifecycle_state import LifecycleState
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     identity_profile_id = '2b838de9-db9b-abcf-e646-d4f274ad4238' # str | Identity profile ID. # str | Identity profile ID.
     lifecycle_state = {
           "accessProfileIds" : [ "2c918084660f45d6016617daa9210584", "2c918084660f45d6016617daa9210500" ],
@@ -128,14 +132,14 @@ from pprint import pprint
 
     try:
         # Create Lifecycle State
-        Result = lifecycle_state.from_json(lifecycle_state)
-        api_response = api_instance.create_lifecycle_state(identity_profile_id, Result)
-        
+        new_lifecycle_state = LifecycleState()
+        new_lifecycle_state.from_json(lifecycle_state)
+        results =LifecycleStatesApi(api_client).create_lifecycle_state(identity_profile_id, new_lifecycle_state)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.create_lifecycle_state(identity_profile_id, Result)
+        # results = LifecycleStatesApi(api_client).create_lifecycle_state(identity_profile_id, new_lifecycle_state)
         print("The response of LifecycleStatesApi->create_lifecycle_state:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling LifecycleStatesApi->create_lifecycle_state: %s\n" % e)
 ```
 
@@ -178,23 +182,26 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.lifecycle_states_api import LifecycleStatesApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.lifecyclestate_deleted import LifecyclestateDeleted
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     identity_profile_id = '2b838de9-db9b-abcf-e646-d4f274ad4238' # str | Identity profile ID. # str | Identity profile ID.
     lifecycle_state_id = 'ef38f94347e94562b5bb8424a56397d8' # str | Lifecycle state ID. # str | Lifecycle state ID.
 
     try:
         # Delete Lifecycle State
         
-        api_response = api_instance.delete_lifecycle_state(identity_profile_id, lifecycle_state_id)
-        
+        results =LifecycleStatesApi(api_client).delete_lifecycle_state(identity_profile_id, lifecycle_state_id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.delete_lifecycle_state(identity_profile_id, lifecycle_state_id)
+        # results = LifecycleStatesApi(api_client).delete_lifecycle_state(identity_profile_id, lifecycle_state_id)
         print("The response of LifecycleStatesApi->delete_lifecycle_state:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling LifecycleStatesApi->delete_lifecycle_state: %s\n" % e)
 ```
 
@@ -237,23 +244,26 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.lifecycle_states_api import LifecycleStatesApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.lifecycle_state import LifecycleState
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     identity_profile_id = '2b838de9-db9b-abcf-e646-d4f274ad4238' # str | Identity profile ID. # str | Identity profile ID.
     lifecycle_state_id = 'ef38f94347e94562b5bb8424a56397d8' # str | Lifecycle state ID. # str | Lifecycle state ID.
 
     try:
         # Get Lifecycle State
         
-        api_response = api_instance.get_lifecycle_state(identity_profile_id, lifecycle_state_id)
-        
+        results =LifecycleStatesApi(api_client).get_lifecycle_state(identity_profile_id, lifecycle_state_id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_lifecycle_state(identity_profile_id, lifecycle_state_id)
+        # results = LifecycleStatesApi(api_client).get_lifecycle_state(identity_profile_id, lifecycle_state_id)
         print("The response of LifecycleStatesApi->get_lifecycle_state:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling LifecycleStatesApi->get_lifecycle_state: %s\n" % e)
 ```
 
@@ -298,10 +308,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.lifecycle_states_api import LifecycleStatesApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.lifecycle_state import LifecycleState
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     identity_profile_id = '2b838de9-db9b-abcf-e646-d4f274ad4238' # str | Identity profile ID. # str | Identity profile ID.
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -311,13 +325,12 @@ from pprint import pprint
     try:
         # Lists LifecycleStates
         
-        api_response = api_instance.get_lifecycle_states(identity_profile_id, )
-        
+        results =LifecycleStatesApi(api_client).get_lifecycle_states(identity_profile_id, )
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_lifecycle_states(identity_profile_id, limit, offset, count, sorters)
+        # results = LifecycleStatesApi(api_client).get_lifecycle_states(identity_profile_id, limit, offset, count, sorters)
         print("The response of LifecycleStatesApi->get_lifecycle_states:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling LifecycleStatesApi->get_lifecycle_states: %s\n" % e)
 ```
 
@@ -360,24 +373,28 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.lifecycle_states_api import LifecycleStatesApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.set_lifecycle_state200_response import SetLifecycleState200Response
 from sailpoint.v2024.models.set_lifecycle_state_request import SetLifecycleStateRequest
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     identity_id = '2c9180857893f1290178944561990364' # str | ID of the identity to update. # str | ID of the identity to update.
     set_lifecycle_state_request = sailpoint.v2024.SetLifecycleStateRequest() # SetLifecycleStateRequest | 
 
     try:
         # Set Lifecycle State
-        Result = set_lifecycle_state_request.from_json(set_lifecycle_state_request)
-        api_response = api_instance.set_lifecycle_state(identity_id, Result)
-        
+        new_set_lifecycle_state_request = SetLifecycleStateRequest()
+        new_set_lifecycle_state_request.from_json(set_lifecycle_state_request)
+        results =LifecycleStatesApi(api_client).set_lifecycle_state(identity_id, new_set_lifecycle_state_request)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.set_lifecycle_state(identity_id, Result)
+        # results = LifecycleStatesApi(api_client).set_lifecycle_state(identity_id, new_set_lifecycle_state_request)
         print("The response of LifecycleStatesApi->set_lifecycle_state:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling LifecycleStatesApi->set_lifecycle_state: %s\n" % e)
 ```
 
@@ -421,11 +438,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.lifecycle_states_api import LifecycleStatesApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.json_patch_operation import JsonPatchOperation
 from sailpoint.v2024.models.lifecycle_state import LifecycleState
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     identity_profile_id = '2b838de9-db9b-abcf-e646-d4f274ad4238' # str | Identity profile ID. # str | Identity profile ID.
     lifecycle_state_id = 'ef38f94347e94562b5bb8424a56397d8' # str | Lifecycle state ID. # str | Lifecycle state ID.
     [{op=replace, path=/description, value=Updated description!}, {op=replace, path=/accessProfileIds, value=[2c918087742bab150174407a80f3125e, 2c918087742bab150174407a80f3124f]}, {op=replace, path=/accountActions, value=[{action=ENABLE, sourceIds=[2c9180846a2f82fb016a481c1b1560c5, 2c9180846a2f82fb016a481c1b1560cc]}, {action=DISABLE, sourceIds=[2c91808869a0c9980169a207258513fb]}]}, {op=replace, path=/emailNotificationOption, value={notifyManagers=true, notifyAllAdmins=false, notifySpecificUsers=false, emailAddressList=[]}}] # List[JsonPatchOperation] | A list of lifecycle state update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields can be updated: * enabled * description * accountActions * accessProfileIds * emailNotificationOption 
@@ -438,14 +459,14 @@ from pprint import pprint
 
     try:
         # Update Lifecycle State
-        Result = json_patch_operation.from_json(json_patch_operation)
-        api_response = api_instance.update_lifecycle_states(identity_profile_id, lifecycle_state_id, Result)
-        
+        new_json_patch_operation = JsonPatchOperation()
+        new_json_patch_operation.from_json(json_patch_operation)
+        results =LifecycleStatesApi(api_client).update_lifecycle_states(identity_profile_id, lifecycle_state_id, new_json_patch_operation)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.update_lifecycle_states(identity_profile_id, lifecycle_state_id, Result)
+        # results = LifecycleStatesApi(api_client).update_lifecycle_states(identity_profile_id, lifecycle_state_id, new_json_patch_operation)
         print("The response of LifecycleStatesApi->update_lifecycle_states:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling LifecycleStatesApi->update_lifecycle_states: %s\n" % e)
 ```
 

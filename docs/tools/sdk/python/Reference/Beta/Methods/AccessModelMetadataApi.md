@@ -64,22 +64,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.access_model_metadata_api import AccessModelMetadataApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.attribute_dto import AttributeDTO
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     key = 'iscPrivacy' # str | Technical name of the Attribute. # str | Technical name of the Attribute.
 
     try:
         # Get Access Model Metadata Attribute
         
-        api_response = api_instance.get_access_model_metadata_attribute(key)
-        
+        results =AccessModelMetadataApi(api_client).get_access_model_metadata_attribute(key)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_access_model_metadata_attribute(key)
+        # results = AccessModelMetadataApi(api_client).get_access_model_metadata_attribute(key)
         print("The response of AccessModelMetadataApi->get_access_model_metadata_attribute:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling AccessModelMetadataApi->get_access_model_metadata_attribute: %s\n" % e)
 ```
 
@@ -121,23 +124,26 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.access_model_metadata_api import AccessModelMetadataApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.attribute_value_dto import AttributeValueDTO
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     key = 'iscPrivacy' # str | Technical name of the Attribute. # str | Technical name of the Attribute.
     value = 'public' # str | Technical name of the Attribute value. # str | Technical name of the Attribute value.
 
     try:
         # Get Access Model Metadata Value
         
-        api_response = api_instance.get_access_model_metadata_attribute_value(key, value)
-        
+        results =AccessModelMetadataApi(api_client).get_access_model_metadata_attribute_value(key, value)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_access_model_metadata_attribute_value(key, value)
+        # results = AccessModelMetadataApi(api_client).get_access_model_metadata_attribute_value(key, value)
         print("The response of AccessModelMetadataApi->get_access_model_metadata_attribute_value:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling AccessModelMetadataApi->get_access_model_metadata_attribute_value: %s\n" % e)
 ```
 
@@ -178,22 +184,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.access_model_metadata_api import AccessModelMetadataApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.attribute_dto import AttributeDTO
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     filters = 'name eq \"Privacy\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq*  **type**: *eq*  **status**: *eq*  **objectTypes**: *eq*  Supported composite operators: *and* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq*  **type**: *eq*  **status**: *eq*  **objectTypes**: *eq*  Supported composite operators: *and* (optional)
 
     try:
         # List Access Model Metadata Attributes
         
-        api_response = api_instance.list_access_model_metadata_attribute()
-        
+        results =AccessModelMetadataApi(api_client).list_access_model_metadata_attribute()
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.list_access_model_metadata_attribute(filters)
+        # results = AccessModelMetadataApi(api_client).list_access_model_metadata_attribute(filters)
         print("The response of AccessModelMetadataApi->list_access_model_metadata_attribute:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling AccessModelMetadataApi->list_access_model_metadata_attribute: %s\n" % e)
 ```
 
@@ -234,22 +243,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.access_model_metadata_api import AccessModelMetadataApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.attribute_value_dto import AttributeValueDTO
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     key = 'iscPrivacy' # str | Technical name of the Attribute. # str | Technical name of the Attribute.
 
     try:
         # List Access Model Metadata Values
         
-        api_response = api_instance.list_access_model_metadata_attribute_value(key)
-        
+        results =AccessModelMetadataApi(api_client).list_access_model_metadata_attribute_value(key)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.list_access_model_metadata_attribute_value(key)
+        # results = AccessModelMetadataApi(api_client).list_access_model_metadata_attribute_value(key)
         print("The response of AccessModelMetadataApi->list_access_model_metadata_attribute_value:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling AccessModelMetadataApi->list_access_model_metadata_attribute_value: %s\n" % e)
 ```
 

@@ -58,10 +58,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v3
+from sailpoint.v3.api.account_usages_api import AccountUsagesApi
+from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.account_usage import AccountUsage
-from sailpoint.v3.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     account_id = 'ef38f94347e94562b5bb8424a56397d8' # str | ID of IDN account # str | ID of IDN account
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -71,13 +75,12 @@ from pprint import pprint
     try:
         # Returns account usage insights
         
-        api_response = api_instance.get_usages_by_account_id(account_id, )
-        
+        results =AccountUsagesApi(api_client).get_usages_by_account_id(account_id, )
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_usages_by_account_id(account_id, limit, offset, count, sorters)
+        # results = AccountUsagesApi(api_client).get_usages_by_account_id(account_id, limit, offset, count, sorters)
         print("The response of AccountUsagesApi->get_usages_by_account_id:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling AccountUsagesApi->get_usages_by_account_id: %s\n" % e)
 ```
 

@@ -85,10 +85,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.service_desk_integration_api import ServiceDeskIntegrationApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.service_desk_integration_dto import ServiceDeskIntegrationDto
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     service_desk_integration_dto = {
           "ownerRef" : "",
           "cluster" : "xyzzy999",
@@ -126,14 +130,14 @@ from pprint import pprint
 
     try:
         # Create new Service Desk integration
-        Result = service_desk_integration_dto.from_json(service_desk_integration_dto)
-        api_response = api_instance.create_service_desk_integration(Result)
-        
+        new_service_desk_integration_dto = ServiceDeskIntegrationDto()
+        new_service_desk_integration_dto.from_json(service_desk_integration_dto)
+        results =ServiceDeskIntegrationApi(api_client).create_service_desk_integration(new_service_desk_integration_dto)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.create_service_desk_integration(Result)
+        # results = ServiceDeskIntegrationApi(api_client).create_service_desk_integration(new_service_desk_integration_dto)
         print("The response of ServiceDeskIntegrationApi->create_service_desk_integration:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling ServiceDeskIntegrationApi->create_service_desk_integration: %s\n" % e)
 ```
 
@@ -175,19 +179,22 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
-from sailpoint.v2024.rest import ApiException
+from sailpoint.v2024.api.service_desk_integration_api import ServiceDeskIntegrationApi
+from sailpoint.v2024.api_client import ApiClient
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'anId' # str | ID of Service Desk integration to delete # str | ID of Service Desk integration to delete
 
     try:
         # Delete a Service Desk integration
         
-        api_instance.delete_service_desk_integration(id)
-        
+        ServiceDeskIntegrationApi(api_client).delete_service_desk_integration(id)
         # Below is a request that includes all optional parameters
-        # api_instance.delete_service_desk_integration(id)
-    except Exception as e:
+        # ServiceDeskIntegrationApi(api_client).delete_service_desk_integration(id)
+        except Exception as e:
         print("Exception when calling ServiceDeskIntegrationApi->delete_service_desk_integration: %s\n" % e)
 ```
 
@@ -229,22 +236,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.service_desk_integration_api import ServiceDeskIntegrationApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.service_desk_integration_dto import ServiceDeskIntegrationDto
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'anId' # str | ID of the Service Desk integration to get # str | ID of the Service Desk integration to get
 
     try:
         # Get a Service Desk integration
         
-        api_response = api_instance.get_service_desk_integration(id)
-        
+        results =ServiceDeskIntegrationApi(api_client).get_service_desk_integration(id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_service_desk_integration(id)
+        # results = ServiceDeskIntegrationApi(api_client).get_service_desk_integration(id)
         print("The response of ServiceDeskIntegrationApi->get_service_desk_integration:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling ServiceDeskIntegrationApi->get_service_desk_integration: %s\n" % e)
 ```
 
@@ -286,22 +296,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.service_desk_integration_api import ServiceDeskIntegrationApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.service_desk_integration_template_dto import ServiceDeskIntegrationTemplateDto
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     script_name = 'aScriptName' # str | The scriptName value of the Service Desk integration template to get # str | The scriptName value of the Service Desk integration template to get
 
     try:
         # Service Desk integration template by scriptName
         
-        api_response = api_instance.get_service_desk_integration_template(script_name)
-        
+        results =ServiceDeskIntegrationApi(api_client).get_service_desk_integration_template(script_name)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_service_desk_integration_template(script_name)
+        # results = ServiceDeskIntegrationApi(api_client).get_service_desk_integration_template(script_name)
         print("The response of ServiceDeskIntegrationApi->get_service_desk_integration_template:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling ServiceDeskIntegrationApi->get_service_desk_integration_template: %s\n" % e)
 ```
 
@@ -340,21 +353,24 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.service_desk_integration_api import ServiceDeskIntegrationApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.service_desk_integration_template_type import ServiceDeskIntegrationTemplateType
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
 
     try:
         # List Service Desk integration types
         
-        api_response = api_instance.get_service_desk_integration_types()
-        
+        results =ServiceDeskIntegrationApi(api_client).get_service_desk_integration_types()
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_service_desk_integration_types()
+        # results = ServiceDeskIntegrationApi(api_client).get_service_desk_integration_types()
         print("The response of ServiceDeskIntegrationApi->get_service_desk_integration_types:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling ServiceDeskIntegrationApi->get_service_desk_integration_types: %s\n" % e)
 ```
 
@@ -400,10 +416,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.service_desk_integration_api import ServiceDeskIntegrationApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.service_desk_integration_dto import ServiceDeskIntegrationDto
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     sorters = 'name' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name** (optional)
@@ -413,13 +433,12 @@ from pprint import pprint
     try:
         # List existing Service Desk integrations
         
-        api_response = api_instance.get_service_desk_integrations()
-        
+        results =ServiceDeskIntegrationApi(api_client).get_service_desk_integrations()
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_service_desk_integrations(offset, limit, sorters, filters, count)
+        # results = ServiceDeskIntegrationApi(api_client).get_service_desk_integrations(offset, limit, sorters, filters, count)
         print("The response of ServiceDeskIntegrationApi->get_service_desk_integrations:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling ServiceDeskIntegrationApi->get_service_desk_integrations: %s\n" % e)
 ```
 
@@ -458,21 +477,24 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.service_desk_integration_api import ServiceDeskIntegrationApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.queued_check_config_details import QueuedCheckConfigDetails
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
 
     try:
         # Get the time check configuration
         
-        api_response = api_instance.get_status_check_details()
-        
+        results =ServiceDeskIntegrationApi(api_client).get_status_check_details()
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_status_check_details()
+        # results = ServiceDeskIntegrationApi(api_client).get_status_check_details()
         print("The response of ServiceDeskIntegrationApi->get_status_check_details:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling ServiceDeskIntegrationApi->get_status_check_details: %s\n" % e)
 ```
 
@@ -515,24 +537,28 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.service_desk_integration_api import ServiceDeskIntegrationApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.patch_service_desk_integration_request import PatchServiceDeskIntegrationRequest
 from sailpoint.v2024.models.service_desk_integration_dto import ServiceDeskIntegrationDto
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'anId' # str | ID of the Service Desk integration to update # str | ID of the Service Desk integration to update
     patch_service_desk_integration_request = sailpoint.v2024.PatchServiceDeskIntegrationRequest() # PatchServiceDeskIntegrationRequest | A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only `replace` operations are accepted by this endpoint.  A 403 Forbidden Error indicates that a PATCH operation was attempted that is not allowed. 
 
     try:
         # Patch a Service Desk Integration
-        Result = patch_service_desk_integration_request.from_json(patch_service_desk_integration_request)
-        api_response = api_instance.patch_service_desk_integration(id, Result)
-        
+        new_patch_service_desk_integration_request = PatchServiceDeskIntegrationRequest()
+        new_patch_service_desk_integration_request.from_json(patch_service_desk_integration_request)
+        results =ServiceDeskIntegrationApi(api_client).patch_service_desk_integration(id, new_patch_service_desk_integration_request)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.patch_service_desk_integration(id, Result)
+        # results = ServiceDeskIntegrationApi(api_client).patch_service_desk_integration(id, new_patch_service_desk_integration_request)
         print("The response of ServiceDeskIntegrationApi->patch_service_desk_integration:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling ServiceDeskIntegrationApi->patch_service_desk_integration: %s\n" % e)
 ```
 
@@ -575,10 +601,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.service_desk_integration_api import ServiceDeskIntegrationApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.service_desk_integration_dto import ServiceDeskIntegrationDto
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'anId' # str | ID of the Service Desk integration to update # str | ID of the Service Desk integration to update
     service_desk_integration_dto = {
           "ownerRef" : "",
@@ -617,14 +647,14 @@ from pprint import pprint
 
     try:
         # Update a Service Desk integration
-        Result = service_desk_integration_dto.from_json(service_desk_integration_dto)
-        api_response = api_instance.put_service_desk_integration(id, Result)
-        
+        new_service_desk_integration_dto = ServiceDeskIntegrationDto()
+        new_service_desk_integration_dto.from_json(service_desk_integration_dto)
+        results =ServiceDeskIntegrationApi(api_client).put_service_desk_integration(id, new_service_desk_integration_dto)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.put_service_desk_integration(id, Result)
+        # results = ServiceDeskIntegrationApi(api_client).put_service_desk_integration(id, new_service_desk_integration_dto)
         print("The response of ServiceDeskIntegrationApi->put_service_desk_integration:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling ServiceDeskIntegrationApi->put_service_desk_integration: %s\n" % e)
 ```
 
@@ -666,10 +696,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.service_desk_integration_api import ServiceDeskIntegrationApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.queued_check_config_details import QueuedCheckConfigDetails
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     queued_check_config_details = {
           "provisioningStatusCheckIntervalMinutes" : "30",
           "provisioningMaxStatusCheckDays" : "2"
@@ -677,14 +711,14 @@ from pprint import pprint
 
     try:
         # Update the time check configuration
-        Result = queued_check_config_details.from_json(queued_check_config_details)
-        api_response = api_instance.update_status_check_details(Result)
-        
+        new_queued_check_config_details = QueuedCheckConfigDetails()
+        new_queued_check_config_details.from_json(queued_check_config_details)
+        results =ServiceDeskIntegrationApi(api_client).update_status_check_details(new_queued_check_config_details)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.update_status_check_details(Result)
+        # results = ServiceDeskIntegrationApi(api_client).update_status_check_details(new_queued_check_config_details)
         print("The response of ServiceDeskIntegrationApi->update_status_check_details:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling ServiceDeskIntegrationApi->update_status_check_details: %s\n" % e)
 ```
 

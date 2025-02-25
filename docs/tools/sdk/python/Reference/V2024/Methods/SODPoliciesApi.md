@@ -94,10 +94,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.sod_policies_api import SODPoliciesApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.sod_policy import SodPolicy
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     sod_policy = {
           "conflictingAccessCriteria" : {
             "leftCriteria" : {
@@ -157,14 +161,14 @@ from pprint import pprint
 
     try:
         # Create SOD policy
-        Result = sod_policy.from_json(sod_policy)
-        api_response = api_instance.create_sod_policy(Result)
-        
+        new_sod_policy = SodPolicy()
+        new_sod_policy.from_json(sod_policy)
+        results =SODPoliciesApi(api_client).create_sod_policy(new_sod_policy)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.create_sod_policy(Result)
+        # results = SODPoliciesApi(api_client).create_sod_policy(new_sod_policy)
         print("The response of SODPoliciesApi->create_sod_policy:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SODPoliciesApi->create_sod_policy: %s\n" % e)
 ```
 
@@ -208,20 +212,23 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
-from sailpoint.v2024.rest import ApiException
+from sailpoint.v2024.api.sod_policies_api import SODPoliciesApi
+from sailpoint.v2024.api_client import ApiClient
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'ef38f943-47e9-4562-b5bb-8424a56397d8' # str | The ID of the SOD Policy to delete. # str | The ID of the SOD Policy to delete.
     logical = True # bool | Indicates whether this is a soft delete (logical true) or a hard delete.  Soft delete marks the policy as deleted and just save it with this status. It could be fully deleted or recovered further.  Hard delete vise versa permanently delete SOD request during this call. (optional) (default to True) # bool | Indicates whether this is a soft delete (logical true) or a hard delete.  Soft delete marks the policy as deleted and just save it with this status. It could be fully deleted or recovered further.  Hard delete vise versa permanently delete SOD request during this call. (optional) (default to True)
 
     try:
         # Delete SOD policy by ID
         
-        api_instance.delete_sod_policy(id, )
-        
+        SODPoliciesApi(api_client).delete_sod_policy(id, )
         # Below is a request that includes all optional parameters
-        # api_instance.delete_sod_policy(id, logical)
-    except Exception as e:
+        # SODPoliciesApi(api_client).delete_sod_policy(id, logical)
+        except Exception as e:
         print("Exception when calling SODPoliciesApi->delete_sod_policy: %s\n" % e)
 ```
 
@@ -263,19 +270,22 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
-from sailpoint.v2024.rest import ApiException
+from sailpoint.v2024.api.sod_policies_api import SODPoliciesApi
+from sailpoint.v2024.api_client import ApiClient
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'ef38f943-47e9-4562-b5bb-8424a56397d8' # str | The ID of the SOD policy the schedule must be deleted for. # str | The ID of the SOD policy the schedule must be deleted for.
 
     try:
         # Delete SOD policy schedule
         
-        api_instance.delete_sod_policy_schedule(id)
-        
+        SODPoliciesApi(api_client).delete_sod_policy_schedule(id)
         # Below is a request that includes all optional parameters
-        # api_instance.delete_sod_policy_schedule(id)
-    except Exception as e:
+        # SODPoliciesApi(api_client).delete_sod_policy_schedule(id)
+        except Exception as e:
         print("Exception when calling SODPoliciesApi->delete_sod_policy_schedule: %s\n" % e)
 ```
 
@@ -318,22 +328,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
-from sailpoint.v2024.rest import ApiException
+from sailpoint.v2024.api.sod_policies_api import SODPoliciesApi
+from sailpoint.v2024.api_client import ApiClient
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     report_result_id = 'ef38f94347e94562b5bb8424a56397d8' # str | The ID of the report reference to download. # str | The ID of the report reference to download.
     file_name = 'custom-name' # str | Custom Name for the  file. # str | Custom Name for the  file.
 
     try:
         # Download custom violation report
         
-        api_response = api_instance.get_custom_violation_report(report_result_id, file_name)
-        
+        results =SODPoliciesApi(api_client).get_custom_violation_report(report_result_id, file_name)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_custom_violation_report(report_result_id, file_name)
+        # results = SODPoliciesApi(api_client).get_custom_violation_report(report_result_id, file_name)
         print("The response of SODPoliciesApi->get_custom_violation_report:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SODPoliciesApi->get_custom_violation_report: %s\n" % e)
 ```
 
@@ -375,21 +388,24 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
-from sailpoint.v2024.rest import ApiException
+from sailpoint.v2024.api.sod_policies_api import SODPoliciesApi
+from sailpoint.v2024.api_client import ApiClient
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     report_result_id = 'ef38f94347e94562b5bb8424a56397d8' # str | The ID of the report reference to download. # str | The ID of the report reference to download.
 
     try:
         # Download violation report
         
-        api_response = api_instance.get_default_violation_report(report_result_id)
-        
+        results =SODPoliciesApi(api_client).get_default_violation_report(report_result_id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_default_violation_report(report_result_id)
+        # results = SODPoliciesApi(api_client).get_default_violation_report(report_result_id)
         print("The response of SODPoliciesApi->get_default_violation_report:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SODPoliciesApi->get_default_violation_report: %s\n" % e)
 ```
 
@@ -427,21 +443,24 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.sod_policies_api import SODPoliciesApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.report_result_reference import ReportResultReference
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
 
     try:
         # Get multi-report run task status
         
-        api_response = api_instance.get_sod_all_report_run_status()
-        
+        results =SODPoliciesApi(api_client).get_sod_all_report_run_status()
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_sod_all_report_run_status()
+        # results = SODPoliciesApi(api_client).get_sod_all_report_run_status()
         print("The response of SODPoliciesApi->get_sod_all_report_run_status:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SODPoliciesApi->get_sod_all_report_run_status: %s\n" % e)
 ```
 
@@ -484,22 +503,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.sod_policies_api import SODPoliciesApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.sod_policy import SodPolicy
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'ef38f943-47e9-4562-b5bb-8424a56397d8' # str | The ID of the SOD Policy to retrieve. # str | The ID of the SOD Policy to retrieve.
 
     try:
         # Get SOD policy by ID
         
-        api_response = api_instance.get_sod_policy(id)
-        
+        results =SODPoliciesApi(api_client).get_sod_policy(id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_sod_policy(id)
+        # results = SODPoliciesApi(api_client).get_sod_policy(id)
         print("The response of SODPoliciesApi->get_sod_policy:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SODPoliciesApi->get_sod_policy: %s\n" % e)
 ```
 
@@ -540,22 +562,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.sod_policies_api import SODPoliciesApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.sod_policy_schedule import SodPolicySchedule
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'ef38f943-47e9-4562-b5bb-8424a56397d8' # str | The ID of the SOD policy schedule to retrieve. # str | The ID of the SOD policy schedule to retrieve.
 
     try:
         # Get SOD policy schedule
         
-        api_response = api_instance.get_sod_policy_schedule(id)
-        
+        results =SODPoliciesApi(api_client).get_sod_policy_schedule(id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_sod_policy_schedule(id)
+        # results = SODPoliciesApi(api_client).get_sod_policy_schedule(id)
         print("The response of SODPoliciesApi->get_sod_policy_schedule:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SODPoliciesApi->get_sod_policy_schedule: %s\n" % e)
 ```
 
@@ -597,22 +622,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.sod_policies_api import SODPoliciesApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.report_result_reference import ReportResultReference
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     report_result_id = '2e8d8180-24bc-4d21-91c6-7affdb473b0d' # str | The ID of the report reference to retrieve. # str | The ID of the report reference to retrieve.
 
     try:
         # Get violation report run status
         
-        api_response = api_instance.get_sod_violation_report_run_status(report_result_id)
-        
+        results =SODPoliciesApi(api_client).get_sod_violation_report_run_status(report_result_id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_sod_violation_report_run_status(report_result_id)
+        # results = SODPoliciesApi(api_client).get_sod_violation_report_run_status(report_result_id)
         print("The response of SODPoliciesApi->get_sod_violation_report_run_status:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SODPoliciesApi->get_sod_violation_report_run_status: %s\n" % e)
 ```
 
@@ -654,22 +682,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.sod_policies_api import SODPoliciesApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.report_result_reference import ReportResultReference
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'ef38f943-47e9-4562-b5bb-8424a56397d8' # str | The ID of the violation report to retrieve status for. # str | The ID of the violation report to retrieve status for.
 
     try:
         # Get SOD violation report status
         
-        api_response = api_instance.get_sod_violation_report_status(id)
-        
+        results =SODPoliciesApi(api_client).get_sod_violation_report_status(id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_sod_violation_report_status(id)
+        # results = SODPoliciesApi(api_client).get_sod_violation_report_status(id)
         print("The response of SODPoliciesApi->get_sod_violation_report_status:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SODPoliciesApi->get_sod_violation_report_status: %s\n" % e)
 ```
 
@@ -715,10 +746,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.sod_policies_api import SODPoliciesApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.sod_policy import SodPolicy
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
     count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
@@ -728,13 +763,12 @@ from pprint import pprint
     try:
         # List SOD policies
         
-        api_response = api_instance.list_sod_policies()
-        
+        results =SODPoliciesApi(api_client).list_sod_policies()
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.list_sod_policies(limit, offset, count, filters, sorters)
+        # results = SODPoliciesApi(api_client).list_sod_policies(limit, offset, count, filters, sorters)
         print("The response of SODPoliciesApi->list_sod_policies:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SODPoliciesApi->list_sod_policies: %s\n" % e)
 ```
 
@@ -779,11 +813,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.sod_policies_api import SODPoliciesApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.json_patch_operation import JsonPatchOperation
 from sailpoint.v2024.models.sod_policy import SodPolicy
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = '2c918083-5d19-1a86-015d-28455b4a2329' # str | The ID of the SOD policy being modified. # str | The ID of the SOD policy being modified.
     [{op=replace, path=/description, value=Modified description}, {op=replace, path=/conflictingAccessCriteria/leftCriteria/name, value=money-in-modified}, {op=replace, path=/conflictingAccessCriteria/rightCriteria, value={name=money-out-modified, criteriaList=[{type=ENTITLEMENT, id=2c918087682f9a86016839c0509c1ab2}]}}] # List[JsonPatchOperation] | A list of SOD Policy update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * ownerRef * externalPolicyReference * compensatingControls * correctionAdvice * state * tags * violationOwnerAssignmentConfig * scheduled * conflictingAccessCriteria 
      json_patch_operation = {
@@ -795,14 +833,14 @@ from pprint import pprint
 
     try:
         # Patch SOD policy by ID
-        Result = json_patch_operation.from_json(json_patch_operation)
-        api_response = api_instance.patch_sod_policy(id, Result)
-        
+        new_json_patch_operation = JsonPatchOperation()
+        new_json_patch_operation.from_json(json_patch_operation)
+        results =SODPoliciesApi(api_client).patch_sod_policy(id, new_json_patch_operation)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.patch_sod_policy(id, Result)
+        # results = SODPoliciesApi(api_client).patch_sod_policy(id, new_json_patch_operation)
         print("The response of SODPoliciesApi->patch_sod_policy:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SODPoliciesApi->patch_sod_policy: %s\n" % e)
 ```
 
@@ -844,10 +882,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.sod_policies_api import SODPoliciesApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.sod_policy_schedule import SodPolicySchedule
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'ef38f943-47e9-4562-b5bb-8424a56397d8' # str | The ID of the SOD policy to update its schedule. # str | The ID of the SOD policy to update its schedule.
     sod_policy_schedule = {
           "schedule" : {
@@ -938,14 +980,14 @@ from pprint import pprint
 
     try:
         # Update SOD Policy schedule
-        Result = sod_policy_schedule.from_json(sod_policy_schedule)
-        api_response = api_instance.put_policy_schedule(id, Result)
-        
+        new_sod_policy_schedule = SodPolicySchedule()
+        new_sod_policy_schedule.from_json(sod_policy_schedule)
+        results =SODPoliciesApi(api_client).put_policy_schedule(id, new_sod_policy_schedule)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.put_policy_schedule(id, Result)
+        # results = SODPoliciesApi(api_client).put_policy_schedule(id, new_sod_policy_schedule)
         print("The response of SODPoliciesApi->put_policy_schedule:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SODPoliciesApi->put_policy_schedule: %s\n" % e)
 ```
 
@@ -989,10 +1031,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.sod_policies_api import SODPoliciesApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.sod_policy import SodPolicy
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'ef38f943-47e9-4562-b5bb-8424a56397d8' # str | The ID of the SOD policy to update. # str | The ID of the SOD policy to update.
     sod_policy = {
           "conflictingAccessCriteria" : {
@@ -1053,14 +1099,14 @@ from pprint import pprint
 
     try:
         # Update SOD policy by ID
-        Result = sod_policy.from_json(sod_policy)
-        api_response = api_instance.put_sod_policy(id, Result)
-        
+        new_sod_policy = SodPolicy()
+        new_sod_policy.from_json(sod_policy)
+        results =SODPoliciesApi(api_client).put_sod_policy(id, new_sod_policy)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.put_sod_policy(id, Result)
+        # results = SODPoliciesApi(api_client).put_sod_policy(id, new_sod_policy)
         print("The response of SODPoliciesApi->put_sod_policy:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SODPoliciesApi->put_sod_policy: %s\n" % e)
 ```
 
@@ -1101,22 +1147,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.sod_policies_api import SODPoliciesApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.report_result_reference import ReportResultReference
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'ef38f943-47e9-4562-b5bb-8424a56397d8' # str | The SOD policy ID to run. # str | The SOD policy ID to run.
 
     try:
         # Evaluate one policy by ID
         
-        api_response = api_instance.start_evaluate_sod_policy(id)
-        
+        results =SODPoliciesApi(api_client).start_evaluate_sod_policy(id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.start_evaluate_sod_policy(id)
+        # results = SODPoliciesApi(api_client).start_evaluate_sod_policy(id)
         print("The response of SODPoliciesApi->start_evaluate_sod_policy:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SODPoliciesApi->start_evaluate_sod_policy: %s\n" % e)
 ```
 
@@ -1157,11 +1206,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.sod_policies_api import SODPoliciesApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.multi_policy_request import MultiPolicyRequest
 from sailpoint.v2024.models.report_result_reference import ReportResultReference
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     multi_policy_request = {
           "filteredPolicyList" : [ "[b868cd40-ffa4-4337-9c07-1a51846cfa94, 63a07a7b-39a4-48aa-956d-50c827deba2a]", "[b868cd40-ffa4-4337-9c07-1a51846cfa94, 63a07a7b-39a4-48aa-956d-50c827deba2a]" ]
         } # MultiPolicyRequest |  (optional)
@@ -1169,13 +1222,12 @@ from pprint import pprint
     try:
         # Runs all policies for org
         
-        api_response = api_instance.start_sod_all_policies_for_org()
-        
+        results =SODPoliciesApi(api_client).start_sod_all_policies_for_org()
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.start_sod_all_policies_for_org(Result)
+        # results = SODPoliciesApi(api_client).start_sod_all_policies_for_org(new_multi_policy_request)
         print("The response of SODPoliciesApi->start_sod_all_policies_for_org:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SODPoliciesApi->start_sod_all_policies_for_org: %s\n" % e)
 ```
 
@@ -1217,22 +1269,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.sod_policies_api import SODPoliciesApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.report_result_reference import ReportResultReference
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'ef38f943-47e9-4562-b5bb-8424a56397d8' # str | The SOD policy ID to run. # str | The SOD policy ID to run.
 
     try:
         # Runs SOD policy violation report
         
-        api_response = api_instance.start_sod_policy(id)
-        
+        results =SODPoliciesApi(api_client).start_sod_policy(id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.start_sod_policy(id)
+        # results = SODPoliciesApi(api_client).start_sod_policy(id)
         print("The response of SODPoliciesApi->start_sod_policy:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SODPoliciesApi->start_sod_policy: %s\n" % e)
 ```
 

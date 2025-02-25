@@ -58,22 +58,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v3
+from sailpoint.v3.api.auth_users_api import AuthUsersApi
+from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.auth_user import AuthUser
-from sailpoint.v3.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | Identity ID # str | Identity ID
 
     try:
         # Auth User Details
         
-        api_response = api_instance.get_auth_user(id)
-        
+        results =AuthUsersApi(api_client).get_auth_user(id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_auth_user(id)
+        # results = AuthUsersApi(api_client).get_auth_user(id)
         print("The response of AuthUsersApi->get_auth_user:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling AuthUsersApi->get_auth_user: %s\n" % e)
 ```
 
@@ -120,11 +123,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v3
+from sailpoint.v3.api.auth_users_api import AuthUsersApi
+from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.auth_user import AuthUser
 from sailpoint.v3.models.json_patch_operation import JsonPatchOperation
-from sailpoint.v3.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | Identity ID # str | Identity ID
     [{op=replace, path=/capabilities, value=[ORG_ADMIN]}] # List[JsonPatchOperation] | A list of auth user update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
      json_patch_operation = {
@@ -136,14 +143,14 @@ from pprint import pprint
 
     try:
         # Auth User Update
-        Result = json_patch_operation.from_json(json_patch_operation)
-        api_response = api_instance.patch_auth_user(id, Result)
-        
+        new_json_patch_operation = JsonPatchOperation()
+        new_json_patch_operation.from_json(json_patch_operation)
+        results =AuthUsersApi(api_client).patch_auth_user(id, new_json_patch_operation)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.patch_auth_user(id, Result)
+        # results = AuthUsersApi(api_client).patch_auth_user(id, new_json_patch_operation)
         print("The response of AuthUsersApi->patch_auth_user:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling AuthUsersApi->patch_auth_user: %s\n" % e)
 ```
 

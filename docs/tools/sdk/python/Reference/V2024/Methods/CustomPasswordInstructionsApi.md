@@ -66,10 +66,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.custom_password_instructions_api import CustomPasswordInstructionsApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.custom_password_instruction import CustomPasswordInstruction
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     custom_password_instruction = {
           "pageContent" : "Please enter a new password. Your password must be at least 8 characters long and contain at least one number and one letter.",
@@ -79,14 +83,14 @@ from pprint import pprint
 
     try:
         # Create Custom Password Instructions
-        Result = custom_password_instruction.from_json(custom_password_instruction)
-        api_response = api_instance.create_custom_password_instructions(x_sail_point_experimental, Result)
-        
+        new_custom_password_instruction = CustomPasswordInstruction()
+        new_custom_password_instruction.from_json(custom_password_instruction)
+        results =CustomPasswordInstructionsApi(api_client).create_custom_password_instructions(x_sail_point_experimental, new_custom_password_instruction)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.create_custom_password_instructions(x_sail_point_experimental, Result)
+        # results = CustomPasswordInstructionsApi(api_client).create_custom_password_instructions(x_sail_point_experimental, new_custom_password_instruction)
         print("The response of CustomPasswordInstructionsApi->create_custom_password_instructions:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling CustomPasswordInstructionsApi->create_custom_password_instructions: %s\n" % e)
 ```
 
@@ -131,9 +135,13 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
-from sailpoint.v2024.rest import ApiException
+from sailpoint.v2024.api.custom_password_instructions_api import CustomPasswordInstructionsApi
+from sailpoint.v2024.api_client import ApiClient
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     page_id = 'mfa:select' # str | The page ID of custom password instructions to delete. # str | The page ID of custom password instructions to delete.
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     locale = 'locale_example' # str | The locale for the custom instructions, a BCP47 language tag. The default value is \\\"default\\\". (optional) # str | The locale for the custom instructions, a BCP47 language tag. The default value is \\\"default\\\". (optional)
@@ -141,11 +149,10 @@ from pprint import pprint
     try:
         # Delete Custom Password Instructions by page ID
         
-        api_instance.delete_custom_password_instructions(page_id, x_sail_point_experimental, )
-        
+        CustomPasswordInstructionsApi(api_client).delete_custom_password_instructions(page_id, x_sail_point_experimental, )
         # Below is a request that includes all optional parameters
-        # api_instance.delete_custom_password_instructions(page_id, x_sail_point_experimental, locale)
-    except Exception as e:
+        # CustomPasswordInstructionsApi(api_client).delete_custom_password_instructions(page_id, x_sail_point_experimental, locale)
+        except Exception as e:
         print("Exception when calling CustomPasswordInstructionsApi->delete_custom_password_instructions: %s\n" % e)
 ```
 
@@ -190,10 +197,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.custom_password_instructions_api import CustomPasswordInstructionsApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.custom_password_instruction import CustomPasswordInstruction
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     page_id = 'mfa:select' # str | The page ID of custom password instructions to query. # str | The page ID of custom password instructions to query.
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     locale = 'locale_example' # str | The locale for the custom instructions, a BCP47 language tag. The default value is \\\"default\\\". (optional) # str | The locale for the custom instructions, a BCP47 language tag. The default value is \\\"default\\\". (optional)
@@ -201,13 +212,12 @@ from pprint import pprint
     try:
         # Get Custom Password Instructions by Page ID
         
-        api_response = api_instance.get_custom_password_instructions(page_id, x_sail_point_experimental, )
-        
+        results =CustomPasswordInstructionsApi(api_client).get_custom_password_instructions(page_id, x_sail_point_experimental, )
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_custom_password_instructions(page_id, x_sail_point_experimental, locale)
+        # results = CustomPasswordInstructionsApi(api_client).get_custom_password_instructions(page_id, x_sail_point_experimental, locale)
         print("The response of CustomPasswordInstructionsApi->get_custom_password_instructions:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling CustomPasswordInstructionsApi->get_custom_password_instructions: %s\n" % e)
 ```
 

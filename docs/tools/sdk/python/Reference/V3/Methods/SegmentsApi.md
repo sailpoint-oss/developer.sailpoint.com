@@ -73,10 +73,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v3
+from sailpoint.v3.api.segments_api import SegmentsApi
+from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.segment import Segment
-from sailpoint.v3.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     segment = {
           "owner" : {
             "name" : "support",
@@ -104,14 +108,14 @@ from pprint import pprint
 
     try:
         # Create Segment
-        Result = segment.from_json(segment)
-        api_response = api_instance.create_segment(Result)
-        
+        new_segment = Segment()
+        new_segment.from_json(segment)
+        results =SegmentsApi(api_client).create_segment(new_segment)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.create_segment(Result)
+        # results = SegmentsApi(api_client).create_segment(new_segment)
         print("The response of SegmentsApi->create_segment:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SegmentsApi->create_segment: %s\n" % e)
 ```
 
@@ -154,19 +158,22 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v3
-from sailpoint.v3.rest import ApiException
+from sailpoint.v3.api.segments_api import SegmentsApi
+from sailpoint.v3.api_client import ApiClient
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | The segment ID to delete. # str | The segment ID to delete.
 
     try:
         # Delete Segment by ID
         
-        api_instance.delete_segment(id)
-        
+        SegmentsApi(api_client).delete_segment(id)
         # Below is a request that includes all optional parameters
-        # api_instance.delete_segment(id)
-    except Exception as e:
+        # SegmentsApi(api_client).delete_segment(id)
+        except Exception as e:
         print("Exception when calling SegmentsApi->delete_segment: %s\n" % e)
 ```
 
@@ -208,22 +215,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v3
+from sailpoint.v3.api.segments_api import SegmentsApi
+from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.segment import Segment
-from sailpoint.v3.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | The segment ID to retrieve. # str | The segment ID to retrieve.
 
     try:
         # Get Segment by ID
         
-        api_response = api_instance.get_segment(id)
-        
+        results =SegmentsApi(api_client).get_segment(id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_segment(id)
+        # results = SegmentsApi(api_client).get_segment(id)
         print("The response of SegmentsApi->get_segment:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SegmentsApi->get_segment: %s\n" % e)
 ```
 
@@ -266,10 +276,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v3
+from sailpoint.v3.api.segments_api import SegmentsApi
+from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.segment import Segment
-from sailpoint.v3.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
     count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
@@ -277,13 +291,12 @@ from pprint import pprint
     try:
         # List Segments
         
-        api_response = api_instance.list_segments()
-        
+        results =SegmentsApi(api_client).list_segments()
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.list_segments(limit, offset, count)
+        # results = SegmentsApi(api_client).list_segments(limit, offset, count)
         print("The response of SegmentsApi->list_segments:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SegmentsApi->list_segments: %s\n" % e)
 ```
 
@@ -327,10 +340,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v3
+from sailpoint.v3.api.segments_api import SegmentsApi
+from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.segment import Segment
-from sailpoint.v3.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | The segment ID to modify. # str | The segment ID to modify.
     request_body = [{op=replace, path=/visibilityCriteria, value={expression={operator=AND, children=[{operator=EQUALS, attribute=location, value={type=STRING, value=Philadelphia}}, {operator=EQUALS, attribute=department, value={type=STRING, value=HR}}]}}}] # List[object] | A list of segment update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * owner * visibilityCriteria * active 
      request_body = [{op=replace, path=/visibilityCriteria, value={expression={operator=AND, children=[{operator=EQUALS, attribute=location, value={type=STRING, value=Philadelphia}}, {operator=EQUALS, attribute=department, value={type=STRING, value=HR}}]}}}] # List[object] | A list of segment update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * owner * visibilityCriteria * active 
@@ -338,14 +355,14 @@ from pprint import pprint
 
     try:
         # Update Segment
-        Result = request_body.from_json(request_body)
-        api_response = api_instance.patch_segment(id, Result)
-        
+        new_request_body = RequestBody()
+        new_request_body.from_json(request_body)
+        results =SegmentsApi(api_client).patch_segment(id, new_request_body)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.patch_segment(id, Result)
+        # results = SegmentsApi(api_client).patch_segment(id, new_request_body)
         print("The response of SegmentsApi->patch_segment:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SegmentsApi->patch_segment: %s\n" % e)
 ```
 

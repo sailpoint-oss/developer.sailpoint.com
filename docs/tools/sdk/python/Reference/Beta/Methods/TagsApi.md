@@ -56,10 +56,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.tags_api import TagsApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.tag import Tag
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     tag = {
           "created" : "2022-05-04T14:48:49Z",
           "tagCategoryRefs" : [ {
@@ -78,14 +82,14 @@ from pprint import pprint
 
     try:
         # Create Tag
-        Result = tag.from_json(tag)
-        api_response = api_instance.create_tag(Result)
-        
+        new_tag = Tag()
+        new_tag.from_json(tag)
+        results =TagsApi(api_client).create_tag(new_tag)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.create_tag(Result)
+        # results = TagsApi(api_client).create_tag(new_tag)
         print("The response of TagsApi->create_tag:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling TagsApi->create_tag: %s\n" % e)
 ```
 
@@ -129,19 +133,22 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
-from sailpoint.beta.rest import ApiException
+from sailpoint.beta.api.tags_api import TagsApi
+from sailpoint.beta.api_client import ApiClient
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = '329d96cf-3bdb-40a9-988a-b5037ab89022' # str | The ID of the object reference to delete. # str | The ID of the object reference to delete.
 
     try:
         # Delete Tag
         
-        api_instance.delete_tag_by_id(id)
-        
+        TagsApi(api_client).delete_tag_by_id(id)
         # Below is a request that includes all optional parameters
-        # api_instance.delete_tag_by_id(id)
-    except Exception as e:
+        # TagsApi(api_client).delete_tag_by_id(id)
+        except Exception as e:
         print("Exception when calling TagsApi->delete_tag_by_id: %s\n" % e)
 ```
 
@@ -185,22 +192,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.tags_api import TagsApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.tag import Tag
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = '329d96cf-3bdb-40a9-988a-b5037ab89022' # str | The ID of the object reference to retrieve. # str | The ID of the object reference to retrieve.
 
     try:
         # Get Tag By Id
         
-        api_response = api_instance.get_tag_by_id(id)
-        
+        results =TagsApi(api_client).get_tag_by_id(id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_tag_by_id(id)
+        # results = TagsApi(api_client).get_tag_by_id(id)
         print("The response of TagsApi->get_tag_by_id:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling TagsApi->get_tag_by_id: %s\n" % e)
 ```
 
@@ -247,10 +257,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.tags_api import TagsApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.tag import Tag
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
     count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
@@ -260,13 +274,12 @@ from pprint import pprint
     try:
         # List Tags
         
-        api_response = api_instance.list_tags()
-        
+        results =TagsApi(api_client).list_tags()
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.list_tags(limit, offset, count, filters, sorters)
+        # results = TagsApi(api_client).list_tags(limit, offset, count, filters, sorters)
         print("The response of TagsApi->list_tags:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling TagsApi->list_tags: %s\n" % e)
 ```
 

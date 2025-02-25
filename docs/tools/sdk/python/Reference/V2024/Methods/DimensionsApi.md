@@ -63,10 +63,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.dimensions_api import DimensionsApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.dimension import Dimension
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     role_id = '6603fba3004f43c687610a29195252ce' # str | Parent Role Id of the dimension. # str | Parent Role Id of the dimension.
     dimension = {
           "owner" : {
@@ -158,14 +162,14 @@ from pprint import pprint
 
     try:
         # Create a Dimension
-        Result = dimension.from_json(dimension)
-        api_response = api_instance.create_dimension(role_id, Result)
-        
+        new_dimension = Dimension()
+        new_dimension.from_json(dimension)
+        results =DimensionsApi(api_client).create_dimension(role_id, new_dimension)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.create_dimension(role_id, Result)
+        # results = DimensionsApi(api_client).create_dimension(role_id, new_dimension)
         print("The response of DimensionsApi->create_dimension:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling DimensionsApi->create_dimension: %s\n" % e)
 ```
 
@@ -210,11 +214,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.dimensions_api import DimensionsApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.dimension_bulk_delete_request import DimensionBulkDeleteRequest
 from sailpoint.v2024.models.task_result_dto import TaskResultDto
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     role_id = '6603fba3004f43c687610a29195252ce' # str | Parent Role Id of the dimensions. # str | Parent Role Id of the dimensions.
     dimension_bulk_delete_request = {
           "dimensionIds" : [ "2c9180847812e0b1017817051919ecca", "2c9180887812e0b201781e129f151816" ]
@@ -222,14 +230,14 @@ from pprint import pprint
 
     try:
         # Delete Dimension(s)
-        Result = dimension_bulk_delete_request.from_json(dimension_bulk_delete_request)
-        api_response = api_instance.delete_bulk_dimensions(role_id, Result)
-        
+        new_dimension_bulk_delete_request = DimensionBulkDeleteRequest()
+        new_dimension_bulk_delete_request.from_json(dimension_bulk_delete_request)
+        results =DimensionsApi(api_client).delete_bulk_dimensions(role_id, new_dimension_bulk_delete_request)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.delete_bulk_dimensions(role_id, Result)
+        # results = DimensionsApi(api_client).delete_bulk_dimensions(role_id, new_dimension_bulk_delete_request)
         print("The response of DimensionsApi->delete_bulk_dimensions:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling DimensionsApi->delete_bulk_dimensions: %s\n" % e)
 ```
 
@@ -272,20 +280,23 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
-from sailpoint.v2024.rest import ApiException
+from sailpoint.v2024.api.dimensions_api import DimensionsApi
+from sailpoint.v2024.api_client import ApiClient
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     role_id = '6603fba3004f43c687610a29195252ce' # str | Parent Role Id of the dimension. # str | Parent Role Id of the dimension.
     dimension_id = '2c9180835d191a86015d28455b4a2329' # str | Id of the Dimension # str | Id of the Dimension
 
     try:
         # Delete a Dimension
         
-        api_instance.delete_dimension(role_id, dimension_id)
-        
+        DimensionsApi(api_client).delete_dimension(role_id, dimension_id)
         # Below is a request that includes all optional parameters
-        # api_instance.delete_dimension(role_id, dimension_id)
-    except Exception as e:
+        # DimensionsApi(api_client).delete_dimension(role_id, dimension_id)
+        except Exception as e:
         print("Exception when calling DimensionsApi->delete_dimension: %s\n" % e)
 ```
 
@@ -329,23 +340,26 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.dimensions_api import DimensionsApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.dimension import Dimension
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     role_id = '6603fba3004f43c687610a29195252ce' # str | Parent Role Id of the dimension. # str | Parent Role Id of the dimension.
     dimension_id = '2c9180835d191a86015d28455b4a2329' # str | Id of the Dimension # str | Id of the Dimension
 
     try:
         # Get a Dimension under Role.
         
-        api_response = api_instance.get_dimension(role_id, dimension_id)
-        
+        results =DimensionsApi(api_client).get_dimension(role_id, dimension_id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_dimension(role_id, dimension_id)
+        # results = DimensionsApi(api_client).get_dimension(role_id, dimension_id)
         print("The response of DimensionsApi->get_dimension:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling DimensionsApi->get_dimension: %s\n" % e)
 ```
 
@@ -394,10 +408,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.dimensions_api import DimensionsApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.entitlement1 import Entitlement1
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     role_id = '6603fba3004f43c687610a29195252ce' # str | Parent Role Id of the dimension. # str | Parent Role Id of the dimension.
     dimension_id = '2c9180835d191a86015d28455b4a2329' # str | Id of the Dimension # str | Id of the Dimension
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -409,13 +427,12 @@ from pprint import pprint
     try:
         # List Dimension's Entitlements
         
-        api_response = api_instance.get_dimension_entitlements(role_id, dimension_id, )
-        
+        results =DimensionsApi(api_client).get_dimension_entitlements(role_id, dimension_id, )
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_dimension_entitlements(role_id, dimension_id, limit, offset, count, filters, sorters)
+        # results = DimensionsApi(api_client).get_dimension_entitlements(role_id, dimension_id, limit, offset, count, filters, sorters)
         print("The response of DimensionsApi->get_dimension_entitlements:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling DimensionsApi->get_dimension_entitlements: %s\n" % e)
 ```
 
@@ -465,10 +482,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.dimensions_api import DimensionsApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.access_profile import AccessProfile
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     role_id = '6603fba3004f43c687610a29195252ce' # str | Parent Role Id of the dimension. # str | Parent Role Id of the dimension.
     dimension_id = '2c9180835d191a86015d28455b4a2329' # str | ID of the Dimension # str | ID of the Dimension
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -480,13 +501,12 @@ from pprint import pprint
     try:
         # List Dimension's Access Profiles
         
-        api_response = api_instance.list_dimension_access_profiles(role_id, dimension_id, )
-        
+        results =DimensionsApi(api_client).list_dimension_access_profiles(role_id, dimension_id, )
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.list_dimension_access_profiles(role_id, dimension_id, limit, offset, count, filters, sorters)
+        # results = DimensionsApi(api_client).list_dimension_access_profiles(role_id, dimension_id, limit, offset, count, filters, sorters)
         print("The response of DimensionsApi->list_dimension_access_profiles:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling DimensionsApi->list_dimension_access_profiles: %s\n" % e)
 ```
 
@@ -535,10 +555,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.dimensions_api import DimensionsApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.dimension import Dimension
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     role_id = '6603fba3004f43c687610a29195252ce' # str | Parent Role Id of the dimension. # str | Parent Role Id of the dimension.
     for_subadmin = '5168015d32f890ca15812c9180835d2e' # str | If provided, filters the returned list according to what is visible to the indicated ROLE_SUBADMIN Identity. The value of the parameter is either an Identity ID, or the special value **me**, which is shorthand for the calling Identity's ID. A 400 Bad Request error is returned if the **for-subadmin** parameter is specified for an Identity that is not a subadmin. (optional) # str | If provided, filters the returned list according to what is visible to the indicated ROLE_SUBADMIN Identity. The value of the parameter is either an Identity ID, or the special value **me**, which is shorthand for the calling Identity's ID. A 400 Bad Request error is returned if the **for-subadmin** parameter is specified for an Identity that is not a subadmin. (optional)
     limit = 50 # int | Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 50) # int | Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 50)
@@ -550,13 +574,12 @@ from pprint import pprint
     try:
         # List Dimensions
         
-        api_response = api_instance.list_dimensions(role_id, )
-        
+        results =DimensionsApi(api_client).list_dimensions(role_id, )
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.list_dimensions(role_id, for_subadmin, limit, offset, count, filters, sorters)
+        # results = DimensionsApi(api_client).list_dimensions(role_id, for_subadmin, limit, offset, count, filters, sorters)
         print("The response of DimensionsApi->list_dimensions:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling DimensionsApi->list_dimensions: %s\n" % e)
 ```
 
@@ -603,11 +626,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.dimensions_api import DimensionsApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.dimension import Dimension
 from sailpoint.v2024.models.json_patch_operation import JsonPatchOperation
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     role_id = '6603fba3004f43c687610a29195252ce' # str | Parent Role Id of the dimension. # str | Parent Role Id of the dimension.
     dimension_id = '2c9180835d191a86015d28455b4a2329' # str | Id of the Dimension # str | Id of the Dimension
     [{op=replace, path=/description, value=Test Description}, {op=replace, path=/name, value=new name}] # List[JsonPatchOperation] | 
@@ -620,14 +647,14 @@ from pprint import pprint
 
     try:
         # Patch a specified Dimension
-        Result = json_patch_operation.from_json(json_patch_operation)
-        api_response = api_instance.patch_dimension(role_id, dimension_id, Result)
-        
+        new_json_patch_operation = JsonPatchOperation()
+        new_json_patch_operation.from_json(json_patch_operation)
+        results =DimensionsApi(api_client).patch_dimension(role_id, dimension_id, new_json_patch_operation)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.patch_dimension(role_id, dimension_id, Result)
+        # results = DimensionsApi(api_client).patch_dimension(role_id, dimension_id, new_json_patch_operation)
         print("The response of DimensionsApi->patch_dimension:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling DimensionsApi->patch_dimension: %s\n" % e)
 ```
 

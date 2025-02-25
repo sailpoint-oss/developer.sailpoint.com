@@ -57,9 +57,13 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
-from sailpoint.beta.rest import ApiException
+from sailpoint.beta.api.access_request_identity_metrics_api import AccessRequestIdentityMetricsApi
+from sailpoint.beta.api_client import ApiClient
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     identity_id = '7025c863-c270-4ba6-beea-edf3cb091573' # str | Manager's identity ID. # str | Manager's identity ID.
     requested_object_id = '2db501be-f0fb-4cc5-a695-334133c52891' # str | Requested access item's ID. # str | Requested access item's ID.
     type = 'ENTITLEMENT' # str | Requested access item's type. # str | Requested access item's type.
@@ -67,13 +71,12 @@ from pprint import pprint
     try:
         # Return access request identity metrics
         
-        api_response = api_instance.get_access_request_identity_metrics(identity_id, requested_object_id, type)
-        
+        results =AccessRequestIdentityMetricsApi(api_client).get_access_request_identity_metrics(identity_id, requested_object_id, type)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_access_request_identity_metrics(identity_id, requested_object_id, type)
+        # results = AccessRequestIdentityMetricsApi(api_client).get_access_request_identity_metrics(identity_id, requested_object_id, type)
         print("The response of AccessRequestIdentityMetricsApi->get_access_request_identity_metrics:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling AccessRequestIdentityMetricsApi->get_access_request_identity_metrics: %s\n" % e)
 ```
 

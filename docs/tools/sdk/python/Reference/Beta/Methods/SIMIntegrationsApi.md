@@ -65,11 +65,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.sim_integrations_api import SIMIntegrationsApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.service_desk_integration_dto import ServiceDeskIntegrationDto
 from sailpoint.beta.models.sim_integration_details import SimIntegrationDetails
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     sim_integration_details = {
           "cluster" : "xyzzy999",
           "statusMap" : "{closed_cancelled=Failed, closed_complete=Committed, closed_incomplete=Failed, closed_rejected=Failed, in_process=Queued, requested=Queued}",
@@ -91,14 +95,14 @@ from pprint import pprint
 
     try:
         # Create new SIM integration
-        Result = sim_integration_details.from_json(sim_integration_details)
-        api_response = api_instance.create_sim_integration(Result)
-        
+        new_sim_integration_details = SimIntegrationDetails()
+        new_sim_integration_details.from_json(sim_integration_details)
+        results =SIMIntegrationsApi(api_client).create_sim_integration(new_sim_integration_details)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.create_sim_integration(Result)
+        # results = SIMIntegrationsApi(api_client).create_sim_integration(new_sim_integration_details)
         print("The response of SIMIntegrationsApi->create_sim_integration:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SIMIntegrationsApi->create_sim_integration: %s\n" % e)
 ```
 
@@ -140,19 +144,22 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
-from sailpoint.beta.rest import ApiException
+from sailpoint.beta.api.sim_integrations_api import SIMIntegrationsApi
+from sailpoint.beta.api_client import ApiClient
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = '12345' # str | The id of the integration to delete. # str | The id of the integration to delete.
 
     try:
         # Delete a SIM integration
         
-        api_instance.delete_sim_integration(id)
-        
+        SIMIntegrationsApi(api_client).delete_sim_integration(id)
         # Below is a request that includes all optional parameters
-        # api_instance.delete_sim_integration(id)
-    except Exception as e:
+        # SIMIntegrationsApi(api_client).delete_sim_integration(id)
+        except Exception as e:
         print("Exception when calling SIMIntegrationsApi->delete_sim_integration: %s\n" % e)
 ```
 
@@ -194,22 +201,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.sim_integrations_api import SIMIntegrationsApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.service_desk_integration_dto import ServiceDeskIntegrationDto
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = '12345' # str | The id of the integration. # str | The id of the integration.
 
     try:
         # Get a SIM integration details.
         
-        api_response = api_instance.get_sim_integration(id)
-        
+        results =SIMIntegrationsApi(api_client).get_sim_integration(id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_sim_integration(id)
+        # results = SIMIntegrationsApi(api_client).get_sim_integration(id)
         print("The response of SIMIntegrationsApi->get_sim_integration:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SIMIntegrationsApi->get_sim_integration: %s\n" % e)
 ```
 
@@ -248,21 +258,24 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.sim_integrations_api import SIMIntegrationsApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.service_desk_integration_dto import ServiceDeskIntegrationDto
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
 
     try:
         # List the existing SIM integrations.
         
-        api_response = api_instance.get_sim_integrations()
-        
+        results =SIMIntegrationsApi(api_client).get_sim_integrations()
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_sim_integrations()
+        # results = SIMIntegrationsApi(api_client).get_sim_integrations()
         print("The response of SIMIntegrationsApi->get_sim_integrations:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SIMIntegrationsApi->get_sim_integrations: %s\n" % e)
 ```
 
@@ -305,24 +318,28 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.sim_integrations_api import SIMIntegrationsApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.json_patch import JsonPatch
 from sailpoint.beta.models.service_desk_integration_dto import ServiceDeskIntegrationDto
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = '12345' # str | SIM integration id # str | SIM integration id
     json_patch = "[\n  {\n\t  \"op\": \"replace\",\n\t  \"path\": \"/description\",\n\t  \"value\": \"A new description\"\n  }\n]" # JsonPatch | The JsonPatch object that describes the changes of SIM beforeProvisioningRule.
 
     try:
         # Patch a SIM beforeProvisioningRule attribute.
-        Result = json_patch.from_json(json_patch)
-        api_response = api_instance.patch_before_provisioning_rule(id, Result)
-        
+        new_json_patch = JsonPatch()
+        new_json_patch.from_json(json_patch)
+        results =SIMIntegrationsApi(api_client).patch_before_provisioning_rule(id, new_json_patch)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.patch_before_provisioning_rule(id, Result)
+        # results = SIMIntegrationsApi(api_client).patch_before_provisioning_rule(id, new_json_patch)
         print("The response of SIMIntegrationsApi->patch_before_provisioning_rule:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SIMIntegrationsApi->patch_before_provisioning_rule: %s\n" % e)
 ```
 
@@ -365,24 +382,28 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.sim_integrations_api import SIMIntegrationsApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.json_patch import JsonPatch
 from sailpoint.beta.models.service_desk_integration_dto import ServiceDeskIntegrationDto
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = '12345' # str | SIM integration id # str | SIM integration id
     json_patch = "[\n  {\n\t  \"op\": \"replace\",\n\t  \"path\": \"/description\",\n\t  \"value\": \"A new description\"\n  }\n]" # JsonPatch | The JsonPatch object that describes the changes of SIM
 
     try:
         # Patch a SIM attribute.
-        Result = json_patch.from_json(json_patch)
-        api_response = api_instance.patch_sim_attributes(id, Result)
-        
+        new_json_patch = JsonPatch()
+        new_json_patch.from_json(json_patch)
+        results =SIMIntegrationsApi(api_client).patch_sim_attributes(id, new_json_patch)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.patch_sim_attributes(id, Result)
+        # results = SIMIntegrationsApi(api_client).patch_sim_attributes(id, new_json_patch)
         print("The response of SIMIntegrationsApi->patch_sim_attributes:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SIMIntegrationsApi->patch_sim_attributes: %s\n" % e)
 ```
 
@@ -425,11 +446,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.sim_integrations_api import SIMIntegrationsApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.service_desk_integration_dto import ServiceDeskIntegrationDto
 from sailpoint.beta.models.sim_integration_details import SimIntegrationDetails
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = '12345' # str | The id of the integration. # str | The id of the integration.
     sim_integration_details = {
           "cluster" : "xyzzy999",
@@ -452,14 +477,14 @@ from pprint import pprint
 
     try:
         # Update an existing SIM integration
-        Result = sim_integration_details.from_json(sim_integration_details)
-        api_response = api_instance.put_sim_integration(id, Result)
-        
+        new_sim_integration_details = SimIntegrationDetails()
+        new_sim_integration_details.from_json(sim_integration_details)
+        results =SIMIntegrationsApi(api_client).put_sim_integration(id, new_sim_integration_details)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.put_sim_integration(id, Result)
+        # results = SIMIntegrationsApi(api_client).put_sim_integration(id, new_sim_integration_details)
         print("The response of SIMIntegrationsApi->put_sim_integration:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SIMIntegrationsApi->put_sim_integration: %s\n" % e)
 ```
 

@@ -59,23 +59,26 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.approvals_api import ApprovalsApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.approval import Approval
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = '38453251-6be2-5f8f-df93-5ce19e295837' # str | ID of the approval that is to be returned # str | ID of the approval that is to be returned
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
         # Get an approval
         
-        api_response = api_instance.get_approval(id, x_sail_point_experimental)
-        
+        results =ApprovalsApi(api_client).get_approval(id, x_sail_point_experimental)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_approval(id, x_sail_point_experimental)
+        # results = ApprovalsApi(api_client).get_approval(id, x_sail_point_experimental)
         print("The response of ApprovalsApi->get_approval:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling ApprovalsApi->get_approval: %s\n" % e)
 ```
 
@@ -123,10 +126,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.approvals_api import ApprovalsApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.approval import Approval
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     mine = true # bool | Returns the list of approvals for the current caller (optional) # bool | Returns the list of approvals for the current caller (optional)
     requester_id = '17e633e7d57e481569df76323169deb6a' # str | Returns the list of approvals for a given requester ID (optional) # str | Returns the list of approvals for a given requester ID (optional)
@@ -135,13 +142,12 @@ from pprint import pprint
     try:
         # Get Approvals
         
-        api_response = api_instance.get_approvals(x_sail_point_experimental, )
-        
+        results =ApprovalsApi(api_client).get_approvals(x_sail_point_experimental, )
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_approvals(x_sail_point_experimental, mine, requester_id, filters)
+        # results = ApprovalsApi(api_client).get_approvals(x_sail_point_experimental, mine, requester_id, filters)
         print("The response of ApprovalsApi->get_approvals:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling ApprovalsApi->get_approvals: %s\n" % e)
 ```
 

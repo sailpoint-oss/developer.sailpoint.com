@@ -57,11 +57,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.iai_recommendations_api import IAIRecommendationsApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.recommendation_request_dto import RecommendationRequestDto
 from sailpoint.v2024.models.recommendation_response_dto import RecommendationResponseDto
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     recommendation_request_dto = {
           "prescribeMode" : false,
@@ -85,14 +89,14 @@ from pprint import pprint
 
     try:
         # Returns a Recommendation Based on Object
-        Result = recommendation_request_dto.from_json(recommendation_request_dto)
-        api_response = api_instance.get_recommendations(x_sail_point_experimental, Result)
-        
+        new_recommendation_request_dto = RecommendationRequestDto()
+        new_recommendation_request_dto.from_json(recommendation_request_dto)
+        results =IAIRecommendationsApi(api_client).get_recommendations(x_sail_point_experimental, new_recommendation_request_dto)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_recommendations(x_sail_point_experimental, Result)
+        # results = IAIRecommendationsApi(api_client).get_recommendations(x_sail_point_experimental, new_recommendation_request_dto)
         print("The response of IAIRecommendationsApi->get_recommendations:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling IAIRecommendationsApi->get_recommendations: %s\n" % e)
 ```
 
@@ -135,22 +139,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.iai_recommendations_api import IAIRecommendationsApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.recommendation_config_dto import RecommendationConfigDto
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
         # Get certification recommendation config values
         
-        api_response = api_instance.get_recommendations_config(x_sail_point_experimental)
-        
+        results =IAIRecommendationsApi(api_client).get_recommendations_config(x_sail_point_experimental)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_recommendations_config(x_sail_point_experimental)
+        # results = IAIRecommendationsApi(api_client).get_recommendations_config(x_sail_point_experimental)
         print("The response of IAIRecommendationsApi->get_recommendations_config:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling IAIRecommendationsApi->get_recommendations_config: %s\n" % e)
 ```
 
@@ -194,10 +201,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.iai_recommendations_api import IAIRecommendationsApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.recommendation_config_dto import RecommendationConfigDto
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     recommendation_config_dto = {
           "recommenderFeatures" : [ "jobTitle", "location", "peer_group", "department", "active" ],
@@ -208,14 +219,14 @@ from pprint import pprint
 
     try:
         # Update certification recommendation config values
-        Result = recommendation_config_dto.from_json(recommendation_config_dto)
-        api_response = api_instance.update_recommendations_config(x_sail_point_experimental, Result)
-        
+        new_recommendation_config_dto = RecommendationConfigDto()
+        new_recommendation_config_dto.from_json(recommendation_config_dto)
+        results =IAIRecommendationsApi(api_client).update_recommendations_config(x_sail_point_experimental, new_recommendation_config_dto)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.update_recommendations_config(x_sail_point_experimental, Result)
+        # results = IAIRecommendationsApi(api_client).update_recommendations_config(x_sail_point_experimental, new_recommendation_config_dto)
         print("The response of IAIRecommendationsApi->update_recommendations_config:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling IAIRecommendationsApi->update_recommendations_config: %s\n" % e)
 ```
 

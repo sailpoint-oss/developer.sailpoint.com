@@ -70,11 +70,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.notifications_api import NotificationsApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.domain_address import DomainAddress
 from sailpoint.v2024.models.domain_status_dto import DomainStatusDto
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     domain_address = {
           "domain" : "sailpoint.com"
@@ -82,14 +86,14 @@ from pprint import pprint
 
     try:
         # Verify domain address via DKIM
-        Result = domain_address.from_json(domain_address)
-        api_response = api_instance.create_domain_dkim(x_sail_point_experimental, Result)
-        
+        new_domain_address = DomainAddress()
+        new_domain_address.from_json(domain_address)
+        results =NotificationsApi(api_client).create_domain_dkim(x_sail_point_experimental, new_domain_address)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.create_domain_dkim(x_sail_point_experimental, Result)
+        # results = NotificationsApi(api_client).create_domain_dkim(x_sail_point_experimental, new_domain_address)
         print("The response of NotificationsApi->create_domain_dkim:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling NotificationsApi->create_domain_dkim: %s\n" % e)
 ```
 
@@ -136,10 +140,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.notifications_api import NotificationsApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.template_dto import TemplateDto
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     template_dto = {
           "slackTemplate" : "slackTemplate",
@@ -162,14 +170,14 @@ from pprint import pprint
 
     try:
         # Create Notification Template
-        Result = template_dto.from_json(template_dto)
-        api_response = api_instance.create_notification_template(x_sail_point_experimental, Result)
-        
+        new_template_dto = TemplateDto()
+        new_template_dto.from_json(template_dto)
+        results =NotificationsApi(api_client).create_notification_template(x_sail_point_experimental, new_template_dto)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.create_notification_template(x_sail_point_experimental, Result)
+        # results = NotificationsApi(api_client).create_notification_template(x_sail_point_experimental, new_template_dto)
         print("The response of NotificationsApi->create_notification_template:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling NotificationsApi->create_notification_template: %s\n" % e)
 ```
 
@@ -214,10 +222,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.notifications_api import NotificationsApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.email_status_dto import EmailStatusDto
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     email_status_dto = {
           "isVerifiedByDomain" : false,
@@ -228,14 +240,14 @@ from pprint import pprint
 
     try:
         # Create Verified From Address
-        Result = email_status_dto.from_json(email_status_dto)
-        api_response = api_instance.create_verified_from_address(x_sail_point_experimental, Result)
-        
+        new_email_status_dto = EmailStatusDto()
+        new_email_status_dto.from_json(email_status_dto)
+        results =NotificationsApi(api_client).create_verified_from_address(x_sail_point_experimental, new_email_status_dto)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.create_verified_from_address(x_sail_point_experimental, Result)
+        # results = NotificationsApi(api_client).create_verified_from_address(x_sail_point_experimental, new_email_status_dto)
         print("The response of NotificationsApi->create_verified_from_address:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling NotificationsApi->create_verified_from_address: %s\n" % e)
 ```
 
@@ -280,10 +292,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.notifications_api import NotificationsApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.template_bulk_delete_dto import TemplateBulkDeleteDto
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     [sailpoint.v2024.TemplateBulkDeleteDto()] # List[TemplateBulkDeleteDto] | 
      template_bulk_delete_dto = {
@@ -295,12 +311,12 @@ from pprint import pprint
 
     try:
         # Bulk Delete Notification Templates
-        Result = template_bulk_delete_dto.from_json(template_bulk_delete_dto)
-        api_instance.delete_notification_templates_in_bulk(x_sail_point_experimental, Result)
-        
+        new_template_bulk_delete_dto = TemplateBulkDeleteDto()
+        new_template_bulk_delete_dto.from_json(template_bulk_delete_dto)
+        NotificationsApi(api_client).delete_notification_templates_in_bulk(x_sail_point_experimental, new_template_bulk_delete_dto)
         # Below is a request that includes all optional parameters
-        # api_instance.delete_notification_templates_in_bulk(x_sail_point_experimental, Result)
-    except Exception as e:
+        # NotificationsApi(api_client).delete_notification_templates_in_bulk(x_sail_point_experimental, new_template_bulk_delete_dto)
+        except Exception as e:
         print("Exception when calling NotificationsApi->delete_notification_templates_in_bulk: %s\n" % e)
 ```
 
@@ -346,20 +362,23 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
-from sailpoint.v2024.rest import ApiException
+from sailpoint.v2024.api.notifications_api import NotificationsApi
+from sailpoint.v2024.api_client import ApiClient
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'id_example' # str |  # str | 
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
         # Delete Verified From Address
         
-        api_instance.delete_verified_from_address(id, x_sail_point_experimental)
-        
+        NotificationsApi(api_client).delete_verified_from_address(id, x_sail_point_experimental)
         # Below is a request that includes all optional parameters
-        # api_instance.delete_verified_from_address(id, x_sail_point_experimental)
-    except Exception as e:
+        # NotificationsApi(api_client).delete_verified_from_address(id, x_sail_point_experimental)
+        except Exception as e:
         print("Exception when calling NotificationsApi->delete_verified_from_address: %s\n" % e)
 ```
 
@@ -403,22 +422,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.notifications_api import NotificationsApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.dkim_attributes import DkimAttributes
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
         # Get DKIM Attributes
         
-        api_response = api_instance.get_dkim_attributes(x_sail_point_experimental)
-        
+        results =NotificationsApi(api_client).get_dkim_attributes(x_sail_point_experimental)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_dkim_attributes(x_sail_point_experimental)
+        # results = NotificationsApi(api_client).get_dkim_attributes(x_sail_point_experimental)
         print("The response of NotificationsApi->get_dkim_attributes:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling NotificationsApi->get_dkim_attributes: %s\n" % e)
 ```
 
@@ -463,23 +485,26 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.notifications_api import NotificationsApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.mail_from_attributes import MailFromAttributes
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'bobsmith@sailpoint.com' # str | Returns the MX and TXT record to be put in your DNS, as well as the MAIL FROM domain status # str | Returns the MX and TXT record to be put in your DNS, as well as the MAIL FROM domain status
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
         # Get MAIL FROM Attributes
         
-        api_response = api_instance.get_mail_from_attributes(id, x_sail_point_experimental)
-        
+        results =NotificationsApi(api_client).get_mail_from_attributes(id, x_sail_point_experimental)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_mail_from_attributes(id, x_sail_point_experimental)
+        # results = NotificationsApi(api_client).get_mail_from_attributes(id, x_sail_point_experimental)
         print("The response of NotificationsApi->get_mail_from_attributes:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling NotificationsApi->get_mail_from_attributes: %s\n" % e)
 ```
 
@@ -524,23 +549,26 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.notifications_api import NotificationsApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.template_dto import TemplateDto
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'c17bea3a-574d-453c-9e04-4365fbf5af0b' # str | Id of the Notification Template # str | Id of the Notification Template
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
         # Get Notification Template By Id
         
-        api_response = api_instance.get_notification_template(id, x_sail_point_experimental)
-        
+        results =NotificationsApi(api_client).get_notification_template(id, x_sail_point_experimental)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_notification_template(id, x_sail_point_experimental)
+        # results = NotificationsApi(api_client).get_notification_template(id, x_sail_point_experimental)
         print("The response of NotificationsApi->get_notification_template:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling NotificationsApi->get_notification_template: %s\n" % e)
 ```
 
@@ -585,22 +613,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.notifications_api import NotificationsApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.notification_template_context import NotificationTemplateContext
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
         # Get Notification Template Context
         
-        api_response = api_instance.get_notifications_template_context(x_sail_point_experimental)
-        
+        results =NotificationsApi(api_client).get_notifications_template_context(x_sail_point_experimental)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_notifications_template_context(x_sail_point_experimental)
+        # results = NotificationsApi(api_client).get_notifications_template_context(x_sail_point_experimental)
         print("The response of NotificationsApi->get_notifications_template_context:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling NotificationsApi->get_notifications_template_context: %s\n" % e)
 ```
 
@@ -648,10 +679,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.notifications_api import NotificationsApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.email_status_dto import EmailStatusDto
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -662,13 +697,12 @@ from pprint import pprint
     try:
         # List From Addresses
         
-        api_response = api_instance.list_from_addresses(x_sail_point_experimental, )
-        
+        results =NotificationsApi(api_client).list_from_addresses(x_sail_point_experimental, )
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.list_from_addresses(x_sail_point_experimental, limit, offset, count, filters, sorters)
+        # results = NotificationsApi(api_client).list_from_addresses(x_sail_point_experimental, limit, offset, count, filters, sorters)
         print("The response of NotificationsApi->list_from_addresses:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling NotificationsApi->list_from_addresses: %s\n" % e)
 ```
 
@@ -713,22 +747,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.notifications_api import NotificationsApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.preferences_dto import PreferencesDto
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
         # List Notification Preferences for tenant.
         
-        api_response = api_instance.list_notification_preferences(x_sail_point_experimental)
-        
+        results =NotificationsApi(api_client).list_notification_preferences(x_sail_point_experimental)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.list_notification_preferences(x_sail_point_experimental)
+        # results = NotificationsApi(api_client).list_notification_preferences(x_sail_point_experimental)
         print("The response of NotificationsApi->list_notification_preferences:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling NotificationsApi->list_notification_preferences: %s\n" % e)
 ```
 
@@ -775,10 +812,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.notifications_api import NotificationsApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.template_dto_default import TemplateDtoDefault
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -787,13 +828,12 @@ from pprint import pprint
     try:
         # List Notification Template Defaults
         
-        api_response = api_instance.list_notification_template_defaults(x_sail_point_experimental, )
-        
+        results =NotificationsApi(api_client).list_notification_template_defaults(x_sail_point_experimental, )
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.list_notification_template_defaults(x_sail_point_experimental, limit, offset, filters)
+        # results = NotificationsApi(api_client).list_notification_template_defaults(x_sail_point_experimental, limit, offset, filters)
         print("The response of NotificationsApi->list_notification_template_defaults:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling NotificationsApi->list_notification_template_defaults: %s\n" % e)
 ```
 
@@ -840,10 +880,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.notifications_api import NotificationsApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.template_dto import TemplateDto
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -852,13 +896,12 @@ from pprint import pprint
     try:
         # List Notification Templates
         
-        api_response = api_instance.list_notification_templates(x_sail_point_experimental, )
-        
+        results =NotificationsApi(api_client).list_notification_templates(x_sail_point_experimental, )
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.list_notification_templates(x_sail_point_experimental, limit, offset, filters)
+        # results = NotificationsApi(api_client).list_notification_templates(x_sail_point_experimental, limit, offset, filters)
         print("The response of NotificationsApi->list_notification_templates:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling NotificationsApi->list_notification_templates: %s\n" % e)
 ```
 
@@ -903,11 +946,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.notifications_api import NotificationsApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.mail_from_attributes import MailFromAttributes
 from sailpoint.v2024.models.mail_from_attributes_dto import MailFromAttributesDto
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     mail_from_attributes_dto = {
           "identity" : "BobSmith@sailpoint.com",
@@ -916,14 +963,14 @@ from pprint import pprint
 
     try:
         # Change MAIL FROM domain
-        Result = mail_from_attributes_dto.from_json(mail_from_attributes_dto)
-        api_response = api_instance.put_mail_from_attributes(x_sail_point_experimental, Result)
-        
+        new_mail_from_attributes_dto = MailFromAttributesDto()
+        new_mail_from_attributes_dto.from_json(mail_from_attributes_dto)
+        results =NotificationsApi(api_client).put_mail_from_attributes(x_sail_point_experimental, new_mail_from_attributes_dto)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.put_mail_from_attributes(x_sail_point_experimental, Result)
+        # results = NotificationsApi(api_client).put_mail_from_attributes(x_sail_point_experimental, new_mail_from_attributes_dto)
         print("The response of NotificationsApi->put_mail_from_attributes:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling NotificationsApi->put_mail_from_attributes: %s\n" % e)
 ```
 
@@ -969,10 +1016,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.notifications_api import NotificationsApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.send_test_notification_request_dto import SendTestNotificationRequestDto
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     send_test_notification_request_dto = {
           "context" : "{}",
@@ -982,12 +1033,12 @@ from pprint import pprint
 
     try:
         # Send Test Notification
-        Result = send_test_notification_request_dto.from_json(send_test_notification_request_dto)
-        api_instance.send_test_notification(x_sail_point_experimental, Result)
-        
+        new_send_test_notification_request_dto = SendTestNotificationRequestDto()
+        new_send_test_notification_request_dto.from_json(send_test_notification_request_dto)
+        NotificationsApi(api_client).send_test_notification(x_sail_point_experimental, new_send_test_notification_request_dto)
         # Below is a request that includes all optional parameters
-        # api_instance.send_test_notification(x_sail_point_experimental, Result)
-    except Exception as e:
+        # NotificationsApi(api_client).send_test_notification(x_sail_point_experimental, new_send_test_notification_request_dto)
+        except Exception as e:
         print("Exception when calling NotificationsApi->send_test_notification: %s\n" % e)
 ```
 

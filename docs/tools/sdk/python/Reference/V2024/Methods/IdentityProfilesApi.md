@@ -71,10 +71,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.identity_profiles_api import IdentityProfilesApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.identity_profile import IdentityProfile
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     identity_profile = {
           "owner" : {
             "name" : "William Wilson",
@@ -127,14 +131,14 @@ from pprint import pprint
 
     try:
         # Create an Identity Profile
-        Result = identity_profile.from_json(identity_profile)
-        api_response = api_instance.create_identity_profile(Result)
-        
+        new_identity_profile = IdentityProfile()
+        new_identity_profile.from_json(identity_profile)
+        results =IdentityProfilesApi(api_client).create_identity_profile(new_identity_profile)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.create_identity_profile(Result)
+        # results = IdentityProfilesApi(api_client).create_identity_profile(new_identity_profile)
         print("The response of IdentityProfilesApi->create_identity_profile:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling IdentityProfilesApi->create_identity_profile: %s\n" % e)
 ```
 
@@ -181,22 +185,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.identity_profiles_api import IdentityProfilesApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.task_result_simplified import TaskResultSimplified
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     identity_profile_id = 'ef38f94347e94562b5bb8424a56397d8' # str | The Identity Profile ID. # str | The Identity Profile ID.
 
     try:
         # Delete an Identity Profile
         
-        api_response = api_instance.delete_identity_profile(identity_profile_id)
-        
+        results =IdentityProfilesApi(api_client).delete_identity_profile(identity_profile_id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.delete_identity_profile(identity_profile_id)
+        # results = IdentityProfilesApi(api_client).delete_identity_profile(identity_profile_id)
         print("The response of IdentityProfilesApi->delete_identity_profile:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling IdentityProfilesApi->delete_identity_profile: %s\n" % e)
 ```
 
@@ -241,24 +248,28 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.identity_profiles_api import IdentityProfilesApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.task_result_simplified import TaskResultSimplified
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     request_body = ['request_body_example'] # List[str] | Identity Profile bulk delete request body.
      request_body = ['request_body_example'] # List[str] | Identity Profile bulk delete request body.
     
 
     try:
         # Delete Identity Profiles
-        Result = request_body.from_json(request_body)
-        api_response = api_instance.delete_identity_profiles(Result)
-        
+        new_request_body = RequestBody()
+        new_request_body.from_json(request_body)
+        results =IdentityProfilesApi(api_client).delete_identity_profiles(new_request_body)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.delete_identity_profiles(Result)
+        # results = IdentityProfilesApi(api_client).delete_identity_profiles(new_request_body)
         print("The response of IdentityProfilesApi->delete_identity_profiles:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling IdentityProfilesApi->delete_identity_profiles: %s\n" % e)
 ```
 
@@ -303,10 +314,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.identity_profiles_api import IdentityProfilesApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.identity_profile_exported_object import IdentityProfileExportedObject
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
     count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
@@ -316,13 +331,12 @@ from pprint import pprint
     try:
         # Export Identity Profiles
         
-        api_response = api_instance.export_identity_profiles()
-        
+        results =IdentityProfilesApi(api_client).export_identity_profiles()
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.export_identity_profiles(limit, offset, count, filters, sorters)
+        # results = IdentityProfilesApi(api_client).export_identity_profiles(limit, offset, count, filters, sorters)
         print("The response of IdentityProfilesApi->export_identity_profiles:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling IdentityProfilesApi->export_identity_profiles: %s\n" % e)
 ```
 
@@ -364,22 +378,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.identity_profiles_api import IdentityProfilesApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.identity_attribute_config import IdentityAttributeConfig
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     identity_profile_id = '2b838de9-db9b-abcf-e646-d4f274ad4238' # str | The Identity Profile ID. # str | The Identity Profile ID.
 
     try:
         # Get default Identity Attribute Config
         
-        api_response = api_instance.get_default_identity_attribute_config(identity_profile_id)
-        
+        results =IdentityProfilesApi(api_client).get_default_identity_attribute_config(identity_profile_id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_default_identity_attribute_config(identity_profile_id)
+        # results = IdentityProfilesApi(api_client).get_default_identity_attribute_config(identity_profile_id)
         print("The response of IdentityProfilesApi->get_default_identity_attribute_config:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling IdentityProfilesApi->get_default_identity_attribute_config: %s\n" % e)
 ```
 
@@ -421,22 +438,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.identity_profiles_api import IdentityProfilesApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.identity_profile import IdentityProfile
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     identity_profile_id = '2b838de9-db9b-abcf-e646-d4f274ad4238' # str | The Identity Profile ID. # str | The Identity Profile ID.
 
     try:
         # Get single Identity Profile
         
-        api_response = api_instance.get_identity_profile(identity_profile_id)
-        
+        results =IdentityProfilesApi(api_client).get_identity_profile(identity_profile_id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_identity_profile(identity_profile_id)
+        # results = IdentityProfilesApi(api_client).get_identity_profile(identity_profile_id)
         print("The response of IdentityProfilesApi->get_identity_profile:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling IdentityProfilesApi->get_identity_profile: %s\n" % e)
 ```
 
@@ -477,11 +497,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.identity_profiles_api import IdentityProfilesApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.identity_profile_exported_object import IdentityProfileExportedObject
 from sailpoint.v2024.models.object_import_result import ObjectImportResult
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     [sailpoint.v2024.IdentityProfileExportedObject()] # List[IdentityProfileExportedObject] | Previously exported Identity Profiles.
      identity_profile_exported_object = {
           "self" : {
@@ -544,14 +568,14 @@ from pprint import pprint
 
     try:
         # Import Identity Profiles
-        Result = identity_profile_exported_object.from_json(identity_profile_exported_object)
-        api_response = api_instance.import_identity_profiles(Result)
-        
+        new_identity_profile_exported_object = IdentityProfileExportedObject()
+        new_identity_profile_exported_object.from_json(identity_profile_exported_object)
+        results =IdentityProfilesApi(api_client).import_identity_profiles(new_identity_profile_exported_object)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.import_identity_profiles(Result)
+        # results = IdentityProfilesApi(api_client).import_identity_profiles(new_identity_profile_exported_object)
         print("The response of IdentityProfilesApi->import_identity_profiles:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling IdentityProfilesApi->import_identity_profiles: %s\n" % e)
 ```
 
@@ -596,10 +620,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.identity_profiles_api import IdentityProfilesApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.identity_profile import IdentityProfile
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
     count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
@@ -609,13 +637,12 @@ from pprint import pprint
     try:
         # Identity Profiles List
         
-        api_response = api_instance.list_identity_profiles()
-        
+        results =IdentityProfilesApi(api_client).list_identity_profiles()
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.list_identity_profiles(limit, offset, count, filters, sorters)
+        # results = IdentityProfilesApi(api_client).list_identity_profiles(limit, offset, count, filters, sorters)
         print("The response of IdentityProfilesApi->list_identity_profiles:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling IdentityProfilesApi->list_identity_profiles: %s\n" % e)
 ```
 
@@ -657,11 +684,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.identity_profiles_api import IdentityProfilesApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.identity_preview_request import IdentityPreviewRequest
 from sailpoint.v2024.models.identity_preview_response import IdentityPreviewResponse
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     identity_preview_request = {
           "identityId" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
           "identityAttributeConfig" : {
@@ -692,14 +723,14 @@ from pprint import pprint
 
     try:
         # Generate Identity Profile Preview
-        Result = identity_preview_request.from_json(identity_preview_request)
-        api_response = api_instance.show_identity_preview(Result)
-        
+        new_identity_preview_request = IdentityPreviewRequest()
+        new_identity_preview_request.from_json(identity_preview_request)
+        results =IdentityProfilesApi(api_client).show_identity_preview(new_identity_preview_request)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.show_identity_preview(Result)
+        # results = IdentityProfilesApi(api_client).show_identity_preview(new_identity_preview_request)
         print("The response of IdentityProfilesApi->show_identity_preview:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling IdentityProfilesApi->show_identity_preview: %s\n" % e)
 ```
 
@@ -745,21 +776,24 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
-from sailpoint.v2024.rest import ApiException
+from sailpoint.v2024.api.identity_profiles_api import IdentityProfilesApi
+from sailpoint.v2024.api_client import ApiClient
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     identity_profile_id = 'ef38f94347e94562b5bb8424a56397d8' # str | The Identity Profile ID to be processed # str | The Identity Profile ID to be processed
 
     try:
         # Process identities under profile
         
-        api_response = api_instance.sync_identity_profile(identity_profile_id)
-        
+        results =IdentityProfilesApi(api_client).sync_identity_profile(identity_profile_id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.sync_identity_profile(identity_profile_id)
+        # results = IdentityProfilesApi(api_client).sync_identity_profile(identity_profile_id)
         print("The response of IdentityProfilesApi->sync_identity_profile:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling IdentityProfilesApi->sync_identity_profile: %s\n" % e)
 ```
 
@@ -812,11 +846,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.identity_profiles_api import IdentityProfilesApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.identity_profile import IdentityProfile
 from sailpoint.v2024.models.json_patch_operation import JsonPatchOperation
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     identity_profile_id = 'ef38f94347e94562b5bb8424a56397d8' # str | The Identity Profile ID # str | The Identity Profile ID
     [{op=add, path=/identityAttributeConfig/attributeTransforms/0, value={identityAttributeName=location, transformDefinition={type=accountAttribute, attributes={sourceName=Employees, attributeName=location, sourceId=2c91808878b7d63b0178c66ffcdc4ce4}}}}] # List[JsonPatchOperation] | A list of Identity Profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
      json_patch_operation = {
@@ -828,14 +866,14 @@ from pprint import pprint
 
     try:
         # Update the Identity Profile
-        Result = json_patch_operation.from_json(json_patch_operation)
-        api_response = api_instance.update_identity_profile(identity_profile_id, Result)
-        
+        new_json_patch_operation = JsonPatchOperation()
+        new_json_patch_operation.from_json(json_patch_operation)
+        results =IdentityProfilesApi(api_client).update_identity_profile(identity_profile_id, new_json_patch_operation)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.update_identity_profile(identity_profile_id, Result)
+        # results = IdentityProfilesApi(api_client).update_identity_profile(identity_profile_id, new_json_patch_operation)
         print("The response of IdentityProfilesApi->update_identity_profile:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling IdentityProfilesApi->update_identity_profile: %s\n" % e)
 ```
 

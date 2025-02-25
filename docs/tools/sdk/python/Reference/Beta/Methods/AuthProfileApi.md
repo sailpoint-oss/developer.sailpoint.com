@@ -60,22 +60,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.auth_profile_api import AuthProfileApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.auth_profile import AuthProfile
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = '2c91808a7813090a017814121919ecca' # str | ID of the Auth Profile to get. # str | ID of the Auth Profile to get.
 
     try:
         # Get Auth Profile.
         
-        api_response = api_instance.get_profile_config(id)
-        
+        results =AuthProfileApi(api_client).get_profile_config(id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_profile_config(id)
+        # results = AuthProfileApi(api_client).get_profile_config(id)
         print("The response of AuthProfileApi->get_profile_config:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling AuthProfileApi->get_profile_config: %s\n" % e)
 ```
 
@@ -113,21 +116,24 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.auth_profile_api import AuthProfileApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.auth_profile_summary import AuthProfileSummary
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
 
     try:
         # Get list of Auth Profiles.
         
-        api_response = api_instance.get_profile_config_list()
-        
+        results =AuthProfileApi(api_client).get_profile_config_list()
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_profile_config_list()
+        # results = AuthProfileApi(api_client).get_profile_config_list()
         print("The response of AuthProfileApi->get_profile_config_list:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling AuthProfileApi->get_profile_config_list: %s\n" % e)
 ```
 
@@ -170,11 +176,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.auth_profile_api import AuthProfileApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.auth_profile import AuthProfile
 from sailpoint.beta.models.json_patch_operation import JsonPatchOperation
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = '2c91808a7813090a017814121919ecca' # str | ID of the Auth Profile to patch. # str | ID of the Auth Profile to patch.
     [sailpoint.beta.JsonPatchOperation()] # List[JsonPatchOperation] | 
      json_patch_operation = {
@@ -186,14 +196,14 @@ from pprint import pprint
 
     try:
         # Patch a specified Auth Profile
-        Result = json_patch_operation.from_json(json_patch_operation)
-        api_response = api_instance.patch_profile_config(id, Result)
-        
+        new_json_patch_operation = JsonPatchOperation()
+        new_json_patch_operation.from_json(json_patch_operation)
+        results =AuthProfileApi(api_client).patch_profile_config(id, new_json_patch_operation)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.patch_profile_config(id, Result)
+        # results = AuthProfileApi(api_client).patch_profile_config(id, new_json_patch_operation)
         print("The response of AuthProfileApi->patch_profile_config:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling AuthProfileApi->patch_profile_config: %s\n" % e)
 ```
 

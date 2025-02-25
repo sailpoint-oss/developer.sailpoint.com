@@ -60,11 +60,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.launchers_api import LaunchersApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.launcher import Launcher
 from sailpoint.beta.models.launcher_request import LauncherRequest
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     launcher_request = {
           "reference" : {
             "id" : "2fd6ff94-2081-4d29-acbc-83a0a2f744a5",
@@ -79,14 +83,14 @@ from pprint import pprint
 
     try:
         # Create launcher
-        Result = launcher_request.from_json(launcher_request)
-        api_response = api_instance.create_launcher(Result)
-        
+        new_launcher_request = LauncherRequest()
+        new_launcher_request.from_json(launcher_request)
+        results =LaunchersApi(api_client).create_launcher(new_launcher_request)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.create_launcher(Result)
+        # results = LaunchersApi(api_client).create_launcher(new_launcher_request)
         print("The response of LaunchersApi->create_launcher:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling LaunchersApi->create_launcher: %s\n" % e)
 ```
 
@@ -128,19 +132,22 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
-from sailpoint.beta.rest import ApiException
+from sailpoint.beta.api.launchers_api import LaunchersApi
+from sailpoint.beta.api_client import ApiClient
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     launcher_id = 'e3012408-8b61-4564-ad41-c5ec131c325b' # str | ID of the Launcher to be deleted # str | ID of the Launcher to be deleted
 
     try:
         # Delete Launcher
         
-        api_instance.delete_launcher(launcher_id)
-        
+        LaunchersApi(api_client).delete_launcher(launcher_id)
         # Below is a request that includes all optional parameters
-        # api_instance.delete_launcher(launcher_id)
-    except Exception as e:
+        # LaunchersApi(api_client).delete_launcher(launcher_id)
+        except Exception as e:
         print("Exception when calling LaunchersApi->delete_launcher: %s\n" % e)
 ```
 
@@ -182,22 +189,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.launchers_api import LaunchersApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.launcher import Launcher
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     launcher_id = 'e3012408-8b61-4564-ad41-c5ec131c325b' # str | ID of the Launcher to be retrieved # str | ID of the Launcher to be retrieved
 
     try:
         # Get Launcher by ID
         
-        api_response = api_instance.get_launcher(launcher_id)
-        
+        results =LaunchersApi(api_client).get_launcher(launcher_id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_launcher(launcher_id)
+        # results = LaunchersApi(api_client).get_launcher(launcher_id)
         print("The response of LaunchersApi->get_launcher:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling LaunchersApi->get_launcher: %s\n" % e)
 ```
 
@@ -241,10 +251,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.launchers_api import LaunchersApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.get_launchers200_response import GetLaunchers200Response
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     filters = 'disabled eq \"true\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **description**: *sw*  **disabled**: *eq*  **name**: *sw* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **description**: *sw*  **disabled**: *eq*  **name**: *sw* (optional)
     next = 'eyJuZXh0IjoxMjN9Cg==' # str | Pagination marker (optional) # str | Pagination marker (optional)
     limit = 10 # int | Number of Launchers to return (optional) (default to 10) # int | Number of Launchers to return (optional) (default to 10)
@@ -252,13 +266,12 @@ from pprint import pprint
     try:
         # List all Launchers for tenant
         
-        api_response = api_instance.get_launchers()
-        
+        results =LaunchersApi(api_client).get_launchers()
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_launchers(filters, next, limit)
+        # results = LaunchersApi(api_client).get_launchers(filters, next, limit)
         print("The response of LaunchersApi->get_launchers:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling LaunchersApi->get_launchers: %s\n" % e)
 ```
 
@@ -301,11 +314,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.launchers_api import LaunchersApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.launcher import Launcher
 from sailpoint.beta.models.launcher_request import LauncherRequest
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     launcher_id = 'e3012408-8b61-4564-ad41-c5ec131c325b' # str | ID of the Launcher to be replaced # str | ID of the Launcher to be replaced
     launcher_request = {
           "reference" : {
@@ -321,14 +338,14 @@ from pprint import pprint
 
     try:
         # Replace Launcher
-        Result = launcher_request.from_json(launcher_request)
-        api_response = api_instance.put_launcher(launcher_id, Result)
-        
+        new_launcher_request = LauncherRequest()
+        new_launcher_request.from_json(launcher_request)
+        results =LaunchersApi(api_client).put_launcher(launcher_id, new_launcher_request)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.put_launcher(launcher_id, Result)
+        # results = LaunchersApi(api_client).put_launcher(launcher_id, new_launcher_request)
         print("The response of LaunchersApi->put_launcher:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling LaunchersApi->put_launcher: %s\n" % e)
 ```
 
@@ -370,22 +387,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.launchers_api import LaunchersApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.start_launcher200_response import StartLauncher200Response
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     launcher_id = 'e3012408-8b61-4564-ad41-c5ec131c325b' # str | ID of the Launcher to be launched # str | ID of the Launcher to be launched
 
     try:
         # Launch a Launcher
         
-        api_response = api_instance.start_launcher(launcher_id)
-        
+        results =LaunchersApi(api_client).start_launcher(launcher_id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.start_launcher(launcher_id)
+        # results = LaunchersApi(api_client).start_launcher(launcher_id)
         print("The response of LaunchersApi->start_launcher:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling LaunchersApi->start_launcher: %s\n" % e)
 ```
 

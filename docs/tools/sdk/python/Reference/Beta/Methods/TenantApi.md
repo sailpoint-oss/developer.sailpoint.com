@@ -49,21 +49,24 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.tenant_api import TenantApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.tenant import Tenant
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
 
     try:
         # Get Tenant Information.
         
-        api_response = api_instance.get_tenant()
-        
+        results =TenantApi(api_client).get_tenant()
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_tenant()
+        # results = TenantApi(api_client).get_tenant()
         print("The response of TenantApi->get_tenant:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling TenantApi->get_tenant: %s\n" % e)
 ```
 

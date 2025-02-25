@@ -81,20 +81,23 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
-from sailpoint.v2024.rest import ApiException
+from sailpoint.v2024.api.identities_api import IdentitiesApi
+from sailpoint.v2024.api_client import ApiClient
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | Identity Id # str | Identity Id
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
         # Delete identity
         
-        api_instance.delete_identity(id, x_sail_point_experimental)
-        
+        IdentitiesApi(api_client).delete_identity(id, x_sail_point_experimental)
         # Below is a request that includes all optional parameters
-        # api_instance.delete_identity(id, x_sail_point_experimental)
-    except Exception as e:
+        # IdentitiesApi(api_client).delete_identity(id, x_sail_point_experimental)
+        except Exception as e:
         print("Exception when calling IdentitiesApi->delete_identity: %s\n" % e)
 ```
 
@@ -140,23 +143,26 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.identities_api import IdentitiesApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.identity import Identity
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | Identity Id # str | Identity Id
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
         # Identity Details
         
-        api_response = api_instance.get_identity(id, x_sail_point_experimental)
-        
+        results =IdentitiesApi(api_client).get_identity(id, x_sail_point_experimental)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_identity(id, x_sail_point_experimental)
+        # results = IdentitiesApi(api_client).get_identity(id, x_sail_point_experimental)
         print("The response of IdentitiesApi->get_identity:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling IdentitiesApi->get_identity: %s\n" % e)
 ```
 
@@ -204,23 +210,26 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.identities_api import IdentitiesApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.identity_ownership_association_details import IdentityOwnershipAssociationDetails
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     identity_id = 'ff8081814d2a8036014d701f3fbf53fa' # str | Identity ID. # str | Identity ID.
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
         # Get ownership details
         
-        api_response = api_instance.get_identity_ownership_details(identity_id, x_sail_point_experimental)
-        
+        results =IdentitiesApi(api_client).get_identity_ownership_details(identity_id, x_sail_point_experimental)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_identity_ownership_details(identity_id, x_sail_point_experimental)
+        # results = IdentitiesApi(api_client).get_identity_ownership_details(identity_id, x_sail_point_experimental)
         print("The response of IdentitiesApi->get_identity_ownership_details:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling IdentitiesApi->get_identity_ownership_details: %s\n" % e)
 ```
 
@@ -267,10 +276,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.identities_api import IdentitiesApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.role_assignment_dto import RoleAssignmentDto
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     identity_id = 'ef38f94347e94562b5bb8424a56397d8' # str | Identity Id # str | Identity Id
     assignment_id = '1cbb0705b38c4226b1334eadd8874086' # str | Assignment Id # str | Assignment Id
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -278,13 +291,12 @@ from pprint import pprint
     try:
         # Role assignment details
         
-        api_response = api_instance.get_role_assignment(identity_id, assignment_id, x_sail_point_experimental)
-        
+        results =IdentitiesApi(api_client).get_role_assignment(identity_id, assignment_id, x_sail_point_experimental)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_role_assignment(identity_id, assignment_id, x_sail_point_experimental)
+        # results = IdentitiesApi(api_client).get_role_assignment(identity_id, assignment_id, x_sail_point_experimental)
         print("The response of IdentitiesApi->get_role_assignment:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling IdentitiesApi->get_role_assignment: %s\n" % e)
 ```
 
@@ -332,10 +344,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.identities_api import IdentitiesApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.get_role_assignments200_response_inner import GetRoleAssignments200ResponseInner
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     identity_id = 'ef38f94347e94562b5bb8424a56397d8' # str | Identity Id to get the role assignments for # str | Identity Id to get the role assignments for
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     role_id = 'e7697a1e96d04db1ac7b0f4544915d2c' # str | Role Id to filter the role assignments with (optional) # str | Role Id to filter the role assignments with (optional)
@@ -344,13 +360,12 @@ from pprint import pprint
     try:
         # List role assignments
         
-        api_response = api_instance.get_role_assignments(identity_id, x_sail_point_experimental, )
-        
+        results =IdentitiesApi(api_client).get_role_assignments(identity_id, x_sail_point_experimental, )
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_role_assignments(identity_id, x_sail_point_experimental, role_id, role_name)
+        # results = IdentitiesApi(api_client).get_role_assignments(identity_id, x_sail_point_experimental, role_id, role_name)
         print("The response of IdentitiesApi->get_role_assignments:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling IdentitiesApi->get_role_assignments: %s\n" % e)
 ```
 
@@ -400,10 +415,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.identities_api import IdentitiesApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.identity import Identity
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     filters = 'id eq \"6c9079b270a266a60170a2779fcb0006\" or correlated eq false' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **alias**: *eq, sw*  **firstname**: *eq, sw*  **lastname**: *eq, sw*  **email**: *eq, sw*  **cloudStatus**: *eq*  **processingState**: *eq*  **correlated**: *eq*  **protected**: *eq* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **alias**: *eq, sw*  **firstname**: *eq, sw*  **lastname**: *eq, sw*  **email**: *eq, sw*  **cloudStatus**: *eq*  **processingState**: *eq*  **correlated**: *eq*  **protected**: *eq* (optional)
     sorters = 'name,-cloudStatus' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, alias, cloudStatus** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, alias, cloudStatus** (optional)
@@ -415,13 +434,12 @@ from pprint import pprint
     try:
         # List Identities
         
-        api_response = api_instance.list_identities(x_sail_point_experimental, )
-        
+        results =IdentitiesApi(api_client).list_identities(x_sail_point_experimental, )
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.list_identities(x_sail_point_experimental, filters, sorters, default_filter, count, limit, offset)
+        # results = IdentitiesApi(api_client).list_identities(x_sail_point_experimental, filters, sorters, default_filter, count, limit, offset)
         print("The response of IdentitiesApi->list_identities:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling IdentitiesApi->list_identities: %s\n" % e)
 ```
 
@@ -467,20 +485,23 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
-from sailpoint.v2024.rest import ApiException
+from sailpoint.v2024.api.identities_api import IdentitiesApi
+from sailpoint.v2024.api_client import ApiClient
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     identity_id = 'ef38f94347e94562b5bb8424a56397d8' # str | Identity Id # str | Identity Id
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
         # Reset an identity
         
-        api_instance.reset_identity(identity_id, x_sail_point_experimental)
-        
+        IdentitiesApi(api_client).reset_identity(identity_id, x_sail_point_experimental)
         # Below is a request that includes all optional parameters
-        # api_instance.reset_identity(identity_id, x_sail_point_experimental)
-    except Exception as e:
+        # IdentitiesApi(api_client).reset_identity(identity_id, x_sail_point_experimental)
+        except Exception as e:
         print("Exception when calling IdentitiesApi->reset_identity: %s\n" % e)
 ```
 
@@ -528,10 +549,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.identities_api import IdentitiesApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.send_account_verification_request import SendAccountVerificationRequest
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | Identity ID # str | Identity ID
     send_account_verification_request = {
@@ -541,12 +566,12 @@ from pprint import pprint
 
     try:
         # Send password reset email
-        Result = send_account_verification_request.from_json(send_account_verification_request)
-        api_instance.send_identity_verification_account_token(x_sail_point_experimental, id, Result)
-        
+        new_send_account_verification_request = SendAccountVerificationRequest()
+        new_send_account_verification_request.from_json(send_account_verification_request)
+        IdentitiesApi(api_client).send_identity_verification_account_token(x_sail_point_experimental, id, new_send_account_verification_request)
         # Below is a request that includes all optional parameters
-        # api_instance.send_identity_verification_account_token(x_sail_point_experimental, id, Result)
-    except Exception as e:
+        # IdentitiesApi(api_client).send_identity_verification_account_token(x_sail_point_experimental, id, new_send_account_verification_request)
+        except Exception as e:
         print("Exception when calling IdentitiesApi->send_identity_verification_account_token: %s\n" % e)
 ```
 
@@ -597,11 +622,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.identities_api import IdentitiesApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.invite_identities_request import InviteIdentitiesRequest
 from sailpoint.v2024.models.task_status import TaskStatus
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     invite_identities_request = {
           "ids" : [ "2b568c65bc3c4c57a43bd97e3a8e55", "2c9180867769897d01776ed5f125512f" ],
@@ -610,14 +639,14 @@ from pprint import pprint
 
     try:
         # Invite identities to register
-        Result = invite_identities_request.from_json(invite_identities_request)
-        api_response = api_instance.start_identities_invite(x_sail_point_experimental, Result)
-        
+        new_invite_identities_request = InviteIdentitiesRequest()
+        new_invite_identities_request.from_json(invite_identities_request)
+        results =IdentitiesApi(api_client).start_identities_invite(x_sail_point_experimental, new_invite_identities_request)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.start_identities_invite(x_sail_point_experimental, Result)
+        # results = IdentitiesApi(api_client).start_identities_invite(x_sail_point_experimental, new_invite_identities_request)
         print("The response of IdentitiesApi->start_identities_invite:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling IdentitiesApi->start_identities_invite: %s\n" % e)
 ```
 
@@ -670,11 +699,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.identities_api import IdentitiesApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.process_identities_request import ProcessIdentitiesRequest
 from sailpoint.v2024.models.task_result_response import TaskResultResponse
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     process_identities_request = {
           "identityIds" : [ "ef38f94347e94562b5bb8424a56397d8", "ef38f94347e94562b5bb8424a56397d8", "ef38f94347e94562b5bb8424a56397d8", "ef38f94347e94562b5bb8424a56397d8", "ef38f94347e94562b5bb8424a56397d8" ]
@@ -682,14 +715,14 @@ from pprint import pprint
 
     try:
         # Process a list of identityIds
-        Result = process_identities_request.from_json(process_identities_request)
-        api_response = api_instance.start_identity_processing(x_sail_point_experimental, Result)
-        
+        new_process_identities_request = ProcessIdentitiesRequest()
+        new_process_identities_request.from_json(process_identities_request)
+        results =IdentitiesApi(api_client).start_identity_processing(x_sail_point_experimental, new_process_identities_request)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.start_identity_processing(x_sail_point_experimental, Result)
+        # results = IdentitiesApi(api_client).start_identity_processing(x_sail_point_experimental, new_process_identities_request)
         print("The response of IdentitiesApi->start_identity_processing:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling IdentitiesApi->start_identity_processing: %s\n" % e)
 ```
 
@@ -735,23 +768,26 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.identities_api import IdentitiesApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.identity_sync_job import IdentitySyncJob
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     identity_id = 'identity_id_example' # str | The Identity id # str | The Identity id
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
         # Attribute synchronization for single identity.
         
-        api_response = api_instance.synchronize_attributes_for_identity(identity_id, x_sail_point_experimental)
-        
+        results =IdentitiesApi(api_client).synchronize_attributes_for_identity(identity_id, x_sail_point_experimental)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.synchronize_attributes_for_identity(identity_id, x_sail_point_experimental)
+        # results = IdentitiesApi(api_client).synchronize_attributes_for_identity(identity_id, x_sail_point_experimental)
         print("The response of IdentitiesApi->synchronize_attributes_for_identity:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling IdentitiesApi->synchronize_attributes_for_identity: %s\n" % e)
 ```
 

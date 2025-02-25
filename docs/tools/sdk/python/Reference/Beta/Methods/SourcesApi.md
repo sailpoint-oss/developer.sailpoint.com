@@ -154,10 +154,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.sources_api import SourcesApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.provisioning_policy_dto import ProvisioningPolicyDto
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     source_id = '2c9180835d191a86015d28455b4a2329' # str | The Source id # str | The Source id
     provisioning_policy_dto = {
           "name" : "example provisioning policy for inactive identities",
@@ -202,14 +206,14 @@ from pprint import pprint
 
     try:
         # Create Provisioning Policy
-        Result = provisioning_policy_dto.from_json(provisioning_policy_dto)
-        api_response = api_instance.create_provisioning_policy(source_id, Result)
-        
+        new_provisioning_policy_dto = ProvisioningPolicyDto()
+        new_provisioning_policy_dto.from_json(provisioning_policy_dto)
+        results =SourcesApi(api_client).create_provisioning_policy(source_id, new_provisioning_policy_dto)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.create_provisioning_policy(source_id, Result)
+        # results = SourcesApi(api_client).create_provisioning_policy(source_id, new_provisioning_policy_dto)
         print("The response of SourcesApi->create_provisioning_policy:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SourcesApi->create_provisioning_policy: %s\n" % e)
 ```
 
@@ -252,10 +256,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.sources_api import SourcesApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.source import Source
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     source = {
           "cluster" : {
             "name" : "Corporate Cluster",
@@ -343,14 +351,14 @@ from pprint import pprint
 
     try:
         # Creates a source in IdentityNow.
-        Result = source.from_json(source)
-        api_response = api_instance.create_source(Result, )
-        
+        new_source = Source()
+        new_source.from_json(source)
+        results =SourcesApi(api_client).create_source(new_source, )
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.create_source(Result, provision_as_csv)
+        # results = SourcesApi(api_client).create_source(new_source, provision_as_csv)
         print("The response of SourcesApi->create_source:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SourcesApi->create_source: %s\n" % e)
 ```
 
@@ -392,23 +400,27 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.sources_api import SourcesApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.model_schema import ModelSchema
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     source_id = '2c9180835d191a86015d28455b4a2329' # str | Source ID. # str | Source ID.
     model_schema = sailpoint.beta.ModelSchema() # ModelSchema | 
 
     try:
         # Create Schema on Source
-        Result = model_schema.from_json(model_schema)
-        api_response = api_instance.create_source_schema(source_id, Result)
-        
+        new_model_schema = ModelSchema()
+        new_model_schema.from_json(model_schema)
+        results =SourcesApi(api_client).create_source_schema(source_id, new_model_schema)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.create_source_schema(source_id, Result)
+        # results = SourcesApi(api_client).create_source_schema(source_id, new_model_schema)
         print("The response of SourcesApi->create_source_schema:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SourcesApi->create_source_schema: %s\n" % e)
 ```
 
@@ -452,22 +464,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.sources_api import SourcesApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.delete202_response import Delete202Response
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = '2c9180835d191a86015d28455b4a2329' # str | Source ID. # str | Source ID.
 
     try:
         # Delete Source by ID
         
-        api_response = api_instance.delete(id)
-        
+        results =SourcesApi(api_client).delete(id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.delete(id)
+        # results = SourcesApi(api_client).delete(id)
         print("The response of SourcesApi->delete:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SourcesApi->delete: %s\n" % e)
 ```
 
@@ -514,22 +529,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.sources_api import SourcesApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.task_result_dto import TaskResultDto
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     source_id = 'ebbf35756e1140699ce52b233121384a' # str | The source id # str | The source id
 
     try:
         # Remove All Accounts in a Source
         
-        api_response = api_instance.delete_accounts_async(source_id)
-        
+        results =SourcesApi(api_client).delete_accounts_async(source_id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.delete_accounts_async(source_id)
+        # results = SourcesApi(api_client).delete_accounts_async(source_id)
         print("The response of SourcesApi->delete_accounts_async:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SourcesApi->delete_accounts_async: %s\n" % e)
 ```
 
@@ -572,19 +590,22 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
-from sailpoint.beta.rest import ApiException
+from sailpoint.beta.api.sources_api import SourcesApi
+from sailpoint.beta.api_client import ApiClient
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     source_id = '2c9180835d191a86015d28455b4a2329' # str | The source id # str | The source id
 
     try:
         # Delete Native Change Detection Configuration
         
-        api_instance.delete_native_change_detection_config(source_id)
-        
+        SourcesApi(api_client).delete_native_change_detection_config(source_id)
         # Below is a request that includes all optional parameters
-        # api_instance.delete_native_change_detection_config(source_id)
-    except Exception as e:
+        # SourcesApi(api_client).delete_native_change_detection_config(source_id)
+        except Exception as e:
         print("Exception when calling SourcesApi->delete_native_change_detection_config: %s\n" % e)
 ```
 
@@ -627,21 +648,24 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.sources_api import SourcesApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.usage_type import UsageType
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     source_id = '2c9180835d191a86015d28455b4a2329' # str | The Source ID. # str | The Source ID.
     usage_type = sailpoint.beta.UsageType() # UsageType | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to 'Create Account Profile', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to 'Update Account Profile', the provisioning template for the 'Update' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to 'Enable Account Profile', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner's account is created.  DISABLE - This usage type relates to 'Disable Account Profile', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs.  # UsageType | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to 'Create Account Profile', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to 'Update Account Profile', the provisioning template for the 'Update' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to 'Enable Account Profile', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner's account is created.  DISABLE - This usage type relates to 'Disable Account Profile', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs. 
 
     try:
         # Delete Provisioning Policy by UsageType
         
-        api_instance.delete_provisioning_policy(source_id, usage_type)
-        
+        SourcesApi(api_client).delete_provisioning_policy(source_id, usage_type)
         # Below is a request that includes all optional parameters
-        # api_instance.delete_provisioning_policy(source_id, usage_type)
-    except Exception as e:
+        # SourcesApi(api_client).delete_provisioning_policy(source_id, usage_type)
+        except Exception as e:
         print("Exception when calling SourcesApi->delete_provisioning_policy: %s\n" % e)
 ```
 
@@ -684,20 +708,23 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
-from sailpoint.beta.rest import ApiException
+from sailpoint.beta.api.sources_api import SourcesApi
+from sailpoint.beta.api_client import ApiClient
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     source_id = '2c9180835d191a86015d28455b4a2329' # str | The Source ID. # str | The Source ID.
     schema_id = '2c9180835d191a86015d28455b4a2329' # str | The Schema ID. # str | The Schema ID.
 
     try:
         # Delete Source Schema by ID
         
-        api_instance.delete_source_schema(source_id, schema_id)
-        
+        SourcesApi(api_client).delete_source_schema(source_id, schema_id)
         # Below is a request that includes all optional parameters
-        # api_instance.delete_source_schema(source_id, schema_id)
-    except Exception as e:
+        # SourcesApi(api_client).delete_source_schema(source_id, schema_id)
+        except Exception as e:
         print("Exception when calling SourcesApi->delete_source_schema: %s\n" % e)
 ```
 
@@ -739,22 +766,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.sources_api import SourcesApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.correlation_config import CorrelationConfig
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     source_id = '2c9180835d191a86015d28455b4a2329' # str | The source id # str | The source id
 
     try:
         # Get Source Correlation Configuration
         
-        api_response = api_instance.get_correlation_config(source_id)
-        
+        results =SourcesApi(api_client).get_correlation_config(source_id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_correlation_config(source_id)
+        # results = SourcesApi(api_client).get_correlation_config(source_id)
         print("The response of SourcesApi->get_correlation_config:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SourcesApi->get_correlation_config: %s\n" % e)
 ```
 
@@ -797,22 +827,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.sources_api import SourcesApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.native_change_detection_config import NativeChangeDetectionConfig
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     source_id = '2c9180835d191a86015d28455b4a2329' # str | The source id # str | The source id
 
     try:
         # Native Change Detection Configuration
         
-        api_response = api_instance.get_native_change_detection_config(source_id)
-        
+        results =SourcesApi(api_client).get_native_change_detection_config(source_id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_native_change_detection_config(source_id)
+        # results = SourcesApi(api_client).get_native_change_detection_config(source_id)
         print("The response of SourcesApi->get_native_change_detection_config:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SourcesApi->get_native_change_detection_config: %s\n" % e)
 ```
 
@@ -855,24 +888,27 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.sources_api import SourcesApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.provisioning_policy_dto import ProvisioningPolicyDto
 from sailpoint.beta.models.usage_type import UsageType
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     source_id = '2c9180835d191a86015d28455b4a2329' # str | The Source ID. # str | The Source ID.
     usage_type = sailpoint.beta.UsageType() # UsageType | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to 'Create Account Profile', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to 'Update Account Profile', the provisioning template for the 'Update' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to 'Enable Account Profile', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner's account is created.  DISABLE - This usage type relates to 'Disable Account Profile', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs.  # UsageType | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to 'Create Account Profile', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to 'Update Account Profile', the provisioning template for the 'Update' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to 'Enable Account Profile', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner's account is created.  DISABLE - This usage type relates to 'Disable Account Profile', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs. 
 
     try:
         # Get Provisioning Policy by UsageType
         
-        api_response = api_instance.get_provisioning_policy(source_id, usage_type)
-        
+        results =SourcesApi(api_client).get_provisioning_policy(source_id, usage_type)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_provisioning_policy(source_id, usage_type)
+        # results = SourcesApi(api_client).get_provisioning_policy(source_id, usage_type)
         print("The response of SourcesApi->get_provisioning_policy:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SourcesApi->get_provisioning_policy: %s\n" % e)
 ```
 
@@ -915,22 +951,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.sources_api import SourcesApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.source import Source
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = '2c9180835d191a86015d28455b4a2329' # str | Source ID. # str | Source ID.
 
     try:
         # Get Source by ID
         
-        api_response = api_instance.get_source(id)
-        
+        results =SourcesApi(api_client).get_source(id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_source(id)
+        # results = SourcesApi(api_client).get_source(id)
         print("The response of SourcesApi->get_source:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SourcesApi->get_source: %s\n" % e)
 ```
 
@@ -972,19 +1011,22 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
-from sailpoint.beta.rest import ApiException
+from sailpoint.beta.api.sources_api import SourcesApi
+from sailpoint.beta.api_client import ApiClient
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     source_id = '8c190e6787aa4ed9a90bd9d5344523fb' # str | The Source id # str | The Source id
 
     try:
         # Downloads source accounts schema template
         
-        api_instance.get_source_accounts_schema(source_id)
-        
+        SourcesApi(api_client).get_source_accounts_schema(source_id)
         # Below is a request that includes all optional parameters
-        # api_instance.get_source_accounts_schema(source_id)
-    except Exception as e:
+        # SourcesApi(api_client).get_source_accounts_schema(source_id)
+        except Exception as e:
         print("Exception when calling SourcesApi->get_source_accounts_schema: %s\n" % e)
 ```
 
@@ -1027,22 +1069,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.sources_api import SourcesApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.attr_sync_source_config import AttrSyncSourceConfig
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = '2c9180835d191a86015d28455b4a2329' # str | The source id # str | The source id
 
     try:
         # Attribute Sync Config
         
-        api_response = api_instance.get_source_attr_sync_config(id)
-        
+        results =SourcesApi(api_client).get_source_attr_sync_config(id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_source_attr_sync_config(id)
+        # results = SourcesApi(api_client).get_source_attr_sync_config(id)
         print("The response of SourcesApi->get_source_attr_sync_config:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SourcesApi->get_source_attr_sync_config: %s\n" % e)
 ```
 
@@ -1085,23 +1130,26 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.sources_api import SourcesApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.connector_detail import ConnectorDetail
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'id_example' # str | The Source id # str | The Source id
     locale = 'locale_example' # str | The locale to apply to the config. If no viable locale is given, it will default to \"en\" (optional) # str | The locale to apply to the config. If no viable locale is given, it will default to \"en\" (optional)
 
     try:
         # Gets source config with language translations
         
-        api_response = api_instance.get_source_config(id, )
-        
+        results =SourcesApi(api_client).get_source_config(id, )
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_source_config(id, locale)
+        # results = SourcesApi(api_client).get_source_config(id, locale)
         print("The response of SourcesApi->get_source_config:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SourcesApi->get_source_config: %s\n" % e)
 ```
 
@@ -1148,22 +1196,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.sources_api import SourcesApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.source_entitlement_request_config import SourceEntitlementRequestConfig
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     source_id = '8c190e6787aa4ed9a90bd9d5344523fb' # str | The Source id # str | The Source id
 
     try:
         # Get Source Entitlement Request Configuration
         
-        api_response = api_instance.get_source_entitlement_request_config(source_id)
-        
+        results =SourcesApi(api_client).get_source_entitlement_request_config(source_id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_source_entitlement_request_config(source_id)
+        # results = SourcesApi(api_client).get_source_entitlement_request_config(source_id)
         print("The response of SourcesApi->get_source_entitlement_request_config:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SourcesApi->get_source_entitlement_request_config: %s\n" % e)
 ```
 
@@ -1206,20 +1257,23 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
-from sailpoint.beta.rest import ApiException
+from sailpoint.beta.api.sources_api import SourcesApi
+from sailpoint.beta.api_client import ApiClient
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     source_id = '8c190e6787aa4ed9a90bd9d5344523fb' # str | The Source id # str | The Source id
     schema_name = '?schemaName=group' # str | Name of entitlement schema (optional) # str | Name of entitlement schema (optional)
 
     try:
         # Downloads source entitlements schema template
         
-        api_instance.get_source_entitlements_schema(source_id, )
-        
+        SourcesApi(api_client).get_source_entitlements_schema(source_id, )
         # Below is a request that includes all optional parameters
-        # api_instance.get_source_entitlements_schema(source_id, schema_name)
-    except Exception as e:
+        # SourcesApi(api_client).get_source_entitlements_schema(source_id, schema_name)
+        except Exception as e:
         print("Exception when calling SourcesApi->get_source_entitlements_schema: %s\n" % e)
 ```
 
@@ -1263,23 +1317,26 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.sources_api import SourcesApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.model_schema import ModelSchema
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     source_id = '2c9180835d191a86015d28455b4a2329' # str | The Source ID. # str | The Source ID.
     schema_id = '2c9180835d191a86015d28455b4a2329' # str | The Schema ID. # str | The Schema ID.
 
     try:
         # Get Source Schema by ID
         
-        api_response = api_instance.get_source_schema(source_id, schema_id)
-        
+        results =SourcesApi(api_client).get_source_schema(source_id, schema_id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_source_schema(source_id, schema_id)
+        # results = SourcesApi(api_client).get_source_schema(source_id, schema_id)
         print("The response of SourcesApi->get_source_schema:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SourcesApi->get_source_schema: %s\n" % e)
 ```
 
@@ -1323,10 +1380,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.sources_api import SourcesApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.model_schema import ModelSchema
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     source_id = '2c9180835d191a86015d28455b4a2329' # str | Source ID. # str | Source ID.
     include_types = 'group' # str | If set to 'group', then the account schema is filtered and only group schemas are returned. Only a value of 'group' is recognized presently.  Note: The API will check whether include-types is group or not, if not, it will list schemas based on include-names, if include-names is not provided, it will list all schemas. (optional) # str | If set to 'group', then the account schema is filtered and only group schemas are returned. Only a value of 'group' is recognized presently.  Note: The API will check whether include-types is group or not, if not, it will list schemas based on include-names, if include-names is not provided, it will list all schemas. (optional)
     include_names = 'account' # str | A comma-separated list of schema names to filter result. (optional) # str | A comma-separated list of schema names to filter result. (optional)
@@ -1334,13 +1395,12 @@ from pprint import pprint
     try:
         # List Schemas on Source
         
-        api_response = api_instance.get_source_schemas(source_id, )
-        
+        results =SourcesApi(api_client).get_source_schemas(source_id, )
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_source_schemas(source_id, include_types, include_names)
+        # results = SourcesApi(api_client).get_source_schemas(source_id, include_types, include_names)
         print("The response of SourcesApi->get_source_schemas:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SourcesApi->get_source_schemas: %s\n" % e)
 ```
 
@@ -1386,10 +1446,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.sources_api import SourcesApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.load_accounts_task import LoadAccountsTask
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     source_id = 'ef38f94347e94562b5bb8424a56397d8' # str | Source Id # str | Source Id
     file = None # bytearray | The CSV file containing the source accounts to aggregate. (optional) # bytearray | The CSV file containing the source accounts to aggregate. (optional)
     disable_optimization = 'disable_optimization_example' # str | Use this flag to reprocess every account whether or not the data has changed. (optional) # str | Use this flag to reprocess every account whether or not the data has changed. (optional)
@@ -1397,13 +1461,12 @@ from pprint import pprint
     try:
         # Account Aggregation
         
-        api_response = api_instance.import_accounts(source_id, )
-        
+        results =SourcesApi(api_client).import_accounts(source_id, )
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.import_accounts(source_id, file, disable_optimization)
+        # results = SourcesApi(api_client).import_accounts(source_id, file, disable_optimization)
         print("The response of SourcesApi->import_accounts:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SourcesApi->import_accounts: %s\n" % e)
 ```
 
@@ -1448,23 +1511,26 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.sources_api import SourcesApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.load_entitlement_task import LoadEntitlementTask
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     source_id = 'ef38f94347e94562b5bb8424a56397d8' # str | Source Id # str | Source Id
     file = None # bytearray | The CSV file containing the source entitlements to aggregate. (optional) # bytearray | The CSV file containing the source entitlements to aggregate. (optional)
 
     try:
         # Entitlement Aggregation
         
-        api_response = api_instance.import_entitlements(source_id, )
-        
+        results =SourcesApi(api_client).import_entitlements(source_id, )
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.import_entitlements(source_id, file)
+        # results = SourcesApi(api_client).import_entitlements(source_id, file)
         print("The response of SourcesApi->import_entitlements:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SourcesApi->import_entitlements: %s\n" % e)
 ```
 
@@ -1506,23 +1572,26 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.sources_api import SourcesApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.model_schema import ModelSchema
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     source_id = '8c190e6787aa4ed9a90bd9d5344523fb' # str | The Source id # str | The Source id
     file = None # bytearray |  (optional) # bytearray |  (optional)
 
     try:
         # Uploads source accounts schema template
         
-        api_response = api_instance.import_source_accounts_schema(source_id, )
-        
+        results =SourcesApi(api_client).import_source_accounts_schema(source_id, )
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.import_source_accounts_schema(source_id, file)
+        # results = SourcesApi(api_client).import_source_accounts_schema(source_id, file)
         print("The response of SourcesApi->import_source_accounts_schema:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SourcesApi->import_source_accounts_schema: %s\n" % e)
 ```
 
@@ -1565,23 +1634,26 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.sources_api import SourcesApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.source import Source
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     source_id = '8c190e6787aa4ed9a90bd9d5344523fb' # str | The Source id # str | The Source id
     file = None # bytearray |  (optional) # bytearray |  (optional)
 
     try:
         # Upload connector file to source
         
-        api_response = api_instance.import_source_connector_file(source_id, )
-        
+        results =SourcesApi(api_client).import_source_connector_file(source_id, )
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.import_source_connector_file(source_id, file)
+        # results = SourcesApi(api_client).import_source_connector_file(source_id, file)
         print("The response of SourcesApi->import_source_connector_file:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SourcesApi->import_source_connector_file: %s\n" % e)
 ```
 
@@ -1624,10 +1696,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.sources_api import SourcesApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.model_schema import ModelSchema
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     source_id = '8c190e6787aa4ed9a90bd9d5344523fb' # str | The Source id # str | The Source id
     schema_name = '?schemaName=group' # str | Name of entitlement schema (optional) # str | Name of entitlement schema (optional)
     file = None # bytearray |  (optional) # bytearray |  (optional)
@@ -1635,13 +1711,12 @@ from pprint import pprint
     try:
         # Uploads source entitlements schema template
         
-        api_response = api_instance.import_source_entitlements_schema(source_id, )
-        
+        results =SourcesApi(api_client).import_source_entitlements_schema(source_id, )
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.import_source_entitlements_schema(source_id, schema_name, file)
+        # results = SourcesApi(api_client).import_source_entitlements_schema(source_id, schema_name, file)
         print("The response of SourcesApi->import_source_entitlements_schema:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SourcesApi->import_source_entitlements_schema: %s\n" % e)
 ```
 
@@ -1683,23 +1758,26 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.sources_api import SourcesApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.load_uncorrelated_accounts_task import LoadUncorrelatedAccountsTask
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     source_id = '75dbec1ebe154d5785da27b95e1dd5d7' # str | Source Id # str | Source Id
     file = None # bytearray |  (optional) # bytearray |  (optional)
 
     try:
         # Process Uncorrelated Accounts
         
-        api_response = api_instance.import_uncorrelated_accounts(source_id, )
-        
+        results =SourcesApi(api_client).import_uncorrelated_accounts(source_id, )
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.import_uncorrelated_accounts(source_id, file)
+        # results = SourcesApi(api_client).import_uncorrelated_accounts(source_id, file)
         print("The response of SourcesApi->import_uncorrelated_accounts:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SourcesApi->import_uncorrelated_accounts: %s\n" % e)
 ```
 
@@ -1741,22 +1819,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.sources_api import SourcesApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.provisioning_policy_dto import ProvisioningPolicyDto
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     source_id = '2c9180835d191a86015d28455b4a2329' # str | The Source id # str | The Source id
 
     try:
         # Lists ProvisioningPolicies
         
-        api_response = api_instance.list_provisioning_policies(source_id)
-        
+        results =SourcesApi(api_client).list_provisioning_policies(source_id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.list_provisioning_policies(source_id)
+        # results = SourcesApi(api_client).list_provisioning_policies(source_id)
         print("The response of SourcesApi->list_provisioning_policies:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SourcesApi->list_provisioning_policies: %s\n" % e)
 ```
 
@@ -1806,10 +1887,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.sources_api import SourcesApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.source import Source
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
     count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
@@ -1821,13 +1906,12 @@ from pprint import pprint
     try:
         # Lists all sources in IdentityNow.
         
-        api_response = api_instance.list_sources()
-        
+        results =SourcesApi(api_client).list_sources()
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.list_sources(limit, offset, count, filters, sorters, for_subadmin, include_idn_source)
+        # results = SourcesApi(api_client).list_sources(limit, offset, count, filters, sorters, for_subadmin, include_idn_source)
         print("The response of SourcesApi->list_sources:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SourcesApi->list_sources: %s\n" % e)
 ```
 
@@ -1871,11 +1955,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.sources_api import SourcesApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.resource_objects_request import ResourceObjectsRequest
 from sailpoint.beta.models.resource_objects_response import ResourceObjectsResponse
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     source_id = 'cef3ee201db947c5912551015ba0c679' # str | The ID of the Source # str | The ID of the Source
     resource_objects_request = {
           "maxCount" : 100,
@@ -1884,14 +1972,14 @@ from pprint import pprint
 
     try:
         # Peek source connector's resource objects
-        Result = resource_objects_request.from_json(resource_objects_request)
-        api_response = api_instance.peek_resource_objects(source_id, Result)
-        
+        new_resource_objects_request = ResourceObjectsRequest()
+        new_resource_objects_request.from_json(resource_objects_request)
+        results =SourcesApi(api_client).peek_resource_objects(source_id, new_resource_objects_request)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.peek_resource_objects(source_id, Result)
+        # results = SourcesApi(api_client).peek_resource_objects(source_id, new_resource_objects_request)
         print("The response of SourcesApi->peek_resource_objects:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SourcesApi->peek_resource_objects: %s\n" % e)
 ```
 
@@ -1934,22 +2022,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.sources_api import SourcesApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.status_response import StatusResponse
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     source_id = 'cef3ee201db947c5912551015ba0c679' # str | The ID of the Source # str | The ID of the Source
 
     try:
         # Ping cluster for source connector
         
-        api_response = api_instance.ping_cluster(source_id)
-        
+        results =SourcesApi(api_client).ping_cluster(source_id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.ping_cluster(source_id)
+        # results = SourcesApi(api_client).ping_cluster(source_id)
         print("The response of SourcesApi->ping_cluster:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SourcesApi->ping_cluster: %s\n" % e)
 ```
 
@@ -1992,10 +2083,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.sources_api import SourcesApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.correlation_config import CorrelationConfig
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     source_id = '2c9180835d191a86015d28455b4a2329' # str | The source id # str | The source id
     correlation_config = {
           "attributeAssignments" : [ {
@@ -2021,14 +2116,14 @@ from pprint import pprint
 
     try:
         # Update Source Correlation Configuration
-        Result = correlation_config.from_json(correlation_config)
-        api_response = api_instance.put_correlation_config(source_id, Result)
-        
+        new_correlation_config = CorrelationConfig()
+        new_correlation_config.from_json(correlation_config)
+        results =SourcesApi(api_client).put_correlation_config(source_id, new_correlation_config)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.put_correlation_config(source_id, Result)
+        # results = SourcesApi(api_client).put_correlation_config(source_id, new_correlation_config)
         print("The response of SourcesApi->put_correlation_config:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SourcesApi->put_correlation_config: %s\n" % e)
 ```
 
@@ -2073,10 +2168,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.sources_api import SourcesApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.native_change_detection_config import NativeChangeDetectionConfig
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     source_id = '2c9180835d191a86015d28455b4a2329' # str | The source id # str | The source id
     native_change_detection_config = {
           "selectedEntitlements" : [ "memberOf", "memberOfSharedMailbox" ],
@@ -2089,14 +2188,14 @@ from pprint import pprint
 
     try:
         # Update Native Change Detection Configuration
-        Result = native_change_detection_config.from_json(native_change_detection_config)
-        api_response = api_instance.put_native_change_detection_config(source_id, Result)
-        
+        new_native_change_detection_config = NativeChangeDetectionConfig()
+        new_native_change_detection_config.from_json(native_change_detection_config)
+        results =SourcesApi(api_client).put_native_change_detection_config(source_id, new_native_change_detection_config)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.put_native_change_detection_config(source_id, Result)
+        # results = SourcesApi(api_client).put_native_change_detection_config(source_id, new_native_change_detection_config)
         print("The response of SourcesApi->put_native_change_detection_config:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SourcesApi->put_native_change_detection_config: %s\n" % e)
 ```
 
@@ -2142,11 +2241,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.sources_api import SourcesApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.provisioning_policy_dto import ProvisioningPolicyDto
 from sailpoint.beta.models.usage_type import UsageType
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     source_id = '2c9180835d191a86015d28455b4a2329' # str | The Source ID. # str | The Source ID.
     usage_type = sailpoint.beta.UsageType() # UsageType | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to 'Create Account Profile', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to 'Update Account Profile', the provisioning template for the 'Update' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to 'Enable Account Profile', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner's account is created.  DISABLE - This usage type relates to 'Disable Account Profile', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs.  # UsageType | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to 'Create Account Profile', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to 'Update Account Profile', the provisioning template for the 'Update' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to 'Enable Account Profile', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner's account is created.  DISABLE - This usage type relates to 'Disable Account Profile', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs. 
     provisioning_policy_dto = {
@@ -2192,14 +2295,14 @@ from pprint import pprint
 
     try:
         # Update Provisioning Policy by UsageType
-        Result = provisioning_policy_dto.from_json(provisioning_policy_dto)
-        api_response = api_instance.put_provisioning_policy(source_id, usage_type, Result)
-        
+        new_provisioning_policy_dto = ProvisioningPolicyDto()
+        new_provisioning_policy_dto.from_json(provisioning_policy_dto)
+        results =SourcesApi(api_client).put_provisioning_policy(source_id, usage_type, new_provisioning_policy_dto)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.put_provisioning_policy(source_id, usage_type, Result)
+        # results = SourcesApi(api_client).put_provisioning_policy(source_id, usage_type, new_provisioning_policy_dto)
         print("The response of SourcesApi->put_provisioning_policy:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SourcesApi->put_provisioning_policy: %s\n" % e)
 ```
 
@@ -2256,10 +2359,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.sources_api import SourcesApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.source import Source
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = '2c9180835d191a86015d28455b4a2329' # str | Source ID. # str | Source ID.
     source = {
           "cluster" : {
@@ -2347,14 +2454,14 @@ from pprint import pprint
 
     try:
         # Update Source (Full)
-        Result = source.from_json(source)
-        api_response = api_instance.put_source(id, Result)
-        
+        new_source = Source()
+        new_source.from_json(source)
+        results =SourcesApi(api_client).put_source(id, new_source)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.put_source(id, Result)
+        # results = SourcesApi(api_client).put_source(id, new_source)
         print("The response of SourcesApi->put_source:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SourcesApi->put_source: %s\n" % e)
 ```
 
@@ -2399,10 +2506,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.sources_api import SourcesApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.attr_sync_source_config import AttrSyncSourceConfig
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = '2c9180835d191a86015d28455b4a2329' # str | The source id # str | The source id
     attr_sync_source_config = {
           "attributes" : [ {
@@ -2425,14 +2536,14 @@ from pprint import pprint
 
     try:
         # Update Attribute Sync Config
-        Result = attr_sync_source_config.from_json(attr_sync_source_config)
-        api_response = api_instance.put_source_attr_sync_config(id, Result)
-        
+        new_attr_sync_source_config = AttrSyncSourceConfig()
+        new_attr_sync_source_config.from_json(attr_sync_source_config)
+        results =SourcesApi(api_client).put_source_attr_sync_config(id, new_attr_sync_source_config)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.put_source_attr_sync_config(id, Result)
+        # results = SourcesApi(api_client).put_source_attr_sync_config(id, new_attr_sync_source_config)
         print("The response of SourcesApi->put_source_attr_sync_config:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SourcesApi->put_source_attr_sync_config: %s\n" % e)
 ```
 
@@ -2481,24 +2592,28 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.sources_api import SourcesApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.model_schema import ModelSchema
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     source_id = '2c9180835d191a86015d28455b4a2329' # str | The Source ID. # str | The Source ID.
     schema_id = '2c9180835d191a86015d28455b4a2329' # str | The Schema ID. # str | The Schema ID.
     model_schema = sailpoint.beta.ModelSchema() # ModelSchema | 
 
     try:
         # Update Source Schema (Full)
-        Result = model_schema.from_json(model_schema)
-        api_response = api_instance.put_source_schema(source_id, schema_id, Result)
-        
+        new_model_schema = ModelSchema()
+        new_model_schema.from_json(model_schema)
+        results =SourcesApi(api_client).put_source_schema(source_id, schema_id, new_model_schema)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.put_source_schema(source_id, schema_id, Result)
+        # results = SourcesApi(api_client).put_source_schema(source_id, schema_id, new_model_schema)
         print("The response of SourcesApi->put_source_schema:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SourcesApi->put_source_schema: %s\n" % e)
 ```
 
@@ -2541,22 +2656,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.sources_api import SourcesApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.source_sync_job import SourceSyncJob
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     source_id = 'source_id_example' # str | The Source id # str | The Source id
 
     try:
         # Synchronize single source attributes.
         
-        api_response = api_instance.sync_attributes_for_source(source_id)
-        
+        results =SourcesApi(api_client).sync_attributes_for_source(source_id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.sync_attributes_for_source(source_id)
+        # results = SourcesApi(api_client).sync_attributes_for_source(source_id)
         print("The response of SourcesApi->sync_attributes_for_source:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SourcesApi->sync_attributes_for_source: %s\n" % e)
 ```
 
@@ -2599,22 +2717,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.sources_api import SourcesApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.status_response import StatusResponse
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     source_id = 'cef3ee201db947c5912551015ba0c679' # str | The ID of the Source # str | The ID of the Source
 
     try:
         # Test configuration for source connector
         
-        api_response = api_instance.test_source_configuration(source_id)
-        
+        results =SourcesApi(api_client).test_source_configuration(source_id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.test_source_configuration(source_id)
+        # results = SourcesApi(api_client).test_source_configuration(source_id)
         print("The response of SourcesApi->test_source_configuration:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SourcesApi->test_source_configuration: %s\n" % e)
 ```
 
@@ -2657,22 +2778,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.sources_api import SourcesApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.status_response import StatusResponse
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     source_id = 'cef3ee201db947c5912551015ba0c679' # str | The ID of the Source. # str | The ID of the Source.
 
     try:
         # Check connection for source connector.
         
-        api_response = api_instance.test_source_connection(source_id)
-        
+        results =SourcesApi(api_client).test_source_connection(source_id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.test_source_connection(source_id)
+        # results = SourcesApi(api_client).test_source_connection(source_id)
         print("The response of SourcesApi->test_source_connection:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SourcesApi->test_source_connection: %s\n" % e)
 ```
 
@@ -2715,10 +2839,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.sources_api import SourcesApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.provisioning_policy_dto import ProvisioningPolicyDto
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     source_id = '2c9180835d191a86015d28455b4a2329' # str | The Source id. # str | The Source id.
     [sailpoint.beta.ProvisioningPolicyDto()] # List[ProvisioningPolicyDto] | 
      provisioning_policy_dto = {
@@ -2765,14 +2893,14 @@ from pprint import pprint
 
     try:
         # Bulk Update Provisioning Policies
-        Result = provisioning_policy_dto.from_json(provisioning_policy_dto)
-        api_response = api_instance.update_provisioning_policies_in_bulk(source_id, Result)
-        
+        new_provisioning_policy_dto = ProvisioningPolicyDto()
+        new_provisioning_policy_dto.from_json(provisioning_policy_dto)
+        results =SourcesApi(api_client).update_provisioning_policies_in_bulk(source_id, new_provisioning_policy_dto)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.update_provisioning_policies_in_bulk(source_id, Result)
+        # results = SourcesApi(api_client).update_provisioning_policies_in_bulk(source_id, new_provisioning_policy_dto)
         print("The response of SourcesApi->update_provisioning_policies_in_bulk:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SourcesApi->update_provisioning_policies_in_bulk: %s\n" % e)
 ```
 
@@ -2818,12 +2946,16 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.sources_api import SourcesApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.json_patch_operation import JsonPatchOperation
 from sailpoint.beta.models.provisioning_policy_dto import ProvisioningPolicyDto
 from sailpoint.beta.models.usage_type import UsageType
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     source_id = '2c9180835d191a86015d28455b4a2329' # str | The Source id. # str | The Source id.
     usage_type = sailpoint.beta.UsageType() # UsageType | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to 'Create Account Profile', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to 'Update Account Profile', the provisioning template for the 'Update' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to 'Enable Account Profile', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner's account is created.  DISABLE - This usage type relates to 'Disable Account Profile', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs.  # UsageType | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to 'Create Account Profile', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to 'Update Account Profile', the provisioning template for the 'Update' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to 'Enable Account Profile', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner's account is created.  DISABLE - This usage type relates to 'Disable Account Profile', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs. 
     [{op=add, path=/fields/0, value={name=email, transform={type=identityAttribute, attributes={name=email}}, attributes={}, isRequired=false, type=string, isMultiValued=false}}] # List[JsonPatchOperation] | The JSONPatch payload used to update the schema.
@@ -2836,14 +2968,14 @@ from pprint import pprint
 
     try:
         # Partial update of Provisioning Policy
-        Result = json_patch_operation.from_json(json_patch_operation)
-        api_response = api_instance.update_provisioning_policy(source_id, usage_type, Result)
-        
+        new_json_patch_operation = JsonPatchOperation()
+        new_json_patch_operation.from_json(json_patch_operation)
+        results =SourcesApi(api_client).update_provisioning_policy(source_id, usage_type, new_json_patch_operation)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.update_provisioning_policy(source_id, usage_type, Result)
+        # results = SourcesApi(api_client).update_provisioning_policy(source_id, usage_type, new_json_patch_operation)
         print("The response of SourcesApi->update_provisioning_policy:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SourcesApi->update_provisioning_policy: %s\n" % e)
 ```
 
@@ -2902,11 +3034,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.sources_api import SourcesApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.json_patch_operation import JsonPatchOperation
 from sailpoint.beta.models.source import Source
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = '2c9180835d191a86015d28455b4a2329' # str | Source ID. # str | Source ID.
     [{op=replace, path=/description, value=new description}] # List[JsonPatchOperation] | A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Any password changes are submitted as plain-text and encrypted upon receipt in Identity Security Cloud (ISC).
      json_patch_operation = {
@@ -2918,14 +3054,14 @@ from pprint import pprint
 
     try:
         # Update Source (Partial)
-        Result = json_patch_operation.from_json(json_patch_operation)
-        api_response = api_instance.update_source(id, Result)
-        
+        new_json_patch_operation = JsonPatchOperation()
+        new_json_patch_operation.from_json(json_patch_operation)
+        results =SourcesApi(api_client).update_source(id, new_json_patch_operation)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.update_source(id, Result)
+        # results = SourcesApi(api_client).update_source(id, new_json_patch_operation)
         print("The response of SourcesApi->update_source:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SourcesApi->update_source: %s\n" % e)
 ```
 
@@ -2973,10 +3109,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.sources_api import SourcesApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.source_entitlement_request_config import SourceEntitlementRequestConfig
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     source_id = '8c190e6787aa4ed9a90bd9d5344523fb' # str | The Source id # str | The Source id
     source_entitlement_request_config = {
           "accessRequestConfig" : {
@@ -2994,14 +3134,14 @@ from pprint import pprint
 
     try:
         # Update Source Entitlement Request Configuration
-        Result = source_entitlement_request_config.from_json(source_entitlement_request_config)
-        api_response = api_instance.update_source_entitlement_request_config(source_id, Result)
-        
+        new_source_entitlement_request_config = SourceEntitlementRequestConfig()
+        new_source_entitlement_request_config.from_json(source_entitlement_request_config)
+        results =SourcesApi(api_client).update_source_entitlement_request_config(source_id, new_source_entitlement_request_config)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.update_source_entitlement_request_config(source_id, Result)
+        # results = SourcesApi(api_client).update_source_entitlement_request_config(source_id, new_source_entitlement_request_config)
         print("The response of SourcesApi->update_source_entitlement_request_config:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SourcesApi->update_source_entitlement_request_config: %s\n" % e)
 ```
 
@@ -3074,11 +3214,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.sources_api import SourcesApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.json_patch_operation import JsonPatchOperation
 from sailpoint.beta.models.model_schema import ModelSchema
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     source_id = '2c9180835d191a86015d28455b4a2329' # str | The Source id. # str | The Source id.
     schema_id = '2c9180835d191a86015d28455b4a2329' # str | The Schema id. # str | The Schema id.
     [{op=replace, path=/displayAttribute, value={new-display-attribute=null}}] # List[JsonPatchOperation] | The JSONPatch payload used to update the schema.
@@ -3091,14 +3235,14 @@ from pprint import pprint
 
     try:
         # Update Source Schema (Partial)
-        Result = json_patch_operation.from_json(json_patch_operation)
-        api_response = api_instance.update_source_schema(source_id, schema_id, Result)
-        
+        new_json_patch_operation = JsonPatchOperation()
+        new_json_patch_operation.from_json(json_patch_operation)
+        results =SourcesApi(api_client).update_source_schema(source_id, schema_id, new_json_patch_operation)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.update_source_schema(source_id, schema_id, Result)
+        # results = SourcesApi(api_client).update_source_schema(source_id, schema_id, new_json_patch_operation)
         print("The response of SourcesApi->update_source_schema:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SourcesApi->update_source_schema: %s\n" % e)
 ```
 

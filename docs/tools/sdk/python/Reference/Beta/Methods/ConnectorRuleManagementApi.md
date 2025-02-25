@@ -63,11 +63,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.connector_rule_management_api import ConnectorRuleManagementApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.connector_rule_create_request import ConnectorRuleCreateRequest
 from sailpoint.beta.models.connector_rule_response import ConnectorRuleResponse
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     connector_rule_create_request = {
           "sourceCode" : {
             "version" : "1.0",
@@ -97,14 +101,14 @@ from pprint import pprint
 
     try:
         # Create Connector Rule
-        Result = connector_rule_create_request.from_json(connector_rule_create_request)
-        api_response = api_instance.create_connector_rule(Result)
-        
+        new_connector_rule_create_request = ConnectorRuleCreateRequest()
+        new_connector_rule_create_request.from_json(connector_rule_create_request)
+        results =ConnectorRuleManagementApi(api_client).create_connector_rule(new_connector_rule_create_request)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.create_connector_rule(Result)
+        # results = ConnectorRuleManagementApi(api_client).create_connector_rule(new_connector_rule_create_request)
         print("The response of ConnectorRuleManagementApi->create_connector_rule:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling ConnectorRuleManagementApi->create_connector_rule: %s\n" % e)
 ```
 
@@ -147,19 +151,22 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
-from sailpoint.beta.rest import ApiException
+from sailpoint.beta.api.connector_rule_management_api import ConnectorRuleManagementApi
+from sailpoint.beta.api_client import ApiClient
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = '8c190e6787aa4ed9a90bd9d5344523fb' # str | ID of the connector rule to delete # str | ID of the connector rule to delete
 
     try:
         # Delete a Connector-Rule
         
-        api_instance.delete_connector_rule(id)
-        
+        ConnectorRuleManagementApi(api_client).delete_connector_rule(id)
         # Below is a request that includes all optional parameters
-        # api_instance.delete_connector_rule(id)
-    except Exception as e:
+        # ConnectorRuleManagementApi(api_client).delete_connector_rule(id)
+        except Exception as e:
         print("Exception when calling ConnectorRuleManagementApi->delete_connector_rule: %s\n" % e)
 ```
 
@@ -202,22 +209,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.connector_rule_management_api import ConnectorRuleManagementApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.connector_rule_response import ConnectorRuleResponse
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = '8c190e6787aa4ed9a90bd9d5344523fb' # str | ID of the connector rule to retrieve # str | ID of the connector rule to retrieve
 
     try:
         # Connector-Rule by ID
         
-        api_response = api_instance.get_connector_rule(id)
-        
+        results =ConnectorRuleManagementApi(api_client).get_connector_rule(id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_connector_rule(id)
+        # results = ConnectorRuleManagementApi(api_client).get_connector_rule(id)
         print("The response of ConnectorRuleManagementApi->get_connector_rule:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling ConnectorRuleManagementApi->get_connector_rule: %s\n" % e)
 ```
 
@@ -256,21 +266,24 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.connector_rule_management_api import ConnectorRuleManagementApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.connector_rule_response import ConnectorRuleResponse
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
 
     try:
         # List Connector Rules
         
-        api_response = api_instance.get_connector_rule_list()
-        
+        results =ConnectorRuleManagementApi(api_client).get_connector_rule_list()
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_connector_rule_list()
+        # results = ConnectorRuleManagementApi(api_client).get_connector_rule_list()
         print("The response of ConnectorRuleManagementApi->get_connector_rule_list:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling ConnectorRuleManagementApi->get_connector_rule_list: %s\n" % e)
 ```
 
@@ -314,11 +327,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.connector_rule_management_api import ConnectorRuleManagementApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.connector_rule_response import ConnectorRuleResponse
 from sailpoint.beta.models.connector_rule_update_request import ConnectorRuleUpdateRequest
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = '8c190e6787aa4ed9a90bd9d5344523fb' # str | ID of the connector rule to update # str | ID of the connector rule to update
     connector_rule_update_request = {
           "sourceCode" : {
@@ -351,13 +368,12 @@ from pprint import pprint
     try:
         # Update a Connector Rule
         
-        api_response = api_instance.update_connector_rule(id, )
-        
+        results =ConnectorRuleManagementApi(api_client).update_connector_rule(id, )
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.update_connector_rule(id, Result)
+        # results = ConnectorRuleManagementApi(api_client).update_connector_rule(id, new_connector_rule_update_request)
         print("The response of ConnectorRuleManagementApi->update_connector_rule:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling ConnectorRuleManagementApi->update_connector_rule: %s\n" % e)
 ```
 
@@ -399,11 +415,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.connector_rule_management_api import ConnectorRuleManagementApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.connector_rule_validation_response import ConnectorRuleValidationResponse
 from sailpoint.beta.models.source_code import SourceCode
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     source_code = {
           "version" : "1.0",
           "script" : "return \"Mr. \" + firstName;"
@@ -411,14 +431,14 @@ from pprint import pprint
 
     try:
         # Validate Connector Rule
-        Result = source_code.from_json(source_code)
-        api_response = api_instance.validate_connector_rule(Result)
-        
+        new_source_code = SourceCode()
+        new_source_code.from_json(source_code)
+        results =ConnectorRuleManagementApi(api_client).validate_connector_rule(new_source_code)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.validate_connector_rule(Result)
+        # results = ConnectorRuleManagementApi(api_client).validate_connector_rule(new_source_code)
         print("The response of ConnectorRuleManagementApi->validate_connector_rule:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling ConnectorRuleManagementApi->validate_connector_rule: %s\n" % e)
 ```
 

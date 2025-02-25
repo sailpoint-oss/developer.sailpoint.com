@@ -63,12 +63,16 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.requestable_objects_api import RequestableObjectsApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.requestable_object import RequestableObject
 from sailpoint.v2024.models.requestable_object_request_status import RequestableObjectRequestStatus
 from sailpoint.v2024.models.requestable_object_type import RequestableObjectType
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     identity_id = 'e7eab60924f64aa284175b9fa3309599' # str | If present, the value returns only requestable objects for the specified identity.  * Admin users can call this with any identity ID value.  * Non-admin users can only specify *me* or pass their own identity ID value.  * If absent, returns a list of all requestable objects for the tenant. Only admin users can make such a call. In this case, the available, pending, assigned accesses will not be annotated in the result. (optional) # str | If present, the value returns only requestable objects for the specified identity.  * Admin users can call this with any identity ID value.  * Non-admin users can only specify *me* or pass their own identity ID value.  * If absent, returns a list of all requestable objects for the tenant. Only admin users can make such a call. In this case, the available, pending, assigned accesses will not be annotated in the result. (optional)
     types = [sailpoint.v2024.RequestableObjectType()] # List[RequestableObjectType] | Filters the results to the specified type/types, where each type is one of ROLE or ACCESS_PROFILE. If absent, all types are returned. Support for additional types may be added in the future without notice. (optional)
     
@@ -86,13 +90,12 @@ from pprint import pprint
     try:
         # Requestable Objects List
         
-        api_response = api_instance.list_requestable_objects()
-        
+        results =RequestableObjectsApi(api_client).list_requestable_objects()
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.list_requestable_objects(identity_id, types, term, statuses, limit, offset, count, filters, sorters)
+        # results = RequestableObjectsApi(api_client).list_requestable_objects(identity_id, types, term, statuses, limit, offset, count, filters, sorters)
         print("The response of RequestableObjectsApi->list_requestable_objects:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling RequestableObjectsApi->list_requestable_objects: %s\n" % e)
 ```
 

@@ -63,11 +63,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.sp_config_api import SPConfigApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.export_payload import ExportPayload
 from sailpoint.v2024.models.sp_config_export_job import SpConfigExportJob
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     export_payload = {
           "description" : "Export Job 1 Test"
@@ -75,14 +79,14 @@ from pprint import pprint
 
     try:
         # Initiates configuration objects export job
-        Result = export_payload.from_json(export_payload)
-        api_response = api_instance.export_sp_config(x_sail_point_experimental, Result)
-        
+        new_export_payload = ExportPayload()
+        new_export_payload.from_json(export_payload)
+        results =SPConfigApi(api_client).export_sp_config(x_sail_point_experimental, new_export_payload)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.export_sp_config(x_sail_point_experimental, Result)
+        # results = SPConfigApi(api_client).export_sp_config(x_sail_point_experimental, new_export_payload)
         print("The response of SPConfigApi->export_sp_config:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SPConfigApi->export_sp_config: %s\n" % e)
 ```
 
@@ -130,23 +134,26 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.sp_config_api import SPConfigApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.sp_config_export_results import SpConfigExportResults
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | The ID of the export job whose results will be downloaded. # str | The ID of the export job whose results will be downloaded.
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
         # Download export job result.
         
-        api_response = api_instance.get_sp_config_export(id, x_sail_point_experimental)
-        
+        results =SPConfigApi(api_client).get_sp_config_export(id, x_sail_point_experimental)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_sp_config_export(id, x_sail_point_experimental)
+        # results = SPConfigApi(api_client).get_sp_config_export(id, x_sail_point_experimental)
         print("The response of SPConfigApi->get_sp_config_export:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SPConfigApi->get_sp_config_export: %s\n" % e)
 ```
 
@@ -194,23 +201,26 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.sp_config_api import SPConfigApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.sp_config_export_job_status import SpConfigExportJobStatus
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | The ID of the export job whose status will be returned. # str | The ID of the export job whose status will be returned.
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
         # Get export job status
         
-        api_response = api_instance.get_sp_config_export_status(id, x_sail_point_experimental)
-        
+        results =SPConfigApi(api_client).get_sp_config_export_status(id, x_sail_point_experimental)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_sp_config_export_status(id, x_sail_point_experimental)
+        # results = SPConfigApi(api_client).get_sp_config_export_status(id, x_sail_point_experimental)
         print("The response of SPConfigApi->get_sp_config_export_status:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SPConfigApi->get_sp_config_export_status: %s\n" % e)
 ```
 
@@ -258,23 +268,26 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.sp_config_api import SPConfigApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.sp_config_import_results import SpConfigImportResults
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | The ID of the import job whose results will be downloaded. # str | The ID of the import job whose results will be downloaded.
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
         # Download import job result
         
-        api_response = api_instance.get_sp_config_import(id, x_sail_point_experimental)
-        
+        results =SPConfigApi(api_client).get_sp_config_import(id, x_sail_point_experimental)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_sp_config_import(id, x_sail_point_experimental)
+        # results = SPConfigApi(api_client).get_sp_config_import(id, x_sail_point_experimental)
         print("The response of SPConfigApi->get_sp_config_import:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SPConfigApi->get_sp_config_import: %s\n" % e)
 ```
 
@@ -324,23 +337,26 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.sp_config_api import SPConfigApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.sp_config_import_job_status import SpConfigImportJobStatus
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | The ID of the import job whose status will be returned. # str | The ID of the import job whose status will be returned.
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
         # Get import job status
         
-        api_response = api_instance.get_sp_config_import_status(id, x_sail_point_experimental)
-        
+        results =SPConfigApi(api_client).get_sp_config_import_status(id, x_sail_point_experimental)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_sp_config_import_status(id, x_sail_point_experimental)
+        # results = SPConfigApi(api_client).get_sp_config_import_status(id, x_sail_point_experimental)
         print("The response of SPConfigApi->get_sp_config_import_status:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SPConfigApi->get_sp_config_import_status: %s\n" % e)
 ```
 
@@ -400,11 +416,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.sp_config_api import SPConfigApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.import_options import ImportOptions
 from sailpoint.v2024.models.sp_config_job import SpConfigJob
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     data = None # bytearray | JSON file containing the objects to be imported. # bytearray | JSON file containing the objects to be imported.
     preview = False # bool | This option is intended to give the user information about how an import operation would proceed, without having any effect on the target tenant. If this parameter is \"true\", no objects will be imported. Instead, the import process will pre-process the import file and attempt to resolve references within imported objects. The import result file will contain messages pertaining to how specific references were resolved, any errors associated with the preprocessing, and messages indicating which objects would be imported.  (optional) (default to False) # bool | This option is intended to give the user information about how an import operation would proceed, without having any effect on the target tenant. If this parameter is \"true\", no objects will be imported. Instead, the import process will pre-process the import file and attempt to resolve references within imported objects. The import result file will contain messages pertaining to how specific references were resolved, any errors associated with the preprocessing, and messages indicating which objects would be imported.  (optional) (default to False)
@@ -413,13 +433,12 @@ from pprint import pprint
     try:
         # Initiates configuration objects import job
         
-        api_response = api_instance.import_sp_config(x_sail_point_experimental, data, )
-        
+        results =SPConfigApi(api_client).import_sp_config(x_sail_point_experimental, data, )
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.import_sp_config(x_sail_point_experimental, data, preview, options)
+        # results = SPConfigApi(api_client).import_sp_config(x_sail_point_experimental, data, preview, options)
         print("The response of SPConfigApi->import_sp_config:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SPConfigApi->import_sp_config: %s\n" % e)
 ```
 
@@ -464,22 +483,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.sp_config_api import SPConfigApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.sp_config_object import SpConfigObject
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
         # Get config object details
         
-        api_response = api_instance.list_sp_config_objects(x_sail_point_experimental)
-        
+        results =SPConfigApi(api_client).list_sp_config_objects(x_sail_point_experimental)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.list_sp_config_objects(x_sail_point_experimental)
+        # results = SPConfigApi(api_client).list_sp_config_objects(x_sail_point_experimental)
         print("The response of SPConfigApi->list_sp_config_objects:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SPConfigApi->list_sp_config_objects: %s\n" % e)
 ```
 

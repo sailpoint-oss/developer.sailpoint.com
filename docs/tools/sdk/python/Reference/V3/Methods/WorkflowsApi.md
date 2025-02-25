@@ -70,19 +70,22 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v3
-from sailpoint.v3.rest import ApiException
+from sailpoint.v3.api.workflows_api import WorkflowsApi
+from sailpoint.v3.api_client import ApiClient
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'c17bea3a-574d-453c-9e04-4365fbf5af0b' # str | The workflow execution ID # str | The workflow execution ID
 
     try:
         # Cancel Workflow Execution by ID
         
-        api_instance.cancel_workflow_execution(id)
-        
+        WorkflowsApi(api_client).cancel_workflow_execution(id)
         # Below is a request that includes all optional parameters
-        # api_instance.cancel_workflow_execution(id)
-    except Exception as e:
+        # WorkflowsApi(api_client).cancel_workflow_execution(id)
+        except Exception as e:
         print("Exception when calling WorkflowsApi->cancel_workflow_execution: %s\n" % e)
 ```
 
@@ -124,24 +127,27 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v3
+from sailpoint.v3.api.workflows_api import WorkflowsApi
+from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.create_external_execute_workflow200_response import CreateExternalExecuteWorkflow200Response
 from sailpoint.v3.models.create_external_execute_workflow_request import CreateExternalExecuteWorkflowRequest
-from sailpoint.v3.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'c17bea3a-574d-453c-9e04-4365fbf5af0b' # str | Id of the workflow # str | Id of the workflow
     create_external_execute_workflow_request = sailpoint.v3.CreateExternalExecuteWorkflowRequest() # CreateExternalExecuteWorkflowRequest |  (optional)
 
     try:
         # Execute Workflow via External Trigger
         
-        api_response = api_instance.create_external_execute_workflow(id, )
-        
+        results =WorkflowsApi(api_client).create_external_execute_workflow(id, )
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.create_external_execute_workflow(id, Result)
+        # results = WorkflowsApi(api_client).create_external_execute_workflow(id, new_create_external_execute_workflow_request)
         print("The response of WorkflowsApi->create_external_execute_workflow:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling WorkflowsApi->create_external_execute_workflow: %s\n" % e)
 ```
 
@@ -182,23 +188,27 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v3
+from sailpoint.v3.api.workflows_api import WorkflowsApi
+from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.create_workflow_request import CreateWorkflowRequest
 from sailpoint.v3.models.workflow import Workflow
-from sailpoint.v3.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     create_workflow_request = {name=Send Email, owner={type=IDENTITY, id=2c91808568c529c60168cca6f90c1313, name=William Wilson}, description=Send an email to the identity who's attributes changed., definition={start=Send Email Test, steps={Send Email={actionId=sp:send-email, attributes={body=This is a test, from=sailpoint@sailpoint.com, recipientId.$=$.identity.id, subject=test}, nextStep=success, selectResult=null, type=action}, success={type=success}}}, enabled=false, trigger={type=EVENT, attributes={id=idn:identity-attributes-changed, filter=$.changes[?(@.attribute == 'manager')]}}} # CreateWorkflowRequest | 
 
     try:
         # Create Workflow
-        Result = create_workflow_request.from_json(create_workflow_request)
-        api_response = api_instance.create_workflow(Result)
-        
+        new_create_workflow_request = CreateWorkflowRequest()
+        new_create_workflow_request.from_json(create_workflow_request)
+        results =WorkflowsApi(api_client).create_workflow(new_create_workflow_request)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.create_workflow(Result)
+        # results = WorkflowsApi(api_client).create_workflow(new_create_workflow_request)
         print("The response of WorkflowsApi->create_workflow:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling WorkflowsApi->create_workflow: %s\n" % e)
 ```
 
@@ -239,22 +249,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v3
+from sailpoint.v3.api.workflows_api import WorkflowsApi
+from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.workflow_o_auth_client import WorkflowOAuthClient
-from sailpoint.v3.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'c17bea3a-574d-453c-9e04-4365fbf5af0b' # str | Id of the workflow # str | Id of the workflow
 
     try:
         # Generate External Trigger OAuth Client
         
-        api_response = api_instance.create_workflow_external_trigger(id)
-        
+        results =WorkflowsApi(api_client).create_workflow_external_trigger(id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.create_workflow_external_trigger(id)
+        # results = WorkflowsApi(api_client).create_workflow_external_trigger(id)
         print("The response of WorkflowsApi->create_workflow_external_trigger:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling WorkflowsApi->create_workflow_external_trigger: %s\n" % e)
 ```
 
@@ -295,19 +308,22 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v3
-from sailpoint.v3.rest import ApiException
+from sailpoint.v3.api.workflows_api import WorkflowsApi
+from sailpoint.v3.api_client import ApiClient
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'c17bea3a-574d-453c-9e04-4365fbf5af0b' # str | Id of the Workflow # str | Id of the Workflow
 
     try:
         # Delete Workflow By Id
         
-        api_instance.delete_workflow(id)
-        
+        WorkflowsApi(api_client).delete_workflow(id)
         # Below is a request that includes all optional parameters
-        # api_instance.delete_workflow(id)
-    except Exception as e:
+        # WorkflowsApi(api_client).delete_workflow(id)
+        except Exception as e:
         print("Exception when calling WorkflowsApi->delete_workflow: %s\n" % e)
 ```
 
@@ -348,22 +364,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v3
+from sailpoint.v3.api.workflows_api import WorkflowsApi
+from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.workflow import Workflow
-from sailpoint.v3.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'c17bea3a-574d-453c-9e04-4365fbf5af0b' # str | Id of the workflow # str | Id of the workflow
 
     try:
         # Get Workflow By Id
         
-        api_response = api_instance.get_workflow(id)
-        
+        results =WorkflowsApi(api_client).get_workflow(id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_workflow(id)
+        # results = WorkflowsApi(api_client).get_workflow(id)
         print("The response of WorkflowsApi->get_workflow:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling WorkflowsApi->get_workflow: %s\n" % e)
 ```
 
@@ -405,21 +424,24 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v3
-from sailpoint.v3.rest import ApiException
+from sailpoint.v3.api.workflows_api import WorkflowsApi
+from sailpoint.v3.api_client import ApiClient
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'c17bea3a-574d-453c-9e04-4365fbf5af0b' # str | Workflow execution ID. # str | Workflow execution ID.
 
     try:
         # Get Workflow Execution
         
-        api_response = api_instance.get_workflow_execution(id)
-        
+        results =WorkflowsApi(api_client).get_workflow_execution(id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_workflow_execution(id)
+        # results = WorkflowsApi(api_client).get_workflow_execution(id)
         print("The response of WorkflowsApi->get_workflow_execution:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling WorkflowsApi->get_workflow_execution: %s\n" % e)
 ```
 
@@ -461,22 +483,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v3
+from sailpoint.v3.api.workflows_api import WorkflowsApi
+from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.workflow_execution_event import WorkflowExecutionEvent
-from sailpoint.v3.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'c17bea3a-574d-453c-9e04-4365fbf5af0b' # str | Id of the workflow execution # str | Id of the workflow execution
 
     try:
         # Get Workflow Execution History
         
-        api_response = api_instance.get_workflow_execution_history(id)
-        
+        results =WorkflowsApi(api_client).get_workflow_execution_history(id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_workflow_execution_history(id)
+        # results = WorkflowsApi(api_client).get_workflow_execution_history(id)
         print("The response of WorkflowsApi->get_workflow_execution_history:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling WorkflowsApi->get_workflow_execution_history: %s\n" % e)
 ```
 
@@ -532,10 +557,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v3
+from sailpoint.v3.api.workflows_api import WorkflowsApi
+from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.workflow_execution import WorkflowExecution
-from sailpoint.v3.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'c17bea3a-574d-453c-9e04-4365fbf5af0b' # str | Workflow ID. # str | Workflow ID.
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -545,13 +574,12 @@ from pprint import pprint
     try:
         # List Workflow Executions
         
-        api_response = api_instance.get_workflow_executions(id, )
-        
+        results =WorkflowsApi(api_client).get_workflow_executions(id, )
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_workflow_executions(id, limit, offset, count, filters)
+        # results = WorkflowsApi(api_client).get_workflow_executions(id, limit, offset, count, filters)
         print("The response of WorkflowsApi->get_workflow_executions:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling WorkflowsApi->get_workflow_executions: %s\n" % e)
 ```
 
@@ -593,23 +621,26 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v3
+from sailpoint.v3.api.workflows_api import WorkflowsApi
+from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.list_complete_workflow_library200_response_inner import ListCompleteWorkflowLibrary200ResponseInner
-from sailpoint.v3.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 
     try:
         # List Complete Workflow Library
         
-        api_response = api_instance.list_complete_workflow_library()
-        
+        results =WorkflowsApi(api_client).list_complete_workflow_library()
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.list_complete_workflow_library(limit, offset)
+        # results = WorkflowsApi(api_client).list_complete_workflow_library(limit, offset)
         print("The response of WorkflowsApi->list_complete_workflow_library:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling WorkflowsApi->list_complete_workflow_library: %s\n" % e)
 ```
 
@@ -652,10 +683,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v3
+from sailpoint.v3.api.workflows_api import WorkflowsApi
+from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.workflow_library_action import WorkflowLibraryAction
-from sailpoint.v3.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
     filters = 'id eq \"sp:create-campaign\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq* (optional)
@@ -663,13 +698,12 @@ from pprint import pprint
     try:
         # List Workflow Library Actions
         
-        api_response = api_instance.list_workflow_library_actions()
-        
+        results =WorkflowsApi(api_client).list_workflow_library_actions()
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.list_workflow_library_actions(limit, offset, filters)
+        # results = WorkflowsApi(api_client).list_workflow_library_actions(limit, offset, filters)
         print("The response of WorkflowsApi->list_workflow_library_actions:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling WorkflowsApi->list_workflow_library_actions: %s\n" % e)
 ```
 
@@ -707,21 +741,24 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v3
+from sailpoint.v3.api.workflows_api import WorkflowsApi
+from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.workflow_library_operator import WorkflowLibraryOperator
-from sailpoint.v3.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
 
     try:
         # List Workflow Library Operators
         
-        api_response = api_instance.list_workflow_library_operators()
-        
+        results =WorkflowsApi(api_client).list_workflow_library_operators()
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.list_workflow_library_operators()
+        # results = WorkflowsApi(api_client).list_workflow_library_operators()
         print("The response of WorkflowsApi->list_workflow_library_operators:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling WorkflowsApi->list_workflow_library_operators: %s\n" % e)
 ```
 
@@ -764,10 +801,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v3
+from sailpoint.v3.api.workflows_api import WorkflowsApi
+from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.workflow_library_trigger import WorkflowLibraryTrigger
-from sailpoint.v3.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
     filters = 'id eq \"idn:identity-attributes-changed\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq* (optional)
@@ -775,13 +816,12 @@ from pprint import pprint
     try:
         # List Workflow Library Triggers
         
-        api_response = api_instance.list_workflow_library_triggers()
-        
+        results =WorkflowsApi(api_client).list_workflow_library_triggers()
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.list_workflow_library_triggers(limit, offset, filters)
+        # results = WorkflowsApi(api_client).list_workflow_library_triggers(limit, offset, filters)
         print("The response of WorkflowsApi->list_workflow_library_triggers:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling WorkflowsApi->list_workflow_library_triggers: %s\n" % e)
 ```
 
@@ -819,21 +859,24 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v3
+from sailpoint.v3.api.workflows_api import WorkflowsApi
+from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.workflow import Workflow
-from sailpoint.v3.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
 
     try:
         # List Workflows
         
-        api_response = api_instance.list_workflows()
-        
+        results =WorkflowsApi(api_client).list_workflows()
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.list_workflows()
+        # results = WorkflowsApi(api_client).list_workflows()
         print("The response of WorkflowsApi->list_workflows:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling WorkflowsApi->list_workflows: %s\n" % e)
 ```
 
@@ -875,11 +918,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v3
+from sailpoint.v3.api.workflows_api import WorkflowsApi
+from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.json_patch_operation import JsonPatchOperation
 from sailpoint.v3.models.workflow import Workflow
-from sailpoint.v3.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'c17bea3a-574d-453c-9e04-4365fbf5af0b' # str | Id of the Workflow # str | Id of the Workflow
     [{op=replace, path=/name, value=Send Email}, {op=replace, path=/owner, value={type=IDENTITY, id=2c91808568c529c60168cca6f90c1313, name=William Wilson}}, {op=replace, path=/description, value=Send an email to the identity who's attributes changed.}, {op=replace, path=/enabled, value=false}, {op=replace, path=/definition, value={start=Send Email Test, steps={Send Email={actionId=sp:send-email, attributes={body=This is a test, from=sailpoint@sailpoint.com, recipientId.$=$.identity.id, subject=test}, nextStep=success, selectResult=null, type=action}, success={type=success}}}}, {op=replace, path=/trigger, value={type=EVENT, attributes={id=idn:identity-attributes-changed}}}] # List[JsonPatchOperation] | 
      json_patch_operation = {
@@ -891,14 +938,14 @@ from pprint import pprint
 
     try:
         # Patch Workflow
-        Result = json_patch_operation.from_json(json_patch_operation)
-        api_response = api_instance.patch_workflow(id, Result)
-        
+        new_json_patch_operation = JsonPatchOperation()
+        new_json_patch_operation.from_json(json_patch_operation)
+        results =WorkflowsApi(api_client).patch_workflow(id, new_json_patch_operation)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.patch_workflow(id, Result)
+        # results = WorkflowsApi(api_client).patch_workflow(id, new_json_patch_operation)
         print("The response of WorkflowsApi->patch_workflow:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling WorkflowsApi->patch_workflow: %s\n" % e)
 ```
 
@@ -940,11 +987,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v3
+from sailpoint.v3.api.workflows_api import WorkflowsApi
+from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.workflow import Workflow
 from sailpoint.v3.models.workflow_body import WorkflowBody
-from sailpoint.v3.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'c17bea3a-574d-453c-9e04-4365fbf5af0b' # str | Id of the Workflow # str | Id of the Workflow
     workflow_body = {
           "owner" : {
@@ -988,14 +1039,14 @@ from pprint import pprint
 
     try:
         # Update Workflow
-        Result = workflow_body.from_json(workflow_body)
-        api_response = api_instance.put_workflow(id, Result)
-        
+        new_workflow_body = WorkflowBody()
+        new_workflow_body.from_json(workflow_body)
+        results =WorkflowsApi(api_client).put_workflow(id, new_workflow_body)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.put_workflow(id, Result)
+        # results = WorkflowsApi(api_client).put_workflow(id, new_workflow_body)
         print("The response of WorkflowsApi->put_workflow:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling WorkflowsApi->put_workflow: %s\n" % e)
 ```
 
@@ -1037,24 +1088,27 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v3
+from sailpoint.v3.api.workflows_api import WorkflowsApi
+from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.test_external_execute_workflow200_response import TestExternalExecuteWorkflow200Response
 from sailpoint.v3.models.test_external_execute_workflow_request import TestExternalExecuteWorkflowRequest
-from sailpoint.v3.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'c17bea3a-574d-453c-9e04-4365fbf5af0b' # str | Id of the workflow # str | Id of the workflow
     test_external_execute_workflow_request = sailpoint.v3.TestExternalExecuteWorkflowRequest() # TestExternalExecuteWorkflowRequest |  (optional)
 
     try:
         # Test Workflow via External Trigger
         
-        api_response = api_instance.test_external_execute_workflow(id, )
-        
+        results =WorkflowsApi(api_client).test_external_execute_workflow(id, )
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.test_external_execute_workflow(id, Result)
+        # results = WorkflowsApi(api_client).test_external_execute_workflow(id, new_test_external_execute_workflow_request)
         print("The response of WorkflowsApi->test_external_execute_workflow:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling WorkflowsApi->test_external_execute_workflow: %s\n" % e)
 ```
 
@@ -1098,24 +1152,28 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v3
+from sailpoint.v3.api.workflows_api import WorkflowsApi
+from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.test_workflow200_response import TestWorkflow200Response
 from sailpoint.v3.models.test_workflow_request import TestWorkflowRequest
-from sailpoint.v3.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'c17bea3a-574d-453c-9e04-4365fbf5af0b' # str | Id of the workflow # str | Id of the workflow
     test_workflow_request = {input={identity={id=ee769173319b41d19ccec6cea52f237b, name=john.doe, type=IDENTITY}, changes=[{attribute=department, oldValue=sales, newValue=marketing}, {attribute=manager, oldValue={id=ee769173319b41d19ccec6c235423237b, name=nice.guy, type=IDENTITY}, newValue={id=ee769173319b41d19ccec6c235423236c, name=mean.guy, type=IDENTITY}}, {attribute=email, oldValue=john.doe@hotmail.com, newValue=john.doe@gmail.com}]}} # TestWorkflowRequest | 
 
     try:
         # Test Workflow By Id
-        Result = test_workflow_request.from_json(test_workflow_request)
-        api_response = api_instance.test_workflow(id, Result)
-        
+        new_test_workflow_request = TestWorkflowRequest()
+        new_test_workflow_request.from_json(test_workflow_request)
+        results =WorkflowsApi(api_client).test_workflow(id, new_test_workflow_request)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.test_workflow(id, Result)
+        # results = WorkflowsApi(api_client).test_workflow(id, new_test_workflow_request)
         print("The response of WorkflowsApi->test_workflow:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling WorkflowsApi->test_workflow: %s\n" % e)
 ```
 

@@ -86,22 +86,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.account_activities_api import AccountActivitiesApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.cancelable_account_activity import CancelableAccountActivity
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | The account activity id # str | The account activity id
 
     try:
         # Get Account Activity
         
-        api_response = api_instance.get_account_activity(id)
-        
+        results =AccountActivitiesApi(api_client).get_account_activity(id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_account_activity(id)
+        # results = AccountActivitiesApi(api_client).get_account_activity(id)
         print("The response of AccountActivitiesApi->get_account_activity:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling AccountActivitiesApi->get_account_activity: %s\n" % e)
 ```
 
@@ -150,10 +153,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.account_activities_api import AccountActivitiesApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.cancelable_account_activity import CancelableAccountActivity
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     requested_for = 'requested_for_example' # str | The identity that the activity was requested for. *me* indicates the current user. Mutually exclusive with *regarding-identity*. (optional) # str | The identity that the activity was requested for. *me* indicates the current user. Mutually exclusive with *regarding-identity*. (optional)
     requested_by = 'requested_by_example' # str | The identity that requested the activity. *me* indicates the current user. Mutually exclusive with *regarding-identity*. (optional) # str | The identity that requested the activity. *me* indicates the current user. Mutually exclusive with *regarding-identity*. (optional)
     regarding_identity = 'regarding_identity_example' # str | The specified identity will be either the requester or target of the account activity. *me* indicates the current user. Mutually exclusive with *requested-for* and *requested-by*. (optional) # str | The specified identity will be either the requester or target of the account activity. *me* indicates the current user. Mutually exclusive with *requested-for* and *requested-by*. (optional)
@@ -167,13 +174,12 @@ from pprint import pprint
     try:
         # List Account Activities
         
-        api_response = api_instance.list_account_activities()
-        
+        results =AccountActivitiesApi(api_client).list_account_activities()
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.list_account_activities(requested_for, requested_by, regarding_identity, type, limit, offset, count, filters, sorters)
+        # results = AccountActivitiesApi(api_client).list_account_activities(requested_for, requested_by, regarding_identity, type, limit, offset, count, filters, sorters)
         print("The response of AccountActivitiesApi->list_account_activities:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling AccountActivitiesApi->list_account_activities: %s\n" % e)
 ```
 

@@ -106,10 +106,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.triggers_api import TriggersApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.complete_invocation import CompleteInvocation
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = '0f11f2a4-7c94-4bf3-a2bd-742580fe3bde' # str | The ID of the invocation to complete. # str | The ID of the invocation to complete.
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     complete_invocation = {
@@ -122,12 +126,12 @@ from pprint import pprint
 
     try:
         # Complete Trigger Invocation
-        Result = complete_invocation.from_json(complete_invocation)
-        api_instance.complete_trigger_invocation(id, x_sail_point_experimental, Result)
-        
+        new_complete_invocation = CompleteInvocation()
+        new_complete_invocation.from_json(complete_invocation)
+        TriggersApi(api_client).complete_trigger_invocation(id, x_sail_point_experimental, new_complete_invocation)
         # Below is a request that includes all optional parameters
-        # api_instance.complete_trigger_invocation(id, x_sail_point_experimental, Result)
-    except Exception as e:
+        # TriggersApi(api_client).complete_trigger_invocation(id, x_sail_point_experimental, new_complete_invocation)
+        except Exception as e:
         print("Exception when calling TriggersApi->complete_trigger_invocation: %s\n" % e)
 ```
 
@@ -174,11 +178,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.triggers_api import TriggersApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.subscription import Subscription
 from sailpoint.v2024.models.subscription_post_request import SubscriptionPostRequest
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     subscription_post_request = {
           "filter" : "$[?($.identityId == \"201327fda1c44704ac01181e963d463c\")]",
@@ -208,14 +216,14 @@ from pprint import pprint
 
     try:
         # Create a Subscription
-        Result = subscription_post_request.from_json(subscription_post_request)
-        api_response = api_instance.create_subscription(x_sail_point_experimental, Result)
-        
+        new_subscription_post_request = SubscriptionPostRequest()
+        new_subscription_post_request.from_json(subscription_post_request)
+        results =TriggersApi(api_client).create_subscription(x_sail_point_experimental, new_subscription_post_request)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.create_subscription(x_sail_point_experimental, Result)
+        # results = TriggersApi(api_client).create_subscription(x_sail_point_experimental, new_subscription_post_request)
         print("The response of TriggersApi->create_subscription:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling TriggersApi->create_subscription: %s\n" % e)
 ```
 
@@ -261,20 +269,23 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
-from sailpoint.v2024.rest import ApiException
+from sailpoint.v2024.api.triggers_api import TriggersApi
+from sailpoint.v2024.api_client import ApiClient
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = '0f11f2a4-7c94-4bf3-a2bd-742580fe3bde' # str | Subscription ID # str | Subscription ID
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
         # Delete a Subscription
         
-        api_instance.delete_subscription(id, x_sail_point_experimental)
-        
+        TriggersApi(api_client).delete_subscription(id, x_sail_point_experimental)
         # Below is a request that includes all optional parameters
-        # api_instance.delete_subscription(id, x_sail_point_experimental)
-    except Exception as e:
+        # TriggersApi(api_client).delete_subscription(id, x_sail_point_experimental)
+        except Exception as e:
         print("Exception when calling TriggersApi->delete_subscription: %s\n" % e)
 ```
 
@@ -323,10 +334,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.triggers_api import TriggersApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.subscription import Subscription
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -337,13 +352,12 @@ from pprint import pprint
     try:
         # List Subscriptions
         
-        api_response = api_instance.list_subscriptions(x_sail_point_experimental, )
-        
+        results =TriggersApi(api_client).list_subscriptions(x_sail_point_experimental, )
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.list_subscriptions(x_sail_point_experimental, limit, offset, count, filters, sorters)
+        # results = TriggersApi(api_client).list_subscriptions(x_sail_point_experimental, limit, offset, count, filters, sorters)
         print("The response of TriggersApi->list_subscriptions:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling TriggersApi->list_subscriptions: %s\n" % e)
 ```
 
@@ -394,10 +408,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.triggers_api import TriggersApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.invocation_status import InvocationStatus
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -408,13 +426,12 @@ from pprint import pprint
     try:
         # List Latest Invocation Statuses
         
-        api_response = api_instance.list_trigger_invocation_status(x_sail_point_experimental, )
-        
+        results =TriggersApi(api_client).list_trigger_invocation_status(x_sail_point_experimental, )
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.list_trigger_invocation_status(x_sail_point_experimental, limit, offset, count, filters, sorters)
+        # results = TriggersApi(api_client).list_trigger_invocation_status(x_sail_point_experimental, limit, offset, count, filters, sorters)
         print("The response of TriggersApi->list_trigger_invocation_status:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling TriggersApi->list_trigger_invocation_status: %s\n" % e)
 ```
 
@@ -463,10 +480,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.triggers_api import TriggersApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.trigger import Trigger
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -477,13 +498,12 @@ from pprint import pprint
     try:
         # List Triggers
         
-        api_response = api_instance.list_triggers(x_sail_point_experimental, )
-        
+        results =TriggersApi(api_client).list_triggers(x_sail_point_experimental, )
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.list_triggers(x_sail_point_experimental, limit, offset, count, filters, sorters)
+        # results = TriggersApi(api_client).list_triggers(x_sail_point_experimental, limit, offset, count, filters, sorters)
         print("The response of TriggersApi->list_triggers:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling TriggersApi->list_triggers: %s\n" % e)
 ```
 
@@ -532,11 +552,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.triggers_api import TriggersApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.subscription import Subscription
 from sailpoint.v2024.models.subscription_patch_request_inner import SubscriptionPatchRequestInner
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = '0f11f2a4-7c94-4bf3-a2bd-742580fe3bde' # str | ID of the Subscription to patch # str | ID of the Subscription to patch
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     [sailpoint.v2024.SubscriptionPatchRequestInner()] # List[SubscriptionPatchRequestInner] | 
@@ -545,14 +569,14 @@ from pprint import pprint
 
     try:
         # Patch a Subscription
-        Result = subscription_patch_request_inner.from_json(subscription_patch_request_inner)
-        api_response = api_instance.patch_subscription(id, x_sail_point_experimental, Result)
-        
+        new_subscription_patch_request_inner = SubscriptionPatchRequestInner()
+        new_subscription_patch_request_inner.from_json(subscription_patch_request_inner)
+        results =TriggersApi(api_client).patch_subscription(id, x_sail_point_experimental, new_subscription_patch_request_inner)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.patch_subscription(id, x_sail_point_experimental, Result)
+        # results = TriggersApi(api_client).patch_subscription(id, x_sail_point_experimental, new_subscription_patch_request_inner)
         print("The response of TriggersApi->patch_subscription:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling TriggersApi->patch_subscription: %s\n" % e)
 ```
 
@@ -598,11 +622,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.triggers_api import TriggersApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.invocation import Invocation
 from sailpoint.v2024.models.test_invocation import TestInvocation
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     test_invocation = {
           "input" : {
@@ -617,14 +645,14 @@ from pprint import pprint
 
     try:
         # Start a Test Invocation
-        Result = test_invocation.from_json(test_invocation)
-        api_response = api_instance.start_test_trigger_invocation(x_sail_point_experimental, Result)
-        
+        new_test_invocation = TestInvocation()
+        new_test_invocation.from_json(test_invocation)
+        results =TriggersApi(api_client).start_test_trigger_invocation(x_sail_point_experimental, new_test_invocation)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.start_test_trigger_invocation(x_sail_point_experimental, Result)
+        # results = TriggersApi(api_client).start_test_trigger_invocation(x_sail_point_experimental, new_test_invocation)
         print("The response of TriggersApi->start_test_trigger_invocation:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling TriggersApi->start_test_trigger_invocation: %s\n" % e)
 ```
 
@@ -670,11 +698,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.triggers_api import TriggersApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.validate_filter_input_dto import ValidateFilterInputDto
 from sailpoint.v2024.models.validate_filter_output_dto import ValidateFilterOutputDto
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     validate_filter_input_dto = {
           "filter" : "$[?($.identityId == \"201327fda1c44704ac01181e963d463c\")]",
@@ -685,14 +717,14 @@ from pprint import pprint
 
     try:
         # Validate a Subscription Filter
-        Result = validate_filter_input_dto.from_json(validate_filter_input_dto)
-        api_response = api_instance.test_subscription_filter(x_sail_point_experimental, Result)
-        
+        new_validate_filter_input_dto = ValidateFilterInputDto()
+        new_validate_filter_input_dto.from_json(validate_filter_input_dto)
+        results =TriggersApi(api_client).test_subscription_filter(x_sail_point_experimental, new_validate_filter_input_dto)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.test_subscription_filter(x_sail_point_experimental, Result)
+        # results = TriggersApi(api_client).test_subscription_filter(x_sail_point_experimental, new_validate_filter_input_dto)
         print("The response of TriggersApi->test_subscription_filter:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling TriggersApi->test_subscription_filter: %s\n" % e)
 ```
 
@@ -748,11 +780,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.triggers_api import TriggersApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.subscription import Subscription
 from sailpoint.v2024.models.subscription_put_request import SubscriptionPutRequest
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = '0f11f2a4-7c94-4bf3-a2bd-742580fe3bde' # str | Subscription ID # str | Subscription ID
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     subscription_put_request = {
@@ -782,14 +818,14 @@ from pprint import pprint
 
     try:
         # Update a Subscription
-        Result = subscription_put_request.from_json(subscription_put_request)
-        api_response = api_instance.update_subscription(id, x_sail_point_experimental, Result)
-        
+        new_subscription_put_request = SubscriptionPutRequest()
+        new_subscription_put_request.from_json(subscription_put_request)
+        results =TriggersApi(api_client).update_subscription(id, x_sail_point_experimental, new_subscription_put_request)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.update_subscription(id, x_sail_point_experimental, Result)
+        # results = TriggersApi(api_client).update_subscription(id, x_sail_point_experimental, new_subscription_put_request)
         print("The response of TriggersApi->update_subscription:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling TriggersApi->update_subscription: %s\n" % e)
 ```
 

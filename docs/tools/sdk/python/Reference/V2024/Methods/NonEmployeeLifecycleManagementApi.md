@@ -114,11 +114,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.non_employee_lifecycle_management_api import NonEmployeeLifecycleManagementApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.non_employee_approval_decision import NonEmployeeApprovalDecision
 from sailpoint.v2024.models.non_employee_approval_item import NonEmployeeApprovalItem
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'e136567de87e4d029e60b3c3c55db56d' # str | Non-Employee approval item id (UUID) # str | Non-Employee approval item id (UUID)
     non_employee_approval_decision = {
           "comment" : "Approved by manager"
@@ -126,14 +130,14 @@ from pprint import pprint
 
     try:
         # Approve a Non-Employee Request
-        Result = non_employee_approval_decision.from_json(non_employee_approval_decision)
-        api_response = api_instance.approve_non_employee_request(id, Result)
-        
+        new_non_employee_approval_decision = NonEmployeeApprovalDecision()
+        new_non_employee_approval_decision.from_json(non_employee_approval_decision)
+        results =NonEmployeeLifecycleManagementApi(api_client).approve_non_employee_request(id, new_non_employee_approval_decision)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.approve_non_employee_request(id, Result)
+        # results = NonEmployeeLifecycleManagementApi(api_client).approve_non_employee_request(id, new_non_employee_approval_decision)
         print("The response of NonEmployeeLifecycleManagementApi->approve_non_employee_request:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling NonEmployeeLifecycleManagementApi->approve_non_employee_request: %s\n" % e)
 ```
 
@@ -175,11 +179,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.non_employee_lifecycle_management_api import NonEmployeeLifecycleManagementApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.non_employee_record import NonEmployeeRecord
 from sailpoint.v2024.models.non_employee_request_body import NonEmployeeRequestBody
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     non_employee_request_body = {
           "sourceId" : "2c91808568c529c60168cca6f90c1313",
           "firstName" : "William",
@@ -197,14 +205,14 @@ from pprint import pprint
 
     try:
         # Create Non-Employee Record
-        Result = non_employee_request_body.from_json(non_employee_request_body)
-        api_response = api_instance.create_non_employee_record(Result)
-        
+        new_non_employee_request_body = NonEmployeeRequestBody()
+        new_non_employee_request_body.from_json(non_employee_request_body)
+        results =NonEmployeeLifecycleManagementApi(api_client).create_non_employee_record(new_non_employee_request_body)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.create_non_employee_record(Result)
+        # results = NonEmployeeLifecycleManagementApi(api_client).create_non_employee_record(new_non_employee_request_body)
         print("The response of NonEmployeeLifecycleManagementApi->create_non_employee_record:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling NonEmployeeLifecycleManagementApi->create_non_employee_record: %s\n" % e)
 ```
 
@@ -245,11 +253,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.non_employee_lifecycle_management_api import NonEmployeeLifecycleManagementApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.non_employee_request import NonEmployeeRequest
 from sailpoint.v2024.models.non_employee_request_body import NonEmployeeRequestBody
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     non_employee_request_body = {
           "sourceId" : "2c91808568c529c60168cca6f90c1313",
           "firstName" : "William",
@@ -267,14 +279,14 @@ from pprint import pprint
 
     try:
         # Create Non-Employee Request
-        Result = non_employee_request_body.from_json(non_employee_request_body)
-        api_response = api_instance.create_non_employee_request(Result)
-        
+        new_non_employee_request_body = NonEmployeeRequestBody()
+        new_non_employee_request_body.from_json(non_employee_request_body)
+        results =NonEmployeeLifecycleManagementApi(api_client).create_non_employee_request(new_non_employee_request_body)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.create_non_employee_request(Result)
+        # results = NonEmployeeLifecycleManagementApi(api_client).create_non_employee_request(new_non_employee_request_body)
         print("The response of NonEmployeeLifecycleManagementApi->create_non_employee_request:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling NonEmployeeLifecycleManagementApi->create_non_employee_request: %s\n" % e)
 ```
 
@@ -315,11 +327,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.non_employee_lifecycle_management_api import NonEmployeeLifecycleManagementApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.non_employee_source_request_body import NonEmployeeSourceRequestBody
 from sailpoint.v2024.models.non_employee_source_with_cloud_external_id import NonEmployeeSourceWithCloudExternalId
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     non_employee_source_request_body = {
           "owner" : {
             "id" : "2c91808570313110017040b06f344ec9"
@@ -349,14 +365,14 @@ from pprint import pprint
 
     try:
         # Create Non-Employee Source
-        Result = non_employee_source_request_body.from_json(non_employee_source_request_body)
-        api_response = api_instance.create_non_employee_source(Result)
-        
+        new_non_employee_source_request_body = NonEmployeeSourceRequestBody()
+        new_non_employee_source_request_body.from_json(non_employee_source_request_body)
+        results =NonEmployeeLifecycleManagementApi(api_client).create_non_employee_source(new_non_employee_source_request_body)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.create_non_employee_source(Result)
+        # results = NonEmployeeLifecycleManagementApi(api_client).create_non_employee_source(new_non_employee_source_request_body)
         print("The response of NonEmployeeLifecycleManagementApi->create_non_employee_source:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling NonEmployeeLifecycleManagementApi->create_non_employee_source: %s\n" % e)
 ```
 
@@ -399,11 +415,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.non_employee_lifecycle_management_api import NonEmployeeLifecycleManagementApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.non_employee_schema_attribute import NonEmployeeSchemaAttribute
 from sailpoint.v2024.models.non_employee_schema_attribute_body import NonEmployeeSchemaAttributeBody
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     source_id = 'ef38f94347e94562b5bb8424a56397d8' # str | The Source id # str | The Source id
     non_employee_schema_attribute_body = {
           "helpText" : "The unique identifier for the account",
@@ -416,14 +436,14 @@ from pprint import pprint
 
     try:
         # Create a new Schema Attribute for Non-Employee Source
-        Result = non_employee_schema_attribute_body.from_json(non_employee_schema_attribute_body)
-        api_response = api_instance.create_non_employee_source_schema_attributes(source_id, Result)
-        
+        new_non_employee_schema_attribute_body = NonEmployeeSchemaAttributeBody()
+        new_non_employee_schema_attribute_body.from_json(non_employee_schema_attribute_body)
+        results =NonEmployeeLifecycleManagementApi(api_client).create_non_employee_source_schema_attributes(source_id, new_non_employee_schema_attribute_body)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.create_non_employee_source_schema_attributes(source_id, Result)
+        # results = NonEmployeeLifecycleManagementApi(api_client).create_non_employee_source_schema_attributes(source_id, new_non_employee_schema_attribute_body)
         print("The response of NonEmployeeLifecycleManagementApi->create_non_employee_source_schema_attributes:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling NonEmployeeLifecycleManagementApi->create_non_employee_source_schema_attributes: %s\n" % e)
 ```
 
@@ -465,19 +485,22 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
-from sailpoint.v2024.rest import ApiException
+from sailpoint.v2024.api.non_employee_lifecycle_management_api import NonEmployeeLifecycleManagementApi
+from sailpoint.v2024.api_client import ApiClient
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | Non-Employee record id (UUID) # str | Non-Employee record id (UUID)
 
     try:
         # Delete Non-Employee Record
         
-        api_instance.delete_non_employee_record(id)
-        
+        NonEmployeeLifecycleManagementApi(api_client).delete_non_employee_record(id)
         # Below is a request that includes all optional parameters
-        # api_instance.delete_non_employee_record(id)
-    except Exception as e:
+        # NonEmployeeLifecycleManagementApi(api_client).delete_non_employee_record(id)
+        except Exception as e:
         print("Exception when calling NonEmployeeLifecycleManagementApi->delete_non_employee_record: %s\n" % e)
 ```
 
@@ -518,20 +541,24 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.non_employee_lifecycle_management_api import NonEmployeeLifecycleManagementApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.delete_non_employee_records_in_bulk_request import DeleteNonEmployeeRecordsInBulkRequest
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     delete_non_employee_records_in_bulk_request = sailpoint.v2024.DeleteNonEmployeeRecordsInBulkRequest() # DeleteNonEmployeeRecordsInBulkRequest | Non-Employee bulk delete request body.
 
     try:
         # Delete Multiple Non-Employee Records
-        Result = delete_non_employee_records_in_bulk_request.from_json(delete_non_employee_records_in_bulk_request)
-        api_instance.delete_non_employee_records_in_bulk(Result)
-        
+        new_delete_non_employee_records_in_bulk_request = DeleteNonEmployeeRecordsInBulkRequest()
+        new_delete_non_employee_records_in_bulk_request.from_json(delete_non_employee_records_in_bulk_request)
+        NonEmployeeLifecycleManagementApi(api_client).delete_non_employee_records_in_bulk(new_delete_non_employee_records_in_bulk_request)
         # Below is a request that includes all optional parameters
-        # api_instance.delete_non_employee_records_in_bulk(Result)
-    except Exception as e:
+        # NonEmployeeLifecycleManagementApi(api_client).delete_non_employee_records_in_bulk(new_delete_non_employee_records_in_bulk_request)
+        except Exception as e:
         print("Exception when calling NonEmployeeLifecycleManagementApi->delete_non_employee_records_in_bulk: %s\n" % e)
 ```
 
@@ -574,19 +601,22 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
-from sailpoint.v2024.rest import ApiException
+from sailpoint.v2024.api.non_employee_lifecycle_management_api import NonEmployeeLifecycleManagementApi
+from sailpoint.v2024.api_client import ApiClient
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'ac110005-7156-1150-8171-5b292e3e0084' # str | Non-Employee request id in the UUID format # str | Non-Employee request id in the UUID format
 
     try:
         # Delete Non-Employee Request
         
-        api_instance.delete_non_employee_request(id)
-        
+        NonEmployeeLifecycleManagementApi(api_client).delete_non_employee_request(id)
         # Below is a request that includes all optional parameters
-        # api_instance.delete_non_employee_request(id)
-    except Exception as e:
+        # NonEmployeeLifecycleManagementApi(api_client).delete_non_employee_request(id)
+        except Exception as e:
         print("Exception when calling NonEmployeeLifecycleManagementApi->delete_non_employee_request: %s\n" % e)
 ```
 
@@ -630,20 +660,23 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
-from sailpoint.v2024.rest import ApiException
+from sailpoint.v2024.api.non_employee_lifecycle_management_api import NonEmployeeLifecycleManagementApi
+from sailpoint.v2024.api_client import ApiClient
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     attribute_id = 'ef38f94347e94562b5bb8424a56397d8' # str | The Schema Attribute Id (UUID) # str | The Schema Attribute Id (UUID)
     source_id = 'ef38f94347e94562b5bb8424a56397d8' # str | The Source id # str | The Source id
 
     try:
         # Delete a Schema Attribute for Non-Employee Source
         
-        api_instance.delete_non_employee_schema_attribute(attribute_id, source_id)
-        
+        NonEmployeeLifecycleManagementApi(api_client).delete_non_employee_schema_attribute(attribute_id, source_id)
         # Below is a request that includes all optional parameters
-        # api_instance.delete_non_employee_schema_attribute(attribute_id, source_id)
-    except Exception as e:
+        # NonEmployeeLifecycleManagementApi(api_client).delete_non_employee_schema_attribute(attribute_id, source_id)
+        except Exception as e:
         print("Exception when calling NonEmployeeLifecycleManagementApi->delete_non_employee_schema_attribute: %s\n" % e)
 ```
 
@@ -684,19 +717,22 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
-from sailpoint.v2024.rest import ApiException
+from sailpoint.v2024.api.non_employee_lifecycle_management_api import NonEmployeeLifecycleManagementApi
+from sailpoint.v2024.api_client import ApiClient
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     source_id = 'e136567de87e4d029e60b3c3c55db56d' # str | Source Id # str | Source Id
 
     try:
         # Delete Non-Employee Source
         
-        api_instance.delete_non_employee_source(source_id)
-        
+        NonEmployeeLifecycleManagementApi(api_client).delete_non_employee_source(source_id)
         # Below is a request that includes all optional parameters
-        # api_instance.delete_non_employee_source(source_id)
-    except Exception as e:
+        # NonEmployeeLifecycleManagementApi(api_client).delete_non_employee_source(source_id)
+        except Exception as e:
         print("Exception when calling NonEmployeeLifecycleManagementApi->delete_non_employee_source: %s\n" % e)
 ```
 
@@ -737,19 +773,22 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
-from sailpoint.v2024.rest import ApiException
+from sailpoint.v2024.api.non_employee_lifecycle_management_api import NonEmployeeLifecycleManagementApi
+from sailpoint.v2024.api_client import ApiClient
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     source_id = 'ef38f94347e94562b5bb8424a56397d8' # str | The Source id # str | The Source id
 
     try:
         # Delete all custom schema attributes for Non-Employee Source
         
-        api_instance.delete_non_employee_source_schema_attributes(source_id)
-        
+        NonEmployeeLifecycleManagementApi(api_client).delete_non_employee_source_schema_attributes(source_id)
         # Below is a request that includes all optional parameters
-        # api_instance.delete_non_employee_source_schema_attributes(source_id)
-    except Exception as e:
+        # NonEmployeeLifecycleManagementApi(api_client).delete_non_employee_source_schema_attributes(source_id)
+        except Exception as e:
         print("Exception when calling NonEmployeeLifecycleManagementApi->delete_non_employee_source_schema_attributes: %s\n" % e)
 ```
 
@@ -791,19 +830,22 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
-from sailpoint.v2024.rest import ApiException
+from sailpoint.v2024.api.non_employee_lifecycle_management_api import NonEmployeeLifecycleManagementApi
+from sailpoint.v2024.api_client import ApiClient
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'e136567de87e4d029e60b3c3c55db56d' # str | Source Id (UUID) # str | Source Id (UUID)
 
     try:
         # Exports Non-Employee Records to CSV
         
-        api_instance.export_non_employee_records(id)
-        
+        NonEmployeeLifecycleManagementApi(api_client).export_non_employee_records(id)
         # Below is a request that includes all optional parameters
-        # api_instance.export_non_employee_records(id)
-    except Exception as e:
+        # NonEmployeeLifecycleManagementApi(api_client).export_non_employee_records(id)
+        except Exception as e:
         print("Exception when calling NonEmployeeLifecycleManagementApi->export_non_employee_records: %s\n" % e)
 ```
 
@@ -845,19 +887,22 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
-from sailpoint.v2024.rest import ApiException
+from sailpoint.v2024.api.non_employee_lifecycle_management_api import NonEmployeeLifecycleManagementApi
+from sailpoint.v2024.api_client import ApiClient
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | Source Id (UUID) # str | Source Id (UUID)
 
     try:
         # Exports Source Schema Template
         
-        api_instance.export_non_employee_source_schema_template(id)
-        
+        NonEmployeeLifecycleManagementApi(api_client).export_non_employee_source_schema_template(id)
         # Below is a request that includes all optional parameters
-        # api_instance.export_non_employee_source_schema_template(id)
-    except Exception as e:
+        # NonEmployeeLifecycleManagementApi(api_client).export_non_employee_source_schema_template(id)
+        except Exception as e:
         print("Exception when calling NonEmployeeLifecycleManagementApi->export_non_employee_source_schema_template: %s\n" % e)
 ```
 
@@ -902,23 +947,26 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.non_employee_lifecycle_management_api import NonEmployeeLifecycleManagementApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.non_employee_approval_item_detail import NonEmployeeApprovalItemDetail
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'e136567de87e4d029e60b3c3c55db56d' # str | Non-Employee approval item id (UUID) # str | Non-Employee approval item id (UUID)
     include_detail = true # bool | The object nonEmployeeRequest will not be included detail when set to false. *Default value is true* (optional) # bool | The object nonEmployeeRequest will not be included detail when set to false. *Default value is true* (optional)
 
     try:
         # Get a non-employee approval item detail
         
-        api_response = api_instance.get_non_employee_approval(id, )
-        
+        results =NonEmployeeLifecycleManagementApi(api_client).get_non_employee_approval(id, )
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_non_employee_approval(id, include_detail)
+        # results = NonEmployeeLifecycleManagementApi(api_client).get_non_employee_approval(id, include_detail)
         print("The response of NonEmployeeLifecycleManagementApi->get_non_employee_approval:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling NonEmployeeLifecycleManagementApi->get_non_employee_approval: %s\n" % e)
 ```
 
@@ -963,22 +1011,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.non_employee_lifecycle_management_api import NonEmployeeLifecycleManagementApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.non_employee_approval_summary import NonEmployeeApprovalSummary
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     requested_for = '2c91808280430dfb0180431a59440460' # str | The identity (UUID) of the approver for whom for whom the summary is being retrieved. Use \"me\" instead to indicate the current user. # str | The identity (UUID) of the approver for whom for whom the summary is being retrieved. Use \"me\" instead to indicate the current user.
 
     try:
         # Get Summary of Non-Employee Approval Requests
         
-        api_response = api_instance.get_non_employee_approval_summary(requested_for)
-        
+        results =NonEmployeeLifecycleManagementApi(api_client).get_non_employee_approval_summary(requested_for)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_non_employee_approval_summary(requested_for)
+        # results = NonEmployeeLifecycleManagementApi(api_client).get_non_employee_approval_summary(requested_for)
         print("The response of NonEmployeeLifecycleManagementApi->get_non_employee_approval_summary:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling NonEmployeeLifecycleManagementApi->get_non_employee_approval_summary: %s\n" % e)
 ```
 
@@ -1021,22 +1072,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.non_employee_lifecycle_management_api import NonEmployeeLifecycleManagementApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.non_employee_bulk_upload_status import NonEmployeeBulkUploadStatus
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'e136567de87e4d029e60b3c3c55db56d' # str | Source ID (UUID) # str | Source ID (UUID)
 
     try:
         # Obtain the status of bulk upload on the source
         
-        api_response = api_instance.get_non_employee_bulk_upload_status(id)
-        
+        results =NonEmployeeLifecycleManagementApi(api_client).get_non_employee_bulk_upload_status(id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_non_employee_bulk_upload_status(id)
+        # results = NonEmployeeLifecycleManagementApi(api_client).get_non_employee_bulk_upload_status(id)
         print("The response of NonEmployeeLifecycleManagementApi->get_non_employee_bulk_upload_status:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling NonEmployeeLifecycleManagementApi->get_non_employee_bulk_upload_status: %s\n" % e)
 ```
 
@@ -1078,22 +1132,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.non_employee_lifecycle_management_api import NonEmployeeLifecycleManagementApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.non_employee_record import NonEmployeeRecord
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | Non-Employee record id (UUID) # str | Non-Employee record id (UUID)
 
     try:
         # Get a Non-Employee Record
         
-        api_response = api_instance.get_non_employee_record(id)
-        
+        results =NonEmployeeLifecycleManagementApi(api_client).get_non_employee_record(id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_non_employee_record(id)
+        # results = NonEmployeeLifecycleManagementApi(api_client).get_non_employee_record(id)
         print("The response of NonEmployeeLifecycleManagementApi->get_non_employee_record:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling NonEmployeeLifecycleManagementApi->get_non_employee_record: %s\n" % e)
 ```
 
@@ -1139,22 +1196,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.non_employee_lifecycle_management_api import NonEmployeeLifecycleManagementApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.non_employee_request import NonEmployeeRequest
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'ac110005-7156-1150-8171-5b292e3e0084' # str | Non-Employee request id (UUID) # str | Non-Employee request id (UUID)
 
     try:
         # Get a Non-Employee Request
         
-        api_response = api_instance.get_non_employee_request(id)
-        
+        results =NonEmployeeLifecycleManagementApi(api_client).get_non_employee_request(id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_non_employee_request(id)
+        # results = NonEmployeeLifecycleManagementApi(api_client).get_non_employee_request(id)
         print("The response of NonEmployeeLifecycleManagementApi->get_non_employee_request:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling NonEmployeeLifecycleManagementApi->get_non_employee_request: %s\n" % e)
 ```
 
@@ -1199,22 +1259,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.non_employee_lifecycle_management_api import NonEmployeeLifecycleManagementApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.non_employee_request_summary import NonEmployeeRequestSummary
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     requested_for = '2c91808280430dfb0180431a59440460' # str | The identity (UUID) of the non-employee account manager for whom the summary is being retrieved. Use \"me\" instead to indicate the current user. # str | The identity (UUID) of the non-employee account manager for whom the summary is being retrieved. Use \"me\" instead to indicate the current user.
 
     try:
         # Get Summary of Non-Employee Requests
         
-        api_response = api_instance.get_non_employee_request_summary(requested_for)
-        
+        results =NonEmployeeLifecycleManagementApi(api_client).get_non_employee_request_summary(requested_for)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_non_employee_request_summary(requested_for)
+        # results = NonEmployeeLifecycleManagementApi(api_client).get_non_employee_request_summary(requested_for)
         print("The response of NonEmployeeLifecycleManagementApi->get_non_employee_request_summary:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling NonEmployeeLifecycleManagementApi->get_non_employee_request_summary: %s\n" % e)
 ```
 
@@ -1256,23 +1319,26 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.non_employee_lifecycle_management_api import NonEmployeeLifecycleManagementApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.non_employee_schema_attribute import NonEmployeeSchemaAttribute
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     attribute_id = 'ef38f94347e94562b5bb8424a56397d8' # str | The Schema Attribute Id (UUID) # str | The Schema Attribute Id (UUID)
     source_id = 'ef38f94347e94562b5bb8424a56397d8' # str | The Source id # str | The Source id
 
     try:
         # Get Schema Attribute Non-Employee Source
         
-        api_response = api_instance.get_non_employee_schema_attribute(attribute_id, source_id)
-        
+        results =NonEmployeeLifecycleManagementApi(api_client).get_non_employee_schema_attribute(attribute_id, source_id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_non_employee_schema_attribute(attribute_id, source_id)
+        # results = NonEmployeeLifecycleManagementApi(api_client).get_non_employee_schema_attribute(attribute_id, source_id)
         print("The response of NonEmployeeLifecycleManagementApi->get_non_employee_schema_attribute:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling NonEmployeeLifecycleManagementApi->get_non_employee_schema_attribute: %s\n" % e)
 ```
 
@@ -1317,22 +1383,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.non_employee_lifecycle_management_api import NonEmployeeLifecycleManagementApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.non_employee_source import NonEmployeeSource
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     source_id = '2c91808b7c28b350017c2a2ec5790aa1' # str | Source Id # str | Source Id
 
     try:
         # Get a Non-Employee Source
         
-        api_response = api_instance.get_non_employee_source(source_id)
-        
+        results =NonEmployeeLifecycleManagementApi(api_client).get_non_employee_source(source_id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_non_employee_source(source_id)
+        # results = NonEmployeeLifecycleManagementApi(api_client).get_non_employee_source(source_id)
         print("The response of NonEmployeeLifecycleManagementApi->get_non_employee_source:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling NonEmployeeLifecycleManagementApi->get_non_employee_source: %s\n" % e)
 ```
 
@@ -1375,22 +1444,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.non_employee_lifecycle_management_api import NonEmployeeLifecycleManagementApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.non_employee_schema_attribute import NonEmployeeSchemaAttribute
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     source_id = 'ef38f94347e94562b5bb8424a56397d8' # str | The Source id # str | The Source id
 
     try:
         # List Schema Attributes Non-Employee Source
         
-        api_response = api_instance.get_non_employee_source_schema_attributes(source_id)
-        
+        results =NonEmployeeLifecycleManagementApi(api_client).get_non_employee_source_schema_attributes(source_id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_non_employee_source_schema_attributes(source_id)
+        # results = NonEmployeeLifecycleManagementApi(api_client).get_non_employee_source_schema_attributes(source_id)
         print("The response of NonEmployeeLifecycleManagementApi->get_non_employee_source_schema_attributes:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling NonEmployeeLifecycleManagementApi->get_non_employee_source_schema_attributes: %s\n" % e)
 ```
 
@@ -1433,23 +1505,26 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.non_employee_lifecycle_management_api import NonEmployeeLifecycleManagementApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.non_employee_bulk_upload_job import NonEmployeeBulkUploadJob
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'e136567de87e4d029e60b3c3c55db56d' # str | Source Id (UUID) # str | Source Id (UUID)
     data = None # bytearray |  # bytearray | 
 
     try:
         # Imports, or Updates, Non-Employee Records
         
-        api_response = api_instance.import_non_employee_records_in_bulk(id, data)
-        
+        results =NonEmployeeLifecycleManagementApi(api_client).import_non_employee_records_in_bulk(id, data)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.import_non_employee_records_in_bulk(id, data)
+        # results = NonEmployeeLifecycleManagementApi(api_client).import_non_employee_records_in_bulk(id, data)
         print("The response of NonEmployeeLifecycleManagementApi->import_non_employee_records_in_bulk:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling NonEmployeeLifecycleManagementApi->import_non_employee_records_in_bulk: %s\n" % e)
 ```
 
@@ -1499,10 +1574,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.non_employee_lifecycle_management_api import NonEmployeeLifecycleManagementApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.non_employee_approval_item import NonEmployeeApprovalItem
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     requested_for = '2c91808280430dfb0180431a59440460' # str | The identity for whom the request was made. *me* indicates the current user. (optional) # str | The identity for whom the request was made. *me* indicates the current user. (optional)
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -1513,13 +1592,12 @@ from pprint import pprint
     try:
         # Get List of Non-Employee Approval Requests
         
-        api_response = api_instance.list_non_employee_approvals()
-        
+        results =NonEmployeeLifecycleManagementApi(api_client).list_non_employee_approvals()
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.list_non_employee_approvals(requested_for, limit, offset, count, filters, sorters)
+        # results = NonEmployeeLifecycleManagementApi(api_client).list_non_employee_approvals(requested_for, limit, offset, count, filters, sorters)
         print("The response of NonEmployeeLifecycleManagementApi->list_non_employee_approvals:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling NonEmployeeLifecycleManagementApi->list_non_employee_approvals: %s\n" % e)
 ```
 
@@ -1566,10 +1644,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.non_employee_lifecycle_management_api import NonEmployeeLifecycleManagementApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.non_employee_record import NonEmployeeRecord
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
     count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
@@ -1579,13 +1661,12 @@ from pprint import pprint
     try:
         # List Non-Employee Records
         
-        api_response = api_instance.list_non_employee_records()
-        
+        results =NonEmployeeLifecycleManagementApi(api_client).list_non_employee_records()
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.list_non_employee_records(limit, offset, count, sorters, filters)
+        # results = NonEmployeeLifecycleManagementApi(api_client).list_non_employee_records(limit, offset, count, sorters, filters)
         print("The response of NonEmployeeLifecycleManagementApi->list_non_employee_records:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling NonEmployeeLifecycleManagementApi->list_non_employee_records: %s\n" % e)
 ```
 
@@ -1635,10 +1716,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.non_employee_lifecycle_management_api import NonEmployeeLifecycleManagementApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.non_employee_request import NonEmployeeRequest
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     requested_for = 'e136567de87e4d029e60b3c3c55db56d' # str | The identity for whom the request was made. *me* indicates the current user. # str | The identity for whom the request was made. *me* indicates the current user.
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -1649,13 +1734,12 @@ from pprint import pprint
     try:
         # List Non-Employee Requests
         
-        api_response = api_instance.list_non_employee_requests(requested_for, )
-        
+        results =NonEmployeeLifecycleManagementApi(api_client).list_non_employee_requests(requested_for, )
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.list_non_employee_requests(requested_for, limit, offset, count, sorters, filters)
+        # results = NonEmployeeLifecycleManagementApi(api_client).list_non_employee_requests(requested_for, limit, offset, count, sorters, filters)
         print("The response of NonEmployeeLifecycleManagementApi->list_non_employee_requests:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling NonEmployeeLifecycleManagementApi->list_non_employee_requests: %s\n" % e)
 ```
 
@@ -1705,10 +1789,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.non_employee_lifecycle_management_api import NonEmployeeLifecycleManagementApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.non_employee_source_with_ne_count import NonEmployeeSourceWithNECount
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     requested_for = 'me' # str | The identity for whom the request was made. *me* indicates the current user. # str | The identity for whom the request was made. *me* indicates the current user.
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -1719,13 +1807,12 @@ from pprint import pprint
     try:
         # List Non-Employee Sources
         
-        api_response = api_instance.list_non_employee_sources(requested_for, )
-        
+        results =NonEmployeeLifecycleManagementApi(api_client).list_non_employee_sources(requested_for, )
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.list_non_employee_sources(requested_for, limit, offset, count, non_employee_count, sorters)
+        # results = NonEmployeeLifecycleManagementApi(api_client).list_non_employee_sources(requested_for, limit, offset, count, non_employee_count, sorters)
         print("The response of NonEmployeeLifecycleManagementApi->list_non_employee_sources:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling NonEmployeeLifecycleManagementApi->list_non_employee_sources: %s\n" % e)
 ```
 
@@ -1772,11 +1859,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.non_employee_lifecycle_management_api import NonEmployeeLifecycleManagementApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.json_patch_operation import JsonPatchOperation
 from sailpoint.v2024.models.non_employee_record import NonEmployeeRecord
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | Non-employee record id (UUID) # str | Non-employee record id (UUID)
     [{op=replace, path=/endDate, value=2019-08-23T18:40:35.772Z}] # List[JsonPatchOperation] | A list of non-employee update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
      json_patch_operation = {
@@ -1788,14 +1879,14 @@ from pprint import pprint
 
     try:
         # Patch Non-Employee Record
-        Result = json_patch_operation.from_json(json_patch_operation)
-        api_response = api_instance.patch_non_employee_record(id, Result)
-        
+        new_json_patch_operation = JsonPatchOperation()
+        new_json_patch_operation.from_json(json_patch_operation)
+        results =NonEmployeeLifecycleManagementApi(api_client).patch_non_employee_record(id, new_json_patch_operation)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.patch_non_employee_record(id, Result)
+        # results = NonEmployeeLifecycleManagementApi(api_client).patch_non_employee_record(id, new_json_patch_operation)
         print("The response of NonEmployeeLifecycleManagementApi->patch_non_employee_record:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling NonEmployeeLifecycleManagementApi->patch_non_employee_record: %s\n" % e)
 ```
 
@@ -1841,11 +1932,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.non_employee_lifecycle_management_api import NonEmployeeLifecycleManagementApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.json_patch_operation import JsonPatchOperation
 from sailpoint.v2024.models.non_employee_schema_attribute import NonEmployeeSchemaAttribute
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     attribute_id = 'ef38f94347e94562b5bb8424a56397d8' # str | The Schema Attribute Id (UUID) # str | The Schema Attribute Id (UUID)
     source_id = 'ef38f94347e94562b5bb8424a56397d8' # str | The Source id # str | The Source id
     [{op=replace, path=/label, value={new attribute label=null}}] # List[JsonPatchOperation] | A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The following properties are allowed for update ':' 'label', 'helpText', 'placeholder', 'required'.
@@ -1858,14 +1953,14 @@ from pprint import pprint
 
     try:
         # Patch a Schema Attribute for Non-Employee Source
-        Result = json_patch_operation.from_json(json_patch_operation)
-        api_response = api_instance.patch_non_employee_schema_attribute(attribute_id, source_id, Result)
-        
+        new_json_patch_operation = JsonPatchOperation()
+        new_json_patch_operation.from_json(json_patch_operation)
+        results =NonEmployeeLifecycleManagementApi(api_client).patch_non_employee_schema_attribute(attribute_id, source_id, new_json_patch_operation)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.patch_non_employee_schema_attribute(attribute_id, source_id, Result)
+        # results = NonEmployeeLifecycleManagementApi(api_client).patch_non_employee_schema_attribute(attribute_id, source_id, new_json_patch_operation)
         print("The response of NonEmployeeLifecycleManagementApi->patch_non_employee_schema_attribute:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling NonEmployeeLifecycleManagementApi->patch_non_employee_schema_attribute: %s\n" % e)
 ```
 
@@ -1907,11 +2002,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.non_employee_lifecycle_management_api import NonEmployeeLifecycleManagementApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.json_patch_operation import JsonPatchOperation
 from sailpoint.v2024.models.non_employee_source import NonEmployeeSource
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     source_id = 'e136567de87e4d029e60b3c3c55db56d' # str | Source Id # str | Source Id
     [{op=replace, path=/name, value={new name=null}}, {op=replace, path=/approvers, value=[2c91809f703bb37a017040a2fe8748c7, 48b1f463c9e8427db5a5071bd81914b8]}] # List[JsonPatchOperation] | A list of non-employee source update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
      json_patch_operation = {
@@ -1923,14 +2022,14 @@ from pprint import pprint
 
     try:
         # Patch a Non-Employee Source
-        Result = json_patch_operation.from_json(json_patch_operation)
-        api_response = api_instance.patch_non_employee_source(source_id, Result)
-        
+        new_json_patch_operation = JsonPatchOperation()
+        new_json_patch_operation.from_json(json_patch_operation)
+        results =NonEmployeeLifecycleManagementApi(api_client).patch_non_employee_source(source_id, new_json_patch_operation)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.patch_non_employee_source(source_id, Result)
+        # results = NonEmployeeLifecycleManagementApi(api_client).patch_non_employee_source(source_id, new_json_patch_operation)
         print("The response of NonEmployeeLifecycleManagementApi->patch_non_employee_source:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling NonEmployeeLifecycleManagementApi->patch_non_employee_source: %s\n" % e)
 ```
 
@@ -1972,11 +2071,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.non_employee_lifecycle_management_api import NonEmployeeLifecycleManagementApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.non_employee_approval_item import NonEmployeeApprovalItem
 from sailpoint.v2024.models.non_employee_reject_approval_decision import NonEmployeeRejectApprovalDecision
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'e136567de87e4d029e60b3c3c55db56d' # str | Non-Employee approval item id (UUID) # str | Non-Employee approval item id (UUID)
     non_employee_reject_approval_decision = {
           "comment" : "approved"
@@ -1984,14 +2087,14 @@ from pprint import pprint
 
     try:
         # Reject a Non-Employee Request
-        Result = non_employee_reject_approval_decision.from_json(non_employee_reject_approval_decision)
-        api_response = api_instance.reject_non_employee_request(id, Result)
-        
+        new_non_employee_reject_approval_decision = NonEmployeeRejectApprovalDecision()
+        new_non_employee_reject_approval_decision.from_json(non_employee_reject_approval_decision)
+        results =NonEmployeeLifecycleManagementApi(api_client).reject_non_employee_request(id, new_non_employee_reject_approval_decision)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.reject_non_employee_request(id, Result)
+        # results = NonEmployeeLifecycleManagementApi(api_client).reject_non_employee_request(id, new_non_employee_reject_approval_decision)
         print("The response of NonEmployeeLifecycleManagementApi->reject_non_employee_request:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling NonEmployeeLifecycleManagementApi->reject_non_employee_request: %s\n" % e)
 ```
 
@@ -2038,11 +2141,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.non_employee_lifecycle_management_api import NonEmployeeLifecycleManagementApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.non_employee_record import NonEmployeeRecord
 from sailpoint.v2024.models.non_employee_request_body import NonEmployeeRequestBody
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | Non-employee record id (UUID) # str | Non-employee record id (UUID)
     non_employee_request_body = {
           "sourceId" : "2c91808568c529c60168cca6f90c1313",
@@ -2061,14 +2168,14 @@ from pprint import pprint
 
     try:
         # Update Non-Employee Record
-        Result = non_employee_request_body.from_json(non_employee_request_body)
-        api_response = api_instance.update_non_employee_record(id, Result)
-        
+        new_non_employee_request_body = NonEmployeeRequestBody()
+        new_non_employee_request_body.from_json(non_employee_request_body)
+        results =NonEmployeeLifecycleManagementApi(api_client).update_non_employee_record(id, new_non_employee_request_body)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.update_non_employee_record(id, Result)
+        # results = NonEmployeeLifecycleManagementApi(api_client).update_non_employee_record(id, new_non_employee_request_body)
         print("The response of NonEmployeeLifecycleManagementApi->update_non_employee_record:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling NonEmployeeLifecycleManagementApi->update_non_employee_record: %s\n" % e)
 ```
 

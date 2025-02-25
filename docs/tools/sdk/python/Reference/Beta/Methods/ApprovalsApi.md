@@ -55,22 +55,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.approvals_api import ApprovalsApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.approval import Approval
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = '38453251-6be2-5f8f-df93-5ce19e295837' # str | ID of the approval that to be returned. # str | ID of the approval that to be returned.
 
     try:
         # Get Approval
         
-        api_response = api_instance.get_approval(id)
-        
+        results =ApprovalsApi(api_client).get_approval(id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_approval(id)
+        # results = ApprovalsApi(api_client).get_approval(id)
         print("The response of ApprovalsApi->get_approval:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling ApprovalsApi->get_approval: %s\n" % e)
 ```
 
@@ -114,10 +117,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.approvals_api import ApprovalsApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.approval import Approval
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     mine = true # bool | Returns the list of approvals for the current caller. (optional) # bool | Returns the list of approvals for the current caller. (optional)
     requester_id = '17e633e7d57e481569df76323169deb6a' # str | Returns the list of approvals for a given requester ID. (optional) # str | Returns the list of approvals for a given requester ID. (optional)
     filters = 'filters=status eq PENDING' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq*  **referenceType**: *eq* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq*  **referenceType**: *eq* (optional)
@@ -125,13 +132,12 @@ from pprint import pprint
     try:
         # Get Approvals
         
-        api_response = api_instance.get_approvals()
-        
+        results =ApprovalsApi(api_client).get_approvals()
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_approvals(mine, requester_id, filters)
+        # results = ApprovalsApi(api_client).get_approvals(mine, requester_id, filters)
         print("The response of ApprovalsApi->get_approvals:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling ApprovalsApi->get_approvals: %s\n" % e)
 ```
 

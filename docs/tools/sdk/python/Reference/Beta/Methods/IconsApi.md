@@ -56,20 +56,23 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
-from sailpoint.beta.rest import ApiException
+from sailpoint.beta.api.icons_api import IconsApi
+from sailpoint.beta.api_client import ApiClient
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     object_type = 'application' # str | Object type # str | Object type
     object_id = 'a291e870-48c3-4953-b656-fb5ce2a93169' # str | Object id. # str | Object id.
 
     try:
         # Delete an icon
         
-        api_instance.delete_icon(object_type, object_id)
-        
+        IconsApi(api_client).delete_icon(object_type, object_id)
         # Below is a request that includes all optional parameters
-        # api_instance.delete_icon(object_type, object_id)
-    except Exception as e:
+        # IconsApi(api_client).delete_icon(object_type, object_id)
+        except Exception as e:
         print("Exception when calling IconsApi->delete_icon: %s\n" % e)
 ```
 
@@ -113,10 +116,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.icons_api import IconsApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.set_icon200_response import SetIcon200Response
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     object_type = 'application' # str | Object type # str | Object type
     object_id = 'a291e870-48c3-4953-b656-fb5ce2a93169' # str | Object id. # str | Object id.
     image = None # bytearray | file with icon. Allowed mime-types ['image/png', 'image/jpeg'] # bytearray | file with icon. Allowed mime-types ['image/png', 'image/jpeg']
@@ -124,13 +131,12 @@ from pprint import pprint
     try:
         # Update an icon
         
-        api_response = api_instance.set_icon(object_type, object_id, image)
-        
+        results =IconsApi(api_client).set_icon(object_type, object_id, image)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.set_icon(object_type, object_id, image)
+        # results = IconsApi(api_client).set_icon(object_type, object_id, image)
         print("The response of IconsApi->set_icon:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling IconsApi->set_icon: %s\n" % e)
 ```
 

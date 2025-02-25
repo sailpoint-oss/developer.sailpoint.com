@@ -55,22 +55,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.tenant_api import TenantApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.tenant import Tenant
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
         # Get Tenant Information.
         
-        api_response = api_instance.get_tenant(x_sail_point_experimental)
-        
+        results =TenantApi(api_client).get_tenant(x_sail_point_experimental)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_tenant(x_sail_point_experimental)
+        # results = TenantApi(api_client).get_tenant(x_sail_point_experimental)
         print("The response of TenantApi->get_tenant:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling TenantApi->get_tenant: %s\n" % e)
 ```
 

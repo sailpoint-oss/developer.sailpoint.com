@@ -67,23 +67,27 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v3
+from sailpoint.v3.api.saved_search_api import SavedSearchApi
+from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.create_saved_search_request import CreateSavedSearchRequest
 from sailpoint.v3.models.saved_search import SavedSearch
-from sailpoint.v3.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     create_saved_search_request = sailpoint.v3.CreateSavedSearchRequest() # CreateSavedSearchRequest | The saved search to persist.
 
     try:
         # Create a saved search
-        Result = create_saved_search_request.from_json(create_saved_search_request)
-        api_response = api_instance.create_saved_search(Result)
-        
+        new_create_saved_search_request = CreateSavedSearchRequest()
+        new_create_saved_search_request.from_json(create_saved_search_request)
+        results =SavedSearchApi(api_client).create_saved_search(new_create_saved_search_request)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.create_saved_search(Result)
+        # results = SavedSearchApi(api_client).create_saved_search(new_create_saved_search_request)
         print("The response of SavedSearchApi->create_saved_search:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SavedSearchApi->create_saved_search: %s\n" % e)
 ```
 
@@ -126,19 +130,22 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v3
-from sailpoint.v3.rest import ApiException
+from sailpoint.v3.api.saved_search_api import SavedSearchApi
+from sailpoint.v3.api_client import ApiClient
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = '2c91808568c529c60168cca6f90c1313' # str | ID of the requested document. # str | ID of the requested document.
 
     try:
         # Delete document by ID
         
-        api_instance.delete_saved_search(id)
-        
+        SavedSearchApi(api_client).delete_saved_search(id)
         # Below is a request that includes all optional parameters
-        # api_instance.delete_saved_search(id)
-    except Exception as e:
+        # SavedSearchApi(api_client).delete_saved_search(id)
+        except Exception as e:
         print("Exception when calling SavedSearchApi->delete_saved_search: %s\n" % e)
 ```
 
@@ -182,10 +189,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v3
+from sailpoint.v3.api.saved_search_api import SavedSearchApi
+from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.search_arguments import SearchArguments
-from sailpoint.v3.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = '2c91808568c529c60168cca6f90c1313' # str | ID of the requested document. # str | ID of the requested document.
     search_arguments = {
           "owner" : "",
@@ -201,12 +212,12 @@ from pprint import pprint
 
     try:
         # Execute a saved search by ID
-        Result = search_arguments.from_json(search_arguments)
-        api_instance.execute_saved_search(id, Result)
-        
+        new_search_arguments = SearchArguments()
+        new_search_arguments.from_json(search_arguments)
+        SavedSearchApi(api_client).execute_saved_search(id, new_search_arguments)
         # Below is a request that includes all optional parameters
-        # api_instance.execute_saved_search(id, Result)
-    except Exception as e:
+        # SavedSearchApi(api_client).execute_saved_search(id, new_search_arguments)
+        except Exception as e:
         print("Exception when calling SavedSearchApi->execute_saved_search: %s\n" % e)
 ```
 
@@ -249,22 +260,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v3
+from sailpoint.v3.api.saved_search_api import SavedSearchApi
+from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.saved_search import SavedSearch
-from sailpoint.v3.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = '2c91808568c529c60168cca6f90c1313' # str | ID of the requested document. # str | ID of the requested document.
 
     try:
         # Return saved search by ID
         
-        api_response = api_instance.get_saved_search(id)
-        
+        results =SavedSearchApi(api_client).get_saved_search(id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_saved_search(id)
+        # results = SavedSearchApi(api_client).get_saved_search(id)
         print("The response of SavedSearchApi->get_saved_search:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SavedSearchApi->get_saved_search: %s\n" % e)
 ```
 
@@ -309,10 +323,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v3
+from sailpoint.v3.api.saved_search_api import SavedSearchApi
+from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.saved_search import SavedSearch
-from sailpoint.v3.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
@@ -321,13 +339,12 @@ from pprint import pprint
     try:
         # A list of Saved Searches
         
-        api_response = api_instance.list_saved_searches()
-        
+        results =SavedSearchApi(api_client).list_saved_searches()
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.list_saved_searches(offset, limit, count, filters)
+        # results = SavedSearchApi(api_client).list_saved_searches(offset, limit, count, filters)
         print("The response of SavedSearchApi->list_saved_searches:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SavedSearchApi->list_saved_searches: %s\n" % e)
 ```
 
@@ -372,10 +389,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v3
+from sailpoint.v3.api.saved_search_api import SavedSearchApi
+from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.saved_search import SavedSearch
-from sailpoint.v3.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = '2c91808568c529c60168cca6f90c1313' # str | ID of the requested document. # str | ID of the requested document.
     saved_search = {
           "owner" : {
@@ -425,14 +446,14 @@ from pprint import pprint
 
     try:
         # Updates an existing saved search 
-        Result = saved_search.from_json(saved_search)
-        api_response = api_instance.put_saved_search(id, Result)
-        
+        new_saved_search = SavedSearch()
+        new_saved_search.from_json(saved_search)
+        results =SavedSearchApi(api_client).put_saved_search(id, new_saved_search)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.put_saved_search(id, Result)
+        # results = SavedSearchApi(api_client).put_saved_search(id, new_saved_search)
         print("The response of SavedSearchApi->put_saved_search:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SavedSearchApi->put_saved_search: %s\n" % e)
 ```
 

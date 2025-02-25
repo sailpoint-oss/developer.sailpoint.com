@@ -67,11 +67,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.connector_rule_management_api import ConnectorRuleManagementApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.connector_rule_create_request import ConnectorRuleCreateRequest
 from sailpoint.v2024.models.connector_rule_response import ConnectorRuleResponse
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     connector_rule_create_request = {
           "sourceCode" : {
@@ -102,14 +106,14 @@ from pprint import pprint
 
     try:
         # Create Connector Rule
-        Result = connector_rule_create_request.from_json(connector_rule_create_request)
-        api_response = api_instance.create_connector_rule(x_sail_point_experimental, Result)
-        
+        new_connector_rule_create_request = ConnectorRuleCreateRequest()
+        new_connector_rule_create_request.from_json(connector_rule_create_request)
+        results =ConnectorRuleManagementApi(api_client).create_connector_rule(x_sail_point_experimental, new_connector_rule_create_request)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.create_connector_rule(x_sail_point_experimental, Result)
+        # results = ConnectorRuleManagementApi(api_client).create_connector_rule(x_sail_point_experimental, new_connector_rule_create_request)
         print("The response of ConnectorRuleManagementApi->create_connector_rule:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling ConnectorRuleManagementApi->create_connector_rule: %s\n" % e)
 ```
 
@@ -155,20 +159,23 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
-from sailpoint.v2024.rest import ApiException
+from sailpoint.v2024.api.connector_rule_management_api import ConnectorRuleManagementApi
+from sailpoint.v2024.api_client import ApiClient
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = '8c190e6787aa4ed9a90bd9d5344523fb' # str | ID of the connector rule to delete. # str | ID of the connector rule to delete.
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
         # Delete Connector Rule
         
-        api_instance.delete_connector_rule(id, x_sail_point_experimental)
-        
+        ConnectorRuleManagementApi(api_client).delete_connector_rule(id, x_sail_point_experimental)
         # Below is a request that includes all optional parameters
-        # api_instance.delete_connector_rule(id, x_sail_point_experimental)
-    except Exception as e:
+        # ConnectorRuleManagementApi(api_client).delete_connector_rule(id, x_sail_point_experimental)
+        except Exception as e:
         print("Exception when calling ConnectorRuleManagementApi->delete_connector_rule: %s\n" % e)
 ```
 
@@ -214,23 +221,26 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.connector_rule_management_api import ConnectorRuleManagementApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.connector_rule_response import ConnectorRuleResponse
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = '8c190e6787aa4ed9a90bd9d5344523fb' # str | ID of the connector rule to get. # str | ID of the connector rule to get.
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
         # Get Connector Rule
         
-        api_response = api_instance.get_connector_rule(id, x_sail_point_experimental)
-        
+        results =ConnectorRuleManagementApi(api_client).get_connector_rule(id, x_sail_point_experimental)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_connector_rule(id, x_sail_point_experimental)
+        # results = ConnectorRuleManagementApi(api_client).get_connector_rule(id, x_sail_point_experimental)
         print("The response of ConnectorRuleManagementApi->get_connector_rule:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling ConnectorRuleManagementApi->get_connector_rule: %s\n" % e)
 ```
 
@@ -277,10 +287,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.connector_rule_management_api import ConnectorRuleManagementApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.connector_rule_response import ConnectorRuleResponse
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     limit = 50 # int | Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 50) # int | Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 50)
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -289,13 +303,12 @@ from pprint import pprint
     try:
         # List Connector Rules
         
-        api_response = api_instance.get_connector_rule_list(x_sail_point_experimental, )
-        
+        results =ConnectorRuleManagementApi(api_client).get_connector_rule_list(x_sail_point_experimental, )
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_connector_rule_list(x_sail_point_experimental, limit, offset, count)
+        # results = ConnectorRuleManagementApi(api_client).get_connector_rule_list(x_sail_point_experimental, limit, offset, count)
         print("The response of ConnectorRuleManagementApi->get_connector_rule_list:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling ConnectorRuleManagementApi->get_connector_rule_list: %s\n" % e)
 ```
 
@@ -342,11 +355,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.connector_rule_management_api import ConnectorRuleManagementApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.connector_rule_response import ConnectorRuleResponse
 from sailpoint.v2024.models.connector_rule_update_request import ConnectorRuleUpdateRequest
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = '8c190e6787aa4ed9a90bd9d5344523fb' # str | ID of the connector rule to update. # str | ID of the connector rule to update.
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     connector_rule_update_request = {
@@ -380,13 +397,12 @@ from pprint import pprint
     try:
         # Update Connector Rule
         
-        api_response = api_instance.put_connector_rule(id, x_sail_point_experimental, )
-        
+        results =ConnectorRuleManagementApi(api_client).put_connector_rule(id, x_sail_point_experimental, )
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.put_connector_rule(id, x_sail_point_experimental, Result)
+        # results = ConnectorRuleManagementApi(api_client).put_connector_rule(id, x_sail_point_experimental, new_connector_rule_update_request)
         print("The response of ConnectorRuleManagementApi->put_connector_rule:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling ConnectorRuleManagementApi->put_connector_rule: %s\n" % e)
 ```
 
@@ -431,11 +447,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.connector_rule_management_api import ConnectorRuleManagementApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.connector_rule_validation_response import ConnectorRuleValidationResponse
 from sailpoint.v2024.models.source_code import SourceCode
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     source_code = {
           "version" : "1.0",
@@ -444,14 +464,14 @@ from pprint import pprint
 
     try:
         # Validate Connector Rule
-        Result = source_code.from_json(source_code)
-        api_response = api_instance.test_connector_rule(x_sail_point_experimental, Result)
-        
+        new_source_code = SourceCode()
+        new_source_code.from_json(source_code)
+        results =ConnectorRuleManagementApi(api_client).test_connector_rule(x_sail_point_experimental, new_source_code)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.test_connector_rule(x_sail_point_experimental, Result)
+        # results = ConnectorRuleManagementApi(api_client).test_connector_rule(x_sail_point_experimental, new_source_code)
         print("The response of ConnectorRuleManagementApi->test_connector_rule:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling ConnectorRuleManagementApi->test_connector_rule: %s\n" % e)
 ```
 

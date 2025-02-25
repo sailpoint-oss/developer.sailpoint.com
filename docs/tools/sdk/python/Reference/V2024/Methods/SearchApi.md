@@ -80,11 +80,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.search_api import SearchApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.aggregation_result import AggregationResult
 from sailpoint.v2024.models.search import Search
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     search = {
           "queryDsl" : {
             "match" : {
@@ -208,14 +212,14 @@ from pprint import pprint
 
     try:
         # Perform a Search Query Aggregation
-        Result = search.from_json(search)
-        api_response = api_instance.search_aggregate(Result, )
-        
+        new_search = Search()
+        new_search.from_json(search)
+        results =SearchApi(api_client).search_aggregate(new_search, )
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.search_aggregate(Result, offset, limit, count)
+        # results = SearchApi(api_client).search_aggregate(new_search, offset, limit, count)
         print("The response of SearchApi->search_aggregate:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SearchApi->search_aggregate: %s\n" % e)
 ```
 
@@ -256,10 +260,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.search_api import SearchApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.search import Search
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     search = {
           "queryDsl" : {
             "match" : {
@@ -380,12 +388,12 @@ from pprint import pprint
 
     try:
         # Count Documents Satisfying a Query
-        Result = search.from_json(search)
-        api_instance.search_count(Result)
-        
+        new_search = Search()
+        new_search.from_json(search)
+        SearchApi(api_client).search_count(new_search)
         # Below is a request that includes all optional parameters
-        # api_instance.search_count(Result)
-    except Exception as e:
+        # SearchApi(api_client).search_count(new_search)
+        except Exception as e:
         print("Exception when calling SearchApi->search_count: %s\n" % e)
 ```
 
@@ -428,22 +436,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
-from sailpoint.v2024.rest import ApiException
+from sailpoint.v2024.api.search_api import SearchApi
+from sailpoint.v2024.api_client import ApiClient
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     index = 'accounts' # str | The index from which to fetch the specified document.  The currently supported index names are: *accessprofiles*, *accountactivities*, *entitlements*, *events*, *identities*, and *roles*.  # str | The index from which to fetch the specified document.  The currently supported index names are: *accessprofiles*, *accountactivities*, *entitlements*, *events*, *identities*, and *roles*. 
     id = '2c91808568c529c60168cca6f90c1313' # str | ID of the requested document. # str | ID of the requested document.
 
     try:
         # Get a Document by ID
         
-        api_response = api_instance.search_get(index, id)
-        
+        results =SearchApi(api_client).search_get(index, id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.search_get(index, id)
+        # results = SearchApi(api_client).search_get(index, id)
         print("The response of SearchApi->search_get:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SearchApi->search_get: %s\n" % e)
 ```
 
@@ -487,10 +498,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.search_api import SearchApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.search import Search
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     search = {
           "queryDsl" : {
             "match" : {
@@ -614,14 +629,14 @@ from pprint import pprint
 
     try:
         # Perform Search
-        Result = search.from_json(search)
-        api_response = api_instance.search_post(Result, )
-        
+        new_search = Search()
+        new_search.from_json(search)
+        results =SearchApi(api_client).search_post(new_search, )
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.search_post(Result, offset, limit, count)
+        # results = SearchApi(api_client).search_post(new_search, offset, limit, count)
         print("The response of SearchApi->search_post:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SearchApi->search_post: %s\n" % e)
 ```
 

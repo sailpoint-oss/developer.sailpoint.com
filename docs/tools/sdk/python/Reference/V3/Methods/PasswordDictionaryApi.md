@@ -125,20 +125,23 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v3
-from sailpoint.v3.rest import ApiException
+from sailpoint.v3.api.password_dictionary_api import PasswordDictionaryApi
+from sailpoint.v3.api_client import ApiClient
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
 
     try:
         # Get Password Dictionary
         
-        api_response = api_instance.get_password_dictionary()
-        
+        results =PasswordDictionaryApi(api_client).get_password_dictionary()
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_password_dictionary()
+        # results = PasswordDictionaryApi(api_client).get_password_dictionary()
         print("The response of PasswordDictionaryApi->get_password_dictionary:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling PasswordDictionaryApi->get_password_dictionary: %s\n" % e)
 ```
 
@@ -209,19 +212,22 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v3
-from sailpoint.v3.rest import ApiException
+from sailpoint.v3.api.password_dictionary_api import PasswordDictionaryApi
+from sailpoint.v3.api_client import ApiClient
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     file = None # bytearray |  (optional) # bytearray |  (optional)
 
     try:
         # Update Password Dictionary
         
-        api_instance.put_password_dictionary()
-        
+        PasswordDictionaryApi(api_client).put_password_dictionary()
         # Below is a request that includes all optional parameters
-        # api_instance.put_password_dictionary(file)
-    except Exception as e:
+        # PasswordDictionaryApi(api_client).put_password_dictionary(file)
+        except Exception as e:
         print("Exception when calling PasswordDictionaryApi->put_password_dictionary: %s\n" % e)
 ```
 

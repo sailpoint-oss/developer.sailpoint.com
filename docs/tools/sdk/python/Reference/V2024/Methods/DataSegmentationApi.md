@@ -61,22 +61,26 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.data_segmentation_api import DataSegmentationApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.data_segment import DataSegment
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     data_segment = sailpoint.v2024.DataSegment() # DataSegment | 
 
     try:
         # Create Segment
-        Result = data_segment.from_json(data_segment)
-        api_response = api_instance.create_data_segment(Result)
-        
+        new_data_segment = DataSegment()
+        new_data_segment.from_json(data_segment)
+        results =DataSegmentationApi(api_client).create_data_segment(new_data_segment)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.create_data_segment(Result)
+        # results = DataSegmentationApi(api_client).create_data_segment(new_data_segment)
         print("The response of DataSegmentationApi->create_data_segment:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling DataSegmentationApi->create_data_segment: %s\n" % e)
 ```
 
@@ -123,9 +127,13 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
-from sailpoint.v2024.rest import ApiException
+from sailpoint.v2024.api.data_segmentation_api import DataSegmentationApi
+from sailpoint.v2024.api_client import ApiClient
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'ef38f943-47e9-4562-b5bb-8424a56397d8' # str | The segment ID to delete. # str | The segment ID to delete.
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     published = False # bool | This determines which version of the segment to delete (optional) (default to False) # bool | This determines which version of the segment to delete (optional) (default to False)
@@ -133,11 +141,10 @@ from pprint import pprint
     try:
         # Delete Segment by ID
         
-        api_instance.delete_data_segment(id, x_sail_point_experimental, )
-        
+        DataSegmentationApi(api_client).delete_data_segment(id, x_sail_point_experimental, )
         # Below is a request that includes all optional parameters
-        # api_instance.delete_data_segment(id, x_sail_point_experimental, published)
-    except Exception as e:
+        # DataSegmentationApi(api_client).delete_data_segment(id, x_sail_point_experimental, published)
+        except Exception as e:
         print("Exception when calling DataSegmentationApi->delete_data_segment: %s\n" % e)
 ```
 
@@ -183,23 +190,26 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.data_segmentation_api import DataSegmentationApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.data_segment import DataSegment
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'ef38f943-47e9-4562-b5bb-8424a56397d8' # str | The segment ID to retrieve. # str | The segment ID to retrieve.
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
         # Get Segment by ID
         
-        api_response = api_instance.get_data_segment(id, x_sail_point_experimental)
-        
+        results =DataSegmentationApi(api_client).get_data_segment(id, x_sail_point_experimental)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_data_segment(id, x_sail_point_experimental)
+        # results = DataSegmentationApi(api_client).get_data_segment(id, x_sail_point_experimental)
         print("The response of DataSegmentationApi->get_data_segment:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling DataSegmentationApi->get_data_segment: %s\n" % e)
 ```
 
@@ -245,22 +255,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
-from sailpoint.v2024.rest import ApiException
+from sailpoint.v2024.api.data_segmentation_api import DataSegmentationApi
+from sailpoint.v2024.api_client import ApiClient
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     identity_id = 'ef38f943-47e9-4562-b5bb-8424a56397d8' # str | The identity ID to retrieve the segments they are in. # str | The identity ID to retrieve the segments they are in.
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
         # Get SegmentMembership by Identity ID
         
-        api_response = api_instance.get_data_segment_identity_membership(identity_id, x_sail_point_experimental)
-        
+        results =DataSegmentationApi(api_client).get_data_segment_identity_membership(identity_id, x_sail_point_experimental)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_data_segment_identity_membership(identity_id, x_sail_point_experimental)
+        # results = DataSegmentationApi(api_client).get_data_segment_identity_membership(identity_id, x_sail_point_experimental)
         print("The response of DataSegmentationApi->get_data_segment_identity_membership:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling DataSegmentationApi->get_data_segment_identity_membership: %s\n" % e)
 ```
 
@@ -306,22 +319,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
-from sailpoint.v2024.rest import ApiException
+from sailpoint.v2024.api.data_segmentation_api import DataSegmentationApi
+from sailpoint.v2024.api_client import ApiClient
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     identity_id = 'ef38f943-47e9-4562-b5bb-8424a56397d8' # str | The identity ID to retrieve if segmentation is enabled for the identity. # str | The identity ID to retrieve if segmentation is enabled for the identity.
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
         # Is Segmentation enabled by Identity
         
-        api_response = api_instance.get_data_segmentation_enabled_for_user(identity_id, x_sail_point_experimental)
-        
+        results =DataSegmentationApi(api_client).get_data_segmentation_enabled_for_user(identity_id, x_sail_point_experimental)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_data_segmentation_enabled_for_user(identity_id, x_sail_point_experimental)
+        # results = DataSegmentationApi(api_client).get_data_segmentation_enabled_for_user(identity_id, x_sail_point_experimental)
         print("The response of DataSegmentationApi->get_data_segmentation_enabled_for_user:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling DataSegmentationApi->get_data_segmentation_enabled_for_user: %s\n" % e)
 ```
 
@@ -373,10 +389,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.data_segmentation_api import DataSegmentationApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.data_segment import DataSegment
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     enabled = True # bool | This boolean indicates whether the segment is currently active. Inactive segments have no effect. (optional) (default to True) # bool | This boolean indicates whether the segment is currently active. Inactive segments have no effect. (optional) (default to True)
     unique = False # bool | This returns only one record if set to true and that would be the published record if exists. (optional) (default to False) # bool | This returns only one record if set to true and that would be the published record if exists. (optional) (default to False)
@@ -389,13 +409,12 @@ from pprint import pprint
     try:
         # Get Segments
         
-        api_response = api_instance.list_data_segments(x_sail_point_experimental, )
-        
+        results =DataSegmentationApi(api_client).list_data_segments(x_sail_point_experimental, )
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.list_data_segments(x_sail_point_experimental, enabled, unique, published, limit, offset, count, filters)
+        # results = DataSegmentationApi(api_client).list_data_segments(x_sail_point_experimental, enabled, unique, published, limit, offset, count, filters)
         print("The response of DataSegmentationApi->list_data_segments:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling DataSegmentationApi->list_data_segments: %s\n" % e)
 ```
 
@@ -442,10 +461,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.data_segmentation_api import DataSegmentationApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.data_segment import DataSegment
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'ef38f943-47e9-4562-b5bb-8424a56397d8' # str | The segment ID to modify. # str | The segment ID to modify.
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     request_body = [{op=replace, path=/memberFilter, value={expression={operator=AND, children=[{operator=EQUALS, attribute=location, value={type=STRING, value=Philadelphia}}, {operator=EQUALS, attribute=department, value={type=STRING, value=HR}}]}}}] # List[object] | A list of segment update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * membership * memberFilter * memberSelection * scopes * enabled 
@@ -454,14 +477,14 @@ from pprint import pprint
 
     try:
         # Update Segment
-        Result = request_body.from_json(request_body)
-        api_response = api_instance.patch_data_segment(id, x_sail_point_experimental, Result)
-        
+        new_request_body = RequestBody()
+        new_request_body.from_json(request_body)
+        results =DataSegmentationApi(api_client).patch_data_segment(id, x_sail_point_experimental, new_request_body)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.patch_data_segment(id, x_sail_point_experimental, Result)
+        # results = DataSegmentationApi(api_client).patch_data_segment(id, x_sail_point_experimental, new_request_body)
         print("The response of DataSegmentationApi->patch_data_segment:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling DataSegmentationApi->patch_data_segment: %s\n" % e)
 ```
 
@@ -508,9 +531,13 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
-from sailpoint.v2024.rest import ApiException
+from sailpoint.v2024.api.data_segmentation_api import DataSegmentationApi
+from sailpoint.v2024.api_client import ApiClient
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     request_body = ['request_body_example'] # List[str] | A list of segment ids that you wish to publish
      request_body = ['request_body_example'] # List[str] | A list of segment ids that you wish to publish
@@ -519,12 +546,12 @@ from pprint import pprint
 
     try:
         # Publish segment by ID
-        Result = request_body.from_json(request_body)
-        api_instance.publish_data_segment(x_sail_point_experimental, Result, )
-        
+        new_request_body = RequestBody()
+        new_request_body.from_json(request_body)
+        DataSegmentationApi(api_client).publish_data_segment(x_sail_point_experimental, new_request_body, )
         # Below is a request that includes all optional parameters
-        # api_instance.publish_data_segment(x_sail_point_experimental, Result, publish_all)
-    except Exception as e:
+        # DataSegmentationApi(api_client).publish_data_segment(x_sail_point_experimental, new_request_body, publish_all)
+        except Exception as e:
         print("Exception when calling DataSegmentationApi->publish_data_segment: %s\n" % e)
 ```
 

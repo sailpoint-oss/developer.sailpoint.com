@@ -68,23 +68,26 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.access_model_metadata_api import AccessModelMetadataApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.attribute_dto import AttributeDTO
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     key = 'iscPrivacy' # str | Technical name of the Attribute. # str | Technical name of the Attribute.
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
         # Get Access Model Metadata Attribute
         
-        api_response = api_instance.get_access_model_metadata_attribute(key, x_sail_point_experimental)
-        
+        results =AccessModelMetadataApi(api_client).get_access_model_metadata_attribute(key, x_sail_point_experimental)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_access_model_metadata_attribute(key, x_sail_point_experimental)
+        # results = AccessModelMetadataApi(api_client).get_access_model_metadata_attribute(key, x_sail_point_experimental)
         print("The response of AccessModelMetadataApi->get_access_model_metadata_attribute:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling AccessModelMetadataApi->get_access_model_metadata_attribute: %s\n" % e)
 ```
 
@@ -130,10 +133,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.access_model_metadata_api import AccessModelMetadataApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.attribute_value_dto import AttributeValueDTO
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     key = 'iscPrivacy' # str | Technical name of the Attribute. # str | Technical name of the Attribute.
     value = 'public' # str | Technical name of the Attribute value. # str | Technical name of the Attribute value.
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -141,13 +148,12 @@ from pprint import pprint
     try:
         # Get Access Model Metadata Value
         
-        api_response = api_instance.get_access_model_metadata_attribute_value(key, value, x_sail_point_experimental)
-        
+        results =AccessModelMetadataApi(api_client).get_access_model_metadata_attribute_value(key, value, x_sail_point_experimental)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_access_model_metadata_attribute_value(key, value, x_sail_point_experimental)
+        # results = AccessModelMetadataApi(api_client).get_access_model_metadata_attribute_value(key, value, x_sail_point_experimental)
         print("The response of AccessModelMetadataApi->get_access_model_metadata_attribute_value:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling AccessModelMetadataApi->get_access_model_metadata_attribute_value: %s\n" % e)
 ```
 
@@ -192,23 +198,26 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.access_model_metadata_api import AccessModelMetadataApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.attribute_dto import AttributeDTO
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     filters = 'name eq \"Privacy\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq*  **type**: *eq*  **status**: *eq*  **objectTypes**: *eq*  Supported composite operators: *and* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq*  **type**: *eq*  **status**: *eq*  **objectTypes**: *eq*  Supported composite operators: *and* (optional)
 
     try:
         # List Access Model Metadata Attributes
         
-        api_response = api_instance.list_access_model_metadata_attribute(x_sail_point_experimental, )
-        
+        results =AccessModelMetadataApi(api_client).list_access_model_metadata_attribute(x_sail_point_experimental, )
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.list_access_model_metadata_attribute(x_sail_point_experimental, filters)
+        # results = AccessModelMetadataApi(api_client).list_access_model_metadata_attribute(x_sail_point_experimental, filters)
         print("The response of AccessModelMetadataApi->list_access_model_metadata_attribute:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling AccessModelMetadataApi->list_access_model_metadata_attribute: %s\n" % e)
 ```
 
@@ -253,23 +262,26 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.access_model_metadata_api import AccessModelMetadataApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.attribute_value_dto import AttributeValueDTO
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     key = 'iscPrivacy' # str | Technical name of the Attribute. # str | Technical name of the Attribute.
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
         # List Access Model Metadata Values
         
-        api_response = api_instance.list_access_model_metadata_attribute_value(key, x_sail_point_experimental)
-        
+        results =AccessModelMetadataApi(api_client).list_access_model_metadata_attribute_value(key, x_sail_point_experimental)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.list_access_model_metadata_attribute_value(key, x_sail_point_experimental)
+        # results = AccessModelMetadataApi(api_client).list_access_model_metadata_attribute_value(key, x_sail_point_experimental)
         print("The response of AccessModelMetadataApi->list_access_model_metadata_attribute_value:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling AccessModelMetadataApi->list_access_model_metadata_attribute_value: %s\n" % e)
 ```
 

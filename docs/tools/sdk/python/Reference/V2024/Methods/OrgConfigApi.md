@@ -59,22 +59,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.org_config_api import OrgConfigApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.org_config import OrgConfig
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
         # Get Org Config Settings
         
-        api_response = api_instance.get_org_config(x_sail_point_experimental)
-        
+        results =OrgConfigApi(api_client).get_org_config(x_sail_point_experimental)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_org_config(x_sail_point_experimental)
+        # results = OrgConfigApi(api_client).get_org_config(x_sail_point_experimental)
         print("The response of OrgConfigApi->get_org_config:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling OrgConfigApi->get_org_config: %s\n" % e)
 ```
 
@@ -121,9 +124,13 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
-from sailpoint.v2024.rest import ApiException
+from sailpoint.v2024.api.org_config_api import OrgConfigApi
+from sailpoint.v2024.api_client import ApiClient
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     limit = 50 # int | Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 50) # int | Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 50)
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -132,13 +139,12 @@ from pprint import pprint
     try:
         # Get Valid Time Zones
         
-        api_response = api_instance.get_valid_time_zones(x_sail_point_experimental, )
-        
+        results =OrgConfigApi(api_client).get_valid_time_zones(x_sail_point_experimental, )
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_valid_time_zones(x_sail_point_experimental, limit, offset, count)
+        # results = OrgConfigApi(api_client).get_valid_time_zones(x_sail_point_experimental, limit, offset, count)
         print("The response of OrgConfigApi->get_valid_time_zones:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling OrgConfigApi->get_valid_time_zones: %s\n" % e)
 ```
 
@@ -184,11 +190,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.org_config_api import OrgConfigApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.json_patch_operation import JsonPatchOperation
 from sailpoint.v2024.models.org_config import OrgConfig
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     [{op=replace, path=/timeZone, value=America/Toronto}] # List[JsonPatchOperation] | A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
      json_patch_operation = {
@@ -200,14 +210,14 @@ from pprint import pprint
 
     try:
         # Patch Org Config
-        Result = json_patch_operation.from_json(json_patch_operation)
-        api_response = api_instance.patch_org_config(x_sail_point_experimental, Result)
-        
+        new_json_patch_operation = JsonPatchOperation()
+        new_json_patch_operation.from_json(json_patch_operation)
+        results =OrgConfigApi(api_client).patch_org_config(x_sail_point_experimental, new_json_patch_operation)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.patch_org_config(x_sail_point_experimental, Result)
+        # results = OrgConfigApi(api_client).patch_org_config(x_sail_point_experimental, new_json_patch_operation)
         print("The response of OrgConfigApi->patch_org_config:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling OrgConfigApi->patch_org_config: %s\n" % e)
 ```
 

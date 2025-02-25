@@ -59,10 +59,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.vendor_connector_mappings_api import VendorConnectorMappingsApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.vendor_connector_mapping import VendorConnectorMapping
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     vendor_connector_mapping = {
           "createdAt" : "2024-03-13T12:56:19.391294Z",
           "deletedAt" : {
@@ -89,14 +93,14 @@ from pprint import pprint
 
     try:
         # Create Vendor Connector Mapping
-        Result = vendor_connector_mapping.from_json(vendor_connector_mapping)
-        api_response = api_instance.create_vendor_connector_mapping(Result)
-        
+        new_vendor_connector_mapping = VendorConnectorMapping()
+        new_vendor_connector_mapping.from_json(vendor_connector_mapping)
+        results =VendorConnectorMappingsApi(api_client).create_vendor_connector_mapping(new_vendor_connector_mapping)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.create_vendor_connector_mapping(Result)
+        # results = VendorConnectorMappingsApi(api_client).create_vendor_connector_mapping(new_vendor_connector_mapping)
         print("The response of VendorConnectorMappingsApi->create_vendor_connector_mapping:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling VendorConnectorMappingsApi->create_vendor_connector_mapping: %s\n" % e)
 ```
 
@@ -139,11 +143,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.vendor_connector_mappings_api import VendorConnectorMappingsApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.delete_vendor_connector_mapping200_response import DeleteVendorConnectorMapping200Response
 from sailpoint.beta.models.vendor_connector_mapping import VendorConnectorMapping
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     vendor_connector_mapping = {
           "createdAt" : "2024-03-13T12:56:19.391294Z",
           "deletedAt" : {
@@ -170,14 +178,14 @@ from pprint import pprint
 
     try:
         # Delete Vendor Connector Mapping
-        Result = vendor_connector_mapping.from_json(vendor_connector_mapping)
-        api_response = api_instance.delete_vendor_connector_mapping(Result)
-        
+        new_vendor_connector_mapping = VendorConnectorMapping()
+        new_vendor_connector_mapping.from_json(vendor_connector_mapping)
+        results =VendorConnectorMappingsApi(api_client).delete_vendor_connector_mapping(new_vendor_connector_mapping)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.delete_vendor_connector_mapping(Result)
+        # results = VendorConnectorMappingsApi(api_client).delete_vendor_connector_mapping(new_vendor_connector_mapping)
         print("The response of VendorConnectorMappingsApi->delete_vendor_connector_mapping:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling VendorConnectorMappingsApi->delete_vendor_connector_mapping: %s\n" % e)
 ```
 
@@ -217,21 +225,24 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.vendor_connector_mappings_api import VendorConnectorMappingsApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.vendor_connector_mapping import VendorConnectorMapping
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
 
     try:
         # List Vendor Connector Mappings
         
-        api_response = api_instance.get_vendor_connector_mappings()
-        
+        results =VendorConnectorMappingsApi(api_client).get_vendor_connector_mappings()
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_vendor_connector_mappings()
+        # results = VendorConnectorMappingsApi(api_client).get_vendor_connector_mappings()
         print("The response of VendorConnectorMappingsApi->get_vendor_connector_mappings:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling VendorConnectorMappingsApi->get_vendor_connector_mappings: %s\n" % e)
 ```
 

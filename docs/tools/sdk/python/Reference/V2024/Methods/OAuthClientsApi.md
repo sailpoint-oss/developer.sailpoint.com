@@ -58,11 +58,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.o_auth_clients_api import OAuthClientsApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.create_o_auth_client_request import CreateOAuthClientRequest
 from sailpoint.v2024.models.create_o_auth_client_response import CreateOAuthClientResponse
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     create_o_auth_client_request = {
           "internal" : false,
           "businessName" : "Acme-Solar",
@@ -83,14 +87,14 @@ from pprint import pprint
 
     try:
         # Create OAuth Client
-        Result = create_o_auth_client_request.from_json(create_o_auth_client_request)
-        api_response = api_instance.create_oauth_client(Result)
-        
+        new_create_o_auth_client_request = CreateOAuthClientRequest()
+        new_create_o_auth_client_request.from_json(create_o_auth_client_request)
+        results =OAuthClientsApi(api_client).create_oauth_client(new_create_o_auth_client_request)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.create_oauth_client(Result)
+        # results = OAuthClientsApi(api_client).create_oauth_client(new_create_o_auth_client_request)
         print("The response of OAuthClientsApi->create_oauth_client:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling OAuthClientsApi->create_oauth_client: %s\n" % e)
 ```
 
@@ -132,19 +136,22 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
-from sailpoint.v2024.rest import ApiException
+from sailpoint.v2024.api.o_auth_clients_api import OAuthClientsApi
+from sailpoint.v2024.api_client import ApiClient
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | The OAuth client id # str | The OAuth client id
 
     try:
         # Delete OAuth Client
         
-        api_instance.delete_oauth_client(id)
-        
+        OAuthClientsApi(api_client).delete_oauth_client(id)
         # Below is a request that includes all optional parameters
-        # api_instance.delete_oauth_client(id)
-    except Exception as e:
+        # OAuthClientsApi(api_client).delete_oauth_client(id)
+        except Exception as e:
         print("Exception when calling OAuthClientsApi->delete_oauth_client: %s\n" % e)
 ```
 
@@ -186,22 +193,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.o_auth_clients_api import OAuthClientsApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.get_o_auth_client_response import GetOAuthClientResponse
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | The OAuth client id # str | The OAuth client id
 
     try:
         # Get OAuth Client
         
-        api_response = api_instance.get_oauth_client(id)
-        
+        results =OAuthClientsApi(api_client).get_oauth_client(id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_oauth_client(id)
+        # results = OAuthClientsApi(api_client).get_oauth_client(id)
         print("The response of OAuthClientsApi->get_oauth_client:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling OAuthClientsApi->get_oauth_client: %s\n" % e)
 ```
 
@@ -242,22 +252,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.o_auth_clients_api import OAuthClientsApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.get_o_auth_client_response import GetOAuthClientResponse
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     filters = 'lastUsed le 2023-02-05T10:59:27.214Z' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **lastUsed**: *le, isnull* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **lastUsed**: *le, isnull* (optional)
 
     try:
         # List OAuth Clients
         
-        api_response = api_instance.list_oauth_clients()
-        
+        results =OAuthClientsApi(api_client).list_oauth_clients()
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.list_oauth_clients(filters)
+        # results = OAuthClientsApi(api_client).list_oauth_clients(filters)
         print("The response of OAuthClientsApi->list_oauth_clients:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling OAuthClientsApi->list_oauth_clients: %s\n" % e)
 ```
 
@@ -300,11 +313,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.o_auth_clients_api import OAuthClientsApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.get_o_auth_client_response import GetOAuthClientResponse
 from sailpoint.v2024.models.json_patch_operation import JsonPatchOperation
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | The OAuth client id # str | The OAuth client id
     [{op=replace, path=/strongAuthSupported, value=true}, {op=replace, path=/businessName, value=acme-solar}] # List[JsonPatchOperation] | A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * tenant * businessName * homepageUrl * name * description * accessTokenValiditySeconds * refreshTokenValiditySeconds * redirectUris * grantTypes * accessType * enabled * strongAuthSupported * claimsSupported 
      json_patch_operation = {
@@ -316,14 +333,14 @@ from pprint import pprint
 
     try:
         # Patch OAuth Client
-        Result = json_patch_operation.from_json(json_patch_operation)
-        api_response = api_instance.patch_oauth_client(id, Result)
-        
+        new_json_patch_operation = JsonPatchOperation()
+        new_json_patch_operation.from_json(json_patch_operation)
+        results =OAuthClientsApi(api_client).patch_oauth_client(id, new_json_patch_operation)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.patch_oauth_client(id, Result)
+        # results = OAuthClientsApi(api_client).patch_oauth_client(id, new_json_patch_operation)
         print("The response of OAuthClientsApi->patch_oauth_client:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling OAuthClientsApi->patch_oauth_client: %s\n" % e)
 ```
 

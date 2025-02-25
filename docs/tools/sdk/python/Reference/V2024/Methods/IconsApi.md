@@ -60,9 +60,13 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
-from sailpoint.v2024.rest import ApiException
+from sailpoint.v2024.api.icons_api import IconsApi
+from sailpoint.v2024.api_client import ApiClient
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     object_type = 'application' # str | Object type. Available options ['application'] # str | Object type. Available options ['application']
     object_id = 'a291e870-48c3-4953-b656-fb5ce2a93169' # str | Object id. # str | Object id.
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -70,11 +74,10 @@ from pprint import pprint
     try:
         # Delete an icon
         
-        api_instance.delete_icon(object_type, object_id, x_sail_point_experimental)
-        
+        IconsApi(api_client).delete_icon(object_type, object_id, x_sail_point_experimental)
         # Below is a request that includes all optional parameters
-        # api_instance.delete_icon(object_type, object_id, x_sail_point_experimental)
-    except Exception as e:
+        # IconsApi(api_client).delete_icon(object_type, object_id, x_sail_point_experimental)
+        except Exception as e:
         print("Exception when calling IconsApi->delete_icon: %s\n" % e)
 ```
 
@@ -122,10 +125,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.icons_api import IconsApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.set_icon200_response import SetIcon200Response
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     object_type = 'application' # str | Object type. Available options ['application'] # str | Object type. Available options ['application']
     object_id = 'a291e870-48c3-4953-b656-fb5ce2a93169' # str | Object id. # str | Object id.
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -134,13 +141,12 @@ from pprint import pprint
     try:
         # Update an icon
         
-        api_response = api_instance.set_icon(object_type, object_id, x_sail_point_experimental, image)
-        
+        results =IconsApi(api_client).set_icon(object_type, object_id, x_sail_point_experimental, image)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.set_icon(object_type, object_id, x_sail_point_experimental, image)
+        # results = IconsApi(api_client).set_icon(object_type, object_id, x_sail_point_experimental, image)
         print("The response of IconsApi->set_icon:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling IconsApi->set_icon: %s\n" % e)
 ```
 

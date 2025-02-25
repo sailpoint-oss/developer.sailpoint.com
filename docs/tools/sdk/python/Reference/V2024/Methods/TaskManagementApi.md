@@ -62,9 +62,13 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
-from sailpoint.v2024.rest import ApiException
+from sailpoint.v2024.api.task_management_api import TaskManagementApi
+from sailpoint.v2024.api_client import ApiClient
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -73,11 +77,10 @@ from pprint import pprint
     try:
         # Retrieve Pending Task List Headers
         
-        api_instance.get_pending_task_headers(x_sail_point_experimental, )
-        
+        TaskManagementApi(api_client).get_pending_task_headers(x_sail_point_experimental, )
         # Below is a request that includes all optional parameters
-        # api_instance.get_pending_task_headers(x_sail_point_experimental, offset, limit, count)
-    except Exception as e:
+        # TaskManagementApi(api_client).get_pending_task_headers(x_sail_point_experimental, offset, limit, count)
+        except Exception as e:
         print("Exception when calling TaskManagementApi->get_pending_task_headers: %s\n" % e)
 ```
 
@@ -125,10 +128,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.task_management_api import TaskManagementApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.task_status import TaskStatus
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -137,13 +144,12 @@ from pprint import pprint
     try:
         # Retrieve Pending Task Status List
         
-        api_response = api_instance.get_pending_tasks(x_sail_point_experimental, )
-        
+        results =TaskManagementApi(api_client).get_pending_tasks(x_sail_point_experimental, )
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_pending_tasks(x_sail_point_experimental, offset, limit, count)
+        # results = TaskManagementApi(api_client).get_pending_tasks(x_sail_point_experimental, offset, limit, count)
         print("The response of TaskManagementApi->get_pending_tasks:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling TaskManagementApi->get_pending_tasks: %s\n" % e)
 ```
 
@@ -189,23 +195,26 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.task_management_api import TaskManagementApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.task_status import TaskStatus
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = '00eebcf881994e419d72e757fd30dc0e' # str | Task ID. # str | Task ID.
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
         # Get Task Status by ID
         
-        api_response = api_instance.get_task_status(id, x_sail_point_experimental)
-        
+        results =TaskManagementApi(api_client).get_task_status(id, x_sail_point_experimental)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_task_status(id, x_sail_point_experimental)
+        # results = TaskManagementApi(api_client).get_task_status(id, x_sail_point_experimental)
         print("The response of TaskManagementApi->get_task_status:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling TaskManagementApi->get_task_status: %s\n" % e)
 ```
 
@@ -256,10 +265,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.task_management_api import TaskManagementApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.task_status import TaskStatus
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -270,13 +283,12 @@ from pprint import pprint
     try:
         # Retrieve Task Status List
         
-        api_response = api_instance.get_task_status_list(x_sail_point_experimental, )
-        
+        results =TaskManagementApi(api_client).get_task_status_list(x_sail_point_experimental, )
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_task_status_list(x_sail_point_experimental, limit, offset, count, filters, sorters)
+        # results = TaskManagementApi(api_client).get_task_status_list(x_sail_point_experimental, limit, offset, count, filters, sorters)
         print("The response of TaskManagementApi->get_task_status_list:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling TaskManagementApi->get_task_status_list: %s\n" % e)
 ```
 
@@ -323,11 +335,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.task_management_api import TaskManagementApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.json_patch_operation import JsonPatchOperation
 from sailpoint.v2024.models.task_status import TaskStatus
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = '00eebcf881994e419d72e757fd30dc0e' # str | Task ID. # str | Task ID.
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     [sailpoint.v2024.JsonPatchOperation()] # List[JsonPatchOperation] | The JSONPatch payload used to update the object.
@@ -340,14 +356,14 @@ from pprint import pprint
 
     try:
         # Update Task Status by ID
-        Result = json_patch_operation.from_json(json_patch_operation)
-        api_response = api_instance.update_task_status(id, x_sail_point_experimental, Result)
-        
+        new_json_patch_operation = JsonPatchOperation()
+        new_json_patch_operation.from_json(json_patch_operation)
+        results =TaskManagementApi(api_client).update_task_status(id, x_sail_point_experimental, new_json_patch_operation)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.update_task_status(id, x_sail_point_experimental, Result)
+        # results = TaskManagementApi(api_client).update_task_status(id, x_sail_point_experimental, new_json_patch_operation)
         print("The response of TaskManagementApi->update_task_status:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling TaskManagementApi->update_task_status: %s\n" % e)
 ```
 

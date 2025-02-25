@@ -79,10 +79,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.certifications_api import CertificationsApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.permission_dto import PermissionDto
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     certification_id = 'ef38f94347e94562b5bb8424a56397d8' # str | The certification ID # str | The certification ID
     item_id = '2c91808671bcbab40171bd945d961227' # str | The certification item ID # str | The certification item ID
     filters = 'target eq \"SYS.OBJAUTH2\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **target**: *eq, sw*  **rights**: *ca*  All field values (second filter operands) are case-insensitive for this API.  Only a single *and* or *or* composite filter operator may be used. It must also be used between a target filter and a rights filter, not between 2 filters for the same field.  For example, the following is valid: `?filters=rights+ca+(%22CREATE%22)+and+target+eq+%22SYS.OBJAUTH2%22`  The following is invalid: `?filters=rights+ca+(%22CREATE%22)+and+rights+ca+(%SELECT%22)` (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **target**: *eq, sw*  **rights**: *ca*  All field values (second filter operands) are case-insensitive for this API.  Only a single *and* or *or* composite filter operator may be used. It must also be used between a target filter and a rights filter, not between 2 filters for the same field.  For example, the following is valid: `?filters=rights+ca+(%22CREATE%22)+and+target+eq+%22SYS.OBJAUTH2%22`  The following is invalid: `?filters=rights+ca+(%22CREATE%22)+and+rights+ca+(%SELECT%22)` (optional)
@@ -93,13 +97,12 @@ from pprint import pprint
     try:
         # Permissions for Entitlement Certification Item
         
-        api_response = api_instance.get_identity_certification_item_permissions(certification_id, item_id, )
-        
+        results =CertificationsApi(api_client).get_identity_certification_item_permissions(certification_id, item_id, )
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_identity_certification_item_permissions(certification_id, item_id, filters, limit, offset, count)
+        # results = CertificationsApi(api_client).get_identity_certification_item_permissions(certification_id, item_id, filters, limit, offset, count)
         print("The response of CertificationsApi->get_identity_certification_item_permissions:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling CertificationsApi->get_identity_certification_item_permissions: %s\n" % e)
 ```
 
@@ -141,22 +144,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.certifications_api import CertificationsApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.identity_certification_task import IdentityCertificationTask
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'id_example' # str | The identity campaign certification ID # str | The identity campaign certification ID
 
     try:
         # Pending Certification Tasks
         
-        api_response = api_instance.get_identity_certification_pending_tasks(id)
-        
+        results =CertificationsApi(api_client).get_identity_certification_pending_tasks(id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_identity_certification_pending_tasks(id)
+        # results = CertificationsApi(api_client).get_identity_certification_pending_tasks(id)
         print("The response of CertificationsApi->get_identity_certification_pending_tasks:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling CertificationsApi->get_identity_certification_pending_tasks: %s\n" % e)
 ```
 
@@ -199,23 +205,26 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.certifications_api import CertificationsApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.identity_certification_task import IdentityCertificationTask
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'id_example' # str | The identity campaign certification ID # str | The identity campaign certification ID
     task_id = 'task_id_example' # str | The certification task ID # str | The certification task ID
 
     try:
         # Certification Task Status
         
-        api_response = api_instance.get_identity_certification_task_status(id, task_id)
-        
+        results =CertificationsApi(api_client).get_identity_certification_task_status(id, task_id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_identity_certification_task_status(id, task_id)
+        # results = CertificationsApi(api_client).get_identity_certification_task_status(id, task_id)
         print("The response of CertificationsApi->get_identity_certification_task_status:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling CertificationsApi->get_identity_certification_task_status: %s\n" % e)
 ```
 
@@ -265,10 +274,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.certifications_api import CertificationsApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.identity_reference_with_name_and_email import IdentityReferenceWithNameAndEmail
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | The certification ID # str | The certification ID
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -279,13 +292,12 @@ from pprint import pprint
     try:
         # List of Reviewers for certification
         
-        api_response = api_instance.list_certification_reviewers(id, )
-        
+        results =CertificationsApi(api_client).list_certification_reviewers(id, )
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.list_certification_reviewers(id, limit, offset, count, filters, sorters)
+        # results = CertificationsApi(api_client).list_certification_reviewers(id, limit, offset, count, filters, sorters)
         print("The response of CertificationsApi->list_certification_reviewers:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling CertificationsApi->list_certification_reviewers: %s\n" % e)
 ```
 
@@ -331,11 +343,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.certifications_api import CertificationsApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.identity_certification_task import IdentityCertificationTask
 from sailpoint.beta.models.review_reassign import ReviewReassign
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | The identity campaign certification ID # str | The identity campaign certification ID
     review_reassign = {
           "reason" : "reassigned for some reason",
@@ -351,14 +367,14 @@ from pprint import pprint
 
     try:
         # Reassign Certifications Asynchronously
-        Result = review_reassign.from_json(review_reassign)
-        api_response = api_instance.submit_reassign_certs_async(id, Result)
-        
+        new_review_reassign = ReviewReassign()
+        new_review_reassign.from_json(review_reassign)
+        results =CertificationsApi(api_client).submit_reassign_certs_async(id, new_review_reassign)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.submit_reassign_certs_async(id, Result)
+        # results = CertificationsApi(api_client).submit_reassign_certs_async(id, new_review_reassign)
         print("The response of CertificationsApi->submit_reassign_certs_async:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling CertificationsApi->submit_reassign_certs_async: %s\n" % e)
 ```
 

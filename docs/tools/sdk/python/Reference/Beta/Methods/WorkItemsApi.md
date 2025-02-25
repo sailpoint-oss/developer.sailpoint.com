@@ -76,23 +76,26 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.work_items_api import WorkItemsApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.work_items import WorkItems
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | The ID of the work item # str | The ID of the work item
     approval_item_id = '1211bcaa32112bcef6122adb21cef1ac' # str | The ID of the approval item. # str | The ID of the approval item.
 
     try:
         # Approve an Approval Item
         
-        api_response = api_instance.approve_approval_item(id, approval_item_id)
-        
+        results =WorkItemsApi(api_client).approve_approval_item(id, approval_item_id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.approve_approval_item(id, approval_item_id)
+        # results = WorkItemsApi(api_client).approve_approval_item(id, approval_item_id)
         print("The response of WorkItemsApi->approve_approval_item:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling WorkItemsApi->approve_approval_item: %s\n" % e)
 ```
 
@@ -131,22 +134,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.work_items_api import WorkItemsApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.work_items import WorkItems
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | The ID of the work item # str | The ID of the work item
 
     try:
         # Bulk approve Approval Items
         
-        api_response = api_instance.approve_approval_items_in_bulk(id)
-        
+        results =WorkItemsApi(api_client).approve_approval_items_in_bulk(id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.approve_approval_items_in_bulk(id)
+        # results = WorkItemsApi(api_client).approve_approval_items_in_bulk(id)
         print("The response of WorkItemsApi->approve_approval_items_in_bulk:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling WorkItemsApi->approve_approval_items_in_bulk: %s\n" % e)
 ```
 
@@ -185,22 +191,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.work_items_api import WorkItemsApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.work_items import WorkItems
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | The ID of the work item # str | The ID of the work item
 
     try:
         # Complete a Work Item
         
-        api_response = api_instance.complete_work_item(id)
-        
+        results =WorkItemsApi(api_client).complete_work_item(id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.complete_work_item(id)
+        # results = WorkItemsApi(api_client).complete_work_item(id)
         print("The response of WorkItemsApi->complete_work_item:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling WorkItemsApi->complete_work_item: %s\n" % e)
 ```
 
@@ -242,10 +251,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.work_items_api import WorkItemsApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.work_item_forward import WorkItemForward
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | The ID of the work item # str | The ID of the work item
     work_item_forward = {
           "targetOwnerId" : "2c9180835d2e5168015d32f890ca1581",
@@ -255,12 +268,12 @@ from pprint import pprint
 
     try:
         # Forward a Work Item
-        Result = work_item_forward.from_json(work_item_forward)
-        api_instance.forward_work_item(id, Result)
-        
+        new_work_item_forward = WorkItemForward()
+        new_work_item_forward.from_json(work_item_forward)
+        WorkItemsApi(api_client).forward_work_item(id, new_work_item_forward)
         # Below is a request that includes all optional parameters
-        # api_instance.forward_work_item(id, Result)
-    except Exception as e:
+        # WorkItemsApi(api_client).forward_work_item(id, new_work_item_forward)
+        except Exception as e:
         print("Exception when calling WorkItemsApi->forward_work_item: %s\n" % e)
 ```
 
@@ -302,10 +315,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.work_items_api import WorkItemsApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.work_items import WorkItems
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     owner_id = 'owner_id_example' # str | The id of the owner of the work item list being requested.  Either an admin, or the owning/current user must make this request. (optional) # str | The id of the owner of the work item list being requested.  Either an admin, or the owning/current user must make this request. (optional)
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -314,13 +331,12 @@ from pprint import pprint
     try:
         # Completed Work Items
         
-        api_response = api_instance.get_completed_work_items()
-        
+        results =WorkItemsApi(api_client).get_completed_work_items()
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_completed_work_items(owner_id, limit, offset, count)
+        # results = WorkItemsApi(api_client).get_completed_work_items(owner_id, limit, offset, count)
         print("The response of WorkItemsApi->get_completed_work_items:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling WorkItemsApi->get_completed_work_items: %s\n" % e)
 ```
 
@@ -359,22 +375,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.work_items_api import WorkItemsApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.work_items_count import WorkItemsCount
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     owner_id = 'owner_id_example' # str | ID of the work item owner. (optional) # str | ID of the work item owner. (optional)
 
     try:
         # Count Completed Work Items
         
-        api_response = api_instance.get_count_completed_work_items()
-        
+        results =WorkItemsApi(api_client).get_count_completed_work_items()
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_count_completed_work_items(owner_id)
+        # results = WorkItemsApi(api_client).get_count_completed_work_items(owner_id)
         print("The response of WorkItemsApi->get_count_completed_work_items:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling WorkItemsApi->get_count_completed_work_items: %s\n" % e)
 ```
 
@@ -413,22 +432,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.work_items_api import WorkItemsApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.work_items_count import WorkItemsCount
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     owner_id = 'owner_id_example' # str | ID of the work item owner. (optional) # str | ID of the work item owner. (optional)
 
     try:
         # Count Work Items
         
-        api_response = api_instance.get_count_work_items()
-        
+        results =WorkItemsApi(api_client).get_count_work_items()
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_count_work_items(owner_id)
+        # results = WorkItemsApi(api_client).get_count_work_items(owner_id)
         print("The response of WorkItemsApi->get_count_work_items:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling WorkItemsApi->get_count_work_items: %s\n" % e)
 ```
 
@@ -468,23 +490,26 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.work_items_api import WorkItemsApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.work_items import WorkItems
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'id_example' # str | ID of the work item. # str | ID of the work item.
     owner_id = 'owner_id_example' # str | ID of the work item owner. (optional) # str | ID of the work item owner. (optional)
 
     try:
         # Get a Work Item
         
-        api_response = api_instance.get_work_item(id, )
-        
+        results =WorkItemsApi(api_client).get_work_item(id, )
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_work_item(id, owner_id)
+        # results = WorkItemsApi(api_client).get_work_item(id, owner_id)
         print("The response of WorkItemsApi->get_work_item:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling WorkItemsApi->get_work_item: %s\n" % e)
 ```
 
@@ -523,22 +548,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.work_items_api import WorkItemsApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.work_items_summary import WorkItemsSummary
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     owner_id = 'owner_id_example' # str | ID of the work item owner. (optional) # str | ID of the work item owner. (optional)
 
     try:
         # Work Items Summary
         
-        api_response = api_instance.get_work_items_summary()
-        
+        results =WorkItemsApi(api_client).get_work_items_summary()
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_work_items_summary(owner_id)
+        # results = WorkItemsApi(api_client).get_work_items_summary(owner_id)
         print("The response of WorkItemsApi->get_work_items_summary:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling WorkItemsApi->get_work_items_summary: %s\n" % e)
 ```
 
@@ -580,10 +608,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.work_items_api import WorkItemsApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.work_items import WorkItems
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
     count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
@@ -592,13 +624,12 @@ from pprint import pprint
     try:
         # List Work Items
         
-        api_response = api_instance.list_work_items()
-        
+        results =WorkItemsApi(api_client).list_work_items()
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.list_work_items(limit, offset, count, owner_id)
+        # results = WorkItemsApi(api_client).list_work_items(limit, offset, count, owner_id)
         print("The response of WorkItemsApi->list_work_items:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling WorkItemsApi->list_work_items: %s\n" % e)
 ```
 
@@ -638,23 +669,26 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.work_items_api import WorkItemsApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.work_items import WorkItems
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | The ID of the work item # str | The ID of the work item
     approval_item_id = '1211bcaa32112bcef6122adb21cef1ac' # str | The ID of the approval item. # str | The ID of the approval item.
 
     try:
         # Reject an Approval Item
         
-        api_response = api_instance.reject_approval_item(id, approval_item_id)
-        
+        results =WorkItemsApi(api_client).reject_approval_item(id, approval_item_id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.reject_approval_item(id, approval_item_id)
+        # results = WorkItemsApi(api_client).reject_approval_item(id, approval_item_id)
         print("The response of WorkItemsApi->reject_approval_item:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling WorkItemsApi->reject_approval_item: %s\n" % e)
 ```
 
@@ -693,22 +727,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.work_items_api import WorkItemsApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.work_items import WorkItems
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | The ID of the work item # str | The ID of the work item
 
     try:
         # Bulk reject Approval Items
         
-        api_response = api_instance.reject_approval_items_in_bulk(id)
-        
+        results =WorkItemsApi(api_client).reject_approval_items_in_bulk(id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.reject_approval_items_in_bulk(id)
+        # results = WorkItemsApi(api_client).reject_approval_items_in_bulk(id)
         print("The response of WorkItemsApi->reject_approval_items_in_bulk:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling WorkItemsApi->reject_approval_items_in_bulk: %s\n" % e)
 ```
 
@@ -748,23 +785,27 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.work_items_api import WorkItemsApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.work_items import WorkItems
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | The ID of the work item # str | The ID of the work item
     request_body = {fieldName=fieldValue} # Dict[str, object] | Account Selection Data map, keyed on fieldName # Dict[str, object] | Account Selection Data map, keyed on fieldName
 
     try:
         # Submit Account Selections
-        Result = request_body.from_json(request_body)
-        api_response = api_instance.submit_account_selection(id, Result)
-        
+        new_request_body = RequestBody()
+        new_request_body.from_json(request_body)
+        results =WorkItemsApi(api_client).submit_account_selection(id, new_request_body)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.submit_account_selection(id, Result)
+        # results = WorkItemsApi(api_client).submit_account_selection(id, new_request_body)
         print("The response of WorkItemsApi->submit_account_selection:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling WorkItemsApi->submit_account_selection: %s\n" % e)
 ```
 

@@ -72,23 +72,26 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.account_aggregations_api import AccountAggregationsApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.account_aggregation_status import AccountAggregationStatus
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = '2c91808477a6b0c60177a81146b8110b' # str | The account aggregation id # str | The account aggregation id
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
         # In-progress Account Aggregation status
         
-        api_response = api_instance.get_account_aggregation_status(id, x_sail_point_experimental)
-        
+        results =AccountAggregationsApi(api_client).get_account_aggregation_status(id, x_sail_point_experimental)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_account_aggregation_status(id, x_sail_point_experimental)
+        # results = AccountAggregationsApi(api_client).get_account_aggregation_status(id, x_sail_point_experimental)
         print("The response of AccountAggregationsApi->get_account_aggregation_status:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling AccountAggregationsApi->get_account_aggregation_status: %s\n" % e)
 ```
 

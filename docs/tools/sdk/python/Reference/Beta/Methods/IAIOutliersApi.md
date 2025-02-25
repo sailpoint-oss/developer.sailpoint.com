@@ -62,21 +62,24 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
-from sailpoint.beta.rest import ApiException
+from sailpoint.beta.api.iai_outliers_api import IAIOutliersApi
+from sailpoint.beta.api_client import ApiClient
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     type = 'LOW_SIMILARITY' # str | Type of the identity outliers snapshot to filter on (optional) # str | Type of the identity outliers snapshot to filter on (optional)
 
     try:
         # IAI Identity Outliers Export
         
-        api_response = api_instance.export_outliers_zip()
-        
+        results =IAIOutliersApi(api_client).export_outliers_zip()
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.export_outliers_zip(type)
+        # results = IAIOutliersApi(api_client).export_outliers_zip(type)
         print("The response of IAIOutliersApi->export_outliers_zip:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling IAIOutliersApi->export_outliers_zip: %s\n" % e)
 ```
 
@@ -122,10 +125,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.iai_outliers_api import IAIOutliersApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.outlier_summary import OutlierSummary
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
     type = 'LOW_SIMILARITY' # str | Type of the identity outliers snapshot to filter on (optional) # str | Type of the identity outliers snapshot to filter on (optional)
@@ -135,13 +142,12 @@ from pprint import pprint
     try:
         # IAI Identity Outliers Summary
         
-        api_response = api_instance.get_identity_outlier_snapshots()
-        
+        results =IAIOutliersApi(api_client).get_identity_outlier_snapshots()
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_identity_outlier_snapshots(limit, offset, type, filters, sorters)
+        # results = IAIOutliersApi(api_client).get_identity_outlier_snapshots(limit, offset, type, filters, sorters)
         print("The response of IAIOutliersApi->get_identity_outlier_snapshots:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling IAIOutliersApi->get_identity_outlier_snapshots: %s\n" % e)
 ```
 
@@ -187,10 +193,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.iai_outliers_api import IAIOutliersApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.outlier import Outlier
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
     count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
@@ -201,13 +211,12 @@ from pprint import pprint
     try:
         # IAI Get Identity Outliers
         
-        api_response = api_instance.get_identity_outliers()
-        
+        results =IAIOutliersApi(api_client).get_identity_outliers()
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_identity_outliers(limit, offset, count, type, filters, sorters)
+        # results = IAIOutliersApi(api_client).get_identity_outliers(limit, offset, count, type, filters, sorters)
         print("The response of IAIOutliersApi->get_identity_outliers:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling IAIOutliersApi->get_identity_outliers: %s\n" % e)
 ```
 
@@ -249,22 +258,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.iai_outliers_api import IAIOutliersApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.latest_outlier_summary import LatestOutlierSummary
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     type = 'LOW_SIMILARITY' # str | Type of the identity outliers snapshot to filter on (optional) # str | Type of the identity outliers snapshot to filter on (optional)
 
     try:
         # IAI Identity Outliers Latest Summary
         
-        api_response = api_instance.get_latest_identity_outlier_snapshots()
-        
+        results =IAIOutliersApi(api_client).get_latest_identity_outlier_snapshots()
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_latest_identity_outlier_snapshots(type)
+        # results = IAIOutliersApi(api_client).get_latest_identity_outlier_snapshots(type)
         print("The response of IAIOutliersApi->get_latest_identity_outlier_snapshots:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling IAIOutliersApi->get_latest_identity_outlier_snapshots: %s\n" % e)
 ```
 
@@ -309,22 +321,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.iai_outliers_api import IAIOutliersApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.outlier_feature_summary import OutlierFeatureSummary
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     outlier_feature_id = '04654b66-7561-4090-94f9-abee0722a1af' # str | Contributing feature id # str | Contributing feature id
 
     try:
         # Get identity outlier contibuting feature summary
         
-        api_response = api_instance.get_outlier_contributing_feature_summary(outlier_feature_id)
-        
+        results =IAIOutliersApi(api_client).get_outlier_contributing_feature_summary(outlier_feature_id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_outlier_contributing_feature_summary(outlier_feature_id)
+        # results = IAIOutliersApi(api_client).get_outlier_contributing_feature_summary(outlier_feature_id)
         print("The response of IAIOutliersApi->get_outlier_contributing_feature_summary:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling IAIOutliersApi->get_outlier_contributing_feature_summary: %s\n" % e)
 ```
 
@@ -374,10 +389,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.iai_outliers_api import IAIOutliersApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.outlier_contributing_feature import OutlierContributingFeature
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     outlier_id = '2c918085842e69ae018432d22ccb212f' # str | The outlier id # str | The outlier id
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -388,13 +407,12 @@ from pprint import pprint
     try:
         # Get identity outlier's contibuting features
         
-        api_response = api_instance.get_peer_group_outliers_contributing_features(outlier_id, )
-        
+        results =IAIOutliersApi(api_client).get_peer_group_outliers_contributing_features(outlier_id, )
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_peer_group_outliers_contributing_features(outlier_id, limit, offset, count, include_translation_messages, sorters)
+        # results = IAIOutliersApi(api_client).get_peer_group_outliers_contributing_features(outlier_id, limit, offset, count, include_translation_messages, sorters)
         print("The response of IAIOutliersApi->get_peer_group_outliers_contributing_features:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling IAIOutliersApi->get_peer_group_outliers_contributing_features: %s\n" % e)
 ```
 
@@ -435,21 +453,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
-from sailpoint.beta.rest import ApiException
+from sailpoint.beta.api.iai_outliers_api import IAIOutliersApi
+from sailpoint.beta.api_client import ApiClient
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     request_body = ['request_body_example'] # List[str] | 
      request_body = ['request_body_example'] # List[str] | 
     
 
     try:
         # IAI Identity Outliers Ignore
-        Result = request_body.from_json(request_body)
-        api_instance.ignore_identity_outliers(Result)
-        
+        new_request_body = RequestBody()
+        new_request_body.from_json(request_body)
+        IAIOutliersApi(api_client).ignore_identity_outliers(new_request_body)
         # Below is a request that includes all optional parameters
-        # api_instance.ignore_identity_outliers(Result)
-    except Exception as e:
+        # IAIOutliersApi(api_client).ignore_identity_outliers(new_request_body)
+        except Exception as e:
         print("Exception when calling IAIOutliersApi->ignore_identity_outliers: %s\n" % e)
 ```
 
@@ -500,10 +522,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.iai_outliers_api import IAIOutliersApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.outliers_contributing_feature_access_items import OutliersContributingFeatureAccessItems
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     outlier_id = '2c918085842e69ae018432d22ccb212f' # str | The outlier id # str | The outlier id
     contributing_feature_name = 'entitlement_count' # str | The name of contributing feature # str | The name of contributing feature
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -515,13 +541,12 @@ from pprint import pprint
     try:
         # Gets a list of access items associated with each identity outlier contributing feature
         
-        api_response = api_instance.list_outliers_contributing_feature_access_items(outlier_id, contributing_feature_name, )
-        
+        results =IAIOutliersApi(api_client).list_outliers_contributing_feature_access_items(outlier_id, contributing_feature_name, )
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.list_outliers_contributing_feature_access_items(outlier_id, contributing_feature_name, limit, offset, count, access_type, sorters)
+        # results = IAIOutliersApi(api_client).list_outliers_contributing_feature_access_items(outlier_id, contributing_feature_name, limit, offset, count, access_type, sorters)
         print("The response of IAIOutliersApi->list_outliers_contributing_feature_access_items:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling IAIOutliersApi->list_outliers_contributing_feature_access_items: %s\n" % e)
 ```
 
@@ -562,21 +587,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
-from sailpoint.beta.rest import ApiException
+from sailpoint.beta.api.iai_outliers_api import IAIOutliersApi
+from sailpoint.beta.api_client import ApiClient
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     request_body = ['request_body_example'] # List[str] | 
      request_body = ['request_body_example'] # List[str] | 
     
 
     try:
         # IAI Identity Outliers Unignore
-        Result = request_body.from_json(request_body)
-        api_instance.un_ignore_identity_outliers(Result)
-        
+        new_request_body = RequestBody()
+        new_request_body.from_json(request_body)
+        IAIOutliersApi(api_client).un_ignore_identity_outliers(new_request_body)
         # Below is a request that includes all optional parameters
-        # api_instance.un_ignore_identity_outliers(Result)
-    except Exception as e:
+        # IAIOutliersApi(api_client).un_ignore_identity_outliers(new_request_body)
+        except Exception as e:
         print("Exception when calling IAIOutliersApi->un_ignore_identity_outliers: %s\n" % e)
 ```
 

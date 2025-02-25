@@ -76,10 +76,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.access_request_approvals_api import AccessRequestApprovalsApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.comment_dto import CommentDto
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     approval_id = '2c91808b7294bea301729568c68c002e' # str | Approval ID. # str | Approval ID.
     comment_dto = {
           "created" : "2017-07-11T18:45:37.098Z",
@@ -94,13 +98,12 @@ from pprint import pprint
     try:
         # Approve Access Request Approval
         
-        api_response = api_instance.approve_access_request(approval_id, )
-        
+        results =AccessRequestApprovalsApi(api_client).approve_access_request(approval_id, )
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.approve_access_request(approval_id, Result)
+        # results = AccessRequestApprovalsApi(api_client).approve_access_request(approval_id, new_comment_dto)
         print("The response of AccessRequestApprovalsApi->approve_access_request:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling AccessRequestApprovalsApi->approve_access_request: %s\n" % e)
 ```
 
@@ -143,10 +146,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.access_request_approvals_api import AccessRequestApprovalsApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.forward_approval_dto import ForwardApprovalDto
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     approval_id = '2c91808b7294bea301729568c68c002e' # str | Approval ID. # str | Approval ID.
     forward_approval_dto = {
           "newOwnerId" : "2c91808568c529c60168cca6f90c1314",
@@ -155,14 +162,14 @@ from pprint import pprint
 
     try:
         # Forward Access Request Approval
-        Result = forward_approval_dto.from_json(forward_approval_dto)
-        api_response = api_instance.forward_access_request(approval_id, Result)
-        
+        new_forward_approval_dto = ForwardApprovalDto()
+        new_forward_approval_dto.from_json(forward_approval_dto)
+        results =AccessRequestApprovalsApi(api_client).forward_access_request(approval_id, new_forward_approval_dto)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.forward_access_request(approval_id, Result)
+        # results = AccessRequestApprovalsApi(api_client).forward_access_request(approval_id, new_forward_approval_dto)
         print("The response of AccessRequestApprovalsApi->forward_access_request:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling AccessRequestApprovalsApi->forward_access_request: %s\n" % e)
 ```
 
@@ -204,23 +211,26 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.access_request_approvals_api import AccessRequestApprovalsApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.approval_summary import ApprovalSummary
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     owner_id = '2c91808568c529c60168cca6f90c1313' # str | The ID of the owner or approver identity of the approvals. If present, the value returns approval summary for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN user can also fetch all the approvals in the org, when owner-id is not used.    * Non ORG_ADMIN users can only specify *me* or pass their own identity ID value. (optional) # str | The ID of the owner or approver identity of the approvals. If present, the value returns approval summary for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN user can also fetch all the approvals in the org, when owner-id is not used.    * Non ORG_ADMIN users can only specify *me* or pass their own identity ID value. (optional)
     from_date = 'from-date=2020-03-19T19:59:11Z' # str | This is the date and time the results will be shown from. It must be in a valid ISO-8601 format. (optional) # str | This is the date and time the results will be shown from. It must be in a valid ISO-8601 format. (optional)
 
     try:
         # Get Access Requests Approvals Number
         
-        api_response = api_instance.get_access_request_approval_summary()
-        
+        results =AccessRequestApprovalsApi(api_client).get_access_request_approval_summary()
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_access_request_approval_summary(owner_id, from_date)
+        # results = AccessRequestApprovalsApi(api_client).get_access_request_approval_summary(owner_id, from_date)
         print("The response of AccessRequestApprovalsApi->get_access_request_approval_summary:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling AccessRequestApprovalsApi->get_access_request_approval_summary: %s\n" % e)
 ```
 
@@ -266,10 +276,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.access_request_approvals_api import AccessRequestApprovalsApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.access_request_approvers_list_response import AccessRequestApproversListResponse
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     access_request_id = '2c91808568c529c60168cca6f90c1313' # str | Access Request ID. # str | Access Request ID.
     limit = 250 # int | Max number of results to return. (optional) (default to 250) # int | Max number of results to return. (optional) (default to 250)
     offset = 10 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. Defaults to 0 if not specified. (optional) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. Defaults to 0 if not specified. (optional)
@@ -278,13 +292,12 @@ from pprint import pprint
     try:
         # Access Request Approvers
         
-        api_response = api_instance.list_access_request_approvers(access_request_id, )
-        
+        results =AccessRequestApprovalsApi(api_client).list_access_request_approvers(access_request_id, )
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.list_access_request_approvers(access_request_id, limit, offset, count)
+        # results = AccessRequestApprovalsApi(api_client).list_access_request_approvers(access_request_id, limit, offset, count)
         print("The response of AccessRequestApprovalsApi->list_access_request_approvers:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling AccessRequestApprovalsApi->list_access_request_approvers: %s\n" % e)
 ```
 
@@ -330,10 +343,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.access_request_approvals_api import AccessRequestApprovalsApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.completed_approval import CompletedApproval
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     owner_id = '2c91808568c529c60168cca6f90c1313' # str | If present, the value returns only completed approvals for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN users can also fetch all the approvals in the org, when owner-id is not used.    * Non-ORG_ADMIN users can only specify *me* or pass their own identity ID value. (optional) # str | If present, the value returns only completed approvals for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN users can also fetch all the approvals in the org, when owner-id is not used.    * Non-ORG_ADMIN users can only specify *me* or pass their own identity ID value. (optional)
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -344,13 +361,12 @@ from pprint import pprint
     try:
         # Completed Access Request Approvals List
         
-        api_response = api_instance.list_completed_approvals()
-        
+        results =AccessRequestApprovalsApi(api_client).list_completed_approvals()
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.list_completed_approvals(owner_id, limit, offset, count, filters, sorters)
+        # results = AccessRequestApprovalsApi(api_client).list_completed_approvals(owner_id, limit, offset, count, filters, sorters)
         print("The response of AccessRequestApprovalsApi->list_completed_approvals:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling AccessRequestApprovalsApi->list_completed_approvals: %s\n" % e)
 ```
 
@@ -396,10 +412,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.access_request_approvals_api import AccessRequestApprovalsApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.pending_approval import PendingApproval
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     owner_id = '2c91808568c529c60168cca6f90c1313' # str | If present, the value returns only pending approvals for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN users can also fetch all the approvals in the org, when owner-id is not used.    * Non-ORG_ADMIN users can only specify *me* or pass their own identity ID value. (optional) # str | If present, the value returns only pending approvals for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN users can also fetch all the approvals in the org, when owner-id is not used.    * Non-ORG_ADMIN users can only specify *me* or pass their own identity ID value. (optional)
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -410,13 +430,12 @@ from pprint import pprint
     try:
         # Pending Access Request Approvals List
         
-        api_response = api_instance.list_pending_approvals()
-        
+        results =AccessRequestApprovalsApi(api_client).list_pending_approvals()
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.list_pending_approvals(owner_id, limit, offset, count, filters, sorters)
+        # results = AccessRequestApprovalsApi(api_client).list_pending_approvals(owner_id, limit, offset, count, filters, sorters)
         print("The response of AccessRequestApprovalsApi->list_pending_approvals:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling AccessRequestApprovalsApi->list_pending_approvals: %s\n" % e)
 ```
 
@@ -459,10 +478,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.access_request_approvals_api import AccessRequestApprovalsApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.comment_dto import CommentDto
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     approval_id = '2c91808b7294bea301729568c68c002e' # str | Approval ID. # str | Approval ID.
     comment_dto = {
           "created" : "2017-07-11T18:45:37.098Z",
@@ -476,14 +499,14 @@ from pprint import pprint
 
     try:
         # Reject Access Request Approval
-        Result = comment_dto.from_json(comment_dto)
-        api_response = api_instance.reject_access_request(approval_id, Result)
-        
+        new_comment_dto = CommentDto()
+        new_comment_dto.from_json(comment_dto)
+        results =AccessRequestApprovalsApi(api_client).reject_access_request(approval_id, new_comment_dto)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.reject_access_request(approval_id, Result)
+        # results = AccessRequestApprovalsApi(api_client).reject_access_request(approval_id, new_comment_dto)
         print("The response of AccessRequestApprovalsApi->reject_access_request:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling AccessRequestApprovalsApi->reject_access_request: %s\n" % e)
 ```
 

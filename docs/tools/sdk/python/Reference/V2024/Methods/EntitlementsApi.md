@@ -117,10 +117,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.entitlements_api import EntitlementsApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.entitlement1 import Entitlement1
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = '2c91808c74ff913f0175097daa9d59cd' # str | The entitlement id. # str | The entitlement id.
     attribute_key = 'iscPrivacy' # str | Technical name of the Attribute. # str | Technical name of the Attribute.
     attribute_value = 'public' # str | Technical name of the Attribute Value. # str | Technical name of the Attribute Value.
@@ -129,13 +133,12 @@ from pprint import pprint
     try:
         # Add metadata to an entitlement.
         
-        api_response = api_instance.create_access_model_metadata_for_entitlement(id, attribute_key, attribute_value, x_sail_point_experimental)
-        
+        results =EntitlementsApi(api_client).create_access_model_metadata_for_entitlement(id, attribute_key, attribute_value, x_sail_point_experimental)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.create_access_model_metadata_for_entitlement(id, attribute_key, attribute_value, x_sail_point_experimental)
+        # results = EntitlementsApi(api_client).create_access_model_metadata_for_entitlement(id, attribute_key, attribute_value, x_sail_point_experimental)
         print("The response of EntitlementsApi->create_access_model_metadata_for_entitlement:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling EntitlementsApi->create_access_model_metadata_for_entitlement: %s\n" % e)
 ```
 
@@ -182,9 +185,13 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
-from sailpoint.v2024.rest import ApiException
+from sailpoint.v2024.api.entitlements_api import EntitlementsApi
+from sailpoint.v2024.api_client import ApiClient
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = '2c91808c74ff913f0175097daa9d59cd' # str | The entitlement id. # str | The entitlement id.
     attribute_key = 'iscPrivacy' # str | Technical name of the Attribute. # str | Technical name of the Attribute.
     attribute_value = 'public' # str | Technical name of the Attribute Value. # str | Technical name of the Attribute Value.
@@ -193,11 +200,10 @@ from pprint import pprint
     try:
         # Remove metadata from an entitlement.
         
-        api_instance.delete_access_model_metadata_from_entitlement(id, attribute_key, attribute_value, x_sail_point_experimental)
-        
+        EntitlementsApi(api_client).delete_access_model_metadata_from_entitlement(id, attribute_key, attribute_value, x_sail_point_experimental)
         # Below is a request that includes all optional parameters
-        # api_instance.delete_access_model_metadata_from_entitlement(id, attribute_key, attribute_value, x_sail_point_experimental)
-    except Exception as e:
+        # EntitlementsApi(api_client).delete_access_model_metadata_from_entitlement(id, attribute_key, attribute_value, x_sail_point_experimental)
+        except Exception as e:
         print("Exception when calling EntitlementsApi->delete_access_model_metadata_from_entitlement: %s\n" % e)
 ```
 
@@ -243,23 +249,26 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.entitlements_api import EntitlementsApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.entitlement1 import Entitlement1
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = '2c91808874ff91550175097daaec161c' # str | The entitlement ID # str | The entitlement ID
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
         # Get an entitlement
         
-        api_response = api_instance.get_entitlement(id, x_sail_point_experimental)
-        
+        results =EntitlementsApi(api_client).get_entitlement(id, x_sail_point_experimental)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_entitlement(id, x_sail_point_experimental)
+        # results = EntitlementsApi(api_client).get_entitlement(id, x_sail_point_experimental)
         print("The response of EntitlementsApi->get_entitlement:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling EntitlementsApi->get_entitlement: %s\n" % e)
 ```
 
@@ -305,23 +314,26 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.entitlements_api import EntitlementsApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.entitlement_request_config import EntitlementRequestConfig
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = '2c91808874ff91550175097daaec161c' # str | Entitlement Id # str | Entitlement Id
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
         # Get Entitlement Request Config
         
-        api_response = api_instance.get_entitlement_request_config(id, x_sail_point_experimental)
-        
+        results =EntitlementsApi(api_client).get_entitlement_request_config(id, x_sail_point_experimental)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_entitlement_request_config(id, x_sail_point_experimental)
+        # results = EntitlementsApi(api_client).get_entitlement_request_config(id, x_sail_point_experimental)
         print("The response of EntitlementsApi->get_entitlement_request_config:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling EntitlementsApi->get_entitlement_request_config: %s\n" % e)
 ```
 
@@ -374,10 +386,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.entitlements_api import EntitlementsApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.load_entitlement_task import LoadEntitlementTask
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | Source Id # str | Source Id
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     csv_file = None # bytearray | The CSV file containing the source entitlements to aggregate. (optional) # bytearray | The CSV file containing the source entitlements to aggregate. (optional)
@@ -385,13 +401,12 @@ from pprint import pprint
     try:
         # Aggregate Entitlements
         
-        api_response = api_instance.import_entitlements_by_source(id, x_sail_point_experimental, )
-        
+        results =EntitlementsApi(api_client).import_entitlements_by_source(id, x_sail_point_experimental, )
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.import_entitlements_by_source(id, x_sail_point_experimental, csv_file)
+        # results = EntitlementsApi(api_client).import_entitlements_by_source(id, x_sail_point_experimental, csv_file)
         print("The response of EntitlementsApi->import_entitlements_by_source:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling EntitlementsApi->import_entitlements_by_source: %s\n" % e)
 ```
 
@@ -442,10 +457,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.entitlements_api import EntitlementsApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.entitlement1 import Entitlement1
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = '2c91808874ff91550175097daaec161c' # str | Entitlement Id # str | Entitlement Id
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -457,13 +476,12 @@ from pprint import pprint
     try:
         # List of entitlements children
         
-        api_response = api_instance.list_entitlement_children(id, x_sail_point_experimental, )
-        
+        results =EntitlementsApi(api_client).list_entitlement_children(id, x_sail_point_experimental, )
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.list_entitlement_children(id, x_sail_point_experimental, limit, offset, count, sorters, filters)
+        # results = EntitlementsApi(api_client).list_entitlement_children(id, x_sail_point_experimental, limit, offset, count, sorters, filters)
         print("The response of EntitlementsApi->list_entitlement_children:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling EntitlementsApi->list_entitlement_children: %s\n" % e)
 ```
 
@@ -514,10 +532,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.entitlements_api import EntitlementsApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.entitlement1 import Entitlement1
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = '2c91808c74ff913f0175097daa9d59cd' # str | Entitlement Id # str | Entitlement Id
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -529,13 +551,12 @@ from pprint import pprint
     try:
         # List of entitlements parents
         
-        api_response = api_instance.list_entitlement_parents(id, x_sail_point_experimental, )
-        
+        results =EntitlementsApi(api_client).list_entitlement_parents(id, x_sail_point_experimental, )
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.list_entitlement_parents(id, x_sail_point_experimental, limit, offset, count, sorters, filters)
+        # results = EntitlementsApi(api_client).list_entitlement_parents(id, x_sail_point_experimental, limit, offset, count, sorters, filters)
         print("The response of EntitlementsApi->list_entitlement_parents:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling EntitlementsApi->list_entitlement_parents: %s\n" % e)
 ```
 
@@ -592,10 +613,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.entitlements_api import EntitlementsApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.entitlement1 import Entitlement1
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     account_id = 'ef38f94347e94562b5bb8424a56397d8' # str | The account ID. If specified, returns only entitlements associated with the given Account. Cannot be specified with the **filters**, **segmented-for-identity**, **for-segment-ids**, or **include-unsegmented** param(s). (optional) # str | The account ID. If specified, returns only entitlements associated with the given Account. Cannot be specified with the **filters**, **segmented-for-identity**, **for-segment-ids**, or **include-unsegmented** param(s). (optional)
     segmented_for_identity = 'me' # str | If present and not empty, additionally filters Entitlements to those which are assigned to the Segment(s) which are visible to the Identity with the specified ID. By convention, the value **me** can stand in for the current user's Identity ID. Cannot be specified with the **account-id** or **for-segment-ids** param(s). It is also illegal to specify a value that refers to a different user's Identity. (optional) # str | If present and not empty, additionally filters Entitlements to those which are assigned to the Segment(s) which are visible to the Identity with the specified ID. By convention, the value **me** can stand in for the current user's Identity ID. Cannot be specified with the **account-id** or **for-segment-ids** param(s). It is also illegal to specify a value that refers to a different user's Identity. (optional)
@@ -610,13 +635,12 @@ from pprint import pprint
     try:
         # Gets a list of entitlements.
         
-        api_response = api_instance.list_entitlements(x_sail_point_experimental, )
-        
+        results =EntitlementsApi(api_client).list_entitlements(x_sail_point_experimental, )
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.list_entitlements(x_sail_point_experimental, account_id, segmented_for_identity, for_segment_ids, include_unsegmented, offset, limit, count, sorters, filters)
+        # results = EntitlementsApi(api_client).list_entitlements(x_sail_point_experimental, account_id, segmented_for_identity, for_segment_ids, include_unsegmented, offset, limit, count, sorters, filters)
         print("The response of EntitlementsApi->list_entitlements:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling EntitlementsApi->list_entitlements: %s\n" % e)
 ```
 
@@ -667,11 +691,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.entitlements_api import EntitlementsApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.entitlement1 import Entitlement1
 from sailpoint.v2024.models.json_patch_operation import JsonPatchOperation
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = '2c91808a7813090a017814121e121518' # str | ID of the entitlement to patch # str | ID of the entitlement to patch
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     [{op=replace, path=/requestable, value=true}, {op=replace, path=/privileged, value=true}] # List[JsonPatchOperation] |  (optional)
@@ -685,13 +713,12 @@ from pprint import pprint
     try:
         # Patch an entitlement
         
-        api_response = api_instance.patch_entitlement(id, x_sail_point_experimental, )
-        
+        results =EntitlementsApi(api_client).patch_entitlement(id, x_sail_point_experimental, )
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.patch_entitlement(id, x_sail_point_experimental, Result)
+        # results = EntitlementsApi(api_client).patch_entitlement(id, x_sail_point_experimental, new_json_patch_operation)
         print("The response of EntitlementsApi->patch_entitlement:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling EntitlementsApi->patch_entitlement: %s\n" % e)
 ```
 
@@ -738,10 +765,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.entitlements_api import EntitlementsApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.entitlement_request_config import EntitlementRequestConfig
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = '2c91808a7813090a017814121e121518' # str | Entitlement ID # str | Entitlement ID
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     entitlement_request_config = {
@@ -760,14 +791,14 @@ from pprint import pprint
 
     try:
         # Replace Entitlement Request Config
-        Result = entitlement_request_config.from_json(entitlement_request_config)
-        api_response = api_instance.put_entitlement_request_config(id, x_sail_point_experimental, Result)
-        
+        new_entitlement_request_config = EntitlementRequestConfig()
+        new_entitlement_request_config.from_json(entitlement_request_config)
+        results =EntitlementsApi(api_client).put_entitlement_request_config(id, x_sail_point_experimental, new_entitlement_request_config)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.put_entitlement_request_config(id, x_sail_point_experimental, Result)
+        # results = EntitlementsApi(api_client).put_entitlement_request_config(id, x_sail_point_experimental, new_entitlement_request_config)
         print("The response of EntitlementsApi->put_entitlement_request_config:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling EntitlementsApi->put_entitlement_request_config: %s\n" % e)
 ```
 
@@ -813,23 +844,26 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.entitlements_api import EntitlementsApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.entitlement_source_reset_base_reference_dto import EntitlementSourceResetBaseReferenceDto
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = '2c91808a7813090a017814121919ecca' # str | ID of source for the entitlement reset # str | ID of source for the entitlement reset
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
         # Reset Source Entitlements
         
-        api_response = api_instance.reset_source_entitlements(id, x_sail_point_experimental)
-        
+        results =EntitlementsApi(api_client).reset_source_entitlements(id, x_sail_point_experimental)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.reset_source_entitlements(id, x_sail_point_experimental)
+        # results = EntitlementsApi(api_client).reset_source_entitlements(id, x_sail_point_experimental)
         print("The response of EntitlementsApi->reset_source_entitlements:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling EntitlementsApi->reset_source_entitlements: %s\n" % e)
 ```
 
@@ -880,10 +914,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.entitlements_api import EntitlementsApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.entitlement_bulk_update_request import EntitlementBulkUpdateRequest
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     entitlement_bulk_update_request = {
           "entitlementIds" : [ "2c91808a7624751a01762f19d665220d", "2c91808a7624751a01762f19d67c220e", "2c91808a7624751a01762f19d692220f" ],
@@ -900,12 +938,12 @@ from pprint import pprint
 
     try:
         # Bulk update an entitlement list
-        Result = entitlement_bulk_update_request.from_json(entitlement_bulk_update_request)
-        api_instance.update_entitlements_in_bulk(x_sail_point_experimental, Result)
-        
+        new_entitlement_bulk_update_request = EntitlementBulkUpdateRequest()
+        new_entitlement_bulk_update_request.from_json(entitlement_bulk_update_request)
+        EntitlementsApi(api_client).update_entitlements_in_bulk(x_sail_point_experimental, new_entitlement_bulk_update_request)
         # Below is a request that includes all optional parameters
-        # api_instance.update_entitlements_in_bulk(x_sail_point_experimental, Result)
-    except Exception as e:
+        # EntitlementsApi(api_client).update_entitlements_in_bulk(x_sail_point_experimental, new_entitlement_bulk_update_request)
+        except Exception as e:
         print("Exception when calling EntitlementsApi->update_entitlements_in_bulk: %s\n" % e)
 ```
 

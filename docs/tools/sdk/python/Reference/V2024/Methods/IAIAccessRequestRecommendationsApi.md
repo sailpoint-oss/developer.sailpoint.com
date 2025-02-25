@@ -62,11 +62,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.iai_access_request_recommendations_api import IAIAccessRequestRecommendationsApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.access_request_recommendation_action_item_dto import AccessRequestRecommendationActionItemDto
 from sailpoint.v2024.models.access_request_recommendation_action_item_response_dto import AccessRequestRecommendationActionItemResponseDto
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     access_request_recommendation_action_item_dto = {
           "access" : {
@@ -78,14 +82,14 @@ from pprint import pprint
 
     try:
         # Notification of Ignored Access Request Recommendations
-        Result = access_request_recommendation_action_item_dto.from_json(access_request_recommendation_action_item_dto)
-        api_response = api_instance.add_access_request_recommendations_ignored_item(x_sail_point_experimental, Result)
-        
+        new_access_request_recommendation_action_item_dto = AccessRequestRecommendationActionItemDto()
+        new_access_request_recommendation_action_item_dto.from_json(access_request_recommendation_action_item_dto)
+        results =IAIAccessRequestRecommendationsApi(api_client).add_access_request_recommendations_ignored_item(x_sail_point_experimental, new_access_request_recommendation_action_item_dto)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.add_access_request_recommendations_ignored_item(x_sail_point_experimental, Result)
+        # results = IAIAccessRequestRecommendationsApi(api_client).add_access_request_recommendations_ignored_item(x_sail_point_experimental, new_access_request_recommendation_action_item_dto)
         print("The response of IAIAccessRequestRecommendationsApi->add_access_request_recommendations_ignored_item:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling IAIAccessRequestRecommendationsApi->add_access_request_recommendations_ignored_item: %s\n" % e)
 ```
 
@@ -130,11 +134,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.iai_access_request_recommendations_api import IAIAccessRequestRecommendationsApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.access_request_recommendation_action_item_dto import AccessRequestRecommendationActionItemDto
 from sailpoint.v2024.models.access_request_recommendation_action_item_response_dto import AccessRequestRecommendationActionItemResponseDto
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     access_request_recommendation_action_item_dto = {
           "access" : {
@@ -146,14 +154,14 @@ from pprint import pprint
 
     try:
         # Notification of Requested Access Request Recommendations
-        Result = access_request_recommendation_action_item_dto.from_json(access_request_recommendation_action_item_dto)
-        api_response = api_instance.add_access_request_recommendations_requested_item(x_sail_point_experimental, Result)
-        
+        new_access_request_recommendation_action_item_dto = AccessRequestRecommendationActionItemDto()
+        new_access_request_recommendation_action_item_dto.from_json(access_request_recommendation_action_item_dto)
+        results =IAIAccessRequestRecommendationsApi(api_client).add_access_request_recommendations_requested_item(x_sail_point_experimental, new_access_request_recommendation_action_item_dto)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.add_access_request_recommendations_requested_item(x_sail_point_experimental, Result)
+        # results = IAIAccessRequestRecommendationsApi(api_client).add_access_request_recommendations_requested_item(x_sail_point_experimental, new_access_request_recommendation_action_item_dto)
         print("The response of IAIAccessRequestRecommendationsApi->add_access_request_recommendations_requested_item:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling IAIAccessRequestRecommendationsApi->add_access_request_recommendations_requested_item: %s\n" % e)
 ```
 
@@ -198,11 +206,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.iai_access_request_recommendations_api import IAIAccessRequestRecommendationsApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.access_request_recommendation_action_item_dto import AccessRequestRecommendationActionItemDto
 from sailpoint.v2024.models.access_request_recommendation_action_item_response_dto import AccessRequestRecommendationActionItemResponseDto
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     access_request_recommendation_action_item_dto = {
           "access" : {
@@ -214,14 +226,14 @@ from pprint import pprint
 
     try:
         # Notification of Viewed Access Request Recommendations
-        Result = access_request_recommendation_action_item_dto.from_json(access_request_recommendation_action_item_dto)
-        api_response = api_instance.add_access_request_recommendations_viewed_item(x_sail_point_experimental, Result)
-        
+        new_access_request_recommendation_action_item_dto = AccessRequestRecommendationActionItemDto()
+        new_access_request_recommendation_action_item_dto.from_json(access_request_recommendation_action_item_dto)
+        results =IAIAccessRequestRecommendationsApi(api_client).add_access_request_recommendations_viewed_item(x_sail_point_experimental, new_access_request_recommendation_action_item_dto)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.add_access_request_recommendations_viewed_item(x_sail_point_experimental, Result)
+        # results = IAIAccessRequestRecommendationsApi(api_client).add_access_request_recommendations_viewed_item(x_sail_point_experimental, new_access_request_recommendation_action_item_dto)
         print("The response of IAIAccessRequestRecommendationsApi->add_access_request_recommendations_viewed_item:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling IAIAccessRequestRecommendationsApi->add_access_request_recommendations_viewed_item: %s\n" % e)
 ```
 
@@ -266,11 +278,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.iai_access_request_recommendations_api import IAIAccessRequestRecommendationsApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.access_request_recommendation_action_item_dto import AccessRequestRecommendationActionItemDto
 from sailpoint.v2024.models.access_request_recommendation_action_item_response_dto import AccessRequestRecommendationActionItemResponseDto
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     [sailpoint.v2024.AccessRequestRecommendationActionItemDto()] # List[AccessRequestRecommendationActionItemDto] | The recommended access items that were viewed for an identity.
      access_request_recommendation_action_item_dto = {
@@ -284,14 +300,14 @@ from pprint import pprint
 
     try:
         # Notification of Viewed Access Request Recommendations in Bulk
-        Result = access_request_recommendation_action_item_dto.from_json(access_request_recommendation_action_item_dto)
-        api_response = api_instance.add_access_request_recommendations_viewed_items(x_sail_point_experimental, Result)
-        
+        new_access_request_recommendation_action_item_dto = AccessRequestRecommendationActionItemDto()
+        new_access_request_recommendation_action_item_dto.from_json(access_request_recommendation_action_item_dto)
+        results =IAIAccessRequestRecommendationsApi(api_client).add_access_request_recommendations_viewed_items(x_sail_point_experimental, new_access_request_recommendation_action_item_dto)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.add_access_request_recommendations_viewed_items(x_sail_point_experimental, Result)
+        # results = IAIAccessRequestRecommendationsApi(api_client).add_access_request_recommendations_viewed_items(x_sail_point_experimental, new_access_request_recommendation_action_item_dto)
         print("The response of IAIAccessRequestRecommendationsApi->add_access_request_recommendations_viewed_items:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling IAIAccessRequestRecommendationsApi->add_access_request_recommendations_viewed_items: %s\n" % e)
 ```
 
@@ -342,10 +358,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.iai_access_request_recommendations_api import IAIAccessRequestRecommendationsApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.access_request_recommendation_item_detail import AccessRequestRecommendationItemDetail
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     identity_id = 'me' # str | Get access request recommendations for an identityId. *me* indicates the current user. (optional) (default to 'me') # str | Get access request recommendations for an identityId. *me* indicates the current user. (optional) (default to 'me')
     limit = 15 # int | Max number of results to return. (optional) (default to 15) # int | Max number of results to return. (optional) (default to 15)
@@ -358,13 +378,12 @@ from pprint import pprint
     try:
         # Identity Access Request Recommendations
         
-        api_response = api_instance.get_access_request_recommendations(x_sail_point_experimental, )
-        
+        results =IAIAccessRequestRecommendationsApi(api_client).get_access_request_recommendations(x_sail_point_experimental, )
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_access_request_recommendations(x_sail_point_experimental, identity_id, limit, offset, count, include_translation_messages, filters, sorters)
+        # results = IAIAccessRequestRecommendationsApi(api_client).get_access_request_recommendations(x_sail_point_experimental, identity_id, limit, offset, count, include_translation_messages, filters, sorters)
         print("The response of IAIAccessRequestRecommendationsApi->get_access_request_recommendations:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling IAIAccessRequestRecommendationsApi->get_access_request_recommendations: %s\n" % e)
 ```
 
@@ -413,10 +432,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.iai_access_request_recommendations_api import IAIAccessRequestRecommendationsApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.access_request_recommendation_action_item_response_dto import AccessRequestRecommendationActionItemResponseDto
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -427,13 +450,12 @@ from pprint import pprint
     try:
         # List of Ignored Access Request Recommendations
         
-        api_response = api_instance.get_access_request_recommendations_ignored_items(x_sail_point_experimental, )
-        
+        results =IAIAccessRequestRecommendationsApi(api_client).get_access_request_recommendations_ignored_items(x_sail_point_experimental, )
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_access_request_recommendations_ignored_items(x_sail_point_experimental, limit, offset, count, filters, sorters)
+        # results = IAIAccessRequestRecommendationsApi(api_client).get_access_request_recommendations_ignored_items(x_sail_point_experimental, limit, offset, count, filters, sorters)
         print("The response of IAIAccessRequestRecommendationsApi->get_access_request_recommendations_ignored_items:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling IAIAccessRequestRecommendationsApi->get_access_request_recommendations_ignored_items: %s\n" % e)
 ```
 
@@ -482,10 +504,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.iai_access_request_recommendations_api import IAIAccessRequestRecommendationsApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.access_request_recommendation_action_item_response_dto import AccessRequestRecommendationActionItemResponseDto
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -496,13 +522,12 @@ from pprint import pprint
     try:
         # List of Requested Access Request Recommendations
         
-        api_response = api_instance.get_access_request_recommendations_requested_items(x_sail_point_experimental, )
-        
+        results =IAIAccessRequestRecommendationsApi(api_client).get_access_request_recommendations_requested_items(x_sail_point_experimental, )
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_access_request_recommendations_requested_items(x_sail_point_experimental, limit, offset, count, filters, sorters)
+        # results = IAIAccessRequestRecommendationsApi(api_client).get_access_request_recommendations_requested_items(x_sail_point_experimental, limit, offset, count, filters, sorters)
         print("The response of IAIAccessRequestRecommendationsApi->get_access_request_recommendations_requested_items:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling IAIAccessRequestRecommendationsApi->get_access_request_recommendations_requested_items: %s\n" % e)
 ```
 
@@ -551,10 +576,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.iai_access_request_recommendations_api import IAIAccessRequestRecommendationsApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.access_request_recommendation_action_item_response_dto import AccessRequestRecommendationActionItemResponseDto
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -565,13 +594,12 @@ from pprint import pprint
     try:
         # List of Viewed Access Request Recommendations
         
-        api_response = api_instance.get_access_request_recommendations_viewed_items(x_sail_point_experimental, )
-        
+        results =IAIAccessRequestRecommendationsApi(api_client).get_access_request_recommendations_viewed_items(x_sail_point_experimental, )
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_access_request_recommendations_viewed_items(x_sail_point_experimental, limit, offset, count, filters, sorters)
+        # results = IAIAccessRequestRecommendationsApi(api_client).get_access_request_recommendations_viewed_items(x_sail_point_experimental, limit, offset, count, filters, sorters)
         print("The response of IAIAccessRequestRecommendationsApi->get_access_request_recommendations_viewed_items:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling IAIAccessRequestRecommendationsApi->get_access_request_recommendations_viewed_items: %s\n" % e)
 ```
 

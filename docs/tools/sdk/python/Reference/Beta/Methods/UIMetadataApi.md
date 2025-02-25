@@ -52,21 +52,24 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.ui_metadata_api import UIMetadataApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.tenant_ui_metadata_item_response import TenantUiMetadataItemResponse
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
 
     try:
         # Get a tenant UI metadata
         
-        api_response = api_instance.get_tenant_ui_metadata()
-        
+        results =UIMetadataApi(api_client).get_tenant_ui_metadata()
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_tenant_ui_metadata()
+        # results = UIMetadataApi(api_client).get_tenant_ui_metadata()
         print("The response of UIMetadataApi->get_tenant_ui_metadata:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling UIMetadataApi->get_tenant_ui_metadata: %s\n" % e)
 ```
 
@@ -109,11 +112,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.ui_metadata_api import UIMetadataApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.tenant_ui_metadata_item_response import TenantUiMetadataItemResponse
 from sailpoint.beta.models.tenant_ui_metadata_item_update_request import TenantUiMetadataItemUpdateRequest
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     tenant_ui_metadata_item_update_request = {
           "usernameEmptyText" : "Please provide your work email address...",
           "usernameLabel" : "Email",
@@ -122,14 +129,14 @@ from pprint import pprint
 
     try:
         # Update tenant UI metadata
-        Result = tenant_ui_metadata_item_update_request.from_json(tenant_ui_metadata_item_update_request)
-        api_response = api_instance.set_tenant_ui_metadata(Result)
-        
+        new_tenant_ui_metadata_item_update_request = TenantUiMetadataItemUpdateRequest()
+        new_tenant_ui_metadata_item_update_request.from_json(tenant_ui_metadata_item_update_request)
+        results =UIMetadataApi(api_client).set_tenant_ui_metadata(new_tenant_ui_metadata_item_update_request)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.set_tenant_ui_metadata(Result)
+        # results = UIMetadataApi(api_client).set_tenant_ui_metadata(new_tenant_ui_metadata_item_update_request)
         print("The response of UIMetadataApi->set_tenant_ui_metadata:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling UIMetadataApi->set_tenant_ui_metadata: %s\n" % e)
 ```
 

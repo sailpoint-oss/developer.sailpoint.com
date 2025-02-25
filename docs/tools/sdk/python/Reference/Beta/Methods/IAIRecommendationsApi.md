@@ -53,11 +53,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.iai_recommendations_api import IAIRecommendationsApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.recommendation_request_dto import RecommendationRequestDto
 from sailpoint.beta.models.recommendation_response_dto import RecommendationResponseDto
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     recommendation_request_dto = {
           "prescribeMode" : false,
           "excludeInterpretations" : false,
@@ -80,14 +84,14 @@ from pprint import pprint
 
     try:
         # Returns a Recommendation Based on Object
-        Result = recommendation_request_dto.from_json(recommendation_request_dto)
-        api_response = api_instance.get_recommendations(Result)
-        
+        new_recommendation_request_dto = RecommendationRequestDto()
+        new_recommendation_request_dto.from_json(recommendation_request_dto)
+        results =IAIRecommendationsApi(api_client).get_recommendations(new_recommendation_request_dto)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_recommendations(Result)
+        # results = IAIRecommendationsApi(api_client).get_recommendations(new_recommendation_request_dto)
         print("The response of IAIRecommendationsApi->get_recommendations:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling IAIRecommendationsApi->get_recommendations: %s\n" % e)
 ```
 
@@ -124,21 +128,24 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.iai_recommendations_api import IAIRecommendationsApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.recommendation_config_dto import RecommendationConfigDto
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
 
     try:
         # Get certification recommendation config values
         
-        api_response = api_instance.get_recommendations_config()
-        
+        results =IAIRecommendationsApi(api_client).get_recommendations_config()
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_recommendations_config()
+        # results = IAIRecommendationsApi(api_client).get_recommendations_config()
         print("The response of IAIRecommendationsApi->get_recommendations_config:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling IAIRecommendationsApi->get_recommendations_config: %s\n" % e)
 ```
 
@@ -178,10 +185,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.iai_recommendations_api import IAIRecommendationsApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.recommendation_config_dto import RecommendationConfigDto
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     recommendation_config_dto = {
           "recommenderFeatures" : [ "jobTitle", "location", "peer_group", "department", "active" ],
           "peerGroupPercentageThreshold" : 0.5,
@@ -191,14 +202,14 @@ from pprint import pprint
 
     try:
         # Update certification recommendation config values
-        Result = recommendation_config_dto.from_json(recommendation_config_dto)
-        api_response = api_instance.update_recommendations_config(Result)
-        
+        new_recommendation_config_dto = RecommendationConfigDto()
+        new_recommendation_config_dto.from_json(recommendation_config_dto)
+        results =IAIRecommendationsApi(api_client).update_recommendations_config(new_recommendation_config_dto)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.update_recommendations_config(Result)
+        # results = IAIRecommendationsApi(api_client).update_recommendations_config(new_recommendation_config_dto)
         print("The response of IAIRecommendationsApi->update_recommendations_config:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling IAIRecommendationsApi->update_recommendations_config: %s\n" % e)
 ```
 

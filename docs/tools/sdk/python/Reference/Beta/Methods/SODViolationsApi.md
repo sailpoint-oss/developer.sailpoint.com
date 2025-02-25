@@ -75,11 +75,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.sod_violations_api import SODViolationsApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.identity_with_new_access import IdentityWithNewAccess
 from sailpoint.beta.models.violation_prediction import ViolationPrediction
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     identity_with_new_access = {
           "identityId" : "2c91808568c529c60168cca6f90c1313",
           "accessRefs" : [ {
@@ -95,14 +99,14 @@ from pprint import pprint
 
     try:
         # Predict SOD violations for identity.
-        Result = identity_with_new_access.from_json(identity_with_new_access)
-        api_response = api_instance.start_predict_sod_violations(Result)
-        
+        new_identity_with_new_access = IdentityWithNewAccess()
+        new_identity_with_new_access.from_json(identity_with_new_access)
+        results =SODViolationsApi(api_client).start_predict_sod_violations(new_identity_with_new_access)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.start_predict_sod_violations(Result)
+        # results = SODViolationsApi(api_client).start_predict_sod_violations(new_identity_with_new_access)
         print("The response of SODViolationsApi->start_predict_sod_violations:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SODViolationsApi->start_predict_sod_violations: %s\n" % e)
 ```
 

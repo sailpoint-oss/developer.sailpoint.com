@@ -53,11 +53,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.iai_common_access_api import IAICommonAccessApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.common_access_item_request import CommonAccessItemRequest
 from sailpoint.beta.models.common_access_item_response import CommonAccessItemResponse
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     common_access_item_request = {
           "access" : {
             "ownerName" : "ownerName",
@@ -72,14 +76,14 @@ from pprint import pprint
 
     try:
         # Create common access items
-        Result = common_access_item_request.from_json(common_access_item_request)
-        api_response = api_instance.create_common_access(Result)
-        
+        new_common_access_item_request = CommonAccessItemRequest()
+        new_common_access_item_request.from_json(common_access_item_request)
+        results =IAICommonAccessApi(api_client).create_common_access(new_common_access_item_request)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.create_common_access(Result)
+        # results = IAICommonAccessApi(api_client).create_common_access(new_common_access_item_request)
         print("The response of IAICommonAccessApi->create_common_access:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling IAICommonAccessApi->create_common_access: %s\n" % e)
 ```
 
@@ -123,10 +127,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.iai_common_access_api import IAICommonAccessApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.common_access_response import CommonAccessResponse
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
@@ -136,13 +144,12 @@ from pprint import pprint
     try:
         # Get a paginated list of common access
         
-        api_response = api_instance.get_common_access()
-        
+        results =IAICommonAccessApi(api_client).get_common_access()
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_common_access(offset, limit, count, filters, sorters)
+        # results = IAICommonAccessApi(api_client).get_common_access(offset, limit, count, filters, sorters)
         print("The response of IAICommonAccessApi->get_common_access:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling IAICommonAccessApi->get_common_access: %s\n" % e)
 ```
 
@@ -183,10 +190,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.iai_common_access_api import IAICommonAccessApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.common_access_id_status import CommonAccessIDStatus
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     [sailpoint.beta.CommonAccessIDStatus()] # List[CommonAccessIDStatus] | Confirm or deny in bulk the common access ids that are (or aren't) common access
      common_access_id_status = {
           "confirmedIds" : [ "046b6c7f-0b8a-43b9-b35d-6489e6daee91", "046b6c7f-0b8a-43b9-b35d-6489e6daee91" ],
@@ -196,14 +207,14 @@ from pprint import pprint
 
     try:
         # Bulk update common access status
-        Result = common_access_id_status.from_json(common_access_id_status)
-        api_response = api_instance.update_common_access_status_in_bulk(Result)
-        
+        new_common_access_id_status = CommonAccessIdStatus()
+        new_common_access_id_status.from_json(common_access_id_status)
+        results =IAICommonAccessApi(api_client).update_common_access_status_in_bulk(new_common_access_id_status)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.update_common_access_status_in_bulk(Result)
+        # results = IAICommonAccessApi(api_client).update_common_access_status_in_bulk(new_common_access_id_status)
         print("The response of IAICommonAccessApi->update_common_access_status_in_bulk:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling IAICommonAccessApi->update_common_access_status_in_bulk: %s\n" % e)
 ```
 

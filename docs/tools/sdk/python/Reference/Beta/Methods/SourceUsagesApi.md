@@ -55,22 +55,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.source_usages_api import SourceUsagesApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.source_usage_status import SourceUsageStatus
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     source_id = '2c9180835d191a86015d28455b4a2329' # str | ID of IDN source # str | ID of IDN source
 
     try:
         # Finds status of source usage
         
-        api_response = api_instance.get_status_by_source_id(source_id)
-        
+        results =SourceUsagesApi(api_client).get_status_by_source_id(source_id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_status_by_source_id(source_id)
+        # results = SourceUsagesApi(api_client).get_status_by_source_id(source_id)
         print("The response of SourceUsagesApi->get_status_by_source_id:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SourceUsagesApi->get_status_by_source_id: %s\n" % e)
 ```
 
@@ -115,10 +118,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.source_usages_api import SourceUsagesApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.source_usage import SourceUsage
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     source_id = '2c9180835d191a86015d28455b4a2329' # str | ID of IDN source # str | ID of IDN source
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -128,13 +135,12 @@ from pprint import pprint
     try:
         # Returns source usage insights
         
-        api_response = api_instance.get_usages_by_source_id(source_id, )
-        
+        results =SourceUsagesApi(api_client).get_usages_by_source_id(source_id, )
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_usages_by_source_id(source_id, limit, offset, count, sorters)
+        # results = SourceUsagesApi(api_client).get_usages_by_source_id(source_id, limit, offset, count, sorters)
         print("The response of SourceUsagesApi->get_usages_by_source_id:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling SourceUsagesApi->get_usages_by_source_id: %s\n" % e)
 ```
 

@@ -57,19 +57,22 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
-from sailpoint.v2024.rest import ApiException
+from sailpoint.v2024.api.reports_data_extraction_api import ReportsDataExtractionApi
+from sailpoint.v2024.api_client import ApiClient
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'a1ed223247144cc29d23c632624b4767' # str | ID of the running Report to cancel # str | ID of the running Report to cancel
 
     try:
         # Cancel Report
         
-        api_instance.cancel_report(id)
-        
+        ReportsDataExtractionApi(api_client).cancel_report(id)
         # Below is a request that includes all optional parameters
-        # api_instance.cancel_report(id)
-    except Exception as e:
+        # ReportsDataExtractionApi(api_client).cancel_report(id)
+        except Exception as e:
         print("Exception when calling ReportsDataExtractionApi->cancel_report: %s\n" % e)
 ```
 
@@ -114,9 +117,13 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
-from sailpoint.v2024.rest import ApiException
+from sailpoint.v2024.api.reports_data_extraction_api import ReportsDataExtractionApi
+from sailpoint.v2024.api_client import ApiClient
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     task_result_id = 'ef38f94347e94562b5bb8424a56397d8' # str | Unique identifier of the task result which handled report # str | Unique identifier of the task result which handled report
     file_format = 'csv' # str | Output format of the requested report file # str | Output format of the requested report file
     name = 'Identities Details Report' # str | preferred Report file name, by default will be used report name from task result. (optional) # str | preferred Report file name, by default will be used report name from task result. (optional)
@@ -125,13 +132,12 @@ from pprint import pprint
     try:
         # Get Report File
         
-        api_response = api_instance.get_report(task_result_id, file_format, )
-        
+        results =ReportsDataExtractionApi(api_client).get_report(task_result_id, file_format, )
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_report(task_result_id, file_format, name, auditable)
+        # results = ReportsDataExtractionApi(api_client).get_report(task_result_id, file_format, name, auditable)
         print("The response of ReportsDataExtractionApi->get_report:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling ReportsDataExtractionApi->get_report: %s\n" % e)
 ```
 
@@ -173,23 +179,26 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.reports_data_extraction_api import ReportsDataExtractionApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.report_results import ReportResults
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     task_result_id = 'ef38f94347e94562b5bb8424a56397d8' # str | Unique identifier of the task result which handled report # str | Unique identifier of the task result which handled report
     completed = False # bool | state of task result to apply ordering when results are fetching from the DB (optional) (default to False) # bool | state of task result to apply ordering when results are fetching from the DB (optional) (default to False)
 
     try:
         # Get Report Result
         
-        api_response = api_instance.get_report_result(task_result_id, )
-        
+        results =ReportsDataExtractionApi(api_client).get_report_result(task_result_id, )
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_report_result(task_result_id, completed)
+        # results = ReportsDataExtractionApi(api_client).get_report_result(task_result_id, completed)
         print("The response of ReportsDataExtractionApi->get_report_result:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling ReportsDataExtractionApi->get_report_result: %s\n" % e)
 ```
 
@@ -230,11 +239,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.reports_data_extraction_api import ReportsDataExtractionApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.report_details import ReportDetails
 from sailpoint.v2024.models.task_result_details import TaskResultDetails
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     report_details = {
           "reportType" : "ACCOUNTS",
           "arguments" : {
@@ -245,14 +258,14 @@ from pprint import pprint
 
     try:
         # Run Report
-        Result = report_details.from_json(report_details)
-        api_response = api_instance.start_report(Result)
-        
+        new_report_details = ReportDetails()
+        new_report_details.from_json(report_details)
+        results =ReportsDataExtractionApi(api_client).start_report(new_report_details)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.start_report(Result)
+        # results = ReportsDataExtractionApi(api_client).start_report(new_report_details)
         print("The response of ReportsDataExtractionApi->start_report:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling ReportsDataExtractionApi->start_report: %s\n" % e)
 ```
 

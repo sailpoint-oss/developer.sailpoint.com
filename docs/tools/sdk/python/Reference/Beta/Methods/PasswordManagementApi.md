@@ -78,11 +78,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.password_management_api import PasswordManagementApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.password_digit_token import PasswordDigitToken
 from sailpoint.beta.models.password_digit_token_reset import PasswordDigitTokenReset
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     password_digit_token_reset = {
           "durationMinutes" : 5,
           "length" : 8,
@@ -91,14 +95,14 @@ from pprint import pprint
 
     try:
         # Generate a digit token
-        Result = password_digit_token_reset.from_json(password_digit_token_reset)
-        api_response = api_instance.create_digit_token(Result)
-        
+        new_password_digit_token_reset = PasswordDigitTokenReset()
+        new_password_digit_token_reset.from_json(password_digit_token_reset)
+        results =PasswordManagementApi(api_client).create_digit_token(new_password_digit_token_reset)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.create_digit_token(Result)
+        # results = PasswordManagementApi(api_client).create_digit_token(new_password_digit_token_reset)
         print("The response of PasswordManagementApi->create_digit_token:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling PasswordManagementApi->create_digit_token: %s\n" % e)
 ```
 
@@ -139,22 +143,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.password_management_api import PasswordManagementApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.password_status import PasswordStatus
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'id_example' # str |  # str | 
 
     try:
         # Get Password Change Request Status
         
-        api_response = api_instance.get_identity_password_change_status(id)
-        
+        results =PasswordManagementApi(api_client).get_identity_password_change_status(id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_identity_password_change_status(id)
+        # results = PasswordManagementApi(api_client).get_identity_password_change_status(id)
         print("The response of PasswordManagementApi->get_identity_password_change_status:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling PasswordManagementApi->get_identity_password_change_status: %s\n" % e)
 ```
 
@@ -203,11 +210,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.password_management_api import PasswordManagementApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.password_info import PasswordInfo
 from sailpoint.beta.models.password_info_query_dto import PasswordInfoQueryDTO
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     password_info_query_dto = {
           "sourceName" : "My-AD",
           "userName" : "Abby.Smith"
@@ -215,14 +226,14 @@ from pprint import pprint
 
     try:
         # Query Password Info
-        Result = password_info_query_dto.from_json(password_info_query_dto)
-        api_response = api_instance.query_password_info(Result)
-        
+        new_password_info_query_dto = PasswordInfoQueryDto()
+        new_password_info_query_dto.from_json(password_info_query_dto)
+        results =PasswordManagementApi(api_client).query_password_info(new_password_info_query_dto)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.query_password_info(Result)
+        # results = PasswordManagementApi(api_client).query_password_info(new_password_info_query_dto)
         print("The response of PasswordManagementApi->query_password_info:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling PasswordManagementApi->query_password_info: %s\n" % e)
 ```
 
@@ -306,11 +317,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.password_management_api import PasswordManagementApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.password_change_request import PasswordChangeRequest
 from sailpoint.beta.models.password_change_response import PasswordChangeResponse
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     password_change_request = {
           "sourceId" : "8a807d4c73c545510173c545d4b60246",
           "accountId" : "CN=Abby Smith,OU=Austin,OU=Americas,OU=Demo,DC=seri,DC=acme,DC=com",
@@ -321,14 +336,14 @@ from pprint import pprint
 
     try:
         # Set Identity's Password
-        Result = password_change_request.from_json(password_change_request)
-        api_response = api_instance.set_identity_password(Result)
-        
+        new_password_change_request = PasswordChangeRequest()
+        new_password_change_request.from_json(password_change_request)
+        results =PasswordManagementApi(api_client).set_identity_password(new_password_change_request)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.set_identity_password(Result)
+        # results = PasswordManagementApi(api_client).set_identity_password(new_password_change_request)
         print("The response of PasswordManagementApi->set_identity_password:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling PasswordManagementApi->set_identity_password: %s\n" % e)
 ```
 

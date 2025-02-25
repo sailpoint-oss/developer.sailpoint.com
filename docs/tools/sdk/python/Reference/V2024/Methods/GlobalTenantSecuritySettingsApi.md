@@ -57,10 +57,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.global_tenant_security_settings_api import GlobalTenantSecuritySettingsApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.network_configuration import NetworkConfiguration
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     network_configuration = {
           "range" : [ "1.3.7.2", "255.255.255.252/30" ],
           "whitelisted" : true,
@@ -69,14 +73,14 @@ from pprint import pprint
 
     try:
         # Create security network configuration.
-        Result = network_configuration.from_json(network_configuration)
-        api_response = api_instance.create_auth_org_network_config(Result)
-        
+        new_network_configuration = NetworkConfiguration()
+        new_network_configuration.from_json(network_configuration)
+        results =GlobalTenantSecuritySettingsApi(api_client).create_auth_org_network_config(new_network_configuration)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.create_auth_org_network_config(Result)
+        # results = GlobalTenantSecuritySettingsApi(api_client).create_auth_org_network_config(new_network_configuration)
         print("The response of GlobalTenantSecuritySettingsApi->create_auth_org_network_config:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling GlobalTenantSecuritySettingsApi->create_auth_org_network_config: %s\n" % e)
 ```
 
@@ -115,21 +119,24 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.global_tenant_security_settings_api import GlobalTenantSecuritySettingsApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.network_configuration import NetworkConfiguration
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
 
     try:
         # Get security network configuration.
         
-        api_response = api_instance.get_auth_org_network_config()
-        
+        results =GlobalTenantSecuritySettingsApi(api_client).get_auth_org_network_config()
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_auth_org_network_config()
+        # results = GlobalTenantSecuritySettingsApi(api_client).get_auth_org_network_config()
         print("The response of GlobalTenantSecuritySettingsApi->get_auth_org_network_config:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling GlobalTenantSecuritySettingsApi->get_auth_org_network_config: %s\n" % e)
 ```
 
@@ -172,11 +179,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.global_tenant_security_settings_api import GlobalTenantSecuritySettingsApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.json_patch_operation import JsonPatchOperation
 from sailpoint.v2024.models.network_configuration import NetworkConfiguration
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     [{op=replace, path=/whitelisted, value=false,}, {op=add, path=/geolocation, value=[AF, HN, ES]}] # List[JsonPatchOperation] | A list of auth org network configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Ensures that the patched Network Config conforms to certain logical guidelines, which are:   1. Each string element in the range array must be a valid ip address or ip subnet mask.   2. Each string element in the geolocation array must be 2 characters, and they can only be uppercase letters.
      json_patch_operation = {
           "op" : "replace",
@@ -187,14 +198,14 @@ from pprint import pprint
 
     try:
         # Update security network configuration.
-        Result = json_patch_operation.from_json(json_patch_operation)
-        api_response = api_instance.patch_auth_org_network_config(Result)
-        
+        new_json_patch_operation = JsonPatchOperation()
+        new_json_patch_operation.from_json(json_patch_operation)
+        results =GlobalTenantSecuritySettingsApi(api_client).patch_auth_org_network_config(new_json_patch_operation)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.patch_auth_org_network_config(Result)
+        # results = GlobalTenantSecuritySettingsApi(api_client).patch_auth_org_network_config(new_json_patch_operation)
         print("The response of GlobalTenantSecuritySettingsApi->patch_auth_org_network_config:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling GlobalTenantSecuritySettingsApi->patch_auth_org_network_config: %s\n" % e)
 ```
 

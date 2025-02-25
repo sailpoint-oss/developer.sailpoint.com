@@ -57,22 +57,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.ui_metadata_api import UIMetadataApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.tenant_ui_metadata_item_response import TenantUiMetadataItemResponse
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
         # Get a tenant UI metadata
         
-        api_response = api_instance.get_tenant_ui_metadata(x_sail_point_experimental)
-        
+        results =UIMetadataApi(api_client).get_tenant_ui_metadata(x_sail_point_experimental)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_tenant_ui_metadata(x_sail_point_experimental)
+        # results = UIMetadataApi(api_client).get_tenant_ui_metadata(x_sail_point_experimental)
         print("The response of UIMetadataApi->get_tenant_ui_metadata:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling UIMetadataApi->get_tenant_ui_metadata: %s\n" % e)
 ```
 
@@ -118,11 +121,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.ui_metadata_api import UIMetadataApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.tenant_ui_metadata_item_response import TenantUiMetadataItemResponse
 from sailpoint.v2024.models.tenant_ui_metadata_item_update_request import TenantUiMetadataItemUpdateRequest
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     tenant_ui_metadata_item_update_request = {
           "usernameEmptyText" : "Please provide your work email address...",
@@ -132,14 +139,14 @@ from pprint import pprint
 
     try:
         # Update tenant UI metadata
-        Result = tenant_ui_metadata_item_update_request.from_json(tenant_ui_metadata_item_update_request)
-        api_response = api_instance.set_tenant_ui_metadata(x_sail_point_experimental, Result)
-        
+        new_tenant_ui_metadata_item_update_request = TenantUiMetadataItemUpdateRequest()
+        new_tenant_ui_metadata_item_update_request.from_json(tenant_ui_metadata_item_update_request)
+        results =UIMetadataApi(api_client).set_tenant_ui_metadata(x_sail_point_experimental, new_tenant_ui_metadata_item_update_request)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.set_tenant_ui_metadata(x_sail_point_experimental, Result)
+        # results = UIMetadataApi(api_client).set_tenant_ui_metadata(x_sail_point_experimental, new_tenant_ui_metadata_item_update_request)
         print("The response of UIMetadataApi->set_tenant_ui_metadata:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling UIMetadataApi->set_tenant_ui_metadata: %s\n" % e)
 ```
 

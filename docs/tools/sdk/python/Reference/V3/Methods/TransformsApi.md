@@ -62,11 +62,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v3
+from sailpoint.v3.api.transforms_api import TransformsApi
+from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.transform import Transform
 from sailpoint.v3.models.transform_read import TransformRead
-from sailpoint.v3.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     transform = {
           "name" : "Timestamp To Date",
           "attributes" : "{}",
@@ -75,14 +79,14 @@ from pprint import pprint
 
     try:
         # Create transform
-        Result = transform.from_json(transform)
-        api_response = api_instance.create_transform(Result)
-        
+        new_transform = Transform()
+        new_transform.from_json(transform)
+        results =TransformsApi(api_client).create_transform(new_transform)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.create_transform(Result)
+        # results = TransformsApi(api_client).create_transform(new_transform)
         print("The response of TransformsApi->create_transform:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling TransformsApi->create_transform: %s\n" % e)
 ```
 
@@ -124,19 +128,22 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v3
-from sailpoint.v3.rest import ApiException
+from sailpoint.v3.api.transforms_api import TransformsApi
+from sailpoint.v3.api_client import ApiClient
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = '2cd78adghjkja34jh2b1hkjhasuecd' # str | ID of the transform to delete # str | ID of the transform to delete
 
     try:
         # Delete a transform
         
-        api_instance.delete_transform(id)
-        
+        TransformsApi(api_client).delete_transform(id)
         # Below is a request that includes all optional parameters
-        # api_instance.delete_transform(id)
-    except Exception as e:
+        # TransformsApi(api_client).delete_transform(id)
+        except Exception as e:
         print("Exception when calling TransformsApi->delete_transform: %s\n" % e)
 ```
 
@@ -178,22 +185,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v3
+from sailpoint.v3.api.transforms_api import TransformsApi
+from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.transform_read import TransformRead
-from sailpoint.v3.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = '2cd78adghjkja34jh2b1hkjhasuecd' # str | ID of the transform to retrieve # str | ID of the transform to retrieve
 
     try:
         # Transform by ID
         
-        api_response = api_instance.get_transform(id)
-        
+        results =TransformsApi(api_client).get_transform(id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_transform(id)
+        # results = TransformsApi(api_client).get_transform(id)
         print("The response of TransformsApi->get_transform:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling TransformsApi->get_transform: %s\n" % e)
 ```
 
@@ -239,10 +249,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v3
+from sailpoint.v3.api.transforms_api import TransformsApi
+from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.transform_read import TransformRead
-from sailpoint.v3.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
@@ -252,13 +266,12 @@ from pprint import pprint
     try:
         # List transforms
         
-        api_response = api_instance.list_transforms()
-        
+        results =TransformsApi(api_client).list_transforms()
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.list_transforms(offset, limit, count, name, filters)
+        # results = TransformsApi(api_client).list_transforms(offset, limit, count, name, filters)
         print("The response of TransformsApi->list_transforms:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling TransformsApi->list_transforms: %s\n" % e)
 ```
 
@@ -301,11 +314,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v3
+from sailpoint.v3.api.transforms_api import TransformsApi
+from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.transform import Transform
 from sailpoint.v3.models.transform_read import TransformRead
-from sailpoint.v3.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = '2cd78adghjkja34jh2b1hkjhasuecd' # str | ID of the transform to update # str | ID of the transform to update
     transform = {
           "name" : "Timestamp To Date",
@@ -316,13 +333,12 @@ from pprint import pprint
     try:
         # Update a transform
         
-        api_response = api_instance.update_transform(id, )
-        
+        results =TransformsApi(api_client).update_transform(id, )
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.update_transform(id, Result)
+        # results = TransformsApi(api_client).update_transform(id, new_transform)
         print("The response of TransformsApi->update_transform:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling TransformsApi->update_transform: %s\n" % e)
 ```
 

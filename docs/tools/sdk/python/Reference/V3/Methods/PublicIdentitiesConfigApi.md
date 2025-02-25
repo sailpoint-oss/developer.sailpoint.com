@@ -59,21 +59,24 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v3
+from sailpoint.v3.api.public_identities_config_api import PublicIdentitiesConfigApi
+from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.public_identity_config import PublicIdentityConfig
-from sailpoint.v3.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
 
     try:
         # Get the Public Identities Configuration
         
-        api_response = api_instance.get_public_identity_config()
-        
+        results =PublicIdentitiesConfigApi(api_client).get_public_identity_config()
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_public_identity_config()
+        # results = PublicIdentitiesConfigApi(api_client).get_public_identity_config()
         print("The response of PublicIdentitiesConfigApi->get_public_identity_config:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling PublicIdentitiesConfigApi->get_public_identity_config: %s\n" % e)
 ```
 
@@ -114,10 +117,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v3
+from sailpoint.v3.api.public_identities_config_api import PublicIdentitiesConfigApi
+from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.public_identity_config import PublicIdentityConfig
-from sailpoint.v3.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     public_identity_config = {
           "modified" : "2018-06-25T20:22:28.104Z",
           "attributes" : [ {
@@ -136,14 +143,14 @@ from pprint import pprint
 
     try:
         # Update the Public Identities Configuration
-        Result = public_identity_config.from_json(public_identity_config)
-        api_response = api_instance.update_public_identity_config(Result)
-        
+        new_public_identity_config = PublicIdentityConfig()
+        new_public_identity_config.from_json(public_identity_config)
+        results =PublicIdentitiesConfigApi(api_client).update_public_identity_config(new_public_identity_config)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.update_public_identity_config(Result)
+        # results = PublicIdentitiesConfigApi(api_client).update_public_identity_config(new_public_identity_config)
         print("The response of PublicIdentitiesConfigApi->update_public_identity_config:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling PublicIdentitiesConfigApi->update_public_identity_config: %s\n" % e)
 ```
 

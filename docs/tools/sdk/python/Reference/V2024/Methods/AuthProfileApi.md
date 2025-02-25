@@ -64,23 +64,26 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.auth_profile_api import AuthProfileApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.auth_profile import AuthProfile
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     id = '2c91808a7813090a017814121919ecca' # str | ID of the Auth Profile to patch. # str | ID of the Auth Profile to patch.
 
     try:
         # Get Auth Profile.
         
-        api_response = api_instance.get_profile_config(x_sail_point_experimental, id)
-        
+        results =AuthProfileApi(api_client).get_profile_config(x_sail_point_experimental, id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_profile_config(x_sail_point_experimental, id)
+        # results = AuthProfileApi(api_client).get_profile_config(x_sail_point_experimental, id)
         print("The response of AuthProfileApi->get_profile_config:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling AuthProfileApi->get_profile_config: %s\n" % e)
 ```
 
@@ -124,22 +127,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.auth_profile_api import AuthProfileApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.auth_profile_summary import AuthProfileSummary
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
         # Get list of Auth Profiles.
         
-        api_response = api_instance.get_profile_config_list(x_sail_point_experimental)
-        
+        results =AuthProfileApi(api_client).get_profile_config_list(x_sail_point_experimental)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_profile_config_list(x_sail_point_experimental)
+        # results = AuthProfileApi(api_client).get_profile_config_list(x_sail_point_experimental)
         print("The response of AuthProfileApi->get_profile_config_list:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling AuthProfileApi->get_profile_config_list: %s\n" % e)
 ```
 
@@ -186,11 +192,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.auth_profile_api import AuthProfileApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.auth_profile import AuthProfile
 from sailpoint.v2024.models.json_patch_operation import JsonPatchOperation
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = '2c91808a7813090a017814121919ecca' # str | ID of the Auth Profile to patch. # str | ID of the Auth Profile to patch.
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     [sailpoint.v2024.JsonPatchOperation()] # List[JsonPatchOperation] | 
@@ -203,14 +213,14 @@ from pprint import pprint
 
     try:
         # Patch a specified Auth Profile
-        Result = json_patch_operation.from_json(json_patch_operation)
-        api_response = api_instance.patch_profile_config(id, x_sail_point_experimental, Result)
-        
+        new_json_patch_operation = JsonPatchOperation()
+        new_json_patch_operation.from_json(json_patch_operation)
+        results =AuthProfileApi(api_client).patch_profile_config(id, x_sail_point_experimental, new_json_patch_operation)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.patch_profile_config(id, x_sail_point_experimental, Result)
+        # results = AuthProfileApi(api_client).patch_profile_config(id, x_sail_point_experimental, new_json_patch_operation)
         print("The response of AuthProfileApi->patch_profile_config:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling AuthProfileApi->patch_profile_config: %s\n" % e)
 ```
 

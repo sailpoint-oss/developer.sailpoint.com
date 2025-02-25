@@ -60,22 +60,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.managed_clusters_api import ManagedClustersApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.client_log_configuration import ClientLogConfiguration
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'aClusterId' # str | ID of ManagedCluster to get log configuration for # str | ID of ManagedCluster to get log configuration for
 
     try:
         # Get managed cluster's log configuration
         
-        api_response = api_instance.get_client_log_configuration(id)
-        
+        results =ManagedClustersApi(api_client).get_client_log_configuration(id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_client_log_configuration(id)
+        # results = ManagedClustersApi(api_client).get_client_log_configuration(id)
         print("The response of ManagedClustersApi->get_client_log_configuration:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling ManagedClustersApi->get_client_log_configuration: %s\n" % e)
 ```
 
@@ -120,22 +123,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.managed_clusters_api import ManagedClustersApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.managed_cluster import ManagedCluster
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'aClusterId' # str | ID of the ManagedCluster to get # str | ID of the ManagedCluster to get
 
     try:
         # Get a specified ManagedCluster.
         
-        api_response = api_instance.get_managed_cluster(id)
-        
+        results =ManagedClustersApi(api_client).get_managed_cluster(id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_managed_cluster(id)
+        # results = ManagedClustersApi(api_client).get_managed_cluster(id)
         print("The response of ManagedClustersApi->get_managed_cluster:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling ManagedClustersApi->get_managed_cluster: %s\n" % e)
 ```
 
@@ -182,10 +188,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.managed_clusters_api import ManagedClustersApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.managed_cluster import ManagedCluster
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
@@ -194,13 +204,12 @@ from pprint import pprint
     try:
         # Retrieve all Managed Clusters.
         
-        api_response = api_instance.get_managed_clusters()
-        
+        results =ManagedClustersApi(api_client).get_managed_clusters()
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_managed_clusters(offset, limit, count, filters)
+        # results = ManagedClustersApi(api_client).get_managed_clusters(offset, limit, count, filters)
         print("The response of ManagedClustersApi->get_managed_clusters:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling ManagedClustersApi->get_managed_clusters: %s\n" % e)
 ```
 
@@ -246,10 +255,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.managed_clusters_api import ManagedClustersApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.client_log_configuration import ClientLogConfiguration
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'aClusterId' # str | ID of ManagedCluster to update log configuration for # str | ID of ManagedCluster to update log configuration for
     client_log_configuration = {
           "durationMinutes" : 120,
@@ -262,13 +275,12 @@ from pprint import pprint
     try:
         # Update managed cluster's log configuration
         
-        api_response = api_instance.put_client_log_configuration(id, Result)
-        
+        results =ManagedClustersApi(api_client).put_client_log_configuration(id, new_client_log_configuration)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.put_client_log_configuration(id, Result)
+        # results = ManagedClustersApi(api_client).put_client_log_configuration(id, new_client_log_configuration)
         print("The response of ManagedClustersApi->put_client_log_configuration:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling ManagedClustersApi->put_client_log_configuration: %s\n" % e)
 ```
 

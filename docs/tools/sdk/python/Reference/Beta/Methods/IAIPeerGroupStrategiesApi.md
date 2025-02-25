@@ -57,10 +57,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.iai_peer_group_strategies_api import IAIPeerGroupStrategiesApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.peer_group_member import PeerGroupMember
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     strategy = 'entitlement' # str | The strategy used to create peer groups. Currently, 'entitlement' is supported. # str | The strategy used to create peer groups. Currently, 'entitlement' is supported.
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -69,13 +73,12 @@ from pprint import pprint
     try:
         # Identity Outliers List
         
-        api_response = api_instance.get_peer_group_outliers(strategy, )
-        
+        results =IAIPeerGroupStrategiesApi(api_client).get_peer_group_outliers(strategy, )
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_peer_group_outliers(strategy, limit, offset, count)
+        # results = IAIPeerGroupStrategiesApi(api_client).get_peer_group_outliers(strategy, limit, offset, count)
         print("The response of IAIPeerGroupStrategiesApi->get_peer_group_outliers:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling IAIPeerGroupStrategiesApi->get_peer_group_outliers: %s\n" % e)
 ```
 

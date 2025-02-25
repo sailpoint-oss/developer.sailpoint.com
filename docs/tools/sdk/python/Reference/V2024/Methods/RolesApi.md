@@ -106,10 +106,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.roles_api import RolesApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.role import Role
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     role = {
           "owner" : {
             "name" : "support",
@@ -271,14 +275,14 @@ from pprint import pprint
 
     try:
         # Create a Role
-        Result = role.from_json(role)
-        api_response = api_instance.create_role(Result)
-        
+        new_role = Role()
+        new_role.from_json(role)
+        results =RolesApi(api_client).create_role(new_role)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.create_role(Result)
+        # results = RolesApi(api_client).create_role(new_role)
         print("The response of RolesApi->create_role:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling RolesApi->create_role: %s\n" % e)
 ```
 
@@ -322,25 +326,29 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.roles_api import RolesApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.role_bulk_delete_request import RoleBulkDeleteRequest
 from sailpoint.v2024.models.task_result_dto import TaskResultDto
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     role_bulk_delete_request = {
           "roleIds" : [ "2c9180847812e0b1017817051919ecca", "2c9180887812e0b201781e129f151816" ]
         } # RoleBulkDeleteRequest | 
 
     try:
         # Delete Role(s)
-        Result = role_bulk_delete_request.from_json(role_bulk_delete_request)
-        api_response = api_instance.delete_bulk_roles(Result)
-        
+        new_role_bulk_delete_request = RoleBulkDeleteRequest()
+        new_role_bulk_delete_request.from_json(role_bulk_delete_request)
+        results =RolesApi(api_client).delete_bulk_roles(new_role_bulk_delete_request)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.delete_bulk_roles(Result)
+        # results = RolesApi(api_client).delete_bulk_roles(new_role_bulk_delete_request)
         print("The response of RolesApi->delete_bulk_roles:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling RolesApi->delete_bulk_roles: %s\n" % e)
 ```
 
@@ -383,9 +391,13 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
-from sailpoint.v2024.rest import ApiException
+from sailpoint.v2024.api.roles_api import RolesApi
+from sailpoint.v2024.api_client import ApiClient
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = '2c91808c74ff913f0175097daa9d59cd' # str | The role's id. # str | The role's id.
     attribute_key = 'iscPrivacy' # str | Technical name of the Attribute. # str | Technical name of the Attribute.
     attribute_value = 'public' # str | Technical name of the Attribute Value. # str | Technical name of the Attribute Value.
@@ -393,11 +405,10 @@ from pprint import pprint
     try:
         # Remove a Metadata From Role.
         
-        api_instance.delete_metadata_from_role_by_key_and_value(id, attribute_key, attribute_value)
-        
+        RolesApi(api_client).delete_metadata_from_role_by_key_and_value(id, attribute_key, attribute_value)
         # Below is a request that includes all optional parameters
-        # api_instance.delete_metadata_from_role_by_key_and_value(id, attribute_key, attribute_value)
-    except Exception as e:
+        # RolesApi(api_client).delete_metadata_from_role_by_key_and_value(id, attribute_key, attribute_value)
+        except Exception as e:
         print("Exception when calling RolesApi->delete_metadata_from_role_by_key_and_value: %s\n" % e)
 ```
 
@@ -440,19 +451,22 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
-from sailpoint.v2024.rest import ApiException
+from sailpoint.v2024.api.roles_api import RolesApi
+from sailpoint.v2024.api_client import ApiClient
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = '2c91808a7813090a017814121e121518' # str | ID of the Role # str | ID of the Role
 
     try:
         # Delete a Role
         
-        api_instance.delete_role(id)
-        
+        RolesApi(api_client).delete_role(id)
         # Below is a request that includes all optional parameters
-        # api_instance.delete_role(id)
-    except Exception as e:
+        # RolesApi(api_client).delete_role(id)
+        except Exception as e:
         print("Exception when calling RolesApi->delete_role: %s\n" % e)
 ```
 
@@ -490,21 +504,24 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.roles_api import RolesApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.role_get_all_bulk_update_response import RoleGetAllBulkUpdateResponse
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
 
     try:
         # Get Bulk-Update Statuses
         
-        api_response = api_instance.get_bulk_update_status()
-        
+        results =RolesApi(api_client).get_bulk_update_status()
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_bulk_update_status()
+        # results = RolesApi(api_client).get_bulk_update_status()
         print("The response of RolesApi->get_bulk_update_status:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling RolesApi->get_bulk_update_status: %s\n" % e)
 ```
 
@@ -547,22 +564,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.roles_api import RolesApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.role_bulk_update_response import RoleBulkUpdateResponse
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'c24359c389374d0fb8585698a2189e3d' # str | The Id of the bulk update task. # str | The Id of the bulk update task.
 
     try:
         # Get Bulk-Update Status by ID
         
-        api_response = api_instance.get_bulk_update_status_by_id(id)
-        
+        results =RolesApi(api_client).get_bulk_update_status_by_id(id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_bulk_update_status_by_id(id)
+        # results = RolesApi(api_client).get_bulk_update_status_by_id(id)
         print("The response of RolesApi->get_bulk_update_status_by_id:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling RolesApi->get_bulk_update_status_by_id: %s\n" % e)
 ```
 
@@ -604,22 +624,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.roles_api import RolesApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.role import Role
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = '2c91808a7813090a017814121e121518' # str | ID of the Role # str | ID of the Role
 
     try:
         # Get a Role
         
-        api_response = api_instance.get_role(id)
-        
+        results =RolesApi(api_client).get_role(id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_role(id)
+        # results = RolesApi(api_client).get_role(id)
         print("The response of RolesApi->get_role:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling RolesApi->get_role: %s\n" % e)
 ```
 
@@ -665,10 +688,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.roles_api import RolesApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.role_identity import RoleIdentity
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = '2c91808a7813090a017814121e121518' # str | ID of the Role for which the assigned Identities are to be listed # str | ID of the Role for which the assigned Identities are to be listed
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -679,13 +706,12 @@ from pprint import pprint
     try:
         # List Identities assigned a Role
         
-        api_response = api_instance.get_role_assigned_identities(id, )
-        
+        results =RolesApi(api_client).get_role_assigned_identities(id, )
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_role_assigned_identities(id, limit, offset, count, filters, sorters)
+        # results = RolesApi(api_client).get_role_assigned_identities(id, limit, offset, count, filters, sorters)
         print("The response of RolesApi->get_role_assigned_identities:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling RolesApi->get_role_assigned_identities: %s\n" % e)
 ```
 
@@ -735,10 +761,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.roles_api import RolesApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.entitlement1 import Entitlement1
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = '2c91808a7813090a017814121919ecca' # str | ID of the containing role # str | ID of the containing role
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -750,13 +780,12 @@ from pprint import pprint
     try:
         # List role's Entitlements
         
-        api_response = api_instance.get_role_entitlements(id, x_sail_point_experimental, )
-        
+        results =RolesApi(api_client).get_role_entitlements(id, x_sail_point_experimental, )
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_role_entitlements(id, x_sail_point_experimental, limit, offset, count, filters, sorters)
+        # results = RolesApi(api_client).get_role_entitlements(id, x_sail_point_experimental, limit, offset, count, filters, sorters)
         print("The response of RolesApi->get_role_entitlements:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling RolesApi->get_role_entitlements: %s\n" % e)
 ```
 
@@ -804,10 +833,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.roles_api import RolesApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.role import Role
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     for_subadmin = '5168015d32f890ca15812c9180835d2e' # str | If provided, filters the returned list according to what is visible to the indicated ROLE_SUBADMIN Identity. The value of the parameter is either an Identity ID, or the special value **me**, which is shorthand for the calling Identity's ID. A 400 Bad Request error is returned if the **for-subadmin** parameter is specified for an Identity that is not a subadmin. (optional) # str | If provided, filters the returned list according to what is visible to the indicated ROLE_SUBADMIN Identity. The value of the parameter is either an Identity ID, or the special value **me**, which is shorthand for the calling Identity's ID. A 400 Bad Request error is returned if the **for-subadmin** parameter is specified for an Identity that is not a subadmin. (optional)
     limit = 50 # int | Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 50) # int | Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 50)
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -820,13 +853,12 @@ from pprint import pprint
     try:
         # List Roles
         
-        api_response = api_instance.list_roles()
-        
+        results =RolesApi(api_client).list_roles()
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.list_roles(for_subadmin, limit, offset, count, filters, sorters, for_segment_ids, include_unsegmented)
+        # results = RolesApi(api_client).list_roles(for_subadmin, limit, offset, count, filters, sorters, for_segment_ids, include_unsegmented)
         print("The response of RolesApi->list_roles:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling RolesApi->list_roles: %s\n" % e)
 ```
 
@@ -887,11 +919,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.roles_api import RolesApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.json_patch_operation import JsonPatchOperation
 from sailpoint.v2024.models.role import Role
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = '2c91808a7813090a017814121e121518' # str | ID of the Role to patch # str | ID of the Role to patch
     [{op=replace, path=/requestable, value=true}, {op=replace, path=/enabled, value=true}] # List[JsonPatchOperation] | 
      json_patch_operation = {
@@ -903,14 +939,14 @@ from pprint import pprint
 
     try:
         # Patch a specified Role
-        Result = json_patch_operation.from_json(json_patch_operation)
-        api_response = api_instance.patch_role(id, Result)
-        
+        new_json_patch_operation = JsonPatchOperation()
+        new_json_patch_operation.from_json(json_patch_operation)
+        results =RolesApi(api_client).patch_role(id, new_json_patch_operation)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.patch_role(id, Result)
+        # results = RolesApi(api_client).patch_role(id, new_json_patch_operation)
         print("The response of RolesApi->patch_role:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling RolesApi->patch_role: %s\n" % e)
 ```
 
@@ -959,11 +995,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.roles_api import RolesApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.role import Role
 from sailpoint.v2024.models.role_list_filter_dto import RoleListFilterDTO
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     for_subadmin = '5168015d32f890ca15812c9180835d2e' # str | If provided, filters the returned list according to what is visible to the indicated ROLE_SUBADMIN Identity. The value of the parameter is either an Identity ID, or the special value **me**, which is shorthand for the calling Identity's ID. A 400 Bad Request error is returned if the **for-subadmin** parameter is specified for an Identity that is not a subadmin. (optional) # str | If provided, filters the returned list according to what is visible to the indicated ROLE_SUBADMIN Identity. The value of the parameter is either an Identity ID, or the special value **me**, which is shorthand for the calling Identity's ID. A 400 Bad Request error is returned if the **for-subadmin** parameter is specified for an Identity that is not a subadmin. (optional)
     limit = 50 # int | Max number of results to return See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 50) # int | Max number of results to return See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 50)
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -982,13 +1022,12 @@ from pprint import pprint
     try:
         # Filter Roles by Metadata
         
-        api_response = api_instance.search_roles_by_filter()
-        
+        results =RolesApi(api_client).search_roles_by_filter()
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.search_roles_by_filter(for_subadmin, limit, offset, count, sorters, for_segment_ids, include_unsegmented, Result)
+        # results = RolesApi(api_client).search_roles_by_filter(for_subadmin, limit, offset, count, sorters, for_segment_ids, include_unsegmented, new_role_list_filter_dto)
         print("The response of RolesApi->search_roles_by_filter:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling RolesApi->search_roles_by_filter: %s\n" % e)
 ```
 
@@ -1031,10 +1070,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.roles_api import RolesApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.role import Role
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'c24359c389374d0fb8585698a2189e3d' # str | The Id of a role # str | The Id of a role
     attribute_key = 'iscPrivacy' # str | Technical name of the Attribute. # str | Technical name of the Attribute.
     attribute_value = 'public' # str | Technical name of the Attribute Value. # str | Technical name of the Attribute Value.
@@ -1042,13 +1085,12 @@ from pprint import pprint
     try:
         # Add a Metadata to Role.
         
-        api_response = api_instance.update_attribute_key_and_value_to_role(id, attribute_key, attribute_value)
-        
+        results =RolesApi(api_client).update_attribute_key_and_value_to_role(id, attribute_key, attribute_value)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.update_attribute_key_and_value_to_role(id, attribute_key, attribute_value)
+        # results = RolesApi(api_client).update_attribute_key_and_value_to_role(id, attribute_key, attribute_value)
         print("The response of RolesApi->update_attribute_key_and_value_to_role:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling RolesApi->update_attribute_key_and_value_to_role: %s\n" % e)
 ```
 
@@ -1092,11 +1134,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.roles_api import RolesApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.role_bulk_update_response import RoleBulkUpdateResponse
 from sailpoint.v2024.models.role_metadata_bulk_update_by_filter_request import RoleMetadataBulkUpdateByFilterRequest
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     role_metadata_bulk_update_by_filter_request = {
           "values" : [ {
             "attribute" : "iscFederalClassifications",
@@ -1109,14 +1155,14 @@ from pprint import pprint
 
     try:
         # Bulk-Update Roles' Metadata by Filters
-        Result = role_metadata_bulk_update_by_filter_request.from_json(role_metadata_bulk_update_by_filter_request)
-        api_response = api_instance.update_roles_metadata_by_filter(Result)
-        
+        new_role_metadata_bulk_update_by_filter_request = RoleMetadataBulkUpdateByFilterRequest()
+        new_role_metadata_bulk_update_by_filter_request.from_json(role_metadata_bulk_update_by_filter_request)
+        results =RolesApi(api_client).update_roles_metadata_by_filter(new_role_metadata_bulk_update_by_filter_request)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.update_roles_metadata_by_filter(Result)
+        # results = RolesApi(api_client).update_roles_metadata_by_filter(new_role_metadata_bulk_update_by_filter_request)
         print("The response of RolesApi->update_roles_metadata_by_filter:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling RolesApi->update_roles_metadata_by_filter: %s\n" % e)
 ```
 
@@ -1160,11 +1206,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.roles_api import RolesApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.role_bulk_update_response import RoleBulkUpdateResponse
 from sailpoint.v2024.models.role_metadata_bulk_update_by_id_request import RoleMetadataBulkUpdateByIdRequest
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     role_metadata_bulk_update_by_id_request = {
           "roles" : [ "b1db89554cfa431cb8b9921ea38d9367" ],
           "values" : [ {
@@ -1177,14 +1227,14 @@ from pprint import pprint
 
     try:
         # Bulk-Update Roles' Metadata by ID
-        Result = role_metadata_bulk_update_by_id_request.from_json(role_metadata_bulk_update_by_id_request)
-        api_response = api_instance.update_roles_metadata_by_ids(Result)
-        
+        new_role_metadata_bulk_update_by_id_request = RoleMetadataBulkUpdateByIdRequest()
+        new_role_metadata_bulk_update_by_id_request.from_json(role_metadata_bulk_update_by_id_request)
+        results =RolesApi(api_client).update_roles_metadata_by_ids(new_role_metadata_bulk_update_by_id_request)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.update_roles_metadata_by_ids(Result)
+        # results = RolesApi(api_client).update_roles_metadata_by_ids(new_role_metadata_bulk_update_by_id_request)
         print("The response of RolesApi->update_roles_metadata_by_ids:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling RolesApi->update_roles_metadata_by_ids: %s\n" % e)
 ```
 
@@ -1228,11 +1278,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v2024
+from sailpoint.v2024.api.roles_api import RolesApi
+from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.role_bulk_update_response import RoleBulkUpdateResponse
 from sailpoint.v2024.models.role_metadata_bulk_update_by_query_request import RoleMetadataBulkUpdateByQueryRequest
-from sailpoint.v2024.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     role_metadata_bulk_update_by_query_request = {
           "query" : {
             "query\"" : {
@@ -1260,14 +1314,14 @@ from pprint import pprint
 
     try:
         # Bulk-Update Roles' Metadata by Query
-        Result = role_metadata_bulk_update_by_query_request.from_json(role_metadata_bulk_update_by_query_request)
-        api_response = api_instance.update_roles_metadata_by_query(Result)
-        
+        new_role_metadata_bulk_update_by_query_request = RoleMetadataBulkUpdateByQueryRequest()
+        new_role_metadata_bulk_update_by_query_request.from_json(role_metadata_bulk_update_by_query_request)
+        results =RolesApi(api_client).update_roles_metadata_by_query(new_role_metadata_bulk_update_by_query_request)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.update_roles_metadata_by_query(Result)
+        # results = RolesApi(api_client).update_roles_metadata_by_query(new_role_metadata_bulk_update_by_query_request)
         print("The response of RolesApi->update_roles_metadata_by_query:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling RolesApi->update_roles_metadata_by_query: %s\n" % e)
 ```
 

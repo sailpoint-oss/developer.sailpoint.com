@@ -59,24 +59,27 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.managed_clients_api import ManagedClientsApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.managed_client_status import ManagedClientStatus
 from sailpoint.beta.models.managed_client_type import ManagedClientType
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'aClientId' # str | ID of the Managed Client Status to get # str | ID of the Managed Client Status to get
     type = sailpoint.beta.ManagedClientType() # ManagedClientType | Type of the Managed Client Status to get # ManagedClientType | Type of the Managed Client Status to get
 
     try:
         # Specified Managed Client Status.
         
-        api_response = api_instance.get_managed_client_status(id, type)
-        
+        results =ManagedClientsApi(api_client).get_managed_client_status(id, type)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_managed_client_status(id, type)
+        # results = ManagedClientsApi(api_client).get_managed_client_status(id, type)
         print("The response of ManagedClientsApi->get_managed_client_status:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling ManagedClientsApi->get_managed_client_status: %s\n" % e)
 ```
 
@@ -122,11 +125,15 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.beta
+from sailpoint.beta.api.managed_clients_api import ManagedClientsApi
+from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.managed_client_status import ManagedClientStatus
 from sailpoint.beta.models.managed_client_status_agg_response import ManagedClientStatusAggResponse
-from sailpoint.beta.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'aClientId' # str | ID of the Managed Client Status to update # str | ID of the Managed Client Status to update
     managed_client_status = {
           "body" : {
@@ -157,14 +164,14 @@ from pprint import pprint
 
     try:
         # Handle status request from client
-        Result = managed_client_status.from_json(managed_client_status)
-        api_response = api_instance.update_managed_client_status(id, Result)
-        
+        new_managed_client_status = ManagedClientStatus()
+        new_managed_client_status.from_json(managed_client_status)
+        results =ManagedClientsApi(api_client).update_managed_client_status(id, new_managed_client_status)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.update_managed_client_status(id, Result)
+        # results = ManagedClientsApi(api_client).update_managed_client_status(id, new_managed_client_status)
         print("The response of ManagedClientsApi->update_managed_client_status:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling ManagedClientsApi->update_managed_client_status: %s\n" % e)
 ```
 

@@ -75,10 +75,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v3
+from sailpoint.v3.api.certification_summaries_api import CertificationSummariesApi
+from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.access_summary import AccessSummary
-from sailpoint.v3.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | The identity campaign certification ID # str | The identity campaign certification ID
     type = 'ACCESS_PROFILE' # str | The type of access review item to retrieve summaries for # str | The type of access review item to retrieve summaries for
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -90,13 +94,12 @@ from pprint import pprint
     try:
         # Access Summaries
         
-        api_response = api_instance.get_identity_access_summaries(id, type, )
-        
+        results =CertificationSummariesApi(api_client).get_identity_access_summaries(id, type, )
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_identity_access_summaries(id, type, limit, offset, count, filters, sorters)
+        # results = CertificationSummariesApi(api_client).get_identity_access_summaries(id, type, limit, offset, count, filters, sorters)
         print("The response of CertificationSummariesApi->get_identity_access_summaries:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling CertificationSummariesApi->get_identity_access_summaries: %s\n" % e)
 ```
 
@@ -139,23 +142,26 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v3
+from sailpoint.v3.api.certification_summaries_api import CertificationSummariesApi
+from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.identity_cert_decision_summary import IdentityCertDecisionSummary
-from sailpoint.v3.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | The certification ID # str | The certification ID
     filters = 'identitySummary.id eq \"ef38f94347e94562b5bb8424a56397d8\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **identitySummary.id**: *eq, in* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **identitySummary.id**: *eq, in* (optional)
 
     try:
         # Summary of Certification Decisions
         
-        api_response = api_instance.get_identity_decision_summary(id, )
-        
+        results =CertificationSummariesApi(api_client).get_identity_decision_summary(id, )
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_identity_decision_summary(id, filters)
+        # results = CertificationSummariesApi(api_client).get_identity_decision_summary(id, filters)
         print("The response of CertificationSummariesApi->get_identity_decision_summary:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling CertificationSummariesApi->get_identity_decision_summary: %s\n" % e)
 ```
 
@@ -202,10 +208,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v3
+from sailpoint.v3.api.certification_summaries_api import CertificationSummariesApi
+from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.certification_identity_summary import CertificationIdentitySummary
-from sailpoint.v3.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | The identity campaign certification ID # str | The identity campaign certification ID
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -216,13 +226,12 @@ from pprint import pprint
     try:
         # Identity Summaries for Campaign Certification
         
-        api_response = api_instance.get_identity_summaries(id, )
-        
+        results =CertificationSummariesApi(api_client).get_identity_summaries(id, )
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_identity_summaries(id, limit, offset, count, filters, sorters)
+        # results = CertificationSummariesApi(api_client).get_identity_summaries(id, limit, offset, count, filters, sorters)
         print("The response of CertificationSummariesApi->get_identity_summaries:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling CertificationSummariesApi->get_identity_summaries: %s\n" % e)
 ```
 
@@ -265,23 +274,26 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v3
+from sailpoint.v3.api.certification_summaries_api import CertificationSummariesApi
+from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.certification_identity_summary import CertificationIdentitySummary
-from sailpoint.v3.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | The identity campaign certification ID # str | The identity campaign certification ID
     identity_summary_id = '2c91808772a504f50172a9540e501ba8' # str | The identity summary ID # str | The identity summary ID
 
     try:
         # Summary for Identity
         
-        api_response = api_instance.get_identity_summary(id, identity_summary_id)
-        
+        results =CertificationSummariesApi(api_client).get_identity_summary(id, identity_summary_id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_identity_summary(id, identity_summary_id)
+        # results = CertificationSummariesApi(api_client).get_identity_summary(id, identity_summary_id)
         print("The response of CertificationSummariesApi->get_identity_summary:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling CertificationSummariesApi->get_identity_summary: %s\n" % e)
 ```
 

@@ -84,23 +84,27 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v3
+from sailpoint.v3.api.scheduled_search_api import ScheduledSearchApi
+from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.create_scheduled_search_request import CreateScheduledSearchRequest
 from sailpoint.v3.models.scheduled_search import ScheduledSearch
-from sailpoint.v3.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     create_scheduled_search_request = {savedSearchId=9c620e13-cd33-4804-a13d-403bd7bcdbad, schedule={type=DAILY, hours={type=LIST, values=[9]}}, recipients=[{type=IDENTITY, id=2c9180867624cbd7017642d8c8c81f67}]} # CreateScheduledSearchRequest | The scheduled search to persist.
 
     try:
         # Create a new scheduled search
-        Result = create_scheduled_search_request.from_json(create_scheduled_search_request)
-        api_response = api_instance.create_scheduled_search(Result)
-        
+        new_create_scheduled_search_request = CreateScheduledSearchRequest()
+        new_create_scheduled_search_request.from_json(create_scheduled_search_request)
+        results =ScheduledSearchApi(api_client).create_scheduled_search(new_create_scheduled_search_request)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.create_scheduled_search(Result)
+        # results = ScheduledSearchApi(api_client).create_scheduled_search(new_create_scheduled_search_request)
         print("The response of ScheduledSearchApi->create_scheduled_search:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling ScheduledSearchApi->create_scheduled_search: %s\n" % e)
 ```
 
@@ -143,19 +147,22 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v3
-from sailpoint.v3.rest import ApiException
+from sailpoint.v3.api.scheduled_search_api import ScheduledSearchApi
+from sailpoint.v3.api_client import ApiClient
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = '2c91808568c529c60168cca6f90c1313' # str | ID of the requested document. # str | ID of the requested document.
 
     try:
         # Delete a Scheduled Search
         
-        api_instance.delete_scheduled_search(id)
-        
+        ScheduledSearchApi(api_client).delete_scheduled_search(id)
         # Below is a request that includes all optional parameters
-        # api_instance.delete_scheduled_search(id)
-    except Exception as e:
+        # ScheduledSearchApi(api_client).delete_scheduled_search(id)
+        except Exception as e:
         print("Exception when calling ScheduledSearchApi->delete_scheduled_search: %s\n" % e)
 ```
 
@@ -197,22 +204,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v3
+from sailpoint.v3.api.scheduled_search_api import ScheduledSearchApi
+from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.scheduled_search import ScheduledSearch
-from sailpoint.v3.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = '2c91808568c529c60168cca6f90c1313' # str | ID of the requested document. # str | ID of the requested document.
 
     try:
         # Get a Scheduled Search
         
-        api_response = api_instance.get_scheduled_search(id)
-        
+        results =ScheduledSearchApi(api_client).get_scheduled_search(id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_scheduled_search(id)
+        # results = ScheduledSearchApi(api_client).get_scheduled_search(id)
         print("The response of ScheduledSearchApi->get_scheduled_search:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling ScheduledSearchApi->get_scheduled_search: %s\n" % e)
 ```
 
@@ -258,10 +268,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v3
+from sailpoint.v3.api.scheduled_search_api import ScheduledSearchApi
+from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.scheduled_search import ScheduledSearch
-from sailpoint.v3.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
@@ -270,13 +284,12 @@ from pprint import pprint
     try:
         # List scheduled searches
         
-        api_response = api_instance.list_scheduled_search()
-        
+        results =ScheduledSearchApi(api_client).list_scheduled_search()
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.list_scheduled_search(offset, limit, count, filters)
+        # results = ScheduledSearchApi(api_client).list_scheduled_search(offset, limit, count, filters)
         print("The response of ScheduledSearchApi->list_scheduled_search:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling ScheduledSearchApi->list_scheduled_search: %s\n" % e)
 ```
 
@@ -317,10 +330,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v3
+from sailpoint.v3.api.scheduled_search_api import ScheduledSearchApi
+from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.typed_reference import TypedReference
-from sailpoint.v3.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = '2c91808568c529c60168cca6f90c1313' # str | ID of the requested document. # str | ID of the requested document.
     typed_reference = {
           "id" : "2c91808568c529c60168cca6f90c1313",
@@ -329,12 +346,12 @@ from pprint import pprint
 
     try:
         # Unsubscribe a recipient from Scheduled Search
-        Result = typed_reference.from_json(typed_reference)
-        api_instance.unsubscribe_scheduled_search(id, Result)
-        
+        new_typed_reference = TypedReference()
+        new_typed_reference.from_json(typed_reference)
+        ScheduledSearchApi(api_client).unsubscribe_scheduled_search(id, new_typed_reference)
         # Below is a request that includes all optional parameters
-        # api_instance.unsubscribe_scheduled_search(id, Result)
-    except Exception as e:
+        # ScheduledSearchApi(api_client).unsubscribe_scheduled_search(id, new_typed_reference)
+        except Exception as e:
         print("Exception when calling ScheduledSearchApi->unsubscribe_scheduled_search: %s\n" % e)
 ```
 
@@ -378,10 +395,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v3
+from sailpoint.v3.api.scheduled_search_api import ScheduledSearchApi
+from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.scheduled_search import ScheduledSearch
-from sailpoint.v3.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = '2c91808568c529c60168cca6f90c1313' # str | ID of the requested document. # str | ID of the requested document.
     scheduled_search = {
           "owner" : {
@@ -429,14 +450,14 @@ from pprint import pprint
 
     try:
         # Update an existing Scheduled Search
-        Result = scheduled_search.from_json(scheduled_search)
-        api_response = api_instance.update_scheduled_search(id, Result)
-        
+        new_scheduled_search = ScheduledSearch()
+        new_scheduled_search.from_json(scheduled_search)
+        results =ScheduledSearchApi(api_client).update_scheduled_search(id, new_scheduled_search)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.update_scheduled_search(id, Result)
+        # results = ScheduledSearchApi(api_client).update_scheduled_search(id, new_scheduled_search)
         print("The response of ScheduledSearchApi->update_scheduled_search:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling ScheduledSearchApi->update_scheduled_search: %s\n" % e)
 ```
 

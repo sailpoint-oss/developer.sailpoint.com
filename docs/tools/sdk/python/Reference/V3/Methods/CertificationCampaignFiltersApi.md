@@ -82,10 +82,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v3
+from sailpoint.v3.api.certification_campaign_filters_api import CertificationCampaignFiltersApi
+from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.campaign_filter_details import CampaignFilterDetails
-from sailpoint.v3.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     campaign_filter_details = {
           "owner" : "SailPoint Support",
           "mode" : "INCLUSION",
@@ -107,14 +111,14 @@ from pprint import pprint
 
     try:
         # Create Campaign Filter
-        Result = campaign_filter_details.from_json(campaign_filter_details)
-        api_response = api_instance.create_campaign_filter(Result)
-        
+        new_campaign_filter_details = CampaignFilterDetails()
+        new_campaign_filter_details.from_json(campaign_filter_details)
+        results =CertificationCampaignFiltersApi(api_client).create_campaign_filter(new_campaign_filter_details)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.create_campaign_filter(Result)
+        # results = CertificationCampaignFiltersApi(api_client).create_campaign_filter(new_campaign_filter_details)
         print("The response of CertificationCampaignFiltersApi->create_campaign_filter:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling CertificationCampaignFiltersApi->create_campaign_filter: %s\n" % e)
 ```
 
@@ -156,21 +160,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v3
-from sailpoint.v3.rest import ApiException
+from sailpoint.v3.api.certification_campaign_filters_api import CertificationCampaignFiltersApi
+from sailpoint.v3.api_client import ApiClient
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     request_body = ['request_body_example'] # List[str] | A json list of IDs of campaign filters to delete.
      request_body = ['request_body_example'] # List[str] | A json list of IDs of campaign filters to delete.
     
 
     try:
         # Deletes Campaign Filters
-        Result = request_body.from_json(request_body)
-        api_instance.delete_campaign_filters(Result)
-        
+        new_request_body = RequestBody()
+        new_request_body.from_json(request_body)
+        CertificationCampaignFiltersApi(api_client).delete_campaign_filters(new_request_body)
         # Below is a request that includes all optional parameters
-        # api_instance.delete_campaign_filters(Result)
-    except Exception as e:
+        # CertificationCampaignFiltersApi(api_client).delete_campaign_filters(new_request_body)
+        except Exception as e:
         print("Exception when calling CertificationCampaignFiltersApi->delete_campaign_filters: %s\n" % e)
 ```
 
@@ -212,22 +220,25 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v3
+from sailpoint.v3.api.certification_campaign_filters_api import CertificationCampaignFiltersApi
+from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.campaign_filter_details import CampaignFilterDetails
-from sailpoint.v3.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     id = 'e9f9a1397b842fd5a65842087040d3ac' # str | The ID of the campaign filter to be retrieved. # str | The ID of the campaign filter to be retrieved.
 
     try:
         # Get Campaign Filter by ID
         
-        api_response = api_instance.get_campaign_filter_by_id(id)
-        
+        results =CertificationCampaignFiltersApi(api_client).get_campaign_filter_by_id(id)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.get_campaign_filter_by_id(id)
+        # results = CertificationCampaignFiltersApi(api_client).get_campaign_filter_by_id(id)
         print("The response of CertificationCampaignFiltersApi->get_campaign_filter_by_id:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling CertificationCampaignFiltersApi->get_campaign_filter_by_id: %s\n" % e)
 ```
 
@@ -270,10 +281,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v3
+from sailpoint.v3.api.certification_campaign_filters_api import CertificationCampaignFiltersApi
+from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.list_campaign_filters200_response import ListCampaignFilters200Response
-from sailpoint.v3.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     start = 0 # int | Start/Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Start/Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
     include_system_filters = True # bool | If this is true, the API includes system filters in the count and results. Otherwise it excludes them. If no value is provided, the default is true.  (optional) (default to True) # bool | If this is true, the API includes system filters in the count and results. Otherwise it excludes them. If no value is provided, the default is true.  (optional) (default to True)
@@ -281,13 +296,12 @@ from pprint import pprint
     try:
         # List Campaign Filters
         
-        api_response = api_instance.list_campaign_filters()
-        
+        results =CertificationCampaignFiltersApi(api_client).list_campaign_filters()
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.list_campaign_filters(limit, start, include_system_filters)
+        # results = CertificationCampaignFiltersApi(api_client).list_campaign_filters(limit, start, include_system_filters)
         print("The response of CertificationCampaignFiltersApi->list_campaign_filters:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling CertificationCampaignFiltersApi->list_campaign_filters: %s\n" % e)
 ```
 
@@ -329,10 +343,14 @@ Code | Description  | Data Type | Response headers |
 
 ```python
 import sailpoint.v3
+from sailpoint.v3.api.certification_campaign_filters_api import CertificationCampaignFiltersApi
+from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.campaign_filter_details import CampaignFilterDetails
-from sailpoint.v3.rest import ApiException
 from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
+with ApiClient(configuration) as api_client:
     filter_id = 'e9f9a1397b842fd5a65842087040d3ac' # str | The ID of the campaign filter being modified. # str | The ID of the campaign filter being modified.
     campaign_filter_details = {
           "owner" : "SailPoint Support",
@@ -355,14 +373,14 @@ from pprint import pprint
 
     try:
         # Updates a Campaign Filter
-        Result = campaign_filter_details.from_json(campaign_filter_details)
-        api_response = api_instance.update_campaign_filter(filter_id, Result)
-        
+        new_campaign_filter_details = CampaignFilterDetails()
+        new_campaign_filter_details.from_json(campaign_filter_details)
+        results =CertificationCampaignFiltersApi(api_client).update_campaign_filter(filter_id, new_campaign_filter_details)
         # Below is a request that includes all optional parameters
-        # api_response = api_instance.update_campaign_filter(filter_id, Result)
+        # results = CertificationCampaignFiltersApi(api_client).update_campaign_filter(filter_id, new_campaign_filter_details)
         print("The response of CertificationCampaignFiltersApi->update_campaign_filter:\n")
-        pprint(api_response)
-    except Exception as e:
+        pprint(results)
+        except Exception as e:
         print("Exception when calling CertificationCampaignFiltersApi->update_campaign_filter: %s\n" % e)
 ```
 

@@ -1,4 +1,4 @@
-description: PreviewDataSourceResponse is the response sent by /form-definitions/{formDefinitionID}/data-source endpoint
+description: PreviewDataSourceResponse is the response sent by `/form-definitions/{formDefinitionID}/data-source` endpoint
 properties:
   results:
     description: Results holds a list of FormElementDataSourceConfigOptions items

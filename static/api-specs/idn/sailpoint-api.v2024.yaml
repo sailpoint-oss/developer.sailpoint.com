@@ -1763,6 +1763,8 @@ paths:
     $ref: ./v2024/paths/access-request-close.yaml
   /ai-access-request-recommendations:
     $ref: ./v2024/paths/ai-access-request-recommendations.yaml
+  /ai-access-request-recommendations/config:
+    $ref: ./v2024/paths/ai-access-request-recommendations-config.yaml
   /ai-access-request-recommendations/ignored-items:
     $ref: ./v2024/paths/ai-access-request-recommendations-ignored.yaml
   /ai-access-request-recommendations/requested-items:

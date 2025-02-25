@@ -21,9 +21,6 @@ Method | HTTP request | Description
 
 
 ## get-tenant
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 This rest endpoint can be used to retrieve tenant details.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-tenant)
@@ -31,7 +28,6 @@ This rest endpoint can be used to retrieve tenant details.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
 [**Tenant**](../models/tenant)
@@ -53,15 +49,14 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
 # Get Tenant Information.
 
 try {
-    Get-V2024Tenant -XSailPointExperimental $XSailPointExperimental 
+    Get-V2024Tenant 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024Tenant -XSailPointExperimental $XSailPointExperimental  
+    # Get-V2024Tenant  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024Tenant"
     Write-Host $_.ErrorDetails

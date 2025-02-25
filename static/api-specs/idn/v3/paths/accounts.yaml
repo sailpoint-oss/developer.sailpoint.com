@@ -18,6 +18,7 @@ get:
     - $ref: "../parameters/count.yaml"
     - in: query
       name: detailLevel
+      required: false
       schema:
         type: string
         enum: [ SLIM, FULL ]
@@ -27,6 +28,7 @@ get:
       example: FULL
     - in: query
       name: filters
+      required: false
       schema:
         type: string
       example: identityId eq "2c9180858082150f0180893dbaf44201"
@@ -49,6 +51,9 @@ get:
 
 
         **nativeIdentity**: *eq, in, sw*
+
+
+        **hasEntitlements**: *eq*
 
 
         **sourceId**: *eq, in, sw*
@@ -85,7 +90,12 @@ get:
 
 
         **recommendation.method**: *eq, in, isnull*
-      required: false
+
+
+        **created**: *eq, ge, gt, le, lt*
+
+
+        **modified**: *eq, ge, gt, le, lt*
     - in: query
       name: sorters
       required: false
@@ -97,7 +107,7 @@ get:
         Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
 
 
-        Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, identity.id, nativeIdentity, uuid, manuallyCorrelated, entitlements, origin, identity.name, identity.identityState, identity.correlated, source.displayableName, source.authoritative, source.connectionType**
+        Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, nativeIdentity, uuid, manuallyCorrelated, entitlements, origin, identity.name, identity.identityState, identity.correlated, source.displayableName, source.authoritative, source.connectionType**
   responses:
     "200":
       description: List of account objects.

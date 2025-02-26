@@ -21,6 +21,11 @@ properties:
     description: >-
       If true, this type of object will be JWS signed and cannot be modified before import.
     example: false
+  alwaysResolveById:
+    type: boolean
+    default: false
+    description: Whether this object type has to be resolved always by ID
+    example: true
   legacyObject:
     type: boolean
     default: false

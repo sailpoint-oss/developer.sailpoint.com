@@ -7,11 +7,15 @@ properties:
     description: JSONPath expression denoting the path within the object where a value substitution should be applied
     example: $.enabled
   value:
-    type: object
-    description: Value to be assigned at the jsonPath location within the object
+    anyOf:
+      - type: object
+      - type: array
+      - type: string
+      - type: number
+      - type: boolean
     nullable: true
-    example: null
-  mode:
+    description: Value to be assigned at the jsonPath location within the object
+  modes:
     type: array
     description: Draft modes to which this rule will apply
     items:

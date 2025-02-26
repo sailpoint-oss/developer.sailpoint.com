@@ -26,16 +26,9 @@ get:
     
     **fullText**: will filter suggested entitlement description records by text found in any of the following fields: entitlement name, entitlement display name, suggested description, source name'
   parameters:
-  - description: "Integer specifying the maximum number of records to return in a\
-      \ single API call. \nThe standard syntax described in [V3 API Standard Collection\
-      \ Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results).\
-      \ If it is not specified, a default limit is used."
-    schema:
-      format: int64
-      type: integer
-    in: query
-    name: limit
-    example: limit=25
+  - $ref: ../../v3/parameters/limit.yaml
+  - $ref: ../../v3/parameters/offset.yaml
+  - $ref: ../../v3/parameters/count.yaml
   - description: >-
       Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
       
@@ -63,6 +56,7 @@ get:
     in: query
     name: filters
     example: displayName co "Read and Write"
+    required: false
     schema:
       type: string
   - description: >-
@@ -72,52 +66,41 @@ get:
         Sorting is supported for the following fields: **displayName, sourceName, status**
     in: query
     name: sorters
+    required: false
     example: sorters=displayName
     schema:
       type: string
-  - description: "If `true` it will populate the `X-Total-Count` response header with\
-      \ the number of results that would be returned if `limit` and `offset` were\
-      \ ignored. \nThe standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results).\n\
-      Since requesting a total count can have a performance impact, it is recommended\
-      \ not to send `count=true` if that value will not be used."
-    in: query
-    name: count
-    example: count=true
-    schema:
-      type: boolean
   - description: 'If `true` it will populate the `X-Total-Count` response header with
       the number of results that would be returned if `limit` and `offset` were ignored.
 
-      This parameter differs from the Coun parameter in that this one skip executing
+      This parameter differs from the count parameter in that this one skips executing
       the actual query and always return an empty array.'
     in: query
     name: count-only
+    required: false
     example: count-only=true
     schema:
       type: boolean
+      default: false
   - description: "By default, the ListSeds API will only return items that you have\
       \ requested to be generated.  \nThis option will allow you to see all items\
       \ that have been requested"
     in: query
     name: requested-by-anyone
     example: requested-by-anyone=true
+    required: false
     schema:
       type: boolean
+      default: false
   - description: Will limit records to items that are in "suggested" or "approved"
       status
     in: query
     name: show-pending-status-only
     example: show-pending-status-only=true
+    required: false
     schema:
       type: boolean
-  - name: X-SailPoint-Experimental
-    in: header
-    description: Use this header to enable this experimental API.
-    example: true
-    schema:
-      type: string
-      default: true
-    required: true
+      default: false
   responses:
     '200':
       description: List of Suggested Entitlement Details

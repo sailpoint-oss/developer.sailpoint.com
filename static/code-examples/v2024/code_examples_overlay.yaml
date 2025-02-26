@@ -532,15 +532,14 @@
         $IdentityId = "7025c863-c270-4ba6-beea-edf3cb091573" # String | Manager's identity ID.
         $RequestedObjectId = "2db501be-f0fb-4cc5-a695-334133c52891" # String | Requested access item's ID.
         $Type = "ENTITLEMENT" # String | Requested access item's type.
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # Return access request identity metrics
         
         try {
-            Get-V2024AccessRequestIdentityMetrics -IdentityId $IdentityId -RequestedObjectId $RequestedObjectId -Type $Type -XSailPointExperimental $XSailPointExperimental 
+            Get-V2024AccessRequestIdentityMetrics -IdentityId $IdentityId -RequestedObjectId $RequestedObjectId -Type $Type 
     
             # Below is a request that includes all optional parameters
-            # Get-V2024AccessRequestIdentityMetrics -IdentityId $IdentityId -RequestedObjectId $RequestedObjectId -Type $Type -XSailPointExperimental $XSailPointExperimental   
+            # Get-V2024AccessRequestIdentityMetrics -IdentityId $IdentityId -RequestedObjectId $RequestedObjectId -Type $Type   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024AccessRequestIdentityMetrics"
             Write-Host $_.ErrorDetails
@@ -15357,15 +15356,14 @@
       label: SDK_tools/sdk/powershell/v2024/methods/suggested-entitlement-description#get-sed-batch-stats
       source: |
         $BatchId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | Batch Id
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # Submit Sed Batch Stats Request
         
         try {
-            Get-V2024SedBatchStats -BatchId $BatchId -XSailPointExperimental $XSailPointExperimental 
+            Get-V2024SedBatchStats -BatchId $BatchId 
     
             # Below is a request that includes all optional parameters
-            # Get-V2024SedBatchStats -BatchId $BatchId -XSailPointExperimental $XSailPointExperimental   
+            # Get-V2024SedBatchStats -BatchId $BatchId   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SedBatchStats"
             Write-Host $_.ErrorDetails
@@ -15376,15 +15374,14 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2024/methods/suggested-entitlement-description#get-sed-batches
       source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # List Sed Batch Request
         
         try {
-            Get-V2024SedBatches -XSailPointExperimental $XSailPointExperimental 
+            Get-V2024SedBatches 
     
             # Below is a request that includes all optional parameters
-            # Get-V2024SedBatches -XSailPointExperimental $XSailPointExperimental   
+            # Get-V2024SedBatches   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SedBatches"
             Write-Host $_.ErrorDetails
@@ -15395,22 +15392,22 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2024/methods/suggested-entitlement-description#list-seds
       source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $Limit = limit=25 # Int64 | Integer specifying the maximum number of records to return in a single API call.  The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used. (optional)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
         $Filters = "displayName co "Read and Write"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **batchId**: *eq, ne*  **displayName**: *eq, ne, co*  **sourceName**: *eq, ne, co*  **sourceId**: *eq, ne*  **status**: *eq, ne*  **fullText**: *co* (optional)
         $Sorters = "sorters=displayName" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName, sourceName, status** (optional)
-        $Count = $false # Boolean | If `true` it will populate the `X-Total-Count` response header with the number of results that would be returned if `limit` and `offset` were ignored.  The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). Since requesting a total count can have a performance impact, it is recommended not to send `count=true` if that value will not be used. (optional)
-        $CountOnly = $false # Boolean | If `true` it will populate the `X-Total-Count` response header with the number of results that would be returned if `limit` and `offset` were ignored. This parameter differs from the Coun parameter in that this one skip executing the actual query and always return an empty array. (optional)
-        $RequestedByAnyone = $false # Boolean | By default, the ListSeds API will only return items that you have requested to be generated.   This option will allow you to see all items that have been requested (optional)
-        $ShowPendingStatusOnly = $false # Boolean | Will limit records to items that are in ""suggested"" or ""approved"" status (optional)
+        $CountOnly = $false # Boolean | If `true` it will populate the `X-Total-Count` response header with the number of results that would be returned if `limit` and `offset` were ignored. This parameter differs from the count parameter in that this one skips executing the actual query and always return an empty array. (optional) (default to $false)
+        $RequestedByAnyone = $false # Boolean | By default, the ListSeds API will only return items that you have requested to be generated.   This option will allow you to see all items that have been requested (optional) (default to $false)
+        $ShowPendingStatusOnly = $false # Boolean | Will limit records to items that are in ""suggested"" or ""approved"" status (optional) (default to $false)
         
         # List Suggested Entitlement Descriptions
         
         try {
-            Get-V2024Seds -XSailPointExperimental $XSailPointExperimental 
+            Get-V2024Seds 
     
             # Below is a request that includes all optional parameters
-            # Get-V2024Seds -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Filters $Filters -Sorters $Sorters -Count $Count -CountOnly $CountOnly -RequestedByAnyone $RequestedByAnyone -ShowPendingStatusOnly $ShowPendingStatusOnly   
+            # Get-V2024Seds -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters -CountOnly $CountOnly -RequestedByAnyone $RequestedByAnyone -ShowPendingStatusOnly $ShowPendingStatusOnly   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024Seds"
             Write-Host $_.ErrorDetails
@@ -15448,7 +15445,6 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2024/methods/suggested-entitlement-description#submit-sed-approval
       source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $SedApproval = @"{
           "items" : "016629d1-1d25-463f-97f3-c6686846650"
         }"@ 
@@ -15458,10 +15454,10 @@
         
         try {
             $Result = ConvertFrom-JsonToSedApproval -Json $SedApproval
-            Submit-V2024SedApproval -XSailPointExperimental $XSailPointExperimental -V2024SedApproval $Result 
+            Submit-V2024SedApproval -V2024SedApproval $Result 
     
             # Below is a request that includes all optional parameters
-            # Submit-V2024SedApproval -XSailPointExperimental $XSailPointExperimental -V2024SedApproval $Result   
+            # Submit-V2024SedApproval -V2024SedApproval $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Submit-V2024SedApproval"
             Write-Host $_.ErrorDetails
@@ -15472,7 +15468,6 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2024/methods/suggested-entitlement-description#submit-sed-assignment
       source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $SedAssignment = @"
         {
           "assignee" : {
@@ -15487,10 +15482,10 @@
         
         try {
             $Result = ConvertFrom-JsonToSedAssignment -Json $SedAssignment
-            Submit-V2024SedAssignment -XSailPointExperimental $XSailPointExperimental -V2024SedAssignment $Result 
+            Submit-V2024SedAssignment -V2024SedAssignment $Result 
     
             # Below is a request that includes all optional parameters
-            # Submit-V2024SedAssignment -XSailPointExperimental $XSailPointExperimental -V2024SedAssignment $Result   
+            # Submit-V2024SedAssignment -V2024SedAssignment $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Submit-V2024SedAssignment"
             Write-Host $_.ErrorDetails
@@ -15501,7 +15496,6 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2024/methods/suggested-entitlement-description#submit-sed-batch-request
       source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $SedBatchRequest = @"
         {
           "entitlements" : [ "016629d1-1d25-463f-97f3-c6686846650", "016629d1-1d25-463f-97f3-c6686846650" ],
@@ -15512,10 +15506,10 @@
         # Submit Sed Batch Request
         
         try {
-            Submit-V2024SedBatchRequest -XSailPointExperimental $XSailPointExperimental 
+            Submit-V2024SedBatchRequest 
     
             # Below is a request that includes all optional parameters
-            # Submit-V2024SedBatchRequest -XSailPointExperimental $XSailPointExperimental -V2024SedBatchRequest $Result   
+            # Submit-V2024SedBatchRequest -V2024SedBatchRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Submit-V2024SedBatchRequest"
             Write-Host $_.ErrorDetails

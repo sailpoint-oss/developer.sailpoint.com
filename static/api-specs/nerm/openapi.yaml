@@ -243,6 +243,11 @@ paths:
 # Form Attributes
   /form_attributes:
     $ref: "./paths/form_attributes.yaml"
+# Isc Accounts
+  /isc/accounts:
+    $ref: "./paths/isc_accounts.yaml"
+  /isc/accounts/{id}:
+    $ref: "./paths/isc_account.yaml"
 
       
 security:

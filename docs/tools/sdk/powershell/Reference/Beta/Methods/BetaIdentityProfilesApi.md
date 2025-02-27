@@ -28,22 +28,21 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-BetaIdentityProfile**](#create-identity-profile) | **POST** `/identity-profiles` | Create an Identity Profile
-[**Remove-BetaIdentityProfile**](#delete-identity-profile) | **DELETE** `/identity-profiles/{identity-profile-id}` | Delete an Identity Profile
+[**New-BetaIdentityProfile**](#create-identity-profile) | **POST** `/identity-profiles` | Create Identity Profile
+[**Remove-BetaIdentityProfile**](#delete-identity-profile) | **DELETE** `/identity-profiles/{identity-profile-id}` | Delete Identity Profile
 [**Remove-BetaIdentityProfiles**](#delete-identity-profiles) | **POST** `/identity-profiles/bulk-delete` | Delete Identity Profiles
 [**Export-BetaIdentityProfiles**](#export-identity-profiles) | **GET** `/identity-profiles/export` | Export Identity Profiles
 [**Get-BetaDefaultIdentityAttributeConfig**](#get-default-identity-attribute-config) | **GET** `/identity-profiles/{identity-profile-id}/default-identity-attribute-config` | Default identity attribute config
-[**Get-BetaIdentityProfile**](#get-identity-profile) | **GET** `/identity-profiles/{identity-profile-id}` | Gets a single Identity Profile
+[**Get-BetaIdentityProfile**](#get-identity-profile) | **GET** `/identity-profiles/{identity-profile-id}` | Get Identity Profile
 [**Import-BetaIdentityProfiles**](#import-identity-profiles) | **POST** `/identity-profiles/import` | Import Identity Profiles
-[**Get-BetaIdentityProfiles**](#list-identity-profiles) | **GET** `/identity-profiles` | Identity Profiles List
+[**Get-BetaIdentityProfiles**](#list-identity-profiles) | **GET** `/identity-profiles` | List Identity Profiles
 [**Show-BetaGenerateIdentityPreview**](#show-generate-identity-preview) | **POST** `/identity-profiles/identity-preview` | Generate Identity Profile Preview
 [**Sync-BetaIdentityProfile**](#sync-identity-profile) | **POST** `/identity-profiles/{identity-profile-id}/process-identities` | Process identities under profile
-[**Update-BetaIdentityProfile**](#update-identity-profile) | **PATCH** `/identity-profiles/{identity-profile-id}` | Update the Identity Profile
+[**Update-BetaIdentityProfile**](#update-identity-profile) | **PATCH** `/identity-profiles/{identity-profile-id}` | Update Identity Profile
 
 
 ## create-identity-profile
-This creates an Identity Profile.
-
+Create an identity profile.
 A token with ORG_ADMIN authority is required to call this API to create an Identity Profile.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/create-identity-profile)
@@ -59,7 +58,7 @@ Param Type | Name | Data Type | Required  | Description
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-201 | The created Identity Profile | IdentityProfile
+201 | Created identity profile | IdentityProfile
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessModelMetadataAttribute401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
@@ -122,7 +121,7 @@ $IdentityProfile = @"{
   "id" : "id12345"
 }"@
 
-# Create an Identity Profile
+# Create Identity Profile
 
 try {
     $Result = ConvertFrom-JsonToIdentityProfile -Json $IdentityProfile
@@ -138,20 +137,16 @@ try {
 [[Back to top]](#) 
 
 ## delete-identity-profile
-This deletes an Identity Profile based on ID.
-
+Delete an identity profile by ID.
 On success, this endpoint will return a reference to the bulk delete task result.
-
 A token with ORG_ADMIN authority is required to call this API.
-
-The following rights are required to access this endpoint: idn:identity-profile:delete
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/delete-identity-profile)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | IdentityProfileId | **String** | True  | The Identity Profile ID.
+Path   | IdentityProfileId | **String** | True  | Identity profile ID.
 
 ### Return type
 [**TaskResultSimplified**](../models/task-result-simplified)
@@ -173,9 +168,9 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$IdentityProfileId = "ef38f94347e94562b5bb8424a56397d8" # String | The Identity Profile ID.
+$IdentityProfileId = "ef38f94347e94562b5bb8424a56397d8" # String | Identity profile ID.
 
-# Delete an Identity Profile
+# Delete Identity Profile
 
 try {
     Remove-BetaIdentityProfile -IdentityProfileId $IdentityProfileId 
@@ -345,8 +340,7 @@ try {
 [[Back to top]](#) 
 
 ## get-identity-profile
-This returns a single Identity Profile based on ID.
-
+Get a single identity profile by ID.
 A token with ORG_ADMIN or API authority is required to call this API.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-identity-profile)
@@ -354,7 +348,7 @@ A token with ORG_ADMIN or API authority is required to call this API.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | IdentityProfileId | **String** | True  | The Identity Profile ID
+Path   | IdentityProfileId | **String** | True  | Identity profile ID.
 
 ### Return type
 [**IdentityProfile**](../models/identity-profile)
@@ -362,7 +356,7 @@ Path   | IdentityProfileId | **String** | True  | The Identity Profile ID
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | An Identity Profile object | IdentityProfile
+200 | Identity profile object. | IdentityProfile
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessModelMetadataAttribute401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
@@ -376,9 +370,9 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$IdentityProfileId = "ef38f94347e94562b5bb8424a56397d8" # String | The Identity Profile ID
+$IdentityProfileId = "ef38f94347e94562b5bb8424a56397d8" # String | Identity profile ID.
 
-# Gets a single Identity Profile
+# Get Identity Profile
 
 try {
     Get-BetaIdentityProfile -IdentityProfileId $IdentityProfileId 
@@ -501,7 +495,7 @@ try {
 [[Back to top]](#) 
 
 ## list-identity-profiles
-This returns a list of Identity Profiles based on the specified query parameters.
+Get a list of identity profiles, based on the specified query parameters.
 A token with ORG_ADMIN or API authority is required to call this API to get a list of Identity Profiles.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-identity-profiles)
@@ -512,7 +506,7 @@ Param Type | Name | Data Type | Required  | Description
   Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-  Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne, ge, gt, in, le, lt, isnull, sw*  **name**: *eq, ne, in, le, lt, isnull, sw*  **priority**: *eq, ne*
+  Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne, ge, gt, in, le, sw*  **name**: *eq, ne, ge, gt, in, le, sw*  **priority**: *eq, ne*
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, priority, created, modified, owner.id, owner.name**
 
 ### Return type
@@ -521,7 +515,7 @@ Param Type | Name | Data Type | Required  | Description
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of identityProfiles. | IdentityProfile[]
+200 | List of identity profiles. | IdentityProfile[]
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessModelMetadataAttribute401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
@@ -537,10 +531,10 @@ Code | Description  | Data Type
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
-$Filters = 'id eq 8c190e6787aa4ed9a90bd9d5344523fb' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne, ge, gt, in, le, lt, isnull, sw*  **name**: *eq, ne, in, le, lt, isnull, sw*  **priority**: *eq, ne* (optional)
+$Filters = 'id eq 8c190e6787aa4ed9a90bd9d5344523fb' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne, ge, gt, in, le, sw*  **name**: *eq, ne, ge, gt, in, le, sw*  **priority**: *eq, ne* (optional)
 $Sorters = "name,-priority" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, priority, created, modified, owner.id, owner.name** (optional)
 
-# Identity Profiles List
+# List Identity Profiles
 
 try {
     Get-BetaIdentityProfiles 
@@ -680,13 +674,10 @@ try {
 [[Back to top]](#) 
 
 ## update-identity-profile
-This updates the specified Identity Profile.
-
+Update the specified identity profile with this PATCH request. 
 A token with ORG_ADMIN authority is required to call this API to update the Identity Profile.
-
-Some fields of the Schema cannot be updated. These fields are listed below:
+These fields cannot be updated:
 * id
-* name
 * created
 * modified
 * identityCount
@@ -698,8 +689,8 @@ Some fields of the Schema cannot be updated. These fields are listed below:
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | IdentityProfileId | **String** | True  | The Identity Profile ID
- Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | A list of Identity Profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+Path   | IdentityProfileId | **String** | True  | Identity profile ID.
+ Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | List of identity profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
 ### Return type
 [**IdentityProfile**](../models/identity-profile)
@@ -707,7 +698,7 @@ Path   | IdentityProfileId | **String** | True  | The Identity Profile ID
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | The updated Identity Profile. | IdentityProfile
+200 | Updated identity profile. | IdentityProfile
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessModelMetadataAttribute401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
@@ -721,15 +712,15 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$IdentityProfileId = "ef38f94347e94562b5bb8424a56397d8" # String | The Identity Profile ID
+$IdentityProfileId = "ef38f94347e94562b5bb8424a56397d8" # String | Identity profile ID.
  $JsonPatchOperation = @"{
   "op" : "replace",
   "path" : "/description",
   "value" : "New description"
-}"@ # JsonPatchOperation[] | A list of Identity Profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+}"@ # JsonPatchOperation[] | List of identity profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
  
 
-# Update the Identity Profile
+# Update Identity Profile
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation

@@ -4,7 +4,7 @@ allOf:
     properties:
       nonEmployeeCount:
         type: integer
-        description: Number of non-employee records associated with this source.
+        description: Number of non-employee records associated with this source. This value is 'NULL' by default. To get the non-employee count, you must set the `non-employee-count` flag in your request to 'true'.
         format: int32
         example: 120
         nullable: true

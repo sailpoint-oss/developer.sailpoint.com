@@ -35,7 +35,7 @@ $V3ConnectorDto = Initialize-PSSailpoint.V3V3ConnectorDto  -Name name `
  -ClassName sailpoint.connector.OpenConnectorAdapter `
  -Features [PROVISIONING, SYNC_PROVISIONING, SEARCH, UNSTRUCTURED_TARGETS] `
  -DirectConnect true `
- -ConnectorMetadata {supportedUI&#x3D;ANGULAR, platform&#x3D;ccg, shortDesc&#x3D;connector description} `
+ -ConnectorMetadata {supportedUI=ANGULAR, platform=ccg, shortDesc=connector description} `
  -Status RELEASED
 ```
 

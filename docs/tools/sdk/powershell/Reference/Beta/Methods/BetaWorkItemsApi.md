@@ -218,10 +218,10 @@ $WorkItemForward = @"{
 
 try {
     $Result = ConvertFrom-JsonToWorkItemForward -Json $WorkItemForward
-    Invoke-BetaForwardWorkItem -Id $Id -BetaWorkItemForward $Result 
+    Invoke-BetaForwardWorkItem -Id $Id -WorkItemForward $Result 
     
     # Below is a request that includes all optional parameters
-    # Invoke-BetaForwardWorkItem -Id $Id -BetaWorkItemForward $Result  
+    # Invoke-BetaForwardWorkItem -Id $Id -WorkItemForward $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-BetaForwardWorkItem"
     Write-Host $_.ErrorDetails

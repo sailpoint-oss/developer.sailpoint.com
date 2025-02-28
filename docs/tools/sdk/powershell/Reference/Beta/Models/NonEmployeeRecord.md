@@ -42,7 +42,7 @@ $NonEmployeeRecord = Initialize-PSSailpoint.BetaNonEmployeeRecord  -Id ac10e21c-
  -Phone 5125555555 `
  -Manager jane.doe `
  -SourceId 2c91808568c529c60168cca6f90c1313 `
- -VarData {description&#x3D;Auditing} `
+ -VarData {description=Auditing} `
  -StartDate 2019-08-23T18:52:59.162Z `
  -EndDate 2020-08-23T18:52:59.162Z `
  -Modified 2019-08-23T18:52:59.162Z `

@@ -217,7 +217,7 @@ try {
     Update-BetaDiscoveredApplicationByID -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaDiscoveredApplicationByID -Id $Id -BetaJsonPatchOperations $Result  
+    # Update-BetaDiscoveredApplicationByID -Id $Id -JsonPatchOperations $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaDiscoveredApplicationByID"
     Write-Host $_.ErrorDetails

@@ -80,10 +80,10 @@ $Transform = @"{
 
 try {
     $Result = ConvertFrom-JsonToTransform -Json $Transform
-    New-BetaTransform -BetaTransform $Result 
+    New-BetaTransform -Transform $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaTransform -BetaTransform $Result  
+    # New-BetaTransform -Transform $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaTransform"
     Write-Host $_.ErrorDetails
@@ -301,7 +301,7 @@ try {
     Update-BetaTransform -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaTransform -Id $Id -BetaTransform $Result  
+    # Update-BetaTransform -Id $Id -Transform $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaTransform"
     Write-Host $_.ErrorDetails

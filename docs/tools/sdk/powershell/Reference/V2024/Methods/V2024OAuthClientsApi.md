@@ -78,10 +78,10 @@ $CreateOAuthClientRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToCreateOAuthClientRequest -Json $CreateOAuthClientRequest
-    New-V2024OauthClient -V2024CreateOAuthClientRequest $Result 
+    New-V2024OauthClient -CreateOAuthClientRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024OauthClient -V2024CreateOAuthClientRequest $Result  
+    # New-V2024OauthClient -CreateOAuthClientRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024OauthClient"
     Write-Host $_.ErrorDetails
@@ -269,10 +269,10 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The OAuth client id
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024OauthClient -Id $Id -V2024JsonPatchOperation $Result 
+    Update-V2024OauthClient -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024OauthClient -Id $Id -V2024JsonPatchOperation $Result  
+    # Update-V2024OauthClient -Id $Id -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024OauthClient"
     Write-Host $_.ErrorDetails

@@ -31,8 +31,8 @@ $IdentityHistoryResponse = Initialize-PSSailpoint.V2024IdentityHistoryResponse  
  -DisplayName Adam Zampa `
  -Snapshot 2007-03-01T13:00:00.000Z `
  -DeletedDate 2007-03-01T13:00:00.000Z `
- -AccessItemCount {app&#x3D;0, role&#x3D;2, entitlement&#x3D;4, accessProfile&#x3D;3, account&#x3D;1} `
- -Attributes {jobTitle&#x3D;HR Manager, location&#x3D;NYC, firstname&#x3D;Adam, lastname&#x3D;Zampa, department&#x3D;HR}
+ -AccessItemCount {app=0, role=2, entitlement=4, accessProfile=3, account=1} `
+ -Attributes {jobTitle=HR Manager, location=NYC, firstname=Adam, lastname=Zampa, department=HR}
 ```
 
 - Convert the resource to JSON

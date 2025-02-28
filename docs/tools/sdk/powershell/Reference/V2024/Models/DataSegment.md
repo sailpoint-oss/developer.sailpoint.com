@@ -37,8 +37,8 @@ $DataSegment = Initialize-PSSailpoint.V2024DataSegment  -Id 0f11f2a4-7c94-4bf3-a
  -Created 2020-01-01T00:00Z `
  -Modified 2020-01-01T00:00Z `
  -Description This segment represents xyz `
- -Scopes [{scope&#x3D;ENTITLEMENT, visibility&#x3D;SELECTION, scopeFilter&#x3D;null, scopeSelection&#x3D;[{type&#x3D;ENTITLEMENT, id&#x3D;34d73f611449463ea4fdcf02cda0c397}]}] `
- -MemberSelection [{type&#x3D;IDENTITY, id&#x3D;29cb6c061da843ea8be4b3125f248f2a}, {type&#x3D;IDENTITY, id&#x3D;f7b1b8a35fed4fd4ad2982014e137e19}] `
+ -Scopes [{scope=ENTITLEMENT, visibility=SELECTION, scopeFilter=null, scopeSelection=[{type=ENTITLEMENT, id=34d73f611449463ea4fdcf02cda0c397}]}] `
+ -MemberSelection [{type=IDENTITY, id=29cb6c061da843ea8be4b3125f248f2a}, {type=IDENTITY, id=f7b1b8a35fed4fd4ad2982014e137e19}] `
  -MemberFilter null `
  -Membership null `
  -Enabled true `

@@ -152,10 +152,10 @@ Code | Description  | Data Type
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-BetaOrgConfig -BetaJsonPatchOperation $Result 
+    Update-BetaOrgConfig -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaOrgConfig -BetaJsonPatchOperation $Result  
+    # Update-BetaOrgConfig -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaOrgConfig"
     Write-Host $_.ErrorDetails

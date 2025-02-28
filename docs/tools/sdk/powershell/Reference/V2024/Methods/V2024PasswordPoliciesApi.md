@@ -100,10 +100,10 @@ $PasswordPolicyV3Dto = @"{
 
 try {
     $Result = ConvertFrom-JsonToPasswordPolicyV3Dto -Json $PasswordPolicyV3Dto
-    New-V2024PasswordPolicy -V2024PasswordPolicyV3Dto $Result 
+    New-V2024PasswordPolicy -PasswordPolicyV3Dto $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024PasswordPolicy -V2024PasswordPolicyV3Dto $Result  
+    # New-V2024PasswordPolicy -PasswordPolicyV3Dto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024PasswordPolicy"
     Write-Host $_.ErrorDetails
@@ -323,10 +323,10 @@ $PasswordPolicyV3Dto = @"{
 
 try {
     $Result = ConvertFrom-JsonToPasswordPolicyV3Dto -Json $PasswordPolicyV3Dto
-    Set-V2024PasswordPolicy -Id $Id -V2024PasswordPolicyV3Dto $Result 
+    Set-V2024PasswordPolicy -Id $Id -PasswordPolicyV3Dto $Result 
     
     # Below is a request that includes all optional parameters
-    # Set-V2024PasswordPolicy -Id $Id -V2024PasswordPolicyV3Dto $Result  
+    # Set-V2024PasswordPolicy -Id $Id -PasswordPolicyV3Dto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-V2024PasswordPolicy"
     Write-Host $_.ErrorDetails

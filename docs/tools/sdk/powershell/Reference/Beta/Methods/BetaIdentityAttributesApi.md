@@ -82,10 +82,10 @@ $IdentityAttribute = @"{
 
 try {
     $Result = ConvertFrom-JsonToIdentityAttribute -Json $IdentityAttribute
-    New-BetaIdentityAttribute -BetaIdentityAttribute $Result 
+    New-BetaIdentityAttribute -IdentityAttribute $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaIdentityAttribute -BetaIdentityAttribute $Result  
+    # New-BetaIdentityAttribute -IdentityAttribute $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaIdentityAttribute"
     Write-Host $_.ErrorDetails
@@ -177,10 +177,10 @@ $IdentityAttributeNames = @"{
 
 try {
     $Result = ConvertFrom-JsonToIdentityAttributeNames -Json $IdentityAttributeNames
-    Remove-BetaIdentityAttributesInBulk -BetaIdentityAttributeNames $Result 
+    Remove-BetaIdentityAttributesInBulk -IdentityAttributeNames $Result 
     
     # Below is a request that includes all optional parameters
-    # Remove-BetaIdentityAttributesInBulk -BetaIdentityAttributeNames $Result  
+    # Remove-BetaIdentityAttributesInBulk -IdentityAttributeNames $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaIdentityAttributesInBulk"
     Write-Host $_.ErrorDetails
@@ -344,10 +344,10 @@ $IdentityAttribute = @"{
 
 try {
     $Result = ConvertFrom-JsonToIdentityAttribute -Json $IdentityAttribute
-    Send-BetaIdentityAttribute -Name $Name -BetaIdentityAttribute $Result 
+    Send-BetaIdentityAttribute -Name $Name -IdentityAttribute $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-BetaIdentityAttribute -Name $Name -BetaIdentityAttribute $Result  
+    # Send-BetaIdentityAttribute -Name $Name -IdentityAttribute $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaIdentityAttribute"
     Write-Host $_.ErrorDetails

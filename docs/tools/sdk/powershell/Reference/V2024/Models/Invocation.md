@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 $Invocation = Initialize-PSSailpoint.V2024Invocation  -Id 0f11f2a4-7c94-4bf3-a2bd-742580fe3bde `
  -TriggerId idn:access-requested `
  -Secret 0f979022-08be-44f2-b6f9-7393ec73ed9b `
- -ContentJson {workflowId&#x3D;1234}
+ -ContentJson {workflowId=1234}
 ```
 
 - Convert the resource to JSON

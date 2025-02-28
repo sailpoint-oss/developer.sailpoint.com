@@ -79,10 +79,10 @@ $ConfigurationItemRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToConfigurationItemRequest -Json $ConfigurationItemRequest
-    New-BetaReassignmentConfiguration -BetaConfigurationItemRequest $Result 
+    New-BetaReassignmentConfiguration -ConfigurationItemRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaReassignmentConfiguration -BetaConfigurationItemRequest $Result  
+    # New-BetaReassignmentConfiguration -ConfigurationItemRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaReassignmentConfiguration"
     Write-Host $_.ErrorDetails
@@ -408,10 +408,10 @@ $ConfigurationItemRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToConfigurationItemRequest -Json $ConfigurationItemRequest
-    Send-BetaReassignmentConfig -IdentityId $IdentityId -BetaConfigurationItemRequest $Result 
+    Send-BetaReassignmentConfig -IdentityId $IdentityId -ConfigurationItemRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-BetaReassignmentConfig -IdentityId $IdentityId -BetaConfigurationItemRequest $Result  
+    # Send-BetaReassignmentConfig -IdentityId $IdentityId -ConfigurationItemRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaReassignmentConfig"
     Write-Host $_.ErrorDetails
@@ -458,10 +458,10 @@ $TenantConfigurationRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToTenantConfigurationRequest -Json $TenantConfigurationRequest
-    Send-BetaTenantConfiguration -BetaTenantConfigurationRequest $Result 
+    Send-BetaTenantConfiguration -TenantConfigurationRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-BetaTenantConfiguration -BetaTenantConfigurationRequest $Result  
+    # Send-BetaTenantConfiguration -TenantConfigurationRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaTenantConfiguration"
     Write-Host $_.ErrorDetails

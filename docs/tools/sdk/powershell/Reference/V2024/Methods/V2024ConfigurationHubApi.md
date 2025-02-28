@@ -83,10 +83,10 @@ $DeployRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToDeployRequest -Json $DeployRequest
-    New-V2024Deploy -V2024DeployRequest $Result 
+    New-V2024Deploy -DeployRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024Deploy -V2024DeployRequest $Result  
+    # New-V2024Deploy -DeployRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024Deploy"
     Write-Host $_.ErrorDetails
@@ -141,10 +141,10 @@ $ObjectMappingRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToObjectMappingRequest -Json $ObjectMappingRequest
-    New-V2024ObjectMapping -SourceOrg $SourceOrg -V2024ObjectMappingRequest $Result 
+    New-V2024ObjectMapping -SourceOrg $SourceOrg -ObjectMappingRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024ObjectMapping -SourceOrg $SourceOrg -V2024ObjectMappingRequest $Result  
+    # New-V2024ObjectMapping -SourceOrg $SourceOrg -ObjectMappingRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024ObjectMapping"
     Write-Host $_.ErrorDetails
@@ -207,10 +207,10 @@ $ObjectMappingBulkCreateRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToObjectMappingBulkCreateRequest -Json $ObjectMappingBulkCreateRequest
-    New-V2024ObjectMappings -SourceOrg $SourceOrg -V2024ObjectMappingBulkCreateRequest $Result 
+    New-V2024ObjectMappings -SourceOrg $SourceOrg -ObjectMappingBulkCreateRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024ObjectMappings -SourceOrg $SourceOrg -V2024ObjectMappingBulkCreateRequest $Result  
+    # New-V2024ObjectMappings -SourceOrg $SourceOrg -ObjectMappingBulkCreateRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024ObjectMappings"
     Write-Host $_.ErrorDetails
@@ -844,10 +844,10 @@ $ObjectMappingBulkPatchRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToObjectMappingBulkPatchRequest -Json $ObjectMappingBulkPatchRequest
-    Update-V2024ObjectMappings -SourceOrg $SourceOrg -V2024ObjectMappingBulkPatchRequest $Result 
+    Update-V2024ObjectMappings -SourceOrg $SourceOrg -ObjectMappingBulkPatchRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024ObjectMappings -SourceOrg $SourceOrg -V2024ObjectMappingBulkPatchRequest $Result  
+    # Update-V2024ObjectMappings -SourceOrg $SourceOrg -ObjectMappingBulkPatchRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024ObjectMappings"
     Write-Host $_.ErrorDetails

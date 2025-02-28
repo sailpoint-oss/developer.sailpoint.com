@@ -154,10 +154,10 @@ $LifecycleStateId = "ef38f94347e94562b5bb8424a56397d8" # String | Lifecycle Stat
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-BetaLifecycleStates -IdentityProfileId $IdentityProfileId -LifecycleStateId $LifecycleStateId -BetaJsonPatchOperation $Result 
+    Update-BetaLifecycleStates -IdentityProfileId $IdentityProfileId -LifecycleStateId $LifecycleStateId -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaLifecycleStates -IdentityProfileId $IdentityProfileId -LifecycleStateId $LifecycleStateId -BetaJsonPatchOperation $Result  
+    # Update-BetaLifecycleStates -IdentityProfileId $IdentityProfileId -LifecycleStateId $LifecycleStateId -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaLifecycleStates"
     Write-Host $_.ErrorDetails

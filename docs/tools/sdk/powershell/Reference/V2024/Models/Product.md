@@ -44,7 +44,7 @@ $Product = Initialize-PSSailpoint.V2024Product  -ProductName idn `
  -ProductRight idn:ui:view `
  -ApiUrl https://tenant-name.api.identitynow.com `
  -Licenses null `
- -Attributes {domain&#x3D;https://tenant-name.identitynow.com, maxRegisteredUsers&#x3D;250} `
+ -Attributes {domain=https://tenant-name.identitynow.com, maxRegisteredUsers=250} `
  -Zone Deployment zone for the Product `
  -Status active `
  -StatusDateTime 2020-05-19T13:49:37.385Z `

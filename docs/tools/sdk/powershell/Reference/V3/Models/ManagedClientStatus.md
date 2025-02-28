@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ManagedClientStatus = Initialize-PSSailpoint.V3ManagedClientStatus  -Body {alertKey&#x3D;, id&#x3D;5678, clusterId&#x3D;1234, ccg_etag&#x3D;ccg_etag123xyz456, ccg_pin&#x3D;NONE, cookbook_etag&#x3D;20210420125956-20210511144538, hostname&#x3D;megapod-useast1-secret-hostname.sailpoint.com, internal_ip&#x3D;127.0.0.1, lastSeen&#x3D;1620843964604, sinceSeen&#x3D;14708, sinceSeenMillis&#x3D;14708, localDev&#x3D;false, stacktrace&#x3D;, state&#x3D;null, status&#x3D;NORMAL, uuid&#x3D;null, product&#x3D;idn, va_version&#x3D;null, platform_version&#x3D;2, os_version&#x3D;2345.3.1, os_type&#x3D;flatcar, hypervisor&#x3D;unknown} `
+$ManagedClientStatus = Initialize-PSSailpoint.V3ManagedClientStatus  -Body {alertKey=, id=5678, clusterId=1234, ccg_etag=ccg_etag123xyz456, ccg_pin=NONE, cookbook_etag=20210420125956-20210511144538, hostname=megapod-useast1-secret-hostname.sailpoint.com, internal_ip=127.0.0.1, lastSeen=1620843964604, sinceSeen=14708, sinceSeenMillis=14708, localDev=false, stacktrace=, state=null, status=NORMAL, uuid=null, product=idn, va_version=null, platform_version=2, os_version=2345.3.1, os_type=flatcar, hypervisor=unknown} `
  -Status null `
  -Type null `
  -Timestamp 2020-01-01T00:00Z

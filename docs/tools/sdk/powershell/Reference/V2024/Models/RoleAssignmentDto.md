@@ -32,10 +32,10 @@ Name | Type | Description | Notes
 ```powershell
 $RoleAssignmentDto = Initialize-PSSailpoint.V2024RoleAssignmentDto  -Id 1cbb0705b38c4226b1334eadd8874086 `
  -Role null `
- -Comments I&#39;m a new Engineer and need this role to do my work `
+ -Comments I'm a new Engineer and need this role to do my work `
  -AssignmentSource UI `
  -Assigner null `
- -AssignedDimensions [{id&#x3D;1acc8ffe5fcf457090de28bee2af36ee, type&#x3D;DIMENSION, name&#x3D;Northeast region}] `
+ -AssignedDimensions [{id=1acc8ffe5fcf457090de28bee2af36ee, type=DIMENSION, name=Northeast region}] `
  -AssignmentContext null `
  -AccountTargets null `
  -RemoveDate Wed Feb 14 10:58:42

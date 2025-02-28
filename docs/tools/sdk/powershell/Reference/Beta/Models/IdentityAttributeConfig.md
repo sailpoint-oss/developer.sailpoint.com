@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'IdentityAttributeConfig', 'BetaIdenti
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Enabled** | **Boolean** | Backend will only promote values if the profile/mapping is enabled. | [optional] [default to $true]
+**Enabled** | **Boolean** | If the profile or mapping is enabled | [optional] [default to $true]
 **AttributeTransforms** | [**[]IdentityAttributeTransform**](identity-attribute-transform) |  | [optional] 
 
 ## Examples

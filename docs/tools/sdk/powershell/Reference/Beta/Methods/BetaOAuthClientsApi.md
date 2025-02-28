@@ -78,10 +78,10 @@ $CreateOAuthClientRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToCreateOAuthClientRequest -Json $CreateOAuthClientRequest
-    New-BetaOauthClient -BetaCreateOAuthClientRequest $Result 
+    New-BetaOauthClient -CreateOAuthClientRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaOauthClient -BetaCreateOAuthClientRequest $Result  
+    # New-BetaOauthClient -CreateOAuthClientRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaOauthClient"
     Write-Host $_.ErrorDetails
@@ -271,10 +271,10 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The OAuth client id
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-BetaOauthClient -Id $Id -BetaJsonPatchOperation $Result 
+    Update-BetaOauthClient -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaOauthClient -Id $Id -BetaJsonPatchOperation $Result  
+    # Update-BetaOauthClient -Id $Id -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaOauthClient"
     Write-Host $_.ErrorDetails

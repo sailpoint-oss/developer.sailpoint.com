@@ -36,7 +36,7 @@ $SubscriptionPutRequest = Initialize-PSSailpoint.V2024SubscriptionPutRequest  -N
  -HttpConfig null `
  -EventBridgeConfig null `
  -Enabled true `
- -VarFilter $[?($.identityId &#x3D;&#x3D; &quot;201327fda1c44704ac01181e963d463c&quot;)]
+ -VarFilter $[?($.identityId == "201327fda1c44704ac01181e963d463c")]
 ```
 
 - Convert the resource to JSON

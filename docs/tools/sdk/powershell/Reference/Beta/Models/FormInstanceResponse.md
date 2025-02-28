@@ -40,11 +40,11 @@ $FormInstanceResponse = Initialize-PSSailpoint.BetaFormInstanceResponse  -Create
  -CreatedBy null `
  -Expire 2023-08-12T20:14:57.74486Z `
  -FormConditions null `
- -FormData {department&#x3D;Engineering} `
+ -FormData {department=Engineering} `
  -FormDefinitionId 49841cb8-00a5-4fbd-9888-8bbb28d48331 `
  -FormElements null `
  -FormErrors null `
- -FormInput {input1&#x3D;Sales} `
+ -FormInput {input1=Sales} `
  -Id 06a2d961-07fa-44d1-8d0a-2f6470e30fd2 `
  -Modified 2023-07-12T20:14:57.744860Z `
  -Recipients null `

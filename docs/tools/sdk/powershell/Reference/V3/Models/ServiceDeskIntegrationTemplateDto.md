@@ -33,7 +33,7 @@ $ServiceDeskIntegrationTemplateDto = Initialize-PSSailpoint.V3ServiceDeskIntegra
  -Created 2015-05-28T14:07:17Z `
  -Modified 2015-05-28T14:07:17Z `
  -Type Web Service SDIM `
- -Attributes {property&#x3D;value, key&#x3D;value} `
+ -Attributes {property=value, key=value} `
  -ProvisioningConfig null
 ```
 

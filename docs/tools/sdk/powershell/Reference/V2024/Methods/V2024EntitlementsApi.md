@@ -595,7 +595,7 @@ try {
     Update-V2024Entitlement -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024Entitlement -Id $Id -XSailPointExperimental $XSailPointExperimental -V2024JsonPatchOperation $Result  
+    # Update-V2024Entitlement -Id $Id -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024Entitlement"
     Write-Host $_.ErrorDetails
@@ -658,10 +658,10 @@ $EntitlementRequestConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToEntitlementRequestConfig -Json $EntitlementRequestConfig
-    Send-V2024EntitlementRequestConfig -Id $Id -XSailPointExperimental $XSailPointExperimental -V2024EntitlementRequestConfig $Result 
+    Send-V2024EntitlementRequestConfig -Id $Id -XSailPointExperimental $XSailPointExperimental -EntitlementRequestConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-V2024EntitlementRequestConfig -Id $Id -XSailPointExperimental $XSailPointExperimental -V2024EntitlementRequestConfig $Result  
+    # Send-V2024EntitlementRequestConfig -Id $Id -XSailPointExperimental $XSailPointExperimental -EntitlementRequestConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024EntitlementRequestConfig"
     Write-Host $_.ErrorDetails
@@ -777,10 +777,10 @@ $EntitlementBulkUpdateRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToEntitlementBulkUpdateRequest -Json $EntitlementBulkUpdateRequest
-    Update-V2024EntitlementsInBulk -XSailPointExperimental $XSailPointExperimental -V2024EntitlementBulkUpdateRequest $Result 
+    Update-V2024EntitlementsInBulk -XSailPointExperimental $XSailPointExperimental -EntitlementBulkUpdateRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024EntitlementsInBulk -XSailPointExperimental $XSailPointExperimental -V2024EntitlementBulkUpdateRequest $Result  
+    # Update-V2024EntitlementsInBulk -XSailPointExperimental $XSailPointExperimental -EntitlementBulkUpdateRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024EntitlementsInBulk"
     Write-Host $_.ErrorDetails

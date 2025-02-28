@@ -44,7 +44,7 @@ $TemplateDtoDefault = Initialize-PSSailpoint.V2024TemplateDtoDefault  -Key cloud
  -Footer null `
  -VarFrom $__global.emailFromAddress `
  -ReplyTo $__global.emailFromAddress `
- -Description Daily digest - sent if number of outstanding tasks for task owner &gt; 0 `
+ -Description Daily digest - sent if number of outstanding tasks for task owner > 0 `
  -SlackTemplate null `
  -TeamsTemplate null
 ```

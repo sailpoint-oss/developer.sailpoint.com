@@ -53,7 +53,7 @@ $TaskStatus = Initialize-PSSailpoint.V2024TaskStatus  -Id id12345 `
  -CompletionStatus SUCCESS `
  -Messages null `
  -Returns null `
- -Attributes {identityCount&#x3D;0} `
+ -Attributes {identityCount=0} `
  -Progress Started `
  -PercentComplete 100 `
  -TaskDefinitionSummary null

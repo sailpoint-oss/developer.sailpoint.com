@@ -204,10 +204,10 @@ $ProvisioningPolicyDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
-    New-V2024ProvisioningPolicy -SourceId $SourceId -V2024ProvisioningPolicyDto $Result 
+    New-V2024ProvisioningPolicy -SourceId $SourceId -ProvisioningPolicyDto $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024ProvisioningPolicy -SourceId $SourceId -V2024ProvisioningPolicyDto $Result  
+    # New-V2024ProvisioningPolicy -SourceId $SourceId -ProvisioningPolicyDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024ProvisioningPolicy"
     Write-Host $_.ErrorDetails
@@ -334,10 +334,10 @@ $ProvisionAsCsv = $false # Boolean | If this parameter is `true`, it configures 
 
 try {
     $Result = ConvertFrom-JsonToSource -Json $Source
-    New-V2024Source -V2024Source $Result 
+    New-V2024Source -Source $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024Source -V2024Source $Result -ProvisionAsCsv $ProvisionAsCsv  
+    # New-V2024Source -Source $Result -ProvisionAsCsv $ProvisionAsCsv  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024Source"
     Write-Host $_.ErrorDetails
@@ -383,10 +383,10 @@ $Schedule1 = @""@
 
 try {
     $Result = ConvertFrom-JsonToSchedule1 -Json $Schedule1
-    New-V2024SourceSchedule -SourceId $SourceId -V2024Schedule1 $Result 
+    New-V2024SourceSchedule -SourceId $SourceId -Schedule1 $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024SourceSchedule -SourceId $SourceId -V2024Schedule1 $Result  
+    # New-V2024SourceSchedule -SourceId $SourceId -Schedule1 $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024SourceSchedule"
     Write-Host $_.ErrorDetails
@@ -465,10 +465,10 @@ $Schema = @"{
 
 try {
     $Result = ConvertFrom-JsonToSchema -Json $Schema
-    New-V2024SourceSchema -SourceId $SourceId -V2024Schema $Result 
+    New-V2024SourceSchema -SourceId $SourceId -Schema $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024SourceSchema -SourceId $SourceId -V2024Schema $Result  
+    # New-V2024SourceSchema -SourceId $SourceId -Schema $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024SourceSchema"
     Write-Host $_.ErrorDetails
@@ -1870,10 +1870,10 @@ $ResourceObjectsRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToResourceObjectsRequest -Json $ResourceObjectsRequest
-    Receive-V2024ResourceObjects -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -V2024ResourceObjectsRequest $Result 
+    Receive-V2024ResourceObjects -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -ResourceObjectsRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Receive-V2024ResourceObjects -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -V2024ResourceObjectsRequest $Result  
+    # Receive-V2024ResourceObjects -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -ResourceObjectsRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Receive-V2024ResourceObjects"
     Write-Host $_.ErrorDetails
@@ -1990,10 +1990,10 @@ $CorrelationConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToCorrelationConfig -Json $CorrelationConfig
-    Send-V2024CorrelationConfig -Id $Id -V2024CorrelationConfig $Result 
+    Send-V2024CorrelationConfig -Id $Id -CorrelationConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-V2024CorrelationConfig -Id $Id -V2024CorrelationConfig $Result  
+    # Send-V2024CorrelationConfig -Id $Id -CorrelationConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024CorrelationConfig"
     Write-Host $_.ErrorDetails
@@ -2051,10 +2051,10 @@ $NativeChangeDetectionConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToNativeChangeDetectionConfig -Json $NativeChangeDetectionConfig
-    Send-V2024NativeChangeDetectionConfig -Id $Id -XSailPointExperimental $XSailPointExperimental -V2024NativeChangeDetectionConfig $Result 
+    Send-V2024NativeChangeDetectionConfig -Id $Id -XSailPointExperimental $XSailPointExperimental -NativeChangeDetectionConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-V2024NativeChangeDetectionConfig -Id $Id -XSailPointExperimental $XSailPointExperimental -V2024NativeChangeDetectionConfig $Result  
+    # Send-V2024NativeChangeDetectionConfig -Id $Id -XSailPointExperimental $XSailPointExperimental -NativeChangeDetectionConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024NativeChangeDetectionConfig"
     Write-Host $_.ErrorDetails
@@ -2143,10 +2143,10 @@ $ProvisioningPolicyDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
-    Send-V2024ProvisioningPolicy -SourceId $SourceId -UsageType $UsageType -V2024ProvisioningPolicyDto $Result 
+    Send-V2024ProvisioningPolicy -SourceId $SourceId -UsageType $UsageType -ProvisioningPolicyDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-V2024ProvisioningPolicy -SourceId $SourceId -UsageType $UsageType -V2024ProvisioningPolicyDto $Result  
+    # Send-V2024ProvisioningPolicy -SourceId $SourceId -UsageType $UsageType -ProvisioningPolicyDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024ProvisioningPolicy"
     Write-Host $_.ErrorDetails
@@ -2286,10 +2286,10 @@ $Source = @"{
 
 try {
     $Result = ConvertFrom-JsonToSource -Json $Source
-    Send-V2024Source -Id $Id -V2024Source $Result 
+    Send-V2024Source -Id $Id -Source $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-V2024Source -Id $Id -V2024Source $Result  
+    # Send-V2024Source -Id $Id -Source $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024Source"
     Write-Host $_.ErrorDetails
@@ -2358,10 +2358,10 @@ $AttrSyncSourceConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToAttrSyncSourceConfig -Json $AttrSyncSourceConfig
-    Send-V2024SourceAttrSyncConfig -Id $Id -XSailPointExperimental $XSailPointExperimental -V2024AttrSyncSourceConfig $Result 
+    Send-V2024SourceAttrSyncConfig -Id $Id -XSailPointExperimental $XSailPointExperimental -AttrSyncSourceConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-V2024SourceAttrSyncConfig -Id $Id -XSailPointExperimental $XSailPointExperimental -V2024AttrSyncSourceConfig $Result  
+    # Send-V2024SourceAttrSyncConfig -Id $Id -XSailPointExperimental $XSailPointExperimental -AttrSyncSourceConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024SourceAttrSyncConfig"
     Write-Host $_.ErrorDetails
@@ -2452,10 +2452,10 @@ $Schema = @"{
 
 try {
     $Result = ConvertFrom-JsonToSchema -Json $Schema
-    Send-V2024SourceSchema -SourceId $SourceId -SchemaId $SchemaId -V2024Schema $Result 
+    Send-V2024SourceSchema -SourceId $SourceId -SchemaId $SchemaId -Schema $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-V2024SourceSchema -SourceId $SourceId -SchemaId $SchemaId -V2024Schema $Result  
+    # Send-V2024SourceSchema -SourceId $SourceId -SchemaId $SchemaId -Schema $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024SourceSchema"
     Write-Host $_.ErrorDetails
@@ -2657,10 +2657,10 @@ $SourceId = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
 
 try {
     $Result = ConvertFrom-JsonToPasswordPolicyHoldersDtoInner -Json $PasswordPolicyHoldersDtoInner
-    Update-V2024PasswordPolicyHolders -SourceId $SourceId -V2024PasswordPolicyHoldersDtoInner $Result 
+    Update-V2024PasswordPolicyHolders -SourceId $SourceId -PasswordPolicyHoldersDtoInner $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024PasswordPolicyHolders -SourceId $SourceId -V2024PasswordPolicyHoldersDtoInner $Result  
+    # Update-V2024PasswordPolicyHolders -SourceId $SourceId -PasswordPolicyHoldersDtoInner $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024PasswordPolicyHolders"
     Write-Host $_.ErrorDetails
@@ -2746,10 +2746,10 @@ $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
 
 try {
     $Result = ConvertFrom-JsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
-    Update-V2024ProvisioningPoliciesInBulk -SourceId $SourceId -V2024ProvisioningPolicyDto $Result 
+    Update-V2024ProvisioningPoliciesInBulk -SourceId $SourceId -ProvisioningPolicyDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024ProvisioningPoliciesInBulk -SourceId $SourceId -V2024ProvisioningPolicyDto $Result  
+    # Update-V2024ProvisioningPoliciesInBulk -SourceId $SourceId -ProvisioningPolicyDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024ProvisioningPoliciesInBulk"
     Write-Host $_.ErrorDetails
@@ -2804,10 +2804,10 @@ $UsageType = "CREATE" # UsageType | The type of provisioning policy usage.  In I
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024ProvisioningPolicy -SourceId $SourceId -UsageType $UsageType -V2024JsonPatchOperation $Result 
+    Update-V2024ProvisioningPolicy -SourceId $SourceId -UsageType $UsageType -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024ProvisioningPolicy -SourceId $SourceId -UsageType $UsageType -V2024JsonPatchOperation $Result  
+    # Update-V2024ProvisioningPolicy -SourceId $SourceId -UsageType $UsageType -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024ProvisioningPolicy"
     Write-Host $_.ErrorDetails
@@ -2873,10 +2873,10 @@ $Id = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024Source -Id $Id -V2024JsonPatchOperation $Result 
+    Update-V2024Source -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024Source -Id $Id -V2024JsonPatchOperation $Result  
+    # Update-V2024Source -Id $Id -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024Source"
     Write-Host $_.ErrorDetails
@@ -2940,10 +2940,10 @@ $SourceEntitlementRequestConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToSourceEntitlementRequestConfig -Json $SourceEntitlementRequestConfig
-    Update-V2024SourceEntitlementRequestConfig -XSailPointExperimental $XSailPointExperimental -V2024SourceEntitlementRequestConfig $Result 
+    Update-V2024SourceEntitlementRequestConfig -XSailPointExperimental $XSailPointExperimental -SourceEntitlementRequestConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024SourceEntitlementRequestConfig -XSailPointExperimental $XSailPointExperimental -V2024SourceEntitlementRequestConfig $Result  
+    # Update-V2024SourceEntitlementRequestConfig -XSailPointExperimental $XSailPointExperimental -SourceEntitlementRequestConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024SourceEntitlementRequestConfig"
     Write-Host $_.ErrorDetails
@@ -3001,10 +3001,10 @@ $ScheduleType = "ACCOUNT_AGGREGATION" # String | The Schedule type.
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024SourceSchedule -SourceId $SourceId -ScheduleType $ScheduleType -V2024JsonPatchOperation $Result 
+    Update-V2024SourceSchedule -SourceId $SourceId -ScheduleType $ScheduleType -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024SourceSchedule -SourceId $SourceId -ScheduleType $ScheduleType -V2024JsonPatchOperation $Result  
+    # Update-V2024SourceSchedule -SourceId $SourceId -ScheduleType $ScheduleType -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024SourceSchedule"
     Write-Host $_.ErrorDetails
@@ -3086,10 +3086,10 @@ $SchemaId = "2c9180835d191a86015d28455b4a2329" # String | The Schema id.
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024SourceSchema -SourceId $SourceId -SchemaId $SchemaId -V2024JsonPatchOperation $Result 
+    Update-V2024SourceSchema -SourceId $SourceId -SchemaId $SchemaId -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024SourceSchema -SourceId $SourceId -SchemaId $SchemaId -V2024JsonPatchOperation $Result  
+    # Update-V2024SourceSchema -SourceId $SourceId -SchemaId $SchemaId -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024SourceSchema"
     Write-Host $_.ErrorDetails

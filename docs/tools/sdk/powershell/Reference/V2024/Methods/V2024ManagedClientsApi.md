@@ -68,10 +68,10 @@ $ManagedClientRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToManagedClientRequest -Json $ManagedClientRequest
-    New-V2024ManagedClient -V2024ManagedClientRequest $Result 
+    New-V2024ManagedClient -ManagedClientRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024ManagedClient -V2024ManagedClientRequest $Result  
+    # New-V2024ManagedClient -ManagedClientRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024ManagedClient"
     Write-Host $_.ErrorDetails
@@ -312,10 +312,10 @@ $Id = "4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7" # String | Managed client ID.
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024ManagedClient -Id $Id -V2024JsonPatchOperation $Result 
+    Update-V2024ManagedClient -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024ManagedClient -Id $Id -V2024JsonPatchOperation $Result  
+    # Update-V2024ManagedClient -Id $Id -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024ManagedClient"
     Write-Host $_.ErrorDetails

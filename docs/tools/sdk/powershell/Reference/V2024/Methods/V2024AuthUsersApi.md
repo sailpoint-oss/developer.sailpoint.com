@@ -119,10 +119,10 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Identity ID
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024AuthUser -Id $Id -V2024JsonPatchOperation $Result 
+    Update-V2024AuthUser -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024AuthUser -Id $Id -V2024JsonPatchOperation $Result  
+    # Update-V2024AuthUser -Id $Id -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024AuthUser"
     Write-Host $_.ErrorDetails

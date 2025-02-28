@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 $Scope = Initialize-PSSailpoint.V2024Scope  -Scope null `
  -Visibility null `
  -ScopeFilter null `
- -ScopeSelection [{type&#x3D;IDENTITY, id&#x3D;29cb6c061da843ea8be4b3125f248f2a}, {type&#x3D;IDENTITY, id&#x3D;f7b1b8a35fed4fd4ad2982014e137e19}]
+ -ScopeSelection [{type=IDENTITY, id=29cb6c061da843ea8be4b3125f248f2a}, {type=IDENTITY, id=f7b1b8a35fed4fd4ad2982014e137e19}]
 ```
 
 - Convert the resource to JSON

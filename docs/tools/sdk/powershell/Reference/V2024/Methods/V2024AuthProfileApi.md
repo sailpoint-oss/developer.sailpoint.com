@@ -175,10 +175,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024ProfileConfig -Id $Id -XSailPointExperimental $XSailPointExperimental -V2024JsonPatchOperation $Result 
+    Update-V2024ProfileConfig -Id $Id -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024ProfileConfig -Id $Id -XSailPointExperimental $XSailPointExperimental -V2024JsonPatchOperation $Result  
+    # Update-V2024ProfileConfig -Id $Id -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024ProfileConfig"
     Write-Host $_.ErrorDetails

@@ -85,10 +85,10 @@ $SearchAttributeConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToSearchAttributeConfig -Json $SearchAttributeConfig
-    New-V2024SearchAttributeConfig -V2024SearchAttributeConfig $Result 
+    New-V2024SearchAttributeConfig -SearchAttributeConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024SearchAttributeConfig -V2024SearchAttributeConfig $Result  
+    # New-V2024SearchAttributeConfig -SearchAttributeConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024SearchAttributeConfig"
     Write-Host $_.ErrorDetails
@@ -277,10 +277,10 @@ $Name = "promotedMailAttribute" # String | Name of the search attribute configur
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024SearchAttributeConfig -Name $Name -V2024JsonPatchOperation $Result 
+    Update-V2024SearchAttributeConfig -Name $Name -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024SearchAttributeConfig -Name $Name -V2024JsonPatchOperation $Result  
+    # Update-V2024SearchAttributeConfig -Name $Name -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024SearchAttributeConfig"
     Write-Host $_.ErrorDetails

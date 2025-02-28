@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'IdentityAttributeTransform', 'V2024Id
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**IdentityAttributeName** | **String** | Identity attribute's name. | [optional] 
+**IdentityAttributeName** | **String** | Name of the identity attribute. | [optional] 
 **TransformDefinition** | [**TransformDefinition**](transform-definition) |  | [optional] 
 
 ## Examples

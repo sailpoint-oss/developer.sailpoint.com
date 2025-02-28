@@ -67,10 +67,10 @@ $TransformAttributes = Initialize-PSSailpoint.V3TransformAttributes  -SourceName
  -AccountSortAttribute created `
  -AccountSortDescending false `
  -AccountReturnFirstLink false `
- -AccountFilter !(nativeIdentity.startsWith(&quot;*DELETED*&quot;)) `
- -AccountPropertyFilter (groups.containsAll({&#39;Admin&#39;}) || location &#x3D;&#x3D; &#39;Austin&#39;) `
+ -AccountFilter !(nativeIdentity.startsWith("*DELETED*")) `
+ -AccountPropertyFilter (groups.containsAll({'Admin'}) || location == 'Austin') `
  -RequiresPeriodicRefresh false `
- -VarInput {type&#x3D;accountAttribute, attributes&#x3D;{attributeName&#x3D;first_name, sourceName&#x3D;Source}} `
+ -VarInput {type=accountAttribute, attributes={attributeName=first_name, sourceName=Source}} `
  -Values string$variable `
  -Expression now+1w `
  -PositiveCondition true `
@@ -92,7 +92,7 @@ $TransformAttributes = Initialize-PSSailpoint.V3TransformAttributes  -SourceName
  -Substring admin_ `
  -Format alpha2 `
  -Padding 0 `
- -Table {-&#x3D; , &quot;&#x3D;&#39;, ñ&#x3D;n} `
+ -Table {-= , "=', ñ=n} `
  -Id Existing Transform `
  -Regex [^a-zA-Z] `
  -Replacement   `

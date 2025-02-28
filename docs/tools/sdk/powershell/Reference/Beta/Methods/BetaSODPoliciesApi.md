@@ -155,10 +155,10 @@ $SodPolicy = @"{
 
 try {
     $Result = ConvertFrom-JsonToSodPolicy -Json $SodPolicy
-    New-BetaSodPolicy -BetaSodPolicy $Result 
+    New-BetaSodPolicy -SodPolicy $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaSodPolicy -BetaSodPolicy $Result  
+    # New-BetaSodPolicy -SodPolicy $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaSodPolicy"
     Write-Host $_.ErrorDetails
@@ -855,10 +855,10 @@ $SodPolicySchedule = @"{
 
 try {
     $Result = ConvertFrom-JsonToSodPolicySchedule -Json $SodPolicySchedule
-    Send-BetaPolicySchedule -Id $Id -BetaSodPolicySchedule $Result 
+    Send-BetaPolicySchedule -Id $Id -SodPolicySchedule $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-BetaPolicySchedule -Id $Id -BetaSodPolicySchedule $Result  
+    # Send-BetaPolicySchedule -Id $Id -SodPolicySchedule $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaPolicySchedule"
     Write-Host $_.ErrorDetails
@@ -963,10 +963,10 @@ $SodPolicy = @"{
 
 try {
     $Result = ConvertFrom-JsonToSodPolicy -Json $SodPolicy
-    Send-BetaSodPolicy -Id $Id -BetaSodPolicy $Result 
+    Send-BetaSodPolicy -Id $Id -SodPolicy $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-BetaSodPolicy -Id $Id -BetaSodPolicy $Result  
+    # Send-BetaSodPolicy -Id $Id -SodPolicy $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaSodPolicy"
     Write-Host $_.ErrorDetails
@@ -1017,7 +1017,7 @@ try {
     Start-BetaSodAllPoliciesForOrg 
     
     # Below is a request that includes all optional parameters
-    # Start-BetaSodAllPoliciesForOrg -BetaMultiPolicyRequest $Result  
+    # Start-BetaSodAllPoliciesForOrg -MultiPolicyRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-BetaSodAllPoliciesForOrg"
     Write-Host $_.ErrorDetails

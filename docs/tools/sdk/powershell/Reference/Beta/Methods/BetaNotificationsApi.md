@@ -72,10 +72,10 @@ $DomainAddress = @"{
 
 try {
     $Result = ConvertFrom-JsonToDomainAddress -Json $DomainAddress
-    New-BetaDomainDkim -BetaDomainAddress $Result 
+    New-BetaDomainDkim -DomainAddress $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaDomainDkim -BetaDomainAddress $Result  
+    # New-BetaDomainDkim -DomainAddress $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaDomainDkim"
     Write-Host $_.ErrorDetails
@@ -137,10 +137,10 @@ $TemplateDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToTemplateDto -Json $TemplateDto
-    New-BetaNotificationTemplate -BetaTemplateDto $Result 
+    New-BetaNotificationTemplate -TemplateDto $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaNotificationTemplate -BetaTemplateDto $Result  
+    # New-BetaNotificationTemplate -TemplateDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaNotificationTemplate"
     Write-Host $_.ErrorDetails
@@ -188,10 +188,10 @@ $EmailStatusDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToEmailStatusDto -Json $EmailStatusDto
-    New-BetaVerifiedFromAddress -BetaEmailStatusDto $Result 
+    New-BetaVerifiedFromAddress -EmailStatusDto $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaVerifiedFromAddress -BetaEmailStatusDto $Result  
+    # New-BetaVerifiedFromAddress -EmailStatusDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaVerifiedFromAddress"
     Write-Host $_.ErrorDetails
@@ -239,10 +239,10 @@ Code | Description  | Data Type
 
 try {
     $Result = ConvertFrom-JsonToTemplateBulkDeleteDto -Json $TemplateBulkDeleteDto
-    Remove-BetaNotificationTemplatesInBulk -BetaTemplateBulkDeleteDto $Result 
+    Remove-BetaNotificationTemplatesInBulk -TemplateBulkDeleteDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Remove-BetaNotificationTemplatesInBulk -BetaTemplateBulkDeleteDto $Result  
+    # Remove-BetaNotificationTemplatesInBulk -TemplateBulkDeleteDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaNotificationTemplatesInBulk"
     Write-Host $_.ErrorDetails
@@ -707,10 +707,10 @@ $MailFromAttributesDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToMailFromAttributesDto -Json $MailFromAttributesDto
-    Send-BetaMailFromAttributes -BetaMailFromAttributesDto $Result 
+    Send-BetaMailFromAttributes -MailFromAttributesDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-BetaMailFromAttributes -BetaMailFromAttributesDto $Result  
+    # Send-BetaMailFromAttributes -MailFromAttributesDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaMailFromAttributes"
     Write-Host $_.ErrorDetails
@@ -758,10 +758,10 @@ $SendTestNotificationRequestDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToSendTestNotificationRequestDto -Json $SendTestNotificationRequestDto
-    Send-BetaTestNotification -BetaSendTestNotificationRequestDto $Result 
+    Send-BetaTestNotification -SendTestNotificationRequestDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-BetaTestNotification -BetaSendTestNotificationRequestDto $Result  
+    # Send-BetaTestNotification -SendTestNotificationRequestDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaTestNotification"
     Write-Host $_.ErrorDetails

@@ -119,10 +119,10 @@ $CreateWorkflowRequest = @"{name=Send Email, owner={type=IDENTITY, id=2c91808568
 
 try {
     $Result = ConvertFrom-JsonToCreateWorkflowRequest -Json $CreateWorkflowRequest
-    New-BetaWorkflow -BetaCreateWorkflowRequest $Result 
+    New-BetaWorkflow -CreateWorkflowRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaWorkflow -BetaCreateWorkflowRequest $Result  
+    # New-BetaWorkflow -CreateWorkflowRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaWorkflow"
     Write-Host $_.ErrorDetails
@@ -649,10 +649,10 @@ $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the Workflow
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-BetaWorkflow -Id $Id -BetaJsonPatchOperation $Result 
+    Update-BetaWorkflow -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaWorkflow -Id $Id -BetaJsonPatchOperation $Result  
+    # Update-BetaWorkflow -Id $Id -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaWorkflow"
     Write-Host $_.ErrorDetails
@@ -699,7 +699,7 @@ try {
     Submit-BetaExternalExecuteWorkflow -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Submit-BetaExternalExecuteWorkflow -Id $Id -BetaPostExternalExecuteWorkflowRequest $Result  
+    # Submit-BetaExternalExecuteWorkflow -Id $Id -PostExternalExecuteWorkflowRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Submit-BetaExternalExecuteWorkflow"
     Write-Host $_.ErrorDetails
@@ -791,7 +791,7 @@ try {
     Test-BetaExternalExecuteWorkflow -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Test-BetaExternalExecuteWorkflow -Id $Id -BetaTestExternalExecuteWorkflowRequest $Result  
+    # Test-BetaExternalExecuteWorkflow -Id $Id -TestExternalExecuteWorkflowRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Test-BetaExternalExecuteWorkflow"
     Write-Host $_.ErrorDetails
@@ -838,10 +838,10 @@ $TestWorkflowRequest = @"{input={identity={id=ee769173319b41d19ccec6cea52f237b, 
 
 try {
     $Result = ConvertFrom-JsonToTestWorkflowRequest -Json $TestWorkflowRequest
-    Test-BetaWorkflow -Id $Id -BetaTestWorkflowRequest $Result 
+    Test-BetaWorkflow -Id $Id -TestWorkflowRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Test-BetaWorkflow -Id $Id -BetaTestWorkflowRequest $Result  
+    # Test-BetaWorkflow -Id $Id -TestWorkflowRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Test-BetaWorkflow"
     Write-Host $_.ErrorDetails
@@ -923,10 +923,10 @@ $WorkflowBody = @"{
 
 try {
     $Result = ConvertFrom-JsonToWorkflowBody -Json $WorkflowBody
-    Update-BetaWorkflow -Id $Id -BetaWorkflowBody $Result 
+    Update-BetaWorkflow -Id $Id -WorkflowBody $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaWorkflow -Id $Id -BetaWorkflowBody $Result  
+    # Update-BetaWorkflow -Id $Id -WorkflowBody $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaWorkflow"
     Write-Host $_.ErrorDetails

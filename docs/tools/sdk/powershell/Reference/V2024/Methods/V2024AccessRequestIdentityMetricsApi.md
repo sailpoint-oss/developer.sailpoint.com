@@ -25,6 +25,9 @@ Method | HTTP request | Description
 
 
 ## get-access-request-identity-metrics
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Use this API to return information access metrics.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-access-request-identity-metrics)
@@ -35,6 +38,7 @@ Param Type | Name | Data Type | Required  | Description
 Path   | IdentityId | **String** | True  | Manager's identity ID.
 Path   | RequestedObjectId | **String** | True  | Requested access item's ID.
 Path   | Type | **String** | True  | Requested access item's type.
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
 [**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0)
@@ -58,14 +62,15 @@ Code | Description  | Data Type
 $IdentityId = "7025c863-c270-4ba6-beea-edf3cb091573" # String | Manager's identity ID.
 $RequestedObjectId = "2db501be-f0fb-4cc5-a695-334133c52891" # String | Requested access item's ID.
 $Type = "ENTITLEMENT" # String | Requested access item's type.
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
 # Return access request identity metrics
 
 try {
-    Get-V2024AccessRequestIdentityMetrics -IdentityId $IdentityId -RequestedObjectId $RequestedObjectId -Type $Type 
+    Get-V2024AccessRequestIdentityMetrics -IdentityId $IdentityId -RequestedObjectId $RequestedObjectId -Type $Type -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024AccessRequestIdentityMetrics -IdentityId $IdentityId -RequestedObjectId $RequestedObjectId -Type $Type  
+    # Get-V2024AccessRequestIdentityMetrics -IdentityId $IdentityId -RequestedObjectId $RequestedObjectId -Type $Type -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024AccessRequestIdentityMetrics"
     Write-Host $_.ErrorDetails

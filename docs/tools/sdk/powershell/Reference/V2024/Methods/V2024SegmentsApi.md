@@ -100,10 +100,10 @@ $Segment = @"{
 
 try {
     $Result = ConvertFrom-JsonToSegment -Json $Segment
-    New-V2024Segment -V2024Segment $Result 
+    New-V2024Segment -Segment $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024Segment -V2024Segment $Result  
+    # New-V2024Segment -Segment $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024Segment"
     Write-Host $_.ErrorDetails

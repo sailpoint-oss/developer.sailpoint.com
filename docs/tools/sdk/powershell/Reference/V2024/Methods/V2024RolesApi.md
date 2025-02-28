@@ -267,10 +267,10 @@ $Role = @"{
 
 try {
     $Result = ConvertFrom-JsonToRole -Json $Role
-    New-V2024Role -V2024Role $Result 
+    New-V2024Role -Role $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024Role -V2024Role $Result  
+    # New-V2024Role -Role $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024Role"
     Write-Host $_.ErrorDetails
@@ -318,10 +318,10 @@ $RoleBulkDeleteRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToRoleBulkDeleteRequest -Json $RoleBulkDeleteRequest
-    Remove-V2024BulkRoles -V2024RoleBulkDeleteRequest $Result 
+    Remove-V2024BulkRoles -RoleBulkDeleteRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024BulkRoles -V2024RoleBulkDeleteRequest $Result  
+    # Remove-V2024BulkRoles -RoleBulkDeleteRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024BulkRoles"
     Write-Host $_.ErrorDetails
@@ -796,10 +796,10 @@ $Id = "2c91808a7813090a017814121e121518" # String | ID of the Role to patch
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024Role -Id $Id -V2024JsonPatchOperation $Result 
+    Update-V2024Role -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024Role -Id $Id -V2024JsonPatchOperation $Result  
+    # Update-V2024Role -Id $Id -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024Role"
     Write-Host $_.ErrorDetails
@@ -865,7 +865,7 @@ try {
     Search-V2024RolesByFilter 
     
     # Below is a request that includes all optional parameters
-    # Search-V2024RolesByFilter -ForSubadmin $ForSubadmin -Limit $Limit -Offset $Offset -Count $Count -Sorters $Sorters -ForSegmentIds $ForSegmentIds -IncludeUnsegmented $IncludeUnsegmented -V2024RoleListFilterDTO $Result  
+    # Search-V2024RolesByFilter -ForSubadmin $ForSubadmin -Limit $Limit -Offset $Offset -Count $Count -Sorters $Sorters -ForSegmentIds $ForSegmentIds -IncludeUnsegmented $IncludeUnsegmented -RoleListFilterDTO $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Search-V2024RolesByFilter"
     Write-Host $_.ErrorDetails
@@ -968,10 +968,10 @@ $RoleMetadataBulkUpdateByFilterRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToRoleMetadataBulkUpdateByFilterRequest -Json $RoleMetadataBulkUpdateByFilterRequest
-    Update-V2024RolesMetadataByFilter -V2024RoleMetadataBulkUpdateByFilterRequest $Result 
+    Update-V2024RolesMetadataByFilter -RoleMetadataBulkUpdateByFilterRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024RolesMetadataByFilter -V2024RoleMetadataBulkUpdateByFilterRequest $Result  
+    # Update-V2024RolesMetadataByFilter -RoleMetadataBulkUpdateByFilterRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024RolesMetadataByFilter"
     Write-Host $_.ErrorDetails
@@ -1025,10 +1025,10 @@ $RoleMetadataBulkUpdateByIdRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToRoleMetadataBulkUpdateByIdRequest -Json $RoleMetadataBulkUpdateByIdRequest
-    Update-V2024RolesMetadataByIds -V2024RoleMetadataBulkUpdateByIdRequest $Result 
+    Update-V2024RolesMetadataByIds -RoleMetadataBulkUpdateByIdRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024RolesMetadataByIds -V2024RoleMetadataBulkUpdateByIdRequest $Result  
+    # Update-V2024RolesMetadataByIds -RoleMetadataBulkUpdateByIdRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024RolesMetadataByIds"
     Write-Host $_.ErrorDetails
@@ -1097,10 +1097,10 @@ $RoleMetadataBulkUpdateByQueryRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToRoleMetadataBulkUpdateByQueryRequest -Json $RoleMetadataBulkUpdateByQueryRequest
-    Update-V2024RolesMetadataByQuery -V2024RoleMetadataBulkUpdateByQueryRequest $Result 
+    Update-V2024RolesMetadataByQuery -RoleMetadataBulkUpdateByQueryRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024RolesMetadataByQuery -V2024RoleMetadataBulkUpdateByQueryRequest $Result  
+    # Update-V2024RolesMetadataByQuery -RoleMetadataBulkUpdateByQueryRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024RolesMetadataByQuery"
     Write-Host $_.ErrorDetails

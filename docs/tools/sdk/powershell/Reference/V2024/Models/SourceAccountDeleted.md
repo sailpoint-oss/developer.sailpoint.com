@@ -36,7 +36,7 @@ $SourceAccountDeleted = Initialize-PSSailpoint.V2024SourceAccountDeleted  -Uuid 
  -SourceName Active Directory `
  -IdentityId ee769173319b41d19ccec6c235423237b `
  -IdentityName john.doe `
- -Attributes {firstname&#x3D;John, lastname&#x3D;Doe, email&#x3D;john.doe@gmail.com, department&#x3D;Sales, displayName&#x3D;John Doe, created&#x3D;2020-04-27T16:48:33.597Z, employeeNumber&#x3D;E009, uid&#x3D;E009, inactive&#x3D;true, phone&#x3D;null, identificationNumber&#x3D;E009}
+ -Attributes {firstname=John, lastname=Doe, email=john.doe@gmail.com, department=Sales, displayName=John Doe, created=2020-04-27T16:48:33.597Z, employeeNumber=E009, uid=E009, inactive=true, phone=null, identificationNumber=E009}
 ```
 
 - Convert the resource to JSON

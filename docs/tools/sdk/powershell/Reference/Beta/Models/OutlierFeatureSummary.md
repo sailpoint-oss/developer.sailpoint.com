@@ -36,7 +36,7 @@ $OutlierFeatureSummary = Initialize-PSSailpoint.BetaOutlierFeatureSummary  -Cont
  -FeatureExplanation An identity that has too much rare access has a higher change of becoming a security threat due to the unique access they possess `
  -PeerDisplayName Mary Jane `
  -PeerIdentityId 9f9d5d53ad0e48fba7352f6da9f1b8gbg `
- -AccessItemReference {displayName&#x3D;All Rare Entitlements, searchPlaceholder&#x3D;Search by name or description}
+ -AccessItemReference {displayName=All Rare Entitlements, searchPlaceholder=Search by name or description}
 ```
 
 - Convert the resource to JSON

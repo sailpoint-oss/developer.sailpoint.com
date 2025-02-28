@@ -603,10 +603,10 @@ $WorkItemForward = @"{
 
 try {
     $Result = ConvertFrom-JsonToWorkItemForward -Json $WorkItemForward
-    Send-V2024WorkItemForward -Id $Id -V2024WorkItemForward $Result 
+    Send-V2024WorkItemForward -Id $Id -WorkItemForward $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-V2024WorkItemForward -Id $Id -V2024WorkItemForward $Result  
+    # Send-V2024WorkItemForward -Id $Id -WorkItemForward $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024WorkItemForward"
     Write-Host $_.ErrorDetails

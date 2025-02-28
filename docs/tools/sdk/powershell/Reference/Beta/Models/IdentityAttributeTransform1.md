@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'IdentityAttributeTransform1', 'BetaId
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**IdentityAttributeName** | **String** | Identity attribute's name. | [optional] 
+**IdentityAttributeName** | **String** | Name of the identity attribute. | [optional] 
 **TransformDefinition** | [**TransformDefinition1**](transform-definition1) |  | [optional] 
 
 ## Examples

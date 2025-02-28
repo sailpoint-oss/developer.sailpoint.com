@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'IdentityProfile1AllOfAuthoritativeSou
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  **Enum** [  "SOURCE" ] | Authoritative source's object type. | [optional] 
-**Id** | **String** | Authoritative source's ID. | [optional] 
-**Name** | **String** | Authoritative source's name. | [optional] 
+**Type** |  **Enum** [  "SOURCE" ] | Type of the object to which this reference applies | [optional] 
+**Id** | **String** | ID of the object to which this reference applies | [optional] 
+**Name** | **String** | Human-readable display name of the object to which this reference applies | [optional] 
 
 ## Examples
 

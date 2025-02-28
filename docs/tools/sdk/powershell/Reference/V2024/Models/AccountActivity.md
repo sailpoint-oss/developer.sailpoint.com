@@ -48,7 +48,7 @@ $AccountActivity = Initialize-PSSailpoint.V2024AccountActivity  -Id 2c9180835d2e
  -Warnings [Some warning, another warning] `
  -Items null `
  -ExecutionStatus null `
- -ClientMetadata {customKey1&#x3D;custom value 1, customKey2&#x3D;custom value 2}
+ -ClientMetadata {customKey1=custom value 1, customKey2=custom value 2}
 ```
 
 - Convert the resource to JSON

@@ -51,7 +51,7 @@ $ManagedCluster = Initialize-PSSailpoint.BetaManagedCluster  -Id aClusterId `
  -Pod megapod-useast1 `
  -Org denali `
  -Type null `
- -Configuration {clusterExternalId&#x3D;externalId, ccgVersion&#x3D;77.0.0} `
+ -Configuration {clusterExternalId=externalId, ccgVersion=77.0.0} `
  -KeyPair null `
  -Attributes null `
  -Description A short description of the managed cluster. `

@@ -80,10 +80,10 @@ $CancelAccessRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToCancelAccessRequest -Json $CancelAccessRequest
-    Suspend-BetaAccessRequest -BetaCancelAccessRequest $Result 
+    Suspend-BetaAccessRequest -CancelAccessRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Suspend-BetaAccessRequest -BetaCancelAccessRequest $Result  
+    # Suspend-BetaAccessRequest -CancelAccessRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Suspend-BetaAccessRequest"
     Write-Host $_.ErrorDetails
@@ -142,10 +142,10 @@ $CloseAccessRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToCloseAccessRequest -Json $CloseAccessRequest
-    Close-BetaAccessRequest -BetaCloseAccessRequest $Result 
+    Close-BetaAccessRequest -CloseAccessRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Close-BetaAccessRequest -BetaCloseAccessRequest $Result  
+    # Close-BetaAccessRequest -CloseAccessRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Close-BetaAccessRequest"
     Write-Host $_.ErrorDetails
@@ -271,10 +271,10 @@ $AccessRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccessRequest -Json $AccessRequest
-    New-BetaAccessRequest -BetaAccessRequest $Result 
+    New-BetaAccessRequest -AccessRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaAccessRequest -BetaAccessRequest $Result  
+    # New-BetaAccessRequest -AccessRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaAccessRequest"
     Write-Host $_.ErrorDetails
@@ -450,10 +450,10 @@ $AccessRequestConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccessRequestConfig -Json $AccessRequestConfig
-    Set-BetaAccessRequestConfig -BetaAccessRequestConfig $Result 
+    Set-BetaAccessRequestConfig -AccessRequestConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # Set-BetaAccessRequestConfig -BetaAccessRequestConfig $Result  
+    # Set-BetaAccessRequestConfig -AccessRequestConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-BetaAccessRequestConfig"
     Write-Host $_.ErrorDetails

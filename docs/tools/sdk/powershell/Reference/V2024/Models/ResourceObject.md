@@ -35,7 +35,7 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $ResourceObject = Initialize-PSSailpoint.V2024ResourceObject  -Instance null `
- -Identity CN&#x3D;Aaron Carr,OU&#x3D;test1,DC&#x3D;test2,DC&#x3D;test `
+ -Identity CN=Aaron Carr,OU=test1,DC=test2,DC=test `
  -Uuid {abf7bd9b-68b4-4d21-9b70-870c58ebf844} `
  -PreviousIdentity null `
  -Name Aaron Carr `
@@ -45,7 +45,7 @@ $ResourceObject = Initialize-PSSailpoint.V2024ResourceObject  -Instance null `
  -Delete false `
  -Remove false `
  -Missing [missFieldOne, missFieldTwo] `
- -Attributes {telephoneNumber&#x3D;12-(345)678-9012, mail&#x3D;example@test.com, displayName&#x3D;Aaron Carr} `
+ -Attributes {telephoneNumber=12-(345)678-9012, mail=example@test.com, displayName=Aaron Carr} `
  -FinalUpdate false
 ```
 

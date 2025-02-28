@@ -71,10 +71,10 @@ $CreateSavedSearchRequest = @""@
 
 try {
     $Result = ConvertFrom-JsonToCreateSavedSearchRequest -Json $CreateSavedSearchRequest
-    New-V2024SavedSearch -V2024CreateSavedSearchRequest $Result 
+    New-V2024SavedSearch -CreateSavedSearchRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024SavedSearch -V2024CreateSavedSearchRequest $Result  
+    # New-V2024SavedSearch -CreateSavedSearchRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024SavedSearch"
     Write-Host $_.ErrorDetails
@@ -178,10 +178,10 @@ $SearchArguments = @"{
 
 try {
     $Result = ConvertFrom-JsonToSearchArguments -Json $SearchArguments
-    Invoke-V2024ExecuteSavedSearch -Id $Id -V2024SearchArguments $Result 
+    Invoke-V2024ExecuteSavedSearch -Id $Id -SearchArguments $Result 
     
     # Below is a request that includes all optional parameters
-    # Invoke-V2024ExecuteSavedSearch -Id $Id -V2024SearchArguments $Result  
+    # Invoke-V2024ExecuteSavedSearch -Id $Id -SearchArguments $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-V2024ExecuteSavedSearch"
     Write-Host $_.ErrorDetails
@@ -372,10 +372,10 @@ $SavedSearch = @"{
 
 try {
     $Result = ConvertFrom-JsonToSavedSearch -Json $SavedSearch
-    Send-V2024SavedSearch -Id $Id -V2024SavedSearch $Result 
+    Send-V2024SavedSearch -Id $Id -SavedSearch $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-V2024SavedSearch -Id $Id -V2024SavedSearch $Result  
+    # Send-V2024SavedSearch -Id $Id -SavedSearch $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024SavedSearch"
     Write-Host $_.ErrorDetails

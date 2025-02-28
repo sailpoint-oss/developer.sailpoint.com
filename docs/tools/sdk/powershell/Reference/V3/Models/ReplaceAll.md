@@ -24,9 +24,9 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ReplaceAll = Initialize-PSSailpoint.V3ReplaceAll  -Table {-&#x3D; , &quot;&#x3D;&#39;, ñ&#x3D;n} `
+$ReplaceAll = Initialize-PSSailpoint.V3ReplaceAll  -Table {-= , "=', ñ=n} `
  -RequiresPeriodicRefresh false `
- -VarInput {type&#x3D;accountAttribute, attributes&#x3D;{attributeName&#x3D;first_name, sourceName&#x3D;Source}}
+ -VarInput {type=accountAttribute, attributes={attributeName=first_name, sourceName=Source}}
 ```
 
 - Convert the resource to JSON

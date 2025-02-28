@@ -211,10 +211,10 @@ $ReportDetails = @"{
 
 try {
     $Result = ConvertFrom-JsonToReportDetails -Json $ReportDetails
-    Start-V2024Report -V2024ReportDetails $Result 
+    Start-V2024Report -ReportDetails $Result 
     
     # Below is a request that includes all optional parameters
-    # Start-V2024Report -V2024ReportDetails $Result  
+    # Start-V2024Report -ReportDetails $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-V2024Report"
     Write-Host $_.ErrorDetails

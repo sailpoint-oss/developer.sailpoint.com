@@ -91,10 +91,10 @@ $SimIntegrationDetails = @"{
 
 try {
     $Result = ConvertFrom-JsonToSimIntegrationDetails -Json $SimIntegrationDetails
-    New-V2024SIMIntegration -XSailPointExperimental $XSailPointExperimental -V2024SimIntegrationDetails $Result 
+    New-V2024SIMIntegration -XSailPointExperimental $XSailPointExperimental -SimIntegrationDetails $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024SIMIntegration -XSailPointExperimental $XSailPointExperimental -V2024SimIntegrationDetails $Result  
+    # New-V2024SIMIntegration -XSailPointExperimental $XSailPointExperimental -SimIntegrationDetails $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024SIMIntegration"
     Write-Host $_.ErrorDetails
@@ -296,10 +296,10 @@ $JsonPatch = @""[\n  {\n\t  \"op\": \"replace\",\n\t  \"path\": \"/description\"
 
 try {
     $Result = ConvertFrom-JsonToJsonPatch -Json $JsonPatch
-    Update-V2024BeforeProvisioningRule -Id $Id -XSailPointExperimental $XSailPointExperimental -V2024JsonPatch $Result 
+    Update-V2024BeforeProvisioningRule -Id $Id -XSailPointExperimental $XSailPointExperimental -JsonPatch $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024BeforeProvisioningRule -Id $Id -XSailPointExperimental $XSailPointExperimental -V2024JsonPatch $Result  
+    # Update-V2024BeforeProvisioningRule -Id $Id -XSailPointExperimental $XSailPointExperimental -JsonPatch $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024BeforeProvisioningRule"
     Write-Host $_.ErrorDetails
@@ -350,10 +350,10 @@ $JsonPatch = @""[\n  {\n\t  \"op\": \"replace\",\n\t  \"path\": \"/description\"
 
 try {
     $Result = ConvertFrom-JsonToJsonPatch -Json $JsonPatch
-    Update-V2024SIMAttributes -Id $Id -XSailPointExperimental $XSailPointExperimental -V2024JsonPatch $Result 
+    Update-V2024SIMAttributes -Id $Id -XSailPointExperimental $XSailPointExperimental -JsonPatch $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024SIMAttributes -Id $Id -XSailPointExperimental $XSailPointExperimental -V2024JsonPatch $Result  
+    # Update-V2024SIMAttributes -Id $Id -XSailPointExperimental $XSailPointExperimental -JsonPatch $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024SIMAttributes"
     Write-Host $_.ErrorDetails
@@ -421,10 +421,10 @@ $SimIntegrationDetails = @"{
 
 try {
     $Result = ConvertFrom-JsonToSimIntegrationDetails -Json $SimIntegrationDetails
-    Send-V2024SIMIntegration -Id $Id -XSailPointExperimental $XSailPointExperimental -V2024SimIntegrationDetails $Result 
+    Send-V2024SIMIntegration -Id $Id -XSailPointExperimental $XSailPointExperimental -SimIntegrationDetails $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-V2024SIMIntegration -Id $Id -XSailPointExperimental $XSailPointExperimental -V2024SimIntegrationDetails $Result  
+    # Send-V2024SIMIntegration -Id $Id -XSailPointExperimental $XSailPointExperimental -SimIntegrationDetails $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024SIMIntegration"
     Write-Host $_.ErrorDetails

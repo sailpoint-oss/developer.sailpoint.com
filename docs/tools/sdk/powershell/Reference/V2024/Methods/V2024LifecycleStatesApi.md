@@ -124,10 +124,10 @@ $LifecycleState = @"{
 
 try {
     $Result = ConvertFrom-JsonToLifecycleState -Json $LifecycleState
-    New-V2024LifecycleState -IdentityProfileId $IdentityProfileId -V2024LifecycleState $Result 
+    New-V2024LifecycleState -IdentityProfileId $IdentityProfileId -LifecycleState $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024LifecycleState -IdentityProfileId $IdentityProfileId -V2024LifecycleState $Result  
+    # New-V2024LifecycleState -IdentityProfileId $IdentityProfileId -LifecycleState $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024LifecycleState"
     Write-Host $_.ErrorDetails
@@ -322,10 +322,10 @@ $SetLifecycleStateRequest = @""@
 
 try {
     $Result = ConvertFrom-JsonToSetLifecycleStateRequest -Json $SetLifecycleStateRequest
-    Set-V2024LifecycleState -IdentityId $IdentityId -V2024SetLifecycleStateRequest $Result 
+    Set-V2024LifecycleState -IdentityId $IdentityId -SetLifecycleStateRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Set-V2024LifecycleState -IdentityId $IdentityId -V2024SetLifecycleStateRequest $Result  
+    # Set-V2024LifecycleState -IdentityId $IdentityId -SetLifecycleStateRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-V2024LifecycleState"
     Write-Host $_.ErrorDetails
@@ -378,10 +378,10 @@ $LifecycleStateId = "ef38f94347e94562b5bb8424a56397d8" # String | Lifecycle stat
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024LifecycleStates -IdentityProfileId $IdentityProfileId -LifecycleStateId $LifecycleStateId -V2024JsonPatchOperation $Result 
+    Update-V2024LifecycleStates -IdentityProfileId $IdentityProfileId -LifecycleStateId $LifecycleStateId -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024LifecycleStates -IdentityProfileId $IdentityProfileId -LifecycleStateId $LifecycleStateId -V2024JsonPatchOperation $Result  
+    # Update-V2024LifecycleStates -IdentityProfileId $IdentityProfileId -LifecycleStateId $LifecycleStateId -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024LifecycleStates"
     Write-Host $_.ErrorDetails

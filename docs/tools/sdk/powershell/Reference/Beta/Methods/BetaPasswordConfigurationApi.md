@@ -70,10 +70,10 @@ $PasswordOrgConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToPasswordOrgConfig -Json $PasswordOrgConfig
-    New-BetaPasswordOrgConfig -BetaPasswordOrgConfig $Result 
+    New-BetaPasswordOrgConfig -PasswordOrgConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaPasswordOrgConfig -BetaPasswordOrgConfig $Result  
+    # New-BetaPasswordOrgConfig -PasswordOrgConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaPasswordOrgConfig"
     Write-Host $_.ErrorDetails
@@ -166,10 +166,10 @@ $PasswordOrgConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToPasswordOrgConfig -Json $PasswordOrgConfig
-    Send-BetaPasswordOrgConfig -BetaPasswordOrgConfig $Result 
+    Send-BetaPasswordOrgConfig -PasswordOrgConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-BetaPasswordOrgConfig -BetaPasswordOrgConfig $Result  
+    # Send-BetaPasswordOrgConfig -PasswordOrgConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaPasswordOrgConfig"
     Write-Host $_.ErrorDetails

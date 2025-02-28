@@ -118,10 +118,10 @@ $CompleteInvocation = @"{
 
 try {
     $Result = ConvertFrom-JsonToCompleteInvocation -Json $CompleteInvocation
-    Complete-V2024TriggerInvocation -Id $Id -XSailPointExperimental $XSailPointExperimental -V2024CompleteInvocation $Result 
+    Complete-V2024TriggerInvocation -Id $Id -XSailPointExperimental $XSailPointExperimental -CompleteInvocation $Result 
     
     # Below is a request that includes all optional parameters
-    # Complete-V2024TriggerInvocation -Id $Id -XSailPointExperimental $XSailPointExperimental -V2024CompleteInvocation $Result  
+    # Complete-V2024TriggerInvocation -Id $Id -XSailPointExperimental $XSailPointExperimental -CompleteInvocation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Complete-V2024TriggerInvocation"
     Write-Host $_.ErrorDetails
@@ -195,10 +195,10 @@ $SubscriptionPostRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToSubscriptionPostRequest -Json $SubscriptionPostRequest
-    New-V2024Subscription -XSailPointExperimental $XSailPointExperimental -V2024SubscriptionPostRequest $Result 
+    New-V2024Subscription -XSailPointExperimental $XSailPointExperimental -SubscriptionPostRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024Subscription -XSailPointExperimental $XSailPointExperimental -V2024SubscriptionPostRequest $Result  
+    # New-V2024Subscription -XSailPointExperimental $XSailPointExperimental -SubscriptionPostRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024Subscription"
     Write-Host $_.ErrorDetails
@@ -479,10 +479,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 
 try {
     $Result = ConvertFrom-JsonToSubscriptionPatchRequestInner -Json $SubscriptionPatchRequestInner
-    Update-V2024Subscription -Id $Id -XSailPointExperimental $XSailPointExperimental -V2024SubscriptionPatchRequestInner $Result 
+    Update-V2024Subscription -Id $Id -XSailPointExperimental $XSailPointExperimental -SubscriptionPatchRequestInner $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024Subscription -Id $Id -XSailPointExperimental $XSailPointExperimental -V2024SubscriptionPatchRequestInner $Result  
+    # Update-V2024Subscription -Id $Id -XSailPointExperimental $XSailPointExperimental -SubscriptionPatchRequestInner $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024Subscription"
     Write-Host $_.ErrorDetails
@@ -540,10 +540,10 @@ $TestInvocation = @"{
 
 try {
     $Result = ConvertFrom-JsonToTestInvocation -Json $TestInvocation
-    Start-V2024TestTriggerInvocation -XSailPointExperimental $XSailPointExperimental -V2024TestInvocation $Result 
+    Start-V2024TestTriggerInvocation -XSailPointExperimental $XSailPointExperimental -TestInvocation $Result 
     
     # Below is a request that includes all optional parameters
-    # Start-V2024TestTriggerInvocation -XSailPointExperimental $XSailPointExperimental -V2024TestInvocation $Result  
+    # Start-V2024TestTriggerInvocation -XSailPointExperimental $XSailPointExperimental -TestInvocation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-V2024TestTriggerInvocation"
     Write-Host $_.ErrorDetails
@@ -597,10 +597,10 @@ $ValidateFilterInputDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToValidateFilterInputDto -Json $ValidateFilterInputDto
-    Test-V2024SubscriptionFilter -XSailPointExperimental $XSailPointExperimental -V2024ValidateFilterInputDto $Result 
+    Test-V2024SubscriptionFilter -XSailPointExperimental $XSailPointExperimental -ValidateFilterInputDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Test-V2024SubscriptionFilter -XSailPointExperimental $XSailPointExperimental -V2024ValidateFilterInputDto $Result  
+    # Test-V2024SubscriptionFilter -XSailPointExperimental $XSailPointExperimental -ValidateFilterInputDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Test-V2024SubscriptionFilter"
     Write-Host $_.ErrorDetails
@@ -683,10 +683,10 @@ $SubscriptionPutRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToSubscriptionPutRequest -Json $SubscriptionPutRequest
-    Update-V2024Subscription -Id $Id -XSailPointExperimental $XSailPointExperimental -V2024SubscriptionPutRequest $Result 
+    Update-V2024Subscription -Id $Id -XSailPointExperimental $XSailPointExperimental -SubscriptionPutRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024Subscription -Id $Id -XSailPointExperimental $XSailPointExperimental -V2024SubscriptionPutRequest $Result  
+    # Update-V2024Subscription -Id $Id -XSailPointExperimental $XSailPointExperimental -SubscriptionPutRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024Subscription"
     Write-Host $_.ErrorDetails

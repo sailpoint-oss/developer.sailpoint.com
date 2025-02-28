@@ -123,10 +123,10 @@ $PublicIdentityConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToPublicIdentityConfig -Json $PublicIdentityConfig
-    Update-V2024PublicIdentityConfig -V2024PublicIdentityConfig $Result 
+    Update-V2024PublicIdentityConfig -PublicIdentityConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024PublicIdentityConfig -V2024PublicIdentityConfig $Result  
+    # Update-V2024PublicIdentityConfig -PublicIdentityConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024PublicIdentityConfig"
     Write-Host $_.ErrorDetails

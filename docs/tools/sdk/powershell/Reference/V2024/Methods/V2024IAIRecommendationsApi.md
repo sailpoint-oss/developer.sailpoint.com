@@ -80,10 +80,10 @@ $RecommendationRequestDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToRecommendationRequestDto -Json $RecommendationRequestDto
-    Get-V2024Recommendations -XSailPointExperimental $XSailPointExperimental -V2024RecommendationRequestDto $Result 
+    Get-V2024Recommendations -XSailPointExperimental $XSailPointExperimental -RecommendationRequestDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024Recommendations -XSailPointExperimental $XSailPointExperimental -V2024RecommendationRequestDto $Result  
+    # Get-V2024Recommendations -XSailPointExperimental $XSailPointExperimental -RecommendationRequestDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024Recommendations"
     Write-Host $_.ErrorDetails
@@ -182,10 +182,10 @@ $RecommendationConfigDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToRecommendationConfigDto -Json $RecommendationConfigDto
-    Update-V2024RecommendationsConfig -XSailPointExperimental $XSailPointExperimental -V2024RecommendationConfigDto $Result 
+    Update-V2024RecommendationsConfig -XSailPointExperimental $XSailPointExperimental -RecommendationConfigDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024RecommendationsConfig -XSailPointExperimental $XSailPointExperimental -V2024RecommendationConfigDto $Result  
+    # Update-V2024RecommendationsConfig -XSailPointExperimental $XSailPointExperimental -RecommendationConfigDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024RecommendationsConfig"
     Write-Host $_.ErrorDetails

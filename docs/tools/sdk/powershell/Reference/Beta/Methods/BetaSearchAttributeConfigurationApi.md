@@ -86,10 +86,10 @@ $SearchAttributeConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToSearchAttributeConfig -Json $SearchAttributeConfig
-    New-BetaSearchAttributeConfig -BetaSearchAttributeConfig $Result 
+    New-BetaSearchAttributeConfig -SearchAttributeConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaSearchAttributeConfig -BetaSearchAttributeConfig $Result  
+    # New-BetaSearchAttributeConfig -SearchAttributeConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaSearchAttributeConfig"
     Write-Host $_.ErrorDetails
@@ -276,10 +276,10 @@ $Name = "promotedMailAttribute" # String | Name of the extended search attribute
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-BetaSearchAttributeConfig -Name $Name -BetaJsonPatchOperation $Result 
+    Update-BetaSearchAttributeConfig -Name $Name -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaSearchAttributeConfig -Name $Name -BetaJsonPatchOperation $Result  
+    # Update-BetaSearchAttributeConfig -Name $Name -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaSearchAttributeConfig"
     Write-Host $_.ErrorDetails

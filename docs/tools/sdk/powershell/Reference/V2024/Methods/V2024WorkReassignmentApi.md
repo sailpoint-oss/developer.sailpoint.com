@@ -84,10 +84,10 @@ $ConfigurationItemRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToConfigurationItemRequest -Json $ConfigurationItemRequest
-    New-V2024ReassignmentConfiguration -XSailPointExperimental $XSailPointExperimental -V2024ConfigurationItemRequest $Result 
+    New-V2024ReassignmentConfiguration -XSailPointExperimental $XSailPointExperimental -ConfigurationItemRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024ReassignmentConfiguration -XSailPointExperimental $XSailPointExperimental -V2024ConfigurationItemRequest $Result  
+    # New-V2024ReassignmentConfiguration -XSailPointExperimental $XSailPointExperimental -ConfigurationItemRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024ReassignmentConfiguration"
     Write-Host $_.ErrorDetails
@@ -448,10 +448,10 @@ $ConfigurationItemRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToConfigurationItemRequest -Json $ConfigurationItemRequest
-    Send-V2024ReassignmentConfig -IdentityId $IdentityId -XSailPointExperimental $XSailPointExperimental -V2024ConfigurationItemRequest $Result 
+    Send-V2024ReassignmentConfig -IdentityId $IdentityId -XSailPointExperimental $XSailPointExperimental -ConfigurationItemRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-V2024ReassignmentConfig -IdentityId $IdentityId -XSailPointExperimental $XSailPointExperimental -V2024ConfigurationItemRequest $Result  
+    # Send-V2024ReassignmentConfig -IdentityId $IdentityId -XSailPointExperimental $XSailPointExperimental -ConfigurationItemRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024ReassignmentConfig"
     Write-Host $_.ErrorDetails
@@ -503,10 +503,10 @@ $TenantConfigurationRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToTenantConfigurationRequest -Json $TenantConfigurationRequest
-    Send-V2024TenantConfiguration -XSailPointExperimental $XSailPointExperimental -V2024TenantConfigurationRequest $Result 
+    Send-V2024TenantConfiguration -XSailPointExperimental $XSailPointExperimental -TenantConfigurationRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-V2024TenantConfiguration -XSailPointExperimental $XSailPointExperimental -V2024TenantConfigurationRequest $Result  
+    # Send-V2024TenantConfiguration -XSailPointExperimental $XSailPointExperimental -TenantConfigurationRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024TenantConfiguration"
     Write-Host $_.ErrorDetails

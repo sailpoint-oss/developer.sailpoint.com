@@ -91,10 +91,10 @@ $PasswordDigitTokenReset = @"{
 
 try {
     $Result = ConvertFrom-JsonToPasswordDigitTokenReset -Json $PasswordDigitTokenReset
-    New-V2024DigitToken -XSailPointExperimental $XSailPointExperimental -V2024PasswordDigitTokenReset $Result 
+    New-V2024DigitToken -XSailPointExperimental $XSailPointExperimental -PasswordDigitTokenReset $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024DigitToken -XSailPointExperimental $XSailPointExperimental -V2024PasswordDigitTokenReset $Result  
+    # New-V2024DigitToken -XSailPointExperimental $XSailPointExperimental -PasswordDigitTokenReset $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024DigitToken"
     Write-Host $_.ErrorDetails
@@ -187,10 +187,10 @@ $PasswordInfoQueryDTO = @"{
 
 try {
     $Result = ConvertFrom-JsonToPasswordInfoQueryDTO -Json $PasswordInfoQueryDTO
-    Search-V2024PasswordInfo -V2024PasswordInfoQueryDTO $Result 
+    Search-V2024PasswordInfo -PasswordInfoQueryDTO $Result 
     
     # Below is a request that includes all optional parameters
-    # Search-V2024PasswordInfo -V2024PasswordInfoQueryDTO $Result  
+    # Search-V2024PasswordInfo -PasswordInfoQueryDTO $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Search-V2024PasswordInfo"
     Write-Host $_.ErrorDetails
@@ -258,10 +258,10 @@ $PasswordChangeRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToPasswordChangeRequest -Json $PasswordChangeRequest
-    Set-V2024Password -V2024PasswordChangeRequest $Result 
+    Set-V2024Password -PasswordChangeRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Set-V2024Password -V2024PasswordChangeRequest $Result  
+    # Set-V2024Password -PasswordChangeRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-V2024Password"
     Write-Host $_.ErrorDetails

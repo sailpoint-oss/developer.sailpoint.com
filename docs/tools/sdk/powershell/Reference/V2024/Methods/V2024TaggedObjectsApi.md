@@ -173,10 +173,10 @@ $BulkRemoveTaggedObject = @"{
 
 try {
     $Result = ConvertFrom-JsonToBulkRemoveTaggedObject -Json $BulkRemoveTaggedObject
-    Remove-V2024TagsToManyObject -V2024BulkRemoveTaggedObject $Result 
+    Remove-V2024TagsToManyObject -BulkRemoveTaggedObject $Result 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024TagsToManyObject -V2024BulkRemoveTaggedObject $Result  
+    # Remove-V2024TagsToManyObject -BulkRemoveTaggedObject $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024TagsToManyObject"
     Write-Host $_.ErrorDetails
@@ -385,10 +385,10 @@ $TaggedObject = @"{
 
 try {
     $Result = ConvertFrom-JsonToTaggedObject -Json $TaggedObject
-    Send-V2024TaggedObject -Type $Type -Id $Id -V2024TaggedObject $Result 
+    Send-V2024TaggedObject -Type $Type -Id $Id -TaggedObject $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-V2024TaggedObject -Type $Type -Id $Id -V2024TaggedObject $Result  
+    # Send-V2024TaggedObject -Type $Type -Id $Id -TaggedObject $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024TaggedObject"
     Write-Host $_.ErrorDetails
@@ -440,10 +440,10 @@ $TaggedObject = @"{
 
 try {
     $Result = ConvertFrom-JsonToTaggedObject -Json $TaggedObject
-    Set-V2024TagToObject -V2024TaggedObject $Result 
+    Set-V2024TagToObject -TaggedObject $Result 
     
     # Below is a request that includes all optional parameters
-    # Set-V2024TagToObject -V2024TaggedObject $Result  
+    # Set-V2024TagToObject -TaggedObject $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-V2024TagToObject"
     Write-Host $_.ErrorDetails
@@ -498,10 +498,10 @@ $BulkAddTaggedObject = @"{
 
 try {
     $Result = ConvertFrom-JsonToBulkAddTaggedObject -Json $BulkAddTaggedObject
-    Set-V2024TagsToManyObjects -V2024BulkAddTaggedObject $Result 
+    Set-V2024TagsToManyObjects -BulkAddTaggedObject $Result 
     
     # Below is a request that includes all optional parameters
-    # Set-V2024TagsToManyObjects -V2024BulkAddTaggedObject $Result  
+    # Set-V2024TagsToManyObjects -BulkAddTaggedObject $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-V2024TagsToManyObjects"
     Write-Host $_.ErrorDetails

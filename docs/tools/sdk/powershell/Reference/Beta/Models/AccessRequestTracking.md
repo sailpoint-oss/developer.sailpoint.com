@@ -27,8 +27,8 @@ Name | Type | Description | Notes
 ```powershell
 $AccessRequestTracking = Initialize-PSSailpoint.BetaAccessRequestTracking  -RequestedFor 2c918084660f45d6016617daa9210584 `
  -RequestedItemsDetails {
-&quot;type&quot;: &quot;ENTITLEMENT&quot;, 
-&quot;id&quot;: &quot;779c6fd7171540bba1184e5946112c28&quot; 
+"type": "ENTITLEMENT", 
+"id": "779c6fd7171540bba1184e5946112c28" 
  } `
  -AttributesHash -1928438224 `
  -AccessRequestIds [5d3118c518a44ec7805450d53479ccdb]

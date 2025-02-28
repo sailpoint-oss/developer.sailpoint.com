@@ -75,10 +75,10 @@ $CustomPasswordInstruction = @"{
 
 try {
     $Result = ConvertFrom-JsonToCustomPasswordInstruction -Json $CustomPasswordInstruction
-    New-V2024CustomPasswordInstructions -XSailPointExperimental $XSailPointExperimental -V2024CustomPasswordInstruction $Result 
+    New-V2024CustomPasswordInstructions -XSailPointExperimental $XSailPointExperimental -CustomPasswordInstruction $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024CustomPasswordInstructions -XSailPointExperimental $XSailPointExperimental -V2024CustomPasswordInstruction $Result  
+    # New-V2024CustomPasswordInstructions -XSailPointExperimental $XSailPointExperimental -CustomPasswordInstruction $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024CustomPasswordInstructions"
     Write-Host $_.ErrorDetails

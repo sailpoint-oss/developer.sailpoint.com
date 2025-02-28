@@ -223,10 +223,10 @@ $ClientLogConfiguration = @"{
 # Update managed cluster's log configuration
 
 try {
-    Send-BetaClientLogConfiguration -Id $Id -BetaClientLogConfiguration $Result 
+    Send-BetaClientLogConfiguration -Id $Id -ClientLogConfiguration $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-BetaClientLogConfiguration -Id $Id -BetaClientLogConfiguration $Result  
+    # Send-BetaClientLogConfiguration -Id $Id -ClientLogConfiguration $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaClientLogConfiguration"
     Write-Host $_.ErrorDetails

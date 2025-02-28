@@ -91,7 +91,7 @@ try {
     Approve-V2024AccessRequest -ApprovalId $ApprovalId 
     
     # Below is a request that includes all optional parameters
-    # Approve-V2024AccessRequest -ApprovalId $ApprovalId -V2024CommentDto $Result  
+    # Approve-V2024AccessRequest -ApprovalId $ApprovalId -CommentDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Approve-V2024AccessRequest"
     Write-Host $_.ErrorDetails
@@ -140,10 +140,10 @@ $ForwardApprovalDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToForwardApprovalDto -Json $ForwardApprovalDto
-    Invoke-V2024ForwardAccessRequest -ApprovalId $ApprovalId -V2024ForwardApprovalDto $Result 
+    Invoke-V2024ForwardAccessRequest -ApprovalId $ApprovalId -ForwardApprovalDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Invoke-V2024ForwardAccessRequest -ApprovalId $ApprovalId -V2024ForwardApprovalDto $Result  
+    # Invoke-V2024ForwardAccessRequest -ApprovalId $ApprovalId -ForwardApprovalDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-V2024ForwardAccessRequest"
     Write-Host $_.ErrorDetails
@@ -407,10 +407,10 @@ $CommentDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToCommentDto -Json $CommentDto
-    Deny-V2024AccessRequest -ApprovalId $ApprovalId -V2024CommentDto $Result 
+    Deny-V2024AccessRequest -ApprovalId $ApprovalId -CommentDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Deny-V2024AccessRequest -ApprovalId $ApprovalId -V2024CommentDto $Result  
+    # Deny-V2024AccessRequest -ApprovalId $ApprovalId -CommentDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Deny-V2024AccessRequest"
     Write-Host $_.ErrorDetails

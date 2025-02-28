@@ -35,7 +35,7 @@ $MultiHostIntegrationsCreate = Initialize-PSSailpoint.BetaMultiHostIntegrationsC
  -Owner null `
  -Cluster null `
  -Connector multihost-microsoft-sql-server `
- -ConnectorAttributes {maxSourcesPerAggGroup&#x3D;10, maxAllowedSources&#x3D;300} `
+ -ConnectorAttributes {maxSourcesPerAggGroup=10, maxAllowedSources=300} `
  -ManagementWorkgroup null `
  -Created 2022-02-08T14:50:03.827Z `
  -Modified 2024-01-23T18:08:50.897Z

@@ -32,8 +32,8 @@ $CorrelatedGovernanceEvent = Initialize-PSSailpoint.V2024CorrelatedGovernanceEve
  -Dt 2019-03-08T22:37:33.901Z `
  -Type certification `
  -GovernanceId 2c91808a77ff216301782327a50f09bf `
- -Owners [{id&#x3D;8a80828f643d484f01643e14202e206f, displayName&#x3D;John Snow}] `
- -Reviewers [{id&#x3D;8a80828f643d484f01643e14202e206f, displayName&#x3D;John Snow}] `
+ -Owners [{id=8a80828f643d484f01643e14202e206f, displayName=John Snow}] `
+ -Reviewers [{id=8a80828f643d484f01643e14202e206f, displayName=John Snow}] `
  -DecisionMaker null
 ```
 

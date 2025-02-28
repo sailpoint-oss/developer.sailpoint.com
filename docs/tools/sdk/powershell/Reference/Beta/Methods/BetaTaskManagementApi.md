@@ -268,10 +268,10 @@ $Id = "00eebcf881994e419d72e757fd30dc0e" # String | Task ID.
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-BetaTaskStatus -Id $Id -BetaJsonPatchOperation $Result 
+    Update-BetaTaskStatus -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaTaskStatus -Id $Id -BetaJsonPatchOperation $Result  
+    # Update-BetaTaskStatus -Id $Id -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaTaskStatus"
     Write-Host $_.ErrorDetails

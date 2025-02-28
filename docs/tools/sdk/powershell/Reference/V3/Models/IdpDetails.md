@@ -48,7 +48,7 @@ $IdpDetails = Initialize-PSSailpoint.V3IdpDetails  -Role SAML_IDP `
  -LoginUrlRedirect https://dev-157216.okta.com/app/sailpointdev157216_cdovsaml_1/exkdaruy8Ln5Ry7C54x6/sso/saml `
  -MappingAttribute email `
  -CertificateExpirationDate Fri Mar 08 08:54:24 UTC 2013 `
- -CertificateName OU&#x3D;Conext, O&#x3D;Surfnet, L&#x3D;Utrecht, ST&#x3D;Utrecht, C&#x3D;NL
+ -CertificateName OU=Conext, O=Surfnet, L=Utrecht, ST=Utrecht, C=NL
 ```
 
 - Convert the resource to JSON

@@ -70,10 +70,10 @@ $PasswordOrgConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToPasswordOrgConfig -Json $PasswordOrgConfig
-    New-V2024PasswordOrgConfig -V2024PasswordOrgConfig $Result 
+    New-V2024PasswordOrgConfig -PasswordOrgConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024PasswordOrgConfig -V2024PasswordOrgConfig $Result  
+    # New-V2024PasswordOrgConfig -PasswordOrgConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024PasswordOrgConfig"
     Write-Host $_.ErrorDetails
@@ -166,10 +166,10 @@ $PasswordOrgConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToPasswordOrgConfig -Json $PasswordOrgConfig
-    Send-V2024PasswordOrgConfig -V2024PasswordOrgConfig $Result 
+    Send-V2024PasswordOrgConfig -PasswordOrgConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-V2024PasswordOrgConfig -V2024PasswordOrgConfig $Result  
+    # Send-V2024PasswordOrgConfig -PasswordOrgConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024PasswordOrgConfig"
     Write-Host $_.ErrorDetails

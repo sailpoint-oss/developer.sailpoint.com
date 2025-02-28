@@ -154,10 +154,10 @@ $Dimension = @"{
 
 try {
     $Result = ConvertFrom-JsonToDimension -Json $Dimension
-    New-V2024Dimension -RoleId $RoleId -V2024Dimension $Result 
+    New-V2024Dimension -RoleId $RoleId -Dimension $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024Dimension -RoleId $RoleId -V2024Dimension $Result  
+    # New-V2024Dimension -RoleId $RoleId -Dimension $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024Dimension"
     Write-Host $_.ErrorDetails
@@ -207,10 +207,10 @@ $DimensionBulkDeleteRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToDimensionBulkDeleteRequest -Json $DimensionBulkDeleteRequest
-    Remove-V2024BulkDimensions -RoleId $RoleId -V2024DimensionBulkDeleteRequest $Result 
+    Remove-V2024BulkDimensions -RoleId $RoleId -DimensionBulkDeleteRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024BulkDimensions -RoleId $RoleId -V2024DimensionBulkDeleteRequest $Result  
+    # Remove-V2024BulkDimensions -RoleId $RoleId -DimensionBulkDeleteRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024BulkDimensions"
     Write-Host $_.ErrorDetails
@@ -541,10 +541,10 @@ $DimensionId = "2c9180835d191a86015d28455b4a2329" # String | Id of the Dimension
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024Dimension -RoleId $RoleId -DimensionId $DimensionId -V2024JsonPatchOperation $Result 
+    Update-V2024Dimension -RoleId $RoleId -DimensionId $DimensionId -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024Dimension -RoleId $RoleId -DimensionId $DimensionId -V2024JsonPatchOperation $Result  
+    # Update-V2024Dimension -RoleId $RoleId -DimensionId $DimensionId -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024Dimension"
     Write-Host $_.ErrorDetails

@@ -44,13 +44,13 @@ $Entitlement1 = Initialize-PSSailpoint.V2024Entitlement1  -Id 2c91808874ff915501
  -Created 2020-10-08T18:33:52.029Z `
  -Modified 2020-10-08T18:33:52.029Z `
  -Attribute memberOf `
- -Value CN&#x3D;LauncherTest2,OU&#x3D;LauncherTestOrg,OU&#x3D;slpt-automation,DC&#x3D;TestAutomationAD,DC&#x3D;local `
+ -Value CN=LauncherTest2,OU=LauncherTestOrg,OU=slpt-automation,DC=TestAutomationAD,DC=local `
  -SourceSchemaObjectType group `
  -Privileged true `
  -CloudGoverned true `
- -Description CN&#x3D;LauncherTest2,OU&#x3D;LauncherTestOrg,OU&#x3D;slpt-automation,DC&#x3D;TestAutomationAD,DC&#x3D;local `
+ -Description CN=LauncherTest2,OU=LauncherTestOrg,OU=slpt-automation,DC=TestAutomationAD,DC=local `
  -Requestable true `
- -Attributes {fieldName&#x3D;fieldValue} `
+ -Attributes {fieldName=fieldValue} `
  -Source null `
  -Owner null `
  -DirectPermissions null `

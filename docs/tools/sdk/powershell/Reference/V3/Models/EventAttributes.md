@@ -26,8 +26,8 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $EventAttributes = Initialize-PSSailpoint.V3EventAttributes  -Id idn:identity-attributes-changed `
- -VarFilter $.changes[?(@.attribute &#x3D;&#x3D; &#39;manager&#39;)] `
- -Description Triggered when an identity&#39;s manager attribute changes `
+ -VarFilter $.changes[?(@.attribute == 'manager')] `
+ -Description Triggered when an identity's manager attribute changes `
  -AttributeToFilter LifecycleState
 ```
 

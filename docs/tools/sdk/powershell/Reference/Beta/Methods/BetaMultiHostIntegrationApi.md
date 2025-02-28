@@ -98,10 +98,10 @@ $MultiHostIntegrationsCreate = @"{
 
 try {
     $Result = ConvertFrom-JsonToMultiHostIntegrationsCreate -Json $MultiHostIntegrationsCreate
-    New-BetaMultiHostIntegration -BetaMultiHostIntegrationsCreate $Result 
+    New-BetaMultiHostIntegration -MultiHostIntegrationsCreate $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaMultiHostIntegration -BetaMultiHostIntegrationsCreate $Result  
+    # New-BetaMultiHostIntegration -MultiHostIntegrationsCreate $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaMultiHostIntegration"
     Write-Host $_.ErrorDetails
@@ -161,10 +161,10 @@ $MultihostId = "2c91808568c529c60168cca6f90c1326" # String | ID of the Multi-Hos
 
 try {
     $Result = ConvertFrom-JsonToMultiHostIntegrationsCreateSources -Json $MultiHostIntegrationsCreateSources
-    New-BetaSourcesWithinMultiHost -MultihostId $MultihostId -BetaMultiHostIntegrationsCreateSources $Result 
+    New-BetaSourcesWithinMultiHost -MultihostId $MultihostId -MultiHostIntegrationsCreateSources $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaSourcesWithinMultiHost -MultihostId $MultihostId -BetaMultiHostIntegrationsCreateSources $Result  
+    # New-BetaSourcesWithinMultiHost -MultihostId $MultihostId -MultiHostIntegrationsCreateSources $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaSourcesWithinMultiHost"
     Write-Host $_.ErrorDetails
@@ -713,10 +713,10 @@ $MultihostId = "anId" # String | ID of the Multi-Host Integration to update.
 
 try {
     $Result = ConvertFrom-JsonToUpdateMultiHostSourcesRequestInner -Json $UpdateMultiHostSourcesRequestInner
-    Update-BetaMultiHostSources -MultihostId $MultihostId -BetaUpdateMultiHostSourcesRequestInner $Result 
+    Update-BetaMultiHostSources -MultihostId $MultihostId -UpdateMultiHostSourcesRequestInner $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaMultiHostSources -MultihostId $MultihostId -BetaUpdateMultiHostSourcesRequestInner $Result  
+    # Update-BetaMultiHostSources -MultihostId $MultihostId -UpdateMultiHostSourcesRequestInner $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaMultiHostSources"
     Write-Host $_.ErrorDetails

@@ -23,8 +23,8 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ValidateFilterInputDto = Initialize-PSSailpoint.V2024ValidateFilterInputDto  -VarInput {identityId&#x3D;201327fda1c44704ac01181e963d463c} `
- -VarFilter $[?($.identityId &#x3D;&#x3D; &quot;201327fda1c44704ac01181e963d463c&quot;)]
+$ValidateFilterInputDto = Initialize-PSSailpoint.V2024ValidateFilterInputDto  -VarInput {identityId=201327fda1c44704ac01181e963d463c} `
+ -VarFilter $[?($.identityId == "201327fda1c44704ac01181e963d463c")]
 ```
 
 - Convert the resource to JSON

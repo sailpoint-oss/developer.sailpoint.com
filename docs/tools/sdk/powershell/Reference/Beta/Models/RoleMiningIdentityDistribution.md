@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $RoleMiningIdentityDistribution = Initialize-PSSailpoint.BetaRoleMiningIdentityDistribution  -AttributeName department `
- -Distribution [{attributeValue&#x3D;NM Tier 3, count&#x3D;6}]
+ -Distribution [{attributeValue=NM Tier 3, count=6}]
 ```
 
 - Convert the resource to JSON

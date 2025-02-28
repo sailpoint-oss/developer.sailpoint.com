@@ -248,10 +248,10 @@ $MfaDuoConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToMfaDuoConfig -Json $MfaDuoConfig
-    Set-BetaMFADuoConfig -BetaMfaDuoConfig $Result 
+    Set-BetaMFADuoConfig -MfaDuoConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # Set-BetaMFADuoConfig -BetaMfaDuoConfig $Result  
+    # Set-BetaMFADuoConfig -MfaDuoConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-BetaMFADuoConfig"
     Write-Host $_.ErrorDetails
@@ -298,10 +298,10 @@ Code | Description  | Data Type
 
 try {
     $Result = ConvertFrom-JsonToKbaAnswerRequestItem -Json $KbaAnswerRequestItem
-    Set-BetaMFAKBAConfig -BetaKbaAnswerRequestItem $Result 
+    Set-BetaMFAKBAConfig -KbaAnswerRequestItem $Result 
     
     # Below is a request that includes all optional parameters
-    # Set-BetaMFAKBAConfig -BetaKbaAnswerRequestItem $Result  
+    # Set-BetaMFAKBAConfig -KbaAnswerRequestItem $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-BetaMFAKBAConfig"
     Write-Host $_.ErrorDetails
@@ -350,10 +350,10 @@ $MfaOktaConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToMfaOktaConfig -Json $MfaOktaConfig
-    Set-BetaMFAOktaConfig -BetaMfaOktaConfig $Result 
+    Set-BetaMFAOktaConfig -MfaOktaConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # Set-BetaMFAOktaConfig -BetaMfaOktaConfig $Result  
+    # Set-BetaMFAOktaConfig -MfaOktaConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-BetaMFAOktaConfig"
     Write-Host $_.ErrorDetails

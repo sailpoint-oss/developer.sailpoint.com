@@ -61,7 +61,7 @@ $Account = Initialize-PSSailpoint.V3Account  -Id id12345 `
  -ConnectionType direct `
  -IsMachine true `
  -Recommendation null `
- -Attributes {firstName&#x3D;SailPoint, lastName&#x3D;Support, displayName&#x3D;SailPoint Support} `
+ -Attributes {firstName=SailPoint, lastName=Support, displayName=SailPoint Support} `
  -Authoritative false `
  -Description null `
  -Disabled false `

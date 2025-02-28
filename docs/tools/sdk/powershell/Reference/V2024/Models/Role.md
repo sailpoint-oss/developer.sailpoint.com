@@ -48,7 +48,7 @@ $Role = Initialize-PSSailpoint.V2024Role  -Id 2c918086749d78830174a1a40e121518 `
  -AccessProfiles null `
  -Entitlements null `
  -Membership null `
- -LegacyMembershipInfo {type&#x3D;IDENTITY_LIST} `
+ -LegacyMembershipInfo {type=IDENTITY_LIST} `
  -Enabled true `
  -Requestable true `
  -AccessRequestConfig null `

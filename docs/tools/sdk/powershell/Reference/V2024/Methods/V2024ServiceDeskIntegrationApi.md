@@ -122,10 +122,10 @@ $ServiceDeskIntegrationDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToServiceDeskIntegrationDto -Json $ServiceDeskIntegrationDto
-    New-V2024ServiceDeskIntegration -V2024ServiceDeskIntegrationDto $Result 
+    New-V2024ServiceDeskIntegration -ServiceDeskIntegrationDto $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024ServiceDeskIntegration -V2024ServiceDeskIntegrationDto $Result  
+    # New-V2024ServiceDeskIntegration -ServiceDeskIntegrationDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024ServiceDeskIntegration"
     Write-Host $_.ErrorDetails
@@ -451,10 +451,10 @@ $PatchServiceDeskIntegrationRequest = @""@
 
 try {
     $Result = ConvertFrom-JsonToPatchServiceDeskIntegrationRequest -Json $PatchServiceDeskIntegrationRequest
-    Update-V2024ServiceDeskIntegration -Id $Id -V2024PatchServiceDeskIntegrationRequest $Result 
+    Update-V2024ServiceDeskIntegration -Id $Id -PatchServiceDeskIntegrationRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024ServiceDeskIntegration -Id $Id -V2024PatchServiceDeskIntegrationRequest $Result  
+    # Update-V2024ServiceDeskIntegration -Id $Id -PatchServiceDeskIntegrationRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024ServiceDeskIntegration"
     Write-Host $_.ErrorDetails
@@ -533,10 +533,10 @@ $ServiceDeskIntegrationDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToServiceDeskIntegrationDto -Json $ServiceDeskIntegrationDto
-    Send-V2024ServiceDeskIntegration -Id $Id -V2024ServiceDeskIntegrationDto $Result 
+    Send-V2024ServiceDeskIntegration -Id $Id -ServiceDeskIntegrationDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-V2024ServiceDeskIntegration -Id $Id -V2024ServiceDeskIntegrationDto $Result  
+    # Send-V2024ServiceDeskIntegration -Id $Id -ServiceDeskIntegrationDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024ServiceDeskIntegration"
     Write-Host $_.ErrorDetails
@@ -583,10 +583,10 @@ $QueuedCheckConfigDetails = @"{
 
 try {
     $Result = ConvertFrom-JsonToQueuedCheckConfigDetails -Json $QueuedCheckConfigDetails
-    Update-V2024StatusCheckDetails -V2024QueuedCheckConfigDetails $Result 
+    Update-V2024StatusCheckDetails -QueuedCheckConfigDetails $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024StatusCheckDetails -V2024QueuedCheckConfigDetails $Result  
+    # Update-V2024StatusCheckDetails -QueuedCheckConfigDetails $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024StatusCheckDetails"
     Write-Host $_.ErrorDetails

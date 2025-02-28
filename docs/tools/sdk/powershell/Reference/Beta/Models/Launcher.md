@@ -40,7 +40,7 @@ $Launcher = Initialize-PSSailpoint.BetaLauncher  -Id 1b630bed-0941-4792-a712-57a
  -Type INTERACTIVE_PROCESS `
  -Disabled false `
  -Reference null `
- -Config {&quot;workflowId&quot; : &quot;6b42d9be-61b6-46af-827e-ea29ba8aa3d9&quot;}
+ -Config {"workflowId" : "6b42d9be-61b6-46af-827e-ea29ba8aa3d9"}
 ```
 
 - Convert the resource to JSON

@@ -146,14 +146,6 @@ patch:
     schema:
       type: string
       format: uuid
-  - name: X-SailPoint-Experimental
-    in: header
-    description: Use this header to enable this experimental API.
-    example: true
-    schema:
-      type: string
-      default: true
-    required: true
   requestBody:
     description: Sed Patch Request
     content:

@@ -1,0 +1,220 @@
+get:
+  operationId: getWorkflow
+  tags:
+    - Workflows
+  summary: Get Workflow By Id
+  description: >-
+    Get a single workflow by id.
+  security:
+    - userAuth: [sp:workflow:read]
+  parameters:
+    - name: id
+      in: path
+      description: Id of the workflow
+      required: true
+      style: simple
+      explode: false
+      schema:
+        type: string
+        example: c17bea3a-574d-453c-9e04-4365fbf5af0b
+  responses:
+    '200':
+      description: >-
+        The workflow object
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/workflows/Workflow.yaml'
+    '400':
+      $ref: '../../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../../v3/responses/500.yaml'
+put:
+  operationId: putWorkflow
+  tags:
+    - Workflows
+  summary: Update Workflow
+  description: >-
+    Perform a full update of a workflow.  The updated workflow object is returned in the response.
+  security:
+    - userAuth: [sp:workflow:manage]
+  parameters:
+    - name: id
+      in: path
+      description: Id of the Workflow
+      required: true
+      style: simple
+      explode: false
+      schema:
+        type: string
+        example: c17bea3a-574d-453c-9e04-4365fbf5af0b
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../../schemas/workflows/WorkflowBody.yaml'
+  responses:
+    '200':
+      description: The Workflow object
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/workflows/Workflow.yaml'
+    '400':
+      $ref: '../../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../../v3/responses/500.yaml'
+patch:
+  operationId: patchWorkflow
+  tags:
+    - Workflows
+  summary: Patch Workflow
+  description: >-
+    Partially update an existing Workflow using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
+  security:
+    - userAuth: [sp:workflow:manage]
+  parameters:
+    - name: id
+      in: path
+      description: Id of the Workflow
+      required: true
+      style: simple
+      explode: false
+      schema:
+        type: string
+        example: c17bea3a-574d-453c-9e04-4365fbf5af0b
+  requestBody:
+    required: true
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: '../../schemas/JsonPatchOperation.yaml'
+        examples:
+          Update all patchable fields:
+            description: Demonstrate how to update each patchable field in one PATCH request.
+            value:
+              [
+                {
+                  "op": "replace",
+                  "path": "/name",
+                  "value": "Send Email"
+                },
+                {
+                  "op": "replace",
+                  "path": "/owner",
+                  "value": {
+                    "type": "IDENTITY",
+                    "id": "2c91808568c529c60168cca6f90c1313",
+                    "name": "William Wilson"
+
+                  }
+                },
+                {
+                  "op": "replace",
+                  "path": "/description",
+                  "value": "Send an email to the identity who's attributes changed."
+                },
+                {
+                  "op": "replace",
+                  "path": "/enabled",
+                  "value": false
+                },
+                {
+                  "op": "replace",
+                  "path": "/definition",
+                  "value": {
+                    "start": "Send Email Test",
+                    "steps": {
+                      "Send Email": {
+                        "actionId": "sp:send-email",
+                        "attributes": {
+                          "body": "This is a test",
+                          "from": "sailpoint@sailpoint.com",
+                          "recipientId.$": "$.identity.id",
+                          "subject": "test"
+                        },
+                        "nextStep": "success",
+                        "selectResult": null,
+                        "type": "action"
+                      },
+                      "success": {
+                        "type": "success"
+                      }
+                    }
+                  }
+                },
+                {
+                  "op": "replace",
+                  "path": "/trigger",
+                  "value": {
+                    "type": "EVENT",
+                    "attributes": {
+                      "id": "idn:identity-attributes-changed"
+                    }
+                  }
+                }
+              ]
+  responses:
+    '200':
+      description: The Workflow object
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/workflows/Workflow.yaml'
+    '400':
+      $ref: '../../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../../v3/responses/500.yaml'
+delete:
+  operationId: deleteWorkflow
+  tags:
+    - Workflows
+  summary: Delete Workflow By Id
+  description: >-
+    Delete a workflow.  **Enabled workflows cannot be deleted**.  They must first be disabled.
+  security:
+    - userAuth: [sp:workflow:manage]
+  parameters:
+    - name: id
+      in: path
+      description: Id of the Workflow
+      required: true
+      style: simple
+      explode: false
+      schema:
+        type: string
+        example: c17bea3a-574d-453c-9e04-4365fbf5af0b
+  responses:
+    '204':
+      $ref: '../../../v3/responses/204.yaml'
+    '400':
+      $ref: '../../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../../v3/responses/500.yaml'

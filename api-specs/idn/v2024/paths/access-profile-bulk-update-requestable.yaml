@@ -1,0 +1,64 @@
+post:
+  operationId: updateAccessProfilesInBulk
+  summary: Update Access Profile(s) requestable field.
+  tags:
+  - Access Profiles
+  description: "This API initiates a bulk update of field requestable for one or more\
+    \ Access Profiles.\n\n>  If any of the indicated Access Profiles is exists in\
+    \ Organization,then those Access Profiles will be added in **updated**\n    list\
+    \ of the response.Requestable field of these Access Profiles marked as **true**\
+    \ or **false**.\n\n>  If any of the indicated Access Profiles is not does not\
+    \ exists in Organization,then those Access Profiles will be added in **notFound**\
+    \ list of the response. Access Profiles marked as **notFound** will not be updated.\n\
+    \ A SOURCE_SUBADMIN may only use this\
+    \ API to update Access Profiles which are associated with Sources they are able\
+    \ to administer."
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../../v3/schemas/access/AccessProfileBulkUpdateRequest.yaml
+        example:
+        - id: 464ae7bf-791e-49fd-b746-06a2e4a89635
+          requestable: false
+  responses:
+    '207':
+      description: List of updated and not updated Access Profiles.
+      content:
+        application/json:
+          schema:
+            $ref: ../../v3/schemas/access/AccessProfileBulkUpdateResponse.yaml
+          example:
+          - id: 464ae7bf-791e-49fd-b746-06a2e4a89635
+            status: '201'
+            requestable: false
+            description: Access Profile updated successfully.
+    '400':
+      $ref: ../../v3/responses/400.yaml
+    '401':
+      $ref: ../../v3/responses/401.yaml
+    '403':
+      $ref: ../../v3/responses/403.yaml
+    '412':
+      $ref: ../../v3/responses/412.yaml
+    '429':
+      $ref: ../../v3/responses/429.yaml
+    '500':
+      $ref: ../../v3/responses/500.yaml
+  security:
+  - userAuth:
+    - idn:access-profile:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+  parameters:
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true

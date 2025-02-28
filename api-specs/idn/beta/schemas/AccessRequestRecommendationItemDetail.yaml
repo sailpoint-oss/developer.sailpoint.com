@@ -1,0 +1,47 @@
+type: object
+properties:
+  identityId:
+    type: string
+    format: UUID
+    description: Identity ID for the recommendation
+    example: 2c91808570313110017040b06f344ec9
+  access:
+    type: object
+    properties:
+      id:
+        type: string
+        format: UUID
+        description: ID of access item being recommended.
+        example: 2c9180835d2e5168015d32f890ca1581
+      type:
+        $ref: './AccessRequestRecommendationItemType.yaml'
+      name:
+        type: string
+        description: Name of the access item
+        example: Employee-database-read-write
+      description:
+        type: string
+        description: Description of the access item
+        example: This item grants an employee read and write access to the database
+  ignored:
+    type: boolean
+    example: true
+    description: Whether or not the identity has already chosen to ignore this recommendation.
+  requested:
+    type: boolean
+    example: true
+    description: Whether or not the identity has already chosen to request this recommendation.
+  viewed:
+    type: boolean
+    example: true
+    description: Whether or not the identity reportedly viewed this recommendation.
+  messages:
+    type: array
+    items:
+      $ref: './AccessRecommendationMessage.yaml'
+  translationMessages:
+    description: The list of translation messages
+    type: array
+    example: [{key: recommender-api.V2_WEIGHT_FEATURE_PRODUCT_INTERPRETATION_HIGH, values: ["75","department"]}]
+    items:
+      $ref: './TranslationMessage.yaml'

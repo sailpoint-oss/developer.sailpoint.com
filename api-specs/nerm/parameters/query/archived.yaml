@@ -1,0 +1,7 @@
+name: archived
+in: query
+description: Filter by archive status
+required: false
+schema:
+  type: boolean
+  default: false

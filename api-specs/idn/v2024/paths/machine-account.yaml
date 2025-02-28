@@ -1,0 +1,127 @@
+get:
+  operationId: getMachineAccount
+  tags:
+    - Machine Accounts
+  summary: Machine Account Details
+  description: >-
+    Use this API to return the details for a single machine account by its ID.  
+  security:
+    - userAuth:
+        - 'idn:mis-account:read'
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+    - HELPDESK
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      x-sailpoint-resource-operation-id: listMachineAccounts
+      description: Machine Account ID.
+      example: ef38f94347e94562b5bb8424a56397d8
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
+  responses:
+    "200":
+      description: Machine Account object.
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/MachineAccount.yaml"
+    "400":
+      $ref: "../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "404":
+      $ref: "../../v3/responses/404.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"
+patch:
+  operationId: updateMachineAccount
+  tags:
+    - Machine Accounts
+  summary: Update a Machine Account
+  description: |
+    Use this API to update machine accounts details. 
+  security:
+    - userAuth:
+        - 'idn:mis-account:manage'
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      x-sailpoint-resource-operation-id: listMachineAccounts
+      description: Machine Account ID.
+      example: ef38f94347e94562b5bb8424a56397d8
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
+  requestBody:
+    required: true
+    description: >-
+      A JSON of updated values [JSON
+      Patch](https://tools.ietf.org/html/rfc6902) standard.
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            type: object
+        example:
+          Add machine identity attribute:
+            value:
+              - op: add
+                path: /environment
+                value: test
+          Replace machine identity attribute:
+            value:
+              - op: replace
+                path: /environment
+                value: test
+          Remove machine identity attribute:
+            value:
+              - op: remove
+                path: /environment
+  responses:
+    "200":
+      description: Updated Machine Account object.
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/MachineAccount.yaml"
+    "400":
+      $ref: "../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "404":
+      $ref: "../../v3/responses/404.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"

@@ -1,0 +1,39 @@
+post:
+  operationId: updateApplicationsMap
+  tags:
+    - SaaS Management
+  summary: Update SaaS Management Application mapping
+  description: >-
+    This API updates SaaS Management Application mappings to IdentityNow sources.
+
+    A token with ORG_ADMIN, SOURCE_ADMIN or SOURCE_SUBADMIN authority is required to call this API.
+  requestBody:
+    required: true
+    description: One or more mappings to update.
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            $ref: '../../beta/schemas/SaasManagementApplicationMap.yaml'
+  responses:
+    '200':
+      description: Updated SaaS Management application objects.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../../beta/schemas/SaasManagementApplication.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

@@ -1,0 +1,48 @@
+get:
+  summary: Get user role pairings
+  operationId: getUserRoles
+  description: This endpoint can retrieve user role pairings from Lifecycle or you can search for user role pairings using parameters
+  tags:
+    - user roles
+  parameters:
+    - $ref: "../parameters/query/query.yaml"
+    - $ref: "../parameters/query/user_id.yaml"
+    - $ref: "../parameters/query/role_id.yaml"
+    - $ref: "../parameters/query/metadata.yaml"
+  responses:
+    '200':
+      $ref: "../responses/UserRoles_Meta.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"
+post:
+  summary: Create multiple new user role pairings
+  operationId: postUserRoles
+  description: Create multiple new user role pairings
+  tags:
+    - user roles
+  requestBody:
+    $ref: "../requestBodies/POST/UserRoles.yaml"
+  responses:
+    '200':
+      $ref: "../responses/UserRolesJob.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"
+patch:
+  summary: Update multiple user role pairings
+  operationId: patchUserRoles
+  description: Update multiple user role pairings
+  tags:
+    - user roles
+  requestBody:
+    $ref: "../requestBodies/PATCH/UserRoles.yaml"
+  responses:
+    '200':
+      $ref: "../responses/UserRolesJob.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"

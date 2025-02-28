@@ -1,0 +1,78 @@
+type: object
+properties:
+  id:
+    type: string
+    description: The entitlement id
+    example: "2c91808874ff91550175097daaec161c"
+  name:
+    type: string
+    description: The entitlement name
+    example: "LauncherTest2"
+  attribute:
+    type: string
+    description: The entitlement attribute name
+    example: "memberOf"
+  value:
+    type: string
+    description: The value of the entitlement
+    example: "CN=LauncherTest2,OU=LauncherTestOrg,OU=slpt-automation,DC=TestAutomationAD,DC=local"
+  sourceSchemaObjectType:
+    type: string
+    description: The object type of the entitlement from the source schema
+    example: "group"
+  description:
+    type: string
+    description: The description of the entitlement
+    example: "CN=LauncherTest2,OU=LauncherTestOrg,OU=slpt-automation,DC=TestAutomationAD,DC=local"
+  privileged:
+    type: boolean
+    description: True if the entitlement is privileged
+    example: true
+  cloudGoverned:
+    type: boolean
+    description: True if the entitlement is cloud governed
+    example: true
+  created:
+    type: string
+    description: Time when the entitlement was created
+    format: 'date-time'
+    example: "2020-10-08T18:33:52.029Z"
+  modified:
+    type: string
+    description: Time when the entitlement was last modified
+    format: 'date-time'
+    example: "2020-10-08T18:33:52.029Z"
+  source:
+    type: object
+    properties:
+      id:
+        type: string
+        description: The source ID
+        example: 2c9180827ca885d7017ca8ce28a000eb
+      type:
+        type: string
+        description: The source type, will always be "SOURCE"
+        example: SOURCE
+      name:
+        type: string
+        description: The source name
+        example: ODS-AD-Source
+  attributes:
+    type: object
+    description: A map of free-form key-value pairs from the source system
+    example: { "fieldName": "fieldValue"}
+    additionalProperties: true
+  segments:
+    type: array
+    items:
+      type: string
+    nullable: true
+    description: List of IDs of segments, if any, to which this Entitlement is assigned.
+    example: [
+        "f7b1b8a3-5fed-4fd4-ad29-82014e137e19",
+        "29cb6c06-1da8-43ea-8be4-b3125f248f2a"
+    ]
+  directPermissions:
+    type: array
+    items:
+      $ref: './PermissionDto.yaml'

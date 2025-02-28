@@ -1,0 +1,92 @@
+post:
+  operationId: deleteAccessProfilesInBulk
+  summary: Delete Access Profile(s)
+  tags:
+    - Access Profiles
+  description: >-
+    This endpoint initiates a bulk deletion of one or more access profiles.
+
+    When the request is successful, the endpoint returns the bulk delete's task result ID. 
+    To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/beta/get-task-status), which will return the task result's status and information. 
+
+    This endpoint can only bulk delete up to a limit of 50 access profiles per request. 
+
+    By default, if any of the indicated access profiles are in use, no deletions will be performed and the **inUse**
+    field of the response indicates the usages that must be removed first. If the request field **bestEffortOnly** is
+    **true**, however, usages are reported in the **inUse** response field but all other indicated access profiles will
+    be deleted.
+
+    A SOURCE_SUBADMIN user can only use this endpoint to delete access profiles associated with sources they're able
+    to administer.
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../../v3/schemas/access/AccessProfileBulkDeleteRequest.yaml'
+        example:
+          {
+            "bestEffortOnly": true,
+            "accessProfileIds": [ "2c91808876438bb2017668b91919ecca","2c91808876438ba801766e129f151816" ]
+          }
+  responses:
+    '200':
+      description: Returned only if **bestEffortOnly** is **false**, and one or more Access Profiles are in use.
+      content:
+        application/json:
+          schema:
+            $ref: '../../v3/schemas/access/AccessProfileBulkDeleteResponse.yaml'
+          example:
+            {
+              "pending": [],
+              "inUse": [
+                {
+                  "accessProfileId": "2c91808876438ba801766e129f151816",
+                  "usages": [
+                    {
+                        "type": "Role",
+                        "id": "2c9180887643764201766e9f6e121518"
+                    }
+                  ]
+                }
+              ]
+            }
+    '202':
+        description: Returned if at least one deletion will be performed.
+        content:
+          application/json:
+            schema:
+              $ref: '../../v3/schemas/access/AccessProfileBulkDeleteResponse.yaml'
+            example:
+              {
+                "taskId":"2c91808a7813090a01781412a1119a20",
+                "pending":["2c91808a7813090a017813fe1919ecca"],
+                "inUse": [
+                  {
+                    "accessProfileId": "2c91808876438ba801766e129f151816",
+                    "usages": [
+                      {
+                          "type": "Role",
+                          "id": "2c9180887643764201766e9f6e121518"
+                      }
+                    ]
+                  }
+                ]
+              }
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - userAuth: [idn:access-profile:manage]
+    - applicationAuth: [idn:access-profile:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN

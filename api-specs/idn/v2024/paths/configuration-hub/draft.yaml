@@ -1,0 +1,75 @@
+get:
+  operationId: listDrafts
+  security:
+    - userAuth: [sp:config-draft:read, sp:config-draft:manage]
+  tags:
+    - Configuration Hub
+  summary: List Drafts
+  description: >-
+    This API gets a list of existing drafts for the current tenant.
+  parameters:
+    - in: query
+      name: filters
+      schema:
+        type: string
+      description: >-
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+        
+        
+        Filtering is supported for the following fields and operators:
+        
+        
+        **status**: *eq*
+        
+        
+        **approvalStatus**: *eq*
+      example: status eq "COMPLETE"
+      required: false
+  responses:
+    '200':
+      description: >-
+        List of existing drafts.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../../schemas/configuration-hub/DraftResponse.yaml'
+          example:
+            [
+              {
+                "jobId": "07659d7d-2cce-47c0-9e49-185787ee565a",
+                "status": "COMPLETE",
+                "type": "CREATE_DRAFT",
+                "message": "Draft creation message",
+                "requesterName": "Requester Name",
+                "fileExists": true,
+                "created": "2024-08-16T14:16:58.389Z",
+                "completed": "2024-08-16T14:17:12.355Z",
+                "name": "Draft Name",
+                "sourceTenant": "source-tenant",
+                "sourceBackupId": "9393e1f5-bed6-4fa8-80fb-6f86b19bd3d6",
+                "sourceBackupName": "Source Backup Name",
+                "mode": "RESTORE",
+                "approvalStatus": "DEFAULT",
+                "approvalComment": [
+                  {
+                    "comment": "Approval comment",
+                    "timestamp": "2024-08-26T19:32:46.384137Z",
+                    "user": "User name",
+                    "id": "User id",
+                    "changedToStatus": "PENDING_FOR_APPROVAL"
+                  }
+                ]
+              }
+            ]
+    '400':
+      $ref: '../../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../../v3/responses/500.yaml'

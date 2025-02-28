@@ -1,0 +1,48 @@
+get:
+  summary: Get user-manager relationships
+  operationId: getUserManagers
+  description: This endpoint can retrieve user-manager relationships from Lifecycle or you can search for user-manager relationships using parameters
+  tags:
+    - user managers
+  parameters:
+    - $ref: "../parameters/query/query.yaml"
+    - $ref: "../parameters/query/user_id.yaml"
+    - $ref: "../parameters/query/manager_id.yaml"
+    - $ref: "../parameters/query/metadata.yaml"
+  responses:
+    '200':
+      $ref: "../responses/UserManagers_Meta.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"
+post:
+  summary: Create multiple new user-manager relationships
+  operationId: postUserManagers
+  description: Create multiple new user-manager relationships
+  tags:
+    - user managers
+  requestBody:
+    $ref: "../requestBodies/POST/UserManagers.yaml"
+  responses:
+    '200':
+      $ref: "../responses/UserManagersJob.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"
+patch:
+  summary: Update multiple user-manager relationships
+  operationId: patchUserManagers
+  description: Update multiple user-manager relationships
+  tags:
+    - user managers
+  requestBody:
+    $ref: "../requestBodies/PATCH/UserManagers.yaml"
+  responses:
+    '200':
+      $ref: "../responses/UserManagersJob.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"

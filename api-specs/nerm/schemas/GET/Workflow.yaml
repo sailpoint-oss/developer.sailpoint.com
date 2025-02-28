@@ -1,0 +1,109 @@
+type: object
+properties:
+  id:
+    type: string
+    format: uuid
+    readOnly: true
+    description: The ID of the workflow
+    example: 33f072dd-13b4-41e1-8ea0-16f2a59b57c8
+  archived:
+    type: boolean
+    default: false
+    description: Whether or not the workflow is archived.
+    example: false
+  archived_on:
+    type: string
+    format: date-time
+    description: The date-time the workflow was archived.
+    example: 2022-12-27 08:26:49.219717
+  created_at:
+    type: string
+    format: date-time
+    readOnly: true
+    description: The date-time the workflow was created.
+    example: 2022-12-27 08:26:49.219717
+  description:
+    type: string
+    description: The description of the workflow.
+    example: My workflow.
+  legacy_id:
+    type: string
+    format: uuid
+    description: Deprecated.
+    example: 33f072dd-13b4-41e1-8ea0-16f2a59b57c8
+  name:
+    type: string
+    description: The uid of the workflow.
+    example: my_uid
+  ne_attribute_id:
+    type: string
+    format: uuid
+    description: UUID of attribute associated w/ workflow
+    example: 33f072dd-13b4-41e1-8ea0-16f2a59b57c8
+  options:
+    type: object
+    properties:
+      all_profiles:
+        type: string
+        enum: ["true", "false"]
+        description: Used for batch workflows.
+        example: true
+      multiple_requests:
+        type: string
+        enum: ["true", "false"]
+        description: Used for login/password reset for if multiple requests are allowed.
+        example: true
+      expiration_time:
+        type: integer
+        format: int32
+        minimum: 1
+        description: Used for login/password reset for when the password will expire.
+        example: 1
+  position:
+    type: integer
+    format: int32
+    minimum: 1
+    description: The position of the workflow.
+    example: 3
+  profile_status:
+    type: string
+    description: The status of the profiles the workflow will effect.
+    example: active
+  profile_type_id:
+    type: string
+    format: uuid
+    description: The profile type the workflow effects.
+    example: 33f072dd-13b4-41e1-8ea0-16f2a59b57c8
+  runs_other_workflows:
+    type: boolean
+    default: false
+    description: Whether or not it runs other workflow.
+    example: true
+  status:
+    type: string
+    enum: [Enabled, Disabled]
+    description: Whether or not the workflow is enabled or disabled.
+    example: Enabled
+  uid:
+    type: string
+    minLength: 32
+    maxLength: 32
+    readOnly: true
+    description: The uid of the workflow.
+    example: my_uid
+  updated_at:
+    type: string
+    format: date-time
+    readOnly: true
+    description: The date-time the workflow was updated.
+    example: 2022-12-27 08:26:49.219717
+  url:
+    type: string
+    format: uuid
+    description: The URL.
+    example: https://www.google.com
+  allow_block_permissions:
+    type: boolean
+    default: false
+    description: Whether permissions are allowed or blocked.
+    example: false

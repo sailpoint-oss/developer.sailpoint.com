@@ -1,0 +1,15 @@
+description: Internal Server Error - Returned if there is an unexpected error.
+content:
+  application/json:
+    schema:
+      $ref: '../../v3/schemas/ErrorResponseDto.yaml'
+    examples:
+      "500":
+        summary: An example of a 500 response object
+        value:
+          detailCode: "500.0 Internal Fault"
+          trackingId: "b21b1f7ce4da4d639f2c62a57171b427"
+          messages:
+            - locale: "en-US"
+              localeOrigin: "DEFAULT"
+              text: "An internal fault occurred."

@@ -1,0 +1,16 @@
+type: object
+properties:
+  feature:
+    type: string
+    description: The type of feature
+    example: 'department'
+  numerator:
+    type: integer
+    format: int32
+    example: 14
+    description: The number of identities that have access to the feature
+  denominator:
+    type: integer
+    format: int32
+    example: 14
+    description: The number of identities with the corresponding feature

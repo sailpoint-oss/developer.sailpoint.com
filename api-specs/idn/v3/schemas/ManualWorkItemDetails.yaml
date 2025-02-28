@@ -1,0 +1,61 @@
+type : object
+properties:
+  forwarded:
+    type: boolean
+    default: false
+    description: True if the request for this item was forwarded from one owner to another.
+    example: true
+  originalOwner:
+    type: object
+    nullable: true
+    description: Identity of original work item owner, if the work item has been forwarded.
+    properties:
+      type:
+        type: string 
+        description: DTO type of original work item owner's identity.  
+        enum: 
+          - GOVERNANCE_GROUP
+          - IDENTITY
+        example: IDENTITY
+      id:
+        type: string
+        description: ID of original work item owner's identity. 
+        example: 2c7180a46faadee4016fb4e018c20642
+      name:
+        type: string
+        description: Display name of original work item owner. 
+        example: Michael Michaels
+  currentOwner: 
+    type: object
+    description: Identity of current work item owner.
+    nullable: true
+    properties:
+      type:
+        type: string 
+        description: DTO type of current work item owner's identity.  
+        enum: 
+          - GOVERNANCE_GROUP
+          - IDENTITY
+        example: IDENTITY
+      id:
+        type: string
+        description: ID of current work item owner's identity. 
+        example: 2c3780a46faadee4016fb4e018c20652
+      name:
+        type: string
+        description: Display name of current work item owner. 
+        example: Allen Albertson
+  modified:
+    type: string
+    format: date-time
+    description: Time at which item was modified.
+    example: "2019-08-23T18:52:57.398Z"
+  status:
+    $ref: './ManualWorkItemState.yaml'
+  forwardHistory:
+    type: array
+    nullable: true
+    items:
+      $ref: './ApprovalForwardHistory.yaml'
+    description: >-
+      The history of approval forward action.

@@ -1,0 +1,26 @@
+# The Identity DTO returned by the v3 identities APIs
+allOf:
+  - $ref: '../../v3/schemas/BaseCommonDto.yaml'
+  - type: object
+    title: MachineIdentityDto
+    required:
+      - businessApplication
+    properties:
+      businessApplication:
+        type: string
+        description: The business application that the identity represents
+        example: 'ADService'
+      description:
+        type: string
+        description: Description of machine identity
+        example: ''
+      manuallyEdited:
+        type: boolean
+        description:
+          Indicates if the machine identity has been manually edited
+        default: false
+        example: true
+      attributes:
+        type: object
+        description: A map of custom machine identity attributes
+        example: '{"Region":"EU"}'

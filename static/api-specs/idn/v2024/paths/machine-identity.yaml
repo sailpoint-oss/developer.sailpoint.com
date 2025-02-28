@@ -1,0 +1,168 @@
+get:
+  operationId: getMachineIdentity
+  tags:
+    - Machine Identities
+  summary: Machine Identity Details
+  description: >-
+    This API returns a single machine identity using the Machine Identity ID.
+  security:
+    - userAuth:
+      - 'idn:mis-identity:read'
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+    - HELPDESK
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      x-sailpoint-resource-operation-id: listMachineIdentities
+      description: Machine Identity ID
+      example: ef38f94347e94562b5bb8424a56397d8
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
+  responses:
+    "200":
+      description: A machine identity object
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/MachineIdentity.yaml"
+    "400":
+      $ref: "../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "404":
+      $ref: "../../v3/responses/404.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"
+patch:
+  operationId: updateMachineIdentity
+  tags:
+    - Machine Identities
+  summary: Update a Machine Identity
+  description: |
+    Use this API to update machine identity details.
+  security:
+    - userAuth:
+      - 'idn:mis-identity:manage'
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      x-sailpoint-resource-operation-id: listMachineIdentities
+      description: Machine Identity ID.
+      example: ef38f94347e94562b5bb8424a56397d8
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
+  requestBody:
+    required: true
+    description: >-
+      A JSON of updated values [JSON
+      Patch](https://tools.ietf.org/html/rfc6902) standard.
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            type: object
+        example:
+          Add machine identity attribute:
+            value:
+              - op: add
+                path: /attributes/securityRisk
+                value: medium
+          Replace machine identity attribute:
+            value:
+              - op: replace
+                path: /attributes/securityRisk
+                value: medium
+          Remove machine identity attribute:
+            value:
+              - op: remove
+                path: /attributes/securityRisk
+  responses:
+    "200":
+      description: Updated Machine Identity object.
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/MachineIdentity.yaml"
+    "400":
+      $ref: "../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "404":
+      $ref: "../../v3/responses/404.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"
+delete:
+  operationId: deleteMachineIdentity
+  tags:
+    - Machine Identities
+  summary: Delete machine identity
+  description: >-
+    The API returns successful response if the requested machine identity was deleted.
+  security:
+    - userAuth: [ idn:mis-identity:manage ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      x-sailpoint-resource-operation-id: listMachineIdentities
+      description: Machine Identity ID
+      example: ef38f94347e94562b5bb8424a56397d8
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
+  responses:
+    "204":
+      $ref: "../../v3/responses/204.yaml"
+    "400":
+      $ref: "../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "404":
+      $ref: "../../v3/responses/404.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"

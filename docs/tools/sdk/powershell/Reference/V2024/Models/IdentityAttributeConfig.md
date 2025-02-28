@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'IdentityAttributeConfig', 'V2024Ident
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Enabled** | **Boolean** | The backend will only promote values if the profile/mapping is enabled. | [optional] [default to $false]
+**Enabled** | **Boolean** | Backend will only promote values if the profile/mapping is enabled. | [optional] [default to $false]
 **AttributeTransforms** | [**[]IdentityAttributeTransform**](identity-attribute-transform) |  | [optional] 
 
 ## Examples

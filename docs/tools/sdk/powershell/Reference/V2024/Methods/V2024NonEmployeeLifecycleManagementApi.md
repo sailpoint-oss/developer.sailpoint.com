@@ -252,7 +252,7 @@ try {
 [[Back to top]](#) 
 
 ## create-non-employee-source
-Create a non-employee source. 
+This request will create a non-employee source. Requires role context of `idn:nesr:create`
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/create-non-employee-source)
 
@@ -1404,20 +1404,22 @@ try {
 [[Back to top]](#) 
 
 ## list-non-employee-sources
-Get a list of non-employee sources. There are two contextual uses for the `requested-for` path parameter: 
-  1. If the user has the role context of `idn:nesr:read`, he or she may request a list sources assigned to a particular account manager by passing in that manager's `id`.
-  2. If the current user is an account manager, the user should provide 'me' as the `requested-for` value. Doing so provide the user with a list of the sources he or she owns.
+This gets a list of non-employee sources. There are two contextual uses for the requested-for path parameter: 
+  1. The user has the role context of `idn:nesr:read`, in which case he or
+she may request a list sources assigned to a particular account manager by passing in that manager's id.
+  2. The current user is an account manager, in which case "me" should be
+provided as the `requested-for` value. This will provide the user with a list of the sources that he or she owns.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-non-employee-sources)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
+  Query | RequestedFor | **String** | True  | The identity for whom the request was made. *me* indicates the current user.
   Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-  Query | RequestedFor | **String** |   (optional) | Identity the request was made for. Use 'me' to indicate the current user.
-  Query | NonEmployeeCount | **Boolean** |   (optional) (default to $false) | Flag that determines whether the API will return a non-employee count associated with the source.
+  Query | NonEmployeeCount | **Boolean** |   (optional) | The flag to determine whether return a non-employee count associate with source.
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, sourceId**
 
 ### Return type
@@ -1439,20 +1441,20 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
+$RequestedFor = "me" # String | The identity for whom the request was made. *me* indicates the current user.
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
-$RequestedFor = "me" # String | Identity the request was made for. Use 'me' to indicate the current user. (optional)
-$NonEmployeeCount = $true # Boolean | Flag that determines whether the API will return a non-employee count associated with the source. (optional) (default to $false)
+$NonEmployeeCount = $true # Boolean | The flag to determine whether return a non-employee count associate with source. (optional)
 $Sorters = "name,created" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, sourceId** (optional)
 
 # List Non-Employee Sources
 
 try {
-    Get-V2024NonEmployeeSources 
+    Get-V2024NonEmployeeSources -RequestedFor $RequestedFor 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024NonEmployeeSources -Limit $Limit -Offset $Offset -Count $Count -RequestedFor $RequestedFor -NonEmployeeCount $NonEmployeeCount -Sorters $Sorters  
+    # Get-V2024NonEmployeeSources -RequestedFor $RequestedFor -Limit $Limit -Offset $Offset -Count $Count -NonEmployeeCount $NonEmployeeCount -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024NonEmployeeSources"
     Write-Host $_.ErrorDetails

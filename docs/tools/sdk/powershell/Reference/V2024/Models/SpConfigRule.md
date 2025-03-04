@@ -17,8 +17,8 @@ tags: ['SDK', 'Software Development Kit', 'SpConfigRule', 'V2024SpConfigRule']
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Path** | **String** | JSONPath expression denoting the path within the object where a value substitution should be applied | [optional] 
-**Value** | [**SpConfigRuleValue**](sp-config-rule-value) |  | [optional] 
-**Modes** | **[]String** | Draft modes to which this rule will apply | [optional] 
+**Value** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | Value to be assigned at the jsonPath location within the object | [optional] 
+**Mode** | **[]String** | Draft modes to which this rule will apply | [optional] 
 
 ## Examples
 
@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 ```powershell
 $SpConfigRule = Initialize-PSSailpoint.V2024SpConfigRule  -Path $.enabled `
  -Value null `
- -Modes [RESTORE, PROMOTE]
+ -Mode [RESTORE, PROMOTE]
 ```
 
 - Convert the resource to JSON

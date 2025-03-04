@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Layout from '@theme/Layout';
 import { sendCode } from '../services/SailAppsService';
-
-// http://localhost:4200/sailapps?code=12345&state=phil
+import styles from './sailapps.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faKey } from '@fortawesome/free-solid-svg-icons';
 
 function SailApps() {
   const [authCode, setAuthCode] = useState('');
@@ -12,7 +13,6 @@ function SailApps() {
   const [sendResult, setSendResult] = useState('');
 
   useEffect(() => {
-    // Extract auth code and state from URL parameters
     const urlParams = new URLSearchParams(window.location.search);
     const code = urlParams.get('code');
     const stateParam = urlParams.get('state');
@@ -44,24 +44,35 @@ function SailApps() {
 
   return (
     <Layout title="SailApps OAuth2 Redirect">
-      <div style={{ padding: '2rem' }}>
-        <h1>SailApps OAuth2 Redirect</h1>
+      <div className={styles.gettingStartedText}>
+        <FontAwesomeIcon
+          icon={faKey}
+          className={styles.docCardIcon}
+          size="3x"
+        />
+        <h1 className={styles.gettingStartedOne}>SailApps OAuth2 Redirect</h1>
         {state && (
-          <div>
-            <p>Your identity confirmation GUID: {state}</p>
+          <div className={styles.gettingStartedThree}>
+            <p>Your identity confirmation GUID: <span className={styles.bold}>{state}</span></p>
             {!isConfirmed && (
-              <button onClick={handleConfirm} disabled={isSending}>
-                {isSending ? 'Confirming and Sending...' : 'Confirm Identity'}
-              </button>
+              <div className={styles.button}>
+                <button 
+                  onClick={handleConfirm} 
+                  disabled={isSending}
+                  className={styles.link}
+                >
+                  {isSending ? 'Confirming and Sending...' : 'Confirm Identity'}
+                </button>
+              </div>
             )}
           </div>
         )}
         {isConfirmed && (
-          <div>
+          <div className={styles.gettingStartedThree}>
             <p>Identity confirmed. Auth code has been sent.</p>
           </div>
         )}
-        {sendResult && <p>{sendResult}</p>}
+        {sendResult && <p className={styles.gettingStartedThree}>{sendResult}</p>}
       </div>
     </Layout>
   );

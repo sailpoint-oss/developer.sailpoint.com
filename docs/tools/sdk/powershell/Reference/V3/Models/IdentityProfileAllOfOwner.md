@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'IdentityProfileAllOfOwner', 'Identity
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  **Enum** [  "IDENTITY" ] | Owner's object type. | [optional] 
-**Id** | **String** | Owner's ID. | [optional] 
-**Name** | **String** | Owner's name. | [optional] 
+**Type** |  **Enum** [  "IDENTITY" ] | Type of the object to which this reference applies | [optional] 
+**Id** | **String** | ID of the object to which this reference applies | [optional] 
+**Name** | **String** | Human-readable display name of the object to which this reference applies | [optional] 
 
 ## Examples
 

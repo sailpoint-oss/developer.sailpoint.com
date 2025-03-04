@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **RequestId** | **String** | Backend ID that tracks a workflow request in the system. Provide this ID in a customer support ticket for debugging purposes. | [optional] 
 **StartTime** | **System.DateTime** | Date/time when the workflow started. | [optional] 
 **CloseTime** | **System.DateTime** | Date/time when the workflow ended. | [optional] 
-**Status** |  **Enum** [  "Completed",    "Failed",    "Canceled",    "Running" ] | Workflow execution status. | [optional] 
+**Status** |  **Enum** [  "Completed",    "Failed",    "Canceled",    "Executing" ] | Workflow execution status. | [optional] 
 
 ## Examples
 

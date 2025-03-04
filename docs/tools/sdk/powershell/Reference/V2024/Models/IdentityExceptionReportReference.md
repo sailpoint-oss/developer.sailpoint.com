@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'IdentityExceptionReportReference', 'V
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TaskResultId** | **String** | Task result ID. | [optional] 
-**ReportName** | **String** | Report name. | [optional] 
+**TaskResultId** | **String** | The id of the task result. | [optional] 
+**ReportName** | **String** | The name of the report. | [optional] 
 
 ## Examples
 

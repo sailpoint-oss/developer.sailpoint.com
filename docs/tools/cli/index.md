@@ -181,7 +181,7 @@ These commands are available:
 - `cluster`: Run this command to access VA clusters connected to your tenant. For more information about the `cluster` command, refer to the CLI [Clusters guide](/docs/tools/cli/cluster).
 - `workflow`: Run this command to create and manage workflows within the CLI. For more information about the `workflow` command, refer to the CLI [Workflows guide](/docs/tools/cli/workflow).
 
-## GitHub
+## Support
 
 You will find the SailPoint GitHub CLI repo here: https://github.com/sailpoint-oss/sailpoint-cli
 

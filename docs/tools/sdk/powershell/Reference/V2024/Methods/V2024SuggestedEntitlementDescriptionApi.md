@@ -30,9 +30,6 @@ Method | HTTP request | Description
 
 
 ## get-sed-batch-stats
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 'Submit Sed Batch Stats Request.
 
  Submits batchId in the path param `(e.g. {batchId}/stats)`. API responses with stats
@@ -45,7 +42,6 @@ This API is currently in an experimental state. The API is subject to change bas
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | BatchId | **String** | True  | Batch Id
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
 [**SedBatchStats**](../models/sed-batch-stats)
@@ -68,15 +64,14 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $BatchId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | Batch Id
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
 # Submit Sed Batch Stats Request
 
 try {
-    Get-V2024SedBatchStats -BatchId $BatchId -XSailPointExperimental $XSailPointExperimental 
+    Get-V2024SedBatchStats -BatchId $BatchId 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024SedBatchStats -BatchId $BatchId -XSailPointExperimental $XSailPointExperimental  
+    # Get-V2024SedBatchStats -BatchId $BatchId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SedBatchStats"
     Write-Host $_.ErrorDetails
@@ -85,9 +80,6 @@ try {
 [[Back to top]](#) 
 
 ## get-sed-batches
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 List Sed Batches.
 API responses with Sed Batch Status
 
@@ -96,7 +88,6 @@ API responses with Sed Batch Status
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
 [**SedBatchStatus**](../models/sed-batch-status)
@@ -118,15 +109,14 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
 # List Sed Batch Request
 
 try {
-    Get-V2024SedBatches -XSailPointExperimental $XSailPointExperimental 
+    Get-V2024SedBatches 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024SedBatches -XSailPointExperimental $XSailPointExperimental  
+    # Get-V2024SedBatches  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SedBatches"
     Write-Host $_.ErrorDetails
@@ -135,9 +125,6 @@ try {
 [[Back to top]](#) 
 
 ## list-seds
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 List of Suggested Entitlement Descriptions (SED)
 
 SED field descriptions:
@@ -159,14 +146,14 @@ SED field descriptions:
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
-  Query | Limit | **Int64** |   (optional) | Integer specifying the maximum number of records to return in a single API call.  The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
+  Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **batchId**: *eq, ne*  **displayName**: *eq, ne, co*  **sourceName**: *eq, ne, co*  **sourceId**: *eq, ne*  **status**: *eq, ne*  **fullText**: *co*
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName, sourceName, status**
-  Query | Count | **Boolean** |   (optional) | If `true` it will populate the `X-Total-Count` response header with the number of results that would be returned if `limit` and `offset` were ignored.  The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). Since requesting a total count can have a performance impact, it is recommended not to send `count=true` if that value will not be used.
-  Query | CountOnly | **Boolean** |   (optional) | If `true` it will populate the `X-Total-Count` response header with the number of results that would be returned if `limit` and `offset` were ignored. This parameter differs from the Coun parameter in that this one skip executing the actual query and always return an empty array.
-  Query | RequestedByAnyone | **Boolean** |   (optional) | By default, the ListSeds API will only return items that you have requested to be generated.   This option will allow you to see all items that have been requested
-  Query | ShowPendingStatusOnly | **Boolean** |   (optional) | Will limit records to items that are in ""suggested"" or ""approved"" status
+  Query | CountOnly | **Boolean** |   (optional) (default to $false) | If `true` it will populate the `X-Total-Count` response header with the number of results that would be returned if `limit` and `offset` were ignored. This parameter differs from the count parameter in that this one skips executing the actual query and always return an empty array.
+  Query | RequestedByAnyone | **Boolean** |   (optional) (default to $false) | By default, the ListSeds API will only return items that you have requested to be generated.   This option will allow you to see all items that have been requested
+  Query | ShowPendingStatusOnly | **Boolean** |   (optional) (default to $false) | Will limit records to items that are in ""suggested"" or ""approved"" status
 
 ### Return type
 [**Sed[]**](../models/sed)
@@ -188,22 +175,22 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-$Limit = limit=25 # Int64 | Integer specifying the maximum number of records to return in a single API call.  The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used. (optional)
+$Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+$Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+$Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Filters = 'displayName co "Read and Write"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **batchId**: *eq, ne*  **displayName**: *eq, ne, co*  **sourceName**: *eq, ne, co*  **sourceId**: *eq, ne*  **status**: *eq, ne*  **fullText**: *co* (optional)
 $Sorters = "sorters=displayName" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName, sourceName, status** (optional)
-$Count = $false # Boolean | If `true` it will populate the `X-Total-Count` response header with the number of results that would be returned if `limit` and `offset` were ignored.  The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). Since requesting a total count can have a performance impact, it is recommended not to send `count=true` if that value will not be used. (optional)
-$CountOnly = $false # Boolean | If `true` it will populate the `X-Total-Count` response header with the number of results that would be returned if `limit` and `offset` were ignored. This parameter differs from the Coun parameter in that this one skip executing the actual query and always return an empty array. (optional)
-$RequestedByAnyone = $false # Boolean | By default, the ListSeds API will only return items that you have requested to be generated.   This option will allow you to see all items that have been requested (optional)
-$ShowPendingStatusOnly = $false # Boolean | Will limit records to items that are in ""suggested"" or ""approved"" status (optional)
+$CountOnly = $false # Boolean | If `true` it will populate the `X-Total-Count` response header with the number of results that would be returned if `limit` and `offset` were ignored. This parameter differs from the count parameter in that this one skips executing the actual query and always return an empty array. (optional) (default to $false)
+$RequestedByAnyone = $false # Boolean | By default, the ListSeds API will only return items that you have requested to be generated.   This option will allow you to see all items that have been requested (optional) (default to $false)
+$ShowPendingStatusOnly = $false # Boolean | Will limit records to items that are in ""suggested"" or ""approved"" status (optional) (default to $false)
 
 # List Suggested Entitlement Descriptions
 
 try {
-    Get-V2024Seds -XSailPointExperimental $XSailPointExperimental 
+    Get-V2024Seds 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024Seds -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Filters $Filters -Sorters $Sorters -Count $Count -CountOnly $CountOnly -RequestedByAnyone $RequestedByAnyone -ShowPendingStatusOnly $ShowPendingStatusOnly  
+    # Get-V2024Seds -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters -CountOnly $CountOnly -RequestedByAnyone $RequestedByAnyone -ShowPendingStatusOnly $ShowPendingStatusOnly  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024Seds"
     Write-Host $_.ErrorDetails
@@ -212,9 +199,6 @@ try {
 [[Back to top]](#) 
 
 ## patch-sed
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Patch Suggested Entitlement Description
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/patch-sed)
@@ -223,7 +207,6 @@ Patch Suggested Entitlement Description
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | id is sed id
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | SedPatch | [**[]SedPatch**](../models/sed-patch) | True  | Sed Patch Request
 
 ### Return type
@@ -247,7 +230,6 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "ebab396f-0af1-4050-89b7-dafc63ec70e7" # String | id is sed id
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
  $SedPatch = @"{
   "op" : "replace",
   "path" : "status",
@@ -259,10 +241,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 
 try {
     $Result = ConvertFrom-JsonToSedPatch -Json $SedPatch
-    Update-V2024Sed -Id $Id -XSailPointExperimental $XSailPointExperimental -SedPatch $Result 
+    Update-V2024Sed -Id $Id -SedPatch $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024Sed -Id $Id -XSailPointExperimental $XSailPointExperimental -SedPatch $Result  
+    # Update-V2024Sed -Id $Id -SedPatch $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024Sed"
     Write-Host $_.ErrorDetails
@@ -271,9 +253,6 @@ try {
 [[Back to top]](#) 
 
 ## submit-sed-approval
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Submit Bulk Approval Request for SED.
 Request body takes list of SED Ids. API responses with list of SED Approval Status
 
@@ -282,7 +261,6 @@ Request body takes list of SED Ids. API responses with list of SED Approval Stat
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | SedApproval | [**[]SedApproval**](../models/sed-approval) | True  | Sed Approval
 
 ### Return type
@@ -305,7 +283,6 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
  $SedApproval = @"{
   "items" : "016629d1-1d25-463f-97f3-c6686846650"
 }"@ # SedApproval[] | Sed Approval
@@ -315,10 +292,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 
 try {
     $Result = ConvertFrom-JsonToSedApproval -Json $SedApproval
-    Submit-V2024SedApproval -XSailPointExperimental $XSailPointExperimental -SedApproval $Result 
+    Submit-V2024SedApproval -SedApproval $Result 
     
     # Below is a request that includes all optional parameters
-    # Submit-V2024SedApproval -XSailPointExperimental $XSailPointExperimental -SedApproval $Result  
+    # Submit-V2024SedApproval -SedApproval $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Submit-V2024SedApproval"
     Write-Host $_.ErrorDetails
@@ -327,9 +304,6 @@ try {
 [[Back to top]](#) 
 
 ## submit-sed-assignment
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Submit Assignment Request.
 Request body has an assignee, and list of SED Ids that are assigned to that assignee API responses with batchId that groups all approval requests together
 
@@ -338,7 +312,6 @@ Request body has an assignee, and list of SED Ids that are assigned to that assi
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | SedAssignment | [**SedAssignment**](../models/sed-assignment) | True  | Sed Assignment Request
 
 ### Return type
@@ -361,7 +334,6 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $SedAssignment = @"{
   "assignee" : {
     "type" : "SOURCE_OWNER",
@@ -374,10 +346,10 @@ $SedAssignment = @"{
 
 try {
     $Result = ConvertFrom-JsonToSedAssignment -Json $SedAssignment
-    Submit-V2024SedAssignment -XSailPointExperimental $XSailPointExperimental -SedAssignment $Result 
+    Submit-V2024SedAssignment -SedAssignment $Result 
     
     # Below is a request that includes all optional parameters
-    # Submit-V2024SedAssignment -XSailPointExperimental $XSailPointExperimental -SedAssignment $Result  
+    # Submit-V2024SedAssignment -SedAssignment $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Submit-V2024SedAssignment"
     Write-Host $_.ErrorDetails
@@ -386,9 +358,6 @@ try {
 [[Back to top]](#) 
 
 ## submit-sed-batch-request
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Submit Sed Batch Request.
 Request body has one of the following: - a list of entitlement Ids - a list of SED Ids that user wants to have description generated by LLM. API responses with batchId that groups Ids together
 
@@ -397,7 +366,6 @@ Request body has one of the following: - a list of entitlement Ids - a list of S
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | SedBatchRequest | [**SedBatchRequest**](../models/sed-batch-request) |   (optional) | Sed Batch Request
 
 ### Return type
@@ -420,7 +388,6 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $SedBatchRequest = @"{
   "entitlements" : [ "016629d1-1d25-463f-97f3-c6686846650", "016629d1-1d25-463f-97f3-c6686846650" ],
   "seds" : [ "016629d1-1d25-463f-97f3-c6686846650", "016629d1-1d25-463f-97f3-c6686846650" ]
@@ -429,10 +396,10 @@ $SedBatchRequest = @"{
 # Submit Sed Batch Request
 
 try {
-    Submit-V2024SedBatchRequest -XSailPointExperimental $XSailPointExperimental 
+    Submit-V2024SedBatchRequest 
     
     # Below is a request that includes all optional parameters
-    # Submit-V2024SedBatchRequest -XSailPointExperimental $XSailPointExperimental -SedBatchRequest $Result  
+    # Submit-V2024SedBatchRequest -SedBatchRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Submit-V2024SedBatchRequest"
     Write-Host $_.ErrorDetails

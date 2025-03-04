@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'TransformDefinition', 'TransformDefin
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **String** | The type of the transform definition. | [optional] 
+**Type** | **String** | Transform definition type. | [optional] 
 **Attributes** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | Arbitrary key-value pairs to store any metadata for the object | [optional] 
 
 ## Examples

@@ -84,6 +84,16 @@ Resources:
         - x86_64
       MemorySize: 128
       Timeout: 100
+  SailAppsAuthFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: backend/src/mithrandir/
+      Handler: index.authHandler
+      Runtime: nodejs18.x
+      Architectures:
+        - x86_64
+      MemorySize: 128
+      Timeout: 100
   JSONPathGoFunction:
     Type: AWS::Serverless::Function
     Metadata:

@@ -12,6 +12,7 @@ const app = new Hono()
 async function GetByUUID(uuid: string) {
   try {
     const data = await ddbDocClient.send(new GetCommand({ TableName: tableName, Key: { id: uuid } }));
+    console.log(data)
     return data.Item
   } catch (err) {
     //@ts-expect-error Unknown error shape
@@ -30,6 +31,7 @@ async function GetByUUID(uuid: string) {
 async function PutByUUID(uuid: string, apiBaseURL: string) {
   try {
     const data = await ddbDocClient.send(new PutCommand({ TableName: tableName, Item: { id: uuid, apiBaseURL: apiBaseURL } }));
+    console.log(data)
     return data
   } catch (err) {
     //@ts-expect-error Unknown error shape
@@ -53,6 +55,7 @@ async function AddTokenByUUID(uuid: string, token: string) {
         ":token": token,
       }
     }));
+    console.log(data)
     return data
   } catch (err) {
     //@ts-expect-error Unknown error shape

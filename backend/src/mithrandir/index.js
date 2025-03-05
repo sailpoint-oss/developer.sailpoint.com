@@ -1,10 +1,11 @@
+const crypto = require("crypto") 
+
 exports.authHandler = async (event) => {
-  console.log('Event:', event);
-  console.log('Headers:', event.headers);
-  console.log('Method:', event.httpMethod);
-  console.log('Path:', event.path);
-  
-  switch(event.httpMethod) {
+  const { http } = event.requestContext
+  console.log('Method:', http.method);
+  console.log('Path:', http.path);
+
+  switch (http.method) {
     case 'GET':
       return handleGet(event);
     default:
@@ -15,13 +16,23 @@ exports.authHandler = async (event) => {
   }
 }
 
-function handleGet(event){
+function handleGet(event) {
   console.log('Handling GET request');
-  const { path } = event;
-  console.log('Path:', path);
-  
-  return {
-    statusCode: 200,
-    body: JSON.stringify({ message: 'GET request handled successfully' }),
+  const { http } = event.requestContext
+
+  if (http.path === '/code') {
+    console.log(`path matches /code`)
+    return {
+      statusCode: 200,
+      body: JSON.stringify({ code: crypto.randomUUID() }),
+    }
+  } else if (http.path.startsWith('/code/')) {
+    console.log(`path matches /code/{code}`)
+  }
+  else {
+    return {
+      statusCode: 404,
+      body: JSON.stringify({ message: 'Requested Path Not Found' }),
+    }
   }
 }

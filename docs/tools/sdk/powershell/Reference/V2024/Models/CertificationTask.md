@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **TargetType** |  **Enum** [  "CERTIFICATION",    "CAMPAIGN" ] | The type of item that is being operated on by this task whose ID is stored in the targetId field. | [optional] 
 **TargetId** | **String** | The ID of the item being operated on by this task. | [optional] 
 **Status** |  **Enum** [  "QUEUED",    "IN_PROGRESS",    "SUCCESS",    "ERROR" ] | The status of the task. | [optional] 
-**Errors** | [**[]ErrorMessageDto**](error-message-dto) |  | [optional] 
+**Errors** | [**[]ErrorMessageDto**](error-message-dto) | List of error messages | [optional] 
 **ReassignmentTrailDTOs** | [**[]ReassignmentTrailDTO**](reassignment-trail-dto) | Reassignment trails that lead to self certification identity | [optional] 
 **Created** | **System.DateTime** | The date and time on which this task was created. | [optional] 
 
@@ -34,7 +34,7 @@ $CertificationTask = Initialize-PSSailpoint.V2024CertificationTask  -Id 2c918086
  -TargetType CAMPAIGN `
  -TargetId 2c918086719eec070171a7e3355a834c `
  -Status QUEUED `
- -Errors null `
+ -Errors {locale=en-US, localeOrigin=DEFAULT, text=Error Message} `
  -ReassignmentTrailDTOs {previousOwner=ef38f94347e94562b5bb8424a56397d8, newOwner=ef38f94347e94562b5bb8424a56397a3, reassignmentType=AUTOMATIC_REASSIGNMENT} `
  -Created 2020-09-24T18:10:47.693Z
 ```

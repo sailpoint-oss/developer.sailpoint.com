@@ -28,10 +28,10 @@ get:
           schema:
             type: array
             items:
-              $ref: ../../beta/schemas/WorkItemsCount.yaml
+              $ref: ../schemas/WorkItemsCount.yaml
     '400':
-      $ref: ../../v3/responses/400.yaml
+      $ref: ../responses/400.yaml
     '403':
-      $ref: ../../v3/responses/403.yaml
+      $ref: ../responses/403.yaml
     '404':
-      $ref: ../../v3/responses/404.yaml
+      $ref: ../responses/404.yaml

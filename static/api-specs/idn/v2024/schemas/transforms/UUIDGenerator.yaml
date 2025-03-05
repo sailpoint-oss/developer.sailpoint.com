@@ -1,0 +1,5 @@
+title: uuid
+type: object
+properties:
+  requiresPeriodicRefresh:
+    $ref: './RequiresPeriodicRefresh.yaml'

@@ -5,9 +5,9 @@ get:
   description: Retrieve a list of statuses for pending tasks. Types of tasks include account and entitlement aggregation and other general background processing tasks.  Data for tasks older than 90 days will not be returned.
   operationId: getPendingTasks
   parameters:
-  - $ref: ../../v3/parameters/offset.yaml
-  - $ref: ../../v3/parameters/limit.yaml
-  - $ref: ../../v3/parameters/count.yaml
+  - $ref: ../parameters/offset.yaml
+  - $ref: ../parameters/limit.yaml
+  - $ref: ../parameters/count.yaml
   - name: X-SailPoint-Experimental
     in: header
     description: Use this header to enable this experimental API.
@@ -24,19 +24,19 @@ get:
           schema:
             type: array
             items:
-              $ref: ../../beta/schemas/TaskStatus.yaml
+              $ref: ../schemas/TaskStatus.yaml
     '204':
-      $ref: ../../v3/responses/204.yaml
+      $ref: ../responses/204.yaml
     '400':
-      $ref: ../../v3/responses/400.yaml
+      $ref: ../responses/400.yaml
     '401':
-      $ref: ../../v3/responses/401.yaml
+      $ref: ../responses/401.yaml
     '403':
-      $ref: ../../v3/responses/403.yaml
+      $ref: ../responses/403.yaml
     '429':
-      $ref: ../../v3/responses/429.yaml
+      $ref: ../responses/429.yaml
     '500':
-      $ref: ../../v3/responses/500.yaml
+      $ref: ../responses/500.yaml
   security:
     - userAuth: [idn:task-management:read, idn:task-management:write]
     - applicationAuth: [idn:task-management:read, idn:task-management:write]
@@ -56,9 +56,9 @@ head:
   description: Responds with headers only for list of task statuses for pending tasks. 
   operationId: getPendingTaskHeaders
   parameters:
-  - $ref: ../../v3/parameters/offset.yaml
-  - $ref: ../../v3/parameters/limit.yaml
-  - $ref: ../../v3/parameters/count.yaml
+  - $ref: ../parameters/offset.yaml
+  - $ref: ../parameters/limit.yaml
+  - $ref: ../parameters/count.yaml
   - name: X-SailPoint-Experimental
     in: header
     description: Use this header to enable this experimental API.
@@ -71,17 +71,17 @@ head:
     '200':
       description: Retrieve headers for a list of TaskStatus for pending tasks. 
     '204':
-      $ref: ../../v3/responses/204.yaml
+      $ref: ../responses/204.yaml
     '400':
-      $ref: ../../v3/responses/400.yaml
+      $ref: ../responses/400.yaml
     '401':
-      $ref: ../../v3/responses/401.yaml
+      $ref: ../responses/401.yaml
     '403':
-      $ref: ../../v3/responses/403.yaml
+      $ref: ../responses/403.yaml
     '429':
-      $ref: ../../v3/responses/429.yaml
+      $ref: ../responses/429.yaml
     '500':
-      $ref: ../../v3/responses/500.yaml
+      $ref: ../responses/500.yaml
   security:
     - userAuth: [idn:task-management:read, idn:task-management:write]
     - applicationAuth: [idn:task-management:read, idn:task-management:write]

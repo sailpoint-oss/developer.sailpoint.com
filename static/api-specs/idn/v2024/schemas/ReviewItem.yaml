@@ -1,0 +1,32 @@
+# Replaces AccessReviewItem.yaml
+type: object
+properties:
+  id:
+    type: string
+    description: The review item's ID
+    example: ef38f94347e94562b5bb8424a56397d8
+  type:
+    $ref: './CertificationItemType.yaml'
+  completed:
+    type: boolean
+    description: Indicates whether the review item is complete
+    example: false
+  newAccess:
+    type: boolean
+    description: Indicates whether the review item is for new access to a source
+  decision:
+    $ref: '../../v3/schemas/CertificationDecision.yaml'
+  proposedEndDate:
+    type: string
+    format: date-time
+    description: The end date proposed as part of decision to sunset a user's access
+  comments:
+    type: string
+    description: Comments for this review item
+    example: This user is still fulfulling this role
+  reviewData:
+    $ref: './ReviewData.yaml'
+  targetSummary:
+    $ref: './TargetSummary.yaml'
+  actor:
+    $ref: '../../v3/schemas/IdentityReferenceWithNameAndEmail.yaml'

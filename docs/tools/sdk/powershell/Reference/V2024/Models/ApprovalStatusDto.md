@@ -16,7 +16,6 @@ tags: ['SDK', 'Software Development Kit', 'ApprovalStatusDto', 'V2024ApprovalSta
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ApprovalId** | **String** | Unique identifier for the approval. | [optional] 
 **Forwarded** | **Boolean** | True if the request for this item was forwarded from one owner to another. | [optional] [default to $false]
 **OriginalOwner** | [**ApprovalStatusDtoOriginalOwner**](approval-status-dto-original-owner) |  | [optional] 
 **CurrentOwner** | [**ApprovalStatusDtoCurrentOwner**](approval-status-dto-current-owner) |  | [optional] 
@@ -31,8 +30,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ApprovalStatusDto = Initialize-PSSailpoint.V2024ApprovalStatusDto  -ApprovalId 2c9180877b2b6ea4017b2c545f971429 `
- -Forwarded false `
+$ApprovalStatusDto = Initialize-PSSailpoint.V2024ApprovalStatusDto  -Forwarded false `
  -OriginalOwner null `
  -CurrentOwner null `
  -Modified 2019-08-23T18:52:57.398Z `

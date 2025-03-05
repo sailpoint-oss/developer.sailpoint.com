@@ -1,0 +1,62 @@
+get:
+  operationId: getPublicIdentityConfig
+  tags:
+    - Public Identities Config
+  summary: Get the Public Identities Configuration
+  description: >-
+    Returns the publicly visible attributes of an identity available to request approvers for Access Requests and Certification Campaigns.
+  security:
+    - userAuth: []
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  responses:
+    '200':
+      description: Request succeeded.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/PublicIdentityConfig.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'
+put:
+  operationId: updatePublicIdentityConfig
+  tags:
+    - Public Identities Config
+  summary: Update the Public Identities Configuration
+  description: >-
+    Updates the publicly visible attributes of an identity available to request approvers for Access Requests and Certification Campaigns.
+  security:
+    - userAuth: []
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/PublicIdentityConfig.yaml'
+  responses:
+    '200':
+      description: Request succeeded.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/PublicIdentityConfig.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'

@@ -666,12 +666,12 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 
 ### Return type
-[**DeployResponse[]**](../models/deploy-response)
+[**ListDeploys200Response**](../models/list-deploys200-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of existing deploys. | DeployResponse[]
+200 | List of existing deploys. | ListDeploys200Response
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto

@@ -1,0 +1,41 @@
+type: object
+properties:
+  id:
+    type: string
+    description: the identity ID
+    example: "bc693f07e7b645539626c25954c58554"
+  displayName:
+    type: string
+    description: the display name of the identity
+    example: "Adam Zampa"
+  snapshot:
+    type: string
+    description: the date when the identity record was created
+    example: '2007-03-01T13:00:00.000Z'
+  deletedDate:
+    type: string
+    description: the date when the identity was deleted
+    example: '2007-03-01T13:00:00.000Z'
+  accessItemCount:
+    type: object
+    description: A map containing the count of each access item
+    example:
+      app: 0
+      role: 2
+      entitlement: 4
+      accessProfile: 3
+      account: 1
+    additionalProperties:
+      type: integer
+      format: int32
+  attributes:
+    type: object
+    description: A map containing the identity attributes
+    additionalProperties: true
+    example:
+      jobTitle: "HR Manager"
+      location: "NYC"
+      firstname: "Adam"
+      lastname: "Zampa"
+      department: "HR"
+                  

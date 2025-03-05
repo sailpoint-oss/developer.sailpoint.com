@@ -33,19 +33,19 @@ get:
           schema:
             type: array
             items:
-              $ref: ../../beta/schemas/SearchAttributeConfig.yaml
+              $ref: ../schemas/SearchAttributeConfig.yaml
     '204':
-      $ref: ../../v3/responses/204.yaml
+      $ref: ../responses/204.yaml
     '401':
-      $ref: ../../v3/responses/401.yaml
+      $ref: ../responses/401.yaml
     '403':
-      $ref: ../../v3/responses/403.yaml
+      $ref: ../responses/403.yaml
     '404':
-      $ref: ../../v3/responses/404.yaml
+      $ref: ../responses/404.yaml
     '429':
-      $ref: ../../v3/responses/429.yaml
+      $ref: ../responses/429.yaml
     '500':
-      $ref: ../../v3/responses/500.yaml
+      $ref: ../responses/500.yaml
 delete:
   operationId: deleteSearchAttributeConfig
   tags:
@@ -75,17 +75,17 @@ delete:
     required: true
   responses:
     '204':
-      $ref: ../../v3/responses/204.yaml
+      $ref: ../responses/204.yaml
     '401':
-      $ref: ../../v3/responses/401.yaml
+      $ref: ../responses/401.yaml
     '403':
-      $ref: ../../v3/responses/403.yaml
+      $ref: ../responses/403.yaml
     '404':
-      $ref: ../../v3/responses/404.yaml
+      $ref: ../responses/404.yaml
     '429':
-      $ref: ../../v3/responses/429.yaml
+      $ref: ../responses/429.yaml
     '500':
-      $ref: ../../v3/responses/500.yaml
+      $ref: ../responses/500.yaml
 patch:
   operationId: patchSearchAttributeConfig
   tags:
@@ -125,7 +125,7 @@ patch:
         schema:
           type: array
           items:
-            $ref: ../../beta/schemas/JsonPatchOperation.yaml
+            $ref: ../schemas/JsonPatchOperation.yaml
         example:
         - op: replace
           path: /name
@@ -144,16 +144,16 @@ patch:
       content:
         application/json:
           schema:
-            $ref: ../../beta/schemas/SearchAttributeConfig.yaml
+            $ref: ../schemas/SearchAttributeConfig.yaml
     '400':
-      $ref: ../../v3/responses/400.yaml
+      $ref: ../responses/400.yaml
     '401':
-      $ref: ../../v3/responses/401.yaml
+      $ref: ../responses/401.yaml
     '403':
-      $ref: ../../v3/responses/403.yaml
+      $ref: ../responses/403.yaml
     '404':
-      $ref: ../../v3/responses/404.yaml
+      $ref: ../responses/404.yaml
     '429':
-      $ref: ../../v3/responses/429.yaml
+      $ref: ../responses/429.yaml
     '500':
-      $ref: ../../v3/responses/500.yaml
+      $ref: ../responses/500.yaml

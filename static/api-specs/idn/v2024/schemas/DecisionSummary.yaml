@@ -1,0 +1,17 @@
+# Replaces IdentityCertDecisionSummary.yaml
+type: object
+properties:
+  type:
+    $ref: './CertificationItemType.yaml'
+  approved:
+    description: Count of approval decisions for this item type.
+    type: integer
+  revoked:
+    description: Count of revoke decisions for this item type.
+    type: integer
+  decisionsMade:
+    description: Count of decisions made so far for this item type.
+    type: integer
+  decisionsTotal:
+    description: Count of all decisions for this item type, both made and yet-to-be-made.
+    type: integer

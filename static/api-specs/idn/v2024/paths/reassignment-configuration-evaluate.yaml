@@ -28,7 +28,7 @@ get:
     name: configType
     required: true
     schema:
-      $ref: ../../beta/schemas/work-reassignment/ConfigTypeEnum.yaml
+      $ref: ../schemas/work-reassignment/ConfigTypeEnum.yaml
     description: Reassignment work type
     example: accessRequests
   - in: query
@@ -58,21 +58,21 @@ get:
           schema:
             type: array
             items:
-              $ref: ../../beta/schemas/work-reassignment/EvaluateResponse.yaml
+              $ref: ../schemas/work-reassignment/EvaluateResponse.yaml
           examples:
             empty:
-              $ref: ../../beta/schemas/work-reassignment/examples/evaluateEmpty.yaml
+              $ref: ../schemas/work-reassignment/examples/evaluateEmpty.yaml
             longTrail:
-              $ref: ../../beta/schemas/work-reassignment/examples/evaluateLong.yaml
+              $ref: ../schemas/work-reassignment/examples/evaluateLong.yaml
             selfReview:
-              $ref: ../../beta/schemas/work-reassignment/examples/evaluateSelfReview.yaml
+              $ref: ../schemas/work-reassignment/examples/evaluateSelfReview.yaml
     '400':
-      $ref: ../../v3/responses/400.yaml
+      $ref: ../responses/400.yaml
     '401':
-      $ref: ../../v3/responses/401.yaml
+      $ref: ../responses/401.yaml
     '403':
-      $ref: ../../v3/responses/403.yaml
+      $ref: ../responses/403.yaml
     '429':
-      $ref: ../../v3/responses/429.yaml
+      $ref: ../responses/429.yaml
     '500':
-      $ref: ../../v3/responses/500.yaml
+      $ref: ../responses/500.yaml

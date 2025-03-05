@@ -1,0 +1,91 @@
+type: object
+properties:
+  createdBy:
+    oneOf:
+      - $ref: './iai/EntityCreatedByDTO.yaml'
+      - $ref: './iai/NullableEntityCreatedByDTO.yaml'
+    description: The session created by details
+  density:
+    type: integer
+    description: The density of a potential role.
+    example: 75
+    format: int32
+  description:
+    type: string
+    nullable: true
+    description: The description of a potential role.
+    example: "Potential Role for Accounting dept"
+  entitlementCount:
+    type: integer
+    description: The number of entitlements in a potential role.
+    example: 25
+    format: int32
+  excludedEntitlements:
+    description: The list of entitlement ids to be excluded.
+    nullable: true
+    type: array
+    items:
+      type: string
+    example: ["07a0b4e2","13b4e2a0"]
+  freshness:
+    type: integer
+    description: The freshness of a potential role.
+    example: 75
+    format: int32
+  identityCount:
+    type: integer
+    description: The number of identities in a potential role.
+    example: 25
+    format: int32
+  identityDistribution:
+    description: Identity attribute distribution.
+    nullable: true
+    type: array
+    items:
+      $ref: './RoleMiningIdentityDistribution.yaml'
+  identityIds:
+    description: The list of ids in a potential role.
+    type: array
+    items:
+      type: string
+    example: ["07a0b4e2","13b4e2a0"]
+  name:
+    type: string
+    description: Name of the potential role.
+    example: "Saved Potential Role - 07/10"
+  provisionState:
+    $ref: './RoleMiningPotentialRoleProvisionState.yaml'
+    description: The provisioning state of a potential role.
+    nullable: true
+  quality:
+    type: integer
+    description: The quality of a potential role.
+    example: 100
+    format: int32
+  roleId:
+      type: string
+      nullable: true
+      description: The roleId of a potential role.
+      example: "07a0b4e2-7a76-44fa-bd0b-c64654b66519"
+  saved:
+    type: boolean
+    description: The potential role's saved status.
+    example: true
+  session:
+    $ref: './RoleMiningSessionParametersDto.yaml'
+    description: The session parameters of the potential role.
+  type:
+    $ref: './iai/RoleMiningRoleType.yaml'
+    description: Role mining potential type.
+  id:
+    type: string
+    description: Id of the potential role
+    example: "e0cc5d7d-bf7f-4f81-b2af-8885b09d9923"
+  createdDate:
+    type: string
+    format: 'date-time'
+    description: The date-time when this potential role was created.
+  modifiedDate:
+    type: string
+    format: 'date-time'
+    description: The date-time when this potential role was modified.

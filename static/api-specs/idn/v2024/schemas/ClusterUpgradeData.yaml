@@ -1,0 +1,21 @@
+type: object
+description: Upgrade Cluster VA Configuration
+required:
+  - id
+  - jobType
+  - vaVersion
+properties:
+  id:
+    description: Unique id of the cluster
+    type: string
+    example: 2c91808876dd79120176f758af765c58
+  delayMinutes:
+    description: Optional number of minutes to delay starting the cluster upgrade job.
+    type: integer
+  jobType:
+    description: Job type to be scheduled
+    $ref: './JobType.yaml'
+  vaVersion:
+    description: Version of the Job (cookbook)
+    type: string
+    example: va-ccg-1613404003016

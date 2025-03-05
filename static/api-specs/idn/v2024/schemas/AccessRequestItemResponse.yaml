@@ -1,0 +1,41 @@
+type: object
+properties:
+  operation:
+    type: string
+    example: Add
+    description: the access request item operation
+  accessItemType:
+    type: string
+    example: role
+    description: the access item type
+  name:
+    type: string
+    example: Role-1
+    description: the name of access request item
+  decision:
+    type: string
+    example: APPROVED
+    enum:
+      - APPROVED
+      - REJECTED
+    description: the final decision for the access request  
+  description:
+    type: string
+    example: The role descrition
+    description: the description of access request item
+  sourceId:
+    type: string
+    example: 8a80828f643d484f01643e14202e206f
+    description: the source id
+  sourceName:
+    type: string
+    example: Source1
+    description: the source Name
+  approvalInfos:
+    type: array
+    example:
+      - name: John Snow
+        id: 8a80828f643d484f01643e14202e2000
+        status: Approved
+    items:
+      $ref: './ApprovalInfoResponse.yaml'

@@ -1,0 +1,14 @@
+type: object
+properties:
+  type:
+    type: string
+    description: The DTO type
+    example: TASK_RESULT
+  id:
+    type: string
+    description: The task ID of the object to which this reference applies
+    example: 2c91808568c529c60168cca6f90c1313
+  name:
+    type: string
+    description: Human-readable display name of the object to which this reference applies
+    example: Entitlement Source Reset

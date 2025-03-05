@@ -1,0 +1,54 @@
+type: object
+properties:
+  contributingFeatureName:
+    type: string
+    description: Contributing feature name
+    example: 'Rare Access'
+  identityOutlierDisplayName:
+    type: string
+    description: Identity display name
+    example: 'John Smith'
+  outlierFeatureDisplayValues:
+    type: array
+    items:
+      type: object
+      properties:
+        displayName:
+          type: string
+          example: Aliza Chris
+          description: display name
+        value:
+          type: string
+          example: 55
+          description: value
+        valueType:
+          type: string
+          enum:
+            - INTEGER
+            - FLOAT
+          description: The data type of the value field
+          example: INTEGER
+  featureDefinition:
+    type: string
+    description: Definition of the feature
+    example: 'Identity total number of entitlements'
+  featureExplanation:
+    type: string
+    description: Detailed explanation of the feature
+    example: 'An identity that has too much rare access has a higher change of becoming a security threat due to the unique access they possess'
+  peerDisplayName:
+    type: string
+    description: outlier's peer identity display name
+    example: 'Mary Jane'
+  peerIdentityId:
+    type: string
+    description: outlier's peer identity id
+    example: '9f9d5d53ad0e48fba7352f6da9f1b8gbg'
+  accessItemReference:
+    type: object
+    description: Access Item reference
+    example:
+      {
+        displayName: "All Rare Entitlements",
+        searchPlaceholder: "Search by name or description"
+      }

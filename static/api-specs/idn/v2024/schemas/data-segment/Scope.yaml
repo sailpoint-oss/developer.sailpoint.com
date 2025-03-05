@@ -6,6 +6,6 @@ properties:
   visibility:
     $ref: './ScopeVisibilityType.yaml'
   scopeFilter:
-    $ref: '../../../v3/schemas/VisibilityCriteria.yaml'
+    $ref: '../../schemas/VisibilityCriteria.yaml'
   scopeSelection:
     $ref: './Selection.yaml'

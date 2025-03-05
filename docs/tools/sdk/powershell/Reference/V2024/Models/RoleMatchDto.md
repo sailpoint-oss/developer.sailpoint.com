@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'RoleMatchDto', 'V2024RoleMatchDto']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**RoleRef** | [**BaseReferenceDto1**](base-reference-dto1) |  | [optional] 
+**RoleRef** | [**BaseReferenceDto**](base-reference-dto) |  | [optional] 
 **MatchedAttributes** | [**[]ContextAttributeDto**](context-attribute-dto) |  | [optional] 
 
 ## Examples

@@ -45,11 +45,11 @@ get:
             type: array
             items:
               oneOf:
-              - $ref: ../../beta/schemas/AccessItemAccessProfileResponse.yaml
-              - $ref: ../../beta/schemas/AccessItemAccountResponse.yaml
-              - $ref: ../../beta/schemas/AccessItemAppResponse.yaml
-              - $ref: ../../beta/schemas/AccessItemEntitlementResponse.yaml
-              - $ref: ../../beta/schemas/AccessItemRoleResponse.yaml
+              - $ref: ../schemas/AccessItemAccessProfileResponse.yaml
+              - $ref: ../schemas/AccessItemAccountResponse.yaml
+              - $ref: ../schemas/AccessItemAppResponse.yaml
+              - $ref: ../schemas/AccessItemEntitlementResponse.yaml
+              - $ref: ../schemas/AccessItemRoleResponse.yaml
           examples:
             Access Item AccessProfile Response:
               description: An access profile response
@@ -99,12 +99,12 @@ get:
                 name: sample
                 description: Role - Workday/Citizenship access
     '400':
-      $ref: ../../v3/responses/400.yaml
+      $ref: ../responses/400.yaml
     '401':
-      $ref: ../../v3/responses/401.yaml
+      $ref: ../responses/401.yaml
     '403':
-      $ref: ../../v3/responses/403.yaml
+      $ref: ../responses/403.yaml
     '404':
-      $ref: ../../v3/responses/404.yaml
+      $ref: ../responses/404.yaml
     '500':
-      $ref: ../../v3/responses/500.yaml
+      $ref: ../responses/500.yaml

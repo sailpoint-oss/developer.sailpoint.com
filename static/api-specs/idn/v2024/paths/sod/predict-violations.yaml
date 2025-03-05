@@ -1,0 +1,56 @@
+post:
+  operationId: startPredictSodViolations
+  tags:
+    - SOD Violations
+  summary: Predict SOD violations for identity.
+  deprecated: true
+  security:
+    - userAuth: [ idn:sod-violation:read ]
+  description: >-
+    This API is used to check if granting some additional accesses would cause the subject to be in violation of any SOD policies.
+    Returns the violations that would be caused.
+
+
+    A token with ORG_ADMIN or API authority is required to call this API.
+
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../../schemas/sod/models/IdentityWithNewAccess.yaml'
+        example:
+          {
+            "identityId": "2c91808568c529c60168cca6f90c1313",
+            "accessRefs": [
+              {
+                "type": "ENTITLEMENT",
+                "id": "2c918087682f9a86016839c050861ab1",
+                "name": "CN=Information Access,OU=test,OU=test-service,DC=TestAD,DC=local"
+              },
+              {
+                "type": "ENTITLEMENT",
+                "id": "2c918087682f9a86016839c0509c1ab2",
+                "name": "CN=Information Technology,OU=test,OU=test-service,DC=TestAD,DC=local"
+              }
+            ]
+          }
+  responses:
+    '200':
+      description: Violation Contexts
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/sod/models/ViolationPrediction.yaml'
+    '400':
+      $ref: '../../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../../v3/responses/500.yaml'

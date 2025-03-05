@@ -1,0 +1,19 @@
+type: object
+properties:
+  type:
+    type: string
+    enum:
+      - IDENTITY
+    description: The type of object that this reference points to.
+  id:
+    type: string
+    description: Identity ID
+    example: 5168015d32f890ca15812c9180835d2e
+  displayName:
+    type: string
+    description: Human-readable display name of identity.
+    example: "Alison Ferguso"
+  email:
+    type: string
+    description: Email address of identity.
+    example: "alison.ferguso2@identitysoon.com"

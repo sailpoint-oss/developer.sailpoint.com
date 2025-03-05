@@ -1,5 +1,5 @@
 allOf:
-  - $ref: '../../v3/schemas/BaseCommonDto.yaml'
+  - $ref: '../schemas/BaseCommonDto.yaml'
   - type: object
     required:
       - nativeIdentity

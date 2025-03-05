@@ -31,11 +31,11 @@ Method | HTTP request | Description
 [**Remove-V2024IdentityProfile**](#delete-identity-profile) | **DELETE** `/identity-profiles/{identity-profile-id}` | Delete Identity Profile
 [**Remove-V2024IdentityProfiles**](#delete-identity-profiles) | **POST** `/identity-profiles/bulk-delete` | Delete Identity Profiles
 [**Export-V2024IdentityProfiles**](#export-identity-profiles) | **GET** `/identity-profiles/export` | Export Identity Profiles
+[**New-V2024IdentityPreview**](#generate-identity-preview) | **POST** `/identity-profiles/identity-preview` | Generate Identity Profile Preview
 [**Get-V2024DefaultIdentityAttributeConfig**](#get-default-identity-attribute-config) | **GET** `/identity-profiles/{identity-profile-id}/default-identity-attribute-config` | Get default Identity Attribute Config
 [**Get-V2024IdentityProfile**](#get-identity-profile) | **GET** `/identity-profiles/{identity-profile-id}` | Get Identity Profile
 [**Import-V2024IdentityProfiles**](#import-identity-profiles) | **POST** `/identity-profiles/import` | Import Identity Profiles
 [**Get-V2024IdentityProfiles**](#list-identity-profiles) | **GET** `/identity-profiles` | List Identity Profiles
-[**Show-V2024IdentityPreview**](#show-identity-preview) | **POST** `/identity-profiles/identity-preview` | Generate Identity Profile Preview
 [**Sync-V2024IdentityProfile**](#sync-identity-profile) | **POST** `/identity-profiles/{identity-profile-id}/process-identities` | Process identities under profile
 [**Update-V2024IdentityProfile**](#update-identity-profile) | **PATCH** `/identity-profiles/{identity-profile-id}` | Update Identity Profile
 
@@ -281,6 +281,83 @@ try {
     # Export-V2024IdentityProfiles -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Export-V2024IdentityProfiles"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## generate-identity-preview
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This generates a non-persisted IdentityDetails object that will represent as the preview of the identities attribute when the given policy''s attribute config is applied.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/generate-identity-preview)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
+ Body  | IdentityPreviewRequest | [**IdentityPreviewRequest**](../models/identity-preview-request) | True  | Identity Preview request body.
+
+### Return type
+[**IdentityPreviewResponse**](../models/identity-preview-response)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | Object representing the preview object with all of the identity attributes using the current mappings. | IdentityPreviewResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+```powershell
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+$IdentityPreviewRequest = @"{
+  "identityId" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
+  "identityAttributeConfig" : {
+    "attributeTransforms" : [ {
+      "transformDefinition" : {
+        "attributes" : {
+          "attributeName" : "e-mail",
+          "sourceName" : "MySource",
+          "sourceId" : "2c9180877a826e68017a8c0b03da1a53"
+        },
+        "type" : "accountAttribute"
+      },
+      "identityAttributeName" : "email"
+    }, {
+      "transformDefinition" : {
+        "attributes" : {
+          "attributeName" : "e-mail",
+          "sourceName" : "MySource",
+          "sourceId" : "2c9180877a826e68017a8c0b03da1a53"
+        },
+        "type" : "accountAttribute"
+      },
+      "identityAttributeName" : "email"
+    } ],
+    "enabled" : true
+  }
+}"@
+
+# Generate Identity Profile Preview
+
+try {
+    $Result = ConvertFrom-JsonToIdentityPreviewRequest -Json $IdentityPreviewRequest
+    New-V2024IdentityPreview -XSailPointExperimental $XSailPointExperimental -IdentityPreviewRequest $Result 
+    
+    # Below is a request that includes all optional parameters
+    # New-V2024IdentityPreview -XSailPointExperimental $XSailPointExperimental -IdentityPreviewRequest $Result  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024IdentityPreview"
     Write-Host $_.ErrorDetails
 }
 ```
@@ -534,79 +611,6 @@ try {
     # Get-V2024IdentityProfiles -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024IdentityProfiles"
-    Write-Host $_.ErrorDetails
-}
-```
-[[Back to top]](#) 
-
-## show-identity-preview
-Use this API to generate a non-persisted preview of the identity object after applying `IdentityAttributeConfig` sent in request body.
-This API only allows `accountAttribute`, `reference` and `rule` transform types in the `IdentityAttributeConfig` sent in the request body.
-
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/show-identity-preview)
-
-### Parameters 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | IdentityPreviewRequest | [**IdentityPreviewRequest**](../models/identity-preview-request) | True  | Identity Preview request body.
-
-### Return type
-[**IdentityPreviewResponse**](../models/identity-preview-response)
-
-### Responses
-Code | Description  | Data Type
-------------- | ------------- | -------------
-200 | A preview of the identity attributes after applying identity attributes config sent in request body. | IdentityPreviewResponse
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
-
-### HTTP request headers
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-### Example
-```powershell
-$IdentityPreviewRequest = @"{
-  "identityId" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
-  "identityAttributeConfig" : {
-    "attributeTransforms" : [ {
-      "transformDefinition" : {
-        "attributes" : {
-          "attributeName" : "e-mail",
-          "sourceName" : "MySource",
-          "sourceId" : "2c9180877a826e68017a8c0b03da1a53"
-        },
-        "type" : "accountAttribute"
-      },
-      "identityAttributeName" : "email"
-    }, {
-      "transformDefinition" : {
-        "attributes" : {
-          "attributeName" : "e-mail",
-          "sourceName" : "MySource",
-          "sourceId" : "2c9180877a826e68017a8c0b03da1a53"
-        },
-        "type" : "accountAttribute"
-      },
-      "identityAttributeName" : "email"
-    } ],
-    "enabled" : true
-  }
-}"@
-
-# Generate Identity Profile Preview
-
-try {
-    $Result = ConvertFrom-JsonToIdentityPreviewRequest -Json $IdentityPreviewRequest
-    Show-V2024IdentityPreview -IdentityPreviewRequest $Result 
-    
-    # Below is a request that includes all optional parameters
-    # Show-V2024IdentityPreview -IdentityPreviewRequest $Result  
-} catch {
-    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Show-V2024IdentityPreview"
     Write-Host $_.ErrorDetails
 }
 ```

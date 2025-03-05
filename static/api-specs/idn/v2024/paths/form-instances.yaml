@@ -10,7 +10,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../../beta/schemas/forms/ListFormInstancesByTenantResponse.yaml
+            $ref: ../schemas/forms/ListFormInstancesByTenantResponse.yaml
     '400':
       description: An error with the request occurred
       content:
@@ -24,7 +24,7 @@ get:
               messages:
                 type: array
                 items:
-                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -46,7 +46,7 @@ get:
               messages:
                 type: array
                 items:
-                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -68,7 +68,7 @@ get:
               messages:
                 type: array
                 items:
-                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -82,7 +82,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../../beta/schemas/forms/Error.yaml
+            $ref: ../schemas/forms/Error.yaml
     '500':
       description: An internal server error occurred
       content:
@@ -96,7 +96,7 @@ get:
               messages:
                 type: array
                 items:
-                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -127,7 +127,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: ../../beta/schemas/forms/CreateFormInstanceRequest.yaml
+          $ref: ../schemas/forms/CreateFormInstanceRequest.yaml
         example:
           expire: '2023-06-20T15:57:55.332882Z'
           formDefinitionId: 00000000-0000-0000-0000-000000000000
@@ -144,7 +144,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../../beta/schemas/forms/FormInstanceResponse.yaml
+            $ref: ../schemas/forms/FormInstanceResponse.yaml
     '400':
       description: An error with the request occurred
       content:
@@ -158,7 +158,7 @@ post:
               messages:
                 type: array
                 items:
-                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -180,7 +180,7 @@ post:
               messages:
                 type: array
                 items:
-                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -202,7 +202,7 @@ post:
               messages:
                 type: array
                 items:
-                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -216,7 +216,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../../beta/schemas/forms/Error.yaml
+            $ref: ../schemas/forms/Error.yaml
     '500':
       description: An internal server error occurred
       content:
@@ -230,7 +230,7 @@ post:
               messages:
                 type: array
                 items:
-                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer

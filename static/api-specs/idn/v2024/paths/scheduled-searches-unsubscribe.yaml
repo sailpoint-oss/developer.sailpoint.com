@@ -1,0 +1,26 @@
+post:
+  tags:
+    - Scheduled Search
+  description: |
+    Unsubscribes a recipient from the specified scheduled search.
+  operationId: unsubscribeScheduledSearch
+  summary: Unsubscribe a recipient from Scheduled Search
+  parameters:
+  - $ref: '../parameters/path/search/id.yaml'
+  requestBody:
+    description: |
+      The recipient to be removed from the scheduled search.
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/search/model/base/TypedReference.yaml'
+    required: true
+  responses:
+    '204':
+      description: No Content - Indicates the request was successful but there is no content to be returned in the response.
+    '400':
+      $ref: '../responses/400.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'

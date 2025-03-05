@@ -1,5 +1,9 @@
 type: object
 properties:
+  id:
+    type: string
+    description: ID of the access request
+    example: 2c9180926cbfbddd016cbfc7c3b10010
   name:
     type: string
     description: Human-readable display name of the item being requested.

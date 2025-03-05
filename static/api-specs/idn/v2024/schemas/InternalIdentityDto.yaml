@@ -1,0 +1,13 @@
+type: object
+properties:
+  id:
+    type: string
+    description: The identity ID
+    example: "2c9079b270a266a60170a277bb960008"
+  internalCloudStatus:
+    type: string
+    description: Internal cloud status of identity.
+    example: "UNREGISTERED"
+required:
+  - id
+  - internalCloudStatus

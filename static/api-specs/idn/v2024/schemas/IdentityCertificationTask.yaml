@@ -1,0 +1,27 @@
+type: object
+properties:
+  id:
+    type: string
+    description: The task id
+    example: "abcd-ef12-3456"
+  certificationId:
+    type: string
+    description: The certification id
+    example: "ef38f94347e94562b5bb8424a56397d8"
+  type:
+    type: string
+    enum:
+      - REASSIGN
+  status:
+    type: string
+    enum:
+      - QUEUED
+      - IN_PROGRESS
+      - SUCCESS
+      - ERROR
+  errors:
+    type: array
+    items:
+      type: string
+    description: Any errors executing the task (Optional).
+    example: []

@@ -26,9 +26,9 @@ get:
     
     **fullText**: will filter suggested entitlement description records by text found in any of the following fields: entitlement name, entitlement display name, suggested description, source name'
   parameters:
-  - $ref: ../../v3/parameters/limit.yaml
-  - $ref: ../../v3/parameters/offset.yaml
-  - $ref: ../../v3/parameters/count.yaml
+  - $ref: ../parameters/limit.yaml
+  - $ref: ../parameters/offset.yaml
+  - $ref: ../parameters/count.yaml
   - description: >-
       Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
       
@@ -108,20 +108,20 @@ get:
         application/json:
           schema:
             items:
-              $ref: ../../beta/schemas/Sed.yaml
+              $ref: ../schemas/Sed.yaml
             type: array
     '400':
-      $ref: ../../v3/responses/400.yaml
+      $ref: ../responses/400.yaml
     '401':
-      $ref: ../../v3/responses/401.yaml
+      $ref: ../responses/401.yaml
     '403':
-      $ref: ../../v3/responses/403.yaml
+      $ref: ../responses/403.yaml
     '404':
-      $ref: ../../v3/responses/404.yaml
+      $ref: ../responses/404.yaml
     '429':
-      $ref: ../../v3/responses/429.yaml
+      $ref: ../responses/429.yaml
     '500':
-      $ref: ../../v3/responses/500.yaml
+      $ref: ../responses/500.yaml
   security:
   - userAuth:
     - 'idn:sed:read'
@@ -152,7 +152,7 @@ patch:
       application/json-patch+json:
         schema:
           items:
-            $ref: ../../beta/schemas/SedPatch.yaml
+            $ref: ../schemas/SedPatch.yaml
           type: array
     required: true
   responses:
@@ -161,19 +161,19 @@ patch:
       content:
         application/json:
           schema:
-            $ref: ../../beta/schemas/Sed.yaml
+            $ref: ../schemas/Sed.yaml
     '400':
-      $ref: ../../v3/responses/400.yaml
+      $ref: ../responses/400.yaml
     '401':
-      $ref: ../../v3/responses/401.yaml
+      $ref: ../responses/401.yaml
     '403':
-      $ref: ../../v3/responses/403.yaml
+      $ref: ../responses/403.yaml
     '404':
-      $ref: ../../v3/responses/404.yaml
+      $ref: ../responses/404.yaml
     '429':
-      $ref: ../../v3/responses/429.yaml
+      $ref: ../responses/429.yaml
     '500':
-      $ref: ../../v3/responses/500.yaml
+      $ref: ../responses/500.yaml
   security:
   - userAuth:
     - 'idn:sed:write'

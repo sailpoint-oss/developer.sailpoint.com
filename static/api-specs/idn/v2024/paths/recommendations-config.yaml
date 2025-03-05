@@ -10,15 +10,15 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../../beta/schemas/RecommendationConfigDto.yaml
+            $ref: ../schemas/RecommendationConfigDto.yaml
     '400':
-      $ref: ../../v3/responses/400.yaml
+      $ref: ../responses/400.yaml
     '401':
-      $ref: ../../v3/responses/401.yaml
+      $ref: ../responses/401.yaml
     '403':
-      $ref: ../../v3/responses/403.yaml
+      $ref: ../responses/403.yaml
     '500':
-      $ref: ../../v3/responses/500.yaml
+      $ref: ../responses/500.yaml
   security:
   - userAuth: []
   parameters:
@@ -41,22 +41,22 @@ put:
     content:
       application/json:
         schema:
-          $ref: ../../beta/schemas/RecommendationConfigDto.yaml
+          $ref: ../schemas/RecommendationConfigDto.yaml
   responses:
     '200':
       description: Cert recommendation configuration attributes after update
       content:
         application/json:
           schema:
-            $ref: ../../beta/schemas/RecommendationConfigDto.yaml
+            $ref: ../schemas/RecommendationConfigDto.yaml
     '400':
-      $ref: ../../v3/responses/400.yaml
+      $ref: ../responses/400.yaml
     '401':
-      $ref: ../../v3/responses/401.yaml
+      $ref: ../responses/401.yaml
     '403':
-      $ref: ../../v3/responses/403.yaml
+      $ref: ../responses/403.yaml
     '500':
-      $ref: ../../v3/responses/500.yaml
+      $ref: ../responses/500.yaml
   security:
   - userAuth: []
   parameters:

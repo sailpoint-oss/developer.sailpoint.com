@@ -56,7 +56,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: ../../beta/schemas/RoleMiningPotentialRoleProvisionRequest.yaml
+          $ref: ../schemas/RoleMiningPotentialRoleProvisionRequest.yaml
   responses:
     '202':
       description: Accepted. Returns a potential role summary including the status
@@ -64,14 +64,14 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../../beta/schemas/RoleMiningPotentialRoleSummary.yaml
+            $ref: ../schemas/RoleMiningPotentialRoleSummary.yaml
     '400':
-      $ref: ../../v3/responses/400.yaml
+      $ref: ../responses/400.yaml
     '401':
-      $ref: ../../v3/responses/401.yaml
+      $ref: ../responses/401.yaml
     '403':
-      $ref: ../../v3/responses/403.yaml
+      $ref: ../responses/403.yaml
     '404':
-      $ref: ../../v3/responses/404.yaml
+      $ref: ../responses/404.yaml
     '500':
-      $ref: ../../v3/responses/500.yaml
+      $ref: ../responses/500.yaml

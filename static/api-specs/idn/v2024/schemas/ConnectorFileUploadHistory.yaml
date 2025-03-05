@@ -1,0 +1,11 @@
+description: Connector File Upload History
+type: object
+properties:
+  date:
+    description: The date of file being uploaded
+    type: string
+    example: '2022-06-02T10:00:20.670870Z'
+  file:
+    description: connector file name
+    type: string
+    example: temp7081703651350031905mysql-connector-java-8.0.11.jar

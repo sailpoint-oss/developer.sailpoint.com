@@ -605,12 +605,12 @@ Path   | Id | **String** | True  | The account id
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-[**EntitlementDto[]**](../models/entitlement-dto)
+[**Entitlement[]**](../models/entitlement)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | An array of account entitlements | EntitlementDto[]
+200 | An array of account entitlements | Entitlement[]
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto

@@ -1,0 +1,6 @@
+summary: Account Export report
+value:
+  reportType: ACCOUNTS
+  arguments:
+    application: 2c9180897eSourceIde781782f705b9
+    sourceName: Active Directory

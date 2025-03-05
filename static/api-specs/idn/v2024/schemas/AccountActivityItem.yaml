@@ -1,0 +1,68 @@
+type: object
+properties:
+  id:
+    type: string
+    description: Item id
+    example: 48c545831b264409a81befcabb0e3c5a
+  name:
+    type: string
+    description: Human-readable display name of item
+    example: 48c545831b264409a81befcabb0e3c5a
+  requested:
+    type: string
+    format: "date-time"
+    description: Date and time item was requested
+    example: "2017-07-11T18:45:37.098Z"
+  approvalStatus:
+    $ref: "./AccountActivityApprovalStatus.yaml"
+  provisioningStatus:
+    $ref: "./ProvisioningState.yaml"
+  requesterComment:
+    $ref: "./Comment.yaml"
+  reviewerIdentitySummary:
+    $ref: "./IdentitySummary.yaml"
+  reviewerComment:
+    $ref: "./Comment.yaml"
+  operation:
+    $ref: "./AccountActivityItemOperation.yaml"
+  attribute:
+    type: string
+    description: Attribute to which account activity applies
+    nullable: true
+    example: detectedRoles
+  value:
+    type: string
+    description: Value of attribute
+    nullable: true
+    example: Treasury Analyst [AccessProfile-1529010191212]
+  nativeIdentity:
+    nullable: true
+    type: string
+    description:
+      Native identity in the target system to which the account activity applies
+    example: Sandie.Camero
+  sourceId:
+    type: string
+    description: Id of Source to which account activity applies
+    example: 2c91808363ef85290164000587130c0c
+  accountRequestInfo:
+    $ref: "./AccountRequestInfo.yaml"
+  clientMetadata:
+    nullable: true
+    type: object
+    additionalProperties:
+      type: string
+    description: >-
+      Arbitrary key-value pairs, if any were included in the corresponding
+      access request item
+    example:
+      customKey1: custom value 1
+      customKey2: custom value 2
+  removeDate:
+    nullable: true
+    type: string
+    description:
+      The date the role or access profile or entitlement is no longer assigned to the specified
+      identity.
+    format: "date-time"
+    example: "2020-07-11T00:00:00Z"

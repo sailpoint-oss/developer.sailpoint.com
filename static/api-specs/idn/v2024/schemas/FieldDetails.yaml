@@ -1,0 +1,25 @@
+type: object
+allOf:
+  - $ref: 'FormItemDetails.yaml'
+  - type: object
+    properties:
+      displayName:
+        type: string
+        description: Display name of the field
+        example: Field 1
+      displayType:
+        type: string
+        description: Type of the field to display
+        example: 'checkbox'
+      required:
+        type: boolean
+        description: True if the field is required
+      allowedValuesList:
+        type: array
+        items:
+          type: object
+        description: List of allowed values for the field
+        example: [ {"Val1Display", "Val1Value"}, {"Val2Display", "Val2Value"}]
+      value:
+        type: object
+        description: Value of the field

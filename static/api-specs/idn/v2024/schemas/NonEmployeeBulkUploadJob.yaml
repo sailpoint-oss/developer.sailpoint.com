@@ -1,0 +1,34 @@
+type: object
+properties:
+  id:
+    type: string
+    description: The bulk upload job's ID. (UUID)
+    example: "2c91808568c529c60168cca6f90cffff" 
+  sourceId:
+    type: string
+    description: The ID of the source to bulk-upload non-employees to. (UUID)
+    example: "2c91808568c529c60168cca6f90c1313" 
+  created:
+    type: string
+    format: date-time
+    description: The date-time the job was submitted.
+    example: "2019-08-23T18:52:59.162Z"
+  modified:
+    type: string
+    format: date-time
+    description: The date-time that the job was last updated.
+    example: "2019-08-23T18:52:59.162Z"
+  status:
+    type: string
+    enum: 
+      - PENDING 
+      - IN_PROGRESS
+      - COMPLETED 
+      - ERROR
+    description: |
+      Returns the following values indicating the progress or result of the bulk upload job.
+      "PENDING" means the job is queued and waiting to be processed.
+      "IN_PROGRESS" means the job is currently being processed.
+      "COMPLETED" means the job has been completed without any errors.
+      "ERROR" means the job failed to process with errors.
+    example: "PENDING"

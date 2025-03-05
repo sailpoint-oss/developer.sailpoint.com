@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **Timestamp** | **System.DateTime** | Time the export was completed. | [optional] 
 **Tenant** | **String** | Name of the tenant where this export originated. | [optional] 
 **Description** | **String** | Optional user defined description/name for export job. | [optional] 
-**Options** | [**ExportOptions**](export-options) |  | [optional] 
+**Options** | [**ExportOptions1**](export-options1) |  | [optional] 
 **Objects** | [**[]ConfigObject**](config-object) |  | [optional] 
 
 ## Examples

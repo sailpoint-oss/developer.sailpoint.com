@@ -1,0 +1,40 @@
+post:
+  operationId: authSupportLoginsMigrate
+  tags:
+    - Auth Support Login
+  summary: Migrate auth support login records
+  description: >-
+    Migrates all the auth support login access grants from the specified auth
+    tenant to the new auth tenant in the request context, resulting in the new
+    auth tenant having possession of all the old auth tenant's auth support
+    login access grants and the old auth tenant no longer having any more auth
+    support login access grants.
+
+    Because this is a highly privileged operation meant only to be executable by
+    SailPoint DevOps, this request requires the following security scope:
+    **sp:auth-support-login-transfer:update**
+  parameters:
+    - in: path
+      name: oldAuthTenant
+      description: >-
+        The name of auth tenant whose auth support login access grants will be
+        migrated to the calling auth tenant
+      example: acme-solar
+      required: true
+      schema:
+        type: string
+  responses:
+    "202":
+      $ref: "../../../v3/responses/202.yaml"
+    "400":
+      $ref: "../../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../../v3/responses/403.yaml"
+    "404":
+      $ref: "../../../v3/responses/404.yaml"
+    "429":
+      $ref: "../../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../../v3/responses/500.yaml"

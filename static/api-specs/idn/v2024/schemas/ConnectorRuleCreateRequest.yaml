@@ -1,0 +1,65 @@
+description: ConnectorRuleCreateRequest
+type: object
+required:
+  - name
+  - type
+  - sourceCode
+properties:
+  name:
+    type: string
+    description: the name of the rule
+    example: WebServiceBeforeOperationRule
+    minLength: 1
+    maxLength: 128
+  description:
+    type: string
+    description: a description of the rule's purpose
+    example: This rule does that
+  type:
+    type: string
+    enum:
+      - BuildMap
+      - ConnectorAfterCreate
+      - ConnectorAfterDelete
+      - ConnectorAfterModify
+      - ConnectorBeforeCreate
+      - ConnectorBeforeDelete
+      - ConnectorBeforeModify
+      - JDBCBuildMap
+      - JDBCOperationProvisioning
+      - JDBCProvision
+      - PeopleSoftHRMSBuildMap
+      - PeopleSoftHRMSOperationProvisioning
+      - PeopleSoftHRMSProvision
+      - RACFPermissionCustomization
+      - SAPBuildMap
+      - SapHrManagerRule
+      - SapHrOperationProvisioning
+      - SapHrProvision
+      - SuccessFactorsOperationProvisioning
+      - WebServiceAfterOperationRule
+      - WebServiceBeforeOperationRule
+    description: the type of rule
+    example: BuildMap
+  signature:
+    description: >-
+      The rule's function signature.
+      Describes the rule's input arguments and output (if any)
+    type: object
+    required:
+      - input
+    properties:
+      input:
+        type: array
+        items:
+          $ref: './Argument.yaml'
+      output:
+        $ref: './Argument.yaml'
+  sourceCode:
+    $ref: './SourceCode.yaml'
+  attributes:
+    type: object
+    nullable: true
+    description: a map of string to objects
+    example: {}
+

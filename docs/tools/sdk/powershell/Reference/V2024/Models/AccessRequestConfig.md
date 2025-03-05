@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **ReauthorizationEnabled** | **Boolean** | If this is true, reauthorization will be enforced for appropriately configured access items. Enablement of this feature is currently in a limited state. | [optional] [default to $false]
 **RequestOnBehalfOfConfig** | [**RequestOnBehalfOfConfig**](request-on-behalf-of-config) |  | [optional] 
 **ApprovalReminderAndEscalationConfig** | [**ApprovalReminderAndEscalationConfig**](approval-reminder-and-escalation-config) |  | [optional] 
-**EntitlementRequestConfig** | [**EntitlementRequestConfig1**](entitlement-request-config1) |  | [optional] 
+**EntitlementRequestConfig** | [**EntitlementRequestConfig**](entitlement-request-config) |  | [optional] 
 
 ## Examples
 

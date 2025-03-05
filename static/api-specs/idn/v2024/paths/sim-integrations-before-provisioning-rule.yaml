@@ -10,7 +10,7 @@ patch:
     content:
       application/json-patch+json:
         schema:
-          $ref: ../../beta/schemas/JsonPatch.yaml
+          $ref: ../schemas/JsonPatch.yaml
   parameters:
   - name: id
     in: path
@@ -34,19 +34,19 @@ patch:
       content:
         application/json:
           schema:
-            $ref: ../../beta/schemas/ServiceDeskIntegrationDto.yaml
+            $ref: ../schemas/ServiceDeskIntegrationDto.yaml
     '400':
-      $ref: ../../v3/responses/400.yaml
+      $ref: ../responses/400.yaml
     '401':
-      $ref: ../../v3/responses/401.yaml
+      $ref: ../responses/401.yaml
     '403':
-      $ref: ../../v3/responses/403.yaml
+      $ref: ../responses/403.yaml
     '404':
-      $ref: ../../v3/responses/404.yaml
+      $ref: ../responses/404.yaml
     '429':
-      $ref: ../../v3/responses/429.yaml
+      $ref: ../responses/429.yaml
     '500':
-      $ref: ../../v3/responses/500.yaml
+      $ref: ../responses/500.yaml
   security:
   - userAuth:
     - idn:service-desk-admin:write

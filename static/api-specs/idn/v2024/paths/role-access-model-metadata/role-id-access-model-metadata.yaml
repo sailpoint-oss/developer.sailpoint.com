@@ -42,17 +42,17 @@ post:
       content:
         application/json:
           schema:
-            $ref: "../../../v3/schemas/access/Role.yaml"
+            $ref: "../../schemas/access/Role.yaml"
     '400':
-      $ref: '../../../v3/responses/400.yaml'
+      $ref: '../../responses/400.yaml'
     '401':
-      $ref: '../../../v3/responses/401.yaml'
+      $ref: '../../responses/401.yaml'
     '403':
-      $ref: '../../../v3/responses/403.yaml'
+      $ref: '../../responses/403.yaml'
     '429':
-      $ref: '../../../v3/responses/429.yaml'
+      $ref: '../../responses/429.yaml'
     '500':
-      $ref: '../../../v3/responses/500.yaml'
+      $ref: '../../responses/500.yaml'
 delete:
   operationId: deleteMetadataFromRoleByKeyAndValue
   summary: Remove a Metadata From Role.
@@ -93,12 +93,12 @@ delete:
     "202":
       description: Request accepted
     '400':
-      $ref: '../../../v3/responses/400.yaml'
+      $ref: '../../responses/400.yaml'
     '401':
-      $ref: '../../../v3/responses/401.yaml'
+      $ref: '../../responses/401.yaml'
     '403':
-      $ref: '../../../v3/responses/403.yaml'
+      $ref: '../../responses/403.yaml'
     '429':
-      $ref: '../../../v3/responses/429.yaml'
+      $ref: '../../responses/429.yaml'
     '500':
-      $ref: '../../../v3/responses/500.yaml'
+      $ref: '../../responses/500.yaml'

@@ -1882,13 +1882,13 @@ paths:
   /generic-approvals/{id}:
     $ref: ./v2024/paths/approval.yaml
   /machine-accounts:
-    $ref: './v2024/paths/machine-accounts.yaml'
+    $ref: ./v2024/paths/machine-accounts.yaml
   /machine-accounts/{id}:
-    $ref: './v2024/paths/machine-account.yaml'
+    $ref: ./v2024/paths/machine-account.yaml
   /machine-identities:
-    $ref: './v2024/paths/machine-identities.yaml'
+    $ref: ./v2024/paths/machine-identities.yaml
   /machine-identities/{id}:
-    $ref: './v2024/paths/machine-identity.yaml'
+    $ref: ./v2024/paths/machine-identity.yaml
   /notification-template-defaults:
     $ref: ./v2024/paths/notification-template-defaults.yaml
   /notification-templates:

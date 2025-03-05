@@ -86,9 +86,6 @@ Resources:
       Timeout: 100
   SailAppsAuthFunction:
     Type: AWS::Serverless::Function
-    Metadata:
-      BuildMethod: esbuild
-      Target: "es2020"
     Properties:
       CodeUri: backend/src/mithrandir/
       Handler: index.handler

@@ -39,7 +39,7 @@ app.post('/uuid', async (c) => {
   }
 
   try{
-    const data = await ddbDocClient.send(new PutCommand({ TableName: tableName, Item: { key: crypto.randomUUID(), apiBaseURL: body.apiBaseURL } }));
+    const data = await ddbDocClient.send(new PutCommand({ TableName: tableName, Item: { id: crypto.randomUUID(), apiBaseURL: body.apiBaseURL } }));
     return c.json(data)
   } catch (err) {
     //@ts-expect-error Unknown error shape

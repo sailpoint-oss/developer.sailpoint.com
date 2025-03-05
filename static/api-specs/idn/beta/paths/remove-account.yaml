@@ -44,4 +44,4 @@ post:
     "500":
       $ref: "../../v3/responses/500.yaml"
   security:
-    - userAuth: [ idn:account:remove ]
+    - userAuth: [ idn:account:manage ]

@@ -59,4 +59,4 @@ post:
       $ref: ../../v3/responses/500.yaml
   security:
   - userAuth:
-    - idn:account:remove
+    - idn:account:manage

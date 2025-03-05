@@ -45,6 +45,7 @@ jobs:
 
       - name: build backend
         run: |
+          ls -la
           cd ./backend/mithrandir
           npm ci
           npm run build

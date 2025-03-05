@@ -58,7 +58,7 @@ app.post('/uuid', async (c) => {
   }
 
   try {
-    const data = await ddbDocClient.send(new PutCommand({ TableName: tableName, Item: { id: uuid, apiBaseURL: apiBaseURL } }));
+    const data = await ddbDocClient.send(new PutCommand({ TableName: tableName, Item: { id: crypto.randomUUID(), apiBaseURL: body.apiBaseURL } }));
     console.log(data)
     if (!data) {
       throw new HTTPException(400, { "message": "Error creating UUID" })
@@ -122,13 +122,13 @@ app.get('/uuid/:uuid', async (c) => {
     throw new HTTPException(400, { "message": "uuid not provided" })
   }
   try {
-    const data = await ddbDocClient.send(new PutCommand({ TableName: tableName, Item: { id: uuid, apiBaseURL: apiBaseURL } }));
+    const data = await ddbDocClient.send(new GetCommand({ TableName: tableName, Key: { id: uuid } }));
     console.log(data)
     if (!data) {
       throw new HTTPException(400, { "message": "uuid not authenticated" })
     }
     return c.json(data)
-    
+
   } catch (err) {
     //@ts-expect-error Unknown error shape
     console.error("Error retrieving item:", err.message);
@@ -139,7 +139,7 @@ app.get('/uuid/:uuid', async (c) => {
     //@ts-expect-error Unknown error shape
     console.error("Error stack:", err.stack);
 
-    throw new HTTPException(400, { "message": "Error creating UUID" })
+    throw new HTTPException(400, { "message": "uuid not authenticated" })
   }
 })
 

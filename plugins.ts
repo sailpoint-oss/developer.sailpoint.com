@@ -1,6 +1,6 @@
 const {createApiPageMD} = require('./createApiPageMD');
 
-module.exports = [
+const pluginConfig = [
   [
     '@docusaurus/plugin-google-tag-manager',
     {
@@ -1703,3 +1703,6 @@ module.exports = [
     {projectId: 'naher5vlxx'},
   ],
 ];
+
+
+export default pluginConfig;

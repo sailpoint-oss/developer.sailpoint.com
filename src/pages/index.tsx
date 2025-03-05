@@ -1,17 +1,18 @@
-import React from 'react';
+import type {ReactNode} from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageGettingStarted from '@site/src/components/homepage/HomepageGettingStarted';
-import HomepageBasics from '../components/homepage/HomepageBasics';
-import HomepageTrainingGuides from '../components/homepage/HomepageTrainingGuides';
-import HomepageDiscuss from '../components/homepage/HomepageDiscuss';
-import HomepageTeam from '../components/homepage/HomepageTeam';
+import HomepageBasics from '@site/src/components/homepage/HomepageBasics';
+import HomepageTrainingGuides from '@site/src/components/homepage/HomepageTrainingGuides';
+import HomepageDiscuss from '@site/src/components/homepage/HomepageDiscuss';
+import HomepageTeam from '@site/src/components/homepage/HomepageTeam';
+import Heading from '@theme/Heading';
 
 import styles from './index.module.css';
 
-export default function Home() {
+export default function Home(): ReactNode {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout description="The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.">
@@ -41,6 +42,7 @@ export default function Home() {
         <HomepageDiscuss />
         <div>
           <HomepageBasics
+            link={null}
             description={
               "The Developer Relations team is responsible for creating a better developer experience on our platform. Click on someone to reach out to them, or <a href='https://developer.sailpoint.com/discuss/new-message?groupname=developer_relations/'>contact our team directly</a>."
             }

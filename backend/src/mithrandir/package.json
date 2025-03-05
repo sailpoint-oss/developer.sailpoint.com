@@ -1,0 +1,19 @@
+{
+  "name": "mithrandir",
+  "packageManager": "yarn@4.6.0",
+  "scripts": {
+    "build": "esbuild --bundle --outfile=./dist/index.js --platform=node --target=node20 ./src/index.ts",
+    "dev": "tsx watch index.ts"
+  },
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.758.0",
+    "@aws-sdk/lib-dynamodb": "^3.758.0",
+    "hono": "^4.7.4"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.147",
+    "@types/node": "^22.13.9",
+    "tsx": "^4.7.1",
+    "typescript": "^5.8.2"
+  }
+}

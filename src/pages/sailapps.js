@@ -22,11 +22,6 @@ function SailApps() {
   }, []);
 
   const handleConfirm = async () => {
-    setIsConfirmed(true);
-    await handleSendCode();
-  };
-
-  const handleSendCode = async () => {
     if (!authCode) {
       setSendResult('No auth code available');
       return;
@@ -35,25 +30,26 @@ function SailApps() {
     setIsSending(true);
     try {
       await sendCode(authCode);
-      setSendResult('Code sent successfully');
+      setIsConfirmed(true);
+      setSendResult('Your application can now access your data, you can close this window');
     } catch (error) {
-      setSendResult(`Error sending code: ${error.message}`);
+      setSendResult(`Error sending authentication: ${error.message}`);
     }
     setIsSending(false);
   };
 
   return (
-    <Layout title="SailApps OAuth2 Redirect">
+    <Layout noFooter title="SailPoint Application Authentication">
       <div className={styles.gettingStartedText}>
         <FontAwesomeIcon
           icon={faKey}
           className={styles.docCardIcon}
           size="3x"
         />
-        <h1 className={styles.gettingStartedOne}>SailApps OAuth2 Redirect</h1>
+        <h1 className={styles.gettingStartedOne}>SailPoint Application Authentication</h1>
         {state && (
           <div className={styles.gettingStartedThree}>
-            <p>Your identity confirmation GUID: <span className={styles.bold}>{state}</span></p>
+            <p>Your identity confirmation code: <span className={styles.bold}>{state}</span></p>
             {!isConfirmed && (
               <div className={styles.button}>
                 <button 
@@ -61,15 +57,10 @@ function SailApps() {
                   disabled={isSending}
                   className={styles.link}
                 >
-                  {isSending ? 'Confirming and Sending...' : 'Confirm Identity'}
+                  {isSending ? 'Confirming and Sending...' : 'Grant Application Access'}
                 </button>
               </div>
             )}
-          </div>
-        )}
-        {isConfirmed && (
-          <div className={styles.gettingStartedThree}>
-            <p>Identity confirmed. Auth code has been sent.</p>
           </div>
         )}
         {sendResult && <p className={styles.gettingStartedThree}>{sendResult}</p>}

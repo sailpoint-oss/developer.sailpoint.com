@@ -57,13 +57,15 @@ app.post('/uuid', async (c) => {
     throw new HTTPException(400, { "message": "apiBaseURL missing from request body" })
   }
 
+  const objectToPut = { id: crypto.randomUUID(), apiBaseURL: body.apiBaseURL }
+
   try {
-    const data = await ddbDocClient.send(new PutCommand({ TableName: tableName, Item: { id: crypto.randomUUID(), apiBaseURL: body.apiBaseURL } }));
+    const data = await ddbDocClient.send(new PutCommand({ TableName: tableName, Item: objectToPut }));
     console.log(data)
     if (!data) {
       throw new HTTPException(400, { "message": "Error creating UUID" })
     }
-    return c.json(data)
+    return c.json(objectToPut)
   } catch (err) {
     //@ts-expect-error Unknown error shape
     console.error("Error retrieving item:", err.message);

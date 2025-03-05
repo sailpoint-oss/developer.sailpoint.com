@@ -16,6 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'RequestedItemStatus', 'V2024Requested
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Id** | **String** | The ID of the access request. | [optional] 
 **Name** | **String** | Human-readable display name of the item being requested. | [optional] 
 **Type** |  **Enum** [  "ACCESS_PROFILE",    "ROLE",    "ENTITLEMENT" ] | Type of requested object. | [optional] 
 **CancelledRequestDetails** | [**RequestedItemStatusCancelledRequestDetails**](requested-item-status-cancelled-request-details) |  | [optional] 
@@ -45,7 +46,8 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RequestedItemStatus = Initialize-PSSailpoint.V2024RequestedItemStatus  -Name AccessProfile1 `
+$RequestedItemStatus = Initialize-PSSailpoint.V2024RequestedItemStatus  -Id 2c9180926cbfbddd016cbfc7c3b10010 `
+ -Name AccessProfile1 `
  -Type ACCESS_PROFILE `
  -CancelledRequestDetails null `
  -ErrorMessages null `

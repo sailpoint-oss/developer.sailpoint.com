@@ -1,0 +1,19 @@
+x-webhooks:
+  access-request-decision:
+    post:
+      summary: Access Request Decision
+      operationId: accessRequestDecision
+      description: >-
+        This event trigger fires after an access request is approved or denied. 
+        With this event trigger, you can achieve more proactive governance in your organization and ensure that its users can quickly get the access they need.
+      tags:
+        - Access Request Decision
+      security:
+        - userAuth: [sp:trigger-service-subscriptions:manage]
+        
+      requestBody:
+        required: true
+        content: 
+          application/json:
+            schema: 
+              $ref: '../schemas/trigger/example-input/AccessRequestPostApproval.yaml'

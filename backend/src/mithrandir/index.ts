@@ -5,6 +5,7 @@ import crypto from 'crypto';
 import { Hono } from 'hono'
 import { handle } from 'hono/aws-lambda'
 import { logger } from 'hono/logger'
+import { HTTPException } from 'hono/http-exception'
 
 const app = new Hono()
 
@@ -27,8 +28,31 @@ const tableName = process.env.SAMPLE_TABLE;
 app.use(logger())
 
 app.post('/uuid', (c) => c.json({ code: crypto.randomUUID() }))
+
 app.post('/code/:code', (c) => c.text(`Processing token exchange for code: ${c.req.param('code')}`))
-app.get('/code/:code', async (c) => c.json({message: `Here is the token`, code: `${c.req.param('code')}`}))
+
+app.get('/code/:uuid', async (c) => {
+  const uuid = c.req.param('uuid');
+  if (!uuid) {
+    c.status(400)
+    return c.json({ message: 'uuid not provided'})
+  }
+  try {
+    const data = await ddbDocClient.send(new GetCommand({ TableName: tableName, Key: { uuid } }));
+    return c.json(data.Item)
+  } catch (err) {
+    //@ts-expect-error Unknown error shape
+    console.error("Error retrieving item:", err.message);
+    //@ts-expect-error Unknown error shape
+    console.error("Error code:", err.code);
+    //@ts-expect-error Unknown error shape
+    console.error("Error name:", err.name);
+    //@ts-expect-error Unknown error shape
+    console.error("Error stack:", err.stack);
+
+    throw new HTTPException(401, { "message": "uuid not authenticated" })
+  }
+})
 
 // export const authHandler: Handler = async (event, context) => {
 //   const { http } = event.requestContext;

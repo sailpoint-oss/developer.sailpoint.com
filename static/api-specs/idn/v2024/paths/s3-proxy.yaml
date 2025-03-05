@@ -1,0 +1,51 @@
+get:
+  operationId: s3Proxy
+  summary: Retrieves an artifact from S3.
+  tags:
+    - S3 Access
+  description: >-
+    Accepts a path from S3 and the bucket type either shared or org.  The bucket in which the artifact resides is provided
+    to the runtime service by an environment variable controlled by devops.  This is also true for the S3 creds as they
+    are available to the service at runtime.
+
+    If the bucket type is shared, no further validation is needed.  If the bucket type is org, the information in the JWT
+    is validated against the path query parameter.  A token with API authority is required to access this endpoint..
+
+  security:
+    - userAuth: [idn:s3-proxy:read]
+  parameters:
+    - in: query
+      name: path
+      schema:
+        type: string
+      required: true
+      description: The path to the S3 artifact minus the bucket.
+      example: /xxx/yyy/zzz/filename
+    - in: query
+      name: bucket-type
+      schema:
+        type: string
+        enum: [ORG, SHARED]
+      required: true
+      description: The type of bucket either shared or org.
+      example: SHARED
+  responses:
+    '200':
+      description: Requested file
+      content:
+        application/octet-stream:
+          schema:
+            type: string
+            format: binary
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

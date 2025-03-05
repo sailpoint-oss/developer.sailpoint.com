@@ -1,0 +1,13 @@
+type: object
+properties:
+  questionId:
+    type: string
+    nullable: true
+    description: The KBA question id
+    example: 089899f13a8f4da7824996191587bab9
+  isVerified:
+    type: boolean
+    nullable: true
+    default: null
+    description: Return true if verified
+    example: true

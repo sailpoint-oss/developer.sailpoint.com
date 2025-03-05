@@ -25,17 +25,17 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../../v3/schemas/access/Role.yaml'
+            $ref: '../schemas/access/Role.yaml'
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: '../responses/400.yaml'
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: '../responses/401.yaml'
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: '../responses/403.yaml'
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: '../responses/429.yaml'
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: '../responses/500.yaml'
   security:
     - userAuth: [ idn:role-unchecked:read, idn:role-unchecked:manage, idn:role-checked:manage, idn:role-checked:read ]
   x-sailpoint-userLevels:
@@ -103,7 +103,7 @@ patch:
         schema:
           type: array
           items:
-            $ref: '../../v3/schemas/JsonPatchOperation.yaml'
+            $ref: '../schemas/JsonPatchOperation.yaml'
         examples:
           Make a Role Requestable and Enable it in One Call:
             description: This example shows how multiple fields may be updated with a single patch call.
@@ -257,17 +257,17 @@ patch:
       content:
         application/json:
           schema:
-            $ref: '../../v3/schemas/access/Role.yaml'
+            $ref: '../schemas/access/Role.yaml'
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: '../responses/400.yaml'
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: '../responses/401.yaml'
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: '../responses/403.yaml'
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: '../responses/429.yaml'
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: '../responses/500.yaml'
   security:
     - userAuth: [idn:role-unchecked:manage,idn:role-checked:manage]
   x-sailpoint-userLevels:
@@ -298,17 +298,17 @@ delete:
       example: 2c91808a7813090a017814121e121518
   responses:
     '204':
-      $ref: "../../v3/responses/204.yaml"
+      $ref: "../responses/204.yaml"
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: '../responses/400.yaml'
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: '../responses/401.yaml'
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: '../responses/403.yaml'
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: '../responses/429.yaml'
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: '../responses/500.yaml'
   security:
     - userAuth: [ idn:role-unchecked:manage,idn:role-checked:manage ]
   x-sailpoint-userLevels:

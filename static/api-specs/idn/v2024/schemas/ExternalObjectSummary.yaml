@@ -1,0 +1,23 @@
+type: object
+description:  Represents the summary of an object, used in list APIs.  This doesn't include attributes of references.
+properties:
+  id:
+    type: string
+    description: the id pf the external object summary
+    example: '24bdaf69-e5ce-4c08-96c4-2b93bce82088'
+  name:
+    type: string
+    description: Objects name
+    example: 'Ocie.48ad9323dbff4'
+  type:
+    type: string
+    description: Type of object
+    example: 'identity'
+  meta:
+    type: object
+    description: Object metadata
+    example: {"created" : "2021-09-29T14:16:23.995Z"}
+  integrationId:
+    type: string
+    description: integrationId
+    example: '24bdaf69-e5ce-4c08-96c4-2b93bce82088'

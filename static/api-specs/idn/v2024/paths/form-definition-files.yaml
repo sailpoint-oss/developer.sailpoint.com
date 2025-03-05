@@ -49,7 +49,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../../beta/schemas/forms/FormDefinitionFileUploadResponse.yaml
+            $ref: ../schemas/forms/FormDefinitionFileUploadResponse.yaml
     '400':
       description: An error with the request occurred
       content:
@@ -63,7 +63,7 @@ post:
               messages:
                 type: array
                 items:
-                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -85,7 +85,7 @@ post:
               messages:
                 type: array
                 items:
-                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -107,7 +107,7 @@ post:
               messages:
                 type: array
                 items:
-                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -129,7 +129,7 @@ post:
               messages:
                 type: array
                 items:
-                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -151,7 +151,7 @@ post:
               messages:
                 type: array
                 items:
-                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -173,7 +173,7 @@ post:
               messages:
                 type: array
                 items:
-                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -187,7 +187,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../../beta/schemas/forms/Error.yaml
+            $ref: ../schemas/forms/Error.yaml
     '500':
       description: An internal server error occurred
       content:
@@ -201,7 +201,7 @@ post:
               messages:
                 type: array
                 items:
-                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -223,7 +223,7 @@ post:
               messages:
                 type: array
                 items:
-                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer

@@ -1,0 +1,34 @@
+post:
+  tags:
+    - Managed Clients
+  summary: Create a provisional Managed Client
+  description: >-
+    Create a draft Managed Client.
+  operationId: createProvisionalManagedClient
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/SubmitActivationCodeInput.yaml'
+  responses:
+    "200":
+      description: Just an ok response
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ManagedClient.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - userAuth: [idn:remote-client:manage]

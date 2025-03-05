@@ -1274,143 +1274,143 @@ tags:
       Workflows allow administrators to create custom automation scripts directly within Identity Security Cloud.  These automation scripts respond to [event triggers](https://developer.sailpoint.com/docs/extensibility/event-triggers/#how-to-get-started-with-event-triggers) and perform a series of actions to perform tasks that are either too cumbersome or not available in the Identity Security Cloud UI.  Workflows can be configured via a graphical user interface within Identity Security Cloud, or by creating and uploading a JSON formatted script to the Workflow service.  The Workflows API collection provides the necessary functionality to create, manage, and test your workflows via REST.
 paths:
   /access-profiles:
-    $ref: ./v3/paths/access-profiles.yaml
+    $ref: ./v2024/paths/access-profiles.yaml
   /access-profiles/{id}:
-    $ref: ./v3/paths/access-profile.yaml
+    $ref: ./v2024/paths/access-profile.yaml
   /access-profiles/bulk-delete:
-    $ref: ./v3/paths/access-profile-bulk-delete.yaml
+    $ref: ./v2024/paths/access-profile-bulk-delete.yaml
   /access-profiles/{id}/entitlements:
-    $ref: ./v3/paths/access-profile-entitlements.yaml
+    $ref: ./v2024/paths/access-profile-entitlements.yaml
   /access-requests:
-    $ref: ./v3/paths/access-requests.yaml
+    $ref: ./v2024/paths/access-requests.yaml
   /access-requests/cancel:
-    $ref: ./v3/paths/access-request-cancel.yaml
+    $ref: ./v2024/paths/access-request-cancel.yaml
   /access-requests/bulk-cancel:
     $ref: ./v2024/paths/bulk-cancel-access-request.yaml
   /access-request-config:
-    $ref: ./v3/paths/access-request-config.yaml
+    $ref: ./v2024/paths/access-request-config.yaml
   /access-request-status:
-    $ref: ./v3/paths/access-request-status.yaml
+    $ref: ./v2024/paths/access-request-status.yaml
   /access-request-administration:
     $ref: ./v2024/paths/access-request-status-administrator.yaml
   /access-request-approvals/pending:
-    $ref: ./v3/paths/pending-access-request-approvals.yaml
+    $ref: ./v2024/paths/pending-access-request-approvals.yaml
   /access-request-approvals/completed:
-    $ref: ./v3/paths/completed-access-request-approvals.yaml
+    $ref: ./v2024/paths/completed-access-request-approvals.yaml
   /access-request-approvals/{approvalId}/approve:
-    $ref: ./v3/paths/approve-access-request-approval.yaml
+    $ref: ./v2024/paths/approve-access-request-approval.yaml
   /access-request-approvals/{approvalId}/reject:
-    $ref: ./v3/paths/reject-access-request-approval.yaml
+    $ref: ./v2024/paths/reject-access-request-approval.yaml
   /access-request-approvals/{approvalId}/forward:
-    $ref: ./v3/paths/forward-access-request-approval.yaml
+    $ref: ./v2024/paths/forward-access-request-approval.yaml
   /access-request-approvals/approval-summary:
-    $ref: ./v3/paths/access-request-approval-summary.yaml
+    $ref: ./v2024/paths/access-request-approval-summary.yaml
   /access-request-approvals/bulk-approve:
    $ref: ./v2024/paths/access-request-bulk-approve.yaml
   /access-request-approvals/{accessRequestId}/approvers:
     $ref: ./v2024/paths/access-request-approvers-list.yaml
   /accounts:
-    $ref: ./v3/paths/accounts.yaml
+    $ref: ./v2024/paths/accounts.yaml
   /accounts/{id}:
-    $ref: ./v3/paths/account.yaml
+    $ref: ./v2024/paths/account.yaml
   /accounts/{id}/entitlements:
-    $ref: ./v3/paths/accounts-id-entitlements.yaml
+    $ref: ./v2024/paths/accounts-id-entitlements.yaml
   /accounts/{id}/reload:
-    $ref: ./v3/paths/accounts-id-reload.yaml
+    $ref: ./v2024/paths/accounts-id-reload.yaml
   /accounts/{id}/enable:
-    $ref: ./v3/paths/accounts-id-enable.yaml
+    $ref: ./v2024/paths/accounts-id-enable.yaml
   /accounts/{id}/disable:
-    $ref: ./v3/paths/accounts-id-disable.yaml
+    $ref: ./v2024/paths/accounts-id-disable.yaml
   /accounts/{id}/unlock:
-    $ref: ./v3/paths/accounts-id-unlock.yaml
+    $ref: ./v2024/paths/accounts-id-unlock.yaml
   /account-activities:
-    $ref: ./v3/paths/account-activity-list.yaml
+    $ref: ./v2024/paths/account-activity-list.yaml
   /account-activities/{id}:
-    $ref: ./v3/paths/account-activity-get-one.yaml
+    $ref: ./v2024/paths/account-activity-get-one.yaml
   /auth-org/network-config:
-    $ref: ./v3/paths/auth-org-network-config.yaml
+    $ref: ./v2024/paths/auth-org-network-config.yaml
   /auth-users/{id}:
-    $ref: ./v3/paths/auth-user.yaml
+    $ref: ./v2024/paths/auth-user.yaml
   /brandings:
-    $ref: ./v3/paths/brandings.yaml
+    $ref: ./v2024/paths/brandings.yaml
   /brandings/{name}:
-    $ref: ./v3/paths/branding.yaml
+    $ref: ./v2024/paths/branding.yaml
   /campaigns:
-    $ref: ./v3/paths/campaigns.yaml
+    $ref: ./v2024/paths/campaigns.yaml
   /campaigns/{id}:
-    $ref: ./v3/paths/campaign.yaml
+    $ref: ./v2024/paths/campaign.yaml
   /campaigns/{id}/reassign:
-    $ref: ./v3/paths/campaign-admin-cert-reassign.yaml
+    $ref: ./v2024/paths/campaign-admin-cert-reassign.yaml
   /campaigns/{id}/activate:
-    $ref: ./v3/paths/campaign-activate.yaml
+    $ref: ./v2024/paths/campaign-activate.yaml
   /campaigns/{id}/complete:
-    $ref: ./v3/paths/campaign-complete.yaml
+    $ref: ./v2024/paths/campaign-complete.yaml
   /campaigns/delete:
-    $ref: ./v3/paths/campaigns-delete.yaml
+    $ref: ./v2024/paths/campaigns-delete.yaml
   /campaigns/{id}/run-remediation-scan:
-    $ref: ./v3/paths/campaign-run-remediation-scan.yaml
+    $ref: ./v2024/paths/campaign-run-remediation-scan.yaml
   /campaigns/{id}/reports:
-    $ref: ./v3/paths/campaign-reports.yaml
+    $ref: ./v2024/paths/campaign-reports.yaml
   /campaigns/{id}/run-report/{type}:
-    $ref: ./v3/paths/campaign-run-report.yaml
+    $ref: ./v2024/paths/campaign-run-report.yaml
   /campaigns/reports-configuration:
-    $ref: ./v3/paths/campaign-reports-configuration.yaml
+    $ref: ./v2024/paths/campaign-reports-configuration.yaml
   /campaign-filters:
-    $ref: ./v3/paths/campaign-filters.yaml
+    $ref: ./v2024/paths/campaign-filters.yaml
   /campaign-filters/{id}:
-    $ref: ./v3/paths/campaign-filter.yaml
+    $ref: ./v2024/paths/campaign-filter.yaml
   /campaign-filters/delete:
-    $ref: ./v3/paths/campaign-filters-delete.yaml
+    $ref: ./v2024/paths/campaign-filters-delete.yaml
   /campaign-templates:
-    $ref: ./v3/paths/campaign-templates.yaml
+    $ref: ./v2024/paths/campaign-templates.yaml
   /campaign-templates/{id}:
-    $ref: ./v3/paths/campaign-template.yaml
+    $ref: ./v2024/paths/campaign-template.yaml
   /campaign-templates/{id}/schedule:
-    $ref: ./v3/paths/campaign-template-schedule.yaml
+    $ref: ./v2024/paths/campaign-template-schedule.yaml
   /campaign-templates/{id}/generate:
-    $ref: ./v3/paths/campaign-template-generate.yaml
+    $ref: ./v2024/paths/campaign-template-generate.yaml
   /certifications:
-    $ref: ./v3/paths/identity-certifications.yaml
+    $ref: ./v2024/paths/identity-certifications.yaml
   /certifications/{id}:
-    $ref: ./v3/paths/identity-certification.yaml
+    $ref: ./v2024/paths/identity-certification.yaml
   /certifications/{id}/access-review-items:
-    $ref: ./v3/paths/identity-certifications-access-review-items.yaml
+    $ref: ./v2024/paths/identity-certifications-access-review-items.yaml
   /certifications/{id}/decide:
-    $ref: ./v3/paths/identity-certifications-decide.yaml
+    $ref: ./v2024/paths/identity-certifications-decide.yaml
   /certifications/{id}/reassign:
-    $ref: ./v3/paths/identity-certifications-reassign.yaml
+    $ref: ./v2024/paths/identity-certifications-reassign.yaml
   /certifications/{id}/sign-off:
-    $ref: ./v3/paths/identity-certifications-sign-off.yaml
+    $ref: ./v2024/paths/identity-certifications-sign-off.yaml
   /certifications/{id}/decision-summary:
-    $ref: ./v3/paths/identity-certifications-decision-summary.yaml
+    $ref: ./v2024/paths/identity-certifications-decision-summary.yaml
   /certifications/{id}/identity-summaries:
-    $ref: ./v3/paths/identity-certifications-identity-summaries.yaml
+    $ref: ./v2024/paths/identity-certifications-identity-summaries.yaml
   /certifications/{id}/access-summaries/{type}:
-    $ref: ./v3/paths/identity-certifications-access-summaries.yaml
+    $ref: ./v2024/paths/identity-certifications-access-summaries.yaml
   /certifications/{id}/identity-summaries/{identitySummaryId}:
-    $ref: ./v3/paths/identity-certifications-identity-summary.yaml
+    $ref: ./v2024/paths/identity-certifications-identity-summary.yaml
   /certifications/{certificationId}/access-review-items/{itemId}/permissions:
-    $ref: ./v3/paths/identity-certifications-item-permissions.yaml
+    $ref: ./v2024/paths/identity-certifications-item-permissions.yaml
   /certifications/{id}/reviewers:
-    $ref: ./v3/paths/certifications-reviewers.yaml
+    $ref: ./v2024/paths/certifications-reviewers.yaml
   /certifications/{id}/reassign-async:
-    $ref: ./v3/paths/certifications-reassign-async.yaml
+    $ref: ./v2024/paths/certifications-reassign-async.yaml
   /certification-tasks/{id}:
-    $ref: ./v3/paths/certification-task.yaml
+    $ref: ./v2024/paths/certification-task.yaml
   /certification-tasks:
-    $ref: ./v3/paths/certification-tasks.yaml
+    $ref: ./v2024/paths/certification-tasks.yaml
   /configuration-hub/object-mappings/{sourceOrg}:
-    $ref: ./v3/paths/configuration-hub/object-mapping.yaml
+    $ref: ./v2024/paths/configuration-hub/object-mapping.yaml
   /configuration-hub/object-mappings/{sourceOrg}/{objectMappingId}:
-    $ref: ./v3/paths/configuration-hub/object-mapping-delete.yaml
+    $ref: ./v2024/paths/configuration-hub/object-mapping-delete.yaml
   /configuration-hub/object-mappings/{sourceOrg}/bulk-create:
-    $ref: ./v3/paths/configuration-hub/object-mapping-bulk-create.yaml
+    $ref: ./v2024/paths/configuration-hub/object-mapping-bulk-create.yaml
   /configuration-hub/object-mappings/{sourceOrg}/bulk-patch:
-    $ref: ./v3/paths/configuration-hub/object-mapping-bulk-update.yaml
+    $ref: ./v2024/paths/configuration-hub/object-mapping-bulk-update.yaml
   /configuration-hub/backups/uploads:
-    $ref: ./v3/paths/configuration-hub/backup-uploads.yaml
+    $ref: ./v2024/paths/configuration-hub/backup-uploads.yaml
   /configuration-hub/backups/uploads/{id}:
-    $ref: ./v3/paths/configuration-hub/backup-uploads-id.yaml
+    $ref: ./v2024/paths/configuration-hub/backup-uploads-id.yaml
   /configuration-hub/backups:
     $ref: ./v2024/paths/configuration-hub/backup.yaml
   /configuration-hub/backups/{id}:
@@ -1424,17 +1424,17 @@ paths:
   /configuration-hub/deploys/{id}:
     $ref: ./v2024/paths/configuration-hub/deploy-id.yaml
   /connectors/{scriptName}:
-    $ref: ./v3/paths/connector.yaml
+    $ref: ./v2024/paths/connector.yaml
   /connectors:
-    $ref: ./v3/paths/connectors.yaml
+    $ref: ./v2024/paths/connectors.yaml
   /connectors/{scriptName}/source-config:
-    $ref: ./v3/paths/connectors-source-config.yaml
+    $ref: ./v2024/paths/connectors-source-config.yaml
   /connectors/{scriptName}/translations/{locale}:
-    $ref: ./v3/paths/connectors-translations.yaml
+    $ref: ./v2024/paths/connectors-translations.yaml
   /connectors/{scriptName}/source-template:
-    $ref: ./v3/paths/connectors-source-template.yaml
+    $ref: ./v2024/paths/connectors-source-template.yaml
   /connectors/{scriptName}/correlation-config:
-    $ref: ./v3/paths/connectors-correlation-config.yaml
+    $ref: ./v2024/paths/connectors-correlation-config.yaml
   /data-segments/membership/{identityId}:
     $ref: "./v2024/paths/data-segment-membership.yaml"
   /data-segments/user-enabled/{identityId}:
@@ -1444,311 +1444,311 @@ paths:
   /data-segments:
     $ref: "./v2024/paths/data-segments.yaml"
   /identities/{identity-id}/set-lifecycle-state:
-    $ref: ./v3/paths/identity-set-lifecycle-state.yaml
+    $ref: ./v2024/paths/identity-set-lifecycle-state.yaml
   /identity-profiles/{identity-profile-id}/lifecycle-states:
-    $ref: ./v3/paths/identity-profile-lifecycle-states.yaml
+    $ref: ./v2024/paths/identity-profile-lifecycle-states.yaml
   /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id}:
-    $ref: ./v3/paths/identity-profile-lifecycle-state.yaml
+    $ref: ./v2024/paths/identity-profile-lifecycle-state.yaml
   /identity-profiles:
-    $ref: ./v3/paths/identity-profiles.yaml
+    $ref: ./v2024/paths/identity-profiles.yaml
   /identity-profiles/bulk-delete:
-    $ref: ./v3/paths/identity-profiles-bulk-delete.yaml
+    $ref: ./v2024/paths/identity-profiles-bulk-delete.yaml
   /identity-profiles/export:
-    $ref: ./v3/paths/identity-profiles-export.yaml
+    $ref: ./v2024/paths/identity-profiles-export.yaml
   /identity-profiles/import:
-    $ref: ./v3/paths/identity-profiles-import.yaml
+    $ref: ./v2024/paths/identity-profiles-import.yaml
   /identity-profiles/{identity-profile-id}:
-    $ref: ./v3/paths/identity-profile.yaml
+    $ref: ./v2024/paths/identity-profile.yaml
   /identity-profiles/{identity-profile-id}/default-identity-attribute-config:
-    $ref: ./v3/paths/identity-profile-default-config.yaml
+    $ref: ./v2024/paths/identity-profile-default-config.yaml
   /identity-profiles/{identity-profile-id}/process-identities:
-    $ref: ./v3/paths/identity-profile-process-identities.yaml
+    $ref: ./v2024/paths/identity-profile-process-identities.yaml
   /managed-clients:
-    $ref: ./v3/paths/managed-clients.yaml
+    $ref: ./v2024/paths/managed-clients.yaml
   /managed-clients/{id}:
-    $ref: ./v3/paths/managed-client.yaml
+    $ref: ./v2024/paths/managed-client.yaml
   /managed-clients/{id}/status:
-    $ref: ./v3/paths/managed-client-status.yaml
+    $ref: ./v2024/paths/managed-client-status.yaml
   /managed-clusters:
-    $ref: ./v3/paths/managed-clusters.yaml
+    $ref: ./v2024/paths/managed-clusters.yaml
   /managed-clusters/{id}:
-    $ref: ./v3/paths/managed-cluster.yaml
+    $ref: ./v2024/paths/managed-cluster.yaml
   /managed-clusters/{id}/log-config:
-    $ref: './v3/paths/managed-cluster-log-config.yaml'
+    $ref: './v2024/paths/managed-cluster-log-config.yaml'
   /mfa/okta-verify/config:
-    $ref: ./v3/paths/mfa-okta-config.yaml
+    $ref: ./v2024/paths/mfa-okta-config.yaml
   /mfa/duo-web/config:
-    $ref: ./v3/paths/mfa-duo-config.yaml
+    $ref: ./v2024/paths/mfa-duo-config.yaml
   /mfa/kba/config:
-    $ref: ./v3/paths/mfa-kba-config.yaml
+    $ref: ./v2024/paths/mfa-kba-config.yaml
   /mfa/kba/config/answers:
-    $ref: ./v3/paths/mfa-kba-config-answers.yaml
+    $ref: ./v2024/paths/mfa-kba-config-answers.yaml
   /mfa/{method}/test:
-    $ref: ./v3/paths/mfa-config-test.yaml
+    $ref: ./v2024/paths/mfa-config-test.yaml
   /non-employee-records:
-    $ref: ./v3/paths/non-employee-records.yaml
+    $ref: ./v2024/paths/non-employee-records.yaml
   /non-employee-records/{id}:
-    $ref: ./v3/paths/non-employee-record.yaml
+    $ref: ./v2024/paths/non-employee-record.yaml
   /non-employee-records/bulk-delete:
-    $ref: ./v3/paths/non-employee-records-bulk-delete.yaml
+    $ref: ./v2024/paths/non-employee-records-bulk-delete.yaml
   /non-employee-requests:
-    $ref: ./v3/paths/non-employee-requests.yaml
+    $ref: ./v2024/paths/non-employee-requests.yaml
   /non-employee-requests/{id}:
-    $ref: ./v3/paths/non-employee-request.yaml
+    $ref: ./v2024/paths/non-employee-request.yaml
   /non-employee-requests/summary/{requested-for}:
-    $ref: ./v3/paths/non-employee-request-summary-get.yaml
+    $ref: ./v2024/paths/non-employee-request-summary-get.yaml
   /non-employee-sources:
-    $ref: ./v3/paths/non-employee-sources.yaml
+    $ref: ./v2024/paths/non-employee-sources.yaml
   /non-employee-sources/{sourceId}:
-    $ref: ./v3/paths/non-employee-source.yaml
+    $ref: ./v2024/paths/non-employee-source.yaml
   /non-employee-sources/{id}/non-employees/download:
-    $ref: ./v3/paths/non-employee-sources-export-non-employees.yaml
+    $ref: ./v2024/paths/non-employee-sources-export-non-employees.yaml
   /non-employee-sources/{id}/non-employee-bulk-upload:
-    $ref: ./v3/paths/non-employee-sources-bulk-upload-non-employees.yaml
+    $ref: ./v2024/paths/non-employee-sources-bulk-upload-non-employees.yaml
   /non-employee-sources/{id}/non-employee-bulk-upload/status:
-    $ref: ./v3/paths/non-employee-sources-bulk-upload-status.yaml
+    $ref: ./v2024/paths/non-employee-sources-bulk-upload-status.yaml
   /non-employee-sources/{id}/schema-attributes-template/download:
-    $ref: ./v3/paths/non-employee-sources-export-schema-attributes-template.yaml
+    $ref: ./v2024/paths/non-employee-sources-export-schema-attributes-template.yaml
   /non-employee-approvals:
-    $ref: ./v3/paths/non-employee-approval-list.yaml
+    $ref: ./v2024/paths/non-employee-approval-list.yaml
   /non-employee-approvals/{id}:
-    $ref: ./v3/paths/non-employee-approve-get.yaml
+    $ref: ./v2024/paths/non-employee-approve-get.yaml
   /non-employee-approvals/{id}/approve:
-    $ref: ./v3/paths/non-employee-approve-request.yaml
+    $ref: ./v2024/paths/non-employee-approve-request.yaml
   /non-employee-approvals/{id}/reject:
-    $ref: ./v3/paths/non-employee-reject-request.yaml
+    $ref: ./v2024/paths/non-employee-reject-request.yaml
   /non-employee-approvals/summary/{requested-for}:
-    $ref: ./v3/paths/non-employee-approval-summary.yaml
+    $ref: ./v2024/paths/non-employee-approval-summary.yaml
   /non-employee-sources/{sourceId}/schema-attributes:
-    $ref: ./v3/paths/non-employee-sources-schema-attributes.yaml
+    $ref: ./v2024/paths/non-employee-sources-schema-attributes.yaml
   /non-employee-sources/{sourceId}/schema-attributes/{attributeId}:
-    $ref: ./v3/paths/non-employee-sources-schema-attribute.yaml
+    $ref: ./v2024/paths/non-employee-sources-schema-attribute.yaml
   /oauth-clients:
-    $ref: ./v3/paths/oauth-clients.yaml
+    $ref: ./v2024/paths/oauth-clients.yaml
   /oauth-clients/{id}:
-    $ref: ./v3/paths/oauth-client.yaml
+    $ref: ./v2024/paths/oauth-client.yaml
   /password-sync-groups:
-    $ref: ./v3/paths/password-sync-groups.yaml
+    $ref: ./v2024/paths/password-sync-groups.yaml
   /password-sync-groups/{id}:
-    $ref: ./v3/paths/password-sync-group.yaml
+    $ref: ./v2024/paths/password-sync-group.yaml
   /password-policies/{id}:
-    $ref: ./v3/paths/password-policy.yaml
+    $ref: ./v2024/paths/password-policy.yaml
   /password-policies:
-    $ref: ./v3/paths/password-policies.yaml
+    $ref: ./v2024/paths/password-policies.yaml
   /personal-access-tokens:
-    $ref: ./v3/paths/personal-access-tokens.yaml
+    $ref: ./v2024/paths/personal-access-tokens.yaml
   /personal-access-tokens/{id}:
-    $ref: ./v3/paths/personal-access-token.yaml
+    $ref: ./v2024/paths/personal-access-token.yaml
   /public-identities:
-    $ref: ./v3/paths/public-identities.yaml
+    $ref: ./v2024/paths/public-identities.yaml
   /public-identities-config:
-    $ref: ./v3/paths/public-identities-config.yaml
+    $ref: ./v2024/paths/public-identities-config.yaml
   /requestable-objects:
-    $ref: ./v3/paths/requestable-object-list.yaml
+    $ref: ./v2024/paths/requestable-object-list.yaml
   /roles:
-    $ref: ./v3/paths/roles.yaml
+    $ref: ./v2024/paths/roles.yaml
   /roles/{id}:
-    $ref: ./v3/paths/role.yaml
+    $ref: ./v2024/paths/role.yaml
   /roles/bulk-delete:
-    $ref: ./v3/paths/role-bulk-delete.yaml
+    $ref: ./v2024/paths/role-bulk-delete.yaml
   /roles/{id}/assigned-identities:
-    $ref: ./v3/paths/role-assigned-identities.yaml
+    $ref: ./v2024/paths/role-assigned-identities.yaml
   /roles/{roleId}/dimensions:
-    $ref: './beta/paths/dimensions.yaml'
+    $ref: './v2024/paths/dimensions.yaml'
   /roles/{roleId}/dimensions/{dimensionId}:
-    $ref: './beta/paths/dimension.yaml'
+    $ref: './v2024/paths/dimension.yaml'
   /roles/{roleId}/dimensions/bulk-delete:
-    $ref: './beta/paths/dimension-bulk-delete.yaml'
+    $ref: './v2024/paths/dimension-bulk-delete.yaml'
   /roles/{roleId}/dimensions/{dimensionId}/access-profiles:
-    $ref: './beta/paths/dimension-access-profiles.yaml'
+    $ref: './v2024/paths/dimension-access-profiles.yaml'
   /roles/{roleId}/dimensions/{dimensionId}/entitlements:
-    $ref: './beta/paths/dimension-entitlements.yaml'
+    $ref: './v2024/paths/dimension-entitlements.yaml'
   /saved-searches:
-    $ref: ./v3/paths/saved-searches.yaml
+    $ref: ./v2024/paths/saved-searches.yaml
   /saved-searches/{id}:
-    $ref: ./v3/paths/saved-searches-id.yaml
+    $ref: ./v2024/paths/saved-searches-id.yaml
   /saved-searches/{id}/execute:
-    $ref: ./v3/paths/saved-searches-execute.yaml
+    $ref: ./v2024/paths/saved-searches-execute.yaml
   /scheduled-searches:
-    $ref: ./v3/paths/scheduled-searches.yaml
+    $ref: ./v2024/paths/scheduled-searches.yaml
   /scheduled-searches/{id}:
-    $ref: ./v3/paths/scheduled-searches-id.yaml
+    $ref: ./v2024/paths/scheduled-searches-id.yaml
   /scheduled-searches/{id}/unsubscribe:
-    $ref: ./v3/paths/scheduled-searches-unsubscribe.yaml
+    $ref: ./v2024/paths/scheduled-searches-unsubscribe.yaml
   /search:
-    $ref: ./v3/paths/search-post.yaml
+    $ref: ./v2024/paths/search-post.yaml
   /search/count:
-    $ref: ./v3/paths/search-count.yaml
+    $ref: ./v2024/paths/search-count.yaml
   /search/aggregate:
-    $ref: ./v3/paths/search-aggregate.yaml
+    $ref: ./v2024/paths/search-aggregate.yaml
   /search/{index}/{id}:
-    $ref: ./v3/paths/search-get.yaml
+    $ref: ./v2024/paths/search-get.yaml
   /segments:
-    $ref: ./v3/paths/segments.yaml
+    $ref: ./v2024/paths/segments.yaml
   /segments/{id}:
-    $ref: ./v3/paths/segment.yaml
+    $ref: ./v2024/paths/segment.yaml
   /service-desk-integrations:
-    $ref: ./v3/paths/service-desk-integrations.yaml
+    $ref: ./v2024/paths/service-desk-integrations.yaml
   /service-desk-integrations/{id}:
-    $ref: ./v3/paths/service-desk-integration.yaml
+    $ref: ./v2024/paths/service-desk-integration.yaml
   /service-desk-integrations/types:
-    $ref: ./v3/paths/service-desk-integration-types.yaml
+    $ref: ./v2024/paths/service-desk-integration-types.yaml
   /service-desk-integrations/templates/{scriptName}:
-    $ref: ./v3/paths/service-desk-integration-template.yaml
+    $ref: ./v2024/paths/service-desk-integration-template.yaml
   /service-desk-integrations/status-check-configuration:
-    $ref: ./v3/paths/service-desk-integration-configuration.yaml
+    $ref: ./v2024/paths/service-desk-integration-configuration.yaml
   /query-password-info:
-    $ref: ./v3/paths/query-password-info.yaml
+    $ref: ./v2024/paths/query-password-info.yaml
   /set-password:
-    $ref: ./v3/paths/set-password.yaml
+    $ref: ./v2024/paths/set-password.yaml
   /password-change-status/{id}:
-    $ref: ./v3/paths/password-change-status.yaml
+    $ref: ./v2024/paths/password-change-status.yaml
   /password-dictionary:
-    $ref: ./v3/paths/password-dictionary.yaml
+    $ref: ./v2024/paths/password-dictionary.yaml
   /password-org-config:
-    $ref: ./v3/paths/password-org-config.yaml
+    $ref: ./v2024/paths/password-org-config.yaml
   /reports/{taskResultId}/result:
-    $ref: ./v3/paths/reports-result.yaml
+    $ref: ./v2024/paths/reports-result.yaml
   /reports/run:
-    $ref: ./v3/paths/reports-run.yaml
+    $ref: ./v2024/paths/reports-run.yaml
   /reports/{id}/cancel:
-    $ref: ./v3/paths/reports-cancel.yaml
+    $ref: ./v2024/paths/reports-cancel.yaml
   /reports/{taskResultId}:
-    $ref: ./v3/paths/reports-get-file.yaml
+    $ref: ./v2024/paths/reports-get-file.yaml
   /sod-policies:
-    $ref: ./v3/paths/sod-policies.yaml
+    $ref: ./v2024/paths/sod-policies.yaml
   /sod-policies/{id}:
-    $ref: ./v3/paths/sod-policy.yaml
+    $ref: ./v2024/paths/sod-policy.yaml
   /sod-policies/{id}/evaluate:
-    $ref: ./v3/paths/sod-policy-evaluate.yaml
+    $ref: ./v2024/paths/sod-policy-evaluate.yaml
   /sod-policies/{id}/schedule:
-    $ref: ./v3/paths/sod-schedule.yaml
+    $ref: ./v2024/paths/sod-schedule.yaml
   /sod-policies/{id}/violation-report/run:
-    $ref: ./v3/paths/sod-report-run.yaml
+    $ref: ./v2024/paths/sod-report-run.yaml
   /sod-policies/{id}/violation-report:
-    $ref: ./v3/paths/sod-violation-report.yaml
+    $ref: ./v2024/paths/sod-violation-report.yaml
   /sod-policies/sod-violation-report-status/{reportResultId}:
-    $ref: ./v3/paths/sod-violation-report-status.yaml
+    $ref: ./v2024/paths/sod-violation-report-status.yaml
   /sod-violations/predict:
-    $ref: ./v3/paths/sod-violations-predict.yaml
+    $ref: ./v2024/paths/sod-violations-predict.yaml
   /sod-violations/check:
-    $ref: ./v3/paths/sod-violations-check.yaml
+    $ref: ./v2024/paths/sod-violations-check.yaml
   /sod-violation-report/run:
-    $ref: ./v3/paths/sod-all-report-run.yaml
+    $ref: ./v2024/paths/sod-all-report-run.yaml
   /sod-violation-report:
-    $ref: ./v3/paths/sod-all-report-status.yaml
+    $ref: ./v2024/paths/sod-all-report-status.yaml
   /sod-violation-report/{reportResultId}/download:
-    $ref: ./v3/paths/sod-download-default-report.yaml
+    $ref: ./v2024/paths/sod-download-default-report.yaml
   /sod-violation-report/{reportResultId}/download/{fileName}:
-    $ref: ./v3/paths/sod-download-custom-report.yaml
+    $ref: ./v2024/paths/sod-download-custom-report.yaml
   /sources:
-    $ref: ./v3/paths/sources.yaml
+    $ref: ./v2024/paths/sources.yaml
   /sources/{id}:
-    $ref: ./v3/paths/source.yaml
+    $ref: ./v2024/paths/source.yaml
   /sources/{sourceId}/provisioning-policies:
-    $ref: ./v3/paths/provisioning-policies.yaml
+    $ref: ./v2024/paths/provisioning-policies.yaml
   /sources/{sourceId}/provisioning-policies/{usageType}:
-    $ref: ./v3/paths/provisioning-policy.yaml
+    $ref: ./v2024/paths/provisioning-policy.yaml
   /sources/{sourceId}/provisioning-policies/bulk-update:
-    $ref: ./v3/paths/provisioning-policies-bulk-update.yaml
+    $ref: ./v2024/paths/provisioning-policies-bulk-update.yaml
   /sources/{sourceId}/schemas:
-    $ref: ./v3/paths/schemas.yaml
+    $ref: ./v2024/paths/schemas.yaml
   /sources/{sourceId}/schedules:
     $ref: ./v2024/paths/source-schedules.yaml
   /sources/{sourceId}/schedules/{scheduleType}:
     $ref: ./v2024/paths/source-schedule.yaml
   /sources/{sourceId}/schemas/{schemaId}:
-    $ref: ./v3/paths/schema.yaml
+    $ref: ./v2024/paths/schema.yaml
   /sources/{sourceId}/source-health:
-    $ref: ./v3/paths/source-health.yaml
+    $ref: ./v2024/paths/source-health.yaml
   /sources/{id}/schemas/accounts:
-    $ref: ./v3/paths/source-accounts-schema.yaml
+    $ref: ./v2024/paths/source-accounts-schema.yaml
   /sources/{id}/schemas/entitlements:
-    $ref: ./v3/paths/source-entitlements-schema.yaml
+    $ref: ./v2024/paths/source-entitlements-schema.yaml
   /sources/{sourceId}/upload-connector-file:
-    $ref: ./v3/paths/source-upload-connector-file.yaml
+    $ref: ./v2024/paths/source-upload-connector-file.yaml
   /sources/{id}/correlation-config:
     $ref: ./v2024/paths/correlation-config.yaml
   /sources/{sourceId}/password-policies:
     $ref: ./v2024/paths/sources-policy-holders.yaml
   /tagged-objects:
-    $ref: ./v3/paths/tagged-objects.yaml
+    $ref: ./v2024/paths/tagged-objects.yaml
   /tagged-objects/{type}:
-    $ref: ./v3/paths/tagged-objects-type.yaml
+    $ref: ./v2024/paths/tagged-objects-type.yaml
   /tagged-objects/{type}/{id}:
-    $ref: ./v3/paths/tagged-object.yaml
+    $ref: ./v2024/paths/tagged-object.yaml
   /tagged-objects/bulk-add:
-    $ref: ./v3/paths/bulk-add-tagged-objects.yaml
+    $ref: ./v2024/paths/bulk-add-tagged-objects.yaml
   /tagged-objects/bulk-remove:
-    $ref: ./v3/paths/bulk-remove-tagged-objects.yaml
+    $ref: ./v2024/paths/bulk-remove-tagged-objects.yaml
   /transforms:
-    $ref: ./v3/paths/transforms.yaml
+    $ref: ./v2024/paths/transforms.yaml
   /transforms/{id}:
-    $ref: ./v3/paths/transform.yaml
+    $ref: ./v2024/paths/transform.yaml
   /work-items:
-    $ref: ./v3/paths/work-items.yaml
+    $ref: ./v2024/paths/work-items.yaml
   /work-items/completed:
-    $ref: ./v3/paths/work-items-completed.yaml
+    $ref: ./v2024/paths/work-items-completed.yaml
   /work-items/count:
-    $ref: ./v3/paths/work-items-count.yaml
+    $ref: ./v2024/paths/work-items-count.yaml
   /work-items/completed/count:
-    $ref: ./v3/paths/work-items-completed-count.yaml
+    $ref: ./v2024/paths/work-items-completed-count.yaml
   /work-items/summary:
-    $ref: ./v3/paths/work-items-summary.yaml
+    $ref: ./v2024/paths/work-items-summary.yaml
   /work-items/{id}:
-    $ref: ./v3/paths/work-item.yaml
+    $ref: ./v2024/paths/work-item.yaml
   /work-items/{id}/approve/{approvalItemId}:
-    $ref: ./v3/paths/work-items-approve-approval-item.yaml
+    $ref: ./v2024/paths/work-items-approve-approval-item.yaml
   /work-items/{id}/reject/{approvalItemId}:
-    $ref: ./v3/paths/work-items-reject-approval-item.yaml
+    $ref: ./v2024/paths/work-items-reject-approval-item.yaml
   /work-items/bulk-approve/{id}:
-    $ref: ./v3/paths/work-items-bulk-approve-approval-item.yaml
+    $ref: ./v2024/paths/work-items-bulk-approve-approval-item.yaml
   /work-items/bulk-reject/{id}:
-    $ref: ./v3/paths/work-items-bulk-reject-approval-item.yaml
+    $ref: ./v2024/paths/work-items-bulk-reject-approval-item.yaml
   /work-items/{id}/submit-account-selection:
-    $ref: ./v3/paths/work-items-account-selection.yaml
+    $ref: ./v2024/paths/work-items-account-selection.yaml
   /workflows:
-    $ref: ./v3/paths/workflows/workflows.yaml
+    $ref: ./v2024/paths/workflows/workflows.yaml
   /workflows/{id}:
-    $ref: ./v3/paths/workflows/workflow.yaml
+    $ref: ./v2024/paths/workflows/workflow.yaml
   /workflows/{id}/test:
-    $ref: ./v3/paths/workflows/workflow-test.yaml
+    $ref: ./v2024/paths/workflows/workflow-test.yaml
   /workflows/{id}/executions:
-    $ref: ./v3/paths/workflows/workflow-executions.yaml
+    $ref: ./v2024/paths/workflows/workflow-executions.yaml
   /workflow-executions/{id}:
-    $ref: ./v3/paths/workflows/workflow-execution.yaml
+    $ref: ./v2024/paths/workflows/workflow-execution.yaml
   /workflow-executions/{id}/history:
-    $ref: ./v3/paths/workflows/workflow-execution-history.yaml
+    $ref: ./v2024/paths/workflows/workflow-execution-history.yaml
   /workflow-executions/{id}/cancel:
-    $ref: ./v3/paths/workflows/workflow-execution-cancel.yaml
+    $ref: ./v2024/paths/workflows/workflow-execution-cancel.yaml
   /workflow-library:
-    $ref: ./v3/paths/workflows/workflow-library.yaml
+    $ref: ./v2024/paths/workflows/workflow-library.yaml
   /workflow-library/actions:
-    $ref: ./v3/paths/workflows/workflow-library-actions.yaml
+    $ref: ./v2024/paths/workflows/workflow-library-actions.yaml
   /workflow-library/triggers:
-    $ref: ./v3/paths/workflows/workflow-library-triggers.yaml
+    $ref: ./v2024/paths/workflows/workflow-library-triggers.yaml
   /workflow-library/operators:
-    $ref: ./v3/paths/workflows/workflow-library-operators.yaml
+    $ref: ./v2024/paths/workflows/workflow-library-operators.yaml
   /workflows/{id}/external/oauth-clients:
-    $ref: ./v3/paths/workflows/workflow-external-oauth-client.yaml
+    $ref: ./v2024/paths/workflows/workflow-external-oauth-client.yaml
   /workflows/execute/external/{id}:
-    $ref: ./v3/paths/workflows/workflow-external-execute.yaml
+    $ref: ./v2024/paths/workflows/workflow-external-execute.yaml
   /workflows/execute/external/{id}/test:
-    $ref: ./v3/paths/workflows/workflow-external-execute-test.yaml
+    $ref: ./v2024/paths/workflows/workflow-external-execute-test.yaml
   /source-usages/{sourceId}/status:
-    $ref: ./v3/paths/source-usage-status.yaml
+    $ref: ./v2024/paths/source-usage-status.yaml
   /source-usages/{sourceId}/summaries:
-    $ref: ./v3/paths/source-usages.yaml
+    $ref: ./v2024/paths/source-usages.yaml
   /account-usages/{accountId}/summaries:
-    $ref: ./v3/paths/account-usages.yaml
+    $ref: ./v2024/paths/account-usages.yaml
   /identity-profiles/identity-preview:
-    $ref: ./v3/paths/identity-profiles-identity-preview.yaml
+    $ref: ./v2024/paths/identity-profiles-identity-preview.yaml
   /work-items/{id}/forward:
-    $ref: ./v3/paths/work-item-forward.yaml
+    $ref: ./v2024/paths/work-item-forward.yaml
   /accounts/search-attribute-config:
-    $ref: ./v3/paths/searchAttributeConfig.yaml
+    $ref: ./v2024/paths/searchAttributeConfig.yaml
   /accounts/search-attribute-config/{name}:
-    $ref: ./v3/paths/searchAttributeConfig-get-patch-delete.yaml
+    $ref: ./v2024/paths/searchAttributeConfig-get-patch-delete.yaml
   
   # V2024 Public Preview Endpoints (Requires: X-SailPoint-Experimental header)  
   /access-model-metadata/attributes:
@@ -2134,13 +2134,13 @@ paths:
   /suggested-entitlement-descriptions:
     $ref: ./v2024/paths/suggested-entitlement-descriptions.yaml
   /discovered-applications:
-    $ref: "./v3/paths/discovered-applications.yaml"
+    $ref: "./v2024/paths/discovered-applications.yaml"
   /manual-discover-applications-template:
-    $ref: "./v3/paths/manual-discover-applications-template.yaml"
+    $ref: "./v2024/paths/manual-discover-applications-template.yaml"
   /manual-discover-applications:
-    $ref: "./v3/paths/manual-discover-applications.yaml"
+    $ref: "./v2024/paths/manual-discover-applications.yaml"
   /vendor-connector-mappings:
-    $ref: "./v3/paths/vendor-connector-mappings.yaml"
+    $ref: "./v2024/paths/vendor-connector-mappings.yaml"
   /source-apps/{id}:
     $ref: './v2024/paths/ears-source-app.yaml'
   /source-apps/bulk-update:
@@ -2220,111 +2220,111 @@ components:
             "sp:scopes:all": "access to all scopes"
   schemas:
     AccessRequest:
-      $ref: ./v3/schemas/AccessRequest.yaml
+      $ref: ./v2024/schemas/AccessRequest.yaml
     AccessRequestItem:
-      $ref: ./v3/schemas/AccessRequestItem.yaml
+      $ref: ./v2024/schemas/AccessRequestItem.yaml
     AccessProfileDocument:
-      $ref: ./v3/schemas/search/model/access/profile/AccessProfileDocument.yaml
+      $ref: ./v2024/schemas/search/model/access/profile/AccessProfileDocument.yaml
     AccessProfileSummary:
-      $ref: ./v3/schemas/search/model/access/AccessProfileSummary.yaml
+      $ref: ./v2024/schemas/search/model/access/AccessProfileSummary.yaml
     AccessReviewReassignment:
-      $ref: ./v3/schemas/ReviewReassign.yaml
+      $ref: ./v2024/schemas/ReviewReassign.yaml
     Account:
-      $ref: ./v3/schemas/Account.yaml
+      $ref: ./v2024/schemas/Account.yaml
     AccountActivity:
-      $ref: ./v3/schemas/AccountActivity.yaml
+      $ref: ./v2024/schemas/AccountActivity.yaml
     AccountActivitySearchedItem:
-      $ref: ./v3/schemas/search/model/account/activity/AccountActivityDocument.yaml
+      $ref: ./v2024/schemas/search/model/account/activity/AccountActivityDocument.yaml
     AccountAttributes:
-      $ref: ./v3/schemas/AccountAttributes.yaml
+      $ref: ./v2024/schemas/AccountAttributes.yaml
     AccountsAsyncResult:
-      $ref: ./v3/schemas/AccountsAsyncResult.yaml
+      $ref: ./v2024/schemas/AccountsAsyncResult.yaml
     AccountToggleRequest:
-      $ref: ./v3/schemas/AccountToggleRequest.yaml
+      $ref: ./v2024/schemas/AccountToggleRequest.yaml
     AccountUnlockRequest:
-      $ref: ./v3/schemas/AccountUnlockRequest.yaml
+      $ref: ./v2024/schemas/AccountUnlockRequest.yaml
     ApprovalItems:
-      $ref: ./v3/schemas/ApprovalItemDetails.yaml
+      $ref: ./v2024/schemas/ApprovalItemDetails.yaml
     Campaign:
-      $ref: ./v3/schemas/CampaignReference.yaml
+      $ref: ./v2024/schemas/CampaignReference.yaml
     Certification:
-      $ref: ./v3/schemas/IdentityCertificationDto.yaml
+      $ref: ./v2024/schemas/IdentityCertificationDto.yaml
     CertificationReference:
-      $ref: ./v3/schemas/CertificationReference.yaml
+      $ref: ./v2024/schemas/CertificationReference.yaml
     EntitlementDocument:
-      $ref: ./v3/schemas/search/model/entitlement/EntitlementDocument.yaml
+      $ref: ./v2024/schemas/search/model/entitlement/EntitlementDocument.yaml
     EntitlementSummary:
-      $ref: ./v3/schemas/search/model/access/AccessProfileEntitlement.yaml
+      $ref: ./v2024/schemas/search/model/access/AccessProfileEntitlement.yaml
     Event:
-      $ref: ./v3/schemas/search/model/event/EventDocument.yaml
+      $ref: ./v2024/schemas/search/model/event/EventDocument.yaml
     IdentityDocument:
-      $ref: ./v3/schemas/search/model/identity/IdentityDocument.yaml
+      $ref: ./v2024/schemas/search/model/identity/IdentityDocument.yaml
     IdentityProfile:
-      $ref: ./v3/schemas/IdentityProfile.yaml
+      $ref: ./v2024/schemas/IdentityProfile.yaml
     IdentityReferenceWithNameAndEmail:
-      $ref: ./v3/schemas/IdentityReferenceWithNameAndEmail.yaml
+      $ref: ./v2024/schemas/IdentityReferenceWithNameAndEmail.yaml
     ProvisioningConfig:
-      $ref: ./v3/schemas/ProvisioningConfig.yaml
+      $ref: ./v2024/schemas/ProvisioningConfig.yaml
     ProvisioningPolicy:
-      $ref: ./v3/schemas/ProvisioningPolicyDto.yaml
+      $ref: ./v2024/schemas/ProvisioningPolicyDto.yaml
     QueuedCheckConfigDetails:
-      $ref: ./v3/schemas/QueuedCheckConfigDetails.yaml
+      $ref: ./v2024/schemas/QueuedCheckConfigDetails.yaml
     Reassignment:
-      $ref: ./v3/schemas/Reassignment.yaml
+      $ref: ./v2024/schemas/Reassignment.yaml
     ReassignmentReference:
-      $ref: ./v3/schemas/ReassignReference.yaml
+      $ref: ./v2024/schemas/ReassignReference.yaml
     RemediationItems:
-      $ref: ./v3/schemas/RemediationItemDetails.yaml
+      $ref: ./v2024/schemas/RemediationItemDetails.yaml
     RequestableObject:
-      $ref: ./v3/schemas/RequestableObject.yaml
+      $ref: ./v2024/schemas/RequestableObject.yaml
     RequestableObjectType:
-      $ref: ./v3/schemas/RequestableObjectType.yaml
+      $ref: ./v2024/schemas/RequestableObjectType.yaml
     RequestableObjectRequestStatus:
-      $ref: ./v3/schemas/RequestableObjectRequestStatus.yaml
+      $ref: ./v2024/schemas/RequestableObjectRequestStatus.yaml
     Reviewer:
-      $ref: ./v3/schemas/Reviewer.yaml
+      $ref: ./v2024/schemas/Reviewer.yaml
     RoleDocument:
-      $ref: ./v3/schemas/search/model/role/RoleDocument.yaml
+      $ref: ./v2024/schemas/search/model/role/RoleDocument.yaml
     RoleSummary:
-      $ref: ./v3/schemas/search/model/access/AccessProfileRole.yaml
+      $ref: ./v2024/schemas/search/model/access/AccessProfileRole.yaml
     SearchDocument:
-      $ref: ./v3/schemas/search/documents/SearchDocument.yaml
+      $ref: ./v2024/schemas/search/documents/SearchDocument.yaml
     SavedSearch:
-      $ref: ./v3/schemas/search/saved/SavedSearch.yaml
+      $ref: ./v2024/schemas/search/saved/SavedSearch.yaml
     Schedule:
-      $ref: ./v3/schemas/schedule/Schedule.yaml
+      $ref: ./v2024/schemas/schedule/Schedule.yaml
     ScheduledSearch:
-      $ref: ./v3/schemas/search/scheduled/ScheduledSearch.yaml
+      $ref: ./v2024/schemas/search/scheduled/ScheduledSearch.yaml
     ServiceDeskIntegrationDto:
-      $ref: ./v3/schemas/ServiceDeskIntegrationDto.yaml
+      $ref: ./v2024/schemas/ServiceDeskIntegrationDto.yaml
     ServiceDeskIntegrationTemplateDto:
-      $ref: ./v3/schemas/ServiceDeskIntegrationTemplateDto.yaml
+      $ref: ./v2024/schemas/ServiceDeskIntegrationTemplateDto.yaml
     ServiceDeskIntegrationTemplateType:
-      $ref: ./v3/schemas/ServiceDeskIntegrationTemplateType.yaml
+      $ref: ./v2024/schemas/ServiceDeskIntegrationTemplateType.yaml
     Source:
-      $ref: ./v3/schemas/Source.yaml
+      $ref: ./v2024/schemas/Source.yaml
     SourceHealthDto:
-      $ref: ./v3/schemas/SourceHealthDto.yaml
+      $ref: ./v2024/schemas/SourceHealthDto.yaml
     SourceSchedule:
       $ref: ./v2024/schemas/sources/Schedule.yaml
     Transform:
-      $ref: ./v3/schemas/Transform.yaml
+      $ref: ./v2024/schemas/Transform.yaml
     WorkItems:
-      $ref: ./v3/schemas/WorkItems.yaml
+      $ref: ./v2024/schemas/WorkItems.yaml
     WorkItemsCount:
-      $ref: ./v3/schemas/WorkItemsCount.yaml
+      $ref: ./v2024/schemas/WorkItemsCount.yaml
     WorkItemsSummary:
-      $ref: ./v3/schemas/WorkItemsSummary.yaml
+      $ref: ./v2024/schemas/WorkItemsSummary.yaml
     AccountUsage:
-      $ref: ./v3/schemas/AccountUsage.yaml
+      $ref: ./v2024/schemas/AccountUsage.yaml
     SourceUsage:
-      $ref: ./v3/schemas/SourceUsage.yaml
+      $ref: ./v2024/schemas/SourceUsage.yaml
     SourceUsageStatus:
-      $ref: ./v3/schemas/SourceUsageStatus.yaml
+      $ref: ./v2024/schemas/SourceUsageStatus.yaml
     BrandingItem:
-      $ref: ./v3/schemas/BrandingItem.yaml
+      $ref: ./v2024/schemas/BrandingItem.yaml
     BrandingItemCreate:
-      $ref: ./v3/schemas/BrandingItemCreate.yaml
+      $ref: ./v2024/schemas/BrandingItemCreate.yaml
     RoleBulkUpdateResponse:
       $ref: "./v2024/schemas/role-metadata/RoleBulkUpdateResponse.yaml"
     RoleGetAllBulkUpdateResponse:

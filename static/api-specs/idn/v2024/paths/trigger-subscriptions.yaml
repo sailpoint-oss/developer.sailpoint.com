@@ -15,7 +15,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: ../../beta/schemas/SubscriptionPostRequest.yaml
+          $ref: ../schemas/SubscriptionPostRequest.yaml
         examples:
           HTTP Subscription:
             value:
@@ -66,17 +66,17 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../../beta/schemas/Subscription.yaml
+            $ref: ../schemas/Subscription.yaml
     '400':
-      $ref: ../../v3/responses/400.yaml
+      $ref: ../responses/400.yaml
     '401':
-      $ref: ../../v3/responses/401.yaml
+      $ref: ../responses/401.yaml
     '403':
-      $ref: ../../v3/responses/403.yaml
+      $ref: ../responses/403.yaml
     '429':
-      $ref: ../../v3/responses/429.yaml
+      $ref: ../responses/429.yaml
     '500':
-      $ref: ../../v3/responses/500.yaml
+      $ref: ../responses/500.yaml
   security:
   - userAuth:
     - sp:trigger-service-subscriptions:manage
@@ -96,9 +96,9 @@ get:
   summary: List Subscriptions
   description: Gets a list of all trigger subscriptions.
   parameters:
-  - $ref: ../../v3/parameters/limit.yaml
-  - $ref: ../../v3/parameters/offset.yaml
-  - $ref: ../../v3/parameters/count.yaml
+  - $ref: ../parameters/limit.yaml
+  - $ref: ../parameters/offset.yaml
+  - $ref: ../parameters/count.yaml
   - in: query
     required: false
     name: filters
@@ -147,7 +147,7 @@ get:
           schema:
             type: array
             items:
-              $ref: ../../beta/schemas/Subscription.yaml
+              $ref: ../schemas/Subscription.yaml
           examples:
             HTTP Subscription:
               value:
@@ -197,15 +197,15 @@ get:
                 enabled: true
                 filter: $[?($.identityId == "201327fda1c44704ac01181e963d463c")]
     '400':
-      $ref: ../../v3/responses/400.yaml
+      $ref: ../responses/400.yaml
     '401':
-      $ref: ../../v3/responses/401.yaml
+      $ref: ../responses/401.yaml
     '403':
-      $ref: ../../v3/responses/403.yaml
+      $ref: ../responses/403.yaml
     '429':
-      $ref: ../../v3/responses/429.yaml
+      $ref: ../responses/429.yaml
     '500':
-      $ref: ../../v3/responses/500.yaml
+      $ref: ../responses/500.yaml
   security:
   - userAuth:
     - sp:trigger-service-subscriptions:read

@@ -42,9 +42,9 @@ get:
     example:
     - entitlement
     - account
-  - $ref: ../../v3/parameters/limit.yaml
-  - $ref: ../../v3/parameters/offset.yaml
-  - $ref: ../../v3/parameters/count.yaml
+  - $ref: ../parameters/limit.yaml
+  - $ref: ../parameters/offset.yaml
+  - $ref: ../parameters/count.yaml
   - name: X-SailPoint-Experimental
     in: header
     description: Use this header to enable this experimental API.
@@ -62,12 +62,12 @@ get:
             type: array
             items:
               anyOf:
-              - $ref: ../../beta/schemas/AccessItemAssociated.yaml
-              - $ref: ../../beta/schemas/AccessItemRemoved.yaml
-              - $ref: ../../beta/schemas/AttributesChanged.yaml
-              - $ref: ../../beta/schemas/AccessRequested.yaml
-              - $ref: ../../beta/schemas/IdentityCertified.yaml
-              - $ref: ../../beta/schemas/AccountStatusChanged.yaml
+              - $ref: ../schemas/AccessItemAssociated.yaml
+              - $ref: ../schemas/AccessItemRemoved.yaml
+              - $ref: ../schemas/AttributesChanged.yaml
+              - $ref: ../schemas/AccessRequested.yaml
+              - $ref: ../schemas/IdentityCertified.yaml
+              - $ref: ../schemas/AccountStatusChanged.yaml
           examples:
             AccessItemAssociated:
               description: An Access item associated event
@@ -191,14 +191,14 @@ get:
                 identityId: 8a80828f643d484f01643e14202e206f
                 dt: '2019-03-08T22:37:33.901Z'
     '400':
-      $ref: ../../v3/responses/400.yaml
+      $ref: ../responses/400.yaml
     '401':
-      $ref: ../../v3/responses/401.yaml
+      $ref: ../responses/401.yaml
     '403':
-      $ref: ../../v3/responses/403.yaml
+      $ref: ../responses/403.yaml
     '404':
-      $ref: ../../v3/responses/404.yaml
+      $ref: ../responses/404.yaml
     '429':
-      $ref: ../../v3/responses/429.yaml
+      $ref: ../responses/429.yaml
     '500':
-      $ref: ../../v3/responses/500.yaml
+      $ref: ../responses/500.yaml

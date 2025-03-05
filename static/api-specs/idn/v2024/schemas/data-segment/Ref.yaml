@@ -1,7 +1,7 @@
 type: object
 properties:
   type:
-    $ref: '../../../v3/schemas/DtoType.yaml'
+    $ref: '../../schemas/DtoType.yaml'
     description: DTO type
   id:
     type: string

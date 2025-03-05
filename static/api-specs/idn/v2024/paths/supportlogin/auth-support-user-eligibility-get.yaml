@@ -1,0 +1,29 @@
+get:
+  operationId: authSupportUserEligbilityGet
+  tags:
+    - Auth Support Login
+  summary: Get a user's eligibility for support and services login
+  description: >-
+    Fetch the auth support tenant record(s) associated with this user's tenant
+    and check to see if the user belongs  to any access roles allowed for
+    performing support and services login 
+
+    Request requires an authenticated user, but no specific scope is required
+    for analysis of user eligibility.
+  responses:
+    "200":
+      description:
+        Response containing a determination of whether or not the logged-in user
+        is eligible to provide support to customers.
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/AuthSupportUserEligibilityResponse.yaml"
+    "401":
+      $ref: "../../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../../v3/responses/403.yaml"
+    "429":
+      $ref: "../../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../../v3/responses/500.yaml"

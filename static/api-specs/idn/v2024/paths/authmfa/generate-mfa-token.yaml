@@ -1,0 +1,44 @@
+post:
+  operationId: authMfaGenerateMfaToken
+  tags:
+    - Auth MFA
+  summary: Generate a special token for calling sp-mfa /totp/** APIs
+  description: >-
+    Generates an MFA token and establishes an unverified MFA-on-login context state. 
+    Callable by either an internal service or an authenticated user. 
+    
+    When called by an internal service, the calling service must present the target user's external id as the requestedFor value. 
+    
+    When called by an authenticated user, the proxying service must present "me" as the the requestedFor value. 
+    
+    The following rights are required to access this endpoint: sp:mfa-token-all:create, sp:mfa-token-self:create 
+    
+    If an external id is presented as the request body's requestedFor value, the caller must possess the sp:mfa-token-all:create right. 
+    
+    This implies that an internal service is obtaining an MFA token on behalf of a user.
+  requestBody:
+    description: Request body containing requestedFor value.
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas/GetMfaTokenRequest.yaml"
+  responses:
+    "200":
+      description: Response containing an MFA Token.
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/GetMfaTokenResponse.yaml"
+    "400":
+      $ref: "../../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../../v3/responses/403.yaml"
+    "404":
+      $ref: "../../../v3/responses/404.yaml"
+    "429":
+      $ref: "../../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../../v3/responses/500.yaml"

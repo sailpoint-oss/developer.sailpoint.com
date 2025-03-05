@@ -32,7 +32,7 @@ get:
     description: Include only 'searchable' attributes in the response.
     required: false
     example: false
-  - $ref: ../../v3/parameters/count.yaml
+  - $ref: ../parameters/count.yaml
   - name: X-SailPoint-Experimental
     in: header
     description: Use this header to enable this experimental API.
@@ -49,17 +49,17 @@ get:
           schema:
             type: array
             items:
-              $ref: ../../v3/schemas/identity-attributes/IdentityAttribute.yaml
+              $ref: ../schemas/identity-attributes/IdentityAttribute.yaml
     '400':
-      $ref: ../../v3/responses/400.yaml
+      $ref: ../responses/400.yaml
     '401':
-      $ref: ../../v3/responses/401.yaml
+      $ref: ../responses/401.yaml
     '403':
-      $ref: ../../v3/responses/403.yaml
+      $ref: ../responses/403.yaml
     '429':
-      $ref: ../../v3/responses/429.yaml
+      $ref: ../responses/429.yaml
     '500':
-      $ref: ../../v3/responses/500.yaml
+      $ref: ../responses/500.yaml
 post:
   operationId: createIdentityAttribute
   tags:
@@ -74,26 +74,26 @@ post:
     content:
       application/json:
         schema:
-          $ref: ../../v3/schemas/identity-attributes/IdentityAttribute.yaml
+          $ref: ../schemas/identity-attributes/IdentityAttribute.yaml
   responses:
     '201':
       description: The identity attribute was created successfully.
       content:
         application/json:
           schema:
-            $ref: ../../v3/schemas/identity-attributes/IdentityAttribute.yaml
+            $ref: ../schemas/identity-attributes/IdentityAttribute.yaml
     '400':
-      $ref: ../../v3/responses/400.yaml
+      $ref: ../responses/400.yaml
     '401':
-      $ref: ../../v3/responses/401.yaml
+      $ref: ../responses/401.yaml
     '403':
-      $ref: ../../v3/responses/403.yaml
+      $ref: ../responses/403.yaml
     '404':
-      $ref: ../../v3/responses/404.yaml
+      $ref: ../responses/404.yaml
     '429':
-      $ref: ../../v3/responses/429.yaml
+      $ref: ../responses/429.yaml
     '500':
-      $ref: ../../v3/responses/500.yaml
+      $ref: ../responses/500.yaml
   parameters:
   - name: X-SailPoint-Experimental
     in: header

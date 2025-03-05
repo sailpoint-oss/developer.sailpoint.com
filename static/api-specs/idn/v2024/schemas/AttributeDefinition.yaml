@@ -1,0 +1,49 @@
+type: object
+properties:
+  name:
+    type: string
+    description: The name of the attribute.
+    example: sAMAccountName
+  type:
+    $ref: "./AttributeDefinitionType.yaml"
+    description: The type of the attribute.
+    example: STRING
+  schema:
+    description: A reference to the schema on the source to the attribute values map to.
+    type: object
+    properties:
+      type:
+        description: The type of object being referenced
+        type: string
+        enum:
+        - CONNECTOR_SCHEMA
+        example: CONNECTOR_SCHEMA
+      id:
+        type: string
+        description: The object ID this reference applies to.
+        example: 2c91808568c529c60168cca6f90c1313
+      name:
+        type: string
+        description: The human-readable display name of the object.
+        example: group
+  description:
+    type: string
+    description: A human-readable description of the attribute.
+    example: SAM Account Name
+  isMulti:
+    type: boolean
+    description: Flag indicating whether or not the attribute is multi-valued.
+    example: false
+    default: false
+  isEntitlement:
+    type: boolean
+    description: Flag indicating whether or not the attribute is an entitlement.
+    example: false
+    default: false
+  isGroup:
+    type: boolean
+    description: |
+      Flag indicating whether or not the attribute represents a group.
+      This can only be `true` if `isEntitlement` is also `true` **and** there is a schema defined for the attribute..
+    example: false
+    default: false

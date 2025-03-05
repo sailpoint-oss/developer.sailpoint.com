@@ -1,0 +1,56 @@
+type: object
+properties:
+  created:
+    type: string
+    format: 'date-time'
+    example: '2021-02-25T18:45:37.098Z'
+  modified:
+    type: string
+    format: 'date-time'
+    example: '2021-03-26T18:25:34.098Z'
+  customerId:
+    type: string
+    description: Unique identifer of the customer
+    example: 534v0449-4yt0-4333-88y1-3bf1n2019c99
+  qualifier:
+    type: string
+    description: The specific run of this DAG and its associated data.
+    example: 20110909123456
+  dagId:
+    type: string
+    description: The Id of the Directed Acyclic Graph that produced the event.
+    example: ida-sp-one-streaming-144
+  type:
+    type: string
+    enum:
+      - streaming
+      - batch
+    description: The type of the data pipeline.
+    example: streaming
+  hasError:
+    type: boolean
+    description: States whether or not an error has occured in the pipeline
+  operations:
+    type: array
+    description: Summary of events produced by the qualifier run of the DAG
+    items:
+      $ref: '../schemas/DataPipelineOperation.yaml'
+    example:
+      - timestamp: "2020-09-09T12:34:56.000Z"
+        operation: ProvisionFlinkCluster
+        status: success
+        description: ""
+      - timestamp: "2020-09-09T12:34:00.013Z"
+        operation: ActivateQualifier
+        status: failure
+        description: "Qualifier data checks failed"
+  attributes:
+    type: object
+    additionalProperties:
+      type: string
+    description: >-
+      Arbitrary key-value pairs, related attributes to the DAG and qualifier run.
+    example:
+      build: '668-master'
+      resources.cluster_size: 's'
+      resources.flink.sink_parallelism: '2'

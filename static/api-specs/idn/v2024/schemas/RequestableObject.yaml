@@ -1,0 +1,46 @@
+type: object
+properties:
+  id:
+    type: string
+    description: Id of the requestable object itself
+    example: 2c9180835d2e5168015d32f890ca1581
+  name:
+    type: string
+    description: Human-readable display name of the requestable object
+    example: Applied Research Access
+  created:
+    type: string
+    format: 'date-time'
+    example: '2017-07-11T18:45:37.098Z'
+    description: The time when the requestable object was created
+  modified:
+    nullable: true
+    type: string
+    format: 'date-time'
+    example: '2018-06-25T20:22:28.104Z'
+    description: The time when the requestable object was last modified
+  description:
+    type: string
+    description: Description of the requestable object.
+    example: Access to research information, lab results, and schematics.
+    nullable: true
+  type:
+    $ref: './RequestableObjectType.yaml'
+  requestStatus:
+    allOf:
+    - $ref: './RequestableObjectRequestStatus.yaml'
+    - nullable: true
+  identityRequestId:
+    type: string
+    description: If *requestStatus* is *PENDING*, indicates the id of the associated account activity.
+    nullable: true
+    example: null
+  ownerRef:
+    $ref: './IdentityReferenceWithNameAndEmail.yaml'
+  requestCommentsRequired:
+    type: boolean
+    description: Whether the requester must provide comments when requesting the object.
+    example: false
+
+
+

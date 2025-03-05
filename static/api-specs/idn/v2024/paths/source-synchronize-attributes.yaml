@@ -31,7 +31,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../../beta/schemas/SourceSyncJob.yaml
+            $ref: ../schemas/SourceSyncJob.yaml
           example:
             id: 0f11f2a4-7c94-4bf3-a2bd-742580fe3bde
             status: IN_PROGRESS
@@ -39,14 +39,14 @@ post:
               type: SYNCHRONIZE_SOURCE_ATTRIBUTES
               dataJson: '{"sourceId":"2c918083746f642c01746f990884012a"}'
     '400':
-      $ref: ../../v3/responses/400.yaml
+      $ref: ../responses/400.yaml
     '401':
-      $ref: ../../v3/responses/401.yaml
+      $ref: ../responses/401.yaml
     '403':
-      $ref: ../../v3/responses/403.yaml
+      $ref: ../responses/403.yaml
     '404':
-      $ref: ../../v3/responses/404.yaml
+      $ref: ../responses/404.yaml
     '429':
-      $ref: ../../v3/responses/429.yaml
+      $ref: ../responses/429.yaml
     '500':
-      $ref: ../../v3/responses/500.yaml
+      $ref: ../responses/500.yaml

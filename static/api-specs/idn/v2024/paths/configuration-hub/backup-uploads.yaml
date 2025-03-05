@@ -1,0 +1,205 @@
+get:
+  operationId: listUploadedConfigurations
+  security:
+    - userAuth: [sp:config-backup:read, sp:config-backup:manage]
+  tags:
+    - Configuration Hub
+  summary: List Uploaded Configurations
+  description: >-
+    This API gets a list of existing uploaded configurations for the current tenant.
+  parameters:
+    - in: query
+      name: filters
+      schema:
+        type: string
+      description:  >-
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+        Filtering is supported for the following fields and operators:
+        
+        
+        **status**: *eq*
+      example: status eq "COMPLETE"
+      required: false
+  responses:
+    '200':
+      description: >-
+        List of existing uploaded configurations.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../../../v2024/schemas/configuration-hub/BackupResponse.yaml'
+          example:
+            [
+              {
+                "jobId": "281d421c-0643-4004-9fe5-29a95d2f73df",
+                "status": "COMPLETE",
+                "type": "BACKUP",
+                "tenant": "someTenant",
+                "requesterName": "support",
+                "fileExists": true,
+                "created": "2024-03-07T21:11:00.375Z",
+                "modified": "2024-03-07T21:11:25.046Z",
+                "completed": "2024-03-07T21:11:00.66Z",
+                "name": "test1",
+                "userCanDelete": false,
+                "isPartial": false,
+                "backupType": "UPLOADED",
+                "hydrationStatus": "HYDRATED",
+                "totalObjectCount": 64
+              }
+            ]
+    '400':
+      $ref: '../../responses/400.yaml'
+    '401':
+      $ref: '../../responses/401.yaml'
+    '403':
+      $ref: '../../responses/403.yaml'
+    '404':
+      $ref: '../../responses/404.yaml'
+    '429':
+      $ref: '../../responses/429.yaml'
+    '500':
+      $ref: '../../responses/500.yaml'
+post:
+  operationId: createUploadedConfiguration
+  security:
+    - userAuth: [sp:config-backup:manage]
+  tags:
+    - Configuration Hub
+  summary: Upload a Configuration
+  description: >-
+    This API uploads a JSON configuration file into a tenant.
+    
+    
+    Configuration files can be managed and deployed via Configuration Hub by uploading a json file which contains configuration data.
+    The JSON file should be the same as the one used by our import endpoints.
+    The object types supported by upload configuration file functionality are the same as the ones supported by our regular backup functionality.
+    
+    
+    Refer to [SaaS Configuration](https://developer.sailpoint.com/idn/docs/saas-configuration/#supported-objects) for more information about supported objects.
+  requestBody:
+    description: |
+      The body will consist of "data" which should contain the json file and name wish should be the name you want to assign to the uploaded file"
+
+      __Example__
+
+          data: "uploaded.json",
+          name: "A_NEW_UPLOADED_BACKUP"
+
+      __Sample Upload File__
+
+          {
+            "version": 1,
+            "tenant": "a-sample-tenant",
+            "objects":
+            [
+              {
+                "version": 1,
+                "self":
+                  {
+                    "id": "0a59c7196d2917f8aa6d29686e6600fb",
+                    "type": "SOURCE",
+                    "name": "Extended Form"
+                  },
+                "object":
+                  {
+                    "id": "0a59c7196d2917f8aa6d29686e6600fb",
+                    "name": "Extended Form",
+                    "type": "DelimitedFile",
+                    "connectorClass": "sailpoint.connector.DelimitedFileConnector",
+                    "connectorScriptName": "delimited-file-angularsc",
+                    "description": "Migrated app - Extended Form (original ID: 0a59c7196d2917f8aa6d29686e6600fb)",
+                    "deleteThreshold": 10,
+                    "provisionAsCsv": false,
+                    "owner":
+                      {
+                        "type": "IDENTITY",
+                        "id": "0a59c7196d2917f8816d29685fed00c3",
+                        "name": "slpt.services"
+                      },
+                    "connectorAttributes":
+                      {
+                        "beforemoveAccount": "Do Nothing",
+                        "beforemoverAccount": "Do Nothing",
+                        "busApp": "false",
+                        "file": "Empty",
+                        "filetransport": "local",
+                        "filterEmptyRecords": "true",
+                        "group.filetransport": "local",
+                        "group.filterEmptyRecords": "true",
+                        "group.partitionMode": "auto",
+                        "hasHeader": "true",
+                        "indexColumn": "ID",
+                        "isCaseInsensitiveMerge": "false",
+                        "isSortedByIndexColumn": "false",
+                        "loaProcess": "Do Nothing",
+                        "ltdProcess": "Do Nothing",
+                        "mergeRows": "false",
+                        "moverProcess": "Do Nothing",
+                        "moverRevocation": "Do Nothing",
+                        "nativeChangeDetectionAttributeScope": "entitlements",
+                        "nativeChangeDetectionEnabled": "false",
+                        "nativeChangeProcess": "Do Nothing",
+                        "parseType": "delimited",
+                        "partitionMode": "auto",
+                        "policyType": "Do Nothing",
+                        "rehireProcess": "Do Nothing",
+                        "reverseleaverProcess": "Do Nothing",
+                        "rtwloaProcess": "Do Nothing",
+                        "rtwltdProcess": "Do Nothing",
+                        "stopIfLineHasWrongColumnLength": "false",
+                        "templateApplication": "DelimitedFile Template",
+                        "terminationProcess": "Do Nothing"
+                      },
+                    "schemas":
+                      [],
+                    "provisioningPolicies":
+                      [],
+                    "features":
+                      [
+                        "DIRECT_PERMISSIONS",
+                        "NO_RANDOM_ACCESS",
+                        "DISCOVER_SCHEMA"
+                      ]
+                  }
+              }
+            ]
+        }
+    required: true
+    content:
+      multipart/form-data:
+        schema:
+          type: object
+          properties:
+            data:
+              type: string
+              format: binary
+              description: JSON file containing the objects to be imported.
+            name:
+              type: string
+              description: Name that will be assigned to the uploaded configuration file.
+          required:
+            - data
+            - name
+  responses:
+    '202':
+      description: >-
+        Upload job accepted and queued for processing.
+      content:
+        application/json:
+          schema:
+            $ref: '../../../v2024/schemas/configuration-hub/BackupResponse.yaml'
+    '400':
+      $ref: '../../responses/400.yaml'
+    '401':
+      $ref: '../../responses/401.yaml'
+    '403':
+      $ref: '../../responses/403.yaml'
+    '429':
+      $ref: '../../responses/429.yaml'
+    '500':
+      $ref: '../../responses/500.yaml'

@@ -25,9 +25,9 @@ get:
         x-sailpoint-resource-operation-id: listDimensions
         description: Id of the Dimension
         example: 2c9180835d191a86015d28455b4a2329
-      - $ref: '../../v3/parameters/limit.yaml'
-      - $ref: '../../v3/parameters/offset.yaml'
-      - $ref: '../../v3/parameters/count.yaml'
+      - $ref: '../parameters/limit.yaml'
+      - $ref: '../parameters/offset.yaml'
+      - $ref: '../parameters/count.yaml'
       - in: query
         name: filters
         schema:
@@ -85,15 +85,15 @@ get:
               items:
                 $ref: '../schemas/Entitlement.yaml'
       '400':
-        $ref: '../../v3/responses/400.yaml'
+        $ref: '../responses/400.yaml'
       '401':
-        $ref: '../../v3/responses/401.yaml'
+        $ref: '../responses/401.yaml'
       '403':
-        $ref: '../../v3/responses/403.yaml'
+        $ref: '../responses/403.yaml'
       '429':
-        $ref: '../../v3/responses/429.yaml'
+        $ref: '../responses/429.yaml'
       '500':
-        $ref: '../../v3/responses/500.yaml'
+        $ref: '../responses/500.yaml'
     security:
       - userAuth: [ idn:role-unchecked:read, idn:role-unchecked:manage, idn:role-checked:manage, idn:role-checked:read ]
     x-sailpoint-userLevels:

@@ -1,0 +1,9 @@
+type: string
+enum:
+  - ACCESS_PROFILE
+  - ROLE
+  - ENTITLEMENT
+description: >-
+  The currently supported requestable object types. 
+example: ACCESS_PROFILE
+

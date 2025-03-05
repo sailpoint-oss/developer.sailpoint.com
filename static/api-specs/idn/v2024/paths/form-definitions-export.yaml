@@ -100,7 +100,7 @@ get:
               type: object
               properties:
                 object:
-                  $ref: ../../beta/schemas/forms/FormDefinitionResponse.yaml
+                  $ref: ../schemas/forms/FormDefinitionResponse.yaml
                 self:
                   type: string
                   x-go-name: Self
@@ -121,7 +121,7 @@ get:
               messages:
                 type: array
                 items:
-                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -143,7 +143,7 @@ get:
               messages:
                 type: array
                 items:
-                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -165,7 +165,7 @@ get:
               messages:
                 type: array
                 items:
-                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -179,7 +179,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../../beta/schemas/forms/Error.yaml
+            $ref: ../schemas/forms/Error.yaml
     '500':
       description: An internal server error occurred
       content:
@@ -193,7 +193,7 @@ get:
               messages:
                 type: array
                 items:
-                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer

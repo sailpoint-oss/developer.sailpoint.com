@@ -1,0 +1,20 @@
+type: object
+properties:
+  timestamp:
+    type: string
+    format: 'date-time'
+    example: '2017-07-11T18:45:37.098Z'
+  operation:
+    type: string
+    description: The name of task/operation that produced this event
+    example: ProvisionFlinkCluster
+  status:
+    type: string
+    description: The outcome of the operation
+    enum:
+      - success
+      - failure
+    example: success
+  description:
+    type: string
+    description: description of the event and its outcome.

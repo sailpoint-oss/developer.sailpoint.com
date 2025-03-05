@@ -1,0 +1,6 @@
+summary: Query for Events
+value:
+  indices:
+    - events
+  query:
+    query: 'type:PROVISIONING'

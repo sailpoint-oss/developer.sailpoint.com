@@ -1,0 +1,9 @@
+
+type: object
+properties:
+  source:
+    $ref: '../../v3/schemas/AttrSyncSource.yaml'
+  attribute:
+    type: string
+    description: Name of the source account attribute to which the identity attribute values should be synchronized
+    example: mail

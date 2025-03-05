@@ -1,0 +1,5 @@
+description: List of Identity Profile IDs to delete.
+type: array
+items:
+    type: string
+example: ["2c9180867b2a34e0017b3078d60b0699", "2c9180867b2a34e0017b3078d60b0698"]

@@ -36,9 +36,9 @@ get:
     x-sailpoint-resource-operation-id: getPotentialRoleSummaries
     description: A potential role id in a role mining session
     example: 62f28d91-7d9f-4d17-be15-666d5b41d77f
-  - $ref: ../../v3/parameters/offset.yaml
-  - $ref: ../../v3/parameters/limit.yaml
-  - $ref: ../../v3/parameters/count.yaml
+  - $ref: ../parameters/offset.yaml
+  - $ref: ../parameters/limit.yaml
+  - $ref: ../parameters/count.yaml
   - name: X-SailPoint-Experimental
     in: header
     description: Use this header to enable this experimental API.
@@ -56,17 +56,17 @@ get:
           schema:
             type: array
             items:
-              $ref: ../../beta/schemas/RoleMiningPotentialRoleApplication.yaml
+              $ref: ../schemas/RoleMiningPotentialRoleApplication.yaml
     '400':
-      $ref: ../../v3/responses/400.yaml
+      $ref: ../responses/400.yaml
     '401':
-      $ref: ../../v3/responses/401.yaml
+      $ref: ../responses/401.yaml
     '403':
-      $ref: ../../v3/responses/403.yaml
+      $ref: ../responses/403.yaml
     '429':
-      $ref: ../../v3/responses/429.yaml
+      $ref: ../responses/429.yaml
     '500':
-      $ref: ../../v3/responses/500.yaml
+      $ref: ../responses/500.yaml
   security:
     - userAuth: ['iai:access-modeling:read']
   x-sailpoint-userLevels:

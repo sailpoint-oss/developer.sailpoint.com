@@ -1,0 +1,8 @@
+type: object
+properties:
+  count:
+    type: integer
+    description: Count of events of topic in the event table
+  topic:
+    type: string
+    description: Event topic name

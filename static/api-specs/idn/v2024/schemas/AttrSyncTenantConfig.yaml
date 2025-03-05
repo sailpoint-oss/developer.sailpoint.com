@@ -1,0 +1,28 @@
+
+type: object
+description: Specification of attribute sync configuration for a tenant
+required:
+  - attributes
+properties:
+  id:
+    type: string
+    description: Attribute synchronization configuration ID
+    example: 0f11f2a4-7c94-4bf3-a2bd-742580fe3bde
+    readOnly: true
+  attributes:
+    type: array
+    description: Collection of attribute synchronization configuration for individual identity attributes
+    items:
+      $ref: './AttrSyncTenantAttributeConfig.yaml'
+  created:
+    type: string
+    description: Date the attribute synchronization configuration was created.
+    format: 'date-time'
+    example: '2019-12-24T22:32:58.104Z'
+    readOnly: true
+  modified:
+    type: string
+    description: Date the attribute synchronization configuration was last modified.
+    format: 'date-time'
+    example: '2019-12-31T20:22:28.104Z'
+    readOnly: true

@@ -1,0 +1,34 @@
+post:
+  operationId: createSubscription
+  tags:
+    - Triggers
+  summary: Creates Subscription (Internal)
+  description: >-
+    This creates a subscription for a trigger which defines the way the trigger is invoked.
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/SubscriptionInternal.yaml'
+  responses:
+    '201':
+      description: >-
+        Created subscription object. The trigger can then be invoked by the method defined in the subscription.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/SubscriptionInternal.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+
+  security:
+    - userAuth: [sp:trigger-service-subscriptions:manage]

@@ -1,0 +1,51 @@
+type: object
+properties:
+  owner:
+    allOf:
+      - $ref: '../../../v3/schemas/OwnerDto.yaml'
+      - type: object
+        properties:
+          displayName:
+            readOnly: true
+            description: The display name of the identity
+            type: string
+            example: Support
+          emailAddress:
+            readOnly: true
+            description: The primary email address of the identity
+            type: string
+            example: support@sailpoint.com
+        description: Governance group owner. 
+  id:
+    type: string
+    description: Governance group ID. 
+    example: 2c91808568c529c60168cca6f90c1313
+    readOnly: true
+  name:
+    type: string
+    description: Governance group name. 
+    example: DB Access Governance Group
+  description:
+    type: string
+    description: Governance group description. 
+    example: Description of the Governance Group
+  memberCount:
+    type: integer
+    format: int64
+    example: 1641498673000
+    readOnly: true
+    description: Number of members in the governance group.
+  connectionCount:
+    type: integer
+    format: int64
+    example: 1641498673000
+    description: Number of connections in the governance group.
+    readOnly: true
+  created:
+    type: string
+    format: date-time
+    example: "2022-01-06T19:51:13Z"
+  modified:
+    type: string
+    format: date-time
+    example: "2022-01-06T19:51:13Z"

@@ -1,0 +1,57 @@
+type: object
+description: Dto for source health data
+properties:
+  id:
+    type: string
+    readOnly: true
+    description: the id of the Source
+    example: "2c91808568c529c60168cca6f90c1324"
+  type:
+    type: string
+    description: >-
+      Specifies the type of system being managed e.g. Active Directory, Workday, etc..
+      If you are creating a Delimited File source, you must set the `provisionasCsv` query parameter to `true`. 
+    example: "OpenLDAP - Direct"
+  name:
+    type: string
+    description: the name of the source
+    example: "Source1234"
+  org:
+    type: string
+    description: source's org
+    example: "denali-cjh"
+  isAuthoritative:
+    type: boolean
+    example: false
+    description: Is the source authoritative
+  isCluster:
+    type: boolean
+    example: false
+    description: Is the source in a cluster
+  hostname:
+    type: string
+    example: "megapod-useast1-secret-hostname.sailpoint.com"
+    description: source's hostname
+  pod:
+    type: string
+    description: source's pod
+    example: "megapod-useast1"
+  iqServiceVersion:
+    type: string
+    description: The version of the iqService
+    example: "iqVersion123"
+  status:
+    type: string
+    enum:
+      - SOURCE_STATE_ERROR_CLUSTER
+      - SOURCE_STATE_ERROR_SOURCE
+      - SOURCE_STATE_ERROR_VA
+      - SOURCE_STATE_FAILURE_CLUSTER
+      - SOURCE_STATE_FAILURE_SOURCE
+      - SOURCE_STATE_HEALTHY
+      - SOURCE_STATE_UNCHECKED_CLUSTER
+      - SOURCE_STATE_UNCHECKED_CLUSTER_NO_SOURCES
+      - SOURCE_STATE_UNCHECKED_SOURCE
+      - SOURCE_STATE_UNCHECKED_SOURCE_NO_ACCOUNTS
+    description: connection test result
+    example: "SOURCE_STATE_UNCHECKED_SOURCE"

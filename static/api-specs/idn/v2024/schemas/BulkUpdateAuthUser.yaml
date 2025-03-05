@@ -1,0 +1,28 @@
+type: object
+properties:
+  authUserPatches:
+    description: >-
+      Map of id of the auth user to a JsonPatchOperation describing what to patch on that auth user.
+    type: object
+    additionalProperties:
+      $ref: '../schemas/JsonPatchOperation.yaml'
+    example: {
+      "2c91808d7b98f877017ba8263dc07d54": [
+        {
+          "op": "replace",
+          "path": "/capabilities",
+          "value": [
+            "ORG_ADMIN"
+          ]
+        }
+      ],
+      "2c91808d7b98f877017ba8263dd77d5c": [
+        {
+          "op": "replace",
+          "path": "/capabilities",
+          "value": [
+            "ORG_ADMIN"
+          ]
+        }
+      ]
+  }

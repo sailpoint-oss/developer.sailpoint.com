@@ -1,0 +1,106 @@
+properties:
+  created:
+    description: Created is the date the form instance was assigned
+    example: "2023-07-12T20:14:57.74486Z"
+    format: date-time
+    type: string
+    x-go-name: Created
+  createdBy:
+    $ref: './FormInstanceCreatedBy.yaml'
+  expire:
+    description: Expire is the maximum amount of time that a form can be in progress. After this time is reached then the form will be moved to a CANCELED state automatically. The user will no longer be able to complete the submission. When a form instance is expires an audit log will be generated for that record
+    example: "2023-08-12T20:14:57.74486Z"
+    type: string
+    x-go-name: Expire
+  formConditions:
+    description: FormConditions is the conditional logic that modify the form dynamically modify the form as the recipient is interacting out the form
+    items:
+      $ref: './FormCondition.yaml'
+    type: array
+    x-go-name: FormConditions
+  formData:
+    nullable: true
+    additionalProperties: true
+    description: FormData is the data provided by the form on submit. The data is in a key -> value map
+    example:
+      department: Engineering
+    type: object
+    x-go-name: FormData
+  formDefinitionId:
+    description: FormDefinitionID is the id of the form definition that created this form
+    example: "49841cb8-00a5-4fbd-9888-8bbb28d48331"
+    type: string
+    x-go-name: FormDefinitionID
+  formElements:
+    description: FormElements is the configuration of the form, this would be a repeat of the fields from the form-config
+    items:
+      $ref: './FormElement.yaml'
+    type: array
+    x-go-name: FormElements
+  formErrors:
+    description: FormErrors is an array of form validation errors from the last time the form instance was transitioned to the SUBMITTED state. If the form instance had validation errors then it would be moved to the IN PROGRESS state where the client can retrieve these errors
+    items:
+      $ref: './FormError.yaml'
+    type: array
+    x-go-name: FormErrors
+  formInput:
+    additionalProperties: { }
+    nullable: true
+    description: FormInput is an object of form input labels to value
+    example:
+      input1: Sales
+    type: object
+    x-go-name: FormInput
+  id:
+    description: Unique guid identifying this form instance
+    example: 06a2d961-07fa-44d1-8d0a-2f6470e30fd2
+    type: string
+    x-go-name: FormInstanceID
+  modified:
+    description: Modified is the last date the form instance was modified
+    example: "2023-07-12T20:14:57.74486Z"
+    format: date-time
+    type: string
+    x-go-name: Modified
+  recipients:
+    description: Recipients references to the recipient of a form. The recipients are those who are responsible for filling out a form and completing it
+    items:
+      $ref: './FormInstanceRecipient.yaml'
+    type: array
+    x-go-name: Recipients
+  standAloneForm:
+    default: false
+    description: StandAloneForm is a boolean flag to indicate if this form should be available for users to complete via the standalone form UI or should this only be available to be completed by as an embedded form
+    example: false
+    type: boolean
+    x-go-name: StandAloneForm
+  standAloneFormUrl:
+    description: StandAloneFormURL is the URL where this form may be completed by the designated recipients using the standalone form UI
+    example: https://my-org.identitynow.com/ui/d/forms/00000000-0000-0000-0000-000000000000
+    type: string
+    x-go-name: StandAloneFormURL
+  state:
+    description: |-
+      State the state of the form instance
+      ASSIGNED FormInstanceStateAssigned
+      IN_PROGRESS FormInstanceStateInProgress
+      SUBMITTED FormInstanceStateSubmitted
+      COMPLETED FormInstanceStateCompleted
+      CANCELLED FormInstanceStateCancelled
+    enum:
+      - ASSIGNED
+      - IN_PROGRESS
+      - SUBMITTED
+      - COMPLETED
+      - CANCELLED
+    example: ASSIGNED
+    type: string
+    x-go-enum-desc: |-
+      ASSIGNED FormInstanceStateAssigned
+      IN_PROGRESS FormInstanceStateInProgress
+      SUBMITTED FormInstanceStateSubmitted
+      COMPLETED FormInstanceStateCompleted
+      CANCELLED FormInstanceStateCancelled
+    x-go-name: State
+type: object
+x-go-package: github.com/sailpoint/sp-forms/domain

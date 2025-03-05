@@ -1,0 +1,13 @@
+summary: NestedAggregation with BucketAggregation
+value:
+  indices:  [ 'identities' ]
+  aggregationType: 'SAILPOINT'
+  aggregations:
+    nested:
+      name: 'Access'
+      field: 'access'
+      type: 'TERMS'
+    bucket:
+      name: 'Access Source Name'
+      type: 'TERMS'
+      field: 'access.source.name'

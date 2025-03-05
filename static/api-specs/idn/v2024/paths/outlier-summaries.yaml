@@ -6,8 +6,8 @@ get:
   description: >-
     This API returns a summary containing the number of identities that customer has, the number of outliers, and the type of outlier.
   parameters:
-    - $ref: ../../v3/parameters/limit.yaml
-    - $ref: ../../v3/parameters/offset.yaml
+    - $ref: ../parameters/limit.yaml
+    - $ref: ../parameters/offset.yaml
     - name: type
       in: query
       description: Type of the identity outliers snapshot to filter on
@@ -66,19 +66,19 @@ get:
           schema:
             type: array
             items:
-              $ref: ../../beta/schemas/OutlierSummary.yaml
+              $ref: ../schemas/OutlierSummary.yaml
     '202':
-      $ref: ../../v3/responses/202.yaml
+      $ref: ../responses/202.yaml
     '400':
-      $ref: ../../v3/responses/400.yaml
+      $ref: ../responses/400.yaml
     '401':
-      $ref: ../../v3/responses/401.yaml
+      $ref: ../responses/401.yaml
     '403':
-      $ref: ../../v3/responses/403.yaml
+      $ref: ../responses/403.yaml
     '429':
-      $ref: ../../v3/responses/429.yaml
+      $ref: ../responses/429.yaml
     '500':
-      $ref: ../../v3/responses/500.yaml
+      $ref: ../responses/500.yaml
   security:
     - userAuth: [iai:outliers:read, iai:outliers:manage]
     - applicationAuth: [iai:outliers:read, iai:outliers:manage]

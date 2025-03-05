@@ -29,19 +29,19 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../../beta/schemas/TaskStatus.yaml
+            $ref: ../schemas/TaskStatus.yaml
     '403':
       description: Forbidden, generally due to a lack of security rights
     '404':
       description: TaskStatus with the given id was not found.
     '400':
-      $ref: ../../v3/responses/400.yaml
+      $ref: ../responses/400.yaml
     '401':
-      $ref: ../../v3/responses/401.yaml
+      $ref: ../responses/401.yaml
     '429':
-      $ref: ../../v3/responses/429.yaml
+      $ref: ../responses/429.yaml
     '500':
-      $ref: ../../v3/responses/500.yaml
+      $ref: ../responses/500.yaml
   security:
     - userAuth: [idn:task-management:read, idn:task-management:write]
     - applicationAuth: [idn:task-management:read, idn:task-management:write]
@@ -87,7 +87,7 @@ patch:
         schema:
           type: array
           items:
-            $ref: ../../beta/schemas/JsonPatchOperation.yaml
+            $ref: ../schemas/JsonPatchOperation.yaml
           example:
           - op: replace
             path: /completionStatus
@@ -102,19 +102,19 @@ patch:
       content:
         application/json:
           schema:
-            $ref: ../../beta/schemas/TaskStatus.yaml
+            $ref: ../schemas/TaskStatus.yaml
     '400':
-      $ref: ../../v3/responses/400.yaml
+      $ref: ../responses/400.yaml
     '403':
-      $ref: ../../v3/responses/403.yaml
+      $ref: ../responses/403.yaml
     '404':
-      $ref: ../../v3/responses/404.yaml
+      $ref: ../responses/404.yaml
     '401':
-      $ref: ../../v3/responses/401.yaml
+      $ref: ../responses/401.yaml
     '429':
-      $ref: ../../v3/responses/429.yaml
+      $ref: ../responses/429.yaml
     '500':
-      $ref: ../../v3/responses/500.yaml
+      $ref: ../responses/500.yaml
   security:
     - userAuth: [idn:task-management:write]
   x-sailpoint-userLevels:

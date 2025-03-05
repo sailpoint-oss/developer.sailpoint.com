@@ -1,0 +1,21 @@
+type : object
+properties:
+  id:
+    type: string
+    description: Id for identity
+  name:
+    type: string
+    description: Name for identity
+  attributes:
+    type: object
+    additionalProperties:
+      type: string
+example:
+  id: "8c190e67-87aa-4ed9-a90b-d9d5344523fb"
+  name: "Adam Smith"
+  attributes: {
+    "department": "Human Resources-tah-mgb-dnd",
+    "firstName": Adam,
+    "jobTitle": "Sales Analyst",
+    "location": "Mexico"
+  }

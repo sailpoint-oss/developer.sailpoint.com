@@ -1,0 +1,9 @@
+summary: MetricAggregation
+value:
+  indices:  [ 'identities' ]
+  aggregationType: 'SAILPOINT'
+  aggregations:
+    metric:
+      name: 'How Many Locations'
+      type: 'UNIQUE_COUNT'
+      field: 'attributes.city'

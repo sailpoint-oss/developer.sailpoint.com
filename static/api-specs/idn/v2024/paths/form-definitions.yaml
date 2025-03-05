@@ -95,7 +95,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../../beta/schemas/forms/ListFormDefinitionsByTenantResponse.yaml
+            $ref: ../schemas/forms/ListFormDefinitionsByTenantResponse.yaml
     '400':
       description: An error with the request occurred
       content:
@@ -109,7 +109,7 @@ get:
               messages:
                 type: array
                 items:
-                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -131,7 +131,7 @@ get:
               messages:
                 type: array
                 items:
-                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -153,7 +153,7 @@ get:
               messages:
                 type: array
                 items:
-                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -167,7 +167,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../../beta/schemas/forms/Error.yaml
+            $ref: ../schemas/forms/Error.yaml
     '500':
       description: An internal server error occurred
       content:
@@ -181,7 +181,7 @@ get:
               messages:
                 type: array
                 items:
-                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -203,7 +203,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: ../../beta/schemas/forms/CreateFormDefinitionRequest.yaml
+          $ref: ../schemas/forms/CreateFormDefinitionRequest.yaml
         example:
           name: my form
           description: my form description
@@ -217,7 +217,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../../beta/schemas/forms/FormDefinitionResponse.yaml
+            $ref: ../schemas/forms/FormDefinitionResponse.yaml
     '400':
       description: An error with the request occurred
       content:
@@ -231,7 +231,7 @@ post:
               messages:
                 type: array
                 items:
-                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -253,7 +253,7 @@ post:
               messages:
                 type: array
                 items:
-                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -275,7 +275,7 @@ post:
               messages:
                 type: array
                 items:
-                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -289,7 +289,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../../beta/schemas/forms/Error.yaml
+            $ref: ../schemas/forms/Error.yaml
     '500':
       description: An internal server error occurred
       content:
@@ -303,7 +303,7 @@ post:
               messages:
                 type: array
                 items:
-                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer

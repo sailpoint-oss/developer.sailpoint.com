@@ -1,0 +1,54 @@
+type: object
+properties:
+  entitlementIds:
+    type: array
+    description: List of entitlement ids to update
+    maxItems: 50
+    items:
+      type: string
+    example:
+      [
+        "2c91808a7624751a01762f19d665220d",
+        "2c91808a7624751a01762f19d67c220e",
+        "2c91808a7624751a01762f19d692220f"
+      ]
+  jsonPatch:
+    type: array
+    items:
+      $ref: '../../v3/schemas/JsonPatchOperation.yaml'
+    example:
+      [
+        {
+          "op": "replace",
+          "path": "/privileged",
+          "value": false
+        },
+        {
+          "op": "replace",
+          "path": "/requestable",
+          "value": false
+        }
+      ]
+example:
+  {
+    "entitlementIds": [
+      "2c91808a7624751a01762f19d665220d",
+      "2c91808a7624751a01762f19d67c220e",
+      "2c91808a7624751a01762f19d692220f"
+    ],
+    "jsonPatch": [
+      {
+        "op": "replace",
+        "path": "/privileged",
+        "value": false
+      },
+      {
+        "op": "replace",
+        "path": "/requestable",
+        "value": false
+      }
+    ]
+  }
+required:
+  - entitlementIds
+  - jsonPatch

@@ -1,0 +1,14 @@
+description: Task return details
+required:
+  - name
+  - attributeName
+type: object
+properties:
+  name:
+    description: Display name of the TaskReturnDetails
+    type: string
+    example: label
+  attributeName:
+    description: Attribute the TaskReturnDetails is for
+    type: string
+    example: identityCount

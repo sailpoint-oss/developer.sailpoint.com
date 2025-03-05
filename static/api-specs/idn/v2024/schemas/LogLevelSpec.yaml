@@ -1,0 +1,7 @@
+description: Mapping of identifiers to Standard Log Level values
+type: object
+example: INFO
+additionalProperties:
+  default: INFO
+  example: TRACE
+  $ref: './StandardLevel.yaml'

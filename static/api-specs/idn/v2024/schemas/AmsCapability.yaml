@@ -1,0 +1,45 @@
+type: object
+description: Authorization model capability
+properties:
+  id:
+    type: string
+    description: ID of the capability.
+    example: idn:admin
+  name:
+    type: string
+    description: The descriptive name of the capability.
+    example: IdentityNow Administrator
+  legacyGroup:
+    type: string
+    description: The legacy name for the capability.
+    example: ORG_ADMIN
+  adminAssignable:
+    type: boolean
+    description: If true, this capability can be assigned by the administrator. If false, this capability cannot be assigned to a user.
+    example: true
+  translatedName:
+    type: string
+    description: A translated string that can be displayed for the capability with tranlation based on the "Accept-Language" header in the request.
+    example: Admin
+  translatedGrant:
+    type: string
+    description: A translated string that can be displayed for granting the capability with tranlation based on the "Accept-Language" header in the request.
+    example: Grant Admin
+  translatedRemove:
+    type: string
+    description: A translated string that can be displayed for removing the capability with tranlation based on the "Accept-Language" header in the request.
+    example: Remove Admin
+  rightSets:
+    description: A list of right sets belonging to this capability.
+    type: array
+    items:
+      $ref: '../schemas/AmsRightSet.yaml'
+required:
+  - id
+  - name
+  - legacyGroup
+  - rightSets
+  - adminAssignable
+  - translatedName
+  - translatedGrant
+  - translatedRemove

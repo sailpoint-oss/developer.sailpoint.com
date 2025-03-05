@@ -18,7 +18,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: ../../beta/schemas/ExportPayload.yaml
+          $ref: ../schemas/ExportPayload.yaml
         examples:
           Export all objects available:
             description: Export all object types available in IDN.
@@ -109,7 +109,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../../beta/schemas/SpConfigExportJob.yaml
+            $ref: ../schemas/SpConfigExportJob.yaml
     '400':
       description: 'Client Error - Returned if the request body is invalid.
 
@@ -117,14 +117,14 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../../v3/schemas/ErrorResponseDto.yaml
+            $ref: ../schemas/ErrorResponseDto.yaml
     '401':
-      $ref: ../../v3/responses/401.yaml
+      $ref: ../responses/401.yaml
     '403':
-      $ref: ../../v3/responses/403.yaml
+      $ref: ../responses/403.yaml
     '404':
-      $ref: ../../v3/responses/404.yaml
+      $ref: ../responses/404.yaml
     '429':
-      $ref: ../../v3/responses/429.yaml
+      $ref: ../responses/429.yaml
     '500':
-      $ref: ../../v3/responses/500.yaml
+      $ref: ../responses/500.yaml

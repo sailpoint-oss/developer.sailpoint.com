@@ -1,0 +1,28 @@
+type : object
+properties:
+  name:
+    type: string
+    description: Name of the entitlement
+  id:
+    type: string
+    description: Id of the entitlement
+  description:
+    type: string
+    description: Description for the entitlement
+  source:
+    type: string
+    description: Source or the application for the entitlement
+  attribute:
+    type: string
+    description: Attribute for the entitlement
+  value:
+    type: string
+    description: Attribute value for the entitlement
+
+example:
+  name: "Administrator"
+  id: "8c190e67-87aa-4ed9-a90b-d9d5344523fb"
+  description: "Full administrative access to IdentityNow"
+  source: "IdentityNow"
+  attribute: "assignedGroups"
+  value: "ORG_ADMIN"

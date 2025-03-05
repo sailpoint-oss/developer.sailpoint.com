@@ -1,0 +1,74 @@
+get:
+  operationId: listIdentityGroups
+  summary: Identity Groups list
+  tags:
+    - IAI Identity Groups
+  description: >-
+    The Identity Groups List API returns a list of all identity groups.
+  parameters:
+    - $ref: '../../v3/parameters/limit.yaml'
+    - $ref: '../../v3/parameters/offset.yaml'
+    - $ref: '../../v3/parameters/count.yaml'
+    - in: query
+      name: filters
+      schema:
+        type: string
+      description: >-
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+        Filtering is supported for the following fields and operators:
+
+
+        **attributes**: *eq, sw*
+      example: attributes eq "attribute1"
+  responses:
+    '200':
+      description: A list of identity groups for the customer.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/IdentityGroupDto.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - bearerAuth : []
+post:
+  operationId: createIdentityGroup
+  summary: Creates Identity Group
+  tags:
+    - IAI Identity Groups
+  description: >-
+    The Create Identity Group API is used to create a new identity group. The request is submitted to IdentityAI where it is saved. 
+    The API returns a result that includes the identity group ID.
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/IdentityGroupDto.yaml'
+  responses:
+    '200':
+      description: The created identity group for the customer
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/IdentityGroupDto.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - bearerAuth : []

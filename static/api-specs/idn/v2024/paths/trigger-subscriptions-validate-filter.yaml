@@ -11,7 +11,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: ../../beta/schemas/ValidateFilterInputDto.yaml
+          $ref: ../schemas/ValidateFilterInputDto.yaml
           required:
           - input
           - filter
@@ -26,21 +26,21 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../../beta/schemas/ValidateFilterOutputDto.yaml
+            $ref: ../schemas/ValidateFilterOutputDto.yaml
           example:
             isValid: true
             isValidJSONPath: true
             isPathExist: true
     '400':
-      $ref: ../../v3/responses/400.yaml
+      $ref: ../responses/400.yaml
     '401':
-      $ref: ../../v3/responses/401.yaml
+      $ref: ../responses/401.yaml
     '403':
-      $ref: ../../v3/responses/403.yaml
+      $ref: ../responses/403.yaml
     '429':
-      $ref: ../../v3/responses/429.yaml
+      $ref: ../responses/429.yaml
     '500':
-      $ref: ../../v3/responses/500.yaml
+      $ref: ../responses/500.yaml
   security:
   - userAuth:
     - sp:trigger-service-subscriptions:manage

@@ -1,0 +1,11 @@
+type: string
+enum:
+    - EQUALS
+    - NOT_EQUALS
+    - CONTAINS
+    - HAS
+    - AND
+    - OR
+description: Supported operations on ProvisioningCriteria
+example: EQUALS
+

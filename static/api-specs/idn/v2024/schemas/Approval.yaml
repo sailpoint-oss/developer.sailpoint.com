@@ -1,0 +1,100 @@
+type: object
+properties:
+  approvalId:
+    type: string
+    example: 38453251-6be2-5f8f-df93-5ce19e295837
+    description: The Approval ID
+  approvers:
+    type: array
+    items:
+      $ref: '../schemas/ApprovalIdentity.yaml'
+    description: Object representation of an approver of an approval
+  createdDate:
+    type: string
+    example: 2023-04-12T23:20:50.52Z
+    description: Date the approval was created
+  type:
+    type: string
+    example: ENTITLEMENT_DESCRIPTIONS
+    description: Type of approval
+  name:
+    type: array
+    items:
+      $ref: '../schemas/ApprovalName.yaml'
+    description: The name of the approval for a given locale
+  batchRequest:
+    type: object
+    description: The name of the approval for a given locale
+    $ref: '../schemas/ApprovalBatch.yaml'
+    example:
+      batchId: 38453251-6be2-5f8f-df93-5ce19e295837
+      batchSize: 100
+  description:
+    type: array
+    items:
+      $ref: '../schemas/ApprovalDescription.yaml'
+    description: The description of the approval for a given locale
+  priority:
+    type: string
+    enum:
+    - HIGH
+    - MEDIUM
+    - LOW
+    example: HIGH
+    description: The priority of the approval
+  requester:
+    type: object
+    description: Object representation of the requester of the approval
+    $ref: '../schemas/ApprovalIdentity.yaml'
+    example:
+      id: 85d173e7d57e496569df763231d6deb6a
+      type: IDENTITY
+      name: John Doe
+  comments:
+    type: array
+    items:
+      $ref: '../schemas/ApprovalComment.yaml'
+    description: Object representation of a comment on the approval
+  approvedBy:
+    type: array
+    items:
+      $ref: '../schemas/ApprovalIdentity.yaml'
+    description: Array of approvers who have approved the approval
+  rejectedBy:
+    type: array
+    items:
+      $ref: '../schemas/ApprovalIdentity.yaml'
+    description: Array of approvers who have rejected the approval
+  completedDate:
+    type: string
+    example: 2023-04-12T23:20:50.52Z
+    description: Date the approval was completed
+  approvalCriteria:
+    type: string
+    enum:
+    - SINGLE
+    - DOUBLE
+    - TRIPLE
+    - QUARTER
+    - HALF
+    - ALL
+    example: SINGLE
+    description: Criteria that needs to be met for an approval to be marked as approved
+  status:
+    type: string
+    enum:
+    - PENDING
+    - APPROVED
+    - REJECTED
+    example: PENDING
+    description: The current status of the approval
+  additionalAttributes:
+    type: string
+    example: "{ \"llm_description\": \"generated description\" }"
+    description: Json string representing additional attributes known about the object to be approved.
+  referenceData:
+    type: array
+    items:
+      $ref: '../schemas/ApprovalReference.yaml'
+    description: Reference data related to the approval
+description: Approval Object

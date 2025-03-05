@@ -1,6 +1,6 @@
 // Create a DocumentClient that represents the query to add an item
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
-import { DynamoDBDocumentClient, GetCommand } from '@aws-sdk/lib-dynamodb';
+import { DynamoDBDocumentClient, GetCommand, PutCommand } from '@aws-sdk/lib-dynamodb';
 import crypto from 'crypto';
 import { Hono } from 'hono'
 import { handle } from 'hono/aws-lambda'
@@ -27,15 +27,38 @@ const tableName = process.env.SAMPLE_TABLE;
 
 app.use(logger())
 
-app.post('/uuid', (c) => c.json({ code: crypto.randomUUID() }))
+app.post('/uuid', async (c) => {
+  if(c.req.header('Content-Type') !== 'application/json') {
+    throw new HTTPException(400, { "message": "Content-Type must be application/json" })
+  }
 
-app.post('/code/:code', (c) => c.text(`Processing token exchange for code: ${c.req.param('code')}`))
+  const body = await c.req.json()
 
-app.get('/code/:uuid', async (c) => {
+  if (!body.apiBaseURL) {
+    throw new HTTPException(400, { "message": "apiBaseURL missing from request body" })
+  }
+
+  try{
+    const data = await ddbDocClient.send(new PutCommand({ TableName: tableName, Item: { uuid: crypto.randomUUID(), apiBaseURL: body.apiBaseURL } }));
+    return c.json(data)
+  }catch{
+    throw new HTTPException(400, { "message": "Error creating UUID" })
+  }
+})
+
+// app.post('/code/:code', (c) => {
+//   const code = c.req.param('code');
+//   if (!code) {
+//     throw new HTTPException(400, { "message": "code not provided" })
+//   }
+
+
+// })
+
+app.get('/uuid/:uuid', async (c) => {
   const uuid = c.req.param('uuid');
   if (!uuid) {
-    c.status(400)
-    return c.json({ message: 'uuid not provided'})
+    throw new HTTPException(400, { "message": "uuid not provided" })
   }
   try {
     const data = await ddbDocClient.send(new GetCommand({ TableName: tableName, Key: { uuid } }));
@@ -50,64 +73,8 @@ app.get('/code/:uuid', async (c) => {
     //@ts-expect-error Unknown error shape
     console.error("Error stack:", err.stack);
 
-    throw new HTTPException(401, { "message": "uuid not authenticated" })
+    throw new HTTPException(400, { "message": "uuid not authenticated" })
   }
 })
-
-// export const authHandler: Handler = async (event, context) => {
-//   const { http } = event.requestContext;
-//   console.log('Method:', http.method);
-//   console.log('Path:', http.path);
-
-//   switch (http.method) {
-//     case 'GET':
-//       return await handleGet(event);
-//     default:
-//       return {
-//         statusCode: 405,
-//         body: JSON.stringify({ message: 'Method Not Allowed' }),
-//       };
-//   }
-// }
-
-// async function handleGet(event) {
-//   console.log('Handling GET request');
-//   const { http } = event.requestContext;
-
-//   if (http.path === '/code') {
-//     console.log(`path matches /code`);
-//     return {
-//       statusCode: 200,
-//       body: JSON.stringify({ code: crypto.randomUUID() }),
-//     };
-//   } else if (http.path.startsWith('/code/')) {
-//     console.log(`path matches /code/{code}`);
-//     const code = http.path.split('/').pop();
-//     console.log(`code: ${code}`);
-//     try {
-//       const data = await ddbDocClient.send(new GetCommand({ TableName: tableName, Key: { code } }));
-//       const item = data.Item;
-//       return {
-//         statusCode: 200,
-//         body: JSON.stringify(item),
-//       };
-//     } catch (err) {
-//       console.error("Error retrieving item:", err.message);
-//       console.error("Error code:", err.code);
-//       console.error("Error name:", err.name);
-//       console.error("Error stack:", err.stack);
-
-//       return {
-//         statusCode: 404,
-//         body: JSON.stringify({ message: 'Item not found' }),
-//       };
-//     }
-//   } else {
-//     return {
-//       statusCode: 404,
-//       body: JSON.stringify({ message: 'Requested Path Not Found' }),
-//     };
-//   }
-// }
 
 export const handler = handle(app)

@@ -1,5 +1,6 @@
 {
   "name": "mithrandir",
+  "version": "0.0.1",
   "packageManager": "yarn@4.6.0",
   "scripts": {
     "build": "esbuild --bundle --outfile=./dist/index.js --platform=node --target=node20 ./src/index.ts",

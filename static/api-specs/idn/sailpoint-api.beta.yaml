@@ -1785,6 +1785,8 @@ paths:
     $ref: './beta/paths/message-catalog.yaml'
   /triggers:
     $ref: './beta/paths/triggers.yaml'
+  /trigger-access-request-decision:
+    $ref: './beta/paths/trigger-access-request-decision.yaml'
   /trigger-subscriptions:
     $ref: './beta/paths/trigger-subscriptions.yaml'
   /trigger-subscriptions/{id}:

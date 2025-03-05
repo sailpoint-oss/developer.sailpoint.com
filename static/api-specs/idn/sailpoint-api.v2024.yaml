@@ -2059,6 +2059,8 @@ paths:
     $ref: ./v2024/paths/tenant.yaml
   /triggers:
     $ref: ./v2024/paths/triggers.yaml
+  /trigger-access-request-decision:
+    $ref: ./beta/paths/trigger-access-request-decision.yaml
   /trigger-subscriptions:
     $ref: ./v2024/paths/trigger-subscriptions.yaml
   /trigger-subscriptions/{id}:

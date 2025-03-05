@@ -271,18 +271,16 @@ try {
 [[Back to top]](#) 
 
 ## import-sp-config
-"This post will import objects from a JSON configuration file into\
- \ a tenant. By default, every import will first export all existing objects supported\
- \ by sp-config as a backup before the import is attempted. The backup is provided\
- \ so that the state of the configuration prior to the import is available for\
- \ inspection or restore if needed. The backup can be skipped by setting \"excludeBackup\"\
- \ to true in the import options. If a backup is performed, the id of the backup\
- \ will be provided in the ImportResult as the \"exportJobId\". This can be downloaded\
- \  using the `/sp-config/export/{exportJobId}/download` endpoint.\nYou cannot currently\
- \ import from the Non-Employee Lifecycle Management (NELM) source. You cannot\
- \ use this endpoint to back up or store NELM data. \nFor more information about\
- \ the object types that currently support import functionality, refer to [SaaS\
- \ Configuration](https://developer.sailpoint.com/idn/docs/saas-configuration/#supported-objects)."
+This post will import objects from a JSON configuration file into a tenant.
+By default, every import will first export all existing objects supported by sp-config as a backup before the import is attempted.
+The backup is provided so that the state of the configuration prior to the import is available for inspection or restore if needed.
+The backup can be skipped by setting "excludeBackup" to true in the import options.
+If a backup is performed, the id of the backup will be provided in the ImportResult as the "exportJobId". This can be downloaded 
+using the `/sp-config/export/{exportJobId}/download` endpoint.
+
+You cannot currently import from the Non-Employee Lifecycle Management (NELM) source. You cannot use this endpoint to back up or store NELM data. 
+
+For more information about the object types that currently support import functionality, refer to [SaaS Configuration](https://developer.sailpoint.com/idn/docs/saas-configuration/#supported-objects).
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/import-sp-config)

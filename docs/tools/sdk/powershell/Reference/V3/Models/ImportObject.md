@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'ImportObject', 'ImportObject']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  **Enum** [  "IDENTITY_OBJECT_CONFIG",    "IDENTITY_PROFILE",    "RULE",    "SOURCE",    "TRANSFORM",    "TRIGGER_SUBSCRIPTION" ] | DTO type of object created or updated by import. | [optional] 
+**Type** |  **Enum** [  "CONNECTOR_RULE",    "IDENTITY_OBJECT_CONFIG",    "IDENTITY_PROFILE",    "RULE",    "SOURCE",    "TRANSFORM",    "TRIGGER_SUBSCRIPTION" ] | DTO type of object created or updated by import. | [optional] 
 **Id** | **String** | ID of object created or updated by import. | [optional] 
 **Name** | **String** | Display name of object created or updated by import. | [optional] 
 

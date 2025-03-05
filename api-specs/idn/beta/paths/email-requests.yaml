@@ -1,0 +1,27 @@
+post:
+  operationId: sendEmailRequest
+  summary: Generate user email notifications.
+  description: >-
+      Used by internal services to generate user email notifications.
+  tags:
+    - Internal Use Only
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/EmailRequest.yaml'
+  responses:
+    '202':
+      $ref: '../../v3/responses/202.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+

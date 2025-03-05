@@ -1,0 +1,41 @@
+post:
+  operationId: bulkDeleteScheduledActions
+  tags:
+    - SP-Scheduler
+  summary: Bulk Delete Scheduled Actions
+  description: >-
+    This deletes a list of scheduled actions filtered by meta data.
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            meta:
+              type: object
+              description: Key value pair to query the meta data field provided when actions are created.
+              example: {"flag": true}
+  responses:
+    '200':
+      description: >-
+        A list of scheduled action objects.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              count:
+                type: integer
+                description: The amount of scheduled actions that were deleted.
+                example: 2
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

@@ -1,0 +1,95 @@
+type: object
+properties:
+  jobId:
+    type: string
+    description: Unique id assigned to this job.
+    example: "07659d7d-2cce-47c0-9e49-185787ee565a"
+  status:
+    type: string
+    description: Status of the job.
+    enum:
+      - NOT_STARTED
+      - IN_PROGRESS
+      - COMPLETE
+      - CANCELLED
+      - FAILED
+    example: "COMPLETE"
+  type:
+    type: string
+    description: Type of the job, will always be CREATE_DRAFT for this type of job.
+    enum:
+      - CREATE_DRAFT
+    example: "CREATE_DRAFT"
+  message:
+    type: string
+    description: Message providing information about the outcome of the draft process.
+    example: "Draft creation message"
+  requesterName:
+    type: string
+    description: The name of user that that initiated the draft process.
+    example: "requester.name"
+  fileExists:
+    type: boolean
+    default: true
+    description: Whether or not a file was generated for this draft.
+    example: true
+  created:
+    type: string
+    format: 'date-time'
+    description: The time the job was started.
+    example: "2021-05-11T22:23:16Z"
+  modified:
+    type: string
+    format: 'date-time'
+    description: The time of the last update to the job.
+    example: "2021-05-11T22:23:16Z"
+  completed:
+    type: string
+    format: 'date-time'
+    description: The time the job was completed.
+    example: "2021-05-11T22:23:16Z"
+  name:
+    type: string
+    description: Name of the draft.
+    example: "Draft name"
+  sourceTenant:
+    type: string
+    description: Tenant owner of the backup from which the draft was generated.
+    example: "source-tenant"
+  sourceBackupId:
+    type: string
+    description: Id of the backup from which the draft was generated.
+    example: "549bf881-1ac4-4a64-9acf-6014e8a3a887"
+  sourceBackupName:
+    type: string
+    description: Name of the backup from which the draft was generated.
+    example: "Source backup name"
+  mode:
+    type: string
+    description: >- 
+      Denotes the origin of the source backup from which the draft was generated.
+      
+      - RESTORE - Same tenant.
+      
+      - PROMOTE - Different tenant.
+      
+      - UPLOAD - Uploaded configuration.
+    enum:
+      - RESTORE
+      - PROMOTE
+      - UPLOAD
+    example: "RESTORE"
+  approvalStatus:
+    type: string
+    description: Approval status of the draft used to determine whether or not the draft can be deployed.
+    enum:
+      - DEFAULT
+      - PENDING_APPROVAL
+      - APPROVED
+      - DENIED
+    example: "APPROVED"
+  approvalComment:
+    type: array
+    description:  List of comments that have been exchanged between an approval requester and an approver.
+    items:
+      $ref: './ApprovalComment.yaml'

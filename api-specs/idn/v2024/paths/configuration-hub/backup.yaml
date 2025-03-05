@@ -1,0 +1,77 @@
+get:
+  operationId: listBackups
+  security:
+    - userAuth: [sp:config-backup:read, sp:config-backup:manage]
+  tags:
+    - Configuration Hub
+  summary: List Backups
+  description: >-
+    This API gets a list of existing backups for the current tenant.
+  parameters:
+    - in: query
+      name: filters
+      schema:
+        type: string
+      description: >-
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+        Filtering is supported for the following fields and operators:
+        
+        
+        **status**: *eq*
+      example: status eq "COMPLETE"
+      required: false
+  responses:
+    '200':
+      description: >-
+        List of existing backups.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../../schemas/configuration-hub/BackupResponse.yaml'
+          example:
+            [
+              {
+                "jobId": "09491993-9cb6-49a7-8d37-8bef54d33502",
+                "status": "COMPLETE",
+                "type": "BACKUP",
+                "tenant": "tenant-name",
+                "requesterName": "Requester Name",
+                "fileExists": true,
+                "created": "2024-02-19T19:54:15.373Z",
+                "modified": "2024-02-19T20:39:00.341Z",
+                "completed": "2024-02-19T19:54:15.605Z",
+                "name": "Backup name",
+                "userCanDelete": false,
+                "isPartial": true,
+                "backupType": "MANUAL",
+                "options": {
+                  "includeTypes": [
+                    "SOURCE"
+                  ],
+                  "objectOptions": {
+                    "SOURCE": {
+                      "includedNames": [
+                        "Source Name"
+                      ]
+                    }
+                  }
+                },
+                "hydrationStatus": "HYDRATED",
+                "totalObjectCount": 2,
+                "cloudStorageStatus": "SYNCED"
+              }
+            ]
+    '400':
+      $ref: '../../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../../v3/responses/500.yaml'

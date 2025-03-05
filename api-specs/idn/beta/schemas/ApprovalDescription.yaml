@@ -1,0 +1,11 @@
+type: object
+properties:
+  value:
+    type: string
+    example: This access allows viewing and editing of workflow resource
+    description: The description of what the approval is asking for
+  locale:
+    type: string
+    example: en_US
+    description: What locale the description of the approval is using
+description: The description of what the approval is asking for

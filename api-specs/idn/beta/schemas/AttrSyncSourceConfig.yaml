@@ -1,0 +1,28 @@
+
+type: object
+description: Specification of attribute sync configuration for a source
+required:
+  - source
+  - attributes
+properties:
+  source:
+    $ref: '../../v3/schemas/AttrSyncSource.yaml'
+  attributes:
+    type: array
+    description: Attribute synchronization configuration for specific identity attributes in the context of a source
+    items:
+      $ref: './AttrSyncSourceAttributeConfig.yaml'
+    example: [
+      {
+        name: 'email',
+        displayName: 'Email',
+        enabled: true,
+        target: 'mail'
+      },
+      {
+        name: 'firstname',
+        displayName: 'First Name',
+        enabled: false,
+        target: 'givenName'
+      }
+    ]

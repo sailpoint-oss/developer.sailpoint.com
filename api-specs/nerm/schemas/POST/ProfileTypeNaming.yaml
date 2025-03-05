@@ -1,0 +1,21 @@
+type: object
+properties:
+  uid:
+    type: string
+    description: The user-specified identifier of this ProfileTypeNaming record
+    example: assignment_first_component
+  profile_type_id:
+    type: string
+    format: uuid
+    required: true
+    description: The profile type id for the ProfileType this naming applies to
+    example: 79ed1cb6-9977-4965-9bfe-f2bcc2424444
+  ne_attribute_id:
+    type: string
+    example: ac4aae0b-4140-49a4-a84c-126762fd0c8f
+    description: The id of the attribute in this ordered position of the ProfileTypeNaming
+  order:
+    type: integer
+    format: int32
+    example: 1
+    description: The position of the attribute in the ProfileType's naming

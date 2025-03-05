@@ -1,0 +1,62 @@
+get:
+  tags:
+    - SIM Integrations
+  summary: List the existing SIM integrations.
+  description: List the existing SIM integrations. A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
+  operationId: getSIMIntegrations
+  responses:
+    '200':
+      description: The DTO containing the details of the SIM integration
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ServiceDeskIntegrationDto.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - userAuth: [idn:service-desk-admin:read]
+
+post:
+  tags:
+    - SIM Integrations
+  summary: Create new SIM integration
+  description: Create a new SIM Integrations.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
+  operationId: createSIMIntegration
+  requestBody:
+    description: DTO containing the details of the SIM integration
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/SimIntegrationDetails.yaml'
+    required: true
+  responses:
+    '200':
+      description: details of the created integration
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ServiceDeskIntegrationDto.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - userAuth: [idn:service-desk-admin:create]

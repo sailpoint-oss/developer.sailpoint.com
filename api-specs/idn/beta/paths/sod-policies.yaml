@@ -1,0 +1,401 @@
+post:
+  operationId: createSodPolicy
+  tags:
+    - SOD Policies
+  summary: Create SOD policy
+  deprecated: true
+  security:
+    - userAuth: [idn:sod-policy:write]
+  description: >-
+    This creates both General and Conflicting Access Based policy, with a limit
+    of 50 entitlements for each (left & right) criteria for Conflicting Access
+    Based SOD policy.
+
+    Requires role of ORG_ADMIN.
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../schemas/SodPolicy.yaml"
+        examples:
+          Conflicting Access Based Policy:
+            value:
+              {
+                "name": "Conflicting-Policy-Name",
+                "description": "This policy ensures compliance of xyz",
+                "ownerRef":
+                  {
+                    "type": "IDENTITY",
+                    "id": "2c91808568c529c60168cca6f90c1313",
+                    "name": "Owner Name",
+                  },
+                "externalPolicyReference": "XYZ policy",
+                "compensatingControls":
+                  'Have a manager review the transaction decisions for their
+                  "out of compliance" employee',
+                "correctionAdvice":
+                  "Based on the role of the employee, managers should remove
+                  access that is not required for their job function.",
+                "state": "ENFORCED",
+                "tags": ["string"],
+                "creatorId": "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde",
+                "modifierId": "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde",
+                "violationOwnerAssignmentConfig":
+                  {
+                    "assignmentRule": "MANAGER",
+                    "ownerRef":
+                      {
+                        "type": "IDENTITY",
+                        "id": "2c91808568c529c60168cca6f90c1313",
+                        "name": "Violation Owner Name",
+                      },
+                  },
+                "scheduled": true,
+                "type": "CONFLICTING_ACCESS_BASED",
+                "conflictingAccessCriteria":
+                  {
+                    "leftCriteria":
+                      {
+                        "name": "money-in",
+                        "criteriaList":
+                          [
+                            {
+                              "type": "ENTITLEMENT",
+                              "id": "2c9180866166b5b0016167c32ef31a66",
+                            },
+                            {
+                              "type": "ENTITLEMENT",
+                              "id": "2c9180866166b5b0016167c32ef31a67",
+                            },
+                          ],
+                      },
+                    "rightCriteria":
+                      {
+                        "name": "money-out",
+                        "criteriaList":
+                          [
+                            {
+                              "type": "ENTITLEMENT",
+                              "id": "2c9180866166b5b0016167c32ef31a68",
+                            },
+                            {
+                              "type": "ENTITLEMENT",
+                              "id": "2c9180866166b5b0016167c32ef31a69",
+                            },
+                          ],
+                      },
+                  },
+              }
+          General Policy:
+            value:
+              {
+                "description": "Description",
+                "ownerRef":
+                  {
+                    "type": "IDENTITY",
+                    "id": "2c918087682f9a86016839c05e8f1aff",
+                    "name": "Owner Name",
+                  },
+                "externalPolicyReference": "New policy",
+                "policyQuery": "policy query implementation",
+                "compensatingControls": "Compensating controls",
+                "correctionAdvice": "Correction advice",
+                "tags": [],
+                "state": "ENFORCED",
+                "scheduled": false,
+                "creatorId": "2c918087682f9a86016839c05e8f1aff",
+                "modifierId": null,
+                "violationOwnerAssignmentConfig": null,
+                "name": "General-Policy-Name",
+              }
+  responses:
+    "201":
+      description: SOD policy created
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/SodPolicy.yaml"
+          examples:
+            Conflicting Access Based Policy:
+              value:
+                {
+                  "id": "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde",
+                  "name": "Conflicting-Policy-Name",
+                  "created": "2020-01-01T00:00:00.000000Z",
+                  "modified": "2020-01-01T00:00:00.000000Z",
+                  "description": "This policy ensures compliance of xyz",
+                  "ownerRef":
+                    {
+                      "type": "IDENTITY",
+                      "id": "2c91808568c529c60168cca6f90c1313",
+                      "name": "Owner Name",
+                    },
+                  "externalPolicyReference": "XYZ policy",
+                  "policyQuery":
+                    "@access(id:2c9180866166b5b0016167c32ef31a66 OR
+                    id:2c9180866166b5b0016167c32ef31a67) AND
+                    @access(id:2c9180866166b5b0016167c32ef31a68 OR
+                    id:2c9180866166b5b0016167c32ef31a69)",
+                  "compensatingControls":
+                    'Have a manager review the transaction decisions for their
+                    "out of compliance" employee',
+                  "correctionAdvice":
+                    "Based on the role of the employee, managers should remove
+                    access that is not required for their job function.",
+                  "state": "ENFORCED",
+                  "tags": ["string"],
+                  "creatorId": "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde",
+                  "modifierId": "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde",
+                  "violationOwnerAssignmentConfig":
+                    {
+                      "assignmentRule": "MANAGER",
+                      "ownerRef":
+                        {
+                          "type": "IDENTITY",
+                          "id": "2c91808568c529c60168cca6f90c1313",
+                          "name": "Violation Owner Name",
+                        },
+                    },
+                  "scheduled": true,
+                  "type": "CONFLICTING_ACCESS_BASED",
+                  "conflictingAccessCriteria":
+                    {
+                      "leftCriteria":
+                        {
+                          "name": "money-in",
+                          "criteriaList":
+                            [
+                              {
+                                "type": "ENTITLEMENT",
+                                "id": "2c9180866166b5b0016167c32ef31a66",
+                              },
+                              {
+                                "type": "ENTITLEMENT",
+                                "id": "2c9180866166b5b0016167c32ef31a67",
+                              },
+                            ],
+                        },
+                      "rightCriteria":
+                        {
+                          "name": "money-out",
+                          "criteriaList":
+                            [
+                              {
+                                "type": "ENTITLEMENT",
+                                "id": "2c9180866166b5b0016167c32ef31a68",
+                              },
+                              {
+                                "type": "ENTITLEMENT",
+                                "id": "2c9180866166b5b0016167c32ef31a69",
+                              },
+                            ],
+                        },
+                    },
+                }
+            General Policy:
+              value:
+                {
+                  "description": "Description",
+                  "ownerRef":
+                    {
+                      "type": "IDENTITY",
+                      "id": "2c918087682f9a86016839c05e8f1aff",
+                      "name": "Owner Name",
+                    },
+                  "externalPolicyReference": "New policy",
+                  "policyQuery": "policy query implementation",
+                  "compensatingControls": "Compensating controls",
+                  "correctionAdvice": "Correction advice",
+                  "tags": [],
+                  "state": "ENFORCED",
+                  "scheduled": false,
+                  "creatorId": "2c918087682f9a86016839c05e8f1aff",
+                  "modifierId": null,
+                  "violationOwnerAssignmentConfig": null,
+                  "type": "GENERAL",
+                  "conflictingAccessCriteria": null,
+                  "id": "52c11db4-733e-4c31-949a-766c95ec95f1",
+                  "name": "General-Policy-Name",
+                  "created": "2020-05-12T19:47:38Z",
+                  "modified": "2020-05-12T19:47:38Z",
+                }
+    "400":
+      $ref: "../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"
+get:
+  operationId: listSodPolicies
+  tags:
+    - SOD Policies
+  summary: List SOD policies
+  deprecated: true
+  security:
+    - userAuth: [idn:sod-policy:read]
+  description: >-
+    This gets list of all SOD policies.
+
+    Requires role of ORG_ADMIN
+  parameters:
+    - $ref: "../../v3/parameters/limit.yaml"
+    - $ref: "../../v3/parameters/offset.yaml"
+    - $ref: "../../v3/parameters/count.yaml"
+    - in: query
+      name: filters
+      schema:
+        type: string
+      description: >-
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+        Filtering is supported for the following fields and operators:
+
+
+        **id**: *eq, in*
+
+
+        **name**: *eq, in*
+
+
+        **state**: *eq, in*
+      example: id eq "bc693f07e7b645539626c25954c58554"
+      required: false
+    - in: query
+      name: sorters
+      required: false
+      schema:
+        type: string
+        format: comma-separated
+      example: id,name
+      description: >-
+        Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
+
+
+        Sorting is supported for the following fields: **id, name, created, modified, description**
+  responses:
+    "200":
+      description: List of all SOD policies.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: "../schemas/SodPolicy.yaml"
+          example:
+            [
+              {
+                "id": "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde",
+                "name": "Conflicting-Policy-Name",
+                "created": "2020-01-01T00:00:00.000000Z",
+                "modified": "2020-01-01T00:00:00.000000Z",
+                "description": "This policy ensures compliance of xyz",
+                "ownerRef":
+                  {
+                    "type": "IDENTITY",
+                    "id": "2c91808568c529c60168cca6f90c1313",
+                    "name": "Owner Name",
+                  },
+                "externalPolicyReference": "XYZ policy",
+                "policyQuery":
+                  "@access(id:2c9180866166b5b0016167c32ef31a66 OR
+                  id:2c9180866166b5b0016167c32ef31a67) AND
+                  @access(id:2c9180866166b5b0016167c32ef31a68 OR
+                  id:2c9180866166b5b0016167c32ef31a69)",
+                "compensatingControls":
+                  'Have a manager review the transaction decisions for their
+                  "out of compliance" employee',
+                "correctionAdvice":
+                  "Based on the role of the employee, managers should remove
+                  access that is not required for their job function.",
+                "state": "ENFORCED",
+                "tags": ["string"],
+                "creatorId": "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde",
+                "modifierId": "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde",
+                "violationOwnerAssignmentConfig":
+                  {
+                    "assignmentRule": "MANAGER",
+                    "ownerRef":
+                      {
+                        "type": "IDENTITY",
+                        "id": "2c91808568c529c60168cca6f90c1313",
+                        "name": "Violation Owner Name",
+                      },
+                  },
+                "scheduled": true,
+                "type": "CONFLICTING_ACCESS_BASED",
+                "conflictingAccessCriteria":
+                  {
+                    "leftCriteria":
+                      {
+                        "name": "money-in",
+                        "criteriaList":
+                          [
+                            {
+                              "type": "ENTITLEMENT",
+                              "id": "2c9180866166b5b0016167c32ef31a66",
+                            },
+                            {
+                              "type": "ENTITLEMENT",
+                              "id": "2c9180866166b5b0016167c32ef31a67",
+                            },
+                          ],
+                      },
+                    "rightCriteria":
+                      {
+                        "name": "money-out",
+                        "criteriaList":
+                          [
+                            {
+                              "type": "ENTITLEMENT",
+                              "id": "2c9180866166b5b0016167c32ef31a68",
+                            },
+                            {
+                              "type": "ENTITLEMENT",
+                              "id": "2c9180866166b5b0016167c32ef31a69",
+                            },
+                          ],
+                      },
+                  },
+              },
+              {
+                "description": "Description",
+                "ownerRef":
+                  {
+                    "type": "IDENTITY",
+                    "id": "2c918087682f9a86016839c05e8f1aff",
+                    "name": "Owner Name",
+                  },
+                "externalPolicyReference": "New policy",
+                "policyQuery": "policy query implementation",
+                "compensatingControls": "Compensating controls",
+                "correctionAdvice": "Correction advice",
+                "tags": [],
+                "state": "ENFORCED",
+                "scheduled": false,
+                "creatorId": "2c918087682f9a86016839c05e8f1aff",
+                "modifierId": null,
+                "violationOwnerAssignmentConfig": null,
+                "type": "GENERAL",
+                "conflictingAccessCriteria": null,
+                "id": "52c11db4-733e-4c31-949a-766c95ec95f1",
+                "name": "General-Policy-Name",
+                "created": "2020-05-12T19:47:38Z",
+                "modified": "2020-05-12T19:47:38Z",
+              },
+            ]
+    "400":
+      $ref: "../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"

@@ -1,0 +1,92 @@
+post:
+  operationId: addAccessRequestRecommendationsRequestedItem
+  tags:
+    - IAI Access Request Recommendations
+  summary: Notification of Requested Access Request Recommendations
+  description: >-
+    This API consumes a notification that a recommended access
+    request item was requested. This API does not actually make the request, it is just a notification.
+    This will help provide feedback in order to improve our recommendations.
+  requestBody:
+    description: The recommended access item that was requested for an identity.
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../../beta/schemas/AccessRequestRecommendationActionItemDto.yaml'
+  responses:
+    '201':
+      description: Notification successfully acknowledged.
+      content:
+        application/json:
+          schema:
+            $ref: '../../beta/schemas/AccessRequestRecommendationActionItemResponseDto.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+get:
+  operationId: getAccessRequestRecommendationsRequestedItems
+  tags:
+    - IAI Access Request Recommendations
+  summary: List of Requested Access Request Recommendations
+  description: >-
+    This API returns a list of requested access request recommendations.
+  parameters:
+    - $ref: '../../v3/parameters/limit.yaml'
+    - $ref: '../../v3/parameters/offset.yaml'
+    - $ref: '../../v3/parameters/count.yaml'
+    - in: query
+      name: filters
+      schema:
+        type: string
+      description: >-
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+        Filtering is supported for the following fields and operators:
+
+
+        **access.id**: *eq, in*
+
+
+        **access.type**: *eq, in*
+
+
+        **identityId**: *eq, in*
+      example: access.id eq "2c9180846b0a0583016b299f210c1314"
+    - in: query
+      name: sorters
+      schema:
+        type: string
+        format: comma-separated
+      description: >-
+        Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
+
+
+        Sorting is supported for the following fields: **access.id, access.type, identityId, timestamp**
+  responses:
+    '200':
+      description: Returns the list of requested access request recommendations.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../../beta/schemas/AccessRequestRecommendationActionItemResponseDto.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

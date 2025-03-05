@@ -1,0 +1,20 @@
+type: object
+properties:
+  id:
+    type: string
+    format: uuid
+    readOnly: true
+  uid:
+    type: string
+    minLength: 32
+    maxLength: 32
+    readOnly: true
+    example: "sponsors_role"
+  name:
+    type: string
+    example: "Sponsors"
+  groups:
+    type: array
+    items:
+      type: string
+      example: "ad_group_name"

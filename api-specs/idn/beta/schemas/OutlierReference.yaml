@@ -1,0 +1,30 @@
+type: object
+properties:
+  identityId:
+    type: string
+    description: The unique identitifer for the identity who is an outlier
+    example: 2c9180867769897d01776ed5f1255cff
+  outlierType:
+    type: string
+    enum: 
+      - LOW_SIMILARITY
+      - STRUCTURAL
+    description: Type of outlier determined by recommendation engine
+    example: LOW_SIMILARITY
+  outlierState:
+    type: object
+    description: An object that contains the current state of why an outlier is an outlier. This allows ida-outliers to compare a snapshot of the outlier when it was first detected vs the most recent detection to find any changes in the outlier
+    example: 
+      {
+        entitlementIds: ["2c9180867769897d01776ed5f1655d07", "2c9180867769897d01776ed5f1675d08"]
+      }
+  outlierScore:
+    type: number
+    format: float
+    description: The outlier score determined by the detection engine ranging from 0..1
+    example: 0.92   
+  features:
+    type: array
+    description: List of feature objects and their values for the outlier
+    items:
+      $ref: ./OutlierFeatureReference.yaml

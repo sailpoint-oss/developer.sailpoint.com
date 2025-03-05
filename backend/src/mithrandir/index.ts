@@ -1,5 +1,5 @@
 // Create a DocumentClient that represents the query to add an item
-import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
+import { DynamoDBClient, PutItemCommand } from '@aws-sdk/client-dynamodb';
 import { DynamoDBDocumentClient, GetCommand, PutCommand } from '@aws-sdk/lib-dynamodb';
 import crypto from 'crypto';
 import { Hono } from 'hono'
@@ -41,7 +41,17 @@ app.post('/uuid', async (c) => {
   try{
     const data = await ddbDocClient.send(new PutCommand({ TableName: tableName, Item: { uuid: crypto.randomUUID(), apiBaseURL: body.apiBaseURL } }));
     return c.json(data)
-  }catch{
+  } catch (err) {
+    //@ts-expect-error Unknown error shape
+    console.error("Error retrieving item:", err.message);
+    //@ts-expect-error Unknown error shape
+    console.error("Error code:", err.code);
+    //@ts-expect-error Unknown error shape
+    console.error("Error name:", err.name);
+    //@ts-expect-error Unknown error shape
+    console.error("Error stack:", err.stack);
+
+    
     throw new HTTPException(400, { "message": "Error creating UUID" })
   }
 })

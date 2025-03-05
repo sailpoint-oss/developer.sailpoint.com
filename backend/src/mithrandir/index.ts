@@ -1,6 +1,6 @@
 // Create a DocumentClient that represents the query to add an item
 import { DynamoDBClient, PutItemCommand } from '@aws-sdk/client-dynamodb';
-import { DynamoDBDocumentClient, GetCommand, PutCommand } from '@aws-sdk/lib-dynamodb';
+import { DynamoDBDocumentClient, GetCommand, PutCommand, UpdateCommand } from '@aws-sdk/lib-dynamodb';
 import crypto from 'crypto';
 import { Hono } from 'hono'
 import { handle } from 'hono/aws-lambda'
@@ -8,6 +8,65 @@ import { logger } from 'hono/logger'
 import { HTTPException } from 'hono/http-exception'
 
 const app = new Hono()
+
+async function GetByUUID(uuid: string) {
+  try {
+    const data = await ddbDocClient.send(new GetCommand({ TableName: tableName, Key: { id: uuid } }));
+    return data.Item
+  } catch (err) {
+    //@ts-expect-error Unknown error shape
+    console.error("Error retrieving item:", err.message);
+    //@ts-expect-error Unknown error shape
+    console.error("Error code:", err.code);
+    //@ts-expect-error Unknown error shape
+    console.error("Error name:", err.name);
+    //@ts-expect-error Unknown error shape
+    console.error("Error stack:", err.stack);
+
+    throw new HTTPException(400, { "message": "uuid not authenticated" })
+  }
+}
+
+async function PutByUUID(uuid: string, apiBaseURL: string) {
+  try {
+    const data = await ddbDocClient.send(new PutCommand({ TableName: tableName, Item: { id: uuid, apiBaseURL: apiBaseURL } }));
+    return data
+  } catch (err) {
+    //@ts-expect-error Unknown error shape
+    console.error("Error retrieving item:", err.message);
+    //@ts-expect-error Unknown error shape
+    console.error("Error code:", err.code);
+    //@ts-expect-error Unknown error shape
+    console.error("Error name:", err.name);
+    //@ts-expect-error Unknown error shape
+    console.error("Error stack:", err.stack);
+
+    throw new HTTPException(400, { "message": "Error creating UUID" })
+  }
+}
+
+async function AddTokenByUUID(uuid: string, token: string) {
+  try {
+    const data = await ddbDocClient.send(new UpdateCommand({
+      TableName: tableName, Key: { id: uuid }, UpdateExpression: "set token = :token",
+      ExpressionAttributeValues: {
+        ":token": token,
+      }
+    }));
+    return data
+  } catch (err) {
+    //@ts-expect-error Unknown error shape
+    console.error("Error retrieving item:", err.message);
+    //@ts-expect-error Unknown error shape
+    console.error("Error code:", err.code);
+    //@ts-expect-error Unknown error shape
+    console.error("Error name:", err.name);
+    //@ts-expect-error Unknown error shape
+    console.error("Error stack:", err.stack);
+
+    throw new HTTPException(400, { "message": "Error creating UUID" })
+  }
+}
 
 //DynamoDB Endpoint
 const ENDPOINT_OVERRIDE = process.env.ENDPOINT_OVERRIDE;
@@ -28,7 +87,7 @@ const tableName = process.env.SAMPLE_TABLE;
 app.use(logger())
 
 app.post('/uuid', async (c) => {
-  if(c.req.header('Content-Type') !== 'application/json') {
+  if (c.req.header('Content-Type') !== 'application/json') {
     throw new HTTPException(400, { "message": "Content-Type must be application/json" })
   }
 
@@ -38,53 +97,43 @@ app.post('/uuid', async (c) => {
     throw new HTTPException(400, { "message": "apiBaseURL missing from request body" })
   }
 
-  try{
-    const data = await ddbDocClient.send(new PutCommand({ TableName: tableName, Item: { id: crypto.randomUUID(), apiBaseURL: body.apiBaseURL } }));
-    return c.json(data)
-  } catch (err) {
-    //@ts-expect-error Unknown error shape
-    console.error("Error retrieving item:", err.message);
-    //@ts-expect-error Unknown error shape
-    console.error("Error code:", err.code);
-    //@ts-expect-error Unknown error shape
-    console.error("Error name:", err.name);
-    //@ts-expect-error Unknown error shape
-    console.error("Error stack:", err.stack);
+  const item = PutByUUID(crypto.randomUUID(), body.apiBaseURL)
 
-
+  if (!item) {
     throw new HTTPException(400, { "message": "Error creating UUID" })
   }
+  return c.json(item)
 })
 
-// app.post('/code/:code', (c) => {
-//   const code = c.req.param('code');
-//   if (!code) {
-//     throw new HTTPException(400, { "message": "code not provided" })
-//   }
+app.post('/code/:code', (c) => {
+  const code = c.req.param('code');
+  if (!code) {
+    throw new HTTPException(400, { "message": "code not provided" })
+  }
 
+  const { state } = c.req.query()
 
-// })
+  console.log("Exchanging code for token", code, state)
+
+  const token = "temp_token"
+
+  const item = AddTokenByUUID(state, token)
+  if (!item) {
+    throw new HTTPException(400, { "message": "Error adding token" })
+  }
+  return c.json(item)
+})
 
 app.get('/uuid/:uuid', async (c) => {
   const uuid = c.req.param('uuid');
   if (!uuid) {
     throw new HTTPException(400, { "message": "uuid not provided" })
   }
-  try {
-    const data = await ddbDocClient.send(new GetCommand({ TableName: tableName, Key: { uuid } }));
-    return c.json(data.Item)
-  } catch (err) {
-    //@ts-expect-error Unknown error shape
-    console.error("Error retrieving item:", err.message);
-    //@ts-expect-error Unknown error shape
-    console.error("Error code:", err.code);
-    //@ts-expect-error Unknown error shape
-    console.error("Error name:", err.name);
-    //@ts-expect-error Unknown error shape
-    console.error("Error stack:", err.stack);
-
+  const data = await GetByUUID(uuid)
+  if (!data) {
     throw new HTTPException(400, { "message": "uuid not authenticated" })
   }
+  return c.json(data)
 })
 
 export const handler = handle(app)

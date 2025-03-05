@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **Name** | **String** | Name of the attribute that is being previewed. | [optional] 
 **Value** | **String** | Value that was derived during the preview. | [optional] 
 **PreviousValue** | **String** | The value of the attribute before the preview. | [optional] 
-**ErrorMessages** | [**[]ErrorMessageDto**](error-message-dto) |  | [optional] 
+**ErrorMessages** | [**[]ErrorMessageDto**](error-message-dto) | List of error messages | [optional] 
 
 ## Examples
 
@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 $IdentityAttributePreview = Initialize-PSSailpoint.V2024IdentityAttributePreview  -Name email `
  -Value email@mail.com `
  -PreviousValue oldEmail@mail.com `
- -ErrorMessages null
+ -ErrorMessages {locale=en-US, localeOrigin=DEFAULT, text=Error Message}
 ```
 
 - Convert the resource to JSON

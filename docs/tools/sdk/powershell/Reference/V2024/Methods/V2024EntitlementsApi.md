@@ -97,12 +97,12 @@ Path   | AttributeValue | **String** | True  | Technical name of the Attribute V
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-[**Entitlement1**](../models/entitlement1)
+[**Entitlement**](../models/entitlement)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | OK | Entitlement1
+200 | OK | Entitlement
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
@@ -203,12 +203,12 @@ Path   | Id | **String** | True  | The entitlement ID
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-[**Entitlement1**](../models/entitlement1)
+[**Entitlement**](../models/entitlement)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | An entitlement | Entitlement1
+200 | An entitlement | Entitlement
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
@@ -369,12 +369,12 @@ Path   | Id | **String** | True  | Entitlement Id
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **type**: *eq, in*  **attribute**: *eq, in*  **value**: *eq, in, sw*  **source.id**: *eq, in*  **requestable**: *eq*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*
 
 ### Return type
-[**Entitlement1[]**](../models/entitlement1)
+[**Entitlement[]**](../models/entitlement)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of entitlements children from an entitlement | Entitlement1[]
+200 | List of entitlements children from an entitlement | Entitlement[]
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
@@ -430,12 +430,12 @@ Path   | Id | **String** | True  | Entitlement Id
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **type**: *eq, in*  **attribute**: *eq, in*  **value**: *eq, in, sw*  **source.id**: *eq, in*  **requestable**: *eq*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*
 
 ### Return type
-[**Entitlement1[]**](../models/entitlement1)
+[**Entitlement[]**](../models/entitlement)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of entitlements parents from an entitlement | Entitlement1[]
+200 | List of entitlements parents from an entitlement | Entitlement[]
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
@@ -498,12 +498,12 @@ Param Type | Name | Data Type | Required  | Description
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **type**: *eq, in*  **attribute**: *eq, in*  **value**: *eq, in, sw*  **source.id**: *eq, in*  **requestable**: *eq*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*
 
 ### Return type
-[**Entitlement1[]**](../models/entitlement1)
+[**Entitlement[]**](../models/entitlement)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of entitlements | Entitlement1[]
+200 | List of entitlements | Entitlement[]
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
@@ -561,12 +561,12 @@ Path   | Id | **String** | True  | ID of the entitlement to patch
  Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) |   (optional) | 
 
 ### Return type
-[**Entitlement1**](../models/entitlement1)
+[**Entitlement**](../models/entitlement)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Responds with the entitlement as updated. | Entitlement1
+200 | Responds with the entitlement as updated. | Entitlement
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
@@ -641,17 +641,10 @@ Code | Description  | Data Type
 $Id = "2c91808a7813090a017814121e121518" # String | Entitlement ID
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $EntitlementRequestConfig = @"{
-  "accessRequestConfig" : {
-    "denialCommentRequired" : false,
-    "approvalSchemes" : [ {
-      "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
-      "approverType" : "GOVERNANCE_GROUP"
-    }, {
-      "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
-      "approverType" : "GOVERNANCE_GROUP"
-    } ],
-    "requestCommentRequired" : true
-  }
+  "requestCommentsRequired" : false,
+  "deniedCommentsRequired" : false,
+  "allowEntitlementRequest" : true,
+  "grantRequestApprovalSchemes" : "entitlementOwner, sourceOwner, manager, workgroup:2c918084660f45d6016617daa9210584"
 }"@
 
 # Replace Entitlement Request Config

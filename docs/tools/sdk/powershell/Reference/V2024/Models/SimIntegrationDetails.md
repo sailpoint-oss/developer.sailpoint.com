@@ -35,8 +35,8 @@ Name | Type | Description | Notes
 ```powershell
 $SimIntegrationDetails = Initialize-PSSailpoint.V2024SimIntegrationDetails  -Id id12345 `
  -Name aName `
- -Created 2023-01-03T21:16:22.432Z `
- -Modified 2023-01-03T21:16:22.432Z `
+ -Created 2015-05-28T14:07:17Z `
+ -Modified 2015-05-28T14:07:17Z `
  -Description Integration description `
  -Type ServiceNow Service Desk `
  -Attributes {"uid":"Walter White","firstname":"walter","cloudStatus":"UNREGISTERED","displayName":"Walter White","identificationNumber":"942","lastSyncDate":1470348809380,"email":"walter@gmail.com","lastname":"white"} `

@@ -1129,12 +1129,12 @@ Path   | Id | **String** | True  | The Source id
   Query | Locale | **String** |   (optional) | The locale to apply to the config. If no viable locale is given, it will default to ""en""
 
 ### Return type
-[**ConnectorDetail1**](../models/connector-detail1)
+[**ConnectorDetail**](../models/connector-detail)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | A Connector Detail object | ConnectorDetail1
+200 | A Connector Detail object | ConnectorDetail
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto

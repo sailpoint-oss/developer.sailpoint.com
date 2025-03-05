@@ -17,7 +17,7 @@ tags: ['SDK', 'Software Development Kit', 'RoleAssignmentRef', 'V2024RoleAssignm
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** | Assignment Id | [optional] 
-**Role** | [**BaseReferenceDto1**](base-reference-dto1) |  | [optional] 
+**Role** | [**BaseReferenceDto**](base-reference-dto) |  | [optional] 
 
 ## Examples
 

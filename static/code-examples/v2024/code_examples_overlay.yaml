@@ -5024,7 +5024,7 @@
       label: SDK_tools/sdk/powershell/v2024/methods/dimensions#list-dimension-access-profiles
       source: |
         $RoleId = "6603fba3004f43c687610a29195252ce" # String | Parent Role Id of the dimension.
-        $DimensionId = "2c9180835d191a86015d28455b4a2329" # String | ID of the Dimension
+        $DimensionId = "2c9180835d191a86015d28455b4a2329" # String | Id of the Dimension
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
@@ -5313,17 +5313,10 @@
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $EntitlementRequestConfig = @"
         {
-          "accessRequestConfig" : {
-            "denialCommentRequired" : false,
-            "approvalSchemes" : [ {
-              "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
-              "approverType" : "GOVERNANCE_GROUP"
-            }, {
-              "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
-              "approverType" : "GOVERNANCE_GROUP"
-            } ],
-            "requestCommentRequired" : true
-          }
+          "requestCommentsRequired" : false,
+          "deniedCommentsRequired" : false,
+          "allowEntitlementRequest" : true,
+          "grantRequestApprovalSchemes" : "entitlementOwner, sourceOwner, manager, workgroup:2c918084660f45d6016617daa9210584"
         }
         "@
         
@@ -7871,6 +7864,55 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Export-V2024IdentityProfiles"
             Write-Host $_.ErrorDetails
         }
+- path: /identity-profiles/identity-preview
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/identity-profiles#generate-identity-preview
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $IdentityPreviewRequest = @"
+        {
+          "identityId" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
+          "identityAttributeConfig" : {
+            "attributeTransforms" : [ {
+              "transformDefinition" : {
+                "attributes" : {
+                  "attributeName" : "e-mail",
+                  "sourceName" : "MySource",
+                  "sourceId" : "2c9180877a826e68017a8c0b03da1a53"
+                },
+                "type" : "accountAttribute"
+              },
+              "identityAttributeName" : "email"
+            }, {
+              "transformDefinition" : {
+                "attributes" : {
+                  "attributeName" : "e-mail",
+                  "sourceName" : "MySource",
+                  "sourceId" : "2c9180877a826e68017a8c0b03da1a53"
+                },
+                "type" : "accountAttribute"
+              },
+              "identityAttributeName" : "email"
+            } ],
+            "enabled" : true
+          }
+        }
+        "@
+        
+        # Generate Identity Profile Preview
+        
+        try {
+            $Result = ConvertFrom-JsonToIdentityPreviewRequest -Json $IdentityPreviewRequest
+            New-V2024IdentityPreview -XSailPointExperimental $XSailPointExperimental -IdentityPreviewRequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-V2024IdentityPreview -XSailPointExperimental $XSailPointExperimental -IdentityPreviewRequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024IdentityPreview"
+            Write-Host $_.ErrorDetails
+        }
 - path: /identity-profiles/{identity-profile-id}/default-identity-attribute-config
   method: GET
   xCodeSample:
@@ -8012,54 +8054,6 @@
             # Get-V2024IdentityProfiles -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024IdentityProfiles"
-            Write-Host $_.ErrorDetails
-        }
-- path: /identity-profiles/identity-preview
-  method: POST
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/identity-profiles#show-identity-preview
-      source: |
-        $IdentityPreviewRequest = @"
-        {
-          "identityId" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
-          "identityAttributeConfig" : {
-            "attributeTransforms" : [ {
-              "transformDefinition" : {
-                "attributes" : {
-                  "attributeName" : "e-mail",
-                  "sourceName" : "MySource",
-                  "sourceId" : "2c9180877a826e68017a8c0b03da1a53"
-                },
-                "type" : "accountAttribute"
-              },
-              "identityAttributeName" : "email"
-            }, {
-              "transformDefinition" : {
-                "attributes" : {
-                  "attributeName" : "e-mail",
-                  "sourceName" : "MySource",
-                  "sourceId" : "2c9180877a826e68017a8c0b03da1a53"
-                },
-                "type" : "accountAttribute"
-              },
-              "identityAttributeName" : "email"
-            } ],
-            "enabled" : true
-          }
-        }
-        "@
-        
-        # Generate Identity Profile Preview
-        
-        try {
-            $Result = ConvertFrom-JsonToIdentityPreviewRequest -Json $IdentityPreviewRequest
-            Show-V2024IdentityPreview -IdentityPreviewRequest $Result 
-    
-            # Below is a request that includes all optional parameters
-            # Show-V2024IdentityPreview -IdentityPreviewRequest $Result   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Show-V2024IdentityPreview"
             Write-Host $_.ErrorDetails
         }
 - path: /identity-profiles/{identity-profile-id}/process-identities
@@ -11755,9 +11749,9 @@
           "statusMap" : "{closed_cancelled=Failed, closed_complete=Committed, closed_incomplete=Failed, closed_rejected=Failed, in_process=Queued, requested=Queued}",
           "request" : "{description=SailPoint Access Request,, req_description=The Service Request created by SailPoint ServiceNow Service Integration Module (SIM).,, req_short_description=SailPoint New Access Request Created from IdentityNow,, short_description=SailPoint Access Request $!plan.arguments.identityRequestId}",
           "sources" : [ "2c9180835d191a86015d28455b4a2329", "2c5680835d191a85765d28455b4a9823" ],
-          "created" : "2023-01-03T21:16:22.432Z",
+          "created" : "2015-05-28T14:07:17Z",
           "name" : "aName",
-          "modified" : "2023-01-03T21:16:22.432Z",
+          "modified" : "2015-05-28T14:07:17Z",
           "description" : "Integration description",
           "attributes" : "{\"uid\":\"Walter White\",\"firstname\":\"walter\",\"cloudStatus\":\"UNREGISTERED\",\"displayName\":\"Walter White\",\"identificationNumber\":\"942\",\"lastSyncDate\":1470348809380,\"email\":\"walter@gmail.com\",\"lastname\":\"white\"}",
           "id" : "id12345",
@@ -11850,7 +11844,17 @@
         $Id = "12345" # String | SIM integration id
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $JsonPatch = @"
-        "[\n  {\n\t  \"op\": \"replace\",\n\t  \"path\": \"/description\",\n\t  \"value\": \"A new description\"\n  }\n]"
+        {
+          "operations" : [ {
+            "op" : "replace",
+            "path" : "/description",
+            "value" : "New description"
+          }, {
+            "op" : "replace",
+            "path" : "/description",
+            "value" : "New description"
+          } ]
+        }
         "@
         
         # Patch a SIM beforeProvisioningRule attribute.
@@ -11874,7 +11878,17 @@
         $Id = "12345" # String | SIM integration id
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $JsonPatch = @"
-        "[\n  {\n\t  \"op\": \"replace\",\n\t  \"path\": \"/description\",\n\t  \"value\": \"A new description\"\n  }\n]"
+        {
+          "operations" : [ {
+            "op" : "replace",
+            "path" : "/description",
+            "value" : "New description"
+          }, {
+            "op" : "replace",
+            "path" : "/description",
+            "value" : "New description"
+          } ]
+        }
         "@
         
         # Patch a SIM attribute.
@@ -11903,9 +11917,9 @@
           "statusMap" : "{closed_cancelled=Failed, closed_complete=Committed, closed_incomplete=Failed, closed_rejected=Failed, in_process=Queued, requested=Queued}",
           "request" : "{description=SailPoint Access Request,, req_description=The Service Request created by SailPoint ServiceNow Service Integration Module (SIM).,, req_short_description=SailPoint New Access Request Created from IdentityNow,, short_description=SailPoint Access Request $!plan.arguments.identityRequestId}",
           "sources" : [ "2c9180835d191a86015d28455b4a2329", "2c5680835d191a85765d28455b4a9823" ],
-          "created" : "2023-01-03T21:16:22.432Z",
+          "created" : "2015-05-28T14:07:17Z",
           "name" : "aName",
-          "modified" : "2023-01-03T21:16:22.432Z",
+          "modified" : "2015-05-28T14:07:17Z",
           "description" : "Integration description",
           "attributes" : "{\"uid\":\"Walter White\",\"firstname\":\"walter\",\"cloudStatus\":\"UNREGISTERED\",\"displayName\":\"Walter White\",\"identificationNumber\":\"942\",\"lastSyncDate\":1470348809380,\"email\":\"walter@gmail.com\",\"lastname\":\"white\"}",
           "id" : "id12345",
@@ -13519,6 +13533,7 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2024/methods/search-attribute-configuration#create-search-attribute-config
       source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $SearchAttributeConfig = @"
         {
           "displayName" : "New Mail Attribute",
@@ -13534,10 +13549,10 @@
         
         try {
             $Result = ConvertFrom-JsonToSearchAttributeConfig -Json $SearchAttributeConfig
-            New-V2024SearchAttributeConfig -SearchAttributeConfig $Result 
+            New-V2024SearchAttributeConfig -XSailPointExperimental $XSailPointExperimental -SearchAttributeConfig $Result 
     
             # Below is a request that includes all optional parameters
-            # New-V2024SearchAttributeConfig -SearchAttributeConfig $Result   
+            # New-V2024SearchAttributeConfig -XSailPointExperimental $XSailPointExperimental -SearchAttributeConfig $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024SearchAttributeConfig"
             Write-Host $_.ErrorDetails
@@ -13549,14 +13564,15 @@
       label: SDK_tools/sdk/powershell/v2024/methods/search-attribute-configuration#delete-search-attribute-config
       source: |
         $Name = "newMailAttribute" # String | Name of the extended search attribute configuration to delete.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # Delete Extended Search Attribute
         
         try {
-            Remove-V2024SearchAttributeConfig -Name $Name 
+            Remove-V2024SearchAttributeConfig -Name $Name -XSailPointExperimental $XSailPointExperimental 
     
             # Below is a request that includes all optional parameters
-            # Remove-V2024SearchAttributeConfig -Name $Name   
+            # Remove-V2024SearchAttributeConfig -Name $Name -XSailPointExperimental $XSailPointExperimental   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024SearchAttributeConfig"
             Write-Host $_.ErrorDetails
@@ -13567,14 +13583,15 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2024/methods/search-attribute-configuration#get-search-attribute-config
       source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # List Extended Search Attributes
         
         try {
-            Get-V2024SearchAttributeConfig 
+            Get-V2024SearchAttributeConfig -XSailPointExperimental $XSailPointExperimental 
     
             # Below is a request that includes all optional parameters
-            # Get-V2024SearchAttributeConfig   
+            # Get-V2024SearchAttributeConfig -XSailPointExperimental $XSailPointExperimental   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SearchAttributeConfig"
             Write-Host $_.ErrorDetails
@@ -13585,15 +13602,16 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2024/methods/search-attribute-configuration#get-single-search-attribute-config
       source: |
-        $Name = "newMailAttribute" # String | Name of the extended search attribute configuration to retrieve.
+        $Name = "newMailAttribute" # String | Name of the extended search attribute configuration to get.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # Get Extended Search Attribute
         
         try {
-            Get-V2024SingleSearchAttributeConfig -Name $Name 
+            Get-V2024SingleSearchAttributeConfig -Name $Name -XSailPointExperimental $XSailPointExperimental 
     
             # Below is a request that includes all optional parameters
-            # Get-V2024SingleSearchAttributeConfig -Name $Name   
+            # Get-V2024SingleSearchAttributeConfig -Name $Name -XSailPointExperimental $XSailPointExperimental   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SingleSearchAttributeConfig"
             Write-Host $_.ErrorDetails
@@ -13605,6 +13623,7 @@
       label: SDK_tools/sdk/powershell/v2024/methods/search-attribute-configuration#patch-search-attribute-config
       source: |
         $Name = "promotedMailAttribute" # String | Name of the search attribute configuration to patch.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $JsonPatchOperation = @"{
           "op" : "replace",
           "path" : "/description",
@@ -13616,10 +13635,10 @@
         
         try {
             $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-            Update-V2024SearchAttributeConfig -Name $Name -JsonPatchOperation $Result 
+            Update-V2024SearchAttributeConfig -Name $Name -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-V2024SearchAttributeConfig -Name $Name -JsonPatchOperation $Result   
+            # Update-V2024SearchAttributeConfig -Name $Name -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024SearchAttributeConfig"
             Write-Host $_.ErrorDetails
@@ -16692,6 +16711,34 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Complete-V2024WorkItem"
             Write-Host $_.ErrorDetails
         }
+- path: /work-items/{id}/forward
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/work-items#forward-work-item
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $WorkItemForward = @"
+        {
+          "targetOwnerId" : "2c9180835d2e5168015d32f890ca1581",
+          "comment" : "I'm going on vacation.",
+          "sendNotifications" : true
+        }
+        "@
+        
+        # Forward a Work Item
+        
+        try {
+            $Result = ConvertFrom-JsonToWorkItemForward -Json $WorkItemForward
+            Invoke-V2024ForwardWorkItem -Id $Id -XSailPointExperimental $XSailPointExperimental -WorkItemForward $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Invoke-V2024ForwardWorkItem -Id $Id -XSailPointExperimental $XSailPointExperimental -WorkItemForward $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-V2024ForwardWorkItem"
+            Write-Host $_.ErrorDetails
+        }
 - path: /work-items/completed
   method: GET
   xCodeSample:
@@ -16720,15 +16767,16 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2024/methods/work-items#get-count-completed-work-items
       source: |
-        $OwnerId = "1211bcaa32112bcef6122adb21cef1ac" # String | ID of the work item owner. (optional)
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $OwnerId = "MyOwnerId" # String | ID of the work item owner. (optional)
         
         # Count Completed Work Items
         
         try {
-            Get-V2024CountCompletedWorkItems 
+            Get-V2024CountCompletedWorkItems -XSailPointExperimental $XSailPointExperimental 
     
             # Below is a request that includes all optional parameters
-            # Get-V2024CountCompletedWorkItems -OwnerId $OwnerId   
+            # Get-V2024CountCompletedWorkItems -XSailPointExperimental $XSailPointExperimental -OwnerId $OwnerId   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024CountCompletedWorkItems"
             Write-Host $_.ErrorDetails
@@ -16849,33 +16897,6 @@
             # Deny-V2024ApprovalItemsInBulk -Id $Id   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Deny-V2024ApprovalItemsInBulk"
-            Write-Host $_.ErrorDetails
-        }
-- path: /work-items/{id}/forward
-  method: POST
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/work-items#send-work-item-forward
-      source: |
-        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
-        $WorkItemForward = @"
-        {
-          "targetOwnerId" : "2c9180835d2e5168015d32f890ca1581",
-          "comment" : "I'm going on vacation.",
-          "sendNotifications" : true
-        }
-        "@
-        
-        # Forward a Work Item
-        
-        try {
-            $Result = ConvertFrom-JsonToWorkItemForward -Json $WorkItemForward
-            Send-V2024WorkItemForward -Id $Id -WorkItemForward $Result 
-    
-            # Below is a request that includes all optional parameters
-            # Send-V2024WorkItemForward -Id $Id -WorkItemForward $Result   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024WorkItemForward"
             Write-Host $_.ErrorDetails
         }
 - path: /work-items/{id}/submit-account-selection

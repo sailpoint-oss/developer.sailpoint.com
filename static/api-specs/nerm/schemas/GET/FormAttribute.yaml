@@ -26,3 +26,19 @@ properties:
       one (1). The FormAttribute with order 1 is presented before the
       FormAttribute with order 2, and so on. Gaps in the order can exist
       and the system ignores them.
+  id:
+    type: string
+    example: ac4aae0b-4140-49a4-a84c-126762fd0c8f
+    description: The id of the form attribute
+  created_at:
+    type: string
+    format: date-time
+    readOnly: true
+    description: The date-time the record created.
+    example: 2022-12-27 08:26:49.219717
+  updated_at:
+    type: string
+    format: date-time
+    readOnly: true
+    description: The date-time the record was last updated.
+    example: 2022-12-27 08:26:49.219717

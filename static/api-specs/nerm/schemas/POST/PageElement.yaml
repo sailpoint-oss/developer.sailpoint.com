@@ -1,0 +1,43 @@
+type: object
+properties:
+  id:
+    type: string
+    format: uuid
+    readOnly: true
+    description: The id of the page content
+    example: ac4aae0b-4140-49a4-a84c-126762fd0c8f
+  uid:
+    type: string
+    description: The user-specified identifier for the record
+    example: first_text_body
+  element_type:
+    type: string
+    enum: [PageContent, Form]
+    required: true
+    description: The type of content on the page.
+    example: PageContent
+  page_uid:
+    type: string
+    format: uuid
+    description: The user-specified identifier of the page record this applies to; one of page_id or page_uid must be present.
+    example: some_page_content
+  page_id:
+    type: string
+    format: uuid
+    description: The id of the page record this applies to; one of page_id or page_uid must be present.
+    example: ef5d413f-ba18-49e6-9a72-bb115aa133ff
+  element_uid:
+    type: string
+    format: uuid
+    description: The user-specified identifier of the record (Form or PageContent) this applies to; one of element_id or element_uid must be present.
+    example: some_page_content
+  element_id:
+    type: string
+    format: uuid
+    description: The id of the record (Form or PageContent) this applies to; one of element_id or element_uid must be present.
+    example: ef5d413f-ba18-49e6-9a72-bb115aa133ff
+  order:
+    type: integer
+    format: int32
+    example: 1
+    description: The ordinal position of the attribute in the user-interface page.

@@ -15,7 +15,7 @@ properties:
   uid:
     type: string
     required: true
-    description: The uid of the workflow.
+    description: The user-specified identifier of the workflow.
     example: my_uid
   name:
     type: string

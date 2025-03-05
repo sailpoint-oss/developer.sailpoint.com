@@ -20,30 +20,37 @@ properties:
     type: string
     description: Auth user's employee number.
     example: "19-5588452"
+    nullable: true
   email:
     type: string
     description: Auth user's email.
     example: william.smith@example.com
+    nullable: true
   phone:
     type: string
     description: Auth user's phone number.
     example: "5555555555"
+    nullable: true
   workPhone:
     type: string
     description: Auth user's work phone number.
     example: "5555555555"
+    nullable: true
   personalEmail:
     type: string
     description: Auth user's personal email.
     example: william.smith@example.com
+    nullable: true
   firstname:
     type: string
     description: Auth user's first name.
     example: Will
+    nullable: true
   lastname:
     type: string
     description: Auth user's last name.
     example: Smith
+    nullable: true
   displayName:
     type: string
     description: Auth user's name in displayed format.
@@ -54,8 +61,10 @@ properties:
     example: will.smith
   lastPasswordChangeDate:
     type: string
+    format: date-time
     description: Date of last password change.
     example: "2021-03-08T22:37:33.901Z"
+    nullable: true
   lastLoginTimestamp:
     description: Timestamp of the last login (long type value).
     type: integer
@@ -66,9 +75,16 @@ properties:
     type: integer
     format: int64
     example: 1656327185832
+  lastUnlockTimestamp:
+    type: string
+    format: date-time
+    description: The date and time when the user was last unlocked.
+    example: "2021-03-08T22:37:33.901Z"
+    nullable: true
   capabilities:
     description: Array of the auth user's capabilities.
     type: array
+    nullable: true
     items:
       type: string
       enum: 

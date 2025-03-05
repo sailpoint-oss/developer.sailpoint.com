@@ -15,6 +15,7 @@ properties:
       WEEKLY
   months:
     type: object
+    nullable: true
     description: |
       Specifies which months of a schedule are active. Only valid for ANNUALLY schedule types. Examples:
 
@@ -111,6 +112,7 @@ properties:
         example: 2
         format: int64
         description: Interval between the cert generations
+        nullable: true
     required:
       - type
       - values
@@ -153,6 +155,7 @@ properties:
         format: int64
         example: 2
         description: Interval between the cert generations
+        nullable: true
     required:
       - type
       - values
@@ -162,6 +165,7 @@ properties:
     description: >-
       Specifies the time after which this schedule will no longer occur.
     example: "2022-09-19 13:55:26"
+    nullable: true
   timeZoneId:
     type: string
     description: >-

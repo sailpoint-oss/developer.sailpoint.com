@@ -14,40 +14,46 @@ get:
       content:
         application/json:
           schema:
-            type: array
-            items:
-              $ref: '../../schemas/configuration-hub/DeployResponse.yaml'
+            type: object
+            properties:
+              items:
+                type: array
+                description: list of deployments
+                items:
+                  $ref: '../../schemas/configuration-hub/DeployResponse.yaml'
           example:
-            [
-              {
-                "jobId": "3d0fe04b-57df-4a46-a83b-8f04b0f9d10b",
-                "status": "COMPLETE",
-                "type": "CONFIG_DEPLOY_DRAFT",
-                "message": "Deploy outcome message",
-                "requesterName": "requester.name",
-                "fileExists": true,
-                "created": "2023-08-29T01:54:37.069Z",
-                "modified": "2024-07-15T16:53:45.925Z",
-                "completed": "2023-08-29T01:54:41.924Z",
-                "draftId": "925e34e3-fa7c-4e7a-9b9a-cf3b8b4b1068",
-                "draftName": "Source draft name",
-                "cloudStorageStatus": "SYNCED"
-              },
-              {
-                "jobId": "bdbcaae6-5e2a-4ebd-9eb3-37b09ec7eea4",
-                "status": "FAILED",
-                "type": "CONFIG_DEPLOY_DRAFT",
-                "message": "Deploy outcome message",
-                "requesterName": "requester.name",
-                "fileExists": true,
-                "created": "2023-07-20T18:38:00.812Z",
-                "modified": "2024-07-15T16:53:59.778Z",
-                "completed": "2023-07-20T18:38:01.783Z",
-                "draftId": "e04da89d-941f-41e8-83ab-dd185ef5e646",
-                "draftName": "Source draft name",
-                "cloudStorageStatus": "NOT_SYNCED"
-              }
-            ]
+            {
+              "items":[
+                {
+                  "jobId": "3d0fe04b-57df-4a46-a83b-8f04b0f9d10b",
+                  "status": "COMPLETE",
+                  "type": "CONFIG_DEPLOY_DRAFT",
+                  "message": "Deploy outcome message",
+                  "requesterName": "requester.name",
+                  "fileExists": true,
+                  "created": "2023-08-29T01:54:37.069Z",
+                  "modified": "2024-07-15T16:53:45.925Z",
+                  "completed": "2023-08-29T01:54:41.924Z",
+                  "draftId": "925e34e3-fa7c-4e7a-9b9a-cf3b8b4b1068",
+                  "draftName": "Source draft name",
+                  "cloudStorageStatus": "SYNCED"
+                },
+                {
+                  "jobId": "bdbcaae6-5e2a-4ebd-9eb3-37b09ec7eea4",
+                  "status": "FAILED",
+                  "type": "CONFIG_DEPLOY_DRAFT",
+                  "message": "Deploy outcome message",
+                  "requesterName": "requester.name",
+                  "fileExists": true,
+                  "created": "2023-07-20T18:38:00.812Z",
+                  "modified": "2024-07-15T16:53:59.778Z",
+                  "completed": "2023-07-20T18:38:01.783Z",
+                  "draftId": "e04da89d-941f-41e8-83ab-dd185ef5e646",
+                  "draftName": "Source draft name",
+                  "cloudStorageStatus": "NOT_SYNCED"
+                }
+              ]
+            }
     '400':
       $ref: '../../../v3/responses/400.yaml'
     '401':

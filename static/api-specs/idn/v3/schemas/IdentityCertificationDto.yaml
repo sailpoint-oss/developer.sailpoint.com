@@ -51,6 +51,7 @@ properties:
     format: 'date-time'
     description: The due date of the certification.
     example: '2018-10-19T13:49:37.385Z'
+    nullable: true
   signed:
     type: string
     format: 'date-time'

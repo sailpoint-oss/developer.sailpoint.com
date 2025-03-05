@@ -32,7 +32,7 @@ get:
           schema:
             type: array
             items:
-              $ref: '../schemas/EntitlementDto.yaml'
+              $ref: '../schemas/Entitlement.yaml'
     '400':
       $ref: '../responses/400.yaml'
     '401':

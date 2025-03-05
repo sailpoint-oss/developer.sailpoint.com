@@ -1,10 +1,11 @@
 import React from 'react';
-import Translate, {translate} from '@docusaurus/Translate';
-import {PageMetadata} from '@docusaurus/theme-common';
+import Translate, { translate } from '@docusaurus/Translate';
+import { PageMetadata } from '@docusaurus/theme-common';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import ThemedImage from '@theme/ThemedImage';
 import Layout from '@theme/Layout';
-export default function NotFound() {
+
+const NotFound: React.FC = () => {
   return (
     <>
       <PageMetadata
@@ -14,20 +15,18 @@ export default function NotFound() {
         })}
       />
       <Layout>
-        <main
-          style={{textAlign: 'center'}}
-          className="container margin-vert--xl">
+        <main style={{ textAlign: 'center' }} className="container margin-vert--xl">
           <div className="row">
             <div className="col col--6 col--offset-3">
               <h1 className="hero__title">Page Not Found</h1>
               <p>
-                Our docs and API specifications have recently moved—checkout the
-                navbar at the top of this page to find their new home. If you
-                can't find the document you're looking for,{' '}
+                Our docs and API specifications have recently moved—checkout the navbar at the top of this page to find
+                their new home. If you can't find the document you're looking for,{' '}
                 <a
                   href="https://developer.sailpoint.com/discuss/docs-request"
                   target="_blank"
-                  rel="noopener noreferrer">
+                  rel="noopener noreferrer"
+                >
                   let us know
                 </a>
                 .
@@ -37,11 +36,14 @@ export default function NotFound() {
                 sources={{
                   light: useBaseUrl('img/not-found/codey.png'),
                   dark: useBaseUrl('img/not-found/codey.png'),
-                }}></ThemedImage>
+                }}
+              />
             </div>
           </div>
         </main>
       </Layout>
     </>
   );
-}
+};
+
+export default NotFound;

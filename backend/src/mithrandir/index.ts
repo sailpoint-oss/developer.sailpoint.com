@@ -39,7 +39,7 @@ app.post('/uuid', async (c) => {
   }
 
   try{
-    const data = await ddbDocClient.send(new PutCommand({ TableName: tableName, Item: { uuid: crypto.randomUUID(), apiBaseURL: body.apiBaseURL } }));
+    const data = await ddbDocClient.send(new PutCommand({ TableName: tableName, Item: { key: crypto.randomUUID(), apiBaseURL: body.apiBaseURL } }));
     return c.json(data)
   } catch (err) {
     //@ts-expect-error Unknown error shape
@@ -51,7 +51,7 @@ app.post('/uuid', async (c) => {
     //@ts-expect-error Unknown error shape
     console.error("Error stack:", err.stack);
 
-    
+
     throw new HTTPException(400, { "message": "Error creating UUID" })
   }
 })

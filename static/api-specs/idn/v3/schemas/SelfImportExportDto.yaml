@@ -3,13 +3,14 @@ description: Self block for imported/exported object.
 properties:
   type:
     type: string 
-    description: Imported/exported object's DTO type. Import is currently only possible with the IDENTITY_OBJECT_CONFIG, IDENTITY_PROFILE, RULE, SOURCE, TRANSFORM, and TRIGGER_SUBSCRIPTION object types.
+    description: Imported/exported object's DTO type. Import is currently only possible with the CONNECTOR_RULE, IDENTITY_OBJECT_CONFIG, IDENTITY_PROFILE, RULE, SOURCE, TRANSFORM, and TRIGGER_SUBSCRIPTION object types.
     enum: 
       - ACCESS_PROFILE
       - ACCESS_REQUEST_CONFIG
       - ATTR_SYNC_SOURCE_CONFIG
       - AUTH_ORG
       - CAMPAIGN_FILTER
+      - CONNECTOR_RULE
       - FORM_DEFINITION
       - GOVERNANCE_GROUP
       - IDENTITY_OBJECT_CONFIG

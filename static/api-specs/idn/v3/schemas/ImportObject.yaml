@@ -4,7 +4,8 @@ properties:
   type: 
     type: string
     description: DTO type of object created or updated by import.
-    enum: 
+    enum:
+      - CONNECTOR_RULE 
       - IDENTITY_OBJECT_CONFIG
       - IDENTITY_PROFILE
       - RULE

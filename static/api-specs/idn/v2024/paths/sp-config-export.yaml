@@ -31,6 +31,7 @@ post:
               - ATTR_SYNC_SOURCE_CONFIG
               - AUTH_ORG
               - CAMPAIGN_FILTER
+              - CONNECTOR_RULE
               - FORM_DEFINITION
               - GOVERNANCE_GROUP
               - IDENTITY_OBJECT_CONFIG

@@ -8,18 +8,16 @@ post:
   - SP-Config
   summary: Initiates configuration objects import job
   description: |
-   "This post will import objects from a JSON configuration file into\
-    \ a tenant. By default, every import will first export all existing objects supported\
-    \ by sp-config as a backup before the import is attempted. The backup is provided\
-    \ so that the state of the configuration prior to the import is available for\
-    \ inspection or restore if needed. The backup can be skipped by setting \"excludeBackup\"\
-    \ to true in the import options. If a backup is performed, the id of the backup\
-    \ will be provided in the ImportResult as the \"exportJobId\". This can be downloaded\
-    \  using the `/sp-config/export/{exportJobId}/download` endpoint.\nYou cannot currently\
-    \ import from the Non-Employee Lifecycle Management (NELM) source. You cannot\
-    \ use this endpoint to back up or store NELM data. \nFor more information about\
-    \ the object types that currently support import functionality, refer to [SaaS\
-    \ Configuration](https://developer.sailpoint.com/idn/docs/saas-configuration/#supported-objects)."
+    This post will import objects from a JSON configuration file into a tenant.
+    By default, every import will first export all existing objects supported by sp-config as a backup before the import is attempted.
+    The backup is provided so that the state of the configuration prior to the import is available for inspection or restore if needed.
+    The backup can be skipped by setting "excludeBackup" to true in the import options.
+    If a backup is performed, the id of the backup will be provided in the ImportResult as the "exportJobId". This can be downloaded 
+    using the `/sp-config/export/{exportJobId}/download` endpoint.
+
+    You cannot currently import from the Non-Employee Lifecycle Management (NELM) source. You cannot use this endpoint to back up or store NELM data. 
+
+    For more information about the object types that currently support import functionality, refer to [SaaS Configuration](https://developer.sailpoint.com/idn/docs/saas-configuration/#supported-objects).
   parameters:
   - in: query
     name: preview
@@ -38,31 +36,66 @@ post:
     example: 'true'
   requestBody:
     description: |
-     "The form-data \"name\" attribute for the file content must be \"\
-      data\".\n\n__Example__\n\n    data: \"config_export_0340b957-5caa-44f6-ada2-d3c4c5bd0b19.json\"\
-      ,\n    options: {\n      \"excludeTypes\": [],\n      \"includeTypes\": [\"\
-      TRIGGER_SUBSCRIPTION\"],\n      \"objectOptions\": {\n        \"TRIGGER_SUBSCRIPTION\"\
-      : {\n          \"includedIds\": [ \"193446a1-c431-4326-8ba7-d6eebf922948\"],\n\
-      \          \"includedNames\":[]\n        }\n      },\n      \"defaultReferences\"\
-      : [\n        {\n          \"type\": \"TRIGGER_SUBSCRIPTION\",\n          \"\
-      id\": \"be9e116d-08e1-49fc-ab7f-fa585e96c9e4\",\n          \"name\": \"Test\
-      \ Trigger\"\n        }\n      ],\n      \"excludeBackup\": false\n    }\n\n\
-      __Sample Import File__\n\n    {\n    \t\"version\": 1,\n    \t\"timestamp\"\
-      : \"2021-05-10T15:19:23.425041-05:00\",\n    \t\"tenant\": \"sampleTenant\"\
-      ,\n    \t\"options\": {\n    \t\t\"excludeTypes\": [],\n    \t\t\"includeTypes\"\
-      : [\"TRIGGER_SUBSCRIPTION\"],\n    \t\t\"objectOptions\": null\n    \t},\n \
-      \   \t\"objects\": [{\n    \t\t\t\"version\": 1,\n    \t\t\t\"self\": {\n  \
-      \  \t\t\t\t\"type\": \"TRIGGER_SUBSCRIPTION\",\n    \t\t\t\t\"name\": \"test\
-      \ trigger\",\n    \t\t\t\t\"id\": \"193446a1-c431-4326-8ba7-d6eebf922948\"\n\
-      \    \t\t\t},\n    \t\t\t\"object\": {\n    \t\t\t\t\"type\": \"HTTP\",\n  \
-      \  \t\t\t\t\"enabled\": true,\n    \t\t\t\t\"httpConfig\": {\n    \t\t\t\t\t\
-      \"url\": \"https://localhost\",\n    \t\t\t\t\t\"httpAuthenticationType\": \"\
-      NO_AUTH\",\n    \t\t\t\t\t\"basicAuthConfig\": null,\n    \t\t\t\t\t\"bearerTokenAuthConfig\"\
-      : null,\n    \t\t\t\t\t\"httpDispatchMode\": \"SYNC\"\n    \t\t\t\t},\n    \t\
-      \t\t\t\"triggerName\": \"Access Request Submitted\",\n    \t\t\t\t\"responseDeadline\"\
-      : \"PT1H\",\n    \t\t\t\t\"name\": \"test trigger\",\n    \t\t\t\t\"triggerId\"\
-      : \"idn:access-request-pre-approval\"\n    \t\t\t}\n    \t\t}\n    \t]\n   \
-      \ }\n"
+      The form-data "name" attribute for the file content must be "data".
+
+      __Example__
+
+          data: "config_export_0340b957-5caa-44f6-ada2-d3c4c5bd0b19.json",
+          options: {
+            "excludeTypes": [],
+            "includeTypes": ["TRIGGER_SUBSCRIPTION"],
+            "objectOptions": {
+              "TRIGGER_SUBSCRIPTION": {
+                "includedIds": [ "193446a1-c431-4326-8ba7-d6eebf922948"],
+                "includedNames":[]
+              }
+            },
+            "defaultReferences": [
+              {
+                "type": "TRIGGER_SUBSCRIPTION",
+                "id": "be9e116d-08e1-49fc-ab7f-fa585e96c9e4",
+                "name": "Test Trigger"
+              }
+            ],
+            "excludeBackup": false
+          }
+
+      __Sample Import File__
+
+          {
+          	"version": 1,
+          	"timestamp": "2021-05-10T15:19:23.425041-05:00",
+          	"tenant": "sampleTenant",
+          	"options": {
+          		"excludeTypes": [],
+          		"includeTypes": ["TRIGGER_SUBSCRIPTION"],
+          		"objectOptions": null
+          	},
+          	"objects": [{
+          			"version": 1,
+          			"self": {
+          				"type": "TRIGGER_SUBSCRIPTION",
+          				"name": "test trigger",
+          				"id": "193446a1-c431-4326-8ba7-d6eebf922948"
+          			},
+          			"object": {
+          				"type": "HTTP",
+          				"enabled": true,
+          				"httpConfig": {
+          					"url": "https://localhost",
+          					"httpAuthenticationType": "NO_AUTH",
+          					"basicAuthConfig": null,
+          					"bearerTokenAuthConfig": null,
+          					"httpDispatchMode": "SYNC"
+          				},
+          				"triggerName": "Access Request Submitted",
+          				"responseDeadline": "PT1H",
+          				"name": "test trigger",
+          				"triggerId": "idn:access-request-pre-approval"
+          			}
+          		}
+          	]
+          }
     required: true
     content:
       multipart/form-data:

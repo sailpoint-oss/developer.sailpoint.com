@@ -91,7 +91,7 @@ app.post('/uuid', async (c) => {
     
     const objectToPut = { id: uuid, baseURL }
 
-    const state = {uuid, encryptionKey}
+    const state = {id: uuid, encryptionKey}
 
     const authURL = authInfo.authorizeEndpoint + `?client_id=${clientId}&response_type=code&redirect_uri=${redirectUrl}&state=${btoa(JSON.stringify(state))}`
 

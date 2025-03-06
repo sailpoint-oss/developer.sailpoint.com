@@ -46,7 +46,7 @@ const JsonPathQueryInput: React.FC<JsonPathQueryInputProps> = ({ value, onChange
         }}
         sx={{
           m: 1,
-          minWidth: 1000,
+          minWidth: 800,
           '& .MuiInputLabel-root': {
             color: isFocused ? (colorMode === 'dark' ? 'rgb(115,200,235)' : 'rgb(4,125,246)') : 'initial',
           },

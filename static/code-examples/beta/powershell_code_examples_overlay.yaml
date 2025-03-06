@@ -14122,6 +14122,8 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/beta/methods/work-reassignment#list-reassignment-configurations
       source: |
+        $Limit = 20 # Int32 | Max number of results to return. (optional) (default to 20)
+        $Offset = 10 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. Defaults to 0 if not specified. (optional)
         
         # List Reassignment Configurations
         
@@ -14129,7 +14131,7 @@
             Get-BetaReassignmentConfigurations 
     
             # Below is a request that includes all optional parameters
-            # Get-BetaReassignmentConfigurations   
+            # Get-BetaReassignmentConfigurations -Limit $Limit -Offset $Offset   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaReassignmentConfigurations"
             Write-Host $_.ErrorDetails

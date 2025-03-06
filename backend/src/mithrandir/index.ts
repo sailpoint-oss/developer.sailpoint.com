@@ -58,6 +58,10 @@ app.post('/uuid', async (c) => {
   }
 
   const objectToPut = { id: crypto.randomUUID(), apiBaseURL: body.apiBaseURL }
+  const objectToRespond = { key: crypto.randomBytes(10), ...objectToPut}
+
+  console.log("Creating UUID", objectToPut)
+  console.log("Responding with", objectToRespond)
 
   try {
     const data = await ddbDocClient.send(new PutCommand({ TableName: tableName, Item: objectToPut }));
@@ -65,7 +69,7 @@ app.post('/uuid', async (c) => {
     if (!data) {
       throw new HTTPException(400, { "message": "Error creating UUID" })
     }
-    return c.json(objectToPut)
+    return c.json(objectToRespond)
   } catch (err) {
     //@ts-expect-error Unknown error shape
     console.error("Error retrieving item:", err.message);

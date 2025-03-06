@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styles from './styles.module.css';
 import BlogCard from '../BlogCard';
-import NewtonsCradle from '../../NewtonsCradle';
+import NewtonsCradle from '../../newtonsCradle';
 import { discourseBaseURL, developerWebsiteDomain } from '../../../util/util';
 import { getBlogPosts, getUserTitle } from '../../../services/DiscourseService';
 

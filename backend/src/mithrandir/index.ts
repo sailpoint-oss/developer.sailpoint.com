@@ -22,7 +22,10 @@ async function getTenantInfo(apiUrl: string) {
   try {
 
     const authInfo = await fetch(apiUrl + `/oauth/info`)
-
+    if (!authInfo.ok) {
+      throw new HTTPException(400, { "message": "Error retrieving tenant info" })
+    }
+    console.log(authInfo)
   } catch (err) {
     throw new HTTPException(400, { "message": "apiBaseURL or tenant provided is invalid" })
   }
@@ -64,7 +67,7 @@ app.post('/uuid', async (c) => {
     if (!apiURL.hostname) {
       throw new HTTPException(400, { "message": "apiBaseURL is not a valid URL" })
     }
-  } else if (body.tenant) {
+  } else {
     apiURL = new URL(`https://${body.tenant}.api.identitynow.com`)
     if (!apiURL.hostname) {
       throw new HTTPException(400, { "message": "tenant is not valid" })
@@ -73,6 +76,16 @@ app.post('/uuid', async (c) => {
   }
 
   console.log(apiURL)
+  if(!apiURL.origin){
+    throw new HTTPException(400, { "message": "apiBaseURL or tenant provided is invalid" })
+  }
+
+  const baseURL = apiURL?.origin
+
+  console.log("BaseAPIURL:", baseURL)
+
+  const tenantInfo = await getTenantInfo(baseURL)
+  console.log(tenantInfo)
 
   const objectToPut = { id: crypto.randomUUID(), apiBaseURL: body.apiBaseURL }
   const objectToRespond = { encryptionKey: generateRandomString(20), ...objectToPut }

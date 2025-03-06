@@ -20,11 +20,11 @@
     "clean-api-docs-all": "docusaurus clean-api-docs isc_versioned --plugin-id isc-api && docusaurus clean-api-docs:version isc_versioned:all --plugin-id isc-api && docusaurus clean-api-docs iiq --plugin-id iiq-api && docusaurus clean-api-docs nerm --plugin-id nerm-api",
     "rebuild-docs": "npm run clean-api-docs-all && npm run gen-api-docs-all",
     "speecy-beta-spec": "speccy resolve --quiet static/api-specs/idn/sailpoint-api.beta.yaml -o static/code-examples/beta/beta.yaml",
-    "overlay-code-examples-beta": "node src/components/overlay.js static/code-examples/beta/beta.yaml  static/code-examples/beta/code_examples_overlay.yaml",
+    "overlay-code-examples-beta": "node src/components/overlay.js static/code-examples/beta/beta.yaml  static/code-examples/beta/powershell_code_examples_overlay.yaml",
     "speecy-v3-spec": "speccy resolve --quiet static/api-specs/idn/sailpoint-api.v3.yaml -o static/code-examples/v3/v3.yaml",
-    "overlay-code-examples-v3": "node src/components/overlay.js static/code-examples/v3/v3.yaml  static/code-examples/v3/code_examples_overlay.yaml",
+    "overlay-code-examples-v3": "node src/components/overlay.js static/code-examples/v3/v3.yaml  static/code-examples/v3/powershell_code_examples_overlay.yaml",
     "speecy-v2024-spec": "speccy resolve --quiet static/api-specs/idn/sailpoint-api.v2024.yaml -o static/code-examples/v2024/v2024.yaml",
-    "overlay-code-examples-v2024": "node src/components/overlay.js static/code-examples/v2024/v2024.yaml  static/code-examples/v2024/code_examples_overlay.yaml",
+    "overlay-code-examples-v2024": "node src/components/overlay.js static/code-examples/v2024/v2024.yaml  static/code-examples/v2024/powershell_code_examples_overlay.yaml",
     "gen-all-api-specs-code-examples": "npm run speecy-beta-spec && npm run overlay-code-examples-beta && npm run speecy-v3-spec && npm run overlay-code-examples-v3 && npm run speecy-v2024-spec && npm run overlay-code-examples-v2024"
   },
   "dependencies": {

@@ -309,12 +309,12 @@ Param Type | Name | Data Type | Required  | Description
   Query | OwnerId | **String** |   (optional) | ID of the work item owner.
 
 ### Return type
-[**WorkItemsCount[]**](../models/work-items-count)
+[**WorkItemsCount**](../models/work-items-count)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of work items | WorkItemsCount[]
+200 | List of work items | WorkItemsCount
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto

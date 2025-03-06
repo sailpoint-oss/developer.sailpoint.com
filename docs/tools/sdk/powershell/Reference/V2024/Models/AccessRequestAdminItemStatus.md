@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'AccessRequestAdminItemStatus', 'V2024
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **String** | ID of the access request | [optional] 
+**Id** | **String** | ID of the access request. This is a new property as of 2025. Older access requests may not have an ID. | [optional] 
 **Name** | **String** | Human-readable display name of the item being requested. | [optional] 
 **Type** |  **Enum** [  "ACCESS_PROFILE",    "ROLE",    "ENTITLEMENT" ] | Type of requested object. | [optional] 
 **CancelledRequestDetails** | [**RequestedItemStatusCancelledRequestDetails**](requested-item-status-cancelled-request-details) |  | [optional] 

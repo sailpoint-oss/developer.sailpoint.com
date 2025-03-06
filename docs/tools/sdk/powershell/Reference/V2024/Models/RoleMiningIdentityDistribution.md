@@ -17,7 +17,7 @@ tags: ['SDK', 'Software Development Kit', 'RoleMiningIdentityDistribution', 'V20
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AttributeName** | **String** | Id of the potential role | [optional] 
-**Distribution** | **[]System.Collections.Hashtable** |  | [optional] 
+**Distribution** | [**[]System.Collections.Hashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 |  | [optional] 
 
 ## Examples
 

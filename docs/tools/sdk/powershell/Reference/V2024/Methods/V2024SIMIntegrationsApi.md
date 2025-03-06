@@ -218,12 +218,12 @@ Param Type | Name | Data Type | Required  | Description
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-[**ServiceDeskIntegrationDto**](../models/service-desk-integration-dto)
+[**ServiceDeskIntegrationDto[]**](../models/service-desk-integration-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | The DTO containing the details of the SIM integration | ServiceDeskIntegrationDto
+200 | The DTO containing the details of the SIM integration | ServiceDeskIntegrationDto[]
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto

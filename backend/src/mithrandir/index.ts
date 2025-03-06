@@ -72,10 +72,11 @@ app.post('/uuid', async (c) => {
   console.log("BaseAPIURL:", baseURL)
 
   try {
-    const authInfo = await fetch(baseURL + `/oauth/info`)
-    if (!authInfo.ok) {
+    const authInfoResp = await fetch(baseURL + `/oauth/info`)
+    if (!authInfoResp.ok) {
       throw new Error("Error retrieving tenant info")
     }
+    const authInfo = await authInfoResp.json()
     console.log(authInfo)
   } catch (err) {
     throw new HTTPException(400, { "message": "error retrieving tenant information" })

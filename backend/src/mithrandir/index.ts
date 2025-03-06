@@ -7,6 +7,9 @@ import { handle } from 'hono/aws-lambda'
 import { logger } from 'hono/logger'
 import { HTTPException } from 'hono/http-exception'
 
+const clientId = "sailpoint-cli"
+const redirectUrl = "https://developer.sailpoint.com/sailapps"
+
 const app = new Hono()
 
 function generateRandomString(length: number) {
@@ -78,31 +81,48 @@ app.post('/uuid', async (c) => {
     }
     const authInfo = await authInfoResp.json()
     console.log(authInfo)
-  } catch (err) {
-    throw new HTTPException(400, { "message": "error retrieving tenant information" })
-  }
 
-  const objectToPut = { id: crypto.randomUUID(), apiBaseURL: body.apiBaseURL }
-  const objectToRespond = { encryptionKey: generateRandomString(20), ...objectToPut }
+    if (!authInfo || !authInfo.authorizeEndpoint) {
+      throw new Error("Error retrieving tenant info")
+    }
 
-  try {
-    const data = await ddbDocClient.send(new PutCommand({ TableName: tableName, Item: objectToPut }));
-    console.log(data)
-    if (!data) {
+    const uuid = crypto.randomUUID()
+    const encryptionKey = generateRandomString(20)
+    
+    const objectToPut = { id: uuid, baseURL }
+
+    const state = {uuid, encryptionKey}
+
+    const authURL = authInfo.authorizeEndpoint + `?client_id=${clientId}&response_type=code&redirect_uri=${redirectUrl}&state=${btoa(JSON.stringify(state))}`
+
+    console.log("Generated Auth URL:", authURL)
+
+    const objectToRespond = { encryptionKey, authURL, ...objectToPut }
+
+
+    try {
+      const data = await ddbDocClient.send(new PutCommand({ TableName: tableName, Item: objectToPut }));
+      console.log(data)
+      if (!data) {
+        throw new HTTPException(400, { "message": "Error creating UUID" })
+      }
+      return c.json(objectToRespond)
+    } catch (err) {
+      //@ts-expect-error Unknown error shape
+      console.error("Error retrieving item:", err.message);
+      //@ts-expect-error Unknown error shape
+      console.error("Error code:", err.code);
+      //@ts-expect-error Unknown error shape
+      console.error("Error name:", err.name);
+      //@ts-expect-error Unknown error shape
+      console.error("Error stack:", err.stack);
+  
       throw new HTTPException(400, { "message": "Error creating UUID" })
     }
-    return c.json(objectToRespond)
-  } catch (err) {
-    //@ts-expect-error Unknown error shape
-    console.error("Error retrieving item:", err.message);
-    //@ts-expect-error Unknown error shape
-    console.error("Error code:", err.code);
-    //@ts-expect-error Unknown error shape
-    console.error("Error name:", err.name);
-    //@ts-expect-error Unknown error shape
-    console.error("Error stack:", err.stack);
 
-    throw new HTTPException(400, { "message": "Error creating UUID" })
+
+  } catch (err) {
+    throw new HTTPException(400, { "message": "error retrieving tenant information" })
   }
 })
 

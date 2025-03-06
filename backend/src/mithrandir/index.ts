@@ -18,6 +18,16 @@ function generateRandomString(length: number) {
   return result;
 }
 
+async function getTenantInfo(apiUrl: string) {
+  try {
+
+    const authInfo = await fetch(apiUrl + `/oauth/info`)
+
+  } catch (err) {
+    throw new HTTPException(400, { "message": "apiBaseURL or tenant provided is invalid" })
+  }
+}
+
 //DynamoDB Endpoint
 const ENDPOINT_OVERRIDE = process.env.ENDPOINT_OVERRIDE;
 let ddbClient = undefined;
@@ -43,15 +53,29 @@ app.post('/uuid', async (c) => {
 
   const body = await c.req.json()
 
-  if (!body.apiBaseURL) {
-    throw new HTTPException(400, { "message": "apiBaseURL missing from request body" })
+  if (!body.apiBaseURL && !body.tenant) {
+    throw new HTTPException(400, { "message": "apiBaseURL or tenant must be provided in the request body" })
   }
 
-  const objectToPut = { id: crypto.randomUUID(), apiBaseURL: body.apiBaseURL }
-  const objectToRespond = { key: generateRandomString(10), ...objectToPut}
+  let apiURL
 
-  console.log("Creating UUID", objectToPut)
-  console.log("Responding with", objectToRespond)
+  if (body.apiBaseURL) {
+    apiURL = new URL(body.apiBaseURL)
+    if (!apiURL.hostname) {
+      throw new HTTPException(400, { "message": "apiBaseURL is not a valid URL" })
+    }
+  } else if (body.tenant) {
+    apiURL = new URL(`https://${body.tenant}.api.identitynow.com`)
+    if (!apiURL.hostname) {
+      throw new HTTPException(400, { "message": "tenant is not valid" })
+    }
+
+  }
+
+  console.log(apiURL)
+
+  const objectToPut = { id: crypto.randomUUID(), apiBaseURL: body.apiBaseURL }
+  const objectToRespond = { encryptionKey: generateRandomString(20), ...objectToPut }
 
   try {
     const data = await ddbDocClient.send(new PutCommand({ TableName: tableName, Item: objectToPut }));

@@ -6,7 +6,7 @@ properties:
        -  questionId: 089899f13a8f4da7824996191587bab9
           isVerified: false
     items:
-      $ref: '../schemas/KbaAuthResponseItem.yaml'
+      $ref: './KbaAuthResponseItem.yaml'
   status:
     type: string
     enum:

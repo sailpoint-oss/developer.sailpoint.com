@@ -1,8 +1,9 @@
 type: object
 properties:
   object:
-    $ref: './ConnectedObject.yaml'
-    description: Connected object to Governance Group
+    allOf:
+      - $ref: './ConnectedObject.yaml'
+      - description: Connected object to Governance Group
   connectionType:
     description: Connection Type.
     type: string

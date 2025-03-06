@@ -16,11 +16,11 @@ properties:
         description: The name of the item whose data is in the review data
         example: Role Name
   entitlement:
-    $ref: '../../v3/schemas/reviews/ReviewableEntitlement.yaml'
+    $ref: './reviews/ReviewableEntitlement.yaml'
   accessProfile:
-    $ref: '../../v3/schemas/reviews/ReviewableAccessProfile.yaml'
+    $ref: './reviews/ReviewableAccessProfile.yaml'
   role:
-    $ref: '../../v3/schemas/reviews/ReviewableRole.yaml'
+    $ref: './reviews/ReviewableRole.yaml'
   identity:
     $ref: './MemberReference.yaml'
   roleCriteria:

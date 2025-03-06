@@ -59,4 +59,4 @@ properties:
     $ref: './ExceptionAccessCriteria.yaml'
     nullable: false
   origin:
-    $ref: '../../../../v3/schemas/BaseReferenceDto.yaml'
+    $ref: '../../BaseReferenceDto.yaml'

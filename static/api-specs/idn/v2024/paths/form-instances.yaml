@@ -10,7 +10,9 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../schemas/forms/ListFormInstancesByTenantResponse.yaml
+            type: array
+            items:
+              $ref: ../schemas/forms/ListFormInstancesByTenantResponse.yaml
     '400':
       description: An error with the request occurred
       content:

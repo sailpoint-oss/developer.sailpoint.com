@@ -49,16 +49,16 @@ properties:
     type: array
     nullable: true
     items:
-      $ref: "../schemas/GrantType.yaml"
+      $ref: "./GrantType.yaml"
     description:
       A list of OAuth 2.0 grant types this API Client can be used with
     example: [ "AUTHORIZATION_CODE", "CLIENT_CREDENTIALS", "REFRESH_TOKEN" ]
   accessType:
-    $ref: "../schemas/AccessType.yaml"
+    $ref: "./AccessType.yaml"
     description: The access type (online or offline) of this API Client
     example: "OFFLINE"
   type:
-    $ref: "../schemas/ClientType.yaml"
+    $ref: "./ClientType.yaml"
     description: The type of the API Client (public or confidential)
     example: "CONFIDENTIAL"
   internal:

@@ -15,6 +15,7 @@ allOf:
         description: The lifecycle state's technical name. This is for internal use.
       description:
         type: string
+        nullable: true
         example: "Lifecycle description"
         description: Lifecycle state's description.
       identityCount:

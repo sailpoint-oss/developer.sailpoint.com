@@ -50,4 +50,5 @@ properties:
       - advancedToggle
       - variableCreator
       - htmlEditor
+      - pagInstancePicker
     example: text

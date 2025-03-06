@@ -25,17 +25,17 @@ get:
           schema:
             $ref: '../schemas/ManagedClusterType.yaml'
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: '../responses/400.yaml'
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: '../responses/401.yaml'
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: '../responses/403.yaml'
     '404':
-      $ref: '../../v3/responses/404.yaml'
+      $ref: '../responses/404.yaml'
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: '../responses/429.yaml'
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: '../responses/500.yaml'
   security:
     - userAuth: [idn:managed-cluster-types:read, idn:managed-cluster-types:manage]
 patch:
@@ -72,17 +72,17 @@ patch:
           schema:
             $ref: '../schemas/ManagedClusterType.yaml'
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: '../responses/400.yaml'
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: '../responses/401.yaml'
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: '../responses/403.yaml'
     '404':
-      $ref: '../../v3/responses/404.yaml'
+      $ref: '../responses/404.yaml'
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: '../responses/429.yaml'
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: '../responses/500.yaml'
   security:
     - userAuth: [idn:managed-cluster-types:manage]
 delete:
@@ -106,17 +106,17 @@ delete:
       example: aClusterTypeId
   responses:
     '204':
-      $ref: '../../v3/responses/204.yaml'
+      $ref: '../responses/204.yaml'
       description: The Managed Cluster Type was successfully deleted.
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: '../responses/400.yaml'
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: '../responses/401.yaml'
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: '../responses/403.yaml'
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: '../responses/429.yaml'
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: '../responses/500.yaml'
   security:
     - userAuth: [idn:managed-cluster-types:manage]

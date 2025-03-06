@@ -5,7 +5,7 @@ properties:
     assignments:
         type: array
         items:
-            $ref: '../../v3/schemas/BareReference.yaml'
+            $ref: './BareReference.yaml'
         nullable: true
         description: >-
           List of references to objects which will be assigned the Segment. All references must be of type ROLE or
@@ -20,7 +20,7 @@ properties:
     removals:
         type: array
         items:
-            $ref: '../../v3/schemas/BareReference.yaml'
+            $ref: './BareReference.yaml'
         nullable: true
         description: >-
           List of references to objects which will be removed from the Segment. All references must be of type ROLE or

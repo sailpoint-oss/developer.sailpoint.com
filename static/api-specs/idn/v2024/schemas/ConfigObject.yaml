@@ -7,7 +7,7 @@ properties:
     description: Current version of configuration object.
     example: 1
   self:
-    $ref: '../../v3/schemas/SelfImportExportDto.yaml'
+    $ref: './SelfImportExportDto.yaml'
   object:
     description: Object details. Format dependant on the object type.
     additionalProperties: true

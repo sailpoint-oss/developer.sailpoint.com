@@ -1,7 +1,7 @@
 type: object
 properties:
     type:
-        $ref: '../../v3/schemas/DtoType.yaml'
+        $ref: './DtoType.yaml'
     id:
         type: string
         description: Identity id

@@ -14,7 +14,7 @@ properties:
     description: Description of the access item.
     example: Access to research information, lab results, and schematics
   type:
-    $ref: '../../v3/schemas/RequestableObjectType.yaml'
+    $ref: './RequestableObjectType.yaml'
   owner:
     $ref: './AccessItemOwnerDto.yaml'
   requestCommentsRequired:

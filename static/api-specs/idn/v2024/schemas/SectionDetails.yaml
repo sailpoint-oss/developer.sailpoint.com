@@ -5,6 +5,7 @@ allOf:
   properties:
     label:
       type: string
+      nullable: true
       description: Label of the section
       example: Section 1
     formItems:

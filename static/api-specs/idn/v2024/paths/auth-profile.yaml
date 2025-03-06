@@ -2,7 +2,7 @@ get:
   operationId: getProfileConfig
   tags:
   - Auth Profile
-  summary: Get Auth Profile.
+  summary: Get Auth Profile
   description: This API returns auth profile information.
   security:
   - userAuth:

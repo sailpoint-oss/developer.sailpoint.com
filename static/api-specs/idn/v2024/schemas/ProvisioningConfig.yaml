@@ -12,7 +12,7 @@ properties:
     type: array
     items:
       allOf:
-        - $ref: '../schemas/ServiceDeskSource.yaml'
+        - $ref: './ServiceDeskSource.yaml'
     example:
       - type: "SOURCE"
         id: "2c9180855d191c59015d291ceb051111"

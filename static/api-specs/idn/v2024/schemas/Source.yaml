@@ -95,7 +95,7 @@ properties:
         example: Example Rule
   managerCorrelationMapping:
     allOf:
-    - $ref: '../schemas/ManagerCorrelationMapping.yaml'
+    - $ref: './ManagerCorrelationMapping.yaml'
     - nullable: true
       description: |
         Filter object used during manager correlation to match incoming manager values to an existing manager's
@@ -198,7 +198,7 @@ properties:
         id: "2c9180855d191c59015d291ceb057777"
         name: "Vendor Password Policy"
   features:
-    $ref: '../schemas/SourceFeature.yaml'
+    $ref: './SourceFeature.yaml'
   type:
     type: string
     description: >-

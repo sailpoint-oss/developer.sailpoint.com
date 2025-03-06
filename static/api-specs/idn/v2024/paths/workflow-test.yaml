@@ -86,12 +86,12 @@ post:
                 description: The workflow execution id
                 example: "0e11cefa-96e7-4b67-90d0-065bc1da5753"
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: '../responses/400.yaml'
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: '../responses/401.yaml'
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: '../responses/403.yaml'
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: '../responses/429.yaml'
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: '../responses/500.yaml'

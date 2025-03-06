@@ -93,6 +93,6 @@ properties:
     example: {"uid":"86754","firstname":"Walter","cloudStatus":"UNREGISTERED","displayName":"Walter White","identificationNumber":"86754","lastSyncDate":1470348809380,"email":"walter.white@example.com","lastname":"White"}
   lifecycleState:
     allOf:
-    - $ref: '../../v3/schemas/LifecycleStateDto.yaml'
+    - $ref: './LifecycleStateDto.yaml'
     - nullable: true
       description: Lifecycle state details that include lifecycle state name and whether this lifecycle state has been set manually

@@ -11,7 +11,7 @@ properties:
     description: query the identities to be updated
     type: object
     items:
-      $ref: '../../schemas/search/Search.yaml'
+      $ref: '../search/Search.yaml'
     example:
       query": {
         "indices": [

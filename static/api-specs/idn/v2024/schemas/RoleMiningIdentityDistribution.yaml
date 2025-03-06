@@ -8,6 +8,5 @@ properties:
     type: array
     items:
       type: object
-      additionalProperties:
-        type: string
+      additionalProperties: true
     example: [{"attributeValue":"NM Tier 3","count":6}]

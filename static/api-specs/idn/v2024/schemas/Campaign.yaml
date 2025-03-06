@@ -7,11 +7,13 @@ allOf:
       modified:
         type: string
         readOnly: true
+        nullable: true
         format: date-time
         description: Modified time of the campaign
         example: '2020-03-03T22:20:12.674Z'
       filter:
         type: object
+        nullable: true
         description: >-
           Determines which items will be included in this campaign. The default campaign filter is used if this
           field is left blank.
@@ -39,6 +41,7 @@ allOf:
         example: true
       sourceOwnerCampaignInfo:
         type: object
+        nullable: true
         description: Must be set only if the campaign type is SOURCE_OWNER.
         properties:
           sourceIds:
@@ -49,6 +52,7 @@ allOf:
             example: [0fbe863c063c4c88a35fd7f17e8a3df5]
       searchCampaignInfo:
         type: object
+        nullable: true
         description: Must be set only if the campaign type is SEARCH.
         properties:
           type:
@@ -66,6 +70,7 @@ allOf:
             example: Search Campaign description
           reviewer:
             type: object
+            nullable: true
             description: >-
               If specified, this identity or governance group will be the reviewer for all certifications in
               this campaign. The allowed DTO types are IDENTITY and GOVERNANCE_GROUP.
@@ -83,16 +88,19 @@ allOf:
                 example: 2c91808568c529c60168cca6f90c1313     
               name: 
                 type: string
+                nullable: true
                 description: The reviewer's name.
                 example: William Wilson
           query:
             type: string
+            nullable: true
             description: >-
               The scope for the campaign. The campaign will cover identities returned by the query and identities that
               have access items returned by the query. One of `query` or `identityIds` must be set.
             example: Search Campaign query description
           identityIds:
             type: array
+            nullable: true
             description: A direct list of identities to include in this campaign. One of `identityIds` or `query` must be set.
             items:
               type: string
@@ -110,10 +118,18 @@ allOf:
           - type
       roleCompositionCampaignInfo:
         type: object
+        nullable: true
         description: Optional configuration options for role composition campaigns.
         properties:
+          reviewerId:
+            type: string
+            description: The ID of the identity or governance group reviewing this campaign. Deprecated in favor of the "reviewer" object.
+            deprecated: true
+            example: 2c91808568c529c60168cca6f90c1313
+            nullable: true
           reviewer:
             type: object
+            nullable: true
             description: >-
               If specified, this identity or governance group will be the reviewer for all certifications in
               this campaign. The allowed DTO types are IDENTITY and GOVERNANCE_GROUP.
@@ -168,12 +184,14 @@ allOf:
               - id
           query:
             type: string
+            nullable: true
             description: >-
               Optional search query to scope this campaign to a set of roles. Only one of `roleIds` and `query` may
               be set; if neither are set, all roles are included.
             example: Search Query
           description:
             type: string
+            nullable: true
             description: >-
               Describes this role composition campaign. Intended for storing the query used, and possibly the number
               of roles selected/available.
@@ -182,6 +200,7 @@ allOf:
           - remediatorRef
       machineAccountCampaignInfo:
         type: object
+        nullable: true
         description: Must be set only if the campaign type is MACHINE_ACCOUNT.
         properties:
           sourceIds:
@@ -198,6 +217,7 @@ allOf:
             example: ACCOUNT_OWNER
       sourcesWithOrphanEntitlements:
         type: array
+        nullable: true
         description: >-
           A list of sources in the campaign that contain \"orphan entitlements\" (entitlements without a corresponding
           Managed Attribute). An empty list indicates the campaign has no orphan entitlements. Null indicates there may

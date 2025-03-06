@@ -12,7 +12,9 @@ properties:
   type:
     description: Operator type
     type: string
-    example: "OPERATOR"
+    enum:
+      - OPERATOR
+    example: OPERATOR
   description:
     type: string
     description: Description of the operator

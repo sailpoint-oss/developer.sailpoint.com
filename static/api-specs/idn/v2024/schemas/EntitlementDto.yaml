@@ -28,4 +28,4 @@ allOf:
         description: Determines if this Entitlement is goverened in the cloud.
         type: boolean
       source:
-        $ref: '../../v3/schemas/EntitlementSource.yaml'
+        $ref: './EntitlementSource.yaml'

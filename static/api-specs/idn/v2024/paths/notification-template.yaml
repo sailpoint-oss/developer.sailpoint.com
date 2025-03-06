@@ -29,9 +29,7 @@ get:
       content:
         application/json:
           schema:
-            type: array
-            items:
-              $ref: ../schemas/TemplateDto.yaml
+            $ref: ../schemas/TemplateDto.yaml
     '400':
       $ref: ../responses/400.yaml
     '401':

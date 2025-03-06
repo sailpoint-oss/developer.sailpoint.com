@@ -62,6 +62,6 @@ properties:
     description: The description of the default template
     nullable: true
   slackTemplate:
-    $ref: ../schemas/TemplateSlack.yaml
+    $ref: ./TemplateSlack.yaml
   teamsTemplate:
-    $ref: ../schemas/TemplateTeams.yaml
+    $ref: ./TemplateTeams.yaml

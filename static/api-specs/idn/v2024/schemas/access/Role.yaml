@@ -94,7 +94,7 @@ properties:
         description: >-
             List of references to dimensions to which this Role is assigned. This field is only relevant if the Role is dimensional.
     accessModelMetadata:
-        $ref: '../../schemas/gov-attributes/AttributeDTOList.yaml'
+        $ref: '../gov-attributes/AttributeDTOList.yaml'
         example:
           [
               {

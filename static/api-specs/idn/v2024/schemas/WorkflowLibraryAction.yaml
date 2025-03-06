@@ -11,6 +11,8 @@ properties:
     example: "Create Certification Campaign"
   type:
     type: string
+    enum:
+      - ACTION
     description: Action type
     example: "ACTION"
   description:

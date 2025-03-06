@@ -1,6 +1,6 @@
 description: A reference to the source of activity
 allOf:
-  - $ref: '../../v3/schemas/SourceDto.yaml'
+  - $ref: './SourceDto.yaml'
   - type: object
     properties:
       integrationType:

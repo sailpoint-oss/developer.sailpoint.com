@@ -21,11 +21,11 @@ properties:
     description: SOD Policy schedule description
     example: 'Schedule for policy xyz'
   schedule:
-    $ref: '../schemas/schedule/Schedule.yaml'
+    $ref: './schedule/Schedule.yaml'
   recipients:
     type: array
     items:
-      $ref: '../schemas/SodRecipient.yaml'
+      $ref: './SodRecipient.yaml'
   emailEmptyResults:
     type: boolean
     description: Indicates if empty results need to be emailed

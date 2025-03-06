@@ -55,7 +55,7 @@ allOf:
         description: Before provisioning rule of integration
         properties:
           type:
-            $ref: '../../v3/schemas/DtoType.yaml'
+            $ref: './DtoType.yaml'
           id:
             type: string
             description: ID of the rule

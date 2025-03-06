@@ -48,4 +48,4 @@ properties:
         description: Exported object's display name. 
         example: HR Active Directory
   object:
-    $ref: '../schemas/IdentityProfile.yaml'
+    $ref: './IdentityProfile.yaml'

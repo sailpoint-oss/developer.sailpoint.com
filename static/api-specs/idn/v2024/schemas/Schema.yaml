@@ -22,6 +22,7 @@ properties:
     example: distinguishedName
   hierarchyAttribute:
     type: string
+    nullable: true
     description: The name of the attribute whose values represent other objects in a hierarchy. Only relevant to group schemas.
     example: memberOf
   includePermissions:
@@ -29,7 +30,7 @@ properties:
     description: Flag indicating whether or not the include permissions with the object data when aggregating the schema.
     example: false
   features:
-    $ref: '../schemas/SourceFeature.yaml'
+    $ref: './SourceFeature.yaml'
   configuration:
     type: object
     description: Holds any extra configuration data that the schema may require.
@@ -70,6 +71,7 @@ properties:
     example: '2019-12-24T22:32:58.104Z'
   modified:
     type: string
+    nullable: true
     description: The date the Schema was last modified.
     format: 'date-time'
     example: '2019-12-31T20:22:28.104Z'

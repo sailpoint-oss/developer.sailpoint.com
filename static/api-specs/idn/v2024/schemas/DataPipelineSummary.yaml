@@ -34,7 +34,7 @@ properties:
     type: array
     description: Summary of events produced by the qualifier run of the DAG
     items:
-      $ref: '../schemas/DataPipelineOperation.yaml'
+      $ref: './DataPipelineOperation.yaml'
     example:
       - timestamp: "2020-09-09T12:34:56.000Z"
         operation: ProvisionFlinkCluster

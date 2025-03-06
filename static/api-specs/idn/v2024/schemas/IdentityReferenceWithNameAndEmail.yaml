@@ -15,6 +15,7 @@ properties:
         example: "Alison Ferguso"
     email:
         type: string
+        nullable: true
         description: Identity's email address. This is read-only.
         example: "alison.ferguso@identitysoon.com"
 

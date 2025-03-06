@@ -59,7 +59,7 @@ properties:
         type: array
         description: The owner of the connected Application
         items:
-            $ref: '../schemas/BaseReferenceDto.yaml'
+            $ref: './BaseReferenceDto.yaml'
     appCenterEnabled:
         type: boolean
         description: Is App Center enabled for connected Application

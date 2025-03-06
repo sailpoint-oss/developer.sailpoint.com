@@ -22,8 +22,8 @@ post:
     "200":
       description: Response indicating that the Task with the given ID was successfully cancelled.
     "403":
-      $ref: '../../v3/responses/403.yaml'
+      $ref: '../responses/403.yaml'
     "404":
-      $ref: '../../v3/responses/404.yaml'
+      $ref: '../responses/404.yaml'
   security:
     - userAuth: [idn:task-management:write]

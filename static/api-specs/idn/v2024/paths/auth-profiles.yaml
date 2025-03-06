@@ -2,7 +2,7 @@ get:
   operationId: getProfileConfigList
   tags:
   - Auth Profile
-  summary: Get list of Auth Profiles.
+  summary: Get list of Auth Profiles
   description: This API returns a list of auth profiles.
   security:
   - userAuth:
@@ -13,7 +13,9 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../schemas/AuthProfileSummary.yaml
+            type: array
+            items:
+              $ref: ../schemas/AuthProfileSummary.yaml
     '400':
       $ref: ../responses/400.yaml
     '401':

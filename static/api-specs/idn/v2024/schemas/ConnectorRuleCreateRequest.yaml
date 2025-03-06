@@ -13,6 +13,7 @@ properties:
     maxLength: 128
   description:
     type: string
+    nullable: true
     description: a description of the rule's purpose
     example: This rule does that
   type:
@@ -32,6 +33,7 @@ properties:
       - PeopleSoftHRMSOperationProvisioning
       - PeopleSoftHRMSProvision
       - RACFPermissionCustomization
+      - ResourceObjectCustomization
       - SAPBuildMap
       - SapHrManagerRule
       - SapHrOperationProvisioning

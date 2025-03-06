@@ -26,17 +26,17 @@ get:
           schema:
             $ref: '../schemas/Tag.yaml'
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: '../responses/400.yaml'
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: '../responses/401.yaml'
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: '../responses/403.yaml'
     '404':
-      $ref: '../../v3/responses/404.yaml'
+      $ref: '../responses/404.yaml'
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: '../responses/429.yaml'
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: '../responses/500.yaml'
 delete:
   operationId: deleteTagById
   tags:
@@ -65,7 +65,7 @@ delete:
       content:
         application/json:
           schema:
-            $ref: '../../v3/schemas/ErrorResponseDto.yaml'
+            $ref: '../schemas/ErrorResponseDto.yaml'
           examples:
             400.1 Bad Request Content:
               description: Response for bad request content
@@ -86,12 +86,12 @@ delete:
                     localeOrigin: DEFAULT
                     text: The request cannot be fulfilled because doing so would violate referential integrity constraints.
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: '../responses/401.yaml'
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: '../responses/403.yaml'
     '404':
-      $ref: '../../v3/responses/404.yaml'
+      $ref: '../responses/404.yaml'
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: '../responses/429.yaml'
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: '../responses/500.yaml'

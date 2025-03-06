@@ -38,6 +38,7 @@ properties:
     example: "megapod-useast1"
   iqServiceVersion:
     type: string
+    nullable: true
     description: The version of the iqService
     example: "iqVersion123"
   status:
@@ -53,5 +54,6 @@ properties:
       - SOURCE_STATE_UNCHECKED_CLUSTER_NO_SOURCES
       - SOURCE_STATE_UNCHECKED_SOURCE
       - SOURCE_STATE_UNCHECKED_SOURCE_NO_ACCOUNTS
+      - SOURCE_STATE_ERROR_ACCOUNT_FILE_IMPORT
     description: connection test result
     example: "SOURCE_STATE_UNCHECKED_SOURCE"

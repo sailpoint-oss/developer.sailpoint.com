@@ -20,8 +20,8 @@ post:
         valid for the username. If the email address is valid, matches the username, and the username is enabled, a
         notification is sent.
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: '../responses/400.yaml'
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: '../responses/403.yaml'
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: '../responses/500.yaml'

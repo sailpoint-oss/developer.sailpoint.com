@@ -23,7 +23,7 @@ properties:
     description: The segment's optional description. 
     example: "This segment represents xyz"
   owner:
-    $ref: '../schemas/access/OwnerReferenceSegments.yaml'
+    $ref: './access/OwnerReferenceSegments.yaml'
   visibilityCriteria:
     allOf:
     - $ref: './VisibilityCriteria.yaml'

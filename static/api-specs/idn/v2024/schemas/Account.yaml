@@ -110,6 +110,7 @@ allOf:
         example: true
       identity:
         description: The identity this account is correlated to
+        type: object
         properties:
           id:
             type: string

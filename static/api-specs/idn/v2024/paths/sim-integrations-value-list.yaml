@@ -10,7 +10,9 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../schemas/ServiceDeskIntegrationDto.yaml
+            type: array
+            items:
+              $ref: ../schemas/ServiceDeskIntegrationDto.yaml
     '400':
       $ref: ../responses/400.yaml
     '401':

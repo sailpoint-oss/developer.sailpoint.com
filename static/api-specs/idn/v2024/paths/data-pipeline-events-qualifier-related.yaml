@@ -24,8 +24,8 @@ get:
           schema:
             $ref: '../schemas/DataPipelineRelatedQualifiers.yaml'
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: '../responses/401.yaml'
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: '../responses/403.yaml'
     '404':
-      $ref: '../../v3/responses/404.yaml'
+      $ref: '../responses/404.yaml'

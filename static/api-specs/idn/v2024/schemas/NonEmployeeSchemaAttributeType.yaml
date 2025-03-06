@@ -3,5 +3,6 @@ enum:
   - TEXT
   - DATE
   - IDENTITY
+  - PHONE
 description: Enum representing the type of data a schema attribute accepts.
 example: TEXT

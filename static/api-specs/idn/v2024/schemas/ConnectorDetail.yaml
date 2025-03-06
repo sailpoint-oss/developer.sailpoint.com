@@ -30,10 +30,12 @@ properties:
     example: "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?><!-- Copyright (C) 2023 SailPoint Technologies, Inc.  All rights reserved. --><Form xmlns=\"http://www.sailpoint.com/xsd/sailpoint_form_2_0.xsd\" connectorName=\"custom Atlassian Suite - Cloud\" directConnect=\"true\" fileUpload=\"true\" name=\"Custom Atlassian Suite - Cloud\" status=\"released\" type=\"SourceConfig\">\n    <BaseConfig>\n        <Field maxFiles=\"10\" maxSize=\"300\" name=\"fileUpload\" supportedExtensions=\"jar\" type=\"fileupload\" validateJSON=\"false\"/>\n    </BaseConfig>\n  \n\n \n</Form>"
   sourceConfig:
     type: string
+    nullable: true
     description: The connector source config
     example: "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?><!-- Copyright (C) 2023 SailPoint Technologies, Inc.  All rights reserved. --><Form xmlns=\"http://www.sailpoint.com/xsd/sailpoint_form_2_0.xsd\" connectorName=\"custom Atlassian Suite - Cloud\" directConnect=\"true\" fileUpload=\"true\" name=\"Custom Atlassian Suite - Cloud\" status=\"released\" type=\"SourceConfig\">\n    <BaseConfig>\n        <Field maxFiles=\"10\" maxSize=\"300\" name=\"fileUpload\" supportedExtensions=\"jar\" type=\"fileupload\" validateJSON=\"false\"/>\n    </BaseConfig>\n  \n\n \n</Form>"
   sourceConfigFrom:
     type: string
+    nullable: true
     description: The connector source config origin
     example: "sp-connect"
   s3Location:

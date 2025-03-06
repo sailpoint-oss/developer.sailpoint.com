@@ -14,9 +14,9 @@ get:
       description: The role id
       example: 8c190e67-87aa-4ed9-a90b-d9d5344523fb
       x-sailpoint-resource-operation-id: listRoles
-    - $ref: '../../v3/parameters/offset.yaml'
-    - $ref: '../../v3/parameters/limit.yaml'
-    - $ref: '../../v3/parameters/count.yaml'
+    - $ref: '../parameters/offset.yaml'
+    - $ref: '../parameters/limit.yaml'
+    - $ref: '../parameters/count.yaml'
     - in: query
       name: sorters
       description: >-
@@ -56,10 +56,10 @@ get:
             items:
               $ref: '../schemas/IaiDataRoleEntitlement.yaml'
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: '../responses/400.yaml'
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: '../responses/401.yaml'
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: '../responses/403.yaml'
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: '../responses/500.yaml'

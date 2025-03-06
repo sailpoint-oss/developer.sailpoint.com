@@ -1,6 +1,6 @@
 # The Identity DTO returned by the v3 identities APIs
 allOf:
-  - $ref: '../schemas/BaseCommonDto.yaml'
+  - $ref: './BaseCommonDto.yaml'
   - type: object
     title: MachineIdentityDto
     required:

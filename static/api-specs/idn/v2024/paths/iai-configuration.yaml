@@ -24,13 +24,13 @@ get:
           schema:
             $ref: '../schemas/IaiConfigurationDto.yaml'
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: '../responses/400.yaml'
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: '../responses/401.yaml'
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: '../responses/403.yaml'
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: '../responses/500.yaml'
   # security:
   #   - oauth2: [iai:configuration:read]
 put:
@@ -59,13 +59,13 @@ put:
           schema:
             $ref: '../schemas/IaiConfigurationDto.yaml'
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: '../responses/400.yaml'
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: '../responses/401.yaml'
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: '../responses/403.yaml'
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: '../responses/500.yaml'
   # security:
   #   - oauth2: [iai:configuration:update]
 delete:
@@ -88,14 +88,14 @@ delete:
       example: 'idn'
   responses:
     '204':
-      $ref: '../../v3/responses/204.yaml'
+      $ref: '../responses/204.yaml'
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: '../responses/400.yaml'
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: '../responses/401.yaml'
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: '../responses/403.yaml'
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: '../responses/500.yaml'
   # security:
   #   - oauth2: [iai:configuration:delete]

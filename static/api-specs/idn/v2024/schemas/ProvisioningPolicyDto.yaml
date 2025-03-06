@@ -11,7 +11,7 @@ properties:
     description: the description of the provisioning policy
     example: this provisioning policy creates access based on an identity going inactive
   usageType:
-    $ref: '../schemas/UsageType.yaml'
+    $ref: './UsageType.yaml'
   fields:
     type: array
     items:

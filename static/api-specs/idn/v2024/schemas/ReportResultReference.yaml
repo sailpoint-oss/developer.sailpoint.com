@@ -1,5 +1,5 @@
 allOf:
-- $ref: '../schemas/SodReportResultDto.yaml'
+- $ref: './SodReportResultDto.yaml'
 - type : object
   properties:
     status:

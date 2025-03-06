@@ -15,7 +15,7 @@ properties:
     type: boolean
     description: Indicates whether the review item is for new access to a source
   decision:
-    $ref: '../../v3/schemas/CertificationDecision.yaml'
+    $ref: './CertificationDecision.yaml'
   proposedEndDate:
     type: string
     format: date-time
@@ -29,4 +29,4 @@ properties:
   targetSummary:
     $ref: './TargetSummary.yaml'
   actor:
-    $ref: '../../v3/schemas/IdentityReferenceWithNameAndEmail.yaml'
+    $ref: './IdentityReferenceWithNameAndEmail.yaml'

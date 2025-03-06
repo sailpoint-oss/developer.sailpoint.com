@@ -19,5 +19,5 @@ properties:
         description: Manager's display name. 
         example: Michael Michaels
   reports:
-    $ref: '../schemas/TeamSummaryReportsDto.yaml'
+    $ref: './TeamSummaryReportsDto.yaml'
     description: Data related to the Identities that are managed by the provided identity.

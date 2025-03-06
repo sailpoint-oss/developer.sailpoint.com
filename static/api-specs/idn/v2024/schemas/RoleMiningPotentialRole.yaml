@@ -54,9 +54,10 @@ properties:
     description: Name of the potential role.
     example: "Saved Potential Role - 07/10"
   provisionState:
-    $ref: './RoleMiningPotentialRoleProvisionState.yaml'
-    description: The provisioning state of a potential role.
-    nullable: true
+    allOf:
+      - $ref: './RoleMiningPotentialRoleProvisionState.yaml'
+      - description: The provisioning state of a potential role.
+        nullable: true
   quality:
     type: integer
     description: The quality of a potential role.

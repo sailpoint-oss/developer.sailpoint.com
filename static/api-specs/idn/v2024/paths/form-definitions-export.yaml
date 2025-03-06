@@ -106,7 +106,7 @@ get:
                   x-go-name: Self
                 version:
                   type: integer
-                  format: int8
+                  format: int32
                   x-go-name: Version
     '400':
       description: An error with the request occurred

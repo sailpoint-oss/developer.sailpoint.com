@@ -11,6 +11,7 @@ properties:
   description:
     type: string
     description: Description of the access item.
+    nullable: true
     example: Access to research information, lab results, and schematics
   accessType:
     type: string

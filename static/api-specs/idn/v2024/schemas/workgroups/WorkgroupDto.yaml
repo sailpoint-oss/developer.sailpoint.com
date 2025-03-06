@@ -2,7 +2,7 @@ type: object
 properties:
   owner:
     allOf:
-      - $ref: '../../../v3/schemas/OwnerDto.yaml'
+      - $ref: '../OwnerDto.yaml'
       - type: object
         properties:
           displayName:

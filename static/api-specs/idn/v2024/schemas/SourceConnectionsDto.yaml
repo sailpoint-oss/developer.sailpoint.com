@@ -4,7 +4,7 @@ properties:
     type: array
     description: The IdentityProfile attached to this source
     items:
-      $ref: '../schemas/IdentityProfilesConnections.yaml'
+      $ref: './IdentityProfilesConnections.yaml'
   credentialProfiles:
     type: array
     description: Name of the CredentialProfile attached to this source
@@ -36,12 +36,12 @@ properties:
   dependentCustomTransforms:
     type: array
     items:
-      $ref: '../schemas/Transform.yaml'
+      $ref: './Transform.yaml'
   dependentApps:
     type: array
     items:
-      $ref: '../schemas/DependantAppConnections.yaml'
+      $ref: './DependantAppConnections.yaml'
   missingDependents:
     type: array
     items:
-      $ref: '../schemas/DependantConnectionsMissingDto.yaml'
+      $ref: './DependantConnectionsMissingDto.yaml'

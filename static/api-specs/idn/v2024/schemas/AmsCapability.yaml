@@ -33,7 +33,7 @@ properties:
     description: A list of right sets belonging to this capability.
     type: array
     items:
-      $ref: '../schemas/AmsRightSet.yaml'
+      $ref: './AmsRightSet.yaml'
 required:
   - id
   - name

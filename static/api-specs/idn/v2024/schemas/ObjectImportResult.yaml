@@ -6,22 +6,22 @@ properties:
     description: Informational messages returned from the target service on import.
     type: array
     items:
-      $ref: '../schemas/SpConfigMessage.yaml'
+      $ref: './SpConfigMessage.yaml'
   warnings:
     description: Warning messages returned from the target service on import.
     type: array
     items:
-      $ref: '../schemas/SpConfigMessage.yaml'
+      $ref: './SpConfigMessage.yaml'
   errors:
     description: Error messages returned from the target service on import.
     type: array
     items:
-      $ref: '../schemas/SpConfigMessage.yaml'
+      $ref: './SpConfigMessage.yaml'
   importedObjects:
     description: References to objects that were created or updated by the import.
     type: array
     items:
-      $ref: '../schemas/ImportObject.yaml'
+      $ref: './ImportObject.yaml'
 required:
   - infos
   - warnings

@@ -22,12 +22,7 @@ properties:
           example: 55
           description: value
         valueType:
-          type: string
-          enum:
-            - INTEGER
-            - FLOAT
-          description: The data type of the value field
-          example: INTEGER
+          $ref: './OutlierValueType'
   featureDefinition:
     type: string
     description: Definition of the feature
@@ -38,10 +33,12 @@ properties:
     example: 'An identity that has too much rare access has a higher change of becoming a security threat due to the unique access they possess'
   peerDisplayName:
     type: string
+    nullable: true
     description: outlier's peer identity display name
     example: 'Mary Jane'
   peerIdentityId:
     type: string
+    nullable: true
     description: outlier's peer identity id
     example: '9f9d5d53ad0e48fba7352f6da9f1b8gbg'
   accessItemReference:

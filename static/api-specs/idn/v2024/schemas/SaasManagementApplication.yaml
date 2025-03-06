@@ -44,7 +44,7 @@ properties:
       UNKNOWN - The integration state is not recognized.
   identityNowSource:
     allOf:
-      - $ref: '../../v3/schemas/SourceDto.yaml'
+      - $ref: './SourceDto.yaml'
     nullable: true
     description: Reference to mapped IdentityNow Source, if mapping exists.
     example:

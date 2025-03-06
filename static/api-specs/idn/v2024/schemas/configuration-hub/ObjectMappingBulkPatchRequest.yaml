@@ -10,7 +10,7 @@ properties:
     additionalProperties:
       type: array
       items:
-        $ref: '../../schemas/JsonPatchOperation.yaml'
+        $ref: '../JsonPatchOperation.yaml'
     example:
       {
         "603b1a61-d03d-4ed1-864f-a508fbd1995d": [

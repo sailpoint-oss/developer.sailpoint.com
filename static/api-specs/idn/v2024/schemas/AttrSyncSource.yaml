@@ -13,5 +13,6 @@ properties:
     example: 2c9180835d191a86015d28455b4b232a
   name:
     type: string
+    nullable: true
     description: Human-readable name of target source for attribute synchronization. 
     example: HR Active Directory

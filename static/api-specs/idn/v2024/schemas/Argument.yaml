@@ -7,6 +7,7 @@ properties:
     example: firstName
   description:
     type: string
+    nullable: true
     description: the description of the argument
     example: the first name of the identity
   type:

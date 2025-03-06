@@ -15,9 +15,9 @@ required:
 - entitiesTotal
 properties:
   campaignRef:
-    $ref: '../../v3/schemas/CampaignReference.yaml'
+    $ref: './CampaignReference.yaml'
   phase:
-    $ref: '../../v3/schemas/CertificationPhase.yaml'
+    $ref: './CertificationPhase.yaml'
   due:
     type: string
     format: 'date-time'

@@ -25,7 +25,7 @@ properties:
   memberSelection:
     $ref: './Selection.yaml'
   memberFilter:
-    $ref: '../../schemas/VisibilityCriteria.yaml'
+    $ref: '../VisibilityCriteria.yaml'
   membership:
     $ref: './MembershipType.yaml'
   enabled:

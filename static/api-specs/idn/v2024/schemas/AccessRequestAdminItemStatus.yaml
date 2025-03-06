@@ -2,8 +2,9 @@ type: object
 properties:
   id:
     type: string
-    description: ID of the access request
+    description: ID of the access request. This is a new property as of 2025. Older access requests may not have an ID.
     example: 2c9180926cbfbddd016cbfc7c3b10010
+    nullable: true
   name:
     type: string
     description: Human-readable display name of the item being requested.

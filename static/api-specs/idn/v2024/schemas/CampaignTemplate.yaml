@@ -59,6 +59,7 @@ properties:
         example: mr.manager@example.com
   deadlineDuration:
     type: string
+    nullable: true
     description: >-
       The time period during which the campaign should be completed, formatted as an ISO-8601 Duration. When this template
       generates a campaign, the campaign's deadline will be the current date plus this duration. For example, if generation

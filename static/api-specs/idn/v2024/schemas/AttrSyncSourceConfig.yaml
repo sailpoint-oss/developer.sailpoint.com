@@ -6,7 +6,7 @@ required:
   - attributes
 properties:
   source:
-    $ref: '../../v3/schemas/AttrSyncSource.yaml'
+    $ref: './AttrSyncSource.yaml'
   attributes:
     type: array
     description: Attribute synchronization configuration for specific identity attributes in the context of a source

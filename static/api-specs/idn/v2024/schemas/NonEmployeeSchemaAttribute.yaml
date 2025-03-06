@@ -36,6 +36,7 @@ properties:
     example: "The unique identifier for the account"
   placeholder:
     type: string
+    nullable: true
     description: Hint text that fills UI box.
     example: "Enter a unique user name for this account."
   required:

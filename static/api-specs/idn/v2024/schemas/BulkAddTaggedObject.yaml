@@ -3,7 +3,7 @@ properties:
   objectRefs:
     type: array
     items:
-      $ref: '../schemas/TaggedObjectDto.yaml'
+      $ref: './TaggedObjectDto.yaml'
   tags:
     type: array
     items:

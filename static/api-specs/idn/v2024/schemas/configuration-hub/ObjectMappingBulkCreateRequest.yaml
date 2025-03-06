@@ -6,4 +6,4 @@ properties:
   newObjectsMappings:
     type: array
     items:
-      $ref: '../../schemas/configuration-hub/ObjectMappingRequest.yaml'
+      $ref: '../configuration-hub/ObjectMappingRequest.yaml'

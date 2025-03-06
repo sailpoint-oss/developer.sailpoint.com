@@ -15,7 +15,7 @@ properties:
   jsonPatch:
     type: array
     items:
-      $ref: '../../schemas/JsonPatchOperation.yaml'
+      $ref: '../JsonPatchOperation.yaml'
     description: The JSONPatch payload used to update the source app.
     example:
       [

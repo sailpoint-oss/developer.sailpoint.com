@@ -1,8 +1,9 @@
 type: object
 properties:
   type:
-    $ref: './ConnectedObjectType.yaml'
-    description: Connection Object type
+    allOf:
+      - $ref: './ConnectedObjectType.yaml'
+      - description: Connection Object type
   id:
     type: string
     description: ID of the object to which this reference applies
@@ -13,5 +14,6 @@ properties:
     example: Employee-database-read-write
   description:
     type: string
+    nullable: true
     description: Description of the Connected object.
     example: Collection of entitlements to read/write the employee database.

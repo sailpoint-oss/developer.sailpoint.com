@@ -4,4 +4,4 @@ properties:
   patchedObjects:
     type: array
     items:
-      $ref: '../../schemas/configuration-hub/ObjectMappingResponse.yaml'
+      $ref: '../configuration-hub/ObjectMappingResponse.yaml'

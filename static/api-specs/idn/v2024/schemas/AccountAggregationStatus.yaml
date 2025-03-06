@@ -3,6 +3,7 @@ properties:
   start:
     type: string
     format: date-time
+    nullable: true
     example: '2021-01-31T14:30:05.104Z'
     description: When the aggregation started.
   status:
@@ -14,6 +15,7 @@ properties:
       - CANCELLED
       - RETRIED
       - TERMINATED
+      - NOT_FOUND
     example: ACCOUNTS_COLLECTED
     description: |
       STARTED - Aggregation started, but source account iteration has not completed.

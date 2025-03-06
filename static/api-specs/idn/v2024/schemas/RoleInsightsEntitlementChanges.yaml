@@ -3,21 +3,28 @@ properties:
   name:
     type: string
     description: Name of the entitlement
+    example: Administrator
   id:
     type: string
     description: Id of the entitlement
+    example: 8c190e67-87aa-4ed9-a90b-d9d5344523fb
   description:
     type: string
+    nullable: true
     description: Description for the entitlement
+    example: Full administrative access to IdentityNow
   attribute:
     type: string
     description: Attribute for the entitlement
+    example: assignedGroups
   value:
     type: string
     description: Attribute value for the entitlement
+    example: ORG_ADMIN
   source:
     type: string
     description: Source or the application for the entitlement
+    example: IdentityNow
   insight:
     $ref: './RoleInsightsInsight.yaml'
     description: The kind of insight this is and some stats

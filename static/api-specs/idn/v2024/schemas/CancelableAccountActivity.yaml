@@ -22,15 +22,15 @@ properties:
     format: 'date-time'
     example: '2018-10-19T13:49:37.385Z'
   completionStatus:
-    $ref: '../../v3/schemas/CompletionStatus.yaml'
+    $ref: './CompletionStatus.yaml'
   type:
     type: string
     nullable: true
     example: appRequest
   requesterIdentitySummary:
-    $ref: '../../v3/schemas/IdentitySummary.yaml'
+    $ref: './IdentitySummary.yaml'
   targetIdentitySummary:
-    $ref: '../../v3/schemas/IdentitySummary.yaml'
+    $ref: './IdentitySummary.yaml'
   errors:
     type: array
     nullable: true
@@ -47,9 +47,9 @@ properties:
     type: array
     nullable: true
     items:
-      $ref: '../../v3/schemas/AccountActivityItem.yaml'
+      $ref: './AccountActivityItem.yaml'
   executionStatus:
-    $ref: '../../v3/schemas/ExecutionStatus.yaml'
+    $ref: './ExecutionStatus.yaml'
   clientMetadata:
     type: object
     nullable: true
@@ -61,7 +61,7 @@ properties:
     type: boolean
     description: Whether the account activity can be canceled before completion
   cancelComment:
-    $ref: '../../v3/schemas/Comment.yaml'
+    $ref: './Comment.yaml'
 
   
 

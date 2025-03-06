@@ -5,7 +5,7 @@ properties:
       Map of id of the auth user to a JsonPatchOperation describing what to patch on that auth user.
     type: object
     additionalProperties:
-      $ref: '../schemas/JsonPatchOperation.yaml'
+      $ref: './JsonPatchOperation.yaml'
     example: {
       "2c91808d7b98f877017ba8263dc07d54": [
         {

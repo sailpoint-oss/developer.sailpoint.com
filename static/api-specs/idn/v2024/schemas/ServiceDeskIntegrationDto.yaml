@@ -40,10 +40,10 @@ allOf:
         example: ServiceNowSDIM
       ownerRef:
         allOf:
-          - $ref: '../schemas/OwnerDto.yaml'
+          - $ref: './OwnerDto.yaml'
       clusterRef:
         allOf:
-          - $ref: '../schemas/SourceClusterDto.yaml'
+          - $ref: './SourceClusterDto.yaml'
       cluster:
         description: Cluster ID for the Service Desk integration (replaced by clusterRef, retained for backward compatibility).
         type: string
@@ -72,4 +72,4 @@ allOf:
         }
       beforeProvisioningRule:
         allOf:
-          - $ref: '../schemas/BeforeProvisioningRuleDto.yaml'
+          - $ref: './BeforeProvisioningRuleDto.yaml'

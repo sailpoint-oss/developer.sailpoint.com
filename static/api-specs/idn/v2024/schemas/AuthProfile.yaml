@@ -16,10 +16,12 @@ properties:
     example: true
   applicationId:
     type: string
+    nullable: true
     description: Application ID.
     example: 2c91808458ae7a4f0158b1bbf8af0628
   applicationName:
     type: string
+    nullable: true
     description: Application name.
     example: EndToEnd-Source
   type:

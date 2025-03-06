@@ -10,6 +10,7 @@ properties:
     readOnly: true
     description: Id of the campaign
     example: 2c9079b270a266a60170a2779fcb0007
+    nullable: true
   name:
     description: |
       The campaign name. If this object is part of a template, special formatting applies; see the
@@ -25,6 +26,7 @@ properties:
     example: Everyone needs to be reviewed by their manager
   deadline:
     type: string
+    nullable: true
     format: date-time
     description: The campaign's completion deadline.  This date must be in the future in order to activate the campaign.  If you try to activate a campaign with a deadline of today or in the past, you will receive a 400 error response.
     example: '2020-03-15T10:00:01.456Z'
@@ -59,6 +61,7 @@ properties:
   status:
     type: string
     description: The campaign's current status.
+    nullable: true
     readOnly: true
     enum:
       - PENDING
@@ -70,6 +73,7 @@ properties:
       - COMPLETED
       - ERROR
       - ARCHIVED
+      - null
     example: ACTIVE
   correlatedStatus:
     type: string
@@ -82,24 +86,28 @@ properties:
     example: CORRELATED
   created:
     type: string
+    nullable: true
     readOnly: true
     format: date-time
     description: Created time of the campaign
     example: '2020-03-03T22:15:13.611Z'
   totalCertifications:
     type: integer
+    nullable: true
     format: int32
     description: The total number of certifications in this campaign.
     readOnly: true
     example: 100
   completedCertifications:
     type: integer
+    nullable: true
     format: int32
     description: The number of completed certifications in this campaign.
     readOnly: true
     example: 10
   alerts:
     type: array
+    nullable: true
     description: A list of errors and warnings that have accumulated.
     readOnly: true
     items:

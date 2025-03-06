@@ -19,7 +19,7 @@ post:
                 x-go-name: Self
               version:
                 type: integer
-                format: int8
+                format: int32
                 x-go-name: Version
         example:
         - version: 1
@@ -112,7 +112,7 @@ post:
                       x-go-name: Self
                     version:
                       type: integer
-                      format: int8
+                      format: int32
                       x-go-name: Version
                 x-go-name: ImportedObjects
               infos:

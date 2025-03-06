@@ -73,7 +73,7 @@ properties:
         nullable: true
         description: The password policies for the source
         items:
-          $ref: '../../schemas/BaseReferenceDto.yaml'
+          $ref: '../BaseReferenceDto.yaml'
         example:
           [
             {
@@ -86,7 +86,7 @@ properties:
     type: object
     nullable: true
     allOf:
-      - $ref: '../../schemas/BaseReferenceDto.yaml'
+      - $ref: '../BaseReferenceDto.yaml'
     description: The owner of source app
     example:
       id: 85d173e7d57e496569df763231d6deb6a

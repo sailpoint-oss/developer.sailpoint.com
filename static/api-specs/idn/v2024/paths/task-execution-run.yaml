@@ -21,8 +21,8 @@ post:
           schema:
             $ref: '../schemas/TaskStatus.yaml'
     "400":
-      $ref: '../../v3/responses/400.yaml'
+      $ref: '../responses/400.yaml'
     "403":
-      $ref: '../../v3/responses/403.yaml'
+      $ref: '../responses/403.yaml'
   security:
     - userAuth: [idn:task-management:write]

@@ -12,10 +12,12 @@ properties:
     nullable: true
   title:
     type: string
+    nullable: true
     description: The form title
     example: Account Selection for John.Doe
   subtitle:
     type: string
+    nullable: true
     description: The form subtitle.
     example: Please select from the following
   targetUser:

@@ -8,9 +8,9 @@ get:
   description: Get a list of TaskDefinitionSummary.
   operationId: getTaskDefinitionSummaryList
   parameters:
-    - $ref: '../../v3/parameters/offset.yaml'
-    - $ref: '../../v3/parameters/limit.yaml'
-    - $ref: '../../v3/parameters/count.yaml'
+    - $ref: '../parameters/offset.yaml'
+    - $ref: '../parameters/limit.yaml'
+    - $ref: '../parameters/count.yaml'
   responses:
     "200":
       description: Response is a list of TaskDefinitionSumary results matching the criteria.
@@ -21,10 +21,10 @@ get:
             items:
               $ref: '../schemas/TaskDefinitionSummary.yaml'
     "204":
-      $ref: '../../v3/responses/204.yaml'
+      $ref: '../responses/204.yaml'
     "400":
-      $ref: '../../v3/responses/400.yaml'
+      $ref: '../responses/400.yaml'
     "403":
-      $ref: '../../v3/responses/403.yaml'
+      $ref: '../responses/403.yaml'
   security:
     - userAuth: [idn:task-definition:read]

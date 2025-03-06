@@ -18,19 +18,6 @@ function generateRandomString(length: number) {
   return result;
 }
 
-async function getTenantInfo(apiUrl: string) {
-  try {
-
-    const authInfo = await fetch(apiUrl + `/oauth/info`)
-    if (!authInfo.ok) {
-      throw new HTTPException(400, { "message": "Error retrieving tenant info" })
-    }
-    console.log(authInfo)
-  } catch (err) {
-    throw new HTTPException(400, { "message": "apiBaseURL or tenant provided is invalid" })
-  }
-}
-
 //DynamoDB Endpoint
 const ENDPOINT_OVERRIDE = process.env.ENDPOINT_OVERRIDE;
 let ddbClient = undefined;
@@ -76,7 +63,7 @@ app.post('/uuid', async (c) => {
   }
 
   console.log(apiURL)
-  if(!apiURL.origin){
+  if (!apiURL.origin) {
     throw new HTTPException(400, { "message": "apiBaseURL or tenant provided is invalid" })
   }
 
@@ -84,8 +71,15 @@ app.post('/uuid', async (c) => {
 
   console.log("BaseAPIURL:", baseURL)
 
-  const tenantInfo = await getTenantInfo(baseURL)
-  console.log(tenantInfo)
+  try {
+    const authInfo = await fetch(baseURL + `/oauth/info`)
+    if (!authInfo.ok) {
+      throw new Error("Error retrieving tenant info")
+    }
+    console.log(authInfo)
+  } catch (err) {
+    throw new HTTPException(400, { "message": "error retrieving tenant information" })
+  }
 
   const objectToPut = { id: crypto.randomUUID(), apiBaseURL: body.apiBaseURL }
   const objectToRespond = { encryptionKey: generateRandomString(20), ...objectToPut }

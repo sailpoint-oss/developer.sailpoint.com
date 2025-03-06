@@ -1,9 +1,0 @@
-
-> sailpoint-developer-portal@0.0.0 start
-> docusaurus start --port=4200
-
-
- ------------------------------------------------------------------------------                                                                                                          Update available 3.0.1 ΓåÆ 3.4.0                                                                                                                 To upgrade Docusaurus packages with the latest version, run the                                       following command:                                               `npm i @docusaurus/plugin-client-redirects@latest                                    @docusaurus/plugin-content-docs@latest                                       @docusaurus/plugin-google-tag-manager@latest                              @docusaurus/theme-mermaid@latest @docusaurus/core@latest                     @docusaurus/types@latest @docusaurus/module-type-aliases@latest                               @docusaurus/preset-classic@latest`                                                                                                         ------------------------------------------------------------------------------ 
-
-[INFO] Starting the development server...
-[ERROR] Something is already running on port 4200.

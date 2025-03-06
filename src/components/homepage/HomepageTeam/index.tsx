@@ -7,7 +7,7 @@ import TeamCard from '../TeamCard';
 interface TeamMember {
   link: string;
   name: string;
-  title: string;
+  title: string[];
   expertise: string;
   image: string;
 }
@@ -16,49 +16,49 @@ const teamMembers: TeamMember[] = [
   {
     link: 'https://developer.sailpoint.com/discuss/u/colin_mckibben/summary',
     name: 'Colin McKibben',
-    title: 'Lead Developer Advocate'.toUpperCase(),
+    title: ['Manager', 'Developer Relations'],
     expertise: 'Identity Security Cloud'.toUpperCase(),
     image: '/homepage/colin-mckibben.png',
   },
   {
     link: 'https://developer.sailpoint.com/discuss/u/tyler_mairose/summary',
     name: 'Tyler Mairose',
-    title: 'Developer Advocate'.toUpperCase(),
+    title: ['Developer Advocate'],
     expertise: 'Identity Security Cloud'.toUpperCase(),
     image: '/homepage/tyler-mairose.png',
   },
   {
     link: 'https://developer.sailpoint.com/discuss/u/christina_gagnon/summary',
     name: 'Christina Gagnon',
-    title: 'Developer Advocate'.toUpperCase(),
+    title: ['Developer Advocate'],
     expertise: 'Identity Security Cloud'.toUpperCase(),
     image: '/homepage/christina-gagnon.png',
   },
   {
     link: 'https://developer.sailpoint.com/discuss/u/jthaytko/summary',
     name: 'James Haytko',
-    title: 'Technical Writer'.toUpperCase(),
+    title: ['Technical Writer'],
     expertise: 'DEVELOPER DOCUMENTATION',
     image: '/homepage/james-haytko.png',
   },
   {
     link: 'https://developer.sailpoint.com/discuss/u/philip-ellis/summary',
     name: 'Philip Ellis',
-    title: 'Lead Software Engineer'.toUpperCase(),
+    title: ['Principal Software Engineer'],
     expertise: 'DEVELOPER TOOLS',
     image: '/homepage/phil-ellis.png',
   },
   {
     link: 'https://developer.sailpoint.com/discuss/u/Darrell/summary',
     name: 'Darrell Thobe',
-    title: 'Software Engineer'.toUpperCase(),
+    title: ['Software Engineer'],
     expertise: 'DEVELOPER TOOLS',
     image: '/homepage/darrell-thobe.png',
   },
   {
     link: 'https://developer.sailpoint.com/discuss/u/lukehagar/summary',
     name: 'Luke Hagar',
-    title: 'Software Engineer'.toUpperCase(),
+    title: ['Software Engineer'],
     expertise: 'DEVELOPER TOOLS',
     image: '/homepage/lukehagar.png',
   },

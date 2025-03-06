@@ -6,7 +6,7 @@ import ThemedImage from '@theme/ThemedImage';
 
 interface TeamCardProps {
   link: string;
-  title: string;
+  title: string[]; // Updated: title is now an array
   name: string;
   expertise: string;
   image: string;
@@ -27,7 +27,14 @@ const TeamCard: React.FC<TeamCardProps> = ({ link, title, name, expertise, image
           }}
         />
         <div className={styles.cardText}>{name}</div>
-        <div className={styles.titleText}>{title}</div>
+        <div className={styles.titleText}>
+          {title.map((line, index) => (
+            <React.Fragment key={index}>
+              {line}
+              <br />
+            </React.Fragment>
+          ))}
+        </div>
         <div className={styles.expertiseText}>{expertise}</div>
       </div>
     </Link>

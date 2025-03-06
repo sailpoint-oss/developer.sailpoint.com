@@ -376,6 +376,13 @@ function ParamsItem({ param, ...rest }: Props) {
     return str.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
   }
 
+  function camelToTitleCase(str: string) {
+    return str
+        .replace(/([A-Z])/g, ' $1') // Insert space before capital letters
+        .replace(/^./, match => match.toUpperCase()) // Capitalize the first letter
+        .trim();
+}
+
   async function checkFirstAvailableUrl(urls: string[]): Promise<string | null> {
     for (const url of urls) {
       try {
@@ -417,9 +424,9 @@ function ParamsItem({ param, ...rest }: Props) {
     if (resourceLink) {
       return (
         <>
-          <strong>Source API: </strong>
+         <text>Found in </text>
           <a href={resourceLink} id="operationIdLink" target="_blank" rel="noopener noreferrer"  style={{ color: 'var(--ifm-color-primary)' }}>
-            {operationId}
+           {camelToTitleCase(operationId)}
           </a>
         </>
       );
@@ -447,10 +454,10 @@ function ParamsItem({ param, ...rest }: Props) {
       {renderQualifier}
       {renderDescription}
       {renderEnumDescriptions}
+      {renderSailPointResource()}
       {renderDefaultValue()}
       {renderExample}
       {renderExamples}
-      {renderSailPointResource()}
     </div>
   );
 }

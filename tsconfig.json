@@ -3,7 +3,10 @@
   "extends": "@docusaurus/tsconfig",
   "compilerOptions": {
     "baseUrl": ".",
-    "jsx": "react"
+    "jsx": "react",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "strict": true
   },
   "exclude": [".docusaurus", "build"]
 }

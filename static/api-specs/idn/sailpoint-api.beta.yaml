@@ -1178,6 +1178,10 @@ components:
     SourceUsageStatus:
       $ref: './beta/schemas/SourceUsageStatus.yaml'
 
+x-webhooks:
+  AccessRequestDecision:
+    $ref: './beta/webhooks/access-request-decision.yaml'
+
 paths:
   /access-model-metadata/attributes:
     $ref: './beta/paths/access-model-metadata-list.yaml'

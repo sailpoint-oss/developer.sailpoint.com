@@ -409,6 +409,11 @@
   background-color: var(--openapi-code-orange);
 }
 
+.event > .menu__link::before {
+  content: 'event';
+  background-color: #8000A8;
+}
+
 .header-github-link:hover {
   opacity: 0.6;
 }

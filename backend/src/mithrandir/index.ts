@@ -9,23 +9,13 @@ import { HTTPException } from 'hono/http-exception'
 
 const app = new Hono()
 
-async function GetByUUID(uuid: string) {
-  try {
-    const data = await ddbDocClient.send(new GetCommand({ TableName: tableName, Key: { id: uuid } }));
-    console.log(data)
-    return data.Item
-  } catch (err) {
-    //@ts-expect-error Unknown error shape
-    console.error("Error retrieving item:", err.message);
-    //@ts-expect-error Unknown error shape
-    console.error("Error code:", err.code);
-    //@ts-expect-error Unknown error shape
-    console.error("Error name:", err.name);
-    //@ts-expect-error Unknown error shape
-    console.error("Error stack:", err.stack);
-
-    throw new HTTPException(400, { "message": "uuid not authenticated" })
+function generateRandomString(length: number) {
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  let result = '';
+  for (let i = 0; i < length; i++) {
+    result += characters.charAt(Math.floor(Math.random() * characters.length));
   }
+  return result;
 }
 
 //DynamoDB Endpoint
@@ -58,7 +48,7 @@ app.post('/uuid', async (c) => {
   }
 
   const objectToPut = { id: crypto.randomUUID(), apiBaseURL: body.apiBaseURL }
-  const objectToRespond = { key: crypto.randomBytes(10), ...objectToPut}
+  const objectToRespond = { key: generateRandomString(10), ...objectToPut}
 
   console.log("Creating UUID", objectToPut)
   console.log("Responding with", objectToRespond)

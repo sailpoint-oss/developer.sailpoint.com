@@ -418,7 +418,7 @@ function ParamsItem({ param, ...rest }: Props) {
       return (
         <>
           <strong>Source API: </strong>
-          <a href={resourceLink} target="_blank" rel="noopener noreferrer">
+          <a href={resourceLink} id="operationIdLink" target="_blank" rel="noopener noreferrer"  style={{ color: 'var(--ifm-color-primary)' }}>
             {operationId}
           </a>
         </>

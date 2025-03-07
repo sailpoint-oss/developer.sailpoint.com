@@ -64,4 +64,4 @@ properties:
       checkbox_attribute_uid: yes, no
       text_area_uid: static text
       radio_attribute_uid: yes, no
-      
+      non_employee_profile_id: The Non-Employee Profile ID

@@ -1,0 +1,9 @@
+name: Offset
+in: query
+description: The number of items to skip before starting to collect the result set.
+required: false
+schema:
+  type: integer
+  format: int32
+  minimum: 1
+  example: 5

@@ -1,4 +1,4 @@
-name: Limit
+name: limit
 in: query
 description: The maximum number of items to return.
 required: false

@@ -48,6 +48,7 @@ properties:
       type: string
     description: Attributes that belong to this profile.
     example:
+      "Non-Employee Profile ID": The Non-Employee Profile ID (will be returned for assignments, to be used during correlation configuration)
       text_attribute_uid: static text
       date_attribute_uid: 01/15/2020
       profile_select_attribute_uid: Profile Name
@@ -64,4 +65,3 @@ properties:
       checkbox_attribute_uid: yes, no
       text_area_uid: static text
       radio_attribute_uid: yes, no
-      non_employee_profile_id: The Non-Employee Profile ID

@@ -1,0 +1,66 @@
+get:
+  operationId: getTenantUiMetadata
+  tags:
+    - UI Metadata
+  summary: Get a tenant UI metadata
+  description: >-
+    This API endpoint retrieves UI metadata configured for your tenant.
+    
+    A token with ORG_ADMIN authority is required to call this API.
+  security:
+    - userAuth: [idn:ui-access-metadata-page:read]
+  responses:
+    '200':
+      description: A tenant UI metadata object
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/ui-metadata/TenantUiMetadataItemResponse.yaml"
+    '400':
+      $ref: '../../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../../v3/responses/500.yaml'
+put:
+  operationId: setTenantUiMetadata
+  tags:
+    - UI Metadata
+  summary: Update tenant UI metadata
+  description: >-
+    This API endpoint updates UI metadata for your tenant. These changes may require up to 5 minutes to take effect on the UI.
+
+    A token with ORG_ADMIN authority is required to call this API.
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas/ui-metadata/TenantUiMetadataItemUpdateRequest.yaml"
+  security:
+    - userAuth: [idn:ui-access-metadata-page:manage]
+  responses:
+    '200':
+      description: A tenant UI metadata object
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/ui-metadata/TenantUiMetadataItemResponse.yaml"
+    '400':
+      $ref: '../../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../../v3/responses/500.yaml'

@@ -1,0 +1,12 @@
+get:
+  summary: Run a saved advanced search query
+  operationId: runAdvancedSearchbyID
+  description: Run a saved advanced search query
+  tags:
+    - advanced search
+  parameters:
+    - $ref: "../parameters/path/id.yaml"
+    - $ref: "../parameters/query/query.yaml"
+  responses:
+    '200':
+      $ref: "../responses/Profiles.yaml"

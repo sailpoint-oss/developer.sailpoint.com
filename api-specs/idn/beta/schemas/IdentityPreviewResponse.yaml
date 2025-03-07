@@ -1,0 +1,24 @@
+type: object
+properties:
+  identity:
+    type: object
+    description: Identity's manager.
+    properties:
+      type:
+        type: string 
+        description: DTO type of identity's manager. 
+        enum: 
+          - IDENTITY
+        example: IDENTITY
+      id:
+        type: string
+        description: ID of identity's manager. 
+        example: 2c4180a46faadee4016fb4e018c20626
+      name:
+        type: string
+        description: Human-readable display name of identity's manager.
+        example: Robert Robinson
+  previewAttributes:
+    type: array
+    items:
+      $ref: './IdentityAttributePreview.yaml'

@@ -1,0 +1,14 @@
+description: Request used for account enable/disable
+type: object
+properties:
+  externalVerificationId:
+    description: If set, an external process validates that the user wants to proceed with this request.
+    type: string
+    example: 3f9180835d2e5168015d32f890ca1581
+  forceProvisioning:
+    description:  >-
+      If set, provisioning updates the account attribute at the source.  
+      This option is used when the account is not synced to ensure the attribute is updated.
+      Providing 'true' for an unlocked account will add and process 'Unlock' operation by the workflow.
+    type: boolean
+    example: false

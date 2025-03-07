@@ -1,0 +1,25 @@
+description: This represents sources to be created of same type.
+required:
+  - name
+type: object
+properties:
+  name:
+    type: string
+    description: Source's human-readable name.
+    example: My Source
+  description:
+    type: string
+    description: Source's human-readable description.
+    example: This is the corporate directory.
+  connectorAttributes:
+    type: object
+    additionalProperties: true
+    description: >-
+      Connector specific configuration. This configuration will differ from type to type.
+    example:
+      authType: SQLAuthentication
+      url: jdbc:sqlserver://178.18.41.118:1433
+      user: username
+      driverClass: com.microsoft.sqlserver.jdbc.SQLServerDriver
+      maxSourcesPerAggGroup: 10
+      maxAllowedSources: 300

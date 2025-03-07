@@ -1,0 +1,14 @@
+description: Provision Managed Client Input
+type: object
+required:
+  - clusterId
+  - type
+properties:
+  clusterId:
+    description: Cluster ID that the ManagedClient is linked to
+    type: string
+    example: aClusterId
+  type:
+    description: Type of the ManagedClient (VA, CCG)
+    type: string
+    example: VA

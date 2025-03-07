@@ -1,0 +1,37 @@
+get:
+  operationId: getTeamSummary
+  tags:
+    - Identities
+  summary: Get team summary by identityId
+  description: >-
+    This returns reference to a given identity’s manager, and the count of Identities that are managed by the provided identity.
+  parameters:
+    - in: path
+      name: identityId
+      description: >-
+        The ID of the identity to build the team summary
+      required: true
+      x-sailpoint-resource-operation-id: listIdentities
+      example: 2c9180857893f1290178944561990364
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Returns reference to a given identity’s manager, and the count of Identities that are managed by the provided identity
+      content:
+        application/json:
+          schema:
+            type: object
+            $ref: '../schemas/TeamSummaryDto.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'

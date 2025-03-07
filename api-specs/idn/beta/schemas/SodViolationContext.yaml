@@ -1,0 +1,23 @@
+description: The contextual information of the violated criteria.
+type: object
+properties:
+  policy:
+    $ref: './SodPolicyDto.yaml'
+  conflictingAccessCriteria:
+    type: object
+    description: The object which contains the left and right hand side of the entitlements that got violated according to the policy.
+    properties:
+      leftCriteria:
+        type: object
+        properties:
+          criteriaList:
+            type: array
+            items:
+              $ref: "./SodExemptCriteria.yaml"
+      rightCriteria:
+        type: object
+        properties:
+          criteriaList:
+            type: array
+            items:
+              $ref: "./SodExemptCriteria.yaml"

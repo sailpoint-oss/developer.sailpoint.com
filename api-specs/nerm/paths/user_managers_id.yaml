@@ -1,0 +1,32 @@
+get:
+  summary: Find user-manager relationship by id
+  operationId: getUserManager
+  description: Info for a specific user-manager relationship
+  tags:
+    - user managers
+  parameters:
+    - $ref: "../parameters/path/id.yaml"
+  responses:
+    '200':
+      $ref: "../responses/UserManager.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"
+patch:
+  summary: Update a user-manager relationship by id
+  operationId: patchUserManager
+  description: Update a user-manager relationship by id
+  tags:
+    - user managers
+  requestBody:
+    $ref: "../requestBodies/PATCH/UserManager.yaml"
+  parameters:
+    - $ref: "../parameters/path/id.yaml"
+  responses:
+    '200':
+      $ref: "../responses/UserManager.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"

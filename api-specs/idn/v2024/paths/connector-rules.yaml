@@ -1,0 +1,87 @@
+get:
+  tags:
+  - Connector Rule Management
+  operationId: getConnectorRuleList
+  summary: List Connector Rules
+  description: List existing connector rules.
+  responses:
+    '200':
+      description: List of connector rules.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../schemas/ConnectorRuleResponse.yaml
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml
+  security:
+    - userAuth:
+      - idn:rule-management-connector:read
+      - idn:rule-management-connector:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  parameters:
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  - $ref: '../parameters/limit50.yaml'
+  - $ref: '../parameters/offset.yaml'
+  - $ref: '../parameters/count.yaml'
+post:
+  tags:
+  - Connector Rule Management
+  operationId: createConnectorRule
+  summary: Create Connector Rule
+  description: Create a connector rule from the available types.
+  requestBody:
+    required: true
+    description: Connector rule to create.
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/ConnectorRuleCreateRequest.yaml
+  responses:
+    '201':
+      description: Created connector rule.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/ConnectorRuleResponse.yaml
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml
+  security:
+    - userAuth:
+      - idn:rule-management-connector:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  parameters:
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true

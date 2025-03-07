@@ -1,0 +1,38 @@
+get:
+  summary: Get workflow sessions
+  operationId: getWorkflowSessions
+  description: Get workflow sessions
+  tags:
+    - workflow sessions
+  parameters:
+    - $ref: "../parameters/query/query.yaml"
+    - $ref: "../parameters/query/profile_id.yaml"
+    - $ref: "../parameters/query/uid.yaml"
+    - $ref: "../parameters/query/workflow_id.yaml"
+    - $ref: "../parameters/query/requester_id.yaml"
+    - $ref: "../parameters/query/workflow_session_status.yaml"
+    - $ref: "../parameters/query/metadata.yaml"
+  responses:
+    '200':
+      $ref: "../responses/WorkflowSessions_Meta.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"
+post:
+  summary: Create a workflow session
+  operationId: postWorkflowSession
+  description: Create a workflow session
+  tags:
+    - workflow sessions
+  parameters:
+    - $ref: "../parameters/query/run.yaml"
+  requestBody:
+    $ref: "../requestBodies/POST/WorkflowSession.yaml"
+  responses:
+    '200':
+      $ref: "../responses/WorkflowSession.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"

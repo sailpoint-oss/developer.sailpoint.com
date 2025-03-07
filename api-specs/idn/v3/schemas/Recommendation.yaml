@@ -1,0 +1,20 @@
+type: object
+properties:
+  type:
+    type: string
+    enum:
+      - HUMAN
+      - MACHINE
+    description: Recommended type of account.
+    example: MACHINE
+  method:
+    type: string
+    enum:
+      - DISCOVERY
+      - SOURCE
+      - CRITERIA
+    description: Method used to produce the recommendation. DISCOVERY - suggested by AI, SOURCE - the account comes from a source flagged as containing machine accounts, CRITERIA - the account satisfies classification criteria.
+    example: DISCOVERY
+required:
+  - type
+  - method

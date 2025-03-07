@@ -1,0 +1,140 @@
+get:
+  security:
+    - userAuth: [idn:application-discovery:read]
+  operationId: getVendorConnectorMappings
+  tags:
+    - Vendor Connector Mappings
+  summary: List Vendor Connector Mappings
+  description: >
+    Get a list of mappings between SaaS vendors and ISC connectors, detailing the connections established for correlation.
+  responses:
+    '200':
+      description: Successfully retrieved list.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../../beta/schemas/VendorConnectorMapping.yaml'
+            example:
+              - id: "78733556-9ea3-4f59-bf69-e5cd92b011b4"
+                vendor: "Example Vendor"
+                connector: "Example Connector"
+                createdAt: "2024-03-13T12:56:19.391294Z"
+                createdBy: "admin"
+                updatedAt:
+                  Time: "2024-03-14T12:56:19.391294Z"
+                  Valid: true
+                updatedBy:
+                  String: "user-67891"
+                  Valid: true
+                deletedAt:
+                  Time: "0001-01-01T00:00:00Z"
+                  Valid: false
+                deletedBy:
+                  String: ""
+                  Valid: false
+              - id: "78733556-9ea3-4f59-bf69-e5cd92b011b5"
+                vendor: "Another Corporation"
+                connector: "Another Connector"
+                createdAt: "2024-04-13T11:46:19.391294Z"
+                createdBy: "admin"
+                updatedAt:
+                  Time: "0001-01-01T00:00:00Z"
+                  Valid: false
+                updatedBy:
+                  String: ""
+                  Valid: false
+                deletedAt:
+                  Time: "0001-01-01T00:00:00Z"
+                  Valid: false
+                deletedBy:
+                  String: ""
+                  Valid: false
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '405':
+      $ref: '../../v3/responses/405.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+
+post:
+  security:
+    - userAuth: [idn:application-discovery:write]
+  operationId: createVendorConnectorMapping
+  tags:
+    - Vendor Connector Mappings
+  summary: Create Vendor Connector Mapping
+  description: >
+    Create a new mapping between a SaaS vendor and an ISC connector to establish correlation paths.
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../../beta/schemas/VendorConnectorMapping.yaml'
+  responses:
+    '200':
+      description: Successfully created a new vendor connector mapping.
+      content:
+        application/json:
+          schema:
+            $ref: '../../beta/schemas/VendorConnectorMapping.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '405':
+      $ref: '../../v3/responses/405.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+
+delete:
+  security:
+    - userAuth: [idn:application-discovery:write]
+  operationId: deleteVendorConnectorMapping
+  tags:
+    - Vendor Connector Mappings
+  summary: Delete Vendor Connector Mapping
+  description: >
+    Soft delete a mapping between a SaaS vendor and an ISC connector, removing the established correlation.
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../../beta/schemas/VendorConnectorMapping.yaml'
+  responses:
+    '200':
+      description: Successfully deleted the specified vendor connector mapping.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              count:
+                type: integer
+                description: The number of vendor connector mappings successfully deleted.
+                example: 1
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

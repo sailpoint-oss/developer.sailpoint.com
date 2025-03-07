@@ -1,0 +1,22 @@
+type: object
+description: >-
+  The calculation done on the results of the query
+required: ["name", "field"]
+properties:
+  name:
+    description: >-
+      The name of the metric aggregate to be included in the result.
+
+      If the metric aggregation is omitted, the resulting aggregation will be a count of the documents in the search results.
+    type: string
+    example: 'Access Name Count'
+  type:
+    $ref: 'MetricType.yaml'
+  field:
+    description: |
+      The field the calculation is performed on.
+
+      Prefix the field name with '@' to reference a nested object.
+    type: string
+    example: '@access.name'
+

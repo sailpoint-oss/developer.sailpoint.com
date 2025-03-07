@@ -1,0 +1,15 @@
+description: SourceCode
+type: object
+required:
+  - version
+  - script
+properties:
+  version:
+    type: string
+    description: the version of the code
+    example: '1.0'
+  script:
+    type: string
+    description: The code
+    example: return "Mr. " + firstName;
+

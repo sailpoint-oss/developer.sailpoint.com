@@ -11,7 +11,8 @@ properties:
     items:
       $ref: 'RequestedItemDetails.yaml'
   attributesHash:
-    type: string
+    type: integer
+    format: int32
     description: a hash representation of the access requested, useful for longer term tracking client side.
     example: -1928438224
   accessRequestIds:

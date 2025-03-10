@@ -17,14 +17,14 @@ tags: ['SDK', 'Software Development Kit', 'RoleMiningIdentityDistribution', 'V20
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AttributeName** | **String** | Id of the potential role | [optional] 
-**Distribution** | **[]System.Collections.Hashtable** |  | [optional] 
+**Distribution** | [**[]System.Collections.Hashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 |  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
 $RoleMiningIdentityDistribution = Initialize-PSSailpoint.V2024RoleMiningIdentityDistribution  -AttributeName department `
- -Distribution [{attributeValue&#x3D;NM Tier 3, count&#x3D;6}]
+ -Distribution [{attributeValue=NM Tier 3, count=6}]
 ```
 
 - Convert the resource to JSON

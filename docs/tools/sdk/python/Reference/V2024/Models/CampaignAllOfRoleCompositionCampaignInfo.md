@@ -17,7 +17,8 @@ Optional configuration options for role composition campaigns.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**reviewer** | [**CampaignAllOfSearchCampaignInfoReviewer**](campaign-all-of-search-campaign-info-reviewer) |  | [optional] 
+**reviewer_id** | **str** | The ID of the identity or governance group reviewing this campaign. Deprecated in favor of the \"reviewer\" object. | [optional] 
+**reviewer** | [**CampaignAllOfRoleCompositionCampaignInfoReviewer**](campaign-all-of-role-composition-campaign-info-reviewer) |  | [optional] 
 **role_ids** | **[]str** | Optional list of roles to include in this campaign. Only one of `roleIds` and `query` may be set; if neither are set, all roles are included. | [optional] 
 **remediator_ref** | [**CampaignAllOfRoleCompositionCampaignInfoRemediatorRef**](campaign-all-of-role-composition-campaign-info-remediator-ref) |  | [required]
 **query** | **str** | Optional search query to scope this campaign to a set of roles. Only one of `roleIds` and `query` may be set; if neither are set, all roles are included. | [optional] 
@@ -30,7 +31,8 @@ Name | Type | Description | Notes
 from sailpoint.v2024.models.campaign_all_of_role_composition_campaign_info import CampaignAllOfRoleCompositionCampaignInfo
 
 campaign_all_of_role_composition_campaign_info = CampaignAllOfRoleCompositionCampaignInfo(
-reviewer=sailpoint.v2024.models.campaign_all_of_search_campaign_info_reviewer.Campaign_allOf_searchCampaignInfo_reviewer(
+reviewer_id='2c91808568c529c60168cca6f90c1313',
+reviewer=sailpoint.v2024.models.campaign_all_of_role_composition_campaign_info_reviewer.Campaign_allOf_roleCompositionCampaignInfo_reviewer(
                     type = 'IDENTITY', 
                     id = '2c91808568c529c60168cca6f90c1313', 
                     name = 'William Wilson', ),

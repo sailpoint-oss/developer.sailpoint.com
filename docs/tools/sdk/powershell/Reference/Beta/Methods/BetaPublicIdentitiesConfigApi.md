@@ -123,10 +123,10 @@ $PublicIdentityConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToPublicIdentityConfig -Json $PublicIdentityConfig
-    Update-BetaPublicIdentityConfig -BetaPublicIdentityConfig $Result 
+    Update-BetaPublicIdentityConfig -PublicIdentityConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaPublicIdentityConfig -BetaPublicIdentityConfig $Result  
+    # Update-BetaPublicIdentityConfig -PublicIdentityConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaPublicIdentityConfig"
     Write-Host $_.ErrorDetails

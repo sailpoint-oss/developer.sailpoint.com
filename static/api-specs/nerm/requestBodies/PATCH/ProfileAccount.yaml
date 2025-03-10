@@ -1,0 +1,29 @@
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        id:
+          name: id
+          in: query
+          required: true
+          type: string
+          format: uuid
+          description: The profile account id.
+          example: 79ed1cb6-9977-4965-9bfe-f2bcc2424444
+        profile:
+          name: profile
+          in: body
+          required: true
+          description: The profile object to be updated with its schema-mapped attributes.
+          type: object
+          properties:
+            attributes:
+              required: false
+              type: object
+              description: schema-mapped attributes to be updated
+          example:
+            attributes:
+              'First Name': John
+              'Last Name': Doe
+              'Email': john.doe@sailpoint.com

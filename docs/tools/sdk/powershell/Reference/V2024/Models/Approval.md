@@ -43,17 +43,17 @@ $Approval = Initialize-PSSailpoint.V2024Approval  -ApprovalId 38453251-6be2-5f8f
  -CreatedDate 2023-04-12T23:20:50.52Z `
  -Type ENTITLEMENT_DESCRIPTIONS `
  -Name null `
- -BatchRequest {batchId&#x3D;38453251-6be2-5f8f-df93-5ce19e295837, batchSize&#x3D;100} `
+ -BatchRequest {batchId=38453251-6be2-5f8f-df93-5ce19e295837, batchSize=100} `
  -Description null `
  -Priority HIGH `
- -Requester {id&#x3D;85d173e7d57e496569df763231d6deb6a, type&#x3D;IDENTITY, name&#x3D;John Doe} `
+ -Requester {id=85d173e7d57e496569df763231d6deb6a, type=IDENTITY, name=John Doe} `
  -Comments null `
  -ApprovedBy null `
  -RejectedBy null `
  -CompletedDate 2023-04-12T23:20:50.52Z `
  -ApprovalCriteria SINGLE `
  -Status PENDING `
- -AdditionalAttributes { &quot;llm_description&quot;: &quot;generated description&quot; } `
+ -AdditionalAttributes { "llm_description": "generated description" } `
  -ReferenceData null
 ```
 

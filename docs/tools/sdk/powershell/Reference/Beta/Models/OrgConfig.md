@@ -35,8 +35,8 @@ $OrgConfig = Initialize-PSSailpoint.BetaOrgConfig  -OrgName acme-solar `
  -TimeZone America/Toronto `
  -LcsChangeHonorsSourceEnableFeature false `
  -ArmCustomerId DE38E75A-5FF6-4A65-5DC7-08D64426B09E `
- -ArmSapSystemIdMappings [{sourceId&#x3D;2c91808c791a94e501792388b0d62659, systemId&#x3D;1556}, {sourceId&#x3D;2_2c91808c791a94e501792388b0d62659, systemId&#x3D;2_1556}, {sourceId&#x3D;3_2c91808c791a94e501792388b0d62659, systemId&#x3D;3_1556}] `
- -ArmAuth epiYNTRYA2S7swisDWk1Zv4VMNgvqEjiBh5_ufuCWsma2m-5XADijqBg0ijXLby5nS6lxZNXabhGnAPGeDGc4V3jQKrhwV-UHypRLs8ZLgOjiQNus9NimS0uPdKomRW6TFWqXyfnYd-znNgbbVuwUy9GyD9ebDVJSntPastxSx7UcyGuWBqfNZYpuxKRWe_7TVY60qL55jUqyz8N4XUbbdcxdbZ0uik6ut-Bv90MKTbZexBW_PR4qcgIkaEs4kIenLyBxnGziYo7AO0tJ8bGHO8FJRkibCpAQIt7PISLo7Gg_Xf9j10dKq2YDgy4pPTvz3fE2ZHYnXCXvXFSA-vVag&#x3D;&#x3D; `
+ -ArmSapSystemIdMappings [{sourceId=2c91808c791a94e501792388b0d62659, systemId=1556}, {sourceId=2_2c91808c791a94e501792388b0d62659, systemId=2_1556}, {sourceId=3_2c91808c791a94e501792388b0d62659, systemId=3_1556}] `
+ -ArmAuth epiYNTRYA2S7swisDWk1Zv4VMNgvqEjiBh5_ufuCWsma2m-5XADijqBg0ijXLby5nS6lxZNXabhGnAPGeDGc4V3jQKrhwV-UHypRLs8ZLgOjiQNus9NimS0uPdKomRW6TFWqXyfnYd-znNgbbVuwUy9GyD9ebDVJSntPastxSx7UcyGuWBqfNZYpuxKRWe_7TVY60qL55jUqyz8N4XUbbdcxdbZ0uik6ut-Bv90MKTbZexBW_PR4qcgIkaEs4kIenLyBxnGziYo7AO0tJ8bGHO8FJRkibCpAQIt7PISLo7Gg_Xf9j10dKq2YDgy4pPTvz3fE2ZHYnXCXvXFSA-vVag== `
  -ArmDb EU `
  -ArmSsoUrl https://your-arm-sso-url `
  -IaiEnableCertificationRecommendations true `

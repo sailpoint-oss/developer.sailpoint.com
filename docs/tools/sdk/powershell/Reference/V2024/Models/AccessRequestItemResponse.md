@@ -36,7 +36,7 @@ $AccessRequestItemResponse = Initialize-PSSailpoint.V2024AccessRequestItemRespon
  -Description The role descrition `
  -SourceId 8a80828f643d484f01643e14202e206f `
  -SourceName Source1 `
- -ApprovalInfos [{name&#x3D;John Snow, id&#x3D;8a80828f643d484f01643e14202e2000, status&#x3D;Approved}]
+ -ApprovalInfos [{name=John Snow, id=8a80828f643d484f01643e14202e2000, status=Approved}]
 ```
 
 - Convert the resource to JSON

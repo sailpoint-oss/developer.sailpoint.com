@@ -19,8 +19,8 @@ Name | Type | Description | Notes
 **Id** | **String** | The password policy Id. | [optional] 
 **Description** | **String** | Description for current password policy. | [optional] 
 **Name** | **String** | The name of the password policy. | [optional] 
-**DateCreated** | **System.DateTime** | Date the Password Policy was created. | [optional] 
-**LastUpdated** | **System.DateTime** | Date the Password Policy was updated. | [optional] 
+**DateCreated** | **Int64** | Date the Password Policy was created. | [optional] 
+**LastUpdated** | **Int64** | Date the Password Policy was updated. | [optional] 
 **FirstExpirationReminder** | **Int64** | The number of days before expiration remaninder. | [optional] 
 **AccountIdMinWordLength** | **Int64** | The minimun length of account Id. By default is equals to -1. | [optional] 
 **AccountNameMinWordLength** | **Int64** | The minimun length of account name. By default is equals to -1. | [optional] 
@@ -55,8 +55,8 @@ Name | Type | Description | Notes
 $PasswordPolicyV3Dto = Initialize-PSSailpoint.V2024PasswordPolicyV3Dto  -Id 2c91808e7d976f3b017d9f5ceae440c8 `
  -Description Information about the Password Policy `
  -Name PasswordPolicy Example `
- -DateCreated null `
- -LastUpdated null `
+ -DateCreated 1639056206564 `
+ -LastUpdated 1939056206564 `
  -FirstExpirationReminder 45 `
  -AccountIdMinWordLength 4 `
  -AccountNameMinWordLength 6 `

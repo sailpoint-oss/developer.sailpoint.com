@@ -140,10 +140,10 @@ $ManagedClientStatus = @"{
 
 try {
     $Result = ConvertFrom-JsonToManagedClientStatus -Json $ManagedClientStatus
-    Update-BetaManagedClientStatus -Id $Id -BetaManagedClientStatus $Result 
+    Update-BetaManagedClientStatus -Id $Id -ManagedClientStatus $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaManagedClientStatus -Id $Id -BetaManagedClientStatus $Result  
+    # Update-BetaManagedClientStatus -Id $Id -ManagedClientStatus $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaManagedClientStatus"
     Write-Host $_.ErrorDetails

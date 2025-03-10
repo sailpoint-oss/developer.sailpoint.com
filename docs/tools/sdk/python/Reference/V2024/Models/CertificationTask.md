@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **target_type** |  **Enum** [  'CERTIFICATION',    'CAMPAIGN' ] | The type of item that is being operated on by this task whose ID is stored in the targetId field. | [optional] 
 **target_id** | **str** | The ID of the item being operated on by this task. | [optional] 
 **status** |  **Enum** [  'QUEUED',    'IN_PROGRESS',    'SUCCESS',    'ERROR' ] | The status of the task. | [optional] 
-**errors** | [**[]ErrorMessageDto**](error-message-dto) |  | [optional] 
+**errors** | [**[]ErrorMessageDto**](error-message-dto) | List of error messages | [optional] 
 **reassignment_trail_dtos** | [**[]ReassignmentTrailDTO**](reassignment-trail-dto) | Reassignment trails that lead to self certification identity | [optional] 
 **created** | **datetime** | The date and time on which this task was created. | [optional] 
 }
@@ -37,12 +37,7 @@ type='ADMIN_REASSIGN',
 target_type='CAMPAIGN',
 target_id='2c918086719eec070171a7e3355a834c',
 status='QUEUED',
-errors=[
-                    sailpoint.v2024.models.error_message_dto.ErrorMessageDto(
-                        locale = 'en-US', 
-                        locale_origin = 'DEFAULT', 
-                        text = 'The request was syntactically correct but its content is semantically invalid.', )
-                    ],
+errors={locale=en-US, localeOrigin=DEFAULT, text=Error Message},
 reassignment_trail_dtos={previousOwner=ef38f94347e94562b5bb8424a56397d8, newOwner=ef38f94347e94562b5bb8424a56397a3, reassignmentType=AUTOMATIC_REASSIGNMENT},
 created='2020-09-24T18:10:47.693Z'
 )

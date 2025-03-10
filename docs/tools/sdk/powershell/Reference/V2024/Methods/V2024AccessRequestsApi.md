@@ -82,10 +82,10 @@ $BulkApproveAccessRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToBulkApproveAccessRequest -Json $BulkApproveAccessRequest
-    Approve-V2024BulkAccessRequest -V2024BulkApproveAccessRequest $Result 
+    Approve-V2024BulkAccessRequest -BulkApproveAccessRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Approve-V2024BulkAccessRequest -V2024BulkApproveAccessRequest $Result  
+    # Approve-V2024BulkAccessRequest -BulkApproveAccessRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Approve-V2024BulkAccessRequest"
     Write-Host $_.ErrorDetails
@@ -133,10 +133,10 @@ $CancelAccessRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToCancelAccessRequest -Json $CancelAccessRequest
-    Suspend-V2024AccessRequest -V2024CancelAccessRequest $Result 
+    Suspend-V2024AccessRequest -CancelAccessRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Suspend-V2024AccessRequest -V2024CancelAccessRequest $Result  
+    # Suspend-V2024AccessRequest -CancelAccessRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Suspend-V2024AccessRequest"
     Write-Host $_.ErrorDetails
@@ -184,10 +184,10 @@ $BulkCancelAccessRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToBulkCancelAccessRequest -Json $BulkCancelAccessRequest
-    Suspend-V2024AccessRequestInBulk -V2024BulkCancelAccessRequest $Result 
+    Suspend-V2024AccessRequestInBulk -BulkCancelAccessRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Suspend-V2024AccessRequestInBulk -V2024BulkCancelAccessRequest $Result  
+    # Suspend-V2024AccessRequestInBulk -BulkCancelAccessRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Suspend-V2024AccessRequestInBulk"
     Write-Host $_.ErrorDetails
@@ -251,10 +251,10 @@ $CloseAccessRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToCloseAccessRequest -Json $CloseAccessRequest
-    Close-V2024AccessRequest -XSailPointExperimental $XSailPointExperimental -V2024CloseAccessRequest $Result 
+    Close-V2024AccessRequest -XSailPointExperimental $XSailPointExperimental -CloseAccessRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Close-V2024AccessRequest -XSailPointExperimental $XSailPointExperimental -V2024CloseAccessRequest $Result  
+    # Close-V2024AccessRequest -XSailPointExperimental $XSailPointExperimental -CloseAccessRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Close-V2024AccessRequest"
     Write-Host $_.ErrorDetails
@@ -380,10 +380,10 @@ $AccessRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccessRequest -Json $AccessRequest
-    New-V2024AccessRequest -V2024AccessRequest $Result 
+    New-V2024AccessRequest -AccessRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024AccessRequest -V2024AccessRequest $Result  
+    # New-V2024AccessRequest -AccessRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024AccessRequest"
     Write-Host $_.ErrorDetails
@@ -623,10 +623,10 @@ $AccessRequestConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccessRequestConfig -Json $AccessRequestConfig
-    Set-V2024AccessRequestConfig -V2024AccessRequestConfig $Result 
+    Set-V2024AccessRequestConfig -AccessRequestConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # Set-V2024AccessRequestConfig -V2024AccessRequestConfig $Result  
+    # Set-V2024AccessRequestConfig -AccessRequestConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-V2024AccessRequestConfig"
     Write-Host $_.ErrorDetails

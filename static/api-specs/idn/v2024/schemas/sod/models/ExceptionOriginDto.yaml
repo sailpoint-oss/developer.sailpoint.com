@@ -1,0 +1,13 @@
+type: object
+description: Origin activity of the SOD violation exception. 
+properties:
+  type:
+    type: string 
+    description: DTO type of origin activity of the SOD violation exception. 
+    enum: 
+      - ACCOUNT_ACTIVITY
+    example: ACCOUNT_ACTIVITY
+  id:
+    type: string
+    description: ID of role using the access profile. 
+    example: 2c9180867372a2590173774358eb016d

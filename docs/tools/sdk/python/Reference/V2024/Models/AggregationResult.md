@@ -28,7 +28,7 @@ from sailpoint.v2024.models.aggregation_result import AggregationResult
 aggregation_result = AggregationResult(
 aggregations={Identity Locations={buckets=[{key=Austin, doc_count=109}, {key=London, doc_count=64}, {key=San Jose, doc_count=27}, {key=Brussels, doc_count=26}, {key=Sao Paulo, doc_count=24}, {key=Munich, doc_count=23}, {key=Singapore, doc_count=22}, {key=Tokyo, doc_count=20}, {key=Taipei, doc_count=16}]}},
 hits=[
-                    sailpoint.v2024.models.search_document.SearchDocument()
+                    sailpoint.v2024.models.search_documents.SearchDocuments()
                     ]
 )
 

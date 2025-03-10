@@ -1318,12 +1318,12 @@ Path   | id | **str** | True  | The Source id
   Query | locale | **str** |   (optional) | The locale to apply to the config. If no viable locale is given, it will default to \"en\"
 
 ### Return type
-[**ConnectorDetail1**](../models/connector-detail1)
+[**ConnectorDetail**](../models/connector-detail)
 
 ### Responses
 Code | Description  | Data Type | Response headers |
 ------------- | ------------- | ------------- |------------------|
-200 | A Connector Detail object | ConnectorDetail1 |  -  |
+200 | A Connector Detail object | ConnectorDetail |  -  |
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
 404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
@@ -1340,7 +1340,7 @@ Code | Description  | Data Type | Response headers |
 import sailpoint.v2024
 from sailpoint.v2024.api.sources_api import SourcesApi
 from sailpoint.v2024.api_client import ApiClient
-from sailpoint.v2024.models.connector_detail1 import ConnectorDetail1
+from sailpoint.v2024.models.connector_detail import ConnectorDetail
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()

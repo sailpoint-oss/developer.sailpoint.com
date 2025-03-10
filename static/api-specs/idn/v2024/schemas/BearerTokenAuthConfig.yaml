@@ -1,0 +1,10 @@
+type: object
+properties:
+  bearerToken:
+    type: string
+    nullable: true
+    description: Bearer token
+    example: null
+nullable: true
+description: Config required if BEARER_TOKEN authentication is used. On response, this field is set to null as to not return secrets.
+

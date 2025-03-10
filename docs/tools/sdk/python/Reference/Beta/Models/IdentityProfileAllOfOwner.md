@@ -11,15 +11,15 @@ tags: ['SDK', 'Software Development Kit', 'IdentityProfileAllOfOwner', 'BetaIden
 
 # IdentityProfileAllOfOwner
 
-The owner of the Identity Profile.
+Identity profile's owner.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** |  **Enum** [  'IDENTITY' ] | Type of the object to which this reference applies | [optional] 
-**id** | **str** | ID of the object to which this reference applies | [optional] 
-**name** | **str** | Human-readable display name of the object to which this reference applies | [optional] 
+**type** |  **Enum** [  'IDENTITY' ] | Owner's object type. | [optional] 
+**id** | **str** | Owner's ID. | [optional] 
+**name** | **str** | Owner's name. | [optional] 
 }
 
 ## Example

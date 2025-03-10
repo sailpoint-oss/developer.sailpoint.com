@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'AccountRequestResult', 'V2024AccountR
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**errors** | **[]str** |  | [optional] 
+**errors** | **[]str** | Error message. | [optional] 
 **status** | **str** | The status of the account request | [optional] 
-**ticket_id** | **str** |  | [optional] 
+**ticket_id** | **str** | ID of associated ticket. | [optional] 
 }
 
 ## Example

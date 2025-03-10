@@ -123,7 +123,7 @@ try {
     New-V2024ExternalExecuteWorkflow -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # New-V2024ExternalExecuteWorkflow -Id $Id -V2024CreateExternalExecuteWorkflowRequest $Result  
+    # New-V2024ExternalExecuteWorkflow -Id $Id -CreateExternalExecuteWorkflowRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024ExternalExecuteWorkflow"
     Write-Host $_.ErrorDetails
@@ -166,10 +166,10 @@ $CreateWorkflowRequest = @"{name=Send Email, owner={type=IDENTITY, id=2c91808568
 
 try {
     $Result = ConvertFrom-JsonToCreateWorkflowRequest -Json $CreateWorkflowRequest
-    New-V2024Workflow -V2024CreateWorkflowRequest $Result 
+    New-V2024Workflow -CreateWorkflowRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024Workflow -V2024CreateWorkflowRequest $Result  
+    # New-V2024Workflow -CreateWorkflowRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024Workflow"
     Write-Host $_.ErrorDetails
@@ -741,10 +741,10 @@ $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the Workflow
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024Workflow -Id $Id -V2024JsonPatchOperation $Result 
+    Update-V2024Workflow -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024Workflow -Id $Id -V2024JsonPatchOperation $Result  
+    # Update-V2024Workflow -Id $Id -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024Workflow"
     Write-Host $_.ErrorDetails
@@ -827,10 +827,10 @@ $WorkflowBody = @"{
 
 try {
     $Result = ConvertFrom-JsonToWorkflowBody -Json $WorkflowBody
-    Send-V2024Workflow -Id $Id -V2024WorkflowBody $Result 
+    Send-V2024Workflow -Id $Id -WorkflowBody $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-V2024Workflow -Id $Id -V2024WorkflowBody $Result  
+    # Send-V2024Workflow -Id $Id -WorkflowBody $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024Workflow"
     Write-Host $_.ErrorDetails
@@ -877,7 +877,7 @@ try {
     Test-V2024ExternalExecuteWorkflow -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Test-V2024ExternalExecuteWorkflow -Id $Id -V2024TestExternalExecuteWorkflowRequest $Result  
+    # Test-V2024ExternalExecuteWorkflow -Id $Id -TestExternalExecuteWorkflowRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Test-V2024ExternalExecuteWorkflow"
     Write-Host $_.ErrorDetails
@@ -924,10 +924,10 @@ $TestWorkflowRequest = @"{input={identity={id=ee769173319b41d19ccec6cea52f237b, 
 
 try {
     $Result = ConvertFrom-JsonToTestWorkflowRequest -Json $TestWorkflowRequest
-    Test-V2024Workflow -Id $Id -V2024TestWorkflowRequest $Result 
+    Test-V2024Workflow -Id $Id -TestWorkflowRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Test-V2024Workflow -Id $Id -V2024TestWorkflowRequest $Result  
+    # Test-V2024Workflow -Id $Id -TestWorkflowRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Test-V2024Workflow"
     Write-Host $_.ErrorDetails

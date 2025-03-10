@@ -83,8 +83,6 @@ jobs:
           export NODE_OPTIONS="--max_old_space_size=16384"
           export DOCUSAURUS_IGNORE_SSG_WARNINGS=true
           npm ci 
-          npm run merge-all-code-examples
-          npm run gen-all-api-specs-code-examples
           npm run gen-api-docs-all
           npm run build
       # push these files to AWS

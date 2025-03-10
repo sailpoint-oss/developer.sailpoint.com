@@ -17,10 +17,12 @@ tags: ['SDK', 'Software Development Kit', 'ExpansionItem', 'V2024ExpansionItem']
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **account_id** | **str** | The ID of the account | [optional] 
-**cause** | **str** |  | [optional] 
+**cause** | **str** | Cause of the expansion item. | [optional] 
 **name** | **str** | The name of the item | [optional] 
-**attribute_requests** | [**[]AttributeRequest**](attribute-request) |  | [optional] 
+**attribute_request** | [**AttributeRequest**](attribute-request) |  | [optional] 
 **source** | [**AccountSource**](account-source) |  | [optional] 
+**id** | **str** | ID of the expansion item | [optional] 
+**state** | **str** | State of the expansion item | [optional] 
 }
 
 ## Example
@@ -32,13 +34,13 @@ expansion_item = ExpansionItem(
 account_id='2c91808981f58ea601821c3e93482e6f',
 cause='Role',
 name='smartsheet-role',
-attribute_requests=[
-                    sailpoint.v2024.models.attribute_request.AttributeRequest(
-                        name = 'groups', 
-                        op = 'Add', 
-                        value = '3203537556531076', )
-                    ],
-source=
+attribute_request=sailpoint.v2024.models.attribute_request.AttributeRequest(
+                    name = 'groups', 
+                    op = 'Add', 
+                    value = null, ),
+source=,
+id='ac2887ffe0e7435a8c18c73f7ae94c7b',
+state='EXECUTING'
 )
 
 ```

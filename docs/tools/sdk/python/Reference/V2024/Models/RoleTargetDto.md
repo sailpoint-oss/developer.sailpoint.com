@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'RoleTargetDto', 'V2024RoleTargetDto']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**source** | [**BaseReferenceDto1**](base-reference-dto1) |  | [optional] 
+**source** | [**BaseReferenceDto**](base-reference-dto) |  | [optional] 
 **account_info** | [**AccountInfoDto**](account-info-dto) |  | [optional] 
 **role_name** | **str** | Specific role name for this target if using multiple accounts | [optional] 
 }
@@ -27,9 +27,10 @@ Name | Type | Description | Notes
 from sailpoint.v2024.models.role_target_dto import RoleTargetDto
 
 role_target_dto = RoleTargetDto(
-source=sailpoint.v2024.models.base_reference_dto_1.BaseReferenceDto_1(
-                    id = 'ff8081814d977c21014da056804a0af3', 
-                    name = 'Github', ),
+source=sailpoint.v2024.models.base_reference_dto.BaseReferenceDto(
+                    type = 'IDENTITY', 
+                    id = '2c91808568c529c60168cca6f90c1313', 
+                    name = 'William Wilson', ),
 account_info=sailpoint.v2024.models.account_info_dto.AccountInfoDto(
                     native_identity = 'CN=Abby Smith,OU=Austin,OU=Americas,OU=Demo,DC=seri,DC=acme,DC=com', 
                     display_name = 'Abby.Smith', 

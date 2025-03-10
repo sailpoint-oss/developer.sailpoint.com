@@ -239,10 +239,10 @@ $Id = "ebab396f-0af1-4050-89b7-dafc63ec70e7" # String | id is sed id
 
 try {
     $Result = ConvertFrom-JsonToSedPatch -Json $SedPatch
-    Update-BetaSed -Id $Id -BetaSedPatch $Result 
+    Update-BetaSed -Id $Id -SedPatch $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaSed -Id $Id -BetaSedPatch $Result  
+    # Update-BetaSed -Id $Id -SedPatch $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaSed"
     Write-Host $_.ErrorDetails
@@ -290,10 +290,10 @@ Code | Description  | Data Type
 
 try {
     $Result = ConvertFrom-JsonToSedApproval -Json $SedApproval
-    Submit-BetaSedApproval -BetaSedApproval $Result 
+    Submit-BetaSedApproval -SedApproval $Result 
     
     # Below is a request that includes all optional parameters
-    # Submit-BetaSedApproval -BetaSedApproval $Result  
+    # Submit-BetaSedApproval -SedApproval $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Submit-BetaSedApproval"
     Write-Host $_.ErrorDetails
@@ -344,10 +344,10 @@ $SedAssignment = @"{
 
 try {
     $Result = ConvertFrom-JsonToSedAssignment -Json $SedAssignment
-    Submit-BetaSedAssignment -BetaSedAssignment $Result 
+    Submit-BetaSedAssignment -SedAssignment $Result 
     
     # Below is a request that includes all optional parameters
-    # Submit-BetaSedAssignment -BetaSedAssignment $Result  
+    # Submit-BetaSedAssignment -SedAssignment $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Submit-BetaSedAssignment"
     Write-Host $_.ErrorDetails
@@ -400,7 +400,7 @@ try {
     Submit-BetaSedBatchRequest 
     
     # Below is a request that includes all optional parameters
-    # Submit-BetaSedBatchRequest -BetaSedBatchRequest $Result  
+    # Submit-BetaSedBatchRequest -SedBatchRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Submit-BetaSedBatchRequest"
     Write-Host $_.ErrorDetails

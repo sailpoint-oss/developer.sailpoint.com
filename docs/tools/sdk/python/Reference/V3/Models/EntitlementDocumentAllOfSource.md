@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | ID of entitlement's source. | [optional] 
 **name** | **str** | Display name of entitlement's source. | [optional] 
+**type** | **str** | Type of object. | [optional] 
 }
 
 ## Example
@@ -28,7 +29,8 @@ from sailpoint.v3.models.entitlement_document_all_of_source import EntitlementDo
 
 entitlement_document_all_of_source = EntitlementDocumentAllOfSource(
 id='2c91808b6e9e6fb8016eec1a2b6f7b5f',
-name='ODS-HR-Employees'
+name='ODS-HR-Employees',
+type='SOURCE'
 )
 
 ```

@@ -17,12 +17,12 @@ tags: ['SDK', 'Software Development Kit', 'GetRoleAssignments200ResponseInner', 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | Assignment Id | [optional] 
-**role** | [**BaseReferenceDto1**](base-reference-dto1) |  | [optional] 
+**role** | [**BaseReferenceDto**](base-reference-dto) |  | [optional] 
 **comments** | **str** | Comments added by the user when the assignment was made | [optional] 
 **assignment_source** | **str** | Source describing how this assignment was made | [optional] 
-**assigner** | [**BaseReferenceDto1**](base-reference-dto1) |  | [optional] 
-**assigned_dimensions** | [**[]BaseReferenceDto1**](base-reference-dto1) | Dimensions assigned related to this role | [optional] 
-**assignment_context** | [**AssignmentContextDto**](assignment-context-dto) |  | [optional] 
+**assigner** | [**RoleAssignmentDtoAssigner**](role-assignment-dto-assigner) |  | [optional] 
+**assigned_dimensions** | [**[]BaseReferenceDto**](base-reference-dto) | Dimensions assigned related to this role | [optional] 
+**assignment_context** | [**RoleAssignmentDtoAssignmentContext**](role-assignment-dto-assignment-context) |  | [optional] 
 **account_targets** | [**[]RoleTargetDto**](role-target-dto) |  | [optional] 
 **remove_date** | **str** | Date that the assignment will be removed | [optional] 
 }
@@ -34,40 +34,24 @@ from sailpoint.v2024.models.get_role_assignments200_response_inner import GetRol
 
 get_role_assignments200_response_inner = GetRoleAssignments200ResponseInner(
 id='1cbb0705b38c4226b1334eadd8874086',
-role=sailpoint.v2024.models.base_reference_dto_1.BaseReferenceDto_1(
-                    id = 'ff8081814d977c21014da056804a0af3', 
-                    name = 'Github', ),
+role=sailpoint.v2024.models.base_reference_dto.BaseReferenceDto(
+                    type = 'IDENTITY', 
+                    id = '2c91808568c529c60168cca6f90c1313', 
+                    name = 'William Wilson', ),
 comments='I'm a new Engineer and need this role to do my work',
 assignment_source='UI',
-assigner=sailpoint.v2024.models.base_reference_dto_1.BaseReferenceDto_1(
-                    id = 'ff8081814d977c21014da056804a0af3', 
-                    name = 'Github', ),
+assigner=sailpoint.v2024.models.role_assignment_dto_assigner.RoleAssignmentDto_assigner(
+                    type = 'IDENTITY', 
+                    id = '2c91808568c529c60168cca6f90c1313', 
+                    name = 'William Wilson', ),
 assigned_dimensions=[{id=1acc8ffe5fcf457090de28bee2af36ee, type=DIMENSION, name=Northeast region}],
-assignment_context=sailpoint.v2024.models.assignment_context_dto.AssignmentContextDto(
-                    requested = sailpoint.v2024.models.access_request_context.AccessRequestContext(
-                        context_attributes = [
-                            sailpoint.v2024.models.context_attribute_dto.ContextAttributeDto(
-                                attribute = 'location', 
-                                value = Austin, 
-                                derived = False, )
-                            ], ), 
-                    matched = [
-                        sailpoint.v2024.models.role_match_dto.RoleMatchDto(
-                            role_ref = sailpoint.v2024.models.base_reference_dto_1.BaseReferenceDto_1(
-                                id = 'ff8081814d977c21014da056804a0af3', 
-                                name = 'Github', ), 
-                            matched_attributes = [
-                                sailpoint.v2024.models.context_attribute_dto.ContextAttributeDto(
-                                    attribute = 'location', 
-                                    derived = False, )
-                                ], )
-                        ], 
-                    computed_date = 'Wed Feb 14 10:58:42', ),
+assignment_context={requested={contextAttributes=[{attribute=department, value=Engineering, derived=false}]}, matched=[{id=e7697a1e96d04db1ac7b0f4544915d2c, type=DIMENSION, name=Engineer}], computedDate=Wed Feb 14 10:58:42},
 account_targets=[
                     sailpoint.v2024.models.role_target_dto.RoleTargetDto(
-                        source = sailpoint.v2024.models.base_reference_dto_1.BaseReferenceDto_1(
-                            id = 'ff8081814d977c21014da056804a0af3', 
-                            name = 'Github', ), 
+                        source = sailpoint.v2024.models.base_reference_dto.BaseReferenceDto(
+                            type = 'IDENTITY', 
+                            id = '2c91808568c529c60168cca6f90c1313', 
+                            name = 'William Wilson', ), 
                         account_info = sailpoint.v2024.models.account_info_dto.AccountInfoDto(
                             native_identity = 'CN=Abby Smith,OU=Austin,OU=Americas,OU=Demo,DC=seri,DC=acme,DC=com', 
                             display_name = 'Abby.Smith', 

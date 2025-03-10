@@ -77,10 +77,10 @@ $DomainAddress = @"{
 
 try {
     $Result = ConvertFrom-JsonToDomainAddress -Json $DomainAddress
-    New-V2024DomainDkim -XSailPointExperimental $XSailPointExperimental -V2024DomainAddress $Result 
+    New-V2024DomainDkim -XSailPointExperimental $XSailPointExperimental -DomainAddress $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024DomainDkim -XSailPointExperimental $XSailPointExperimental -V2024DomainAddress $Result  
+    # New-V2024DomainDkim -XSailPointExperimental $XSailPointExperimental -DomainAddress $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024DomainDkim"
     Write-Host $_.ErrorDetails
@@ -147,10 +147,10 @@ $TemplateDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToTemplateDto -Json $TemplateDto
-    New-V2024NotificationTemplate -XSailPointExperimental $XSailPointExperimental -V2024TemplateDto $Result 
+    New-V2024NotificationTemplate -XSailPointExperimental $XSailPointExperimental -TemplateDto $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024NotificationTemplate -XSailPointExperimental $XSailPointExperimental -V2024TemplateDto $Result  
+    # New-V2024NotificationTemplate -XSailPointExperimental $XSailPointExperimental -TemplateDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024NotificationTemplate"
     Write-Host $_.ErrorDetails
@@ -203,10 +203,10 @@ $EmailStatusDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToEmailStatusDto -Json $EmailStatusDto
-    New-V2024VerifiedFromAddress -XSailPointExperimental $XSailPointExperimental -V2024EmailStatusDto $Result 
+    New-V2024VerifiedFromAddress -XSailPointExperimental $XSailPointExperimental -EmailStatusDto $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024VerifiedFromAddress -XSailPointExperimental $XSailPointExperimental -V2024EmailStatusDto $Result  
+    # New-V2024VerifiedFromAddress -XSailPointExperimental $XSailPointExperimental -EmailStatusDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024VerifiedFromAddress"
     Write-Host $_.ErrorDetails
@@ -259,10 +259,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 
 try {
     $Result = ConvertFrom-JsonToTemplateBulkDeleteDto -Json $TemplateBulkDeleteDto
-    Remove-V2024NotificationTemplatesInBulk -XSailPointExperimental $XSailPointExperimental -V2024TemplateBulkDeleteDto $Result 
+    Remove-V2024NotificationTemplatesInBulk -XSailPointExperimental $XSailPointExperimental -TemplateBulkDeleteDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024NotificationTemplatesInBulk -XSailPointExperimental $XSailPointExperimental -V2024TemplateBulkDeleteDto $Result  
+    # Remove-V2024NotificationTemplatesInBulk -XSailPointExperimental $XSailPointExperimental -TemplateBulkDeleteDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024NotificationTemplatesInBulk"
     Write-Host $_.ErrorDetails
@@ -434,12 +434,12 @@ Path   | Id | **String** | True  | Id of the Notification Template
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-[**TemplateDto[]**](../models/template-dto)
+[**TemplateDto**](../models/template-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | A template object for your site | TemplateDto[]
+200 | A template object for your site | TemplateDto
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
@@ -589,12 +589,12 @@ Param Type | Name | Data Type | Required  | Description
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-[**PreferencesDto[]**](../models/preferences-dto)
+[**PreferencesDto**](../models/preferences-dto)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Return preference for the given notification key. | PreferencesDto[]
+200 | Return preference for the given notification key. | PreferencesDto
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
@@ -775,10 +775,10 @@ $MailFromAttributesDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToMailFromAttributesDto -Json $MailFromAttributesDto
-    Send-V2024MailFromAttributes -XSailPointExperimental $XSailPointExperimental -V2024MailFromAttributesDto $Result 
+    Send-V2024MailFromAttributes -XSailPointExperimental $XSailPointExperimental -MailFromAttributesDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-V2024MailFromAttributes -XSailPointExperimental $XSailPointExperimental -V2024MailFromAttributesDto $Result  
+    # Send-V2024MailFromAttributes -XSailPointExperimental $XSailPointExperimental -MailFromAttributesDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024MailFromAttributes"
     Write-Host $_.ErrorDetails
@@ -831,10 +831,10 @@ $SendTestNotificationRequestDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToSendTestNotificationRequestDto -Json $SendTestNotificationRequestDto
-    Send-V2024TestNotification -XSailPointExperimental $XSailPointExperimental -V2024SendTestNotificationRequestDto $Result 
+    Send-V2024TestNotification -XSailPointExperimental $XSailPointExperimental -SendTestNotificationRequestDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-V2024TestNotification -XSailPointExperimental $XSailPointExperimental -V2024SendTestNotificationRequestDto $Result  
+    # Send-V2024TestNotification -XSailPointExperimental $XSailPointExperimental -SendTestNotificationRequestDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024TestNotification"
     Write-Host $_.ErrorDetails

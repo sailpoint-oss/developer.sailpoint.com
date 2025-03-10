@@ -27,11 +27,9 @@ Name | Type | Description | Notes
 from sailpoint.v2024.models.role_mining_identity import RoleMiningIdentity
 
 role_mining_identity = RoleMiningIdentity(
-id='',
-name='',
-attributes={
-                    'key' : ''
-                    }
+id='2c9180877212632a017228d5934525e6',
+name='Allene Abernathy-Welch',
+attributes={jobTitle=SQL Developer, department=IT, location=NYC, firstName=Allene}
 )
 
 ```

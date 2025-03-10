@@ -176,10 +176,10 @@ $BulkTaggedObject = @"{
 
 try {
     $Result = ConvertFrom-JsonToBulkTaggedObject -Json $BulkTaggedObject
-    Remove-BetaTagsToManyObject -BetaBulkTaggedObject $Result 
+    Remove-BetaTagsToManyObject -BulkTaggedObject $Result 
     
     # Below is a request that includes all optional parameters
-    # Remove-BetaTagsToManyObject -BetaBulkTaggedObject $Result  
+    # Remove-BetaTagsToManyObject -BulkTaggedObject $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaTagsToManyObject"
     Write-Host $_.ErrorDetails
@@ -388,10 +388,10 @@ $TaggedObject = @"{
 
 try {
     $Result = ConvertFrom-JsonToTaggedObject -Json $TaggedObject
-    Send-BetaTaggedObject -Type $Type -Id $Id -BetaTaggedObject $Result 
+    Send-BetaTaggedObject -Type $Type -Id $Id -TaggedObject $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-BetaTaggedObject -Type $Type -Id $Id -BetaTaggedObject $Result  
+    # Send-BetaTaggedObject -Type $Type -Id $Id -TaggedObject $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaTaggedObject"
     Write-Host $_.ErrorDetails
@@ -443,10 +443,10 @@ $TaggedObject = @"{
 
 try {
     $Result = ConvertFrom-JsonToTaggedObject -Json $TaggedObject
-    Set-BetaTagToObject -BetaTaggedObject $Result 
+    Set-BetaTagToObject -TaggedObject $Result 
     
     # Below is a request that includes all optional parameters
-    # Set-BetaTagToObject -BetaTaggedObject $Result  
+    # Set-BetaTagToObject -TaggedObject $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-BetaTagToObject"
     Write-Host $_.ErrorDetails
@@ -503,10 +503,10 @@ $BulkTaggedObject = @"{
 
 try {
     $Result = ConvertFrom-JsonToBulkTaggedObject -Json $BulkTaggedObject
-    Set-BetaTagsToManyObjects -BetaBulkTaggedObject $Result 
+    Set-BetaTagsToManyObjects -BulkTaggedObject $Result 
     
     # Below is a request that includes all optional parameters
-    # Set-BetaTagsToManyObjects -BetaBulkTaggedObject $Result  
+    # Set-BetaTagsToManyObjects -BulkTaggedObject $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-BetaTagsToManyObjects"
     Write-Host $_.ErrorDetails

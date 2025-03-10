@@ -86,10 +86,10 @@ $Transform = @"{
 
 try {
     $Result = ConvertFrom-JsonToTransform -Json $Transform
-    New-V2024Transform -V2024Transform $Result 
+    New-V2024Transform -Transform $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024Transform -V2024Transform $Result  
+    # New-V2024Transform -Transform $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024Transform"
     Write-Host $_.ErrorDetails
@@ -303,7 +303,7 @@ try {
     Update-V2024Transform -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024Transform -Id $Id -V2024Transform $Result  
+    # Update-V2024Transform -Id $Id -Transform $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024Transform"
     Write-Host $_.ErrorDetails

@@ -1,0 +1,12 @@
+description: Managed Cluster Attributes for Cluster Configuration. Supported Cluster Types [sqsCluster, spConnectCluster]
+type: object
+properties:
+  queue:
+    description: ManagedCluster keystore for sqsCluster type
+    $ref: './ManagedClusterQueue.yaml'
+  keystore:
+    nullable: true
+    description: ManagedCluster keystore for spConnectCluster type
+    type: string
+    example: /u3+7QAAAAIAAAABAAAAAQAvL3Byb3h5LWNsdXN0ZXIvMmM5MTgwODc3Yjg3MW
+

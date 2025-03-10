@@ -8,8 +8,8 @@ get:
   - userAuth:
     - idn:notification-templates:read
   parameters:
-  - $ref: ../../v3/parameters/limit.yaml
-  - $ref: ../../v3/parameters/offset.yaml
+  - $ref: ../parameters/limit.yaml
+  - $ref: ../parameters/offset.yaml
   - in: query
     name: filters
     schema:
@@ -45,17 +45,17 @@ get:
           schema:
             type: array
             items:
-              $ref: ../../beta/schemas/TemplateDto.yaml
+              $ref: ../schemas/TemplateDto.yaml
     '400':
-      $ref: ../../v3/responses/400.yaml
+      $ref: ../responses/400.yaml
     '401':
-      $ref: ../../v3/responses/401.yaml
+      $ref: ../responses/401.yaml
     '403':
-      $ref: ../../v3/responses/403.yaml
+      $ref: ../responses/403.yaml
     '429':
-      $ref: ../../v3/responses/429.yaml
+      $ref: ../responses/429.yaml
     '500':
-      $ref: ../../v3/responses/500.yaml
+      $ref: ../responses/500.yaml
 post:
   operationId: createNotificationTemplate
   tags:
@@ -75,24 +75,24 @@ post:
     content:
       application/json:
         schema:
-          $ref: ../../beta/schemas/TemplateDto.yaml
+          $ref: ../schemas/TemplateDto.yaml
   responses:
     '200':
       description: A template object for your site
       content:
         application/json:
           schema:
-            $ref: ../../beta/schemas/TemplateDto.yaml
+            $ref: ../schemas/TemplateDto.yaml
     '400':
-      $ref: ../../v3/responses/400.yaml
+      $ref: ../responses/400.yaml
     '401':
-      $ref: ../../v3/responses/401.yaml
+      $ref: ../responses/401.yaml
     '403':
-      $ref: ../../v3/responses/403.yaml
+      $ref: ../responses/403.yaml
     '429':
-      $ref: ../../v3/responses/429.yaml
+      $ref: ../responses/429.yaml
     '500':
-      $ref: ../../v3/responses/500.yaml
+      $ref: ../responses/500.yaml
   parameters:
   - name: X-SailPoint-Experimental
     in: header

@@ -23,8 +23,8 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleMiningPotentialRoleApplication = Initialize-PSSailpoint.BetaRoleMiningPotentialRoleApplication  -Id {id&#x3D;2c9180877212632a017228d5a796292b} `
- -Name {name&#x3D;Slack}
+$RoleMiningPotentialRoleApplication = Initialize-PSSailpoint.BetaRoleMiningPotentialRoleApplication  -Id {id=2c9180877212632a017228d5a796292b} `
+ -Name {name=Slack}
 ```
 
 - Convert the resource to JSON

@@ -97,10 +97,10 @@ $ConnectorRuleCreateRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToConnectorRuleCreateRequest -Json $ConnectorRuleCreateRequest
-    New-V2024ConnectorRule -XSailPointExperimental $XSailPointExperimental -V2024ConnectorRuleCreateRequest $Result 
+    New-V2024ConnectorRule -XSailPointExperimental $XSailPointExperimental -ConnectorRuleCreateRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024ConnectorRule -XSailPointExperimental $XSailPointExperimental -V2024ConnectorRuleCreateRequest $Result  
+    # New-V2024ConnectorRule -XSailPointExperimental $XSailPointExperimental -ConnectorRuleCreateRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024ConnectorRule"
     Write-Host $_.ErrorDetails
@@ -335,7 +335,7 @@ try {
     Send-V2024ConnectorRule -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Send-V2024ConnectorRule -Id $Id -XSailPointExperimental $XSailPointExperimental -V2024ConnectorRuleUpdateRequest $Result  
+    # Send-V2024ConnectorRule -Id $Id -XSailPointExperimental $XSailPointExperimental -ConnectorRuleUpdateRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024ConnectorRule"
     Write-Host $_.ErrorDetails
@@ -386,10 +386,10 @@ $SourceCode = @"{
 
 try {
     $Result = ConvertFrom-JsonToSourceCode -Json $SourceCode
-    Test-V2024ConnectorRule -XSailPointExperimental $XSailPointExperimental -V2024SourceCode $Result 
+    Test-V2024ConnectorRule -XSailPointExperimental $XSailPointExperimental -SourceCode $Result 
     
     # Below is a request that includes all optional parameters
-    # Test-V2024ConnectorRule -XSailPointExperimental $XSailPointExperimental -V2024SourceCode $Result  
+    # Test-V2024ConnectorRule -XSailPointExperimental $XSailPointExperimental -SourceCode $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Test-V2024ConnectorRule"
     Write-Host $_.ErrorDetails

@@ -16,7 +16,6 @@ tags: ['SDK', 'Software Development Kit', 'ApprovalStatusDto', 'V2024ApprovalSta
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**approval_id** | **str** | Unique identifier for the approval. | [optional] 
 **forwarded** | **bool** | True if the request for this item was forwarded from one owner to another. | [optional] [default to False]
 **original_owner** | [**ApprovalStatusDtoOriginalOwner**](approval-status-dto-original-owner) |  | [optional] 
 **current_owner** | [**ApprovalStatusDtoCurrentOwner**](approval-status-dto-current-owner) |  | [optional] 
@@ -34,7 +33,6 @@ Name | Type | Description | Notes
 from sailpoint.v2024.models.approval_status_dto import ApprovalStatusDto
 
 approval_status_dto = ApprovalStatusDto(
-approval_id='2c9180877b2b6ea4017b2c545f971429',
 forwarded=False,
 original_owner=sailpoint.v2024.models.approval_status_dto_original_owner.ApprovalStatusDto_originalOwner(
                     type = 'IDENTITY', 

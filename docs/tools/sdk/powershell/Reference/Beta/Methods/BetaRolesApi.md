@@ -262,10 +262,10 @@ $Role = @"{
 
 try {
     $Result = ConvertFrom-JsonToRole -Json $Role
-    New-BetaRole -BetaRole $Result 
+    New-BetaRole -Role $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaRole -BetaRole $Result  
+    # New-BetaRole -Role $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaRole"
     Write-Host $_.ErrorDetails
@@ -313,10 +313,10 @@ $RoleBulkDeleteRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToRoleBulkDeleteRequest -Json $RoleBulkDeleteRequest
-    Remove-BetaBulkRoles -BetaRoleBulkDeleteRequest $Result 
+    Remove-BetaBulkRoles -RoleBulkDeleteRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Remove-BetaBulkRoles -BetaRoleBulkDeleteRequest $Result  
+    # Remove-BetaBulkRoles -RoleBulkDeleteRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaBulkRoles"
     Write-Host $_.ErrorDetails
@@ -652,10 +652,10 @@ $Id = "2c91808a7813090a017814121e121518" # String | ID of the Role to patch
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-BetaRole -Id $Id -BetaJsonPatchOperation $Result 
+    Update-BetaRole -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaRole -Id $Id -BetaJsonPatchOperation $Result  
+    # Update-BetaRole -Id $Id -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaRole"
     Write-Host $_.ErrorDetails

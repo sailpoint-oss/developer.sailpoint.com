@@ -29,9 +29,10 @@ Name | Type | Description | Notes
 **Lastname** | **String** | Auth user's last name. | [optional] 
 **DisplayName** | **String** | Auth user's name in displayed format. | [optional] 
 **Alias** | **String** | Auth user's alias. | [optional] 
-**LastPasswordChangeDate** | **String** | Date of last password change. | [optional] 
+**LastPasswordChangeDate** | **System.DateTime** | Date of last password change. | [optional] 
 **LastLoginTimestamp** | **Int64** | Timestamp of the last login (long type value). | [optional] 
 **CurrentLoginTimestamp** | **Int64** | Timestamp of the current login (long type value). | [optional] 
+**LastUnlockTimestamp** | **System.DateTime** | The date and time when the user was last unlocked. | [optional] 
 **Capabilities** | **[]String** | Array of the auth user's capabilities. | [optional] 
 
 ## Examples
@@ -54,6 +55,7 @@ $AuthUser = Initialize-PSSailpoint.V3AuthUser  -Tenant test-tenant `
  -LastPasswordChangeDate 2021-03-08T22:37:33.901Z `
  -LastLoginTimestamp 1656327185832 `
  -CurrentLoginTimestamp 1656327185832 `
+ -LastUnlockTimestamp 2021-03-08T22:37:33.901Z `
  -Capabilities null
 ```
 

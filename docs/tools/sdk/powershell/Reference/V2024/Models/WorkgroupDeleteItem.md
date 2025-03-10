@@ -27,11 +27,11 @@ Name | Type | Description | Notes
 $WorkgroupDeleteItem = Initialize-PSSailpoint.V2024WorkgroupDeleteItem  -Id 464ae7bf791e49fdb74606a2e4a89635 `
  -Status 204 `
  -Description 
-&gt; Governance Group deleted successfully.
+> Governance Group deleted successfully.
 
-&gt; Unable to delete Governance Group f80bba83-98c4-4ec2-81c8-373c00e9663b because it is in use.
+> Unable to delete Governance Group f80bba83-98c4-4ec2-81c8-373c00e9663b because it is in use.
 
-&gt; Referenced Governance Group 2b711763-ed35-42a2-a80c-8f1ce0dc4a7f was not found.
+> Referenced Governance Group 2b711763-ed35-42a2-a80c-8f1ce0dc4a7f was not found.
 
 ```
 

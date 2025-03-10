@@ -497,14 +497,13 @@
         identity_id = '7025c863-c270-4ba6-beea-edf3cb091573' # str | Manager's identity ID. # str | Manager's identity ID.
         requested_object_id = '2db501be-f0fb-4cc5-a695-334133c52891' # str | Requested access item's ID. # str | Requested access item's ID.
         type = 'ENTITLEMENT' # str | Requested access item's type. # str | Requested access item's type.
-        x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
         try:
           # Return access request identity metrics
           
-          api_response = api_instance.get_access_request_identity_metrics(identity_id, requested_object_id, type, x_sail_point_experimental)
+          api_response = api_instance.get_access_request_identity_metrics(identity_id, requested_object_id, type)
               
           # Below is a request that includes all optional parameters
-          # api_response = api_instance.get_access_request_identity_metrics(identity_id, requested_object_id, type, x_sail_point_experimental)
+          # api_response = api_instance.get_access_request_identity_metrics(identity_id, requested_object_id, type)
           print("The response of AccessRequestIdentityMetricsApi->get_access_request_identity_metrics:\n")
           pprint(api_response)
         except Exception as e:
@@ -1080,8 +1079,8 @@
         offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
         detail_level = 'FULL' # str | This value determines whether the API provides `SLIM` or increased level of detail (`FULL`) for each account in the returned list. `FULL` is the default behavior. (optional) # str | This value determines whether the API provides `SLIM` or increased level of detail (`FULL`) for each account in the returned list. `FULL` is the default behavior. (optional)
-        filters = 'identityId eq \"2c9180858082150f0180893dbaf44201\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **identityId**: *eq, in, sw*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **sourceId**: *eq, in, sw*  **uncorrelated**: *eq*  **entitlements**: *eq*  **origin**: *eq, in*  **manuallyCorrelated**: *eq*  **identity.name**: *eq, in, sw*  **identity.correlated**: *eq*  **identity.identityState**: *eq, in*  **source.displayableName**: *eq, in*  **source.authoritative**: *eq*  **source.connectionType**: *eq, in*  **recommendation.method**: *eq, in, isnull* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **identityId**: *eq, in, sw*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **sourceId**: *eq, in, sw*  **uncorrelated**: *eq*  **entitlements**: *eq*  **origin**: *eq, in*  **manuallyCorrelated**: *eq*  **identity.name**: *eq, in, sw*  **identity.correlated**: *eq*  **identity.identityState**: *eq, in*  **source.displayableName**: *eq, in*  **source.authoritative**: *eq*  **source.connectionType**: *eq, in*  **recommendation.method**: *eq, in, isnull* (optional)
-        sorters = 'id,name' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, identity.id, nativeIdentity, uuid, manuallyCorrelated, entitlements, origin, identity.name, identity.identityState, identity.correlated, source.displayableName, source.authoritative, source.connectionType** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, identity.id, nativeIdentity, uuid, manuallyCorrelated, entitlements, origin, identity.name, identity.identityState, identity.correlated, source.displayableName, source.authoritative, source.connectionType** (optional)
+        filters = 'identityId eq \"2c9180858082150f0180893dbaf44201\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **identityId**: *eq, in, sw*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **hasEntitlements**: *eq*  **sourceId**: *eq, in, sw*  **uncorrelated**: *eq*  **entitlements**: *eq*  **origin**: *eq, in*  **manuallyCorrelated**: *eq*  **identity.name**: *eq, in, sw*  **identity.correlated**: *eq*  **identity.identityState**: *eq, in*  **source.displayableName**: *eq, in*  **source.authoritative**: *eq*  **source.connectionType**: *eq, in*  **recommendation.method**: *eq, in, isnull*  **created**: *eq, ge, gt, le, lt*  **modified**: *eq, ge, gt, le, lt* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **identityId**: *eq, in, sw*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **hasEntitlements**: *eq*  **sourceId**: *eq, in, sw*  **uncorrelated**: *eq*  **entitlements**: *eq*  **origin**: *eq, in*  **manuallyCorrelated**: *eq*  **identity.name**: *eq, in, sw*  **identity.correlated**: *eq*  **identity.identityState**: *eq, in*  **source.displayableName**: *eq, in*  **source.authoritative**: *eq*  **source.connectionType**: *eq, in*  **recommendation.method**: *eq, in, isnull*  **created**: *eq, ge, gt, le, lt*  **modified**: *eq, ge, gt, le, lt* (optional)
+        sorters = 'id,name' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, nativeIdentity, uuid, manuallyCorrelated, entitlements, origin, identity.name, identity.identityState, identity.correlated, source.displayableName, source.authoritative, source.connectionType** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, nativeIdentity, uuid, manuallyCorrelated, entitlements, origin, identity.name, identity.identityState, identity.correlated, source.displayableName, source.authoritative, source.connectionType** (optional)
         try:
           # Accounts List
           
@@ -1633,7 +1632,7 @@
         x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
         id = '2c91808a7813090a017814121919ecca' # str | ID of the Auth Profile to patch. # str | ID of the Auth Profile to patch.
         try:
-          # Get Auth Profile.
+          # Get Auth Profile
           
           api_response = api_instance.get_profile_config(x_sail_point_experimental, id)
               
@@ -1651,7 +1650,7 @@
       source: |
         x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
         try:
-          # Get list of Auth Profiles.
+          # Get list of Auth Profiles
           
           api_response = api_instance.get_profile_config_list(x_sail_point_experimental)
               
@@ -2080,6 +2079,7 @@
               "id" : "2c90ad2a70ace7d50170acf22ca90010",
               "type" : "IDENTITY"
             },
+            "reviewerId" : "2c91808568c529c60168cca6f90c1313",
             "roleIds" : [ "2c90ad2a70ace7d50170acf22ca90010" ],
             "query" : "Search Query",
             "description" : "Role Composition Description",
@@ -2219,6 +2219,7 @@
                 "id" : "2c90ad2a70ace7d50170acf22ca90010",
                 "type" : "IDENTITY"
               },
+              "reviewerId" : "2c91808568c529c60168cca6f90c1313",
               "roleIds" : [ "2c90ad2a70ace7d50170acf22ca90010" ],
               "query" : "Search Query",
               "description" : "Role Composition Description",
@@ -4658,7 +4659,7 @@
       label: SDK_tools/sdk/python/v2024/methods/dimensions#list-dimension-access-profiles
       source: |
         role_id = '6603fba3004f43c687610a29195252ce' # str | Parent Role Id of the dimension. # str | Parent Role Id of the dimension.
-        dimension_id = '2c9180835d191a86015d28455b4a2329' # str | ID of the Dimension # str | ID of the Dimension
+        dimension_id = '2c9180835d191a86015d28455b4a2329' # str | Id of the Dimension # str | Id of the Dimension
         limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
@@ -4933,17 +4934,10 @@
         id = '2c91808a7813090a017814121e121518' # str | Entitlement ID # str | Entitlement ID
         x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
         entitlement_request_config = {
-          "accessRequestConfig" : {
-            "denialCommentRequired" : false,
-            "approvalSchemes" : [ {
-              "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
-              "approverType" : "GOVERNANCE_GROUP"
-            }, {
-              "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
-              "approverType" : "GOVERNANCE_GROUP"
-            } ],
-            "requestCommentRequired" : true
-          }
+          "requestCommentsRequired" : false,
+          "deniedCommentsRequired" : false,
+          "allowEntitlementRequest" : true,
+          "grantRequestApprovalSchemes" : "entitlementOwner, sourceOwner, manager, workgroup:2c918084660f45d6016617daa9210584"
         } # EntitlementRequestConfig | 
         try:
           # Replace Entitlement Request Config
@@ -5423,6 +5417,24 @@
           pprint(api_response)
         except Exception as e:
           print("Exception when calling IAIAccessRequestRecommendationsApi->get_access_request_recommendations: %s\n" % e)
+- path: /ai-access-request-recommendations/config
+  method: GET
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2024/methods/iai-access-request-recommendations#get-access-request-recommendations-config
+      source: |
+        x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
+        try:
+          # Get Access Request Recommendations config
+          
+          api_response = api_instance.get_access_request_recommendations_config(x_sail_point_experimental)
+              
+          # Below is a request that includes all optional parameters
+          # api_response = api_instance.get_access_request_recommendations_config(x_sail_point_experimental)
+          print("The response of IAIAccessRequestRecommendationsApi->get_access_request_recommendations_config:\n")
+          pprint(api_response)
+        except Exception as e:
+          print("Exception when calling IAIAccessRequestRecommendationsApi->get_access_request_recommendations_config: %s\n" % e)
 - path: /ai-access-request-recommendations/ignored-items
   method: GET
   xCodeSample:
@@ -5492,6 +5504,32 @@
           pprint(api_response)
         except Exception as e:
           print("Exception when calling IAIAccessRequestRecommendationsApi->get_access_request_recommendations_viewed_items: %s\n" % e)
+- path: /ai-access-request-recommendations/config
+  method: PUT
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2024/methods/iai-access-request-recommendations#set-access-request-recommendations-config
+      source: |
+        x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
+        access_request_recommendation_config_dto = {
+          "scoreThreshold" : 0.5,
+          "startDateAttribute" : "startDate",
+          "restrictionAttribute" : "location",
+          "moverAttribute" : "isMover",
+          "joinerAttribute" : "isJoiner",
+          "useRestrictionAttribute" : true
+        } # AccessRequestRecommendationConfigDto | The desired configurations for Access Request Recommender for the tenant.
+        try:
+          # Update Access Request Recommendations config
+          Result = access_request_recommendation_config_dto.from_json(access_request_recommendation_config_dto)
+          api_response = api_instance.set_access_request_recommendations_config(x_sail_point_experimental, Result)
+              
+          # Below is a request that includes all optional parameters
+          # api_response = api_instance.set_access_request_recommendations_config(x_sail_point_experimental, Result)
+          print("The response of IAIAccessRequestRecommendationsApi->set_access_request_recommendations_config:\n")
+          pprint(api_response)
+        except Exception as e:
+          print("Exception when calling IAIAccessRequestRecommendationsApi->set_access_request_recommendations_config: %s\n" % e)
 - path: /common-access
   method: POST
   xCodeSample:
@@ -7188,7 +7226,7 @@
           "id" : "id12345"
         } # IdentityProfile | 
         try:
-          # Create an Identity Profile
+          # Create Identity Profile
           Result = identity_profile.from_json(identity_profile)
           api_response = api_instance.create_identity_profile(Result)
               
@@ -7204,9 +7242,9 @@
     - lang: Python
       label: SDK_tools/sdk/python/v2024/methods/identity-profiles#delete-identity-profile
       source: |
-        identity_profile_id = 'ef38f94347e94562b5bb8424a56397d8' # str | The Identity Profile ID. # str | The Identity Profile ID.
+        identity_profile_id = 'ef38f94347e94562b5bb8424a56397d8' # str | Identity profile ID. # str | Identity profile ID.
         try:
-          # Delete an Identity Profile
+          # Delete Identity Profile
           
           api_response = api_instance.delete_identity_profile(identity_profile_id)
               
@@ -7258,6 +7296,51 @@
           pprint(api_response)
         except Exception as e:
           print("Exception when calling IdentityProfilesApi->export_identity_profiles: %s\n" % e)
+- path: /identity-profiles/identity-preview
+  method: POST
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2024/methods/identity-profiles#generate-identity-preview
+      source: |
+        x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
+        identity_preview_request = {
+          "identityId" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
+          "identityAttributeConfig" : {
+            "attributeTransforms" : [ {
+              "transformDefinition" : {
+                "attributes" : {
+                  "attributeName" : "e-mail",
+                  "sourceName" : "MySource",
+                  "sourceId" : "2c9180877a826e68017a8c0b03da1a53"
+                },
+                "type" : "accountAttribute"
+              },
+              "identityAttributeName" : "email"
+            }, {
+              "transformDefinition" : {
+                "attributes" : {
+                  "attributeName" : "e-mail",
+                  "sourceName" : "MySource",
+                  "sourceId" : "2c9180877a826e68017a8c0b03da1a53"
+                },
+                "type" : "accountAttribute"
+              },
+              "identityAttributeName" : "email"
+            } ],
+            "enabled" : true
+          }
+        } # IdentityPreviewRequest | Identity Preview request body.
+        try:
+          # Generate Identity Profile Preview
+          Result = identity_preview_request.from_json(identity_preview_request)
+          api_response = api_instance.generate_identity_preview(x_sail_point_experimental, Result)
+              
+          # Below is a request that includes all optional parameters
+          # api_response = api_instance.generate_identity_preview(x_sail_point_experimental, Result)
+          print("The response of IdentityProfilesApi->generate_identity_preview:\n")
+          pprint(api_response)
+        except Exception as e:
+          print("Exception when calling IdentityProfilesApi->generate_identity_preview: %s\n" % e)
 - path: /identity-profiles/{identity-profile-id}/default-identity-attribute-config
   method: GET
   xCodeSample:
@@ -7282,9 +7365,9 @@
     - lang: Python
       label: SDK_tools/sdk/python/v2024/methods/identity-profiles#get-identity-profile
       source: |
-        identity_profile_id = '2b838de9-db9b-abcf-e646-d4f274ad4238' # str | The Identity Profile ID. # str | The Identity Profile ID.
+        identity_profile_id = '2b838de9-db9b-abcf-e646-d4f274ad4238' # str | Identity profile ID. # str | Identity profile ID.
         try:
-          # Get single Identity Profile
+          # Get Identity Profile
           
           api_response = api_instance.get_identity_profile(identity_profile_id)
               
@@ -7379,10 +7462,10 @@
         limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
-        filters = 'id eq \"ef38f94347e94562b5bb8424a56397d8\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne, ge, gt, in, le, lt, isnull, sw*  **name**: *eq, ne, ge, gt, in, le, lt, isnull, sw*  **priority**: *eq, ne* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne, ge, gt, in, le, lt, isnull, sw*  **name**: *eq, ne, ge, gt, in, le, lt, isnull, sw*  **priority**: *eq, ne* (optional)
+        filters = 'id eq \"ef38f94347e94562b5bb8424a56397d8\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne, ge, gt, in, le, sw*  **name**: *eq, ne, ge, gt, in, le, sw*  **priority**: *eq, ne* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne, ge, gt, in, le, sw*  **name**: *eq, ne, ge, gt, in, le, sw*  **priority**: *eq, ne* (optional)
         sorters = 'id,name' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, priority, created, modified, owner.id, owner.name** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, priority, created, modified, owner.id, owner.name** (optional)
         try:
-          # Identity Profiles List
+          # List Identity Profiles
           
           api_response = api_instance.list_identity_profiles()
               
@@ -7392,50 +7475,6 @@
           pprint(api_response)
         except Exception as e:
           print("Exception when calling IdentityProfilesApi->list_identity_profiles: %s\n" % e)
-- path: /identity-profiles/identity-preview
-  method: POST
-  xCodeSample:
-    - lang: Python
-      label: SDK_tools/sdk/python/v2024/methods/identity-profiles#show-identity-preview
-      source: |
-        identity_preview_request = {
-          "identityId" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
-          "identityAttributeConfig" : {
-            "attributeTransforms" : [ {
-              "transformDefinition" : {
-                "attributes" : {
-                  "attributeName" : "e-mail",
-                  "sourceName" : "MySource",
-                  "sourceId" : "2c9180877a826e68017a8c0b03da1a53"
-                },
-                "type" : "accountAttribute"
-              },
-              "identityAttributeName" : "email"
-            }, {
-              "transformDefinition" : {
-                "attributes" : {
-                  "attributeName" : "e-mail",
-                  "sourceName" : "MySource",
-                  "sourceId" : "2c9180877a826e68017a8c0b03da1a53"
-                },
-                "type" : "accountAttribute"
-              },
-              "identityAttributeName" : "email"
-            } ],
-            "enabled" : true
-          }
-        } # IdentityPreviewRequest | Identity Preview request body.
-        try:
-          # Generate Identity Profile Preview
-          Result = identity_preview_request.from_json(identity_preview_request)
-          api_response = api_instance.show_identity_preview(Result)
-              
-          # Below is a request that includes all optional parameters
-          # api_response = api_instance.show_identity_preview(Result)
-          print("The response of IdentityProfilesApi->show_identity_preview:\n")
-          pprint(api_response)
-        except Exception as e:
-          print("Exception when calling IdentityProfilesApi->show_identity_preview: %s\n" % e)
 - path: /identity-profiles/{identity-profile-id}/process-identities
   method: POST
   xCodeSample:
@@ -7460,16 +7499,16 @@
     - lang: Python
       label: SDK_tools/sdk/python/v2024/methods/identity-profiles#update-identity-profile
       source: |
-        identity_profile_id = 'ef38f94347e94562b5bb8424a56397d8' # str | The Identity Profile ID # str | The Identity Profile ID
-        [{op=add, path=/identityAttributeConfig/attributeTransforms/0, value={identityAttributeName=location, transformDefinition={type=accountAttribute, attributes={sourceName=Employees, attributeName=location, sourceId=2c91808878b7d63b0178c66ffcdc4ce4}}}}] # List[JsonPatchOperation] | A list of Identity Profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+        identity_profile_id = 'ef38f94347e94562b5bb8424a56397d8' # str | Identity profile ID. # str | Identity profile ID.
+        [{op=add, path=/identityAttributeConfig/attributeTransforms/0, value={identityAttributeName=location, transformDefinition={type=accountAttribute, attributes={sourceName=Employees, attributeName=location, sourceId=2c91808878b7d63b0178c66ffcdc4ce4}}}}] # List[JsonPatchOperation] | List of identity profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
          json_patch_operation = {
           "op" : "replace",
           "path" : "/description",
           "value" : "New description"
-        } # List[JsonPatchOperation] | A list of Identity Profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+        } # List[JsonPatchOperation] | List of identity profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
         
         try:
-          # Update the Identity Profile
+          # Update Identity Profile
           Result = json_patch_operation.from_json(json_patch_operation)
           api_response = api_instance.update_identity_profile(identity_profile_id, Result)
               
@@ -7627,6 +7666,178 @@
           pprint(api_response)
         except Exception as e:
           print("Exception when calling LifecycleStatesApi->update_lifecycle_states: %s\n" % e)
+- path: /machine-accounts/{id}
+  method: GET
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2024/methods/machine-accounts#get-machine-account
+      source: |
+        id = 'ef38f94347e94562b5bb8424a56397d8' # str | Machine Account ID. # str | Machine Account ID.
+        x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
+        try:
+          # Machine Account Details
+          
+          api_response = api_instance.get_machine_account(id, x_sail_point_experimental)
+              
+          # Below is a request that includes all optional parameters
+          # api_response = api_instance.get_machine_account(id, x_sail_point_experimental)
+          print("The response of MachineAccountsApi->get_machine_account:\n")
+          pprint(api_response)
+        except Exception as e:
+          print("Exception when calling MachineAccountsApi->get_machine_account: %s\n" % e)
+- path: /machine-accounts
+  method: GET
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2024/methods/machine-accounts#list-machine-accounts
+      source: |
+        x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
+        limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
+        filters = 'identityId eq \"2c9180858082150f0180893dbaf44201\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **machineIdentity**: *eq, in, sw*  **entitlements**: *eq*  **accessType**: *eq, in, sw*  **subType**: *eq, in, sw*  **classificationMethod**: *eq, in, sw*  **manuallyCorrelated**: *eq*  **identity.name**: *eq, in, sw*  **source.name**: *eq, in* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **machineIdentity**: *eq, in, sw*  **entitlements**: *eq*  **accessType**: *eq, in, sw*  **subType**: *eq, in, sw*  **classificationMethod**: *eq, in, sw*  **manuallyCorrelated**: *eq*  **identity.name**: *eq, in, sw*  **source.name**: *eq, in* (optional)
+        sorters = 'id,name' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, machineIdentity, identity.id, nativeIdentity, uuid, manuallyCorrelated, connectorAttributes, entitlements, identity.name, identity.type, source.id, source.name, source.type** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, machineIdentity, identity.id, nativeIdentity, uuid, manuallyCorrelated, connectorAttributes, entitlements, identity.name, identity.type, source.id, source.name, source.type** (optional)
+        try:
+          # Machine Accounts List
+          
+          api_response = api_instance.list_machine_accounts(x_sail_point_experimental, )
+              
+          # Below is a request that includes all optional parameters
+          # api_response = api_instance.list_machine_accounts(x_sail_point_experimental, limit, offset, count, filters, sorters)
+          print("The response of MachineAccountsApi->list_machine_accounts:\n")
+          pprint(api_response)
+        except Exception as e:
+          print("Exception when calling MachineAccountsApi->list_machine_accounts: %s\n" % e)
+- path: /machine-accounts/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2024/methods/machine-accounts#update-machine-account
+      source: |
+        id = 'ef38f94347e94562b5bb8424a56397d8' # str | Machine Account ID. # str | Machine Account ID.
+        x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
+        request_body = {Add machine identity attribute={value=[{op=add, path=/environment, value=test}]}, Replace machine identity attribute={value=[{op=replace, path=/environment, value=test}]}, Remove machine identity attribute={value=[{op=remove, path=/environment}]}} # List[object] | A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+         request_body = {Add machine identity attribute={value=[{op=add, path=/environment, value=test}]}, Replace machine identity attribute={value=[{op=replace, path=/environment, value=test}]}, Remove machine identity attribute={value=[{op=remove, path=/environment}]}} # List[object] | A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+        
+        try:
+          # Update a Machine Account
+          Result = request_body.from_json(request_body)
+          api_response = api_instance.update_machine_account(id, x_sail_point_experimental, Result)
+              
+          # Below is a request that includes all optional parameters
+          # api_response = api_instance.update_machine_account(id, x_sail_point_experimental, Result)
+          print("The response of MachineAccountsApi->update_machine_account:\n")
+          pprint(api_response)
+        except Exception as e:
+          print("Exception when calling MachineAccountsApi->update_machine_account: %s\n" % e)
+- path: /machine-identities
+  method: POST
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2024/methods/machine-identities#create-machine-identity
+      source: |
+        x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
+        machine_identity = {
+          "created" : "2015-05-28T14:07:17Z",
+          "businessApplication" : "ADService",
+          "name" : "aName",
+          "modified" : "2015-05-28T14:07:17Z",
+          "description" : "",
+          "attributes" : "{\"Region\":\"EU\"}",
+          "id" : "id12345",
+          "manuallyEdited" : true
+        } # MachineIdentity | 
+        try:
+          # Create Machine Identities
+          Result = machine_identity.from_json(machine_identity)
+          api_response = api_instance.create_machine_identity(x_sail_point_experimental, Result)
+              
+          # Below is a request that includes all optional parameters
+          # api_response = api_instance.create_machine_identity(x_sail_point_experimental, Result)
+          print("The response of MachineIdentitiesApi->create_machine_identity:\n")
+          pprint(api_response)
+        except Exception as e:
+          print("Exception when calling MachineIdentitiesApi->create_machine_identity: %s\n" % e)
+- path: /machine-identities/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2024/methods/machine-identities#delete-machine-identity
+      source: |
+        id = 'ef38f94347e94562b5bb8424a56397d8' # str | Machine Identity ID # str | Machine Identity ID
+        x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
+        try:
+          # Delete machine identity
+          
+          api_instance.delete_machine_identity(id, x_sail_point_experimental)
+              
+          # Below is a request that includes all optional parameters
+          # api_instance.delete_machine_identity(id, x_sail_point_experimental)
+        except Exception as e:
+          print("Exception when calling MachineIdentitiesApi->delete_machine_identity: %s\n" % e)
+- path: /machine-identities/{id}
+  method: GET
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2024/methods/machine-identities#get-machine-identity
+      source: |
+        id = 'ef38f94347e94562b5bb8424a56397d8' # str | Machine Identity ID # str | Machine Identity ID
+        x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
+        try:
+          # Machine Identity Details
+          
+          api_response = api_instance.get_machine_identity(id, x_sail_point_experimental)
+              
+          # Below is a request that includes all optional parameters
+          # api_response = api_instance.get_machine_identity(id, x_sail_point_experimental)
+          print("The response of MachineIdentitiesApi->get_machine_identity:\n")
+          pprint(api_response)
+        except Exception as e:
+          print("Exception when calling MachineIdentitiesApi->get_machine_identity: %s\n" % e)
+- path: /machine-identities
+  method: GET
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2024/methods/machine-identities#list-machine-identities
+      source: |
+        x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
+        sorters = 'businessApplication' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **businessApplication, name** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **businessApplication, name** (optional)
+        count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
+        limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        try:
+          # List Machine Identities
+          
+          api_response = api_instance.list_machine_identities(x_sail_point_experimental, )
+              
+          # Below is a request that includes all optional parameters
+          # api_response = api_instance.list_machine_identities(x_sail_point_experimental, sorters, count, limit, offset)
+          print("The response of MachineIdentitiesApi->list_machine_identities:\n")
+          pprint(api_response)
+        except Exception as e:
+          print("Exception when calling MachineIdentitiesApi->list_machine_identities: %s\n" % e)
+- path: /machine-identities/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2024/methods/machine-identities#update-machine-identity
+      source: |
+        id = 'ef38f94347e94562b5bb8424a56397d8' # str | Machine Identity ID. # str | Machine Identity ID.
+        x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
+        request_body = {Add machine identity attribute={value=[{op=add, path=/attributes/securityRisk, value=medium}]}, Replace machine identity attribute={value=[{op=replace, path=/attributes/securityRisk, value=medium}]}, Remove machine identity attribute={value=[{op=remove, path=/attributes/securityRisk}]}} # List[object] | A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+         request_body = {Add machine identity attribute={value=[{op=add, path=/attributes/securityRisk, value=medium}]}, Replace machine identity attribute={value=[{op=replace, path=/attributes/securityRisk, value=medium}]}, Remove machine identity attribute={value=[{op=remove, path=/attributes/securityRisk}]}} # List[object] | A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+        
+        try:
+          # Update a Machine Identity
+          Result = request_body.from_json(request_body)
+          api_response = api_instance.update_machine_identity(id, x_sail_point_experimental, Result)
+              
+          # Below is a request that includes all optional parameters
+          # api_response = api_instance.update_machine_identity(id, x_sail_point_experimental, Result)
+          print("The response of MachineIdentitiesApi->update_machine_identity:\n")
+          pprint(api_response)
+        except Exception as e:
+          print("Exception when calling MachineIdentitiesApi->update_machine_identity: %s\n" % e)
 - path: /managed-clients
   method: POST
   xCodeSample:
@@ -8576,19 +8787,19 @@
     - lang: Python
       label: SDK_tools/sdk/python/v2024/methods/non-employee-lifecycle-management#list-non-employee-sources
       source: |
-        requested_for = 'me' # str | The identity for whom the request was made. *me* indicates the current user. # str | The identity for whom the request was made. *me* indicates the current user.
         limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
-        non_employee_count = true # bool | The flag to determine whether return a non-employee count associate with source. (optional) # bool | The flag to determine whether return a non-employee count associate with source. (optional)
+        requested_for = 'me' # str | Identity the request was made for. Use 'me' to indicate the current user. (optional) # str | Identity the request was made for. Use 'me' to indicate the current user. (optional)
+        non_employee_count = False # bool | Flag that determines whether the API will return a non-employee count associated with the source. (optional) (default to False) # bool | Flag that determines whether the API will return a non-employee count associated with the source. (optional) (default to False)
         sorters = 'name,created' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, sourceId** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, sourceId** (optional)
         try:
           # List Non-Employee Sources
           
-          api_response = api_instance.list_non_employee_sources(requested_for, )
+          api_response = api_instance.list_non_employee_sources()
               
           # Below is a request that includes all optional parameters
-          # api_response = api_instance.list_non_employee_sources(requested_for, limit, offset, count, non_employee_count, sorters)
+          # api_response = api_instance.list_non_employee_sources(limit, offset, count, requested_for, non_employee_count, sorters)
           print("The response of NonEmployeeLifecycleManagementApi->list_non_employee_sources:\n")
           pprint(api_response)
         except Exception as e:
@@ -9413,9 +9624,9 @@
           "requireStrongAuthUntrustedGeographies" : true,
           "enablePasswdExpiration" : true,
           "minNumeric" : 8,
-          "lastUpdated" : "2000-01-23T04:56:07.000+00:00",
+          "lastUpdated" : 1939056206564,
           "validateAgainstAccountId" : false,
-          "dateCreated" : "2000-01-23T04:56:07.000+00:00",
+          "dateCreated" : 1639056206564,
           "accountNameMinWordLength" : 6,
           "minUpper" : 8,
           "firstExpirationReminder" : 45,
@@ -9518,9 +9729,9 @@
           "requireStrongAuthUntrustedGeographies" : true,
           "enablePasswdExpiration" : true,
           "minNumeric" : 8,
-          "lastUpdated" : "2000-01-23T04:56:07.000+00:00",
+          "lastUpdated" : 1939056206564,
           "validateAgainstAccountId" : false,
-          "dateCreated" : "2000-01-23T04:56:07.000+00:00",
+          "dateCreated" : 1639056206564,
           "accountNameMinWordLength" : 6,
           "minUpper" : 8,
           "firstExpirationReminder" : 45,
@@ -11272,7 +11483,7 @@
     - lang: Python
       label: SDK_tools/sdk/python/v2024/methods/search#search-get
       source: |
-        index = 'accounts' # str | The index from which to fetch the specified document.  The currently supported index names are: *accessprofiles*, *accountactivities*, *entitlements*, *events*, *identities*, and *roles*.  # str | The index from which to fetch the specified document.  The currently supported index names are: *accessprofiles*, *accountactivities*, *entitlements*, *events*, *identities*, and *roles*. 
+        index = 'identities' # str | The index from which to fetch the specified document.  The currently supported index names are: *accessprofiles*, *accountactivities*, *entitlements*, *events*, *identities*, and *roles*.  # str | The index from which to fetch the specified document.  The currently supported index names are: *accessprofiles*, *accountactivities*, *entitlements*, *events*, *identities*, and *roles*. 
         id = '2c91808568c529c60168cca6f90c1313' # str | ID of the requested document. # str | ID of the requested document.
         try:
           # Get a Document by ID
@@ -11428,6 +11639,7 @@
     - lang: Python
       label: SDK_tools/sdk/python/v2024/methods/search-attribute-configuration#create-search-attribute-config
       source: |
+        x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
         search_attribute_config = {
           "displayName" : "New Mail Attribute",
           "name" : "newMailAttribute",
@@ -11439,10 +11651,10 @@
         try:
           # Create Extended Search Attributes
           Result = search_attribute_config.from_json(search_attribute_config)
-          api_response = api_instance.create_search_attribute_config(Result)
+          api_response = api_instance.create_search_attribute_config(x_sail_point_experimental, Result)
               
           # Below is a request that includes all optional parameters
-          # api_response = api_instance.create_search_attribute_config(Result)
+          # api_response = api_instance.create_search_attribute_config(x_sail_point_experimental, Result)
           print("The response of SearchAttributeConfigurationApi->create_search_attribute_config:\n")
           pprint(api_response)
         except Exception as e:
@@ -11454,13 +11666,14 @@
       label: SDK_tools/sdk/python/v2024/methods/search-attribute-configuration#delete-search-attribute-config
       source: |
         name = 'newMailAttribute' # str | Name of the extended search attribute configuration to delete. # str | Name of the extended search attribute configuration to delete.
+        x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
         try:
           # Delete Extended Search Attribute
           
-          api_instance.delete_search_attribute_config(name)
+          api_instance.delete_search_attribute_config(name, x_sail_point_experimental)
               
           # Below is a request that includes all optional parameters
-          # api_instance.delete_search_attribute_config(name)
+          # api_instance.delete_search_attribute_config(name, x_sail_point_experimental)
         except Exception as e:
           print("Exception when calling SearchAttributeConfigurationApi->delete_search_attribute_config: %s\n" % e)
 - path: /accounts/search-attribute-config
@@ -11469,13 +11682,14 @@
     - lang: Python
       label: SDK_tools/sdk/python/v2024/methods/search-attribute-configuration#get-search-attribute-config
       source: |
+        x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
         try:
           # List Extended Search Attributes
           
-          api_response = api_instance.get_search_attribute_config()
+          api_response = api_instance.get_search_attribute_config(x_sail_point_experimental)
               
           # Below is a request that includes all optional parameters
-          # api_response = api_instance.get_search_attribute_config()
+          # api_response = api_instance.get_search_attribute_config(x_sail_point_experimental)
           print("The response of SearchAttributeConfigurationApi->get_search_attribute_config:\n")
           pprint(api_response)
         except Exception as e:
@@ -11486,14 +11700,15 @@
     - lang: Python
       label: SDK_tools/sdk/python/v2024/methods/search-attribute-configuration#get-single-search-attribute-config
       source: |
-        name = 'newMailAttribute' # str | Name of the extended search attribute configuration to retrieve. # str | Name of the extended search attribute configuration to retrieve.
+        name = 'newMailAttribute' # str | Name of the extended search attribute configuration to get. # str | Name of the extended search attribute configuration to get.
+        x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
         try:
           # Get Extended Search Attribute
           
-          api_response = api_instance.get_single_search_attribute_config(name)
+          api_response = api_instance.get_single_search_attribute_config(name, x_sail_point_experimental)
               
           # Below is a request that includes all optional parameters
-          # api_response = api_instance.get_single_search_attribute_config(name)
+          # api_response = api_instance.get_single_search_attribute_config(name, x_sail_point_experimental)
           print("The response of SearchAttributeConfigurationApi->get_single_search_attribute_config:\n")
           pprint(api_response)
         except Exception as e:
@@ -11505,6 +11720,7 @@
       label: SDK_tools/sdk/python/v2024/methods/search-attribute-configuration#patch-search-attribute-config
       source: |
         name = 'promotedMailAttribute' # str | Name of the search attribute configuration to patch. # str | Name of the search attribute configuration to patch.
+        x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
         [{op=replace, path=/name, value=newAttributeName}, {op=replace, path=/displayName, value=new attribute display name}, {op=add, path=/applicationAttributes, value={2c91808b79fd2422017a0b35d30f3968=employeeNumber}}] # List[JsonPatchOperation] | 
          json_patch_operation = {
           "op" : "replace",
@@ -11515,10 +11731,10 @@
         try:
           # Update Extended Search Attribute
           Result = json_patch_operation.from_json(json_patch_operation)
-          api_response = api_instance.patch_search_attribute_config(name, Result)
+          api_response = api_instance.patch_search_attribute_config(name, x_sail_point_experimental, Result)
               
           # Below is a request that includes all optional parameters
-          # api_response = api_instance.patch_search_attribute_config(name, Result)
+          # api_response = api_instance.patch_search_attribute_config(name, x_sail_point_experimental, Result)
           print("The response of SearchAttributeConfigurationApi->patch_search_attribute_config:\n")
           pprint(api_response)
         except Exception as e:
@@ -11902,9 +12118,9 @@
           "statusMap" : "{closed_cancelled=Failed, closed_complete=Committed, closed_incomplete=Failed, closed_rejected=Failed, in_process=Queued, requested=Queued}",
           "request" : "{description=SailPoint Access Request,, req_description=The Service Request created by SailPoint ServiceNow Service Integration Module (SIM).,, req_short_description=SailPoint New Access Request Created from IdentityNow,, short_description=SailPoint Access Request $!plan.arguments.identityRequestId}",
           "sources" : [ "2c9180835d191a86015d28455b4a2329", "2c5680835d191a85765d28455b4a9823" ],
-          "created" : "2023-01-03T21:16:22.432Z",
+          "created" : "2015-05-28T14:07:17Z",
           "name" : "aName",
-          "modified" : "2023-01-03T21:16:22.432Z",
+          "modified" : "2015-05-28T14:07:17Z",
           "description" : "Integration description",
           "attributes" : "{\"uid\":\"Walter White\",\"firstname\":\"walter\",\"cloudStatus\":\"UNREGISTERED\",\"displayName\":\"Walter White\",\"identificationNumber\":\"942\",\"lastSyncDate\":1470348809380,\"email\":\"walter@gmail.com\",\"lastname\":\"white\"}",
           "id" : "id12345",
@@ -11988,7 +12204,17 @@
       source: |
         id = '12345' # str | SIM integration id # str | SIM integration id
         x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-        json_patch = "[\n  {\n\t  \"op\": \"replace\",\n\t  \"path\": \"/description\",\n\t  \"value\": \"A new description\"\n  }\n]" # JsonPatch | The JsonPatch object that describes the changes of SIM beforeProvisioningRule.
+        json_patch = {
+          "operations" : [ {
+            "op" : "replace",
+            "path" : "/description",
+            "value" : "New description"
+          }, {
+            "op" : "replace",
+            "path" : "/description",
+            "value" : "New description"
+          } ]
+        } # JsonPatch | The JsonPatch object that describes the changes of SIM beforeProvisioningRule.
         try:
           # Patch a SIM beforeProvisioningRule attribute.
           Result = json_patch.from_json(json_patch)
@@ -12008,7 +12234,17 @@
       source: |
         id = '12345' # str | SIM integration id # str | SIM integration id
         x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-        json_patch = "[\n  {\n\t  \"op\": \"replace\",\n\t  \"path\": \"/description\",\n\t  \"value\": \"A new description\"\n  }\n]" # JsonPatch | The JsonPatch object that describes the changes of SIM
+        json_patch = {
+          "operations" : [ {
+            "op" : "replace",
+            "path" : "/description",
+            "value" : "New description"
+          }, {
+            "op" : "replace",
+            "path" : "/description",
+            "value" : "New description"
+          } ]
+        } # JsonPatch | The JsonPatch object that describes the changes of SIM
         try:
           # Patch a SIM attribute.
           Result = json_patch.from_json(json_patch)
@@ -12033,9 +12269,9 @@
           "statusMap" : "{closed_cancelled=Failed, closed_complete=Committed, closed_incomplete=Failed, closed_rejected=Failed, in_process=Queued, requested=Queued}",
           "request" : "{description=SailPoint Access Request,, req_description=The Service Request created by SailPoint ServiceNow Service Integration Module (SIM).,, req_short_description=SailPoint New Access Request Created from IdentityNow,, short_description=SailPoint Access Request $!plan.arguments.identityRequestId}",
           "sources" : [ "2c9180835d191a86015d28455b4a2329", "2c5680835d191a85765d28455b4a9823" ],
-          "created" : "2023-01-03T21:16:22.432Z",
+          "created" : "2015-05-28T14:07:17Z",
           "name" : "aName",
-          "modified" : "2023-01-03T21:16:22.432Z",
+          "modified" : "2015-05-28T14:07:17Z",
           "description" : "Integration description",
           "attributes" : "{\"uid\":\"Walter White\",\"firstname\":\"walter\",\"cloudStatus\":\"UNREGISTERED\",\"displayName\":\"Walter White\",\"identificationNumber\":\"942\",\"lastSyncDate\":1470348809380,\"email\":\"walter@gmail.com\",\"lastname\":\"white\"}",
           "id" : "id12345",
@@ -13961,17 +14197,16 @@
     - lang: Python
       label: SDK_tools/sdk/python/v2024/methods/sp-config#export-sp-config
       source: |
-        x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
         export_payload = {
           "description" : "Export Job 1 Test"
         } # ExportPayload | Export options control what will be included in the export.
         try:
           # Initiates configuration objects export job
           Result = export_payload.from_json(export_payload)
-          api_response = api_instance.export_sp_config(x_sail_point_experimental, Result)
+          api_response = api_instance.export_sp_config(Result)
               
           # Below is a request that includes all optional parameters
-          # api_response = api_instance.export_sp_config(x_sail_point_experimental, Result)
+          # api_response = api_instance.export_sp_config(Result)
           print("The response of SPConfigApi->export_sp_config:\n")
           pprint(api_response)
         except Exception as e:
@@ -13983,14 +14218,13 @@
       label: SDK_tools/sdk/python/v2024/methods/sp-config#get-sp-config-export
       source: |
         id = 'ef38f94347e94562b5bb8424a56397d8' # str | The ID of the export job whose results will be downloaded. # str | The ID of the export job whose results will be downloaded.
-        x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
         try:
           # Download export job result.
           
-          api_response = api_instance.get_sp_config_export(id, x_sail_point_experimental)
+          api_response = api_instance.get_sp_config_export(id)
               
           # Below is a request that includes all optional parameters
-          # api_response = api_instance.get_sp_config_export(id, x_sail_point_experimental)
+          # api_response = api_instance.get_sp_config_export(id)
           print("The response of SPConfigApi->get_sp_config_export:\n")
           pprint(api_response)
         except Exception as e:
@@ -14002,14 +14236,13 @@
       label: SDK_tools/sdk/python/v2024/methods/sp-config#get-sp-config-export-status
       source: |
         id = 'ef38f94347e94562b5bb8424a56397d8' # str | The ID of the export job whose status will be returned. # str | The ID of the export job whose status will be returned.
-        x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
         try:
           # Get export job status
           
-          api_response = api_instance.get_sp_config_export_status(id, x_sail_point_experimental)
+          api_response = api_instance.get_sp_config_export_status(id)
               
           # Below is a request that includes all optional parameters
-          # api_response = api_instance.get_sp_config_export_status(id, x_sail_point_experimental)
+          # api_response = api_instance.get_sp_config_export_status(id)
           print("The response of SPConfigApi->get_sp_config_export_status:\n")
           pprint(api_response)
         except Exception as e:
@@ -14021,14 +14254,13 @@
       label: SDK_tools/sdk/python/v2024/methods/sp-config#get-sp-config-import
       source: |
         id = 'ef38f94347e94562b5bb8424a56397d8' # str | The ID of the import job whose results will be downloaded. # str | The ID of the import job whose results will be downloaded.
-        x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
         try:
           # Download import job result
           
-          api_response = api_instance.get_sp_config_import(id, x_sail_point_experimental)
+          api_response = api_instance.get_sp_config_import(id)
               
           # Below is a request that includes all optional parameters
-          # api_response = api_instance.get_sp_config_import(id, x_sail_point_experimental)
+          # api_response = api_instance.get_sp_config_import(id)
           print("The response of SPConfigApi->get_sp_config_import:\n")
           pprint(api_response)
         except Exception as e:
@@ -14040,14 +14272,13 @@
       label: SDK_tools/sdk/python/v2024/methods/sp-config#get-sp-config-import-status
       source: |
         id = 'ef38f94347e94562b5bb8424a56397d8' # str | The ID of the import job whose status will be returned. # str | The ID of the import job whose status will be returned.
-        x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
         try:
           # Get import job status
           
-          api_response = api_instance.get_sp_config_import_status(id, x_sail_point_experimental)
+          api_response = api_instance.get_sp_config_import_status(id)
               
           # Below is a request that includes all optional parameters
-          # api_response = api_instance.get_sp_config_import_status(id, x_sail_point_experimental)
+          # api_response = api_instance.get_sp_config_import_status(id)
           print("The response of SPConfigApi->get_sp_config_import_status:\n")
           pprint(api_response)
         except Exception as e:
@@ -14058,17 +14289,16 @@
     - lang: Python
       label: SDK_tools/sdk/python/v2024/methods/sp-config#import-sp-config
       source: |
-        x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
         data = None # bytearray | JSON file containing the objects to be imported. # bytearray | JSON file containing the objects to be imported.
         preview = False # bool | This option is intended to give the user information about how an import operation would proceed, without having any effect on the target tenant. If this parameter is \"true\", no objects will be imported. Instead, the import process will pre-process the import file and attempt to resolve references within imported objects. The import result file will contain messages pertaining to how specific references were resolved, any errors associated with the preprocessing, and messages indicating which objects would be imported.  (optional) (default to False) # bool | This option is intended to give the user information about how an import operation would proceed, without having any effect on the target tenant. If this parameter is \"true\", no objects will be imported. Instead, the import process will pre-process the import file and attempt to resolve references within imported objects. The import result file will contain messages pertaining to how specific references were resolved, any errors associated with the preprocessing, and messages indicating which objects would be imported.  (optional) (default to False)
         options = sailpoint.v2024.ImportOptions() # ImportOptions |  (optional)
         try:
           # Initiates configuration objects import job
           
-          api_response = api_instance.import_sp_config(x_sail_point_experimental, data, )
+          api_response = api_instance.import_sp_config(data, )
               
           # Below is a request that includes all optional parameters
-          # api_response = api_instance.import_sp_config(x_sail_point_experimental, data, preview, options)
+          # api_response = api_instance.import_sp_config(data, preview, options)
           print("The response of SPConfigApi->import_sp_config:\n")
           pprint(api_response)
         except Exception as e:
@@ -14079,14 +14309,13 @@
     - lang: Python
       label: SDK_tools/sdk/python/v2024/methods/sp-config#list-sp-config-objects
       source: |
-        x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
         try:
           # Get config object details
           
-          api_response = api_instance.list_sp_config_objects(x_sail_point_experimental)
+          api_response = api_instance.list_sp_config_objects()
               
           # Below is a request that includes all optional parameters
-          # api_response = api_instance.list_sp_config_objects(x_sail_point_experimental)
+          # api_response = api_instance.list_sp_config_objects()
           print("The response of SPConfigApi->list_sp_config_objects:\n")
           pprint(api_response)
         except Exception as e:
@@ -14098,14 +14327,13 @@
       label: SDK_tools/sdk/python/v2024/methods/suggested-entitlement-description#get-sed-batch-stats
       source: |
         batch_id = '8c190e67-87aa-4ed9-a90b-d9d5344523fb' # str | Batch Id # str | Batch Id
-        x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
         try:
           # Submit Sed Batch Stats Request
           
-          api_response = api_instance.get_sed_batch_stats(batch_id, x_sail_point_experimental)
+          api_response = api_instance.get_sed_batch_stats(batch_id)
               
           # Below is a request that includes all optional parameters
-          # api_response = api_instance.get_sed_batch_stats(batch_id, x_sail_point_experimental)
+          # api_response = api_instance.get_sed_batch_stats(batch_id)
           print("The response of SuggestedEntitlementDescriptionApi->get_sed_batch_stats:\n")
           pprint(api_response)
         except Exception as e:
@@ -14116,14 +14344,13 @@
     - lang: Python
       label: SDK_tools/sdk/python/v2024/methods/suggested-entitlement-description#get-sed-batches
       source: |
-        x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
         try:
           # List Sed Batch Request
           
-          api_response = api_instance.get_sed_batches(x_sail_point_experimental)
+          api_response = api_instance.get_sed_batches()
               
           # Below is a request that includes all optional parameters
-          # api_response = api_instance.get_sed_batches(x_sail_point_experimental)
+          # api_response = api_instance.get_sed_batches()
           print("The response of SuggestedEntitlementDescriptionApi->get_sed_batches:\n")
           pprint(api_response)
         except Exception as e:
@@ -14134,21 +14361,21 @@
     - lang: Python
       label: SDK_tools/sdk/python/v2024/methods/suggested-entitlement-description#list-seds
       source: |
-        x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-        limit = limit=25 # int | Integer specifying the maximum number of records to return in a single API call.  The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used. (optional) # int | Integer specifying the maximum number of records to return in a single API call.  The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used. (optional)
+        limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
         filters = 'displayName co \"Read and Write\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **batchId**: *eq, ne*  **displayName**: *eq, ne, co*  **sourceName**: *eq, ne, co*  **sourceId**: *eq, ne*  **status**: *eq, ne*  **fullText**: *co* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **batchId**: *eq, ne*  **displayName**: *eq, ne, co*  **sourceName**: *eq, ne, co*  **sourceId**: *eq, ne*  **status**: *eq, ne*  **fullText**: *co* (optional)
         sorters = 'sorters=displayName' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName, sourceName, status** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName, sourceName, status** (optional)
-        count = count=true # bool | If `true` it will populate the `X-Total-Count` response header with the number of results that would be returned if `limit` and `offset` were ignored.  The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). Since requesting a total count can have a performance impact, it is recommended not to send `count=true` if that value will not be used. (optional) # bool | If `true` it will populate the `X-Total-Count` response header with the number of results that would be returned if `limit` and `offset` were ignored.  The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). Since requesting a total count can have a performance impact, it is recommended not to send `count=true` if that value will not be used. (optional)
-        count_only = count-only=true # bool | If `true` it will populate the `X-Total-Count` response header with the number of results that would be returned if `limit` and `offset` were ignored. This parameter differs from the Coun parameter in that this one skip executing the actual query and always return an empty array. (optional) # bool | If `true` it will populate the `X-Total-Count` response header with the number of results that would be returned if `limit` and `offset` were ignored. This parameter differs from the Coun parameter in that this one skip executing the actual query and always return an empty array. (optional)
-        requested_by_anyone = requested-by-anyone=true # bool | By default, the ListSeds API will only return items that you have requested to be generated.   This option will allow you to see all items that have been requested (optional) # bool | By default, the ListSeds API will only return items that you have requested to be generated.   This option will allow you to see all items that have been requested (optional)
-        show_pending_status_only = show-pending-status-only=true # bool | Will limit records to items that are in \"suggested\" or \"approved\" status (optional) # bool | Will limit records to items that are in \"suggested\" or \"approved\" status (optional)
+        count_only = False # bool | If `true` it will populate the `X-Total-Count` response header with the number of results that would be returned if `limit` and `offset` were ignored. This parameter differs from the count parameter in that this one skips executing the actual query and always return an empty array. (optional) (default to False) # bool | If `true` it will populate the `X-Total-Count` response header with the number of results that would be returned if `limit` and `offset` were ignored. This parameter differs from the count parameter in that this one skips executing the actual query and always return an empty array. (optional) (default to False)
+        requested_by_anyone = False # bool | By default, the ListSeds API will only return items that you have requested to be generated.   This option will allow you to see all items that have been requested (optional) (default to False) # bool | By default, the ListSeds API will only return items that you have requested to be generated.   This option will allow you to see all items that have been requested (optional) (default to False)
+        show_pending_status_only = False # bool | Will limit records to items that are in \"suggested\" or \"approved\" status (optional) (default to False) # bool | Will limit records to items that are in \"suggested\" or \"approved\" status (optional) (default to False)
         try:
           # List Suggested Entitlement Descriptions
           
-          api_response = api_instance.list_seds(x_sail_point_experimental, )
+          api_response = api_instance.list_seds()
               
           # Below is a request that includes all optional parameters
-          # api_response = api_instance.list_seds(x_sail_point_experimental, limit, filters, sorters, count, count_only, requested_by_anyone, show_pending_status_only)
+          # api_response = api_instance.list_seds(limit, offset, count, filters, sorters, count_only, requested_by_anyone, show_pending_status_only)
           print("The response of SuggestedEntitlementDescriptionApi->list_seds:\n")
           pprint(api_response)
         except Exception as e:
@@ -14160,7 +14387,6 @@
       label: SDK_tools/sdk/python/v2024/methods/suggested-entitlement-description#patch-sed
       source: |
         id = 'ebab396f-0af1-4050-89b7-dafc63ec70e7' # str | id is sed id # str | id is sed id
-        x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
         [sailpoint.v2024.SedPatch()] # List[SedPatch] | Sed Patch Request
          sed_patch = {
           "op" : "replace",
@@ -14171,10 +14397,10 @@
         try:
           # Patch Suggested Entitlement Description
           Result = sed_patch.from_json(sed_patch)
-          api_response = api_instance.patch_sed(id, x_sail_point_experimental, Result)
+          api_response = api_instance.patch_sed(id, Result)
               
           # Below is a request that includes all optional parameters
-          # api_response = api_instance.patch_sed(id, x_sail_point_experimental, Result)
+          # api_response = api_instance.patch_sed(id, Result)
           print("The response of SuggestedEntitlementDescriptionApi->patch_sed:\n")
           pprint(api_response)
         except Exception as e:
@@ -14185,7 +14411,6 @@
     - lang: Python
       label: SDK_tools/sdk/python/v2024/methods/suggested-entitlement-description#submit-sed-approval
       source: |
-        x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
         [sailpoint.v2024.SedApproval()] # List[SedApproval] | Sed Approval
          sed_approval = {
           "items" : "016629d1-1d25-463f-97f3-c6686846650"
@@ -14194,10 +14419,10 @@
         try:
           # Submit Bulk Approval Request
           Result = sed_approval.from_json(sed_approval)
-          api_response = api_instance.submit_sed_approval(x_sail_point_experimental, Result)
+          api_response = api_instance.submit_sed_approval(Result)
               
           # Below is a request that includes all optional parameters
-          # api_response = api_instance.submit_sed_approval(x_sail_point_experimental, Result)
+          # api_response = api_instance.submit_sed_approval(Result)
           print("The response of SuggestedEntitlementDescriptionApi->submit_sed_approval:\n")
           pprint(api_response)
         except Exception as e:
@@ -14208,7 +14433,6 @@
     - lang: Python
       label: SDK_tools/sdk/python/v2024/methods/suggested-entitlement-description#submit-sed-assignment
       source: |
-        x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
         sed_assignment = {
           "assignee" : {
             "type" : "SOURCE_OWNER",
@@ -14219,10 +14443,10 @@
         try:
           # Submit Sed Assignment Request
           Result = sed_assignment.from_json(sed_assignment)
-          api_response = api_instance.submit_sed_assignment(x_sail_point_experimental, Result)
+          api_response = api_instance.submit_sed_assignment(Result)
               
           # Below is a request that includes all optional parameters
-          # api_response = api_instance.submit_sed_assignment(x_sail_point_experimental, Result)
+          # api_response = api_instance.submit_sed_assignment(Result)
           print("The response of SuggestedEntitlementDescriptionApi->submit_sed_assignment:\n")
           pprint(api_response)
         except Exception as e:
@@ -14233,7 +14457,6 @@
     - lang: Python
       label: SDK_tools/sdk/python/v2024/methods/suggested-entitlement-description#submit-sed-batch-request
       source: |
-        x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
         sed_batch_request = {
           "entitlements" : [ "016629d1-1d25-463f-97f3-c6686846650", "016629d1-1d25-463f-97f3-c6686846650" ],
           "seds" : [ "016629d1-1d25-463f-97f3-c6686846650", "016629d1-1d25-463f-97f3-c6686846650" ]
@@ -14241,10 +14464,10 @@
         try:
           # Submit Sed Batch Request
           
-          api_response = api_instance.submit_sed_batch_request(x_sail_point_experimental, )
+          api_response = api_instance.submit_sed_batch_request()
               
           # Below is a request that includes all optional parameters
-          # api_response = api_instance.submit_sed_batch_request(x_sail_point_experimental, Result)
+          # api_response = api_instance.submit_sed_batch_request(Result)
           print("The response of SuggestedEntitlementDescriptionApi->submit_sed_batch_request:\n")
           pprint(api_response)
         except Exception as e:
@@ -14549,14 +14772,13 @@
     - lang: Python
       label: SDK_tools/sdk/python/v2024/methods/tenant#get-tenant
       source: |
-        x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
         try:
           # Get Tenant Information.
           
-          api_response = api_instance.get_tenant(x_sail_point_experimental)
+          api_response = api_instance.get_tenant()
               
           # Below is a request that includes all optional parameters
-          # api_response = api_instance.get_tenant(x_sail_point_experimental)
+          # api_response = api_instance.get_tenant()
           print("The response of TenantApi->get_tenant:\n")
           pprint(api_response)
         except Exception as e:
@@ -15501,6 +15723,28 @@
           pprint(api_response)
         except Exception as e:
           print("Exception when calling WorkItemsApi->complete_work_item: %s\n" % e)
+- path: /work-items/{id}/forward
+  method: POST
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2024/methods/work-items#forward-work-item
+      source: |
+        id = 'ef38f94347e94562b5bb8424a56397d8' # str | The ID of the work item # str | The ID of the work item
+        x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
+        work_item_forward = {
+          "targetOwnerId" : "2c9180835d2e5168015d32f890ca1581",
+          "comment" : "I'm going on vacation.",
+          "sendNotifications" : true
+        } # WorkItemForward | 
+        try:
+          # Forward a Work Item
+          Result = work_item_forward.from_json(work_item_forward)
+          api_instance.forward_work_item(id, x_sail_point_experimental, Result)
+              
+          # Below is a request that includes all optional parameters
+          # api_instance.forward_work_item(id, x_sail_point_experimental, Result)
+        except Exception as e:
+          print("Exception when calling WorkItemsApi->forward_work_item: %s\n" % e)
 - path: /work-items/completed
   method: GET
   xCodeSample:
@@ -15528,14 +15772,15 @@
     - lang: Python
       label: SDK_tools/sdk/python/v2024/methods/work-items#get-count-completed-work-items
       source: |
-        owner_id = '1211bcaa32112bcef6122adb21cef1ac' # str | ID of the work item owner. (optional) # str | ID of the work item owner. (optional)
+        x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
+        owner_id = 'owner_id_example' # str | ID of the work item owner. (optional) # str | ID of the work item owner. (optional)
         try:
           # Count Completed Work Items
           
-          api_response = api_instance.get_count_completed_work_items()
+          api_response = api_instance.get_count_completed_work_items(x_sail_point_experimental, )
               
           # Below is a request that includes all optional parameters
-          # api_response = api_instance.get_count_completed_work_items(owner_id)
+          # api_response = api_instance.get_count_completed_work_items(x_sail_point_experimental, owner_id)
           print("The response of WorkItemsApi->get_count_completed_work_items:\n")
           pprint(api_response)
         except Exception as e:
@@ -15652,27 +15897,6 @@
           pprint(api_response)
         except Exception as e:
           print("Exception when calling WorkItemsApi->reject_approval_items_in_bulk: %s\n" % e)
-- path: /work-items/{id}/forward
-  method: POST
-  xCodeSample:
-    - lang: Python
-      label: SDK_tools/sdk/python/v2024/methods/work-items#send-work-item-forward
-      source: |
-        id = 'ef38f94347e94562b5bb8424a56397d8' # str | The ID of the work item # str | The ID of the work item
-        work_item_forward = {
-          "targetOwnerId" : "2c9180835d2e5168015d32f890ca1581",
-          "comment" : "I'm going on vacation.",
-          "sendNotifications" : true
-        } # WorkItemForward | 
-        try:
-          # Forward a Work Item
-          Result = work_item_forward.from_json(work_item_forward)
-          api_instance.send_work_item_forward(id, Result)
-              
-          # Below is a request that includes all optional parameters
-          # api_instance.send_work_item_forward(id, Result)
-        except Exception as e:
-          print("Exception when calling WorkItemsApi->send_work_item_forward: %s\n" % e)
 - path: /work-items/{id}/submit-account-selection
   method: POST
   xCodeSample:

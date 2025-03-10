@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 from sailpoint.v2024.models.connected_object import ConnectedObject
 
 connected_object = ConnectedObject(
-type='ACCESS_PROFILE',
+type=,
 id='2c91808568c529c60168cca6f90c1313',
 name='Employee-database-read-write',
 description='Collection of entitlements to read/write the employee database.'

@@ -19,7 +19,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | The unique ID of the referenced object. | [required]
 **name** | **str** | The human readable name of the referenced object. | [required]
-**type** | [**DocumentType**](document-type) |  | [required]
 **display_name** | **str** | Identity's display name. | [optional] 
 **first_name** | **str** | Identity's first name. | [optional] 
 **last_name** | **str** | Identity's last name. | [optional] 
@@ -37,6 +36,8 @@ Name | Type | Description | Notes
 **identity_profile** | [**IdentityDocumentAllOfIdentityProfile**](identity-document-all-of-identity-profile) |  | [optional] 
 **source** | [**IdentityDocumentAllOfSource**](identity-document-all-of-source) |  | [optional] 
 **attributes** | **map[string]object** | Map or dictionary of key/value pairs. | [optional] 
+**disabled** | **bool** | Indicates whether the identity is disabled. | [optional] [default to False]
+**locked** | **bool** | Indicates whether the identity is locked. | [optional] [default to False]
 **processing_state** | **str** | Identity's processing state. | [optional] 
 **processing_details** | [**ProcessingDetails**](processing-details) |  | [optional] 
 **accounts** | [**[]BaseAccount**](base-account) | List of accounts associated with the identity. | [optional] 
@@ -51,6 +52,9 @@ Name | Type | Description | Notes
 **owns** | [**[]Owns**](owns) | Access items the identity owns. | [optional] 
 **owns_count** | **int** | Number of access items the identity owns. | [optional] 
 **tags** | **[]str** | Tags that have been applied to the object. | [optional] 
+**tags_count** | **int** | Number of tags on the identity. | [optional] 
+**visible_segments** | **[]str** | List of segments that the identity is in. | [optional] 
+**visible_segment_count** | **int** | Number of segments the identity is in. | [optional] 
 }
 
 ## Example
@@ -61,7 +65,6 @@ from sailpoint.v3.models.identity_document import IdentityDocument
 identity_document = IdentityDocument(
 id='2c91808568c529c60168cca6f90c1313',
 name='John Doe',
-type='identity',
 display_name='Carol.Adams',
 first_name='Carol',
 last_name='Adams',
@@ -86,7 +89,9 @@ source=sailpoint.v3.models.identity_document_all_of_source.IdentityDocument_allO
                     id = '2c91808b6e9e6fb8016eec1a2b6f7b5f', 
                     name = 'ODS-HR-Employees', ),
 attributes={country=US, firstname=Carol, cloudStatus=UNREGISTERED},
-processing_state='',
+disabled=False,
+locked=False,
+processing_state='ERROR',
 processing_details=sailpoint.v3.models.processing_details.ProcessingDetails(
                     date = '2018-06-25T20:22:28.104Z', 
                     stage = 'In Process', 
@@ -135,7 +140,10 @@ owns=[
                         fallback_approver = False, )
                     ],
 owns_count=5,
-tags=[TAG_1, TAG_2]
+tags=[TAG_1, TAG_2],
+tags_count=56,
+visible_segments=[All Employees],
+visible_segment_count=1
 )
 
 ```

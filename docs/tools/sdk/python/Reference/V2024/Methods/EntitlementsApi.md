@@ -97,12 +97,12 @@ Path   | attribute_value | **str** | True  | Technical name of the Attribute Val
    | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
 
 ### Return type
-[**Entitlement1**](../models/entitlement1)
+[**Entitlement**](../models/entitlement)
 
 ### Responses
 Code | Description  | Data Type | Response headers |
 ------------- | ------------- | ------------- |------------------|
-200 | OK | Entitlement1 |  -  |
+200 | OK | Entitlement |  -  |
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
@@ -119,7 +119,7 @@ Code | Description  | Data Type | Response headers |
 import sailpoint.v2024
 from sailpoint.v2024.api.entitlements_api import EntitlementsApi
 from sailpoint.v2024.api_client import ApiClient
-from sailpoint.v2024.models.entitlement1 import Entitlement1
+from sailpoint.v2024.models.entitlement import Entitlement
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
@@ -228,12 +228,12 @@ Path   | id | **str** | True  | The entitlement ID
    | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
 
 ### Return type
-[**Entitlement1**](../models/entitlement1)
+[**Entitlement**](../models/entitlement)
 
 ### Responses
 Code | Description  | Data Type | Response headers |
 ------------- | ------------- | ------------- |------------------|
-200 | An entitlement | Entitlement1 |  -  |
+200 | An entitlement | Entitlement |  -  |
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
@@ -251,7 +251,7 @@ Code | Description  | Data Type | Response headers |
 import sailpoint.v2024
 from sailpoint.v2024.api.entitlements_api import EntitlementsApi
 from sailpoint.v2024.api_client import ApiClient
-from sailpoint.v2024.models.entitlement1 import Entitlement1
+from sailpoint.v2024.models.entitlement import Entitlement
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
@@ -436,12 +436,12 @@ Path   | id | **str** | True  | Entitlement Id
   Query | filters | **str** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **type**: *eq, in*  **attribute**: *eq, in*  **value**: *eq, in, sw*  **source.id**: *eq, in*  **requestable**: *eq*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*
 
 ### Return type
-[**List[Entitlement1]**](../models/entitlement1)
+[**List[Entitlement]**](../models/entitlement)
 
 ### Responses
 Code | Description  | Data Type | Response headers |
 ------------- | ------------- | ------------- |------------------|
-200 | List of entitlements children from an entitlement | List[Entitlement1] |  -  |
+200 | List of entitlements children from an entitlement | List[Entitlement] |  -  |
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
@@ -459,7 +459,7 @@ Code | Description  | Data Type | Response headers |
 import sailpoint.v2024
 from sailpoint.v2024.api.entitlements_api import EntitlementsApi
 from sailpoint.v2024.api_client import ApiClient
-from sailpoint.v2024.models.entitlement1 import Entitlement1
+from sailpoint.v2024.models.entitlement import Entitlement
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
@@ -511,12 +511,12 @@ Path   | id | **str** | True  | Entitlement Id
   Query | filters | **str** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **type**: *eq, in*  **attribute**: *eq, in*  **value**: *eq, in, sw*  **source.id**: *eq, in*  **requestable**: *eq*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*
 
 ### Return type
-[**List[Entitlement1]**](../models/entitlement1)
+[**List[Entitlement]**](../models/entitlement)
 
 ### Responses
 Code | Description  | Data Type | Response headers |
 ------------- | ------------- | ------------- |------------------|
-200 | List of entitlements parents from an entitlement | List[Entitlement1] |  -  |
+200 | List of entitlements parents from an entitlement | List[Entitlement] |  -  |
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
@@ -534,7 +534,7 @@ Code | Description  | Data Type | Response headers |
 import sailpoint.v2024
 from sailpoint.v2024.api.entitlements_api import EntitlementsApi
 from sailpoint.v2024.api_client import ApiClient
-from sailpoint.v2024.models.entitlement1 import Entitlement1
+from sailpoint.v2024.models.entitlement import Entitlement
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
@@ -593,12 +593,12 @@ Param Type | Name | Data Type | Required  | Description
   Query | filters | **str** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **type**: *eq, in*  **attribute**: *eq, in*  **value**: *eq, in, sw*  **source.id**: *eq, in*  **requestable**: *eq*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*
 
 ### Return type
-[**List[Entitlement1]**](../models/entitlement1)
+[**List[Entitlement]**](../models/entitlement)
 
 ### Responses
 Code | Description  | Data Type | Response headers |
 ------------- | ------------- | ------------- |------------------|
-200 | List of entitlements | List[Entitlement1] |  -  |
+200 | List of entitlements | List[Entitlement] |  -  |
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
@@ -615,7 +615,7 @@ Code | Description  | Data Type | Response headers |
 import sailpoint.v2024
 from sailpoint.v2024.api.entitlements_api import EntitlementsApi
 from sailpoint.v2024.api_client import ApiClient
-from sailpoint.v2024.models.entitlement1 import Entitlement1
+from sailpoint.v2024.models.entitlement import Entitlement
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
@@ -670,12 +670,12 @@ Path   | id | **str** | True  | ID of the entitlement to patch
  Body  | json_patch_operation | [**[]JsonPatchOperation**](../models/json-patch-operation) |   (optional) | 
 
 ### Return type
-[**Entitlement1**](../models/entitlement1)
+[**Entitlement**](../models/entitlement)
 
 ### Responses
 Code | Description  | Data Type | Response headers |
 ------------- | ------------- | ------------- |------------------|
-200 | Responds with the entitlement as updated. | Entitlement1 |  -  |
+200 | Responds with the entitlement as updated. | Entitlement |  -  |
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
@@ -693,7 +693,7 @@ Code | Description  | Data Type | Response headers |
 import sailpoint.v2024
 from sailpoint.v2024.api.entitlements_api import EntitlementsApi
 from sailpoint.v2024.api_client import ApiClient
-from sailpoint.v2024.models.entitlement1 import Entitlement1
+from sailpoint.v2024.models.entitlement import Entitlement
 from sailpoint.v2024.models.json_patch_operation import JsonPatchOperation
 from pprint import pprint
 from sailpoint.configuration import Configuration
@@ -776,17 +776,10 @@ with ApiClient(configuration) as api_client:
     id = '2c91808a7813090a017814121e121518' # str | Entitlement ID # str | Entitlement ID
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     entitlement_request_config = {
-          "accessRequestConfig" : {
-            "denialCommentRequired" : false,
-            "approvalSchemes" : [ {
-              "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
-              "approverType" : "GOVERNANCE_GROUP"
-            }, {
-              "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
-              "approverType" : "GOVERNANCE_GROUP"
-            } ],
-            "requestCommentRequired" : true
-          }
+          "requestCommentsRequired" : false,
+          "deniedCommentsRequired" : false,
+          "allowEntitlementRequest" : true,
+          "grantRequestApprovalSchemes" : "entitlementOwner, sourceOwner, manager, workgroup:2c918084660f45d6016617daa9210584"
         } # EntitlementRequestConfig | 
 
     try:

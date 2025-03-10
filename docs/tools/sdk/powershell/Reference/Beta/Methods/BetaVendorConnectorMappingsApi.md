@@ -85,10 +85,10 @@ $VendorConnectorMapping = @"{
 
 try {
     $Result = ConvertFrom-JsonToVendorConnectorMapping -Json $VendorConnectorMapping
-    New-BetaVendorConnectorMapping -BetaVendorConnectorMapping $Result 
+    New-BetaVendorConnectorMapping -VendorConnectorMapping $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaVendorConnectorMapping -BetaVendorConnectorMapping $Result  
+    # New-BetaVendorConnectorMapping -VendorConnectorMapping $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaVendorConnectorMapping"
     Write-Host $_.ErrorDetails
@@ -155,10 +155,10 @@ $VendorConnectorMapping = @"{
 
 try {
     $Result = ConvertFrom-JsonToVendorConnectorMapping -Json $VendorConnectorMapping
-    Remove-BetaVendorConnectorMapping -BetaVendorConnectorMapping $Result 
+    Remove-BetaVendorConnectorMapping -VendorConnectorMapping $Result 
     
     # Below is a request that includes all optional parameters
-    # Remove-BetaVendorConnectorMapping -BetaVendorConnectorMapping $Result  
+    # Remove-BetaVendorConnectorMapping -VendorConnectorMapping $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaVendorConnectorMapping"
     Write-Host $_.ErrorDetails

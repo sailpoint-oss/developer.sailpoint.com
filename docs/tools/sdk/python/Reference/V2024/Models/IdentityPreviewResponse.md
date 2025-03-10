@@ -35,12 +35,7 @@ preview_attributes=[
                         name = 'email', 
                         value = 'email@mail.com', 
                         previous_value = 'oldEmail@mail.com', 
-                        error_messages = [
-                            sailpoint.v2024.models.error_message_dto.ErrorMessageDto(
-                                locale = 'en-US', 
-                                locale_origin = 'DEFAULT', 
-                                text = 'The request was syntactically correct but its content is semantically invalid.', )
-                            ], )
+                        error_messages = {locale=en-US, localeOrigin=DEFAULT, text=Error Message}, )
                     ]
 )
 

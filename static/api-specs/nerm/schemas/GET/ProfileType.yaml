@@ -32,7 +32,7 @@ properties:
     example: false
   permitted_role_ids:
     type: array
-    items: 
+    items:
       type: string
       format: uuid
     description: The role ids that are permitted for this profile type.
@@ -43,7 +43,7 @@ properties:
     example: false
   profile_type_dup_attributes:
     type: array
-    items: 
+    items:
       type: object
       properties:
         id:
@@ -55,7 +55,7 @@ properties:
           type: string
           minLength: 32
           maxLength: 32
-          description: The uid of the properties that are used for duplication protection.
+          description: The user-specified identifier of the properties that are used for duplication protection.
           example: attribute-uid
         profile_type_id:
           type: string
@@ -69,7 +69,7 @@ properties:
           example: 33f072dd-13b4-41e1-8ea0-16f2a59b57c8
   profile_type_namings:
     type: array
-    items: 
+    items:
       type: object
       properties:
         id:
@@ -81,7 +81,7 @@ properties:
           type: string
           minLength: 32
           maxLength: 32
-          description: The UID of the profile type naming.
+          description: The user-specified identifier of the profile type naming.
           example: profile-type-name
         profile_type_id:
           type: string

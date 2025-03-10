@@ -68,10 +68,10 @@ $AccessRequestRecommendationActionItemDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
-    Add-BetaAccessRequestRecommendationsIgnoredItem -BetaAccessRequestRecommendationActionItemDto $Result 
+    Add-BetaAccessRequestRecommendationsIgnoredItem -AccessRequestRecommendationActionItemDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Add-BetaAccessRequestRecommendationsIgnoredItem -BetaAccessRequestRecommendationActionItemDto $Result  
+    # Add-BetaAccessRequestRecommendationsIgnoredItem -AccessRequestRecommendationActionItemDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Add-BetaAccessRequestRecommendationsIgnoredItem"
     Write-Host $_.ErrorDetails
@@ -120,10 +120,10 @@ $AccessRequestRecommendationActionItemDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
-    Add-BetaAccessRequestRecommendationsRequestedItem -BetaAccessRequestRecommendationActionItemDto $Result 
+    Add-BetaAccessRequestRecommendationsRequestedItem -AccessRequestRecommendationActionItemDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Add-BetaAccessRequestRecommendationsRequestedItem -BetaAccessRequestRecommendationActionItemDto $Result  
+    # Add-BetaAccessRequestRecommendationsRequestedItem -AccessRequestRecommendationActionItemDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Add-BetaAccessRequestRecommendationsRequestedItem"
     Write-Host $_.ErrorDetails
@@ -172,10 +172,10 @@ $AccessRequestRecommendationActionItemDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
-    Add-BetaAccessRequestRecommendationsViewedItem -BetaAccessRequestRecommendationActionItemDto $Result 
+    Add-BetaAccessRequestRecommendationsViewedItem -AccessRequestRecommendationActionItemDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Add-BetaAccessRequestRecommendationsViewedItem -BetaAccessRequestRecommendationActionItemDto $Result  
+    # Add-BetaAccessRequestRecommendationsViewedItem -AccessRequestRecommendationActionItemDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Add-BetaAccessRequestRecommendationsViewedItem"
     Write-Host $_.ErrorDetails
@@ -225,10 +225,10 @@ Code | Description  | Data Type
 
 try {
     $Result = ConvertFrom-JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
-    Add-BetaAccessRequestRecommendationsViewedItems -BetaAccessRequestRecommendationActionItemDto $Result 
+    Add-BetaAccessRequestRecommendationsViewedItems -AccessRequestRecommendationActionItemDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Add-BetaAccessRequestRecommendationsViewedItems -BetaAccessRequestRecommendationActionItemDto $Result  
+    # Add-BetaAccessRequestRecommendationsViewedItems -AccessRequestRecommendationActionItemDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Add-BetaAccessRequestRecommendationsViewedItems"
     Write-Host $_.ErrorDetails

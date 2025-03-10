@@ -11,9 +11,9 @@ get:
     This endpoint may only fetch up to 2000 invocations, and should not be treated
     as a representation of the full history of invocations.'
   parameters:
-  - $ref: ../../v3/parameters/limit.yaml
-  - $ref: ../../v3/parameters/offset.yaml
-  - $ref: ../../v3/parameters/count.yaml
+  - $ref: ../parameters/limit.yaml
+  - $ref: ../parameters/offset.yaml
+  - $ref: ../parameters/count.yaml
   - in: query
     name: filters
     required: false
@@ -60,17 +60,17 @@ get:
           schema:
             type: array
             items:
-              $ref: ../../beta/schemas/InvocationStatus.yaml
+              $ref: ../schemas/InvocationStatus.yaml
     '400':
-      $ref: ../../v3/responses/400.yaml
+      $ref: ../responses/400.yaml
     '401':
-      $ref: ../../v3/responses/401.yaml
+      $ref: ../responses/401.yaml
     '403':
-      $ref: ../../v3/responses/403.yaml
+      $ref: ../responses/403.yaml
     '429':
-      $ref: ../../v3/responses/429.yaml
+      $ref: ../responses/429.yaml
     '500':
-      $ref: ../../v3/responses/500.yaml
+      $ref: ../responses/500.yaml
   security:
   - userAuth:
     - sp:trigger-service-invocation-status:read

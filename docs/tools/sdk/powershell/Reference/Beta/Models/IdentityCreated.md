@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $IdentityCreated = Initialize-PSSailpoint.BetaIdentityCreated  -Identity null `
- -Attributes {firstname&#x3D;John}
+ -Attributes {firstname=John}
 ```
 
 - Convert the resource to JSON

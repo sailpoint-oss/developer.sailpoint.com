@@ -23,8 +23,8 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $ManualDiscoverApplications = Initialize-PSSailpoint.V3ManualDiscoverApplications  -File application_name,description
-&quot;Sample App&quot;,&quot;This is a sample description for Sample App.&quot;
-&quot;Another App&quot;,&quot;Description for Another App.&quot;
+"Sample App","This is a sample description for Sample App."
+"Another App","Description for Another App."
 ```
 
 - Convert the resource to JSON

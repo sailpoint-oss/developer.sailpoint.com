@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 **identity_state** | **str** | The identity state of the identity this account is correlated to | [optional] 
 **connection_type** | **str** | The connection type of the source this account is from | [optional] 
 **is_machine** | **bool** | Indicates if the account is of machine type | [optional] [default to False]
-**recommendation** | [**Recommendation**](recommendation) |  | [optional] 
+**recommendation** | [**AccountAllOfRecommendation**](account-all-of-recommendation) |  | [optional] 
 **attributes** | **map[string]object** | The account attributes that are aggregated | [required]
 **authoritative** | **bool** | Indicates if this account is from an authoritative source | [required]
 **description** | **str** | A description of the account | [optional] 
@@ -39,11 +39,11 @@ Name | Type | Description | Notes
 **uuid** | **str** | The unique ID of the account as determined by the account schema | [optional] 
 **manually_correlated** | **bool** | Indicates if the account has been manually correlated to an identity | [required]
 **has_entitlements** | **bool** | Indicates if the account has entitlements | [required]
-**identity** | [**BaseReferenceDto**](base-reference-dto) |  | [optional] 
-**source_owner** | [**BaseReferenceDto**](base-reference-dto) |  | [optional] 
+**identity** | [**AccountAllOfIdentity**](account-all-of-identity) |  | [optional] 
+**source_owner** | [**AccountAllOfSourceOwner**](account-all-of-source-owner) |  | [optional] 
 **features** | **str** | A string list containing the owning source's features | [optional] 
 **origin** |  **Enum** [  'AGGREGATED',    'PROVISIONED' ] | The origin of the account either aggregated or provisioned | [optional] 
-**owner_identity** | [**BaseReferenceDto**](base-reference-dto) |  | [optional] 
+**owner_identity** | [**AccountAllOfOwnerIdentity**](account-all-of-owner-identity) |  | [optional] 
 }
 
 ## Example
@@ -63,9 +63,7 @@ cloud_lifecycle_state='active',
 identity_state='ACTIVE',
 connection_type='direct',
 is_machine=True,
-recommendation=sailpoint.v2024.models.recommendation.Recommendation(
-                    type = 'MACHINE', 
-                    method = 'DISCOVERY', ),
+recommendation=,
 attributes={firstName=SailPoint, lastName=Support, displayName=SailPoint Support},
 authoritative=False,
 description='',
@@ -77,20 +75,17 @@ uncorrelated=False,
 uuid='{b0dce506-d6d4-44d2-8a32-d9a5b21fb175}',
 manually_correlated=False,
 has_entitlements=True,
-identity=sailpoint.v2024.models.base_reference_dto.BaseReferenceDto(
+identity=sailpoint.v2024.models.account_all_of_identity.Account_allOf_identity(
+                    id = '2c918084660f45d6016617daa9210584', 
                     type = 'IDENTITY', 
-                    id = '2c91808568c529c60168cca6f90c1313', 
-                    name = 'William Wilson', ),
-source_owner=sailpoint.v2024.models.base_reference_dto.BaseReferenceDto(
+                    name = 'John Doe', ),
+source_owner=sailpoint.v2024.models.account_all_of_source_owner.Account_allOf_sourceOwner(
+                    id = '2c918084660f45d6016617daa9210584', 
                     type = 'IDENTITY', 
-                    id = '2c91808568c529c60168cca6f90c1313', 
-                    name = 'William Wilson', ),
+                    name = 'Adam Kennedy', ),
 features='ENABLE',
 origin='AGGREGATED',
-owner_identity=sailpoint.v2024.models.base_reference_dto.BaseReferenceDto(
-                    type = 'IDENTITY', 
-                    id = '2c91808568c529c60168cca6f90c1313', 
-                    name = 'William Wilson', )
+owner_identity=
 )
 
 ```

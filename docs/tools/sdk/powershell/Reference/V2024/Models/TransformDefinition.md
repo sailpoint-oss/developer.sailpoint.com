@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'TransformDefinition', 'V2024Transform
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **String** | The type of the transform definition. | [optional] 
+**Type** | **String** | Transform definition type. | [optional] 
 **Attributes** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | Arbitrary key-value pairs to store any metadata for the object | [optional] 
 
 ## Examples
@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $TransformDefinition = Initialize-PSSailpoint.V2024TransformDefinition  -Type accountAttribute `
- -Attributes {attributeName&#x3D;e-mail, sourceName&#x3D;MySource, sourceId&#x3D;2c9180877a826e68017a8c0b03da1a53}
+ -Attributes {attributeName=e-mail, sourceName=MySource, sourceId=2c9180877a826e68017a8c0b03da1a53}
 ```
 
 - Convert the resource to JSON

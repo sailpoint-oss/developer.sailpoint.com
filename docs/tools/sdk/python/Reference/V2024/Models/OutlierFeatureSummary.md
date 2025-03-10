@@ -38,7 +38,9 @@ outlier_feature_display_values=[
                     sailpoint.v2024.models.outlier_feature_summary_outlier_feature_display_values_inner.OutlierFeatureSummary_outlierFeatureDisplayValues_inner(
                         display_name = 'Aliza Chris', 
                         value = '55', 
-                        value_type = 'INTEGER', )
+                        value_type = sailpoint.v2024.models.outlier_value_type.OutlierValueType(
+                            name = 'INTEGER', 
+                            ordinal = 0, ), )
                     ],
 feature_definition='Identity total number of entitlements',
 feature_explanation='An identity that has too much rare access has a higher change of becoming a security threat due to the unique access they possess',

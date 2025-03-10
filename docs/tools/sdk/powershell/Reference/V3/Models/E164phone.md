@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 ```powershell
 $E164phone = Initialize-PSSailpoint.V3E164phone  -DefaultRegion US `
  -RequiresPeriodicRefresh false `
- -VarInput {type&#x3D;accountAttribute, attributes&#x3D;{attributeName&#x3D;first_name, sourceName&#x3D;Source}}
+ -VarInput {type=accountAttribute, attributes={attributeName=first_name, sourceName=Source}}
 ```
 
 - Convert the resource to JSON

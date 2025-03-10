@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 ```powershell
 $JITConfiguration = Initialize-PSSailpoint.V3JITConfiguration  -Enabled false `
  -SourceId 2c9180857377ed2901739c12a2da5ac8 `
- -SourceAttributeMappings {firstName&#x3D;okta.firstName, lastName&#x3D;okta.lastName, email&#x3D;okta.email}
+ -SourceAttributeMappings {firstName=okta.firstName, lastName=okta.lastName, email=okta.email}
 ```
 
 - Convert the resource to JSON

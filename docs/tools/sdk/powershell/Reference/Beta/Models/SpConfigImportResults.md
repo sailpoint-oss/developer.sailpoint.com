@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SpConfigImportResults = Initialize-PSSailpoint.BetaSpConfigImportResults  -Results {results&#x3D;{TRIGGER_SUBSCRIPTION&#x3D;{infos&#x3D;[{key&#x3D;IMPORT_PREVIEW, text&#x3D;Object to be imported: [c953134c-2224-42f2-a84e-fa5cbb395904, Test 2], detail&#x3D;null}, {key&#x3D;IMPORT_PREVIEW, text&#x3D;Object to be imported: [be9e116d-08e1-49fc-ab7f-fa585e96c9e4, Test 1], detail&#x3D;null}], warnings&#x3D;[], errors&#x3D;[], importedObjects&#x3D;[]}}} `
+$SpConfigImportResults = Initialize-PSSailpoint.BetaSpConfigImportResults  -Results {results={TRIGGER_SUBSCRIPTION={infos=[{key=IMPORT_PREVIEW, text=Object to be imported: [c953134c-2224-42f2-a84e-fa5cbb395904, Test 2], detail=null}, {key=IMPORT_PREVIEW, text=Object to be imported: [be9e116d-08e1-49fc-ab7f-fa585e96c9e4, Test 1], detail=null}], warnings=[], errors=[], importedObjects=[]}}} `
  -ExportJobId be9e116d-08e1-49fc-ab7f-fa585e96c9e4
 ```
 

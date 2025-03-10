@@ -1211,12 +1211,12 @@ Param Type | Name | Data Type | Required  | Description
    | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
 
 ### Return type
-[**ListFormInstancesByTenantResponse**](../models/list-form-instances-by-tenant-response)
+[**List[ListFormInstancesByTenantResponse]**](../models/list-form-instances-by-tenant-response)
 
 ### Responses
 Code | Description  | Data Type | Response headers |
 ------------- | ------------- | ------------- |------------------|
-200 | Returns a list of form instances by tenant | ListFormInstancesByTenantResponse |  -  |
+200 | Returns a list of form instances by tenant | List[ListFormInstancesByTenantResponse] |  -  |
 400 | An error with the request occurred | SearchFormDefinitionsByTenant400Response |  -  |
 401 | An error with the authorization occurred | SearchFormDefinitionsByTenant400Response |  -  |
 403 | An error with the user permissions occurred | SearchFormDefinitionsByTenant400Response |  -  |

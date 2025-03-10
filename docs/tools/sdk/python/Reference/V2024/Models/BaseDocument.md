@@ -16,9 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'BaseDocument', 'V2024BaseDocument']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | [required]
-**name** | **str** |  | [required]
-**type** | [**DocumentType**](document-type) |  | [required]
+**id** | **str** | ID of the referenced object. | [required]
+**name** | **str** | The human readable name of the referenced object. | [required]
 }
 
 ## Example
@@ -28,8 +27,7 @@ from sailpoint.v2024.models.base_document import BaseDocument
 
 base_document = BaseDocument(
 id='2c91808375d8e80a0175e1f88a575222',
-name='john.doe',
-type='identity'
+name='john.doe'
 )
 
 ```

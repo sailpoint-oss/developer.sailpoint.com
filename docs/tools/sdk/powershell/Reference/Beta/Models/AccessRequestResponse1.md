@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 ```powershell
 $AccessRequestResponse1 = Initialize-PSSailpoint.BetaAccessRequestResponse1  -RequesterId 2c91808a77ff216301782327a50f09bf `
  -RequesterName Bing C `
- -Items [{operation&#x3D;Add, accessItemType&#x3D;role, name&#x3D;Role-1, decision&#x3D;APPROVED, description&#x3D;The role descrition, sourceId&#x3D;8a80828f643d484f01643e14202e206f, sourceName&#x3D;Source1, approvalInfos&#x3D;[{name&#x3D;John Snow, id&#x3D;8a80828f643d484f01643e14202e2000, status&#x3D;Approved}]}]
+ -Items [{operation=Add, accessItemType=role, name=Role-1, decision=APPROVED, description=The role descrition, sourceId=8a80828f643d484f01643e14202e206f, sourceName=Source1, approvalInfos=[{name=John Snow, id=8a80828f643d484f01643e14202e2000, status=Approved}]}]
 ```
 
 - Convert the resource to JSON

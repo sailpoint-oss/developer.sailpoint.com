@@ -34,7 +34,7 @@ $CorrelationConfigAttributeAssignmentsInner = Initialize-PSSailpoint.BetaCorrela
  -Complex false `
  -IgnoreCase false `
  -MatchMode ANYWHERE `
- -FilterString first_name &#x3D;&#x3D; &quot;John&quot;
+ -FilterString first_name == "John"
 ```
 
 - Convert the resource to JSON

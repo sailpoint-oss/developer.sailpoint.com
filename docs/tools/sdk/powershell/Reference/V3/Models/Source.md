@@ -62,13 +62,13 @@ $Source = Initialize-PSSailpoint.V3Source  -Id 2c91808568c529c60168cca6f90c1324 
  -ManagerCorrelationMapping null `
  -ManagerCorrelationRule null `
  -BeforeProvisioningRule null `
- -Schemas [{type&#x3D;CONNECTOR_SCHEMA, id&#x3D;2c9180835d191a86015d28455b4b232a, name&#x3D;account}, {type&#x3D;CONNECTOR_SCHEMA, id&#x3D;2c9180835d191a86015d28455b4b232b, name&#x3D;group}] `
- -PasswordPolicies [{type&#x3D;PASSWORD_POLICY, id&#x3D;2c9180855d191c59015d291ceb053980, name&#x3D;Corporate Password Policy}, {type&#x3D;PASSWORD_POLICY, id&#x3D;2c9180855d191c59015d291ceb057777, name&#x3D;Vendor Password Policy}] `
+ -Schemas [{type=CONNECTOR_SCHEMA, id=2c9180835d191a86015d28455b4b232a, name=account}, {type=CONNECTOR_SCHEMA, id=2c9180835d191a86015d28455b4b232b, name=group}] `
+ -PasswordPolicies [{type=PASSWORD_POLICY, id=2c9180855d191c59015d291ceb053980, name=Corporate Password Policy}, {type=PASSWORD_POLICY, id=2c9180855d191c59015d291ceb057777, name=Vendor Password Policy}] `
  -Features [PROVISIONING, NO_PERMISSIONS_PROVISIONING, GROUPS_HAVE_MEMBERS] `
  -Type OpenLDAP - Direct `
  -Connector active-directory `
  -ConnectorClass sailpoint.connector.LDAPConnector `
- -ConnectorAttributes {healthCheckTimeout&#x3D;30, authSearchAttributes&#x3D;[cn, uid, mail]} `
+ -ConnectorAttributes {healthCheckTimeout=30, authSearchAttributes=[cn, uid, mail]} `
  -DeleteThreshold 10 `
  -Authoritative false `
  -ManagementWorkgroup null `

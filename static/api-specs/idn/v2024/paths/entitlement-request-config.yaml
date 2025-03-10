@@ -31,7 +31,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../../beta/schemas/EntitlementRequestConfig.yaml
+            $ref: ../schemas/EntitlementRequestConfig.yaml
           example:
             accessRequestConfig:
               requestCommentRequired: true
@@ -46,17 +46,17 @@ get:
               - approverType: GOVERNANCE_GROUP
                 approverId: 46c79819-a69f-49a2-becb-12c971ae66c6
     '400':
-      $ref: ../../v3/responses/400.yaml
+      $ref: ../responses/400.yaml
     '401':
-      $ref: ../../v3/responses/401.yaml
+      $ref: ../responses/401.yaml
     '403':
-      $ref: ../../v3/responses/403.yaml
+      $ref: ../responses/403.yaml
     '404':
-      $ref: ../../v3/responses/404.yaml
+      $ref: ../responses/404.yaml
     '429':
-      $ref: ../../v3/responses/429.yaml
+      $ref: ../responses/429.yaml
     '500':
-      $ref: ../../v3/responses/500.yaml
+      $ref: ../responses/500.yaml
 put:
   operationId: putEntitlementRequestConfig
   tags:
@@ -88,14 +88,14 @@ put:
     content:
       application/json:
         schema:
-          $ref: ../../beta/schemas/EntitlementRequestConfig.yaml
+          $ref: ../schemas/EntitlementRequestConfig.yaml
   responses:
     '200':
       description: Responds with the entitlement request config as updated.
       content:
         application/json:
           schema:
-            $ref: ../../beta/schemas/EntitlementRequestConfig.yaml
+            $ref: ../schemas/EntitlementRequestConfig.yaml
           example:
             accessRequestConfig:
               requestCommentRequired: true
@@ -110,14 +110,14 @@ put:
               - approverType: GOVERNANCE_GROUP
                 approverId: 46c79819-a69f-49a2-becb-12c971ae66c6
     '400':
-      $ref: ../../v3/responses/400.yaml
+      $ref: ../responses/400.yaml
     '401':
-      $ref: ../../v3/responses/401.yaml
+      $ref: ../responses/401.yaml
     '403':
-      $ref: ../../v3/responses/403.yaml
+      $ref: ../responses/403.yaml
     '404':
-      $ref: ../../v3/responses/404.yaml
+      $ref: ../responses/404.yaml
     '429':
-      $ref: ../../v3/responses/429.yaml
+      $ref: ../responses/429.yaml
     '500':
-      $ref: ../../v3/responses/500.yaml
+      $ref: ../responses/500.yaml

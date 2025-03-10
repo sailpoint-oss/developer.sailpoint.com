@@ -17,12 +17,12 @@ tags: ['SDK', 'Software Development Kit', 'GetRoleAssignments200ResponseInner', 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** | Assignment Id | [optional] 
-**Role** | [**BaseReferenceDto1**](base-reference-dto1) |  | [optional] 
+**Role** | [**BaseReferenceDto**](base-reference-dto) |  | [optional] 
 **Comments** | **String** | Comments added by the user when the assignment was made | [optional] 
 **AssignmentSource** | **String** | Source describing how this assignment was made | [optional] 
-**Assigner** | [**BaseReferenceDto1**](base-reference-dto1) |  | [optional] 
-**AssignedDimensions** | [**[]BaseReferenceDto1**](base-reference-dto1) | Dimensions assigned related to this role | [optional] 
-**AssignmentContext** | [**AssignmentContextDto**](assignment-context-dto) |  | [optional] 
+**Assigner** | [**RoleAssignmentDtoAssigner**](role-assignment-dto-assigner) |  | [optional] 
+**AssignedDimensions** | [**[]BaseReferenceDto**](base-reference-dto) | Dimensions assigned related to this role | [optional] 
+**AssignmentContext** | [**RoleAssignmentDtoAssignmentContext**](role-assignment-dto-assignment-context) |  | [optional] 
 **AccountTargets** | [**[]RoleTargetDto**](role-target-dto) |  | [optional] 
 **RemoveDate** | **String** | Date that the assignment will be removed | [optional] 
 
@@ -32,10 +32,10 @@ Name | Type | Description | Notes
 ```powershell
 $GetRoleAssignments200ResponseInner = Initialize-PSSailpoint.V2024GetRoleAssignments200ResponseInner  -Id 1cbb0705b38c4226b1334eadd8874086 `
  -Role null `
- -Comments I&#39;m a new Engineer and need this role to do my work `
+ -Comments I'm a new Engineer and need this role to do my work `
  -AssignmentSource UI `
  -Assigner null `
- -AssignedDimensions [{id&#x3D;1acc8ffe5fcf457090de28bee2af36ee, type&#x3D;DIMENSION, name&#x3D;Northeast region}] `
+ -AssignedDimensions [{id=1acc8ffe5fcf457090de28bee2af36ee, type=DIMENSION, name=Northeast region}] `
  -AssignmentContext null `
  -AccountTargets null `
  -RemoveDate Wed Feb 14 10:58:42

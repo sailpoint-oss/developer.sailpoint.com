@@ -406,7 +406,11 @@ Gets all Reassignment configuration for the current org.
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-reassignment-configurations)
 
 ### Parameters 
-This endpoint does not need any parameter. 
+
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+  Query | limit | **int** |   (optional) (default to 20) | Max number of results to return.
+  Query | offset | **int** |   (optional) | Offset into the full result set. Usually specified with *limit* to paginate through the results. Defaults to 0 if not specified.
 
 ### Return type
 [**List[ConfigurationResponse]**](../models/configuration-response)
@@ -438,13 +442,15 @@ from sailpoint.configuration import Configuration
 configuration = Configuration()
 
 with ApiClient(configuration) as api_client:
+    limit = 20 # int | Max number of results to return. (optional) (default to 20) # int | Max number of results to return. (optional) (default to 20)
+    offset = 10 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. Defaults to 0 if not specified. (optional) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. Defaults to 0 if not specified. (optional)
 
     try:
         # List Reassignment Configurations
         
         results =WorkReassignmentApi(api_client).list_reassignment_configurations()
         # Below is a request that includes all optional parameters
-        # results = WorkReassignmentApi(api_client).list_reassignment_configurations()
+        # results = WorkReassignmentApi(api_client).list_reassignment_configurations(limit, offset)
         print("The response of WorkReassignmentApi->list_reassignment_configurations:\n")
         pprint(results)
         except Exception as e:

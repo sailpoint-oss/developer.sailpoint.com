@@ -57,7 +57,7 @@ identity_distribution=[
                     ],
 identity_ids=[07a0b4e2, 13b4e2a0],
 name='Saved Potential Role - 07/10',
-provision_state='POTENTIAL',
+provision_state=,
 quality=100,
 role_id='07a0b4e2-7a76-44fa-bd0b-c64654b66519',
 saved=True,

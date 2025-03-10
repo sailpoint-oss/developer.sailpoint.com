@@ -30,7 +30,7 @@ $Conditional = Initialize-PSSailpoint.BetaConditional  -Expression ValueA eq Val
  -PositiveCondition true `
  -NegativeCondition false `
  -RequiresPeriodicRefresh false `
- -VarInput {type&#x3D;accountAttribute, attributes&#x3D;{attributeName&#x3D;first_name, sourceName&#x3D;Source}}
+ -VarInput {type=accountAttribute, attributes={attributeName=first_name, sourceName=Source}}
 ```
 
 - Convert the resource to JSON

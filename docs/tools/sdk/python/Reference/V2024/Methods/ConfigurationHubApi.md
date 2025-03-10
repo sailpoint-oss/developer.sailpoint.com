@@ -823,12 +823,12 @@ This API gets a list of deploys for the current tenant.
 This endpoint does not need any parameter. 
 
 ### Return type
-[**List[DeployResponse]**](../models/deploy-response)
+[**ListDeploys200Response**](../models/list-deploys200-response)
 
 ### Responses
 Code | Description  | Data Type | Response headers |
 ------------- | ------------- | ------------- |------------------|
-200 | List of existing deploys. | List[DeployResponse] |  -  |
+200 | List of existing deploys. | ListDeploys200Response |  -  |
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
@@ -845,7 +845,7 @@ Code | Description  | Data Type | Response headers |
 import sailpoint.v2024
 from sailpoint.v2024.api.configuration_hub_api import ConfigurationHubApi
 from sailpoint.v2024.api_client import ApiClient
-from sailpoint.v2024.models.deploy_response import DeployResponse
+from sailpoint.v2024.models.list_deploys200_response import ListDeploys200Response
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()

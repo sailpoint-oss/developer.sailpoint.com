@@ -47,7 +47,7 @@ $TaskResultDetails = Initialize-PSSailpoint.V2024TaskResultDetails  -Type MENTOS
  -CompletionStatus Success `
  -Messages [] `
  -Returns [] `
- -Attributes {org&#x3D;an-org} `
+ -Attributes {org=an-org} `
  -Progress Initializing...
 ```
 

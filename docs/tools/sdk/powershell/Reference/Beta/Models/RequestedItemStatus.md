@@ -16,6 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'RequestedItemStatus', 'BetaRequestedI
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Id** | **String** | The ID of the access request. | [optional] 
 **Name** | **String** | Human-readable display name of the item being requested. | [optional] 
 **Type** |  **Enum** [  "ACCESS_PROFILE",    "ROLE",    "ENTITLEMENT" ] | Type of requested object. | [optional] 
 **CancelledRequestDetails** | [**RequestedItemStatusCancelledRequestDetails**](requested-item-status-cancelled-request-details) |  | [optional] 
@@ -45,7 +46,8 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RequestedItemStatus = Initialize-PSSailpoint.BetaRequestedItemStatus  -Name AccessProfile1 `
+$RequestedItemStatus = Initialize-PSSailpoint.BetaRequestedItemStatus  -Id 2c9180926cbfbddd016cbfc7c3b10010 `
+ -Name AccessProfile1 `
  -Type ACCESS_PROFILE `
  -CancelledRequestDetails null `
  -ErrorMessages null `
@@ -68,7 +70,7 @@ $RequestedItemStatus = Initialize-PSSailpoint.BetaRequestedItemStatus  -Name Acc
  -RemoveDate 2019-10-23T00:00Z `
  -Cancelable true `
  -AccessRequestId 2b838de9-db9b-abcf-e646-d4f274ad4238 `
- -ClientMetadata {key1&#x3D;value1, key2&#x3D;value2}
+ -ClientMetadata {key1=value1, key2=value2}
 ```
 
 - Convert the resource to JSON

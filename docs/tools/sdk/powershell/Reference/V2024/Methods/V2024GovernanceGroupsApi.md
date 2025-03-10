@@ -89,10 +89,10 @@ $WorkgroupDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToWorkgroupDto -Json $WorkgroupDto
-    New-V2024Workgroup -XSailPointExperimental $XSailPointExperimental -V2024WorkgroupDto $Result 
+    New-V2024Workgroup -XSailPointExperimental $XSailPointExperimental -WorkgroupDto $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024Workgroup -XSailPointExperimental $XSailPointExperimental -V2024WorkgroupDto $Result  
+    # New-V2024Workgroup -XSailPointExperimental $XSailPointExperimental -WorkgroupDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024Workgroup"
     Write-Host $_.ErrorDetails
@@ -196,10 +196,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 
 try {
     $Result = ConvertFrom-JsonToIdentityPreviewResponseIdentity -Json $IdentityPreviewResponseIdentity
-    Remove-V2024WorkgroupMembers -WorkgroupId $WorkgroupId -XSailPointExperimental $XSailPointExperimental -V2024IdentityPreviewResponseIdentity $Result 
+    Remove-V2024WorkgroupMembers -WorkgroupId $WorkgroupId -XSailPointExperimental $XSailPointExperimental -IdentityPreviewResponseIdentity $Result 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024WorkgroupMembers -WorkgroupId $WorkgroupId -XSailPointExperimental $XSailPointExperimental -V2024IdentityPreviewResponseIdentity $Result  
+    # Remove-V2024WorkgroupMembers -WorkgroupId $WorkgroupId -XSailPointExperimental $XSailPointExperimental -IdentityPreviewResponseIdentity $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024WorkgroupMembers"
     Write-Host $_.ErrorDetails
@@ -260,10 +260,10 @@ $WorkgroupBulkDeleteRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToWorkgroupBulkDeleteRequest -Json $WorkgroupBulkDeleteRequest
-    Remove-V2024WorkgroupsInBulk -XSailPointExperimental $XSailPointExperimental -V2024WorkgroupBulkDeleteRequest $Result 
+    Remove-V2024WorkgroupsInBulk -XSailPointExperimental $XSailPointExperimental -WorkgroupBulkDeleteRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024WorkgroupsInBulk -XSailPointExperimental $XSailPointExperimental -V2024WorkgroupBulkDeleteRequest $Result  
+    # Remove-V2024WorkgroupsInBulk -XSailPointExperimental $XSailPointExperimental -WorkgroupBulkDeleteRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024WorkgroupsInBulk"
     Write-Host $_.ErrorDetails
@@ -547,7 +547,7 @@ try {
     Update-V2024Workgroup -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024Workgroup -Id $Id -XSailPointExperimental $XSailPointExperimental -V2024JsonPatchOperation $Result  
+    # Update-V2024Workgroup -Id $Id -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024Workgroup"
     Write-Host $_.ErrorDetails
@@ -602,10 +602,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 
 try {
     $Result = ConvertFrom-JsonToIdentityPreviewResponseIdentity -Json $IdentityPreviewResponseIdentity
-    Update-V2024WorkgroupMembers -WorkgroupId $WorkgroupId -XSailPointExperimental $XSailPointExperimental -V2024IdentityPreviewResponseIdentity $Result 
+    Update-V2024WorkgroupMembers -WorkgroupId $WorkgroupId -XSailPointExperimental $XSailPointExperimental -IdentityPreviewResponseIdentity $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024WorkgroupMembers -WorkgroupId $WorkgroupId -XSailPointExperimental $XSailPointExperimental -V2024IdentityPreviewResponseIdentity $Result  
+    # Update-V2024WorkgroupMembers -WorkgroupId $WorkgroupId -XSailPointExperimental $XSailPointExperimental -IdentityPreviewResponseIdentity $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024WorkgroupMembers"
     Write-Host $_.ErrorDetails

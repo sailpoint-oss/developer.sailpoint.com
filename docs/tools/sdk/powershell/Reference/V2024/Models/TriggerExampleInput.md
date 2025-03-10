@@ -85,7 +85,7 @@ $TriggerExampleInput = Initialize-PSSailpoint.V2024TriggerExampleInput  -AccessR
  -Identity null `
  -Account null `
  -Changes null `
- -Attributes {firstname&#x3D;John, lastname&#x3D;Doe, email&#x3D;john.doe@gmail.com, department&#x3D;Sales, displayName&#x3D;John Doe, created&#x3D;2020-04-27T16:48:33.597Z, employeeNumber&#x3D;E009, uid&#x3D;E009, inactive&#x3D;true, phone&#x3D;null, identificationNumber&#x3D;E009} `
+ -Attributes {firstname=John, lastname=Doe, email=john.doe@gmail.com, department=Sales, displayName=John Doe, created=2020-04-27T16:48:33.597Z, employeeNumber=E009, uid=E009, inactive=true, phone=null, identificationNumber=E009} `
  -EntitlementCount 0 `
  -Campaign null `
  -Certification null `
@@ -101,7 +101,7 @@ $TriggerExampleInput = Initialize-PSSailpoint.V2024TriggerExampleInput  -AccessR
  -Query modified:[now-7y/d TO now] `
  -SearchName Modified Activity `
  -SearchResults null `
- -SignedS3Url https://sptcbu-org-data-useast1.s3.amazonaws.com/arsenal-john/reports/Events%20Export.2020-05-06%2018%2759%20GMT.3e580592-86e4-4953-8aea-49e6ef20a086.zip?X-Amz-Algorithm&#x3D;AWS4-HMAC-SHA256&amp;X-Amz-Date&#x3D;20200506T185919Z&amp;X-Amz-SignedHeaders&#x3D;host&amp;X-Amz-Expires&#x3D;899&amp;X-Amz-Credential&#x3D;AKIAV5E54XOGTS4Q4L7A%2F20200506%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Signature&#x3D;2e732bb97a12a1fd8a215613e3c31fcdae8ba1fb6a25916843ab5b51d2ddefbc `
+ -SignedS3Url https://sptcbu-org-data-useast1.s3.amazonaws.com/arsenal-john/reports/Events%20Export.2020-05-06%2018%2759%20GMT.3e580592-86e4-4953-8aea-49e6ef20a086.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200506T185919Z&X-Amz-SignedHeaders=host&X-Amz-Expires=899&X-Amz-Credential=AKIAV5E54XOGTS4Q4L7A%2F20200506%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=2e732bb97a12a1fd8a215613e3c31fcdae8ba1fb6a25916843ab5b51d2ddefbc `
  -Uuid b7264868-7201-415f-9118-b581d431c688 `
  -Id 2c9180866166b5b0016167c32ef31a66 `
  -NativeIdentifier E009 `

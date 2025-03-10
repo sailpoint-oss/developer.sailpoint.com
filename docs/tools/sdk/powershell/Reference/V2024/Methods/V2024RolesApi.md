@@ -74,6 +74,9 @@ Method | HTTP request | Description
 
 ## create-role
 This API creates a role.
+
+You must have a token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority to call this API. 
+
 In addition, a ROLE_SUBADMIN may not create a role including an access profile if that access profile is associated with a source the ROLE_SUBADMIN is not associated with themselves. 
 
 The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing roles. However, any new roles as well as any updates to existing descriptions will be limited to 2000 characters.
@@ -267,10 +270,10 @@ $Role = @"{
 
 try {
     $Result = ConvertFrom-JsonToRole -Json $Role
-    New-V2024Role -V2024Role $Result 
+    New-V2024Role -Role $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024Role -V2024Role $Result  
+    # New-V2024Role -Role $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024Role"
     Write-Host $_.ErrorDetails
@@ -318,10 +321,10 @@ $RoleBulkDeleteRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToRoleBulkDeleteRequest -Json $RoleBulkDeleteRequest
-    Remove-V2024BulkRoles -V2024RoleBulkDeleteRequest $Result 
+    Remove-V2024BulkRoles -RoleBulkDeleteRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024BulkRoles -V2024RoleBulkDeleteRequest $Result  
+    # Remove-V2024BulkRoles -RoleBulkDeleteRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024BulkRoles"
     Write-Host $_.ErrorDetails
@@ -381,7 +384,7 @@ try {
 ## delete-role
 This API deletes a Role by its ID.
 
-A user with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
+A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-role)
 
@@ -517,7 +520,7 @@ try {
 
 ## get-role
 This API returns a Role by its ID.
-A user with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
+A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-role)
 
@@ -636,12 +639,12 @@ Path   | Id | **String** | True  | ID of the containing role
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, attribute, value, created, modified**
 
 ### Return type
-[**Entitlement1[]**](../models/entitlement1)
+[**Entitlement[]**](../models/entitlement)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of Entitlements | Entitlement1[]
+200 | List of Entitlements | Entitlement[]
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
@@ -678,6 +681,8 @@ try {
 
 ## list-roles
 This API returns a list of Roles.
+
+A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-roles)
 
@@ -737,7 +742,9 @@ try {
 
 ## patch-role
 This API updates an existing role using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
+
 The following fields are patchable:
+
 * name
 * description
 * enabled
@@ -749,13 +756,12 @@ The following fields are patchable:
 * accessRequestConfig
 * revokeRequestConfig
 * segments
-* accessModelMetadata
-
-A user with ROLE_SUBADMIN authority may only call this API if all access profiles included in the role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
+* accessModelMetadata   
+A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all access profiles included in the role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
 
 The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing roles, however, any new roles as well as any updates to existing descriptions will be limited to 2000 characters.
 
-When you use this API to modify a role's membership identities, you can only modify up to a limit of 500 membership identities at a time. 
+When you use this API to modify a role's membership identities, you can only modify up to a limit of 500 membership identities at a time.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/patch-role)
 
@@ -796,10 +802,10 @@ $Id = "2c91808a7813090a017814121e121518" # String | ID of the Role to patch
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024Role -Id $Id -V2024JsonPatchOperation $Result 
+    Update-V2024Role -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024Role -Id $Id -V2024JsonPatchOperation $Result  
+    # Update-V2024Role -Id $Id -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024Role"
     Write-Host $_.ErrorDetails
@@ -865,7 +871,7 @@ try {
     Search-V2024RolesByFilter 
     
     # Below is a request that includes all optional parameters
-    # Search-V2024RolesByFilter -ForSubadmin $ForSubadmin -Limit $Limit -Offset $Offset -Count $Count -Sorters $Sorters -ForSegmentIds $ForSegmentIds -IncludeUnsegmented $IncludeUnsegmented -V2024RoleListFilterDTO $Result  
+    # Search-V2024RolesByFilter -ForSubadmin $ForSubadmin -Limit $Limit -Offset $Offset -Count $Count -Sorters $Sorters -ForSegmentIds $ForSegmentIds -IncludeUnsegmented $IncludeUnsegmented -RoleListFilterDTO $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Search-V2024RolesByFilter"
     Write-Host $_.ErrorDetails
@@ -968,10 +974,10 @@ $RoleMetadataBulkUpdateByFilterRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToRoleMetadataBulkUpdateByFilterRequest -Json $RoleMetadataBulkUpdateByFilterRequest
-    Update-V2024RolesMetadataByFilter -V2024RoleMetadataBulkUpdateByFilterRequest $Result 
+    Update-V2024RolesMetadataByFilter -RoleMetadataBulkUpdateByFilterRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024RolesMetadataByFilter -V2024RoleMetadataBulkUpdateByFilterRequest $Result  
+    # Update-V2024RolesMetadataByFilter -RoleMetadataBulkUpdateByFilterRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024RolesMetadataByFilter"
     Write-Host $_.ErrorDetails
@@ -1025,10 +1031,10 @@ $RoleMetadataBulkUpdateByIdRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToRoleMetadataBulkUpdateByIdRequest -Json $RoleMetadataBulkUpdateByIdRequest
-    Update-V2024RolesMetadataByIds -V2024RoleMetadataBulkUpdateByIdRequest $Result 
+    Update-V2024RolesMetadataByIds -RoleMetadataBulkUpdateByIdRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024RolesMetadataByIds -V2024RoleMetadataBulkUpdateByIdRequest $Result  
+    # Update-V2024RolesMetadataByIds -RoleMetadataBulkUpdateByIdRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024RolesMetadataByIds"
     Write-Host $_.ErrorDetails
@@ -1097,10 +1103,10 @@ $RoleMetadataBulkUpdateByQueryRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToRoleMetadataBulkUpdateByQueryRequest -Json $RoleMetadataBulkUpdateByQueryRequest
-    Update-V2024RolesMetadataByQuery -V2024RoleMetadataBulkUpdateByQueryRequest $Result 
+    Update-V2024RolesMetadataByQuery -RoleMetadataBulkUpdateByQueryRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024RolesMetadataByQuery -V2024RoleMetadataBulkUpdateByQueryRequest $Result  
+    # Update-V2024RolesMetadataByQuery -RoleMetadataBulkUpdateByQueryRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024RolesMetadataByQuery"
     Write-Host $_.ErrorDetails

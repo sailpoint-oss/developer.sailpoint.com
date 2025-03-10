@@ -17,7 +17,7 @@ Object created or updated by import.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** |  **Enum** [  'IDENTITY_OBJECT_CONFIG',    'IDENTITY_PROFILE',    'RULE',    'SOURCE',    'TRANSFORM',    'TRIGGER_SUBSCRIPTION' ] | DTO type of object created or updated by import. | [optional] 
+**type** |  **Enum** [  'CONNECTOR_RULE',    'IDENTITY_OBJECT_CONFIG',    'IDENTITY_PROFILE',    'RULE',    'SOURCE',    'TRANSFORM',    'TRIGGER_SUBSCRIPTION' ] | DTO type of object created or updated by import. | [optional] 
 **id** | **str** | ID of object created or updated by import. | [optional] 
 **name** | **str** | Display name of object created or updated by import. | [optional] 
 }

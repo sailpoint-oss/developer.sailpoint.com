@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $AppAccountDetailsSourceAccount = Initialize-PSSailpoint.BetaAppAccountDetailsSourceAccount  -Id fbf4f72280304f1a8bc808fc2a3bcf7b `
- -NativeIdentity CN&#x3D;Abby Smith,OU&#x3D;Austin,OU&#x3D;Americas,OU&#x3D;Demo,DC&#x3D;seri,DC&#x3D;acme,DC&#x3D;com `
+ -NativeIdentity CN=Abby Smith,OU=Austin,OU=Americas,OU=Demo,DC=seri,DC=acme,DC=com `
  -DisplayName Abby Smith `
  -SourceId 10efa58ea3954883b52bf74f489ce8f9 `
  -SourceDisplayName ODS-AD-SOURCE

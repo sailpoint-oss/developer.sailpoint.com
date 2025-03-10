@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Schedule2Hours = Initialize-PSSailpoint.V2024Schedule2Hours  -ApplicationId 2c91808874ff91550175097daaec161c&quot; `
+$Schedule2Hours = Initialize-PSSailpoint.V2024Schedule2Hours  -ApplicationId 2c91808874ff91550175097daaec161c" `
  -AccountMatchConfig null
 ```
 

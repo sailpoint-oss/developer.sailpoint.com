@@ -17,8 +17,6 @@ More complete representation of an access profile.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** | Access profile's ID. | [required]
-**name** | **str** | Access profile's name. | [required]
 **description** | **str** | Access item's description. | [optional] 
 **created** | **datetime** | ISO-8601 date-time referring to the time when the object was created. | [optional] 
 **modified** | **datetime** | ISO-8601 date-time referring to the time when the object was last modified. | [optional] 
@@ -26,12 +24,16 @@ Name | Type | Description | Notes
 **enabled** | **bool** | Indicates whether the access item is currently enabled. | [optional] [default to False]
 **requestable** | **bool** | Indicates whether the access item can be requested. | [optional] [default to True]
 **request_comments_required** | **bool** | Indicates whether comments are required for requests to access the item. | [optional] [default to False]
-**owner** | [**BaseAccessAllOfOwner**](base-access-all-of-owner) |  | [optional] 
-**type** |  **Enum** [  'accessprofile',    'accountactivity',    'account',    'aggregation',    'entitlement',    'event',    'identity',    'role' ] | Access profile's document type.  This enum represents the currently supported document types. Additional values may be added in the future without notice. | [required]
+**owner** | [**BaseAccessOwner**](base-access-owner) |  | [optional] 
+**id** | **str** | Access profile's ID. | [required]
+**name** | **str** | Access profile's name. | [required]
 **source** | [**AccessProfileDocumentAllOfSource**](access-profile-document-all-of-source) |  | [optional] 
 **entitlements** | [**[]BaseEntitlement**](base-entitlement) | Entitlements the access profile has access to. | [optional] 
 **entitlement_count** | **int** | Number of entitlements. | [optional] 
+**segments** | [**[]BaseSegment**](base-segment) | Segments with the access profile. | [optional] 
+**segment_count** | **int** | Number of segments with the access profile. | [optional] 
 **tags** | **[]str** | Tags that have been applied to the object. | [optional] 
+**apps** | [**[]AccessApps**](access-apps) | Applications with the access profile | [optional] 
 }
 
 ## Example
@@ -40,21 +42,20 @@ Name | Type | Description | Notes
 from sailpoint.v3.models.access_profile_document import AccessProfileDocument
 
 access_profile_document = AccessProfileDocument(
-id='2c9180825a6c1adc015a71c9023f0818',
-name='Cloud Eng',
-description='The admin role',
+description='Admin access',
 created='2018-06-25T20:22:28.104Z',
 modified='2018-06-25T20:22:28.104Z',
 synced='2018-06-25T20:22:33.104Z',
 enabled=True,
 requestable=True,
 request_comments_required=False,
-owner=sailpoint.v3.models.base_access_all_of_owner.BaseAccess_allOf_owner(
+owner=sailpoint.v3.models.base_access_owner.BaseAccess_owner(
                     type = 'IDENTITY', 
                     id = '2c9180a46faadee4016fb4e018c20639', 
                     name = 'Support', 
                     email = 'cloud-support@sailpoint.com', ),
-type='accessprofile',
+id='2c9180825a6c1adc015a71c9023f0818',
+name='Cloud Eng',
 source=sailpoint.v3.models.access_profile_document_all_of_source.AccessProfileDocument_allOf_source(
                     id = 'ff8081815757d4fb0157588f3d9d008f', 
                     name = 'Employees', ),
@@ -70,7 +71,24 @@ entitlements=[
                         name = 'CN=Cloud Engineering,DC=sailpoint,DC=COM', )
                     ],
 entitlement_count=5,
-tags=[TAG_1, TAG_2]
+segments=[
+                    sailpoint.v3.models.base_segment.BaseSegment(
+                        id = 'b009b6e3-b56d-41d9-8735-cb532ea0b017', 
+                        name = 'Test Segment', )
+                    ],
+segment_count=1,
+tags=[TAG_1, TAG_2],
+apps=[
+                    sailpoint.v3.models.access_apps.AccessApps(
+                        id = '2c91808568c529c60168cca6f90c1313', 
+                        name = 'Travel and Expense', 
+                        description = 'Travel and Expense Application', 
+                        owner = sailpoint.v3.models.access_apps_owner.AccessApps_owner(
+                            type = 'IDENTITY', 
+                            id = '2c9180a46faadee4016fb4e018c20639', 
+                            name = 'John Doe', 
+                            email = 'john.doe@sailpoint.com', ), )
+                    ]
 )
 
 ```

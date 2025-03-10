@@ -51,7 +51,7 @@ $AccountActivityItem = Initialize-PSSailpoint.V2024AccountActivityItem  -Id 48c5
  -NativeIdentity Sandie.Camero `
  -SourceId 2c91808363ef85290164000587130c0c `
  -AccountRequestInfo null `
- -ClientMetadata {customKey1&#x3D;custom value 1, customKey2&#x3D;custom value 2} `
+ -ClientMetadata {customKey1=custom value 1, customKey2=custom value 2} `
  -RemoveDate 2020-07-11T00:00Z
 ```
 

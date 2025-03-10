@@ -1,0 +1,19 @@
+type: object
+properties:
+  name:
+    type: string
+    description: The name of the feature
+    example: 'entitlement_count'
+  value:
+    oneOf:
+    - type: number
+      format: float
+    - type: integer
+      format: int64
+    description: The value associated to the feature name. Can be whole number or integer depending on the feature name
+    example: -0.45   
+  importance:
+    type: number
+    format: float
+    description: Importance factor associated to the feature
+    example: 0.92   

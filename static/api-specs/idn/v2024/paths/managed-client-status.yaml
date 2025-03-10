@@ -1,0 +1,44 @@
+get:
+  tags:
+    - Managed Clients
+  summary: Get Managed Client Status
+  description: >-
+    Get a managed client's status, using its ID.
+  operationId: getManagedClientStatus
+  parameters:
+    - name: id
+      in: path
+      description: Managed client ID to get status for. 
+      required: true
+      x-sailpoint-resource-operation-id: getManagedClients
+      schema:
+        type: string
+        example: aClientId
+    - name: type
+      in: query
+      description: Managed client type to get status for. 
+      required: true
+      schema:
+        $ref: '../schemas/ManagedClientType.yaml'
+        example: VA
+  responses:
+    "200":
+      description: Response with the managed client status, with the given ID and type.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ManagedClientStatus.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'
+  security:
+    - userAuth: [idn:managed-client-status:read]

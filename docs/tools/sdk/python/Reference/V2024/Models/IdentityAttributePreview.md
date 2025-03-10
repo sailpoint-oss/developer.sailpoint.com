@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **name** | **str** | Name of the attribute that is being previewed. | [optional] 
 **value** | **str** | Value that was derived during the preview. | [optional] 
 **previous_value** | **str** | The value of the attribute before the preview. | [optional] 
-**error_messages** | [**[]ErrorMessageDto**](error-message-dto) |  | [optional] 
+**error_messages** | [**[]ErrorMessageDto**](error-message-dto) | List of error messages | [optional] 
 }
 
 ## Example
@@ -31,12 +31,7 @@ identity_attribute_preview = IdentityAttributePreview(
 name='email',
 value='email@mail.com',
 previous_value='oldEmail@mail.com',
-error_messages=[
-                    sailpoint.v2024.models.error_message_dto.ErrorMessageDto(
-                        locale = 'en-US', 
-                        locale_origin = 'DEFAULT', 
-                        text = 'The request was syntactically correct but its content is semantically invalid.', )
-                    ]
+error_messages={locale=en-US, localeOrigin=DEFAULT, text=Error Message}
 )
 
 ```

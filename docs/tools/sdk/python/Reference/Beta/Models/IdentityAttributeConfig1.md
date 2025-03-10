@@ -17,7 +17,7 @@ Defines all the identity attribute mapping configurations. This defines how to g
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**enabled** | **bool** | The backend will only promote values if the profile/mapping is enabled. | [optional] [default to False]
+**enabled** | **bool** | Backend will only promote values if the profile/mapping is enabled. | [optional] [default to False]
 **attribute_transforms** | [**[]IdentityAttributeTransform1**](identity-attribute-transform1) |  | [optional] 
 }
 

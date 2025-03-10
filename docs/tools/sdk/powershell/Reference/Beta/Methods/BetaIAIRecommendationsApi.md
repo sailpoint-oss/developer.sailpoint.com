@@ -75,10 +75,10 @@ $RecommendationRequestDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToRecommendationRequestDto -Json $RecommendationRequestDto
-    Get-BetaRecommendations -BetaRecommendationRequestDto $Result 
+    Get-BetaRecommendations -RecommendationRequestDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaRecommendations -BetaRecommendationRequestDto $Result  
+    # Get-BetaRecommendations -RecommendationRequestDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaRecommendations"
     Write-Host $_.ErrorDetails
@@ -167,10 +167,10 @@ $RecommendationConfigDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToRecommendationConfigDto -Json $RecommendationConfigDto
-    Update-BetaRecommendationsConfig -BetaRecommendationConfigDto $Result 
+    Update-BetaRecommendationsConfig -RecommendationConfigDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaRecommendationsConfig -BetaRecommendationConfigDto $Result  
+    # Update-BetaRecommendationsConfig -RecommendationConfigDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaRecommendationsConfig"
     Write-Host $_.ErrorDetails

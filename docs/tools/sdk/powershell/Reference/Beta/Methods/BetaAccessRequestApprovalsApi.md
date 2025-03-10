@@ -88,10 +88,10 @@ $CommentDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToCommentDto -Json $CommentDto
-    Approve-BetaAccessRequest -ApprovalId $ApprovalId -BetaCommentDto $Result 
+    Approve-BetaAccessRequest -ApprovalId $ApprovalId -CommentDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Approve-BetaAccessRequest -ApprovalId $ApprovalId -BetaCommentDto $Result  
+    # Approve-BetaAccessRequest -ApprovalId $ApprovalId -CommentDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Approve-BetaAccessRequest"
     Write-Host $_.ErrorDetails
@@ -140,10 +140,10 @@ $ForwardApprovalDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToForwardApprovalDto -Json $ForwardApprovalDto
-    Invoke-BetaForwardAccessRequest -ApprovalId $ApprovalId -BetaForwardApprovalDto $Result 
+    Invoke-BetaForwardAccessRequest -ApprovalId $ApprovalId -ForwardApprovalDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Invoke-BetaForwardAccessRequest -ApprovalId $ApprovalId -BetaForwardApprovalDto $Result  
+    # Invoke-BetaForwardAccessRequest -ApprovalId $ApprovalId -ForwardApprovalDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-BetaForwardAccessRequest"
     Write-Host $_.ErrorDetails
@@ -352,10 +352,10 @@ $CommentDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToCommentDto -Json $CommentDto
-    Deny-BetaAccessRequest -ApprovalId $ApprovalId -BetaCommentDto $Result 
+    Deny-BetaAccessRequest -ApprovalId $ApprovalId -CommentDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Deny-BetaAccessRequest -ApprovalId $ApprovalId -BetaCommentDto $Result  
+    # Deny-BetaAccessRequest -ApprovalId $ApprovalId -CommentDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Deny-BetaAccessRequest"
     Write-Host $_.ErrorDetails

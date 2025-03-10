@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'IdentityExceptionReportReference1', '
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**task_result_id** | **str** | The id of the task result. | [optional] 
-**report_name** | **str** | The name of the report. | [optional] 
+**task_result_id** | **str** | Task result ID. | [optional] 
+**report_name** | **str** | Report name. | [optional] 
 }
 
 ## Example

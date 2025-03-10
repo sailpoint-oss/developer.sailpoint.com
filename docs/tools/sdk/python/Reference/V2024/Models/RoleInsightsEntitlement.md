@@ -30,12 +30,12 @@ Name | Type | Description | Notes
 from sailpoint.v2024.models.role_insights_entitlement import RoleInsightsEntitlement
 
 role_insights_entitlement = RoleInsightsEntitlement(
-name='',
-id='',
-description='',
-source='',
-attribute='',
-value=''
+name='Administrator',
+id='8c190e67-87aa-4ed9-a90b-d9d5344523fb',
+description='Full administrative access to IdentityNow',
+source='IdentityNow',
+attribute='assignedGroups',
+value='ORG_ADMIN'
 )
 
 ```

@@ -75,10 +75,10 @@ $AccessRequestRecommendationActionItemDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
-    Add-V2024AccessRequestRecommendationsIgnoredItem -XSailPointExperimental $XSailPointExperimental -V2024AccessRequestRecommendationActionItemDto $Result 
+    Add-V2024AccessRequestRecommendationsIgnoredItem -XSailPointExperimental $XSailPointExperimental -AccessRequestRecommendationActionItemDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Add-V2024AccessRequestRecommendationsIgnoredItem -XSailPointExperimental $XSailPointExperimental -V2024AccessRequestRecommendationActionItemDto $Result  
+    # Add-V2024AccessRequestRecommendationsIgnoredItem -XSailPointExperimental $XSailPointExperimental -AccessRequestRecommendationActionItemDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Add-V2024AccessRequestRecommendationsIgnoredItem"
     Write-Host $_.ErrorDetails
@@ -132,10 +132,10 @@ $AccessRequestRecommendationActionItemDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
-    Add-V2024AccessRequestRecommendationsRequestedItem -XSailPointExperimental $XSailPointExperimental -V2024AccessRequestRecommendationActionItemDto $Result 
+    Add-V2024AccessRequestRecommendationsRequestedItem -XSailPointExperimental $XSailPointExperimental -AccessRequestRecommendationActionItemDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Add-V2024AccessRequestRecommendationsRequestedItem -XSailPointExperimental $XSailPointExperimental -V2024AccessRequestRecommendationActionItemDto $Result  
+    # Add-V2024AccessRequestRecommendationsRequestedItem -XSailPointExperimental $XSailPointExperimental -AccessRequestRecommendationActionItemDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Add-V2024AccessRequestRecommendationsRequestedItem"
     Write-Host $_.ErrorDetails
@@ -189,10 +189,10 @@ $AccessRequestRecommendationActionItemDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
-    Add-V2024AccessRequestRecommendationsViewedItem -XSailPointExperimental $XSailPointExperimental -V2024AccessRequestRecommendationActionItemDto $Result 
+    Add-V2024AccessRequestRecommendationsViewedItem -XSailPointExperimental $XSailPointExperimental -AccessRequestRecommendationActionItemDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Add-V2024AccessRequestRecommendationsViewedItem -XSailPointExperimental $XSailPointExperimental -V2024AccessRequestRecommendationActionItemDto $Result  
+    # Add-V2024AccessRequestRecommendationsViewedItem -XSailPointExperimental $XSailPointExperimental -AccessRequestRecommendationActionItemDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Add-V2024AccessRequestRecommendationsViewedItem"
     Write-Host $_.ErrorDetails
@@ -247,10 +247,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 
 try {
     $Result = ConvertFrom-JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
-    Add-V2024AccessRequestRecommendationsViewedItems -XSailPointExperimental $XSailPointExperimental -V2024AccessRequestRecommendationActionItemDto $Result 
+    Add-V2024AccessRequestRecommendationsViewedItems -XSailPointExperimental $XSailPointExperimental -AccessRequestRecommendationActionItemDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Add-V2024AccessRequestRecommendationsViewedItems -XSailPointExperimental $XSailPointExperimental -V2024AccessRequestRecommendationActionItemDto $Result  
+    # Add-V2024AccessRequestRecommendationsViewedItems -XSailPointExperimental $XSailPointExperimental -AccessRequestRecommendationActionItemDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Add-V2024AccessRequestRecommendationsViewedItems"
     Write-Host $_.ErrorDetails
@@ -589,10 +589,10 @@ $AccessRequestRecommendationConfigDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccessRequestRecommendationConfigDto -Json $AccessRequestRecommendationConfigDto
-    Set-V2024AccessRequestRecommendationsConfig -XSailPointExperimental $XSailPointExperimental -V2024AccessRequestRecommendationConfigDto $Result 
+    Set-V2024AccessRequestRecommendationsConfig -XSailPointExperimental $XSailPointExperimental -AccessRequestRecommendationConfigDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Set-V2024AccessRequestRecommendationsConfig -XSailPointExperimental $XSailPointExperimental -V2024AccessRequestRecommendationConfigDto $Result  
+    # Set-V2024AccessRequestRecommendationsConfig -XSailPointExperimental $XSailPointExperimental -AccessRequestRecommendationConfigDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-V2024AccessRequestRecommendationsConfig"
     Write-Host $_.ErrorDetails

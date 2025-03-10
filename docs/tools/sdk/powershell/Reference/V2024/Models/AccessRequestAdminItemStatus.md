@@ -16,13 +16,14 @@ tags: ['SDK', 'Software Development Kit', 'AccessRequestAdminItemStatus', 'V2024
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Id** | **String** | ID of the access request. This is a new property as of 2025. Older access requests may not have an ID. | [optional] 
 **Name** | **String** | Human-readable display name of the item being requested. | [optional] 
 **Type** |  **Enum** [  "ACCESS_PROFILE",    "ROLE",    "ENTITLEMENT" ] | Type of requested object. | [optional] 
-**CancelledRequestDetails** | [**AccessRequestAdminItemStatusCancelledRequestDetails**](access-request-admin-item-status-cancelled-request-details) |  | [optional] 
-**ErrorMessages** | [**[]ErrorMessageDto1[]**](error-message-dto1) | List of localized error messages, if any, encountered during the approval/provisioning process. | [optional] 
+**CancelledRequestDetails** | [**RequestedItemStatusCancelledRequestDetails**](requested-item-status-cancelled-request-details) |  | [optional] 
+**ErrorMessages** | [**[]ErrorMessageDto[]**](error-message-dto) | List of localized error messages, if any, encountered during the approval/provisioning process. | [optional] 
 **State** | [**RequestedItemStatusRequestState**](requested-item-status-request-state) |  | [optional] 
-**ApprovalDetails** | [**[]ApprovalStatusDto1**](approval-status-dto1) | Approval details for each item. | [optional] 
-**ManualWorkItemDetails** | [**[]ManualWorkItemDetails1**](manual-work-item-details1) | Manual work items created for provisioning the item. | [optional] 
+**ApprovalDetails** | [**[]ApprovalStatusDto**](approval-status-dto) | Approval details for each item. | [optional] 
+**ManualWorkItemDetails** | [**[]ManualWorkItemDetails**](manual-work-item-details) | Manual work items created for provisioning the item. | [optional] 
 **AccountActivityItemId** | **String** | Id of associated account activity item. | [optional] 
 **RequestType** | [**AccessRequestType**](access-request-type) |  | [optional] 
 **Modified** | **System.DateTime** | When the request was last modified. | [optional] 
@@ -30,7 +31,7 @@ Name | Type | Description | Notes
 **Requester** | [**AccessItemRequester**](access-item-requester) |  | [optional] 
 **RequestedFor** | [**RequestedItemStatusRequestedFor**](requested-item-status-requested-for) |  | [optional] 
 **RequesterComment** | [**RequestedItemStatusRequesterComment**](requested-item-status-requester-comment) |  | [optional] 
-**SodViolationContext** | [**AccessRequestAdminItemStatusSodViolationContext**](access-request-admin-item-status-sod-violation-context) |  | [optional] 
+**SodViolationContext** | [**RequestedItemStatusSodViolationContext**](requested-item-status-sod-violation-context) |  | [optional] 
 **ProvisioningDetails** | [**RequestedItemStatusProvisioningDetails**](requested-item-status-provisioning-details) |  | [optional] 
 **PreApprovalTriggerDetails** | [**RequestedItemStatusPreApprovalTriggerDetails**](requested-item-status-pre-approval-trigger-details) |  | [optional] 
 **AccessRequestPhases** | [**[]AccessRequestPhases**](access-request-phases) | A list of Phases that the Access Request has gone through in order, to help determine the status of the request. | [optional] 
@@ -45,7 +46,8 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessRequestAdminItemStatus = Initialize-PSSailpoint.V2024AccessRequestAdminItemStatus  -Name AccessProfile1 `
+$AccessRequestAdminItemStatus = Initialize-PSSailpoint.V2024AccessRequestAdminItemStatus  -Id 2c9180926cbfbddd016cbfc7c3b10010 `
+ -Name AccessProfile1 `
  -Type ACCESS_PROFILE `
  -CancelledRequestDetails null `
  -ErrorMessages null `
@@ -68,7 +70,7 @@ $AccessRequestAdminItemStatus = Initialize-PSSailpoint.V2024AccessRequestAdminIt
  -Cancelable true `
  -ReauthorizationRequired true `
  -AccessRequestId 2b838de9-db9b-abcf-e646-d4f274ad4238 `
- -ClientMetadata {key1&#x3D;value1, key2&#x3D;value2}
+ -ClientMetadata {key1=value1, key2=value2}
 ```
 
 - Convert the resource to JSON

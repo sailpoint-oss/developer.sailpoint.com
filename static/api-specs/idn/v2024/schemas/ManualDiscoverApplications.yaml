@@ -1,0 +1,12 @@
+type: object
+properties:
+  file:
+    type: string
+    format: binary
+    description: The CSV file to upload containing `application_name` and `description` columns. Each row represents an application to be discovered.
+    example: |-
+      application_name,description
+      "Sample App","This is a sample description for Sample App."
+      "Another App","Description for Another App."
+required:
+  - file

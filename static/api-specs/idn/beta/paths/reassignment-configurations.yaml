@@ -7,6 +7,31 @@ get:
     Gets all Reassignment configuration for the current org.
   security:
     - userAuth: [idn:reassignment-configuration:read]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  parameters:
+    - in: query
+      name: limit
+      description: Max number of results to return.
+      required: false
+      schema:
+        type: integer
+        format: int32
+        minimum: 0
+        maximum: 20
+        default: 20
+      example: 20
+    - in: query
+      name: offset
+      description: >-
+        Offset into the full result set. Usually specified with *limit* to
+        paginate through the results. Defaults to 0 if not specified.
+      required: false
+      schema:
+        type: integer
+        format: int32
+        minimum: 0
+      example: 10
   responses:
     '200':
       description: A list of Reassignment Configurations for an org
@@ -37,6 +62,8 @@ post:
     Creates a new Reassignment Configuration for the specified identity.
   security:
     - userAuth: [idn:reassignment-configuration:create]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   requestBody:
     required: true
     content:

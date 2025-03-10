@@ -1,0 +1,12 @@
+type : object
+properties:
+  id:
+    type: string
+    description: Id of the application
+    example:
+      id: "2c9180877212632a017228d5a796292b"
+  name:
+    type: string
+    description: Name of the application
+    example:
+      name: "Slack"

@@ -17,7 +17,7 @@ tags: ['SDK', 'Software Development Kit', 'RoleAssignmentRef', 'V2024RoleAssignm
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | Assignment Id | [optional] 
-**role** | [**BaseReferenceDto1**](base-reference-dto1) |  | [optional] 
+**role** | [**BaseReferenceDto**](base-reference-dto) |  | [optional] 
 }
 
 ## Example
@@ -27,9 +27,10 @@ from sailpoint.v2024.models.role_assignment_ref import RoleAssignmentRef
 
 role_assignment_ref = RoleAssignmentRef(
 id='1cbb0705b38c4226b1334eadd8874086',
-role=sailpoint.v2024.models.base_reference_dto_1.BaseReferenceDto_1(
-                    id = 'ff8081814d977c21014da056804a0af3', 
-                    name = 'Github', )
+role=sailpoint.v2024.models.base_reference_dto.BaseReferenceDto(
+                    type = 'IDENTITY', 
+                    id = '2c91808568c529c60168cca6f90c1313', 
+                    name = 'William Wilson', )
 )
 
 ```

@@ -29,9 +29,9 @@ $AccessProfileUpdateItem = Initialize-PSSailpoint.BetaAccessProfileUpdateItem  -
  -Requestable false `
  -Status 201 `
  -Description 
-&gt; Access profile is updated successfully.
+> Access profile is updated successfully.
 
-&gt; Referenced Access profile with Id &quot;2c7180a46faadee4016fb4e018c20642&quot; was not found.
+> Referenced Access profile with Id "2c7180a46faadee4016fb4e018c20642" was not found.
 
 ```
 

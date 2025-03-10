@@ -18,8 +18,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | Contributing feature id | [optional] 
 **name** | **str** | The name of the feature | [optional] 
-**value_type** |  **Enum** [  'INTEGER',    'FLOAT' ] | The data type of the value field | [optional] 
-**value** | [**OutlierContributingFeatureValue**](outlier-contributing-feature-value) |  | [optional] 
+**value_type** | [**OutlierValueType**](outlier-value-type) |  | [optional] 
+**value** | **float** | The feature value | [optional] 
 **importance** | **float** | The importance of the feature. This can also be a negative value | [optional] 
 **display_name** | **str** | The (translated if header is passed) displayName for the feature | [optional] 
 **description** | **str** | The (translated if header is passed) description for the feature | [optional] 
@@ -34,8 +34,10 @@ from sailpoint.v2024.models.outlier_contributing_feature import OutlierContribut
 outlier_contributing_feature = OutlierContributingFeature(
 id='66e38828-5017-47af-92ff-9844871352c5',
 name='entitlement_count',
-value_type='INTEGER',
-value=0.92,
+value_type=sailpoint.v2024.models.outlier_value_type.OutlierValueType(
+                    name = 'INTEGER', 
+                    ordinal = 0, ),
+value=1.0,
 importance=-0.15,
 display_name='Number of entitlements',
 description='The total number of entitlements belonging to an identity',

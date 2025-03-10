@@ -552,7 +552,7 @@ try {
     Update-BetaEntitlement -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaEntitlement -Id $Id -BetaJsonPatchOperation $Result  
+    # Update-BetaEntitlement -Id $Id -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaEntitlement"
     Write-Host $_.ErrorDetails
@@ -610,10 +610,10 @@ $EntitlementRequestConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToEntitlementRequestConfig -Json $EntitlementRequestConfig
-    Send-BetaEntitlementRequestConfig -Id $Id -BetaEntitlementRequestConfig $Result 
+    Send-BetaEntitlementRequestConfig -Id $Id -EntitlementRequestConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-BetaEntitlementRequestConfig -Id $Id -BetaEntitlementRequestConfig $Result  
+    # Send-BetaEntitlementRequestConfig -Id $Id -EntitlementRequestConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaEntitlementRequestConfig"
     Write-Host $_.ErrorDetails
@@ -726,10 +726,10 @@ $EntitlementBulkUpdateRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToEntitlementBulkUpdateRequest -Json $EntitlementBulkUpdateRequest
-    Update-BetaEntitlementsInBulk -BetaEntitlementBulkUpdateRequest $Result 
+    Update-BetaEntitlementsInBulk -EntitlementBulkUpdateRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaEntitlementsInBulk -BetaEntitlementBulkUpdateRequest $Result  
+    # Update-BetaEntitlementsInBulk -EntitlementBulkUpdateRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaEntitlementsInBulk"
     Write-Host $_.ErrorDetails

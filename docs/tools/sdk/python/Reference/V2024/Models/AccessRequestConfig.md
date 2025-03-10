@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **reauthorization_enabled** | **bool** | If this is true, reauthorization will be enforced for appropriately configured access items. Enablement of this feature is currently in a limited state. | [optional] [default to False]
 **request_on_behalf_of_config** | [**RequestOnBehalfOfConfig**](request-on-behalf-of-config) |  | [optional] 
 **approval_reminder_and_escalation_config** | [**ApprovalReminderAndEscalationConfig**](approval-reminder-and-escalation-config) |  | [optional] 
-**entitlement_request_config** | [**EntitlementRequestConfig1**](entitlement-request-config1) |  | [optional] 
+**entitlement_request_config** | [**EntitlementRequestConfig**](entitlement-request-config) |  | [optional] 
 }
 
 ## Example
@@ -45,7 +45,7 @@ approval_reminder_and_escalation_config=sailpoint.v2024.models.approval_reminder
                         id = '5168015d32f890ca15812c9180835d2e', 
                         name = 'Alison Ferguso', 
                         email = 'alison.ferguso@identitysoon.com', ), ),
-entitlement_request_config=sailpoint.v2024.models.entitlement_request_config_1.EntitlementRequestConfig_1(
+entitlement_request_config=sailpoint.v2024.models.entitlement_request_config.EntitlementRequestConfig(
                     allow_entitlement_request = True, 
                     request_comments_required = False, 
                     denied_comments_required = False, 

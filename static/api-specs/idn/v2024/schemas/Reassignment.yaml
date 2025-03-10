@@ -1,0 +1,9 @@
+type: object
+nullable: true
+properties:
+  from:
+    $ref: './CertificationReference.yaml'
+  comment:
+    type: string
+    description: The comment entered when the Certification was reassigned
+    example: Reassigned for a reason

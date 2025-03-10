@@ -1,0 +1,21 @@
+# Replaced by TargetSummary.yaml
+type: object
+nullable: true
+properties:
+  id:
+    type: string
+    description: ID of this identity summary
+    example: ff80818155fe8c080155fe8d925b0316
+  name:
+    type: string
+    description: Human-readable display name of identity
+    example: SailPoint Services
+  identityId:
+    type: string
+    description: ID of the identity that this summary represents
+    example: c15b9f5cca5a4e9599eaa0e64fa921bd
+  completed:
+    type: boolean
+    description: Indicates if all access items for this summary have been decided on
+    example: true
+    default: false

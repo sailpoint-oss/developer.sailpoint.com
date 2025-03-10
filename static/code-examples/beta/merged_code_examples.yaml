@@ -234,10 +234,10 @@
 
         try {
             $Result = ConvertFrom-JsonToAccessProfile -Json $AccessProfile
-            New-BetaAccessProfile -BetaAccessProfile $Result 
+            New-BetaAccessProfile -AccessProfile $Result 
 
             # Below is a request that includes all optional parameters
-            # New-BetaAccessProfile -BetaAccessProfile $Result   
+            # New-BetaAccessProfile -AccessProfile $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaAccessProfile"
             Write-Host $_.ErrorDetails
@@ -473,10 +473,10 @@
 
         try {
             $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-            Update-BetaAccessProfile -Id $Id -BetaJsonPatchOperation $Result 
+            Update-BetaAccessProfile -Id $Id -JsonPatchOperation $Result 
 
             # Below is a request that includes all optional parameters
-            # Update-BetaAccessProfile -Id $Id -BetaJsonPatchOperation $Result   
+            # Update-BetaAccessProfile -Id $Id -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaAccessProfile"
             Write-Host $_.ErrorDetails
@@ -520,10 +520,10 @@
 
         try {
             $Result = ConvertFrom-JsonToAccessProfileBulkDeleteRequest -Json $AccessProfileBulkDeleteRequest
-            Remove-BetaAccessProfilesInBulk -BetaAccessProfileBulkDeleteRequest $Result 
+            Remove-BetaAccessProfilesInBulk -AccessProfileBulkDeleteRequest $Result 
 
             # Below is a request that includes all optional parameters
-            # Remove-BetaAccessProfilesInBulk -BetaAccessProfileBulkDeleteRequest $Result   
+            # Remove-BetaAccessProfilesInBulk -AccessProfileBulkDeleteRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaAccessProfilesInBulk"
             Write-Host $_.ErrorDetails
@@ -603,10 +603,10 @@
 
         try {
             $Result = ConvertFrom-JsonToAccessProfileBulkUpdateRequestInner -Json $AccessProfileBulkUpdateRequestInner
-            Update-BetaAccessProfilesInBulk -BetaAccessProfileBulkUpdateRequestInner $Result 
+            Update-BetaAccessProfilesInBulk -AccessProfileBulkUpdateRequestInner $Result 
 
             # Below is a request that includes all optional parameters
-            # Update-BetaAccessProfilesInBulk -BetaAccessProfileBulkUpdateRequestInner $Result   
+            # Update-BetaAccessProfilesInBulk -AccessProfileBulkUpdateRequestInner $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaAccessProfilesInBulk"
             Write-Host $_.ErrorDetails
@@ -651,10 +651,10 @@
 
         try {
             $Result = ConvertFrom-JsonToCommentDto -Json $CommentDto
-            Approve-BetaAccessRequest -ApprovalId $ApprovalId -BetaCommentDto $Result 
+            Approve-BetaAccessRequest -ApprovalId $ApprovalId -CommentDto $Result 
 
             # Below is a request that includes all optional parameters
-            # Approve-BetaAccessRequest -ApprovalId $ApprovalId -BetaCommentDto $Result   
+            # Approve-BetaAccessRequest -ApprovalId $ApprovalId -CommentDto $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Approve-BetaAccessRequest"
             Write-Host $_.ErrorDetails
@@ -701,10 +701,10 @@
 
         try {
             $Result = ConvertFrom-JsonToForwardApprovalDto -Json $ForwardApprovalDto
-            Invoke-BetaForwardAccessRequest -ApprovalId $ApprovalId -BetaForwardApprovalDto $Result 
+            Invoke-BetaForwardAccessRequest -ApprovalId $ApprovalId -ForwardApprovalDto $Result 
 
             # Below is a request that includes all optional parameters
-            # Invoke-BetaForwardAccessRequest -ApprovalId $ApprovalId -BetaForwardApprovalDto $Result   
+            # Invoke-BetaForwardAccessRequest -ApprovalId $ApprovalId -ForwardApprovalDto $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-BetaForwardAccessRequest"
             Write-Host $_.ErrorDetails
@@ -875,10 +875,10 @@
 
         try {
             $Result = ConvertFrom-JsonToCommentDto -Json $CommentDto
-            Deny-BetaAccessRequest -ApprovalId $ApprovalId -BetaCommentDto $Result 
+            Deny-BetaAccessRequest -ApprovalId $ApprovalId -CommentDto $Result 
 
             # Below is a request that includes all optional parameters
-            # Deny-BetaAccessRequest -ApprovalId $ApprovalId -BetaCommentDto $Result   
+            # Deny-BetaAccessRequest -ApprovalId $ApprovalId -CommentDto $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Deny-BetaAccessRequest"
             Write-Host $_.ErrorDetails
@@ -962,10 +962,10 @@
 
         try {
             $Result = ConvertFrom-JsonToCancelAccessRequest -Json $CancelAccessRequest
-            Suspend-BetaAccessRequest -BetaCancelAccessRequest $Result 
+            Suspend-BetaAccessRequest -CancelAccessRequest $Result 
 
             # Below is a request that includes all optional parameters
-            # Suspend-BetaAccessRequest -BetaCancelAccessRequest $Result   
+            # Suspend-BetaAccessRequest -CancelAccessRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Suspend-BetaAccessRequest"
             Write-Host $_.ErrorDetails
@@ -1007,10 +1007,10 @@
 
         try {
             $Result = ConvertFrom-JsonToCloseAccessRequest -Json $CloseAccessRequest
-            Close-BetaAccessRequest -BetaCloseAccessRequest $Result 
+            Close-BetaAccessRequest -CloseAccessRequest $Result 
 
             # Below is a request that includes all optional parameters
-            # Close-BetaAccessRequest -BetaCloseAccessRequest $Result   
+            # Close-BetaAccessRequest -CloseAccessRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Close-BetaAccessRequest"
             Write-Host $_.ErrorDetails
@@ -1102,10 +1102,10 @@
 
         try {
             $Result = ConvertFrom-JsonToAccessRequest -Json $AccessRequest
-            New-BetaAccessRequest -BetaAccessRequest $Result 
+            New-BetaAccessRequest -AccessRequest $Result 
 
             # Below is a request that includes all optional parameters
-            # New-BetaAccessRequest -BetaAccessRequest $Result   
+            # New-BetaAccessRequest -AccessRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaAccessRequest"
             Write-Host $_.ErrorDetails
@@ -1249,10 +1249,10 @@
 
         try {
             $Result = ConvertFrom-JsonToAccessRequestConfig -Json $AccessRequestConfig
-            Set-BetaAccessRequestConfig -BetaAccessRequestConfig $Result 
+            Set-BetaAccessRequestConfig -AccessRequestConfig $Result 
 
             # Below is a request that includes all optional parameters
-            # Set-BetaAccessRequestConfig -BetaAccessRequestConfig $Result   
+            # Set-BetaAccessRequestConfig -AccessRequestConfig $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-BetaAccessRequestConfig"
             Write-Host $_.ErrorDetails
@@ -1532,10 +1532,10 @@
 
         try {
             $Result = ConvertFrom-JsonToAccountAttributesCreate -Json $AccountAttributesCreate
-            New-BetaAccount -BetaAccountAttributesCreate $Result 
+            New-BetaAccount -AccountAttributesCreate $Result 
 
             # Below is a request that includes all optional parameters
-            # New-BetaAccount -BetaAccountAttributesCreate $Result   
+            # New-BetaAccount -AccountAttributesCreate $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaAccount"
             Write-Host $_.ErrorDetails
@@ -1574,8 +1574,8 @@
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
-        $Filters = "identityId eq "2c9180858082150f0180893dbaf44201"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **identityId**: *eq, in, sw*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **sourceId**: *eq, in, sw*  **uncorrelated**: *eq*  **entitlements**: *eq*  **origin**: *eq, in*  **manuallyCorrelated**: *eq*  **identity.name**: *eq, in, sw*  **identity.correlated**: *eq*  **identity.identityState**: *eq, in*  **source.displayableName**: *eq, in*  **source.authoritative**: *eq*  **source.connectionType**: *eq, in*  **recommendation.method**: *eq, in, isnull* (optional)
-        $Sorters = "id,name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, identity.id, nativeIdentity, uuid, manuallyCorrelated, entitlements, origin, identity.name, identity.identityState, identity.correlated, source.displayableName, source.authoritative, source.connectionType** (optional)
+        $Filters = "identityId eq "2c9180858082150f0180893dbaf44201"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **identityId**: *eq, in, sw*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **sourceId**: *eq, in, sw*  **uncorrelated**: *eq*  **entitlements**: *eq*  **origin**: *eq, in*  **manuallyCorrelated**: *eq*  **hasEntitlements**: *eq*  **identity.name**: *eq, in, sw*  **identity.correlated**: *eq*  **identity.identityState**: *eq, in*  **source.displayableName**: *eq, in*  **source.authoritative**: *eq*  **source.connectionType**: *eq, in*  **recommendation.method**: *eq, in, isnull*  **created**: *eq, ge, gt, le*  **modified**: *eq, ge, gt, le, lt* (optional)
+        $Sorters = "id,name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, nativeIdentity, uuid, manuallyCorrelated, hasEntitlements, entitlements, origin, identity.name, identity.identityState, identity.correlated, source.displayableName, source.authoritative, source.connectionType, sourceOwner.name** (optional)
 
         # Accounts List
 
@@ -1595,8 +1595,8 @@
         limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
-        filters = 'identityId eq \"2c9180858082150f0180893dbaf44201\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **identityId**: *eq, in, sw*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **sourceId**: *eq, in, sw*  **uncorrelated**: *eq*  **entitlements**: *eq*  **origin**: *eq, in*  **manuallyCorrelated**: *eq*  **identity.name**: *eq, in, sw*  **identity.correlated**: *eq*  **identity.identityState**: *eq, in*  **source.displayableName**: *eq, in*  **source.authoritative**: *eq*  **source.connectionType**: *eq, in*  **recommendation.method**: *eq, in, isnull* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **identityId**: *eq, in, sw*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **sourceId**: *eq, in, sw*  **uncorrelated**: *eq*  **entitlements**: *eq*  **origin**: *eq, in*  **manuallyCorrelated**: *eq*  **identity.name**: *eq, in, sw*  **identity.correlated**: *eq*  **identity.identityState**: *eq, in*  **source.displayableName**: *eq, in*  **source.authoritative**: *eq*  **source.connectionType**: *eq, in*  **recommendation.method**: *eq, in, isnull* (optional)
-        sorters = 'id,name' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, identity.id, nativeIdentity, uuid, manuallyCorrelated, entitlements, origin, identity.name, identity.identityState, identity.correlated, source.displayableName, source.authoritative, source.connectionType** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, identity.id, nativeIdentity, uuid, manuallyCorrelated, entitlements, origin, identity.name, identity.identityState, identity.correlated, source.displayableName, source.authoritative, source.connectionType** (optional)
+        filters = 'identityId eq \"2c9180858082150f0180893dbaf44201\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **identityId**: *eq, in, sw*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **sourceId**: *eq, in, sw*  **uncorrelated**: *eq*  **entitlements**: *eq*  **origin**: *eq, in*  **manuallyCorrelated**: *eq*  **hasEntitlements**: *eq*  **identity.name**: *eq, in, sw*  **identity.correlated**: *eq*  **identity.identityState**: *eq, in*  **source.displayableName**: *eq, in*  **source.authoritative**: *eq*  **source.connectionType**: *eq, in*  **recommendation.method**: *eq, in, isnull*  **created**: *eq, ge, gt, le*  **modified**: *eq, ge, gt, le, lt* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **identityId**: *eq, in, sw*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **sourceId**: *eq, in, sw*  **uncorrelated**: *eq*  **entitlements**: *eq*  **origin**: *eq, in*  **manuallyCorrelated**: *eq*  **hasEntitlements**: *eq*  **identity.name**: *eq, in, sw*  **identity.correlated**: *eq*  **identity.identityState**: *eq, in*  **source.displayableName**: *eq, in*  **source.authoritative**: *eq*  **source.connectionType**: *eq, in*  **recommendation.method**: *eq, in, isnull*  **created**: *eq, ge, gt, le*  **modified**: *eq, ge, gt, le, lt* (optional)
+        sorters = 'id,name' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, nativeIdentity, uuid, manuallyCorrelated, hasEntitlements, entitlements, origin, identity.name, identity.identityState, identity.correlated, source.displayableName, source.authoritative, source.connectionType, sourceOwner.name** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, nativeIdentity, uuid, manuallyCorrelated, hasEntitlements, entitlements, origin, identity.name, identity.identityState, identity.correlated, source.displayableName, source.authoritative, source.connectionType, sourceOwner.name** (optional)
         try:
           # Accounts List
           
@@ -1699,10 +1699,10 @@
 
         try {
             $Result = ConvertFrom-JsonToAccountAttributes -Json $AccountAttributes
-            Send-BetaAccount -Id $Id -BetaAccountAttributes $Result 
+            Send-BetaAccount -Id $Id -AccountAttributes $Result 
 
             # Below is a request that includes all optional parameters
-            # Send-BetaAccount -Id $Id -BetaAccountAttributes $Result   
+            # Send-BetaAccount -Id $Id -AccountAttributes $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaAccount"
             Write-Host $_.ErrorDetails
@@ -1824,10 +1824,10 @@
 
         try {
             $Result = ConvertFrom-JsonToAccountToggleRequest -Json $AccountToggleRequest
-            Disable-BetaAccount -Id $Id -BetaAccountToggleRequest $Result 
+            Disable-BetaAccount -Id $Id -AccountToggleRequest $Result 
 
             # Below is a request that includes all optional parameters
-            # Disable-BetaAccount -Id $Id -BetaAccountToggleRequest $Result   
+            # Disable-BetaAccount -Id $Id -AccountToggleRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Disable-BetaAccount"
             Write-Host $_.ErrorDetails
@@ -1901,10 +1901,10 @@
 
         try {
             $Result = ConvertFrom-JsonToIdentitiesAccountsBulkRequest -Json $IdentitiesAccountsBulkRequest
-            Disable-BetaAccountsForIdentities -BetaIdentitiesAccountsBulkRequest $Result 
+            Disable-BetaAccountsForIdentities -IdentitiesAccountsBulkRequest $Result 
 
             # Below is a request that includes all optional parameters
-            # Disable-BetaAccountsForIdentities -BetaIdentitiesAccountsBulkRequest $Result   
+            # Disable-BetaAccountsForIdentities -IdentitiesAccountsBulkRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Disable-BetaAccountsForIdentities"
             Write-Host $_.ErrorDetails
@@ -1944,10 +1944,10 @@
 
         try {
             $Result = ConvertFrom-JsonToAccountToggleRequest -Json $AccountToggleRequest
-            Enable-BetaAccount -Id $Id -BetaAccountToggleRequest $Result 
+            Enable-BetaAccount -Id $Id -AccountToggleRequest $Result 
 
             # Below is a request that includes all optional parameters
-            # Enable-BetaAccount -Id $Id -BetaAccountToggleRequest $Result   
+            # Enable-BetaAccount -Id $Id -AccountToggleRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Enable-BetaAccount"
             Write-Host $_.ErrorDetails
@@ -2021,10 +2021,10 @@
 
         try {
             $Result = ConvertFrom-JsonToIdentitiesAccountsBulkRequest -Json $IdentitiesAccountsBulkRequest
-            Enable-BetaAccountsForIdentities -BetaIdentitiesAccountsBulkRequest $Result 
+            Enable-BetaAccountsForIdentities -IdentitiesAccountsBulkRequest $Result 
 
             # Below is a request that includes all optional parameters
-            # Enable-BetaAccountsForIdentities -BetaIdentitiesAccountsBulkRequest $Result   
+            # Enable-BetaAccountsForIdentities -IdentitiesAccountsBulkRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Enable-BetaAccountsForIdentities"
             Write-Host $_.ErrorDetails
@@ -2139,10 +2139,10 @@
 
         try {
             $Result = ConvertFrom-JsonToAccountUnlockRequest -Json $AccountUnlockRequest
-            Unlock-BetaAccount -Id $Id -BetaAccountUnlockRequest $Result 
+            Unlock-BetaAccount -Id $Id -AccountUnlockRequest $Result 
 
             # Below is a request that includes all optional parameters
-            # Unlock-BetaAccount -Id $Id -BetaAccountUnlockRequest $Result   
+            # Unlock-BetaAccount -Id $Id -AccountUnlockRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Unlock-BetaAccount"
             Write-Host $_.ErrorDetails
@@ -2219,7 +2219,7 @@
             Update-BetaDiscoveredApplicationByID -Id $Id 
 
             # Below is a request that includes all optional parameters
-            # Update-BetaDiscoveredApplicationByID -Id $Id -BetaJsonPatchOperations $Result   
+            # Update-BetaDiscoveredApplicationByID -Id $Id -JsonPatchOperations $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaDiscoveredApplicationByID"
             Write-Host $_.ErrorDetails
@@ -2445,10 +2445,10 @@
 
         try {
             $Result = ConvertFrom-JsonToSourceAppCreateDto -Json $SourceAppCreateDto
-            New-BetaSourceApp -BetaSourceAppCreateDto $Result 
+            New-BetaSourceApp -SourceAppCreateDto $Result 
 
             # Below is a request that includes all optional parameters
-            # New-BetaSourceApp -BetaSourceAppCreateDto $Result   
+            # New-BetaSourceApp -SourceAppCreateDto $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaSourceApp"
             Write-Host $_.ErrorDetails
@@ -2650,7 +2650,7 @@
             Update-BetaSourceApp -Id $Id 
 
             # Below is a request that includes all optional parameters
-            # Update-BetaSourceApp -Id $Id -BetaJsonPatchOperation $Result   
+            # Update-BetaSourceApp -Id $Id -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaSourceApp"
             Write-Host $_.ErrorDetails
@@ -2941,7 +2941,7 @@
             Update-BetaUserApp -Id $Id 
 
             # Below is a request that includes all optional parameters
-            # Update-BetaUserApp -Id $Id -BetaJsonPatchOperation $Result   
+            # Update-BetaUserApp -Id $Id -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaUserApp"
             Write-Host $_.ErrorDetails
@@ -2995,7 +2995,7 @@
             Update-BetaSourceAppsInBulk 
 
             # Below is a request that includes all optional parameters
-            # Update-BetaSourceAppsInBulk -BetaSourceAppBulkUpdateRequest $Result   
+            # Update-BetaSourceAppsInBulk -SourceAppBulkUpdateRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaSourceAppsInBulk"
             Write-Host $_.ErrorDetails
@@ -3076,10 +3076,10 @@
 
         try {
             $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-            Update-BetaProfileConfig -Id $Id -BetaJsonPatchOperation $Result 
+            Update-BetaProfileConfig -Id $Id -JsonPatchOperation $Result 
 
             # Below is a request that includes all optional parameters
-            # Update-BetaProfileConfig -Id $Id -BetaJsonPatchOperation $Result   
+            # Update-BetaProfileConfig -Id $Id -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaProfileConfig"
             Write-Host $_.ErrorDetails
@@ -3157,7 +3157,7 @@
             Complete-BetaCampaign -Id $Id 
 
             # Below is a request that includes all optional parameters
-            # Complete-BetaCampaign -Id $Id -BetaCompleteCampaignOptions $Result   
+            # Complete-BetaCampaign -Id $Id -CompleteCampaignOptions $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Complete-BetaCampaign"
             Write-Host $_.ErrorDetails
@@ -3302,10 +3302,10 @@
 
         try {
             $Result = ConvertFrom-JsonToCampaign -Json $Campaign
-            New-BetaCampaign -BetaCampaign $Result 
+            New-BetaCampaign -Campaign $Result 
 
             # Below is a request that includes all optional parameters
-            # New-BetaCampaign -BetaCampaign $Result   
+            # New-BetaCampaign -Campaign $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaCampaign"
             Write-Host $_.ErrorDetails
@@ -3614,10 +3614,10 @@
 
         try {
             $Result = ConvertFrom-JsonToCampaignTemplate -Json $CampaignTemplate
-            New-BetaCampaignTemplate -BetaCampaignTemplate $Result 
+            New-BetaCampaignTemplate -CampaignTemplate $Result 
 
             # Below is a request that includes all optional parameters
-            # New-BetaCampaignTemplate -BetaCampaignTemplate $Result   
+            # New-BetaCampaignTemplate -CampaignTemplate $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaCampaignTemplate"
             Write-Host $_.ErrorDetails
@@ -3886,10 +3886,10 @@
 
         try {
             $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-            Update-BetaCampaignTemplate -Id $Id -BetaJsonPatchOperation $Result 
+            Update-BetaCampaignTemplate -Id $Id -JsonPatchOperation $Result 
 
             # Below is a request that includes all optional parameters
-            # Update-BetaCampaignTemplate -Id $Id -BetaJsonPatchOperation $Result   
+            # Update-BetaCampaignTemplate -Id $Id -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaCampaignTemplate"
             Write-Host $_.ErrorDetails
@@ -4018,7 +4018,7 @@
             Set-BetaCampaignTemplateSchedule -Id $Id 
 
             # Below is a request that includes all optional parameters
-            # Set-BetaCampaignTemplateSchedule -Id $Id -BetaSchedule $Result   
+            # Set-BetaCampaignTemplateSchedule -Id $Id -Schedule $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-BetaCampaignTemplateSchedule"
             Write-Host $_.ErrorDetails
@@ -4072,10 +4072,10 @@
 
         try {
             $Result = ConvertFrom-JsonToDeleteCampaignsRequest -Json $DeleteCampaignsRequest
-            Remove-BetaCampaigns -BetaDeleteCampaignsRequest $Result 
+            Remove-BetaCampaigns -DeleteCampaignsRequest $Result 
 
             # Below is a request that includes all optional parameters
-            # Remove-BetaCampaigns -BetaDeleteCampaignsRequest $Result   
+            # Remove-BetaCampaigns -DeleteCampaignsRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaCampaigns"
             Write-Host $_.ErrorDetails
@@ -4254,10 +4254,10 @@
 
         try {
             $Result = ConvertFrom-JsonToCampaignReportsConfig -Json $CampaignReportsConfig
-            Set-BetaCampaignReportsConfig -BetaCampaignReportsConfig $Result 
+            Set-BetaCampaignReportsConfig -CampaignReportsConfig $Result 
 
             # Below is a request that includes all optional parameters
-            # Set-BetaCampaignReportsConfig -BetaCampaignReportsConfig $Result   
+            # Set-BetaCampaignReportsConfig -CampaignReportsConfig $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-BetaCampaignReportsConfig"
             Write-Host $_.ErrorDetails
@@ -4301,10 +4301,10 @@
 
         try {
             $Result = ConvertFrom-JsonToAdminReviewReassign -Json $AdminReviewReassign
-            Move-Beta -Id $Id -BetaAdminReviewReassign $Result 
+            Move-Beta -Id $Id -AdminReviewReassign $Result 
 
             # Below is a request that includes all optional parameters
-            # Move-Beta -Id $Id -BetaAdminReviewReassign $Result   
+            # Move-Beta -Id $Id -AdminReviewReassign $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Move-Beta"
             Write-Host $_.ErrorDetails
@@ -4351,7 +4351,7 @@
             Start-BetaCampaign -Id $Id 
 
             # Below is a request that includes all optional parameters
-            # Start-BetaCampaign -Id $Id -BetaActivateCampaignOptions $Result   
+            # Start-BetaCampaign -Id $Id -ActivateCampaignOptions $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-BetaCampaign"
             Write-Host $_.ErrorDetails
@@ -4660,6 +4660,26 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaCertifications"
             Write-Host $_.ErrorDetails
         }
+    - lang: Python
+      label: SDK_tools/sdk/python/beta/methods/certifications#list-certifications
+      source: |
+        reviewer_identitiy = 'reviewer_identitiy_example' # str | The ID of reviewer identity. *me* indicates the current user. (optional) # str | The ID of reviewer identity. *me* indicates the current user. (optional)
+        limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
+        filters = 'filters_example' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **phase**: *eq*  **completed**: *eq, ne*  **campaignRef.campaignType**: *eq, in*  **campaignRef.id**: *eq, in* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **phase**: *eq*  **completed**: *eq, ne*  **campaignRef.campaignType**: *eq, in*  **campaignRef.id**: *eq, in* (optional)
+        sorters = 'sorters_example' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, due, signed** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, due, signed** (optional)
+        try:
+          # Certifications by IDs
+          
+          api_response = api_instance.list_certifications()
+              
+          # Below is a request that includes all optional parameters
+          # api_response = api_instance.list_certifications(reviewer_identitiy, limit, offset, count, filters, sorters)
+          print("The response of CertificationsApi->list_certifications:\n")
+          pprint(api_response)
+        except Exception as e:
+          print("Exception when calling CertificationsApi->list_certifications: %s\n" % e)
 - path: /certifications/{id}/reassign-async
   method: POST
   xCodeSample:
@@ -4685,10 +4705,10 @@
 
         try {
             $Result = ConvertFrom-JsonToReviewReassign -Json $ReviewReassign
-            Submit-BetaReassignCertsAsync -Id $Id -BetaReviewReassign $Result 
+            Submit-BetaReassignCertsAsync -Id $Id -ReviewReassign $Result 
 
             # Below is a request that includes all optional parameters
-            # Submit-BetaReassignCertsAsync -Id $Id -BetaReviewReassign $Result   
+            # Submit-BetaReassignCertsAsync -Id $Id -ReviewReassign $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Submit-BetaReassignCertsAsync"
             Write-Host $_.ErrorDetails
@@ -4758,10 +4778,10 @@
 
         try {
             $Result = ConvertFrom-JsonToConnectorRuleCreateRequest -Json $ConnectorRuleCreateRequest
-            New-BetaConnectorRule -BetaConnectorRuleCreateRequest $Result 
+            New-BetaConnectorRule -ConnectorRuleCreateRequest $Result 
 
             # Below is a request that includes all optional parameters
-            # New-BetaConnectorRule -BetaConnectorRuleCreateRequest $Result   
+            # New-BetaConnectorRule -ConnectorRuleCreateRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaConnectorRule"
             Write-Host $_.ErrorDetails
@@ -4947,7 +4967,7 @@
             Update-BetaConnectorRule -Id $Id 
 
             # Below is a request that includes all optional parameters
-            # Update-BetaConnectorRule -Id $Id -BetaConnectorRuleUpdateRequest $Result   
+            # Update-BetaConnectorRule -Id $Id -ConnectorRuleUpdateRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaConnectorRule"
             Write-Host $_.ErrorDetails
@@ -5011,10 +5031,10 @@
 
         try {
             $Result = ConvertFrom-JsonToSourceCode -Json $SourceCode
-            Confirm-BetaConnectorRule -BetaSourceCode $Result 
+            Confirm-BetaConnectorRule -SourceCode $Result 
 
             # Below is a request that includes all optional parameters
-            # Confirm-BetaConnectorRule -BetaSourceCode $Result   
+            # Confirm-BetaConnectorRule -SourceCode $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Confirm-BetaConnectorRule"
             Write-Host $_.ErrorDetails
@@ -5205,7 +5225,7 @@
             New-BetaFormDefinition 
 
             # Below is a request that includes all optional parameters
-            # New-BetaFormDefinition -BetaCreateFormDefinitionRequest $Result   
+            # New-BetaFormDefinition -CreateFormDefinitionRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaFormDefinition"
             Write-Host $_.ErrorDetails
@@ -5501,7 +5521,7 @@
             New-BetaFormDefinitionByTemplate 
 
             # Below is a request that includes all optional parameters
-            # New-BetaFormDefinitionByTemplate -BetaCreateFormDefinitionRequest $Result   
+            # New-BetaFormDefinitionByTemplate -CreateFormDefinitionRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaFormDefinitionByTemplate"
             Write-Host $_.ErrorDetails
@@ -5655,7 +5675,7 @@
             New-BetaFormDefinitionDynamicSchema 
 
             # Below is a request that includes all optional parameters
-            # New-BetaFormDefinitionDynamicSchema -BetaBody $Result   
+            # New-BetaFormDefinitionDynamicSchema -Body $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaFormDefinitionDynamicSchema"
             Write-Host $_.ErrorDetails
@@ -5755,7 +5775,7 @@
             New-BetaFormInstance 
 
             # Below is a request that includes all optional parameters
-            # New-BetaFormInstance -BetaBody $Result   
+            # New-BetaFormInstance -Body $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaFormInstance"
             Write-Host $_.ErrorDetails
@@ -6142,7 +6162,7 @@
             Import-BetaFormDefinitions 
 
             # Below is a request that includes all optional parameters
-            # Import-BetaFormDefinitions -BetaBody $Result   
+            # Import-BetaFormDefinitions -Body $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Import-BetaFormDefinitions"
             Write-Host $_.ErrorDetails
@@ -6268,7 +6288,7 @@
             Show-BetaPreviewDataSource -FormDefinitionID $FormDefinitionID 
 
             # Below is a request that includes all optional parameters
-            # Show-BetaPreviewDataSource -FormDefinitionID $FormDefinitionID -Limit $Limit -Filters $Filters -Query $Query -BetaFormElementPreviewRequest $Result   
+            # Show-BetaPreviewDataSource -FormDefinitionID $FormDefinitionID -Limit $Limit -Filters $Filters -Query $Query -FormElementPreviewRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Show-BetaPreviewDataSource"
             Write-Host $_.ErrorDetails
@@ -6320,10 +6340,10 @@
 
         try {
             $Result = ConvertFrom-JsonToCustomPasswordInstruction -Json $CustomPasswordInstruction
-            New-BetaCustomPasswordInstructions -BetaCustomPasswordInstruction $Result 
+            New-BetaCustomPasswordInstructions -CustomPasswordInstruction $Result 
 
             # Below is a request that includes all optional parameters
-            # New-BetaCustomPasswordInstructions -BetaCustomPasswordInstruction $Result   
+            # New-BetaCustomPasswordInstructions -CustomPasswordInstruction $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaCustomPasswordInstructions"
             Write-Host $_.ErrorDetails
@@ -6545,7 +6565,7 @@
             Update-BetaEntitlement -Id $Id 
 
             # Below is a request that includes all optional parameters
-            # Update-BetaEntitlement -Id $Id -BetaJsonPatchOperation $Result   
+            # Update-BetaEntitlement -Id $Id -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaEntitlement"
             Write-Host $_.ErrorDetails
@@ -6633,10 +6653,10 @@
 
         try {
             $Result = ConvertFrom-JsonToEntitlementRequestConfig -Json $EntitlementRequestConfig
-            Send-BetaEntitlementRequestConfig -Id $Id -BetaEntitlementRequestConfig $Result 
+            Send-BetaEntitlementRequestConfig -Id $Id -EntitlementRequestConfig $Result 
 
             # Below is a request that includes all optional parameters
-            # Send-BetaEntitlementRequestConfig -Id $Id -BetaEntitlementRequestConfig $Result   
+            # Send-BetaEntitlementRequestConfig -Id $Id -EntitlementRequestConfig $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaEntitlementRequestConfig"
             Write-Host $_.ErrorDetails
@@ -6902,10 +6922,10 @@
 
         try {
             $Result = ConvertFrom-JsonToEntitlementBulkUpdateRequest -Json $EntitlementBulkUpdateRequest
-            Update-BetaEntitlementsInBulk -BetaEntitlementBulkUpdateRequest $Result 
+            Update-BetaEntitlementsInBulk -EntitlementBulkUpdateRequest $Result 
 
             # Below is a request that includes all optional parameters
-            # Update-BetaEntitlementsInBulk -BetaEntitlementBulkUpdateRequest $Result   
+            # Update-BetaEntitlementsInBulk -EntitlementBulkUpdateRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaEntitlementsInBulk"
             Write-Host $_.ErrorDetails
@@ -6963,10 +6983,10 @@
 
         try {
             $Result = ConvertFrom-JsonToWorkgroupDto -Json $WorkgroupDto
-            New-BetaWorkgroup -BetaWorkgroupDto $Result 
+            New-BetaWorkgroup -WorkgroupDto $Result 
 
             # Below is a request that includes all optional parameters
-            # New-BetaWorkgroup -BetaWorkgroupDto $Result   
+            # New-BetaWorkgroup -WorkgroupDto $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaWorkgroup"
             Write-Host $_.ErrorDetails
@@ -7129,7 +7149,7 @@
             Update-BetaWorkgroup -Id $Id 
 
             # Below is a request that includes all optional parameters
-            # Update-BetaWorkgroup -Id $Id -BetaJsonPatchOperation $Result   
+            # Update-BetaWorkgroup -Id $Id -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaWorkgroup"
             Write-Host $_.ErrorDetails
@@ -7170,10 +7190,10 @@
 
         try {
             $Result = ConvertFrom-JsonToBulkWorkgroupMembersRequestInner -Json $BulkWorkgroupMembersRequestInner
-            Remove-BetaWorkgroupMembers -WorkgroupId $WorkgroupId -BetaBulkWorkgroupMembersRequestInner $Result 
+            Remove-BetaWorkgroupMembers -WorkgroupId $WorkgroupId -BulkWorkgroupMembersRequestInner $Result 
 
             # Below is a request that includes all optional parameters
-            # Remove-BetaWorkgroupMembers -WorkgroupId $WorkgroupId -BetaBulkWorkgroupMembersRequestInner $Result   
+            # Remove-BetaWorkgroupMembers -WorkgroupId $WorkgroupId -BulkWorkgroupMembersRequestInner $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaWorkgroupMembers"
             Write-Host $_.ErrorDetails
@@ -7212,10 +7232,10 @@
 
         try {
             $Result = ConvertFrom-JsonToWorkgroupBulkDeleteRequest -Json $WorkgroupBulkDeleteRequest
-            Remove-BetaWorkgroupsInBulk -BetaWorkgroupBulkDeleteRequest $Result 
+            Remove-BetaWorkgroupsInBulk -WorkgroupBulkDeleteRequest $Result 
 
             # Below is a request that includes all optional parameters
-            # Remove-BetaWorkgroupsInBulk -BetaWorkgroupBulkDeleteRequest $Result   
+            # Remove-BetaWorkgroupsInBulk -WorkgroupBulkDeleteRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaWorkgroupsInBulk"
             Write-Host $_.ErrorDetails
@@ -7335,10 +7355,10 @@
 
         try {
             $Result = ConvertFrom-JsonToBulkWorkgroupMembersRequestInner -Json $BulkWorkgroupMembersRequestInner
-            Update-BetaWorkgroupMembers -WorkgroupId $WorkgroupId -BetaBulkWorkgroupMembersRequestInner $Result 
+            Update-BetaWorkgroupMembers -WorkgroupId $WorkgroupId -BulkWorkgroupMembersRequestInner $Result 
 
             # Below is a request that includes all optional parameters
-            # Update-BetaWorkgroupMembers -WorkgroupId $WorkgroupId -BetaBulkWorkgroupMembersRequestInner $Result   
+            # Update-BetaWorkgroupMembers -WorkgroupId $WorkgroupId -BulkWorkgroupMembersRequestInner $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaWorkgroupMembers"
             Write-Host $_.ErrorDetails
@@ -7381,10 +7401,10 @@
 
         try {
             $Result = ConvertFrom-JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
-            Add-BetaAccessRequestRecommendationsIgnoredItem -BetaAccessRequestRecommendationActionItemDto $Result 
+            Add-BetaAccessRequestRecommendationsIgnoredItem -AccessRequestRecommendationActionItemDto $Result 
 
             # Below is a request that includes all optional parameters
-            # Add-BetaAccessRequestRecommendationsIgnoredItem -BetaAccessRequestRecommendationActionItemDto $Result   
+            # Add-BetaAccessRequestRecommendationsIgnoredItem -AccessRequestRecommendationActionItemDto $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Add-BetaAccessRequestRecommendationsIgnoredItem"
             Write-Host $_.ErrorDetails
@@ -7472,10 +7492,10 @@
 
         try {
             $Result = ConvertFrom-JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
-            Add-BetaAccessRequestRecommendationsRequestedItem -BetaAccessRequestRecommendationActionItemDto $Result 
+            Add-BetaAccessRequestRecommendationsRequestedItem -AccessRequestRecommendationActionItemDto $Result 
 
             # Below is a request that includes all optional parameters
-            # Add-BetaAccessRequestRecommendationsRequestedItem -BetaAccessRequestRecommendationActionItemDto $Result   
+            # Add-BetaAccessRequestRecommendationsRequestedItem -AccessRequestRecommendationActionItemDto $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Add-BetaAccessRequestRecommendationsRequestedItem"
             Write-Host $_.ErrorDetails
@@ -7563,10 +7583,10 @@
 
         try {
             $Result = ConvertFrom-JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
-            Add-BetaAccessRequestRecommendationsViewedItem -BetaAccessRequestRecommendationActionItemDto $Result 
+            Add-BetaAccessRequestRecommendationsViewedItem -AccessRequestRecommendationActionItemDto $Result 
 
             # Below is a request that includes all optional parameters
-            # Add-BetaAccessRequestRecommendationsViewedItem -BetaAccessRequestRecommendationActionItemDto $Result   
+            # Add-BetaAccessRequestRecommendationsViewedItem -AccessRequestRecommendationActionItemDto $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Add-BetaAccessRequestRecommendationsViewedItem"
             Write-Host $_.ErrorDetails
@@ -7653,10 +7673,10 @@
 
         try {
             $Result = ConvertFrom-JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
-            Add-BetaAccessRequestRecommendationsViewedItems -BetaAccessRequestRecommendationActionItemDto $Result 
+            Add-BetaAccessRequestRecommendationsViewedItems -AccessRequestRecommendationActionItemDto $Result 
 
             # Below is a request that includes all optional parameters
-            # Add-BetaAccessRequestRecommendationsViewedItems -BetaAccessRequestRecommendationActionItemDto $Result   
+            # Add-BetaAccessRequestRecommendationsViewedItems -AccessRequestRecommendationActionItemDto $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Add-BetaAccessRequestRecommendationsViewedItems"
             Write-Host $_.ErrorDetails
@@ -7754,10 +7774,10 @@
 
         try {
             $Result = ConvertFrom-JsonToCommonAccessItemRequest -Json $CommonAccessItemRequest
-            New-BetaCommonAccess -BetaCommonAccessItemRequest $Result 
+            New-BetaCommonAccess -CommonAccessItemRequest $Result 
 
             # Below is a request that includes all optional parameters
-            # New-BetaCommonAccess -BetaCommonAccessItemRequest $Result   
+            # New-BetaCommonAccess -CommonAccessItemRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaCommonAccess"
             Write-Host $_.ErrorDetails
@@ -7845,10 +7865,10 @@
 
         try {
             $Result = ConvertFrom-JsonToCommonAccessIDStatus -Json $CommonAccessIDStatus
-            Update-BetaCommonAccessStatusInBulk -BetaCommonAccessIDStatus $Result 
+            Update-BetaCommonAccessStatusInBulk -CommonAccessIDStatus $Result 
 
             # Below is a request that includes all optional parameters
-            # Update-BetaCommonAccessStatusInBulk -BetaCommonAccessIDStatus $Result   
+            # Update-BetaCommonAccessStatusInBulk -CommonAccessIDStatus $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaCommonAccessStatusInBulk"
             Write-Host $_.ErrorDetails
@@ -8331,10 +8351,10 @@
 
         try {
             $Result = ConvertFrom-JsonToRecommendationRequestDto -Json $RecommendationRequestDto
-            Get-BetaRecommendations -BetaRecommendationRequestDto $Result 
+            Get-BetaRecommendations -RecommendationRequestDto $Result 
 
             # Below is a request that includes all optional parameters
-            # Get-BetaRecommendations -BetaRecommendationRequestDto $Result   
+            # Get-BetaRecommendations -RecommendationRequestDto $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaRecommendations"
             Write-Host $_.ErrorDetails
@@ -8423,10 +8443,10 @@
 
         try {
             $Result = ConvertFrom-JsonToRecommendationConfigDto -Json $RecommendationConfigDto
-            Update-BetaRecommendationsConfig -BetaRecommendationConfigDto $Result 
+            Update-BetaRecommendationsConfig -RecommendationConfigDto $Result 
 
             # Below is a request that includes all optional parameters
-            # Update-BetaRecommendationsConfig -BetaRecommendationConfigDto $Result   
+            # Update-BetaRecommendationsConfig -RecommendationConfigDto $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaRecommendationsConfig"
             Write-Host $_.ErrorDetails
@@ -8477,7 +8497,7 @@
             New-BetaPotentialRoleProvisionRequest -SessionId $SessionId -PotentialRoleId $PotentialRoleId 
 
             # Below is a request that includes all optional parameters
-            # New-BetaPotentialRoleProvisionRequest -SessionId $SessionId -PotentialRoleId $PotentialRoleId -MinEntitlementPopularity $MinEntitlementPopularity -IncludeCommonAccess $IncludeCommonAccess -BetaRoleMiningPotentialRoleProvisionRequest $Result   
+            # New-BetaPotentialRoleProvisionRequest -SessionId $SessionId -PotentialRoleId $PotentialRoleId -MinEntitlementPopularity $MinEntitlementPopularity -IncludeCommonAccess $IncludeCommonAccess -RoleMiningPotentialRoleProvisionRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaPotentialRoleProvisionRequest"
             Write-Host $_.ErrorDetails
@@ -8552,10 +8572,10 @@
 
         try {
             $Result = ConvertFrom-JsonToRoleMiningSessionDto -Json $RoleMiningSessionDto
-            New-BetaRoleMiningSessions -BetaRoleMiningSessionDto $Result 
+            New-BetaRoleMiningSessions -RoleMiningSessionDto $Result 
 
             # Below is a request that includes all optional parameters
-            # New-BetaRoleMiningSessions -BetaRoleMiningSessionDto $Result   
+            # New-BetaRoleMiningSessions -RoleMiningSessionDto $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaRoleMiningSessions"
             Write-Host $_.ErrorDetails
@@ -8743,7 +8763,7 @@
             Export-BetaRoleMiningPotentialRoleAsync -SessionId $SessionId -PotentialRoleId $PotentialRoleId 
 
             # Below is a request that includes all optional parameters
-            # Export-BetaRoleMiningPotentialRoleAsync -SessionId $SessionId -PotentialRoleId $PotentialRoleId -BetaRoleMiningPotentialRoleExportRequest $Result   
+            # Export-BetaRoleMiningPotentialRoleAsync -SessionId $SessionId -PotentialRoleId $PotentialRoleId -RoleMiningPotentialRoleExportRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Export-BetaRoleMiningPotentialRoleAsync"
             Write-Host $_.ErrorDetails
@@ -9077,10 +9097,10 @@
 
         try {
             $Result = ConvertFrom-JsonToPatchPotentialRoleRequestInner -Json $PatchPotentialRoleRequestInner
-            Update-BetaPotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId -BetaPatchPotentialRoleRequestInner $Result 
+            Update-BetaPotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId -PatchPotentialRoleRequestInner $Result 
 
             # Below is a request that includes all optional parameters
-            # Update-BetaPotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId -BetaPatchPotentialRoleRequestInner $Result   
+            # Update-BetaPotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId -PatchPotentialRoleRequestInner $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaPotentialRole"
             Write-Host $_.ErrorDetails
@@ -9328,10 +9348,10 @@
 
         try {
             $Result = ConvertFrom-JsonToPatchPotentialRoleRequestInner -Json $PatchPotentialRoleRequestInner
-            Update-BetaRoleMiningPotentialRole -PotentialRoleId $PotentialRoleId -BetaPatchPotentialRoleRequestInner $Result 
+            Update-BetaRoleMiningPotentialRole -PotentialRoleId $PotentialRoleId -PatchPotentialRoleRequestInner $Result 
 
             # Below is a request that includes all optional parameters
-            # Update-BetaRoleMiningPotentialRole -PotentialRoleId $PotentialRoleId -BetaPatchPotentialRoleRequestInner $Result   
+            # Update-BetaRoleMiningPotentialRole -PotentialRoleId $PotentialRoleId -PatchPotentialRoleRequestInner $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaRoleMiningPotentialRole"
             Write-Host $_.ErrorDetails
@@ -9406,10 +9426,10 @@
 
         try {
             $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-            Update-BetaRoleMiningSession -SessionId $SessionId -BetaJsonPatchOperation $Result 
+            Update-BetaRoleMiningSession -SessionId $SessionId -JsonPatchOperation $Result 
 
             # Below is a request that includes all optional parameters
-            # Update-BetaRoleMiningSession -SessionId $SessionId -BetaJsonPatchOperation $Result   
+            # Update-BetaRoleMiningSession -SessionId $SessionId -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaRoleMiningSession"
             Write-Host $_.ErrorDetails
@@ -9529,10 +9549,10 @@
 
         try {
             $Result = ConvertFrom-JsonToRoleMiningPotentialRoleEditEntitlements -Json $RoleMiningPotentialRoleEditEntitlements
-            Update-BetaEntitlementsPotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId -BetaRoleMiningPotentialRoleEditEntitlements $Result 
+            Update-BetaEntitlementsPotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId -RoleMiningPotentialRoleEditEntitlements $Result 
 
             # Below is a request that includes all optional parameters
-            # Update-BetaEntitlementsPotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId -BetaRoleMiningPotentialRoleEditEntitlements $Result   
+            # Update-BetaEntitlementsPotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId -RoleMiningPotentialRoleEditEntitlements $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaEntitlementsPotentialRole"
             Write-Host $_.ErrorDetails
@@ -9897,10 +9917,10 @@
 
         try {
             $Result = ConvertFrom-JsonToSendAccountVerificationRequest -Json $SendAccountVerificationRequest
-            Send-BetaIdentityVerificationAccountToken -Id $Id -BetaSendAccountVerificationRequest $Result 
+            Send-BetaIdentityVerificationAccountToken -Id $Id -SendAccountVerificationRequest $Result 
 
             # Below is a request that includes all optional parameters
-            # Send-BetaIdentityVerificationAccountToken -Id $Id -BetaSendAccountVerificationRequest $Result   
+            # Send-BetaIdentityVerificationAccountToken -Id $Id -SendAccountVerificationRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaIdentityVerificationAccountToken"
             Write-Host $_.ErrorDetails
@@ -9939,10 +9959,10 @@
 
         try {
             $Result = ConvertFrom-JsonToInviteIdentitiesRequest -Json $InviteIdentitiesRequest
-            Start-BetaIdentitiesInvite -BetaInviteIdentitiesRequest $Result 
+            Start-BetaIdentitiesInvite -InviteIdentitiesRequest $Result 
 
             # Below is a request that includes all optional parameters
-            # Start-BetaIdentitiesInvite -BetaInviteIdentitiesRequest $Result   
+            # Start-BetaIdentitiesInvite -InviteIdentitiesRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-BetaIdentitiesInvite"
             Write-Host $_.ErrorDetails
@@ -9981,10 +10001,10 @@
 
         try {
             $Result = ConvertFrom-JsonToProcessIdentitiesRequest -Json $ProcessIdentitiesRequest
-            Start-BetaIdentityProcessing -BetaProcessIdentitiesRequest $Result 
+            Start-BetaIdentityProcessing -ProcessIdentitiesRequest $Result 
 
             # Below is a request that includes all optional parameters
-            # Start-BetaIdentityProcessing -BetaProcessIdentitiesRequest $Result   
+            # Start-BetaIdentityProcessing -ProcessIdentitiesRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-BetaIdentityProcessing"
             Write-Host $_.ErrorDetails
@@ -10075,10 +10095,10 @@
 
         try {
             $Result = ConvertFrom-JsonToIdentityAttribute -Json $IdentityAttribute
-            New-BetaIdentityAttribute -BetaIdentityAttribute $Result 
+            New-BetaIdentityAttribute -IdentityAttribute $Result 
 
             # Below is a request that includes all optional parameters
-            # New-BetaIdentityAttribute -BetaIdentityAttribute $Result   
+            # New-BetaIdentityAttribute -IdentityAttribute $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaIdentityAttribute"
             Write-Host $_.ErrorDetails
@@ -10261,10 +10281,10 @@
 
         try {
             $Result = ConvertFrom-JsonToIdentityAttribute -Json $IdentityAttribute
-            Send-BetaIdentityAttribute -Name $Name -BetaIdentityAttribute $Result 
+            Send-BetaIdentityAttribute -Name $Name -IdentityAttribute $Result 
 
             # Below is a request that includes all optional parameters
-            # Send-BetaIdentityAttribute -Name $Name -BetaIdentityAttribute $Result   
+            # Send-BetaIdentityAttribute -Name $Name -IdentityAttribute $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaIdentityAttribute"
             Write-Host $_.ErrorDetails
@@ -10322,10 +10342,10 @@
 
         try {
             $Result = ConvertFrom-JsonToIdentityAttributeNames -Json $IdentityAttributeNames
-            Remove-BetaIdentityAttributesInBulk -BetaIdentityAttributeNames $Result 
+            Remove-BetaIdentityAttributesInBulk -IdentityAttributeNames $Result 
 
             # Below is a request that includes all optional parameters
-            # Remove-BetaIdentityAttributesInBulk -BetaIdentityAttributeNames $Result   
+            # Remove-BetaIdentityAttributesInBulk -IdentityAttributeNames $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaIdentityAttributesInBulk"
             Write-Host $_.ErrorDetails
@@ -10877,14 +10897,14 @@
         }
         "@
 
-        # Create an Identity Profile
+        # Create Identity Profile
 
         try {
             $Result = ConvertFrom-JsonToIdentityProfile -Json $IdentityProfile
-            New-BetaIdentityProfile -BetaIdentityProfile $Result 
+            New-BetaIdentityProfile -IdentityProfile $Result 
 
             # Below is a request that includes all optional parameters
-            # New-BetaIdentityProfile -BetaIdentityProfile $Result   
+            # New-BetaIdentityProfile -IdentityProfile $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaIdentityProfile"
             Write-Host $_.ErrorDetails
@@ -10942,7 +10962,7 @@
           "id" : "id12345"
         } # IdentityProfile | 
         try:
-          # Create an Identity Profile
+          # Create Identity Profile
           Result = identity_profile.from_json(identity_profile)
           api_response = api_instance.create_identity_profile(Result)
               
@@ -10961,10 +10981,10 @@
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
-        $Filters = "id eq 8c190e6787aa4ed9a90bd9d5344523fb" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne, ge, gt, in, le, lt, isnull, sw*  **name**: *eq, ne, in, le, lt, isnull, sw*  **priority**: *eq, ne* (optional)
+        $Filters = "id eq 8c190e6787aa4ed9a90bd9d5344523fb" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne, ge, gt, in, le, sw*  **name**: *eq, ne, ge, gt, in, le, sw*  **priority**: *eq, ne* (optional)
         $Sorters = "name,-priority" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, priority, created, modified, owner.id, owner.name** (optional)
 
-        # Identity Profiles List
+        # List Identity Profiles
 
         try {
             Get-BetaIdentityProfiles 
@@ -10981,10 +11001,10 @@
         limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
-        filters = 'id eq 8c190e6787aa4ed9a90bd9d5344523fb' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne, ge, gt, in, le, lt, isnull, sw*  **name**: *eq, ne, in, le, lt, isnull, sw*  **priority**: *eq, ne* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne, ge, gt, in, le, lt, isnull, sw*  **name**: *eq, ne, in, le, lt, isnull, sw*  **priority**: *eq, ne* (optional)
+        filters = 'id eq 8c190e6787aa4ed9a90bd9d5344523fb' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne, ge, gt, in, le, sw*  **name**: *eq, ne, ge, gt, in, le, sw*  **priority**: *eq, ne* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne, ge, gt, in, le, sw*  **name**: *eq, ne, ge, gt, in, le, sw*  **priority**: *eq, ne* (optional)
         sorters = 'name,-priority' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, priority, created, modified, owner.id, owner.name** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, priority, created, modified, owner.id, owner.name** (optional)
         try:
-          # Identity Profiles List
+          # List Identity Profiles
           
           api_response = api_instance.list_identity_profiles()
               
@@ -11000,9 +11020,9 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/beta/methods/identity-profiles#delete-identity-profile
       source: |
-        $IdentityProfileId = "ef38f94347e94562b5bb8424a56397d8" # String | The Identity Profile ID.
+        $IdentityProfileId = "ef38f94347e94562b5bb8424a56397d8" # String | Identity profile ID.
 
-        # Delete an Identity Profile
+        # Delete Identity Profile
 
         try {
             Remove-BetaIdentityProfile -IdentityProfileId $IdentityProfileId 
@@ -11016,9 +11036,9 @@
     - lang: Python
       label: SDK_tools/sdk/python/beta/methods/identity-profiles#delete-identity-profile
       source: |
-        identity_profile_id = 'ef38f94347e94562b5bb8424a56397d8' # str | The Identity Profile ID. # str | The Identity Profile ID.
+        identity_profile_id = 'ef38f94347e94562b5bb8424a56397d8' # str | Identity profile ID. # str | Identity profile ID.
         try:
-          # Delete an Identity Profile
+          # Delete Identity Profile
           
           api_response = api_instance.delete_identity_profile(identity_profile_id)
               
@@ -11034,9 +11054,9 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/beta/methods/identity-profiles#get-identity-profile
       source: |
-        $IdentityProfileId = "ef38f94347e94562b5bb8424a56397d8" # String | The Identity Profile ID
+        $IdentityProfileId = "ef38f94347e94562b5bb8424a56397d8" # String | Identity profile ID.
 
-        # Gets a single Identity Profile
+        # Get Identity Profile
 
         try {
             Get-BetaIdentityProfile -IdentityProfileId $IdentityProfileId 
@@ -11050,9 +11070,9 @@
     - lang: Python
       label: SDK_tools/sdk/python/beta/methods/identity-profiles#get-identity-profile
       source: |
-        identity_profile_id = 'ef38f94347e94562b5bb8424a56397d8' # str | The Identity Profile ID # str | The Identity Profile ID
+        identity_profile_id = 'ef38f94347e94562b5bb8424a56397d8' # str | Identity profile ID. # str | Identity profile ID.
         try:
-          # Gets a single Identity Profile
+          # Get Identity Profile
           
           api_response = api_instance.get_identity_profile(identity_profile_id)
               
@@ -11068,7 +11088,7 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/beta/methods/identity-profiles#update-identity-profile
       source: |
-        $IdentityProfileId = "ef38f94347e94562b5bb8424a56397d8" # String | The Identity Profile ID
+        $IdentityProfileId = "ef38f94347e94562b5bb8424a56397d8" # String | Identity profile ID.
         $JsonPatchOperation = @"{
           "op" : "replace",
           "path" : "/description",
@@ -11076,14 +11096,14 @@
         }"@ 
 
 
-        # Update the Identity Profile
+        # Update Identity Profile
 
         try {
             $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-            Update-BetaIdentityProfile -IdentityProfileId $IdentityProfileId -BetaJsonPatchOperation $Result 
+            Update-BetaIdentityProfile -IdentityProfileId $IdentityProfileId -JsonPatchOperation $Result 
 
             # Below is a request that includes all optional parameters
-            # Update-BetaIdentityProfile -IdentityProfileId $IdentityProfileId -BetaJsonPatchOperation $Result   
+            # Update-BetaIdentityProfile -IdentityProfileId $IdentityProfileId -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaIdentityProfile"
             Write-Host $_.ErrorDetails
@@ -11091,16 +11111,16 @@
     - lang: Python
       label: SDK_tools/sdk/python/beta/methods/identity-profiles#update-identity-profile
       source: |
-        identity_profile_id = 'ef38f94347e94562b5bb8424a56397d8' # str | The Identity Profile ID # str | The Identity Profile ID
-        [{op=add, path=/identityAttributeConfig/attributeTransforms/0, value={identityAttributeName=location, transformDefinition={type=accountAttribute, attributes={sourceName=Employees, attributeName=location, sourceId=2c91808878b7d63b0178c66ffcdc4ce4}}}}] # List[JsonPatchOperation] | A list of Identity Profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+        identity_profile_id = 'ef38f94347e94562b5bb8424a56397d8' # str | Identity profile ID. # str | Identity profile ID.
+        [{op=add, path=/identityAttributeConfig/attributeTransforms/0, value={identityAttributeName=location, transformDefinition={type=accountAttribute, attributes={sourceName=Employees, attributeName=location, sourceId=2c91808878b7d63b0178c66ffcdc4ce4}}}}] # List[JsonPatchOperation] | List of identity profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
          json_patch_operation = {
           "op" : "replace",
           "path" : "/description",
           "value" : "New description"
-        } # List[JsonPatchOperation] | A list of Identity Profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+        } # List[JsonPatchOperation] | List of identity profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
         try:
-          # Update the Identity Profile
+          # Update Identity Profile
           Result = json_patch_operation.from_json(json_patch_operation)
           api_response = api_instance.update_identity_profile(identity_profile_id, Result)
               
@@ -11299,10 +11319,10 @@
 
         try {
             $Result = ConvertFrom-JsonToIdentityProfileExportedObject -Json $IdentityProfileExportedObject
-            Import-BetaIdentityProfiles -BetaIdentityProfileExportedObject $Result 
+            Import-BetaIdentityProfiles -IdentityProfileExportedObject $Result 
 
             # Below is a request that includes all optional parameters
-            # Import-BetaIdentityProfiles -BetaIdentityProfileExportedObject $Result   
+            # Import-BetaIdentityProfiles -IdentityProfileExportedObject $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Import-BetaIdentityProfiles"
             Write-Host $_.ErrorDetails
@@ -11420,10 +11440,10 @@
 
         try {
             $Result = ConvertFrom-JsonToIdentityPreviewRequest -Json $IdentityPreviewRequest
-            Show-BetaGenerateIdentityPreview -BetaIdentityPreviewRequest $Result 
+            Show-BetaGenerateIdentityPreview -IdentityPreviewRequest $Result 
 
             # Below is a request that includes all optional parameters
-            # Show-BetaGenerateIdentityPreview -BetaIdentityPreviewRequest $Result   
+            # Show-BetaGenerateIdentityPreview -IdentityPreviewRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Show-BetaGenerateIdentityPreview"
             Write-Host $_.ErrorDetails
@@ -11527,10 +11547,10 @@
 
         try {
             $Result = ConvertFrom-JsonToLauncherRequest -Json $LauncherRequest
-            New-BetaLauncher -BetaLauncherRequest $Result 
+            New-BetaLauncher -LauncherRequest $Result 
 
             # Below is a request that includes all optional parameters
-            # New-BetaLauncher -BetaLauncherRequest $Result   
+            # New-BetaLauncher -LauncherRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaLauncher"
             Write-Host $_.ErrorDetails
@@ -11689,10 +11709,10 @@
 
         try {
             $Result = ConvertFrom-JsonToLauncherRequest -Json $LauncherRequest
-            Send-BetaLauncher -LauncherID $LauncherID -BetaLauncherRequest $Result 
+            Send-BetaLauncher -LauncherID $LauncherID -LauncherRequest $Result 
 
             # Below is a request that includes all optional parameters
-            # Send-BetaLauncher -LauncherID $LauncherID -BetaLauncherRequest $Result   
+            # Send-BetaLauncher -LauncherID $LauncherID -LauncherRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaLauncher"
             Write-Host $_.ErrorDetails
@@ -11812,10 +11832,10 @@
 
         try {
             $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-            Update-BetaLifecycleStates -IdentityProfileId $IdentityProfileId -LifecycleStateId $LifecycleStateId -BetaJsonPatchOperation $Result 
+            Update-BetaLifecycleStates -IdentityProfileId $IdentityProfileId -LifecycleStateId $LifecycleStateId -JsonPatchOperation $Result 
 
             # Below is a request that includes all optional parameters
-            # Update-BetaLifecycleStates -IdentityProfileId $IdentityProfileId -LifecycleStateId $LifecycleStateId -BetaJsonPatchOperation $Result   
+            # Update-BetaLifecycleStates -IdentityProfileId $IdentityProfileId -LifecycleStateId $LifecycleStateId -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaLifecycleStates"
             Write-Host $_.ErrorDetails
@@ -11933,10 +11953,10 @@
 
         try {
             $Result = ConvertFrom-JsonToMfaDuoConfig -Json $MfaDuoConfig
-            Set-BetaMFADuoConfig -BetaMfaDuoConfig $Result 
+            Set-BetaMFADuoConfig -MfaDuoConfig $Result 
 
             # Below is a request that includes all optional parameters
-            # Set-BetaMFADuoConfig -BetaMfaDuoConfig $Result   
+            # Set-BetaMFADuoConfig -MfaDuoConfig $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-BetaMFADuoConfig"
             Write-Host $_.ErrorDetails
@@ -12052,10 +12072,10 @@
 
         try {
             $Result = ConvertFrom-JsonToMfaOktaConfig -Json $MfaOktaConfig
-            Set-BetaMFAOktaConfig -BetaMfaOktaConfig $Result 
+            Set-BetaMFAOktaConfig -MfaOktaConfig $Result 
 
             # Below is a request that includes all optional parameters
-            # Set-BetaMFAOktaConfig -BetaMfaOktaConfig $Result   
+            # Set-BetaMFAOktaConfig -MfaOktaConfig $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-BetaMFAOktaConfig"
             Write-Host $_.ErrorDetails
@@ -12097,10 +12117,10 @@
 
         try {
             $Result = ConvertFrom-JsonToKbaAnswerRequestItem -Json $KbaAnswerRequestItem
-            Set-BetaMFAKBAConfig -BetaKbaAnswerRequestItem $Result 
+            Set-BetaMFAKBAConfig -KbaAnswerRequestItem $Result 
 
             # Below is a request that includes all optional parameters
-            # Set-BetaMFAKBAConfig -BetaKbaAnswerRequestItem $Result   
+            # Set-BetaMFAKBAConfig -KbaAnswerRequestItem $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-BetaMFAKBAConfig"
             Write-Host $_.ErrorDetails
@@ -12176,10 +12196,10 @@
 
         try {
             $Result = ConvertFrom-JsonToSendTokenRequest -Json $SendTokenRequest
-            New-BetaSendToken -BetaSendTokenRequest $Result 
+            New-BetaSendToken -SendTokenRequest $Result 
 
             # Below is a request that includes all optional parameters
-            # New-BetaSendToken -BetaSendTokenRequest $Result   
+            # New-BetaSendToken -SendTokenRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaSendToken"
             Write-Host $_.ErrorDetails
@@ -12219,10 +12239,10 @@
 
         try {
             $Result = ConvertFrom-JsonToVerificationPollRequest -Json $VerificationPollRequest
-            Ping-BetaVerificationStatus -Method $Method -BetaVerificationPollRequest $Result 
+            Ping-BetaVerificationStatus -Method $Method -VerificationPollRequest $Result 
 
             # Below is a request that includes all optional parameters
-            # Ping-BetaVerificationStatus -Method $Method -BetaVerificationPollRequest $Result   
+            # Ping-BetaVerificationStatus -Method $Method -VerificationPollRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Ping-BetaVerificationStatus"
             Write-Host $_.ErrorDetails
@@ -12262,10 +12282,10 @@
 
         try {
             $Result = ConvertFrom-JsonToDuoVerificationRequest -Json $DuoVerificationRequest
-            Send-BetaDuoVerifyRequest -BetaDuoVerificationRequest $Result 
+            Send-BetaDuoVerifyRequest -DuoVerificationRequest $Result 
 
             # Below is a request that includes all optional parameters
-            # Send-BetaDuoVerifyRequest -BetaDuoVerificationRequest $Result   
+            # Send-BetaDuoVerifyRequest -DuoVerificationRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaDuoVerifyRequest"
             Write-Host $_.ErrorDetails
@@ -12304,10 +12324,10 @@
 
         try {
             $Result = ConvertFrom-JsonToKbaAnswerRequestItem -Json $KbaAnswerRequestItem
-            Send-BetaKbaAnswers -BetaKbaAnswerRequestItem $Result 
+            Send-BetaKbaAnswers -KbaAnswerRequestItem $Result 
 
             # Below is a request that includes all optional parameters
-            # Send-BetaKbaAnswers -BetaKbaAnswerRequestItem $Result   
+            # Send-BetaKbaAnswers -KbaAnswerRequestItem $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaKbaAnswers"
             Write-Host $_.ErrorDetails
@@ -12348,10 +12368,10 @@
 
         try {
             $Result = ConvertFrom-JsonToOktaVerificationRequest -Json $OktaVerificationRequest
-            Send-BetaOktaVerifyRequest -BetaOktaVerificationRequest $Result 
+            Send-BetaOktaVerifyRequest -OktaVerificationRequest $Result 
 
             # Below is a request that includes all optional parameters
-            # Send-BetaOktaVerifyRequest -BetaOktaVerificationRequest $Result   
+            # Send-BetaOktaVerifyRequest -OktaVerificationRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaOktaVerifyRequest"
             Write-Host $_.ErrorDetails
@@ -12391,10 +12411,10 @@
 
         try {
             $Result = ConvertFrom-JsonToTokenAuthRequest -Json $TokenAuthRequest
-            Send-BetaTokenAuthRequest -BetaTokenAuthRequest $Result 
+            Send-BetaTokenAuthRequest -TokenAuthRequest $Result 
 
             # Below is a request that includes all optional parameters
-            # Send-BetaTokenAuthRequest -BetaTokenAuthRequest $Result   
+            # Send-BetaTokenAuthRequest -TokenAuthRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaTokenAuthRequest"
             Write-Host $_.ErrorDetails
@@ -12494,10 +12514,10 @@
 
         try {
             $Result = ConvertFrom-JsonToManagedClientStatus -Json $ManagedClientStatus
-            Update-BetaManagedClientStatus -Id $Id -BetaManagedClientStatus $Result 
+            Update-BetaManagedClientStatus -Id $Id -ManagedClientStatus $Result 
 
             # Below is a request that includes all optional parameters
-            # Update-BetaManagedClientStatus -Id $Id -BetaManagedClientStatus $Result   
+            # Update-BetaManagedClientStatus -Id $Id -ManagedClientStatus $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaManagedClientStatus"
             Write-Host $_.ErrorDetails
@@ -12597,10 +12617,10 @@
         # Update managed cluster's log configuration
 
         try {
-            Send-BetaClientLogConfiguration -Id $Id -BetaClientLogConfiguration $Result 
+            Send-BetaClientLogConfiguration -Id $Id -ClientLogConfiguration $Result 
 
             # Below is a request that includes all optional parameters
-            # Send-BetaClientLogConfiguration -Id $Id -BetaClientLogConfiguration $Result   
+            # Send-BetaClientLogConfiguration -Id $Id -ClientLogConfiguration $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaClientLogConfiguration"
             Write-Host $_.ErrorDetails
@@ -12740,10 +12760,10 @@
 
         try {
             $Result = ConvertFrom-JsonToMultiHostIntegrationsCreate -Json $MultiHostIntegrationsCreate
-            New-BetaMultiHostIntegration -BetaMultiHostIntegrationsCreate $Result 
+            New-BetaMultiHostIntegration -MultiHostIntegrationsCreate $Result 
 
             # Below is a request that includes all optional parameters
-            # New-BetaMultiHostIntegration -BetaMultiHostIntegrationsCreate $Result   
+            # New-BetaMultiHostIntegration -MultiHostIntegrationsCreate $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaMultiHostIntegration"
             Write-Host $_.ErrorDetails
@@ -12857,10 +12877,10 @@
 
         try {
             $Result = ConvertFrom-JsonToMultiHostIntegrationsCreateSources -Json $MultiHostIntegrationsCreateSources
-            New-BetaSourcesWithinMultiHost -MultihostId $MultihostId -BetaMultiHostIntegrationsCreateSources $Result 
+            New-BetaSourcesWithinMultiHost -MultihostId $MultihostId -MultiHostIntegrationsCreateSources $Result 
 
             # Below is a request that includes all optional parameters
-            # New-BetaSourcesWithinMultiHost -MultihostId $MultihostId -BetaMultiHostIntegrationsCreateSources $Result   
+            # New-BetaSourcesWithinMultiHost -MultihostId $MultihostId -MultiHostIntegrationsCreateSources $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaSourcesWithinMultiHost"
             Write-Host $_.ErrorDetails
@@ -12972,10 +12992,10 @@
 
         try {
             $Result = ConvertFrom-JsonToUpdateMultiHostSourcesRequestInner -Json $UpdateMultiHostSourcesRequestInner
-            Update-BetaMultiHostSources -MultihostId $MultihostId -BetaUpdateMultiHostSourcesRequestInner $Result 
+            Update-BetaMultiHostSources -MultihostId $MultihostId -UpdateMultiHostSourcesRequestInner $Result 
 
             # Below is a request that includes all optional parameters
-            # Update-BetaMultiHostSources -MultihostId $MultihostId -BetaUpdateMultiHostSourcesRequestInner $Result   
+            # Update-BetaMultiHostSources -MultihostId $MultihostId -UpdateMultiHostSourcesRequestInner $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaMultiHostSources"
             Write-Host $_.ErrorDetails
@@ -13259,10 +13279,10 @@
 
         try {
             $Result = ConvertFrom-JsonToNonEmployeeApprovalDecision -Json $NonEmployeeApprovalDecision
-            Approve-BetaNonEmployeeRequest -Id $Id -BetaNonEmployeeApprovalDecision $Result 
+            Approve-BetaNonEmployeeRequest -Id $Id -NonEmployeeApprovalDecision $Result 
 
             # Below is a request that includes all optional parameters
-            # Approve-BetaNonEmployeeRequest -Id $Id -BetaNonEmployeeApprovalDecision $Result   
+            # Approve-BetaNonEmployeeRequest -Id $Id -NonEmployeeApprovalDecision $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Approve-BetaNonEmployeeRequest"
             Write-Host $_.ErrorDetails
@@ -13312,10 +13332,10 @@
 
         try {
             $Result = ConvertFrom-JsonToNonEmployeeRequestBody -Json $NonEmployeeRequestBody
-            New-BetaNonEmployeeRecord -BetaNonEmployeeRequestBody $Result 
+            New-BetaNonEmployeeRecord -NonEmployeeRequestBody $Result 
 
             # Below is a request that includes all optional parameters
-            # New-BetaNonEmployeeRecord -BetaNonEmployeeRequestBody $Result   
+            # New-BetaNonEmployeeRecord -NonEmployeeRequestBody $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaNonEmployeeRecord"
             Write-Host $_.ErrorDetails
@@ -13417,10 +13437,10 @@
 
         try {
             $Result = ConvertFrom-JsonToNonEmployeeRequestBody -Json $NonEmployeeRequestBody
-            New-BetaNonEmployeeRequest -BetaNonEmployeeRequestBody $Result 
+            New-BetaNonEmployeeRequest -NonEmployeeRequestBody $Result 
 
             # Below is a request that includes all optional parameters
-            # New-BetaNonEmployeeRequest -BetaNonEmployeeRequestBody $Result   
+            # New-BetaNonEmployeeRequest -NonEmployeeRequestBody $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaNonEmployeeRequest"
             Write-Host $_.ErrorDetails
@@ -13536,10 +13556,10 @@
 
         try {
             $Result = ConvertFrom-JsonToNonEmployeeSourceRequestBody -Json $NonEmployeeSourceRequestBody
-            New-BetaNonEmployeeSource -BetaNonEmployeeSourceRequestBody $Result 
+            New-BetaNonEmployeeSource -NonEmployeeSourceRequestBody $Result 
 
             # Below is a request that includes all optional parameters
-            # New-BetaNonEmployeeSource -BetaNonEmployeeSourceRequestBody $Result   
+            # New-BetaNonEmployeeSource -NonEmployeeSourceRequestBody $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaNonEmployeeSource"
             Write-Host $_.ErrorDetails
@@ -13590,20 +13610,20 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/beta/methods/non-employee-lifecycle-management#list-non-employee-sources
       source: |
-        $RequestedFor = "me" # String | The identity for whom the request was made. *me* indicates the current user.
-        $NonEmployeeCount = $false # Boolean | The flag to determine whether return a non-employee count associate with source.
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $RequestedFor = "me" # String | Identity the request was made for. Use 'me' to indicate the current user. (optional)
+        $NonEmployeeCount = $false # Boolean | Flag that determines whether the API will return a non-employee count associated with the source. (optional) (default to $false)
         $Sorters = "name,created" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, sourceId** (optional)
 
         # List Non-Employee Sources
 
         try {
-            Get-BetaNonEmployeeSources -RequestedFor $RequestedFor -NonEmployeeCount $NonEmployeeCount 
+            Get-BetaNonEmployeeSources 
 
             # Below is a request that includes all optional parameters
-            # Get-BetaNonEmployeeSources -RequestedFor $RequestedFor -NonEmployeeCount $NonEmployeeCount -Limit $Limit -Offset $Offset -Count $Count -Sorters $Sorters   
+            # Get-BetaNonEmployeeSources -Limit $Limit -Offset $Offset -Count $Count -RequestedFor $RequestedFor -NonEmployeeCount $NonEmployeeCount -Sorters $Sorters   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaNonEmployeeSources"
             Write-Host $_.ErrorDetails
@@ -13611,19 +13631,19 @@
     - lang: Python
       label: SDK_tools/sdk/python/beta/methods/non-employee-lifecycle-management#list-non-employee-sources
       source: |
-        requested_for = 'me' # str | The identity for whom the request was made. *me* indicates the current user. # str | The identity for whom the request was made. *me* indicates the current user.
-        non_employee_count = false # bool | The flag to determine whether return a non-employee count associate with source. # bool | The flag to determine whether return a non-employee count associate with source.
         limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
+        requested_for = 'me' # str | Identity the request was made for. Use 'me' to indicate the current user. (optional) # str | Identity the request was made for. Use 'me' to indicate the current user. (optional)
+        non_employee_count = False # bool | Flag that determines whether the API will return a non-employee count associated with the source. (optional) (default to False) # bool | Flag that determines whether the API will return a non-employee count associated with the source. (optional) (default to False)
         sorters = 'name,created' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, sourceId** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, sourceId** (optional)
         try:
           # List Non-Employee Sources
           
-          api_response = api_instance.list_non_employee_sources(requested_for, non_employee_count, )
+          api_response = api_instance.list_non_employee_sources()
               
           # Below is a request that includes all optional parameters
-          # api_response = api_instance.list_non_employee_sources(requested_for, non_employee_count, limit, offset, count, sorters)
+          # api_response = api_instance.list_non_employee_sources(limit, offset, count, requested_for, non_employee_count, sorters)
           print("The response of NonEmployeeLifecycleManagementApi->list_non_employee_sources:\n")
           pprint(api_response)
         except Exception as e:
@@ -13650,10 +13670,10 @@
 
         try {
             $Result = ConvertFrom-JsonToNonEmployeeSchemaAttributeBody -Json $NonEmployeeSchemaAttributeBody
-            New-BetaNonEmployeeSourceSchemaAttributes -SourceId $SourceId -BetaNonEmployeeSchemaAttributeBody $Result 
+            New-BetaNonEmployeeSourceSchemaAttributes -SourceId $SourceId -NonEmployeeSchemaAttributeBody $Result 
 
             # Below is a request that includes all optional parameters
-            # New-BetaNonEmployeeSourceSchemaAttributes -SourceId $SourceId -BetaNonEmployeeSchemaAttributeBody $Result   
+            # New-BetaNonEmployeeSourceSchemaAttributes -SourceId $SourceId -NonEmployeeSchemaAttributeBody $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaNonEmployeeSourceSchemaAttributes"
             Write-Host $_.ErrorDetails
@@ -13831,10 +13851,10 @@
 
         try {
             $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-            Update-BetaNonEmployeeRecord -Id $Id -BetaJsonPatchOperation $Result 
+            Update-BetaNonEmployeeRecord -Id $Id -JsonPatchOperation $Result 
 
             # Below is a request that includes all optional parameters
-            # Update-BetaNonEmployeeRecord -Id $Id -BetaJsonPatchOperation $Result   
+            # Update-BetaNonEmployeeRecord -Id $Id -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaNonEmployeeRecord"
             Write-Host $_.ErrorDetails
@@ -13889,10 +13909,10 @@
 
         try {
             $Result = ConvertFrom-JsonToNonEmployeeRequestBody -Json $NonEmployeeRequestBody
-            Update-BetaNonEmployeeRecord -Id $Id -BetaNonEmployeeRequestBody $Result 
+            Update-BetaNonEmployeeRecord -Id $Id -NonEmployeeRequestBody $Result 
 
             # Below is a request that includes all optional parameters
-            # Update-BetaNonEmployeeRecord -Id $Id -BetaNonEmployeeRequestBody $Result   
+            # Update-BetaNonEmployeeRecord -Id $Id -NonEmployeeRequestBody $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaNonEmployeeRecord"
             Write-Host $_.ErrorDetails
@@ -13940,10 +13960,10 @@
 
         try {
             $Result = ConvertFrom-JsonToDeleteNonEmployeeRecordInBulkRequest -Json $DeleteNonEmployeeRecordInBulkRequest
-            Remove-BetaNonEmployeeRecordInBulk -BetaDeleteNonEmployeeRecordInBulkRequest $Result 
+            Remove-BetaNonEmployeeRecordInBulk -DeleteNonEmployeeRecordInBulkRequest $Result 
 
             # Below is a request that includes all optional parameters
-            # Remove-BetaNonEmployeeRecordInBulk -BetaDeleteNonEmployeeRecordInBulkRequest $Result   
+            # Remove-BetaNonEmployeeRecordInBulk -DeleteNonEmployeeRecordInBulkRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaNonEmployeeRecordInBulk"
             Write-Host $_.ErrorDetails
@@ -14116,10 +14136,10 @@
 
         try {
             $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-            Update-BetaNonEmployeeSchemaAttribute -AttributeId $AttributeId -SourceId $SourceId -BetaJsonPatchOperation $Result 
+            Update-BetaNonEmployeeSchemaAttribute -AttributeId $AttributeId -SourceId $SourceId -JsonPatchOperation $Result 
 
             # Below is a request that includes all optional parameters
-            # Update-BetaNonEmployeeSchemaAttribute -AttributeId $AttributeId -SourceId $SourceId -BetaJsonPatchOperation $Result   
+            # Update-BetaNonEmployeeSchemaAttribute -AttributeId $AttributeId -SourceId $SourceId -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaNonEmployeeSchemaAttribute"
             Write-Host $_.ErrorDetails
@@ -14231,10 +14251,10 @@
 
         try {
             $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-            Update-BetaNonEmployeeSource -SourceId $SourceId -BetaJsonPatchOperation $Result 
+            Update-BetaNonEmployeeSource -SourceId $SourceId -JsonPatchOperation $Result 
 
             # Below is a request that includes all optional parameters
-            # Update-BetaNonEmployeeSource -SourceId $SourceId -BetaJsonPatchOperation $Result   
+            # Update-BetaNonEmployeeSource -SourceId $SourceId -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaNonEmployeeSource"
             Write-Host $_.ErrorDetails
@@ -14560,10 +14580,10 @@
 
         try {
             $Result = ConvertFrom-JsonToNonEmployeeRejectApprovalDecision -Json $NonEmployeeRejectApprovalDecision
-            Deny-BetaNonEmployeeRequest -Id $Id -BetaNonEmployeeRejectApprovalDecision $Result 
+            Deny-BetaNonEmployeeRequest -Id $Id -NonEmployeeRejectApprovalDecision $Result 
 
             # Below is a request that includes all optional parameters
-            # Deny-BetaNonEmployeeRequest -Id $Id -BetaNonEmployeeRejectApprovalDecision $Result   
+            # Deny-BetaNonEmployeeRequest -Id $Id -NonEmployeeRejectApprovalDecision $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Deny-BetaNonEmployeeRequest"
             Write-Host $_.ErrorDetails
@@ -14602,10 +14622,10 @@
 
         try {
             $Result = ConvertFrom-JsonToDomainAddress -Json $DomainAddress
-            New-BetaDomainDkim -BetaDomainAddress $Result 
+            New-BetaDomainDkim -DomainAddress $Result 
 
             # Below is a request that includes all optional parameters
-            # New-BetaDomainDkim -BetaDomainAddress $Result   
+            # New-BetaDomainDkim -DomainAddress $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaDomainDkim"
             Write-Host $_.ErrorDetails
@@ -14690,10 +14710,10 @@
 
         try {
             $Result = ConvertFrom-JsonToTemplateDto -Json $TemplateDto
-            New-BetaNotificationTemplate -BetaTemplateDto $Result 
+            New-BetaNotificationTemplate -TemplateDto $Result 
 
             # Below is a request that includes all optional parameters
-            # New-BetaNotificationTemplate -BetaTemplateDto $Result   
+            # New-BetaNotificationTemplate -TemplateDto $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaNotificationTemplate"
             Write-Host $_.ErrorDetails
@@ -14787,10 +14807,10 @@
 
         try {
             $Result = ConvertFrom-JsonToEmailStatusDto -Json $EmailStatusDto
-            New-BetaVerifiedFromAddress -BetaEmailStatusDto $Result 
+            New-BetaVerifiedFromAddress -EmailStatusDto $Result 
 
             # Below is a request that includes all optional parameters
-            # New-BetaVerifiedFromAddress -BetaEmailStatusDto $Result   
+            # New-BetaVerifiedFromAddress -EmailStatusDto $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaVerifiedFromAddress"
             Write-Host $_.ErrorDetails
@@ -14874,10 +14894,10 @@
 
         try {
             $Result = ConvertFrom-JsonToTemplateBulkDeleteDto -Json $TemplateBulkDeleteDto
-            Remove-BetaNotificationTemplatesInBulk -BetaTemplateBulkDeleteDto $Result 
+            Remove-BetaNotificationTemplatesInBulk -TemplateBulkDeleteDto $Result 
 
             # Below is a request that includes all optional parameters
-            # Remove-BetaNotificationTemplatesInBulk -BetaTemplateBulkDeleteDto $Result   
+            # Remove-BetaNotificationTemplatesInBulk -TemplateBulkDeleteDto $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaNotificationTemplatesInBulk"
             Write-Host $_.ErrorDetails
@@ -15122,10 +15142,10 @@
 
         try {
             $Result = ConvertFrom-JsonToMailFromAttributesDto -Json $MailFromAttributesDto
-            Send-BetaMailFromAttributes -BetaMailFromAttributesDto $Result 
+            Send-BetaMailFromAttributes -MailFromAttributesDto $Result 
 
             # Below is a request that includes all optional parameters
-            # Send-BetaMailFromAttributes -BetaMailFromAttributesDto $Result   
+            # Send-BetaMailFromAttributes -MailFromAttributesDto $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaMailFromAttributes"
             Write-Host $_.ErrorDetails
@@ -15166,10 +15186,10 @@
 
         try {
             $Result = ConvertFrom-JsonToSendTestNotificationRequestDto -Json $SendTestNotificationRequestDto
-            Send-BetaTestNotification -BetaSendTestNotificationRequestDto $Result 
+            Send-BetaTestNotification -SendTestNotificationRequestDto $Result 
 
             # Below is a request that includes all optional parameters
-            # Send-BetaTestNotification -BetaSendTestNotificationRequestDto $Result   
+            # Send-BetaTestNotification -SendTestNotificationRequestDto $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaTestNotification"
             Write-Host $_.ErrorDetails
@@ -15221,10 +15241,10 @@
 
         try {
             $Result = ConvertFrom-JsonToCreateOAuthClientRequest -Json $CreateOAuthClientRequest
-            New-BetaOauthClient -BetaCreateOAuthClientRequest $Result 
+            New-BetaOauthClient -CreateOAuthClientRequest $Result 
 
             # Below is a request that includes all optional parameters
-            # New-BetaOauthClient -BetaCreateOAuthClientRequest $Result   
+            # New-BetaOauthClient -CreateOAuthClientRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaOauthClient"
             Write-Host $_.ErrorDetails
@@ -15378,10 +15398,10 @@
 
         try {
             $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-            Update-BetaOauthClient -Id $Id -BetaJsonPatchOperation $Result 
+            Update-BetaOauthClient -Id $Id -JsonPatchOperation $Result 
 
             # Below is a request that includes all optional parameters
-            # Update-BetaOauthClient -Id $Id -BetaJsonPatchOperation $Result   
+            # Update-BetaOauthClient -Id $Id -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaOauthClient"
             Write-Host $_.ErrorDetails
@@ -15457,10 +15477,10 @@
 
         try {
             $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-            Update-BetaOrgConfig -BetaJsonPatchOperation $Result 
+            Update-BetaOrgConfig -JsonPatchOperation $Result 
 
             # Below is a request that includes all optional parameters
-            # Update-BetaOrgConfig -BetaJsonPatchOperation $Result   
+            # Update-BetaOrgConfig -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaOrgConfig"
             Write-Host $_.ErrorDetails
@@ -15537,10 +15557,10 @@
 
         try {
             $Result = ConvertFrom-JsonToPasswordOrgConfig -Json $PasswordOrgConfig
-            New-BetaPasswordOrgConfig -BetaPasswordOrgConfig $Result 
+            New-BetaPasswordOrgConfig -PasswordOrgConfig $Result 
 
             # Below is a request that includes all optional parameters
-            # New-BetaPasswordOrgConfig -BetaPasswordOrgConfig $Result   
+            # New-BetaPasswordOrgConfig -PasswordOrgConfig $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaPasswordOrgConfig"
             Write-Host $_.ErrorDetails
@@ -15616,10 +15636,10 @@
 
         try {
             $Result = ConvertFrom-JsonToPasswordOrgConfig -Json $PasswordOrgConfig
-            Send-BetaPasswordOrgConfig -BetaPasswordOrgConfig $Result 
+            Send-BetaPasswordOrgConfig -PasswordOrgConfig $Result 
 
             # Below is a request that includes all optional parameters
-            # Send-BetaPasswordOrgConfig -BetaPasswordOrgConfig $Result   
+            # Send-BetaPasswordOrgConfig -PasswordOrgConfig $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaPasswordOrgConfig"
             Write-Host $_.ErrorDetails
@@ -15726,10 +15746,10 @@
 
         try {
             $Result = ConvertFrom-JsonToPasswordDigitTokenReset -Json $PasswordDigitTokenReset
-            New-BetaDigitToken -BetaPasswordDigitTokenReset $Result 
+            New-BetaDigitToken -PasswordDigitTokenReset $Result 
 
             # Below is a request that includes all optional parameters
-            # New-BetaDigitToken -BetaPasswordDigitTokenReset $Result   
+            # New-BetaDigitToken -PasswordDigitTokenReset $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaDigitToken"
             Write-Host $_.ErrorDetails
@@ -15804,10 +15824,10 @@
 
         try {
             $Result = ConvertFrom-JsonToPasswordInfoQueryDTO -Json $PasswordInfoQueryDTO
-            Search-BetaPasswordInfo -BetaPasswordInfoQueryDTO $Result 
+            Search-BetaPasswordInfo -PasswordInfoQueryDTO $Result 
 
             # Below is a request that includes all optional parameters
-            # Search-BetaPasswordInfo -BetaPasswordInfoQueryDTO $Result   
+            # Search-BetaPasswordInfo -PasswordInfoQueryDTO $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Search-BetaPasswordInfo"
             Write-Host $_.ErrorDetails
@@ -15850,10 +15870,10 @@
 
         try {
             $Result = ConvertFrom-JsonToPasswordChangeRequest -Json $PasswordChangeRequest
-            Set-BetaIdentityPassword -BetaPasswordChangeRequest $Result 
+            Set-BetaIdentityPassword -PasswordChangeRequest $Result 
 
             # Below is a request that includes all optional parameters
-            # Set-BetaIdentityPassword -BetaPasswordChangeRequest $Result   
+            # Set-BetaIdentityPassword -PasswordChangeRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-BetaIdentityPassword"
             Write-Host $_.ErrorDetails
@@ -15925,10 +15945,10 @@
 
         try {
             $Result = ConvertFrom-JsonToPasswordPolicyV3Dto -Json $PasswordPolicyV3Dto
-            New-BetaPasswordPolicy -BetaPasswordPolicyV3Dto $Result 
+            New-BetaPasswordPolicy -PasswordPolicyV3Dto $Result 
 
             # Below is a request that includes all optional parameters
-            # New-BetaPasswordPolicy -BetaPasswordPolicyV3Dto $Result   
+            # New-BetaPasswordPolicy -PasswordPolicyV3Dto $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaPasswordPolicy"
             Write-Host $_.ErrorDetails
@@ -16131,10 +16151,10 @@
 
         try {
             $Result = ConvertFrom-JsonToPasswordPolicyV3Dto -Json $PasswordPolicyV3Dto
-            Set-BetaPasswordPolicy -Id $Id -BetaPasswordPolicyV3Dto $Result 
+            Set-BetaPasswordPolicy -Id $Id -PasswordPolicyV3Dto $Result 
 
             # Below is a request that includes all optional parameters
-            # Set-BetaPasswordPolicy -Id $Id -BetaPasswordPolicyV3Dto $Result   
+            # Set-BetaPasswordPolicy -Id $Id -PasswordPolicyV3Dto $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-BetaPasswordPolicy"
             Write-Host $_.ErrorDetails
@@ -16208,10 +16228,10 @@
 
         try {
             $Result = ConvertFrom-JsonToPasswordSyncGroup -Json $PasswordSyncGroup
-            New-BetaPasswordSyncGroup -BetaPasswordSyncGroup $Result 
+            New-BetaPasswordSyncGroup -PasswordSyncGroup $Result 
 
             # Below is a request that includes all optional parameters
-            # New-BetaPasswordSyncGroup -BetaPasswordSyncGroup $Result   
+            # New-BetaPasswordSyncGroup -PasswordSyncGroup $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaPasswordSyncGroup"
             Write-Host $_.ErrorDetails
@@ -16364,10 +16384,10 @@
 
         try {
             $Result = ConvertFrom-JsonToPasswordSyncGroup -Json $PasswordSyncGroup
-            Update-BetaPasswordSyncGroup -Id $Id -BetaPasswordSyncGroup $Result 
+            Update-BetaPasswordSyncGroup -Id $Id -PasswordSyncGroup $Result 
 
             # Below is a request that includes all optional parameters
-            # Update-BetaPasswordSyncGroup -Id $Id -BetaPasswordSyncGroup $Result   
+            # Update-BetaPasswordSyncGroup -Id $Id -PasswordSyncGroup $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaPasswordSyncGroup"
             Write-Host $_.ErrorDetails
@@ -16413,10 +16433,10 @@
 
         try {
             $Result = ConvertFrom-JsonToCreatePersonalAccessTokenRequest -Json $CreatePersonalAccessTokenRequest
-            New-BetaPersonalAccessToken -BetaCreatePersonalAccessTokenRequest $Result 
+            New-BetaPersonalAccessToken -CreatePersonalAccessTokenRequest $Result 
 
             # Below is a request that includes all optional parameters
-            # New-BetaPersonalAccessToken -BetaCreatePersonalAccessTokenRequest $Result   
+            # New-BetaPersonalAccessToken -CreatePersonalAccessTokenRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaPersonalAccessToken"
             Write-Host $_.ErrorDetails
@@ -16526,10 +16546,10 @@
 
         try {
             $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-            Update-BetaPersonalAccessToken -Id $Id -BetaJsonPatchOperation $Result 
+            Update-BetaPersonalAccessToken -Id $Id -JsonPatchOperation $Result 
 
             # Below is a request that includes all optional parameters
-            # Update-BetaPersonalAccessToken -Id $Id -BetaJsonPatchOperation $Result   
+            # Update-BetaPersonalAccessToken -Id $Id -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaPersonalAccessToken"
             Write-Host $_.ErrorDetails
@@ -16616,10 +16636,10 @@
 
         try {
             $Result = ConvertFrom-JsonToPublicIdentityConfig -Json $PublicIdentityConfig
-            Update-BetaPublicIdentityConfig -BetaPublicIdentityConfig $Result 
+            Update-BetaPublicIdentityConfig -PublicIdentityConfig $Result 
 
             # Below is a request that includes all optional parameters
-            # Update-BetaPublicIdentityConfig -BetaPublicIdentityConfig $Result   
+            # Update-BetaPublicIdentityConfig -PublicIdentityConfig $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaPublicIdentityConfig"
             Write-Host $_.ErrorDetails
@@ -17216,10 +17236,10 @@
 
         try {
             $Result = ConvertFrom-JsonToRole -Json $Role
-            New-BetaRole -BetaRole $Result 
+            New-BetaRole -Role $Result 
 
             # Below is a request that includes all optional parameters
-            # New-BetaRole -BetaRole $Result   
+            # New-BetaRole -Role $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaRole"
             Write-Host $_.ErrorDetails
@@ -17460,10 +17480,10 @@
 
         try {
             $Result = ConvertFrom-JsonToRoleBulkDeleteRequest -Json $RoleBulkDeleteRequest
-            Remove-BetaBulkRoles -BetaRoleBulkDeleteRequest $Result 
+            Remove-BetaBulkRoles -RoleBulkDeleteRequest $Result 
 
             # Below is a request that includes all optional parameters
-            # Remove-BetaBulkRoles -BetaRoleBulkDeleteRequest $Result   
+            # Remove-BetaBulkRoles -RoleBulkDeleteRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaBulkRoles"
             Write-Host $_.ErrorDetails
@@ -17569,10 +17589,10 @@
 
         try {
             $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-            Update-BetaRole -Id $Id -BetaJsonPatchOperation $Result 
+            Update-BetaRole -Id $Id -JsonPatchOperation $Result 
 
             # Below is a request that includes all optional parameters
-            # Update-BetaRole -Id $Id -BetaJsonPatchOperation $Result   
+            # Update-BetaRole -Id $Id -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaRole"
             Write-Host $_.ErrorDetails
@@ -17718,10 +17738,10 @@
 
         try {
             $Result = ConvertFrom-JsonToSimIntegrationDetails -Json $SimIntegrationDetails
-            New-BetaSIMIntegration -BetaSimIntegrationDetails $Result 
+            New-BetaSIMIntegration -SimIntegrationDetails $Result 
 
             # Below is a request that includes all optional parameters
-            # New-BetaSIMIntegration -BetaSimIntegrationDetails $Result   
+            # New-BetaSIMIntegration -SimIntegrationDetails $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaSIMIntegration"
             Write-Host $_.ErrorDetails
@@ -17871,10 +17891,10 @@
 
         try {
             $Result = ConvertFrom-JsonToJsonPatch -Json $JsonPatch
-            Update-BetaSIMAttributes -Id $Id -BetaJsonPatch $Result 
+            Update-BetaSIMAttributes -Id $Id -JsonPatch $Result 
 
             # Below is a request that includes all optional parameters
-            # Update-BetaSIMAttributes -Id $Id -BetaJsonPatch $Result   
+            # Update-BetaSIMAttributes -Id $Id -JsonPatch $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaSIMAttributes"
             Write-Host $_.ErrorDetails
@@ -17927,10 +17947,10 @@
 
         try {
             $Result = ConvertFrom-JsonToSimIntegrationDetails -Json $SimIntegrationDetails
-            Send-BetaSIMIntegration -Id $Id -BetaSimIntegrationDetails $Result 
+            Send-BetaSIMIntegration -Id $Id -SimIntegrationDetails $Result 
 
             # Below is a request that includes all optional parameters
-            # Send-BetaSIMIntegration -Id $Id -BetaSimIntegrationDetails $Result   
+            # Send-BetaSIMIntegration -Id $Id -SimIntegrationDetails $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaSIMIntegration"
             Write-Host $_.ErrorDetails
@@ -17983,10 +18003,10 @@
 
         try {
             $Result = ConvertFrom-JsonToJsonPatch -Json $JsonPatch
-            Update-BetaBeforeProvisioningRule -Id $Id -BetaJsonPatch $Result 
+            Update-BetaBeforeProvisioningRule -Id $Id -JsonPatch $Result 
 
             # Below is a request that includes all optional parameters
-            # Update-BetaBeforeProvisioningRule -Id $Id -BetaJsonPatch $Result   
+            # Update-BetaBeforeProvisioningRule -Id $Id -JsonPatch $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaBeforeProvisioningRule"
             Write-Host $_.ErrorDetails
@@ -18076,10 +18096,10 @@
 
         try {
             $Result = ConvertFrom-JsonToSodPolicy -Json $SodPolicy
-            New-BetaSodPolicy -BetaSodPolicy $Result 
+            New-BetaSodPolicy -SodPolicy $Result 
 
             # Below is a request that includes all optional parameters
-            # New-BetaSodPolicy -BetaSodPolicy $Result   
+            # New-BetaSodPolicy -SodPolicy $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaSodPolicy"
             Write-Host $_.ErrorDetails
@@ -18375,10 +18395,10 @@
 
         try {
             $Result = ConvertFrom-JsonToSodPolicy -Json $SodPolicy
-            Send-BetaSodPolicy -Id $Id -BetaSodPolicy $Result 
+            Send-BetaSodPolicy -Id $Id -SodPolicy $Result 
 
             # Below is a request that includes all optional parameters
-            # Send-BetaSodPolicy -Id $Id -BetaSodPolicy $Result   
+            # Send-BetaSodPolicy -Id $Id -SodPolicy $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaSodPolicy"
             Write-Host $_.ErrorDetails
@@ -18620,10 +18640,10 @@
 
         try {
             $Result = ConvertFrom-JsonToSodPolicySchedule -Json $SodPolicySchedule
-            Send-BetaPolicySchedule -Id $Id -BetaSodPolicySchedule $Result 
+            Send-BetaPolicySchedule -Id $Id -SodPolicySchedule $Result 
 
             # Below is a request that includes all optional parameters
-            # Send-BetaPolicySchedule -Id $Id -BetaSodPolicySchedule $Result   
+            # Send-BetaPolicySchedule -Id $Id -SodPolicySchedule $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaPolicySchedule"
             Write-Host $_.ErrorDetails
@@ -18917,7 +18937,7 @@
             Start-BetaSodAllPoliciesForOrg 
 
             # Below is a request that includes all optional parameters
-            # Start-BetaSodAllPoliciesForOrg -BetaMultiPolicyRequest $Result   
+            # Start-BetaSodAllPoliciesForOrg -MultiPolicyRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-BetaSodAllPoliciesForOrg"
             Write-Host $_.ErrorDetails
@@ -18998,10 +19018,10 @@
 
         try {
             $Result = ConvertFrom-JsonToIdentityWithNewAccess -Json $IdentityWithNewAccess
-            Start-BetaPredictSodViolations -BetaIdentityWithNewAccess $Result 
+            Start-BetaPredictSodViolations -IdentityWithNewAccess $Result 
 
             # Below is a request that includes all optional parameters
-            # Start-BetaPredictSodViolations -BetaIdentityWithNewAccess $Result   
+            # Start-BetaPredictSodViolations -IdentityWithNewAccess $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-BetaPredictSodViolations"
             Write-Host $_.ErrorDetails
@@ -19048,10 +19068,10 @@
 
         try {
             $Result = ConvertFrom-JsonToExportPayload -Json $ExportPayload
-            Export-BetaSpConfig -BetaExportPayload $Result 
+            Export-BetaSpConfig -ExportPayload $Result 
 
             # Below is a request that includes all optional parameters
-            # Export-BetaSpConfig -BetaExportPayload $Result   
+            # Export-BetaSpConfig -ExportPayload $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Export-BetaSpConfig"
             Write-Host $_.ErrorDetails
@@ -19226,7 +19246,7 @@
             Import-BetaSpConfig -Data $Data 
 
             # Below is a request that includes all optional parameters
-            # Import-BetaSpConfig -Data $Data -Preview $Preview -BetaOptions $Options   
+            # Import-BetaSpConfig -Data $Data -Preview $Preview -Options $Options   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Import-BetaSpConfig"
             Write-Host $_.ErrorDetails
@@ -19301,10 +19321,10 @@
 
         try {
             $Result = ConvertFrom-JsonToSearchAttributeConfig -Json $SearchAttributeConfig
-            New-BetaSearchAttributeConfig -BetaSearchAttributeConfig $Result 
+            New-BetaSearchAttributeConfig -SearchAttributeConfig $Result 
 
             # Below is a request that includes all optional parameters
-            # New-BetaSearchAttributeConfig -BetaSearchAttributeConfig $Result   
+            # New-BetaSearchAttributeConfig -SearchAttributeConfig $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaSearchAttributeConfig"
             Write-Host $_.ErrorDetails
@@ -19447,10 +19467,10 @@
 
         try {
             $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-            Update-BetaSearchAttributeConfig -Name $Name -BetaJsonPatchOperation $Result 
+            Update-BetaSearchAttributeConfig -Name $Name -JsonPatchOperation $Result 
 
             # Below is a request that includes all optional parameters
-            # Update-BetaSearchAttributeConfig -Name $Name -BetaJsonPatchOperation $Result   
+            # Update-BetaSearchAttributeConfig -Name $Name -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaSearchAttributeConfig"
             Write-Host $_.ErrorDetails
@@ -19514,10 +19534,10 @@
 
         try {
             $Result = ConvertFrom-JsonToSegment -Json $Segment
-            New-BetaSegment -BetaSegment $Result 
+            New-BetaSegment -Segment $Result 
 
             # Below is a request that includes all optional parameters
-            # New-BetaSegment -BetaSegment $Result   
+            # New-BetaSegment -Segment $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaSegment"
             Write-Host $_.ErrorDetails
@@ -19749,10 +19769,10 @@
 
         try {
             $Result = ConvertFrom-JsonToServiceDeskIntegrationDto -Json $ServiceDeskIntegrationDto
-            New-BetaServiceDeskIntegration -BetaServiceDeskIntegrationDto $Result 
+            New-BetaServiceDeskIntegration -ServiceDeskIntegrationDto $Result 
 
             # Below is a request that includes all optional parameters
-            # New-BetaServiceDeskIntegration -BetaServiceDeskIntegrationDto $Result   
+            # New-BetaServiceDeskIntegration -ServiceDeskIntegrationDto $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaServiceDeskIntegration"
             Write-Host $_.ErrorDetails
@@ -19925,10 +19945,10 @@
 
         try {
             $Result = ConvertFrom-JsonToPatchServiceDeskIntegrationRequest -Json $PatchServiceDeskIntegrationRequest
-            Update-BetaServiceDeskIntegration -Id $Id -BetaPatchServiceDeskIntegrationRequest $Result 
+            Update-BetaServiceDeskIntegration -Id $Id -PatchServiceDeskIntegrationRequest $Result 
 
             # Below is a request that includes all optional parameters
-            # Update-BetaServiceDeskIntegration -Id $Id -BetaPatchServiceDeskIntegrationRequest $Result   
+            # Update-BetaServiceDeskIntegration -Id $Id -PatchServiceDeskIntegrationRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaServiceDeskIntegration"
             Write-Host $_.ErrorDetails
@@ -19994,10 +20014,10 @@
 
         try {
             $Result = ConvertFrom-JsonToServiceDeskIntegrationDto -Json $ServiceDeskIntegrationDto
-            Send-BetaServiceDeskIntegration -Id $Id -BetaServiceDeskIntegrationDto $Result 
+            Send-BetaServiceDeskIntegration -Id $Id -ServiceDeskIntegrationDto $Result 
 
             # Below is a request that includes all optional parameters
-            # Send-BetaServiceDeskIntegration -Id $Id -BetaServiceDeskIntegrationDto $Result   
+            # Send-BetaServiceDeskIntegration -Id $Id -ServiceDeskIntegrationDto $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaServiceDeskIntegration"
             Write-Host $_.ErrorDetails
@@ -20163,10 +20183,10 @@
 
         try {
             $Result = ConvertFrom-JsonToQueuedCheckConfigDetails -Json $QueuedCheckConfigDetails
-            Update-BetaStatusCheckDetails -BetaQueuedCheckConfigDetails $Result 
+            Update-BetaStatusCheckDetails -QueuedCheckConfigDetails $Result 
 
             # Below is a request that includes all optional parameters
-            # Update-BetaStatusCheckDetails -BetaQueuedCheckConfigDetails $Result   
+            # Update-BetaStatusCheckDetails -QueuedCheckConfigDetails $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaStatusCheckDetails"
             Write-Host $_.ErrorDetails
@@ -20319,10 +20339,10 @@
 
         try {
             $Result = ConvertFrom-JsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
-            New-BetaProvisioningPolicy -SourceId $SourceId -BetaProvisioningPolicyDto $Result 
+            New-BetaProvisioningPolicy -SourceId $SourceId -ProvisioningPolicyDto $Result 
 
             # Below is a request that includes all optional parameters
-            # New-BetaProvisioningPolicy -SourceId $SourceId -BetaProvisioningPolicyDto $Result   
+            # New-BetaProvisioningPolicy -SourceId $SourceId -ProvisioningPolicyDto $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaProvisioningPolicy"
             Write-Host $_.ErrorDetails
@@ -20513,10 +20533,10 @@
 
         try {
             $Result = ConvertFrom-JsonToSource -Json $Source
-            New-BetaSource -BetaSource $Result 
+            New-BetaSource -Source $Result 
 
             # Below is a request that includes all optional parameters
-            # New-BetaSource -BetaSource $Result -ProvisionAsCsv $ProvisionAsCsv   
+            # New-BetaSource -Source $Result -ProvisionAsCsv $ProvisionAsCsv   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaSource"
             Write-Host $_.ErrorDetails
@@ -20713,10 +20733,10 @@
 
         try {
             $Result = ConvertFrom-JsonToSchema -Json $Schema
-            New-BetaSourceSchema -SourceId $SourceId -BetaSchema $Result 
+            New-BetaSourceSchema -SourceId $SourceId -Schema $Result 
 
             # Below is a request that includes all optional parameters
-            # New-BetaSourceSchema -SourceId $SourceId -BetaSchema $Result   
+            # New-BetaSourceSchema -SourceId $SourceId -Schema $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaSourceSchema"
             Write-Host $_.ErrorDetails
@@ -20940,10 +20960,10 @@
 
         try {
             $Result = ConvertFrom-JsonToSource -Json $Source
-            Send-BetaSource -Id $Id -BetaSource $Result 
+            Send-BetaSource -Id $Id -Source $Result 
 
             # Below is a request that includes all optional parameters
-            # Send-BetaSource -Id $Id -BetaSource $Result   
+            # Send-BetaSource -Id $Id -Source $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaSource"
             Write-Host $_.ErrorDetails
@@ -21064,10 +21084,10 @@
 
         try {
             $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-            Update-BetaSource -Id $Id -BetaJsonPatchOperation $Result 
+            Update-BetaSource -Id $Id -JsonPatchOperation $Result 
 
             # Below is a request that includes all optional parameters
-            # Update-BetaSource -Id $Id -BetaJsonPatchOperation $Result   
+            # Update-BetaSource -Id $Id -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaSource"
             Write-Host $_.ErrorDetails
@@ -21216,10 +21236,10 @@
 
         try {
             $Result = ConvertFrom-JsonToNativeChangeDetectionConfig -Json $NativeChangeDetectionConfig
-            Send-BetaNativeChangeDetectionConfig -SourceId $SourceId -BetaNativeChangeDetectionConfig $Result 
+            Send-BetaNativeChangeDetectionConfig -SourceId $SourceId -NativeChangeDetectionConfig $Result 
 
             # Below is a request that includes all optional parameters
-            # Send-BetaNativeChangeDetectionConfig -SourceId $SourceId -BetaNativeChangeDetectionConfig $Result   
+            # Send-BetaNativeChangeDetectionConfig -SourceId $SourceId -NativeChangeDetectionConfig $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaNativeChangeDetectionConfig"
             Write-Host $_.ErrorDetails
@@ -21372,10 +21392,10 @@
 
         try {
             $Result = ConvertFrom-JsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
-            Send-BetaProvisioningPolicy -SourceId $SourceId -UsageType $UsageType -BetaProvisioningPolicyDto $Result 
+            Send-BetaProvisioningPolicy -SourceId $SourceId -UsageType $UsageType -ProvisioningPolicyDto $Result 
 
             # Below is a request that includes all optional parameters
-            # Send-BetaProvisioningPolicy -SourceId $SourceId -UsageType $UsageType -BetaProvisioningPolicyDto $Result   
+            # Send-BetaProvisioningPolicy -SourceId $SourceId -UsageType $UsageType -ProvisioningPolicyDto $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaProvisioningPolicy"
             Write-Host $_.ErrorDetails
@@ -21455,10 +21475,10 @@
 
         try {
             $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-            Update-BetaProvisioningPolicy -SourceId $SourceId -UsageType $UsageType -BetaJsonPatchOperation $Result 
+            Update-BetaProvisioningPolicy -SourceId $SourceId -UsageType $UsageType -JsonPatchOperation $Result 
 
             # Below is a request that includes all optional parameters
-            # Update-BetaProvisioningPolicy -SourceId $SourceId -UsageType $UsageType -BetaJsonPatchOperation $Result   
+            # Update-BetaProvisioningPolicy -SourceId $SourceId -UsageType $UsageType -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaProvisioningPolicy"
             Write-Host $_.ErrorDetails
@@ -21605,10 +21625,10 @@
 
         try {
             $Result = ConvertFrom-JsonToSchema -Json $Schema
-            Send-BetaSourceSchema -SourceId $SourceId -SchemaId $SchemaId -BetaSchema $Result 
+            Send-BetaSourceSchema -SourceId $SourceId -SchemaId $SchemaId -Schema $Result 
 
             # Below is a request that includes all optional parameters
-            # Send-BetaSourceSchema -SourceId $SourceId -SchemaId $SchemaId -BetaSchema $Result   
+            # Send-BetaSourceSchema -SourceId $SourceId -SchemaId $SchemaId -Schema $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaSourceSchema"
             Write-Host $_.ErrorDetails
@@ -21649,10 +21669,10 @@
 
         try {
             $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-            Update-BetaSourceSchema -SourceId $SourceId -SchemaId $SchemaId -BetaJsonPatchOperation $Result 
+            Update-BetaSourceSchema -SourceId $SourceId -SchemaId $SchemaId -JsonPatchOperation $Result 
 
             # Below is a request that includes all optional parameters
-            # Update-BetaSourceSchema -SourceId $SourceId -SchemaId $SchemaId -BetaJsonPatchOperation $Result   
+            # Update-BetaSourceSchema -SourceId $SourceId -SchemaId $SchemaId -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaSourceSchema"
             Write-Host $_.ErrorDetails
@@ -21749,10 +21769,10 @@
 
         try {
             $Result = ConvertFrom-JsonToCorrelationConfig -Json $CorrelationConfig
-            Send-BetaCorrelationConfig -SourceId $SourceId -BetaCorrelationConfig $Result 
+            Send-BetaCorrelationConfig -SourceId $SourceId -CorrelationConfig $Result 
 
             # Below is a request that includes all optional parameters
-            # Send-BetaCorrelationConfig -SourceId $SourceId -BetaCorrelationConfig $Result   
+            # Send-BetaCorrelationConfig -SourceId $SourceId -CorrelationConfig $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaCorrelationConfig"
             Write-Host $_.ErrorDetails
@@ -21927,10 +21947,10 @@
 
         try {
             $Result = ConvertFrom-JsonToAttrSyncSourceConfig -Json $AttrSyncSourceConfig
-            Send-BetaSourceAttrSyncConfig -Id $Id -BetaAttrSyncSourceConfig $Result 
+            Send-BetaSourceAttrSyncConfig -Id $Id -AttrSyncSourceConfig $Result 
 
             # Below is a request that includes all optional parameters
-            # Send-BetaSourceAttrSyncConfig -Id $Id -BetaAttrSyncSourceConfig $Result   
+            # Send-BetaSourceAttrSyncConfig -Id $Id -AttrSyncSourceConfig $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaSourceAttrSyncConfig"
             Write-Host $_.ErrorDetails
@@ -22065,10 +22085,10 @@
 
         try {
             $Result = ConvertFrom-JsonToSourceEntitlementRequestConfig -Json $SourceEntitlementRequestConfig
-            Update-BetaSourceEntitlementRequestConfig -SourceId $SourceId -BetaSourceEntitlementRequestConfig $Result 
+            Update-BetaSourceEntitlementRequestConfig -SourceId $SourceId -SourceEntitlementRequestConfig $Result 
 
             # Below is a request that includes all optional parameters
-            # Update-BetaSourceEntitlementRequestConfig -SourceId $SourceId -BetaSourceEntitlementRequestConfig $Result   
+            # Update-BetaSourceEntitlementRequestConfig -SourceId $SourceId -SourceEntitlementRequestConfig $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaSourceEntitlementRequestConfig"
             Write-Host $_.ErrorDetails
@@ -22337,10 +22357,10 @@
 
         try {
             $Result = ConvertFrom-JsonToResourceObjectsRequest -Json $ResourceObjectsRequest
-            Receive-BetaResourceObjects -SourceId $SourceId -BetaResourceObjectsRequest $Result 
+            Receive-BetaResourceObjects -SourceId $SourceId -ResourceObjectsRequest $Result 
 
             # Below is a request that includes all optional parameters
-            # Receive-BetaResourceObjects -SourceId $SourceId -BetaResourceObjectsRequest $Result   
+            # Receive-BetaResourceObjects -SourceId $SourceId -ResourceObjectsRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Receive-BetaResourceObjects"
             Write-Host $_.ErrorDetails
@@ -22553,10 +22573,10 @@
 
         try {
             $Result = ConvertFrom-JsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
-            Update-BetaProvisioningPoliciesInBulk -SourceId $SourceId -BetaProvisioningPolicyDto $Result 
+            Update-BetaProvisioningPoliciesInBulk -SourceId $SourceId -ProvisioningPolicyDto $Result 
 
             # Below is a request that includes all optional parameters
-            # Update-BetaProvisioningPoliciesInBulk -SourceId $SourceId -BetaProvisioningPolicyDto $Result   
+            # Update-BetaProvisioningPoliciesInBulk -SourceId $SourceId -ProvisioningPolicyDto $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaProvisioningPoliciesInBulk"
             Write-Host $_.ErrorDetails
@@ -22703,7 +22723,7 @@
             Submit-BetaSedBatchRequest 
 
             # Below is a request that includes all optional parameters
-            # Submit-BetaSedBatchRequest -BetaSedBatchRequest $Result   
+            # Submit-BetaSedBatchRequest -SedBatchRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Submit-BetaSedBatchRequest"
             Write-Host $_.ErrorDetails
@@ -22790,10 +22810,10 @@
 
         try {
             $Result = ConvertFrom-JsonToSedPatch -Json $SedPatch
-            Update-BetaSed -Id $Id -BetaSedPatch $Result 
+            Update-BetaSed -Id $Id -SedPatch $Result 
 
             # Below is a request that includes all optional parameters
-            # Update-BetaSed -Id $Id -BetaSedPatch $Result   
+            # Update-BetaSed -Id $Id -SedPatch $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaSed"
             Write-Host $_.ErrorDetails
@@ -22835,10 +22855,10 @@
 
         try {
             $Result = ConvertFrom-JsonToSedApproval -Json $SedApproval
-            Submit-BetaSedApproval -BetaSedApproval $Result 
+            Submit-BetaSedApproval -SedApproval $Result 
 
             # Below is a request that includes all optional parameters
-            # Submit-BetaSedApproval -BetaSedApproval $Result   
+            # Submit-BetaSedApproval -SedApproval $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Submit-BetaSedApproval"
             Write-Host $_.ErrorDetails
@@ -22882,10 +22902,10 @@
 
         try {
             $Result = ConvertFrom-JsonToSedAssignment -Json $SedAssignment
-            Submit-BetaSedAssignment -BetaSedAssignment $Result 
+            Submit-BetaSedAssignment -SedAssignment $Result 
 
             # Below is a request that includes all optional parameters
-            # Submit-BetaSedAssignment -BetaSedAssignment $Result   
+            # Submit-BetaSedAssignment -SedAssignment $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Submit-BetaSedAssignment"
             Write-Host $_.ErrorDetails
@@ -23004,10 +23024,10 @@
 
         try {
             $Result = ConvertFrom-JsonToTaggedObject -Json $TaggedObject
-            Send-BetaTaggedObject -Type $Type -Id $Id -BetaTaggedObject $Result 
+            Send-BetaTaggedObject -Type $Type -Id $Id -TaggedObject $Result 
 
             # Below is a request that includes all optional parameters
-            # Send-BetaTaggedObject -Type $Type -Id $Id -BetaTaggedObject $Result   
+            # Send-BetaTaggedObject -Type $Type -Id $Id -TaggedObject $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaTaggedObject"
             Write-Host $_.ErrorDetails
@@ -23062,10 +23082,10 @@
 
         try {
             $Result = ConvertFrom-JsonToBulkTaggedObject -Json $BulkTaggedObject
-            Remove-BetaTagsToManyObject -BetaBulkTaggedObject $Result 
+            Remove-BetaTagsToManyObject -BulkTaggedObject $Result 
 
             # Below is a request that includes all optional parameters
-            # Remove-BetaTagsToManyObject -BetaBulkTaggedObject $Result   
+            # Remove-BetaTagsToManyObject -BulkTaggedObject $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaTagsToManyObject"
             Write-Host $_.ErrorDetails
@@ -23156,10 +23176,10 @@
 
         try {
             $Result = ConvertFrom-JsonToTaggedObject -Json $TaggedObject
-            Set-BetaTagToObject -BetaTaggedObject $Result 
+            Set-BetaTagToObject -TaggedObject $Result 
 
             # Below is a request that includes all optional parameters
-            # Set-BetaTagToObject -BetaTaggedObject $Result   
+            # Set-BetaTagToObject -TaggedObject $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-BetaTagToObject"
             Write-Host $_.ErrorDetails
@@ -23252,10 +23272,10 @@
 
         try {
             $Result = ConvertFrom-JsonToBulkTaggedObject -Json $BulkTaggedObject
-            Set-BetaTagsToManyObjects -BetaBulkTaggedObject $Result 
+            Set-BetaTagsToManyObjects -BulkTaggedObject $Result 
 
             # Below is a request that includes all optional parameters
-            # Set-BetaTagsToManyObjects -BetaBulkTaggedObject $Result   
+            # Set-BetaTagsToManyObjects -BulkTaggedObject $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-BetaTagsToManyObjects"
             Write-Host $_.ErrorDetails
@@ -23315,10 +23335,10 @@
 
         try {
             $Result = ConvertFrom-JsonToTag -Json $Tag
-            New-BetaTag -BetaTag $Result 
+            New-BetaTag -Tag $Result 
 
             # Below is a request that includes all optional parameters
-            # New-BetaTag -BetaTag $Result   
+            # New-BetaTag -Tag $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaTag"
             Write-Host $_.ErrorDetails
@@ -23586,10 +23606,10 @@
 
         try {
             $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-            Update-BetaTaskStatus -Id $Id -BetaJsonPatchOperation $Result 
+            Update-BetaTaskStatus -Id $Id -JsonPatchOperation $Result 
 
             # Below is a request that includes all optional parameters
-            # Update-BetaTaskStatus -Id $Id -BetaJsonPatchOperation $Result   
+            # Update-BetaTaskStatus -Id $Id -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaTaskStatus"
             Write-Host $_.ErrorDetails
@@ -23724,10 +23744,10 @@
 
         try {
             $Result = ConvertFrom-JsonToTransform -Json $Transform
-            New-BetaTransform -BetaTransform $Result 
+            New-BetaTransform -Transform $Result 
 
             # Below is a request that includes all optional parameters
-            # New-BetaTransform -BetaTransform $Result   
+            # New-BetaTransform -Transform $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaTransform"
             Write-Host $_.ErrorDetails
@@ -23896,7 +23916,7 @@
             Update-BetaTransform -Id $Id 
 
             # Below is a request that includes all optional parameters
-            # Update-BetaTransform -Id $Id -BetaTransform $Result   
+            # Update-BetaTransform -Id $Id -Transform $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaTransform"
             Write-Host $_.ErrorDetails
@@ -23942,10 +23962,10 @@
 
         try {
             $Result = ConvertFrom-JsonToCompleteInvocation -Json $CompleteInvocation
-            Complete-BetaTriggerInvocation -Id $Id -BetaCompleteInvocation $Result 
+            Complete-BetaTriggerInvocation -Id $Id -CompleteInvocation $Result 
 
             # Below is a request that includes all optional parameters
-            # Complete-BetaTriggerInvocation -Id $Id -BetaCompleteInvocation $Result   
+            # Complete-BetaTriggerInvocation -Id $Id -CompleteInvocation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Complete-BetaTriggerInvocation"
             Write-Host $_.ErrorDetails
@@ -24008,10 +24028,10 @@
 
         try {
             $Result = ConvertFrom-JsonToSubscriptionPostRequest -Json $SubscriptionPostRequest
-            New-BetaSubscription -BetaSubscriptionPostRequest $Result 
+            New-BetaSubscription -SubscriptionPostRequest $Result 
 
             # Below is a request that includes all optional parameters
-            # New-BetaSubscription -BetaSubscriptionPostRequest $Result   
+            # New-BetaSubscription -SubscriptionPostRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaSubscription"
             Write-Host $_.ErrorDetails
@@ -24143,10 +24163,10 @@
 
         try {
             $Result = ConvertFrom-JsonToSubscriptionPatchRequestInner -Json $SubscriptionPatchRequestInner
-            Update-BetaSubscription -Id $Id -BetaSubscriptionPatchRequestInner $Result 
+            Update-BetaSubscription -Id $Id -SubscriptionPatchRequestInner $Result 
 
             # Below is a request that includes all optional parameters
-            # Update-BetaSubscription -Id $Id -BetaSubscriptionPatchRequestInner $Result   
+            # Update-BetaSubscription -Id $Id -SubscriptionPatchRequestInner $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaSubscription"
             Write-Host $_.ErrorDetails
@@ -24207,10 +24227,10 @@
 
         try {
             $Result = ConvertFrom-JsonToSubscriptionPutRequest -Json $SubscriptionPutRequest
-            Update-BetaSubscription -Id $Id -BetaSubscriptionPutRequest $Result 
+            Update-BetaSubscription -Id $Id -SubscriptionPutRequest $Result 
 
             # Below is a request that includes all optional parameters
-            # Update-BetaSubscription -Id $Id -BetaSubscriptionPutRequest $Result   
+            # Update-BetaSubscription -Id $Id -SubscriptionPutRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaSubscription"
             Write-Host $_.ErrorDetails
@@ -24361,10 +24381,10 @@
 
         try {
             $Result = ConvertFrom-JsonToTestInvocation -Json $TestInvocation
-            Start-BetaTestTriggerInvocation -BetaTestInvocation $Result 
+            Start-BetaTestTriggerInvocation -TestInvocation $Result 
 
             # Below is a request that includes all optional parameters
-            # Start-BetaTestTriggerInvocation -BetaTestInvocation $Result   
+            # Start-BetaTestTriggerInvocation -TestInvocation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-BetaTestTriggerInvocation"
             Write-Host $_.ErrorDetails
@@ -24412,10 +24432,10 @@
 
         try {
             $Result = ConvertFrom-JsonToValidateFilterInputDto -Json $ValidateFilterInputDto
-            Test-BetaSubscriptionFilter -BetaValidateFilterInputDto $Result 
+            Test-BetaSubscriptionFilter -ValidateFilterInputDto $Result 
 
             # Below is a request that includes all optional parameters
-            # Test-BetaSubscriptionFilter -BetaValidateFilterInputDto $Result   
+            # Test-BetaSubscriptionFilter -ValidateFilterInputDto $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Test-BetaSubscriptionFilter"
             Write-Host $_.ErrorDetails
@@ -24490,10 +24510,10 @@
 
         try {
             $Result = ConvertFrom-JsonToTenantUiMetadataItemUpdateRequest -Json $TenantUiMetadataItemUpdateRequest
-            Set-BetaTenantUiMetadata -BetaTenantUiMetadataItemUpdateRequest $Result 
+            Set-BetaTenantUiMetadata -TenantUiMetadataItemUpdateRequest $Result 
 
             # Below is a request that includes all optional parameters
-            # Set-BetaTenantUiMetadata -BetaTenantUiMetadataItemUpdateRequest $Result   
+            # Set-BetaTenantUiMetadata -TenantUiMetadataItemUpdateRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-BetaTenantUiMetadata"
             Write-Host $_.ErrorDetails
@@ -24553,10 +24573,10 @@
 
         try {
             $Result = ConvertFrom-JsonToVendorConnectorMapping -Json $VendorConnectorMapping
-            New-BetaVendorConnectorMapping -BetaVendorConnectorMapping $Result 
+            New-BetaVendorConnectorMapping -VendorConnectorMapping $Result 
 
             # Below is a request that includes all optional parameters
-            # New-BetaVendorConnectorMapping -BetaVendorConnectorMapping $Result   
+            # New-BetaVendorConnectorMapping -VendorConnectorMapping $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaVendorConnectorMapping"
             Write-Host $_.ErrorDetails
@@ -24634,10 +24654,10 @@
 
         try {
             $Result = ConvertFrom-JsonToVendorConnectorMapping -Json $VendorConnectorMapping
-            Remove-BetaVendorConnectorMapping -BetaVendorConnectorMapping $Result 
+            Remove-BetaVendorConnectorMapping -VendorConnectorMapping $Result 
 
             # Below is a request that includes all optional parameters
-            # Remove-BetaVendorConnectorMapping -BetaVendorConnectorMapping $Result   
+            # Remove-BetaVendorConnectorMapping -VendorConnectorMapping $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaVendorConnectorMapping"
             Write-Host $_.ErrorDetails
@@ -24870,10 +24890,10 @@
 
         try {
             $Result = ConvertFrom-JsonToWorkItemForward -Json $WorkItemForward
-            Invoke-BetaForwardWorkItem -Id $Id -BetaWorkItemForward $Result 
+            Invoke-BetaForwardWorkItem -Id $Id -WorkItemForward $Result 
 
             # Below is a request that includes all optional parameters
-            # Invoke-BetaForwardWorkItem -Id $Id -BetaWorkItemForward $Result   
+            # Invoke-BetaForwardWorkItem -Id $Id -WorkItemForward $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-BetaForwardWorkItem"
             Write-Host $_.ErrorDetails
@@ -25205,10 +25225,10 @@
 
         try {
             $Result = ConvertFrom-JsonToConfigurationItemRequest -Json $ConfigurationItemRequest
-            New-BetaReassignmentConfiguration -BetaConfigurationItemRequest $Result 
+            New-BetaReassignmentConfiguration -ConfigurationItemRequest $Result 
 
             # Below is a request that includes all optional parameters
-            # New-BetaReassignmentConfiguration -BetaConfigurationItemRequest $Result   
+            # New-BetaReassignmentConfiguration -ConfigurationItemRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaReassignmentConfiguration"
             Write-Host $_.ErrorDetails
@@ -25240,6 +25260,8 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/beta/methods/work-reassignment#list-reassignment-configurations
       source: |
+        $Limit = 20 # Int32 | Max number of results to return. (optional) (default to 20)
+        $Offset = 10 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. Defaults to 0 if not specified. (optional)
 
         # List Reassignment Configurations
 
@@ -25247,7 +25269,7 @@
             Get-BetaReassignmentConfigurations 
 
             # Below is a request that includes all optional parameters
-            # Get-BetaReassignmentConfigurations   
+            # Get-BetaReassignmentConfigurations -Limit $Limit -Offset $Offset   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaReassignmentConfigurations"
             Write-Host $_.ErrorDetails
@@ -25255,13 +25277,15 @@
     - lang: Python
       label: SDK_tools/sdk/python/beta/methods/work-reassignment#list-reassignment-configurations
       source: |
+        limit = 20 # int | Max number of results to return. (optional) (default to 20) # int | Max number of results to return. (optional) (default to 20)
+        offset = 10 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. Defaults to 0 if not specified. (optional) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. Defaults to 0 if not specified. (optional)
         try:
           # List Reassignment Configurations
           
           api_response = api_instance.list_reassignment_configurations()
               
           # Below is a request that includes all optional parameters
-          # api_response = api_instance.list_reassignment_configurations()
+          # api_response = api_instance.list_reassignment_configurations(limit, offset)
           print("The response of WorkReassignmentApi->list_reassignment_configurations:\n")
           pprint(api_response)
         except Exception as e:
@@ -25429,10 +25453,10 @@
 
         try {
             $Result = ConvertFrom-JsonToConfigurationItemRequest -Json $ConfigurationItemRequest
-            Send-BetaReassignmentConfig -IdentityId $IdentityId -BetaConfigurationItemRequest $Result 
+            Send-BetaReassignmentConfig -IdentityId $IdentityId -ConfigurationItemRequest $Result 
 
             # Below is a request that includes all optional parameters
-            # Send-BetaReassignmentConfig -IdentityId $IdentityId -BetaConfigurationItemRequest $Result   
+            # Send-BetaReassignmentConfig -IdentityId $IdentityId -ConfigurationItemRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaReassignmentConfig"
             Write-Host $_.ErrorDetails
@@ -25509,10 +25533,10 @@
 
         try {
             $Result = ConvertFrom-JsonToTenantConfigurationRequest -Json $TenantConfigurationRequest
-            Send-BetaTenantConfiguration -BetaTenantConfigurationRequest $Result 
+            Send-BetaTenantConfiguration -TenantConfigurationRequest $Result 
 
             # Below is a request that includes all optional parameters
-            # Send-BetaTenantConfiguration -BetaTenantConfigurationRequest $Result   
+            # Send-BetaTenantConfiguration -TenantConfigurationRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaTenantConfiguration"
             Write-Host $_.ErrorDetails
@@ -25582,10 +25606,10 @@
 
         try {
             $Result = ConvertFrom-JsonToCreateWorkflowRequest -Json $CreateWorkflowRequest
-            New-BetaWorkflow -BetaCreateWorkflowRequest $Result 
+            New-BetaWorkflow -CreateWorkflowRequest $Result 
 
             # Below is a request that includes all optional parameters
-            # New-BetaWorkflow -BetaCreateWorkflowRequest $Result   
+            # New-BetaWorkflow -CreateWorkflowRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaWorkflow"
             Write-Host $_.ErrorDetails
@@ -25721,10 +25745,10 @@
 
         try {
             $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-            Update-BetaWorkflow -Id $Id -BetaJsonPatchOperation $Result 
+            Update-BetaWorkflow -Id $Id -JsonPatchOperation $Result 
 
             # Below is a request that includes all optional parameters
-            # Update-BetaWorkflow -Id $Id -BetaJsonPatchOperation $Result   
+            # Update-BetaWorkflow -Id $Id -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaWorkflow"
             Write-Host $_.ErrorDetails
@@ -25803,10 +25827,10 @@
 
         try {
             $Result = ConvertFrom-JsonToWorkflowBody -Json $WorkflowBody
-            Update-BetaWorkflow -Id $Id -BetaWorkflowBody $Result 
+            Update-BetaWorkflow -Id $Id -WorkflowBody $Result 
 
             # Below is a request that includes all optional parameters
-            # Update-BetaWorkflow -Id $Id -BetaWorkflowBody $Result   
+            # Update-BetaWorkflow -Id $Id -WorkflowBody $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaWorkflow"
             Write-Host $_.ErrorDetails
@@ -26135,7 +26159,7 @@
             Submit-BetaExternalExecuteWorkflow -Id $Id 
 
             # Below is a request that includes all optional parameters
-            # Submit-BetaExternalExecuteWorkflow -Id $Id -BetaPostExternalExecuteWorkflowRequest $Result   
+            # Submit-BetaExternalExecuteWorkflow -Id $Id -PostExternalExecuteWorkflowRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Submit-BetaExternalExecuteWorkflow"
             Write-Host $_.ErrorDetails
@@ -26207,7 +26231,7 @@
             Test-BetaExternalExecuteWorkflow -Id $Id 
 
             # Below is a request that includes all optional parameters
-            # Test-BetaExternalExecuteWorkflow -Id $Id -BetaTestExternalExecuteWorkflowRequest $Result   
+            # Test-BetaExternalExecuteWorkflow -Id $Id -TestExternalExecuteWorkflowRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Test-BetaExternalExecuteWorkflow"
             Write-Host $_.ErrorDetails
@@ -26243,10 +26267,10 @@
 
         try {
             $Result = ConvertFrom-JsonToTestWorkflowRequest -Json $TestWorkflowRequest
-            Test-BetaWorkflow -Id $Id -BetaTestWorkflowRequest $Result 
+            Test-BetaWorkflow -Id $Id -TestWorkflowRequest $Result 
 
             # Below is a request that includes all optional parameters
-            # Test-BetaWorkflow -Id $Id -BetaTestWorkflowRequest $Result   
+            # Test-BetaWorkflow -Id $Id -TestWorkflowRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Test-BetaWorkflow"
             Write-Host $_.ErrorDetails

@@ -17,11 +17,11 @@ tags: ['SDK', 'Software Development Kit', 'Approval1', 'V2024Approval1']
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **comments** | [**[]ApprovalComment2**](approval-comment2) |  | [optional] 
-**created** | **datetime** | A date-time in ISO-8601 format | [optional] 
 **modified** | **datetime** | A date-time in ISO-8601 format | [optional] 
-**owner** | [**AccountSource**](account-source) |  | [optional] 
+**owner** | [**ActivityIdentity**](activity-identity) |  | [optional] 
 **result** | **str** | The result of the approval | [optional] 
-**type** | **str** |  | [optional] 
+**attribute_request** | [**AttributeRequest**](attribute-request) |  | [optional] 
+**source** | [**AccountSource**](account-source) |  | [optional] 
 }
 
 ## Example
@@ -36,11 +36,14 @@ comments=[
                         commenter = 'Automated AR Approval', 
                         date = '2018-06-25T20:22:28.104Z', )
                     ],
-created='2018-06-25T20:22:28.104Z',
 modified='2018-06-25T20:22:28.104Z',
 owner=,
 result='Finished',
-type=''
+attribute_request=sailpoint.v2024.models.attribute_request.AttributeRequest(
+                    name = 'groups', 
+                    op = 'Add', 
+                    value = null, ),
+source=
 )
 
 ```

@@ -19,19 +19,13 @@ Method | HTTP request | Description
 
 
 ## get-tenant
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Get Tenant Information.
 This rest endpoint can be used to retrieve tenant details.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-tenant)
 
 ### Parameters 
-
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
+This endpoint does not need any parameter. 
 
 ### Return type
 [**Tenant**](../models/tenant)
@@ -63,14 +57,13 @@ from sailpoint.configuration import Configuration
 configuration = Configuration()
 
 with ApiClient(configuration) as api_client:
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
         # Get Tenant Information.
         
-        results =TenantApi(api_client).get_tenant(x_sail_point_experimental)
+        results =TenantApi(api_client).get_tenant()
         # Below is a request that includes all optional parameters
-        # results = TenantApi(api_client).get_tenant(x_sail_point_experimental)
+        # results = TenantApi(api_client).get_tenant()
         print("The response of TenantApi->get_tenant:\n")
         pprint(results)
         except Exception as e:

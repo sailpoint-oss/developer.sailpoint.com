@@ -87,10 +87,10 @@ $IdentityAttribute = @"{
 
 try {
     $Result = ConvertFrom-JsonToIdentityAttribute -Json $IdentityAttribute
-    New-V2024IdentityAttribute -XSailPointExperimental $XSailPointExperimental -V2024IdentityAttribute $Result 
+    New-V2024IdentityAttribute -XSailPointExperimental $XSailPointExperimental -IdentityAttribute $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024IdentityAttribute -XSailPointExperimental $XSailPointExperimental -V2024IdentityAttribute $Result  
+    # New-V2024IdentityAttribute -XSailPointExperimental $XSailPointExperimental -IdentityAttribute $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024IdentityAttribute"
     Write-Host $_.ErrorDetails
@@ -192,10 +192,10 @@ $IdentityAttributeNames = @"{
 
 try {
     $Result = ConvertFrom-JsonToIdentityAttributeNames -Json $IdentityAttributeNames
-    Remove-V2024IdentityAttributesInBulk -XSailPointExperimental $XSailPointExperimental -V2024IdentityAttributeNames $Result 
+    Remove-V2024IdentityAttributesInBulk -XSailPointExperimental $XSailPointExperimental -IdentityAttributeNames $Result 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024IdentityAttributesInBulk -XSailPointExperimental $XSailPointExperimental -V2024IdentityAttributeNames $Result  
+    # Remove-V2024IdentityAttributesInBulk -XSailPointExperimental $XSailPointExperimental -IdentityAttributeNames $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024IdentityAttributesInBulk"
     Write-Host $_.ErrorDetails
@@ -374,10 +374,10 @@ $IdentityAttribute = @"{
 
 try {
     $Result = ConvertFrom-JsonToIdentityAttribute -Json $IdentityAttribute
-    Send-V2024IdentityAttribute -Name $Name -XSailPointExperimental $XSailPointExperimental -V2024IdentityAttribute $Result 
+    Send-V2024IdentityAttribute -Name $Name -XSailPointExperimental $XSailPointExperimental -IdentityAttribute $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-V2024IdentityAttribute -Name $Name -XSailPointExperimental $XSailPointExperimental -V2024IdentityAttribute $Result  
+    # Send-V2024IdentityAttribute -Name $Name -XSailPointExperimental $XSailPointExperimental -IdentityAttribute $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024IdentityAttribute"
     Write-Host $_.ErrorDetails

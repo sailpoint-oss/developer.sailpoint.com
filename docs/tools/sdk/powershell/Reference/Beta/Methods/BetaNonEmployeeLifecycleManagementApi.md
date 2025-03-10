@@ -121,10 +121,10 @@ $NonEmployeeApprovalDecision = @"{
 
 try {
     $Result = ConvertFrom-JsonToNonEmployeeApprovalDecision -Json $NonEmployeeApprovalDecision
-    Approve-BetaNonEmployeeRequest -Id $Id -BetaNonEmployeeApprovalDecision $Result 
+    Approve-BetaNonEmployeeRequest -Id $Id -NonEmployeeApprovalDecision $Result 
     
     # Below is a request that includes all optional parameters
-    # Approve-BetaNonEmployeeRequest -Id $Id -BetaNonEmployeeApprovalDecision $Result  
+    # Approve-BetaNonEmployeeRequest -Id $Id -NonEmployeeApprovalDecision $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Approve-BetaNonEmployeeRequest"
     Write-Host $_.ErrorDetails
@@ -182,10 +182,10 @@ $NonEmployeeRequestBody = @"{
 
 try {
     $Result = ConvertFrom-JsonToNonEmployeeRequestBody -Json $NonEmployeeRequestBody
-    New-BetaNonEmployeeRecord -BetaNonEmployeeRequestBody $Result 
+    New-BetaNonEmployeeRecord -NonEmployeeRequestBody $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaNonEmployeeRecord -BetaNonEmployeeRequestBody $Result  
+    # New-BetaNonEmployeeRecord -NonEmployeeRequestBody $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaNonEmployeeRecord"
     Write-Host $_.ErrorDetails
@@ -241,10 +241,10 @@ $NonEmployeeRequestBody = @"{
 
 try {
     $Result = ConvertFrom-JsonToNonEmployeeRequestBody -Json $NonEmployeeRequestBody
-    New-BetaNonEmployeeRequest -BetaNonEmployeeRequestBody $Result 
+    New-BetaNonEmployeeRequest -NonEmployeeRequestBody $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaNonEmployeeRequest -BetaNonEmployeeRequestBody $Result  
+    # New-BetaNonEmployeeRequest -NonEmployeeRequestBody $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaNonEmployeeRequest"
     Write-Host $_.ErrorDetails
@@ -253,9 +253,7 @@ try {
 [[Back to top]](#) 
 
 ## create-non-employee-source
-This request will create a non-employee source.
-Request will require the following security scope:
-'idn:nesr:create'
+Create a non-employee source.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/create-non-employee-source)
 
@@ -314,10 +312,10 @@ $NonEmployeeSourceRequestBody = @"{
 
 try {
     $Result = ConvertFrom-JsonToNonEmployeeSourceRequestBody -Json $NonEmployeeSourceRequestBody
-    New-BetaNonEmployeeSource -BetaNonEmployeeSourceRequestBody $Result 
+    New-BetaNonEmployeeSource -NonEmployeeSourceRequestBody $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaNonEmployeeSource -BetaNonEmployeeSourceRequestBody $Result  
+    # New-BetaNonEmployeeSource -NonEmployeeSourceRequestBody $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaNonEmployeeSource"
     Write-Host $_.ErrorDetails
@@ -369,10 +367,10 @@ $NonEmployeeSchemaAttributeBody = @"{
 
 try {
     $Result = ConvertFrom-JsonToNonEmployeeSchemaAttributeBody -Json $NonEmployeeSchemaAttributeBody
-    New-BetaNonEmployeeSourceSchemaAttributes -SourceId $SourceId -BetaNonEmployeeSchemaAttributeBody $Result 
+    New-BetaNonEmployeeSourceSchemaAttributes -SourceId $SourceId -NonEmployeeSchemaAttributeBody $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaNonEmployeeSourceSchemaAttributes -SourceId $SourceId -BetaNonEmployeeSchemaAttributeBody $Result  
+    # New-BetaNonEmployeeSourceSchemaAttributes -SourceId $SourceId -NonEmployeeSchemaAttributeBody $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaNonEmployeeSourceSchemaAttributes"
     Write-Host $_.ErrorDetails
@@ -462,10 +460,10 @@ $DeleteNonEmployeeRecordInBulkRequest = @""@
 
 try {
     $Result = ConvertFrom-JsonToDeleteNonEmployeeRecordInBulkRequest -Json $DeleteNonEmployeeRecordInBulkRequest
-    Remove-BetaNonEmployeeRecordInBulk -BetaDeleteNonEmployeeRecordInBulkRequest $Result 
+    Remove-BetaNonEmployeeRecordInBulk -DeleteNonEmployeeRecordInBulkRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Remove-BetaNonEmployeeRecordInBulk -BetaDeleteNonEmployeeRecordInBulkRequest $Result  
+    # Remove-BetaNonEmployeeRecordInBulk -DeleteNonEmployeeRecordInBulkRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaNonEmployeeRecordInBulk"
     Write-Host $_.ErrorDetails
@@ -1377,18 +1375,20 @@ try {
 [[Back to top]](#) 
 
 ## list-non-employee-sources
-This gets a list of non-employee sources.
+Get a list of non-employee sources. There are two contextual uses for the `requested-for` path parameter: 
+  1. If the user has the role context of `idn:nesr:read`, he or she may request a list sources assigned to a particular account manager by passing in that manager's `id`.
+  2. If the current user is an account manager, the user should provide 'me' as the `requested-for` value. Doing so provide the user with a list of the sources he or she owns.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-non-employee-sources)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-  Query | RequestedFor | **String** | True  | The identity for whom the request was made. *me* indicates the current user.
-  Query | NonEmployeeCount | **Boolean** | True  | The flag to determine whether return a non-employee count associate with source.
   Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | RequestedFor | **String** |   (optional) | Identity the request was made for. Use 'me' to indicate the current user.
+  Query | NonEmployeeCount | **Boolean** |   (optional) (default to $false) | Flag that determines whether the API will return a non-employee count associated with the source.
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, sourceId**
 
 ### Return type
@@ -1397,7 +1397,7 @@ Param Type | Name | Data Type | Required  | Description
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of non-employee sources objects. | NonEmployeeSourceWithNECount[]
+200 | List of non-employee source objects. | NonEmployeeSourceWithNECount[]
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessModelMetadataAttribute401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
@@ -1410,20 +1410,20 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$RequestedFor = "me" # String | The identity for whom the request was made. *me* indicates the current user.
-$NonEmployeeCount = $false # Boolean | The flag to determine whether return a non-employee count associate with source.
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+$RequestedFor = "me" # String | Identity the request was made for. Use 'me' to indicate the current user. (optional)
+$NonEmployeeCount = $false # Boolean | Flag that determines whether the API will return a non-employee count associated with the source. (optional) (default to $false)
 $Sorters = "name,created" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, sourceId** (optional)
 
 # List Non-Employee Sources
 
 try {
-    Get-BetaNonEmployeeSources -RequestedFor $RequestedFor -NonEmployeeCount $NonEmployeeCount 
+    Get-BetaNonEmployeeSources 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaNonEmployeeSources -RequestedFor $RequestedFor -NonEmployeeCount $NonEmployeeCount -Limit $Limit -Offset $Offset -Count $Count -Sorters $Sorters  
+    # Get-BetaNonEmployeeSources -Limit $Limit -Offset $Offset -Count $Count -RequestedFor $RequestedFor -NonEmployeeCount $NonEmployeeCount -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaNonEmployeeSources"
     Write-Host $_.ErrorDetails
@@ -1474,10 +1474,10 @@ $Id = "2c91808b6ef1d43e016efba0ce470904" # String | Non-employee record id (UUID
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-BetaNonEmployeeRecord -Id $Id -BetaJsonPatchOperation $Result 
+    Update-BetaNonEmployeeRecord -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaNonEmployeeRecord -Id $Id -BetaJsonPatchOperation $Result  
+    # Update-BetaNonEmployeeRecord -Id $Id -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaNonEmployeeRecord"
     Write-Host $_.ErrorDetails
@@ -1531,10 +1531,10 @@ $SourceId = "2c91808b6ef1d43e016efba0ce470904" # String | The Source id
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-BetaNonEmployeeSchemaAttribute -AttributeId $AttributeId -SourceId $SourceId -BetaJsonPatchOperation $Result 
+    Update-BetaNonEmployeeSchemaAttribute -AttributeId $AttributeId -SourceId $SourceId -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaNonEmployeeSchemaAttribute -AttributeId $AttributeId -SourceId $SourceId -BetaJsonPatchOperation $Result  
+    # Update-BetaNonEmployeeSchemaAttribute -AttributeId $AttributeId -SourceId $SourceId -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaNonEmployeeSchemaAttribute"
     Write-Host $_.ErrorDetails
@@ -1584,10 +1584,10 @@ $SourceId = "2c91808b6ef1d43e016efba0ce470904" # String | Source Id
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-BetaNonEmployeeSource -SourceId $SourceId -BetaJsonPatchOperation $Result 
+    Update-BetaNonEmployeeSource -SourceId $SourceId -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaNonEmployeeSource -SourceId $SourceId -BetaJsonPatchOperation $Result  
+    # Update-BetaNonEmployeeSource -SourceId $SourceId -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaNonEmployeeSource"
     Write-Host $_.ErrorDetails
@@ -1634,10 +1634,10 @@ $NonEmployeeRejectApprovalDecision = @"{
 
 try {
     $Result = ConvertFrom-JsonToNonEmployeeRejectApprovalDecision -Json $NonEmployeeRejectApprovalDecision
-    Deny-BetaNonEmployeeRequest -Id $Id -BetaNonEmployeeRejectApprovalDecision $Result 
+    Deny-BetaNonEmployeeRequest -Id $Id -NonEmployeeRejectApprovalDecision $Result 
     
     # Below is a request that includes all optional parameters
-    # Deny-BetaNonEmployeeRequest -Id $Id -BetaNonEmployeeRejectApprovalDecision $Result  
+    # Deny-BetaNonEmployeeRequest -Id $Id -NonEmployeeRejectApprovalDecision $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Deny-BetaNonEmployeeRequest"
     Write-Host $_.ErrorDetails
@@ -1696,10 +1696,10 @@ $NonEmployeeRequestBody = @"{
 
 try {
     $Result = ConvertFrom-JsonToNonEmployeeRequestBody -Json $NonEmployeeRequestBody
-    Update-BetaNonEmployeeRecord -Id $Id -BetaNonEmployeeRequestBody $Result 
+    Update-BetaNonEmployeeRecord -Id $Id -NonEmployeeRequestBody $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaNonEmployeeRecord -Id $Id -BetaNonEmployeeRequestBody $Result  
+    # Update-BetaNonEmployeeRecord -Id $Id -NonEmployeeRequestBody $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaNonEmployeeRecord"
     Write-Host $_.ErrorDetails

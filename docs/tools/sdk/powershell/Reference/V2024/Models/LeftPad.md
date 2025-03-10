@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 $LeftPad = Initialize-PSSailpoint.V2024LeftPad  -Length 4 `
  -Padding 0 `
  -RequiresPeriodicRefresh false `
- -VarInput {type&#x3D;accountAttribute, attributes&#x3D;{attributeName&#x3D;first_name, sourceName&#x3D;Source}}
+ -VarInput {type=accountAttribute, attributes={attributeName=first_name, sourceName=Source}}
 ```
 
 - Convert the resource to JSON

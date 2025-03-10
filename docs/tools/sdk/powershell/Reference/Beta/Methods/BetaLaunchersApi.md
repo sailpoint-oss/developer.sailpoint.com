@@ -74,10 +74,10 @@ $LauncherRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToLauncherRequest -Json $LauncherRequest
-    New-BetaLauncher -BetaLauncherRequest $Result 
+    New-BetaLauncher -LauncherRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaLauncher -BetaLauncherRequest $Result  
+    # New-BetaLauncher -LauncherRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaLauncher"
     Write-Host $_.ErrorDetails
@@ -275,10 +275,10 @@ $LauncherRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToLauncherRequest -Json $LauncherRequest
-    Send-BetaLauncher -LauncherID $LauncherID -BetaLauncherRequest $Result 
+    Send-BetaLauncher -LauncherID $LauncherID -LauncherRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-BetaLauncher -LauncherID $LauncherID -BetaLauncherRequest $Result  
+    # Send-BetaLauncher -LauncherID $LauncherID -LauncherRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaLauncher"
     Write-Host $_.ErrorDetails

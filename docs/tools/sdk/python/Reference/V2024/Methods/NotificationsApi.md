@@ -529,12 +529,12 @@ Path   | id | **str** | True  | Id of the Notification Template
    | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
 
 ### Return type
-[**List[TemplateDto]**](../models/template-dto)
+[**TemplateDto**](../models/template-dto)
 
 ### Responses
 Code | Description  | Data Type | Response headers |
 ------------- | ------------- | ------------- |------------------|
-200 | A template object for your site | List[TemplateDto] |  -  |
+200 | A template object for your site | TemplateDto |  -  |
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
@@ -726,12 +726,12 @@ Param Type | Name | Data Type | Required  | Description
    | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
 
 ### Return type
-[**List[PreferencesDto]**](../models/preferences-dto)
+[**PreferencesDto**](../models/preferences-dto)
 
 ### Responses
 Code | Description  | Data Type | Response headers |
 ------------- | ------------- | ------------- |------------------|
-200 | Return preference for the given notification key. | List[PreferencesDto] |  -  |
+200 | Return preference for the given notification key. | PreferencesDto |  -  |
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |

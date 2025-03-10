@@ -95,6 +95,20 @@ npm run dev
 
 To start learning how to use the UI Development Kit and explore its possibilities, refer to [Getting Started](./getting-started.mdx).
 
+## Getting Support
+
+To get support for the UI Development Kit, please see our GitHub page, https://github.com/sailpoint-oss/ui-development-kit.
+
+To submit a bug report, please [click here](https://github.com/sailpoint-oss/ui-development-kit/issues/new?assignees=&labels=bug&template=bug-report.md).
+
+To submit a feature request, please [click here](https://github.com/sailpoint-oss/ui-development-kit/issues/new?assignees=&labels=enhancement&template=feature-request.md)
+
+## Contribute
+
+Do you have an idea to help improve the UI Development Kit? You can contribute directly!
+
+Before you contribute, you must sign our [CLA](https://cla-assistant.io/sailpoint-oss/ui-development-kit) and read the [Contribution Guidelines](https://github.com/sailpoint-oss/developer.sailpoint.com/blob/main/CONTRIBUTING.md).
+
 ## Discuss
 
 The most valuable resource for ISC developers is the SailPoint Developer Community itself, where ISC users and experts all over the world come together to ask questions and provide solutions.

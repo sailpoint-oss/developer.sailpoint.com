@@ -47,7 +47,7 @@ $TemplateDto = Initialize-PSSailpoint.BetaTemplateDto  -Key cloud_manual_work_it
  -Footer null `
  -VarFrom $__global.emailFromAddress `
  -ReplyTo $__global.emailFromAddress `
- -Description Daily digest - sent if number of outstanding tasks for task owner &gt; 0 `
+ -Description Daily digest - sent if number of outstanding tasks for task owner > 0 `
  -Id c17bea3a-574d-453c-9e04-4365fbf5af0b `
  -Created 2020-01-01T00:00Z `
  -Modified 2020-01-01T00:00Z `

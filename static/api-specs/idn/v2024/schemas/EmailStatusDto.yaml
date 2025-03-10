@@ -1,0 +1,17 @@
+type: object
+properties:
+  id:
+    type: string
+    nullable: true
+  email:
+    type: string
+    example: "sender@example.com"
+  isVerifiedByDomain:
+    type: boolean
+    example: false
+  verificationStatus:
+    type: string
+    enum:
+      - PENDING
+      - SUCCESS
+      - FAILED

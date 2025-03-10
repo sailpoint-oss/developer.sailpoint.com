@@ -17,17 +17,15 @@ AccountActivity
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | [required]
-**name** | **str** |  | [required]
-**type** | [**DocumentType**](document-type) |  | [required]
+**id** | **str** | ID of account activity. | [optional] 
 **action** | **str** | Type of action performed in the activity. | [optional] 
 **created** | **datetime** | ISO-8601 date-time referring to the time when the object was created. | [optional] 
 **modified** | **datetime** | ISO-8601 date-time referring to the time when the object was last modified. | [optional] 
+**synced** | **str** | ISO-8601 date-time referring to the date-time when object was queued to be synced into search database for use in the search API.   This date-time changes anytime there is an update to the object, which triggers a synchronization event being sent to the search database.  There may be some delay between the `synced` time and the time when the updated data is actually available in the search API.  | [optional] 
 **stage** | **str** | Activity's current stage. | [optional] 
-**origin** | **str** | Activity's origin. | [optional] 
 **status** | **str** | Activity's current status. | [optional] 
-**requester** | [**AccountSource**](account-source) |  | [optional] 
-**recipient** | [**AccountSource**](account-source) |  | [optional] 
+**requester** | [**ActivityIdentity**](activity-identity) |  | [optional] 
+**recipient** | [**ActivityIdentity**](activity-identity) |  | [optional] 
 **tracking_number** | **str** | Account activity's tracking number. | [optional] 
 **errors** | **[]str** | Errors provided by the source while completing account actions. | [optional] 
 **warnings** | **[]str** | Warnings provided by the source while completing account actions. | [optional] 
@@ -45,13 +43,11 @@ from sailpoint.v3.models.account_activity_searched_item import AccountActivitySe
 
 account_activity_searched_item = AccountActivitySearchedItem(
 id='2c91808375d8e80a0175e1f88a575222',
-name='john.doe',
-type='identity',
 action='Identity Refresh.',
 created='2018-06-25T20:22:28.104Z',
 modified='2018-06-25T20:22:28.104Z',
+synced='2018-06-25T20:22:28.104Z',
 stage='Completed',
-origin='',
 status='Complete',
 requester=,
 recipient=,
@@ -70,20 +66,25 @@ approvals=[
                                 commenter = 'Automated AR Approval', 
                                 date = '2018-06-25T20:22:28.104Z', )
                             ], 
-                        created = '2018-06-25T20:22:28.104Z', 
                         modified = '2018-06-25T20:22:28.104Z', 
                         owner = null, 
                         result = 'Finished', 
-                        type = '', )
+                        attribute_request = sailpoint.v3.models.attribute_request.AttributeRequest(
+                            name = 'groups', 
+                            op = 'Add', 
+                            value = null, ), 
+                        source = null, )
                     ],
 original_requests=[
                     sailpoint.v3.models.original_request.OriginalRequest(
                         account_id = 'CN=Abby Smith,OU=Austin,OU=Americas,OU=Demo,DC=seri,DC=acme,DC=com', 
+                        result = sailpoint.v3.models.result.Result(
+                            status = 'Manual Task Created', ), 
                         attribute_requests = [
                             sailpoint.v3.models.attribute_request.AttributeRequest(
                                 name = 'groups', 
                                 op = 'Add', 
-                                value = '3203537556531076', )
+                                value = null, )
                             ], 
                         op = 'add', 
                         source = null, )
@@ -93,13 +94,13 @@ expansion_items=[
                         account_id = '2c91808981f58ea601821c3e93482e6f', 
                         cause = 'Role', 
                         name = 'smartsheet-role', 
-                        attribute_requests = [
-                            sailpoint.v3.models.attribute_request.AttributeRequest(
-                                name = 'groups', 
-                                op = 'Add', 
-                                value = '3203537556531076', )
-                            ], 
-                        source = null, )
+                        attribute_request = sailpoint.v3.models.attribute_request.AttributeRequest(
+                            name = 'groups', 
+                            op = 'Add', 
+                            value = null, ), 
+                        source = null, 
+                        id = 'ac2887ffe0e7435a8c18c73f7ae94c7b', 
+                        state = 'EXECUTING', )
                     ],
 account_requests=[
                     sailpoint.v3.models.account_request.AccountRequest(
@@ -108,7 +109,7 @@ account_requests=[
                             sailpoint.v3.models.attribute_request.AttributeRequest(
                                 name = 'groups', 
                                 op = 'Add', 
-                                value = '3203537556531076', )
+                                value = null, )
                             ], 
                         op = 'Modify', 
                         provisioning_target = null, 

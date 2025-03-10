@@ -35,7 +35,7 @@ $AccessRequestPostApprovalRequestedItemsStatusInner = Initialize-PSSailpoint.V20
  -Type ACCESS_PROFILE `
  -Operation Add `
  -Comment William needs this access to do his job. `
- -ClientMetadata {applicationName&#x3D;My application} `
+ -ClientMetadata {applicationName=My application} `
  -ApprovalInfo null
 ```
 

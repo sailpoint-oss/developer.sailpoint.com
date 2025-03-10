@@ -94,7 +94,8 @@ search_campaign_info=sailpoint.v2024.models.campaign_all_of_search_campaign_info
                             operator = 'SELECTED', )
                         ], ),
 role_composition_campaign_info=sailpoint.v2024.models.campaign_all_of_role_composition_campaign_info.Campaign_allOf_roleCompositionCampaignInfo(
-                    reviewer = sailpoint.v2024.models.campaign_all_of_search_campaign_info_reviewer.Campaign_allOf_searchCampaignInfo_reviewer(
+                    reviewer_id = '2c91808568c529c60168cca6f90c1313', 
+                    reviewer = sailpoint.v2024.models.campaign_all_of_role_composition_campaign_info_reviewer.Campaign_allOf_roleCompositionCampaignInfo_reviewer(
                         type = 'IDENTITY', 
                         id = '2c91808568c529c60168cca6f90c1313', 
                         name = 'William Wilson', ), 

@@ -45,7 +45,7 @@ $ServiceDeskIntegrationDto = Initialize-PSSailpoint.V2024ServiceDeskIntegrationD
  -Cluster xyzzy999 `
  -ManagedSources [2c9180835d191a86015d28455b4a2329, 2c5680835d191a85765d28455b4a9823] `
  -ProvisioningConfig null `
- -Attributes {property&#x3D;value, key&#x3D;value} `
+ -Attributes {property=value, key=value} `
  -BeforeProvisioningRule null
 ```
 

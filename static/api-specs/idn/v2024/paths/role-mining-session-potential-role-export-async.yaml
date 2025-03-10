@@ -36,7 +36,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: ../../beta/schemas/RoleMiningPotentialRoleExportRequest.yaml
+          $ref: ../schemas/RoleMiningPotentialRoleExportRequest.yaml
   responses:
     '202':
       description: Job Submitted. Returns a reportId that can be used to download
@@ -44,12 +44,12 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../../beta/schemas/RoleMiningPotentialRoleExportResponse.yaml
+            $ref: ../schemas/RoleMiningPotentialRoleExportResponse.yaml
     '400':
-      $ref: ../../v3/responses/400.yaml
+      $ref: ../responses/400.yaml
     '401':
-      $ref: ../../v3/responses/401.yaml
+      $ref: ../responses/401.yaml
     '403':
-      $ref: ../../v3/responses/403.yaml
+      $ref: ../responses/403.yaml
     '500':
-      $ref: ../../v3/responses/500.yaml
+      $ref: ../responses/500.yaml

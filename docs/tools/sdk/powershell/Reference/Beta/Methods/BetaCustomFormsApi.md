@@ -193,7 +193,7 @@ try {
     New-BetaFormDefinition 
     
     # Below is a request that includes all optional parameters
-    # New-BetaFormDefinition -BetaCreateFormDefinitionRequest $Result  
+    # New-BetaFormDefinition -CreateFormDefinitionRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaFormDefinition"
     Write-Host $_.ErrorDetails
@@ -348,7 +348,7 @@ try {
     New-BetaFormDefinitionByTemplate 
     
     # Below is a request that includes all optional parameters
-    # New-BetaFormDefinitionByTemplate -BetaCreateFormDefinitionRequest $Result  
+    # New-BetaFormDefinitionByTemplate -CreateFormDefinitionRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaFormDefinitionByTemplate"
     Write-Host $_.ErrorDetails
@@ -402,7 +402,7 @@ try {
     New-BetaFormDefinitionDynamicSchema 
     
     # Below is a request that includes all optional parameters
-    # New-BetaFormDefinitionDynamicSchema -BetaBody $Result  
+    # New-BetaFormDefinitionDynamicSchema -Body $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaFormDefinitionDynamicSchema"
     Write-Host $_.ErrorDetails
@@ -518,7 +518,7 @@ try {
     New-BetaFormInstance 
     
     # Below is a request that includes all optional parameters
-    # New-BetaFormInstance -BetaBody $Result  
+    # New-BetaFormInstance -Body $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaFormInstance"
     Write-Host $_.ErrorDetails
@@ -857,7 +857,7 @@ try {
     Import-BetaFormDefinitions 
     
     # Below is a request that includes all optional parameters
-    # Import-BetaFormDefinitions -BetaBody $Result  
+    # Import-BetaFormDefinitions -Body $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Import-BetaFormDefinitions"
     Write-Host $_.ErrorDetails
@@ -1214,7 +1214,7 @@ try {
     Show-BetaPreviewDataSource -FormDefinitionID $FormDefinitionID 
     
     # Below is a request that includes all optional parameters
-    # Show-BetaPreviewDataSource -FormDefinitionID $FormDefinitionID -Limit $Limit -Filters $Filters -Query $Query -BetaFormElementPreviewRequest $Result  
+    # Show-BetaPreviewDataSource -FormDefinitionID $FormDefinitionID -Limit $Limit -Filters $Filters -Query $Query -FormElementPreviewRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Show-BetaPreviewDataSource"
     Write-Host $_.ErrorDetails

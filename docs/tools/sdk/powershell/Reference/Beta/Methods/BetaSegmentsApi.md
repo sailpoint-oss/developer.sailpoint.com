@@ -101,10 +101,10 @@ $Segment = @"{
 
 try {
     $Result = ConvertFrom-JsonToSegment -Json $Segment
-    New-BetaSegment -BetaSegment $Result 
+    New-BetaSegment -Segment $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaSegment -BetaSegment $Result  
+    # New-BetaSegment -Segment $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaSegment"
     Write-Host $_.ErrorDetails

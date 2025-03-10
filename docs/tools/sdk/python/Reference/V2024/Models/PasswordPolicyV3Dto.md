@@ -19,8 +19,8 @@ Name | Type | Description | Notes
 **id** | **str** | The password policy Id. | [optional] 
 **description** | **str** | Description for current password policy. | [optional] 
 **name** | **str** | The name of the password policy. | [optional] 
-**date_created** | **datetime** | Date the Password Policy was created. | [optional] 
-**last_updated** | **datetime** | Date the Password Policy was updated. | [optional] 
+**date_created** | **int** | Date the Password Policy was created. | [optional] 
+**last_updated** | **int** | Date the Password Policy was updated. | [optional] 
 **first_expiration_reminder** | **int** | The number of days before expiration remaninder. | [optional] 
 **account_id_min_word_length** | **int** | The minimun length of account Id. By default is equals to -1. | [optional] 
 **account_name_min_word_length** | **int** | The minimun length of account name. By default is equals to -1. | [optional] 
@@ -58,8 +58,8 @@ password_policy_v3_dto = PasswordPolicyV3Dto(
 id='2c91808e7d976f3b017d9f5ceae440c8',
 description='Information about the Password Policy',
 name='PasswordPolicy Example',
-date_created=datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-last_updated=datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
+date_created=1639056206564,
+last_updated=1939056206564,
 first_expiration_reminder=45,
 account_id_min_word_length=4,
 account_name_min_word_length=6,

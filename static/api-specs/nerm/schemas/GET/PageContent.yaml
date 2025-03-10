@@ -1,0 +1,34 @@
+type: object
+properties:
+  id:
+    type: string
+    format: uuid
+    readOnly: true
+    description: The id of the page content
+    example: ac4aae0b-4140-49a4-a84c-126762fd0c8f
+  uid:
+    type: string
+    description: The user-specified identifier for the record
+    example: first_text_body
+  type:
+    type: string
+    enum: [FormHeading, LargeHeading, MediumHeading, SmallHeading, Paragraph, HtmlContainer, Owner, RequestProgressBar]
+    required: true
+    description: The type of content on the page.
+    example: MediumHeading
+  content:
+    type: string
+    description: The text content to present in this page content record.
+    example: Lorem Ipsum yadda yaddda bing bang.
+  created_at:
+    type: string
+    format: date-time
+    readOnly: true
+    description: The date-time the record created.
+    example: 2022-12-27 08:26:49.219717
+  updated_at:
+    type: string
+    format: date-time
+    readOnly: true
+    description: The date-time the record was last updated.
+    example: 2022-12-27 08:26:49.219717

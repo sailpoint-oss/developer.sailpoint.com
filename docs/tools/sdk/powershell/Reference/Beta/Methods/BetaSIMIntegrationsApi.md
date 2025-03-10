@@ -86,10 +86,10 @@ $SimIntegrationDetails = @"{
 
 try {
     $Result = ConvertFrom-JsonToSimIntegrationDetails -Json $SimIntegrationDetails
-    New-BetaSIMIntegration -BetaSimIntegrationDetails $Result 
+    New-BetaSIMIntegration -SimIntegrationDetails $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaSIMIntegration -BetaSimIntegrationDetails $Result  
+    # New-BetaSIMIntegration -SimIntegrationDetails $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaSIMIntegration"
     Write-Host $_.ErrorDetails
@@ -271,10 +271,10 @@ $JsonPatch = @""[\n  {\n\t  \"op\": \"replace\",\n\t  \"path\": \"/description\"
 
 try {
     $Result = ConvertFrom-JsonToJsonPatch -Json $JsonPatch
-    Update-BetaBeforeProvisioningRule -Id $Id -BetaJsonPatch $Result 
+    Update-BetaBeforeProvisioningRule -Id $Id -JsonPatch $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaBeforeProvisioningRule -Id $Id -BetaJsonPatch $Result  
+    # Update-BetaBeforeProvisioningRule -Id $Id -JsonPatch $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaBeforeProvisioningRule"
     Write-Host $_.ErrorDetails
@@ -320,10 +320,10 @@ $JsonPatch = @""[\n  {\n\t  \"op\": \"replace\",\n\t  \"path\": \"/description\"
 
 try {
     $Result = ConvertFrom-JsonToJsonPatch -Json $JsonPatch
-    Update-BetaSIMAttributes -Id $Id -BetaJsonPatch $Result 
+    Update-BetaSIMAttributes -Id $Id -JsonPatch $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaSIMAttributes -Id $Id -BetaJsonPatch $Result  
+    # Update-BetaSIMAttributes -Id $Id -JsonPatch $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaSIMAttributes"
     Write-Host $_.ErrorDetails
@@ -386,10 +386,10 @@ $SimIntegrationDetails = @"{
 
 try {
     $Result = ConvertFrom-JsonToSimIntegrationDetails -Json $SimIntegrationDetails
-    Send-BetaSIMIntegration -Id $Id -BetaSimIntegrationDetails $Result 
+    Send-BetaSIMIntegration -Id $Id -SimIntegrationDetails $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-BetaSIMIntegration -Id $Id -BetaSimIntegrationDetails $Result  
+    # Send-BetaSIMIntegration -Id $Id -SimIntegrationDetails $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaSIMIntegration"
     Write-Host $_.ErrorDetails

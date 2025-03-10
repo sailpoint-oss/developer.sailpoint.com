@@ -1,0 +1,75 @@
+type: object
+properties:
+  id:
+    type: string
+    description: Id of the potential role
+    example: "e0cc5d7d-bf7f-4f81-b2af-8885b09d9923"
+  name:
+    type: string
+    description: Name of the potential role
+    example: "Potential Role - e0cc5d"
+  potentialRoleRef:
+    $ref: './RoleMiningPotentialRoleRef.yaml'
+    description: Details about the potential role
+  identityCount:
+    type: integer
+    description: The number of identities in a potential role.
+    format: int32
+    example: 25
+  entitlementCount:
+    type: integer
+    description: The number of entitlements in a potential role.
+    format: int32
+    example: 15
+  identityGroupStatus:
+    type: string
+    description: The status for this identity group which can be "REQUESTED" or "OBTAINED"
+    example: "OBTAINED"
+  provisionState:
+    $ref: './RoleMiningPotentialRoleProvisionState.yaml'
+    description: The status of provisioning for this potential role. Can be "POTENTIAL", "PENDING", "FAILED", or "COMPLETE".
+    example: "PENDING"
+  roleId:
+    type: string
+    description: ID of the provisioned role in IIQ or IDN.  Null if this potential role has not been provisioned.
+    nullable: true
+    example: "2a4be6fbcf3c4e66b95a0c15ffd591"
+  density:
+    type: integer
+    description: The density metric (0-100) of this potential role. Higher density values indicate higher similarity amongst the identities.
+    format: int32
+    example: 90
+  freshness:
+    type: integer
+    description: The freshness metric (0-100) of this potential role. Higher freshness values indicate this potential role is more distinctive compared to existing roles.
+    format: int32
+    example: 70
+  quality:
+    type: integer
+    description: The quality metric (0-100) of this potential role. Higher quality values indicate this potential role has high density and freshness.
+    format: int32
+    example: 80
+  type:
+    $ref: './iai/RoleMiningRoleType.yaml'
+    description: Role mining potential type.
+  createdBy:
+    oneOf:
+      - $ref: './iai/EntityCreatedByDTO.yaml'
+      - $ref: './iai/NullableEntityCreatedByDTO.yaml'
+    description: The potential role created by details
+  createdDate:
+    type: string
+    format: 'date-time'
+    description: The date-time when this potential role was created.
+  saved:
+    type: boolean
+    description: The potential role's saved status
+    default: false
+    example: true
+  description:
+    type: string
+    nullable: true
+    description: Description of the potential role
+  session:
+    $ref: './RoleMiningSessionParametersDto.yaml'
+    description: The session parameters of the potential role.

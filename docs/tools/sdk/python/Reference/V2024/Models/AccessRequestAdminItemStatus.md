@@ -16,13 +16,14 @@ tags: ['SDK', 'Software Development Kit', 'AccessRequestAdminItemStatus', 'V2024
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | **str** | ID of the access request. This is a new property as of 2025. Older access requests may not have an ID. | [optional] 
 **name** | **str** | Human-readable display name of the item being requested. | [optional] 
 **type** |  **Enum** [  'ACCESS_PROFILE',    'ROLE',    'ENTITLEMENT' ] | Type of requested object. | [optional] 
-**cancelled_request_details** | [**AccessRequestAdminItemStatusCancelledRequestDetails**](access-request-admin-item-status-cancelled-request-details) |  | [optional] 
-**error_messages** | [**[]List[ErrorMessageDto1]**](error-message-dto) | List of localized error messages, if any, encountered during the approval/provisioning process. | [optional] 
+**cancelled_request_details** | [**RequestedItemStatusCancelledRequestDetails**](requested-item-status-cancelled-request-details) |  | [optional] 
+**error_messages** | [**[]List[ErrorMessageDto]**](error-message-dto) | List of localized error messages, if any, encountered during the approval/provisioning process. | [optional] 
 **state** | [**RequestedItemStatusRequestState**](requested-item-status-request-state) |  | [optional] 
-**approval_details** | [**[]ApprovalStatusDto1**](approval-status-dto1) | Approval details for each item. | [optional] 
-**manual_work_item_details** | [**[]ManualWorkItemDetails1**](manual-work-item-details1) | Manual work items created for provisioning the item. | [optional] 
+**approval_details** | [**[]ApprovalStatusDto**](approval-status-dto) | Approval details for each item. | [optional] 
+**manual_work_item_details** | [**[]ManualWorkItemDetails**](manual-work-item-details) | Manual work items created for provisioning the item. | [optional] 
 **account_activity_item_id** | **str** | Id of associated account activity item. | [optional] 
 **request_type** | [**AccessRequestType**](access-request-type) |  | [optional] 
 **modified** | **datetime** | When the request was last modified. | [optional] 
@@ -30,7 +31,7 @@ Name | Type | Description | Notes
 **requester** | [**AccessItemRequester**](access-item-requester) |  | [optional] 
 **requested_for** | [**RequestedItemStatusRequestedFor**](requested-item-status-requested-for) |  | [optional] 
 **requester_comment** | [**RequestedItemStatusRequesterComment**](requested-item-status-requester-comment) |  | [optional] 
-**sod_violation_context** | [**AccessRequestAdminItemStatusSodViolationContext**](access-request-admin-item-status-sod-violation-context) |  | [optional] 
+**sod_violation_context** | [**RequestedItemStatusSodViolationContext**](requested-item-status-sod-violation-context) |  | [optional] 
 **provisioning_details** | [**RequestedItemStatusProvisioningDetails**](requested-item-status-provisioning-details) |  | [optional] 
 **pre_approval_trigger_details** | [**RequestedItemStatusPreApprovalTriggerDetails**](requested-item-status-pre-approval-trigger-details) |  | [optional] 
 **access_request_phases** | [**[]AccessRequestPhases**](access-request-phases) | A list of Phases that the Access Request has gone through in order, to help determine the status of the request. | [optional] 
@@ -48,6 +49,7 @@ Name | Type | Description | Notes
 from sailpoint.v2024.models.access_request_admin_item_status import AccessRequestAdminItemStatus
 
 access_request_admin_item_status = AccessRequestAdminItemStatus(
+id='2c9180926cbfbddd016cbfc7c3b10010',
 name='AccessProfile1',
 type='ACCESS_PROFILE',
 cancelled_request_details=,
@@ -56,7 +58,7 @@ error_messages=[
                     ],
 state='EXECUTING',
 approval_details=[
-                    sailpoint.v2024.models.approval_status_dto_1.ApprovalStatusDto_1(
+                    sailpoint.v2024.models.approval_status_dto.ApprovalStatusDto(
                         forwarded = False, 
                         original_owner = sailpoint.v2024.models.approval_status_dto_original_owner.ApprovalStatusDto_originalOwner(
                             type = 'IDENTITY', 
@@ -67,7 +69,7 @@ approval_details=[
                         status = 'PENDING', 
                         scheme = 'MANAGER', 
                         error_messages = [
-                            sailpoint.v2024.models.error_message_dto_1.ErrorMessageDto_1(
+                            sailpoint.v2024.models.error_message_dto.ErrorMessageDto(
                                 locale = 'en-US', 
                                 locale_origin = 'DEFAULT', 
                                 text = 'The request was syntactically correct but its content is semantically invalid.', )
@@ -76,7 +78,7 @@ approval_details=[
                         remove_date = '2020-07-11T00:00Z', )
                     ],
 manual_work_item_details=[
-                    sailpoint.v2024.models.manual_work_item_details_1.ManualWorkItemDetails_1(
+                    sailpoint.v2024.models.manual_work_item_details.ManualWorkItemDetails(
                         forwarded = True, 
                         original_owner = sailpoint.v2024.models.manual_work_item_details_original_owner.ManualWorkItemDetails_originalOwner(
                             type = 'IDENTITY', 
@@ -89,7 +91,7 @@ manual_work_item_details=[
                         modified = '2019-08-23T18:52:57.398Z', 
                         status = 'PENDING', 
                         forward_history = [
-                            sailpoint.v2024.models.approval_forward_history_1.ApprovalForwardHistory_1(
+                            sailpoint.v2024.models.approval_forward_history.ApprovalForwardHistory(
                                 old_approver_name = 'Frank Mir', 
                                 new_approver_name = 'Al Volta', 
                                 comment = 'Forwarding from Frank to Al', 

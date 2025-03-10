@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 $AccountCorrelatedAccount = Initialize-PSSailpoint.BetaAccountCorrelatedAccount  -Type ACCOUNT `
  -Id 98da47c31df444558c211f9b205184f6 `
  -Name Brian Mendoza `
- -NativeIdentity cn&#x3D;john.doe,ou&#x3D;users,dc&#x3D;acme,dc&#x3D;com `
+ -NativeIdentity cn=john.doe,ou=users,dc=acme,dc=com `
  -Uuid 1cb1f07d-3e5a-4431-becd-234fa4306108
 ```
 

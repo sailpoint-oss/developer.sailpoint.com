@@ -51,7 +51,7 @@ $ManagedCluster = Initialize-PSSailpoint.V2024ManagedCluster  -Id e1ff7bb24c9342
  -Pod megapod-useast1 `
  -Org denali `
  -Type null `
- -Configuration {clusterExternalId&#x3D;e1ff7bb24c934240bbf55e1aa39e41c5, clusterType&#x3D;sqsCluster, gmtOffset&#x3D;-5} `
+ -Configuration {clusterExternalId=e1ff7bb24c934240bbf55e1aa39e41c5, clusterType=sqsCluster, gmtOffset=-5} `
  -KeyPair null `
  -Attributes null `
  -Description A short description of the managed cluster. `

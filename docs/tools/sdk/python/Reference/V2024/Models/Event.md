@@ -17,15 +17,14 @@ Event
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | [required]
-**name** | **str** |  | [required]
-**type** | [**DocumentType**](document-type) |  | [required]
+**id** | **str** | ID of the entitlement. | [optional] 
+**name** | **str** | Name of the entitlement. | [optional] 
 **created** | **datetime** | ISO-8601 date-time referring to the time when the object was created. | [optional] 
 **synced** | **str** | ISO-8601 date-time referring to the date-time when object was queued to be synced into search database for use in the search API.   This date-time changes anytime there is an update to the object, which triggers a synchronization event being sent to the search database.  There may be some delay between the `synced` time and the time when the updated data is actually available in the search API.  | [optional] 
 **action** | **str** | Name of the event as it's displayed in audit reports. | [optional] 
 **type** | **str** | Event type. Refer to [Event Types](https://documentation.sailpoint.com/saas/help/search/index.html#event-types) for a list of event types and their meanings. | [optional] 
-**actor** | **str** | Name of the actor that generated the event. | [optional] 
-**target** | **str** | Name of the target, or recipient, of the event. | [optional] 
+**actor** | [**EventActor**](event-actor) |  | [optional] 
+**target** | [**EventTarget**](event-target) |  | [optional] 
 **stack** | **str** | The event's stack. | [optional] 
 **tracking_number** | **str** | ID of the group of events. | [optional] 
 **ip_address** | **str** | Target system's IP address. | [optional] 
@@ -44,14 +43,15 @@ from sailpoint.v2024.models.event import Event
 
 event = Event(
 id='2c91808375d8e80a0175e1f88a575222',
-name='john.doe',
-type='identity',
+name='Add Entitlement Passed',
 created='2018-06-25T20:22:28.104Z',
-synced='',
-action='update',
-type='SYSTEM_CONFIG',
-actor='System',
-target='Carol.Adams',
+synced='2018-06-25T20:22:28.104Z',
+action='AddEntitlement',
+type='ACCESS_ITEM',
+actor=sailpoint.v2024.models.event_actor.Event_actor(
+                    name = 'System', ),
+target=sailpoint.v2024.models.event_target.Event_target(
+                    name = 'Carol.Adams', ),
 stack='tpe',
 tracking_number='63f891e0735f4cc8bf1968144a1e7440',
 ip_address='52.52.97.85',
@@ -60,9 +60,9 @@ attributes={pod=stg03-useast1, org=acme, sourceName=SailPoint},
 objects=[
                     'AUTHENTICATION'
                     ],
-operation='REQUEST',
+operation='ADD',
 status='PASSED',
-technical_name='AUTHENTICATION_REQUEST_PASSED'
+technical_name='ENTITLEMENT_ADD_PASSED'
 )
 
 ```

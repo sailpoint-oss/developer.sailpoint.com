@@ -84,10 +84,10 @@ $SourceAppCreateDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToSourceAppCreateDto -Json $SourceAppCreateDto
-    New-V2024SourceApp -XSailPointExperimental $XSailPointExperimental -V2024SourceAppCreateDto $Result 
+    New-V2024SourceApp -XSailPointExperimental $XSailPointExperimental -SourceAppCreateDto $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024SourceApp -XSailPointExperimental $XSailPointExperimental -V2024SourceAppCreateDto $Result  
+    # New-V2024SourceApp -XSailPointExperimental $XSailPointExperimental -SourceAppCreateDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024SourceApp"
     Write-Host $_.ErrorDetails
@@ -702,7 +702,7 @@ try {
     Update-V2024SourceApp -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024SourceApp -Id $Id -XSailPointExperimental $XSailPointExperimental -V2024JsonPatchOperation $Result  
+    # Update-V2024SourceApp -Id $Id -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024SourceApp"
     Write-Host $_.ErrorDetails
@@ -761,7 +761,7 @@ try {
     Update-V2024UserApp -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024UserApp -Id $Id -XSailPointExperimental $XSailPointExperimental -V2024JsonPatchOperation $Result  
+    # Update-V2024UserApp -Id $Id -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024UserApp"
     Write-Host $_.ErrorDetails
@@ -825,7 +825,7 @@ try {
     Update-V2024SourceAppsInBulk -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024SourceAppsInBulk -XSailPointExperimental $XSailPointExperimental -V2024SourceAppBulkUpdateRequest $Result  
+    # Update-V2024SourceAppsInBulk -XSailPointExperimental $XSailPointExperimental -SourceAppBulkUpdateRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024SourceAppsInBulk"
     Write-Host $_.ErrorDetails

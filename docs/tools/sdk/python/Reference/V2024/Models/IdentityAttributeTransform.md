@@ -11,13 +11,13 @@ tags: ['SDK', 'Software Development Kit', 'IdentityAttributeTransform', 'V2024Id
 
 # IdentityAttributeTransform
 
-Defines a transformation definition for an identity attribute.
+Transform definition for an identity attribute.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**identity_attribute_name** | **str** | Name of the identity attribute. | [optional] 
+**identity_attribute_name** | **str** | Identity attribute's name. | [optional] 
 **transform_definition** | [**TransformDefinition**](transform-definition) |  | [optional] 
 }
 

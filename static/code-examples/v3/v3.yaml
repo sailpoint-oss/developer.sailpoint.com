@@ -2447,6 +2447,7 @@ paths:
                       type: string
                       description: The description of the entitlement
                       example: CN=LauncherTest2,OU=LauncherTestOrg,OU=slpt-automation,DC=TestAutomationAD,DC=local
+                      nullable: true
                     privileged:
                       type: boolean
                       description: True if the entitlement is privileged
@@ -2455,6 +2456,98 @@ paths:
                       type: boolean
                       description: True if the entitlement is cloud governed
                       example: true
+                    requestable:
+                      type: boolean
+                      description: True if the entitlement is able to be directly requested
+                      example: true
+                      default: false
+                    owner:
+                      type: object
+                      description: The identity that owns the entitlement
+                      nullable: true
+                      properties:
+                        id:
+                          type: string
+                          description: The identity ID
+                          example: 2c9180827ca885d7017ca8ce28a000eb
+                        type:
+                          type: string
+                          enum:
+                            - IDENTITY
+                          description: The type of object
+                          example: IDENTITY
+                        name:
+                          type: string
+                          description: The display name of the identity
+                          example: john.doe
+                    manuallyUpdatedFields:
+                      type: object
+                      description: A map of entitlement fields that have been manually updated. The key is the field name in UPPER_SNAKE_CASE format, and the value is true or false to indicate if the field has been updated.
+                      nullable: true
+                      additionalProperties: true
+                      example:
+                        DISPLAY_NAME: true
+                        DESCRIPTION: true
+                    accessModelMetadata:
+                      type: object
+                      description: Additional data to classify the entitlement
+                      properties:
+                        attributes:
+                          type: array
+                          items:
+                            type: object
+                            description: Metadata that describes an access item
+                            properties:
+                              key:
+                                type: string
+                                description: Unique identifier for the metadata type
+                                example: iscCsp
+                              name:
+                                type: string
+                                description: Human readable name of the metadata type
+                                example: CSP
+                              multiselect:
+                                type: boolean
+                                default: false
+                                example: true
+                                description: Allows selecting multiple values
+                              status:
+                                type: string
+                                description: The state of the metadata item
+                                example: active
+                              type:
+                                type: string
+                                description: The type of the metadata item
+                                example: governance
+                              objectTypes:
+                                type: array
+                                description: The types of objects
+                                items:
+                                  type: string
+                                  example: general
+                              description:
+                                type: string
+                                description: Describes the metadata item
+                                example: Indicates the type of deployment environment of an access item.
+                              values:
+                                type: array
+                                description: The value to assign to the metadata item
+                                items:
+                                  type: object
+                                  description: An individual value to assign to the metadata item
+                                  properties:
+                                    value:
+                                      type: string
+                                      description: The value to assign to the metdata item
+                                      example: development
+                                    name:
+                                      type: string
+                                      description: Display name of the value
+                                      example: Development
+                                    status:
+                                      type: string
+                                      description: The status of the individual value
+                                      example: active
                     created:
                       type: string
                       description: Time when the entitlement was created
@@ -2688,7 +2781,8 @@ paths:
                                 description: The id of the access item requested.
                                 example: 779c6fd7171540bba1184e5946112c28
                         attributesHash:
-                          type: string
+                          type: integer
+                          format: int32
                           description: a hash representation of the access requested, useful for longer term tracking client side.
                           example: -1928438224
                         accessRequestIds:
@@ -3377,6 +3471,10 @@ paths:
                 items:
                   type: object
                   properties:
+                    id:
+                      type: string
+                      description: The ID of the access request.
+                      example: 2c9180926cbfbddd016cbfc7c3b10010
                     name:
                       type: string
                       description: Human-readable display name of the item being requested.
@@ -3743,7 +3841,7 @@ paths:
                                                       example: true
                                                       description: If the entitlement already belonged to the user or not.
                                                     type:
-                                                      $ref: '#/components/schemas/Account/allOf/1/properties/identity/properties/type'
+                                                      $ref: '#/components/schemas/Account/allOf/1/properties/ownerIdentity/allOf/0/properties/type'
                                                       example: ENTITLEMENT
                                                       x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/schemas/DtoType.yaml
                                                     id:
@@ -4204,6 +4302,15 @@ paths:
                     sodViolationContext:
                       $ref: '#/paths/~1access-request-status/get/responses/200/content/application~1json/schema/items/properties/sodViolationContext/allOf/0'
                       x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/schemas/SodViolationContextCheckCompleted.yaml
+                    clientMetadata:
+                      nullable: true
+                      type: object
+                      additionalProperties:
+                        type: string
+                      description: Arbitrary key-value pairs, if any were included in the corresponding access request item
+                      example:
+                        customKey1: custom value 1
+                        customKey2: custom value 2
         '400':
           $ref: '#/paths/~1access-profiles/get/responses/400'
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/400.yaml
@@ -5005,6 +5112,7 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/parameters/count.yaml
         - in: query
           name: detailLevel
+          required: false
           schema:
             type: string
             enum:
@@ -5014,6 +5122,7 @@ paths:
           example: FULL
         - in: query
           name: filters
+          required: false
           schema:
             type: string
           example: identityId eq "2c9180858082150f0180893dbaf44201"
@@ -5029,6 +5138,8 @@ paths:
             **name**: *eq, in, sw*
 
             **nativeIdentity**: *eq, in, sw*
+
+            **hasEntitlements**: *eq*
 
             **sourceId**: *eq, in, sw*
 
@@ -5053,7 +5164,10 @@ paths:
             **source.connectionType**: *eq, in*
 
             **recommendation.method**: *eq, in, isnull*
-          required: false
+
+            **created**: *eq, ge, gt, le, lt*
+
+            **modified**: *eq, ge, gt, le, lt*
         - in: query
           name: sorters
           required: false
@@ -5064,7 +5178,7 @@ paths:
           description: |-
             Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
 
-            Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, identity.id, nativeIdentity, uuid, manuallyCorrelated, entitlements, origin, identity.name, identity.identityState, identity.correlated, source.displayableName, source.authoritative, source.connectionType**
+            Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, nativeIdentity, uuid, manuallyCorrelated, entitlements, origin, identity.name, identity.identityState, identity.correlated, source.displayableName, source.authoritative, source.connectionType**
       responses:
         '200':
           description: List of account objects.
@@ -5124,13 +5238,14 @@ paths:
                           description: Indicates if the account is of machine type
                           example: true
                         recommendation:
-                          $ref: '#/components/schemas/Account/allOf/1/properties/recommendation'
-                          nullable: true
-                          description: Indicates that the account is currently classified to be one type but is recommended to be a different one
-                          example:
-                            type: MACHINE
-                            method: DISCOVERY
-                          x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/schemas/Recommendation.yaml
+                          allOf:
+                            - $ref: '#/components/schemas/Account/allOf/1/properties/recommendation/allOf/0'
+                              x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/schemas/Recommendation.yaml
+                            - nullable: true
+                              description: Indicates that the account is currently classified to be one type but is recommended to be a different one
+                              example:
+                                type: MACHINE
+                                method: DISCOVERY
                         attributes:
                           type: object
                           nullable: true
@@ -5183,22 +5298,41 @@ paths:
                           description: Indicates if the account has entitlements
                           example: true
                         identity:
-                          $ref: '#/components/schemas/Account/allOf/1/properties/identity'
                           description: The identity this account is correlated to
-                          example:
-                            id: 2c918084660f45d6016617daa9210584
-                            type: IDENTITY
-                            name: Adam Kennedy
-                          x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/schemas/BaseReferenceDto.yaml
+                          properties:
+                            id:
+                              type: string
+                              description: The ID of the identity
+                              example: 2c918084660f45d6016617daa9210584
+                            type:
+                              type: string
+                              description: The type of object being referenced
+                              enum:
+                                - IDENTITY
+                              example: IDENTITY
+                            name:
+                              type: string
+                              description: display name of identity
+                              example: John Doe
                         sourceOwner:
-                          $ref: '#/components/schemas/Account/allOf/1/properties/identity'
+                          type: object
                           nullable: true
                           description: The owner of the source this account belongs to.
-                          example:
-                            id: 2c918084660f45d6016617daa9210584
-                            type: IDENTITY
-                            name: Adam Kennedy
-                          x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/schemas/BaseReferenceDto.yaml
+                          properties:
+                            id:
+                              type: string
+                              description: The ID of the identity
+                              example: 2c918084660f45d6016617daa9210584
+                            type:
+                              type: string
+                              description: The type of object being referenced
+                              enum:
+                                - IDENTITY
+                              example: IDENTITY
+                            name:
+                              type: string
+                              description: display name of identity
+                              example: Adam Kennedy
                         features:
                           type: string
                           description: A string list containing the owning source's features
@@ -5214,14 +5348,15 @@ paths:
                           description: The origin of the account either aggregated or provisioned
                           example: AGGREGATED
                         ownerIdentity:
-                          $ref: '#/components/schemas/Account/allOf/1/properties/identity'
-                          description: The identity who owns this account, used only for machine accounts
-                          nullable: true
-                          example:
-                            id: 2c918084660f45d6016617daa9210584
-                            type: IDENTITY
-                            name: Adam Kennedy
-                          x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/schemas/BaseReferenceDto.yaml
+                          allOf:
+                            - $ref: '#/components/schemas/Account/allOf/1/properties/ownerIdentity/allOf/0'
+                              x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/schemas/BaseReferenceDto.yaml
+                            - description: The identity who owns this account, used only for machine accounts
+                              nullable: true
+                              example:
+                                id: 2c918084660f45d6016617daa9210584
+                                type: IDENTITY
+                                name: Adam Kennedy
         '400':
           $ref: '#/paths/~1access-profiles/get/responses/400'
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/400.yaml
@@ -5245,8 +5380,8 @@ paths:
             $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
             $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
             $DetailLevel = "SLIM" # String | This value determines whether the API provides `SLIM` or increased level of detail (`FULL`) for each account in the returned list. `FULL` is the default behavior. (optional)
-            $Filters = "identityId eq "2c9180858082150f0180893dbaf44201"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **identityId**: *eq, in, sw*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **sourceId**: *eq, in, sw*  **uncorrelated**: *eq*  **entitlements**: *eq*  **origin**: *eq, in*  **manuallyCorrelated**: *eq*  **identity.name**: *eq, in, sw*  **identity.correlated**: *eq*  **identity.identityState**: *eq, in*  **source.displayableName**: *eq, in*  **source.authoritative**: *eq*  **source.connectionType**: *eq, in*  **recommendation.method**: *eq, in, isnull* (optional)
-            $Sorters = "id,name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, identity.id, nativeIdentity, uuid, manuallyCorrelated, entitlements, origin, identity.name, identity.identityState, identity.correlated, source.displayableName, source.authoritative, source.connectionType** (optional)
+            $Filters = "identityId eq "2c9180858082150f0180893dbaf44201"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **identityId**: *eq, in, sw*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **hasEntitlements**: *eq*  **sourceId**: *eq, in, sw*  **uncorrelated**: *eq*  **entitlements**: *eq*  **origin**: *eq, in*  **manuallyCorrelated**: *eq*  **identity.name**: *eq, in, sw*  **identity.correlated**: *eq*  **identity.identityState**: *eq, in*  **source.displayableName**: *eq, in*  **source.authoritative**: *eq*  **source.connectionType**: *eq, in*  **recommendation.method**: *eq, in, isnull*  **created**: *eq, ge, gt, le, lt*  **modified**: *eq, ge, gt, le, lt* (optional)
+            $Sorters = "id,name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, nativeIdentity, uuid, manuallyCorrelated, entitlements, origin, identity.name, identity.identityState, identity.correlated, source.displayableName, source.authoritative, source.connectionType** (optional)
 
             # Accounts List
 
@@ -5266,8 +5401,8 @@ paths:
             offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
             count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
             detail_level = 'FULL' # str | This value determines whether the API provides `SLIM` or increased level of detail (`FULL`) for each account in the returned list. `FULL` is the default behavior. (optional) # str | This value determines whether the API provides `SLIM` or increased level of detail (`FULL`) for each account in the returned list. `FULL` is the default behavior. (optional)
-            filters = 'identityId eq \"2c9180858082150f0180893dbaf44201\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **identityId**: *eq, in, sw*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **sourceId**: *eq, in, sw*  **uncorrelated**: *eq*  **entitlements**: *eq*  **origin**: *eq, in*  **manuallyCorrelated**: *eq*  **identity.name**: *eq, in, sw*  **identity.correlated**: *eq*  **identity.identityState**: *eq, in*  **source.displayableName**: *eq, in*  **source.authoritative**: *eq*  **source.connectionType**: *eq, in*  **recommendation.method**: *eq, in, isnull* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **identityId**: *eq, in, sw*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **sourceId**: *eq, in, sw*  **uncorrelated**: *eq*  **entitlements**: *eq*  **origin**: *eq, in*  **manuallyCorrelated**: *eq*  **identity.name**: *eq, in, sw*  **identity.correlated**: *eq*  **identity.identityState**: *eq, in*  **source.displayableName**: *eq, in*  **source.authoritative**: *eq*  **source.connectionType**: *eq, in*  **recommendation.method**: *eq, in, isnull* (optional)
-            sorters = 'id,name' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, identity.id, nativeIdentity, uuid, manuallyCorrelated, entitlements, origin, identity.name, identity.identityState, identity.correlated, source.displayableName, source.authoritative, source.connectionType** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, identity.id, nativeIdentity, uuid, manuallyCorrelated, entitlements, origin, identity.name, identity.identityState, identity.correlated, source.displayableName, source.authoritative, source.connectionType** (optional)
+            filters = 'identityId eq \"2c9180858082150f0180893dbaf44201\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **identityId**: *eq, in, sw*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **hasEntitlements**: *eq*  **sourceId**: *eq, in, sw*  **uncorrelated**: *eq*  **entitlements**: *eq*  **origin**: *eq, in*  **manuallyCorrelated**: *eq*  **identity.name**: *eq, in, sw*  **identity.correlated**: *eq*  **identity.identityState**: *eq, in*  **source.displayableName**: *eq, in*  **source.authoritative**: *eq*  **source.connectionType**: *eq, in*  **recommendation.method**: *eq, in, isnull*  **created**: *eq, ge, gt, le, lt*  **modified**: *eq, ge, gt, le, lt* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **identityId**: *eq, in, sw*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **hasEntitlements**: *eq*  **sourceId**: *eq, in, sw*  **uncorrelated**: *eq*  **entitlements**: *eq*  **origin**: *eq, in*  **manuallyCorrelated**: *eq*  **identity.name**: *eq, in, sw*  **identity.correlated**: *eq*  **identity.identityState**: *eq, in*  **source.displayableName**: *eq, in*  **source.authoritative**: *eq*  **source.connectionType**: *eq, in*  **recommendation.method**: *eq, in, isnull*  **created**: *eq, ge, gt, le, lt*  **modified**: *eq, ge, gt, le, lt* (optional)
+            sorters = 'id,name' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, nativeIdentity, uuid, manuallyCorrelated, entitlements, origin, identity.name, identity.identityState, identity.correlated, source.displayableName, source.authoritative, source.connectionType** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, nativeIdentity, uuid, manuallyCorrelated, entitlements, origin, identity.name, identity.identityState, identity.correlated, source.displayableName, source.authoritative, source.connectionType** (optional)
             try:
               # Accounts List
               
@@ -5874,61 +6009,8 @@ paths:
               schema:
                 type: array
                 items:
-                  allOf:
-                    - $ref: '#/components/schemas/Account/allOf/0'
-                      x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/schemas/BaseCommonDto.yaml
-                    - type: object
-                      description: Entitlement object that represents entitlement
-                      properties:
-                        attribute:
-                          description: Name of the entitlement attribute
-                          type: string
-                          example: authorizationType
-                        value:
-                          description: Raw value of the entitlement
-                          type: string
-                          example: CN=Users,dc=sailpoint,dc=com
-                        description:
-                          description: Entitlment description
-                          type: string
-                          example: Active Directory DC
-                        attributes:
-                          description: Entitlement attributes
-                          type: object
-                          additionalProperties: true
-                          example:
-                            GroupType: Security
-                            sAMAccountName: Buyer
-                        sourceSchemaObjectType:
-                          description: Schema objectType on the given application that maps to an Account Group
-                          type: string
-                          example: group
-                        privileged:
-                          description: Determines if this Entitlement is privileged.
-                          type: boolean
-                          example: false
-                        cloudGoverned:
-                          description: Determines if this Entitlement is goverened in the cloud.
-                          type: boolean
-                          example: false
-                        source:
-                          type: object
-                          description: Source the entitlement belongs to.
-                          properties:
-                            type:
-                              type: string
-                              description: DTO type of source the entitlement belongs to.
-                              enum:
-                                - SOURCE
-                              example: SOURCE
-                            id:
-                              type: string
-                              description: ID of source the entitlement belongs to.
-                              example: 2c9180835d191a86015d28455b4b232a
-                            name:
-                              type: string
-                              description: Human-readable name of source the entitlement belongs to.
-                              example: HR Active Directory
+                  $ref: '#/paths/~1access-profiles~1%7Bid%7D~1entitlements/get/responses/200/content/application~1json/schema/items'
+                  x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/schemas/Entitlement.yaml
         '400':
           $ref: '#/paths/~1access-profiles/get/responses/400'
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/400.yaml
@@ -8212,30 +8294,37 @@ paths:
                     type: string
                     description: Auth user's employee number.
                     example: 19-5588452
+                    nullable: true
                   email:
                     type: string
                     description: Auth user's email.
                     example: william.smith@example.com
+                    nullable: true
                   phone:
                     type: string
                     description: Auth user's phone number.
                     example: '5555555555'
+                    nullable: true
                   workPhone:
                     type: string
                     description: Auth user's work phone number.
                     example: '5555555555'
+                    nullable: true
                   personalEmail:
                     type: string
                     description: Auth user's personal email.
                     example: william.smith@example.com
+                    nullable: true
                   firstname:
                     type: string
                     description: Auth user's first name.
                     example: Will
+                    nullable: true
                   lastname:
                     type: string
                     description: Auth user's last name.
                     example: Smith
+                    nullable: true
                   displayName:
                     type: string
                     description: Auth user's name in displayed format.
@@ -8246,8 +8335,10 @@ paths:
                     example: will.smith
                   lastPasswordChangeDate:
                     type: string
+                    format: date-time
                     description: Date of last password change.
                     example: '2021-03-08T22:37:33.901Z'
+                    nullable: true
                   lastLoginTimestamp:
                     description: Timestamp of the last login (long type value).
                     type: integer
@@ -8258,9 +8349,16 @@ paths:
                     type: integer
                     format: int64
                     example: 1656327185832
+                  lastUnlockTimestamp:
+                    type: string
+                    format: date-time
+                    description: The date and time when the user was last unlocked.
+                    example: '2021-03-08T22:37:33.901Z'
+                    nullable: true
                   capabilities:
                     description: Array of the auth user's capabilities.
                     type: array
+                    nullable: true
                     items:
                       type: string
                       enum:
@@ -9137,13 +9235,6 @@ paths:
                               format: date-time
                               description: Modified time of the campaign
                               example: '2020-03-03T22:20:12.674Z'
-                            correlatedStatus:
-                              type: string
-                              description: The correlatedStatus of the campaign. Only SOURCE_OWNER campaigns can be Uncorrelated. An Uncorrelated certification campaign only includes Uncorrelated identities (An identity is uncorrelated if it has no accounts on an authoritative source).
-                              enum:
-                                - CORRELATED
-                                - UNCORRELATED
-                              example: CORRELATED
                             filter:
                               type: object
                               description: Determines which items will be included in this campaign. The default campaign filter is used if this field is left blank.
@@ -13246,6 +13337,7 @@ paths:
                     example: WEEKLY
                   months:
                     type: object
+                    nullable: true
                     description: |
                       Specifies which months of a schedule are active. Only valid for ANNUALLY schedule types. Examples:
 
@@ -13339,6 +13431,7 @@ paths:
                         example: 2
                         format: int64
                         description: Interval between the cert generations
+                        nullable: true
                     required:
                       - type
                       - values
@@ -13379,6 +13472,7 @@ paths:
                         format: int64
                         example: 2
                         description: Interval between the cert generations
+                        nullable: true
                     required:
                       - type
                       - values
@@ -13387,6 +13481,7 @@ paths:
                     format: date-time
                     description: Specifies the time after which this schedule will no longer occur.
                     example: '2022-09-19 13:55:26'
+                    nullable: true
                   timeZoneId:
                     type: string
                     description: The time zone to use when running the schedule. For instance, if the schedule is scheduled to run at 1AM, and this field is set to "CST", the schedule will run at 1AM CST.
@@ -13903,6 +13998,7 @@ paths:
                       format: date-time
                       description: The due date of the certification.
                       example: '2018-10-19T13:49:37.385Z'
+                      nullable: true
                     signed:
                       type: string
                       format: date-time
@@ -15049,7 +15145,7 @@ paths:
                       type: object
                       properties:
                         type:
-                          $ref: '#/components/schemas/Account/allOf/1/properties/identity/properties/type'
+                          $ref: '#/components/schemas/Account/allOf/1/properties/ownerIdentity/allOf/0/properties/type'
                           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/schemas/DtoType.yaml
                         id:
                           type: string
@@ -15189,7 +15285,7 @@ paths:
                               example: false
                               description: Indicates whether this account is currently locked
                             type:
-                              $ref: '#/components/schemas/Account/allOf/1/properties/identity/properties/type'
+                              $ref: '#/components/schemas/Account/allOf/1/properties/ownerIdentity/allOf/0/properties/type'
                               x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/schemas/DtoType.yaml
                             id:
                               nullable: true
@@ -19588,8 +19684,8 @@ paths:
       operationId: listIdentityProfiles
       tags:
         - Identity Profiles
-      summary: Identity Profiles List
-      description: This returns a list of Identity Profiles based on the specified query parameters.
+      summary: List Identity Profiles
+      description: Get a list of identity profiles, based on the specified query parameters.
       parameters:
         - $ref: '#/paths/~1access-profiles~1%7Bid%7D~1entitlements/get/parameters/1'
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/parameters/limit.yaml
@@ -19608,9 +19704,9 @@ paths:
 
             Filtering is supported for the following fields and operators:
 
-            **id**: *eq, ne, ge, gt, in, le, lt, isnull, sw*
+            **id**: *eq, ne, ge, gt, in, le, sw*
 
-            **name**: *eq, ne, ge, gt, in, le, lt, isnull, sw*
+            **name**: *eq, ne, ge, gt, in, le, sw*
 
             **priority**: *eq, ne*
         - in: query
@@ -19626,7 +19722,7 @@ paths:
             Sorting is supported for the following fields: **id, name, priority, created, modified, owner.id, owner.name**
       responses:
         '200':
-          description: List of identityProfiles.
+          description: List of identity profiles.
           content:
             application/json:
               schema:
@@ -19641,32 +19737,32 @@ paths:
                       properties:
                         description:
                           type: string
-                          description: The description of the Identity Profile.
+                          description: Identity profile's description.
                           example: My custom flat file profile
                           nullable: true
                         owner:
                           type: object
-                          description: The owner of the Identity Profile.
+                          description: Identity profile's owner.
                           nullable: true
                           properties:
                             type:
                               type: string
                               enum:
                                 - IDENTITY
-                              description: Type of the object to which this reference applies
+                              description: Owner's object type.
                               example: IDENTITY
                             id:
                               type: string
-                              description: ID of the object to which this reference applies
+                              description: Owner's ID.
                               example: 2c9180835d191a86015d28455b4b232a
                             name:
                               type: string
-                              description: Human-readable display name of the object to which this reference applies
+                              description: Owner's name.
                               example: William Wilson
                         priority:
                           type: integer
                           format: int64
-                          description: The priority for an Identity Profile.
+                          description: Identity profile's priority.
                           example: 10
                         authoritativeSource:
                           type: object
@@ -19675,24 +19771,24 @@ paths:
                               type: string
                               enum:
                                 - SOURCE
-                              description: Type of the object to which this reference applies
+                              description: Authoritative source's object type.
                               example: SOURCE
                             id:
                               type: string
-                              description: ID of the object to which this reference applies
+                              description: Authoritative source's ID.
                               example: 2c9180835d191a86015d28455b4b232a
                             name:
                               type: string
-                              description: Human-readable display name of the object to which this reference applies
+                              description: Authoritative source's name.
                               example: HR Active Directory
                         identityRefreshRequired:
                           type: boolean
                           default: false
-                          description: True if a identity refresh is needed. Typically triggered when a change on the source has been made.
+                          description: Set this value to 'True' if an identity refresh is necessary. You would typically want to trigger an identity refresh when a change has been made on the source.
                           example: true
                         identityCount:
                           type: integer
-                          description: The number of identities that belong to the Identity Profile.
+                          description: Number of identities belonging to the identity profile.
                           format: int32
                           example: 8
                         identityAttributeConfig:
@@ -19702,7 +19798,7 @@ paths:
                           $ref: '#/components/schemas/IdentityProfile/allOf/1/properties/identityExceptionReportReference'
                           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/schemas/IdentityExceptionReportReference.yaml
                         hasTimeBasedAttr:
-                          description: Indicates the value of requiresPeriodicRefresh attribute for the Identity Profile.
+                          description: Indicates the value of `requiresPeriodicRefresh` attribute for the identity profile.
                           type: boolean
                           default: false
                           example: true
@@ -19735,10 +19831,10 @@ paths:
             $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
             $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
             $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
-            $Filters = "id eq "ef38f94347e94562b5bb8424a56397d8"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne, ge, gt, in, le, lt, isnull, sw*  **name**: *eq, ne, ge, gt, in, le, lt, isnull, sw*  **priority**: *eq, ne* (optional)
+            $Filters = "id eq "ef38f94347e94562b5bb8424a56397d8"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne, ge, gt, in, le, sw*  **name**: *eq, ne, ge, gt, in, le, sw*  **priority**: *eq, ne* (optional)
             $Sorters = "id,name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, priority, created, modified, owner.id, owner.name** (optional)
 
-            # Identity Profiles List
+            # List Identity Profiles
 
             try {
                 Get-IdentityProfiles 
@@ -19755,10 +19851,10 @@ paths:
             limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
             offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
             count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
-            filters = 'id eq \"ef38f94347e94562b5bb8424a56397d8\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne, ge, gt, in, le, lt, isnull, sw*  **name**: *eq, ne, ge, gt, in, le, lt, isnull, sw*  **priority**: *eq, ne* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne, ge, gt, in, le, lt, isnull, sw*  **name**: *eq, ne, ge, gt, in, le, lt, isnull, sw*  **priority**: *eq, ne* (optional)
+            filters = 'id eq \"ef38f94347e94562b5bb8424a56397d8\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne, ge, gt, in, le, sw*  **name**: *eq, ne, ge, gt, in, le, sw*  **priority**: *eq, ne* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne, ge, gt, in, le, sw*  **name**: *eq, ne, ge, gt, in, le, sw*  **priority**: *eq, ne* (optional)
             sorters = 'id,name' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, priority, created, modified, owner.id, owner.name** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, priority, created, modified, owner.id, owner.name** (optional)
             try:
-              # Identity Profiles List
+              # List Identity Profiles
               
               api_response = api_instance.list_identity_profiles()
                   
@@ -19770,8 +19866,8 @@ paths:
               print("Exception when calling IdentityProfilesApi->list_identity_profiles: %s\n" % e)
     post:
       operationId: createIdentityProfile
-      summary: Create an Identity Profile
-      description: 'This creates an Identity Profile.    '
+      summary: Create Identity Profile
+      description: 'Creates an identity profile.    '
       tags:
         - Identity Profiles
       requestBody:
@@ -19783,7 +19879,7 @@ paths:
               x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/schemas/IdentityProfile.yaml
       responses:
         '201':
-          description: The created Identity Profile
+          description: Created identity profile.
           content:
             application/json:
               schema:
@@ -19865,7 +19961,7 @@ paths:
             }
             "@
 
-            # Create an Identity Profile
+            # Create Identity Profile
 
             try {
                 $Result = ConvertFrom-JsonToIdentityProfile -Json $IdentityProfile
@@ -19930,7 +20026,7 @@ paths:
               "id" : "id12345"
             } # IdentityProfile | 
             try:
-              # Create an Identity Profile
+              # Create Identity Profile
               Result = identity_profile.from_json(identity_profile)
               api_response = api_instance.create_identity_profile(Result)
                   
@@ -20301,6 +20397,7 @@ paths:
                           type: string
                           description: DTO type of object created or updated by import.
                           enum:
+                            - CONNECTOR_RULE
                             - IDENTITY_OBJECT_CONFIG
                             - IDENTITY_PROFILE
                             - RULE
@@ -20676,8 +20773,8 @@ paths:
       operationId: getIdentityProfile
       tags:
         - Identity Profiles
-      summary: Get single Identity Profile
-      description: This returns a single Identity Profile based on ID.
+      summary: Get Identity Profile
+      description: Get a single identity profile by ID.
       parameters:
         - in: path
           name: identity-profile-id
@@ -20686,11 +20783,11 @@ paths:
             format: uuid
           required: true
           x-sailpoint-resource-operation-id: listIdentityProfiles
-          description: The Identity Profile ID.
+          description: Identity profile ID.
           example: 2b838de9-db9b-abcf-e646-d4f274ad4238
       responses:
         '200':
-          description: An Identity Profile object.
+          description: Identity profile object.
           content:
             application/json:
               schema:
@@ -20725,9 +20822,9 @@ paths:
         - lang: PowerShell
           label: SDK_tools/sdk/powershell/v3/methods/identity-profiles#get-identity-profile
           source: |
-            $IdentityProfileId = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | The Identity Profile ID.
+            $IdentityProfileId = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | Identity profile ID.
 
-            # Get single Identity Profile
+            # Get Identity Profile
 
             try {
                 Get-IdentityProfile -IdentityProfileId $IdentityProfileId 
@@ -20741,9 +20838,9 @@ paths:
         - lang: Python
           label: SDK_tools/sdk/python/v3/methods/identity-profiles#get-identity-profile
           source: |
-            identity_profile_id = '2b838de9-db9b-abcf-e646-d4f274ad4238' # str | The Identity Profile ID. # str | The Identity Profile ID.
+            identity_profile_id = '2b838de9-db9b-abcf-e646-d4f274ad4238' # str | Identity profile ID. # str | Identity profile ID.
             try:
-              # Get single Identity Profile
+              # Get Identity Profile
               
               api_response = api_instance.get_identity_profile(identity_profile_id)
                   
@@ -20757,14 +20854,10 @@ paths:
       operationId: deleteIdentityProfile
       tags:
         - Identity Profiles
-      summary: Delete an Identity Profile
+      summary: Delete Identity Profile
       description: |-
-        This deletes an Identity Profile based on ID.
-
+        Delete an identity profile by ID.
         On success, this endpoint will return a reference to the bulk delete task result.
-            
-
-        The following rights are required to access this endpoint: idn:identity-profile:delete
       parameters:
         - in: path
           name: identity-profile-id
@@ -20773,7 +20866,7 @@ paths:
             format: uuid
           required: true
           x-sailpoint-resource-operation-id: listIdentityProfiles
-          description: The Identity Profile ID.
+          description: Identity profile ID.
           example: ef38f94347e94562b5bb8424a56397d8
       responses:
         '202':
@@ -20810,9 +20903,9 @@ paths:
         - lang: PowerShell
           label: SDK_tools/sdk/powershell/v3/methods/identity-profiles#delete-identity-profile
           source: |
-            $IdentityProfileId = "ef38f94347e94562b5bb8424a56397d8" # String | The Identity Profile ID.
+            $IdentityProfileId = "ef38f94347e94562b5bb8424a56397d8" # String | Identity profile ID.
 
-            # Delete an Identity Profile
+            # Delete Identity Profile
 
             try {
                 Remove-IdentityProfile -IdentityProfileId $IdentityProfileId 
@@ -20826,9 +20919,9 @@ paths:
         - lang: Python
           label: SDK_tools/sdk/python/v3/methods/identity-profiles#delete-identity-profile
           source: |
-            identity_profile_id = 'ef38f94347e94562b5bb8424a56397d8' # str | The Identity Profile ID. # str | The Identity Profile ID.
+            identity_profile_id = 'ef38f94347e94562b5bb8424a56397d8' # str | Identity profile ID. # str | Identity profile ID.
             try:
-              # Delete an Identity Profile
+              # Delete Identity Profile
               
               api_response = api_instance.delete_identity_profile(identity_profile_id)
                   
@@ -20842,19 +20935,17 @@ paths:
       operationId: updateIdentityProfile
       tags:
         - Identity Profiles
-      summary: Update the Identity Profile
+      summary: Update Identity Profile
       description: |-
-        This updates the specified Identity Profile.
+        Update a specified identity profile with this PATCH request.
           
-
-        Some fields of the Schema cannot be updated. These fields are listed below:
+        You cannot update these fields:
         * id
-        * name
         * created
         * modified
         * identityCount
         * identityRefreshRequired
-        * Authoritative Source and Identity Attribute Configuration cannot be modified at once.
+        * Authoritative Source and Identity Attribute Configuration cannot be modified at the same time.
       parameters:
         - in: path
           name: identity-profile-id
@@ -20863,11 +20954,11 @@ paths:
             format: uuid
           required: true
           x-sailpoint-resource-operation-id: listIdentityProfiles
-          description: The Identity Profile ID
+          description: Identity profile ID.
           example: ef38f94347e94562b5bb8424a56397d8
       requestBody:
         required: true
-        description: A list of Identity Profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+        description: List of identity profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
         content:
           application/json-patch+json:
             schema:
@@ -20891,7 +20982,7 @@ paths:
                           sourceId: 2c91808878b7d63b0178c66ffcdc4ce4
       responses:
         '200':
-          description: The updated Identity Profile.
+          description: Updated identity profile.
           content:
             application/json:
               schema:
@@ -20924,7 +21015,7 @@ paths:
         - lang: PowerShell
           label: SDK_tools/sdk/powershell/v3/methods/identity-profiles#update-identity-profile
           source: |
-            $IdentityProfileId = "ef38f94347e94562b5bb8424a56397d8" # String | The Identity Profile ID
+            $IdentityProfileId = "ef38f94347e94562b5bb8424a56397d8" # String | Identity profile ID.
             $JsonPatchOperation = @"{
               "op" : "replace",
               "path" : "/description",
@@ -20932,7 +21023,7 @@ paths:
             }"@ 
 
 
-            # Update the Identity Profile
+            # Update Identity Profile
 
             try {
                 $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
@@ -20947,16 +21038,16 @@ paths:
         - lang: Python
           label: SDK_tools/sdk/python/v3/methods/identity-profiles#update-identity-profile
           source: |
-            identity_profile_id = 'ef38f94347e94562b5bb8424a56397d8' # str | The Identity Profile ID # str | The Identity Profile ID
-            [{op=add, path=/identityAttributeConfig/attributeTransforms/0, value={identityAttributeName=location, transformDefinition={type=accountAttribute, attributes={sourceName=Employees, attributeName=location, sourceId=2c91808878b7d63b0178c66ffcdc4ce4}}}}] # List[JsonPatchOperation] | A list of Identity Profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+            identity_profile_id = 'ef38f94347e94562b5bb8424a56397d8' # str | Identity profile ID. # str | Identity profile ID.
+            [{op=add, path=/identityAttributeConfig/attributeTransforms/0, value={identityAttributeName=location, transformDefinition={type=accountAttribute, attributes={sourceName=Employees, attributeName=location, sourceId=2c91808878b7d63b0178c66ffcdc4ce4}}}}] # List[JsonPatchOperation] | List of identity profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
              json_patch_operation = {
               "op" : "replace",
               "path" : "/description",
               "value" : "New description"
-            } # List[JsonPatchOperation] | A list of Identity Profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+            } # List[JsonPatchOperation] | List of identity profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
             try:
-              # Update the Identity Profile
+              # Update Identity Profile
               Result = json_patch_operation.from_json(json_patch_operation)
               api_response = api_instance.update_identity_profile(identity_profile_id, Result)
                   
@@ -25762,10 +25853,15 @@ paths:
   /non-employee-sources:
     post:
       operationId: createNonEmployeeSource
+      security:
+        - userAuth:
+            - idn:nelm:manage
+      x-sailpoint-userLevels:
+        - ORG_ADMIN
       tags:
         - Non-Employee Lifecycle Management
       summary: Create Non-Employee Source
-      description: This request will create a non-employee source. Requires role context of `idn:nesr:create`
+      description: 'Create a non-employee source. '
       requestBody:
         description: Non-Employee source creation request body.
         required: true
@@ -25932,16 +26028,17 @@ paths:
     get:
       operationId: listNonEmployeeSources
       security:
-        - userAuth: []
+        - userAuth:
+            - idn:nelm:read
+      x-sailpoint-userLevels:
+        - ORG_ADMIN
       tags:
         - Non-Employee Lifecycle Management
       summary: List Non-Employee Sources
       description: |-
-        This gets a list of non-employee sources. There are two contextual uses for the requested-for path parameter: 
-          1. The user has the role context of `idn:nesr:read`, in which case he or
-        she may request a list sources assigned to a particular account manager by passing in that manager's id.
-          2. The current user is an account manager, in which case "me" should be
-        provided as the `requested-for` value. This will provide the user with a list of the sources that he or she owns.
+        Get a list of non-employee sources. There are two contextual uses for the `requested-for` path parameter: 
+          1. If the user has the role context of `idn:nesr:read`, he or she may request a list sources assigned to a particular account manager by passing in that manager's `id`.
+          2. If the current user is an account manager, the user should provide 'me' as the `requested-for` value. Doing so provide the user with a list of the sources he or she owns.
       parameters:
         - $ref: '#/paths/~1access-profiles~1%7Bid%7D~1entitlements/get/parameters/1'
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/parameters/limit.yaml
@@ -25951,18 +26048,19 @@ paths:
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/parameters/count.yaml
         - in: query
           name: requested-for
-          required: true
+          required: false
           schema:
             type: string
           example: me
-          description: The identity for whom the request was made. *me* indicates the current user.
+          description: Identity the request was made for. Use 'me' to indicate the current user.
         - in: query
           name: non-employee-count
           required: false
           example: true
           schema:
             type: boolean
-          description: The flag to determine whether return a non-employee count associate with source.
+            default: false
+          description: Flag that determines whether the API will return a non-employee count associated with the source.
         - in: query
           name: sorters
           required: false
@@ -25989,7 +26087,7 @@ paths:
                       properties:
                         nonEmployeeCount:
                           type: integer
-                          description: Number of non-employee records associated with this source.
+                          description: Number of non-employee records associated with this source. This value is 'NULL' by default. To get the non-employee count, you must set the `non-employee-count` flag in your request to 'true'.
                           format: int32
                           example: 120
                           nullable: true
@@ -26012,20 +26110,20 @@ paths:
         - lang: PowerShell
           label: SDK_tools/sdk/powershell/v3/methods/non-employee-lifecycle-management#list-non-employee-sources
           source: |
-            $RequestedFor = "me" # String | The identity for whom the request was made. *me* indicates the current user.
             $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
             $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
             $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
-            $NonEmployeeCount = $true # Boolean | The flag to determine whether return a non-employee count associate with source. (optional)
+            $RequestedFor = "me" # String | Identity the request was made for. Use 'me' to indicate the current user. (optional)
+            $NonEmployeeCount = $true # Boolean | Flag that determines whether the API will return a non-employee count associated with the source. (optional) (default to $false)
             $Sorters = "name,created" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, sourceId** (optional)
 
             # List Non-Employee Sources
 
             try {
-                Get-NonEmployeeSources -RequestedFor $RequestedFor 
+                Get-NonEmployeeSources 
 
                 # Below is a request that includes all optional parameters
-                # Get-NonEmployeeSources -RequestedFor $RequestedFor -Limit $Limit -Offset $Offset -Count $Count -NonEmployeeCount $NonEmployeeCount -Sorters $Sorters   
+                # Get-NonEmployeeSources -Limit $Limit -Offset $Offset -Count $Count -RequestedFor $RequestedFor -NonEmployeeCount $NonEmployeeCount -Sorters $Sorters   
             } catch {
                 Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-NonEmployeeSources"
                 Write-Host $_.ErrorDetails
@@ -26033,19 +26131,19 @@ paths:
         - lang: Python
           label: SDK_tools/sdk/python/v3/methods/non-employee-lifecycle-management#list-non-employee-sources
           source: |
-            requested_for = 'me' # str | The identity for whom the request was made. *me* indicates the current user. # str | The identity for whom the request was made. *me* indicates the current user.
             limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
             offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
             count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
-            non_employee_count = true # bool | The flag to determine whether return a non-employee count associate with source. (optional) # bool | The flag to determine whether return a non-employee count associate with source. (optional)
+            requested_for = 'me' # str | Identity the request was made for. Use 'me' to indicate the current user. (optional) # str | Identity the request was made for. Use 'me' to indicate the current user. (optional)
+            non_employee_count = False # bool | Flag that determines whether the API will return a non-employee count associated with the source. (optional) (default to False) # bool | Flag that determines whether the API will return a non-employee count associated with the source. (optional) (default to False)
             sorters = 'name,created' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, sourceId** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, sourceId** (optional)
             try:
               # List Non-Employee Sources
               
-              api_response = api_instance.list_non_employee_sources(requested_for, )
+              api_response = api_instance.list_non_employee_sources()
                   
               # Below is a request that includes all optional parameters
-              # api_response = api_instance.list_non_employee_sources(requested_for, limit, offset, count, non_employee_count, sorters)
+              # api_response = api_instance.list_non_employee_sources(limit, offset, count, requested_for, non_employee_count, sorters)
               print("The response of NonEmployeeLifecycleManagementApi->list_non_employee_sources:\n")
               pprint(api_response)
             except Exception as e:
@@ -30646,7 +30744,7 @@ paths:
                       description: The manager for the identity.
                       properties:
                         type:
-                          $ref: '#/components/schemas/Account/allOf/1/properties/identity/properties/type'
+                          $ref: '#/components/schemas/Account/allOf/1/properties/ownerIdentity/allOf/0/properties/type'
                           example: IDENTITY
                           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/schemas/DtoType.yaml
                         id:
@@ -31417,7 +31515,7 @@ paths:
                             description: A reference to an Identity in an IDENTITY_LIST role membership criteria.
                             properties:
                               type:
-                                $ref: '#/components/schemas/Account/allOf/1/properties/identity/properties/type'
+                                $ref: '#/components/schemas/Account/allOf/1/properties/ownerIdentity/allOf/0/properties/type'
                                 nullable: true
                                 example: IDENTITY
                                 x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/schemas/DtoType.yaml
@@ -38338,7 +38436,7 @@ paths:
         - lang: Python
           label: SDK_tools/sdk/python/v3/methods/search#search-get
           source: |
-            index = 'accounts' # str | The index from which to fetch the specified document.  The currently supported index names are: *accessprofiles*, *accountactivities*, *entitlements*, *events*, *identities*, and *roles*.  # str | The index from which to fetch the specified document.  The currently supported index names are: *accessprofiles*, *accountactivities*, *entitlements*, *events*, *identities*, and *roles*. 
+            index = 'identities' # str | The index from which to fetch the specified document.  The currently supported index names are: *accessprofiles*, *accountactivities*, *entitlements*, *events*, *identities*, and *roles*.  # str | The index from which to fetch the specified document.  The currently supported index names are: *accessprofiles*, *accountactivities*, *entitlements*, *events*, *identities*, and *roles*. 
             id = '2c91808568c529c60168cca6f90c1313' # str | ID of the requested document. # str | ID of the requested document.
             try:
               # Get a Document by ID
@@ -44016,7 +44114,7 @@ paths:
                                       - type: object
                                         properties:
                                           type:
-                                            $ref: '#/components/schemas/Account/allOf/1/properties/identity/properties/type'
+                                            $ref: '#/components/schemas/Account/allOf/1/properties/ownerIdentity/allOf/0/properties/type'
                                             description: DTO type
                                             x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/schemas/DtoType.yaml
                                           id:
@@ -48517,7 +48615,7 @@ paths:
                           type: array
                           description: The owner of the connected Application
                           items:
-                            $ref: '#/components/schemas/Account/allOf/1/properties/identity'
+                            $ref: '#/components/schemas/Account/allOf/1/properties/ownerIdentity/allOf/0'
                             x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/schemas/BaseReferenceDto.yaml
                         appCenterEnabled:
                           type: boolean
@@ -52385,7 +52483,7 @@ paths:
                         - Completed
                         - Failed
                         - Canceled
-                        - Executing
+                        - Running
                       example: Completed
         '400':
           $ref: '#/paths/~1access-profiles/get/responses/400'
@@ -55339,6 +55437,7 @@ components:
               description: Name of the Object
               type: string
               example: aName
+              nullable: true
             created:
               description: Creation date of the Object
               type: string
@@ -55399,26 +55498,32 @@ components:
               description: Indicates if the account is of machine type
               example: true
             recommendation:
-              type: object
-              properties:
-                type:
-                  type: string
-                  enum:
-                    - HUMAN
-                    - MACHINE
-                  description: Recommended type of account.
-                  example: MACHINE
-                method:
-                  type: string
-                  enum:
-                    - DISCOVERY
-                    - SOURCE
-                    - CRITERIA
-                  description: Method used to produce the recommendation. DISCOVERY - suggested by AI, SOURCE - the account comes from a source flagged as containing machine accounts, CRITERIA - the account satisfies classification criteria.
-                  example: DISCOVERY
-              required:
-                - type
-                - method
+              allOf:
+                - type: object
+                  properties:
+                    type:
+                      type: string
+                      enum:
+                        - HUMAN
+                        - MACHINE
+                      description: Recommended type of account.
+                      example: MACHINE
+                    method:
+                      type: string
+                      enum:
+                        - DISCOVERY
+                        - SOURCE
+                        - CRITERIA
+                      description: Method used to produce the recommendation. DISCOVERY - suggested by AI, SOURCE - the account comes from a source flagged as containing machine accounts, CRITERIA - the account satisfies classification criteria.
+                      example: DISCOVERY
+                  required:
+                    - type
+                    - method
+                - nullable: true
+                  description: Indicates that the account is currently classified to be one type but is recommended to be a different one
+                  example:
+                    type: MACHINE
+                    method: DISCOVERY
             attributes:
               type: object
               nullable: true
@@ -55471,53 +55576,41 @@ components:
               description: Indicates if the account has entitlements
               example: true
             identity:
-              type: object
+              description: The identity this account is correlated to
               properties:
-                type:
-                  type: string
-                  enum:
-                    - ACCOUNT_CORRELATION_CONFIG
-                    - ACCESS_PROFILE
-                    - ACCESS_REQUEST_APPROVAL
-                    - ACCOUNT
-                    - APPLICATION
-                    - CAMPAIGN
-                    - CAMPAIGN_FILTER
-                    - CERTIFICATION
-                    - CLUSTER
-                    - CONNECTOR_SCHEMA
-                    - ENTITLEMENT
-                    - GOVERNANCE_GROUP
-                    - IDENTITY
-                    - IDENTITY_PROFILE
-                    - IDENTITY_REQUEST
-                    - MACHINE_IDENTITY
-                    - LIFECYCLE_STATE
-                    - PASSWORD_POLICY
-                    - ROLE
-                    - RULE
-                    - SOD_POLICY
-                    - SOURCE
-                    - TAG
-                    - TAG_CATEGORY
-                    - TASK_RESULT
-                    - REPORT_RESULT
-                    - SOD_VIOLATION
-                    - ACCOUNT_ACTIVITY
-                    - WORKGROUP
-                  description: An enumeration of the types of DTOs supported within the IdentityNow infrastructure.
-                  example: IDENTITY
                 id:
                   type: string
-                  description: ID of the object to which this reference applies
-                  example: 2c91808568c529c60168cca6f90c1313
+                  description: The ID of the identity
+                  example: 2c918084660f45d6016617daa9210584
+                type:
+                  type: string
+                  description: The type of object being referenced
+                  enum:
+                    - IDENTITY
+                  example: IDENTITY
                 name:
                   type: string
-                  description: Human-readable display name of the object to which this reference applies
-                  example: William Wilson
+                  description: display name of identity
+                  example: John Doe
             sourceOwner:
-              $ref: '#/components/schemas/Account/allOf/1/properties/identity'
-              x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/schemas/BaseReferenceDto.yaml
+              type: object
+              nullable: true
+              description: The owner of the source this account belongs to.
+              properties:
+                id:
+                  type: string
+                  description: The ID of the identity
+                  example: 2c918084660f45d6016617daa9210584
+                type:
+                  type: string
+                  description: The type of object being referenced
+                  enum:
+                    - IDENTITY
+                  example: IDENTITY
+                name:
+                  type: string
+                  description: display name of identity
+                  example: Adam Kennedy
             features:
               type: string
               description: A string list containing the owning source's features
@@ -55533,8 +55626,57 @@ components:
               description: The origin of the account either aggregated or provisioned
               example: AGGREGATED
             ownerIdentity:
-              $ref: '#/components/schemas/Account/allOf/1/properties/identity'
-              x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/schemas/BaseReferenceDto.yaml
+              allOf:
+                - type: object
+                  properties:
+                    type:
+                      type: string
+                      enum:
+                        - ACCOUNT_CORRELATION_CONFIG
+                        - ACCESS_PROFILE
+                        - ACCESS_REQUEST_APPROVAL
+                        - ACCOUNT
+                        - APPLICATION
+                        - CAMPAIGN
+                        - CAMPAIGN_FILTER
+                        - CERTIFICATION
+                        - CLUSTER
+                        - CONNECTOR_SCHEMA
+                        - ENTITLEMENT
+                        - GOVERNANCE_GROUP
+                        - IDENTITY
+                        - IDENTITY_PROFILE
+                        - IDENTITY_REQUEST
+                        - MACHINE_IDENTITY
+                        - LIFECYCLE_STATE
+                        - PASSWORD_POLICY
+                        - ROLE
+                        - RULE
+                        - SOD_POLICY
+                        - SOURCE
+                        - TAG
+                        - TAG_CATEGORY
+                        - TASK_RESULT
+                        - REPORT_RESULT
+                        - SOD_VIOLATION
+                        - ACCOUNT_ACTIVITY
+                        - WORKGROUP
+                      description: An enumeration of the types of DTOs supported within the IdentityNow infrastructure.
+                      example: IDENTITY
+                    id:
+                      type: string
+                      description: ID of the object to which this reference applies
+                      example: 2c91808568c529c60168cca6f90c1313
+                    name:
+                      type: string
+                      description: Human-readable display name of the object to which this reference applies
+                      example: William Wilson
+                - description: The identity who owns this account, used only for machine accounts
+                  nullable: true
+                  example:
+                    id: 2c918084660f45d6016617daa9210584
+                    type: IDENTITY
+                    name: Adam Kennedy
     AccountActivity:
       type: object
       properties:
@@ -56301,6 +56443,7 @@ components:
           format: date-time
           description: The due date of the certification.
           example: '2018-10-19T13:49:37.385Z'
+          nullable: true
         signed:
           type: string
           format: date-time
@@ -57071,32 +57214,32 @@ components:
           properties:
             description:
               type: string
-              description: The description of the Identity Profile.
+              description: Identity profile's description.
               example: My custom flat file profile
               nullable: true
             owner:
               type: object
-              description: The owner of the Identity Profile.
+              description: Identity profile's owner.
               nullable: true
               properties:
                 type:
                   type: string
                   enum:
                     - IDENTITY
-                  description: Type of the object to which this reference applies
+                  description: Owner's object type.
                   example: IDENTITY
                 id:
                   type: string
-                  description: ID of the object to which this reference applies
+                  description: Owner's ID.
                   example: 2c9180835d191a86015d28455b4b232a
                 name:
                   type: string
-                  description: Human-readable display name of the object to which this reference applies
+                  description: Owner's name.
                   example: William Wilson
             priority:
               type: integer
               format: int64
-              description: The priority for an Identity Profile.
+              description: Identity profile's priority.
               example: 10
             authoritativeSource:
               type: object
@@ -57105,24 +57248,24 @@ components:
                   type: string
                   enum:
                     - SOURCE
-                  description: Type of the object to which this reference applies
+                  description: Authoritative source's object type.
                   example: SOURCE
                 id:
                   type: string
-                  description: ID of the object to which this reference applies
+                  description: Authoritative source's ID.
                   example: 2c9180835d191a86015d28455b4b232a
                 name:
                   type: string
-                  description: Human-readable display name of the object to which this reference applies
+                  description: Authoritative source's name.
                   example: HR Active Directory
             identityRefreshRequired:
               type: boolean
               default: false
-              description: True if a identity refresh is needed. Typically triggered when a change on the source has been made.
+              description: Set this value to 'True' if an identity refresh is necessary. You would typically want to trigger an identity refresh when a change has been made on the source.
               example: true
             identityCount:
               type: integer
-              description: The number of identities that belong to the Identity Profile.
+              description: Number of identities belonging to the identity profile.
               format: int32
               example: 8
             identityAttributeConfig:
@@ -57130,7 +57273,7 @@ components:
               description: Defines all the identity attribute mapping configurations. This defines how to generate or collect data for each identity attributes in identity refresh process.
               properties:
                 enabled:
-                  description: The backend will only promote values if the profile/mapping is enabled.
+                  description: Backend will only promote values if the profile/mapping is enabled.
                   type: boolean
                   default: false
                   example: true
@@ -57138,18 +57281,18 @@ components:
                   type: array
                   items:
                     type: object
-                    description: Defines a transformation definition for an identity attribute.
+                    description: Transform definition for an identity attribute.
                     properties:
                       identityAttributeName:
                         type: string
-                        description: Name of the identity attribute.
+                        description: Identity attribute's name.
                         example: email
                       transformDefinition:
                         type: object
                         properties:
                           type:
                             type: string
-                            description: The type of the transform definition.
+                            description: Transform definition type.
                             example: accountAttribute
                           attributes:
                             type: object
@@ -57166,14 +57309,14 @@ components:
                 taskResultId:
                   type: string
                   format: uuid
-                  description: The id of the task result.
+                  description: Task result ID.
                   example: 2b838de9-db9b-abcf-e646-d4f274ad4238
                 reportName:
                   type: string
                   example: My annual report
-                  description: The name of the report.
+                  description: Report name.
             hasTimeBasedAttr:
-              description: Indicates the value of requiresPeriodicRefresh attribute for the Identity Profile.
+              description: Indicates the value of `requiresPeriodicRefresh` attribute for the identity profile.
               type: boolean
               default: false
               example: true
@@ -58482,7 +58625,7 @@ components:
                 A typed reference to the object.
               properties:
                 type:
-                  $ref: '#/components/schemas/Account/allOf/1/properties/identity/properties/type'
+                  $ref: '#/components/schemas/Account/allOf/1/properties/ownerIdentity/allOf/0/properties/type'
                   x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/schemas/DtoType.yaml
                 id:
                   description: |

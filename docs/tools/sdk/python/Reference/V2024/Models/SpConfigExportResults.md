@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **timestamp** | **datetime** | Time the export was completed. | [optional] 
 **tenant** | **str** | Name of the tenant where this export originated. | [optional] 
 **description** | **str** | Optional user defined description/name for export job. | [optional] 
-**options** | [**ExportOptions**](export-options) |  | [optional] 
+**options** | [**ExportOptions1**](export-options1) |  | [optional] 
 **objects** | [**[]ConfigObject**](config-object) |  | [optional] 
 }
 
@@ -35,7 +35,7 @@ version=1,
 timestamp='2021-05-11T22:23:16Z',
 tenant='sample-tenant',
 description='Export Job 1 Test',
-options=sailpoint.v2024.models.export_options.ExportOptions(
+options=sailpoint.v2024.models.export_options_1.ExportOptions_1(
                     exclude_types = [
                         'SOURCE'
                         ], 

@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 **account_managers** | [**[]NonEmployeeIdentityReferenceWithId**](non-employee-identity-reference-with-id) | List of account managers | [optional] 
 **modified** | **datetime** | When the request was last modified. | [optional] 
 **created** | **datetime** | When the request was created. | [optional] 
-**non_employee_count** | **int** | Number of non-employee records associated with this source. | [optional] 
+**non_employee_count** | **int** | Number of non-employee records associated with this source. This value is 'NULL' by default. To get the non-employee count, you must set the `non-employee-count` flag in your request to 'true'. | [optional] 
 }
 
 ## Example

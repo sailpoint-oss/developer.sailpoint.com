@@ -16,6 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'RequestedItemStatus', 'BetaRequestedI
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | **str** | The ID of the access request. | [optional] 
 **name** | **str** | Human-readable display name of the item being requested. | [optional] 
 **type** |  **Enum** [  'ACCESS_PROFILE',    'ROLE',    'ENTITLEMENT' ] | Type of requested object. | [optional] 
 **cancelled_request_details** | [**RequestedItemStatusCancelledRequestDetails**](requested-item-status-cancelled-request-details) |  | [optional] 
@@ -48,6 +49,7 @@ Name | Type | Description | Notes
 from sailpoint.beta.models.requested_item_status import RequestedItemStatus
 
 requested_item_status = RequestedItemStatus(
+id='2c9180926cbfbddd016cbfc7c3b10010',
 name='AccessProfile1',
 type='ACCESS_PROFILE',
 cancelled_request_details=,

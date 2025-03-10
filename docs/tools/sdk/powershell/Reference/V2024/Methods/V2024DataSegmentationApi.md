@@ -65,10 +65,10 @@ $DataSegment = @""@
 
 try {
     $Result = ConvertFrom-JsonToDataSegment -Json $DataSegment
-    New-V2024DataSegment -V2024DataSegment $Result 
+    New-V2024DataSegment -DataSegment $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024DataSegment -V2024DataSegment $Result  
+    # New-V2024DataSegment -DataSegment $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024DataSegment"
     Write-Host $_.ErrorDetails

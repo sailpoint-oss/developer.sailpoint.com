@@ -27,6 +27,8 @@ Name | Type | Description | Notes
 **password_last_set** | **datetime** | A date-time in ISO-8601 format | [optional] 
 **entitlement_attributes** | **map[string]object** | Map or dictionary of key/value pairs. | [optional] 
 **created** | **datetime** | ISO-8601 date-time referring to the time when the object was created. | [optional] 
+**supports_password_change** | **bool** | Indicates whether the account supports password change. | [optional] [default to False]
+**account_attributes** | **map[string]object** | Map or dictionary of key/value pairs. | [optional] 
 }
 
 ## Example
@@ -45,7 +47,9 @@ privileged=False,
 manually_correlated=False,
 password_last_set='2018-06-25T20:22:28.104Z',
 entitlement_attributes={moderator=true, admin=true, trust_level=4},
-created='2018-06-25T20:22:28.104Z'
+created='2018-06-25T20:22:28.104Z',
+supports_password_change=False,
+account_attributes={type=global, admin=true, trust_level=4}
 )
 
 ```

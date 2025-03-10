@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 $TaskStatusMessage = Initialize-PSSailpoint.BetaTaskStatusMessage  -Type INFO `
  -LocalizedText null `
  -Key akey `
- -Parameters [{name&#x3D;value}]
+ -Parameters [{name=value}]
 ```
 
 - Convert the resource to JSON

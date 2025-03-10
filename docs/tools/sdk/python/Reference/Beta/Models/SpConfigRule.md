@@ -18,8 +18,8 @@ Format of Config Hub Object Rules
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **path** | **str** | JSONPath expression denoting the path within the object where a value substitution should be applied | [optional] 
-**value** | **object** | Value to be assigned at the jsonPath location within the object | [optional] 
-**mode** | **[]str** | Draft modes to which this rule will apply | [optional] 
+**value** | [**SpConfigRuleValue**](sp-config-rule-value) |  | [optional] 
+**modes** | **[]str** | Draft modes to which this rule will apply | [optional] 
 }
 
 ## Example
@@ -29,8 +29,8 @@ from sailpoint.beta.models.sp_config_rule import SpConfigRule
 
 sp_config_rule = SpConfigRule(
 path='$.enabled',
-value=sailpoint.beta.models.value.value(),
-mode=[RESTORE, PROMOTE]
+value=,
+modes=[RESTORE, PROMOTE]
 )
 
 ```

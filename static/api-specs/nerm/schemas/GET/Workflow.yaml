@@ -33,7 +33,7 @@ properties:
     example: 33f072dd-13b4-41e1-8ea0-16f2a59b57c8
   name:
     type: string
-    description: The uid of the workflow.
+    description: The user-specified identifier of the workflow.
     example: my_uid
   ne_attribute_id:
     type: string
@@ -89,7 +89,7 @@ properties:
     minLength: 32
     maxLength: 32
     readOnly: true
-    description: The uid of the workflow.
+    description: The user-specified identifier of the workflow.
     example: my_uid
   updated_at:
     type: string

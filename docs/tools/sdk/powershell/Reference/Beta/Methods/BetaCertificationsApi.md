@@ -358,10 +358,10 @@ $ReviewReassign = @"{
 
 try {
     $Result = ConvertFrom-JsonToReviewReassign -Json $ReviewReassign
-    Submit-BetaReassignCertsAsync -Id $Id -BetaReviewReassign $Result 
+    Submit-BetaReassignCertsAsync -Id $Id -ReviewReassign $Result 
     
     # Below is a request that includes all optional parameters
-    # Submit-BetaReassignCertsAsync -Id $Id -BetaReviewReassign $Result  
+    # Submit-BetaReassignCertsAsync -Id $Id -ReviewReassign $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Submit-BetaReassignCertsAsync"
     Write-Host $_.ErrorDetails

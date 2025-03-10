@@ -182,10 +182,10 @@ $AccessProfile = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccessProfile -Json $AccessProfile
-    New-V2024AccessProfile -V2024AccessProfile $Result 
+    New-V2024AccessProfile -AccessProfile $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024AccessProfile -V2024AccessProfile $Result  
+    # New-V2024AccessProfile -AccessProfile $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024AccessProfile"
     Write-Host $_.ErrorDetails
@@ -285,10 +285,10 @@ $AccessProfileBulkDeleteRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccessProfileBulkDeleteRequest -Json $AccessProfileBulkDeleteRequest
-    Remove-V2024AccessProfilesInBulk -V2024AccessProfileBulkDeleteRequest $Result 
+    Remove-V2024AccessProfilesInBulk -AccessProfileBulkDeleteRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024AccessProfilesInBulk -V2024AccessProfileBulkDeleteRequest $Result  
+    # Remove-V2024AccessProfilesInBulk -AccessProfileBulkDeleteRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024AccessProfilesInBulk"
     Write-Host $_.ErrorDetails
@@ -529,10 +529,10 @@ $Id = "2c91808a7813090a017814121919ecca" # String | ID of the Access Profile to 
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024AccessProfile -Id $Id -V2024JsonPatchOperation $Result 
+    Update-V2024AccessProfile -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024AccessProfile -Id $Id -V2024JsonPatchOperation $Result  
+    # Update-V2024AccessProfile -Id $Id -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024AccessProfile"
     Write-Host $_.ErrorDetails
@@ -588,10 +588,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 
 try {
     $Result = ConvertFrom-JsonToAccessProfileBulkUpdateRequestInner -Json $AccessProfileBulkUpdateRequestInner
-    Update-V2024AccessProfilesInBulk -XSailPointExperimental $XSailPointExperimental -V2024AccessProfileBulkUpdateRequestInner $Result 
+    Update-V2024AccessProfilesInBulk -XSailPointExperimental $XSailPointExperimental -AccessProfileBulkUpdateRequestInner $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024AccessProfilesInBulk -XSailPointExperimental $XSailPointExperimental -V2024AccessProfileBulkUpdateRequestInner $Result  
+    # Update-V2024AccessProfilesInBulk -XSailPointExperimental $XSailPointExperimental -AccessProfileBulkUpdateRequestInner $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024AccessProfilesInBulk"
     Write-Host $_.ErrorDetails

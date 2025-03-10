@@ -20,9 +20,11 @@ Method | HTTP request | Description
 [**add-access-request-recommendations-viewed-item**](#add-access-request-recommendations-viewed-item) | **POST** `/ai-access-request-recommendations/viewed-items` | Notification of Viewed Access Request Recommendations
 [**add-access-request-recommendations-viewed-items**](#add-access-request-recommendations-viewed-items) | **POST** `/ai-access-request-recommendations/viewed-items/bulk-create` | Notification of Viewed Access Request Recommendations in Bulk
 [**get-access-request-recommendations**](#get-access-request-recommendations) | **GET** `/ai-access-request-recommendations` | Identity Access Request Recommendations
+[**get-access-request-recommendations-config**](#get-access-request-recommendations-config) | **GET** `/ai-access-request-recommendations/config` | Get Access Request Recommendations config
 [**get-access-request-recommendations-ignored-items**](#get-access-request-recommendations-ignored-items) | **GET** `/ai-access-request-recommendations/ignored-items` | List of Ignored Access Request Recommendations
 [**get-access-request-recommendations-requested-items**](#get-access-request-recommendations-requested-items) | **GET** `/ai-access-request-recommendations/requested-items` | List of Requested Access Request Recommendations
 [**get-access-request-recommendations-viewed-items**](#get-access-request-recommendations-viewed-items) | **GET** `/ai-access-request-recommendations/viewed-items` | List of Viewed Access Request Recommendations
+[**set-access-request-recommendations-config**](#set-access-request-recommendations-config) | **PUT** `/ai-access-request-recommendations/config` | Update Access Request Recommendations config
 
 
 ## add-access-request-recommendations-ignored-item
@@ -391,6 +393,68 @@ with ApiClient(configuration) as api_client:
 
 [[Back to top]](#) 
 
+## get-access-request-recommendations-config
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Get Access Request Recommendations config
+This API returns the configurations for Access Request Recommender for the tenant.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-access-request-recommendations-config)
+
+### Parameters 
+
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
+
+### Return type
+[**AccessRequestRecommendationConfigDto**](../models/access-request-recommendation-config-dto)
+
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | Configurations for Access Request Recommender for the tenant. | AccessRequestRecommendationConfigDto |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
+
+### HTTP request headers
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### Example
+
+```python
+import sailpoint.v2024
+from sailpoint.v2024.api.iai_access_request_recommendations_api import IAIAccessRequestRecommendationsApi
+from sailpoint.v2024.api_client import ApiClient
+from sailpoint.v2024.models.access_request_recommendation_config_dto import AccessRequestRecommendationConfigDto
+from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
+
+with ApiClient(configuration) as api_client:
+    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
+
+    try:
+        # Get Access Request Recommendations config
+        
+        results =IAIAccessRequestRecommendationsApi(api_client).get_access_request_recommendations_config(x_sail_point_experimental)
+        # Below is a request that includes all optional parameters
+        # results = IAIAccessRequestRecommendationsApi(api_client).get_access_request_recommendations_config(x_sail_point_experimental)
+        print("The response of IAIAccessRequestRecommendationsApi->get_access_request_recommendations_config:\n")
+        pprint(results)
+        except Exception as e:
+        print("Exception when calling IAIAccessRequestRecommendationsApi->get_access_request_recommendations_config: %s\n" % e)
+```
+
+
+
+[[Back to top]](#) 
+
 ## get-access-request-recommendations-ignored-items
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
@@ -601,6 +665,78 @@ with ApiClient(configuration) as api_client:
         pprint(results)
         except Exception as e:
         print("Exception when calling IAIAccessRequestRecommendationsApi->get_access_request_recommendations_viewed_items: %s\n" % e)
+```
+
+
+
+[[Back to top]](#) 
+
+## set-access-request-recommendations-config
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Update Access Request Recommendations config
+This API updates the configurations for Access Request Recommender for the tenant.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/set-access-request-recommendations-config)
+
+### Parameters 
+
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
+ Body  | access_request_recommendation_config_dto | [**AccessRequestRecommendationConfigDto**](../models/access-request-recommendation-config-dto) | True  | The desired configurations for Access Request Recommender for the tenant.
+
+### Return type
+[**AccessRequestRecommendationConfigDto**](../models/access-request-recommendation-config-dto)
+
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | Successfully updated configurations for Access Request Recommender for the tenant. | AccessRequestRecommendationConfigDto |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
+
+### HTTP request headers
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### Example
+
+```python
+import sailpoint.v2024
+from sailpoint.v2024.api.iai_access_request_recommendations_api import IAIAccessRequestRecommendationsApi
+from sailpoint.v2024.api_client import ApiClient
+from sailpoint.v2024.models.access_request_recommendation_config_dto import AccessRequestRecommendationConfigDto
+from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
+
+with ApiClient(configuration) as api_client:
+    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
+    access_request_recommendation_config_dto = {
+          "scoreThreshold" : 0.5,
+          "startDateAttribute" : "startDate",
+          "restrictionAttribute" : "location",
+          "moverAttribute" : "isMover",
+          "joinerAttribute" : "isJoiner",
+          "useRestrictionAttribute" : true
+        } # AccessRequestRecommendationConfigDto | The desired configurations for Access Request Recommender for the tenant.
+
+    try:
+        # Update Access Request Recommendations config
+        new_access_request_recommendation_config_dto = AccessRequestRecommendationConfigDto()
+        new_access_request_recommendation_config_dto.from_json(access_request_recommendation_config_dto)
+        results =IAIAccessRequestRecommendationsApi(api_client).set_access_request_recommendations_config(x_sail_point_experimental, new_access_request_recommendation_config_dto)
+        # Below is a request that includes all optional parameters
+        # results = IAIAccessRequestRecommendationsApi(api_client).set_access_request_recommendations_config(x_sail_point_experimental, new_access_request_recommendation_config_dto)
+        print("The response of IAIAccessRequestRecommendationsApi->set_access_request_recommendations_config:\n")
+        pprint(results)
+        except Exception as e:
+        print("Exception when calling IAIAccessRequestRecommendationsApi->set_access_request_recommendations_config: %s\n" % e)
 ```
 
 

@@ -2,11 +2,10 @@ get:
   operationId: getIdentityProfile
   tags:
     - Identity Profiles
-  summary: Gets a single Identity Profile
+  summary: Get Identity Profile
   description: >-
-    This returns a single Identity Profile based on ID.
+    Get a single identity profile by ID.
     
-
     A token with ORG_ADMIN or API authority is required to call this API.
   parameters:
     - in: path
@@ -16,11 +15,11 @@ get:
         format: uuid
       required: true
       x-sailpoint-resource-operation-id: listIdentityProfiles
-      description: The Identity Profile ID
+      description: Identity profile ID.
       example: ef38f94347e94562b5bb8424a56397d8
   responses:
     '200':
-      description: An Identity Profile object
+      description: Identity profile object.
       content:
         application/json:
           schema:
@@ -39,23 +38,19 @@ get:
       $ref: '../../v3/responses/500.yaml'
   security:
     - userAuth: [idn:identity-profile:read, idn:identity-profile:manage]
-
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
 delete:
   operationId: deleteIdentityProfile
   tags:
     - Identity Profiles
-  summary: Delete an Identity Profile
+  summary: Delete Identity Profile
   description: >-
-    This deletes an Identity Profile based on ID.
-
+    Delete an identity profile by ID.
 
     On success, this endpoint will return a reference to the bulk delete task result.
     
-    
     A token with ORG_ADMIN authority is required to call this API.
-    
-    
-    The following rights are required to access this endpoint: idn:identity-profile:delete
   parameters:
     - in: path
       name: identity-profile-id
@@ -64,7 +59,7 @@ delete:
         format: uuid
       required: true
       x-sailpoint-resource-operation-id: listIdentityProfiles
-      description: The Identity Profile ID.
+      description: Identity profile ID.
       example: ef38f94347e94562b5bb8424a56397d8
   responses:
     '202':
@@ -88,24 +83,21 @@ delete:
       $ref: '../../v3/responses/500.yaml'
   security:
     - userAuth: [idn:identity-profile:delete]
-
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
 patch:
   operationId: updateIdentityProfile
   tags:
     - Identity Profiles
-  summary: Update the Identity Profile
+  summary: Update Identity Profile
   description: >-
-    This updates the specified Identity Profile.
-
+    Update the specified identity profile with this PATCH request. 
 
     A token with ORG_ADMIN authority is required to call this API to update the Identity Profile.
     
-    
-    Some fields of the Schema cannot be updated. These fields are listed below:
+    These fields cannot be updated:
 
     * id
-
-    * name
 
     * created
 
@@ -124,12 +116,12 @@ patch:
         format: uuid
       required: true
       x-sailpoint-resource-operation-id: listIdentityProfiles
-      description: The Identity Profile ID
+      description: Identity profile ID.
       example: ef38f94347e94562b5bb8424a56397d8
   requestBody:
     required: true
     description: >-
-      A list of Identity Profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+      List of identity profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
     content:
       application/json-patch+json:
         schema:
@@ -159,7 +151,7 @@ patch:
   responses:
     '200':
       description: >-
-        The updated Identity Profile.
+        Updated identity profile.
       content:
         application/json:
           schema:
@@ -178,3 +170,5 @@ patch:
       $ref: '../../v3/responses/500.yaml'
   security:
     - userAuth: [idn:identity-profile:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN

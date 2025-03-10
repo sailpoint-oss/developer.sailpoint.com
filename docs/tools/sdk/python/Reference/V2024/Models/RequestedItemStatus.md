@@ -16,6 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'RequestedItemStatus', 'V2024Requested
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | **str** | The ID of the access request. As of 2025, this is a new property. Older access requests might not have an ID. | [optional] 
 **name** | **str** | Human-readable display name of the item being requested. | [optional] 
 **type** |  **Enum** [  'ACCESS_PROFILE',    'ROLE',    'ENTITLEMENT' ] | Type of requested object. | [optional] 
 **cancelled_request_details** | [**RequestedItemStatusCancelledRequestDetails**](requested-item-status-cancelled-request-details) |  | [optional] 
@@ -48,21 +49,16 @@ Name | Type | Description | Notes
 from sailpoint.v2024.models.requested_item_status import RequestedItemStatus
 
 requested_item_status = RequestedItemStatus(
+id='2c9180926cbfbddd016cbfc7c3b10010',
 name='AccessProfile1',
 type='ACCESS_PROFILE',
 cancelled_request_details=,
 error_messages=[
-                    [
-                        sailpoint.v2024.models.error_message_dto.ErrorMessageDto(
-                            locale = 'en-US', 
-                            locale_origin = 'DEFAULT', 
-                            text = 'The request was syntactically correct but its content is semantically invalid.', )
-                        ]
+                    {locale=en-US, localeOrigin=DEFAULT, text=Error Message}
                     ],
 state='EXECUTING',
 approval_details=[
                     sailpoint.v2024.models.approval_status_dto.ApprovalStatusDto(
-                        approval_id = '2c9180877b2b6ea4017b2c545f971429', 
                         forwarded = False, 
                         original_owner = sailpoint.v2024.models.approval_status_dto_original_owner.ApprovalStatusDto_originalOwner(
                             type = 'IDENTITY', 

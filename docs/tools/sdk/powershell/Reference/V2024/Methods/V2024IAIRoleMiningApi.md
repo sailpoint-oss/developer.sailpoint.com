@@ -100,7 +100,7 @@ try {
     New-V2024PotentialRoleProvisionRequest -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # New-V2024PotentialRoleProvisionRequest -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -MinEntitlementPopularity $MinEntitlementPopularity -IncludeCommonAccess $IncludeCommonAccess -V2024RoleMiningPotentialRoleProvisionRequest $Result  
+    # New-V2024PotentialRoleProvisionRequest -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -MinEntitlementPopularity $MinEntitlementPopularity -IncludeCommonAccess $IncludeCommonAccess -RoleMiningPotentialRoleProvisionRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024PotentialRoleProvisionRequest"
     Write-Host $_.ErrorDetails
@@ -179,10 +179,10 @@ $RoleMiningSessionDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToRoleMiningSessionDto -Json $RoleMiningSessionDto
-    New-V2024RoleMiningSessions -XSailPointExperimental $XSailPointExperimental -V2024RoleMiningSessionDto $Result 
+    New-V2024RoleMiningSessions -XSailPointExperimental $XSailPointExperimental -RoleMiningSessionDto $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024RoleMiningSessions -XSailPointExperimental $XSailPointExperimental -V2024RoleMiningSessionDto $Result  
+    # New-V2024RoleMiningSessions -XSailPointExperimental $XSailPointExperimental -RoleMiningSessionDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024RoleMiningSessions"
     Write-Host $_.ErrorDetails
@@ -342,7 +342,7 @@ try {
     Export-V2024RoleMiningPotentialRoleAsync -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Export-V2024RoleMiningPotentialRoleAsync -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -V2024RoleMiningPotentialRoleExportRequest $Result  
+    # Export-V2024RoleMiningPotentialRoleAsync -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -RoleMiningPotentialRoleExportRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Export-V2024RoleMiningPotentialRoleAsync"
     Write-Host $_.ErrorDetails
@@ -1314,10 +1314,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 
 try {
     $Result = ConvertFrom-JsonToPatchPotentialRoleRequestInner -Json $PatchPotentialRoleRequestInner
-    Update-V2024PotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -V2024PatchPotentialRoleRequestInner $Result 
+    Update-V2024PotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -PatchPotentialRoleRequestInner $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024PotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -V2024PatchPotentialRoleRequestInner $Result  
+    # Update-V2024PotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -PatchPotentialRoleRequestInner $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024PotentialRole"
     Write-Host $_.ErrorDetails
@@ -1383,10 +1383,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 
 try {
     $Result = ConvertFrom-JsonToPatchPotentialRoleRequestInner -Json $PatchPotentialRoleRequestInner
-    Update-V2024PotentialRole0 -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -V2024PatchPotentialRoleRequestInner $Result 
+    Update-V2024PotentialRole0 -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -PatchPotentialRoleRequestInner $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024PotentialRole0 -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -V2024PatchPotentialRoleRequestInner $Result  
+    # Update-V2024PotentialRole0 -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -PatchPotentialRoleRequestInner $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024PotentialRole0"
     Write-Host $_.ErrorDetails
@@ -1442,10 +1442,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024RoleMiningSession -SessionId $SessionId -XSailPointExperimental $XSailPointExperimental -V2024JsonPatchOperation $Result 
+    Update-V2024RoleMiningSession -SessionId $SessionId -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024RoleMiningSession -SessionId $SessionId -XSailPointExperimental $XSailPointExperimental -V2024JsonPatchOperation $Result  
+    # Update-V2024RoleMiningSession -SessionId $SessionId -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024RoleMiningSession"
     Write-Host $_.ErrorDetails
@@ -1499,10 +1499,10 @@ $RoleMiningPotentialRoleEditEntitlements = @"{
 
 try {
     $Result = ConvertFrom-JsonToRoleMiningPotentialRoleEditEntitlements -Json $RoleMiningPotentialRoleEditEntitlements
-    Update-V2024EntitlementsPotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -V2024RoleMiningPotentialRoleEditEntitlements $Result 
+    Update-V2024EntitlementsPotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -RoleMiningPotentialRoleEditEntitlements $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024EntitlementsPotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -V2024RoleMiningPotentialRoleEditEntitlements $Result  
+    # Update-V2024EntitlementsPotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -RoleMiningPotentialRoleEditEntitlements $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024EntitlementsPotentialRole"
     Write-Host $_.ErrorDetails

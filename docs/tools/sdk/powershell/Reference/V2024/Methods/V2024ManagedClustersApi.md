@@ -72,10 +72,10 @@ $ManagedClusterRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToManagedClusterRequest -Json $ManagedClusterRequest
-    New-V2024ManagedCluster -V2024ManagedClusterRequest $Result 
+    New-V2024ManagedCluster -ManagedClusterRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024ManagedCluster -V2024ManagedClusterRequest $Result  
+    # New-V2024ManagedCluster -ManagedClusterRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024ManagedCluster"
     Write-Host $_.ErrorDetails
@@ -312,10 +312,10 @@ $PutClientLogConfigurationRequest = @""@
 
 try {
     $Result = ConvertFrom-JsonToPutClientLogConfigurationRequest -Json $PutClientLogConfigurationRequest
-    Send-V2024ClientLogConfiguration -Id $Id -V2024PutClientLogConfigurationRequest $Result 
+    Send-V2024ClientLogConfiguration -Id $Id -PutClientLogConfigurationRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-V2024ClientLogConfiguration -Id $Id -V2024PutClientLogConfigurationRequest $Result  
+    # Send-V2024ClientLogConfiguration -Id $Id -PutClientLogConfigurationRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024ClientLogConfiguration"
     Write-Host $_.ErrorDetails
@@ -366,10 +366,10 @@ $Id = "2c9180897de347a2017de8859e8c5039" # String | Managed cluster ID.
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024ManagedCluster -Id $Id -V2024JsonPatchOperation $Result 
+    Update-V2024ManagedCluster -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024ManagedCluster -Id $Id -V2024JsonPatchOperation $Result  
+    # Update-V2024ManagedCluster -Id $Id -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024ManagedCluster"
     Write-Host $_.ErrorDetails

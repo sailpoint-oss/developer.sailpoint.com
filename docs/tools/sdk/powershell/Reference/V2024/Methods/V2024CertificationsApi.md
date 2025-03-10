@@ -478,10 +478,10 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the identity campa
 
 try {
     $Result = ConvertFrom-JsonToReviewDecision -Json $ReviewDecision
-    Select-V2024IdentityDecision -Id $Id -V2024ReviewDecision $Result 
+    Select-V2024IdentityDecision -Id $Id -ReviewDecision $Result 
     
     # Below is a request that includes all optional parameters
-    # Select-V2024IdentityDecision -Id $Id -V2024ReviewDecision $Result  
+    # Select-V2024IdentityDecision -Id $Id -ReviewDecision $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Select-V2024IdentityDecision"
     Write-Host $_.ErrorDetails
@@ -537,10 +537,10 @@ $ReviewReassign = @"{
 
 try {
     $Result = ConvertFrom-JsonToReviewReassign -Json $ReviewReassign
-    Invoke-V2024ReassignIdentityCertifications -Id $Id -V2024ReviewReassign $Result 
+    Invoke-V2024ReassignIdentityCertifications -Id $Id -ReviewReassign $Result 
     
     # Below is a request that includes all optional parameters
-    # Invoke-V2024ReassignIdentityCertifications -Id $Id -V2024ReviewReassign $Result  
+    # Invoke-V2024ReassignIdentityCertifications -Id $Id -ReviewReassign $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-V2024ReassignIdentityCertifications"
     Write-Host $_.ErrorDetails
@@ -647,10 +647,10 @@ $ReviewReassign = @"{
 
 try {
     $Result = ConvertFrom-JsonToReviewReassign -Json $ReviewReassign
-    Submit-V2024ReassignCertsAsync -Id $Id -V2024ReviewReassign $Result 
+    Submit-V2024ReassignCertsAsync -Id $Id -ReviewReassign $Result 
     
     # Below is a request that includes all optional parameters
-    # Submit-V2024ReassignCertsAsync -Id $Id -V2024ReviewReassign $Result  
+    # Submit-V2024ReassignCertsAsync -Id $Id -ReviewReassign $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Submit-V2024ReassignCertsAsync"
     Write-Host $_.ErrorDetails

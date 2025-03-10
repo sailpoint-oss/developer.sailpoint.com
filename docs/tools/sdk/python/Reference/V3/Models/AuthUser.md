@@ -29,9 +29,10 @@ Name | Type | Description | Notes
 **lastname** | **str** | Auth user's last name. | [optional] 
 **display_name** | **str** | Auth user's name in displayed format. | [optional] 
 **alias** | **str** | Auth user's alias. | [optional] 
-**last_password_change_date** | **str** | Date of last password change. | [optional] 
+**last_password_change_date** | **datetime** | Date of last password change. | [optional] 
 **last_login_timestamp** | **int** | Timestamp of the last login (long type value). | [optional] 
 **current_login_timestamp** | **int** | Timestamp of the current login (long type value). | [optional] 
+**last_unlock_timestamp** | **datetime** | The date and time when the user was last unlocked. | [optional] 
 **capabilities** | **[]str** | Array of the auth user's capabilities. | [optional] 
 }
 
@@ -57,6 +58,7 @@ alias='will.smith',
 last_password_change_date='2021-03-08T22:37:33.901Z',
 last_login_timestamp=1656327185832,
 current_login_timestamp=1656327185832,
+last_unlock_timestamp='2021-03-08T22:37:33.901Z',
 capabilities=[
                     'ORG_ADMIN'
                     ]

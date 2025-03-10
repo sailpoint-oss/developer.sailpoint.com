@@ -47,7 +47,7 @@ $NonEmployeeRequestWithoutApprovalItem = Initialize-PSSailpoint.V3NonEmployeeReq
  -Phone 5125555555 `
  -Manager jane.doe `
  -NonEmployeeSource null `
- -VarData {description&#x3D;Auditing} `
+ -VarData {description=Auditing} `
  -ApprovalStatus null `
  -Comment approved `
  -CompletionDate 2020-03-24T11:11:41.139-05:00 `

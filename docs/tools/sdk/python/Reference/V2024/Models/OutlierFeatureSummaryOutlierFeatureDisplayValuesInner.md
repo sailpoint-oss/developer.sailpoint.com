@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **display_name** | **str** | display name | [optional] 
 **value** | **str** | value | [optional] 
-**value_type** |  **Enum** [  'INTEGER',    'FLOAT' ] | The data type of the value field | [optional] 
+**value_type** | [**OutlierValueType**](outlier-value-type) |  | [optional] 
 }
 
 ## Example
@@ -29,7 +29,9 @@ from sailpoint.v2024.models.outlier_feature_summary_outlier_feature_display_valu
 outlier_feature_summary_outlier_feature_display_values_inner = OutlierFeatureSummaryOutlierFeatureDisplayValuesInner(
 display_name='Aliza Chris',
 value='55',
-value_type='INTEGER'
+value_type=sailpoint.v2024.models.outlier_value_type.OutlierValueType(
+                    name = 'INTEGER', 
+                    ordinal = 0, )
 )
 
 ```

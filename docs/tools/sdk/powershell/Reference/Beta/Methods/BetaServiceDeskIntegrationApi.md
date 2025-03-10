@@ -119,10 +119,10 @@ $ServiceDeskIntegrationDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToServiceDeskIntegrationDto -Json $ServiceDeskIntegrationDto
-    New-BetaServiceDeskIntegration -BetaServiceDeskIntegrationDto $Result 
+    New-BetaServiceDeskIntegration -ServiceDeskIntegrationDto $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaServiceDeskIntegration -BetaServiceDeskIntegrationDto $Result  
+    # New-BetaServiceDeskIntegration -ServiceDeskIntegrationDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaServiceDeskIntegration"
     Write-Host $_.ErrorDetails
@@ -448,10 +448,10 @@ $PatchServiceDeskIntegrationRequest = @""@
 
 try {
     $Result = ConvertFrom-JsonToPatchServiceDeskIntegrationRequest -Json $PatchServiceDeskIntegrationRequest
-    Update-BetaServiceDeskIntegration -Id $Id -BetaPatchServiceDeskIntegrationRequest $Result 
+    Update-BetaServiceDeskIntegration -Id $Id -PatchServiceDeskIntegrationRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaServiceDeskIntegration -Id $Id -BetaPatchServiceDeskIntegrationRequest $Result  
+    # Update-BetaServiceDeskIntegration -Id $Id -PatchServiceDeskIntegrationRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaServiceDeskIntegration"
     Write-Host $_.ErrorDetails
@@ -527,10 +527,10 @@ $ServiceDeskIntegrationDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToServiceDeskIntegrationDto -Json $ServiceDeskIntegrationDto
-    Send-BetaServiceDeskIntegration -Id $Id -BetaServiceDeskIntegrationDto $Result 
+    Send-BetaServiceDeskIntegration -Id $Id -ServiceDeskIntegrationDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-BetaServiceDeskIntegration -Id $Id -BetaServiceDeskIntegrationDto $Result  
+    # Send-BetaServiceDeskIntegration -Id $Id -ServiceDeskIntegrationDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaServiceDeskIntegration"
     Write-Host $_.ErrorDetails
@@ -577,10 +577,10 @@ $QueuedCheckConfigDetails = @"{
 
 try {
     $Result = ConvertFrom-JsonToQueuedCheckConfigDetails -Json $QueuedCheckConfigDetails
-    Update-BetaStatusCheckDetails -BetaQueuedCheckConfigDetails $Result 
+    Update-BetaStatusCheckDetails -QueuedCheckConfigDetails $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaStatusCheckDetails -BetaQueuedCheckConfigDetails $Result  
+    # Update-BetaStatusCheckDetails -QueuedCheckConfigDetails $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaStatusCheckDetails"
     Write-Host $_.ErrorDetails

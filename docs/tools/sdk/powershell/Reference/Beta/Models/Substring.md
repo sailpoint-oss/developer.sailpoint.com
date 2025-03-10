@@ -32,7 +32,7 @@ $Substring = Initialize-PSSailpoint.BetaSubstring  -VarBegin 1 `
  -VarEnd 6 `
  -EndOffset 1 `
  -RequiresPeriodicRefresh false `
- -VarInput {type&#x3D;accountAttribute, attributes&#x3D;{attributeName&#x3D;first_name, sourceName&#x3D;Source}}
+ -VarInput {type=accountAttribute, attributes={attributeName=first_name, sourceName=Source}}
 ```
 
 - Convert the resource to JSON

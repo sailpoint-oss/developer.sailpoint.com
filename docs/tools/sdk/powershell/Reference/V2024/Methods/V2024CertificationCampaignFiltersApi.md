@@ -103,10 +103,10 @@ $CampaignFilterDetails = @"{
 
 try {
     $Result = ConvertFrom-JsonToCampaignFilterDetails -Json $CampaignFilterDetails
-    New-V2024CampaignFilter -V2024CampaignFilterDetails $Result 
+    New-V2024CampaignFilter -CampaignFilterDetails $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024CampaignFilter -V2024CampaignFilterDetails $Result  
+    # New-V2024CampaignFilter -CampaignFilterDetails $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024CampaignFilter"
     Write-Host $_.ErrorDetails
@@ -312,10 +312,10 @@ $CampaignFilterDetails = @"{
 
 try {
     $Result = ConvertFrom-JsonToCampaignFilterDetails -Json $CampaignFilterDetails
-    Update-V2024CampaignFilter -FilterId $FilterId -V2024CampaignFilterDetails $Result 
+    Update-V2024CampaignFilter -FilterId $FilterId -CampaignFilterDetails $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024CampaignFilter -FilterId $FilterId -V2024CampaignFilterDetails $Result  
+    # Update-V2024CampaignFilter -FilterId $FilterId -CampaignFilterDetails $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024CampaignFilter"
     Write-Host $_.ErrorDetails

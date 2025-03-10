@@ -83,10 +83,10 @@ $DeployRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToDeployRequest -Json $DeployRequest
-    New-V2024Deploy -V2024DeployRequest $Result 
+    New-V2024Deploy -DeployRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024Deploy -V2024DeployRequest $Result  
+    # New-V2024Deploy -DeployRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024Deploy"
     Write-Host $_.ErrorDetails
@@ -141,10 +141,10 @@ $ObjectMappingRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToObjectMappingRequest -Json $ObjectMappingRequest
-    New-V2024ObjectMapping -SourceOrg $SourceOrg -V2024ObjectMappingRequest $Result 
+    New-V2024ObjectMapping -SourceOrg $SourceOrg -ObjectMappingRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024ObjectMapping -SourceOrg $SourceOrg -V2024ObjectMappingRequest $Result  
+    # New-V2024ObjectMapping -SourceOrg $SourceOrg -ObjectMappingRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024ObjectMapping"
     Write-Host $_.ErrorDetails
@@ -207,10 +207,10 @@ $ObjectMappingBulkCreateRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToObjectMappingBulkCreateRequest -Json $ObjectMappingBulkCreateRequest
-    New-V2024ObjectMappings -SourceOrg $SourceOrg -V2024ObjectMappingBulkCreateRequest $Result 
+    New-V2024ObjectMappings -SourceOrg $SourceOrg -ObjectMappingBulkCreateRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024ObjectMappings -SourceOrg $SourceOrg -V2024ObjectMappingBulkCreateRequest $Result  
+    # New-V2024ObjectMappings -SourceOrg $SourceOrg -ObjectMappingBulkCreateRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024ObjectMappings"
     Write-Host $_.ErrorDetails
@@ -666,12 +666,12 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 
 ### Return type
-[**DeployResponse[]**](../models/deploy-response)
+[**ListDeploys200Response**](../models/list-deploys200-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of existing deploys. | DeployResponse[]
+200 | List of existing deploys. | ListDeploys200Response
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
@@ -844,10 +844,10 @@ $ObjectMappingBulkPatchRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToObjectMappingBulkPatchRequest -Json $ObjectMappingBulkPatchRequest
-    Update-V2024ObjectMappings -SourceOrg $SourceOrg -V2024ObjectMappingBulkPatchRequest $Result 
+    Update-V2024ObjectMappings -SourceOrg $SourceOrg -ObjectMappingBulkPatchRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024ObjectMappings -SourceOrg $SourceOrg -V2024ObjectMappingBulkPatchRequest $Result  
+    # Update-V2024ObjectMappings -SourceOrg $SourceOrg -ObjectMappingBulkPatchRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024ObjectMappings"
     Write-Host $_.ErrorDetails

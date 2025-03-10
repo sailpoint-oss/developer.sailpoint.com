@@ -25,8 +25,8 @@ Name | Type | Description | Notes
 **phase** | [**CertificationPhase**](certification-phase) |  | [required]
 **due** | **datetime** | The due date of the certification. | [required]
 **signed** | **datetime** | The date the reviewer signed off on the certification. | [required]
-**reviewer** | [**Reviewer1**](reviewer1) |  | [required]
-**reassignment** | [**Reassignment1**](reassignment1) |  | [optional] 
+**reviewer** | [**Reviewer**](reviewer) |  | [required]
+**reassignment** | [**Reassignment**](reassignment) |  | [optional] 
 **has_errors** | **bool** | Indicates it the certification has any errors. | [required]
 **error_message** | **str** | A message indicating what the error is. | [optional] 
 **completed** | **bool** | Indicates if all certification decisions have been made. | [required]
@@ -57,14 +57,26 @@ campaign_ref=sailpoint.v2024.models.campaign_reference.CampaignReference(
 phase='ACTIVE',
 due='2018-10-19T13:49:37.385Z',
 signed='2018-10-19T13:49:37.385Z',
-reviewer=sailpoint.v2024.models.reviewer_1.Reviewer_1(
+reviewer=sailpoint.v2024.models.reviewer.Reviewer(
+                    id = 'ef38f94347e94562b5bb8424a56397d8', 
+                    name = 'Reviewer Name', 
+                    email = 'reviewer@test.com', 
                     type = 'IDENTITY', 
-                    id = '2c7180a46faadee4016fb4e018c20642', 
-                    name = 'Michael Michaels', 
-                    email = 'reviewer@test.com', ),
-reassignment=sailpoint.v2024.models.reassignment_1.Reassignment_1(
-                    from = sailpoint.v2024.models.certification_reference_1.CertificationReference_1(), 
-                    comment = 'Please review', ),
+                    created = '2018-06-25T20:22:28.104Z', 
+                    modified = '2018-06-25T20:22:28.104Z', ),
+reassignment=sailpoint.v2024.models.reassignment.Reassignment(
+                    from = sailpoint.v2024.models.certification_reference.CertificationReference(
+                        id = 'ef38f94347e94562b5bb8424a56397d8', 
+                        name = 'Certification Name', 
+                        type = 'CERTIFICATION', 
+                        reviewer = sailpoint.v2024.models.reviewer.Reviewer(
+                            id = 'ef38f94347e94562b5bb8424a56397d8', 
+                            name = 'Reviewer Name', 
+                            email = 'reviewer@test.com', 
+                            type = 'IDENTITY', 
+                            created = '2018-06-25T20:22:28.104Z', 
+                            modified = '2018-06-25T20:22:28.104Z', ), ), 
+                    comment = 'Reassigned for a reason', ),
 has_errors=False,
 error_message='The certification has an error',
 completed=False,

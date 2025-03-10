@@ -182,10 +182,10 @@ $AccessProfile = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccessProfile -Json $AccessProfile
-    New-BetaAccessProfile -BetaAccessProfile $Result 
+    New-BetaAccessProfile -AccessProfile $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaAccessProfile -BetaAccessProfile $Result  
+    # New-BetaAccessProfile -AccessProfile $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaAccessProfile"
     Write-Host $_.ErrorDetails
@@ -284,10 +284,10 @@ $AccessProfileBulkDeleteRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccessProfileBulkDeleteRequest -Json $AccessProfileBulkDeleteRequest
-    Remove-BetaAccessProfilesInBulk -BetaAccessProfileBulkDeleteRequest $Result 
+    Remove-BetaAccessProfilesInBulk -AccessProfileBulkDeleteRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Remove-BetaAccessProfilesInBulk -BetaAccessProfileBulkDeleteRequest $Result  
+    # Remove-BetaAccessProfilesInBulk -AccessProfileBulkDeleteRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaAccessProfilesInBulk"
     Write-Host $_.ErrorDetails
@@ -503,10 +503,10 @@ $Id = "2c91808a7813090a017814121919ecca" # String | ID of the Access Profile to 
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-BetaAccessProfile -Id $Id -BetaJsonPatchOperation $Result 
+    Update-BetaAccessProfile -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaAccessProfile -Id $Id -BetaJsonPatchOperation $Result  
+    # Update-BetaAccessProfile -Id $Id -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaAccessProfile"
     Write-Host $_.ErrorDetails
@@ -557,10 +557,10 @@ Code | Description  | Data Type
 
 try {
     $Result = ConvertFrom-JsonToAccessProfileBulkUpdateRequestInner -Json $AccessProfileBulkUpdateRequestInner
-    Update-BetaAccessProfilesInBulk -BetaAccessProfileBulkUpdateRequestInner $Result 
+    Update-BetaAccessProfilesInBulk -AccessProfileBulkUpdateRequestInner $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaAccessProfilesInBulk -BetaAccessProfileBulkUpdateRequestInner $Result  
+    # Update-BetaAccessProfilesInBulk -AccessProfileBulkUpdateRequestInner $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaAccessProfilesInBulk"
     Write-Host $_.ErrorDetails

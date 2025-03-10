@@ -24,6 +24,10 @@ Name | Type | Description | Notes
 **description** | **str** | The description of the entitlement | [optional] 
 **privileged** | **bool** | True if the entitlement is privileged | [optional] 
 **cloud_governed** | **bool** | True if the entitlement is cloud governed | [optional] 
+**requestable** | **bool** | True if the entitlement is able to be directly requested | [optional] [default to False]
+**owner** | [**EntitlementOwner**](entitlement-owner) |  | [optional] 
+**manually_updated_fields** | **map[string]object** | A map of entitlement fields that have been manually updated. The key is the field name in UPPER_SNAKE_CASE format, and the value is true or false to indicate if the field has been updated. | [optional] 
+**access_model_metadata** | [**EntitlementAccessModelMetadata**](entitlement-access-model-metadata) |  | [optional] 
 **created** | **datetime** | Time when the entitlement was created | [optional] 
 **modified** | **datetime** | Time when the entitlement was last modified | [optional] 
 **source** | [**EntitlementSource**](entitlement-source) |  | [optional] 
@@ -46,6 +50,31 @@ source_schema_object_type='group',
 description='CN=LauncherTest2,OU=LauncherTestOrg,OU=slpt-automation,DC=TestAutomationAD,DC=local',
 privileged=True,
 cloud_governed=True,
+requestable=True,
+owner=sailpoint.v2024.models.entitlement_owner.Entitlement_owner(
+                    id = '2c9180827ca885d7017ca8ce28a000eb', 
+                    type = 'IDENTITY', 
+                    name = 'john.doe', ),
+manually_updated_fields={DISPLAY_NAME=true, DESCRIPTION=true},
+access_model_metadata=sailpoint.v2024.models.entitlement_access_model_metadata.Entitlement_accessModelMetadata(
+                    attributes = [
+                        sailpoint.v2024.models.access_model_metadata.AccessModelMetadata(
+                            key = 'iscCsp', 
+                            name = 'CSP', 
+                            multiselect = True, 
+                            status = 'active', 
+                            type = 'governance', 
+                            object_types = [
+                                'general'
+                                ], 
+                            description = 'Indicates the type of deployment environment of an access item.', 
+                            values = [
+                                sailpoint.v2024.models.access_model_metadata_values_inner.AccessModelMetadata_values_inner(
+                                    value = 'development', 
+                                    name = 'Development', 
+                                    status = 'active', )
+                                ], )
+                        ], ),
 created='2020-10-08T18:33:52.029Z',
 modified='2020-10-08T18:33:52.029Z',
 source=sailpoint.v2024.models.entitlement_source.Entitlement_source(

@@ -73,6 +73,9 @@ Method | HTTP request | Description
 ## create-role
 Create a Role
 This API creates a role.
+
+You must have a token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority to call this API. 
+
 In addition, a ROLE_SUBADMIN may not create a role including an access profile if that access profile is associated with a source the ROLE_SUBADMIN is not associated with themselves. 
 
 The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing roles. However, any new roles as well as any updates to existing descriptions will be limited to 2000 characters.
@@ -420,7 +423,7 @@ with ApiClient(configuration) as api_client:
 Delete a Role
 This API deletes a Role by its ID.
 
-A user with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
+A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-role)
 
@@ -593,7 +596,7 @@ with ApiClient(configuration) as api_client:
 ## get-role
 Get a Role
 This API returns a Role by its ID.
-A user with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
+A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-role)
 
@@ -741,12 +744,12 @@ Path   | id | **str** | True  | ID of the containing role
   Query | sorters | **str** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, attribute, value, created, modified**
 
 ### Return type
-[**List[Entitlement1]**](../models/entitlement1)
+[**List[Entitlement]**](../models/entitlement)
 
 ### Responses
 Code | Description  | Data Type | Response headers |
 ------------- | ------------- | ------------- |------------------|
-200 | List of Entitlements | List[Entitlement1] |  -  |
+200 | List of Entitlements | List[Entitlement] |  -  |
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
@@ -763,7 +766,7 @@ Code | Description  | Data Type | Response headers |
 import sailpoint.v2024
 from sailpoint.v2024.api.roles_api import RolesApi
 from sailpoint.v2024.api_client import ApiClient
-from sailpoint.v2024.models.entitlement1 import Entitlement1
+from sailpoint.v2024.models.entitlement import Entitlement
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
@@ -796,6 +799,8 @@ with ApiClient(configuration) as api_client:
 ## list-roles
 List Roles
 This API returns a list of Roles.
+
+A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-roles)
 
@@ -869,7 +874,9 @@ with ApiClient(configuration) as api_client:
 ## patch-role
 Patch a specified Role
 This API updates an existing role using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
+
 The following fields are patchable:
+
 * name
 * description
 * enabled
@@ -881,13 +888,12 @@ The following fields are patchable:
 * accessRequestConfig
 * revokeRequestConfig
 * segments
-* accessModelMetadata
-
-A user with ROLE_SUBADMIN authority may only call this API if all access profiles included in the role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
+* accessModelMetadata   
+A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all access profiles included in the role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
 
 The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing roles, however, any new roles as well as any updates to existing descriptions will be limited to 2000 characters.
 
-When you use this API to modify a role's membership identities, you can only modify up to a limit of 500 membership identities at a time. 
+When you use this API to modify a role's membership identities, you can only modify up to a limit of 500 membership identities at a time.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/patch-role)
 

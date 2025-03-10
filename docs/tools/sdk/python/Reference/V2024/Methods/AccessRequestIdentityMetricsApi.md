@@ -23,9 +23,6 @@ Method | HTTP request | Description
 
 
 ## get-access-request-identity-metrics
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Return access request identity metrics
 Use this API to return information access metrics.
 
@@ -38,7 +35,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | identity_id | **str** | True  | Manager's identity ID.
 Path   | requested_object_id | **str** | True  | Requested access item's ID.
 Path   | type | **str** | True  | Requested access item's type.
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
 
 ### Return type
 **object**
@@ -71,14 +67,13 @@ with ApiClient(configuration) as api_client:
     identity_id = '7025c863-c270-4ba6-beea-edf3cb091573' # str | Manager's identity ID. # str | Manager's identity ID.
     requested_object_id = '2db501be-f0fb-4cc5-a695-334133c52891' # str | Requested access item's ID. # str | Requested access item's ID.
     type = 'ENTITLEMENT' # str | Requested access item's type. # str | Requested access item's type.
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
         # Return access request identity metrics
         
-        results =AccessRequestIdentityMetricsApi(api_client).get_access_request_identity_metrics(identity_id, requested_object_id, type, x_sail_point_experimental)
+        results =AccessRequestIdentityMetricsApi(api_client).get_access_request_identity_metrics(identity_id, requested_object_id, type)
         # Below is a request that includes all optional parameters
-        # results = AccessRequestIdentityMetricsApi(api_client).get_access_request_identity_metrics(identity_id, requested_object_id, type, x_sail_point_experimental)
+        # results = AccessRequestIdentityMetricsApi(api_client).get_access_request_identity_metrics(identity_id, requested_object_id, type)
         print("The response of AccessRequestIdentityMetricsApi->get_access_request_identity_metrics:\n")
         pprint(results)
         except Exception as e:

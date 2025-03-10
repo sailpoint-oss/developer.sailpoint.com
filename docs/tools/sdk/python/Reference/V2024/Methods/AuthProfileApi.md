@@ -21,8 +21,8 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get-profile-config**](#get-profile-config) | **GET** `/auth-profiles/{id}` | Get Auth Profile.
-[**get-profile-config-list**](#get-profile-config-list) | **GET** `/auth-profiles` | Get list of Auth Profiles.
+[**get-profile-config**](#get-profile-config) | **GET** `/auth-profiles/{id}` | Get Auth Profile
+[**get-profile-config-list**](#get-profile-config-list) | **GET** `/auth-profiles` | Get list of Auth Profiles
 [**patch-profile-config**](#patch-profile-config) | **PATCH** `/auth-profiles/{id}` | Patch a specified Auth Profile
 
 
@@ -30,7 +30,7 @@ Method | HTTP request | Description
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
-Get Auth Profile.
+Get Auth Profile
 This API returns auth profile information.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-profile-config)
@@ -76,7 +76,7 @@ with ApiClient(configuration) as api_client:
     id = '2c91808a7813090a017814121919ecca' # str | ID of the Auth Profile to patch. # str | ID of the Auth Profile to patch.
 
     try:
-        # Get Auth Profile.
+        # Get Auth Profile
         
         results =AuthProfileApi(api_client).get_profile_config(x_sail_point_experimental, id)
         # Below is a request that includes all optional parameters
@@ -95,7 +95,7 @@ with ApiClient(configuration) as api_client:
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
-Get list of Auth Profiles.
+Get list of Auth Profiles
 This API returns a list of auth profiles.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-profile-config-list)
@@ -107,12 +107,12 @@ Param Type | Name | Data Type | Required  | Description
    | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
 
 ### Return type
-[**AuthProfileSummary**](../models/auth-profile-summary)
+[**List[AuthProfileSummary]**](../models/auth-profile-summary)
 
 ### Responses
 Code | Description  | Data Type | Response headers |
 ------------- | ------------- | ------------- |------------------|
-200 | List of Auth Profiles | AuthProfileSummary |  -  |
+200 | List of Auth Profiles | List[AuthProfileSummary] |  -  |
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
@@ -138,7 +138,7 @@ with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
-        # Get list of Auth Profiles.
+        # Get list of Auth Profiles
         
         results =AuthProfileApi(api_client).get_profile_config_list(x_sail_point_experimental)
         # Below is a request that includes all optional parameters

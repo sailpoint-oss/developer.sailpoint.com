@@ -17,7 +17,7 @@ tags: ['SDK', 'Software Development Kit', 'RoleMiningIdentityDistribution', 'V20
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **attribute_name** | **str** | Id of the potential role | [optional] 
-**distribution** | **[]Dict[str, str]** |  | [optional] 
+**distribution** | **[]Dict[str, object]** |  | [optional] 
 }
 
 ## Example

@@ -108,10 +108,10 @@ $TenantUiMetadataItemUpdateRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToTenantUiMetadataItemUpdateRequest -Json $TenantUiMetadataItemUpdateRequest
-    Set-BetaTenantUiMetadata -BetaTenantUiMetadataItemUpdateRequest $Result 
+    Set-BetaTenantUiMetadata -TenantUiMetadataItemUpdateRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Set-BetaTenantUiMetadata -BetaTenantUiMetadataItemUpdateRequest $Result  
+    # Set-BetaTenantUiMetadata -TenantUiMetadataItemUpdateRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-BetaTenantUiMetadata"
     Write-Host $_.ErrorDetails

@@ -1,0 +1,129 @@
+description: Managed Cluster
+type: object
+required:
+  - id
+  - clientType
+  - ccgVersion
+properties:
+  id:
+    description: ManagedCluster ID
+    type: string
+    example: "e1ff7bb24c934240bbf55e1aa39e41c5"
+  name:
+    description: ManagedCluster name
+    type: string
+    example: Managed Cluster Name
+  pod:
+    description: ManagedCluster pod
+    type: string
+    example: megapod-useast1
+  org:
+    description: ManagedCluster org
+    type: string
+    example: denali
+  type:
+    description: The Type of Cluster
+    example: 'idn'
+    nullable: false
+    default: 'idn'
+    $ref: './ManagedClusterTypes.yaml'
+  configuration:
+    description: ManagedProcess configuration map
+    type: object
+    additionalProperties:
+      type: string
+      nullable: true
+    example: { "clusterExternalId": "e1ff7bb24c934240bbf55e1aa39e41c5", "clusterType": "sqsCluster", "gmtOffset": "-5" }
+  keyPair:
+    description: key pair for the ManagedCluster
+    $ref: './ManagedClusterKeyPair.yaml'
+  attributes:
+    description: Specific Attributes for Configuring a ManagedCluster by Type
+    $ref: './ManagedClusterAttributes.yaml'
+  description:
+    description: ManagedCluster description
+    type: string
+    default: "q"
+    example: A short description of the managed cluster.
+  redis:
+    description: Redis configuration for the ManagedCluster
+    $ref: './ManagedClusterRedis.yaml'
+  clientType:
+    description: type of client for the ManagedCluster
+    $ref: './ManagedClientType.yaml'
+  ccgVersion:
+    description: CCG version used by the ManagedCluster
+    type: string
+    example: v01
+  pinnedConfig:
+    description: boolean flag indiacting whether or not the cluster configuration is pinned
+    type: boolean
+    default: false
+    example: false
+  logConfiguration:
+    description: client log configuration for the cluster
+    example: '{
+      "rootLevel": "WARN",
+      "logLevels": { "foobar": "WARN" }
+    }'
+    $ref: './ClientLogConfiguration.yaml'
+  operational:
+    description: Whether or not the cluster is operational or not
+    type: boolean
+    default: false
+    example: false
+  status:
+    description: Cluster status
+    type: string
+    example: NORMAL
+  publicKeyCertificate:
+    nullable: true
+    description: Public key certificate
+    type: string
+    example: -----BEGIN CERTIFICATE-----TCCAb2gAwIBAgIBADANBgkqhkiG9w0BAQsFADAuMQ0wCwYDVQQD-----END CERTIFICATE-----
+  publicKeyThumbprint:
+    nullable: true
+    description: Public key thumbprint
+    type: string
+    example: obc6pLiulGbtZ
+  publicKey:
+    nullable: true
+    description: Public key
+    type: string
+    example: -----BEGIN PUBLIC KEY-----jANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA3WgnsxP52MDgBTfHR+5n4-----END PUBLIC KEY-----
+  alertKey:
+    description: Key describing any immediate cluster alerts
+    type: string
+    example: LIMITED_RESOURCES
+  clientIds:
+    type: array
+    description: List of clients in a cluster
+    items:
+      type: string
+    example: [
+      "1244",
+      "1245"
+    ]
+  serviceCount:
+    description: Number of services bound to a cluster
+    type: integer
+    format: int32
+    default: 0
+    example: 6
+  ccId:
+    description: CC ID only used in calling CC, will be removed without notice when Migration to CEGS is finished
+    type: string
+    default: "0"
+    example: "1533"
+  createdAt:
+    description: The date/time this cluster was created
+    example: '2023-08-04T20:48:01.865Z'
+    nullable: true
+    type: string
+    format: date-time
+  updatedAt:
+    description: The date/time this cluster was last updated
+    example: '2023-08-04T20:48:01.865Z'
+    nullable: true
+    type: string
+    format: date-time

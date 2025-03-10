@@ -23,8 +23,8 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessRequestResponse = Initialize-PSSailpoint.V3AccessRequestResponse  -NewRequests [{requestedFor&#x3D;899fd612ecfc4cf3bf48f14d0afdef89, requestedItemsDetails&#x3D;[{type&#x3D;ENTITLEMENT, id&#x3D;779c6fd7171540bba1184e5946112c28}], attributesHash&#x3D;-1928438224, accessRequestIds&#x3D;[5d3118c518a44ec7805450d53479ccdb]}] `
- -ExistingRequests [{requestedFor&#x3D;899fd612ecfc4cf3bf48f14d0afdef89, requestedItemsDetails&#x3D;[{type&#x3D;ROLE, id&#x3D;779c6fd7171540bbc1184e5946112c28}], attributesHash&#x3D;2843118224, accessRequestIds&#x3D;[5d3118c518a44ec7805450d53479ccdc]}]
+$AccessRequestResponse = Initialize-PSSailpoint.V3AccessRequestResponse  -NewRequests [{requestedFor=899fd612ecfc4cf3bf48f14d0afdef89, requestedItemsDetails=[{type=ENTITLEMENT, id=779c6fd7171540bba1184e5946112c28}], attributesHash=-1928438224, accessRequestIds=[5d3118c518a44ec7805450d53479ccdb]}] `
+ -ExistingRequests [{requestedFor=899fd612ecfc4cf3bf48f14d0afdef89, requestedItemsDetails=[{type=ROLE, id=779c6fd7171540bbc1184e5946112c28}], attributesHash=2843118224, accessRequestIds=[5d3118c518a44ec7805450d53479ccdc]}]
 ```
 
 - Convert the resource to JSON

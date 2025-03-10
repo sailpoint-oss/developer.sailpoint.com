@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$FormDefinitionDynamicSchemaResponse = Initialize-PSSailpoint.BetaFormDefinitionDynamicSchemaResponse  -OutputSchema {outputSchema&#x3D;{$schema&#x3D;https://json-schema.org/draft/2020-12/schema, additionalProperties&#x3D;false, properties&#x3D;{firstName&#x3D;{title&#x3D;First Name, type&#x3D;string}, fullName&#x3D;{title&#x3D;Full Name, type&#x3D;string}, lastName&#x3D;{title&#x3D;Last Name, type&#x3D;string}, startDate&#x3D;{format&#x3D;date-time, title&#x3D;Start Date, type&#x3D;string}}, type&#x3D;object}}
+$FormDefinitionDynamicSchemaResponse = Initialize-PSSailpoint.BetaFormDefinitionDynamicSchemaResponse  -OutputSchema {outputSchema={$schema=https://json-schema.org/draft/2020-12/schema, additionalProperties=false, properties={firstName={title=First Name, type=string}, fullName={title=Full Name, type=string}, lastName={title=Last Name, type=string}, startDate={format=date-time, title=Start Date, type=string}}, type=object}}
 ```
 
 - Convert the resource to JSON

@@ -30,7 +30,7 @@ $SourceAppAccountSource = Initialize-PSSailpoint.V2024SourceAppAccountSource  -I
  -Type SOURCE `
  -Name ODS-AD-Source `
  -UseForPasswordManagement false `
- -PasswordPolicies [{type&#x3D;PASSWORD_POLICY, id&#x3D;006a072ecc6647f68bba9f4a4ad34649, name&#x3D;Password Policy 1}]
+ -PasswordPolicies [{type=PASSWORD_POLICY, id=006a072ecc6647f68bba9f4a4ad34649, name=Password Policy 1}]
 ```
 
 - Convert the resource to JSON

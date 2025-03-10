@@ -38,8 +38,8 @@ from sailpoint.v2024.models.sim_integration_details import SimIntegrationDetails
 sim_integration_details = SimIntegrationDetails(
 id='id12345',
 name='aName',
-created='2023-01-03T21:16:22.432Z',
-modified='2023-01-03T21:16:22.432Z',
+created='2015-05-28T14:07:17Z',
+modified='2015-05-28T14:07:17Z',
 description='Integration description',
 type='ServiceNow Service Desk',
 attributes={"uid":"Walter White","firstname":"walter","cloudStatus":"UNREGISTERED","displayName":"Walter White","identificationNumber":"942","lastSyncDate":1470348809380,"email":"walter@gmail.com","lastname":"white"},

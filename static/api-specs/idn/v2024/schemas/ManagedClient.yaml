@@ -1,0 +1,146 @@
+description: Managed Client
+type: object
+required:
+  - clientId
+  - clusterId
+  - description
+  - type
+properties:
+  id:
+    description: ManagedClient ID
+    readOnly: true
+    nullable: true
+    type: string
+    example: "2c9180878eaf4204018eb019c3570003"
+  alertKey:
+    description: ManagedClient alert key
+    readOnly: true
+    nullable: true
+    type: string
+    example: "CLIENT_STATUS_NOT_CONFIGURED"
+  apiGatewayBaseUrl:
+    nullable: true
+    type: string
+  cookbook:
+    nullable: true
+    type: string 
+  ccId:
+    description: Previous CC ID to be used in data migration. (This field will be deleted after CC migration!)
+    nullable: true
+    type: integer
+    format: int64
+    example: 2248
+  clientId:
+    description: The client ID used in API management
+    type: string
+    example: "00be54a2-bb6d-402f-9159-beb2d5319347"
+  clusterId:
+    description: Cluster ID that the ManagedClient is linked to
+    type: string
+    example: "e1ff7bb24c934240bbf55e1aa39e41c5"
+  description:
+    description: ManagedClient description
+    type: string
+    default: ''
+    example: A short description of the ManagedClient
+  ipAddress:
+    description: The public IP address of the ManagedClient
+    readOnly: true
+    nullable: true
+    type: string
+    example: 123.456.78.90
+  lastSeen:
+    description: When the ManagedClient was last seen by the server
+    readOnly: true
+    nullable: true
+    type: string
+    format: date-time
+    example: "2020-01-01T00:00:00.000000Z"
+  name:
+    description: ManagedClient name
+    nullable: true
+    type: string
+    default: "VA-$clientId"
+    example: aName
+  sinceLastSeen:
+    description: Milliseconds since the ManagedClient has polled the server
+    readOnly: true
+    nullable: true
+    type: string
+    example: 15000
+  status:
+    description: Status of the ManagedClient
+    readOnly: true
+    nullable: true
+    type: string
+    enum:
+      - NORMAL
+      - UNDEFINED
+      - NOT_CONFIGURED
+      - CONFIGURING
+      - WARNING
+      - ERROR
+      - FAILED
+      - null
+    example:
+      NORMAL
+  type:
+    description: Type of the ManagedClient (VA, CCG)
+    type: string
+    example: VA
+  clusterType:
+    description: Cluster Type of the ManagedClient
+    readOnly: true
+    nullable: true
+    type: string
+    enum:
+      - null
+      - idn
+      - iai
+      - spConnectCluster
+      - sqsCluster
+      - das-rc
+      - das-pc
+      - das-dc
+    example:
+      idn
+  vaDownloadUrl:
+    description: ManagedClient VA download URL
+    readOnly: true
+    nullable: true
+    type: string
+    example: aUrl
+  vaVersion:
+    description: Version that the ManagedClient's VA is running
+    readOnly: true
+    nullable: true
+    type: string
+    example: va-megapod-useast1-610-1621372012
+  secret:
+    description: Client's apiKey
+    nullable: true
+    type: string
+    example: ef878e15eaa8c8d3e2fa52f41125e2a0eeadadc6a14f931a33ad3e1b62d56381
+  createdAt:
+    description: The date/time this ManagedClient was created
+    example: '2023-08-04T20:48:01.865Z'
+    nullable: true
+    type: string
+    format: date-time
+  updatedAt:
+    description: The date/time this ManagedClient was last updated
+    example: '2023-08-04T20:48:01.865Z'
+    nullable: true
+    type: string
+    format: date-time
+  provisionStatus:
+    description: The provisioning status of the ManagedClient
+    readOnly: true
+    nullable: true
+    type: string
+    enum:
+      - null
+      - PROVISIONED
+      - DRAFT
+    example:
+      PROVISIONED

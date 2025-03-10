@@ -85,33 +85,59 @@ export async function getUserTitle(primary_group_name: string): Promise<any> {
   }
 }
 
-export async function getVideoPosts(tags?: string[]): Promise<any> {
-  let url = '';
+interface VideoPostResponse {
+  users: any[];
+  topic_list: {
+    topics: any[];
+  };
+}
 
-  if (tags) {
-    url = tags.length < 1
-      ? discourseBaseURL() + 'c/content/video-library/127.json'
-      : discourseBaseURL() + `/tags/c/content/video-library/127/${tags.join('+')}.json`;
+export async function getVideoPosts(tags?: string[]): Promise<VideoPostResponse | []> {
+  let url: string = '';
+  let allData: VideoPostResponse = {
+    users: [],
+    topic_list: {
+      topics: [],
+    },
+  };
+
+  if (tags && tags.length > 0) {
+    switch (tags.length) {
+      case 1:
+        url = `${discourseBaseURL()}/tags/c/content/video-library/127/${tags[0]}.json`;
+        break;
+      case 2:
+        url = `${discourseBaseURL()}/filter.json?q=category%3Avideo-library%20tag%3A${tags[0]}%2B${tags[1]}`;
+        break;
+      case 3:
+        url = `${discourseBaseURL()}/filter.json?q=category%3Avideo-library%20tag%3A${tags[0]}%2B${tags[1]}%2B${tags[2]}`;
+        break;
+      default:
+        url = `${discourseBaseURL()}c/content/video-library/127.json`;
+    }
   } else {
-    url = discourseBaseURL() + 'c/content/video-library/l/latest.json';
+    url = `${discourseBaseURL()}c/content/video-library/l/latest.json`;
   }
-
-  let allData: any = { users: [], topic_list: { topics: [] } };
 
   try {
     let page = 0;
     while (true) {
-      const response = await fetch(url);
-      const data = await response.json();
+      const pageUrl = page === 0 ? url : `${url}${tags && tags.length > 1 ? '&' : '?'}page=${page}`;
+      const response = await fetch(pageUrl);
+      const data: VideoPostResponse = await response.json();
 
-      allData.topic_list.topics = allData.topic_list.topics.concat(data.topic_list.topics);
-      allData.users = allData.users.concat(data.users);
+      allData.topic_list.topics = [...allData.topic_list.topics, ...data.topic_list.topics];
+      allData.users = [...allData.users, ...data.users];
 
-      if (data.topic_list.topics.length < 30) break;
+      if (data.topic_list.topics.length < 30) {
+        // Less than 30 topics means it's the last page
+        break;
+      }
       page++;
     }
     return allData;
   } catch (error) {
+    console.error("Error fetching video posts:", error);
     return [];
   }
 }

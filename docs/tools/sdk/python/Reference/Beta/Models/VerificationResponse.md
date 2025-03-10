@@ -1,0 +1,37 @@
+---
+id: beta-verification-response
+title: VerificationResponse
+pagination_label: VerificationResponse
+sidebar_label: VerificationResponse
+sidebar_class_name: pythonsdk
+keywords: ['python', 'Python', 'sdk', 'VerificationResponse', 'BetaVerificationResponse'] 
+slug: /tools/sdk/python/beta/models/verification-response
+tags: ['SDK', 'Software Development Kit', 'VerificationResponse', 'BetaVerificationResponse']
+---
+
+# VerificationResponse
+
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**request_id** | **str** | The verificationPollRequest request ID | [optional] 
+**status** |  **Enum** [  'PENDING',    'SUCCESS',    'FAILED',    'LOCKOUT',    'NOT_ENOUGH_DATA' ] | MFA Authentication status | [optional] 
+**error** | **str** | Error messages from MFA verification request | [optional] 
+}
+
+## Example
+
+```python
+from sailpoint.beta.models.verification_response import VerificationResponse
+
+verification_response = VerificationResponse(
+request_id='089899f13a8f4da7824996191587bab9',
+status='SUCCESS',
+error='Unable to connect DUO Service during verification'
+)
+
+```
+[[Back to top]](#) 
+

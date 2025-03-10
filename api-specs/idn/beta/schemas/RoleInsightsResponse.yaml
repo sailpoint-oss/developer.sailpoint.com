@@ -1,0 +1,40 @@
+type: object
+properties:
+  id:
+    type: string
+    description: Request Id for a role insight generation request
+    example: 8c190e67-87aa-4ed9-a90b-d9d5344523fb
+  createdDate:
+    type: string
+    format: 'date-time'
+    description: The date-time role insights request was created.
+    example: '2020-09-16T18:49:32.150Z'
+  lastGenerated:
+    type: string
+    format: 'date-time'
+    description: The date-time role insights request was completed.
+    example: '2020-09-16T18:50:12.150Z'
+  numberOfUpdates:
+    type: integer
+    description: Total number of updates for this request. Starts with 0 and will have correct number when request is COMPLETED.
+    example: 0
+  roleIds:
+    description: The role IDs that are in this request.
+    type: array
+    items:
+      type: string
+  status:
+    type: string
+    description: Request status
+    enum:
+      - CREATED
+      - IN PROGRESS
+      - COMPLETED
+      - FAILED
+example:
+  id: "c9aa02f7-86b0-4bc4-84bd-3116a6131e77"
+  createdDate: "2020-09-16T18:49:32.150Z"
+  lastGenerated: "2020-09-16T18:49:32.150Z"
+  numberOfUpdates: 0
+  roleIds: ["2c91808e720e94f8017253287c0a44f4", "2c918087723ac2800172532191540e03", "2c9180986e4c8592016e6b15eaef447c"]
+  status: "CREATED"

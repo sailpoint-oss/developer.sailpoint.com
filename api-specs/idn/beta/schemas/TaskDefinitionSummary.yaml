@@ -1,0 +1,35 @@
+description: Definition of a type of task, used to invoke tasks
+required:
+  - arguments
+  - description
+  - executor
+  - id
+  - uniqueName
+  - parentName
+type: object
+properties:
+  id:
+    description: System-generated unique ID of the TaskDefinition
+    type: string
+    example: 2c91808475b4334b0175e1dff64b63c5
+  uniqueName:
+    description: Name of the TaskDefinition
+    type: string
+    example: Cloud Account Aggregation
+  description:
+    description: Description of the TaskDefinition
+    type: string
+    example: Aggregates from the specified application.
+  parentName:
+    description: Name of the parent of the TaskDefinition
+    type: string
+    example: Cloud Account Aggregation
+  executor:
+    description: Executor of the TaskDefinition
+    nullable: true
+    type: string
+    example: sailpoint.task.ServiceTaskExecutor
+  arguments:
+    description: Formal parameters of the TaskDefinition, without values
+    type: object
+    additionalProperties: true

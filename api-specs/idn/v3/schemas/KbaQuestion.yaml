@@ -1,0 +1,29 @@
+description: KBA Configuration
+type: object
+properties:
+  id:
+    type: string
+    nullable: false
+    description: KBA Question Id
+    example: 143cfd3b-c23f-426b-ae5f-d3db06fa5919
+  text:
+    type: string
+    nullable: false
+    description: KBA Question description
+    example: "[{\"text\":\"Nouvelle question MFA -1 ?\",\"locale\":\"fr\"},{\"text\":\"MFA new question -1 ?\",\"locale\":\"\"}]"
+  hasAnswer:
+    type: boolean
+    nullable: false
+    description: Denotes whether the KBA question has an answer configured for any user in the tenant
+    example: true
+  numAnswers:
+    type: integer
+    format: int32
+    nullable: false
+    description: Denotes the number of KBA configurations for this question
+    example: 5
+required:
+  - id
+  - text
+  - hasAnswer
+  - numAnswers

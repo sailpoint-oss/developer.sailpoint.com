@@ -1,0 +1,18 @@
+type: object
+properties:
+  uid:
+    type: string
+    minLength: 32
+    maxLength: 32
+    example: "sponsors_role"
+  type:
+    type: string
+    enum: [NeprofileRole, NeaccessRole]
+  name:
+    type: string
+    example: "Sponsors"
+  groups:
+    type: array
+    items:
+      type: string
+      example: "ad_group_name"

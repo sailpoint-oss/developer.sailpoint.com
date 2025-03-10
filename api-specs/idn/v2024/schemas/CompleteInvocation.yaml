@@ -1,0 +1,17 @@
+type: object
+properties:
+  secret:
+    type: string
+    description: Unique invocation secret that was generated when the invocation was created. Required to authenticate to the endpoint.
+    example: "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde"
+  error:
+    type: string
+    description: The error message to indicate a failed invocation or error if any.
+    example: "Access request is denied."
+  output:
+    type: object
+    example: {"approved": false}
+    description: Trigger output to complete the invocation. Its schema is defined in the trigger definition.
+required:
+  - secret
+  - output

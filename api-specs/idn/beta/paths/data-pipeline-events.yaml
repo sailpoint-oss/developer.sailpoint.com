@@ -1,0 +1,106 @@
+get:
+  operationId: getDataPipelineEvents
+  tags:
+    - IAI Data Pipeline Events
+  summary: Get List of Pipeline events
+  description: >-
+    This presents a list of events and metadata for each pipeline of a customer.
+    They are summarized per qualifier.
+    The default object response is a summary with only the qualifier, dagId and type.
+
+    Requires security scope of 'iai:data-pipeline:read'
+  parameters:
+    - in: query
+      name: dagId
+      example: ida-sp-one-streaming-144
+      schema:
+        type: string
+      description: >-
+        Filter results based on specified Directed Acyclic Graph id.
+    - in: query
+      name: type
+      example: IAI_PIPELINE_STREAMING
+      schema:
+        type: string
+        enum:
+          - IAI_PIPELINE_META
+          - IAI_PIPELINE_STREAMING
+          - IAI_PIPELINE_BATCH
+          - IAI_PIPELINE_QUALIFIER_ACTIVATED
+          - IAI_PIPELINE_FEATURESTORE
+          - IAI_PIPELINE_IDENTITYGRAPH
+          - IAI_PIPELINE_MATERIALIZER
+          - IAI_PIPELINE_LOW_SIMILARITY_OUTLIERS
+          - IAI_PIPELINE_PEERGROUPS
+      description: >-
+        The type of the data pipeline event.
+    - in: query
+      name: detailed
+      example: false
+      schema:
+        type: boolean
+      description: >-
+        Indicates if we want to list detailed parameters to support old behavior.
+  responses:
+    '200':
+      description: The response will return a detailed view (already defined) or a summary view {qualifier, type, dagId} depending on 'detailed' parameter
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              oneOf:
+                - $ref: '../schemas/DataPipelineQualifiers.yaml'
+                - $ref: '../schemas/DataPipelineSummary.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+post:
+  operationId: postDataPipelineEvents
+  tags:
+    - IAI Data Pipeline Events
+  summary: Creates Data Pipeline Event
+  description: >-
+    This creates a Data Pipeline Event for a customer in context.
+
+    Requires security scope of 'iai:data-pipeline:create'
+  requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/DataPipelineEvent.yaml'
+          example:
+            timestamp: "2020-09-08T19:32:17.292Z"
+            dagId: ida-sp-one-streaming-144
+            qualifier: "20200909123456"
+            type: IAI_PIPELINE_STREAMING
+            operation: ActivateQualifier
+            status: success
+            details:
+              taskTryNumber: "2"
+              taskDuration: "234"
+  responses:
+    '201':
+      description: Created.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/DataPipelineEvent.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

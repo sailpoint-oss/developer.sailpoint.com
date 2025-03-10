@@ -1,0 +1,51 @@
+post:
+  operationId: testSourceConnection
+  tags:
+  - Sources
+  summary: Check connection for source connector.
+  description: >-
+    This endpoint validates that the configured credentials are valid
+    and will properly authenticate with the source identified by the sourceId path
+    parameter.
+  security:
+  - userAuth:
+    - idn:source-connector:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  parameters:
+  - in: path
+    name: sourceId
+    schema:
+      type: string
+    required: true
+    x-sailpoint-resource-operation-id: listSources
+    description: The ID of the Source.
+    example: cef3ee201db947c5912551015ba0c679
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  responses:
+    '200':
+      description: The result of checking connection to the source connector with
+        response from it.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/StatusResponse.yaml
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '404':
+      $ref: ../responses/404.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml

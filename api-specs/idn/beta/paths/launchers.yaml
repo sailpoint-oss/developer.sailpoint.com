@@ -1,0 +1,112 @@
+get:
+  tags:
+    - Launchers
+  summary: List all Launchers for tenant
+  description: Return a list of Launchers for the authenticated tenant
+  operationId: getLaunchers
+  parameters:
+    - name: filters
+      in: query
+      description: >-
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+        Filtering is supported for the following fields and operators:
+
+
+        **description**: *sw*
+
+
+        **disabled**: *eq*
+
+
+        **name**: *sw*
+      example: disabled eq "true"
+      required: false
+      schema:
+        type: string
+    - name: next
+      in: query
+      description: Pagination marker
+      required: false
+      schema:
+        type: string
+      example: eyJuZXh0IjoxMjN9Cg==
+    - name: limit
+      in: query
+      description: Number of Launchers to return
+      required: false
+      schema:
+        type: integer
+        format: int32
+        minimum: 1
+        maximum: 100
+        default: 10
+      example: 42
+  responses:
+    '200':
+      description: List of Launchers
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              next:
+                type: string
+                description: Pagination marker
+              items:
+                type: array
+                items:
+                  $ref: "../schemas/Launcher.yaml"
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - userAuth: [ sp:launcher-admin:read, sp:launcher-user:read ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+post:
+  tags:
+    - Launchers
+  summary: Create launcher
+  description: Create a Launcher with given information
+  operationId: createLauncher
+  requestBody:
+    description: Payload to create a Launcher
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../schemas/LauncherRequest.yaml"
+  responses:
+    '201':
+      description: Launcher created successfully
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/Launcher.yaml"
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - userAuth: [ sp:launcher-admin:write ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN

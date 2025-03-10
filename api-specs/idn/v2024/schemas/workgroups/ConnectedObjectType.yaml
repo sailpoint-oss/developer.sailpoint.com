@@ -1,0 +1,9 @@
+type: string
+enum:
+  - ACCESS_PROFILE
+  - ROLE
+  - SOD_POLICY
+  - SOURCE
+description: An enumeration of the types of Objects associated with a Governance Group.
+             Supported object types are ACCESS_PROFILE, ROLE, SOD_POLICY and SOURCE.
+example: ACCESS_PROFILE

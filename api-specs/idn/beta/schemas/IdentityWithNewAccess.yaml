@@ -1,0 +1,21 @@
+description: An identity with a set of access to be added
+required:
+  - identityId
+  - accessRefs
+type: object
+properties:
+  identityId:
+    description: Set of identity IDs to be checked.
+    type: string
+  accessRefs:
+    description: The bundle of access profiles to be added to the identities specified. All references must be ENTITLEMENT type.
+    type: array
+    items:
+      $ref: './EntitlementRef.yaml'
+  clientMetadata:
+    type: object
+    additionalProperties:
+      type: string
+    description: >-
+      Arbitrary key-value pairs. They will never be processed by the IdentityNow system but will be returned on
+      completion of the violation check.

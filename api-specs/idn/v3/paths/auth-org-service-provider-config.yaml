@@ -1,0 +1,133 @@
+get:
+  operationId: getAuthOrgServiceProviderConfig
+  tags:
+    - Global Tenant Security Settings
+  summary: Get Service Provider Configuration.
+  description: >-
+    This API returns the details of an org's service provider auth
+    configuration.
+  responses:
+    "200":
+      description: Service provider configuration for the tenant.
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/ServiceProviderConfiguration.yaml"
+    "400":
+      $ref: "../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "404":
+      $ref: "../../v3/responses/404.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"
+  security:
+   - userAuth: []
+patch:
+  operationId: patchAuthOrgServiceProviderConfig
+  tags:
+    - Global Tenant Security Settings
+  summary: Update Service Provider Configuration
+  description: >-
+    This API updates an existing service provider configuration for an org using
+    PATCH.
+  requestBody:
+    required: true
+    description: >-
+      A list of auth org service provider configuration update operations
+      according to the [JSON Patch](https://tools.ietf.org/html/rfc6902)
+      standard.
+
+      Note: /federationProtocolDetails/0 is IdpDetails
+      /federationProtocolDetails/1 is SpDetails
+
+      Ensures that the patched ServiceProviderConfig conforms to certain logical
+      guidelines, which are:
+        1. Do not add or remove any elements in the federation protocol details
+      in the service provider configuration.
+        2. Do not modify, add, or delete the service provider details element in
+      the federation protocol details.
+        3. If this is the first time the patched ServiceProviderConfig enables
+      Remote IDP sign-in, it must also include IDPDetails.
+        4. If the patch enables Remote IDP sign in, the entityID in the
+      IDPDetails cannot be null. IDPDetails must include an entityID.
+        5. Any JIT configuration update must be valid.
+
+      Just in time configuration update must be valid when enabled. This
+      includes:
+        - A Source ID
+        - Source attribute mappings
+        - Source attribute maps have all the required key values (firstName,
+      lastName, email)
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: "../schemas/JsonPatchOperation.yaml"
+        example:
+          - op: "replace"
+            path: "/enabled"
+            value: true,
+          - op: "add"
+            path: "/federationProtocolDetails/0/jitConfiguration"
+            value:
+              {
+                "enabled": true,
+                "sourceId": "2c9180857377ed2901739c12a2da5ac8",
+                "sourceAttributeMappings":
+                  {
+                    "firstName": "okta.firstName",
+                    "lastName": "okta.lastName",
+                    "email": "okta.email",
+                    "employeeNumber": "okta.employeeNumber",
+                  },
+              }
+  responses:
+    "200":
+      description: Auth Org Service Provider configuration updated.
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/ServiceProviderConfiguration.yaml"
+    "400":
+      description: Client Error - Returned if the request body is invalid.
+      content:
+        application/json:
+          schema:
+            $ref: "../../v3/schemas/ErrorResponseDto.yaml"
+          examples:
+            400.1 Bad Request Content:
+              description: Response for bad request content
+              value:
+                detailCode: 400.1 Bad Request Content
+                trackingId: e7eab60924f64aa284175b9fa3309599
+                messages:
+                  - locale: en
+                    localeOrigin: REQUEST
+                    text: firstName is required; accountName is required;
+            400.1.3 Illegal value:
+              description: Response for Illegal value
+              value:
+                detailCode: 400.1.3 Illegal value
+                trackingId: e7eab60924f64aa284175b9fa3309599
+                messages:
+                  - locale: en
+                    localeOrigin: REQUEST
+                    text: JIT source id is invalid.
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "404":
+      $ref: "../../v3/responses/404.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"
+  security:
+    - userAuth: []

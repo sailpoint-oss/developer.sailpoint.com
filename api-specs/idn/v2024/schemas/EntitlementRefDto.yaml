@@ -1,0 +1,15 @@
+type: object
+properties:
+  id:
+    type: string
+    description: the entitlement ID
+    example: "2c918085704000d90170456dae770028"
+  name:
+    type: string
+    description: the entitlement name
+    example: "SBS Mobile Users"
+  description:
+    type: string
+    description: the entitlement description
+    example: "VPN access"    
+    

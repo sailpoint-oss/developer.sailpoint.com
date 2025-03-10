@@ -1,0 +1,37 @@
+type: object
+properties:
+  attribute:
+    type: string
+    description: the native identity
+  value:
+    type: string
+    description: the count of the entitlements
+  type:
+    type: number
+    description: the count of the permissions
+  description:
+    type: string
+    description: the description
+  accountName:
+    type: string
+    description: the name of account
+  displayName:
+    type: string
+    description: the name of item  
+  firstObservedDate:
+    type: string
+    description: the date when we first see this piece in current identity
+  dataSourceName:
+    type: string
+    description: the data source name  
+example:
+  attribute: ent_code
+  value: group-20180328
+  type: Entitlement
+  description: null
+  sourceName: JDBC Entitlements Source
+  accountName: null
+  displayName": group-20180328
+  firstObservedDate: null
+  dataSourceName: null
+  

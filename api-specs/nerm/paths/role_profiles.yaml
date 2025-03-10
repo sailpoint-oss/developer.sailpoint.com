@@ -1,0 +1,48 @@
+get:
+  summary: Get role-profile contributor relationships
+  operationId: getRoleProfiles
+  description: Get role-profile contributor relationships
+  tags:
+    - role profiles
+  parameters:
+    - $ref: "../parameters/query/query.yaml"
+    - $ref: "../parameters/query/role_id.yaml"
+    - $ref: "../parameters/query/profile_id.yaml"
+    - $ref: "../parameters/query/metadata.yaml"
+  responses:
+    '200':
+      $ref: "../responses/RoleProfiles_Meta.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"
+post:
+  summary: Create multiple role-profile contributor relationships
+  operationId: postRoleProfiles
+  description: Create multiple role-profile contributor relationships
+  tags:
+    - role profiles
+  requestBody:
+    $ref: "../requestBodies/POST/RoleProfiles.yaml"
+  responses:
+    '200':
+      $ref: "../responses/RoleProfilesJob.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"
+patch:
+  summary: Update multiple role-profile contributor relationships
+  operationId: patchRoleProfiles
+  description: Update multiple role-profile contributor relationships
+  tags:
+    - role profiles
+  requestBody:
+    $ref: "../requestBodies/PATCH/RoleProfiles.yaml"
+  responses:
+    '200':
+      $ref: "../responses/RoleProfilesJob.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"

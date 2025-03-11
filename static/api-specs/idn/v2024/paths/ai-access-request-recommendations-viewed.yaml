@@ -2,7 +2,11 @@ post:
   operationId: addAccessRequestRecommendationsViewedItem
   tags:
   - IAI Access Request Recommendations
-  summary: Notification of Viewed Access Request Recommendations
+  security:
+    - userAuth: [ iai:access-request-recommender:manage ]
+  x-sailpoint-userLevels:
+    - Any
+  summary: Mark Viewed Access Request Recommendations
   description: This API consumes a notification that a recommended access request
     item was viewed. Future recommendations with this item will be marked with viewed=true.
     This can be useful for the consumer to determine if there are any new/unviewed
@@ -44,7 +48,11 @@ get:
   operationId: getAccessRequestRecommendationsViewedItems
   tags:
   - IAI Access Request Recommendations
-  summary: List of Viewed Access Request Recommendations
+  security:
+    - userAuth: [ iai:access-request-recommender:read ]
+  x-sailpoint-userLevels:
+    - Any
+  summary: List Viewed Access Request Recommendations
   description: This API returns the list of viewed access request recommendations.
   parameters:
   - $ref: ../parameters/limit.yaml
@@ -68,6 +76,7 @@ get:
 
 
       **identityId**: *eq, in*'
+    required: false
     example: access.id eq "2c9180846b0a0583016b299f210c1314"
   - in: query
     name: sorters
@@ -80,6 +89,8 @@ get:
 
       Sorting is supported for the following fields: **access.id, access.type, identityId,
       timestamp**'
+    required: false
+    example: access.id
   - name: X-SailPoint-Experimental
     in: header
     description: Use this header to enable this experimental API.

@@ -16701,6 +16701,7 @@
       label: SDK_tools/sdk/powershell/v2024/methods/work-items#complete-work-item
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
+        $Body = "MyBody" # String | Body is the request payload to create form definition request (optional)
         
         # Complete a Work Item
         
@@ -16708,7 +16709,7 @@
             Complete-V2024WorkItem -Id $Id 
     
             # Below is a request that includes all optional parameters
-            # Complete-V2024WorkItem -Id $Id   
+            # Complete-V2024WorkItem -Id $Id -Body $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Complete-V2024WorkItem"
             Write-Host $_.ErrorDetails

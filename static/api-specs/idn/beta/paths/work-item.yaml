@@ -12,6 +12,7 @@ get:
         type: string
       description: ID of the work item owner.
       required: false
+      example: 2c9180835d191a86015d28455b4a2329
     - in: path
       name: id
       schema:
@@ -19,21 +20,27 @@ get:
       required: true
       x-sailpoint-resource-operation-id: listWorkItems
       description: ID of the work item.
+      example: 2c9180835d191a86015d28455b4a2329
   responses:
     '200':
       description: The work item with the given ID.
       content:
         application/json:
           schema:
-            type: array
             items:
               $ref: '../schemas/WorkItems.yaml'
     '400':
       $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
     '403':
       $ref: '../../v3/responses/403.yaml'
     '404':
       $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
 post:
   operationId: completeWorkItem
   tags:
@@ -50,6 +57,13 @@ post:
       x-sailpoint-resource-operation-id: listWorkItems
       description: The ID of the work item
       example: ef38f94347e94562b5bb8424a56397d8
+  requestBody:
+    description: Body is the request payload to create form definition request
+    content:
+      application/json:
+        schema:
+          type: "string"
+          nullable: true
   responses:
     '200':
       description: A WorkItems object
@@ -59,7 +73,13 @@ post:
             $ref: '../schemas/WorkItems.yaml'
     '400':
       $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
     '403':
       $ref: '../../v3/responses/403.yaml'
     '404':
       $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

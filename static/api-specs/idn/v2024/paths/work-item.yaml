@@ -47,6 +47,13 @@ post:
       x-sailpoint-resource-operation-id: listWorkItems
       description: The ID of the work item
       example: ef38f94347e94562b5bb8424a56397d8
+  requestBody:
+    description: Body is the request payload to create form definition request
+    content:
+      application/json:
+        schema:
+          type: "string"
+          nullable: true
   responses:
     '200':
       description: A WorkItems object

@@ -2,26 +2,25 @@ import React, { useState, useEffect } from 'react';
 import mermaid from 'mermaid';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from './styles.module.css';
-
 interface MermaidViewerProps {
   diagram: string;
 }
-
 interface CursorState {
-  cursor: string;
+  cursor: 'grab' | 'grabbing';
   clickX: number;
   clickY: number;
   offsetX: number;
   offsetY: number;
 }
-
-interface CursorPosition {
+interface MovingState {
   x: number;
   y: number;
 }
 
 const MermaidViewer: React.FC<MermaidViewerProps> = ({ diagram }) => {
-  const [width, setWidth] = useState(0);
+  mermaid.contentLoaded();
+
+  const [width, setWidth] = useState<number>(0);
   const [mermaidCursorStart, setMermaidCursorStart] = useState<CursorState>({
     cursor: 'grab',
     clickX: 0,
@@ -29,21 +28,23 @@ const MermaidViewer: React.FC<MermaidViewerProps> = ({ diagram }) => {
     offsetX: 0,
     offsetY: 0,
   });
-  const [mermaidCursorMoving, setMermaidCursorMoving] = useState<CursorPosition>({
+
+  const [mermaidCursorMoving, setMermaidCursorMoving] = useState<MovingState>({
     x: 0,
     y: 0,
   });
-  const [mermaidRender, setMermaidRender] = useState(false);
 
-  const increaseWidth = () => setWidth(width + 300);
-  const decreaseWidth = () => setWidth(width - 300);
+  const [mermaidRender, setMermaidRender] = useState<boolean>(false);
 
-  const resetWidth = (e: React.MouseEvent | React.TouchEvent) => {
+  const increaseWidth = () => setWidth((prev) => prev + 300);
+  const decreaseWidth = () => setWidth((prev) => prev - 300);
+
+  const resetWidth = (e: React.MouseEvent<HTMLImageElement>) => {
     setWidth(0);
     setMermaidCursorStart({
       cursor: 'grab',
-      clickX: (e instanceof MouseEvent ? e.screenX : e.changedTouches[0].screenX) || 0,
-      clickY: (e instanceof MouseEvent ? e.screenY : e.changedTouches[0].screenY) || 0,
+      clickX: e.screenX,
+      clickY: e.screenY,
       offsetX: 0,
       offsetY: 0,
     });
@@ -51,8 +52,8 @@ const MermaidViewer: React.FC<MermaidViewerProps> = ({ diagram }) => {
   };
 
   const setMouseDown = (e: React.MouseEvent | React.TouchEvent) => {
-    const screenX = e instanceof MouseEvent ? e.screenX : e.changedTouches[0].screenX;
-    const screenY = e instanceof MouseEvent ? e.screenY : e.changedTouches[0].screenY;
+    const screenX = 'screenX' in e ? e.screenX : e.changedTouches[0].screenX;
+    const screenY = 'screenY' in e ? e.screenY : e.changedTouches[0].screenY;
 
     setMermaidCursorStart({
       cursor: 'grabbing',
@@ -61,21 +62,16 @@ const MermaidViewer: React.FC<MermaidViewerProps> = ({ diagram }) => {
       offsetX: mermaidCursorMoving.x,
       offsetY: mermaidCursorMoving.y,
     });
-
-    setMermaidCursorMoving({
-      x: mermaidCursorMoving.x,
-      y: mermaidCursorMoving.y,
-    });
   };
 
   const setMouseUp = () => {
-    setMermaidCursorStart({ cursor: 'grab', clickX: 0, clickY: 0 });
+    setMermaidCursorStart((prev) => ({ ...prev, cursor: 'grab' }));
   };
 
   const drag = (e: React.MouseEvent | React.TouchEvent) => {
     if (mermaidCursorStart.cursor === 'grabbing') {
-      const screenX = e instanceof MouseEvent ? e.screenX : e.changedTouches[0].screenX;
-      const screenY = e instanceof MouseEvent ? e.screenY : e.changedTouches[0].screenY;
+      const screenX = 'screenX' in e ? e.screenX : e.changedTouches[0].screenX;
+      const screenY = 'screenY' in e ? e.screenY : e.changedTouches[0].screenY;
 
       setMermaidCursorMoving({
         x: mermaidCursorStart.clickX - screenX + mermaidCursorStart.offsetX,
@@ -85,58 +81,21 @@ const MermaidViewer: React.FC<MermaidViewerProps> = ({ diagram }) => {
   };
 
   useEffect(() => {
+    setMermaidRender(true); // Immediately set render state
+  
     let canceled = false;
-    setTimeout(() => {
+    const timeout = setTimeout(() => {
       if (!canceled) {
         setMermaidRender(true);
       }
-    }, 100);
+    }, 100); // Small delay to ensure mermaid.js processes correctly
+  
     return () => {
       canceled = true;
+      clearTimeout(timeout);
     };
   }, []);
-
-  let renderedDiagram;
-  let loadingIndicator;
-
-  if (mermaidRender) {
-    loadingIndicator = <div></div>;
-    renderedDiagram = (
-      <div
-        id="mermaid"
-        draggable="false"
-        className="mermaid"
-        style={{
-          position: 'relative',
-          top: -mermaidCursorMoving.y + 'px',
-          left: -mermaidCursorMoving.x + 'px',
-          width: `calc(100% + ${width}px)`,
-          maxHeight: '1000px',
-        }}
-      >
-        {diagram}
-      </div>
-    );
-  } else {
-    loadingIndicator = <div>Diagram Loading ...</div>;
-    renderedDiagram = (
-      <div
-        id="mermaid"
-        draggable="false"
-        className="mermaid"
-        style={{
-          visibility: 'hidden',
-          position: 'relative',
-          top: -mermaidCursorMoving.y + 'px',
-          left: -mermaidCursorMoving.x + 'px',
-          width: `calc(100% + ${width}px)`,
-          maxHeight: '1000px',
-        }}
-      >
-        {diagram}
-      </div>
-    );
-  }
+  
 
   return (
     <div>
@@ -148,7 +107,7 @@ const MermaidViewer: React.FC<MermaidViewerProps> = ({ diagram }) => {
       />
       <img
         className={styles.zoomIn}
-        onClick={(e) => resetWidth(e)}
+        onClick={resetWidth}
         src={useBaseUrl('/icons/house-regular.svg')}
         alt="Reset Zoom"
       />
@@ -169,8 +128,24 @@ const MermaidViewer: React.FC<MermaidViewerProps> = ({ diagram }) => {
         onTouchEnd={setMouseUp}
         onMouseLeave={setMouseUp}
       >
-        {loadingIndicator}
-        {renderedDiagram}
+        {mermaidRender ? (
+          <div
+            id="mermaid"
+            draggable="false"
+            className="mermaid"
+            style={{
+              position: 'relative',
+              top: -mermaidCursorMoving.y + 'px',
+              left: -mermaidCursorMoving.x + 'px',
+              width: `calc(100% + ${width}px)`,
+              maxHeight: '1000px',
+            }}
+          >
+            {diagram}
+          </div>
+        ) : (
+          <div>Diagram Loading ...</div>
+        )}
       </div>
     </div>
   );

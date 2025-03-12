@@ -50746,6 +50746,9 @@ paths:
               schema:
                 $ref: '#/paths/~1work-items/get/responses/200/content/application~1json/schema/items'
                 x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/schemas/WorkItems.yaml
+        '400':
+          $ref: '#/paths/~1access-profiles/get/responses/400'
+          x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/400.yaml
         '401':
           $ref: '#/paths/~1access-profiles/get/responses/401'
           x-miro: c:/Users/darrell.thobe/Desktop/developer_sailpoint_website/developer.sailpoint.com/static/api-specs/idn/v3/responses/401.yaml
@@ -50808,6 +50811,13 @@ paths:
           x-sailpoint-resource-operation-id: listWorkItems
           description: The ID of the work item
           example: ef38f94347e94562b5bb8424a56397d8
+      requestBody:
+        description: Body is the request payload to create form definition request
+        content:
+          application/json:
+            schema:
+              type: string
+              nullable: true
       responses:
         '200':
           description: A WorkItems object
@@ -50839,6 +50849,7 @@ paths:
           label: SDK_tools/sdk/powershell/v3/methods/work-items#complete-work-item
           source: |
             $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
+            $Body = "MyBody" # String | Body is the request payload to create form definition request (optional)
 
             # Complete a Work Item
 
@@ -50846,7 +50857,7 @@ paths:
                 Complete-WorkItem -Id $Id 
 
                 # Below is a request that includes all optional parameters
-                # Complete-WorkItem -Id $Id   
+                # Complete-WorkItem -Id $Id -Body $Result   
             } catch {
                 Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Complete-WorkItem"
                 Write-Host $_.ErrorDetails

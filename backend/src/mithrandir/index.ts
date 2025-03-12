@@ -93,11 +93,16 @@ app.post('/uuid', async (c) => {
 
     const state = {id: uuid, encryptionKey}
 
-    const authURL = authInfo.authorizeEndpoint + `?client_id=${clientId}&response_type=code&redirect_uri=${redirectUrl}&state=${btoa(JSON.stringify(state))}`
+    const authURL = new URL(authInfo.authorizeEndpoint) 
 
-    console.log("Generated Auth URL:", authURL)
+    authURL.searchParams.set("client_id", clientId)
+    authURL.searchParams.set("response_type", "code")
+    authURL.searchParams.set("redirect_uri", redirectUrl)
+    authURL.searchParams.set("state", btoa(JSON.stringify(state)))
 
-    const objectToRespond = { encryptionKey, authURL, ...objectToPut }
+    console.log("Generated Auth URL:", authURL.toString())
+
+    const objectToRespond = { encryptionKey, authURL: authURL.toString(), ...objectToPut }
 
 
     try {

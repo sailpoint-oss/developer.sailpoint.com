@@ -52,7 +52,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.org_config_api import OrgConfigApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.org_config import OrgConfig
@@ -60,17 +59,18 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
 
     try:
         # Get Org configuration settings
         
-        results =OrgConfigApi(api_client).get_org_config()
+        results = OrgConfigApi(api_client).get_org_config()
         # Below is a request that includes all optional parameters
         # results = OrgConfigApi(api_client).get_org_config()
         print("The response of OrgConfigApi->get_org_config:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling OrgConfigApi->get_org_config: %s\n" % e)
 ```
 
@@ -107,24 +107,24 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.org_config_api import OrgConfigApi
 from sailpoint.beta.api_client import ApiClient
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
 
     try:
         # Get list of time zones
         
-        results =OrgConfigApi(api_client).get_valid_time_zones()
+        results = OrgConfigApi(api_client).get_valid_time_zones()
         # Below is a request that includes all optional parameters
         # results = OrgConfigApi(api_client).get_valid_time_zones()
         print("The response of OrgConfigApi->get_valid_time_zones:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling OrgConfigApi->get_valid_time_zones: %s\n" % e)
 ```
 
@@ -165,7 +165,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.org_config_api import OrgConfigApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.json_patch_operation import JsonPatchOperation
@@ -174,25 +173,19 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
-    [{op=replace, path=/timeZone, value=America/Toronto}] # List[JsonPatchOperation] | A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
-     json_patch_operation = {
-          "op" : "replace",
-          "path" : "/description",
-          "value" : "New description"
-        } # List[JsonPatchOperation] | A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
-    
+    json_patch_operation = '''[{op=replace, path=/timeZone, value=America/Toronto}]''' # List[JsonPatchOperation] | A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
     try:
         # Patch an Org configuration property
-        new_json_patch_operation = JsonPatchOperation()
-        new_json_patch_operation.from_json(json_patch_operation)
-        results =OrgConfigApi(api_client).patch_org_config(new_json_patch_operation)
+        new_json_patch_operation = JsonPatchOperation.from_json(json_patch_operation)
+        results = OrgConfigApi(api_client).patch_org_config(json_patch_operation=new_json_patch_operation)
         # Below is a request that includes all optional parameters
         # results = OrgConfigApi(api_client).patch_org_config(new_json_patch_operation)
         print("The response of OrgConfigApi->patch_org_config:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling OrgConfigApi->patch_org_config: %s\n" % e)
 ```
 

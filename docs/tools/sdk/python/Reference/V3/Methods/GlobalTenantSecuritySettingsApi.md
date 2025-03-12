@@ -62,7 +62,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v3
 from sailpoint.v3.api.global_tenant_security_settings_api import GlobalTenantSecuritySettingsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.network_configuration import NetworkConfiguration
@@ -70,23 +69,23 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
-    network_configuration = {
+    network_configuration = '''{
           "range" : [ "1.3.7.2", "255.255.255.252/30" ],
           "whitelisted" : true,
           "geolocation" : [ "CA", "FR", "HT" ]
-        } # NetworkConfiguration | Network configuration creation request body.   The following constraints ensure the request body conforms to certain logical guidelines, which are:   1. Each string element in the range array must be a valid ip address or ip subnet mask.   2. Each string element in the geolocation array must be 2 characters, and they can only be uppercase letters.
+        }''' # NetworkConfiguration | Network configuration creation request body.   The following constraints ensure the request body conforms to certain logical guidelines, which are:   1. Each string element in the range array must be a valid ip address or ip subnet mask.   2. Each string element in the geolocation array must be 2 characters, and they can only be uppercase letters.
 
     try:
         # Create security network configuration.
-        new_network_configuration = NetworkConfiguration()
-        new_network_configuration.from_json(network_configuration)
-        results =GlobalTenantSecuritySettingsApi(api_client).create_auth_org_network_config(new_network_configuration)
+        new_network_configuration = NetworkConfiguration.from_json(network_configuration)
+        results = GlobalTenantSecuritySettingsApi(api_client).create_auth_org_network_config(network_configuration=new_network_configuration)
         # Below is a request that includes all optional parameters
         # results = GlobalTenantSecuritySettingsApi(api_client).create_auth_org_network_config(new_network_configuration)
         print("The response of GlobalTenantSecuritySettingsApi->create_auth_org_network_config:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling GlobalTenantSecuritySettingsApi->create_auth_org_network_config: %s\n" % e)
 ```
 
@@ -124,7 +123,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v3
 from sailpoint.v3.api.global_tenant_security_settings_api import GlobalTenantSecuritySettingsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.lockout_configuration import LockoutConfiguration
@@ -132,17 +130,18 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
 
     try:
         # Get Auth Org Lockout Configuration.
         
-        results =GlobalTenantSecuritySettingsApi(api_client).get_auth_org_lockout_config()
+        results = GlobalTenantSecuritySettingsApi(api_client).get_auth_org_lockout_config()
         # Below is a request that includes all optional parameters
         # results = GlobalTenantSecuritySettingsApi(api_client).get_auth_org_lockout_config()
         print("The response of GlobalTenantSecuritySettingsApi->get_auth_org_lockout_config:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling GlobalTenantSecuritySettingsApi->get_auth_org_lockout_config: %s\n" % e)
 ```
 
@@ -180,7 +179,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v3
 from sailpoint.v3.api.global_tenant_security_settings_api import GlobalTenantSecuritySettingsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.network_configuration import NetworkConfiguration
@@ -188,17 +186,18 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
 
     try:
         # Get security network configuration.
         
-        results =GlobalTenantSecuritySettingsApi(api_client).get_auth_org_network_config()
+        results = GlobalTenantSecuritySettingsApi(api_client).get_auth_org_network_config()
         # Below is a request that includes all optional parameters
         # results = GlobalTenantSecuritySettingsApi(api_client).get_auth_org_network_config()
         print("The response of GlobalTenantSecuritySettingsApi->get_auth_org_network_config:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling GlobalTenantSecuritySettingsApi->get_auth_org_network_config: %s\n" % e)
 ```
 
@@ -236,7 +235,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v3
 from sailpoint.v3.api.global_tenant_security_settings_api import GlobalTenantSecuritySettingsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.service_provider_configuration import ServiceProviderConfiguration
@@ -244,17 +242,18 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
 
     try:
         # Get Service Provider Configuration.
         
-        results =GlobalTenantSecuritySettingsApi(api_client).get_auth_org_service_provider_config()
+        results = GlobalTenantSecuritySettingsApi(api_client).get_auth_org_service_provider_config()
         # Below is a request that includes all optional parameters
         # results = GlobalTenantSecuritySettingsApi(api_client).get_auth_org_service_provider_config()
         print("The response of GlobalTenantSecuritySettingsApi->get_auth_org_service_provider_config:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling GlobalTenantSecuritySettingsApi->get_auth_org_service_provider_config: %s\n" % e)
 ```
 
@@ -292,7 +291,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v3
 from sailpoint.v3.api.global_tenant_security_settings_api import GlobalTenantSecuritySettingsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.session_configuration import SessionConfiguration
@@ -300,17 +298,18 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
 
     try:
         # Get Auth Org Session Configuration.
         
-        results =GlobalTenantSecuritySettingsApi(api_client).get_auth_org_session_config()
+        results = GlobalTenantSecuritySettingsApi(api_client).get_auth_org_session_config()
         # Below is a request that includes all optional parameters
         # results = GlobalTenantSecuritySettingsApi(api_client).get_auth_org_session_config()
         print("The response of GlobalTenantSecuritySettingsApi->get_auth_org_session_config:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling GlobalTenantSecuritySettingsApi->get_auth_org_session_config: %s\n" % e)
 ```
 
@@ -352,7 +351,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v3
 from sailpoint.v3.api.global_tenant_security_settings_api import GlobalTenantSecuritySettingsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.json_patch_operation import JsonPatchOperation
@@ -361,25 +359,19 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
-    [{op=replace, path=/maximumAttempts, value=7,}, {op=add, path=/lockoutDuration, value=35}] # List[JsonPatchOperation] | A list of auth org lockout configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Ensures that the patched Lockout Config conforms to certain logical guidelines, which are:   `1. maximumAttempts >= 1 && maximumAttempts <= 15   2. lockoutDuration >= 5 && lockoutDuration <= 60   3. lockoutWindow >= 5 && lockoutDuration <= 60`
-     json_patch_operation = {
-          "op" : "replace",
-          "path" : "/description",
-          "value" : "New description"
-        } # List[JsonPatchOperation] | A list of auth org lockout configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Ensures that the patched Lockout Config conforms to certain logical guidelines, which are:   `1. maximumAttempts >= 1 && maximumAttempts <= 15   2. lockoutDuration >= 5 && lockoutDuration <= 60   3. lockoutWindow >= 5 && lockoutDuration <= 60`
-    
+    json_patch_operation = '''[{op=replace, path=/maximumAttempts, value=7,}, {op=add, path=/lockoutDuration, value=35}]''' # List[JsonPatchOperation] | A list of auth org lockout configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Ensures that the patched Lockout Config conforms to certain logical guidelines, which are:   `1. maximumAttempts >= 1 && maximumAttempts <= 15   2. lockoutDuration >= 5 && lockoutDuration <= 60   3. lockoutWindow >= 5 && lockoutDuration <= 60`
 
     try:
         # Update Auth Org Lockout Configuration
-        new_json_patch_operation = JsonPatchOperation()
-        new_json_patch_operation.from_json(json_patch_operation)
-        results =GlobalTenantSecuritySettingsApi(api_client).patch_auth_org_lockout_config(new_json_patch_operation)
+        new_json_patch_operation = JsonPatchOperation.from_json(json_patch_operation)
+        results = GlobalTenantSecuritySettingsApi(api_client).patch_auth_org_lockout_config(json_patch_operation=new_json_patch_operation)
         # Below is a request that includes all optional parameters
         # results = GlobalTenantSecuritySettingsApi(api_client).patch_auth_org_lockout_config(new_json_patch_operation)
         print("The response of GlobalTenantSecuritySettingsApi->patch_auth_org_lockout_config:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling GlobalTenantSecuritySettingsApi->patch_auth_org_lockout_config: %s\n" % e)
 ```
 
@@ -421,7 +413,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v3
 from sailpoint.v3.api.global_tenant_security_settings_api import GlobalTenantSecuritySettingsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.json_patch_operation import JsonPatchOperation
@@ -430,25 +421,19 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
-    [{op=replace, path=/whitelisted, value=false,}, {op=add, path=/geolocation, value=[AF, HN, ES]}] # List[JsonPatchOperation] | A list of auth org network configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Ensures that the patched Network Config conforms to certain logical guidelines, which are:   1. Each string element in the range array must be a valid ip address or ip subnet mask.   2. Each string element in the geolocation array must be 2 characters, and they can only be uppercase letters.
-     json_patch_operation = {
-          "op" : "replace",
-          "path" : "/description",
-          "value" : "New description"
-        } # List[JsonPatchOperation] | A list of auth org network configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Ensures that the patched Network Config conforms to certain logical guidelines, which are:   1. Each string element in the range array must be a valid ip address or ip subnet mask.   2. Each string element in the geolocation array must be 2 characters, and they can only be uppercase letters.
-    
+    json_patch_operation = '''[{op=replace, path=/whitelisted, value=false,}, {op=add, path=/geolocation, value=[AF, HN, ES]}]''' # List[JsonPatchOperation] | A list of auth org network configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Ensures that the patched Network Config conforms to certain logical guidelines, which are:   1. Each string element in the range array must be a valid ip address or ip subnet mask.   2. Each string element in the geolocation array must be 2 characters, and they can only be uppercase letters.
 
     try:
         # Update security network configuration.
-        new_json_patch_operation = JsonPatchOperation()
-        new_json_patch_operation.from_json(json_patch_operation)
-        results =GlobalTenantSecuritySettingsApi(api_client).patch_auth_org_network_config(new_json_patch_operation)
+        new_json_patch_operation = JsonPatchOperation.from_json(json_patch_operation)
+        results = GlobalTenantSecuritySettingsApi(api_client).patch_auth_org_network_config(json_patch_operation=new_json_patch_operation)
         # Below is a request that includes all optional parameters
         # results = GlobalTenantSecuritySettingsApi(api_client).patch_auth_org_network_config(new_json_patch_operation)
         print("The response of GlobalTenantSecuritySettingsApi->patch_auth_org_network_config:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling GlobalTenantSecuritySettingsApi->patch_auth_org_network_config: %s\n" % e)
 ```
 
@@ -489,7 +474,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v3
 from sailpoint.v3.api.global_tenant_security_settings_api import GlobalTenantSecuritySettingsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.json_patch_operation import JsonPatchOperation
@@ -498,25 +482,19 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
-    [{op=replace, path=/enabled, value=true,}, {op=add, path=/federationProtocolDetails/0/jitConfiguration, value={enabled=true, sourceId=2c9180857377ed2901739c12a2da5ac8, sourceAttributeMappings={firstName=okta.firstName, lastName=okta.lastName, email=okta.email, employeeNumber=okta.employeeNumber}}}] # List[JsonPatchOperation] | A list of auth org service provider configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Note: /federationProtocolDetails/0 is IdpDetails /federationProtocolDetails/1 is SpDetails Ensures that the patched ServiceProviderConfig conforms to certain logical guidelines, which are:   1. Do not add or remove any elements in the federation protocol details in the service provider configuration.   2. Do not modify, add, or delete the service provider details element in the federation protocol details.   3. If this is the first time the patched ServiceProviderConfig enables Remote IDP sign-in, it must also include IDPDetails.   4. If the patch enables Remote IDP sign in, the entityID in the IDPDetails cannot be null. IDPDetails must include an entityID.   5. Any JIT configuration update must be valid.  Just in time configuration update must be valid when enabled. This includes:   - A Source ID   - Source attribute mappings   - Source attribute maps have all the required key values (firstName, lastName, email)
-     json_patch_operation = {
-          "op" : "replace",
-          "path" : "/description",
-          "value" : "New description"
-        } # List[JsonPatchOperation] | A list of auth org service provider configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Note: /federationProtocolDetails/0 is IdpDetails /federationProtocolDetails/1 is SpDetails Ensures that the patched ServiceProviderConfig conforms to certain logical guidelines, which are:   1. Do not add or remove any elements in the federation protocol details in the service provider configuration.   2. Do not modify, add, or delete the service provider details element in the federation protocol details.   3. If this is the first time the patched ServiceProviderConfig enables Remote IDP sign-in, it must also include IDPDetails.   4. If the patch enables Remote IDP sign in, the entityID in the IDPDetails cannot be null. IDPDetails must include an entityID.   5. Any JIT configuration update must be valid.  Just in time configuration update must be valid when enabled. This includes:   - A Source ID   - Source attribute mappings   - Source attribute maps have all the required key values (firstName, lastName, email)
-    
+    json_patch_operation = '''[{op=replace, path=/enabled, value=true,}, {op=add, path=/federationProtocolDetails/0/jitConfiguration, value={enabled=true, sourceId=2c9180857377ed2901739c12a2da5ac8, sourceAttributeMappings={firstName=okta.firstName, lastName=okta.lastName, email=okta.email, employeeNumber=okta.employeeNumber}}}]''' # List[JsonPatchOperation] | A list of auth org service provider configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Note: /federationProtocolDetails/0 is IdpDetails /federationProtocolDetails/1 is SpDetails Ensures that the patched ServiceProviderConfig conforms to certain logical guidelines, which are:   1. Do not add or remove any elements in the federation protocol details in the service provider configuration.   2. Do not modify, add, or delete the service provider details element in the federation protocol details.   3. If this is the first time the patched ServiceProviderConfig enables Remote IDP sign-in, it must also include IDPDetails.   4. If the patch enables Remote IDP sign in, the entityID in the IDPDetails cannot be null. IDPDetails must include an entityID.   5. Any JIT configuration update must be valid.  Just in time configuration update must be valid when enabled. This includes:   - A Source ID   - Source attribute mappings   - Source attribute maps have all the required key values (firstName, lastName, email)
 
     try:
         # Update Service Provider Configuration
-        new_json_patch_operation = JsonPatchOperation()
-        new_json_patch_operation.from_json(json_patch_operation)
-        results =GlobalTenantSecuritySettingsApi(api_client).patch_auth_org_service_provider_config(new_json_patch_operation)
+        new_json_patch_operation = JsonPatchOperation.from_json(json_patch_operation)
+        results = GlobalTenantSecuritySettingsApi(api_client).patch_auth_org_service_provider_config(json_patch_operation=new_json_patch_operation)
         # Below is a request that includes all optional parameters
         # results = GlobalTenantSecuritySettingsApi(api_client).patch_auth_org_service_provider_config(new_json_patch_operation)
         print("The response of GlobalTenantSecuritySettingsApi->patch_auth_org_service_provider_config:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling GlobalTenantSecuritySettingsApi->patch_auth_org_service_provider_config: %s\n" % e)
 ```
 
@@ -557,7 +535,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v3
 from sailpoint.v3.api.global_tenant_security_settings_api import GlobalTenantSecuritySettingsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.json_patch_operation import JsonPatchOperation
@@ -566,25 +543,19 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
-    [{op=replace, path=/rememberMe, value=true,}, {op=add, path=/maxSessionTime, value=480}] # List[JsonPatchOperation] | A list of auth org session configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Ensures that the patched Session Config conforms to certain logical guidelines, which are:   `1. maxSessionTime >= 1 && maxSessionTime <= 10080 (1 week)   2. maxIdleTime >= 1 && maxIdleTime <= 1440 (1 day)   3. maxSessionTime must have a greater duration than maxIdleTime.` 
-     json_patch_operation = {
-          "op" : "replace",
-          "path" : "/description",
-          "value" : "New description"
-        } # List[JsonPatchOperation] | A list of auth org session configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Ensures that the patched Session Config conforms to certain logical guidelines, which are:   `1. maxSessionTime >= 1 && maxSessionTime <= 10080 (1 week)   2. maxIdleTime >= 1 && maxIdleTime <= 1440 (1 day)   3. maxSessionTime must have a greater duration than maxIdleTime.` 
-    
+    json_patch_operation = '''[{op=replace, path=/rememberMe, value=true,}, {op=add, path=/maxSessionTime, value=480}]''' # List[JsonPatchOperation] | A list of auth org session configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Ensures that the patched Session Config conforms to certain logical guidelines, which are:   `1. maxSessionTime >= 1 && maxSessionTime <= 10080 (1 week)   2. maxIdleTime >= 1 && maxIdleTime <= 1440 (1 day)   3. maxSessionTime must have a greater duration than maxIdleTime.` 
 
     try:
         # Update Auth Org Session Configuration
-        new_json_patch_operation = JsonPatchOperation()
-        new_json_patch_operation.from_json(json_patch_operation)
-        results =GlobalTenantSecuritySettingsApi(api_client).patch_auth_org_session_config(new_json_patch_operation)
+        new_json_patch_operation = JsonPatchOperation.from_json(json_patch_operation)
+        results = GlobalTenantSecuritySettingsApi(api_client).patch_auth_org_session_config(json_patch_operation=new_json_patch_operation)
         # Below is a request that includes all optional parameters
         # results = GlobalTenantSecuritySettingsApi(api_client).patch_auth_org_session_config(new_json_patch_operation)
         print("The response of GlobalTenantSecuritySettingsApi->patch_auth_org_session_config:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling GlobalTenantSecuritySettingsApi->patch_auth_org_session_config: %s\n" % e)
 ```
 

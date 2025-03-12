@@ -26,6 +26,14 @@ Method | HTTP request | Description
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
+:::
 Get an approval
 Retrieve a single approval for a given approval ID. This endpoint is for generic approvals, different than the access-request-approval endpoint and does not include access-request-approvals.
 
@@ -58,13 +66,14 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.approvals_api import ApprovalsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.approval import Approval
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     id = '38453251-6be2-5f8f-df93-5ce19e295837' # str | ID of the approval that is to be returned # str | ID of the approval that is to be returned
@@ -73,12 +82,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Get an approval
         
-        results =ApprovalsApi(api_client).get_approval(id, x_sail_point_experimental)
+        results = ApprovalsApi(api_client).get_approval(id=id, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = ApprovalsApi(api_client).get_approval(id, x_sail_point_experimental)
         print("The response of ApprovalsApi->get_approval:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling ApprovalsApi->get_approval: %s\n" % e)
 ```
 
@@ -89,6 +98,14 @@ with ApiClient(configuration) as api_client:
 ## get-approvals
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Get Approvals
 Retrieve a list of approvals, which can be filtered by requester ID, status, or reference type. "Mine" query parameter can be used and it will return all approvals for the current approver. This endpoint is for generic approvals, different than the access-request-approval endpoint and does not include access-request-approvals. 
@@ -125,13 +142,14 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.approvals_api import ApprovalsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.approval import Approval
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -142,12 +160,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Get Approvals
         
-        results =ApprovalsApi(api_client).get_approvals(x_sail_point_experimental, )
+        results = ApprovalsApi(api_client).get_approvals(x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = ApprovalsApi(api_client).get_approvals(x_sail_point_experimental, mine, requester_id, filters)
         print("The response of ApprovalsApi->get_approvals:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling ApprovalsApi->get_approvals: %s\n" % e)
 ```
 

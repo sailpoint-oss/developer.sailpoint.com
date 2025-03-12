@@ -56,7 +56,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.identity_attributes_api import IdentityAttributesApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.identity_attribute import IdentityAttribute
@@ -64,8 +63,9 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
-    identity_attribute = {
+    identity_attribute = '''{
           "standard" : false,
           "system" : false,
           "sources" : [ {
@@ -86,18 +86,17 @@ with ApiClient(configuration) as api_client:
           "type" : "string",
           "searchable" : false,
           "multi" : false
-        } # IdentityAttribute | 
+        }''' # IdentityAttribute | 
 
     try:
         # Create Identity Attribute
-        new_identity_attribute = IdentityAttribute()
-        new_identity_attribute.from_json(identity_attribute)
-        results =IdentityAttributesApi(api_client).create_identity_attribute(new_identity_attribute)
+        new_identity_attribute = IdentityAttribute.from_json(identity_attribute)
+        results = IdentityAttributesApi(api_client).create_identity_attribute(identity_attribute=new_identity_attribute)
         # Below is a request that includes all optional parameters
         # results = IdentityAttributesApi(api_client).create_identity_attribute(new_identity_attribute)
         print("The response of IdentityAttributesApi->create_identity_attribute:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling IdentityAttributesApi->create_identity_attribute: %s\n" % e)
 ```
 
@@ -138,12 +137,12 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.identity_attributes_api import IdentityAttributesApi
 from sailpoint.beta.api_client import ApiClient
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     name = 'displayName' # str | The attribute's technical name. # str | The attribute's technical name.
@@ -151,10 +150,10 @@ with ApiClient(configuration) as api_client:
     try:
         # Delete Identity Attribute
         
-        IdentityAttributesApi(api_client).delete_identity_attribute(name)
+        IdentityAttributesApi(api_client).delete_identity_attribute(name=name)
         # Below is a request that includes all optional parameters
         # IdentityAttributesApi(api_client).delete_identity_attribute(name)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling IdentityAttributesApi->delete_identity_attribute: %s\n" % e)
 ```
 
@@ -195,7 +194,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.identity_attributes_api import IdentityAttributesApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.identity_attribute_names import IdentityAttributeNames
@@ -203,19 +201,19 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
-    identity_attribute_names = {
+    identity_attribute_names = '''{
           "ids" : [ "name", "displayName" ]
-        } # IdentityAttributeNames | 
+        }''' # IdentityAttributeNames | 
 
     try:
         # Bulk delete Identity Attributes
-        new_identity_attribute_names = IdentityAttributeNames()
-        new_identity_attribute_names.from_json(identity_attribute_names)
-        IdentityAttributesApi(api_client).delete_identity_attributes_in_bulk(new_identity_attribute_names)
+        new_identity_attribute_names = IdentityAttributeNames.from_json(identity_attribute_names)
+        IdentityAttributesApi(api_client).delete_identity_attributes_in_bulk(identity_attribute_names=new_identity_attribute_names)
         # Below is a request that includes all optional parameters
         # IdentityAttributesApi(api_client).delete_identity_attributes_in_bulk(new_identity_attribute_names)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling IdentityAttributesApi->delete_identity_attributes_in_bulk: %s\n" % e)
 ```
 
@@ -256,7 +254,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.identity_attributes_api import IdentityAttributesApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.identity_attribute import IdentityAttribute
@@ -264,18 +261,19 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     name = 'displayName' # str | The attribute's technical name. # str | The attribute's technical name.
 
     try:
         # Get Identity Attribute
         
-        results =IdentityAttributesApi(api_client).get_identity_attribute(name)
+        results = IdentityAttributesApi(api_client).get_identity_attribute(name=name)
         # Below is a request that includes all optional parameters
         # results = IdentityAttributesApi(api_client).get_identity_attribute(name)
         print("The response of IdentityAttributesApi->get_identity_attribute:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling IdentityAttributesApi->get_identity_attribute: %s\n" % e)
 ```
 
@@ -318,13 +316,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.identity_attributes_api import IdentityAttributesApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.identity_attribute import IdentityAttribute
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     include_system = False # bool | Include 'system' attributes in the response. (optional) (default to False) # bool | Include 'system' attributes in the response. (optional) (default to False)
@@ -335,12 +333,12 @@ with ApiClient(configuration) as api_client:
     try:
         # List Identity Attributes
         
-        results =IdentityAttributesApi(api_client).list_identity_attributes()
+        results = IdentityAttributesApi(api_client).list_identity_attributes()
         # Below is a request that includes all optional parameters
         # results = IdentityAttributesApi(api_client).list_identity_attributes(include_system, include_silent, searchable_only, count)
         print("The response of IdentityAttributesApi->list_identity_attributes:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling IdentityAttributesApi->list_identity_attributes: %s\n" % e)
 ```
 
@@ -382,7 +380,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.identity_attributes_api import IdentityAttributesApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.identity_attribute import IdentityAttribute
@@ -390,9 +387,10 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     name = 'displayName' # str | The attribute's technical name. # str | The attribute's technical name.
-    identity_attribute = {
+    identity_attribute = '''{
           "standard" : false,
           "system" : false,
           "sources" : [ {
@@ -413,18 +411,17 @@ with ApiClient(configuration) as api_client:
           "type" : "string",
           "searchable" : false,
           "multi" : false
-        } # IdentityAttribute | 
+        }''' # IdentityAttribute | 
 
     try:
         # Update Identity Attribute
-        new_identity_attribute = IdentityAttribute()
-        new_identity_attribute.from_json(identity_attribute)
-        results =IdentityAttributesApi(api_client).put_identity_attribute(name, new_identity_attribute)
+        new_identity_attribute = IdentityAttribute.from_json(identity_attribute)
+        results = IdentityAttributesApi(api_client).put_identity_attribute(name=name, identity_attribute=new_identity_attribute)
         # Below is a request that includes all optional parameters
         # results = IdentityAttributesApi(api_client).put_identity_attribute(name, new_identity_attribute)
         print("The response of IdentityAttributesApi->put_identity_attribute:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling IdentityAttributesApi->put_identity_attribute: %s\n" % e)
 ```
 

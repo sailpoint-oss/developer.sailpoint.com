@@ -111,12 +111,12 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v3
 from sailpoint.v3.api.tagged_objects_api import TaggedObjectsApi
 from sailpoint.v3.api_client import ApiClient
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     type = 'ROLE' # str | The type of object to delete tags from. # str | The type of object to delete tags from.
@@ -125,10 +125,10 @@ with ApiClient(configuration) as api_client:
     try:
         # Delete Object Tags
         
-        TaggedObjectsApi(api_client).delete_tagged_object(type, id)
+        TaggedObjectsApi(api_client).delete_tagged_object(type=type, id=id)
         # Below is a request that includes all optional parameters
         # TaggedObjectsApi(api_client).delete_tagged_object(type, id)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling TaggedObjectsApi->delete_tagged_object: %s\n" % e)
 ```
 
@@ -168,7 +168,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v3
 from sailpoint.v3.api.tagged_objects_api import TaggedObjectsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.bulk_remove_tagged_object import BulkRemoveTaggedObject
@@ -176,8 +175,9 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
-    bulk_remove_tagged_object = {
+    bulk_remove_tagged_object = '''{
           "objectRefs" : [ {
             "name" : "William Wilson",
             "id" : "2c91808568c529c60168cca6f90c1313",
@@ -188,16 +188,15 @@ with ApiClient(configuration) as api_client:
             "type" : "IDENTITY"
           } ],
           "tags" : [ "BU_FINANCE", "PCI" ]
-        } # BulkRemoveTaggedObject | Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
+        }''' # BulkRemoveTaggedObject | Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
 
     try:
         # Remove Tags from Multiple Objects
-        new_bulk_remove_tagged_object = BulkRemoveTaggedObject()
-        new_bulk_remove_tagged_object.from_json(bulk_remove_tagged_object)
-        TaggedObjectsApi(api_client).delete_tags_to_many_object(new_bulk_remove_tagged_object)
+        new_bulk_remove_tagged_object = BulkRemoveTaggedObject.from_json(bulk_remove_tagged_object)
+        TaggedObjectsApi(api_client).delete_tags_to_many_object(bulk_remove_tagged_object=new_bulk_remove_tagged_object)
         # Below is a request that includes all optional parameters
         # TaggedObjectsApi(api_client).delete_tags_to_many_object(new_bulk_remove_tagged_object)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling TaggedObjectsApi->delete_tags_to_many_object: %s\n" % e)
 ```
 
@@ -238,13 +237,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v3
 from sailpoint.v3.api.tagged_objects_api import TaggedObjectsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.tagged_object import TaggedObject
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     type = 'ROLE' # str | The type of tagged object to retrieve. # str | The type of tagged object to retrieve.
@@ -253,12 +252,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Get Tagged Object
         
-        results =TaggedObjectsApi(api_client).get_tagged_object(type, id)
+        results = TaggedObjectsApi(api_client).get_tagged_object(type=type, id=id)
         # Below is a request that includes all optional parameters
         # results = TaggedObjectsApi(api_client).get_tagged_object(type, id)
         print("The response of TaggedObjectsApi->get_tagged_object:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling TaggedObjectsApi->get_tagged_object: %s\n" % e)
 ```
 
@@ -303,13 +302,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v3
 from sailpoint.v3.api.tagged_objects_api import TaggedObjectsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.tagged_object import TaggedObject
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -320,12 +319,12 @@ with ApiClient(configuration) as api_client:
     try:
         # List Tagged Objects
         
-        results =TaggedObjectsApi(api_client).list_tagged_objects()
+        results = TaggedObjectsApi(api_client).list_tagged_objects()
         # Below is a request that includes all optional parameters
         # results = TaggedObjectsApi(api_client).list_tagged_objects(limit, offset, count, filters)
         print("The response of TaggedObjectsApi->list_tagged_objects:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling TaggedObjectsApi->list_tagged_objects: %s\n" % e)
 ```
 
@@ -371,13 +370,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v3
 from sailpoint.v3.api.tagged_objects_api import TaggedObjectsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.tagged_object import TaggedObject
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     type = 'ROLE' # str | The type of tagged object to retrieve. # str | The type of tagged object to retrieve.
@@ -389,12 +388,12 @@ with ApiClient(configuration) as api_client:
     try:
         # List Tagged Objects by Type
         
-        results =TaggedObjectsApi(api_client).list_tagged_objects_by_type(type, )
+        results = TaggedObjectsApi(api_client).list_tagged_objects_by_type(type=type)
         # Below is a request that includes all optional parameters
         # results = TaggedObjectsApi(api_client).list_tagged_objects_by_type(type, limit, offset, count, filters)
         print("The response of TaggedObjectsApi->list_tagged_objects_by_type:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling TaggedObjectsApi->list_tagged_objects_by_type: %s\n" % e)
 ```
 
@@ -436,7 +435,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v3
 from sailpoint.v3.api.tagged_objects_api import TaggedObjectsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.tagged_object import TaggedObject
@@ -444,28 +442,28 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     type = 'ROLE' # str | The type of tagged object to update. # str | The type of tagged object to update.
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | The ID of the object reference to update. # str | The ID of the object reference to update.
-    tagged_object = {
+    tagged_object = '''{
           "objectRef" : {
             "name" : "William Wilson",
             "id" : "2c91808568c529c60168cca6f90c1313",
             "type" : "IDENTITY"
           },
           "tags" : [ "BU_FINANCE", "PCI" ]
-        } # TaggedObject | 
+        }''' # TaggedObject | 
 
     try:
         # Update Tagged Object
-        new_tagged_object = TaggedObject()
-        new_tagged_object.from_json(tagged_object)
-        results =TaggedObjectsApi(api_client).put_tagged_object(type, id, new_tagged_object)
+        new_tagged_object = TaggedObject.from_json(tagged_object)
+        results = TaggedObjectsApi(api_client).put_tagged_object(type=type, id=id, tagged_object=new_tagged_object)
         # Below is a request that includes all optional parameters
         # results = TaggedObjectsApi(api_client).put_tagged_object(type, id, new_tagged_object)
         print("The response of TaggedObjectsApi->put_tagged_object:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling TaggedObjectsApi->put_tagged_object: %s\n" % e)
 ```
 
@@ -507,7 +505,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v3
 from sailpoint.v3.api.tagged_objects_api import TaggedObjectsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.tagged_object import TaggedObject
@@ -515,24 +512,24 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
-    tagged_object = {
+    tagged_object = '''{
           "objectRef" : {
             "name" : "William Wilson",
             "id" : "2c91808568c529c60168cca6f90c1313",
             "type" : "IDENTITY"
           },
           "tags" : [ "BU_FINANCE", "PCI" ]
-        } # TaggedObject | 
+        }''' # TaggedObject | 
 
     try:
         # Add Tag to Object
-        new_tagged_object = TaggedObject()
-        new_tagged_object.from_json(tagged_object)
-        TaggedObjectsApi(api_client).set_tag_to_object(new_tagged_object)
+        new_tagged_object = TaggedObject.from_json(tagged_object)
+        TaggedObjectsApi(api_client).set_tag_to_object(tagged_object=new_tagged_object)
         # Below is a request that includes all optional parameters
         # TaggedObjectsApi(api_client).set_tag_to_object(new_tagged_object)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling TaggedObjectsApi->set_tag_to_object: %s\n" % e)
 ```
 
@@ -572,7 +569,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v3
 from sailpoint.v3.api.tagged_objects_api import TaggedObjectsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.bulk_add_tagged_object import BulkAddTaggedObject
@@ -581,8 +577,9 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
-    bulk_add_tagged_object = {
+    bulk_add_tagged_object = '''{
           "objectRefs" : [ {
             "name" : "William Wilson",
             "id" : "2c91808568c529c60168cca6f90c1313",
@@ -594,18 +591,17 @@ with ApiClient(configuration) as api_client:
           } ],
           "operation" : "MERGE",
           "tags" : [ "BU_FINANCE", "PCI" ]
-        } # BulkAddTaggedObject | Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
+        }''' # BulkAddTaggedObject | Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
 
     try:
         # Tag Multiple Objects
-        new_bulk_add_tagged_object = BulkAddTaggedObject()
-        new_bulk_add_tagged_object.from_json(bulk_add_tagged_object)
-        results =TaggedObjectsApi(api_client).set_tags_to_many_objects(new_bulk_add_tagged_object)
+        new_bulk_add_tagged_object = BulkAddTaggedObject.from_json(bulk_add_tagged_object)
+        results = TaggedObjectsApi(api_client).set_tags_to_many_objects(bulk_add_tagged_object=new_bulk_add_tagged_object)
         # Below is a request that includes all optional parameters
         # results = TaggedObjectsApi(api_client).set_tags_to_many_objects(new_bulk_add_tagged_object)
         print("The response of TaggedObjectsApi->set_tags_to_many_objects:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling TaggedObjectsApi->set_tags_to_many_objects: %s\n" % e)
 ```
 

@@ -68,7 +68,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.work_reassignment_api import WorkReassignmentApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.configuration_item_request import ConfigurationItemRequest
@@ -77,25 +76,25 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
-    configuration_item_request = {
+    configuration_item_request = '''{
           "endDate" : "2022-07-30T17:00:00Z",
           "reassignedFromId" : "2c91808781a71ddb0181b9090b5c504e",
           "configType" : "ACCESS_REQUESTS",
           "reassignedToId" : "2c91808781a71ddb0181b9090b53504a",
           "startDate" : "2022-07-21T11:13:12.345Z"
-        } # ConfigurationItemRequest | 
+        }''' # ConfigurationItemRequest | 
 
     try:
         # Create a Reassignment Configuration
-        new_configuration_item_request = ConfigurationItemRequest()
-        new_configuration_item_request.from_json(configuration_item_request)
-        results =WorkReassignmentApi(api_client).create_reassignment_configuration(new_configuration_item_request)
+        new_configuration_item_request = ConfigurationItemRequest.from_json(configuration_item_request)
+        results = WorkReassignmentApi(api_client).create_reassignment_configuration(configuration_item_request=new_configuration_item_request)
         # Below is a request that includes all optional parameters
         # results = WorkReassignmentApi(api_client).create_reassignment_configuration(new_configuration_item_request)
         print("The response of WorkReassignmentApi->create_reassignment_configuration:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling WorkReassignmentApi->create_reassignment_configuration: %s\n" % e)
 ```
 
@@ -136,13 +135,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.work_reassignment_api import WorkReassignmentApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.config_type_enum import ConfigTypeEnum
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     identity_id = '2c91808781a71ddb0181b9090b5c504e' # str | unique identity id # str | unique identity id
@@ -151,10 +150,10 @@ with ApiClient(configuration) as api_client:
     try:
         # Delete Reassignment Configuration
         
-        WorkReassignmentApi(api_client).delete_reassignment_configuration(identity_id, config_type)
+        WorkReassignmentApi(api_client).delete_reassignment_configuration(identity_id=identity_id, config_type=config_type)
         # Below is a request that includes all optional parameters
         # WorkReassignmentApi(api_client).delete_reassignment_configuration(identity_id, config_type)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling WorkReassignmentApi->delete_reassignment_configuration: %s\n" % e)
 ```
 
@@ -196,7 +195,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.work_reassignment_api import WorkReassignmentApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.config_type_enum import ConfigTypeEnum
@@ -205,22 +203,21 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     identity_id = '2c91808781a71ddb0181b9090b5c504e' # str | unique identity id # str | unique identity id
     config_type = sailpoint.beta.ConfigTypeEnum() # ConfigTypeEnum | Reassignment work type # ConfigTypeEnum | Reassignment work type
-    exclusion_filters = ['SELF_REVIEW_DELEGATION'] # List[str] | Exclusion filters that disable parts of the reassignment evaluation. Possible values are listed below: - `SELF_REVIEW_DELEGATION`: This will exclude delegations of self-review reassignments (optional)
-    
-    exclusion_filters = ['SELF_REVIEW_DELEGATION'] # List[str] | Exclusion filters that disable parts of the reassignment evaluation. Possible values are listed below: - `SELF_REVIEW_DELEGATION`: This will exclude delegations of self-review reassignments (optional)
+    exclusion_filters = '''['SELF_REVIEW_DELEGATION']''' # List[str] | Exclusion filters that disable parts of the reassignment evaluation. Possible values are listed below: - `SELF_REVIEW_DELEGATION`: This will exclude delegations of self-review reassignments (optional)
 
     try:
         # Evaluate Reassignment Configuration
         
-        results =WorkReassignmentApi(api_client).get_evaluate_reassignment_configuration(identity_id, config_type, )
+        results = WorkReassignmentApi(api_client).get_evaluate_reassignment_configuration(identity_id=identity_id, config_type=config_type)
         # Below is a request that includes all optional parameters
         # results = WorkReassignmentApi(api_client).get_evaluate_reassignment_configuration(identity_id, config_type, exclusion_filters)
         print("The response of WorkReassignmentApi->get_evaluate_reassignment_configuration:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling WorkReassignmentApi->get_evaluate_reassignment_configuration: %s\n" % e)
 ```
 
@@ -257,7 +254,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.work_reassignment_api import WorkReassignmentApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.config_type import ConfigType
@@ -265,17 +261,18 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
 
     try:
         # List Reassignment Config Types
         
-        results =WorkReassignmentApi(api_client).get_reassignment_config_types()
+        results = WorkReassignmentApi(api_client).get_reassignment_config_types()
         # Below is a request that includes all optional parameters
         # results = WorkReassignmentApi(api_client).get_reassignment_config_types()
         print("The response of WorkReassignmentApi->get_reassignment_config_types:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling WorkReassignmentApi->get_reassignment_config_types: %s\n" % e)
 ```
 
@@ -316,7 +313,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.work_reassignment_api import WorkReassignmentApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.configuration_response import ConfigurationResponse
@@ -324,18 +320,19 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     identity_id = '2c91808781a71ddb0181b9090b5c504f' # str | unique identity id # str | unique identity id
 
     try:
         # Get Reassignment Configuration
         
-        results =WorkReassignmentApi(api_client).get_reassignment_configuration(identity_id)
+        results = WorkReassignmentApi(api_client).get_reassignment_configuration(identity_id=identity_id)
         # Below is a request that includes all optional parameters
         # results = WorkReassignmentApi(api_client).get_reassignment_configuration(identity_id)
         print("The response of WorkReassignmentApi->get_reassignment_configuration:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling WorkReassignmentApi->get_reassignment_configuration: %s\n" % e)
 ```
 
@@ -373,7 +370,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.work_reassignment_api import WorkReassignmentApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.tenant_configuration_response import TenantConfigurationResponse
@@ -381,17 +377,18 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
 
     try:
         # Get Tenant-wide Reassignment Configuration settings
         
-        results =WorkReassignmentApi(api_client).get_tenant_config_configuration()
+        results = WorkReassignmentApi(api_client).get_tenant_config_configuration()
         # Below is a request that includes all optional parameters
         # results = WorkReassignmentApi(api_client).get_tenant_config_configuration()
         print("The response of WorkReassignmentApi->get_tenant_config_configuration:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling WorkReassignmentApi->get_tenant_config_configuration: %s\n" % e)
 ```
 
@@ -433,13 +430,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.work_reassignment_api import WorkReassignmentApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.configuration_response import ConfigurationResponse
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     limit = 20 # int | Max number of results to return. (optional) (default to 20) # int | Max number of results to return. (optional) (default to 20)
@@ -448,12 +445,12 @@ with ApiClient(configuration) as api_client:
     try:
         # List Reassignment Configurations
         
-        results =WorkReassignmentApi(api_client).list_reassignment_configurations()
+        results = WorkReassignmentApi(api_client).list_reassignment_configurations()
         # Below is a request that includes all optional parameters
         # results = WorkReassignmentApi(api_client).list_reassignment_configurations(limit, offset)
         print("The response of WorkReassignmentApi->list_reassignment_configurations:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling WorkReassignmentApi->list_reassignment_configurations: %s\n" % e)
 ```
 
@@ -494,7 +491,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.work_reassignment_api import WorkReassignmentApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.configuration_item_request import ConfigurationItemRequest
@@ -503,26 +499,26 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     identity_id = '2c91808781a71ddb0181b9090b5c504e' # str | unique identity id # str | unique identity id
-    configuration_item_request = {
+    configuration_item_request = '''{
           "endDate" : "2022-07-30T17:00:00Z",
           "reassignedFromId" : "2c91808781a71ddb0181b9090b5c504e",
           "configType" : "ACCESS_REQUESTS",
           "reassignedToId" : "2c91808781a71ddb0181b9090b53504a",
           "startDate" : "2022-07-21T11:13:12.345Z"
-        } # ConfigurationItemRequest | 
+        }''' # ConfigurationItemRequest | 
 
     try:
         # Update Reassignment Configuration
-        new_configuration_item_request = ConfigurationItemRequest()
-        new_configuration_item_request.from_json(configuration_item_request)
-        results =WorkReassignmentApi(api_client).put_reassignment_config(identity_id, new_configuration_item_request)
+        new_configuration_item_request = ConfigurationItemRequest.from_json(configuration_item_request)
+        results = WorkReassignmentApi(api_client).put_reassignment_config(identity_id=identity_id, configuration_item_request=new_configuration_item_request)
         # Below is a request that includes all optional parameters
         # results = WorkReassignmentApi(api_client).put_reassignment_config(identity_id, new_configuration_item_request)
         print("The response of WorkReassignmentApi->put_reassignment_config:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling WorkReassignmentApi->put_reassignment_config: %s\n" % e)
 ```
 
@@ -562,7 +558,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.work_reassignment_api import WorkReassignmentApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.tenant_configuration_request import TenantConfigurationRequest
@@ -571,23 +566,23 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
-    tenant_configuration_request = {
+    tenant_configuration_request = '''{
           "configDetails" : {
             "disabled" : true
           }
-        } # TenantConfigurationRequest | 
+        }''' # TenantConfigurationRequest | 
 
     try:
         # Update Tenant-wide Reassignment Configuration settings
-        new_tenant_configuration_request = TenantConfigurationRequest()
-        new_tenant_configuration_request.from_json(tenant_configuration_request)
-        results =WorkReassignmentApi(api_client).put_tenant_configuration(new_tenant_configuration_request)
+        new_tenant_configuration_request = TenantConfigurationRequest.from_json(tenant_configuration_request)
+        results = WorkReassignmentApi(api_client).put_tenant_configuration(tenant_configuration_request=new_tenant_configuration_request)
         # Below is a request that includes all optional parameters
         # results = WorkReassignmentApi(api_client).put_tenant_configuration(new_tenant_configuration_request)
         print("The response of WorkReassignmentApi->put_tenant_configuration:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling WorkReassignmentApi->put_tenant_configuration: %s\n" % e)
 ```
 

@@ -26,6 +26,14 @@ Method | HTTP request | Description
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
+:::
 Create Machine Identities
 Use this API to create a machine identity.
 The maximum supported length for the description field is 2000 characters.
@@ -60,7 +68,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.machine_identities_api import MachineIdentitiesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.machine_identity import MachineIdentity
@@ -68,9 +75,11 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+configuration.experimental = true
+
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    machine_identity = {
+    machine_identity = '''{
           "created" : "2015-05-28T14:07:17Z",
           "businessApplication" : "ADService",
           "name" : "aName",
@@ -79,18 +88,17 @@ with ApiClient(configuration) as api_client:
           "attributes" : "{\"Region\":\"EU\"}",
           "id" : "id12345",
           "manuallyEdited" : true
-        } # MachineIdentity | 
+        }''' # MachineIdentity | 
 
     try:
         # Create Machine Identities
-        new_machine_identity = MachineIdentity()
-        new_machine_identity.from_json(machine_identity)
-        results =MachineIdentitiesApi(api_client).create_machine_identity(x_sail_point_experimental, new_machine_identity)
+        new_machine_identity = MachineIdentity.from_json(machine_identity)
+        results = MachineIdentitiesApi(api_client).create_machine_identity(x_sail_point_experimental=x_sail_point_experimental, machine_identity=new_machine_identity)
         # Below is a request that includes all optional parameters
         # results = MachineIdentitiesApi(api_client).create_machine_identity(x_sail_point_experimental, new_machine_identity)
         print("The response of MachineIdentitiesApi->create_machine_identity:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling MachineIdentitiesApi->create_machine_identity: %s\n" % e)
 ```
 
@@ -101,6 +109,14 @@ with ApiClient(configuration) as api_client:
 ## delete-machine-identity
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Delete machine identity
 The API returns successful response if the requested machine identity was deleted.
@@ -135,12 +151,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.machine_identities_api import MachineIdentitiesApi
 from sailpoint.v2024.api_client import ApiClient
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | Machine Identity ID # str | Machine Identity ID
@@ -149,10 +166,10 @@ with ApiClient(configuration) as api_client:
     try:
         # Delete machine identity
         
-        MachineIdentitiesApi(api_client).delete_machine_identity(id, x_sail_point_experimental)
+        MachineIdentitiesApi(api_client).delete_machine_identity(id=id, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # MachineIdentitiesApi(api_client).delete_machine_identity(id, x_sail_point_experimental)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling MachineIdentitiesApi->delete_machine_identity: %s\n" % e)
 ```
 
@@ -163,6 +180,14 @@ with ApiClient(configuration) as api_client:
 ## get-machine-identity
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Machine Identity Details
 This API returns a single machine identity using the Machine Identity ID.
@@ -197,13 +222,14 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.machine_identities_api import MachineIdentitiesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.machine_identity import MachineIdentity
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | Machine Identity ID # str | Machine Identity ID
@@ -212,12 +238,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Machine Identity Details
         
-        results =MachineIdentitiesApi(api_client).get_machine_identity(id, x_sail_point_experimental)
+        results = MachineIdentitiesApi(api_client).get_machine_identity(id=id, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = MachineIdentitiesApi(api_client).get_machine_identity(id, x_sail_point_experimental)
         print("The response of MachineIdentitiesApi->get_machine_identity:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling MachineIdentitiesApi->get_machine_identity: %s\n" % e)
 ```
 
@@ -228,6 +254,14 @@ with ApiClient(configuration) as api_client:
 ## list-machine-identities
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 List Machine Identities
 This API returns a list of machine identities.
@@ -265,13 +299,14 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.machine_identities_api import MachineIdentitiesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.machine_identity import MachineIdentity
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -283,12 +318,12 @@ with ApiClient(configuration) as api_client:
     try:
         # List Machine Identities
         
-        results =MachineIdentitiesApi(api_client).list_machine_identities(x_sail_point_experimental, )
+        results = MachineIdentitiesApi(api_client).list_machine_identities(x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = MachineIdentitiesApi(api_client).list_machine_identities(x_sail_point_experimental, sorters, count, limit, offset)
         print("The response of MachineIdentitiesApi->list_machine_identities:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling MachineIdentitiesApi->list_machine_identities: %s\n" % e)
 ```
 
@@ -299,6 +334,14 @@ with ApiClient(configuration) as api_client:
 ## update-machine-identity
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Update a Machine Identity
 Use this API to update machine identity details.
@@ -335,7 +378,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.machine_identities_api import MachineIdentitiesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.machine_identity import MachineIdentity
@@ -343,23 +385,22 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+configuration.experimental = true
+
 with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | Machine Identity ID. # str | Machine Identity ID.
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    request_body = {Add machine identity attribute={value=[{op=add, path=/attributes/securityRisk, value=medium}]}, Replace machine identity attribute={value=[{op=replace, path=/attributes/securityRisk, value=medium}]}, Remove machine identity attribute={value=[{op=remove, path=/attributes/securityRisk}]}} # List[object] | A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
-     request_body = {Add machine identity attribute={value=[{op=add, path=/attributes/securityRisk, value=medium}]}, Replace machine identity attribute={value=[{op=replace, path=/attributes/securityRisk, value=medium}]}, Remove machine identity attribute={value=[{op=remove, path=/attributes/securityRisk}]}} # List[object] | A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
-    
+    request_body = '''{Add machine identity attribute={value=[{op=add, path=/attributes/securityRisk, value=medium}]}, Replace machine identity attribute={value=[{op=replace, path=/attributes/securityRisk, value=medium}]}, Remove machine identity attribute={value=[{op=remove, path=/attributes/securityRisk}]}}''' # List[object] | A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
     try:
         # Update a Machine Identity
-        new_request_body = RequestBody()
-        new_request_body.from_json(request_body)
-        results =MachineIdentitiesApi(api_client).update_machine_identity(id, x_sail_point_experimental, new_request_body)
+        new_request_body = RequestBody.from_json(request_body)
+        results = MachineIdentitiesApi(api_client).update_machine_identity(id=id, x_sail_point_experimental=x_sail_point_experimental, request_body=new_request_body)
         # Below is a request that includes all optional parameters
         # results = MachineIdentitiesApi(api_client).update_machine_identity(id, x_sail_point_experimental, new_request_body)
         print("The response of MachineIdentitiesApi->update_machine_identity:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling MachineIdentitiesApi->update_machine_identity: %s\n" % e)
 ```
 

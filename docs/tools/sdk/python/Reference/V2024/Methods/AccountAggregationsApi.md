@@ -32,6 +32,14 @@ Method | HTTP request | Description
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
+:::
 In-progress Account Aggregation status
 This API returns the status of an *in-progress* account aggregation, along with the total number of **NEW**, **CHANGED** and **DELETED** accounts found since the previous aggregation, and the number of those accounts that have been processed so far.
 
@@ -71,13 +79,14 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.account_aggregations_api import AccountAggregationsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.account_aggregation_status import AccountAggregationStatus
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     id = '2c91808477a6b0c60177a81146b8110b' # str | The account aggregation id # str | The account aggregation id
@@ -86,12 +95,12 @@ with ApiClient(configuration) as api_client:
     try:
         # In-progress Account Aggregation status
         
-        results =AccountAggregationsApi(api_client).get_account_aggregation_status(id, x_sail_point_experimental)
+        results = AccountAggregationsApi(api_client).get_account_aggregation_status(id=id, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = AccountAggregationsApi(api_client).get_account_aggregation_status(id, x_sail_point_experimental)
         print("The response of AccountAggregationsApi->get_account_aggregation_status:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AccountAggregationsApi->get_account_aggregation_status: %s\n" % e)
 ```
 

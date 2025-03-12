@@ -55,7 +55,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.transforms_api import TransformsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.transform import Transform
@@ -64,23 +63,23 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
-    transform = {
+    transform = '''{
           "name" : "Timestamp To Date",
           "attributes" : "{}",
           "type" : "dateFormat"
-        } # Transform | The transform to be created.
+        }''' # Transform | The transform to be created.
 
     try:
         # Create transform
-        new_transform = Transform()
-        new_transform.from_json(transform)
-        results =TransformsApi(api_client).create_transform(new_transform)
+        new_transform = Transform.from_json(transform)
+        results = TransformsApi(api_client).create_transform(transform=new_transform)
         # Below is a request that includes all optional parameters
         # results = TransformsApi(api_client).create_transform(new_transform)
         print("The response of TransformsApi->create_transform:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling TransformsApi->create_transform: %s\n" % e)
 ```
 
@@ -122,12 +121,12 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.transforms_api import TransformsApi
 from sailpoint.beta.api_client import ApiClient
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     id = '2cd78adghjkja34jh2b1hkjhasuecd' # str | ID of the transform to delete # str | ID of the transform to delete
@@ -135,10 +134,10 @@ with ApiClient(configuration) as api_client:
     try:
         # Delete a transform
         
-        TransformsApi(api_client).delete_transform(id)
+        TransformsApi(api_client).delete_transform(id=id)
         # Below is a request that includes all optional parameters
         # TransformsApi(api_client).delete_transform(id)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling TransformsApi->delete_transform: %s\n" % e)
 ```
 
@@ -180,7 +179,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.transforms_api import TransformsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.transform_read import TransformRead
@@ -188,18 +186,19 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     id = '2cd78adghjkja34jh2b1hkjhasuecd' # str | ID of the transform to retrieve # str | ID of the transform to retrieve
 
     try:
         # Transform by ID
         
-        results =TransformsApi(api_client).get_transform(id)
+        results = TransformsApi(api_client).get_transform(id=id)
         # Below is a request that includes all optional parameters
         # results = TransformsApi(api_client).get_transform(id)
         print("The response of TransformsApi->get_transform:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling TransformsApi->get_transform: %s\n" % e)
 ```
 
@@ -245,13 +244,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.transforms_api import TransformsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.transform_read import TransformRead
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -263,12 +262,12 @@ with ApiClient(configuration) as api_client:
     try:
         # List transforms
         
-        results =TransformsApi(api_client).list_transforms()
+        results = TransformsApi(api_client).list_transforms()
         # Below is a request that includes all optional parameters
         # results = TransformsApi(api_client).list_transforms(offset, limit, count, name, filters)
         print("The response of TransformsApi->list_transforms:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling TransformsApi->list_transforms: %s\n" % e)
 ```
 
@@ -311,7 +310,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.transforms_api import TransformsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.transform import Transform
@@ -320,23 +318,24 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     id = '2cd78adghjkja34jh2b1hkjhasuecd' # str | ID of the transform to update # str | ID of the transform to update
-    transform = {
+    transform = '''{
           "name" : "Timestamp To Date",
           "attributes" : "{}",
           "type" : "dateFormat"
-        } # Transform | The updated transform object. Must include \"name\", \"type\", and \"attributes\" fields, but \"name\" and \"type\" must not be modified. (optional)
+        }''' # Transform | The updated transform object. Must include \"name\", \"type\", and \"attributes\" fields, but \"name\" and \"type\" must not be modified. (optional)
 
     try:
         # Update a transform
         
-        results =TransformsApi(api_client).update_transform(id, )
+        results = TransformsApi(api_client).update_transform(id=id)
         # Below is a request that includes all optional parameters
         # results = TransformsApi(api_client).update_transform(id, new_transform)
         print("The response of TransformsApi->update_transform:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling TransformsApi->update_transform: %s\n" % e)
 ```
 

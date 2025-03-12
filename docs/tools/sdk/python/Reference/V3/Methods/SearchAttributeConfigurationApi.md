@@ -73,7 +73,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v3
 from sailpoint.v3.api.search_attribute_configuration_api import SearchAttributeConfigurationApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.search_attribute_config import SearchAttributeConfig
@@ -81,26 +80,26 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
-    search_attribute_config = {
+    search_attribute_config = '''{
           "displayName" : "New Mail Attribute",
           "name" : "newMailAttribute",
           "applicationAttributes" : {
             "2c91808b79fd2422017a0b35d30f3968" : "employeeNumber",
             "2c91808b79fd2422017a0b36008f396b" : "employeeNumber"
           }
-        } # SearchAttributeConfig | 
+        }''' # SearchAttributeConfig | 
 
     try:
         # Create Extended Search Attributes
-        new_search_attribute_config = SearchAttributeConfig()
-        new_search_attribute_config.from_json(search_attribute_config)
-        results =SearchAttributeConfigurationApi(api_client).create_search_attribute_config(new_search_attribute_config)
+        new_search_attribute_config = SearchAttributeConfig.from_json(search_attribute_config)
+        results = SearchAttributeConfigurationApi(api_client).create_search_attribute_config(search_attribute_config=new_search_attribute_config)
         # Below is a request that includes all optional parameters
         # results = SearchAttributeConfigurationApi(api_client).create_search_attribute_config(new_search_attribute_config)
         print("The response of SearchAttributeConfigurationApi->create_search_attribute_config:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling SearchAttributeConfigurationApi->create_search_attribute_config: %s\n" % e)
 ```
 
@@ -141,12 +140,12 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v3
 from sailpoint.v3.api.search_attribute_configuration_api import SearchAttributeConfigurationApi
 from sailpoint.v3.api_client import ApiClient
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     name = 'newMailAttribute' # str | Name of the extended search attribute configuration to delete. # str | Name of the extended search attribute configuration to delete.
@@ -154,10 +153,10 @@ with ApiClient(configuration) as api_client:
     try:
         # Delete Extended Search Attribute
         
-        SearchAttributeConfigurationApi(api_client).delete_search_attribute_config(name)
+        SearchAttributeConfigurationApi(api_client).delete_search_attribute_config(name=name)
         # Below is a request that includes all optional parameters
         # SearchAttributeConfigurationApi(api_client).delete_search_attribute_config(name)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling SearchAttributeConfigurationApi->delete_search_attribute_config: %s\n" % e)
 ```
 
@@ -194,7 +193,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v3
 from sailpoint.v3.api.search_attribute_configuration_api import SearchAttributeConfigurationApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.search_attribute_config import SearchAttributeConfig
@@ -202,17 +200,18 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
 
     try:
         # List Extended Search Attributes
         
-        results =SearchAttributeConfigurationApi(api_client).get_search_attribute_config()
+        results = SearchAttributeConfigurationApi(api_client).get_search_attribute_config()
         # Below is a request that includes all optional parameters
         # results = SearchAttributeConfigurationApi(api_client).get_search_attribute_config()
         print("The response of SearchAttributeConfigurationApi->get_search_attribute_config:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling SearchAttributeConfigurationApi->get_search_attribute_config: %s\n" % e)
 ```
 
@@ -254,7 +253,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v3
 from sailpoint.v3.api.search_attribute_configuration_api import SearchAttributeConfigurationApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.search_attribute_config import SearchAttributeConfig
@@ -262,18 +260,19 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     name = 'newMailAttribute' # str | Name of the extended search attribute configuration to retrieve. # str | Name of the extended search attribute configuration to retrieve.
 
     try:
         # Get Extended Search Attribute
         
-        results =SearchAttributeConfigurationApi(api_client).get_single_search_attribute_config(name)
+        results = SearchAttributeConfigurationApi(api_client).get_single_search_attribute_config(name=name)
         # Below is a request that includes all optional parameters
         # results = SearchAttributeConfigurationApi(api_client).get_single_search_attribute_config(name)
         print("The response of SearchAttributeConfigurationApi->get_single_search_attribute_config:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling SearchAttributeConfigurationApi->get_single_search_attribute_config: %s\n" % e)
 ```
 
@@ -317,7 +316,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v3
 from sailpoint.v3.api.search_attribute_configuration_api import SearchAttributeConfigurationApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.json_patch_operation import JsonPatchOperation
@@ -326,26 +324,20 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     name = 'promotedMailAttribute' # str | Name of the search attribute configuration to patch. # str | Name of the search attribute configuration to patch.
-    [{op=replace, path=/name, value=newAttributeName}, {op=replace, path=/displayName, value=new attribute display name}, {op=add, path=/applicationAttributes, value={2c91808b79fd2422017a0b35d30f3968=employeeNumber}}] # List[JsonPatchOperation] | 
-     json_patch_operation = {
-          "op" : "replace",
-          "path" : "/description",
-          "value" : "New description"
-        } # List[JsonPatchOperation] | 
-    
+    json_patch_operation = '''[{op=replace, path=/name, value=newAttributeName}, {op=replace, path=/displayName, value=new attribute display name}, {op=add, path=/applicationAttributes, value={2c91808b79fd2422017a0b35d30f3968=employeeNumber}}]''' # List[JsonPatchOperation] | 
 
     try:
         # Update Extended Search Attribute
-        new_json_patch_operation = JsonPatchOperation()
-        new_json_patch_operation.from_json(json_patch_operation)
-        results =SearchAttributeConfigurationApi(api_client).patch_search_attribute_config(name, new_json_patch_operation)
+        new_json_patch_operation = JsonPatchOperation.from_json(json_patch_operation)
+        results = SearchAttributeConfigurationApi(api_client).patch_search_attribute_config(name=name, json_patch_operation=new_json_patch_operation)
         # Below is a request that includes all optional parameters
         # results = SearchAttributeConfigurationApi(api_client).patch_search_attribute_config(name, new_json_patch_operation)
         print("The response of SearchAttributeConfigurationApi->patch_search_attribute_config:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling SearchAttributeConfigurationApi->patch_search_attribute_config: %s\n" % e)
 ```
 

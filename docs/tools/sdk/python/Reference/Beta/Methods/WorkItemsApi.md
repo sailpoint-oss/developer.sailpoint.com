@@ -75,13 +75,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.work_items_api import WorkItemsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.work_items import WorkItems
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | The ID of the work item # str | The ID of the work item
@@ -90,12 +90,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Approve an Approval Item
         
-        results =WorkItemsApi(api_client).approve_approval_item(id, approval_item_id)
+        results = WorkItemsApi(api_client).approve_approval_item(id=id, approval_item_id=approval_item_id)
         # Below is a request that includes all optional parameters
         # results = WorkItemsApi(api_client).approve_approval_item(id, approval_item_id)
         print("The response of WorkItemsApi->approve_approval_item:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling WorkItemsApi->approve_approval_item: %s\n" % e)
 ```
 
@@ -133,7 +133,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.work_items_api import WorkItemsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.work_items import WorkItems
@@ -141,18 +140,19 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | The ID of the work item # str | The ID of the work item
 
     try:
         # Bulk approve Approval Items
         
-        results =WorkItemsApi(api_client).approve_approval_items_in_bulk(id)
+        results = WorkItemsApi(api_client).approve_approval_items_in_bulk(id=id)
         # Below is a request that includes all optional parameters
         # results = WorkItemsApi(api_client).approve_approval_items_in_bulk(id)
         print("The response of WorkItemsApi->approve_approval_items_in_bulk:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling WorkItemsApi->approve_approval_items_in_bulk: %s\n" % e)
 ```
 
@@ -171,6 +171,7 @@ This API completes a work item. Either an admin, or the owning/current user must
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | id | **str** | True  | The ID of the work item
+ Body  | body | **str** |   (optional) | Body is the request payload to create form definition request
 
 ### Return type
 [**WorkItems**](../models/work-items)
@@ -180,17 +181,19 @@ Code | Description  | Data Type | Response headers |
 ------------- | ------------- | ------------- |------------------|
 200 | A WorkItems object | WorkItems |  -  |
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessModelMetadataAttribute401Response |  -  |
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
 404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessModelMetadataAttribute429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
 ### HTTP request headers
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.work_items_api import WorkItemsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.work_items import WorkItems
@@ -198,18 +201,20 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | The ID of the work item # str | The ID of the work item
+    body = 'body_example' # str | Body is the request payload to create form definition request (optional) # str | Body is the request payload to create form definition request (optional)
 
     try:
         # Complete a Work Item
         
-        results =WorkItemsApi(api_client).complete_work_item(id)
+        results = WorkItemsApi(api_client).complete_work_item(id=id)
         # Below is a request that includes all optional parameters
-        # results = WorkItemsApi(api_client).complete_work_item(id)
+        # results = WorkItemsApi(api_client).complete_work_item(id, new_body)
         print("The response of WorkItemsApi->complete_work_item:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling WorkItemsApi->complete_work_item: %s\n" % e)
 ```
 
@@ -250,7 +255,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.work_items_api import WorkItemsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.work_item_forward import WorkItemForward
@@ -258,22 +262,22 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | The ID of the work item # str | The ID of the work item
-    work_item_forward = {
+    work_item_forward = '''{
           "targetOwnerId" : "2c9180835d2e5168015d32f890ca1581",
           "comment" : "I'm going on vacation.",
           "sendNotifications" : true
-        } # WorkItemForward | 
+        }''' # WorkItemForward | 
 
     try:
         # Forward a Work Item
-        new_work_item_forward = WorkItemForward()
-        new_work_item_forward.from_json(work_item_forward)
-        WorkItemsApi(api_client).forward_work_item(id, new_work_item_forward)
+        new_work_item_forward = WorkItemForward.from_json(work_item_forward)
+        WorkItemsApi(api_client).forward_work_item(id=id, work_item_forward=new_work_item_forward)
         # Below is a request that includes all optional parameters
         # WorkItemsApi(api_client).forward_work_item(id, new_work_item_forward)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling WorkItemsApi->forward_work_item: %s\n" % e)
 ```
 
@@ -314,13 +318,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.work_items_api import WorkItemsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.work_items import WorkItems
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     owner_id = 'owner_id_example' # str | The id of the owner of the work item list being requested.  Either an admin, or the owning/current user must make this request. (optional) # str | The id of the owner of the work item list being requested.  Either an admin, or the owning/current user must make this request. (optional)
@@ -331,12 +335,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Completed Work Items
         
-        results =WorkItemsApi(api_client).get_completed_work_items()
+        results = WorkItemsApi(api_client).get_completed_work_items()
         # Below is a request that includes all optional parameters
         # results = WorkItemsApi(api_client).get_completed_work_items(owner_id, limit, offset, count)
         print("The response of WorkItemsApi->get_completed_work_items:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling WorkItemsApi->get_completed_work_items: %s\n" % e)
 ```
 
@@ -374,7 +378,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.work_items_api import WorkItemsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.work_items_count import WorkItemsCount
@@ -382,18 +385,19 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     owner_id = 'owner_id_example' # str | ID of the work item owner. (optional) # str | ID of the work item owner. (optional)
 
     try:
         # Count Completed Work Items
         
-        results =WorkItemsApi(api_client).get_count_completed_work_items()
+        results = WorkItemsApi(api_client).get_count_completed_work_items()
         # Below is a request that includes all optional parameters
         # results = WorkItemsApi(api_client).get_count_completed_work_items(owner_id)
         print("The response of WorkItemsApi->get_count_completed_work_items:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling WorkItemsApi->get_count_completed_work_items: %s\n" % e)
 ```
 
@@ -431,7 +435,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.work_items_api import WorkItemsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.work_items_count import WorkItemsCount
@@ -439,18 +442,19 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     owner_id = 'owner_id_example' # str | ID of the work item owner. (optional) # str | ID of the work item owner. (optional)
 
     try:
         # Count Work Items
         
-        results =WorkItemsApi(api_client).get_count_work_items()
+        results = WorkItemsApi(api_client).get_count_work_items()
         # Below is a request that includes all optional parameters
         # results = WorkItemsApi(api_client).get_count_work_items(owner_id)
         print("The response of WorkItemsApi->get_count_work_items:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling WorkItemsApi->get_count_work_items: %s\n" % e)
 ```
 
@@ -472,15 +476,18 @@ Path   | id | **str** | True  | ID of the work item.
   Query | owner_id | **str** |   (optional) | ID of the work item owner.
 
 ### Return type
-[**List[WorkItems]**](../models/work-items)
+**object**
 
 ### Responses
 Code | Description  | Data Type | Response headers |
 ------------- | ------------- | ------------- |------------------|
-200 | The work item with the given ID. | List[WorkItems] |  -  |
+200 | The work item with the given ID. | object |  -  |
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessModelMetadataAttribute401Response |  -  |
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
 404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessModelMetadataAttribute429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -489,27 +496,26 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.work_items_api import WorkItemsApi
 from sailpoint.beta.api_client import ApiClient
-from sailpoint.beta.models.work_items import WorkItems
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
-    id = 'id_example' # str | ID of the work item. # str | ID of the work item.
-    owner_id = 'owner_id_example' # str | ID of the work item owner. (optional) # str | ID of the work item owner. (optional)
+    id = '2c9180835d191a86015d28455b4a2329' # str | ID of the work item. # str | ID of the work item.
+    owner_id = '2c9180835d191a86015d28455b4a2329' # str | ID of the work item owner. (optional) # str | ID of the work item owner. (optional)
 
     try:
         # Get a Work Item
         
-        results =WorkItemsApi(api_client).get_work_item(id, )
+        results = WorkItemsApi(api_client).get_work_item(id=id)
         # Below is a request that includes all optional parameters
         # results = WorkItemsApi(api_client).get_work_item(id, owner_id)
         print("The response of WorkItemsApi->get_work_item:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling WorkItemsApi->get_work_item: %s\n" % e)
 ```
 
@@ -547,7 +553,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.work_items_api import WorkItemsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.work_items_summary import WorkItemsSummary
@@ -555,18 +560,19 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     owner_id = 'owner_id_example' # str | ID of the work item owner. (optional) # str | ID of the work item owner. (optional)
 
     try:
         # Work Items Summary
         
-        results =WorkItemsApi(api_client).get_work_items_summary()
+        results = WorkItemsApi(api_client).get_work_items_summary()
         # Below is a request that includes all optional parameters
         # results = WorkItemsApi(api_client).get_work_items_summary(owner_id)
         print("The response of WorkItemsApi->get_work_items_summary:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling WorkItemsApi->get_work_items_summary: %s\n" % e)
 ```
 
@@ -607,13 +613,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.work_items_api import WorkItemsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.work_items import WorkItems
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -624,12 +630,12 @@ with ApiClient(configuration) as api_client:
     try:
         # List Work Items
         
-        results =WorkItemsApi(api_client).list_work_items()
+        results = WorkItemsApi(api_client).list_work_items()
         # Below is a request that includes all optional parameters
         # results = WorkItemsApi(api_client).list_work_items(limit, offset, count, owner_id)
         print("The response of WorkItemsApi->list_work_items:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling WorkItemsApi->list_work_items: %s\n" % e)
 ```
 
@@ -668,13 +674,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.work_items_api import WorkItemsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.work_items import WorkItems
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | The ID of the work item # str | The ID of the work item
@@ -683,12 +689,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Reject an Approval Item
         
-        results =WorkItemsApi(api_client).reject_approval_item(id, approval_item_id)
+        results = WorkItemsApi(api_client).reject_approval_item(id=id, approval_item_id=approval_item_id)
         # Below is a request that includes all optional parameters
         # results = WorkItemsApi(api_client).reject_approval_item(id, approval_item_id)
         print("The response of WorkItemsApi->reject_approval_item:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling WorkItemsApi->reject_approval_item: %s\n" % e)
 ```
 
@@ -726,7 +732,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.work_items_api import WorkItemsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.work_items import WorkItems
@@ -734,18 +739,19 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | The ID of the work item # str | The ID of the work item
 
     try:
         # Bulk reject Approval Items
         
-        results =WorkItemsApi(api_client).reject_approval_items_in_bulk(id)
+        results = WorkItemsApi(api_client).reject_approval_items_in_bulk(id=id)
         # Below is a request that includes all optional parameters
         # results = WorkItemsApi(api_client).reject_approval_items_in_bulk(id)
         print("The response of WorkItemsApi->reject_approval_items_in_bulk:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling WorkItemsApi->reject_approval_items_in_bulk: %s\n" % e)
 ```
 
@@ -784,7 +790,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.work_items_api import WorkItemsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.work_items import WorkItems
@@ -792,20 +797,20 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | The ID of the work item # str | The ID of the work item
     request_body = {fieldName=fieldValue} # Dict[str, object] | Account Selection Data map, keyed on fieldName # Dict[str, object] | Account Selection Data map, keyed on fieldName
 
     try:
         # Submit Account Selections
-        new_request_body = RequestBody()
-        new_request_body.from_json(request_body)
-        results =WorkItemsApi(api_client).submit_account_selection(id, new_request_body)
+        new_request_body = RequestBody.from_json(request_body)
+        results = WorkItemsApi(api_client).submit_account_selection(id=id, request_body=new_request_body)
         # Below is a request that includes all optional parameters
         # results = WorkItemsApi(api_client).submit_account_selection(id, new_request_body)
         print("The response of WorkItemsApi->submit_account_selection:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling WorkItemsApi->submit_account_selection: %s\n" % e)
 ```
 

@@ -40,6 +40,14 @@ Method | HTTP request | Description
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
+:::
 Create a Reassignment Configuration
 Creates a new Reassignment Configuration for the specified identity.
 
@@ -72,7 +80,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.work_reassignment_api import WorkReassignmentApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.configuration_item_request import ConfigurationItemRequest
@@ -81,26 +88,27 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+configuration.experimental = true
+
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    configuration_item_request = {
+    configuration_item_request = '''{
           "endDate" : "2022-07-30T17:00:00Z",
           "reassignedFromId" : "2c91808781a71ddb0181b9090b5c504e",
           "configType" : "ACCESS_REQUESTS",
           "reassignedToId" : "2c91808781a71ddb0181b9090b53504a",
           "startDate" : "2022-07-21T11:13:12.345Z"
-        } # ConfigurationItemRequest | 
+        }''' # ConfigurationItemRequest | 
 
     try:
         # Create a Reassignment Configuration
-        new_configuration_item_request = ConfigurationItemRequest()
-        new_configuration_item_request.from_json(configuration_item_request)
-        results =WorkReassignmentApi(api_client).create_reassignment_configuration(x_sail_point_experimental, new_configuration_item_request)
+        new_configuration_item_request = ConfigurationItemRequest.from_json(configuration_item_request)
+        results = WorkReassignmentApi(api_client).create_reassignment_configuration(x_sail_point_experimental=x_sail_point_experimental, configuration_item_request=new_configuration_item_request)
         # Below is a request that includes all optional parameters
         # results = WorkReassignmentApi(api_client).create_reassignment_configuration(x_sail_point_experimental, new_configuration_item_request)
         print("The response of WorkReassignmentApi->create_reassignment_configuration:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling WorkReassignmentApi->create_reassignment_configuration: %s\n" % e)
 ```
 
@@ -111,6 +119,14 @@ with ApiClient(configuration) as api_client:
 ## delete-reassignment-configuration
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Delete Reassignment Configuration
 Deletes a single reassignment configuration for the specified identity
@@ -145,13 +161,14 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.work_reassignment_api import WorkReassignmentApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.config_type_enum import ConfigTypeEnum
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     identity_id = '2c91808781a71ddb0181b9090b5c504e' # str | unique identity id # str | unique identity id
@@ -161,10 +178,10 @@ with ApiClient(configuration) as api_client:
     try:
         # Delete Reassignment Configuration
         
-        WorkReassignmentApi(api_client).delete_reassignment_configuration(identity_id, config_type, x_sail_point_experimental)
+        WorkReassignmentApi(api_client).delete_reassignment_configuration(identity_id=identity_id, config_type=config_type, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # WorkReassignmentApi(api_client).delete_reassignment_configuration(identity_id, config_type, x_sail_point_experimental)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling WorkReassignmentApi->delete_reassignment_configuration: %s\n" % e)
 ```
 
@@ -175,6 +192,14 @@ with ApiClient(configuration) as api_client:
 ## get-evaluate-reassignment-configuration
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Evaluate Reassignment Configuration
 Evaluates the Reassignment Configuration for an `Identity` to determine if work items for the specified type should be reassigned. If a valid Reassignment Configuration is found for the identity & work type, then a lookup is initiated which recursively fetches the Reassignment Configuration for the next `TargetIdentity` until no more results are found or a max depth of 5. That lookup trail is provided in the response and the final reassigned identity in the lookup list is returned as the `reassignToId` property. If no Reassignment Configuration is found for the specified identity & config type then the requested Identity ID will be used as the `reassignToId` value and the lookupTrail node will be empty.
@@ -210,7 +235,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.work_reassignment_api import WorkReassignmentApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.config_type_enum import ConfigTypeEnum
@@ -219,23 +243,23 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+configuration.experimental = true
+
 with ApiClient(configuration) as api_client:
     identity_id = '2c91808781a71ddb0181b9090b5c504e' # str | unique identity id # str | unique identity id
     config_type = sailpoint.v2024.ConfigTypeEnum() # ConfigTypeEnum | Reassignment work type # ConfigTypeEnum | Reassignment work type
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    exclusion_filters = ['SELF_REVIEW_DELEGATION'] # List[str] | Exclusion filters that disable parts of the reassignment evaluation. Possible values are listed below: - `SELF_REVIEW_DELEGATION`: This will exclude delegations of self-review reassignments (optional)
-    
-    exclusion_filters = ['SELF_REVIEW_DELEGATION'] # List[str] | Exclusion filters that disable parts of the reassignment evaluation. Possible values are listed below: - `SELF_REVIEW_DELEGATION`: This will exclude delegations of self-review reassignments (optional)
+    exclusion_filters = '''['SELF_REVIEW_DELEGATION']''' # List[str] | Exclusion filters that disable parts of the reassignment evaluation. Possible values are listed below: - `SELF_REVIEW_DELEGATION`: This will exclude delegations of self-review reassignments (optional)
 
     try:
         # Evaluate Reassignment Configuration
         
-        results =WorkReassignmentApi(api_client).get_evaluate_reassignment_configuration(identity_id, config_type, x_sail_point_experimental, )
+        results = WorkReassignmentApi(api_client).get_evaluate_reassignment_configuration(identity_id=identity_id, config_type=config_type, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = WorkReassignmentApi(api_client).get_evaluate_reassignment_configuration(identity_id, config_type, x_sail_point_experimental, exclusion_filters)
         print("The response of WorkReassignmentApi->get_evaluate_reassignment_configuration:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling WorkReassignmentApi->get_evaluate_reassignment_configuration: %s\n" % e)
 ```
 
@@ -246,6 +270,14 @@ with ApiClient(configuration) as api_client:
 ## get-reassignment-config-types
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 List Reassignment Config Types
 Gets a collection of types which are available in the Reassignment Configuration UI.
@@ -278,7 +310,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.work_reassignment_api import WorkReassignmentApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.config_type import ConfigType
@@ -286,18 +317,20 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+configuration.experimental = true
+
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
         # List Reassignment Config Types
         
-        results =WorkReassignmentApi(api_client).get_reassignment_config_types(x_sail_point_experimental)
+        results = WorkReassignmentApi(api_client).get_reassignment_config_types(x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = WorkReassignmentApi(api_client).get_reassignment_config_types(x_sail_point_experimental)
         print("The response of WorkReassignmentApi->get_reassignment_config_types:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling WorkReassignmentApi->get_reassignment_config_types: %s\n" % e)
 ```
 
@@ -308,6 +341,14 @@ with ApiClient(configuration) as api_client:
 ## get-reassignment-configuration
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Get Reassignment Configuration
 Gets the Reassignment Configuration for an identity.
@@ -342,13 +383,14 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.work_reassignment_api import WorkReassignmentApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.configuration_response import ConfigurationResponse
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     identity_id = '2c91808781a71ddb0181b9090b5c504f' # str | unique identity id # str | unique identity id
@@ -357,12 +399,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Get Reassignment Configuration
         
-        results =WorkReassignmentApi(api_client).get_reassignment_configuration(identity_id, x_sail_point_experimental)
+        results = WorkReassignmentApi(api_client).get_reassignment_configuration(identity_id=identity_id, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = WorkReassignmentApi(api_client).get_reassignment_configuration(identity_id, x_sail_point_experimental)
         print("The response of WorkReassignmentApi->get_reassignment_configuration:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling WorkReassignmentApi->get_reassignment_configuration: %s\n" % e)
 ```
 
@@ -373,6 +415,14 @@ with ApiClient(configuration) as api_client:
 ## get-tenant-config-configuration
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Get Tenant-wide Reassignment Configuration settings
 Gets the global Reassignment Configuration settings for the requestor's tenant.
@@ -406,7 +456,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.work_reassignment_api import WorkReassignmentApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.tenant_configuration_response import TenantConfigurationResponse
@@ -414,18 +463,20 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+configuration.experimental = true
+
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
         # Get Tenant-wide Reassignment Configuration settings
         
-        results =WorkReassignmentApi(api_client).get_tenant_config_configuration(x_sail_point_experimental)
+        results = WorkReassignmentApi(api_client).get_tenant_config_configuration(x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = WorkReassignmentApi(api_client).get_tenant_config_configuration(x_sail_point_experimental)
         print("The response of WorkReassignmentApi->get_tenant_config_configuration:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling WorkReassignmentApi->get_tenant_config_configuration: %s\n" % e)
 ```
 
@@ -436,6 +487,14 @@ with ApiClient(configuration) as api_client:
 ## list-reassignment-configurations
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 List Reassignment Configurations
 Gets all Reassignment configuration for the current org.
@@ -469,7 +528,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.work_reassignment_api import WorkReassignmentApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.configuration_response import ConfigurationResponse
@@ -477,18 +535,20 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+configuration.experimental = true
+
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
         # List Reassignment Configurations
         
-        results =WorkReassignmentApi(api_client).list_reassignment_configurations(x_sail_point_experimental)
+        results = WorkReassignmentApi(api_client).list_reassignment_configurations(x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = WorkReassignmentApi(api_client).list_reassignment_configurations(x_sail_point_experimental)
         print("The response of WorkReassignmentApi->list_reassignment_configurations:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling WorkReassignmentApi->list_reassignment_configurations: %s\n" % e)
 ```
 
@@ -499,6 +559,14 @@ with ApiClient(configuration) as api_client:
 ## put-reassignment-config
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Update Reassignment Configuration
 Replaces existing Reassignment configuration for an identity with the newly provided configuration.
@@ -533,7 +601,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.work_reassignment_api import WorkReassignmentApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.configuration_item_request import ConfigurationItemRequest
@@ -542,27 +609,28 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+configuration.experimental = true
+
 with ApiClient(configuration) as api_client:
     identity_id = '2c91808781a71ddb0181b9090b5c504e' # str | unique identity id # str | unique identity id
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    configuration_item_request = {
+    configuration_item_request = '''{
           "endDate" : "2022-07-30T17:00:00Z",
           "reassignedFromId" : "2c91808781a71ddb0181b9090b5c504e",
           "configType" : "ACCESS_REQUESTS",
           "reassignedToId" : "2c91808781a71ddb0181b9090b53504a",
           "startDate" : "2022-07-21T11:13:12.345Z"
-        } # ConfigurationItemRequest | 
+        }''' # ConfigurationItemRequest | 
 
     try:
         # Update Reassignment Configuration
-        new_configuration_item_request = ConfigurationItemRequest()
-        new_configuration_item_request.from_json(configuration_item_request)
-        results =WorkReassignmentApi(api_client).put_reassignment_config(identity_id, x_sail_point_experimental, new_configuration_item_request)
+        new_configuration_item_request = ConfigurationItemRequest.from_json(configuration_item_request)
+        results = WorkReassignmentApi(api_client).put_reassignment_config(identity_id=identity_id, x_sail_point_experimental=x_sail_point_experimental, configuration_item_request=new_configuration_item_request)
         # Below is a request that includes all optional parameters
         # results = WorkReassignmentApi(api_client).put_reassignment_config(identity_id, x_sail_point_experimental, new_configuration_item_request)
         print("The response of WorkReassignmentApi->put_reassignment_config:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling WorkReassignmentApi->put_reassignment_config: %s\n" % e)
 ```
 
@@ -573,6 +641,14 @@ with ApiClient(configuration) as api_client:
 ## put-tenant-configuration
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Update Tenant-wide Reassignment Configuration settings
 Replaces existing Tenant-wide Reassignment Configuration settings with the newly provided settings.
@@ -606,7 +682,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.work_reassignment_api import WorkReassignmentApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.tenant_configuration_request import TenantConfigurationRequest
@@ -615,24 +690,25 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+configuration.experimental = true
+
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    tenant_configuration_request = {
+    tenant_configuration_request = '''{
           "configDetails" : {
             "disabled" : true
           }
-        } # TenantConfigurationRequest | 
+        }''' # TenantConfigurationRequest | 
 
     try:
         # Update Tenant-wide Reassignment Configuration settings
-        new_tenant_configuration_request = TenantConfigurationRequest()
-        new_tenant_configuration_request.from_json(tenant_configuration_request)
-        results =WorkReassignmentApi(api_client).put_tenant_configuration(x_sail_point_experimental, new_tenant_configuration_request)
+        new_tenant_configuration_request = TenantConfigurationRequest.from_json(tenant_configuration_request)
+        results = WorkReassignmentApi(api_client).put_tenant_configuration(x_sail_point_experimental=x_sail_point_experimental, tenant_configuration_request=new_tenant_configuration_request)
         # Below is a request that includes all optional parameters
         # results = WorkReassignmentApi(api_client).put_tenant_configuration(x_sail_point_experimental, new_tenant_configuration_request)
         print("The response of WorkReassignmentApi->put_tenant_configuration:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling WorkReassignmentApi->put_tenant_configuration: %s\n" % e)
 ```
 

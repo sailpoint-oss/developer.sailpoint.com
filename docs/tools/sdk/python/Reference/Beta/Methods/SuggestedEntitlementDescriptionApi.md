@@ -64,7 +64,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.suggested_entitlement_description_api import SuggestedEntitlementDescriptionApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.sed_batch_stats import SedBatchStats
@@ -72,18 +71,19 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     batch_id = '8c190e67-87aa-4ed9-a90b-d9d5344523fb' # str | Batch Id # str | Batch Id
 
     try:
         # Submit Sed Batch Stats Request
         
-        results =SuggestedEntitlementDescriptionApi(api_client).get_sed_batch_stats(batch_id)
+        results = SuggestedEntitlementDescriptionApi(api_client).get_sed_batch_stats(batch_id=batch_id)
         # Below is a request that includes all optional parameters
         # results = SuggestedEntitlementDescriptionApi(api_client).get_sed_batch_stats(batch_id)
         print("The response of SuggestedEntitlementDescriptionApi->get_sed_batch_stats:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling SuggestedEntitlementDescriptionApi->get_sed_batch_stats: %s\n" % e)
 ```
 
@@ -122,7 +122,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.suggested_entitlement_description_api import SuggestedEntitlementDescriptionApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.sed_batch_status import SedBatchStatus
@@ -130,17 +129,18 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
 
     try:
         # List Sed Batch Request
         
-        results =SuggestedEntitlementDescriptionApi(api_client).get_sed_batches()
+        results = SuggestedEntitlementDescriptionApi(api_client).get_sed_batches()
         # Below is a request that includes all optional parameters
         # results = SuggestedEntitlementDescriptionApi(api_client).get_sed_batches()
         print("The response of SuggestedEntitlementDescriptionApi->get_sed_batches:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling SuggestedEntitlementDescriptionApi->get_sed_batches: %s\n" % e)
 ```
 
@@ -201,13 +201,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.suggested_entitlement_description_api import SuggestedEntitlementDescriptionApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.sed import Sed
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     limit = limit=25 # int | Integer specifying the maximum number of records to return in a single API call.  The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used. (optional) # int | Integer specifying the maximum number of records to return in a single API call.  The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used. (optional)
@@ -221,12 +221,12 @@ with ApiClient(configuration) as api_client:
     try:
         # List Suggested Entitlement Descriptions
         
-        results =SuggestedEntitlementDescriptionApi(api_client).list_seds()
+        results = SuggestedEntitlementDescriptionApi(api_client).list_seds()
         # Below is a request that includes all optional parameters
         # results = SuggestedEntitlementDescriptionApi(api_client).list_seds(limit, filters, sorters, count, count_only, requested_by_anyone, show_pending_status_only)
         print("The response of SuggestedEntitlementDescriptionApi->list_seds:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling SuggestedEntitlementDescriptionApi->list_seds: %s\n" % e)
 ```
 
@@ -268,7 +268,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.suggested_entitlement_description_api import SuggestedEntitlementDescriptionApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.sed import Sed
@@ -277,26 +276,20 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     id = 'ebab396f-0af1-4050-89b7-dafc63ec70e7' # str | id is sed id # str | id is sed id
-    [sailpoint.beta.SedPatch()] # List[SedPatch] | Sed Patch Request
-     sed_patch = {
-          "op" : "replace",
-          "path" : "status",
-          "value" : "approved"
-        } # List[SedPatch] | Sed Patch Request
-    
+    sed_patch = '''[sailpoint.beta.SedPatch()]''' # List[SedPatch] | Sed Patch Request
 
     try:
         # Patch Suggested Entitlement Description
-        new_sed_patch = SedPatch()
-        new_sed_patch.from_json(sed_patch)
-        results =SuggestedEntitlementDescriptionApi(api_client).patch_sed(id, new_sed_patch)
+        new_sed_patch = SedPatch.from_json(sed_patch)
+        results = SuggestedEntitlementDescriptionApi(api_client).patch_sed(id=id, sed_patch=new_sed_patch)
         # Below is a request that includes all optional parameters
         # results = SuggestedEntitlementDescriptionApi(api_client).patch_sed(id, new_sed_patch)
         print("The response of SuggestedEntitlementDescriptionApi->patch_sed:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling SuggestedEntitlementDescriptionApi->patch_sed: %s\n" % e)
 ```
 
@@ -338,7 +331,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.suggested_entitlement_description_api import SuggestedEntitlementDescriptionApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.sed_approval import SedApproval
@@ -347,23 +339,19 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
-    [sailpoint.beta.SedApproval()] # List[SedApproval] | Sed Approval
-     sed_approval = {
-          "items" : "016629d1-1d25-463f-97f3-c6686846650"
-        } # List[SedApproval] | Sed Approval
-    
+    sed_approval = '''[sailpoint.beta.SedApproval()]''' # List[SedApproval] | Sed Approval
 
     try:
         # Submit Bulk Approval Request
-        new_sed_approval = SedApproval()
-        new_sed_approval.from_json(sed_approval)
-        results =SuggestedEntitlementDescriptionApi(api_client).submit_sed_approval(new_sed_approval)
+        new_sed_approval = SedApproval.from_json(sed_approval)
+        results = SuggestedEntitlementDescriptionApi(api_client).submit_sed_approval(sed_approval=new_sed_approval)
         # Below is a request that includes all optional parameters
         # results = SuggestedEntitlementDescriptionApi(api_client).submit_sed_approval(new_sed_approval)
         print("The response of SuggestedEntitlementDescriptionApi->submit_sed_approval:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling SuggestedEntitlementDescriptionApi->submit_sed_approval: %s\n" % e)
 ```
 
@@ -405,7 +393,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.suggested_entitlement_description_api import SuggestedEntitlementDescriptionApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.sed_assignment import SedAssignment
@@ -414,25 +401,25 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
-    sed_assignment = {
+    sed_assignment = '''{
           "assignee" : {
             "type" : "SOURCE_OWNER",
             "value" : "016629d1-1d25-463f-97f3-c6686846650"
           },
           "items" : [ "016629d1-1d25-463f-97f3-0c6686846650", "016629d1-1d25-463f-97f3-0c6686846650" ]
-        } # SedAssignment | Sed Assignment Request
+        }''' # SedAssignment | Sed Assignment Request
 
     try:
         # Submit Sed Assignment Request
-        new_sed_assignment = SedAssignment()
-        new_sed_assignment.from_json(sed_assignment)
-        results =SuggestedEntitlementDescriptionApi(api_client).submit_sed_assignment(new_sed_assignment)
+        new_sed_assignment = SedAssignment.from_json(sed_assignment)
+        results = SuggestedEntitlementDescriptionApi(api_client).submit_sed_assignment(sed_assignment=new_sed_assignment)
         # Below is a request that includes all optional parameters
         # results = SuggestedEntitlementDescriptionApi(api_client).submit_sed_assignment(new_sed_assignment)
         print("The response of SuggestedEntitlementDescriptionApi->submit_sed_assignment:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling SuggestedEntitlementDescriptionApi->submit_sed_assignment: %s\n" % e)
 ```
 
@@ -477,7 +464,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.suggested_entitlement_description_api import SuggestedEntitlementDescriptionApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.sed_batch_request import SedBatchRequest
@@ -486,21 +472,22 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
-    sed_batch_request = {
+    sed_batch_request = '''{
           "entitlements" : [ "016629d1-1d25-463f-97f3-c6686846650", "016629d1-1d25-463f-97f3-c6686846650" ],
           "seds" : [ "016629d1-1d25-463f-97f3-c6686846650", "016629d1-1d25-463f-97f3-c6686846650" ]
-        } # SedBatchRequest | Sed Batch Request (optional)
+        }''' # SedBatchRequest | Sed Batch Request (optional)
 
     try:
         # Submit Sed Batch Request
         
-        results =SuggestedEntitlementDescriptionApi(api_client).submit_sed_batch_request()
+        results = SuggestedEntitlementDescriptionApi(api_client).submit_sed_batch_request()
         # Below is a request that includes all optional parameters
         # results = SuggestedEntitlementDescriptionApi(api_client).submit_sed_batch_request(new_sed_batch_request)
         print("The response of SuggestedEntitlementDescriptionApi->submit_sed_batch_request:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling SuggestedEntitlementDescriptionApi->submit_sed_batch_request: %s\n" % e)
 ```
 

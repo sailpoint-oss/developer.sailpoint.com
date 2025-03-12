@@ -108,7 +108,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.roles_api import RolesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.role import Role
@@ -116,8 +115,9 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
-    role = {
+    role = '''{
           "owner" : {
             "name" : "support",
             "id" : "2c9180a46faadee4016fb4e018c20639",
@@ -274,18 +274,17 @@ with ApiClient(configuration) as api_client:
           },
           "id" : "2c918086749d78830174a1a40e121518",
           "requestable" : true
-        } # Role | 
+        }''' # Role | 
 
     try:
         # Create a Role
-        new_role = Role()
-        new_role.from_json(role)
-        results =RolesApi(api_client).create_role(new_role)
+        new_role = Role.from_json(role)
+        results = RolesApi(api_client).create_role(role=new_role)
         # Below is a request that includes all optional parameters
         # results = RolesApi(api_client).create_role(new_role)
         print("The response of RolesApi->create_role:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling RolesApi->create_role: %s\n" % e)
 ```
 
@@ -328,7 +327,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.roles_api import RolesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.role_bulk_delete_request import RoleBulkDeleteRequest
@@ -337,21 +335,21 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
-    role_bulk_delete_request = {
+    role_bulk_delete_request = '''{
           "roleIds" : [ "2c9180847812e0b1017817051919ecca", "2c9180887812e0b201781e129f151816" ]
-        } # RoleBulkDeleteRequest | 
+        }''' # RoleBulkDeleteRequest | 
 
     try:
         # Delete Role(s)
-        new_role_bulk_delete_request = RoleBulkDeleteRequest()
-        new_role_bulk_delete_request.from_json(role_bulk_delete_request)
-        results =RolesApi(api_client).delete_bulk_roles(new_role_bulk_delete_request)
+        new_role_bulk_delete_request = RoleBulkDeleteRequest.from_json(role_bulk_delete_request)
+        results = RolesApi(api_client).delete_bulk_roles(role_bulk_delete_request=new_role_bulk_delete_request)
         # Below is a request that includes all optional parameters
         # results = RolesApi(api_client).delete_bulk_roles(new_role_bulk_delete_request)
         print("The response of RolesApi->delete_bulk_roles:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling RolesApi->delete_bulk_roles: %s\n" % e)
 ```
 
@@ -393,12 +391,12 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.roles_api import RolesApi
 from sailpoint.v2024.api_client import ApiClient
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     id = '2c91808c74ff913f0175097daa9d59cd' # str | The role's id. # str | The role's id.
@@ -408,10 +406,10 @@ with ApiClient(configuration) as api_client:
     try:
         # Remove a Metadata From Role.
         
-        RolesApi(api_client).delete_metadata_from_role_by_key_and_value(id, attribute_key, attribute_value)
+        RolesApi(api_client).delete_metadata_from_role_by_key_and_value(id=id, attribute_key=attribute_key, attribute_value=attribute_value)
         # Below is a request that includes all optional parameters
         # RolesApi(api_client).delete_metadata_from_role_by_key_and_value(id, attribute_key, attribute_value)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling RolesApi->delete_metadata_from_role_by_key_and_value: %s\n" % e)
 ```
 
@@ -453,12 +451,12 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.roles_api import RolesApi
 from sailpoint.v2024.api_client import ApiClient
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     id = '2c91808a7813090a017814121e121518' # str | ID of the Role # str | ID of the Role
@@ -466,10 +464,10 @@ with ApiClient(configuration) as api_client:
     try:
         # Delete a Role
         
-        RolesApi(api_client).delete_role(id)
+        RolesApi(api_client).delete_role(id=id)
         # Below is a request that includes all optional parameters
         # RolesApi(api_client).delete_role(id)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling RolesApi->delete_role: %s\n" % e)
 ```
 
@@ -506,7 +504,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.roles_api import RolesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.role_get_all_bulk_update_response import RoleGetAllBulkUpdateResponse
@@ -514,17 +511,18 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
 
     try:
         # Get Bulk-Update Statuses
         
-        results =RolesApi(api_client).get_bulk_update_status()
+        results = RolesApi(api_client).get_bulk_update_status()
         # Below is a request that includes all optional parameters
         # results = RolesApi(api_client).get_bulk_update_status()
         print("The response of RolesApi->get_bulk_update_status:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling RolesApi->get_bulk_update_status: %s\n" % e)
 ```
 
@@ -566,7 +564,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.roles_api import RolesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.role_bulk_update_response import RoleBulkUpdateResponse
@@ -574,18 +571,19 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     id = 'c24359c389374d0fb8585698a2189e3d' # str | The Id of the bulk update task. # str | The Id of the bulk update task.
 
     try:
         # Get Bulk-Update Status by ID
         
-        results =RolesApi(api_client).get_bulk_update_status_by_id(id)
+        results = RolesApi(api_client).get_bulk_update_status_by_id(id=id)
         # Below is a request that includes all optional parameters
         # results = RolesApi(api_client).get_bulk_update_status_by_id(id)
         print("The response of RolesApi->get_bulk_update_status_by_id:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling RolesApi->get_bulk_update_status_by_id: %s\n" % e)
 ```
 
@@ -626,7 +624,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.roles_api import RolesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.role import Role
@@ -634,18 +631,19 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     id = '2c91808a7813090a017814121e121518' # str | ID of the Role # str | ID of the Role
 
     try:
         # Get a Role
         
-        results =RolesApi(api_client).get_role(id)
+        results = RolesApi(api_client).get_role(id=id)
         # Below is a request that includes all optional parameters
         # results = RolesApi(api_client).get_role(id)
         print("The response of RolesApi->get_role:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling RolesApi->get_role: %s\n" % e)
 ```
 
@@ -690,13 +688,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.roles_api import RolesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.role_identity import RoleIdentity
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     id = '2c91808a7813090a017814121e121518' # str | ID of the Role for which the assigned Identities are to be listed # str | ID of the Role for which the assigned Identities are to be listed
@@ -709,12 +707,12 @@ with ApiClient(configuration) as api_client:
     try:
         # List Identities assigned a Role
         
-        results =RolesApi(api_client).get_role_assigned_identities(id, )
+        results = RolesApi(api_client).get_role_assigned_identities(id=id)
         # Below is a request that includes all optional parameters
         # results = RolesApi(api_client).get_role_assigned_identities(id, limit, offset, count, filters, sorters)
         print("The response of RolesApi->get_role_assigned_identities:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling RolesApi->get_role_assigned_identities: %s\n" % e)
 ```
 
@@ -725,6 +723,14 @@ with ApiClient(configuration) as api_client:
 ## get-role-entitlements
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 List role's Entitlements
 This API lists the Entitlements associated with a given role.
@@ -763,13 +769,14 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.roles_api import RolesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.entitlement import Entitlement
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     id = '2c91808a7813090a017814121919ecca' # str | ID of the containing role # str | ID of the containing role
@@ -783,12 +790,12 @@ with ApiClient(configuration) as api_client:
     try:
         # List role's Entitlements
         
-        results =RolesApi(api_client).get_role_entitlements(id, x_sail_point_experimental, )
+        results = RolesApi(api_client).get_role_entitlements(id=id, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = RolesApi(api_client).get_role_entitlements(id, x_sail_point_experimental, limit, offset, count, filters, sorters)
         print("The response of RolesApi->get_role_entitlements:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling RolesApi->get_role_entitlements: %s\n" % e)
 ```
 
@@ -837,13 +844,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.roles_api import RolesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.role import Role
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     for_subadmin = '5168015d32f890ca15812c9180835d2e' # str | If provided, filters the returned list according to what is visible to the indicated ROLE_SUBADMIN Identity. The value of the parameter is either an Identity ID, or the special value **me**, which is shorthand for the calling Identity's ID. A 400 Bad Request error is returned if the **for-subadmin** parameter is specified for an Identity that is not a subadmin. (optional) # str | If provided, filters the returned list according to what is visible to the indicated ROLE_SUBADMIN Identity. The value of the parameter is either an Identity ID, or the special value **me**, which is shorthand for the calling Identity's ID. A 400 Bad Request error is returned if the **for-subadmin** parameter is specified for an Identity that is not a subadmin. (optional)
@@ -858,12 +865,12 @@ with ApiClient(configuration) as api_client:
     try:
         # List Roles
         
-        results =RolesApi(api_client).list_roles()
+        results = RolesApi(api_client).list_roles()
         # Below is a request that includes all optional parameters
         # results = RolesApi(api_client).list_roles(for_subadmin, limit, offset, count, filters, sorters, for_segment_ids, include_unsegmented)
         print("The response of RolesApi->list_roles:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling RolesApi->list_roles: %s\n" % e)
 ```
 
@@ -924,7 +931,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.roles_api import RolesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.json_patch_operation import JsonPatchOperation
@@ -933,26 +939,20 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     id = '2c91808a7813090a017814121e121518' # str | ID of the Role to patch # str | ID of the Role to patch
-    [{op=replace, path=/requestable, value=true}, {op=replace, path=/enabled, value=true}] # List[JsonPatchOperation] | 
-     json_patch_operation = {
-          "op" : "replace",
-          "path" : "/description",
-          "value" : "New description"
-        } # List[JsonPatchOperation] | 
-    
+    json_patch_operation = '''[{op=replace, path=/requestable, value=true}, {op=replace, path=/enabled, value=true}]''' # List[JsonPatchOperation] | 
 
     try:
         # Patch a specified Role
-        new_json_patch_operation = JsonPatchOperation()
-        new_json_patch_operation.from_json(json_patch_operation)
-        results =RolesApi(api_client).patch_role(id, new_json_patch_operation)
+        new_json_patch_operation = JsonPatchOperation.from_json(json_patch_operation)
+        results = RolesApi(api_client).patch_role(id=id, json_patch_operation=new_json_patch_operation)
         # Below is a request that includes all optional parameters
         # results = RolesApi(api_client).patch_role(id, new_json_patch_operation)
         print("The response of RolesApi->patch_role:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling RolesApi->patch_role: %s\n" % e)
 ```
 
@@ -1000,7 +1000,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.roles_api import RolesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.role import Role
@@ -1008,6 +1007,7 @@ from sailpoint.v2024.models.role_list_filter_dto import RoleListFilterDTO
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     for_subadmin = '5168015d32f890ca15812c9180835d2e' # str | If provided, filters the returned list according to what is visible to the indicated ROLE_SUBADMIN Identity. The value of the parameter is either an Identity ID, or the special value **me**, which is shorthand for the calling Identity's ID. A 400 Bad Request error is returned if the **for-subadmin** parameter is specified for an Identity that is not a subadmin. (optional) # str | If provided, filters the returned list according to what is visible to the indicated ROLE_SUBADMIN Identity. The value of the parameter is either an Identity ID, or the special value **me**, which is shorthand for the calling Identity's ID. A 400 Bad Request error is returned if the **for-subadmin** parameter is specified for an Identity that is not a subadmin. (optional)
@@ -1017,23 +1017,23 @@ with ApiClient(configuration) as api_client:
     sorters = 'name,-modified' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified** (optional)
     for_segment_ids = '0b5c9f25-83c6-4762-9073-e38f7bb2ae26,2e8d8180-24bc-4d21-91c6-7affdb473b0d' # str | If present and not empty, additionally filters Roles to those which are assigned to the Segment(s) with the specified IDs. If segmentation is currently unavailable, specifying this parameter results in an error. (optional) # str | If present and not empty, additionally filters Roles to those which are assigned to the Segment(s) with the specified IDs. If segmentation is currently unavailable, specifying this parameter results in an error. (optional)
     include_unsegmented = True # bool | Whether or not the response list should contain unsegmented Roles. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error. (optional) (default to True) # bool | Whether or not the response list should contain unsegmented Roles. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error. (optional) (default to True)
-    role_list_filter_dto = {
+    role_list_filter_dto = '''{
           "ammKeyValues" : [ {
             "attribute" : "iscFederalClassifications",
             "values" : [ "secret" ]
           } ],
           "filters" : "dimensional eq false"
-        } # RoleListFilterDTO |  (optional)
+        }''' # RoleListFilterDTO |  (optional)
 
     try:
         # Filter Roles by Metadata
         
-        results =RolesApi(api_client).search_roles_by_filter()
+        results = RolesApi(api_client).search_roles_by_filter()
         # Below is a request that includes all optional parameters
         # results = RolesApi(api_client).search_roles_by_filter(for_subadmin, limit, offset, count, sorters, for_segment_ids, include_unsegmented, new_role_list_filter_dto)
         print("The response of RolesApi->search_roles_by_filter:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling RolesApi->search_roles_by_filter: %s\n" % e)
 ```
 
@@ -1075,13 +1075,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.roles_api import RolesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.role import Role
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     id = 'c24359c389374d0fb8585698a2189e3d' # str | The Id of a role # str | The Id of a role
@@ -1091,12 +1091,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Add a Metadata to Role.
         
-        results =RolesApi(api_client).update_attribute_key_and_value_to_role(id, attribute_key, attribute_value)
+        results = RolesApi(api_client).update_attribute_key_and_value_to_role(id=id, attribute_key=attribute_key, attribute_value=attribute_value)
         # Below is a request that includes all optional parameters
         # results = RolesApi(api_client).update_attribute_key_and_value_to_role(id, attribute_key, attribute_value)
         print("The response of RolesApi->update_attribute_key_and_value_to_role:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling RolesApi->update_attribute_key_and_value_to_role: %s\n" % e)
 ```
 
@@ -1139,7 +1139,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.roles_api import RolesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.role_bulk_update_response import RoleBulkUpdateResponse
@@ -1148,8 +1147,9 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
-    role_metadata_bulk_update_by_filter_request = {
+    role_metadata_bulk_update_by_filter_request = '''{
           "values" : [ {
             "attribute" : "iscFederalClassifications",
             "values" : [ "topSecret" ]
@@ -1157,18 +1157,17 @@ with ApiClient(configuration) as api_client:
           "filters" : " requestable eq false",
           "replaceScope" : "ALL",
           "operation" : "REPLACE"
-        } # RoleMetadataBulkUpdateByFilterRequest | 
+        }''' # RoleMetadataBulkUpdateByFilterRequest | 
 
     try:
         # Bulk-Update Roles' Metadata by Filters
-        new_role_metadata_bulk_update_by_filter_request = RoleMetadataBulkUpdateByFilterRequest()
-        new_role_metadata_bulk_update_by_filter_request.from_json(role_metadata_bulk_update_by_filter_request)
-        results =RolesApi(api_client).update_roles_metadata_by_filter(new_role_metadata_bulk_update_by_filter_request)
+        new_role_metadata_bulk_update_by_filter_request = RoleMetadataBulkUpdateByFilterRequest.from_json(role_metadata_bulk_update_by_filter_request)
+        results = RolesApi(api_client).update_roles_metadata_by_filter(role_metadata_bulk_update_by_filter_request=new_role_metadata_bulk_update_by_filter_request)
         # Below is a request that includes all optional parameters
         # results = RolesApi(api_client).update_roles_metadata_by_filter(new_role_metadata_bulk_update_by_filter_request)
         print("The response of RolesApi->update_roles_metadata_by_filter:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling RolesApi->update_roles_metadata_by_filter: %s\n" % e)
 ```
 
@@ -1211,7 +1210,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.roles_api import RolesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.role_bulk_update_response import RoleBulkUpdateResponse
@@ -1220,8 +1218,9 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
-    role_metadata_bulk_update_by_id_request = {
+    role_metadata_bulk_update_by_id_request = '''{
           "roles" : [ "b1db89554cfa431cb8b9921ea38d9367" ],
           "values" : [ {
             "attribute" : "iscFederalClassifications",
@@ -1229,18 +1228,17 @@ with ApiClient(configuration) as api_client:
           } ],
           "replaceScope" : "ALL",
           "operation" : "REPLACE"
-        } # RoleMetadataBulkUpdateByIdRequest | 
+        }''' # RoleMetadataBulkUpdateByIdRequest | 
 
     try:
         # Bulk-Update Roles' Metadata by ID
-        new_role_metadata_bulk_update_by_id_request = RoleMetadataBulkUpdateByIdRequest()
-        new_role_metadata_bulk_update_by_id_request.from_json(role_metadata_bulk_update_by_id_request)
-        results =RolesApi(api_client).update_roles_metadata_by_ids(new_role_metadata_bulk_update_by_id_request)
+        new_role_metadata_bulk_update_by_id_request = RoleMetadataBulkUpdateByIdRequest.from_json(role_metadata_bulk_update_by_id_request)
+        results = RolesApi(api_client).update_roles_metadata_by_ids(role_metadata_bulk_update_by_id_request=new_role_metadata_bulk_update_by_id_request)
         # Below is a request that includes all optional parameters
         # results = RolesApi(api_client).update_roles_metadata_by_ids(new_role_metadata_bulk_update_by_id_request)
         print("The response of RolesApi->update_roles_metadata_by_ids:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling RolesApi->update_roles_metadata_by_ids: %s\n" % e)
 ```
 
@@ -1283,7 +1281,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.roles_api import RolesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.role_bulk_update_response import RoleBulkUpdateResponse
@@ -1292,8 +1289,9 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
-    role_metadata_bulk_update_by_query_request = {
+    role_metadata_bulk_update_by_query_request = '''{
           "query" : {
             "query\"" : {
               "indices" : [ "roles" ],
@@ -1316,18 +1314,17 @@ with ApiClient(configuration) as api_client:
           } ],
           "replaceScope" : "ALL",
           "operation" : "REPLACE"
-        } # RoleMetadataBulkUpdateByQueryRequest | 
+        }''' # RoleMetadataBulkUpdateByQueryRequest | 
 
     try:
         # Bulk-Update Roles' Metadata by Query
-        new_role_metadata_bulk_update_by_query_request = RoleMetadataBulkUpdateByQueryRequest()
-        new_role_metadata_bulk_update_by_query_request.from_json(role_metadata_bulk_update_by_query_request)
-        results =RolesApi(api_client).update_roles_metadata_by_query(new_role_metadata_bulk_update_by_query_request)
+        new_role_metadata_bulk_update_by_query_request = RoleMetadataBulkUpdateByQueryRequest.from_json(role_metadata_bulk_update_by_query_request)
+        results = RolesApi(api_client).update_roles_metadata_by_query(role_metadata_bulk_update_by_query_request=new_role_metadata_bulk_update_by_query_request)
         # Below is a request that includes all optional parameters
         # results = RolesApi(api_client).update_roles_metadata_by_query(new_role_metadata_bulk_update_by_query_request)
         print("The response of RolesApi->update_roles_metadata_by_query:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling RolesApi->update_roles_metadata_by_query: %s\n" % e)
 ```
 

@@ -44,6 +44,14 @@ Method | HTTP request | Description
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
+:::
 Create Extended Search Attributes
 Create and configure extended search attributes. This API accepts an attribute name, an attribute display name and a list of name/value pair associates of application IDs to attribute names. It will then validate the inputs and configure/create and attribute promotion configuration in the Link ObjectConfig.
 
@@ -77,7 +85,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.search_attribute_configuration_api import SearchAttributeConfigurationApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.search_attribute_config import SearchAttributeConfig
@@ -85,27 +92,28 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+configuration.experimental = true
+
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    search_attribute_config = {
+    search_attribute_config = '''{
           "displayName" : "New Mail Attribute",
           "name" : "newMailAttribute",
           "applicationAttributes" : {
             "2c91808b79fd2422017a0b35d30f3968" : "employeeNumber",
             "2c91808b79fd2422017a0b36008f396b" : "employeeNumber"
           }
-        } # SearchAttributeConfig | 
+        }''' # SearchAttributeConfig | 
 
     try:
         # Create Extended Search Attributes
-        new_search_attribute_config = SearchAttributeConfig()
-        new_search_attribute_config.from_json(search_attribute_config)
-        results =SearchAttributeConfigurationApi(api_client).create_search_attribute_config(x_sail_point_experimental, new_search_attribute_config)
+        new_search_attribute_config = SearchAttributeConfig.from_json(search_attribute_config)
+        results = SearchAttributeConfigurationApi(api_client).create_search_attribute_config(x_sail_point_experimental=x_sail_point_experimental, search_attribute_config=new_search_attribute_config)
         # Below is a request that includes all optional parameters
         # results = SearchAttributeConfigurationApi(api_client).create_search_attribute_config(x_sail_point_experimental, new_search_attribute_config)
         print("The response of SearchAttributeConfigurationApi->create_search_attribute_config:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling SearchAttributeConfigurationApi->create_search_attribute_config: %s\n" % e)
 ```
 
@@ -116,6 +124,14 @@ with ApiClient(configuration) as api_client:
 ## delete-search-attribute-config
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Delete Extended Search Attribute
 Delete an extended attribute configuration by name.
@@ -149,12 +165,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.search_attribute_configuration_api import SearchAttributeConfigurationApi
 from sailpoint.v2024.api_client import ApiClient
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     name = 'newMailAttribute' # str | Name of the extended search attribute configuration to delete. # str | Name of the extended search attribute configuration to delete.
@@ -163,10 +180,10 @@ with ApiClient(configuration) as api_client:
     try:
         # Delete Extended Search Attribute
         
-        SearchAttributeConfigurationApi(api_client).delete_search_attribute_config(name, x_sail_point_experimental)
+        SearchAttributeConfigurationApi(api_client).delete_search_attribute_config(name=name, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # SearchAttributeConfigurationApi(api_client).delete_search_attribute_config(name, x_sail_point_experimental)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling SearchAttributeConfigurationApi->delete_search_attribute_config: %s\n" % e)
 ```
 
@@ -177,6 +194,14 @@ with ApiClient(configuration) as api_client:
 ## get-search-attribute-config
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 List Extended Search Attributes
 Get a list of attribute/application associates currently configured in Identity Security Cloud (ISC).
@@ -208,7 +233,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.search_attribute_configuration_api import SearchAttributeConfigurationApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.search_attribute_config import SearchAttributeConfig
@@ -216,18 +240,20 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+configuration.experimental = true
+
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
         # List Extended Search Attributes
         
-        results =SearchAttributeConfigurationApi(api_client).get_search_attribute_config(x_sail_point_experimental)
+        results = SearchAttributeConfigurationApi(api_client).get_search_attribute_config(x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = SearchAttributeConfigurationApi(api_client).get_search_attribute_config(x_sail_point_experimental)
         print("The response of SearchAttributeConfigurationApi->get_search_attribute_config:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling SearchAttributeConfigurationApi->get_search_attribute_config: %s\n" % e)
 ```
 
@@ -238,6 +264,14 @@ with ApiClient(configuration) as api_client:
 ## get-single-search-attribute-config
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Get Extended Search Attribute
 Get an extended attribute configuration by name.
@@ -272,13 +306,14 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.search_attribute_configuration_api import SearchAttributeConfigurationApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.search_attribute_config import SearchAttributeConfig
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     name = 'newMailAttribute' # str | Name of the extended search attribute configuration to get. # str | Name of the extended search attribute configuration to get.
@@ -287,12 +322,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Get Extended Search Attribute
         
-        results =SearchAttributeConfigurationApi(api_client).get_single_search_attribute_config(name, x_sail_point_experimental)
+        results = SearchAttributeConfigurationApi(api_client).get_single_search_attribute_config(name=name, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = SearchAttributeConfigurationApi(api_client).get_single_search_attribute_config(name, x_sail_point_experimental)
         print("The response of SearchAttributeConfigurationApi->get_single_search_attribute_config:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling SearchAttributeConfigurationApi->get_single_search_attribute_config: %s\n" % e)
 ```
 
@@ -303,6 +338,14 @@ with ApiClient(configuration) as api_client:
 ## patch-search-attribute-config
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Update Extended Search Attribute
 Update an existing search attribute configuration. 
@@ -340,7 +383,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.search_attribute_configuration_api import SearchAttributeConfigurationApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.json_patch_operation import JsonPatchOperation
@@ -349,27 +391,22 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+configuration.experimental = true
+
 with ApiClient(configuration) as api_client:
     name = 'promotedMailAttribute' # str | Name of the search attribute configuration to patch. # str | Name of the search attribute configuration to patch.
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    [{op=replace, path=/name, value=newAttributeName}, {op=replace, path=/displayName, value=new attribute display name}, {op=add, path=/applicationAttributes, value={2c91808b79fd2422017a0b35d30f3968=employeeNumber}}] # List[JsonPatchOperation] | 
-     json_patch_operation = {
-          "op" : "replace",
-          "path" : "/description",
-          "value" : "New description"
-        } # List[JsonPatchOperation] | 
-    
+    json_patch_operation = '''[{op=replace, path=/name, value=newAttributeName}, {op=replace, path=/displayName, value=new attribute display name}, {op=add, path=/applicationAttributes, value={2c91808b79fd2422017a0b35d30f3968=employeeNumber}}]''' # List[JsonPatchOperation] | 
 
     try:
         # Update Extended Search Attribute
-        new_json_patch_operation = JsonPatchOperation()
-        new_json_patch_operation.from_json(json_patch_operation)
-        results =SearchAttributeConfigurationApi(api_client).patch_search_attribute_config(name, x_sail_point_experimental, new_json_patch_operation)
+        new_json_patch_operation = JsonPatchOperation.from_json(json_patch_operation)
+        results = SearchAttributeConfigurationApi(api_client).patch_search_attribute_config(name=name, x_sail_point_experimental=x_sail_point_experimental, json_patch_operation=new_json_patch_operation)
         # Below is a request that includes all optional parameters
         # results = SearchAttributeConfigurationApi(api_client).patch_search_attribute_config(name, x_sail_point_experimental, new_json_patch_operation)
         print("The response of SearchAttributeConfigurationApi->patch_search_attribute_config:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling SearchAttributeConfigurationApi->patch_search_attribute_config: %s\n" % e)
 ```
 

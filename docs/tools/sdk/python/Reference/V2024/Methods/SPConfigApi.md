@@ -58,7 +58,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.sp_config_api import SPConfigApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.export_payload import ExportPayload
@@ -67,21 +66,21 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
-    export_payload = {
+    export_payload = '''{
           "description" : "Export Job 1 Test"
-        } # ExportPayload | Export options control what will be included in the export.
+        }''' # ExportPayload | Export options control what will be included in the export.
 
     try:
         # Initiates configuration objects export job
-        new_export_payload = ExportPayload()
-        new_export_payload.from_json(export_payload)
-        results =SPConfigApi(api_client).export_sp_config(new_export_payload)
+        new_export_payload = ExportPayload.from_json(export_payload)
+        results = SPConfigApi(api_client).export_sp_config(export_payload=new_export_payload)
         # Below is a request that includes all optional parameters
         # results = SPConfigApi(api_client).export_sp_config(new_export_payload)
         print("The response of SPConfigApi->export_sp_config:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling SPConfigApi->export_sp_config: %s\n" % e)
 ```
 
@@ -124,7 +123,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.sp_config_api import SPConfigApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.sp_config_export_results import SpConfigExportResults
@@ -132,18 +130,19 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | The ID of the export job whose results will be downloaded. # str | The ID of the export job whose results will be downloaded.
 
     try:
         # Download export job result.
         
-        results =SPConfigApi(api_client).get_sp_config_export(id)
+        results = SPConfigApi(api_client).get_sp_config_export(id=id)
         # Below is a request that includes all optional parameters
         # results = SPConfigApi(api_client).get_sp_config_export(id)
         print("The response of SPConfigApi->get_sp_config_export:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling SPConfigApi->get_sp_config_export: %s\n" % e)
 ```
 
@@ -186,7 +185,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.sp_config_api import SPConfigApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.sp_config_export_job_status import SpConfigExportJobStatus
@@ -194,18 +192,19 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | The ID of the export job whose status will be returned. # str | The ID of the export job whose status will be returned.
 
     try:
         # Get export job status
         
-        results =SPConfigApi(api_client).get_sp_config_export_status(id)
+        results = SPConfigApi(api_client).get_sp_config_export_status(id=id)
         # Below is a request that includes all optional parameters
         # results = SPConfigApi(api_client).get_sp_config_export_status(id)
         print("The response of SPConfigApi->get_sp_config_export_status:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling SPConfigApi->get_sp_config_export_status: %s\n" % e)
 ```
 
@@ -248,7 +247,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.sp_config_api import SPConfigApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.sp_config_import_results import SpConfigImportResults
@@ -256,18 +254,19 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | The ID of the import job whose results will be downloaded. # str | The ID of the import job whose results will be downloaded.
 
     try:
         # Download import job result
         
-        results =SPConfigApi(api_client).get_sp_config_import(id)
+        results = SPConfigApi(api_client).get_sp_config_import(id=id)
         # Below is a request that includes all optional parameters
         # results = SPConfigApi(api_client).get_sp_config_import(id)
         print("The response of SPConfigApi->get_sp_config_import:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling SPConfigApi->get_sp_config_import: %s\n" % e)
 ```
 
@@ -312,7 +311,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.sp_config_api import SPConfigApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.sp_config_import_job_status import SpConfigImportJobStatus
@@ -320,18 +318,19 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | The ID of the import job whose status will be returned. # str | The ID of the import job whose status will be returned.
 
     try:
         # Get import job status
         
-        results =SPConfigApi(api_client).get_sp_config_import_status(id)
+        results = SPConfigApi(api_client).get_sp_config_import_status(id=id)
         # Below is a request that includes all optional parameters
         # results = SPConfigApi(api_client).get_sp_config_import_status(id)
         print("The response of SPConfigApi->get_sp_config_import_status:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling SPConfigApi->get_sp_config_import_status: %s\n" % e)
 ```
 
@@ -384,7 +383,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.sp_config_api import SPConfigApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.import_options import ImportOptions
@@ -393,20 +391,21 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     data = None # bytearray | JSON file containing the objects to be imported. # bytearray | JSON file containing the objects to be imported.
     preview = False # bool | This option is intended to give the user information about how an import operation would proceed, without having any effect on the target tenant. If this parameter is \"true\", no objects will be imported. Instead, the import process will pre-process the import file and attempt to resolve references within imported objects. The import result file will contain messages pertaining to how specific references were resolved, any errors associated with the preprocessing, and messages indicating which objects would be imported.  (optional) (default to False) # bool | This option is intended to give the user information about how an import operation would proceed, without having any effect on the target tenant. If this parameter is \"true\", no objects will be imported. Instead, the import process will pre-process the import file and attempt to resolve references within imported objects. The import result file will contain messages pertaining to how specific references were resolved, any errors associated with the preprocessing, and messages indicating which objects would be imported.  (optional) (default to False)
-    options = sailpoint.v2024.ImportOptions() # ImportOptions |  (optional)
+    options = '''sailpoint.v2024.ImportOptions()''' # ImportOptions |  (optional)
 
     try:
         # Initiates configuration objects import job
         
-        results =SPConfigApi(api_client).import_sp_config(data, )
+        results = SPConfigApi(api_client).import_sp_config(data=data)
         # Below is a request that includes all optional parameters
         # results = SPConfigApi(api_client).import_sp_config(data, preview, options)
         print("The response of SPConfigApi->import_sp_config:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling SPConfigApi->import_sp_config: %s\n" % e)
 ```
 
@@ -444,7 +443,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.sp_config_api import SPConfigApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.sp_config_object import SpConfigObject
@@ -452,17 +450,18 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
 
     try:
         # Get config object details
         
-        results =SPConfigApi(api_client).list_sp_config_objects()
+        results = SPConfigApi(api_client).list_sp_config_objects()
         # Below is a request that includes all optional parameters
         # results = SPConfigApi(api_client).list_sp_config_objects()
         print("The response of SPConfigApi->list_sp_config_objects:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling SPConfigApi->list_sp_config_objects: %s\n" % e)
 ```
 

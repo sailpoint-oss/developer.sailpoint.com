@@ -55,7 +55,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.tags_api import TagsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.tag import Tag
@@ -63,8 +62,9 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
-    tag = {
+    tag = '''{
           "created" : "2022-05-04T14:48:49Z",
           "tagCategoryRefs" : [ {
             "name" : "CN=entitlement.490efde5,OU=OrgCo,OU=ServiceDept,DC=HQAD,DC=local",
@@ -78,18 +78,17 @@ with ApiClient(configuration) as api_client:
           "name" : "PCI",
           "modified" : "2022-07-14T16:31:11Z",
           "id" : "449ecdc0-d4ff-4341-acf6-92f6f7ce604f"
-        } # Tag | 
+        }''' # Tag | 
 
     try:
         # Create Tag
-        new_tag = Tag()
-        new_tag.from_json(tag)
-        results =TagsApi(api_client).create_tag(new_tag)
+        new_tag = Tag.from_json(tag)
+        results = TagsApi(api_client).create_tag(tag=new_tag)
         # Below is a request that includes all optional parameters
         # results = TagsApi(api_client).create_tag(new_tag)
         print("The response of TagsApi->create_tag:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling TagsApi->create_tag: %s\n" % e)
 ```
 
@@ -132,12 +131,12 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.tags_api import TagsApi
 from sailpoint.beta.api_client import ApiClient
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     id = '329d96cf-3bdb-40a9-988a-b5037ab89022' # str | The ID of the object reference to delete. # str | The ID of the object reference to delete.
@@ -145,10 +144,10 @@ with ApiClient(configuration) as api_client:
     try:
         # Delete Tag
         
-        TagsApi(api_client).delete_tag_by_id(id)
+        TagsApi(api_client).delete_tag_by_id(id=id)
         # Below is a request that includes all optional parameters
         # TagsApi(api_client).delete_tag_by_id(id)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling TagsApi->delete_tag_by_id: %s\n" % e)
 ```
 
@@ -191,7 +190,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.tags_api import TagsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.tag import Tag
@@ -199,18 +197,19 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     id = '329d96cf-3bdb-40a9-988a-b5037ab89022' # str | The ID of the object reference to retrieve. # str | The ID of the object reference to retrieve.
 
     try:
         # Get Tag By Id
         
-        results =TagsApi(api_client).get_tag_by_id(id)
+        results = TagsApi(api_client).get_tag_by_id(id=id)
         # Below is a request that includes all optional parameters
         # results = TagsApi(api_client).get_tag_by_id(id)
         print("The response of TagsApi->get_tag_by_id:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling TagsApi->get_tag_by_id: %s\n" % e)
 ```
 
@@ -256,13 +255,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.tags_api import TagsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.tag import Tag
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -274,12 +273,12 @@ with ApiClient(configuration) as api_client:
     try:
         # List Tags
         
-        results =TagsApi(api_client).list_tags()
+        results = TagsApi(api_client).list_tags()
         # Below is a request that includes all optional parameters
         # results = TagsApi(api_client).list_tags(limit, offset, count, filters, sorters)
         print("The response of TagsApi->list_tags:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling TagsApi->list_tags: %s\n" % e)
 ```
 

@@ -47,6 +47,14 @@ Method | HTTP request | Description
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
+:::
 Delete identity
 The API returns successful response if the requested identity was deleted.
 
@@ -80,12 +88,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.identities_api import IdentitiesApi
 from sailpoint.v2024.api_client import ApiClient
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | Identity Id # str | Identity Id
@@ -94,10 +103,10 @@ with ApiClient(configuration) as api_client:
     try:
         # Delete identity
         
-        IdentitiesApi(api_client).delete_identity(id, x_sail_point_experimental)
+        IdentitiesApi(api_client).delete_identity(id=id, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # IdentitiesApi(api_client).delete_identity(id, x_sail_point_experimental)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling IdentitiesApi->delete_identity: %s\n" % e)
 ```
 
@@ -108,6 +117,14 @@ with ApiClient(configuration) as api_client:
 ## get-identity
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Identity Details
 This API returns a single identity using the Identity ID.
@@ -142,13 +159,14 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.identities_api import IdentitiesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.identity import Identity
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | Identity Id # str | Identity Id
@@ -157,12 +175,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Identity Details
         
-        results =IdentitiesApi(api_client).get_identity(id, x_sail_point_experimental)
+        results = IdentitiesApi(api_client).get_identity(id=id, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = IdentitiesApi(api_client).get_identity(id, x_sail_point_experimental)
         print("The response of IdentitiesApi->get_identity:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling IdentitiesApi->get_identity: %s\n" % e)
 ```
 
@@ -173,6 +191,14 @@ with ApiClient(configuration) as api_client:
 ## get-identity-ownership-details
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Get ownership details
 Use this API to return an identity's owned objects that will cause problems for deleting the identity. 
@@ -209,13 +235,14 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.identities_api import IdentitiesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.identity_ownership_association_details import IdentityOwnershipAssociationDetails
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     identity_id = 'ff8081814d2a8036014d701f3fbf53fa' # str | Identity ID. # str | Identity ID.
@@ -224,12 +251,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Get ownership details
         
-        results =IdentitiesApi(api_client).get_identity_ownership_details(identity_id, x_sail_point_experimental)
+        results = IdentitiesApi(api_client).get_identity_ownership_details(identity_id=identity_id, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = IdentitiesApi(api_client).get_identity_ownership_details(identity_id, x_sail_point_experimental)
         print("The response of IdentitiesApi->get_identity_ownership_details:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling IdentitiesApi->get_identity_ownership_details: %s\n" % e)
 ```
 
@@ -240,6 +267,14 @@ with ApiClient(configuration) as api_client:
 ## get-role-assignment
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Role assignment details
 
@@ -275,13 +310,14 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.identities_api import IdentitiesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.role_assignment_dto import RoleAssignmentDto
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     identity_id = 'ef38f94347e94562b5bb8424a56397d8' # str | Identity Id # str | Identity Id
@@ -291,12 +327,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Role assignment details
         
-        results =IdentitiesApi(api_client).get_role_assignment(identity_id, assignment_id, x_sail_point_experimental)
+        results = IdentitiesApi(api_client).get_role_assignment(identity_id=identity_id, assignment_id=assignment_id, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = IdentitiesApi(api_client).get_role_assignment(identity_id, assignment_id, x_sail_point_experimental)
         print("The response of IdentitiesApi->get_role_assignment:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling IdentitiesApi->get_role_assignment: %s\n" % e)
 ```
 
@@ -307,6 +343,14 @@ with ApiClient(configuration) as api_client:
 ## get-role-assignments
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 List role assignments
 This returns either a list of Role Assignments when querying with either a Role Id or Role Name, or a list of Role Assignment References if querying with only identity Id.
@@ -343,13 +387,14 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.identities_api import IdentitiesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.get_role_assignments200_response_inner import GetRoleAssignments200ResponseInner
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     identity_id = 'ef38f94347e94562b5bb8424a56397d8' # str | Identity Id to get the role assignments for # str | Identity Id to get the role assignments for
@@ -360,12 +405,12 @@ with ApiClient(configuration) as api_client:
     try:
         # List role assignments
         
-        results =IdentitiesApi(api_client).get_role_assignments(identity_id, x_sail_point_experimental, )
+        results = IdentitiesApi(api_client).get_role_assignments(identity_id=identity_id, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = IdentitiesApi(api_client).get_role_assignments(identity_id, x_sail_point_experimental, role_id, role_name)
         print("The response of IdentitiesApi->get_role_assignments:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling IdentitiesApi->get_role_assignments: %s\n" % e)
 ```
 
@@ -376,6 +421,14 @@ with ApiClient(configuration) as api_client:
 ## list-identities
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 List Identities
 This API returns a list of identities.
@@ -414,13 +467,14 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.identities_api import IdentitiesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.identity import Identity
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -434,12 +488,12 @@ with ApiClient(configuration) as api_client:
     try:
         # List Identities
         
-        results =IdentitiesApi(api_client).list_identities(x_sail_point_experimental, )
+        results = IdentitiesApi(api_client).list_identities(x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = IdentitiesApi(api_client).list_identities(x_sail_point_experimental, filters, sorters, default_filter, count, limit, offset)
         print("The response of IdentitiesApi->list_identities:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling IdentitiesApi->list_identities: %s\n" % e)
 ```
 
@@ -450,6 +504,14 @@ with ApiClient(configuration) as api_client:
 ## reset-identity
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Reset an identity
 Use this endpoint to reset a user's identity if they have forgotten their authentication information like their answers to knowledge-based questions. Resetting an identity de-registers the user and removes any elevated user levels they have.
@@ -484,12 +546,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.identities_api import IdentitiesApi
 from sailpoint.v2024.api_client import ApiClient
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     identity_id = 'ef38f94347e94562b5bb8424a56397d8' # str | Identity Id # str | Identity Id
@@ -498,10 +561,10 @@ with ApiClient(configuration) as api_client:
     try:
         # Reset an identity
         
-        IdentitiesApi(api_client).reset_identity(identity_id, x_sail_point_experimental)
+        IdentitiesApi(api_client).reset_identity(identity_id=identity_id, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # IdentitiesApi(api_client).reset_identity(identity_id, x_sail_point_experimental)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling IdentitiesApi->reset_identity: %s\n" % e)
 ```
 
@@ -512,6 +575,14 @@ with ApiClient(configuration) as api_client:
 ## send-identity-verification-account-token
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Send password reset email
 This API sends an email with the link to start Password Reset. After selecting the link an identity will be able to set up a new password. Emails expire after 2 hours.
@@ -548,7 +619,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.identities_api import IdentitiesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.send_account_verification_request import SendAccountVerificationRequest
@@ -556,22 +626,23 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+configuration.experimental = true
+
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | Identity ID # str | Identity ID
-    send_account_verification_request = {
+    send_account_verification_request = '''{
           "sourceName" : "Active Directory Source",
           "via" : "EMAIL_WORK"
-        } # SendAccountVerificationRequest | 
+        }''' # SendAccountVerificationRequest | 
 
     try:
         # Send password reset email
-        new_send_account_verification_request = SendAccountVerificationRequest()
-        new_send_account_verification_request.from_json(send_account_verification_request)
-        IdentitiesApi(api_client).send_identity_verification_account_token(x_sail_point_experimental, id, new_send_account_verification_request)
+        new_send_account_verification_request = SendAccountVerificationRequest.from_json(send_account_verification_request)
+        IdentitiesApi(api_client).send_identity_verification_account_token(x_sail_point_experimental=x_sail_point_experimental, id=id, send_account_verification_request=new_send_account_verification_request)
         # Below is a request that includes all optional parameters
         # IdentitiesApi(api_client).send_identity_verification_account_token(x_sail_point_experimental, id, new_send_account_verification_request)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling IdentitiesApi->send_identity_verification_account_token: %s\n" % e)
 ```
 
@@ -582,6 +653,14 @@ with ApiClient(configuration) as api_client:
 ## start-identities-invite
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Invite identities to register
 This API submits a task for inviting given identities via email to complete registration. The invitation email will include the link. After selecting the link an identity will be able to set up password and log in into the system. Invitations expire after 7 days. By default invitations send to the work identity email. It can be changed in Admin > Identities > Identity Profiles by selecting corresponding profile and editing Invitation Options.
@@ -621,7 +700,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.identities_api import IdentitiesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.invite_identities_request import InviteIdentitiesRequest
@@ -630,23 +708,24 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+configuration.experimental = true
+
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    invite_identities_request = {
+    invite_identities_request = '''{
           "ids" : [ "2b568c65bc3c4c57a43bd97e3a8e55", "2c9180867769897d01776ed5f125512f" ],
           "uninvited" : false
-        } # InviteIdentitiesRequest | 
+        }''' # InviteIdentitiesRequest | 
 
     try:
         # Invite identities to register
-        new_invite_identities_request = InviteIdentitiesRequest()
-        new_invite_identities_request.from_json(invite_identities_request)
-        results =IdentitiesApi(api_client).start_identities_invite(x_sail_point_experimental, new_invite_identities_request)
+        new_invite_identities_request = InviteIdentitiesRequest.from_json(invite_identities_request)
+        results = IdentitiesApi(api_client).start_identities_invite(x_sail_point_experimental=x_sail_point_experimental, invite_identities_request=new_invite_identities_request)
         # Below is a request that includes all optional parameters
         # results = IdentitiesApi(api_client).start_identities_invite(x_sail_point_experimental, new_invite_identities_request)
         print("The response of IdentitiesApi->start_identities_invite:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling IdentitiesApi->start_identities_invite: %s\n" % e)
 ```
 
@@ -657,6 +736,14 @@ with ApiClient(configuration) as api_client:
 ## start-identity-processing
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Process a list of identityIds
 This operation should not be used to schedule your own identity processing or to perform system wide identity refreshes. The system will use a combination of [event-based processing](https://documentation.sailpoint.com/saas/help/setup/identity_processing.html?h=process#event-based-processing) and [scheduled processing](https://documentation.sailpoint.com/saas/help/setup/identity_processing.html?h=process#scheduled-processing) that runs every day at 8:00 AM and 8:00 PM in the tenant's timezone to keep your identities synchronized. 
@@ -698,7 +785,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.identities_api import IdentitiesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.process_identities_request import ProcessIdentitiesRequest
@@ -707,22 +793,23 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+configuration.experimental = true
+
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    process_identities_request = {
+    process_identities_request = '''{
           "identityIds" : [ "ef38f94347e94562b5bb8424a56397d8", "ef38f94347e94562b5bb8424a56397d8", "ef38f94347e94562b5bb8424a56397d8", "ef38f94347e94562b5bb8424a56397d8", "ef38f94347e94562b5bb8424a56397d8" ]
-        } # ProcessIdentitiesRequest | 
+        }''' # ProcessIdentitiesRequest | 
 
     try:
         # Process a list of identityIds
-        new_process_identities_request = ProcessIdentitiesRequest()
-        new_process_identities_request.from_json(process_identities_request)
-        results =IdentitiesApi(api_client).start_identity_processing(x_sail_point_experimental, new_process_identities_request)
+        new_process_identities_request = ProcessIdentitiesRequest.from_json(process_identities_request)
+        results = IdentitiesApi(api_client).start_identity_processing(x_sail_point_experimental=x_sail_point_experimental, process_identities_request=new_process_identities_request)
         # Below is a request that includes all optional parameters
         # results = IdentitiesApi(api_client).start_identity_processing(x_sail_point_experimental, new_process_identities_request)
         print("The response of IdentitiesApi->start_identity_processing:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling IdentitiesApi->start_identity_processing: %s\n" % e)
 ```
 
@@ -733,6 +820,14 @@ with ApiClient(configuration) as api_client:
 ## synchronize-attributes-for-identity
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Attribute synchronization for single identity.
 This end-point performs attribute synchronization for a selected identity. The endpoint can be called once in 10 seconds per identity.
@@ -767,13 +862,14 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.identities_api import IdentitiesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.identity_sync_job import IdentitySyncJob
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     identity_id = 'identity_id_example' # str | The Identity id # str | The Identity id
@@ -782,12 +878,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Attribute synchronization for single identity.
         
-        results =IdentitiesApi(api_client).synchronize_attributes_for_identity(identity_id, x_sail_point_experimental)
+        results = IdentitiesApi(api_client).synchronize_attributes_for_identity(identity_id=identity_id, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = IdentitiesApi(api_client).synchronize_attributes_for_identity(identity_id, x_sail_point_experimental)
         print("The response of IdentitiesApi->synchronize_attributes_for_identity:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling IdentitiesApi->synchronize_attributes_for_identity: %s\n" % e)
 ```
 

@@ -56,12 +56,12 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.access_request_identity_metrics_api import AccessRequestIdentityMetricsApi
 from sailpoint.v2024.api_client import ApiClient
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     identity_id = '7025c863-c270-4ba6-beea-edf3cb091573' # str | Manager's identity ID. # str | Manager's identity ID.
@@ -71,12 +71,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Return access request identity metrics
         
-        results =AccessRequestIdentityMetricsApi(api_client).get_access_request_identity_metrics(identity_id, requested_object_id, type)
+        results = AccessRequestIdentityMetricsApi(api_client).get_access_request_identity_metrics(identity_id=identity_id, requested_object_id=requested_object_id, type=type)
         # Below is a request that includes all optional parameters
         # results = AccessRequestIdentityMetricsApi(api_client).get_access_request_identity_metrics(identity_id, requested_object_id, type)
         print("The response of AccessRequestIdentityMetricsApi->get_access_request_identity_metrics:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AccessRequestIdentityMetricsApi->get_access_request_identity_metrics: %s\n" % e)
 ```
 

@@ -93,7 +93,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.access_profiles_api import AccessProfilesApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.access_profile import AccessProfile
@@ -101,8 +100,9 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
-    access_profile = {
+    access_profile = '''{
           "owner" : {
             "name" : "support",
             "id" : "2c9180a46faadee4016fb4e018c20639",
@@ -186,18 +186,17 @@ with ApiClient(configuration) as api_client:
           "modified" : "2021-03-02T20:22:28.104Z",
           "id" : "2c91808a7190d06e01719938fcd20792",
           "requestable" : true
-        } # AccessProfile | 
+        }''' # AccessProfile | 
 
     try:
         # Create Access Profile
-        new_access_profile = AccessProfile()
-        new_access_profile.from_json(access_profile)
-        results =AccessProfilesApi(api_client).create_access_profile(new_access_profile)
+        new_access_profile = AccessProfile.from_json(access_profile)
+        results = AccessProfilesApi(api_client).create_access_profile(access_profile=new_access_profile)
         # Below is a request that includes all optional parameters
         # results = AccessProfilesApi(api_client).create_access_profile(new_access_profile)
         print("The response of AccessProfilesApi->create_access_profile:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AccessProfilesApi->create_access_profile: %s\n" % e)
 ```
 
@@ -241,12 +240,12 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.access_profiles_api import AccessProfilesApi
 from sailpoint.beta.api_client import ApiClient
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     id = '2c91808a7813090a017814121919ecca' # str | ID of the Access Profile to delete # str | ID of the Access Profile to delete
@@ -254,10 +253,10 @@ with ApiClient(configuration) as api_client:
     try:
         # Delete the specified Access Profile
         
-        AccessProfilesApi(api_client).delete_access_profile(id)
+        AccessProfilesApi(api_client).delete_access_profile(id=id)
         # Below is a request that includes all optional parameters
         # AccessProfilesApi(api_client).delete_access_profile(id)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AccessProfilesApi->delete_access_profile: %s\n" % e)
 ```
 
@@ -301,7 +300,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.access_profiles_api import AccessProfilesApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.access_profile_bulk_delete_request import AccessProfileBulkDeleteRequest
@@ -310,22 +308,22 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
-    access_profile_bulk_delete_request = {
+    access_profile_bulk_delete_request = '''{
           "accessProfileIds" : [ "2c9180847812e0b1017817051919ecca", "2c9180887812e0b201781e129f151816" ],
           "bestEffortOnly" : true
-        } # AccessProfileBulkDeleteRequest | 
+        }''' # AccessProfileBulkDeleteRequest | 
 
     try:
         # Delete Access Profile(s)
-        new_access_profile_bulk_delete_request = AccessProfileBulkDeleteRequest()
-        new_access_profile_bulk_delete_request.from_json(access_profile_bulk_delete_request)
-        results =AccessProfilesApi(api_client).delete_access_profiles_in_bulk(new_access_profile_bulk_delete_request)
+        new_access_profile_bulk_delete_request = AccessProfileBulkDeleteRequest.from_json(access_profile_bulk_delete_request)
+        results = AccessProfilesApi(api_client).delete_access_profiles_in_bulk(access_profile_bulk_delete_request=new_access_profile_bulk_delete_request)
         # Below is a request that includes all optional parameters
         # results = AccessProfilesApi(api_client).delete_access_profiles_in_bulk(new_access_profile_bulk_delete_request)
         print("The response of AccessProfilesApi->delete_access_profiles_in_bulk:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AccessProfilesApi->delete_access_profiles_in_bulk: %s\n" % e)
 ```
 
@@ -365,7 +363,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.access_profiles_api import AccessProfilesApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.access_profile import AccessProfile
@@ -373,18 +370,19 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     id = '2c9180837ca6693d017ca8d097500149' # str | ID of the Access Profile # str | ID of the Access Profile
 
     try:
         # Get an Access Profile
         
-        results =AccessProfilesApi(api_client).get_access_profile(id)
+        results = AccessProfilesApi(api_client).get_access_profile(id=id)
         # Below is a request that includes all optional parameters
         # results = AccessProfilesApi(api_client).get_access_profile(id)
         print("The response of AccessProfilesApi->get_access_profile:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AccessProfilesApi->get_access_profile: %s\n" % e)
 ```
 
@@ -430,13 +428,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.access_profiles_api import AccessProfilesApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.entitlement import Entitlement
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     id = '2c91808a7813090a017814121919ecca' # str | ID of the access profile containing the entitlements. # str | ID of the access profile containing the entitlements.
@@ -449,12 +447,12 @@ with ApiClient(configuration) as api_client:
     try:
         # List Access Profile's Entitlements
         
-        results =AccessProfilesApi(api_client).get_access_profile_entitlements(id, )
+        results = AccessProfilesApi(api_client).get_access_profile_entitlements(id=id)
         # Below is a request that includes all optional parameters
         # results = AccessProfilesApi(api_client).get_access_profile_entitlements(id, limit, offset, count, filters, sorters)
         print("The response of AccessProfilesApi->get_access_profile_entitlements:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AccessProfilesApi->get_access_profile_entitlements: %s\n" % e)
 ```
 
@@ -502,13 +500,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.access_profiles_api import AccessProfilesApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.access_profile import AccessProfile
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     for_subadmin = '8c190e6787aa4ed9a90bd9d5344523fb' # str | If provided, filters the returned list according to what is visible to the indicated ROLE_SUBADMIN or SOURCE_SUBADMIN identity. The value of the parameter is either an identity ID, or the special value **me**, which is shorthand for the calling identity's ID.  A 400 Bad Request error is returned if the **for-subadmin** parameter is specified for an identity that is not a subadmin. (optional) # str | If provided, filters the returned list according to what is visible to the indicated ROLE_SUBADMIN or SOURCE_SUBADMIN identity. The value of the parameter is either an identity ID, or the special value **me**, which is shorthand for the calling identity's ID.  A 400 Bad Request error is returned if the **for-subadmin** parameter is specified for an identity that is not a subadmin. (optional)
@@ -523,12 +521,12 @@ with ApiClient(configuration) as api_client:
     try:
         # List Access Profiles
         
-        results =AccessProfilesApi(api_client).list_access_profiles()
+        results = AccessProfilesApi(api_client).list_access_profiles()
         # Below is a request that includes all optional parameters
         # results = AccessProfilesApi(api_client).list_access_profiles(for_subadmin, limit, offset, count, filters, sorters, for_segment_ids, include_unsegmented)
         print("The response of AccessProfilesApi->list_access_profiles:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AccessProfilesApi->list_access_profiles: %s\n" % e)
 ```
 
@@ -574,7 +572,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.access_profiles_api import AccessProfilesApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.access_profile import AccessProfile
@@ -583,26 +580,20 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     id = '2c91808a7813090a017814121919ecca' # str | ID of the Access Profile to patch # str | ID of the Access Profile to patch
-    [{op=add, path=/entitlements, value=[{id=2c9180857725c14301772a93bb77242d, type=ENTITLEMENT, name=AD User Group}]}] # List[JsonPatchOperation] | 
-     json_patch_operation = {
-          "op" : "replace",
-          "path" : "/description",
-          "value" : "New description"
-        } # List[JsonPatchOperation] | 
-    
+    json_patch_operation = '''[{op=add, path=/entitlements, value=[{id=2c9180857725c14301772a93bb77242d, type=ENTITLEMENT, name=AD User Group}]}]''' # List[JsonPatchOperation] | 
 
     try:
         # Patch a specified Access Profile
-        new_json_patch_operation = JsonPatchOperation()
-        new_json_patch_operation.from_json(json_patch_operation)
-        results =AccessProfilesApi(api_client).patch_access_profile(id, new_json_patch_operation)
+        new_json_patch_operation = JsonPatchOperation.from_json(json_patch_operation)
+        results = AccessProfilesApi(api_client).patch_access_profile(id=id, json_patch_operation=new_json_patch_operation)
         # Below is a request that includes all optional parameters
         # results = AccessProfilesApi(api_client).patch_access_profile(id, new_json_patch_operation)
         print("The response of AccessProfilesApi->patch_access_profile:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AccessProfilesApi->patch_access_profile: %s\n" % e)
 ```
 
@@ -649,7 +640,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.access_profiles_api import AccessProfilesApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.access_profile_bulk_update_request_inner import AccessProfileBulkUpdateRequestInner
@@ -658,21 +648,19 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
-    [{id=464ae7bf-791e-49fd-b746-06a2e4a89635, requestable=false}] # List[AccessProfileBulkUpdateRequestInner] | 
-     access_profile_bulk_update_request_inner = [{id=464ae7bf-791e-49fd-b746-06a2e4a89635, requestable=false}] # List[AccessProfileBulkUpdateRequestInner] | 
-    
+    access_profile_bulk_update_request_inner = '''[{id=464ae7bf-791e-49fd-b746-06a2e4a89635, requestable=false}]''' # List[AccessProfileBulkUpdateRequestInner] | 
 
     try:
         # Update Access Profile(s) requestable field.
-        new_access_profile_bulk_update_request_inner = AccessProfileBulkUpdateRequestInner()
-        new_access_profile_bulk_update_request_inner.from_json(access_profile_bulk_update_request_inner)
-        results =AccessProfilesApi(api_client).update_access_profiles_in_bulk(new_access_profile_bulk_update_request_inner)
+        new_access_profile_bulk_update_request_inner = AccessProfileBulkUpdateRequestInner.from_json(access_profile_bulk_update_request_inner)
+        results = AccessProfilesApi(api_client).update_access_profiles_in_bulk(access_profile_bulk_update_request_inner=new_access_profile_bulk_update_request_inner)
         # Below is a request that includes all optional parameters
         # results = AccessProfilesApi(api_client).update_access_profiles_in_bulk(new_access_profile_bulk_update_request_inner)
         print("The response of AccessProfilesApi->update_access_profiles_in_bulk:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AccessProfilesApi->update_access_profiles_in_bulk: %s\n" % e)
 ```
 

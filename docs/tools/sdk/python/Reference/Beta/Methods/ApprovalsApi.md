@@ -54,7 +54,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.approvals_api import ApprovalsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.approval import Approval
@@ -62,18 +61,19 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     id = '38453251-6be2-5f8f-df93-5ce19e295837' # str | ID of the approval that to be returned. # str | ID of the approval that to be returned.
 
     try:
         # Get Approval
         
-        results =ApprovalsApi(api_client).get_approval(id)
+        results = ApprovalsApi(api_client).get_approval(id=id)
         # Below is a request that includes all optional parameters
         # results = ApprovalsApi(api_client).get_approval(id)
         print("The response of ApprovalsApi->get_approval:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling ApprovalsApi->get_approval: %s\n" % e)
 ```
 
@@ -116,13 +116,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.approvals_api import ApprovalsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.approval import Approval
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     mine = true # bool | Returns the list of approvals for the current caller. (optional) # bool | Returns the list of approvals for the current caller. (optional)
@@ -132,12 +132,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Get Approvals
         
-        results =ApprovalsApi(api_client).get_approvals()
+        results = ApprovalsApi(api_client).get_approvals()
         # Below is a request that includes all optional parameters
         # results = ApprovalsApi(api_client).get_approvals(mine, requester_id, filters)
         print("The response of ApprovalsApi->get_approvals:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling ApprovalsApi->get_approvals: %s\n" % e)
 ```
 

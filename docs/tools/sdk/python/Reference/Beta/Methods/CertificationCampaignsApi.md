@@ -153,7 +153,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.certification_campaigns_api import CertificationCampaignsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.complete_campaign_options import CompleteCampaignOptions
@@ -161,21 +160,22 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | Campaign ID. # str | Campaign ID.
-    complete_campaign_options = {
+    complete_campaign_options = '''{
           "autoCompleteAction" : "REVOKE"
-        } # CompleteCampaignOptions | Optional. Default behavior is for the campaign to auto-approve upon completion, unless autoCompleteAction=REVOKE (optional)
+        }''' # CompleteCampaignOptions | Optional. Default behavior is for the campaign to auto-approve upon completion, unless autoCompleteAction=REVOKE (optional)
 
     try:
         # Complete a Campaign
         
-        results =CertificationCampaignsApi(api_client).complete_campaign(id, )
+        results = CertificationCampaignsApi(api_client).complete_campaign(id=id)
         # Below is a request that includes all optional parameters
         # results = CertificationCampaignsApi(api_client).complete_campaign(id, new_complete_campaign_options)
         print("The response of CertificationCampaignsApi->complete_campaign:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling CertificationCampaignsApi->complete_campaign: %s\n" % e)
 ```
 
@@ -221,7 +221,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.certification_campaigns_api import CertificationCampaignsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.campaign import Campaign
@@ -229,8 +228,9 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
-    campaign = {
+    campaign = '''{
           "totalCertifications" : 100,
           "sourcesWithOrphanEntitlements" : [ {
             "name" : "Source with orphan entitlements",
@@ -338,18 +338,17 @@ with ApiClient(configuration) as api_client:
           "deadline" : "2020-03-15T10:00:01.456Z",
           "status" : "ACTIVE",
           "correlatedStatus" : "CORRELATED"
-        } # Campaign | 
+        }''' # Campaign | 
 
     try:
         # Create Campaign
-        new_campaign = Campaign()
-        new_campaign.from_json(campaign)
-        results =CertificationCampaignsApi(api_client).create_campaign(new_campaign)
+        new_campaign = Campaign.from_json(campaign)
+        results = CertificationCampaignsApi(api_client).create_campaign(campaign=new_campaign)
         # Below is a request that includes all optional parameters
         # results = CertificationCampaignsApi(api_client).create_campaign(new_campaign)
         print("The response of CertificationCampaignsApi->create_campaign:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling CertificationCampaignsApi->create_campaign: %s\n" % e)
 ```
 
@@ -395,7 +394,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.certification_campaigns_api import CertificationCampaignsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.campaign_template import CampaignTemplate
@@ -403,8 +401,9 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
-    campaign_template = {
+    campaign_template = '''{
           "ownerRef" : {
             "name" : "Mister Manager",
             "id" : "2c918086676d3e0601677611dbde220f",
@@ -527,18 +526,17 @@ with ApiClient(configuration) as api_client:
             "correlatedStatus" : "CORRELATED"
           },
           "id" : "2c9079b270a266a60170a277bb960008"
-        } # CampaignTemplate | 
+        }''' # CampaignTemplate | 
 
     try:
         # Create a Campaign Template
-        new_campaign_template = CampaignTemplate()
-        new_campaign_template.from_json(campaign_template)
-        results =CertificationCampaignsApi(api_client).create_campaign_template(new_campaign_template)
+        new_campaign_template = CampaignTemplate.from_json(campaign_template)
+        results = CertificationCampaignsApi(api_client).create_campaign_template(campaign_template=new_campaign_template)
         # Below is a request that includes all optional parameters
         # results = CertificationCampaignsApi(api_client).create_campaign_template(new_campaign_template)
         print("The response of CertificationCampaignsApi->create_campaign_template:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling CertificationCampaignsApi->create_campaign_template: %s\n" % e)
 ```
 
@@ -585,12 +583,12 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.certification_campaigns_api import CertificationCampaignsApi
 from sailpoint.beta.api_client import ApiClient
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     id = '2c9180835d191a86015d28455b4a2329' # str | ID of the campaign template being deleted. # str | ID of the campaign template being deleted.
@@ -598,10 +596,10 @@ with ApiClient(configuration) as api_client:
     try:
         # Delete a Campaign Template
         
-        CertificationCampaignsApi(api_client).delete_campaign_template(id)
+        CertificationCampaignsApi(api_client).delete_campaign_template(id=id)
         # Below is a request that includes all optional parameters
         # CertificationCampaignsApi(api_client).delete_campaign_template(id)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling CertificationCampaignsApi->delete_campaign_template: %s\n" % e)
 ```
 
@@ -648,12 +646,12 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.certification_campaigns_api import CertificationCampaignsApi
 from sailpoint.beta.api_client import ApiClient
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     id = '04bedce387bd47b2ae1f86eb0bb36dee' # str | ID of the campaign template whose schedule is being deleted. # str | ID of the campaign template whose schedule is being deleted.
@@ -661,10 +659,10 @@ with ApiClient(configuration) as api_client:
     try:
         # Delete Campaign Template Schedule
         
-        CertificationCampaignsApi(api_client).delete_campaign_template_schedule(id)
+        CertificationCampaignsApi(api_client).delete_campaign_template_schedule(id=id)
         # Below is a request that includes all optional parameters
         # CertificationCampaignsApi(api_client).delete_campaign_template_schedule(id)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling CertificationCampaignsApi->delete_campaign_template_schedule: %s\n" % e)
 ```
 
@@ -711,7 +709,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.certification_campaigns_api import CertificationCampaignsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.delete_campaigns_request import DeleteCampaignsRequest
@@ -719,21 +716,21 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
-    delete_campaigns_request = {
+    delete_campaigns_request = '''{
           "ids" : [ "2c9180887335cee10173490db1776c26", "2c9180836a712436016a7125a90c0021" ]
-        } # DeleteCampaignsRequest | IDs of the campaigns to delete.
+        }''' # DeleteCampaignsRequest | IDs of the campaigns to delete.
 
     try:
         # Delete Campaigns
-        new_delete_campaigns_request = DeleteCampaignsRequest()
-        new_delete_campaigns_request.from_json(delete_campaigns_request)
-        results =CertificationCampaignsApi(api_client).delete_campaigns(new_delete_campaigns_request)
+        new_delete_campaigns_request = DeleteCampaignsRequest.from_json(delete_campaigns_request)
+        results = CertificationCampaignsApi(api_client).delete_campaigns(delete_campaigns_request=new_delete_campaigns_request)
         # Below is a request that includes all optional parameters
         # results = CertificationCampaignsApi(api_client).delete_campaigns(new_delete_campaigns_request)
         print("The response of CertificationCampaignsApi->delete_campaigns:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling CertificationCampaignsApi->delete_campaigns: %s\n" % e)
 ```
 
@@ -784,13 +781,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.certification_campaigns_api import CertificationCampaignsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.get_active_campaigns200_response_inner import GetActiveCampaigns200ResponseInner
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     detail = 'FULL' # str | Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior. (optional) # str | Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior. (optional)
@@ -803,12 +800,12 @@ with ApiClient(configuration) as api_client:
     try:
         # List Campaigns
         
-        results =CertificationCampaignsApi(api_client).get_active_campaigns()
+        results = CertificationCampaignsApi(api_client).get_active_campaigns()
         # Below is a request that includes all optional parameters
         # results = CertificationCampaignsApi(api_client).get_active_campaigns(detail, limit, offset, count, filters, sorters)
         print("The response of CertificationCampaignsApi->get_active_campaigns:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling CertificationCampaignsApi->get_active_campaigns: %s\n" % e)
 ```
 
@@ -855,7 +852,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.certification_campaigns_api import CertificationCampaignsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.slimcampaign import Slimcampaign
@@ -863,18 +859,19 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     id = '2c91808571bcfcf80171c23e4b4221fc' # str | ID of the campaign to be retrieved. # str | ID of the campaign to be retrieved.
 
     try:
         # Get Campaign
         
-        results =CertificationCampaignsApi(api_client).get_campaign(id)
+        results = CertificationCampaignsApi(api_client).get_campaign(id=id)
         # Below is a request that includes all optional parameters
         # results = CertificationCampaignsApi(api_client).get_campaign(id)
         print("The response of CertificationCampaignsApi->get_campaign:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling CertificationCampaignsApi->get_campaign: %s\n" % e)
 ```
 
@@ -921,7 +918,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.certification_campaigns_api import CertificationCampaignsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.campaign_report import CampaignReport
@@ -929,18 +925,19 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     id = '2c91808571bcfcf80171c23e4b4221fc' # str | ID of the campaign whose reports are being fetched. # str | ID of the campaign whose reports are being fetched.
 
     try:
         # Get Campaign Reports
         
-        results =CertificationCampaignsApi(api_client).get_campaign_reports(id)
+        results = CertificationCampaignsApi(api_client).get_campaign_reports(id=id)
         # Below is a request that includes all optional parameters
         # results = CertificationCampaignsApi(api_client).get_campaign_reports(id)
         print("The response of CertificationCampaignsApi->get_campaign_reports:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling CertificationCampaignsApi->get_campaign_reports: %s\n" % e)
 ```
 
@@ -983,7 +980,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.certification_campaigns_api import CertificationCampaignsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.campaign_reports_config import CampaignReportsConfig
@@ -991,17 +987,18 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
 
     try:
         # Get Campaign Reports Configuration
         
-        results =CertificationCampaignsApi(api_client).get_campaign_reports_config()
+        results = CertificationCampaignsApi(api_client).get_campaign_reports_config()
         # Below is a request that includes all optional parameters
         # results = CertificationCampaignsApi(api_client).get_campaign_reports_config()
         print("The response of CertificationCampaignsApi->get_campaign_reports_config:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling CertificationCampaignsApi->get_campaign_reports_config: %s\n" % e)
 ```
 
@@ -1048,7 +1045,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.certification_campaigns_api import CertificationCampaignsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.campaign_template import CampaignTemplate
@@ -1056,18 +1052,19 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     id = '2c9180835d191a86015d28455b4a2329' # str | Requested campaign template's ID. # str | Requested campaign template's ID.
 
     try:
         # Get a Campaign Template
         
-        results =CertificationCampaignsApi(api_client).get_campaign_template(id)
+        results = CertificationCampaignsApi(api_client).get_campaign_template(id=id)
         # Below is a request that includes all optional parameters
         # results = CertificationCampaignsApi(api_client).get_campaign_template(id)
         print("The response of CertificationCampaignsApi->get_campaign_template:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling CertificationCampaignsApi->get_campaign_template: %s\n" % e)
 ```
 
@@ -1114,7 +1111,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.certification_campaigns_api import CertificationCampaignsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.schedule import Schedule
@@ -1122,18 +1118,19 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     id = '04bedce387bd47b2ae1f86eb0bb36dee' # str | ID of the campaign template whose schedule is being fetched. # str | ID of the campaign template whose schedule is being fetched.
 
     try:
         # Get Campaign Template Schedule
         
-        results =CertificationCampaignsApi(api_client).get_campaign_template_schedule(id)
+        results = CertificationCampaignsApi(api_client).get_campaign_template_schedule(id=id)
         # Below is a request that includes all optional parameters
         # results = CertificationCampaignsApi(api_client).get_campaign_template_schedule(id)
         print("The response of CertificationCampaignsApi->get_campaign_template_schedule:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling CertificationCampaignsApi->get_campaign_template_schedule: %s\n" % e)
 ```
 
@@ -1185,13 +1182,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.certification_campaigns_api import CertificationCampaignsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.campaign_template import CampaignTemplate
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -1203,12 +1200,12 @@ with ApiClient(configuration) as api_client:
     try:
         # List Campaign Templates
         
-        results =CertificationCampaignsApi(api_client).get_campaign_templates()
+        results = CertificationCampaignsApi(api_client).get_campaign_templates()
         # Below is a request that includes all optional parameters
         # results = CertificationCampaignsApi(api_client).get_campaign_templates(limit, offset, count, sorters, filters)
         print("The response of CertificationCampaignsApi->get_campaign_templates:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling CertificationCampaignsApi->get_campaign_templates: %s\n" % e)
 ```
 
@@ -1256,7 +1253,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.certification_campaigns_api import CertificationCampaignsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.admin_review_reassign import AdminReviewReassign
@@ -1265,27 +1261,27 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | The certification campaign ID # str | The certification campaign ID
-    admin_review_reassign = {
+    admin_review_reassign = '''{
           "certificationIds" : [ "af3859464779471211bb8424a563abc1", "af3859464779471211bb8424a563abc2", "af3859464779471211bb8424a563abc3" ],
           "reason" : "reassigned for some reason",
           "reassignTo" : {
             "id" : "ef38f94347e94562b5bb8424a56397d8",
             "type" : "IDENTITY"
           }
-        } # AdminReviewReassign | 
+        }''' # AdminReviewReassign | 
 
     try:
         # Reassign Certifications
-        new_admin_review_reassign = AdminReviewReassign()
-        new_admin_review_reassign.from_json(admin_review_reassign)
-        results =CertificationCampaignsApi(api_client).move(id, new_admin_review_reassign)
+        new_admin_review_reassign = AdminReviewReassign.from_json(admin_review_reassign)
+        results = CertificationCampaignsApi(api_client).move(id=id, admin_review_reassign=new_admin_review_reassign)
         # Below is a request that includes all optional parameters
         # results = CertificationCampaignsApi(api_client).move(id, new_admin_review_reassign)
         print("The response of CertificationCampaignsApi->move:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling CertificationCampaignsApi->move: %s\n" % e)
 ```
 
@@ -1333,7 +1329,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.certification_campaigns_api import CertificationCampaignsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.campaign_template import CampaignTemplate
@@ -1342,26 +1337,20 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     id = '2c9180835d191a86015d28455b4a2329' # str | ID of the campaign template being modified. # str | ID of the campaign template being modified.
-    [{op=replace, path=/description, value=Updated description!}, {op=replace, path=/campaign/filter/id, value=ff80818155fe8c080155fe8d925b0316}] # List[JsonPatchOperation] | A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * deadlineDuration * campaign (all fields that are allowed during create) 
-     json_patch_operation = {
-          "op" : "replace",
-          "path" : "/description",
-          "value" : "New description"
-        } # List[JsonPatchOperation] | A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * deadlineDuration * campaign (all fields that are allowed during create) 
-    
+    json_patch_operation = '''[{op=replace, path=/description, value=Updated description!}, {op=replace, path=/campaign/filter/id, value=ff80818155fe8c080155fe8d925b0316}]''' # List[JsonPatchOperation] | A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * deadlineDuration * campaign (all fields that are allowed during create) 
 
     try:
         # Update a Campaign Template
-        new_json_patch_operation = JsonPatchOperation()
-        new_json_patch_operation.from_json(json_patch_operation)
-        results =CertificationCampaignsApi(api_client).patch_campaign_template(id, new_json_patch_operation)
+        new_json_patch_operation = JsonPatchOperation.from_json(json_patch_operation)
+        results = CertificationCampaignsApi(api_client).patch_campaign_template(id=id, json_patch_operation=new_json_patch_operation)
         # Below is a request that includes all optional parameters
         # results = CertificationCampaignsApi(api_client).patch_campaign_template(id, new_json_patch_operation)
         print("The response of CertificationCampaignsApi->patch_campaign_template:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling CertificationCampaignsApi->patch_campaign_template: %s\n" % e)
 ```
 
@@ -1407,7 +1396,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.certification_campaigns_api import CertificationCampaignsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.campaign_reports_config import CampaignReportsConfig
@@ -1415,21 +1403,21 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
-    campaign_reports_config = {
+    campaign_reports_config = '''{
           "identityAttributeColumns" : [ "firstname", "lastname" ]
-        } # CampaignReportsConfig | Campaign report configuration.
+        }''' # CampaignReportsConfig | Campaign report configuration.
 
     try:
         # Set Campaign Reports Configuration
-        new_campaign_reports_config = CampaignReportsConfig()
-        new_campaign_reports_config.from_json(campaign_reports_config)
-        results =CertificationCampaignsApi(api_client).set_campaign_reports_config(new_campaign_reports_config)
+        new_campaign_reports_config = CampaignReportsConfig.from_json(campaign_reports_config)
+        results = CertificationCampaignsApi(api_client).set_campaign_reports_config(campaign_reports_config=new_campaign_reports_config)
         # Below is a request that includes all optional parameters
         # results = CertificationCampaignsApi(api_client).set_campaign_reports_config(new_campaign_reports_config)
         print("The response of CertificationCampaignsApi->set_campaign_reports_config:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling CertificationCampaignsApi->set_campaign_reports_config: %s\n" % e)
 ```
 
@@ -1478,7 +1466,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.certification_campaigns_api import CertificationCampaignsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.schedule import Schedule
@@ -1486,9 +1473,10 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     id = '04bedce387bd47b2ae1f86eb0bb36dee' # str | ID of the campaign template being scheduled. # str | ID of the campaign template being scheduled.
-    schedule = {
+    schedule = '''{
           "hours" : {
             "values" : [ "1" ],
             "interval" : 2,
@@ -1507,15 +1495,15 @@ with ApiClient(configuration) as api_client:
           },
           "expiration" : "2000-01-23T04:56:07.000+00:00",
           "type" : "WEEKLY"
-        } # Schedule |  (optional)
+        }''' # Schedule |  (optional)
 
     try:
         # Set Campaign Template Schedule
         
-        CertificationCampaignsApi(api_client).set_campaign_template_schedule(id, )
+        CertificationCampaignsApi(api_client).set_campaign_template_schedule(id=id)
         # Below is a request that includes all optional parameters
         # CertificationCampaignsApi(api_client).set_campaign_template_schedule(id, new_schedule)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling CertificationCampaignsApi->set_campaign_template_schedule: %s\n" % e)
 ```
 
@@ -1563,7 +1551,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.certification_campaigns_api import CertificationCampaignsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.activate_campaign_options import ActivateCampaignOptions
@@ -1571,21 +1558,22 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | Campaign ID. # str | Campaign ID.
-    activate_campaign_options = {
+    activate_campaign_options = '''{
           "timeZone" : "-05:00"
-        } # ActivateCampaignOptions | Optional. If no timezone is specified, the standard UTC timezone is used (i.e. UTC+00:00). Although this can take any timezone, the intended value is the caller's timezone. The activation time calculated from the given timezone may cause the campaign deadline time to be modified, but it will remain within the original date. The timezone must be in a valid ISO 8601 format. (optional)
+        }''' # ActivateCampaignOptions | Optional. If no timezone is specified, the standard UTC timezone is used (i.e. UTC+00:00). Although this can take any timezone, the intended value is the caller's timezone. The activation time calculated from the given timezone may cause the campaign deadline time to be modified, but it will remain within the original date. The timezone must be in a valid ISO 8601 format. (optional)
 
     try:
         # Activate a Campaign
         
-        results =CertificationCampaignsApi(api_client).start_campaign(id, )
+        results = CertificationCampaignsApi(api_client).start_campaign(id=id)
         # Below is a request that includes all optional parameters
         # results = CertificationCampaignsApi(api_client).start_campaign(id, new_activate_campaign_options)
         print("The response of CertificationCampaignsApi->start_campaign:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling CertificationCampaignsApi->start_campaign: %s\n" % e)
 ```
 
@@ -1632,12 +1620,12 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.certification_campaigns_api import CertificationCampaignsApi
 from sailpoint.beta.api_client import ApiClient
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     id = '2c91808571bcfcf80171c23e4b4221fc' # str | ID of the campaign the remediation scan is being run for. # str | ID of the campaign the remediation scan is being run for.
@@ -1645,12 +1633,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Run Campaign Remediation Scan
         
-        results =CertificationCampaignsApi(api_client).start_campaign_remediation_scan(id)
+        results = CertificationCampaignsApi(api_client).start_campaign_remediation_scan(id=id)
         # Below is a request that includes all optional parameters
         # results = CertificationCampaignsApi(api_client).start_campaign_remediation_scan(id)
         print("The response of CertificationCampaignsApi->start_campaign_remediation_scan:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling CertificationCampaignsApi->start_campaign_remediation_scan: %s\n" % e)
 ```
 
@@ -1698,13 +1686,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.certification_campaigns_api import CertificationCampaignsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.report_type import ReportType
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     id = '2c91808571bcfcf80171c23e4b4221fc' # str | ID of the campaign the report is being run for. # str | ID of the campaign the report is being run for.
@@ -1713,12 +1701,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Run Campaign Report
         
-        results =CertificationCampaignsApi(api_client).start_campaign_report(id, type)
+        results = CertificationCampaignsApi(api_client).start_campaign_report(id=id, type=type)
         # Below is a request that includes all optional parameters
         # results = CertificationCampaignsApi(api_client).start_campaign_report(id, type)
         print("The response of CertificationCampaignsApi->start_campaign_report:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling CertificationCampaignsApi->start_campaign_report: %s\n" % e)
 ```
 
@@ -1776,7 +1764,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.certification_campaigns_api import CertificationCampaignsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.campaign_reference import CampaignReference
@@ -1784,18 +1771,19 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     id = '2c9180835d191a86015d28455b4a2329' # str | ID of the campaign template to use for generation. # str | ID of the campaign template to use for generation.
 
     try:
         # Generate a Campaign from Template
         
-        results =CertificationCampaignsApi(api_client).start_generate_campaign_template(id)
+        results = CertificationCampaignsApi(api_client).start_generate_campaign_template(id=id)
         # Below is a request that includes all optional parameters
         # results = CertificationCampaignsApi(api_client).start_generate_campaign_template(id)
         print("The response of CertificationCampaignsApi->start_generate_campaign_template:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling CertificationCampaignsApi->start_generate_campaign_template: %s\n" % e)
 ```
 
@@ -1843,7 +1831,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.certification_campaigns_api import CertificationCampaignsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.slimcampaign import Slimcampaign
@@ -1851,22 +1838,20 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     id = '2c91808571bcfcf80171c23e4b4221fc' # str | ID of the campaign being modified. # str | ID of the campaign being modified.
-    request_body = [{op=replace, path=/name, value=This field has been updated!}, {op=copy, from=/name, path=/description}] # List[object] | A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The fields that can be patched differ based on the status of the campaign.  When the campaign is in the *STAGED* status, you can patch these fields: * name * description * recommendationsEnabled * deadline * emailNotificationEnabled * autoRevokeAllowed  When the campaign is in the *ACTIVE* status, you can patch these fields: * deadline 
-     request_body = [{op=replace, path=/name, value=This field has been updated!}, {op=copy, from=/name, path=/description}] # List[object] | A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The fields that can be patched differ based on the status of the campaign.  When the campaign is in the *STAGED* status, you can patch these fields: * name * description * recommendationsEnabled * deadline * emailNotificationEnabled * autoRevokeAllowed  When the campaign is in the *ACTIVE* status, you can patch these fields: * deadline 
-    
+    request_body = '''[{op=replace, path=/name, value=This field has been updated!}, {op=copy, from=/name, path=/description}]''' # List[object] | A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The fields that can be patched differ based on the status of the campaign.  When the campaign is in the *STAGED* status, you can patch these fields: * name * description * recommendationsEnabled * deadline * emailNotificationEnabled * autoRevokeAllowed  When the campaign is in the *ACTIVE* status, you can patch these fields: * deadline 
 
     try:
         # Update a Campaign
-        new_request_body = RequestBody()
-        new_request_body.from_json(request_body)
-        results =CertificationCampaignsApi(api_client).update_campaign(id, new_request_body)
+        new_request_body = RequestBody.from_json(request_body)
+        results = CertificationCampaignsApi(api_client).update_campaign(id=id, request_body=new_request_body)
         # Below is a request that includes all optional parameters
         # results = CertificationCampaignsApi(api_client).update_campaign(id, new_request_body)
         print("The response of CertificationCampaignsApi->update_campaign:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling CertificationCampaignsApi->update_campaign: %s\n" % e)
 ```
 

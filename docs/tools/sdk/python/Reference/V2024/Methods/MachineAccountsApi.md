@@ -24,6 +24,14 @@ Method | HTTP request | Description
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
+:::
 Machine Account Details
 Use this API to return the details for a single machine account by its ID.  
 
@@ -57,13 +65,14 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.machine_accounts_api import MachineAccountsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.machine_account import MachineAccount
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | Machine Account ID. # str | Machine Account ID.
@@ -72,12 +81,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Machine Account Details
         
-        results =MachineAccountsApi(api_client).get_machine_account(id, x_sail_point_experimental)
+        results = MachineAccountsApi(api_client).get_machine_account(id=id, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = MachineAccountsApi(api_client).get_machine_account(id, x_sail_point_experimental)
         print("The response of MachineAccountsApi->get_machine_account:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling MachineAccountsApi->get_machine_account: %s\n" % e)
 ```
 
@@ -88,6 +97,14 @@ with ApiClient(configuration) as api_client:
 ## list-machine-accounts
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Machine Accounts List
 This returns a list of machine accounts.  
@@ -126,13 +143,14 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.machine_accounts_api import MachineAccountsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.machine_account import MachineAccount
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -145,12 +163,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Machine Accounts List
         
-        results =MachineAccountsApi(api_client).list_machine_accounts(x_sail_point_experimental, )
+        results = MachineAccountsApi(api_client).list_machine_accounts(x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = MachineAccountsApi(api_client).list_machine_accounts(x_sail_point_experimental, limit, offset, count, filters, sorters)
         print("The response of MachineAccountsApi->list_machine_accounts:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling MachineAccountsApi->list_machine_accounts: %s\n" % e)
 ```
 
@@ -161,6 +179,14 @@ with ApiClient(configuration) as api_client:
 ## update-machine-account
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Update a Machine Account
 Use this API to update machine accounts details. 
@@ -197,7 +223,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.machine_accounts_api import MachineAccountsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.machine_account import MachineAccount
@@ -205,23 +230,22 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+configuration.experimental = true
+
 with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | Machine Account ID. # str | Machine Account ID.
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    request_body = {Add machine identity attribute={value=[{op=add, path=/environment, value=test}]}, Replace machine identity attribute={value=[{op=replace, path=/environment, value=test}]}, Remove machine identity attribute={value=[{op=remove, path=/environment}]}} # List[object] | A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
-     request_body = {Add machine identity attribute={value=[{op=add, path=/environment, value=test}]}, Replace machine identity attribute={value=[{op=replace, path=/environment, value=test}]}, Remove machine identity attribute={value=[{op=remove, path=/environment}]}} # List[object] | A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
-    
+    request_body = '''{Add machine identity attribute={value=[{op=add, path=/environment, value=test}]}, Replace machine identity attribute={value=[{op=replace, path=/environment, value=test}]}, Remove machine identity attribute={value=[{op=remove, path=/environment}]}}''' # List[object] | A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
     try:
         # Update a Machine Account
-        new_request_body = RequestBody()
-        new_request_body.from_json(request_body)
-        results =MachineAccountsApi(api_client).update_machine_account(id, x_sail_point_experimental, new_request_body)
+        new_request_body = RequestBody.from_json(request_body)
+        results = MachineAccountsApi(api_client).update_machine_account(id=id, x_sail_point_experimental=x_sail_point_experimental, request_body=new_request_body)
         # Below is a request that includes all optional parameters
         # results = MachineAccountsApi(api_client).update_machine_account(id, x_sail_point_experimental, new_request_body)
         print("The response of MachineAccountsApi->update_machine_account:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling MachineAccountsApi->update_machine_account: %s\n" % e)
 ```
 

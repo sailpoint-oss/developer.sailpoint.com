@@ -58,7 +58,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.managed_clients_api import ManagedClientsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.managed_client import ManagedClient
@@ -67,24 +66,24 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
-    managed_client_request = {
+    managed_client_request = '''{
           "name" : "aName",
           "description" : "A short description of the ManagedClient",
           "clusterId" : "aClusterId",
           "type" : "VA"
-        } # ManagedClientRequest | 
+        }''' # ManagedClientRequest | 
 
     try:
         # Create Managed Client
-        new_managed_client_request = ManagedClientRequest()
-        new_managed_client_request.from_json(managed_client_request)
-        results =ManagedClientsApi(api_client).create_managed_client(new_managed_client_request)
+        new_managed_client_request = ManagedClientRequest.from_json(managed_client_request)
+        results = ManagedClientsApi(api_client).create_managed_client(managed_client_request=new_managed_client_request)
         # Below is a request that includes all optional parameters
         # results = ManagedClientsApi(api_client).create_managed_client(new_managed_client_request)
         print("The response of ManagedClientsApi->create_managed_client:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling ManagedClientsApi->create_managed_client: %s\n" % e)
 ```
 
@@ -124,12 +123,12 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.managed_clients_api import ManagedClientsApi
 from sailpoint.v2024.api_client import ApiClient
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     id = '4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7' # str | Managed client ID. # str | Managed client ID.
@@ -137,10 +136,10 @@ with ApiClient(configuration) as api_client:
     try:
         # Delete Managed Client
         
-        ManagedClientsApi(api_client).delete_managed_client(id)
+        ManagedClientsApi(api_client).delete_managed_client(id=id)
         # Below is a request that includes all optional parameters
         # ManagedClientsApi(api_client).delete_managed_client(id)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling ManagedClientsApi->delete_managed_client: %s\n" % e)
 ```
 
@@ -181,7 +180,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.managed_clients_api import ManagedClientsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.managed_client import ManagedClient
@@ -189,18 +187,19 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     id = '4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7' # str | Managed client ID. # str | Managed client ID.
 
     try:
         # Get Managed Client
         
-        results =ManagedClientsApi(api_client).get_managed_client(id)
+        results = ManagedClientsApi(api_client).get_managed_client(id=id)
         # Below is a request that includes all optional parameters
         # results = ManagedClientsApi(api_client).get_managed_client(id)
         print("The response of ManagedClientsApi->get_managed_client:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling ManagedClientsApi->get_managed_client: %s\n" % e)
 ```
 
@@ -242,7 +241,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.managed_clients_api import ManagedClientsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.managed_client_status import ManagedClientStatus
@@ -251,6 +249,7 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     id = 'aClientId' # str | Managed client ID to get status for. # str | Managed client ID to get status for.
     type = sailpoint.v2024.ManagedClientType() # ManagedClientType | Managed client type to get status for. # ManagedClientType | Managed client type to get status for.
@@ -258,12 +257,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Get Managed Client Status
         
-        results =ManagedClientsApi(api_client).get_managed_client_status(id, type)
+        results = ManagedClientsApi(api_client).get_managed_client_status(id=id, type=type)
         # Below is a request that includes all optional parameters
         # results = ManagedClientsApi(api_client).get_managed_client_status(id, type)
         print("The response of ManagedClientsApi->get_managed_client_status:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling ManagedClientsApi->get_managed_client_status: %s\n" % e)
 ```
 
@@ -306,13 +305,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.managed_clients_api import ManagedClientsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.managed_client import ManagedClient
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -323,12 +322,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Get Managed Clients
         
-        results =ManagedClientsApi(api_client).get_managed_clients()
+        results = ManagedClientsApi(api_client).get_managed_clients()
         # Below is a request that includes all optional parameters
         # results = ManagedClientsApi(api_client).get_managed_clients(offset, limit, count, filters)
         print("The response of ManagedClientsApi->get_managed_clients:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling ManagedClientsApi->get_managed_clients: %s\n" % e)
 ```
 
@@ -370,7 +369,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.managed_clients_api import ManagedClientsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.json_patch_operation import JsonPatchOperation
@@ -379,26 +377,20 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     id = '4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7' # str | Managed client ID. # str | Managed client ID.
-    [sailpoint.v2024.JsonPatchOperation()] # List[JsonPatchOperation] | JSONPatch payload used to update the object.
-     json_patch_operation = {
-          "op" : "replace",
-          "path" : "/description",
-          "value" : "New description"
-        } # List[JsonPatchOperation] | JSONPatch payload used to update the object.
-    
+    json_patch_operation = '''[sailpoint.v2024.JsonPatchOperation()]''' # List[JsonPatchOperation] | JSONPatch payload used to update the object.
 
     try:
         # Update Managed Client
-        new_json_patch_operation = JsonPatchOperation()
-        new_json_patch_operation.from_json(json_patch_operation)
-        results =ManagedClientsApi(api_client).update_managed_client(id, new_json_patch_operation)
+        new_json_patch_operation = JsonPatchOperation.from_json(json_patch_operation)
+        results = ManagedClientsApi(api_client).update_managed_client(id=id, json_patch_operation=new_json_patch_operation)
         # Below is a request that includes all optional parameters
         # results = ManagedClientsApi(api_client).update_managed_client(id, new_json_patch_operation)
         print("The response of ManagedClientsApi->update_managed_client:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling ManagedClientsApi->update_managed_client: %s\n" % e)
 ```
 

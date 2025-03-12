@@ -54,7 +54,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.source_usages_api import SourceUsagesApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.source_usage_status import SourceUsageStatus
@@ -62,18 +61,19 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     source_id = '2c9180835d191a86015d28455b4a2329' # str | ID of IDN source # str | ID of IDN source
 
     try:
         # Finds status of source usage
         
-        results =SourceUsagesApi(api_client).get_status_by_source_id(source_id)
+        results = SourceUsagesApi(api_client).get_status_by_source_id(source_id=source_id)
         # Below is a request that includes all optional parameters
         # results = SourceUsagesApi(api_client).get_status_by_source_id(source_id)
         print("The response of SourceUsagesApi->get_status_by_source_id:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling SourceUsagesApi->get_status_by_source_id: %s\n" % e)
 ```
 
@@ -117,13 +117,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.source_usages_api import SourceUsagesApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.source_usage import SourceUsage
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     source_id = '2c9180835d191a86015d28455b4a2329' # str | ID of IDN source # str | ID of IDN source
@@ -135,12 +135,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Returns source usage insights
         
-        results =SourceUsagesApi(api_client).get_usages_by_source_id(source_id, )
+        results = SourceUsagesApi(api_client).get_usages_by_source_id(source_id=source_id)
         # Below is a request that includes all optional parameters
         # results = SourceUsagesApi(api_client).get_usages_by_source_id(source_id, limit, offset, count, sorters)
         print("The response of SourceUsagesApi->get_usages_by_source_id:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling SourceUsagesApi->get_usages_by_source_id: %s\n" % e)
 ```
 

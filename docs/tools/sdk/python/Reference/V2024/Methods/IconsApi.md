@@ -25,6 +25,14 @@ Method | HTTP request | Description
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
+:::
 Delete an icon
 This API endpoint delete an icon by object type and object id. A token with ORG_ADMIN authority is required to call this API.
 
@@ -59,12 +67,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.icons_api import IconsApi
 from sailpoint.v2024.api_client import ApiClient
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     object_type = 'application' # str | Object type. Available options ['application'] # str | Object type. Available options ['application']
@@ -74,10 +83,10 @@ with ApiClient(configuration) as api_client:
     try:
         # Delete an icon
         
-        IconsApi(api_client).delete_icon(object_type, object_id, x_sail_point_experimental)
+        IconsApi(api_client).delete_icon(object_type=object_type, object_id=object_id, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # IconsApi(api_client).delete_icon(object_type, object_id, x_sail_point_experimental)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling IconsApi->delete_icon: %s\n" % e)
 ```
 
@@ -88,6 +97,14 @@ with ApiClient(configuration) as api_client:
 ## set-icon
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Update an icon
 This API endpoint updates an icon by object type and object id. A token with ORG_ADMIN authority is required to call this API.
@@ -124,13 +141,14 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.icons_api import IconsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.set_icon200_response import SetIcon200Response
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     object_type = 'application' # str | Object type. Available options ['application'] # str | Object type. Available options ['application']
@@ -141,12 +159,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Update an icon
         
-        results =IconsApi(api_client).set_icon(object_type, object_id, x_sail_point_experimental, image)
+        results = IconsApi(api_client).set_icon(object_type=object_type, object_id=object_id, x_sail_point_experimental=x_sail_point_experimental, image=image)
         # Below is a request that includes all optional parameters
         # results = IconsApi(api_client).set_icon(object_type, object_id, x_sail_point_experimental, image)
         print("The response of IconsApi->set_icon:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling IconsApi->set_icon: %s\n" % e)
 ```
 

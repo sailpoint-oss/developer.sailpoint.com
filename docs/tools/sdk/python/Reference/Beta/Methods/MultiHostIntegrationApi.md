@@ -68,7 +68,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.multi_host_integration_api import MultiHostIntegrationApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.multi_host_integrations import MultiHostIntegrations
@@ -77,8 +76,9 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
-    multi_host_integrations_create = {
+    multi_host_integrations_create = '''{
           "owner" : {
             "name" : "MyName",
             "id" : "2c91808568c529c60168cca6f90c1313",
@@ -103,18 +103,17 @@ with ApiClient(configuration) as api_client:
           "name" : "My Multi-Host Integration",
           "description" : "This is the Multi-Host Integration.",
           "modified" : "2024-01-23T18:08:50.897Z"
-        } # MultiHostIntegrationsCreate | The specifics of the Multi-Host Integration to create
+        }''' # MultiHostIntegrationsCreate | The specifics of the Multi-Host Integration to create
 
     try:
         # Create Multi-Host Integration
-        new_multi_host_integrations_create = MultiHostIntegrationsCreate()
-        new_multi_host_integrations_create.from_json(multi_host_integrations_create)
-        results =MultiHostIntegrationApi(api_client).create_multi_host_integration(new_multi_host_integrations_create)
+        new_multi_host_integrations_create = MultiHostIntegrationsCreate.from_json(multi_host_integrations_create)
+        results = MultiHostIntegrationApi(api_client).create_multi_host_integration(multi_host_integrations_create=new_multi_host_integrations_create)
         # Below is a request that includes all optional parameters
         # results = MultiHostIntegrationApi(api_client).create_multi_host_integration(new_multi_host_integrations_create)
         print("The response of MultiHostIntegrationApi->create_multi_host_integration:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling MultiHostIntegrationApi->create_multi_host_integration: %s\n" % e)
 ```
 
@@ -158,7 +157,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.multi_host_integration_api import MultiHostIntegrationApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.multi_host_integrations_create_sources import MultiHostIntegrationsCreateSources
@@ -166,31 +164,18 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     multihost_id = '2c91808568c529c60168cca6f90c1326' # str | ID of the Multi-Host Integration. # str | ID of the Multi-Host Integration.
-    [sailpoint.beta.MultiHostIntegrationsCreateSources()] # List[MultiHostIntegrationsCreateSources] | The specifics of the sources to create within Multi-Host Integration.
-     multi_host_integrations_create_sources = {
-          "connectorAttributes" : {
-            "authType" : "SQLAuthentication",
-            "url" : "jdbc:sqlserver://178.18.41.118:1433",
-            "user" : "username",
-            "driverClass" : "com.microsoft.sqlserver.jdbc.SQLServerDriver",
-            "maxSourcesPerAggGroup" : 10,
-            "maxAllowedSources" : 300
-          },
-          "name" : "My Source",
-          "description" : "This is the corporate directory."
-        } # List[MultiHostIntegrationsCreateSources] | The specifics of the sources to create within Multi-Host Integration.
-    
+    multi_host_integrations_create_sources = '''[sailpoint.beta.MultiHostIntegrationsCreateSources()]''' # List[MultiHostIntegrationsCreateSources] | The specifics of the sources to create within Multi-Host Integration.
 
     try:
         # Create Sources Within Multi-Host Integration
-        new_multi_host_integrations_create_sources = MultiHostIntegrationsCreateSources()
-        new_multi_host_integrations_create_sources.from_json(multi_host_integrations_create_sources)
-        MultiHostIntegrationApi(api_client).create_sources_within_multi_host(multihost_id, new_multi_host_integrations_create_sources)
+        new_multi_host_integrations_create_sources = MultiHostIntegrationsCreateSources.from_json(multi_host_integrations_create_sources)
+        MultiHostIntegrationApi(api_client).create_sources_within_multi_host(multihost_id=multihost_id, multi_host_integrations_create_sources=new_multi_host_integrations_create_sources)
         # Below is a request that includes all optional parameters
         # MultiHostIntegrationApi(api_client).create_sources_within_multi_host(multihost_id, new_multi_host_integrations_create_sources)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling MultiHostIntegrationApi->create_sources_within_multi_host: %s\n" % e)
 ```
 
@@ -233,12 +218,12 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.multi_host_integration_api import MultiHostIntegrationApi
 from sailpoint.beta.api_client import ApiClient
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     multihost_id = '2c91808568c529c60168cca6f90c1326' # str | ID of Multi-Host Integration to delete. # str | ID of Multi-Host Integration to delete.
@@ -246,10 +231,10 @@ with ApiClient(configuration) as api_client:
     try:
         # Delete Multi-Host Integration
         
-        MultiHostIntegrationApi(api_client).delete_multi_host(multihost_id)
+        MultiHostIntegrationApi(api_client).delete_multi_host(multihost_id=multihost_id)
         # Below is a request that includes all optional parameters
         # MultiHostIntegrationApi(api_client).delete_multi_host(multihost_id)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling MultiHostIntegrationApi->delete_multi_host: %s\n" % e)
 ```
 
@@ -292,7 +277,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.multi_host_integration_api import MultiHostIntegrationApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.multi_host_integrations_agg_schedule_update import MultiHostIntegrationsAggScheduleUpdate
@@ -300,18 +284,19 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     multihost_id = 'aMultiHostId' # str | ID of the Multi-Host Integration to update # str | ID of the Multi-Host Integration to update
 
     try:
         # Get Account Aggregation Groups Within Multi-Host Integration ID
         
-        results =MultiHostIntegrationApi(api_client).get_acct_aggregation_groups(multihost_id)
+        results = MultiHostIntegrationApi(api_client).get_acct_aggregation_groups(multihost_id=multihost_id)
         # Below is a request that includes all optional parameters
         # results = MultiHostIntegrationApi(api_client).get_acct_aggregation_groups(multihost_id)
         print("The response of MultiHostIntegrationApi->get_acct_aggregation_groups:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling MultiHostIntegrationApi->get_acct_aggregation_groups: %s\n" % e)
 ```
 
@@ -354,7 +339,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.multi_host_integration_api import MultiHostIntegrationApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.multi_host_integrations_agg_schedule_update import MultiHostIntegrationsAggScheduleUpdate
@@ -362,18 +346,19 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     multi_host_id = 'aMultiHostId' # str | ID of the Multi-Host Integration to update # str | ID of the Multi-Host Integration to update
 
     try:
         # Get Entitlement Aggregation Groups Within Multi-Host Integration ID
         
-        results =MultiHostIntegrationApi(api_client).get_entitlement_aggregation_groups(multi_host_id)
+        results = MultiHostIntegrationApi(api_client).get_entitlement_aggregation_groups(multi_host_id=multi_host_id)
         # Below is a request that includes all optional parameters
         # results = MultiHostIntegrationApi(api_client).get_entitlement_aggregation_groups(multi_host_id)
         print("The response of MultiHostIntegrationApi->get_entitlement_aggregation_groups:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling MultiHostIntegrationApi->get_entitlement_aggregation_groups: %s\n" % e)
 ```
 
@@ -416,7 +401,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.multi_host_integration_api import MultiHostIntegrationApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.multi_host_integrations import MultiHostIntegrations
@@ -424,18 +408,19 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     multihost_id = '2c91808568c529c60168cca6f90c1326' # str | ID of the Multi-Host Integration. # str | ID of the Multi-Host Integration.
 
     try:
         # Get Multi-Host Integration By ID
         
-        results =MultiHostIntegrationApi(api_client).get_multi_host_integrations(multihost_id)
+        results = MultiHostIntegrationApi(api_client).get_multi_host_integrations(multihost_id=multihost_id)
         # Below is a request that includes all optional parameters
         # results = MultiHostIntegrationApi(api_client).get_multi_host_integrations(multihost_id)
         print("The response of MultiHostIntegrationApi->get_multi_host_integrations:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling MultiHostIntegrationApi->get_multi_host_integrations: %s\n" % e)
 ```
 
@@ -483,13 +468,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.multi_host_integration_api import MultiHostIntegrationApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.multi_host_integrations import MultiHostIntegrations
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -502,12 +487,12 @@ with ApiClient(configuration) as api_client:
     try:
         # List All Existing Multi-Host Integrations
         
-        results =MultiHostIntegrationApi(api_client).get_multi_host_integrations_list()
+        results = MultiHostIntegrationApi(api_client).get_multi_host_integrations_list()
         # Below is a request that includes all optional parameters
         # results = MultiHostIntegrationApi(api_client).get_multi_host_integrations_list(offset, limit, sorters, filters, count, for_subadmin)
         print("The response of MultiHostIntegrationApi->get_multi_host_integrations_list:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling MultiHostIntegrationApi->get_multi_host_integrations_list: %s\n" % e)
 ```
 
@@ -550,7 +535,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.multi_host_integration_api import MultiHostIntegrationApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.source_creation_errors import SourceCreationErrors
@@ -558,18 +542,19 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     multi_host_id = '004091cb79b04636b88662afa50a4440' # str | ID of the Multi-Host Integration # str | ID of the Multi-Host Integration
 
     try:
         # List Multi-Host Source Creation Errors
         
-        results =MultiHostIntegrationApi(api_client).get_multi_host_source_creation_errors(multi_host_id)
+        results = MultiHostIntegrationApi(api_client).get_multi_host_source_creation_errors(multi_host_id=multi_host_id)
         # Below is a request that includes all optional parameters
         # results = MultiHostIntegrationApi(api_client).get_multi_host_source_creation_errors(multi_host_id)
         print("The response of MultiHostIntegrationApi->get_multi_host_source_creation_errors:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling MultiHostIntegrationApi->get_multi_host_source_creation_errors: %s\n" % e)
 ```
 
@@ -609,7 +594,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.multi_host_integration_api import MultiHostIntegrationApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.multi_host_integration_template_type import MultiHostIntegrationTemplateType
@@ -617,17 +601,18 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
 
     try:
         # List Multi-Host Integration Types
         
-        results =MultiHostIntegrationApi(api_client).get_multihost_integration_types()
+        results = MultiHostIntegrationApi(api_client).get_multihost_integration_types()
         # Below is a request that includes all optional parameters
         # results = MultiHostIntegrationApi(api_client).get_multihost_integration_types()
         print("The response of MultiHostIntegrationApi->get_multihost_integration_types:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling MultiHostIntegrationApi->get_multihost_integration_types: %s\n" % e)
 ```
 
@@ -675,13 +660,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.multi_host_integration_api import MultiHostIntegrationApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.multi_host_sources import MultiHostSources
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     multihost_id = 'aMultiHostId' # str | ID of the Multi-Host Integration to update # str | ID of the Multi-Host Integration to update
@@ -694,12 +679,12 @@ with ApiClient(configuration) as api_client:
     try:
         # List Sources Within Multi-Host Integration
         
-        results =MultiHostIntegrationApi(api_client).get_sources_within_multi_host(multihost_id, )
+        results = MultiHostIntegrationApi(api_client).get_sources_within_multi_host(multihost_id=multihost_id)
         # Below is a request that includes all optional parameters
         # results = MultiHostIntegrationApi(api_client).get_sources_within_multi_host(multihost_id, offset, limit, sorters, filters, count)
         print("The response of MultiHostIntegrationApi->get_sources_within_multi_host:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling MultiHostIntegrationApi->get_sources_within_multi_host: %s\n" % e)
 ```
 
@@ -742,12 +727,12 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.multi_host_integration_api import MultiHostIntegrationApi
 from sailpoint.beta.api_client import ApiClient
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     multihost_id = '2c91808568c529c60168cca6f90c1324' # str | ID of the Multi-Host Integration # str | ID of the Multi-Host Integration
@@ -755,10 +740,10 @@ with ApiClient(configuration) as api_client:
     try:
         # Test Configuration For Multi-Host Integration
         
-        MultiHostIntegrationApi(api_client).test_connection_multi_host_sources(multihost_id)
+        MultiHostIntegrationApi(api_client).test_connection_multi_host_sources(multihost_id=multihost_id)
         # Below is a request that includes all optional parameters
         # MultiHostIntegrationApi(api_client).test_connection_multi_host_sources(multihost_id)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling MultiHostIntegrationApi->test_connection_multi_host_sources: %s\n" % e)
 ```
 
@@ -802,13 +787,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.multi_host_integration_api import MultiHostIntegrationApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.test_source_connection_multihost200_response import TestSourceConnectionMultihost200Response
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     multihost_id = '2c91808568c529c60168cca6f90c1326' # str | ID of the Multi-Host Integration # str | ID of the Multi-Host Integration
@@ -817,12 +802,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Test Configuration For Multi-Host Integration's Single Source
         
-        results =MultiHostIntegrationApi(api_client).test_source_connection_multihost(multihost_id, source_id)
+        results = MultiHostIntegrationApi(api_client).test_source_connection_multihost(multihost_id=multihost_id, source_id=source_id)
         # Below is a request that includes all optional parameters
         # results = MultiHostIntegrationApi(api_client).test_source_connection_multihost(multihost_id, source_id)
         print("The response of MultiHostIntegrationApi->test_source_connection_multihost:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling MultiHostIntegrationApi->test_source_connection_multihost: %s\n" % e)
 ```
 
@@ -866,7 +851,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.multi_host_integration_api import MultiHostIntegrationApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.update_multi_host_sources_request_inner import UpdateMultiHostSourcesRequestInner
@@ -874,20 +858,18 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     multihost_id = 'anId' # str | ID of the Multi-Host Integration to update. # str | ID of the Multi-Host Integration to update.
-    [{op=add, path=/description, value=MDK Multi-Host Integration 222 description}] # List[UpdateMultiHostSourcesRequestInner] | This endpoint allows you to update a Multi-Host Integration. 
-     update_multi_host_sources_request_inner = [{op=add, path=/description, value=MDK Multi-Host Integration 222 description}] # List[UpdateMultiHostSourcesRequestInner] | This endpoint allows you to update a Multi-Host Integration. 
-    
+    update_multi_host_sources_request_inner = '''[{op=add, path=/description, value=MDK Multi-Host Integration 222 description}]''' # List[UpdateMultiHostSourcesRequestInner] | This endpoint allows you to update a Multi-Host Integration. 
 
     try:
         # Update Multi-Host Integration
-        new_update_multi_host_sources_request_inner = UpdateMultiHostSourcesRequestInner()
-        new_update_multi_host_sources_request_inner.from_json(update_multi_host_sources_request_inner)
-        MultiHostIntegrationApi(api_client).update_multi_host_sources(multihost_id, new_update_multi_host_sources_request_inner)
+        new_update_multi_host_sources_request_inner = UpdateMultiHostSourcesRequestInner.from_json(update_multi_host_sources_request_inner)
+        MultiHostIntegrationApi(api_client).update_multi_host_sources(multihost_id=multihost_id, update_multi_host_sources_request_inner=new_update_multi_host_sources_request_inner)
         # Below is a request that includes all optional parameters
         # MultiHostIntegrationApi(api_client).update_multi_host_sources(multihost_id, new_update_multi_host_sources_request_inner)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling MultiHostIntegrationApi->update_multi_host_sources: %s\n" % e)
 ```
 

@@ -66,13 +66,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v3
 from sailpoint.v3.api.branding_api import BrandingApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.branding_item import BrandingItem
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     name = 'name_example' # str | name of branding item # str | name of branding item
@@ -87,12 +87,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Create a branding item
         
-        results =BrandingApi(api_client).create_branding_item(name, product_name, )
+        results = BrandingApi(api_client).create_branding_item(name=name, product_name=product_name)
         # Below is a request that includes all optional parameters
         # results = BrandingApi(api_client).create_branding_item(name, product_name, action_button_color, active_link_color, navigation_color, email_from_address, login_informational_message, file_standard)
         print("The response of BrandingApi->create_branding_item:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling BrandingApi->create_branding_item: %s\n" % e)
 ```
 
@@ -133,12 +133,12 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v3
 from sailpoint.v3.api.branding_api import BrandingApi
 from sailpoint.v3.api_client import ApiClient
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     name = 'default' # str | The name of the branding item to be deleted # str | The name of the branding item to be deleted
@@ -146,10 +146,10 @@ with ApiClient(configuration) as api_client:
     try:
         # Delete a branding item
         
-        BrandingApi(api_client).delete_branding(name)
+        BrandingApi(api_client).delete_branding(name=name)
         # Below is a request that includes all optional parameters
         # BrandingApi(api_client).delete_branding(name)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling BrandingApi->delete_branding: %s\n" % e)
 ```
 
@@ -190,7 +190,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v3
 from sailpoint.v3.api.branding_api import BrandingApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.branding_item import BrandingItem
@@ -198,18 +197,19 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     name = 'default' # str | The name of the branding item to be retrieved # str | The name of the branding item to be retrieved
 
     try:
         # Get a branding item
         
-        results =BrandingApi(api_client).get_branding(name)
+        results = BrandingApi(api_client).get_branding(name=name)
         # Below is a request that includes all optional parameters
         # results = BrandingApi(api_client).get_branding(name)
         print("The response of BrandingApi->get_branding:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling BrandingApi->get_branding: %s\n" % e)
 ```
 
@@ -246,7 +246,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v3
 from sailpoint.v3.api.branding_api import BrandingApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.branding_item import BrandingItem
@@ -254,17 +253,18 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
 
     try:
         # List of branding items
         
-        results =BrandingApi(api_client).get_branding_list()
+        results = BrandingApi(api_client).get_branding_list()
         # Below is a request that includes all optional parameters
         # results = BrandingApi(api_client).get_branding_list()
         print("The response of BrandingApi->get_branding_list:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling BrandingApi->get_branding_list: %s\n" % e)
 ```
 
@@ -313,13 +313,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v3
 from sailpoint.v3.api.branding_api import BrandingApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.branding_item import BrandingItem
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     name = 'default' # str | The name of the branding item to be retrieved # str | The name of the branding item to be retrieved
@@ -335,12 +335,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Update a branding item
         
-        results =BrandingApi(api_client).set_branding_item(name, name2, product_name, )
+        results = BrandingApi(api_client).set_branding_item(name=name, name2=name2, product_name=product_name)
         # Below is a request that includes all optional parameters
         # results = BrandingApi(api_client).set_branding_item(name, name2, product_name, action_button_color, active_link_color, navigation_color, email_from_address, login_informational_message, file_standard)
         print("The response of BrandingApi->set_branding_item:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling BrandingApi->set_branding_item: %s\n" % e)
 ```
 

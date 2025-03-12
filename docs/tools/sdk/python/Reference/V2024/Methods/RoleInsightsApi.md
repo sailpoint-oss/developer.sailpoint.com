@@ -33,6 +33,14 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
+:::
 Generate insights for roles
 Submits a create role insights request to the role insights application. At this time there are no parameters. All business roles will be processed for the customer.
 
@@ -64,7 +72,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.role_insights_api import RoleInsightsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.role_insights_response import RoleInsightsResponse
@@ -72,18 +79,20 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+configuration.experimental = true
+
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
         # Generate insights for roles
         
-        results =RoleInsightsApi(api_client).create_role_insight_requests(x_sail_point_experimental)
+        results = RoleInsightsApi(api_client).create_role_insight_requests(x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = RoleInsightsApi(api_client).create_role_insight_requests(x_sail_point_experimental)
         print("The response of RoleInsightsApi->create_role_insight_requests:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling RoleInsightsApi->create_role_insight_requests: %s\n" % e)
 ```
 
@@ -94,6 +103,14 @@ with ApiClient(configuration) as api_client:
 ## download-role-insights-entitlements-changes
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Download entitlement insights for a role
 This endpoint returns the entitlement insights for a role.
@@ -128,12 +145,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.role_insights_api import RoleInsightsApi
 from sailpoint.v2024.api_client import ApiClient
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     insight_id = '8c190e67-87aa-4ed9-a90b-d9d5344523fb' # str | The role insight id # str | The role insight id
@@ -144,12 +162,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Download entitlement insights for a role
         
-        results =RoleInsightsApi(api_client).download_role_insights_entitlements_changes(insight_id, x_sail_point_experimental, )
+        results = RoleInsightsApi(api_client).download_role_insights_entitlements_changes(insight_id=insight_id, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = RoleInsightsApi(api_client).download_role_insights_entitlements_changes(insight_id, x_sail_point_experimental, sorters, filters)
         print("The response of RoleInsightsApi->download_role_insights_entitlements_changes:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling RoleInsightsApi->download_role_insights_entitlements_changes: %s\n" % e)
 ```
 
@@ -160,6 +178,14 @@ with ApiClient(configuration) as api_client:
 ## get-entitlement-changes-identities
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Get identities for a suggested entitlement (for a role)
 Role insights suggests entitlements to be added for a role. This endpoint returns a list of identities in the role, with or without the entitlements, for a suggested entitlement so that the user can see which identities would be affected if the suggested entitlement were to be added to the role.
@@ -199,13 +225,14 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.role_insights_api import RoleInsightsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.role_insights_identities import RoleInsightsIdentities
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     insight_id = '8c190e67-87aa-4ed9-a90b-d9d5344523fb' # str | The role insight id # str | The role insight id
@@ -221,12 +248,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Get identities for a suggested entitlement (for a role)
         
-        results =RoleInsightsApi(api_client).get_entitlement_changes_identities(insight_id, entitlement_id, x_sail_point_experimental, )
+        results = RoleInsightsApi(api_client).get_entitlement_changes_identities(insight_id=insight_id, entitlement_id=entitlement_id, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = RoleInsightsApi(api_client).get_entitlement_changes_identities(insight_id, entitlement_id, x_sail_point_experimental, has_entitlement, offset, limit, count, sorters, filters)
         print("The response of RoleInsightsApi->get_entitlement_changes_identities:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling RoleInsightsApi->get_entitlement_changes_identities: %s\n" % e)
 ```
 
@@ -237,6 +264,14 @@ with ApiClient(configuration) as api_client:
 ## get-role-insight
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Get a single role insight
 This endpoint gets role insights information for a role.
@@ -269,13 +304,14 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.role_insights_api import RoleInsightsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.role_insight import RoleInsight
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     insight_id = '8c190e67-87aa-4ed9-a90b-d9d5344523fb' # str | The role insight id # str | The role insight id
@@ -284,12 +320,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Get a single role insight
         
-        results =RoleInsightsApi(api_client).get_role_insight(insight_id, x_sail_point_experimental)
+        results = RoleInsightsApi(api_client).get_role_insight(insight_id=insight_id, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = RoleInsightsApi(api_client).get_role_insight(insight_id, x_sail_point_experimental)
         print("The response of RoleInsightsApi->get_role_insight:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling RoleInsightsApi->get_role_insight: %s\n" % e)
 ```
 
@@ -300,6 +336,14 @@ with ApiClient(configuration) as api_client:
 ## get-role-insights
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Get role insights
 This method returns detailed role insights for each role.
@@ -336,13 +380,14 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.role_insights_api import RoleInsightsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.role_insight import RoleInsight
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -355,12 +400,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Get role insights
         
-        results =RoleInsightsApi(api_client).get_role_insights(x_sail_point_experimental, )
+        results = RoleInsightsApi(api_client).get_role_insights(x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = RoleInsightsApi(api_client).get_role_insights(x_sail_point_experimental, offset, limit, count, sorters, filters)
         print("The response of RoleInsightsApi->get_role_insights:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling RoleInsightsApi->get_role_insights: %s\n" % e)
 ```
 
@@ -371,6 +416,14 @@ with ApiClient(configuration) as api_client:
 ## get-role-insights-current-entitlements
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Get current entitlement for a role
 This endpoint gets the entitlements for a role. The term "current" is to distinguish from the entitlement(s) an insight might recommend adding.
@@ -404,13 +457,14 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.role_insights_api import RoleInsightsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.role_insights_entitlement import RoleInsightsEntitlement
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     insight_id = '8c190e67-87aa-4ed9-a90b-d9d5344523fb' # str | The role insight id # str | The role insight id
@@ -420,12 +474,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Get current entitlement for a role
         
-        results =RoleInsightsApi(api_client).get_role_insights_current_entitlements(insight_id, x_sail_point_experimental, )
+        results = RoleInsightsApi(api_client).get_role_insights_current_entitlements(insight_id=insight_id, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = RoleInsightsApi(api_client).get_role_insights_current_entitlements(insight_id, x_sail_point_experimental, filters)
         print("The response of RoleInsightsApi->get_role_insights_current_entitlements:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling RoleInsightsApi->get_role_insights_current_entitlements: %s\n" % e)
 ```
 
@@ -436,6 +490,14 @@ with ApiClient(configuration) as api_client:
 ## get-role-insights-entitlements-changes
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Get entitlement insights for a role
 This endpoint returns entitlement insights for a role.
@@ -470,13 +532,14 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.role_insights_api import RoleInsightsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.role_insights_entitlement_changes import RoleInsightsEntitlementChanges
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     insight_id = '8c190e67-87aa-4ed9-a90b-d9d5344523fb' # str | The role insight id # str | The role insight id
@@ -487,12 +550,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Get entitlement insights for a role
         
-        results =RoleInsightsApi(api_client).get_role_insights_entitlements_changes(insight_id, x_sail_point_experimental, )
+        results = RoleInsightsApi(api_client).get_role_insights_entitlements_changes(insight_id=insight_id, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = RoleInsightsApi(api_client).get_role_insights_entitlements_changes(insight_id, x_sail_point_experimental, sorters, filters)
         print("The response of RoleInsightsApi->get_role_insights_entitlements_changes:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling RoleInsightsApi->get_role_insights_entitlements_changes: %s\n" % e)
 ```
 
@@ -506,6 +569,14 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 :::
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Returns metadata from prior request.
 This endpoint returns details of a prior role insights request. 
@@ -539,13 +610,14 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.role_insights_api import RoleInsightsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.role_insights_response import RoleInsightsResponse
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     id = '8c190e67-87aa-4ed9-a90b-d9d5344523fb' # str | The role insights request id # str | The role insights request id
@@ -554,12 +626,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Returns metadata from prior request.
         
-        results =RoleInsightsApi(api_client).get_role_insights_requests(id, x_sail_point_experimental)
+        results = RoleInsightsApi(api_client).get_role_insights_requests(id=id, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = RoleInsightsApi(api_client).get_role_insights_requests(id, x_sail_point_experimental)
         print("The response of RoleInsightsApi->get_role_insights_requests:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling RoleInsightsApi->get_role_insights_requests: %s\n" % e)
 ```
 
@@ -570,6 +642,14 @@ with ApiClient(configuration) as api_client:
 ## get-role-insights-summary
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Get role insights summary information
 This method returns high level summary information for role insights for a customer.
@@ -601,7 +681,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.role_insights_api import RoleInsightsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.role_insights_summary import RoleInsightsSummary
@@ -609,18 +688,20 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+configuration.experimental = true
+
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
         # Get role insights summary information
         
-        results =RoleInsightsApi(api_client).get_role_insights_summary(x_sail_point_experimental)
+        results = RoleInsightsApi(api_client).get_role_insights_summary(x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = RoleInsightsApi(api_client).get_role_insights_summary(x_sail_point_experimental)
         print("The response of RoleInsightsApi->get_role_insights_summary:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling RoleInsightsApi->get_role_insights_summary: %s\n" % e)
 ```
 

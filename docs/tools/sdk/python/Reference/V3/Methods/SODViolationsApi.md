@@ -70,7 +70,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v3
 from sailpoint.v3.api.sod_violations_api import SODViolationsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.identity_with_new_access import IdentityWithNewAccess
@@ -79,8 +78,9 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
-    identity_with_new_access = {
+    identity_with_new_access = '''{
           "identityId" : "2c91808568c529c60168cca6f90c1313",
           "accessRefs" : [ {
             "type" : "ENTITLEMENT",
@@ -91,18 +91,17 @@ with ApiClient(configuration) as api_client:
             "id" : "2c918087682f9a86016839c0509c1ab2",
             "name" : "CN=Information Technology,OU=test,OU=test-service,DC=TestAD,DC=local"
           } ]
-        } # IdentityWithNewAccess | 
+        }''' # IdentityWithNewAccess | 
 
     try:
         # Predict SOD violations for identity.
-        new_identity_with_new_access = IdentityWithNewAccess()
-        new_identity_with_new_access.from_json(identity_with_new_access)
-        results =SODViolationsApi(api_client).start_predict_sod_violations(new_identity_with_new_access)
+        new_identity_with_new_access = IdentityWithNewAccess.from_json(identity_with_new_access)
+        results = SODViolationsApi(api_client).start_predict_sod_violations(identity_with_new_access=new_identity_with_new_access)
         # Below is a request that includes all optional parameters
         # results = SODViolationsApi(api_client).start_predict_sod_violations(new_identity_with_new_access)
         print("The response of SODViolationsApi->start_predict_sod_violations:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling SODViolationsApi->start_predict_sod_violations: %s\n" % e)
 ```
 
@@ -143,7 +142,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v3
 from sailpoint.v3.api.sod_violations_api import SODViolationsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.identity_with_new_access1 import IdentityWithNewAccess1
@@ -152,19 +150,19 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
-    identity_with_new_access1 = {identityId=2c91808568c529c60168cca6f90c1313, accessRefs=[{type=ENTITLEMENT, id=2c918087682f9a86016839c050861ab1, name=CN=Information Access,OU=test,OU=test-service,DC=TestAD,DC=local}, {type=ENTITLEMENT, id=2c918087682f9a86016839c0509c1ab2, name=CN=Information Technology,OU=test,OU=test-service,DC=TestAD,DC=local}], clientMetadata={additionalProp1=string, additionalProp2=string, additionalProp3=string}} # IdentityWithNewAccess1 | 
+    identity_with_new_access1 = '''{identityId=2c91808568c529c60168cca6f90c1313, accessRefs=[{type=ENTITLEMENT, id=2c918087682f9a86016839c050861ab1, name=CN=Information Access,OU=test,OU=test-service,DC=TestAD,DC=local}, {type=ENTITLEMENT, id=2c918087682f9a86016839c0509c1ab2, name=CN=Information Technology,OU=test,OU=test-service,DC=TestAD,DC=local}], clientMetadata={additionalProp1=string, additionalProp2=string, additionalProp3=string}}''' # IdentityWithNewAccess1 | 
 
     try:
         # Check SOD violations
-        new_identity_with_new_access1 = IdentityWithNewAccess1()
-        new_identity_with_new_access1.from_json(identity_with_new_access1)
-        results =SODViolationsApi(api_client).start_violation_check(new_identity_with_new_access1)
+        new_identity_with_new_access1 = IdentityWithNewAccess1.from_json(identity_with_new_access1)
+        results = SODViolationsApi(api_client).start_violation_check(identity_with_new_access1=new_identity_with_new_access1)
         # Below is a request that includes all optional parameters
         # results = SODViolationsApi(api_client).start_violation_check(new_identity_with_new_access1)
         print("The response of SODViolationsApi->start_violation_check:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling SODViolationsApi->start_violation_check: %s\n" % e)
 ```
 

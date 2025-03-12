@@ -30,6 +30,14 @@ Method | HTTP request | Description
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
+:::
 IAI Identity Outliers Export
 This API exports a list of ignored outliers to a CSV as well as list of non-ignored outliers to a CSV. These two CSVs will be zipped and exported.
 
@@ -65,12 +73,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.iai_outliers_api import IAIOutliersApi
 from sailpoint.v2024.api_client import ApiClient
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -79,12 +88,12 @@ with ApiClient(configuration) as api_client:
     try:
         # IAI Identity Outliers Export
         
-        results =IAIOutliersApi(api_client).export_outliers_zip(x_sail_point_experimental, )
+        results = IAIOutliersApi(api_client).export_outliers_zip(x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = IAIOutliersApi(api_client).export_outliers_zip(x_sail_point_experimental, type)
         print("The response of IAIOutliersApi->export_outliers_zip:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling IAIOutliersApi->export_outliers_zip: %s\n" % e)
 ```
 
@@ -95,6 +104,14 @@ with ApiClient(configuration) as api_client:
 ## get-identity-outlier-snapshots
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 IAI Identity Outliers Summary
 This API returns a summary containing the number of identities that customer has, the number of outliers, and the type of outlier.
@@ -133,13 +150,14 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.iai_outliers_api import IAIOutliersApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.outlier_summary import OutlierSummary
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -152,12 +170,12 @@ with ApiClient(configuration) as api_client:
     try:
         # IAI Identity Outliers Summary
         
-        results =IAIOutliersApi(api_client).get_identity_outlier_snapshots(x_sail_point_experimental, )
+        results = IAIOutliersApi(api_client).get_identity_outlier_snapshots(x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = IAIOutliersApi(api_client).get_identity_outlier_snapshots(x_sail_point_experimental, limit, offset, type, filters, sorters)
         print("The response of IAIOutliersApi->get_identity_outlier_snapshots:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling IAIOutliersApi->get_identity_outlier_snapshots: %s\n" % e)
 ```
 
@@ -168,6 +186,14 @@ with ApiClient(configuration) as api_client:
 ## get-identity-outliers
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 IAI Get Identity Outliers
 This API returns a list of outliers, containing data such as identity ID, outlier type, detection dates, identity attributes, if identity is ignored, and certification information.
@@ -206,13 +232,14 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.iai_outliers_api import IAIOutliersApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.outlier import Outlier
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -226,12 +253,12 @@ with ApiClient(configuration) as api_client:
     try:
         # IAI Get Identity Outliers
         
-        results =IAIOutliersApi(api_client).get_identity_outliers(x_sail_point_experimental, )
+        results = IAIOutliersApi(api_client).get_identity_outliers(x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = IAIOutliersApi(api_client).get_identity_outliers(x_sail_point_experimental, limit, offset, count, type, filters, sorters)
         print("The response of IAIOutliersApi->get_identity_outliers:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling IAIOutliersApi->get_identity_outliers: %s\n" % e)
 ```
 
@@ -242,6 +269,14 @@ with ApiClient(configuration) as api_client:
 ## get-latest-identity-outlier-snapshots
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 IAI Identity Outliers Latest Summary
 This API returns a most recent snapshot of each outlier type, each containing the number of identities that customer has, the number of outliers, and the type of outlier.
@@ -276,13 +311,14 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.iai_outliers_api import IAIOutliersApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.latest_outlier_summary import LatestOutlierSummary
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -291,12 +327,12 @@ with ApiClient(configuration) as api_client:
     try:
         # IAI Identity Outliers Latest Summary
         
-        results =IAIOutliersApi(api_client).get_latest_identity_outlier_snapshots(x_sail_point_experimental, )
+        results = IAIOutliersApi(api_client).get_latest_identity_outlier_snapshots(x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = IAIOutliersApi(api_client).get_latest_identity_outlier_snapshots(x_sail_point_experimental, type)
         print("The response of IAIOutliersApi->get_latest_identity_outlier_snapshots:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling IAIOutliersApi->get_latest_identity_outlier_snapshots: %s\n" % e)
 ```
 
@@ -307,6 +343,14 @@ with ApiClient(configuration) as api_client:
 ## get-outlier-contributing-feature-summary
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Get identity outlier contibuting feature summary
 This API returns a summary of a contributing feature for an identity outlier.
@@ -344,13 +388,14 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.iai_outliers_api import IAIOutliersApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.outlier_feature_summary import OutlierFeatureSummary
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     outlier_feature_id = '04654b66-7561-4090-94f9-abee0722a1af' # str | Contributing feature id # str | Contributing feature id
@@ -359,12 +404,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Get identity outlier contibuting feature summary
         
-        results =IAIOutliersApi(api_client).get_outlier_contributing_feature_summary(outlier_feature_id, x_sail_point_experimental)
+        results = IAIOutliersApi(api_client).get_outlier_contributing_feature_summary(outlier_feature_id=outlier_feature_id, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = IAIOutliersApi(api_client).get_outlier_contributing_feature_summary(outlier_feature_id, x_sail_point_experimental)
         print("The response of IAIOutliersApi->get_outlier_contributing_feature_summary:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling IAIOutliersApi->get_outlier_contributing_feature_summary: %s\n" % e)
 ```
 
@@ -375,6 +420,14 @@ with ApiClient(configuration) as api_client:
 ## get-peer-group-outliers-contributing-features
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Get identity outlier's contibuting features
 This API returns a list of contributing feature objects for a single outlier.
@@ -417,13 +470,14 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.iai_outliers_api import IAIOutliersApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.outlier_contributing_feature import OutlierContributingFeature
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     outlier_id = '2c918085842e69ae018432d22ccb212f' # str | The outlier id # str | The outlier id
@@ -437,12 +491,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Get identity outlier's contibuting features
         
-        results =IAIOutliersApi(api_client).get_peer_group_outliers_contributing_features(outlier_id, x_sail_point_experimental, )
+        results = IAIOutliersApi(api_client).get_peer_group_outliers_contributing_features(outlier_id=outlier_id, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = IAIOutliersApi(api_client).get_peer_group_outliers_contributing_features(outlier_id, x_sail_point_experimental, limit, offset, count, include_translation_messages, sorters)
         print("The response of IAIOutliersApi->get_peer_group_outliers_contributing_features:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling IAIOutliersApi->get_peer_group_outliers_contributing_features: %s\n" % e)
 ```
 
@@ -453,6 +507,14 @@ with ApiClient(configuration) as api_client:
 ## ignore-identity-outliers
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 IAI Identity Outliers Ignore
 This API receives a list of identity IDs in the request, changes the outliers to be ignored.
@@ -486,27 +548,25 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.iai_outliers_api import IAIOutliersApi
 from sailpoint.v2024.api_client import ApiClient
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+configuration.experimental = true
+
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    request_body = ['request_body_example'] # List[str] | 
-     request_body = ['request_body_example'] # List[str] | 
-    
+    request_body = '''['request_body_example']''' # List[str] | 
 
     try:
         # IAI Identity Outliers Ignore
-        new_request_body = RequestBody()
-        new_request_body.from_json(request_body)
-        IAIOutliersApi(api_client).ignore_identity_outliers(x_sail_point_experimental, new_request_body)
+        new_request_body = RequestBody.from_json(request_body)
+        IAIOutliersApi(api_client).ignore_identity_outliers(x_sail_point_experimental=x_sail_point_experimental, request_body=new_request_body)
         # Below is a request that includes all optional parameters
         # IAIOutliersApi(api_client).ignore_identity_outliers(x_sail_point_experimental, new_request_body)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling IAIOutliersApi->ignore_identity_outliers: %s\n" % e)
 ```
 
@@ -517,6 +577,14 @@ with ApiClient(configuration) as api_client:
 ## list-outliers-contributing-feature-access-items
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Gets a list of access items associated with each identity outlier contributing feature
 This API returns a list of the enriched access items associated with each feature filtered by the access item type.
@@ -560,13 +628,14 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.iai_outliers_api import IAIOutliersApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.outliers_contributing_feature_access_items import OutliersContributingFeatureAccessItems
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     outlier_id = '2c918085842e69ae018432d22ccb212f' # str | The outlier id # str | The outlier id
@@ -581,12 +650,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Gets a list of access items associated with each identity outlier contributing feature
         
-        results =IAIOutliersApi(api_client).list_outliers_contributing_feature_access_items(outlier_id, contributing_feature_name, x_sail_point_experimental, )
+        results = IAIOutliersApi(api_client).list_outliers_contributing_feature_access_items(outlier_id=outlier_id, contributing_feature_name=contributing_feature_name, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = IAIOutliersApi(api_client).list_outliers_contributing_feature_access_items(outlier_id, contributing_feature_name, x_sail_point_experimental, limit, offset, count, access_type, sorters)
         print("The response of IAIOutliersApi->list_outliers_contributing_feature_access_items:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling IAIOutliersApi->list_outliers_contributing_feature_access_items: %s\n" % e)
 ```
 
@@ -597,6 +666,14 @@ with ApiClient(configuration) as api_client:
 ## un-ignore-identity-outliers
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 IAI Identity Outliers Unignore
 This API receives a list of identity IDs in the request, changes the outliers to be un-ignored.
@@ -630,27 +707,25 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.iai_outliers_api import IAIOutliersApi
 from sailpoint.v2024.api_client import ApiClient
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+configuration.experimental = true
+
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    request_body = ['request_body_example'] # List[str] | 
-     request_body = ['request_body_example'] # List[str] | 
-    
+    request_body = '''['request_body_example']''' # List[str] | 
 
     try:
         # IAI Identity Outliers Unignore
-        new_request_body = RequestBody()
-        new_request_body.from_json(request_body)
-        IAIOutliersApi(api_client).un_ignore_identity_outliers(x_sail_point_experimental, new_request_body)
+        new_request_body = RequestBody.from_json(request_body)
+        IAIOutliersApi(api_client).un_ignore_identity_outliers(x_sail_point_experimental=x_sail_point_experimental, request_body=new_request_body)
         # Below is a request that includes all optional parameters
         # IAIOutliersApi(api_client).un_ignore_identity_outliers(x_sail_point_experimental, new_request_body)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling IAIOutliersApi->un_ignore_identity_outliers: %s\n" % e)
 ```
 

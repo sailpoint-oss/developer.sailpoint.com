@@ -30,6 +30,14 @@ Method | HTTP request | Description
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
+:::
 Get Auth Profile
 This API returns auth profile information.
 
@@ -63,13 +71,14 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.auth_profile_api import AuthProfileApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.auth_profile import AuthProfile
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -78,12 +87,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Get Auth Profile
         
-        results =AuthProfileApi(api_client).get_profile_config(x_sail_point_experimental, id)
+        results = AuthProfileApi(api_client).get_profile_config(x_sail_point_experimental=x_sail_point_experimental, id=id)
         # Below is a request that includes all optional parameters
         # results = AuthProfileApi(api_client).get_profile_config(x_sail_point_experimental, id)
         print("The response of AuthProfileApi->get_profile_config:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AuthProfileApi->get_profile_config: %s\n" % e)
 ```
 
@@ -94,6 +103,14 @@ with ApiClient(configuration) as api_client:
 ## get-profile-config-list
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Get list of Auth Profiles
 This API returns a list of auth profiles.
@@ -126,7 +143,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.auth_profile_api import AuthProfileApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.auth_profile_summary import AuthProfileSummary
@@ -134,18 +150,20 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+configuration.experimental = true
+
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
         # Get list of Auth Profiles
         
-        results =AuthProfileApi(api_client).get_profile_config_list(x_sail_point_experimental)
+        results = AuthProfileApi(api_client).get_profile_config_list(x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = AuthProfileApi(api_client).get_profile_config_list(x_sail_point_experimental)
         print("The response of AuthProfileApi->get_profile_config_list:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AuthProfileApi->get_profile_config_list: %s\n" % e)
 ```
 
@@ -156,6 +174,14 @@ with ApiClient(configuration) as api_client:
 ## patch-profile-config
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Patch a specified Auth Profile
 This API updates an existing Auth Profile. The following fields are patchable:
@@ -191,7 +217,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.auth_profile_api import AuthProfileApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.auth_profile import AuthProfile
@@ -200,27 +225,22 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+configuration.experimental = true
+
 with ApiClient(configuration) as api_client:
     id = '2c91808a7813090a017814121919ecca' # str | ID of the Auth Profile to patch. # str | ID of the Auth Profile to patch.
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    [sailpoint.v2024.JsonPatchOperation()] # List[JsonPatchOperation] | 
-     json_patch_operation = {
-          "op" : "replace",
-          "path" : "/description",
-          "value" : "New description"
-        } # List[JsonPatchOperation] | 
-    
+    json_patch_operation = '''[sailpoint.v2024.JsonPatchOperation()]''' # List[JsonPatchOperation] | 
 
     try:
         # Patch a specified Auth Profile
-        new_json_patch_operation = JsonPatchOperation()
-        new_json_patch_operation.from_json(json_patch_operation)
-        results =AuthProfileApi(api_client).patch_profile_config(id, x_sail_point_experimental, new_json_patch_operation)
+        new_json_patch_operation = JsonPatchOperation.from_json(json_patch_operation)
+        results = AuthProfileApi(api_client).patch_profile_config(id=id, x_sail_point_experimental=x_sail_point_experimental, json_patch_operation=new_json_patch_operation)
         # Below is a request that includes all optional parameters
         # results = AuthProfileApi(api_client).patch_profile_config(id, x_sail_point_experimental, new_json_patch_operation)
         print("The response of AuthProfileApi->patch_profile_config:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AuthProfileApi->patch_profile_config: %s\n" % e)
 ```
 

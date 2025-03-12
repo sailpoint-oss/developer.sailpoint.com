@@ -58,13 +58,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v3
 from sailpoint.v3.api.public_identities_api import PublicIdentitiesApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.public_identity import PublicIdentity
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -77,12 +77,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Get list of public identities
         
-        results =PublicIdentitiesApi(api_client).get_public_identities()
+        results = PublicIdentitiesApi(api_client).get_public_identities()
         # Below is a request that includes all optional parameters
         # results = PublicIdentitiesApi(api_client).get_public_identities(limit, offset, count, filters, add_core_filters, sorters)
         print("The response of PublicIdentitiesApi->get_public_identities:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling PublicIdentitiesApi->get_public_identities: %s\n" % e)
 ```
 

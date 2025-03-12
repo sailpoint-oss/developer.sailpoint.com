@@ -74,7 +74,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.access_request_approvals_api import AccessRequestApprovalsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.comment_dto import CommentDto
@@ -82,9 +81,10 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     approval_id = '2c91808b7294bea301729568c68c002e' # str | Approval ID. # str | Approval ID.
-    comment_dto = {
+    comment_dto = '''{
           "author" : {
             "name" : "Adam Kennedy",
             "id" : "2c91808568c529c60168cca6f90c1313",
@@ -92,18 +92,17 @@ with ApiClient(configuration) as api_client:
           },
           "created" : "2017-07-11T18:45:37.098Z",
           "comment" : "This is a comment."
-        } # CommentDto | Reviewer's comment.
+        }''' # CommentDto | Reviewer's comment.
 
     try:
         # Approve Access Request Approval
-        new_comment_dto = CommentDto()
-        new_comment_dto.from_json(comment_dto)
-        results =AccessRequestApprovalsApi(api_client).approve_access_request(approval_id, new_comment_dto)
+        new_comment_dto = CommentDto.from_json(comment_dto)
+        results = AccessRequestApprovalsApi(api_client).approve_access_request(approval_id=approval_id, comment_dto=new_comment_dto)
         # Below is a request that includes all optional parameters
         # results = AccessRequestApprovalsApi(api_client).approve_access_request(approval_id, new_comment_dto)
         print("The response of AccessRequestApprovalsApi->approve_access_request:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AccessRequestApprovalsApi->approve_access_request: %s\n" % e)
 ```
 
@@ -145,7 +144,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.access_request_approvals_api import AccessRequestApprovalsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.forward_approval_dto import ForwardApprovalDto
@@ -153,23 +151,23 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     approval_id = '2c91808b7294bea301729568c68c002e' # str | Approval ID. # str | Approval ID.
-    forward_approval_dto = {
+    forward_approval_dto = '''{
           "newOwnerId" : "newOwnerId",
           "comment" : "comment"
-        } # ForwardApprovalDto | Information about the forwarded approval.
+        }''' # ForwardApprovalDto | Information about the forwarded approval.
 
     try:
         # Forward Access Request Approval
-        new_forward_approval_dto = ForwardApprovalDto()
-        new_forward_approval_dto.from_json(forward_approval_dto)
-        results =AccessRequestApprovalsApi(api_client).forward_access_request(approval_id, new_forward_approval_dto)
+        new_forward_approval_dto = ForwardApprovalDto.from_json(forward_approval_dto)
+        results = AccessRequestApprovalsApi(api_client).forward_access_request(approval_id=approval_id, forward_approval_dto=new_forward_approval_dto)
         # Below is a request that includes all optional parameters
         # results = AccessRequestApprovalsApi(api_client).forward_access_request(approval_id, new_forward_approval_dto)
         print("The response of AccessRequestApprovalsApi->forward_access_request:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AccessRequestApprovalsApi->forward_access_request: %s\n" % e)
 ```
 
@@ -210,13 +208,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.access_request_approvals_api import AccessRequestApprovalsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.approval_summary import ApprovalSummary
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     owner_id = '2c91808568c529c60168cca6f90c1313' # str | The ID of the owner or approver identity of the approvals. If present, the value returns approval summary for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN user can also fetch all the approvals in the org, when owner-id is not used.    * Non ORG_ADMIN users can only specify *me* or pass their own identity ID value. (optional) # str | The ID of the owner or approver identity of the approvals. If present, the value returns approval summary for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN user can also fetch all the approvals in the org, when owner-id is not used.    * Non ORG_ADMIN users can only specify *me* or pass their own identity ID value. (optional)
@@ -225,12 +223,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Get Access Requests Approvals Number
         
-        results =AccessRequestApprovalsApi(api_client).get_access_request_approval_summary()
+        results = AccessRequestApprovalsApi(api_client).get_access_request_approval_summary()
         # Below is a request that includes all optional parameters
         # results = AccessRequestApprovalsApi(api_client).get_access_request_approval_summary(owner_id, from_date)
         print("The response of AccessRequestApprovalsApi->get_access_request_approval_summary:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AccessRequestApprovalsApi->get_access_request_approval_summary: %s\n" % e)
 ```
 
@@ -274,13 +272,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.access_request_approvals_api import AccessRequestApprovalsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.completed_approval import CompletedApproval
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     owner_id = 'owner_id_example' # str | If present, the value returns only completed approvals for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN users can also fetch all the approvals in the org, when owner-id is not used.    * Non-ORG_ADMIN users can only specify *me* or pass their own identity ID value. (optional) # str | If present, the value returns only completed approvals for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN users can also fetch all the approvals in the org, when owner-id is not used.    * Non-ORG_ADMIN users can only specify *me* or pass their own identity ID value. (optional)
@@ -293,12 +291,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Completed Access Request Approvals List
         
-        results =AccessRequestApprovalsApi(api_client).list_completed_approvals()
+        results = AccessRequestApprovalsApi(api_client).list_completed_approvals()
         # Below is a request that includes all optional parameters
         # results = AccessRequestApprovalsApi(api_client).list_completed_approvals(owner_id, limit, offset, count, filters, sorters)
         print("The response of AccessRequestApprovalsApi->list_completed_approvals:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AccessRequestApprovalsApi->list_completed_approvals: %s\n" % e)
 ```
 
@@ -342,13 +340,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.access_request_approvals_api import AccessRequestApprovalsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.pending_approval import PendingApproval
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     owner_id = 'owner_id_example' # str | If present, the value returns only pending approvals for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN users can also fetch all the approvals in the org, when owner-id is not used.    * Non-ORG_ADMIN users can only specify *me* or pass their own identity ID value. (optional) # str | If present, the value returns only pending approvals for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN users can also fetch all the approvals in the org, when owner-id is not used.    * Non-ORG_ADMIN users can only specify *me* or pass their own identity ID value. (optional)
@@ -361,12 +359,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Pending Access Request Approvals List
         
-        results =AccessRequestApprovalsApi(api_client).list_pending_approvals()
+        results = AccessRequestApprovalsApi(api_client).list_pending_approvals()
         # Below is a request that includes all optional parameters
         # results = AccessRequestApprovalsApi(api_client).list_pending_approvals(owner_id, limit, offset, count, filters, sorters)
         print("The response of AccessRequestApprovalsApi->list_pending_approvals:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AccessRequestApprovalsApi->list_pending_approvals: %s\n" % e)
 ```
 
@@ -408,7 +406,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.access_request_approvals_api import AccessRequestApprovalsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.comment_dto import CommentDto
@@ -416,9 +413,10 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     approval_id = '2c91808b7294bea301729568c68c002e' # str | Approval ID. # str | Approval ID.
-    comment_dto = {
+    comment_dto = '''{
           "author" : {
             "name" : "Adam Kennedy",
             "id" : "2c91808568c529c60168cca6f90c1313",
@@ -426,18 +424,17 @@ with ApiClient(configuration) as api_client:
           },
           "created" : "2017-07-11T18:45:37.098Z",
           "comment" : "This is a comment."
-        } # CommentDto | Reviewer's comment.
+        }''' # CommentDto | Reviewer's comment.
 
     try:
         # Reject Access Request Approval
-        new_comment_dto = CommentDto()
-        new_comment_dto.from_json(comment_dto)
-        results =AccessRequestApprovalsApi(api_client).reject_access_request(approval_id, new_comment_dto)
+        new_comment_dto = CommentDto.from_json(comment_dto)
+        results = AccessRequestApprovalsApi(api_client).reject_access_request(approval_id=approval_id, comment_dto=new_comment_dto)
         # Below is a request that includes all optional parameters
         # results = AccessRequestApprovalsApi(api_client).reject_access_request(approval_id, new_comment_dto)
         print("The response of AccessRequestApprovalsApi->reject_access_request:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AccessRequestApprovalsApi->reject_access_request: %s\n" % e)
 ```
 

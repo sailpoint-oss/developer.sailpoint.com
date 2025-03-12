@@ -26,6 +26,14 @@ Method | HTTP request | Description
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
+:::
 Retrieve Pending Task List Headers
 Responds with headers only for list of task statuses for pending tasks.
 
@@ -61,12 +69,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.task_management_api import TaskManagementApi
 from sailpoint.v2024.api_client import ApiClient
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -77,10 +86,10 @@ with ApiClient(configuration) as api_client:
     try:
         # Retrieve Pending Task List Headers
         
-        TaskManagementApi(api_client).get_pending_task_headers(x_sail_point_experimental, )
+        TaskManagementApi(api_client).get_pending_task_headers(x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # TaskManagementApi(api_client).get_pending_task_headers(x_sail_point_experimental, offset, limit, count)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling TaskManagementApi->get_pending_task_headers: %s\n" % e)
 ```
 
@@ -91,6 +100,14 @@ with ApiClient(configuration) as api_client:
 ## get-pending-tasks
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Retrieve Pending Task Status List
 Retrieve a list of statuses for pending tasks. Types of tasks include account and entitlement aggregation and other general background processing tasks.  Data for tasks older than 90 days will not be returned.
@@ -127,13 +144,14 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.task_management_api import TaskManagementApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.task_status import TaskStatus
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -144,12 +162,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Retrieve Pending Task Status List
         
-        results =TaskManagementApi(api_client).get_pending_tasks(x_sail_point_experimental, )
+        results = TaskManagementApi(api_client).get_pending_tasks(x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = TaskManagementApi(api_client).get_pending_tasks(x_sail_point_experimental, offset, limit, count)
         print("The response of TaskManagementApi->get_pending_tasks:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling TaskManagementApi->get_pending_tasks: %s\n" % e)
 ```
 
@@ -160,6 +178,14 @@ with ApiClient(configuration) as api_client:
 ## get-task-status
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Get Task Status by ID
 Get task status by task ID. Types of tasks include account and entitlement aggregation and other general background processing tasks.  Data for tasks older than 90 days will not be returned.
@@ -194,13 +220,14 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.task_management_api import TaskManagementApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.task_status import TaskStatus
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     id = '00eebcf881994e419d72e757fd30dc0e' # str | Task ID. # str | Task ID.
@@ -209,12 +236,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Get Task Status by ID
         
-        results =TaskManagementApi(api_client).get_task_status(id, x_sail_point_experimental)
+        results = TaskManagementApi(api_client).get_task_status(id=id, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = TaskManagementApi(api_client).get_task_status(id, x_sail_point_experimental)
         print("The response of TaskManagementApi->get_task_status:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling TaskManagementApi->get_task_status: %s\n" % e)
 ```
 
@@ -225,6 +252,14 @@ with ApiClient(configuration) as api_client:
 ## get-task-status-list
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Retrieve Task Status List
 Use this endpoint to get a list of statuses for **completed** tasks. Types of tasks include account and entitlement aggregation and other general background processing tasks.  Data for tasks older than 90 days will not be returned. To get a list of statuses for **in-progress** tasks, please use the [retrieve pending task status list](https://developer.sailpoint.com/docs/api/v2024/get-pending-tasks) endpoint.
@@ -264,13 +299,14 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.task_management_api import TaskManagementApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.task_status import TaskStatus
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -283,12 +319,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Retrieve Task Status List
         
-        results =TaskManagementApi(api_client).get_task_status_list(x_sail_point_experimental, )
+        results = TaskManagementApi(api_client).get_task_status_list(x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = TaskManagementApi(api_client).get_task_status_list(x_sail_point_experimental, limit, offset, count, filters, sorters)
         print("The response of TaskManagementApi->get_task_status_list:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling TaskManagementApi->get_task_status_list: %s\n" % e)
 ```
 
@@ -299,6 +335,14 @@ with ApiClient(configuration) as api_client:
 ## update-task-status
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Update Task Status by ID
 Update a current task status by task ID. Use this API to clear a pending task by updating the completionStatus and completed attributes.
@@ -334,7 +378,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.task_management_api import TaskManagementApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.json_patch_operation import JsonPatchOperation
@@ -343,27 +386,22 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+configuration.experimental = true
+
 with ApiClient(configuration) as api_client:
     id = '00eebcf881994e419d72e757fd30dc0e' # str | Task ID. # str | Task ID.
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    [sailpoint.v2024.JsonPatchOperation()] # List[JsonPatchOperation] | The JSONPatch payload used to update the object.
-     json_patch_operation = {
-          "op" : "replace",
-          "path" : "/description",
-          "value" : "New description"
-        } # List[JsonPatchOperation] | The JSONPatch payload used to update the object.
-    
+    json_patch_operation = '''[sailpoint.v2024.JsonPatchOperation()]''' # List[JsonPatchOperation] | The JSONPatch payload used to update the object.
 
     try:
         # Update Task Status by ID
-        new_json_patch_operation = JsonPatchOperation()
-        new_json_patch_operation.from_json(json_patch_operation)
-        results =TaskManagementApi(api_client).update_task_status(id, x_sail_point_experimental, new_json_patch_operation)
+        new_json_patch_operation = JsonPatchOperation.from_json(json_patch_operation)
+        results = TaskManagementApi(api_client).update_task_status(id=id, x_sail_point_experimental=x_sail_point_experimental, json_patch_operation=new_json_patch_operation)
         # Below is a request that includes all optional parameters
         # results = TaskManagementApi(api_client).update_task_status(id, x_sail_point_experimental, new_json_patch_operation)
         print("The response of TaskManagementApi->update_task_status:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling TaskManagementApi->update_task_status: %s\n" % e)
 ```
 

@@ -58,7 +58,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.managed_clients_api import ManagedClientsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.managed_client_status import ManagedClientStatus
@@ -67,6 +66,7 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     id = 'aClientId' # str | ID of the Managed Client Status to get # str | ID of the Managed Client Status to get
     type = sailpoint.beta.ManagedClientType() # ManagedClientType | Type of the Managed Client Status to get # ManagedClientType | Type of the Managed Client Status to get
@@ -74,12 +74,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Specified Managed Client Status.
         
-        results =ManagedClientsApi(api_client).get_managed_client_status(id, type)
+        results = ManagedClientsApi(api_client).get_managed_client_status(id=id, type=type)
         # Below is a request that includes all optional parameters
         # results = ManagedClientsApi(api_client).get_managed_client_status(id, type)
         print("The response of ManagedClientsApi->get_managed_client_status:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling ManagedClientsApi->get_managed_client_status: %s\n" % e)
 ```
 
@@ -124,7 +124,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.managed_clients_api import ManagedClientsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.managed_client_status import ManagedClientStatus
@@ -133,9 +132,10 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     id = 'aClientId' # str | ID of the Managed Client Status to update # str | ID of the Managed Client Status to update
-    managed_client_status = {
+    managed_client_status = '''{
           "body" : {
             "alertKey" : "",
             "id" : "5678",
@@ -160,18 +160,17 @@ with ApiClient(configuration) as api_client:
           "type" : "CCG",
           "status" : "NORMAL",
           "timestamp" : "2020-01-01T00:00:00Z"
-        } # ManagedClientStatus | 
+        }''' # ManagedClientStatus | 
 
     try:
         # Handle status request from client
-        new_managed_client_status = ManagedClientStatus()
-        new_managed_client_status.from_json(managed_client_status)
-        results =ManagedClientsApi(api_client).update_managed_client_status(id, new_managed_client_status)
+        new_managed_client_status = ManagedClientStatus.from_json(managed_client_status)
+        results = ManagedClientsApi(api_client).update_managed_client_status(id=id, managed_client_status=new_managed_client_status)
         # Below is a request that includes all optional parameters
         # results = ManagedClientsApi(api_client).update_managed_client_status(id, new_managed_client_status)
         print("The response of ManagedClientsApi->update_managed_client_status:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling ManagedClientsApi->update_managed_client_status: %s\n" % e)
 ```
 

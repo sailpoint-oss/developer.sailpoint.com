@@ -71,7 +71,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v3
 from sailpoint.v3.api.access_requests_api import AccessRequestsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.cancel_access_request import CancelAccessRequest
@@ -79,22 +78,22 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
-    cancel_access_request = {
+    cancel_access_request = '''{
           "accountActivityId" : "2c9180835d2e5168015d32f890ca1581",
           "comment" : "I requested this role by mistake."
-        } # CancelAccessRequest | 
+        }''' # CancelAccessRequest | 
 
     try:
         # Cancel Access Request
-        new_cancel_access_request = CancelAccessRequest()
-        new_cancel_access_request.from_json(cancel_access_request)
-        results =AccessRequestsApi(api_client).cancel_access_request(new_cancel_access_request)
+        new_cancel_access_request = CancelAccessRequest.from_json(cancel_access_request)
+        results = AccessRequestsApi(api_client).cancel_access_request(cancel_access_request=new_cancel_access_request)
         # Below is a request that includes all optional parameters
         # results = AccessRequestsApi(api_client).cancel_access_request(new_cancel_access_request)
         print("The response of AccessRequestsApi->cancel_access_request:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AccessRequestsApi->cancel_access_request: %s\n" % e)
 ```
 
@@ -164,7 +163,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v3
 from sailpoint.v3.api.access_requests_api import AccessRequestsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.access_request import AccessRequest
@@ -173,8 +171,9 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
-    access_request = {
+    access_request = '''{
           "requestedFor" : [ "2c918084660f45d6016617daa9210584", "2c918084660f45d6016617daa9210584" ],
           "clientMetadata" : {
             "requestedAppId" : "2c91808f7892918f0178b78da4a305a1",
@@ -227,18 +226,17 @@ with ApiClient(configuration) as api_client:
             "id" : "2c9180835d2e5168015d32f890ca1581",
             "type" : "ACCESS_PROFILE"
           } ]
-        } # AccessRequest | 
+        }''' # AccessRequest | 
 
     try:
         # Submit Access Request
-        new_access_request = AccessRequest()
-        new_access_request.from_json(access_request)
-        results =AccessRequestsApi(api_client).create_access_request(new_access_request)
+        new_access_request = AccessRequest.from_json(access_request)
+        results = AccessRequestsApi(api_client).create_access_request(access_request=new_access_request)
         # Below is a request that includes all optional parameters
         # results = AccessRequestsApi(api_client).create_access_request(new_access_request)
         print("The response of AccessRequestsApi->create_access_request:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AccessRequestsApi->create_access_request: %s\n" % e)
 ```
 
@@ -275,7 +273,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v3
 from sailpoint.v3.api.access_requests_api import AccessRequestsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.access_request_config import AccessRequestConfig
@@ -283,17 +280,18 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
 
     try:
         # Get Access Request Configuration
         
-        results =AccessRequestsApi(api_client).get_access_request_config()
+        results = AccessRequestsApi(api_client).get_access_request_config()
         # Below is a request that includes all optional parameters
         # results = AccessRequestsApi(api_client).get_access_request_config()
         print("The response of AccessRequestsApi->get_access_request_config:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AccessRequestsApi->get_access_request_config: %s\n" % e)
 ```
 
@@ -344,13 +342,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v3
 from sailpoint.v3.api.access_requests_api import AccessRequestsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.requested_item_status import RequestedItemStatus
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     requested_for = '2c9180877b2b6ea4017b2c545f971429' # str | Filter the results by the identity the requests were made for. *me* indicates the current user. Mutually exclusive with *regarding-identity*. (optional) # str | Filter the results by the identity the requests were made for. *me* indicates the current user. Mutually exclusive with *regarding-identity*. (optional)
@@ -367,12 +365,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Access Request Status
         
-        results =AccessRequestsApi(api_client).list_access_request_status()
+        results = AccessRequestsApi(api_client).list_access_request_status()
         # Below is a request that includes all optional parameters
         # results = AccessRequestsApi(api_client).list_access_request_status(requested_for, requested_by, regarding_identity, assigned_to, count, limit, offset, filters, sorters, request_state)
         print("The response of AccessRequestsApi->list_access_request_status:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AccessRequestsApi->list_access_request_status: %s\n" % e)
 ```
 
@@ -412,7 +410,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v3
 from sailpoint.v3.api.access_requests_api import AccessRequestsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.access_request_config import AccessRequestConfig
@@ -420,8 +417,9 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
-    access_request_config = {
+    access_request_config = '''{
           "requestOnBehalfOfConfig" : {
             "allowRequestOnBehalfOfEmployeeByManager" : true,
             "allowRequestOnBehalfOfAnyoneByAnyone" : true
@@ -446,18 +444,17 @@ with ApiClient(configuration) as api_client:
           },
           "reauthorizationEnabled" : true,
           "approvalsMustBeExternal" : true
-        } # AccessRequestConfig | 
+        }''' # AccessRequestConfig | 
 
     try:
         # Update Access Request Configuration
-        new_access_request_config = AccessRequestConfig()
-        new_access_request_config.from_json(access_request_config)
-        results =AccessRequestsApi(api_client).set_access_request_config(new_access_request_config)
+        new_access_request_config = AccessRequestConfig.from_json(access_request_config)
+        results = AccessRequestsApi(api_client).set_access_request_config(access_request_config=new_access_request_config)
         # Below is a request that includes all optional parameters
         # results = AccessRequestsApi(api_client).set_access_request_config(new_access_request_config)
         print("The response of AccessRequestsApi->set_access_request_config:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AccessRequestsApi->set_access_request_config: %s\n" % e)
 ```
 

@@ -24,6 +24,14 @@ Method | HTTP request | Description
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
+:::
 Create common access items
 This API is used to add roles/access profiles to the list of common access for a customer. Requires authorization scope of iai:access-modeling:create
 
@@ -56,7 +64,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.iai_common_access_api import IAICommonAccessApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.common_access_item_request import CommonAccessItemRequest
@@ -65,9 +72,11 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+configuration.experimental = true
+
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    common_access_item_request = {
+    common_access_item_request = '''{
           "access" : {
             "ownerName" : "ownerName",
             "name" : "name",
@@ -77,18 +86,17 @@ with ApiClient(configuration) as api_client:
             "ownerId" : "ownerId"
           },
           "status" : "CONFIRMED"
-        } # CommonAccessItemRequest | 
+        }''' # CommonAccessItemRequest | 
 
     try:
         # Create common access items
-        new_common_access_item_request = CommonAccessItemRequest()
-        new_common_access_item_request.from_json(common_access_item_request)
-        results =IAICommonAccessApi(api_client).create_common_access(x_sail_point_experimental, new_common_access_item_request)
+        new_common_access_item_request = CommonAccessItemRequest.from_json(common_access_item_request)
+        results = IAICommonAccessApi(api_client).create_common_access(x_sail_point_experimental=x_sail_point_experimental, common_access_item_request=new_common_access_item_request)
         # Below is a request that includes all optional parameters
         # results = IAICommonAccessApi(api_client).create_common_access(x_sail_point_experimental, new_common_access_item_request)
         print("The response of IAICommonAccessApi->create_common_access:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling IAICommonAccessApi->create_common_access: %s\n" % e)
 ```
 
@@ -99,6 +107,14 @@ with ApiClient(configuration) as api_client:
 ## get-common-access
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Get a paginated list of common access
 This endpoint returns the current common access for a customer. The returned items can be filtered and sorted. Requires authorization scope of iai:access-modeling:read
@@ -135,13 +151,14 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.iai_common_access_api import IAICommonAccessApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.common_access_response import CommonAccessResponse
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -154,12 +171,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Get a paginated list of common access
         
-        results =IAICommonAccessApi(api_client).get_common_access(x_sail_point_experimental, )
+        results = IAICommonAccessApi(api_client).get_common_access(x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = IAICommonAccessApi(api_client).get_common_access(x_sail_point_experimental, offset, limit, count, filters, sorters)
         print("The response of IAICommonAccessApi->get_common_access:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling IAICommonAccessApi->get_common_access: %s\n" % e)
 ```
 
@@ -170,6 +187,14 @@ with ApiClient(configuration) as api_client:
 ## update-common-access-status-in-bulk
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Bulk update common access status
 This submits an update request to the common access application. At this time there are no parameters. Requires authorization scope of iai:access-modeling:update
@@ -203,7 +228,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.iai_common_access_api import IAICommonAccessApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.common_access_id_status import CommonAccessIDStatus
@@ -211,25 +235,21 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+configuration.experimental = true
+
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    [sailpoint.v2024.CommonAccessIDStatus()] # List[CommonAccessIDStatus] | Confirm or deny in bulk the common access ids that are (or aren't) common access
-     common_access_id_status = {
-          "confirmedIds" : [ "046b6c7f-0b8a-43b9-b35d-6489e6daee91", "046b6c7f-0b8a-43b9-b35d-6489e6daee91" ],
-          "deniedIds" : [ "046b6c7f-0b8a-43b9-b35d-6489e6daee91", "046b6c7f-0b8a-43b9-b35d-6489e6daee91" ]
-        } # List[CommonAccessIDStatus] | Confirm or deny in bulk the common access ids that are (or aren't) common access
-    
+    common_access_id_status = '''[sailpoint.v2024.CommonAccessIDStatus()]''' # List[CommonAccessIDStatus] | Confirm or deny in bulk the common access ids that are (or aren't) common access
 
     try:
         # Bulk update common access status
-        new_common_access_id_status = CommonAccessIdStatus()
-        new_common_access_id_status.from_json(common_access_id_status)
-        results =IAICommonAccessApi(api_client).update_common_access_status_in_bulk(x_sail_point_experimental, new_common_access_id_status)
+        new_common_access_id_status = CommonAccessIdStatus.from_json(common_access_id_status)
+        results = IAICommonAccessApi(api_client).update_common_access_status_in_bulk(x_sail_point_experimental=x_sail_point_experimental, common_access_id_status=new_common_access_id_status)
         # Below is a request that includes all optional parameters
         # results = IAICommonAccessApi(api_client).update_common_access_status_in_bulk(x_sail_point_experimental, new_common_access_id_status)
         print("The response of IAICommonAccessApi->update_common_access_status_in_bulk:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling IAICommonAccessApi->update_common_access_status_in_bulk: %s\n" % e)
 ```
 

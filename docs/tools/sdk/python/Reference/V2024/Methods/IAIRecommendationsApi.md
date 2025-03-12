@@ -15,7 +15,7 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get-recommendations**](#get-recommendations) | **POST** `/recommendations/request` | Returns a Recommendation Based on Object
+[**get-recommendations**](#get-recommendations) | **POST** `/recommendations/request` | Returns Recommendation Based on Object
 [**get-recommendations-config**](#get-recommendations-config) | **GET** `/recommendations/config` | Get certification recommendation config values
 [**update-recommendations-config**](#update-recommendations-config) | **PUT** `/recommendations/config` | Update certification recommendation config values
 
@@ -24,7 +24,15 @@ Method | HTTP request | Description
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
-Returns a Recommendation Based on Object
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
+:::
+Returns Recommendation Based on Object
 The getRecommendations API returns recommendations based on the requested object. The recommendations are invoked by IdentityIQ and IdentityNow plug-ins that retrieve recommendations based on the performed calculations.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-recommendations)
@@ -56,7 +64,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.iai_recommendations_api import IAIRecommendationsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.recommendation_request_dto import RecommendationRequestDto
@@ -65,9 +72,11 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+configuration.experimental = true
+
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    recommendation_request_dto = {
+    recommendation_request_dto = '''{
           "prescribeMode" : false,
           "excludeInterpretations" : false,
           "requests" : [ {
@@ -85,18 +94,17 @@ with ApiClient(configuration) as api_client:
           } ],
           "includeTranslationMessages" : false,
           "includeDebugInformation" : true
-        } # RecommendationRequestDto | 
+        }''' # RecommendationRequestDto | 
 
     try:
-        # Returns a Recommendation Based on Object
-        new_recommendation_request_dto = RecommendationRequestDto()
-        new_recommendation_request_dto.from_json(recommendation_request_dto)
-        results =IAIRecommendationsApi(api_client).get_recommendations(x_sail_point_experimental, new_recommendation_request_dto)
+        # Returns Recommendation Based on Object
+        new_recommendation_request_dto = RecommendationRequestDto.from_json(recommendation_request_dto)
+        results = IAIRecommendationsApi(api_client).get_recommendations(x_sail_point_experimental=x_sail_point_experimental, recommendation_request_dto=new_recommendation_request_dto)
         # Below is a request that includes all optional parameters
         # results = IAIRecommendationsApi(api_client).get_recommendations(x_sail_point_experimental, new_recommendation_request_dto)
         print("The response of IAIRecommendationsApi->get_recommendations:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling IAIRecommendationsApi->get_recommendations: %s\n" % e)
 ```
 
@@ -107,6 +115,14 @@ with ApiClient(configuration) as api_client:
 ## get-recommendations-config
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Get certification recommendation config values
 Retrieves configuration attributes used by certification recommendations.
@@ -129,6 +145,7 @@ Code | Description  | Data Type | Response headers |
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
 ### HTTP request headers
@@ -138,7 +155,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.iai_recommendations_api import IAIRecommendationsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.recommendation_config_dto import RecommendationConfigDto
@@ -146,18 +162,20 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+configuration.experimental = true
+
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
         # Get certification recommendation config values
         
-        results =IAIRecommendationsApi(api_client).get_recommendations_config(x_sail_point_experimental)
+        results = IAIRecommendationsApi(api_client).get_recommendations_config(x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = IAIRecommendationsApi(api_client).get_recommendations_config(x_sail_point_experimental)
         print("The response of IAIRecommendationsApi->get_recommendations_config:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling IAIRecommendationsApi->get_recommendations_config: %s\n" % e)
 ```
 
@@ -168,6 +186,14 @@ with ApiClient(configuration) as api_client:
 ## update-recommendations-config
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Update certification recommendation config values
 Updates configuration attributes used by certification recommendations.
@@ -191,6 +217,7 @@ Code | Description  | Data Type | Response headers |
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
 ### HTTP request headers
@@ -200,7 +227,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.iai_recommendations_api import IAIRecommendationsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.recommendation_config_dto import RecommendationConfigDto
@@ -208,25 +234,26 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+configuration.experimental = true
+
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    recommendation_config_dto = {
+    recommendation_config_dto = '''{
           "recommenderFeatures" : [ "jobTitle", "location", "peer_group", "department", "active" ],
           "peerGroupPercentageThreshold" : 0.5,
           "runAutoSelectOnce" : false,
           "onlyTuneThreshold" : false
-        } # RecommendationConfigDto | 
+        }''' # RecommendationConfigDto | 
 
     try:
         # Update certification recommendation config values
-        new_recommendation_config_dto = RecommendationConfigDto()
-        new_recommendation_config_dto.from_json(recommendation_config_dto)
-        results =IAIRecommendationsApi(api_client).update_recommendations_config(x_sail_point_experimental, new_recommendation_config_dto)
+        new_recommendation_config_dto = RecommendationConfigDto.from_json(recommendation_config_dto)
+        results = IAIRecommendationsApi(api_client).update_recommendations_config(x_sail_point_experimental=x_sail_point_experimental, recommendation_config_dto=new_recommendation_config_dto)
         # Below is a request that includes all optional parameters
         # results = IAIRecommendationsApi(api_client).update_recommendations_config(x_sail_point_experimental, new_recommendation_config_dto)
         print("The response of IAIRecommendationsApi->update_recommendations_config:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling IAIRecommendationsApi->update_recommendations_config: %s\n" % e)
 ```
 

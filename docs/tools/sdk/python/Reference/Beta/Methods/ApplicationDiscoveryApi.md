@@ -57,12 +57,12 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.application_discovery_api import ApplicationDiscoveryApi
 from sailpoint.beta.api_client import ApiClient
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     id = '123e4567-e89b-12d3-a456-426655440000' # str | Discovered application's ID. # str | Discovered application's ID.
@@ -70,10 +70,10 @@ with ApiClient(configuration) as api_client:
     try:
         # Get Discovered Application by ID
         
-        ApplicationDiscoveryApi(api_client).get_discovered_application_by_id(id)
+        ApplicationDiscoveryApi(api_client).get_discovered_application_by_id(id=id)
         # Below is a request that includes all optional parameters
         # ApplicationDiscoveryApi(api_client).get_discovered_application_by_id(id)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling ApplicationDiscoveryApi->get_discovered_application_by_id: %s\n" % e)
 ```
 
@@ -118,13 +118,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.application_discovery_api import ApplicationDiscoveryApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.get_discovered_applications200_response_inner import GetDiscoveredApplications200ResponseInner
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -136,12 +136,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Retrieve discovered applications for tenant
         
-        results =ApplicationDiscoveryApi(api_client).get_discovered_applications()
+        results = ApplicationDiscoveryApi(api_client).get_discovered_applications()
         # Below is a request that includes all optional parameters
         # results = ApplicationDiscoveryApi(api_client).get_discovered_applications(limit, offset, detail, filter, sorters)
         print("The response of ApplicationDiscoveryApi->get_discovered_applications:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling ApplicationDiscoveryApi->get_discovered_applications: %s\n" % e)
 ```
 
@@ -181,7 +181,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.application_discovery_api import ApplicationDiscoveryApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.manual_discover_applications_template import ManualDiscoverApplicationsTemplate
@@ -189,17 +188,18 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
 
     try:
         # Download CSV Template for Discovery
         
-        results =ApplicationDiscoveryApi(api_client).get_manual_discover_applications_csv_template()
+        results = ApplicationDiscoveryApi(api_client).get_manual_discover_applications_csv_template()
         # Below is a request that includes all optional parameters
         # results = ApplicationDiscoveryApi(api_client).get_manual_discover_applications_csv_template()
         print("The response of ApplicationDiscoveryApi->get_manual_discover_applications_csv_template:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling ApplicationDiscoveryApi->get_manual_discover_applications_csv_template: %s\n" % e)
 ```
 
@@ -241,7 +241,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.application_discovery_api import ApplicationDiscoveryApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.json_patch_operations import JsonPatchOperations
@@ -249,23 +248,18 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     id = '123e4567-e89b-12d3-a456-426655440000' # str | Discovered application's ID. # str | Discovered application's ID.
-    [{op=replace, path=/dismissed, value=true}] # List[JsonPatchOperations] |  (optional)
-     json_patch_operations = {
-          "op" : "replace",
-          "path" : "/dismissed",
-          "value" : true
-        } # List[JsonPatchOperations] |  (optional)
-    
+    json_patch_operations = '''[{op=replace, path=/dismissed, value=true}]''' # List[JsonPatchOperations] |  (optional)
 
     try:
         # Patch Discovered Application by ID
         
-        ApplicationDiscoveryApi(api_client).patch_discovered_application_by_id(id, )
+        ApplicationDiscoveryApi(api_client).patch_discovered_application_by_id(id=id)
         # Below is a request that includes all optional parameters
         # ApplicationDiscoveryApi(api_client).patch_discovered_application_by_id(id, new_json_patch_operations)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling ApplicationDiscoveryApi->patch_discovered_application_by_id: %s\n" % e)
 ```
 
@@ -306,12 +300,12 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.application_discovery_api import ApplicationDiscoveryApi
 from sailpoint.beta.api_client import ApiClient
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     file = None # bytearray | The CSV file to upload containing `application_name` and `description` columns. Each row represents an application to be discovered. # bytearray | The CSV file to upload containing `application_name` and `description` columns. Each row represents an application to be discovered.
@@ -319,10 +313,10 @@ with ApiClient(configuration) as api_client:
     try:
         # Upload CSV to Discover Applications
         
-        ApplicationDiscoveryApi(api_client).send_manual_discover_applications_csv_template(file)
+        ApplicationDiscoveryApi(api_client).send_manual_discover_applications_csv_template(file=file)
         # Below is a request that includes all optional parameters
         # ApplicationDiscoveryApi(api_client).send_manual_discover_applications_csv_template(file)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling ApplicationDiscoveryApi->send_manual_discover_applications_csv_template: %s\n" % e)
 ```
 

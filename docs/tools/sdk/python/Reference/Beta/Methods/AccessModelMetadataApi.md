@@ -63,7 +63,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.access_model_metadata_api import AccessModelMetadataApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.attribute_dto import AttributeDTO
@@ -71,18 +70,19 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     key = 'iscPrivacy' # str | Technical name of the Attribute. # str | Technical name of the Attribute.
 
     try:
         # Get Access Model Metadata Attribute
         
-        results =AccessModelMetadataApi(api_client).get_access_model_metadata_attribute(key)
+        results = AccessModelMetadataApi(api_client).get_access_model_metadata_attribute(key=key)
         # Below is a request that includes all optional parameters
         # results = AccessModelMetadataApi(api_client).get_access_model_metadata_attribute(key)
         print("The response of AccessModelMetadataApi->get_access_model_metadata_attribute:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AccessModelMetadataApi->get_access_model_metadata_attribute: %s\n" % e)
 ```
 
@@ -123,13 +123,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.access_model_metadata_api import AccessModelMetadataApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.attribute_value_dto import AttributeValueDTO
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     key = 'iscPrivacy' # str | Technical name of the Attribute. # str | Technical name of the Attribute.
@@ -138,12 +138,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Get Access Model Metadata Value
         
-        results =AccessModelMetadataApi(api_client).get_access_model_metadata_attribute_value(key, value)
+        results = AccessModelMetadataApi(api_client).get_access_model_metadata_attribute_value(key=key, value=value)
         # Below is a request that includes all optional parameters
         # results = AccessModelMetadataApi(api_client).get_access_model_metadata_attribute_value(key, value)
         print("The response of AccessModelMetadataApi->get_access_model_metadata_attribute_value:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AccessModelMetadataApi->get_access_model_metadata_attribute_value: %s\n" % e)
 ```
 
@@ -183,7 +183,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.access_model_metadata_api import AccessModelMetadataApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.attribute_dto import AttributeDTO
@@ -191,18 +190,19 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     filters = 'name eq \"Privacy\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq*  **type**: *eq*  **status**: *eq*  **objectTypes**: *eq*  Supported composite operators: *and* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq*  **type**: *eq*  **status**: *eq*  **objectTypes**: *eq*  Supported composite operators: *and* (optional)
 
     try:
         # List Access Model Metadata Attributes
         
-        results =AccessModelMetadataApi(api_client).list_access_model_metadata_attribute()
+        results = AccessModelMetadataApi(api_client).list_access_model_metadata_attribute()
         # Below is a request that includes all optional parameters
         # results = AccessModelMetadataApi(api_client).list_access_model_metadata_attribute(filters)
         print("The response of AccessModelMetadataApi->list_access_model_metadata_attribute:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AccessModelMetadataApi->list_access_model_metadata_attribute: %s\n" % e)
 ```
 
@@ -242,7 +242,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.access_model_metadata_api import AccessModelMetadataApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.attribute_value_dto import AttributeValueDTO
@@ -250,18 +249,19 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     key = 'iscPrivacy' # str | Technical name of the Attribute. # str | Technical name of the Attribute.
 
     try:
         # List Access Model Metadata Values
         
-        results =AccessModelMetadataApi(api_client).list_access_model_metadata_attribute_value(key)
+        results = AccessModelMetadataApi(api_client).list_access_model_metadata_attribute_value(key=key)
         # Below is a request that includes all optional parameters
         # results = AccessModelMetadataApi(api_client).list_access_model_metadata_attribute_value(key)
         print("The response of AccessModelMetadataApi->list_access_model_metadata_attribute_value:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AccessModelMetadataApi->list_access_model_metadata_attribute_value: %s\n" % e)
 ```
 

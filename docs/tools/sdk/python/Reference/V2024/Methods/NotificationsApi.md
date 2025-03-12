@@ -36,6 +36,14 @@ Method | HTTP request | Description
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
+:::
 Verify domain address via DKIM
 Create a domain to be verified via DKIM (DomainKeys Identified Mail)
 
@@ -69,7 +77,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.notifications_api import NotificationsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.domain_address import DomainAddress
@@ -78,22 +85,23 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+configuration.experimental = true
+
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    domain_address = {
+    domain_address = '''{
           "domain" : "sailpoint.com"
-        } # DomainAddress | 
+        }''' # DomainAddress | 
 
     try:
         # Verify domain address via DKIM
-        new_domain_address = DomainAddress()
-        new_domain_address.from_json(domain_address)
-        results =NotificationsApi(api_client).create_domain_dkim(x_sail_point_experimental, new_domain_address)
+        new_domain_address = DomainAddress.from_json(domain_address)
+        results = NotificationsApi(api_client).create_domain_dkim(x_sail_point_experimental=x_sail_point_experimental, domain_address=new_domain_address)
         # Below is a request that includes all optional parameters
         # results = NotificationsApi(api_client).create_domain_dkim(x_sail_point_experimental, new_domain_address)
         print("The response of NotificationsApi->create_domain_dkim:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling NotificationsApi->create_domain_dkim: %s\n" % e)
 ```
 
@@ -104,6 +112,14 @@ with ApiClient(configuration) as api_client:
 ## create-notification-template
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Create Notification Template
 This creates a template for your site. 
@@ -139,7 +155,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.notifications_api import NotificationsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.template_dto import TemplateDto
@@ -147,9 +162,11 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+configuration.experimental = true
+
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    template_dto = {
+    template_dto = '''{
           "slackTemplate" : "slackTemplate",
           "footer" : "footer",
           "teamsTemplate" : "teamsTemplate",
@@ -166,18 +183,17 @@ with ApiClient(configuration) as api_client:
           "from" : "$__global.emailFromAddress",
           "id" : "c17bea3a-574d-453c-9e04-4365fbf5af0b",
           "key" : "cloud_manual_work_item_summary"
-        } # TemplateDto | 
+        }''' # TemplateDto | 
 
     try:
         # Create Notification Template
-        new_template_dto = TemplateDto()
-        new_template_dto.from_json(template_dto)
-        results =NotificationsApi(api_client).create_notification_template(x_sail_point_experimental, new_template_dto)
+        new_template_dto = TemplateDto.from_json(template_dto)
+        results = NotificationsApi(api_client).create_notification_template(x_sail_point_experimental=x_sail_point_experimental, template_dto=new_template_dto)
         # Below is a request that includes all optional parameters
         # results = NotificationsApi(api_client).create_notification_template(x_sail_point_experimental, new_template_dto)
         print("The response of NotificationsApi->create_notification_template:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling NotificationsApi->create_notification_template: %s\n" % e)
 ```
 
@@ -188,6 +204,14 @@ with ApiClient(configuration) as api_client:
 ## create-verified-from-address
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Create Verified From Address
 Create a new sender email address and initiate verification process.
@@ -221,7 +245,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.notifications_api import NotificationsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.email_status_dto import EmailStatusDto
@@ -229,25 +252,26 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+configuration.experimental = true
+
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    email_status_dto = {
+    email_status_dto = '''{
           "isVerifiedByDomain" : false,
           "verificationStatus" : "PENDING",
           "id" : "id",
           "email" : "sender@example.com"
-        } # EmailStatusDto | 
+        }''' # EmailStatusDto | 
 
     try:
         # Create Verified From Address
-        new_email_status_dto = EmailStatusDto()
-        new_email_status_dto.from_json(email_status_dto)
-        results =NotificationsApi(api_client).create_verified_from_address(x_sail_point_experimental, new_email_status_dto)
+        new_email_status_dto = EmailStatusDto.from_json(email_status_dto)
+        results = NotificationsApi(api_client).create_verified_from_address(x_sail_point_experimental=x_sail_point_experimental, email_status_dto=new_email_status_dto)
         # Below is a request that includes all optional parameters
         # results = NotificationsApi(api_client).create_verified_from_address(x_sail_point_experimental, new_email_status_dto)
         print("The response of NotificationsApi->create_verified_from_address:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling NotificationsApi->create_verified_from_address: %s\n" % e)
 ```
 
@@ -258,6 +282,14 @@ with ApiClient(configuration) as api_client:
 ## delete-notification-templates-in-bulk
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Bulk Delete Notification Templates
 This lets you bulk delete templates that you previously created for your site. Since this is a beta feature, please contact support to enable usage.
@@ -291,7 +323,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.notifications_api import NotificationsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.template_bulk_delete_dto import TemplateBulkDeleteDto
@@ -299,24 +330,19 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+configuration.experimental = true
+
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    [sailpoint.v2024.TemplateBulkDeleteDto()] # List[TemplateBulkDeleteDto] | 
-     template_bulk_delete_dto = {
-          "medium" : "EMAIL",
-          "locale" : "en",
-          "key" : "cloud_manual_work_item_summary"
-        } # List[TemplateBulkDeleteDto] | 
-    
+    template_bulk_delete_dto = '''[sailpoint.v2024.TemplateBulkDeleteDto()]''' # List[TemplateBulkDeleteDto] | 
 
     try:
         # Bulk Delete Notification Templates
-        new_template_bulk_delete_dto = TemplateBulkDeleteDto()
-        new_template_bulk_delete_dto.from_json(template_bulk_delete_dto)
-        NotificationsApi(api_client).delete_notification_templates_in_bulk(x_sail_point_experimental, new_template_bulk_delete_dto)
+        new_template_bulk_delete_dto = TemplateBulkDeleteDto.from_json(template_bulk_delete_dto)
+        NotificationsApi(api_client).delete_notification_templates_in_bulk(x_sail_point_experimental=x_sail_point_experimental, template_bulk_delete_dto=new_template_bulk_delete_dto)
         # Below is a request that includes all optional parameters
         # NotificationsApi(api_client).delete_notification_templates_in_bulk(x_sail_point_experimental, new_template_bulk_delete_dto)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling NotificationsApi->delete_notification_templates_in_bulk: %s\n" % e)
 ```
 
@@ -327,6 +353,14 @@ with ApiClient(configuration) as api_client:
 ## delete-verified-from-address
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Delete Verified From Address
 Delete a verified sender email address
@@ -361,12 +395,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.notifications_api import NotificationsApi
 from sailpoint.v2024.api_client import ApiClient
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     id = 'id_example' # str |  # str | 
@@ -375,10 +410,10 @@ with ApiClient(configuration) as api_client:
     try:
         # Delete Verified From Address
         
-        NotificationsApi(api_client).delete_verified_from_address(id, x_sail_point_experimental)
+        NotificationsApi(api_client).delete_verified_from_address(id=id, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # NotificationsApi(api_client).delete_verified_from_address(id, x_sail_point_experimental)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling NotificationsApi->delete_verified_from_address: %s\n" % e)
 ```
 
@@ -389,6 +424,14 @@ with ApiClient(configuration) as api_client:
 ## get-dkim-attributes
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Get DKIM Attributes
 Retrieve DKIM (DomainKeys Identified Mail) attributes for all your tenants' AWS SES identities. Limits retrieval to 100 identities per call.
@@ -421,7 +464,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.notifications_api import NotificationsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.dkim_attributes import DkimAttributes
@@ -429,18 +471,20 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+configuration.experimental = true
+
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
         # Get DKIM Attributes
         
-        results =NotificationsApi(api_client).get_dkim_attributes(x_sail_point_experimental)
+        results = NotificationsApi(api_client).get_dkim_attributes(x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = NotificationsApi(api_client).get_dkim_attributes(x_sail_point_experimental)
         print("The response of NotificationsApi->get_dkim_attributes:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling NotificationsApi->get_dkim_attributes: %s\n" % e)
 ```
 
@@ -451,6 +495,14 @@ with ApiClient(configuration) as api_client:
 ## get-mail-from-attributes
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Get MAIL FROM Attributes
 Retrieve MAIL FROM attributes for a given AWS SES identity.
@@ -484,13 +536,14 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.notifications_api import NotificationsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.mail_from_attributes import MailFromAttributes
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     id = 'bobsmith@sailpoint.com' # str | Returns the MX and TXT record to be put in your DNS, as well as the MAIL FROM domain status # str | Returns the MX and TXT record to be put in your DNS, as well as the MAIL FROM domain status
@@ -499,12 +552,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Get MAIL FROM Attributes
         
-        results =NotificationsApi(api_client).get_mail_from_attributes(id, x_sail_point_experimental)
+        results = NotificationsApi(api_client).get_mail_from_attributes(id=id, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = NotificationsApi(api_client).get_mail_from_attributes(id, x_sail_point_experimental)
         print("The response of NotificationsApi->get_mail_from_attributes:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling NotificationsApi->get_mail_from_attributes: %s\n" % e)
 ```
 
@@ -515,6 +568,14 @@ with ApiClient(configuration) as api_client:
 ## get-notification-template
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Get Notification Template By Id
 This gets a template that you have modified for your site by Id.
@@ -548,13 +609,14 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.notifications_api import NotificationsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.template_dto import TemplateDto
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     id = 'c17bea3a-574d-453c-9e04-4365fbf5af0b' # str | Id of the Notification Template # str | Id of the Notification Template
@@ -563,12 +625,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Get Notification Template By Id
         
-        results =NotificationsApi(api_client).get_notification_template(id, x_sail_point_experimental)
+        results = NotificationsApi(api_client).get_notification_template(id=id, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = NotificationsApi(api_client).get_notification_template(id, x_sail_point_experimental)
         print("The response of NotificationsApi->get_notification_template:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling NotificationsApi->get_notification_template: %s\n" % e)
 ```
 
@@ -579,6 +641,14 @@ with ApiClient(configuration) as api_client:
 ## get-notifications-template-context
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Get Notification Template Context
 The notification service maintains metadata to construct the notification templates or supply any information during the event propagation. The data-store where this information is retrieved is called "Global Context" (a.k.a. notification template context). It defines a set of attributes
@@ -612,7 +682,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.notifications_api import NotificationsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.notification_template_context import NotificationTemplateContext
@@ -620,18 +689,20 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+configuration.experimental = true
+
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
         # Get Notification Template Context
         
-        results =NotificationsApi(api_client).get_notifications_template_context(x_sail_point_experimental)
+        results = NotificationsApi(api_client).get_notifications_template_context(x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = NotificationsApi(api_client).get_notifications_template_context(x_sail_point_experimental)
         print("The response of NotificationsApi->get_notifications_template_context:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling NotificationsApi->get_notifications_template_context: %s\n" % e)
 ```
 
@@ -642,6 +713,14 @@ with ApiClient(configuration) as api_client:
 ## list-from-addresses
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 List From Addresses
 Retrieve a list of sender email addresses and their verification statuses
@@ -678,13 +757,14 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.notifications_api import NotificationsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.email_status_dto import EmailStatusDto
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -697,12 +777,12 @@ with ApiClient(configuration) as api_client:
     try:
         # List From Addresses
         
-        results =NotificationsApi(api_client).list_from_addresses(x_sail_point_experimental, )
+        results = NotificationsApi(api_client).list_from_addresses(x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = NotificationsApi(api_client).list_from_addresses(x_sail_point_experimental, limit, offset, count, filters, sorters)
         print("The response of NotificationsApi->list_from_addresses:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling NotificationsApi->list_from_addresses: %s\n" % e)
 ```
 
@@ -713,6 +793,14 @@ with ApiClient(configuration) as api_client:
 ## list-notification-preferences
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 List Notification Preferences for tenant.
 Returns a list of notification preferences for tenant.
@@ -746,7 +834,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.notifications_api import NotificationsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.preferences_dto import PreferencesDto
@@ -754,18 +841,20 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+configuration.experimental = true
+
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
         # List Notification Preferences for tenant.
         
-        results =NotificationsApi(api_client).list_notification_preferences(x_sail_point_experimental)
+        results = NotificationsApi(api_client).list_notification_preferences(x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = NotificationsApi(api_client).list_notification_preferences(x_sail_point_experimental)
         print("The response of NotificationsApi->list_notification_preferences:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling NotificationsApi->list_notification_preferences: %s\n" % e)
 ```
 
@@ -776,6 +865,14 @@ with ApiClient(configuration) as api_client:
 ## list-notification-template-defaults
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 List Notification Template Defaults
 This lists the default templates used for notifications, such as emails from IdentityNow.
@@ -811,13 +908,14 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.notifications_api import NotificationsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.template_dto_default import TemplateDtoDefault
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -828,12 +926,12 @@ with ApiClient(configuration) as api_client:
     try:
         # List Notification Template Defaults
         
-        results =NotificationsApi(api_client).list_notification_template_defaults(x_sail_point_experimental, )
+        results = NotificationsApi(api_client).list_notification_template_defaults(x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = NotificationsApi(api_client).list_notification_template_defaults(x_sail_point_experimental, limit, offset, filters)
         print("The response of NotificationsApi->list_notification_template_defaults:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling NotificationsApi->list_notification_template_defaults: %s\n" % e)
 ```
 
@@ -844,6 +942,14 @@ with ApiClient(configuration) as api_client:
 ## list-notification-templates
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 List Notification Templates
 This lists the templates that you have modified for your site.
@@ -879,13 +985,14 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.notifications_api import NotificationsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.template_dto import TemplateDto
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -896,12 +1003,12 @@ with ApiClient(configuration) as api_client:
     try:
         # List Notification Templates
         
-        results =NotificationsApi(api_client).list_notification_templates(x_sail_point_experimental, )
+        results = NotificationsApi(api_client).list_notification_templates(x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = NotificationsApi(api_client).list_notification_templates(x_sail_point_experimental, limit, offset, filters)
         print("The response of NotificationsApi->list_notification_templates:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling NotificationsApi->list_notification_templates: %s\n" % e)
 ```
 
@@ -912,6 +1019,14 @@ with ApiClient(configuration) as api_client:
 ## put-mail-from-attributes
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Change MAIL FROM domain
 Change the MAIL FROM domain of an AWS SES email identity and provide the MX and TXT records to be placed in the caller's DNS
@@ -945,7 +1060,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.notifications_api import NotificationsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.mail_from_attributes import MailFromAttributes
@@ -954,23 +1068,24 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+configuration.experimental = true
+
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    mail_from_attributes_dto = {
+    mail_from_attributes_dto = '''{
           "identity" : "BobSmith@sailpoint.com",
           "mailFromDomain" : "example.sailpoint.com"
-        } # MailFromAttributesDto | 
+        }''' # MailFromAttributesDto | 
 
     try:
         # Change MAIL FROM domain
-        new_mail_from_attributes_dto = MailFromAttributesDto()
-        new_mail_from_attributes_dto.from_json(mail_from_attributes_dto)
-        results =NotificationsApi(api_client).put_mail_from_attributes(x_sail_point_experimental, new_mail_from_attributes_dto)
+        new_mail_from_attributes_dto = MailFromAttributesDto.from_json(mail_from_attributes_dto)
+        results = NotificationsApi(api_client).put_mail_from_attributes(x_sail_point_experimental=x_sail_point_experimental, mail_from_attributes_dto=new_mail_from_attributes_dto)
         # Below is a request that includes all optional parameters
         # results = NotificationsApi(api_client).put_mail_from_attributes(x_sail_point_experimental, new_mail_from_attributes_dto)
         print("The response of NotificationsApi->put_mail_from_attributes:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling NotificationsApi->put_mail_from_attributes: %s\n" % e)
 ```
 
@@ -981,6 +1096,14 @@ with ApiClient(configuration) as api_client:
 ## send-test-notification
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Send Test Notification
 Send a Test Notification
@@ -1015,7 +1138,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.notifications_api import NotificationsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.send_test_notification_request_dto import SendTestNotificationRequestDto
@@ -1023,22 +1145,23 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+configuration.experimental = true
+
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    send_test_notification_request_dto = {
+    send_test_notification_request_dto = '''{
           "context" : "{}",
           "medium" : "EMAIL",
           "key" : "cloud_manual_work_item_summary"
-        } # SendTestNotificationRequestDto | 
+        }''' # SendTestNotificationRequestDto | 
 
     try:
         # Send Test Notification
-        new_send_test_notification_request_dto = SendTestNotificationRequestDto()
-        new_send_test_notification_request_dto.from_json(send_test_notification_request_dto)
-        NotificationsApi(api_client).send_test_notification(x_sail_point_experimental, new_send_test_notification_request_dto)
+        new_send_test_notification_request_dto = SendTestNotificationRequestDto.from_json(send_test_notification_request_dto)
+        NotificationsApi(api_client).send_test_notification(x_sail_point_experimental=x_sail_point_experimental, send_test_notification_request_dto=new_send_test_notification_request_dto)
         # Below is a request that includes all optional parameters
         # NotificationsApi(api_client).send_test_notification(x_sail_point_experimental, new_send_test_notification_request_dto)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling NotificationsApi->send_test_notification: %s\n" % e)
 ```
 

@@ -49,6 +49,14 @@ Method | HTTP request | Description
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
+:::
 Generate a digit token
 This API is used to generate a digit token for password management. Requires authorization scope of "idn:password-digit-token:create".
 
@@ -81,7 +89,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.password_management_api import PasswordManagementApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.password_digit_token import PasswordDigitToken
@@ -90,24 +97,25 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+configuration.experimental = true
+
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    password_digit_token_reset = {
+    password_digit_token_reset = '''{
           "durationMinutes" : 5,
           "length" : 8,
           "userId" : "Abby.Smith"
-        } # PasswordDigitTokenReset | 
+        }''' # PasswordDigitTokenReset | 
 
     try:
         # Generate a digit token
-        new_password_digit_token_reset = PasswordDigitTokenReset()
-        new_password_digit_token_reset.from_json(password_digit_token_reset)
-        results =PasswordManagementApi(api_client).create_digit_token(x_sail_point_experimental, new_password_digit_token_reset)
+        new_password_digit_token_reset = PasswordDigitTokenReset.from_json(password_digit_token_reset)
+        results = PasswordManagementApi(api_client).create_digit_token(x_sail_point_experimental=x_sail_point_experimental, password_digit_token_reset=new_password_digit_token_reset)
         # Below is a request that includes all optional parameters
         # results = PasswordManagementApi(api_client).create_digit_token(x_sail_point_experimental, new_password_digit_token_reset)
         print("The response of PasswordManagementApi->create_digit_token:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling PasswordManagementApi->create_digit_token: %s\n" % e)
 ```
 
@@ -148,7 +156,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.password_management_api import PasswordManagementApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.password_status import PasswordStatus
@@ -156,18 +163,19 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     id = '089899f13a8f4da7824996191587bab9' # str | Password change request ID # str | Password change request ID
 
     try:
         # Get Password Change Request Status
         
-        results =PasswordManagementApi(api_client).get_password_change_status(id)
+        results = PasswordManagementApi(api_client).get_password_change_status(id=id)
         # Below is a request that includes all optional parameters
         # results = PasswordManagementApi(api_client).get_password_change_status(id)
         print("The response of PasswordManagementApi->get_password_change_status:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling PasswordManagementApi->get_password_change_status: %s\n" % e)
 ```
 
@@ -208,7 +216,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.password_management_api import PasswordManagementApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.password_info import PasswordInfo
@@ -217,22 +224,22 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
-    password_info_query_dto = {
+    password_info_query_dto = '''{
           "sourceName" : "My-AD",
           "userName" : "Abby.Smith"
-        } # PasswordInfoQueryDTO | 
+        }''' # PasswordInfoQueryDTO | 
 
     try:
         # Query Password Info
-        new_password_info_query_dto = PasswordInfoQueryDto()
-        new_password_info_query_dto.from_json(password_info_query_dto)
-        results =PasswordManagementApi(api_client).query_password_info(new_password_info_query_dto)
+        new_password_info_query_dto = PasswordInfoQueryDto.from_json(password_info_query_dto)
+        results = PasswordManagementApi(api_client).query_password_info(password_info_query_dto=new_password_info_query_dto)
         # Below is a request that includes all optional parameters
         # results = PasswordManagementApi(api_client).query_password_info(new_password_info_query_dto)
         print("The response of PasswordManagementApi->query_password_info:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling PasswordManagementApi->query_password_info: %s\n" % e)
 ```
 
@@ -291,7 +298,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.password_management_api import PasswordManagementApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.password_change_request import PasswordChangeRequest
@@ -300,25 +306,25 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
-    password_change_request = {
+    password_change_request = '''{
           "sourceId" : "8a807d4c73c545510173c545d4b60246",
           "accountId" : "CN=Abby Smith,OU=Austin,OU=Americas,OU=Demo,DC=seri,DC=acme,DC=com",
           "identityId" : "8a807d4c73c545510173c545f0a002ff",
           "publicKeyId" : "YWQ2NjQ4MTItZjY0NC00MWExLWFjMjktOGNmMzU3Y2VlNjk2",
           "encryptedPassword" : "XzN+YwKgr2C+InkMYFMBG3UtjMEw5ZIql/XFlXo8cJNeslmkplx6vn4kd4/43IF9STBk5RnzR6XmjpEO+FwHDoiBwYZAkAZK/Iswxk4OdybG6Y4MStJCOCiK8osKr35IMMSV/mbO4wAeltoCk7daTWzTGLiI6UaT5tf+F2EgdjJZ7YqM8W8r7aUWsm3p2Xt01Y46ZRx0QaM91QruiIx2rECFT2pUO0wr+7oQ77jypATyGWRtADsu3YcvCk/6U5MqCnXMzKBcRas7NnZdSL/d5H1GglVGz3VLPMaivG4/oL4chOMmFCRl/zVsGxZ9RhN8rxsRGFFKn+rhExTi+bax3A=="
-        } # PasswordChangeRequest | 
+        }''' # PasswordChangeRequest | 
 
     try:
         # Set Identity's Password
-        new_password_change_request = PasswordChangeRequest()
-        new_password_change_request.from_json(password_change_request)
-        results =PasswordManagementApi(api_client).set_password(new_password_change_request)
+        new_password_change_request = PasswordChangeRequest.from_json(password_change_request)
+        results = PasswordManagementApi(api_client).set_password(password_change_request=new_password_change_request)
         # Below is a request that includes all optional parameters
         # results = PasswordManagementApi(api_client).set_password(new_password_change_request)
         print("The response of PasswordManagementApi->set_password:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling PasswordManagementApi->set_password: %s\n" % e)
 ```
 

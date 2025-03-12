@@ -69,13 +69,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.connectors_api import ConnectorsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.v3_connector_dto import V3ConnectorDto
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     filters = 'directConnect eq \"true\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *sw*  **type**: *eq*  **directConnect**: *eq*  **category**: *eq*  **features**: *ca* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *sw*  **type**: *eq*  **directConnect**: *eq*  **category**: *eq*  **features**: *ca* (optional)
@@ -87,12 +87,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Get Connector List
         
-        results =ConnectorsApi(api_client).get_connector_list()
+        results = ConnectorsApi(api_client).get_connector_list()
         # Below is a request that includes all optional parameters
         # results = ConnectorsApi(api_client).get_connector_list(filters, limit, offset, count, locale)
         print("The response of ConnectorsApi->get_connector_list:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling ConnectorsApi->get_connector_list: %s\n" % e)
 ```
 

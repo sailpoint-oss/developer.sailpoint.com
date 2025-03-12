@@ -35,6 +35,14 @@ Method | HTTP request | Description
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
+:::
 Create Custom Password Instructions
 This API creates the custom password instructions for the specified page ID.
 
@@ -65,7 +73,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.custom_password_instructions_api import CustomPasswordInstructionsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.custom_password_instruction import CustomPasswordInstruction
@@ -73,24 +80,25 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+configuration.experimental = true
+
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    custom_password_instruction = {
+    custom_password_instruction = '''{
           "pageContent" : "Please enter a new password. Your password must be at least 8 characters long and contain at least one number and one letter.",
           "pageId" : "change-password:enter-password",
           "locale" : "en"
-        } # CustomPasswordInstruction | 
+        }''' # CustomPasswordInstruction | 
 
     try:
         # Create Custom Password Instructions
-        new_custom_password_instruction = CustomPasswordInstruction()
-        new_custom_password_instruction.from_json(custom_password_instruction)
-        results =CustomPasswordInstructionsApi(api_client).create_custom_password_instructions(x_sail_point_experimental, new_custom_password_instruction)
+        new_custom_password_instruction = CustomPasswordInstruction.from_json(custom_password_instruction)
+        results = CustomPasswordInstructionsApi(api_client).create_custom_password_instructions(x_sail_point_experimental=x_sail_point_experimental, custom_password_instruction=new_custom_password_instruction)
         # Below is a request that includes all optional parameters
         # results = CustomPasswordInstructionsApi(api_client).create_custom_password_instructions(x_sail_point_experimental, new_custom_password_instruction)
         print("The response of CustomPasswordInstructionsApi->create_custom_password_instructions:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling CustomPasswordInstructionsApi->create_custom_password_instructions: %s\n" % e)
 ```
 
@@ -101,6 +109,14 @@ with ApiClient(configuration) as api_client:
 ## delete-custom-password-instructions
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Delete Custom Password Instructions by page ID
 This API delete the custom password instructions for the specified page ID.
@@ -134,12 +150,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.custom_password_instructions_api import CustomPasswordInstructionsApi
 from sailpoint.v2024.api_client import ApiClient
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     page_id = 'mfa:select' # str | The page ID of custom password instructions to delete. # str | The page ID of custom password instructions to delete.
@@ -149,10 +166,10 @@ with ApiClient(configuration) as api_client:
     try:
         # Delete Custom Password Instructions by page ID
         
-        CustomPasswordInstructionsApi(api_client).delete_custom_password_instructions(page_id, x_sail_point_experimental, )
+        CustomPasswordInstructionsApi(api_client).delete_custom_password_instructions(page_id=page_id, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # CustomPasswordInstructionsApi(api_client).delete_custom_password_instructions(page_id, x_sail_point_experimental, locale)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling CustomPasswordInstructionsApi->delete_custom_password_instructions: %s\n" % e)
 ```
 
@@ -163,6 +180,14 @@ with ApiClient(configuration) as api_client:
 ## get-custom-password-instructions
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Get Custom Password Instructions by Page ID
 This API returns the custom password instructions for the specified page ID.
@@ -196,13 +221,14 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.custom_password_instructions_api import CustomPasswordInstructionsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.custom_password_instruction import CustomPasswordInstruction
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     page_id = 'mfa:select' # str | The page ID of custom password instructions to query. # str | The page ID of custom password instructions to query.
@@ -212,12 +238,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Get Custom Password Instructions by Page ID
         
-        results =CustomPasswordInstructionsApi(api_client).get_custom_password_instructions(page_id, x_sail_point_experimental, )
+        results = CustomPasswordInstructionsApi(api_client).get_custom_password_instructions(page_id=page_id, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = CustomPasswordInstructionsApi(api_client).get_custom_password_instructions(page_id, x_sail_point_experimental, locale)
         print("The response of CustomPasswordInstructionsApi->get_custom_password_instructions:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling CustomPasswordInstructionsApi->get_custom_password_instructions: %s\n" % e)
 ```
 

@@ -25,6 +25,14 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
+:::
 Identity Outliers List
 -- Deprecated : See 'IAI Outliers' This API will be used by Identity Governance systems to identify identities that are not included in an organization's peer groups. By default, 250 identities are returned. You can specify between 1 and 1000 number of identities that can be returned.
 
@@ -60,13 +68,14 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.iai_peer_group_strategies_api import IAIPeerGroupStrategiesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.peer_group_member import PeerGroupMember
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     strategy = 'entitlement' # str | The strategy used to create peer groups. Currently, 'entitlement' is supported. # str | The strategy used to create peer groups. Currently, 'entitlement' is supported.
@@ -78,12 +87,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Identity Outliers List
         
-        results =IAIPeerGroupStrategiesApi(api_client).get_peer_group_outliers(strategy, x_sail_point_experimental, )
+        results = IAIPeerGroupStrategiesApi(api_client).get_peer_group_outliers(strategy=strategy, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = IAIPeerGroupStrategiesApi(api_client).get_peer_group_outliers(strategy, x_sail_point_experimental, limit, offset, count)
         print("The response of IAIPeerGroupStrategiesApi->get_peer_group_outliers:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling IAIPeerGroupStrategiesApi->get_peer_group_outliers: %s\n" % e)
 ```
 

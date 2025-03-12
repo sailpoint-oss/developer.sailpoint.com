@@ -57,13 +57,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v3
 from sailpoint.v3.api.account_usages_api import AccountUsagesApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.account_usage import AccountUsage
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     account_id = 'ef38f94347e94562b5bb8424a56397d8' # str | ID of IDN account # str | ID of IDN account
@@ -75,12 +75,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Returns account usage insights
         
-        results =AccountUsagesApi(api_client).get_usages_by_account_id(account_id, )
+        results = AccountUsagesApi(api_client).get_usages_by_account_id(account_id=account_id)
         # Below is a request that includes all optional parameters
         # results = AccountUsagesApi(api_client).get_usages_by_account_id(account_id, limit, offset, count, sorters)
         print("The response of AccountUsagesApi->get_usages_by_account_id:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AccountUsagesApi->get_usages_by_account_id: %s\n" % e)
 ```
 

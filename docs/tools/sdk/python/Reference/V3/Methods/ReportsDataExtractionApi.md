@@ -56,12 +56,12 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v3
 from sailpoint.v3.api.reports_data_extraction_api import ReportsDataExtractionApi
 from sailpoint.v3.api_client import ApiClient
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     id = 'a1ed223247144cc29d23c632624b4767' # str | ID of the running Report to cancel # str | ID of the running Report to cancel
@@ -69,10 +69,10 @@ with ApiClient(configuration) as api_client:
     try:
         # Cancel Report
         
-        ReportsDataExtractionApi(api_client).cancel_report(id)
+        ReportsDataExtractionApi(api_client).cancel_report(id=id)
         # Below is a request that includes all optional parameters
         # ReportsDataExtractionApi(api_client).cancel_report(id)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling ReportsDataExtractionApi->cancel_report: %s\n" % e)
 ```
 
@@ -116,12 +116,12 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v3
 from sailpoint.v3.api.reports_data_extraction_api import ReportsDataExtractionApi
 from sailpoint.v3.api_client import ApiClient
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     task_result_id = 'ef38f94347e94562b5bb8424a56397d8' # str | Unique identifier of the task result which handled report # str | Unique identifier of the task result which handled report
@@ -132,12 +132,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Get Report File
         
-        results =ReportsDataExtractionApi(api_client).get_report(task_result_id, file_format, )
+        results = ReportsDataExtractionApi(api_client).get_report(task_result_id=task_result_id, file_format=file_format)
         # Below is a request that includes all optional parameters
         # results = ReportsDataExtractionApi(api_client).get_report(task_result_id, file_format, name, auditable)
         print("The response of ReportsDataExtractionApi->get_report:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling ReportsDataExtractionApi->get_report: %s\n" % e)
 ```
 
@@ -178,13 +178,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v3
 from sailpoint.v3.api.reports_data_extraction_api import ReportsDataExtractionApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.report_results import ReportResults
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     task_result_id = 'ef38f94347e94562b5bb8424a56397d8' # str | Unique identifier of the task result which handled report # str | Unique identifier of the task result which handled report
@@ -193,12 +193,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Get Report Result
         
-        results =ReportsDataExtractionApi(api_client).get_report_result(task_result_id, )
+        results = ReportsDataExtractionApi(api_client).get_report_result(task_result_id=task_result_id)
         # Below is a request that includes all optional parameters
         # results = ReportsDataExtractionApi(api_client).get_report_result(task_result_id, completed)
         print("The response of ReportsDataExtractionApi->get_report_result:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling ReportsDataExtractionApi->get_report_result: %s\n" % e)
 ```
 
@@ -238,7 +238,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v3
 from sailpoint.v3.api.reports_data_extraction_api import ReportsDataExtractionApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.report_details import ReportDetails
@@ -247,25 +246,25 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
-    report_details = {
+    report_details = '''{
           "reportType" : "ACCOUNTS",
           "arguments" : {
             "application" : "2c9180897e7742b2017e781782f705b9",
             "sourceName" : "Active Directory"
           }
-        } # ReportDetails | 
+        }''' # ReportDetails | 
 
     try:
         # Run Report
-        new_report_details = ReportDetails()
-        new_report_details.from_json(report_details)
-        results =ReportsDataExtractionApi(api_client).start_report(new_report_details)
+        new_report_details = ReportDetails.from_json(report_details)
+        results = ReportsDataExtractionApi(api_client).start_report(report_details=new_report_details)
         # Below is a request that includes all optional parameters
         # results = ReportsDataExtractionApi(api_client).start_report(new_report_details)
         print("The response of ReportsDataExtractionApi->start_report:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling ReportsDataExtractionApi->start_report: %s\n" % e)
 ```
 

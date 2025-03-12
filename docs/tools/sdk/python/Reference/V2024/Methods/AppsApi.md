@@ -37,6 +37,14 @@ Method | HTTP request | Description
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
+:::
 Create source app
 This endpoint creates a source app using the given source app payload
 
@@ -69,7 +77,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.apps_api import AppsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.source_app import SourceApp
@@ -78,9 +85,11 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+configuration.experimental = true
+
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    source_app_create_dto = {
+    source_app_create_dto = '''{
           "name" : "my app",
           "description" : "the source app for engineers",
           "accountSource" : {
@@ -89,18 +98,17 @@ with ApiClient(configuration) as api_client:
             "type" : "SOURCE"
           },
           "matchAllAccounts" : true
-        } # SourceAppCreateDto | 
+        }''' # SourceAppCreateDto | 
 
     try:
         # Create source app
-        new_source_app_create_dto = SourceAppCreateDto()
-        new_source_app_create_dto.from_json(source_app_create_dto)
-        results =AppsApi(api_client).create_source_app(x_sail_point_experimental, new_source_app_create_dto)
+        new_source_app_create_dto = SourceAppCreateDto.from_json(source_app_create_dto)
+        results = AppsApi(api_client).create_source_app(x_sail_point_experimental=x_sail_point_experimental, source_app_create_dto=new_source_app_create_dto)
         # Below is a request that includes all optional parameters
         # results = AppsApi(api_client).create_source_app(x_sail_point_experimental, new_source_app_create_dto)
         print("The response of AppsApi->create_source_app:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AppsApi->create_source_app: %s\n" % e)
 ```
 
@@ -111,6 +119,14 @@ with ApiClient(configuration) as api_client:
 ## delete-access-profiles-from-source-app-by-bulk
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Bulk remove access profiles from the specified source app
 This API returns the final list of access profiles for the specified source app after removing
@@ -146,7 +162,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.apps_api import AppsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.access_profile_details import AccessProfileDetails
@@ -154,24 +169,23 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+configuration.experimental = true
+
 with ApiClient(configuration) as api_client:
     id = '2c91808a7813090a017814121e121518' # str | ID of the source app # str | ID of the source app
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    request_body = [c9575abb5e3a4e3db82b2f989a738aa2, c9dc28e148a24d65b3ccb5fb8ca5ddd9] # List[str] | 
-     request_body = [c9575abb5e3a4e3db82b2f989a738aa2, c9dc28e148a24d65b3ccb5fb8ca5ddd9] # List[str] | 
-    
+    request_body = '''[c9575abb5e3a4e3db82b2f989a738aa2, c9dc28e148a24d65b3ccb5fb8ca5ddd9]''' # List[str] | 
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 
     try:
         # Bulk remove access profiles from the specified source app
-        new_request_body = RequestBody()
-        new_request_body.from_json(request_body)
-        results =AppsApi(api_client).delete_access_profiles_from_source_app_by_bulk(id, x_sail_point_experimental, new_request_body, )
+        new_request_body = RequestBody.from_json(request_body)
+        results = AppsApi(api_client).delete_access_profiles_from_source_app_by_bulk(id=id, x_sail_point_experimental=x_sail_point_experimental, request_body=new_request_body)
         # Below is a request that includes all optional parameters
         # results = AppsApi(api_client).delete_access_profiles_from_source_app_by_bulk(id, x_sail_point_experimental, new_request_body, limit)
         print("The response of AppsApi->delete_access_profiles_from_source_app_by_bulk:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AppsApi->delete_access_profiles_from_source_app_by_bulk: %s\n" % e)
 ```
 
@@ -182,6 +196,14 @@ with ApiClient(configuration) as api_client:
 ## delete-source-app
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Delete source app by ID
 Use this API to delete a specific source app
@@ -215,13 +237,14 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.apps_api import AppsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.source_app import SourceApp
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     id = '2c9180835d191a86015d28455b4a2329' # str | source app ID. # str | source app ID.
@@ -230,12 +253,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Delete source app by ID
         
-        results =AppsApi(api_client).delete_source_app(id, x_sail_point_experimental)
+        results = AppsApi(api_client).delete_source_app(id=id, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = AppsApi(api_client).delete_source_app(id, x_sail_point_experimental)
         print("The response of AppsApi->delete_source_app:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AppsApi->delete_source_app: %s\n" % e)
 ```
 
@@ -246,6 +269,14 @@ with ApiClient(configuration) as api_client:
 ## get-source-app
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Get source app by ID
 This API returns a source app by its ID.
@@ -280,13 +311,14 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.apps_api import AppsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.source_app import SourceApp
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     id = '2c91808a7813090a017814121e121518' # str | ID of the source app # str | ID of the source app
@@ -295,12 +327,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Get source app by ID
         
-        results =AppsApi(api_client).get_source_app(id, x_sail_point_experimental)
+        results = AppsApi(api_client).get_source_app(id=id, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = AppsApi(api_client).get_source_app(id, x_sail_point_experimental)
         print("The response of AppsApi->get_source_app:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AppsApi->get_source_app: %s\n" % e)
 ```
 
@@ -311,6 +343,14 @@ with ApiClient(configuration) as api_client:
 ## list-access-profiles-for-source-app
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 List access profiles for the specified source app
 This API returns the list of access profiles for the specified source app
@@ -347,13 +387,14 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.apps_api import AppsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.access_profile_details import AccessProfileDetails
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     id = '2c91808a7813090a017814121e121518' # str | ID of the source app # str | ID of the source app
@@ -365,12 +406,12 @@ with ApiClient(configuration) as api_client:
     try:
         # List access profiles for the specified source app
         
-        results =AppsApi(api_client).list_access_profiles_for_source_app(id, x_sail_point_experimental, )
+        results = AppsApi(api_client).list_access_profiles_for_source_app(id=id, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = AppsApi(api_client).list_access_profiles_for_source_app(id, x_sail_point_experimental, limit, offset, filters)
         print("The response of AppsApi->list_access_profiles_for_source_app:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AppsApi->list_access_profiles_for_source_app: %s\n" % e)
 ```
 
@@ -381,6 +422,14 @@ with ApiClient(configuration) as api_client:
 ## list-all-source-app
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 List all source apps
 This API returns the list of all source apps for the org.    
@@ -418,13 +467,14 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.apps_api import AppsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.source_app import SourceApp
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -437,12 +487,12 @@ with ApiClient(configuration) as api_client:
     try:
         # List all source apps
         
-        results =AppsApi(api_client).list_all_source_app(x_sail_point_experimental, )
+        results = AppsApi(api_client).list_all_source_app(x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = AppsApi(api_client).list_all_source_app(x_sail_point_experimental, limit, count, offset, sorters, filters)
         print("The response of AppsApi->list_all_source_app:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AppsApi->list_all_source_app: %s\n" % e)
 ```
 
@@ -453,6 +503,14 @@ with ApiClient(configuration) as api_client:
 ## list-all-user-apps
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 List all user apps
 This API returns the list of all user apps with specified filters.
@@ -490,13 +548,14 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.apps_api import AppsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.user_app import UserApp
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     filters = 'name eq \"user app name\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **ownerId**: *eq*  **ownerName**: *eq, sw*  **ownerAlias**: *eq, sw*  **accountId**: *eq*  **sourceAppId**: *eq* # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **ownerId**: *eq*  **ownerName**: *eq, sw*  **ownerAlias**: *eq, sw*  **accountId**: *eq*  **sourceAppId**: *eq*
@@ -508,12 +567,12 @@ with ApiClient(configuration) as api_client:
     try:
         # List all user apps
         
-        results =AppsApi(api_client).list_all_user_apps(filters, x_sail_point_experimental, )
+        results = AppsApi(api_client).list_all_user_apps(filters=filters, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = AppsApi(api_client).list_all_user_apps(filters, x_sail_point_experimental, limit, count, offset)
         print("The response of AppsApi->list_all_user_apps:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AppsApi->list_all_user_apps: %s\n" % e)
 ```
 
@@ -524,6 +583,14 @@ with ApiClient(configuration) as api_client:
 ## list-assigned-source-app
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 List assigned source apps
 This API returns the list of source apps assigned for logged in user.
@@ -561,13 +628,14 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.apps_api import AppsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.source_app import SourceApp
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -580,12 +648,12 @@ with ApiClient(configuration) as api_client:
     try:
         # List assigned source apps
         
-        results =AppsApi(api_client).list_assigned_source_app(x_sail_point_experimental, )
+        results = AppsApi(api_client).list_assigned_source_app(x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = AppsApi(api_client).list_assigned_source_app(x_sail_point_experimental, limit, count, offset, sorters, filters)
         print("The response of AppsApi->list_assigned_source_app:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AppsApi->list_assigned_source_app: %s\n" % e)
 ```
 
@@ -596,6 +664,14 @@ with ApiClient(configuration) as api_client:
 ## list-available-accounts-for-user-app
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 List available accounts for user app
 This API returns the list of available accounts for the specified user app. The user app needs to belong lo logged in user.
@@ -631,13 +707,14 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.apps_api import AppsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.app_account_details import AppAccountDetails
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     id = '2c91808a7813090a017814121e121518' # str | ID of the user app # str | ID of the user app
@@ -648,12 +725,12 @@ with ApiClient(configuration) as api_client:
     try:
         # List available accounts for user app
         
-        results =AppsApi(api_client).list_available_accounts_for_user_app(id, x_sail_point_experimental, )
+        results = AppsApi(api_client).list_available_accounts_for_user_app(id=id, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = AppsApi(api_client).list_available_accounts_for_user_app(id, x_sail_point_experimental, limit, count)
         print("The response of AppsApi->list_available_accounts_for_user_app:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AppsApi->list_available_accounts_for_user_app: %s\n" % e)
 ```
 
@@ -664,6 +741,14 @@ with ApiClient(configuration) as api_client:
 ## list-available-source-apps
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 List available source apps
 This API returns the list of source apps available for access request.
@@ -701,13 +786,14 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.apps_api import AppsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.source_app import SourceApp
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -720,12 +806,12 @@ with ApiClient(configuration) as api_client:
     try:
         # List available source apps
         
-        results =AppsApi(api_client).list_available_source_apps(x_sail_point_experimental, )
+        results = AppsApi(api_client).list_available_source_apps(x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = AppsApi(api_client).list_available_source_apps(x_sail_point_experimental, limit, count, offset, sorters, filters)
         print("The response of AppsApi->list_available_source_apps:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AppsApi->list_available_source_apps: %s\n" % e)
 ```
 
@@ -736,6 +822,14 @@ with ApiClient(configuration) as api_client:
 ## list-owned-user-apps
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 List owned user apps
 This API returns the list of user apps assigned to logged in user
@@ -772,13 +866,14 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.apps_api import AppsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.user_app import UserApp
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -790,12 +885,12 @@ with ApiClient(configuration) as api_client:
     try:
         # List owned user apps
         
-        results =AppsApi(api_client).list_owned_user_apps(x_sail_point_experimental, )
+        results = AppsApi(api_client).list_owned_user_apps(x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = AppsApi(api_client).list_owned_user_apps(x_sail_point_experimental, limit, count, offset, filters)
         print("The response of AppsApi->list_owned_user_apps:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AppsApi->list_owned_user_apps: %s\n" % e)
 ```
 
@@ -806,6 +901,14 @@ with ApiClient(configuration) as api_client:
 ## patch-source-app
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Patch source app by ID
 This API updates an existing source app using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
@@ -843,7 +946,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.apps_api import AppsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.json_patch_operation import JsonPatchOperation
@@ -852,26 +954,22 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+configuration.experimental = true
+
 with ApiClient(configuration) as api_client:
     id = '2c91808a7813090a017814121e121518' # str | ID of the source app to patch # str | ID of the source app to patch
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    [{op=replace, path=/enabled, value=true}, {op=replace, path=/matchAllAccounts, value=true}] # List[JsonPatchOperation] |  (optional)
-     json_patch_operation = {
-          "op" : "replace",
-          "path" : "/description",
-          "value" : "New description"
-        } # List[JsonPatchOperation] |  (optional)
-    
+    json_patch_operation = '''[{op=replace, path=/enabled, value=true}, {op=replace, path=/matchAllAccounts, value=true}]''' # List[JsonPatchOperation] |  (optional)
 
     try:
         # Patch source app by ID
         
-        results =AppsApi(api_client).patch_source_app(id, x_sail_point_experimental, )
+        results = AppsApi(api_client).patch_source_app(id=id, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = AppsApi(api_client).patch_source_app(id, x_sail_point_experimental, new_json_patch_operation)
         print("The response of AppsApi->patch_source_app:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AppsApi->patch_source_app: %s\n" % e)
 ```
 
@@ -882,6 +980,14 @@ with ApiClient(configuration) as api_client:
 ## patch-user-app
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Patch user app by ID
 This API updates an existing user app using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
@@ -918,7 +1024,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.apps_api import AppsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.json_patch_operation import JsonPatchOperation
@@ -927,26 +1032,22 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+configuration.experimental = true
+
 with ApiClient(configuration) as api_client:
     id = '2c91808a7813090a017814121e121518' # str | ID of the user app to patch # str | ID of the user app to patch
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    [sailpoint.v2024.JsonPatchOperation()] # List[JsonPatchOperation] |  (optional)
-     json_patch_operation = {
-          "op" : "replace",
-          "path" : "/description",
-          "value" : "New description"
-        } # List[JsonPatchOperation] |  (optional)
-    
+    json_patch_operation = '''[sailpoint.v2024.JsonPatchOperation()]''' # List[JsonPatchOperation] |  (optional)
 
     try:
         # Patch user app by ID
         
-        results =AppsApi(api_client).patch_user_app(id, x_sail_point_experimental, )
+        results = AppsApi(api_client).patch_user_app(id=id, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = AppsApi(api_client).patch_user_app(id, x_sail_point_experimental, new_json_patch_operation)
         print("The response of AppsApi->patch_user_app:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AppsApi->patch_user_app: %s\n" % e)
 ```
 
@@ -957,6 +1058,14 @@ with ApiClient(configuration) as api_client:
 ## update-source-apps-in-bulk
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Bulk update source apps
 This API updates source apps using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  It can update up to 50 source apps in a batch.
@@ -993,7 +1102,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.apps_api import AppsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.source_app_bulk_update_request import SourceAppBulkUpdateRequest
@@ -1001,9 +1109,11 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+configuration.experimental = true
+
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    source_app_bulk_update_request = {
+    source_app_bulk_update_request = '''{
           "appIds" : [ "2c91808a7624751a01762f19d665220d", "2c91808a7624751a01762f19d67c220e", "2c91808a7624751a01762f19d692220f" ],
           "jsonPatch" : [ {
             "op" : "replace",
@@ -1014,15 +1124,15 @@ with ApiClient(configuration) as api_client:
             "path" : "/matchAllAccounts",
             "value" : false
           } ]
-        } # SourceAppBulkUpdateRequest |  (optional)
+        }''' # SourceAppBulkUpdateRequest |  (optional)
 
     try:
         # Bulk update source apps
         
-        AppsApi(api_client).update_source_apps_in_bulk(x_sail_point_experimental, )
+        AppsApi(api_client).update_source_apps_in_bulk(x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # AppsApi(api_client).update_source_apps_in_bulk(x_sail_point_experimental, new_source_app_bulk_update_request)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AppsApi->update_source_apps_in_bulk: %s\n" % e)
 ```
 

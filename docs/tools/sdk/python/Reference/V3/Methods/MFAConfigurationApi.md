@@ -57,7 +57,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v3
 from sailpoint.v3.api.mfa_configuration_api import MFAConfigurationApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.mfa_okta_config import MfaOktaConfig
@@ -65,18 +64,19 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     method = 'okta-verify' # str | The name of the MFA method. The currently supported method names are 'okta-verify' and 'duo-web'. # str | The name of the MFA method. The currently supported method names are 'okta-verify' and 'duo-web'.
 
     try:
         # Delete MFA method configuration
         
-        results =MFAConfigurationApi(api_client).delete_mfa_config(method)
+        results = MFAConfigurationApi(api_client).delete_mfa_config(method=method)
         # Below is a request that includes all optional parameters
         # results = MFAConfigurationApi(api_client).delete_mfa_config(method)
         print("The response of MFAConfigurationApi->delete_mfa_config:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling MFAConfigurationApi->delete_mfa_config: %s\n" % e)
 ```
 
@@ -113,7 +113,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v3
 from sailpoint.v3.api.mfa_configuration_api import MFAConfigurationApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.mfa_duo_config import MfaDuoConfig
@@ -121,17 +120,18 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
 
     try:
         # Configuration of Duo MFA method
         
-        results =MFAConfigurationApi(api_client).get_mfa_duo_config()
+        results = MFAConfigurationApi(api_client).get_mfa_duo_config()
         # Below is a request that includes all optional parameters
         # results = MFAConfigurationApi(api_client).get_mfa_duo_config()
         print("The response of MFAConfigurationApi->get_mfa_duo_config:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling MFAConfigurationApi->get_mfa_duo_config: %s\n" % e)
 ```
 
@@ -171,7 +171,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v3
 from sailpoint.v3.api.mfa_configuration_api import MFAConfigurationApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.kba_question import KbaQuestion
@@ -179,18 +178,19 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     all_languages = allLanguages=true # bool | Indicator whether the question text should be returned in all configured languages    * If true, the question text is returned in all languages that it is configured in.    * If false, the question text is returned in the user locale if available, else for the default locale.     * If not passed, it behaves the same way as passing this parameter as false (optional) # bool | Indicator whether the question text should be returned in all configured languages    * If true, the question text is returned in all languages that it is configured in.    * If false, the question text is returned in the user locale if available, else for the default locale.     * If not passed, it behaves the same way as passing this parameter as false (optional)
 
     try:
         # Configuration of KBA MFA method
         
-        results =MFAConfigurationApi(api_client).get_mfa_kba_config()
+        results = MFAConfigurationApi(api_client).get_mfa_kba_config()
         # Below is a request that includes all optional parameters
         # results = MFAConfigurationApi(api_client).get_mfa_kba_config(all_languages)
         print("The response of MFAConfigurationApi->get_mfa_kba_config:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling MFAConfigurationApi->get_mfa_kba_config: %s\n" % e)
 ```
 
@@ -227,7 +227,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v3
 from sailpoint.v3.api.mfa_configuration_api import MFAConfigurationApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.mfa_okta_config import MfaOktaConfig
@@ -235,17 +234,18 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
 
     try:
         # Configuration of Okta MFA method
         
-        results =MFAConfigurationApi(api_client).get_mfa_okta_config()
+        results = MFAConfigurationApi(api_client).get_mfa_okta_config()
         # Below is a request that includes all optional parameters
         # results = MFAConfigurationApi(api_client).get_mfa_okta_config()
         print("The response of MFAConfigurationApi->get_mfa_okta_config:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling MFAConfigurationApi->get_mfa_okta_config: %s\n" % e)
 ```
 
@@ -285,7 +285,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v3
 from sailpoint.v3.api.mfa_configuration_api import MFAConfigurationApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.mfa_duo_config import MfaDuoConfig
@@ -293,8 +292,9 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
-    mfa_duo_config = {
+    mfa_duo_config = '''{
           "accessKey" : "qw123Y3QlA5UqocYpdU3rEkzrK2D497y",
           "host" : "example.com",
           "configProperties" : {
@@ -304,18 +304,17 @@ with ApiClient(configuration) as api_client:
           "mfaMethod" : "duo-web",
           "enabled" : true,
           "identityAttribute" : "email"
-        } # MfaDuoConfig | 
+        }''' # MfaDuoConfig | 
 
     try:
         # Set Duo MFA configuration
-        new_mfa_duo_config = MfaDuoConfig()
-        new_mfa_duo_config.from_json(mfa_duo_config)
-        results =MFAConfigurationApi(api_client).set_mfa_duo_config(new_mfa_duo_config)
+        new_mfa_duo_config = MfaDuoConfig.from_json(mfa_duo_config)
+        results = MFAConfigurationApi(api_client).set_mfa_duo_config(mfa_duo_config=new_mfa_duo_config)
         # Below is a request that includes all optional parameters
         # results = MFAConfigurationApi(api_client).set_mfa_duo_config(new_mfa_duo_config)
         print("The response of MFAConfigurationApi->set_mfa_duo_config:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling MFAConfigurationApi->set_mfa_duo_config: %s\n" % e)
 ```
 
@@ -355,7 +354,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v3
 from sailpoint.v3.api.mfa_configuration_api import MFAConfigurationApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.mfa_okta_config import MfaOktaConfig
@@ -363,25 +361,25 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
-    mfa_okta_config = {
+    mfa_okta_config = '''{
           "accessKey" : "qw123Y3QlA5UqocYpdU3rEkzrK2D497y",
           "host" : "example.com",
           "mfaMethod" : "okta-verify",
           "enabled" : true,
           "identityAttribute" : "email"
-        } # MfaOktaConfig | 
+        }''' # MfaOktaConfig | 
 
     try:
         # Set Okta MFA configuration
-        new_mfa_okta_config = MfaOktaConfig()
-        new_mfa_okta_config.from_json(mfa_okta_config)
-        results =MFAConfigurationApi(api_client).set_mfa_okta_config(new_mfa_okta_config)
+        new_mfa_okta_config = MfaOktaConfig.from_json(mfa_okta_config)
+        results = MFAConfigurationApi(api_client).set_mfa_okta_config(mfa_okta_config=new_mfa_okta_config)
         # Below is a request that includes all optional parameters
         # results = MFAConfigurationApi(api_client).set_mfa_okta_config(new_mfa_okta_config)
         print("The response of MFAConfigurationApi->set_mfa_okta_config:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling MFAConfigurationApi->set_mfa_okta_config: %s\n" % e)
 ```
 
@@ -421,7 +419,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v3
 from sailpoint.v3.api.mfa_configuration_api import MFAConfigurationApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.kba_answer_request_item import KbaAnswerRequestItem
@@ -430,24 +427,19 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
-    [{id=173423, answer=822cd15d6c15aa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a0859a2fea34}, {id=c54fee53-2d63-4fc5-9259-3e93b9994135, answer=9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08}] # List[KbaAnswerRequestItem] | 
-     kba_answer_request_item = {
-          "answer" : "Your answer",
-          "id" : "c54fee53-2d63-4fc5-9259-3e93b9994135"
-        } # List[KbaAnswerRequestItem] | 
-    
+    kba_answer_request_item = '''[{id=173423, answer=822cd15d6c15aa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a0859a2fea34}, {id=c54fee53-2d63-4fc5-9259-3e93b9994135, answer=9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08}]''' # List[KbaAnswerRequestItem] | 
 
     try:
         # Set MFA KBA configuration
-        new_kba_answer_request_item = KbaAnswerRequestItem()
-        new_kba_answer_request_item.from_json(kba_answer_request_item)
-        results =MFAConfigurationApi(api_client).set_mfakba_config(new_kba_answer_request_item)
+        new_kba_answer_request_item = KbaAnswerRequestItem.from_json(kba_answer_request_item)
+        results = MFAConfigurationApi(api_client).set_mfakba_config(kba_answer_request_item=new_kba_answer_request_item)
         # Below is a request that includes all optional parameters
         # results = MFAConfigurationApi(api_client).set_mfakba_config(new_kba_answer_request_item)
         print("The response of MFAConfigurationApi->set_mfakba_config:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling MFAConfigurationApi->set_mfakba_config: %s\n" % e)
 ```
 
@@ -487,7 +479,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v3
 from sailpoint.v3.api.mfa_configuration_api import MFAConfigurationApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.mfa_config_test_response import MfaConfigTestResponse
@@ -495,18 +486,19 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     method = 'okta-verify' # str | The name of the MFA method. The currently supported method names are 'okta-verify' and 'duo-web'. # str | The name of the MFA method. The currently supported method names are 'okta-verify' and 'duo-web'.
 
     try:
         # MFA method's test configuration
         
-        results =MFAConfigurationApi(api_client).test_mfa_config(method)
+        results = MFAConfigurationApi(api_client).test_mfa_config(method=method)
         # Below is a request that includes all optional parameters
         # results = MFAConfigurationApi(api_client).test_mfa_config(method)
         print("The response of MFAConfigurationApi->test_mfa_config:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling MFAConfigurationApi->test_mfa_config: %s\n" % e)
 ```
 

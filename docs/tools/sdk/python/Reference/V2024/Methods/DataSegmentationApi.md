@@ -60,7 +60,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.data_segmentation_api import DataSegmentationApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.data_segment import DataSegment
@@ -68,19 +67,19 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
-    data_segment = sailpoint.v2024.DataSegment() # DataSegment | 
+    data_segment = '''sailpoint.v2024.DataSegment()''' # DataSegment | 
 
     try:
         # Create Segment
-        new_data_segment = DataSegment()
-        new_data_segment.from_json(data_segment)
-        results =DataSegmentationApi(api_client).create_data_segment(new_data_segment)
+        new_data_segment = DataSegment.from_json(data_segment)
+        results = DataSegmentationApi(api_client).create_data_segment(data_segment=new_data_segment)
         # Below is a request that includes all optional parameters
         # results = DataSegmentationApi(api_client).create_data_segment(new_data_segment)
         print("The response of DataSegmentationApi->create_data_segment:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling DataSegmentationApi->create_data_segment: %s\n" % e)
 ```
 
@@ -91,6 +90,14 @@ with ApiClient(configuration) as api_client:
 ## delete-data-segment
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Delete Segment by ID
 This API deletes the segment specified by the given ID.
@@ -126,12 +133,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.data_segmentation_api import DataSegmentationApi
 from sailpoint.v2024.api_client import ApiClient
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     id = 'ef38f943-47e9-4562-b5bb-8424a56397d8' # str | The segment ID to delete. # str | The segment ID to delete.
@@ -141,10 +149,10 @@ with ApiClient(configuration) as api_client:
     try:
         # Delete Segment by ID
         
-        DataSegmentationApi(api_client).delete_data_segment(id, x_sail_point_experimental, )
+        DataSegmentationApi(api_client).delete_data_segment(id=id, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # DataSegmentationApi(api_client).delete_data_segment(id, x_sail_point_experimental, published)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling DataSegmentationApi->delete_data_segment: %s\n" % e)
 ```
 
@@ -155,6 +163,14 @@ with ApiClient(configuration) as api_client:
 ## get-data-segment
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Get Segment by ID
 This API returns the segment specified by the given ID.
@@ -189,13 +205,14 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.data_segmentation_api import DataSegmentationApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.data_segment import DataSegment
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     id = 'ef38f943-47e9-4562-b5bb-8424a56397d8' # str | The segment ID to retrieve. # str | The segment ID to retrieve.
@@ -204,12 +221,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Get Segment by ID
         
-        results =DataSegmentationApi(api_client).get_data_segment(id, x_sail_point_experimental)
+        results = DataSegmentationApi(api_client).get_data_segment(id=id, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = DataSegmentationApi(api_client).get_data_segment(id, x_sail_point_experimental)
         print("The response of DataSegmentationApi->get_data_segment:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling DataSegmentationApi->get_data_segment: %s\n" % e)
 ```
 
@@ -220,6 +237,14 @@ with ApiClient(configuration) as api_client:
 ## get-data-segment-identity-membership
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Get SegmentMembership by Identity ID
 This API returns the segment membership specified by the given identity ID.
@@ -254,12 +279,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.data_segmentation_api import DataSegmentationApi
 from sailpoint.v2024.api_client import ApiClient
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     identity_id = 'ef38f943-47e9-4562-b5bb-8424a56397d8' # str | The identity ID to retrieve the segments they are in. # str | The identity ID to retrieve the segments they are in.
@@ -268,12 +294,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Get SegmentMembership by Identity ID
         
-        results =DataSegmentationApi(api_client).get_data_segment_identity_membership(identity_id, x_sail_point_experimental)
+        results = DataSegmentationApi(api_client).get_data_segment_identity_membership(identity_id=identity_id, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = DataSegmentationApi(api_client).get_data_segment_identity_membership(identity_id, x_sail_point_experimental)
         print("The response of DataSegmentationApi->get_data_segment_identity_membership:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling DataSegmentationApi->get_data_segment_identity_membership: %s\n" % e)
 ```
 
@@ -284,6 +310,14 @@ with ApiClient(configuration) as api_client:
 ## get-data-segmentation-enabled-for-user
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Is Segmentation enabled by Identity
 This API returns whether or not segmentation is enabled for the identity.
@@ -318,12 +352,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.data_segmentation_api import DataSegmentationApi
 from sailpoint.v2024.api_client import ApiClient
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     identity_id = 'ef38f943-47e9-4562-b5bb-8424a56397d8' # str | The identity ID to retrieve if segmentation is enabled for the identity. # str | The identity ID to retrieve if segmentation is enabled for the identity.
@@ -332,12 +367,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Is Segmentation enabled by Identity
         
-        results =DataSegmentationApi(api_client).get_data_segmentation_enabled_for_user(identity_id, x_sail_point_experimental)
+        results = DataSegmentationApi(api_client).get_data_segmentation_enabled_for_user(identity_id=identity_id, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = DataSegmentationApi(api_client).get_data_segmentation_enabled_for_user(identity_id, x_sail_point_experimental)
         print("The response of DataSegmentationApi->get_data_segmentation_enabled_for_user:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling DataSegmentationApi->get_data_segmentation_enabled_for_user: %s\n" % e)
 ```
 
@@ -348,6 +383,14 @@ with ApiClient(configuration) as api_client:
 ## list-data-segments
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Get Segments
 This API returns the segment specified by the given ID.
@@ -388,13 +431,14 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.data_segmentation_api import DataSegmentationApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.data_segment import DataSegment
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -409,12 +453,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Get Segments
         
-        results =DataSegmentationApi(api_client).list_data_segments(x_sail_point_experimental, )
+        results = DataSegmentationApi(api_client).list_data_segments(x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = DataSegmentationApi(api_client).list_data_segments(x_sail_point_experimental, enabled, unique, published, limit, offset, count, filters)
         print("The response of DataSegmentationApi->list_data_segments:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling DataSegmentationApi->list_data_segments: %s\n" % e)
 ```
 
@@ -425,6 +469,14 @@ with ApiClient(configuration) as api_client:
 ## patch-data-segment
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Update Segment
 Use this API to update segment fields by using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
@@ -460,7 +512,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.data_segmentation_api import DataSegmentationApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.data_segment import DataSegment
@@ -468,23 +519,22 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+configuration.experimental = true
+
 with ApiClient(configuration) as api_client:
     id = 'ef38f943-47e9-4562-b5bb-8424a56397d8' # str | The segment ID to modify. # str | The segment ID to modify.
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    request_body = [{op=replace, path=/memberFilter, value={expression={operator=AND, children=[{operator=EQUALS, attribute=location, value={type=STRING, value=Philadelphia}}, {operator=EQUALS, attribute=department, value={type=STRING, value=HR}}]}}}] # List[object] | A list of segment update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * membership * memberFilter * memberSelection * scopes * enabled 
-     request_body = [{op=replace, path=/memberFilter, value={expression={operator=AND, children=[{operator=EQUALS, attribute=location, value={type=STRING, value=Philadelphia}}, {operator=EQUALS, attribute=department, value={type=STRING, value=HR}}]}}}] # List[object] | A list of segment update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * membership * memberFilter * memberSelection * scopes * enabled 
-    
+    request_body = '''[{op=replace, path=/memberFilter, value={expression={operator=AND, children=[{operator=EQUALS, attribute=location, value={type=STRING, value=Philadelphia}}, {operator=EQUALS, attribute=department, value={type=STRING, value=HR}}]}}}]''' # List[object] | A list of segment update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * membership * memberFilter * memberSelection * scopes * enabled 
 
     try:
         # Update Segment
-        new_request_body = RequestBody()
-        new_request_body.from_json(request_body)
-        results =DataSegmentationApi(api_client).patch_data_segment(id, x_sail_point_experimental, new_request_body)
+        new_request_body = RequestBody.from_json(request_body)
+        results = DataSegmentationApi(api_client).patch_data_segment(id=id, x_sail_point_experimental=x_sail_point_experimental, request_body=new_request_body)
         # Below is a request that includes all optional parameters
         # results = DataSegmentationApi(api_client).patch_data_segment(id, x_sail_point_experimental, new_request_body)
         print("The response of DataSegmentationApi->patch_data_segment:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling DataSegmentationApi->patch_data_segment: %s\n" % e)
 ```
 
@@ -495,6 +545,14 @@ with ApiClient(configuration) as api_client:
 ## publish-data-segment
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Publish segment by ID
 This will publish the segment so that it starts applying the segmentation to the desired users if enabled
@@ -530,28 +588,26 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.data_segmentation_api import DataSegmentationApi
 from sailpoint.v2024.api_client import ApiClient
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+configuration.experimental = true
+
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    request_body = ['request_body_example'] # List[str] | A list of segment ids that you wish to publish
-     request_body = ['request_body_example'] # List[str] | A list of segment ids that you wish to publish
-    
+    request_body = '''['request_body_example']''' # List[str] | A list of segment ids that you wish to publish
     publish_all = True # bool | This flag decides whether you want to publish all unpublished or a list of specific segment ids (optional) (default to True) # bool | This flag decides whether you want to publish all unpublished or a list of specific segment ids (optional) (default to True)
 
     try:
         # Publish segment by ID
-        new_request_body = RequestBody()
-        new_request_body.from_json(request_body)
-        DataSegmentationApi(api_client).publish_data_segment(x_sail_point_experimental, new_request_body, )
+        new_request_body = RequestBody.from_json(request_body)
+        DataSegmentationApi(api_client).publish_data_segment(x_sail_point_experimental=x_sail_point_experimental, request_body=new_request_body)
         # Below is a request that includes all optional parameters
         # DataSegmentationApi(api_client).publish_data_segment(x_sail_point_experimental, new_request_body, publish_all)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling DataSegmentationApi->publish_data_segment: %s\n" % e)
 ```
 

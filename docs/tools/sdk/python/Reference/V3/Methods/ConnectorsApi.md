@@ -75,7 +75,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v3
 from sailpoint.v3.api.connectors_api import ConnectorsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.v3_connector_dto import V3ConnectorDto
@@ -84,25 +83,25 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
-    v3_create_connector_dto = {
+    v3_create_connector_dto = '''{
           "name" : "custom connector",
           "directConnect" : true,
           "className" : "sailpoint.connector.OpenConnectorAdapter",
           "type" : "custom connector type",
           "status" : "RELEASED"
-        } # V3CreateConnectorDto | 
+        }''' # V3CreateConnectorDto | 
 
     try:
         # Create Custom Connector
-        new_v3_create_connector_dto = V3CreateConnectorDto()
-        new_v3_create_connector_dto.from_json(v3_create_connector_dto)
-        results =ConnectorsApi(api_client).create_custom_connector(new_v3_create_connector_dto)
+        new_v3_create_connector_dto = V3CreateConnectorDto.from_json(v3_create_connector_dto)
+        results = ConnectorsApi(api_client).create_custom_connector(v3_create_connector_dto=new_v3_create_connector_dto)
         # Below is a request that includes all optional parameters
         # results = ConnectorsApi(api_client).create_custom_connector(new_v3_create_connector_dto)
         print("The response of ConnectorsApi->create_custom_connector:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling ConnectorsApi->create_custom_connector: %s\n" % e)
 ```
 
@@ -143,12 +142,12 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v3
 from sailpoint.v3.api.connectors_api import ConnectorsApi
 from sailpoint.v3.api_client import ApiClient
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     script_name = 'aScriptName' # str | The scriptName value of the connector. ScriptName is the unique id generated at connector creation. # str | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
@@ -156,10 +155,10 @@ with ApiClient(configuration) as api_client:
     try:
         # Delete Connector by Script Name
         
-        ConnectorsApi(api_client).delete_custom_connector(script_name)
+        ConnectorsApi(api_client).delete_custom_connector(script_name=script_name)
         # Below is a request that includes all optional parameters
         # ConnectorsApi(api_client).delete_custom_connector(script_name)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling ConnectorsApi->delete_custom_connector: %s\n" % e)
 ```
 
@@ -201,13 +200,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v3
 from sailpoint.v3.api.connectors_api import ConnectorsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.connector_detail import ConnectorDetail
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     script_name = 'aScriptName' # str | The scriptName value of the connector. ScriptName is the unique id generated at connector creation. # str | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
@@ -216,12 +215,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Get Connector by Script Name
         
-        results =ConnectorsApi(api_client).get_connector(script_name, )
+        results = ConnectorsApi(api_client).get_connector(script_name=script_name)
         # Below is a request that includes all optional parameters
         # results = ConnectorsApi(api_client).get_connector(script_name, locale)
         print("The response of ConnectorsApi->get_connector:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling ConnectorsApi->get_connector: %s\n" % e)
 ```
 
@@ -266,13 +265,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v3
 from sailpoint.v3.api.connectors_api import ConnectorsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.v3_connector_dto import V3ConnectorDto
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     filters = 'directConnect eq \"true\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *sw, co*  **type**: *sw, co, eq*  **directConnect**: *eq*  **category**: *eq*  **features**: *ca*  **labels**: *ca* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *sw, co*  **type**: *sw, co, eq*  **directConnect**: *eq*  **category**: *eq*  **features**: *ca*  **labels**: *ca* (optional)
@@ -284,12 +283,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Get Connector List
         
-        results =ConnectorsApi(api_client).get_connector_list()
+        results = ConnectorsApi(api_client).get_connector_list()
         # Below is a request that includes all optional parameters
         # results = ConnectorsApi(api_client).get_connector_list(filters, limit, offset, count, locale)
         print("The response of ConnectorsApi->get_connector_list:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling ConnectorsApi->get_connector_list: %s\n" % e)
 ```
 
@@ -330,12 +329,12 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v3
 from sailpoint.v3.api.connectors_api import ConnectorsApi
 from sailpoint.v3.api_client import ApiClient
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     script_name = 'aScriptName' # str | The scriptName value of the connector. ScriptName is the unique id generated at connector creation. # str | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
@@ -343,12 +342,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Get Connector Source Configuration
         
-        results =ConnectorsApi(api_client).get_connector_source_config(script_name)
+        results = ConnectorsApi(api_client).get_connector_source_config(script_name=script_name)
         # Below is a request that includes all optional parameters
         # results = ConnectorsApi(api_client).get_connector_source_config(script_name)
         print("The response of ConnectorsApi->get_connector_source_config:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling ConnectorsApi->get_connector_source_config: %s\n" % e)
 ```
 
@@ -389,12 +388,12 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v3
 from sailpoint.v3.api.connectors_api import ConnectorsApi
 from sailpoint.v3.api_client import ApiClient
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     script_name = 'aScriptName' # str | The scriptName value of the connector. ScriptName is the unique id generated at connector creation. # str | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
@@ -402,12 +401,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Get Connector Source Template
         
-        results =ConnectorsApi(api_client).get_connector_source_template(script_name)
+        results = ConnectorsApi(api_client).get_connector_source_template(script_name=script_name)
         # Below is a request that includes all optional parameters
         # results = ConnectorsApi(api_client).get_connector_source_template(script_name)
         print("The response of ConnectorsApi->get_connector_source_template:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling ConnectorsApi->get_connector_source_template: %s\n" % e)
 ```
 
@@ -449,12 +448,12 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v3
 from sailpoint.v3.api.connectors_api import ConnectorsApi
 from sailpoint.v3.api_client import ApiClient
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     script_name = 'aScriptName' # str | The scriptName value of the connector. Scriptname is the unique id generated at connector creation. # str | The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
@@ -463,12 +462,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Get Connector Translations
         
-        results =ConnectorsApi(api_client).get_connector_translations(script_name, locale)
+        results = ConnectorsApi(api_client).get_connector_translations(script_name=script_name, locale=locale)
         # Below is a request that includes all optional parameters
         # results = ConnectorsApi(api_client).get_connector_translations(script_name, locale)
         print("The response of ConnectorsApi->get_connector_translations:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling ConnectorsApi->get_connector_translations: %s\n" % e)
 ```
 
@@ -510,13 +509,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v3
 from sailpoint.v3.api.connectors_api import ConnectorsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.update_detail import UpdateDetail
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     script_name = 'aScriptName' # str | The scriptName value of the connector. ScriptName is the unique id generated at connector creation. # str | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
@@ -525,12 +524,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Update Connector Source Configuration
         
-        results =ConnectorsApi(api_client).put_connector_source_config(script_name, file)
+        results = ConnectorsApi(api_client).put_connector_source_config(script_name=script_name, file=file)
         # Below is a request that includes all optional parameters
         # results = ConnectorsApi(api_client).put_connector_source_config(script_name, file)
         print("The response of ConnectorsApi->put_connector_source_config:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling ConnectorsApi->put_connector_source_config: %s\n" % e)
 ```
 
@@ -572,13 +571,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v3
 from sailpoint.v3.api.connectors_api import ConnectorsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.update_detail import UpdateDetail
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     script_name = 'aScriptName' # str | The scriptName value of the connector. ScriptName is the unique id generated at connector creation. # str | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
@@ -587,12 +586,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Update Connector Source Template
         
-        results =ConnectorsApi(api_client).put_connector_source_template(script_name, file)
+        results = ConnectorsApi(api_client).put_connector_source_template(script_name=script_name, file=file)
         # Below is a request that includes all optional parameters
         # results = ConnectorsApi(api_client).put_connector_source_template(script_name, file)
         print("The response of ConnectorsApi->put_connector_source_template:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling ConnectorsApi->put_connector_source_template: %s\n" % e)
 ```
 
@@ -634,13 +633,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v3
 from sailpoint.v3.api.connectors_api import ConnectorsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.update_detail import UpdateDetail
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     script_name = 'aScriptName' # str | The scriptName value of the connector. Scriptname is the unique id generated at connector creation. # str | The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
@@ -649,12 +648,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Update Connector Translations
         
-        results =ConnectorsApi(api_client).put_connector_translations(script_name, locale)
+        results = ConnectorsApi(api_client).put_connector_translations(script_name=script_name, locale=locale)
         # Below is a request that includes all optional parameters
         # results = ConnectorsApi(api_client).put_connector_translations(script_name, locale)
         print("The response of ConnectorsApi->put_connector_translations:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling ConnectorsApi->put_connector_translations: %s\n" % e)
 ```
 
@@ -708,7 +707,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v3
 from sailpoint.v3.api.connectors_api import ConnectorsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.connector_detail import ConnectorDetail
@@ -717,26 +715,20 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     script_name = 'aScriptName' # str | The scriptName value of the connector. ScriptName is the unique id generated at connector creation. # str | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
-    [sailpoint.v3.JsonPatchOperation()] # List[JsonPatchOperation] | A list of connector detail update operations 
-     json_patch_operation = {
-          "op" : "replace",
-          "path" : "/description",
-          "value" : "New description"
-        } # List[JsonPatchOperation] | A list of connector detail update operations 
-    
+    json_patch_operation = '''[sailpoint.v3.JsonPatchOperation()]''' # List[JsonPatchOperation] | A list of connector detail update operations 
 
     try:
         # Update Connector by Script Name
-        new_json_patch_operation = JsonPatchOperation()
-        new_json_patch_operation.from_json(json_patch_operation)
-        results =ConnectorsApi(api_client).update_connector(script_name, new_json_patch_operation)
+        new_json_patch_operation = JsonPatchOperation.from_json(json_patch_operation)
+        results = ConnectorsApi(api_client).update_connector(script_name=script_name, json_patch_operation=new_json_patch_operation)
         # Below is a request that includes all optional parameters
         # results = ConnectorsApi(api_client).update_connector(script_name, new_json_patch_operation)
         print("The response of ConnectorsApi->update_connector:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling ConnectorsApi->update_connector: %s\n" % e)
 ```
 

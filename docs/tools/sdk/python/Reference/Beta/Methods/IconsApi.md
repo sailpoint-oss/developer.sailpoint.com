@@ -55,12 +55,12 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.icons_api import IconsApi
 from sailpoint.beta.api_client import ApiClient
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     object_type = 'application' # str | Object type # str | Object type
@@ -69,10 +69,10 @@ with ApiClient(configuration) as api_client:
     try:
         # Delete an icon
         
-        IconsApi(api_client).delete_icon(object_type, object_id)
+        IconsApi(api_client).delete_icon(object_type=object_type, object_id=object_id)
         # Below is a request that includes all optional parameters
         # IconsApi(api_client).delete_icon(object_type, object_id)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling IconsApi->delete_icon: %s\n" % e)
 ```
 
@@ -115,13 +115,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.icons_api import IconsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.set_icon200_response import SetIcon200Response
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     object_type = 'application' # str | Object type # str | Object type
@@ -131,12 +131,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Update an icon
         
-        results =IconsApi(api_client).set_icon(object_type, object_id, image)
+        results = IconsApi(api_client).set_icon(object_type=object_type, object_id=object_id, image=image)
         # Below is a request that includes all optional parameters
         # results = IconsApi(api_client).set_icon(object_type, object_id, image)
         print("The response of IconsApi->set_icon:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling IconsApi->set_icon: %s\n" % e)
 ```
 

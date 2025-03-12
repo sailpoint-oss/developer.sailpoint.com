@@ -15,13 +15,13 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get-recommendations**](#get-recommendations) | **POST** `/recommendations/request` | Returns a Recommendation Based on Object
+[**get-recommendations**](#get-recommendations) | **POST** `/recommendations/request` | Returns Recommendation Based on Object
 [**get-recommendations-config**](#get-recommendations-config) | **GET** `/recommendations/config` | Get certification recommendation config values
 [**update-recommendations-config**](#update-recommendations-config) | **PUT** `/recommendations/config` | Update certification recommendation config values
 
 
 ## get-recommendations
-Returns a Recommendation Based on Object
+Returns Recommendation Based on Object
 The getRecommendations API returns recommendations based on the requested object. The recommendations are invoked by IdentityIQ and IdentityNow plug-ins that retrieve recommendations based on the performed calculations.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-recommendations)
@@ -52,7 +52,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.iai_recommendations_api import IAIRecommendationsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.recommendation_request_dto import RecommendationRequestDto
@@ -61,8 +60,9 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
-    recommendation_request_dto = {
+    recommendation_request_dto = '''{
           "prescribeMode" : false,
           "excludeInterpretations" : false,
           "requests" : [ {
@@ -80,18 +80,17 @@ with ApiClient(configuration) as api_client:
           } ],
           "includeTranslationMessages" : false,
           "includeDebugInformation" : true
-        } # RecommendationRequestDto | 
+        }''' # RecommendationRequestDto | 
 
     try:
-        # Returns a Recommendation Based on Object
-        new_recommendation_request_dto = RecommendationRequestDto()
-        new_recommendation_request_dto.from_json(recommendation_request_dto)
-        results =IAIRecommendationsApi(api_client).get_recommendations(new_recommendation_request_dto)
+        # Returns Recommendation Based on Object
+        new_recommendation_request_dto = RecommendationRequestDto.from_json(recommendation_request_dto)
+        results = IAIRecommendationsApi(api_client).get_recommendations(recommendation_request_dto=new_recommendation_request_dto)
         # Below is a request that includes all optional parameters
         # results = IAIRecommendationsApi(api_client).get_recommendations(new_recommendation_request_dto)
         print("The response of IAIRecommendationsApi->get_recommendations:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling IAIRecommendationsApi->get_recommendations: %s\n" % e)
 ```
 
@@ -118,6 +117,7 @@ Code | Description  | Data Type | Response headers |
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessModelMetadataAttribute401Response |  -  |
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessModelMetadataAttribute429Response |  -  |
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
 ### HTTP request headers
@@ -127,7 +127,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.iai_recommendations_api import IAIRecommendationsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.recommendation_config_dto import RecommendationConfigDto
@@ -135,17 +134,18 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
 
     try:
         # Get certification recommendation config values
         
-        results =IAIRecommendationsApi(api_client).get_recommendations_config()
+        results = IAIRecommendationsApi(api_client).get_recommendations_config()
         # Below is a request that includes all optional parameters
         # results = IAIRecommendationsApi(api_client).get_recommendations_config()
         print("The response of IAIRecommendationsApi->get_recommendations_config:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling IAIRecommendationsApi->get_recommendations_config: %s\n" % e)
 ```
 
@@ -175,6 +175,7 @@ Code | Description  | Data Type | Response headers |
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessModelMetadataAttribute401Response |  -  |
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessModelMetadataAttribute429Response |  -  |
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
 ### HTTP request headers
@@ -184,7 +185,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.iai_recommendations_api import IAIRecommendationsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.recommendation_config_dto import RecommendationConfigDto
@@ -192,24 +192,24 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
-    recommendation_config_dto = {
+    recommendation_config_dto = '''{
           "recommenderFeatures" : [ "jobTitle", "location", "peer_group", "department", "active" ],
           "peerGroupPercentageThreshold" : 0.5,
           "runAutoSelectOnce" : false,
           "onlyTuneThreshold" : false
-        } # RecommendationConfigDto | 
+        }''' # RecommendationConfigDto | 
 
     try:
         # Update certification recommendation config values
-        new_recommendation_config_dto = RecommendationConfigDto()
-        new_recommendation_config_dto.from_json(recommendation_config_dto)
-        results =IAIRecommendationsApi(api_client).update_recommendations_config(new_recommendation_config_dto)
+        new_recommendation_config_dto = RecommendationConfigDto.from_json(recommendation_config_dto)
+        results = IAIRecommendationsApi(api_client).update_recommendations_config(recommendation_config_dto=new_recommendation_config_dto)
         # Below is a request that includes all optional parameters
         # results = IAIRecommendationsApi(api_client).update_recommendations_config(new_recommendation_config_dto)
         print("The response of IAIRecommendationsApi->update_recommendations_config:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling IAIRecommendationsApi->update_recommendations_config: %s\n" % e)
 ```
 

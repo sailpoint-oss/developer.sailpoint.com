@@ -61,7 +61,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.custom_password_instructions_api import CustomPasswordInstructionsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.custom_password_instruction import CustomPasswordInstruction
@@ -69,23 +68,23 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
-    custom_password_instruction = {
+    custom_password_instruction = '''{
           "pageContent" : "Please enter a new password. Your password must be at least 8 characters long and contain at least one number and one letter.",
           "pageId" : "change-password:enter-password",
           "locale" : "en"
-        } # CustomPasswordInstruction | 
+        }''' # CustomPasswordInstruction | 
 
     try:
         # Create Custom Password Instructions
-        new_custom_password_instruction = CustomPasswordInstruction()
-        new_custom_password_instruction.from_json(custom_password_instruction)
-        results =CustomPasswordInstructionsApi(api_client).create_custom_password_instructions(new_custom_password_instruction)
+        new_custom_password_instruction = CustomPasswordInstruction.from_json(custom_password_instruction)
+        results = CustomPasswordInstructionsApi(api_client).create_custom_password_instructions(custom_password_instruction=new_custom_password_instruction)
         # Below is a request that includes all optional parameters
         # results = CustomPasswordInstructionsApi(api_client).create_custom_password_instructions(new_custom_password_instruction)
         print("The response of CustomPasswordInstructionsApi->create_custom_password_instructions:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling CustomPasswordInstructionsApi->create_custom_password_instructions: %s\n" % e)
 ```
 
@@ -125,12 +124,12 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.custom_password_instructions_api import CustomPasswordInstructionsApi
 from sailpoint.beta.api_client import ApiClient
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     page_id = 'mfa:select' # str | The page ID of custom password instructions to delete. # str | The page ID of custom password instructions to delete.
@@ -139,10 +138,10 @@ with ApiClient(configuration) as api_client:
     try:
         # Delete Custom Password Instructions by page ID
         
-        CustomPasswordInstructionsApi(api_client).delete_custom_password_instructions(page_id, )
+        CustomPasswordInstructionsApi(api_client).delete_custom_password_instructions(page_id=page_id)
         # Below is a request that includes all optional parameters
         # CustomPasswordInstructionsApi(api_client).delete_custom_password_instructions(page_id, locale)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling CustomPasswordInstructionsApi->delete_custom_password_instructions: %s\n" % e)
 ```
 
@@ -182,13 +181,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.custom_password_instructions_api import CustomPasswordInstructionsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.custom_password_instruction import CustomPasswordInstruction
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     page_id = 'mfa:select' # str | The page ID of custom password instructions to query. # str | The page ID of custom password instructions to query.
@@ -197,12 +196,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Get Custom Password Instructions by Page ID
         
-        results =CustomPasswordInstructionsApi(api_client).get_custom_password_instructions(page_id, )
+        results = CustomPasswordInstructionsApi(api_client).get_custom_password_instructions(page_id=page_id)
         # Below is a request that includes all optional parameters
         # results = CustomPasswordInstructionsApi(api_client).get_custom_password_instructions(page_id, locale)
         print("The response of CustomPasswordInstructionsApi->get_custom_password_instructions:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling CustomPasswordInstructionsApi->get_custom_password_instructions: %s\n" % e)
 ```
 

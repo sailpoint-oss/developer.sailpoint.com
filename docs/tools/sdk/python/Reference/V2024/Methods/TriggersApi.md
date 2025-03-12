@@ -72,6 +72,14 @@ Method | HTTP request | Description
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
+:::
 Complete Trigger Invocation
 Completes an invocation to a REQUEST_RESPONSE type trigger.
 
@@ -105,7 +113,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.triggers_api import TriggersApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.complete_invocation import CompleteInvocation
@@ -113,25 +120,26 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+configuration.experimental = true
+
 with ApiClient(configuration) as api_client:
     id = '0f11f2a4-7c94-4bf3-a2bd-742580fe3bde' # str | The ID of the invocation to complete. # str | The ID of the invocation to complete.
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    complete_invocation = {
+    complete_invocation = '''{
           "output" : {
             "approved" : false
           },
           "secret" : "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde",
           "error" : "Access request is denied."
-        } # CompleteInvocation | 
+        }''' # CompleteInvocation | 
 
     try:
         # Complete Trigger Invocation
-        new_complete_invocation = CompleteInvocation()
-        new_complete_invocation.from_json(complete_invocation)
-        TriggersApi(api_client).complete_trigger_invocation(id, x_sail_point_experimental, new_complete_invocation)
+        new_complete_invocation = CompleteInvocation.from_json(complete_invocation)
+        TriggersApi(api_client).complete_trigger_invocation(id=id, x_sail_point_experimental=x_sail_point_experimental, complete_invocation=new_complete_invocation)
         # Below is a request that includes all optional parameters
         # TriggersApi(api_client).complete_trigger_invocation(id, x_sail_point_experimental, new_complete_invocation)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling TriggersApi->complete_trigger_invocation: %s\n" % e)
 ```
 
@@ -142,6 +150,14 @@ with ApiClient(configuration) as api_client:
 ## create-subscription
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Create a Subscription
 This API creates a new subscription to a trigger and defines trigger invocation details. The type of subscription determines which config object is required:
@@ -177,7 +193,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.triggers_api import TriggersApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.subscription import Subscription
@@ -186,9 +201,11 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+configuration.experimental = true
+
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    subscription_post_request = {
+    subscription_post_request = '''{
           "filter" : "$[?($.identityId == \"201327fda1c44704ac01181e963d463c\")]",
           "httpConfig" : {
             "bearerTokenAuthConfig" : {
@@ -212,18 +229,17 @@ with ApiClient(configuration) as api_client:
           "responseDeadline" : "PT1H",
           "type" : "HTTP",
           "enabled" : true
-        } # SubscriptionPostRequest | 
+        }''' # SubscriptionPostRequest | 
 
     try:
         # Create a Subscription
-        new_subscription_post_request = SubscriptionPostRequest()
-        new_subscription_post_request.from_json(subscription_post_request)
-        results =TriggersApi(api_client).create_subscription(x_sail_point_experimental, new_subscription_post_request)
+        new_subscription_post_request = SubscriptionPostRequest.from_json(subscription_post_request)
+        results = TriggersApi(api_client).create_subscription(x_sail_point_experimental=x_sail_point_experimental, subscription_post_request=new_subscription_post_request)
         # Below is a request that includes all optional parameters
         # results = TriggersApi(api_client).create_subscription(x_sail_point_experimental, new_subscription_post_request)
         print("The response of TriggersApi->create_subscription:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling TriggersApi->create_subscription: %s\n" % e)
 ```
 
@@ -234,6 +250,14 @@ with ApiClient(configuration) as api_client:
 ## delete-subscription
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Delete a Subscription
 Deletes an existing subscription to a trigger.
@@ -268,12 +292,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.triggers_api import TriggersApi
 from sailpoint.v2024.api_client import ApiClient
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     id = '0f11f2a4-7c94-4bf3-a2bd-742580fe3bde' # str | Subscription ID # str | Subscription ID
@@ -282,10 +307,10 @@ with ApiClient(configuration) as api_client:
     try:
         # Delete a Subscription
         
-        TriggersApi(api_client).delete_subscription(id, x_sail_point_experimental)
+        TriggersApi(api_client).delete_subscription(id=id, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # TriggersApi(api_client).delete_subscription(id, x_sail_point_experimental)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling TriggersApi->delete_subscription: %s\n" % e)
 ```
 
@@ -296,6 +321,14 @@ with ApiClient(configuration) as api_client:
 ## list-subscriptions
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 List Subscriptions
 Gets a list of all trigger subscriptions.
@@ -333,13 +366,14 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.triggers_api import TriggersApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.subscription import Subscription
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -352,12 +386,12 @@ with ApiClient(configuration) as api_client:
     try:
         # List Subscriptions
         
-        results =TriggersApi(api_client).list_subscriptions(x_sail_point_experimental, )
+        results = TriggersApi(api_client).list_subscriptions(x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = TriggersApi(api_client).list_subscriptions(x_sail_point_experimental, limit, offset, count, filters, sorters)
         print("The response of TriggersApi->list_subscriptions:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling TriggersApi->list_subscriptions: %s\n" % e)
 ```
 
@@ -368,6 +402,14 @@ with ApiClient(configuration) as api_client:
 ## list-trigger-invocation-status
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 List Latest Invocation Statuses
 Gets a list of latest invocation statuses.
@@ -407,13 +449,14 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.triggers_api import TriggersApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.invocation_status import InvocationStatus
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -426,12 +469,12 @@ with ApiClient(configuration) as api_client:
     try:
         # List Latest Invocation Statuses
         
-        results =TriggersApi(api_client).list_trigger_invocation_status(x_sail_point_experimental, )
+        results = TriggersApi(api_client).list_trigger_invocation_status(x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = TriggersApi(api_client).list_trigger_invocation_status(x_sail_point_experimental, limit, offset, count, filters, sorters)
         print("The response of TriggersApi->list_trigger_invocation_status:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling TriggersApi->list_trigger_invocation_status: %s\n" % e)
 ```
 
@@ -442,6 +485,14 @@ with ApiClient(configuration) as api_client:
 ## list-triggers
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 List Triggers
 Gets a list of triggers that are available in the tenant.
@@ -479,13 +530,14 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.triggers_api import TriggersApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.trigger import Trigger
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
+configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -498,12 +550,12 @@ with ApiClient(configuration) as api_client:
     try:
         # List Triggers
         
-        results =TriggersApi(api_client).list_triggers(x_sail_point_experimental, )
+        results = TriggersApi(api_client).list_triggers(x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = TriggersApi(api_client).list_triggers(x_sail_point_experimental, limit, offset, count, filters, sorters)
         print("The response of TriggersApi->list_triggers:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling TriggersApi->list_triggers: %s\n" % e)
 ```
 
@@ -514,6 +566,14 @@ with ApiClient(configuration) as api_client:
 ## patch-subscription
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Patch a Subscription
 This API updates a trigger subscription in IdentityNow, using a set of instructions to modify a subscription partially. The following fields are patchable:
@@ -551,7 +611,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.triggers_api import TriggersApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.subscription import Subscription
@@ -560,23 +619,22 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+configuration.experimental = true
+
 with ApiClient(configuration) as api_client:
     id = '0f11f2a4-7c94-4bf3-a2bd-742580fe3bde' # str | ID of the Subscription to patch # str | ID of the Subscription to patch
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    [sailpoint.v2024.SubscriptionPatchRequestInner()] # List[SubscriptionPatchRequestInner] | 
-     subscription_patch_request_inner = [sailpoint.v2024.SubscriptionPatchRequestInner()] # List[SubscriptionPatchRequestInner] | 
-    
+    subscription_patch_request_inner = '''[sailpoint.v2024.SubscriptionPatchRequestInner()]''' # List[SubscriptionPatchRequestInner] | 
 
     try:
         # Patch a Subscription
-        new_subscription_patch_request_inner = SubscriptionPatchRequestInner()
-        new_subscription_patch_request_inner.from_json(subscription_patch_request_inner)
-        results =TriggersApi(api_client).patch_subscription(id, x_sail_point_experimental, new_subscription_patch_request_inner)
+        new_subscription_patch_request_inner = SubscriptionPatchRequestInner.from_json(subscription_patch_request_inner)
+        results = TriggersApi(api_client).patch_subscription(id=id, x_sail_point_experimental=x_sail_point_experimental, subscription_patch_request_inner=new_subscription_patch_request_inner)
         # Below is a request that includes all optional parameters
         # results = TriggersApi(api_client).patch_subscription(id, x_sail_point_experimental, new_subscription_patch_request_inner)
         print("The response of TriggersApi->patch_subscription:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling TriggersApi->patch_subscription: %s\n" % e)
 ```
 
@@ -587,6 +645,14 @@ with ApiClient(configuration) as api_client:
 ## start-test-trigger-invocation
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Start a Test Invocation
 Initiate a test event for all subscribers of the specified event trigger.  If there are no subscribers to the specified trigger in the tenant, then no test event will be sent.
@@ -621,7 +687,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.triggers_api import TriggersApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.invocation import Invocation
@@ -630,9 +695,11 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+configuration.experimental = true
+
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    test_invocation = {
+    test_invocation = '''{
           "input" : {
             "identityId" : "201327fda1c44704ac01181e963d463c"
           },
@@ -641,18 +708,17 @@ with ApiClient(configuration) as api_client:
           "contentJson" : {
             "workflowId" : 1234
           }
-        } # TestInvocation | 
+        }''' # TestInvocation | 
 
     try:
         # Start a Test Invocation
-        new_test_invocation = TestInvocation()
-        new_test_invocation.from_json(test_invocation)
-        results =TriggersApi(api_client).start_test_trigger_invocation(x_sail_point_experimental, new_test_invocation)
+        new_test_invocation = TestInvocation.from_json(test_invocation)
+        results = TriggersApi(api_client).start_test_trigger_invocation(x_sail_point_experimental=x_sail_point_experimental, test_invocation=new_test_invocation)
         # Below is a request that includes all optional parameters
         # results = TriggersApi(api_client).start_test_trigger_invocation(x_sail_point_experimental, new_test_invocation)
         print("The response of TriggersApi->start_test_trigger_invocation:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling TriggersApi->start_test_trigger_invocation: %s\n" % e)
 ```
 
@@ -663,6 +729,14 @@ with ApiClient(configuration) as api_client:
 ## test-subscription-filter
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Validate a Subscription Filter
 Validates a JSONPath filter expression against a provided mock input.
@@ -697,7 +771,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.triggers_api import TriggersApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.validate_filter_input_dto import ValidateFilterInputDto
@@ -706,25 +779,26 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+configuration.experimental = true
+
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    validate_filter_input_dto = {
+    validate_filter_input_dto = '''{
           "filter" : "$[?($.identityId == \"201327fda1c44704ac01181e963d463c\")]",
           "input" : {
             "identityId" : "201327fda1c44704ac01181e963d463c"
           }
-        } # ValidateFilterInputDto | 
+        }''' # ValidateFilterInputDto | 
 
     try:
         # Validate a Subscription Filter
-        new_validate_filter_input_dto = ValidateFilterInputDto()
-        new_validate_filter_input_dto.from_json(validate_filter_input_dto)
-        results =TriggersApi(api_client).test_subscription_filter(x_sail_point_experimental, new_validate_filter_input_dto)
+        new_validate_filter_input_dto = ValidateFilterInputDto.from_json(validate_filter_input_dto)
+        results = TriggersApi(api_client).test_subscription_filter(x_sail_point_experimental=x_sail_point_experimental, validate_filter_input_dto=new_validate_filter_input_dto)
         # Below is a request that includes all optional parameters
         # results = TriggersApi(api_client).test_subscription_filter(x_sail_point_experimental, new_validate_filter_input_dto)
         print("The response of TriggersApi->test_subscription_filter:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling TriggersApi->test_subscription_filter: %s\n" % e)
 ```
 
@@ -735,6 +809,14 @@ with ApiClient(configuration) as api_client:
 ## update-subscription
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
 :::
 Update a Subscription
 This API updates a trigger subscription in IdentityNow, using a full object representation. In other words, the existing
@@ -779,7 +861,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.triggers_api import TriggersApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.subscription import Subscription
@@ -788,10 +869,12 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+configuration.experimental = true
+
 with ApiClient(configuration) as api_client:
     id = '0f11f2a4-7c94-4bf3-a2bd-742580fe3bde' # str | Subscription ID # str | Subscription ID
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    subscription_put_request = {
+    subscription_put_request = '''{
           "filter" : "$[?($.identityId == \"201327fda1c44704ac01181e963d463c\")]",
           "httpConfig" : {
             "bearerTokenAuthConfig" : {
@@ -814,18 +897,17 @@ with ApiClient(configuration) as api_client:
           "responseDeadline" : "PT1H",
           "type" : "HTTP",
           "enabled" : true
-        } # SubscriptionPutRequest | 
+        }''' # SubscriptionPutRequest | 
 
     try:
         # Update a Subscription
-        new_subscription_put_request = SubscriptionPutRequest()
-        new_subscription_put_request.from_json(subscription_put_request)
-        results =TriggersApi(api_client).update_subscription(id, x_sail_point_experimental, new_subscription_put_request)
+        new_subscription_put_request = SubscriptionPutRequest.from_json(subscription_put_request)
+        results = TriggersApi(api_client).update_subscription(id=id, x_sail_point_experimental=x_sail_point_experimental, subscription_put_request=new_subscription_put_request)
         # Below is a request that includes all optional parameters
         # results = TriggersApi(api_client).update_subscription(id, x_sail_point_experimental, new_subscription_put_request)
         print("The response of TriggersApi->update_subscription:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling TriggersApi->update_subscription: %s\n" % e)
 ```
 

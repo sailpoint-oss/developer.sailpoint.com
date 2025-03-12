@@ -55,7 +55,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.mfa_controller_api import MFAControllerApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.send_token_request import SendTokenRequest
@@ -64,22 +63,22 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
-    send_token_request = {
+    send_token_request = '''{
           "userAlias" : "will.albin",
           "deliveryType" : "EMAIL_WORK"
-        } # SendTokenRequest | 
+        }''' # SendTokenRequest | 
 
     try:
         # Create and send user token
-        new_send_token_request = SendTokenRequest()
-        new_send_token_request.from_json(send_token_request)
-        results =MFAControllerApi(api_client).create_send_token(new_send_token_request)
+        new_send_token_request = SendTokenRequest.from_json(send_token_request)
+        results = MFAControllerApi(api_client).create_send_token(send_token_request=new_send_token_request)
         # Below is a request that includes all optional parameters
         # results = MFAControllerApi(api_client).create_send_token(new_send_token_request)
         print("The response of MFAControllerApi->create_send_token:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling MFAControllerApi->create_send_token: %s\n" % e)
 ```
 
@@ -120,7 +119,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.mfa_controller_api import MFAControllerApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.verification_poll_request import VerificationPollRequest
@@ -129,22 +127,22 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     method = 'okta-verify' # str | The name of the MFA method. The currently supported method names are 'okta-verify', 'duo-web', 'kba','token', 'rsa' # str | The name of the MFA method. The currently supported method names are 'okta-verify', 'duo-web', 'kba','token', 'rsa'
-    verification_poll_request = {
+    verification_poll_request = '''{
           "requestId" : "089899f13a8f4da7824996191587bab9"
-        } # VerificationPollRequest | 
+        }''' # VerificationPollRequest | 
 
     try:
         # Polling MFA method by VerificationPollRequest
-        new_verification_poll_request = VerificationPollRequest()
-        new_verification_poll_request.from_json(verification_poll_request)
-        results =MFAControllerApi(api_client).ping_verification_status(method, new_verification_poll_request)
+        new_verification_poll_request = VerificationPollRequest.from_json(verification_poll_request)
+        results = MFAControllerApi(api_client).ping_verification_status(method=method, verification_poll_request=new_verification_poll_request)
         # Below is a request that includes all optional parameters
         # results = MFAControllerApi(api_client).ping_verification_status(method, new_verification_poll_request)
         print("The response of MFAControllerApi->ping_verification_status:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling MFAControllerApi->ping_verification_status: %s\n" % e)
 ```
 
@@ -184,7 +182,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.mfa_controller_api import MFAControllerApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.duo_verification_request import DuoVerificationRequest
@@ -193,22 +190,22 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
-    duo_verification_request = {
+    duo_verification_request = '''{
           "signedResponse" : "AUTH|d2lsbC5hbGJpbnxESTZNMFpHSThKQVRWTVpZN0M5VXwxNzAxMjUzMDg5|f1f5f8ced5b340f3d303b05d0efa0e43b6a8f970:APP|d2lsbC5hbGJpbnxESTZNMFpHSThKQVRWTVpZN0M5VXwxNzAxMjU2NjE5|cb44cf44353f5127edcae31b1da0355f87357db2",
           "userId" : "2c9180947f0ef465017f215cbcfd004b"
-        } # DuoVerificationRequest | 
+        }''' # DuoVerificationRequest | 
 
     try:
         # Verifying authentication via Duo method
-        new_duo_verification_request = DuoVerificationRequest()
-        new_duo_verification_request.from_json(duo_verification_request)
-        results =MFAControllerApi(api_client).send_duo_verify_request(new_duo_verification_request)
+        new_duo_verification_request = DuoVerificationRequest.from_json(duo_verification_request)
+        results = MFAControllerApi(api_client).send_duo_verify_request(duo_verification_request=new_duo_verification_request)
         # Below is a request that includes all optional parameters
         # results = MFAControllerApi(api_client).send_duo_verify_request(new_duo_verification_request)
         print("The response of MFAControllerApi->send_duo_verify_request:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling MFAControllerApi->send_duo_verify_request: %s\n" % e)
 ```
 
@@ -248,7 +245,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.mfa_controller_api import MFAControllerApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.kba_answer_request_item import KbaAnswerRequestItem
@@ -257,24 +253,19 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
-    [{id=173423, answer=822cd15d6c15aa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a0859a2fea34}, {id=c54fee53-2d63-4fc5-9259-3e93b9994135, answer=9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08}] # List[KbaAnswerRequestItem] | 
-     kba_answer_request_item = {
-          "answer" : "Your answer",
-          "id" : "c54fee53-2d63-4fc5-9259-3e93b9994135"
-        } # List[KbaAnswerRequestItem] | 
-    
+    kba_answer_request_item = '''[{id=173423, answer=822cd15d6c15aa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a0859a2fea34}, {id=c54fee53-2d63-4fc5-9259-3e93b9994135, answer=9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08}]''' # List[KbaAnswerRequestItem] | 
 
     try:
         # Authenticate KBA provided MFA method
-        new_kba_answer_request_item = KbaAnswerRequestItem()
-        new_kba_answer_request_item.from_json(kba_answer_request_item)
-        results =MFAControllerApi(api_client).send_kba_answers(new_kba_answer_request_item)
+        new_kba_answer_request_item = KbaAnswerRequestItem.from_json(kba_answer_request_item)
+        results = MFAControllerApi(api_client).send_kba_answers(kba_answer_request_item=new_kba_answer_request_item)
         # Below is a request that includes all optional parameters
         # results = MFAControllerApi(api_client).send_kba_answers(new_kba_answer_request_item)
         print("The response of MFAControllerApi->send_kba_answers:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling MFAControllerApi->send_kba_answers: %s\n" % e)
 ```
 
@@ -314,7 +305,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.mfa_controller_api import MFAControllerApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.okta_verification_request import OktaVerificationRequest
@@ -323,21 +313,21 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
-    okta_verification_request = {
+    okta_verification_request = '''{
           "userId" : "example@mail.com"
-        } # OktaVerificationRequest | 
+        }''' # OktaVerificationRequest | 
 
     try:
         # Verifying authentication via Okta method
-        new_okta_verification_request = OktaVerificationRequest()
-        new_okta_verification_request.from_json(okta_verification_request)
-        results =MFAControllerApi(api_client).send_okta_verify_request(new_okta_verification_request)
+        new_okta_verification_request = OktaVerificationRequest.from_json(okta_verification_request)
+        results = MFAControllerApi(api_client).send_okta_verify_request(okta_verification_request=new_okta_verification_request)
         # Below is a request that includes all optional parameters
         # results = MFAControllerApi(api_client).send_okta_verify_request(new_okta_verification_request)
         print("The response of MFAControllerApi->send_okta_verify_request:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling MFAControllerApi->send_okta_verify_request: %s\n" % e)
 ```
 
@@ -377,7 +367,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.mfa_controller_api import MFAControllerApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.token_auth_request import TokenAuthRequest
@@ -386,23 +375,23 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
-    token_auth_request = {
+    token_auth_request = '''{
           "userAlias" : "will.albin",
           "deliveryType" : "EMAIL_WORK",
           "token" : "12345"
-        } # TokenAuthRequest | 
+        }''' # TokenAuthRequest | 
 
     try:
         # Authenticate Token provided MFA method
-        new_token_auth_request = TokenAuthRequest()
-        new_token_auth_request.from_json(token_auth_request)
-        results =MFAControllerApi(api_client).send_token_auth_request(new_token_auth_request)
+        new_token_auth_request = TokenAuthRequest.from_json(token_auth_request)
+        results = MFAControllerApi(api_client).send_token_auth_request(token_auth_request=new_token_auth_request)
         # Below is a request that includes all optional parameters
         # results = MFAControllerApi(api_client).send_token_auth_request(new_token_auth_request)
         print("The response of MFAControllerApi->send_token_auth_request:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling MFAControllerApi->send_token_auth_request: %s\n" % e)
 ```
 

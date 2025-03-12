@@ -103,7 +103,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.accounts_api import AccountsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.account_attributes_create import AccountAttributesCreate
@@ -112,8 +111,9 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
-    account_attributes_create = {
+    account_attributes_create = '''{
           "attributes" : {
             "sourceId" : "34bfcbe116c9407464af37acbaf7a4dc",
             "city" : "Austin",
@@ -122,18 +122,17 @@ with ApiClient(configuration) as api_client:
             "sAMAccountName" : "jDoe",
             "mail" : "john.doe@sailpoint.com"
           }
-        } # AccountAttributesCreate | 
+        }''' # AccountAttributesCreate | 
 
     try:
         # Create Account
-        new_account_attributes_create = AccountAttributesCreate()
-        new_account_attributes_create.from_json(account_attributes_create)
-        results =AccountsApi(api_client).create_account(new_account_attributes_create)
+        new_account_attributes_create = AccountAttributesCreate.from_json(account_attributes_create)
+        results = AccountsApi(api_client).create_account(account_attributes_create=new_account_attributes_create)
         # Below is a request that includes all optional parameters
         # results = AccountsApi(api_client).create_account(new_account_attributes_create)
         print("The response of AccountsApi->create_account:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AccountsApi->create_account: %s\n" % e)
 ```
 
@@ -178,7 +177,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.accounts_api import AccountsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.accounts_async_result import AccountsAsyncResult
@@ -186,18 +184,19 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | Account ID. # str | Account ID.
 
     try:
         # Delete Account
         
-        results =AccountsApi(api_client).delete_account(id)
+        results = AccountsApi(api_client).delete_account(id=id)
         # Below is a request that includes all optional parameters
         # results = AccountsApi(api_client).delete_account(id)
         print("The response of AccountsApi->delete_account:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AccountsApi->delete_account: %s\n" % e)
 ```
 
@@ -243,7 +242,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.accounts_api import AccountsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.task_result_dto import TaskResultDto
@@ -251,18 +249,19 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     id = 'c350d6aa4f104c61b062cb632421ad10' # str | The account id # str | The account id
 
     try:
         # Remove Account
         
-        results =AccountsApi(api_client).delete_account_async(id)
+        results = AccountsApi(api_client).delete_account_async(id=id)
         # Below is a request that includes all optional parameters
         # results = AccountsApi(api_client).delete_account_async(id)
         print("The response of AccountsApi->delete_account_async:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AccountsApi->delete_account_async: %s\n" % e)
 ```
 
@@ -305,7 +304,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.accounts_api import AccountsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.account_toggle_request import AccountToggleRequest
@@ -314,23 +312,23 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | The account id # str | The account id
-    account_toggle_request = {
+    account_toggle_request = '''{
           "forceProvisioning" : false,
           "externalVerificationId" : "3f9180835d2e5168015d32f890ca1581"
-        } # AccountToggleRequest | 
+        }''' # AccountToggleRequest | 
 
     try:
         # Disable Account
-        new_account_toggle_request = AccountToggleRequest()
-        new_account_toggle_request.from_json(account_toggle_request)
-        results =AccountsApi(api_client).disable_account(id, new_account_toggle_request)
+        new_account_toggle_request = AccountToggleRequest.from_json(account_toggle_request)
+        results = AccountsApi(api_client).disable_account(id=id, account_toggle_request=new_account_toggle_request)
         # Below is a request that includes all optional parameters
         # results = AccountsApi(api_client).disable_account(id, new_account_toggle_request)
         print("The response of AccountsApi->disable_account:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AccountsApi->disable_account: %s\n" % e)
 ```
 
@@ -371,12 +369,12 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.accounts_api import AccountsApi
 from sailpoint.beta.api_client import ApiClient
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     id = '2c91808384203c2d018437e631158309' # str | The identity id. # str | The identity id.
@@ -384,12 +382,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Disable IDN Account for Identity
         
-        results =AccountsApi(api_client).disable_account_for_identity(id)
+        results = AccountsApi(api_client).disable_account_for_identity(id=id)
         # Below is a request that includes all optional parameters
         # results = AccountsApi(api_client).disable_account_for_identity(id)
         print("The response of AccountsApi->disable_account_for_identity:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AccountsApi->disable_account_for_identity: %s\n" % e)
 ```
 
@@ -429,7 +427,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.accounts_api import AccountsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.bulk_identities_accounts_response import BulkIdentitiesAccountsResponse
@@ -438,21 +435,21 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
-    identities_accounts_bulk_request = {
+    identities_accounts_bulk_request = '''{
           "identityIds" : [ "2c91808384203c2d018437e631158308", "2c9180858082150f0180893dbaf553fe" ]
-        } # IdentitiesAccountsBulkRequest | 
+        }''' # IdentitiesAccountsBulkRequest | 
 
     try:
         # Disable IDN Accounts for Identities
-        new_identities_accounts_bulk_request = IdentitiesAccountsBulkRequest()
-        new_identities_accounts_bulk_request.from_json(identities_accounts_bulk_request)
-        results =AccountsApi(api_client).disable_accounts_for_identities(new_identities_accounts_bulk_request)
+        new_identities_accounts_bulk_request = IdentitiesAccountsBulkRequest.from_json(identities_accounts_bulk_request)
+        results = AccountsApi(api_client).disable_accounts_for_identities(identities_accounts_bulk_request=new_identities_accounts_bulk_request)
         # Below is a request that includes all optional parameters
         # results = AccountsApi(api_client).disable_accounts_for_identities(new_identities_accounts_bulk_request)
         print("The response of AccountsApi->disable_accounts_for_identities:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AccountsApi->disable_accounts_for_identities: %s\n" % e)
 ```
 
@@ -495,7 +492,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.accounts_api import AccountsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.account_toggle_request import AccountToggleRequest
@@ -504,23 +500,23 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | The account id # str | The account id
-    account_toggle_request = {
+    account_toggle_request = '''{
           "forceProvisioning" : false,
           "externalVerificationId" : "3f9180835d2e5168015d32f890ca1581"
-        } # AccountToggleRequest | 
+        }''' # AccountToggleRequest | 
 
     try:
         # Enable Account
-        new_account_toggle_request = AccountToggleRequest()
-        new_account_toggle_request.from_json(account_toggle_request)
-        results =AccountsApi(api_client).enable_account(id, new_account_toggle_request)
+        new_account_toggle_request = AccountToggleRequest.from_json(account_toggle_request)
+        results = AccountsApi(api_client).enable_account(id=id, account_toggle_request=new_account_toggle_request)
         # Below is a request that includes all optional parameters
         # results = AccountsApi(api_client).enable_account(id, new_account_toggle_request)
         print("The response of AccountsApi->enable_account:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AccountsApi->enable_account: %s\n" % e)
 ```
 
@@ -561,12 +557,12 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.accounts_api import AccountsApi
 from sailpoint.beta.api_client import ApiClient
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     id = '2c91808384203c2d018437e631158309' # str | The identity id. # str | The identity id.
@@ -574,12 +570,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Enable IDN Account for Identity
         
-        results =AccountsApi(api_client).enable_account_for_identity(id)
+        results = AccountsApi(api_client).enable_account_for_identity(id=id)
         # Below is a request that includes all optional parameters
         # results = AccountsApi(api_client).enable_account_for_identity(id)
         print("The response of AccountsApi->enable_account_for_identity:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AccountsApi->enable_account_for_identity: %s\n" % e)
 ```
 
@@ -619,7 +615,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.accounts_api import AccountsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.bulk_identities_accounts_response import BulkIdentitiesAccountsResponse
@@ -628,21 +623,21 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
-    identities_accounts_bulk_request = {
+    identities_accounts_bulk_request = '''{
           "identityIds" : [ "2c91808384203c2d018437e631158308", "2c9180858082150f0180893dbaf553fe" ]
-        } # IdentitiesAccountsBulkRequest | 
+        }''' # IdentitiesAccountsBulkRequest | 
 
     try:
         # Enable IDN Accounts for Identities
-        new_identities_accounts_bulk_request = IdentitiesAccountsBulkRequest()
-        new_identities_accounts_bulk_request.from_json(identities_accounts_bulk_request)
-        results =AccountsApi(api_client).enable_accounts_for_identities(new_identities_accounts_bulk_request)
+        new_identities_accounts_bulk_request = IdentitiesAccountsBulkRequest.from_json(identities_accounts_bulk_request)
+        results = AccountsApi(api_client).enable_accounts_for_identities(identities_accounts_bulk_request=new_identities_accounts_bulk_request)
         # Below is a request that includes all optional parameters
         # results = AccountsApi(api_client).enable_accounts_for_identities(new_identities_accounts_bulk_request)
         print("The response of AccountsApi->enable_accounts_for_identities:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AccountsApi->enable_accounts_for_identities: %s\n" % e)
 ```
 
@@ -684,7 +679,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.accounts_api import AccountsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.account import Account
@@ -692,18 +686,19 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | Account ID. # str | Account ID.
 
     try:
         # Account Details
         
-        results =AccountsApi(api_client).get_account(id)
+        results = AccountsApi(api_client).get_account(id=id)
         # Below is a request that includes all optional parameters
         # results = AccountsApi(api_client).get_account(id)
         print("The response of AccountsApi->get_account:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AccountsApi->get_account: %s\n" % e)
 ```
 
@@ -748,13 +743,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.accounts_api import AccountsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.entitlement import Entitlement
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | The account id # str | The account id
@@ -765,12 +760,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Account Entitlements
         
-        results =AccountsApi(api_client).get_account_entitlements(id, )
+        results = AccountsApi(api_client).get_account_entitlements(id=id)
         # Below is a request that includes all optional parameters
         # results = AccountsApi(api_client).get_account_entitlements(id, offset, limit, count)
         print("The response of AccountsApi->get_account_entitlements:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AccountsApi->get_account_entitlements: %s\n" % e)
 ```
 
@@ -815,13 +810,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.accounts_api import AccountsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.account import Account
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     detail_level = 'FULL' # str | This value determines whether the API provides `SLIM` or increased level of detail (`FULL`) for each account in the returned list. `FULL` is the default behavior. (optional) # str | This value determines whether the API provides `SLIM` or increased level of detail (`FULL`) for each account in the returned list. `FULL` is the default behavior. (optional)
@@ -834,12 +829,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Accounts List
         
-        results =AccountsApi(api_client).list_accounts()
+        results = AccountsApi(api_client).list_accounts()
         # Below is a request that includes all optional parameters
         # results = AccountsApi(api_client).list_accounts(detail_level, limit, offset, count, filters, sorters)
         print("The response of AccountsApi->list_accounts:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AccountsApi->list_accounts: %s\n" % e)
 ```
 
@@ -888,7 +883,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.accounts_api import AccountsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.account_attributes import AccountAttributes
@@ -897,9 +891,10 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | Account ID. # str | Account ID.
-    account_attributes = {
+    account_attributes = '''{
           "attributes" : {
             "city" : "Austin",
             "displayName" : "John Doe",
@@ -907,18 +902,17 @@ with ApiClient(configuration) as api_client:
             "sAMAccountName" : "jDoe",
             "mail" : "john.doe@sailpoint.com"
           }
-        } # AccountAttributes | 
+        }''' # AccountAttributes | 
 
     try:
         # Update Account
-        new_account_attributes = AccountAttributes()
-        new_account_attributes.from_json(account_attributes)
-        results =AccountsApi(api_client).put_account(id, new_account_attributes)
+        new_account_attributes = AccountAttributes.from_json(account_attributes)
+        results = AccountsApi(api_client).put_account(id=id, account_attributes=new_account_attributes)
         # Below is a request that includes all optional parameters
         # results = AccountsApi(api_client).put_account(id, new_account_attributes)
         print("The response of AccountsApi->put_account:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AccountsApi->put_account: %s\n" % e)
 ```
 
@@ -960,7 +954,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.accounts_api import AccountsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.accounts_async_result import AccountsAsyncResult
@@ -968,18 +961,19 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | The account id # str | The account id
 
     try:
         # Reload Account
         
-        results =AccountsApi(api_client).submit_reload_account(id)
+        results = AccountsApi(api_client).submit_reload_account(id=id)
         # Below is a request that includes all optional parameters
         # results = AccountsApi(api_client).submit_reload_account(id)
         print("The response of AccountsApi->submit_reload_account:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AccountsApi->submit_reload_account: %s\n" % e)
 ```
 
@@ -1023,7 +1017,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.accounts_api import AccountsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.account_unlock_request import AccountUnlockRequest
@@ -1032,24 +1025,24 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | The account ID. # str | The account ID.
-    account_unlock_request = {
+    account_unlock_request = '''{
           "forceProvisioning" : false,
           "externalVerificationId" : "3f9180835d2e5168015d32f890ca1581",
           "unlockIDNAccount" : false
-        } # AccountUnlockRequest | 
+        }''' # AccountUnlockRequest | 
 
     try:
         # Unlock Account
-        new_account_unlock_request = AccountUnlockRequest()
-        new_account_unlock_request.from_json(account_unlock_request)
-        results =AccountsApi(api_client).unlock_account(id, new_account_unlock_request)
+        new_account_unlock_request = AccountUnlockRequest.from_json(account_unlock_request)
+        results = AccountsApi(api_client).unlock_account(id=id, account_unlock_request=new_account_unlock_request)
         # Below is a request that includes all optional parameters
         # results = AccountsApi(api_client).unlock_account(id, new_account_unlock_request)
         print("The response of AccountsApi->unlock_account:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AccountsApi->unlock_account: %s\n" % e)
 ```
 
@@ -1102,29 +1095,26 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.accounts_api import AccountsApi
 from sailpoint.beta.api_client import ApiClient
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | Account ID. # str | Account ID.
-    request_body = {Uncorrelate account={description=Remove account from Identity, value=[{op=remove, path=/identityId}]}, Reassign account={description=Move account from one Identity to another Identity, value=[{op=replace, path=/identityId, value=2c9180857725c14301772a93bb77242d}]}, Add account attribute={description=Add flat file account's attribute, value=[{op=add, path=/attributes/familyName, value=Smith}]}, Replace account attribute={description=Replace flat file account's attribute, value=[{op=replace, path=/attributes/familyName, value=Smith}]}, Remove account attribute={description=Remove flat file account's attribute, value=[{op=remove, path=/attributes/familyName}]}} # List[object] | A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
-     request_body = {Uncorrelate account={description=Remove account from Identity, value=[{op=remove, path=/identityId}]}, Reassign account={description=Move account from one Identity to another Identity, value=[{op=replace, path=/identityId, value=2c9180857725c14301772a93bb77242d}]}, Add account attribute={description=Add flat file account's attribute, value=[{op=add, path=/attributes/familyName, value=Smith}]}, Replace account attribute={description=Replace flat file account's attribute, value=[{op=replace, path=/attributes/familyName, value=Smith}]}, Remove account attribute={description=Remove flat file account's attribute, value=[{op=remove, path=/attributes/familyName}]}} # List[object] | A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
-    
+    request_body = '''{Uncorrelate account={description=Remove account from Identity, value=[{op=remove, path=/identityId}]}, Reassign account={description=Move account from one Identity to another Identity, value=[{op=replace, path=/identityId, value=2c9180857725c14301772a93bb77242d}]}, Add account attribute={description=Add flat file account's attribute, value=[{op=add, path=/attributes/familyName, value=Smith}]}, Replace account attribute={description=Replace flat file account's attribute, value=[{op=replace, path=/attributes/familyName, value=Smith}]}, Remove account attribute={description=Remove flat file account's attribute, value=[{op=remove, path=/attributes/familyName}]}}''' # List[object] | A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
     try:
         # Update Account
-        new_request_body = RequestBody()
-        new_request_body.from_json(request_body)
-        results =AccountsApi(api_client).update_account(id, new_request_body)
+        new_request_body = RequestBody.from_json(request_body)
+        results = AccountsApi(api_client).update_account(id=id, request_body=new_request_body)
         # Below is a request that includes all optional parameters
         # results = AccountsApi(api_client).update_account(id, new_request_body)
         print("The response of AccountsApi->update_account:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AccountsApi->update_account: %s\n" % e)
 ```
 

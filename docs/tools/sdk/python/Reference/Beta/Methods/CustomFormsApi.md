@@ -76,7 +76,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.custom_forms_api import CustomFormsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.create_form_definition_request import CreateFormDefinitionRequest
@@ -85,8 +84,9 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
-    create_form_definition_request = {
+    create_form_definition_request = '''{
           "owner" : {
             "name" : "Grant Smith",
             "id" : "2c9180867624cbd7017642d8c8c81f67",
@@ -196,17 +196,17 @@ with ApiClient(configuration) as api_client:
             },
             "key" : "department"
           } ]
-        } # CreateFormDefinitionRequest | Body is the request payload to create form definition request (optional)
+        }''' # CreateFormDefinitionRequest | Body is the request payload to create form definition request (optional)
 
     try:
         # Creates a form definition.
         
-        results =CustomFormsApi(api_client).create_form_definition()
+        results = CustomFormsApi(api_client).create_form_definition()
         # Below is a request that includes all optional parameters
         # results = CustomFormsApi(api_client).create_form_definition(new_create_form_definition_request)
         print("The response of CustomFormsApi->create_form_definition:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling CustomFormsApi->create_form_definition: %s\n" % e)
 ```
 
@@ -246,7 +246,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.custom_forms_api import CustomFormsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.create_form_definition_request import CreateFormDefinitionRequest
@@ -255,8 +254,9 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
-    create_form_definition_request = {
+    create_form_definition_request = '''{
           "owner" : {
             "name" : "Grant Smith",
             "id" : "2c9180867624cbd7017642d8c8c81f67",
@@ -366,17 +366,17 @@ with ApiClient(configuration) as api_client:
             },
             "key" : "department"
           } ]
-        } # CreateFormDefinitionRequest | Body is the request payload to create form definition request (optional)
+        }''' # CreateFormDefinitionRequest | Body is the request payload to create form definition request (optional)
 
     try:
         # Create a form definition by template.
         
-        results =CustomFormsApi(api_client).create_form_definition_by_template()
+        results = CustomFormsApi(api_client).create_form_definition_by_template()
         # Below is a request that includes all optional parameters
         # results = CustomFormsApi(api_client).create_form_definition_by_template(new_create_form_definition_request)
         print("The response of CustomFormsApi->create_form_definition_by_template:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling CustomFormsApi->create_form_definition_by_template: %s\n" % e)
 ```
 
@@ -417,7 +417,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.custom_forms_api import CustomFormsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.form_definition_dynamic_schema_request import FormDefinitionDynamicSchemaRequest
@@ -426,8 +425,9 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
-    body = {
+    body = '''{
           "description" : "A description",
           "attributes" : {
             "formDefinitionId" : "00000000-0000-0000-0000-000000000000"
@@ -435,17 +435,17 @@ with ApiClient(configuration) as api_client:
           "id" : "00000000-0000-0000-0000-000000000000",
           "type" : "action",
           "versionNumber" : 1
-        } # FormDefinitionDynamicSchemaRequest | Body is the request payload to create a form definition dynamic schema (optional)
+        }''' # FormDefinitionDynamicSchemaRequest | Body is the request payload to create a form definition dynamic schema (optional)
 
     try:
         # Generate JSON Schema dynamically.
         
-        results =CustomFormsApi(api_client).create_form_definition_dynamic_schema()
+        results = CustomFormsApi(api_client).create_form_definition_dynamic_schema()
         # Below is a request that includes all optional parameters
         # results = CustomFormsApi(api_client).create_form_definition_dynamic_schema(new_body)
         print("The response of CustomFormsApi->create_form_definition_dynamic_schema:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling CustomFormsApi->create_form_definition_dynamic_schema: %s\n" % e)
 ```
 
@@ -490,13 +490,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.custom_forms_api import CustomFormsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.form_definition_file_upload_response import FormDefinitionFileUploadResponse
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     form_definition_id = '00000000-0000-0000-0000-000000000000' # str | FormDefinitionID  String specifying FormDefinitionID # str | FormDefinitionID  String specifying FormDefinitionID
@@ -505,12 +505,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Upload new form definition file.
         
-        results =CustomFormsApi(api_client).create_form_definition_file_request(form_definition_id, file)
+        results = CustomFormsApi(api_client).create_form_definition_file_request(form_definition_id=form_definition_id, file=file)
         # Below is a request that includes all optional parameters
         # results = CustomFormsApi(api_client).create_form_definition_file_request(form_definition_id, file)
         print("The response of CustomFormsApi->create_form_definition_file_request:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling CustomFormsApi->create_form_definition_file_request: %s\n" % e)
 ```
 
@@ -550,7 +550,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.custom_forms_api import CustomFormsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.create_form_instance_request import CreateFormInstanceRequest
@@ -559,8 +558,9 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
-    body = {
+    body = '''{
           "formInput" : {
             "input1" : "Sales"
           },
@@ -580,17 +580,17 @@ with ApiClient(configuration) as api_client:
           "formDefinitionId" : "00000000-0000-0000-0000-000000000000",
           "state" : "ASSIGNED",
           "ttl" : 1571827560
-        } # CreateFormInstanceRequest | Body is the request payload to create a form instance (optional)
+        }''' # CreateFormInstanceRequest | Body is the request payload to create a form instance (optional)
 
     try:
         # Creates a form instance.
         
-        results =CustomFormsApi(api_client).create_form_instance()
+        results = CustomFormsApi(api_client).create_form_instance()
         # Below is a request that includes all optional parameters
         # results = CustomFormsApi(api_client).create_form_instance(new_body)
         print("The response of CustomFormsApi->create_form_instance:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling CustomFormsApi->create_form_instance: %s\n" % e)
 ```
 
@@ -631,12 +631,12 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.custom_forms_api import CustomFormsApi
 from sailpoint.beta.api_client import ApiClient
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     form_definition_id = '00000000-0000-0000-0000-000000000000' # str | Form definition ID # str | Form definition ID
@@ -644,12 +644,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Deletes a form definition.
         
-        results =CustomFormsApi(api_client).delete_form_definition(form_definition_id)
+        results = CustomFormsApi(api_client).delete_form_definition(form_definition_id=form_definition_id)
         # Below is a request that includes all optional parameters
         # results = CustomFormsApi(api_client).delete_form_definition(form_definition_id)
         print("The response of CustomFormsApi->delete_form_definition:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling CustomFormsApi->delete_form_definition: %s\n" % e)
 ```
 
@@ -692,13 +692,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.custom_forms_api import CustomFormsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.export_form_definitions_by_tenant200_response_inner import ExportFormDefinitionsByTenant200ResponseInner
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     offset = 0 # int | Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0. (optional) (default to 0) # int | Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0. (optional) (default to 0)
@@ -709,12 +709,12 @@ with ApiClient(configuration) as api_client:
     try:
         # List form definitions by tenant.
         
-        results =CustomFormsApi(api_client).export_form_definitions_by_tenant()
+        results = CustomFormsApi(api_client).export_form_definitions_by_tenant()
         # Below is a request that includes all optional parameters
         # results = CustomFormsApi(api_client).export_form_definitions_by_tenant(offset, limit, filters, sorters)
         print("The response of CustomFormsApi->export_form_definitions_by_tenant:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling CustomFormsApi->export_form_definitions_by_tenant: %s\n" % e)
 ```
 
@@ -757,12 +757,12 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.custom_forms_api import CustomFormsApi
 from sailpoint.beta.api_client import ApiClient
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     form_definition_id = '00000000-0000-0000-0000-000000000000' # str | FormDefinitionID  Form definition ID # str | FormDefinitionID  Form definition ID
@@ -771,12 +771,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Download definition file by fileId.
         
-        results =CustomFormsApi(api_client).get_file_from_s3(form_definition_id, file_id)
+        results = CustomFormsApi(api_client).get_file_from_s3(form_definition_id=form_definition_id, file_id=file_id)
         # Below is a request that includes all optional parameters
         # results = CustomFormsApi(api_client).get_file_from_s3(form_definition_id, file_id)
         print("The response of CustomFormsApi->get_file_from_s3:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling CustomFormsApi->get_file_from_s3: %s\n" % e)
 ```
 
@@ -817,7 +817,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.custom_forms_api import CustomFormsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.form_definition_response import FormDefinitionResponse
@@ -825,18 +824,19 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     form_definition_id = '00000000-0000-0000-0000-000000000000' # str | Form definition ID # str | Form definition ID
 
     try:
         # Return a form definition.
         
-        results =CustomFormsApi(api_client).get_form_definition_by_key(form_definition_id)
+        results = CustomFormsApi(api_client).get_form_definition_by_key(form_definition_id=form_definition_id)
         # Below is a request that includes all optional parameters
         # results = CustomFormsApi(api_client).get_form_definition_by_key(form_definition_id)
         print("The response of CustomFormsApi->get_form_definition_by_key:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling CustomFormsApi->get_form_definition_by_key: %s\n" % e)
 ```
 
@@ -877,7 +877,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.custom_forms_api import CustomFormsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.form_instance_response import FormInstanceResponse
@@ -885,18 +884,19 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     form_instance_id = '00000000-0000-0000-0000-000000000000' # str | Form instance ID # str | Form instance ID
 
     try:
         # Returns a form instance.
         
-        results =CustomFormsApi(api_client).get_form_instance_by_key(form_instance_id)
+        results = CustomFormsApi(api_client).get_form_instance_by_key(form_instance_id=form_instance_id)
         # Below is a request that includes all optional parameters
         # results = CustomFormsApi(api_client).get_form_instance_by_key(form_instance_id)
         print("The response of CustomFormsApi->get_form_instance_by_key:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling CustomFormsApi->get_form_instance_by_key: %s\n" % e)
 ```
 
@@ -939,12 +939,12 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.custom_forms_api import CustomFormsApi
 from sailpoint.beta.api_client import ApiClient
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     form_instance_id = '00000000-0000-0000-0000-000000000000' # str | FormInstanceID  Form instance ID # str | FormInstanceID  Form instance ID
@@ -953,12 +953,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Download instance file by fileId.
         
-        results =CustomFormsApi(api_client).get_form_instance_file(form_instance_id, file_id)
+        results = CustomFormsApi(api_client).get_form_instance_file(form_instance_id=form_instance_id, file_id=file_id)
         # Below is a request that includes all optional parameters
         # results = CustomFormsApi(api_client).get_form_instance_file(form_instance_id, file_id)
         print("The response of CustomFormsApi->get_form_instance_file:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling CustomFormsApi->get_form_instance_file: %s\n" % e)
 ```
 
@@ -998,7 +998,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.custom_forms_api import CustomFormsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.import_form_definitions202_response import ImportFormDefinitions202Response
@@ -1007,20 +1006,19 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
-    [{version=1, self={name=All fields not required, id=05ed4edb-d0a9-41d9-ad0c-2f6e486ec4aa, type=FORM_DEFINITION}, object={id=05ed4edb-d0a9-41d9-ad0c-2f6e486ec4aa, name=All fields not required, description=description, owner={type=IDENTITY, id=3447d8ec2602455ab6f1e8408a0f0150}, usedBy=[{type=WORKFLOW, id=5008594c-dacc-4295-8fee-41df60477304}, {type=WORKFLOW, id=97e75a75-c179-4fbc-a2da-b5fa4aaa8743}], formInput=[{type=STRING, label=input1, description=A single dynamic scalar value (i.e. number, string, date, etc) that can be passed into the form for use in conditional logic}], formElements=[{id=3069272797630701, elementType=SECTION, config={label=First Section, formElements=[{id=3069272797630700, elementType=TEXT, key=firstName, config={label=First Name}}, {id=3498415402897539, elementType=TEXT, key=lastName, config={label=Last Name}}]}}], formConditions=[{ruleOperator=AND, rules=[{sourceType=INPUT, source=Department, operator=EQ, valueType=STRING, value=Sales}], effects=[{effectType=HIDE, config={element=2614088730489570}}]}], created=2022-10-04T19:27:04.456Z, modified=2022-11-16T20:45:02.172Z}}] # List[ImportFormDefinitionsRequestInner] | Body is the request payload to import form definitions (optional)
-     body = [{version=1, self={name=All fields not required, id=05ed4edb-d0a9-41d9-ad0c-2f6e486ec4aa, type=FORM_DEFINITION}, object={id=05ed4edb-d0a9-41d9-ad0c-2f6e486ec4aa, name=All fields not required, description=description, owner={type=IDENTITY, id=3447d8ec2602455ab6f1e8408a0f0150}, usedBy=[{type=WORKFLOW, id=5008594c-dacc-4295-8fee-41df60477304}, {type=WORKFLOW, id=97e75a75-c179-4fbc-a2da-b5fa4aaa8743}], formInput=[{type=STRING, label=input1, description=A single dynamic scalar value (i.e. number, string, date, etc) that can be passed into the form for use in conditional logic}], formElements=[{id=3069272797630701, elementType=SECTION, config={label=First Section, formElements=[{id=3069272797630700, elementType=TEXT, key=firstName, config={label=First Name}}, {id=3498415402897539, elementType=TEXT, key=lastName, config={label=Last Name}}]}}], formConditions=[{ruleOperator=AND, rules=[{sourceType=INPUT, source=Department, operator=EQ, valueType=STRING, value=Sales}], effects=[{effectType=HIDE, config={element=2614088730489570}}]}], created=2022-10-04T19:27:04.456Z, modified=2022-11-16T20:45:02.172Z}}] # List[ImportFormDefinitionsRequestInner] | Body is the request payload to import form definitions (optional)
-    
+    body = '''[{version=1, self={name=All fields not required, id=05ed4edb-d0a9-41d9-ad0c-2f6e486ec4aa, type=FORM_DEFINITION}, object={id=05ed4edb-d0a9-41d9-ad0c-2f6e486ec4aa, name=All fields not required, description=description, owner={type=IDENTITY, id=3447d8ec2602455ab6f1e8408a0f0150}, usedBy=[{type=WORKFLOW, id=5008594c-dacc-4295-8fee-41df60477304}, {type=WORKFLOW, id=97e75a75-c179-4fbc-a2da-b5fa4aaa8743}], formInput=[{type=STRING, label=input1, description=A single dynamic scalar value (i.e. number, string, date, etc) that can be passed into the form for use in conditional logic}], formElements=[{id=3069272797630701, elementType=SECTION, config={label=First Section, formElements=[{id=3069272797630700, elementType=TEXT, key=firstName, config={label=First Name}}, {id=3498415402897539, elementType=TEXT, key=lastName, config={label=Last Name}}]}}], formConditions=[{ruleOperator=AND, rules=[{sourceType=INPUT, source=Department, operator=EQ, valueType=STRING, value=Sales}], effects=[{effectType=HIDE, config={element=2614088730489570}}]}], created=2022-10-04T19:27:04.456Z, modified=2022-11-16T20:45:02.172Z}}]''' # List[ImportFormDefinitionsRequestInner] | Body is the request payload to import form definitions (optional)
 
     try:
         # Import form definitions from export.
         
-        results =CustomFormsApi(api_client).import_form_definitions()
+        results = CustomFormsApi(api_client).import_form_definitions()
         # Below is a request that includes all optional parameters
         # results = CustomFormsApi(api_client).import_form_definitions(new_body)
         print("The response of CustomFormsApi->import_form_definitions:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling CustomFormsApi->import_form_definitions: %s\n" % e)
 ```
 
@@ -1062,7 +1060,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.custom_forms_api import CustomFormsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.form_definition_response import FormDefinitionResponse
@@ -1070,21 +1067,20 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     form_definition_id = '00000000-0000-0000-0000-000000000000' # str | Form definition ID # str | Form definition ID
-    body = [{op=replace, path=/description, value=test-description}] # List[Dict[str, object]] | Body is the request payload to patch a form definition, check: https://jsonpatch.com (optional)
-     body = [{op=replace, path=/description, value=test-description}] # List[Dict[str, object]] | Body is the request payload to patch a form definition, check: https://jsonpatch.com (optional)
-    
+    body = '''[{op=replace, path=/description, value=test-description}]''' # List[Dict[str, object]] | Body is the request payload to patch a form definition, check: https://jsonpatch.com (optional)
 
     try:
         # Patch a form definition.
         
-        results =CustomFormsApi(api_client).patch_form_definition(form_definition_id, )
+        results = CustomFormsApi(api_client).patch_form_definition(form_definition_id=form_definition_id)
         # Below is a request that includes all optional parameters
         # results = CustomFormsApi(api_client).patch_form_definition(form_definition_id, new_body)
         print("The response of CustomFormsApi->patch_form_definition:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling CustomFormsApi->patch_form_definition: %s\n" % e)
 ```
 
@@ -1127,7 +1123,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.custom_forms_api import CustomFormsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.form_instance_response import FormInstanceResponse
@@ -1135,21 +1130,20 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     form_instance_id = '00000000-0000-0000-0000-000000000000' # str | Form instance ID # str | Form instance ID
-    body = [{op=replace, path=/state, value=SUBMITTED}, {op=replace, path=/formData, value={a-key-1=a-value-1, a-key-2=true, a-key-3=1}}] # List[Dict[str, object]] | Body is the request payload to patch a form instance, check: https://jsonpatch.com (optional)
-     body = [{op=replace, path=/state, value=SUBMITTED}, {op=replace, path=/formData, value={a-key-1=a-value-1, a-key-2=true, a-key-3=1}}] # List[Dict[str, object]] | Body is the request payload to patch a form instance, check: https://jsonpatch.com (optional)
-    
+    body = '''[{op=replace, path=/state, value=SUBMITTED}, {op=replace, path=/formData, value={a-key-1=a-value-1, a-key-2=true, a-key-3=1}}]''' # List[Dict[str, object]] | Body is the request payload to patch a form instance, check: https://jsonpatch.com (optional)
 
     try:
         # Patch a form instance.
         
-        results =CustomFormsApi(api_client).patch_form_instance(form_instance_id, )
+        results = CustomFormsApi(api_client).patch_form_instance(form_instance_id=form_instance_id)
         # Below is a request that includes all optional parameters
         # results = CustomFormsApi(api_client).patch_form_instance(form_instance_id, new_body)
         print("The response of CustomFormsApi->patch_form_instance:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling CustomFormsApi->patch_form_instance: %s\n" % e)
 ```
 
@@ -1192,13 +1186,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.custom_forms_api import CustomFormsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.list_form_definitions_by_tenant_response import ListFormDefinitionsByTenantResponse
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     offset = 0 # int | Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0. (optional) (default to 0) # int | Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0. (optional) (default to 0)
@@ -1209,12 +1203,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Export form definitions by tenant.
         
-        results =CustomFormsApi(api_client).search_form_definitions_by_tenant()
+        results = CustomFormsApi(api_client).search_form_definitions_by_tenant()
         # Below is a request that includes all optional parameters
         # results = CustomFormsApi(api_client).search_form_definitions_by_tenant(offset, limit, filters, sorters)
         print("The response of CustomFormsApi->search_form_definitions_by_tenant:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling CustomFormsApi->search_form_definitions_by_tenant: %s\n" % e)
 ```
 
@@ -1260,13 +1254,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.custom_forms_api import CustomFormsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.list_form_element_data_by_element_id_response import ListFormElementDataByElementIDResponse
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     form_instance_id = '00000000-0000-0000-0000-000000000000' # str | Form instance ID # str | Form instance ID
@@ -1278,12 +1272,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Retrieves dynamic data by element.
         
-        results =CustomFormsApi(api_client).search_form_element_data_by_element_id(form_instance_id, form_element_id, )
+        results = CustomFormsApi(api_client).search_form_element_data_by_element_id(form_instance_id=form_instance_id, form_element_id=form_element_id)
         # Below is a request that includes all optional parameters
         # results = CustomFormsApi(api_client).search_form_element_data_by_element_id(form_instance_id, form_element_id, limit, filters, query)
         print("The response of CustomFormsApi->search_form_element_data_by_element_id:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling CustomFormsApi->search_form_element_data_by_element_id: %s\n" % e)
 ```
 
@@ -1320,7 +1314,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.custom_forms_api import CustomFormsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.form_instance_response import FormInstanceResponse
@@ -1328,17 +1321,18 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
 
     try:
         # List form instances by tenant.
         
-        results =CustomFormsApi(api_client).search_form_instances_by_tenant()
+        results = CustomFormsApi(api_client).search_form_instances_by_tenant()
         # Below is a request that includes all optional parameters
         # results = CustomFormsApi(api_client).search_form_instances_by_tenant()
         print("The response of CustomFormsApi->search_form_instances_by_tenant:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling CustomFormsApi->search_form_instances_by_tenant: %s\n" % e)
 ```
 
@@ -1375,7 +1369,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.custom_forms_api import CustomFormsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.list_predefined_select_options_response import ListPredefinedSelectOptionsResponse
@@ -1383,17 +1376,18 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
 
     try:
         # List predefined select options.
         
-        results =CustomFormsApi(api_client).search_pre_defined_select_options()
+        results = CustomFormsApi(api_client).search_pre_defined_select_options()
         # Below is a request that includes all optional parameters
         # results = CustomFormsApi(api_client).search_pre_defined_select_options()
         print("The response of CustomFormsApi->search_pre_defined_select_options:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling CustomFormsApi->search_pre_defined_select_options: %s\n" % e)
 ```
 
@@ -1438,7 +1432,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.custom_forms_api import CustomFormsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.form_element_preview_request import FormElementPreviewRequest
@@ -1447,12 +1440,13 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     form_definition_id = '00000000-0000-0000-0000-000000000000' # str | Form definition ID # str | Form definition ID
     limit = 10 # int | Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used. (optional) (default to 10) # int | Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used. (optional) (default to 10)
     filters = 'value eq \"ID01\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **value**: *eq, ne, in*  Supported composite operators: *not*  Only a single *not* may be used, and it can only be used with the `in` operator. The `not` composite operator must be used in front of the field. For example, the following is valid: `not value in (\"ID01\")` (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **value**: *eq, ne, in*  Supported composite operators: *not*  Only a single *not* may be used, and it can only be used with the `in` operator. The `not` composite operator must be used in front of the field. For example, the following is valid: `not value in (\"ID01\")` (optional)
     query = 'ac' # str | String that is passed to the underlying API to filter other (non-ID) fields.  For example, for access  profile data sources, this string will be passed to the access profile api and used with a \"starts with\" filter against  several fields. (optional) # str | String that is passed to the underlying API to filter other (non-ID) fields.  For example, for access  profile data sources, this string will be passed to the access profile api and used with a \"starts with\" filter against  several fields. (optional)
-    form_element_preview_request = {
+    form_element_preview_request = '''{
           "dataSource" : {
             "config" : {
               "indices" : [ "identities" ],
@@ -1462,17 +1456,17 @@ with ApiClient(configuration) as api_client:
             },
             "dataSourceType" : "STATIC"
           }
-        } # FormElementPreviewRequest | Body is the request payload to create a form definition dynamic schema (optional)
+        }''' # FormElementPreviewRequest | Body is the request payload to create a form definition dynamic schema (optional)
 
     try:
         # Preview form definition data source.
         
-        results =CustomFormsApi(api_client).show_preview_data_source(form_definition_id, )
+        results = CustomFormsApi(api_client).show_preview_data_source(form_definition_id=form_definition_id)
         # Below is a request that includes all optional parameters
         # results = CustomFormsApi(api_client).show_preview_data_source(form_definition_id, limit, filters, query, new_form_element_preview_request)
         print("The response of CustomFormsApi->show_preview_data_source:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling CustomFormsApi->show_preview_data_source: %s\n" % e)
 ```
 

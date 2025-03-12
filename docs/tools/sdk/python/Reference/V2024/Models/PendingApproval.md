@@ -36,6 +36,7 @@ Name | Type | Description | Notes
 **remove_date_update_requested** | **bool** | If true, then the request is to change the remove date or sunset date. | [optional] [default to False]
 **current_remove_date** | **datetime** | The remove date or sunset date that was assigned at the time of the request. | [optional] 
 **sod_violation_context** | [**SodViolationContextCheckCompleted**](sod-violation-context-check-completed) |  | [optional] 
+**client_metadata** | **map[string]str** | Arbitrary key-value pairs, if any were included in the corresponding access request item | [optional] 
 }
 
 ## Example
@@ -128,7 +129,8 @@ sod_violation_context=sailpoint.v2024.models.sod_violation_context_check_complet
                             sailpoint.v2024.models.sod_policy_dto.SodPolicyDto(
                                 id = '0f11f2a4-7c94-4bf3-a2bd-742580fe3bde', 
                                 name = 'Business SOD Policy', )
-                            ], ), )
+                            ], ), ),
+client_metadata={customKey1=custom value 1, customKey2=custom value 2}
 )
 
 ```

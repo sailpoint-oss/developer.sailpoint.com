@@ -50,7 +50,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.iai_message_catalogs_api import IAIMessageCatalogsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.message_catalog_dto import MessageCatalogDto
@@ -58,18 +57,19 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     catalog_id = 'recommender' # str | The ID of the message catalog. # str | The ID of the message catalog.
 
     try:
         # Get Message catalogs
         
-        results =IAIMessageCatalogsApi(api_client).get_message_catalogs(catalog_id)
+        results = IAIMessageCatalogsApi(api_client).get_message_catalogs(catalog_id=catalog_id)
         # Below is a request that includes all optional parameters
         # results = IAIMessageCatalogsApi(api_client).get_message_catalogs(catalog_id)
         print("The response of IAIMessageCatalogsApi->get_message_catalogs:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling IAIMessageCatalogsApi->get_message_catalogs: %s\n" % e)
 ```
 

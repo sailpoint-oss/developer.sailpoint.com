@@ -56,13 +56,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.iai_peer_group_strategies_api import IAIPeerGroupStrategiesApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.peer_group_member import PeerGroupMember
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     strategy = 'entitlement' # str | The strategy used to create peer groups. Currently, 'entitlement' is supported. # str | The strategy used to create peer groups. Currently, 'entitlement' is supported.
@@ -73,12 +73,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Identity Outliers List
         
-        results =IAIPeerGroupStrategiesApi(api_client).get_peer_group_outliers(strategy, )
+        results = IAIPeerGroupStrategiesApi(api_client).get_peer_group_outliers(strategy=strategy)
         # Below is a request that includes all optional parameters
         # results = IAIPeerGroupStrategiesApi(api_client).get_peer_group_outliers(strategy, limit, offset, count)
         print("The response of IAIPeerGroupStrategiesApi->get_peer_group_outliers:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling IAIPeerGroupStrategiesApi->get_peer_group_outliers: %s\n" % e)
 ```
 

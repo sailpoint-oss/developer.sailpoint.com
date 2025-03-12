@@ -60,7 +60,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.password_configuration_api import PasswordConfigurationApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.password_org_config import PasswordOrgConfig
@@ -68,24 +67,24 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
-    password_org_config = {
+    password_org_config = '''{
           "digitTokenLength" : 9,
           "digitTokenEnabled" : true,
           "digitTokenDurationMinutes" : 10,
           "customInstructionsEnabled" : true
-        } # PasswordOrgConfig | 
+        }''' # PasswordOrgConfig | 
 
     try:
         # Create Password Org Config
-        new_password_org_config = PasswordOrgConfig()
-        new_password_org_config.from_json(password_org_config)
-        results =PasswordConfigurationApi(api_client).create_password_org_config(new_password_org_config)
+        new_password_org_config = PasswordOrgConfig.from_json(password_org_config)
+        results = PasswordConfigurationApi(api_client).create_password_org_config(password_org_config=new_password_org_config)
         # Below is a request that includes all optional parameters
         # results = PasswordConfigurationApi(api_client).create_password_org_config(new_password_org_config)
         print("The response of PasswordConfigurationApi->create_password_org_config:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling PasswordConfigurationApi->create_password_org_config: %s\n" % e)
 ```
 
@@ -122,7 +121,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.password_configuration_api import PasswordConfigurationApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.password_org_config import PasswordOrgConfig
@@ -130,17 +128,18 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
 
     try:
         # Get Password Org Config
         
-        results =PasswordConfigurationApi(api_client).get_password_org_config()
+        results = PasswordConfigurationApi(api_client).get_password_org_config()
         # Below is a request that includes all optional parameters
         # results = PasswordConfigurationApi(api_client).get_password_org_config()
         print("The response of PasswordConfigurationApi->get_password_org_config:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling PasswordConfigurationApi->get_password_org_config: %s\n" % e)
 ```
 
@@ -182,7 +181,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.password_configuration_api import PasswordConfigurationApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.password_org_config import PasswordOrgConfig
@@ -190,24 +188,24 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
-    password_org_config = {
+    password_org_config = '''{
           "digitTokenLength" : 9,
           "digitTokenEnabled" : true,
           "digitTokenDurationMinutes" : 10,
           "customInstructionsEnabled" : true
-        } # PasswordOrgConfig | 
+        }''' # PasswordOrgConfig | 
 
     try:
         # Update Password Org Config
-        new_password_org_config = PasswordOrgConfig()
-        new_password_org_config.from_json(password_org_config)
-        results =PasswordConfigurationApi(api_client).put_password_org_config(new_password_org_config)
+        new_password_org_config = PasswordOrgConfig.from_json(password_org_config)
+        results = PasswordConfigurationApi(api_client).put_password_org_config(password_org_config=new_password_org_config)
         # Below is a request that includes all optional parameters
         # results = PasswordConfigurationApi(api_client).put_password_org_config(new_password_org_config)
         print("The response of PasswordConfigurationApi->put_password_org_config:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling PasswordConfigurationApi->put_password_org_config: %s\n" % e)
 ```
 

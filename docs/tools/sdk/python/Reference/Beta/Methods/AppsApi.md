@@ -65,7 +65,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.apps_api import AppsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.source_app import SourceApp
@@ -74,8 +73,9 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
-    source_app_create_dto = {
+    source_app_create_dto = '''{
           "name" : "my app",
           "description" : "the source app for engineers",
           "accountSource" : {
@@ -84,18 +84,17 @@ with ApiClient(configuration) as api_client:
             "type" : "SOURCE"
           },
           "matchAllAccounts" : true
-        } # SourceAppCreateDto | 
+        }''' # SourceAppCreateDto | 
 
     try:
         # Create source app
-        new_source_app_create_dto = SourceAppCreateDto()
-        new_source_app_create_dto.from_json(source_app_create_dto)
-        results =AppsApi(api_client).create_source_app(new_source_app_create_dto)
+        new_source_app_create_dto = SourceAppCreateDto.from_json(source_app_create_dto)
+        results = AppsApi(api_client).create_source_app(source_app_create_dto=new_source_app_create_dto)
         # Below is a request that includes all optional parameters
         # results = AppsApi(api_client).create_source_app(new_source_app_create_dto)
         print("The response of AppsApi->create_source_app:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AppsApi->create_source_app: %s\n" % e)
 ```
 
@@ -137,7 +136,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.apps_api import AppsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.access_profile_details import AccessProfileDetails
@@ -145,23 +143,21 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     id = '2c91808a7813090a017814121e121518' # str | ID of the source app # str | ID of the source app
-    request_body = ['request_body_example'] # List[str] | 
-     request_body = ['request_body_example'] # List[str] | 
-    
+    request_body = '''['request_body_example']''' # List[str] | 
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 
     try:
         # Bulk remove access profiles from the specified source app
-        new_request_body = RequestBody()
-        new_request_body.from_json(request_body)
-        results =AppsApi(api_client).delete_access_profiles_from_source_app_by_bulk(id, new_request_body, )
+        new_request_body = RequestBody.from_json(request_body)
+        results = AppsApi(api_client).delete_access_profiles_from_source_app_by_bulk(id=id, request_body=new_request_body)
         # Below is a request that includes all optional parameters
         # results = AppsApi(api_client).delete_access_profiles_from_source_app_by_bulk(id, new_request_body, limit)
         print("The response of AppsApi->delete_access_profiles_from_source_app_by_bulk:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AppsApi->delete_access_profiles_from_source_app_by_bulk: %s\n" % e)
 ```
 
@@ -201,7 +197,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.apps_api import AppsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.source_app import SourceApp
@@ -209,18 +204,19 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     id = '2c9180835d191a86015d28455b4a2329' # str | source app ID. # str | source app ID.
 
     try:
         # Delete source app by ID
         
-        results =AppsApi(api_client).delete_source_app(id)
+        results = AppsApi(api_client).delete_source_app(id=id)
         # Below is a request that includes all optional parameters
         # results = AppsApi(api_client).delete_source_app(id)
         print("The response of AppsApi->delete_source_app:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AppsApi->delete_source_app: %s\n" % e)
 ```
 
@@ -261,7 +257,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.apps_api import AppsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.source_app import SourceApp
@@ -269,18 +264,19 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     id = '2c91808a7813090a017814121e121518' # str | ID of the source app # str | ID of the source app
 
     try:
         # Get source app by ID
         
-        results =AppsApi(api_client).get_source_app(id)
+        results = AppsApi(api_client).get_source_app(id=id)
         # Below is a request that includes all optional parameters
         # results = AppsApi(api_client).get_source_app(id)
         print("The response of AppsApi->get_source_app:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AppsApi->get_source_app: %s\n" % e)
 ```
 
@@ -323,13 +319,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.apps_api import AppsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.access_profile_details import AccessProfileDetails
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     id = '2c91808a7813090a017814121e121518' # str | ID of the source app # str | ID of the source app
@@ -340,12 +336,12 @@ with ApiClient(configuration) as api_client:
     try:
         # List access profiles for the specified source app
         
-        results =AppsApi(api_client).list_access_profiles_for_source_app(id, )
+        results = AppsApi(api_client).list_access_profiles_for_source_app(id=id)
         # Below is a request that includes all optional parameters
         # results = AppsApi(api_client).list_access_profiles_for_source_app(id, limit, offset, filters)
         print("The response of AppsApi->list_access_profiles_for_source_app:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AppsApi->list_access_profiles_for_source_app: %s\n" % e)
 ```
 
@@ -391,13 +387,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.apps_api import AppsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.source_app import SourceApp
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -409,12 +405,12 @@ with ApiClient(configuration) as api_client:
     try:
         # List all source apps
         
-        results =AppsApi(api_client).list_all_source_app()
+        results = AppsApi(api_client).list_all_source_app()
         # Below is a request that includes all optional parameters
         # results = AppsApi(api_client).list_all_source_app(limit, count, offset, sorters, filters)
         print("The response of AppsApi->list_all_source_app:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AppsApi->list_all_source_app: %s\n" % e)
 ```
 
@@ -458,13 +454,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.apps_api import AppsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.user_app import UserApp
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     filters = 'name eq \"user app name\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **ownerId**: *eq*  **ownerName**: *eq, sw*  **ownerAlias**: *eq, sw*  **accountId**: *eq*  **sourceAppId**: *eq* # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **ownerId**: *eq*  **ownerName**: *eq, sw*  **ownerAlias**: *eq, sw*  **accountId**: *eq*  **sourceAppId**: *eq*
@@ -475,12 +471,12 @@ with ApiClient(configuration) as api_client:
     try:
         # List all user apps
         
-        results =AppsApi(api_client).list_all_user_apps(filters, )
+        results = AppsApi(api_client).list_all_user_apps(filters=filters)
         # Below is a request that includes all optional parameters
         # results = AppsApi(api_client).list_all_user_apps(filters, limit, count, offset)
         print("The response of AppsApi->list_all_user_apps:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AppsApi->list_all_user_apps: %s\n" % e)
 ```
 
@@ -524,13 +520,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.apps_api import AppsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.source_app import SourceApp
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -542,12 +538,12 @@ with ApiClient(configuration) as api_client:
     try:
         # List assigned source apps
         
-        results =AppsApi(api_client).list_assigned_source_app()
+        results = AppsApi(api_client).list_assigned_source_app()
         # Below is a request that includes all optional parameters
         # results = AppsApi(api_client).list_assigned_source_app(limit, count, offset, sorters, filters)
         print("The response of AppsApi->list_assigned_source_app:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AppsApi->list_assigned_source_app: %s\n" % e)
 ```
 
@@ -590,13 +586,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.apps_api import AppsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.app_account_details import AppAccountDetails
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     id = '2c91808a7813090a017814121e121518' # str | ID of the user app # str | ID of the user app
@@ -607,12 +603,12 @@ with ApiClient(configuration) as api_client:
     try:
         # List available accounts for user app
         
-        results =AppsApi(api_client).list_available_accounts_for_user_app(id, )
+        results = AppsApi(api_client).list_available_accounts_for_user_app(id=id)
         # Below is a request that includes all optional parameters
         # results = AppsApi(api_client).list_available_accounts_for_user_app(id, limit, count, offset)
         print("The response of AppsApi->list_available_accounts_for_user_app:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AppsApi->list_available_accounts_for_user_app: %s\n" % e)
 ```
 
@@ -656,13 +652,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.apps_api import AppsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.source_app import SourceApp
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -674,12 +670,12 @@ with ApiClient(configuration) as api_client:
     try:
         # List available source apps
         
-        results =AppsApi(api_client).list_available_source_apps()
+        results = AppsApi(api_client).list_available_source_apps()
         # Below is a request that includes all optional parameters
         # results = AppsApi(api_client).list_available_source_apps(limit, count, offset, sorters, filters)
         print("The response of AppsApi->list_available_source_apps:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AppsApi->list_available_source_apps: %s\n" % e)
 ```
 
@@ -722,13 +718,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.apps_api import AppsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.user_app import UserApp
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -739,12 +735,12 @@ with ApiClient(configuration) as api_client:
     try:
         # List owned user apps
         
-        results =AppsApi(api_client).list_owned_user_apps()
+        results = AppsApi(api_client).list_owned_user_apps()
         # Below is a request that includes all optional parameters
         # results = AppsApi(api_client).list_owned_user_apps(limit, count, offset, filters)
         print("The response of AppsApi->list_owned_user_apps:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AppsApi->list_owned_user_apps: %s\n" % e)
 ```
 
@@ -788,7 +784,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.apps_api import AppsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.json_patch_operation import JsonPatchOperation
@@ -797,25 +792,20 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     id = '2c91808a7813090a017814121e121518' # str | ID of the source app to patch # str | ID of the source app to patch
-    [{op=replace, path=/enabled, value=true}, {op=replace, path=/matchAllAccounts, value=true}] # List[JsonPatchOperation] |  (optional)
-     json_patch_operation = {
-          "op" : "replace",
-          "path" : "/description",
-          "value" : "New description"
-        } # List[JsonPatchOperation] |  (optional)
-    
+    json_patch_operation = '''[{op=replace, path=/enabled, value=true}, {op=replace, path=/matchAllAccounts, value=true}]''' # List[JsonPatchOperation] |  (optional)
 
     try:
         # Patch source app by ID
         
-        results =AppsApi(api_client).patch_source_app(id, )
+        results = AppsApi(api_client).patch_source_app(id=id)
         # Below is a request that includes all optional parameters
         # results = AppsApi(api_client).patch_source_app(id, new_json_patch_operation)
         print("The response of AppsApi->patch_source_app:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AppsApi->patch_source_app: %s\n" % e)
 ```
 
@@ -858,7 +848,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.apps_api import AppsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.json_patch_operation import JsonPatchOperation
@@ -867,25 +856,20 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     id = '2c91808a7813090a017814121e121518' # str | ID of the user app to patch # str | ID of the user app to patch
-    [sailpoint.beta.JsonPatchOperation()] # List[JsonPatchOperation] |  (optional)
-     json_patch_operation = {
-          "op" : "replace",
-          "path" : "/description",
-          "value" : "New description"
-        } # List[JsonPatchOperation] |  (optional)
-    
+    json_patch_operation = '''[sailpoint.beta.JsonPatchOperation()]''' # List[JsonPatchOperation] |  (optional)
 
     try:
         # Patch user app by ID
         
-        results =AppsApi(api_client).patch_user_app(id, )
+        results = AppsApi(api_client).patch_user_app(id=id)
         # Below is a request that includes all optional parameters
         # results = AppsApi(api_client).patch_user_app(id, new_json_patch_operation)
         print("The response of AppsApi->patch_user_app:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AppsApi->patch_user_app: %s\n" % e)
 ```
 
@@ -928,7 +912,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.apps_api import AppsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.source_app_bulk_update_request import SourceAppBulkUpdateRequest
@@ -936,8 +919,9 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
-    source_app_bulk_update_request = {
+    source_app_bulk_update_request = '''{
           "appIds" : [ "2c91808a7624751a01762f19d665220d", "2c91808a7624751a01762f19d67c220e", "2c91808a7624751a01762f19d692220f" ],
           "jsonPatch" : [ {
             "op" : "replace",
@@ -948,7 +932,7 @@ with ApiClient(configuration) as api_client:
             "path" : "/matchAllAccounts",
             "value" : false
           } ]
-        } # SourceAppBulkUpdateRequest |  (optional)
+        }''' # SourceAppBulkUpdateRequest |  (optional)
 
     try:
         # Bulk update source apps
@@ -956,7 +940,7 @@ with ApiClient(configuration) as api_client:
         AppsApi(api_client).update_source_apps_in_bulk()
         # Below is a request that includes all optional parameters
         # AppsApi(api_client).update_source_apps_in_bulk(new_source_app_bulk_update_request)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling AppsApi->update_source_apps_in_bulk: %s\n" % e)
 ```
 

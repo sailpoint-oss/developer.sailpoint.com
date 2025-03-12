@@ -64,7 +64,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.personal_access_tokens_api import PersonalAccessTokensApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.create_personal_access_token_request import CreatePersonalAccessTokenRequest
@@ -73,23 +72,23 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
-    create_personal_access_token_request = {
+    create_personal_access_token_request = '''{
           "scope" : [ "demo:personal-access-token-scope:first", "demo:personal-access-token-scope:second" ],
           "accessTokenValiditySeconds" : 36900,
           "name" : "NodeJS Integration"
-        } # CreatePersonalAccessTokenRequest | Name and scope of personal access token.
+        }''' # CreatePersonalAccessTokenRequest | Name and scope of personal access token.
 
     try:
         # Create Personal Access Token
-        new_create_personal_access_token_request = CreatePersonalAccessTokenRequest()
-        new_create_personal_access_token_request.from_json(create_personal_access_token_request)
-        results =PersonalAccessTokensApi(api_client).create_personal_access_token(new_create_personal_access_token_request)
+        new_create_personal_access_token_request = CreatePersonalAccessTokenRequest.from_json(create_personal_access_token_request)
+        results = PersonalAccessTokensApi(api_client).create_personal_access_token(create_personal_access_token_request=new_create_personal_access_token_request)
         # Below is a request that includes all optional parameters
         # results = PersonalAccessTokensApi(api_client).create_personal_access_token(new_create_personal_access_token_request)
         print("The response of PersonalAccessTokensApi->create_personal_access_token:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling PersonalAccessTokensApi->create_personal_access_token: %s\n" % e)
 ```
 
@@ -130,12 +129,12 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.personal_access_tokens_api import PersonalAccessTokensApi
 from sailpoint.v2024.api_client import ApiClient
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | The personal access token id # str | The personal access token id
@@ -143,10 +142,10 @@ with ApiClient(configuration) as api_client:
     try:
         # Delete Personal Access Token
         
-        PersonalAccessTokensApi(api_client).delete_personal_access_token(id)
+        PersonalAccessTokensApi(api_client).delete_personal_access_token(id=id)
         # Below is a request that includes all optional parameters
         # PersonalAccessTokensApi(api_client).delete_personal_access_token(id)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling PersonalAccessTokensApi->delete_personal_access_token: %s\n" % e)
 ```
 
@@ -187,13 +186,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.personal_access_tokens_api import PersonalAccessTokensApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.get_personal_access_token_response import GetPersonalAccessTokenResponse
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     owner_id = '2c9180867b50d088017b554662fb281e' # str | The identity ID of the owner whose personal access tokens should be listed.  If \"me\", the caller should have the following right: 'idn:my-personal-access-tokens:read' If an actual owner ID or if the `owner-id` parameter is omitted in the request,  the caller should have the following right: 'idn:all-personal-access-tokens:read'.  If the caller has the following right, then managed personal access tokens associated with `owner-id`  will be retrieved: 'idn:managed-personal-access-tokens:read' (optional) # str | The identity ID of the owner whose personal access tokens should be listed.  If \"me\", the caller should have the following right: 'idn:my-personal-access-tokens:read' If an actual owner ID or if the `owner-id` parameter is omitted in the request,  the caller should have the following right: 'idn:all-personal-access-tokens:read'.  If the caller has the following right, then managed personal access tokens associated with `owner-id`  will be retrieved: 'idn:managed-personal-access-tokens:read' (optional)
@@ -202,12 +201,12 @@ with ApiClient(configuration) as api_client:
     try:
         # List Personal Access Tokens
         
-        results =PersonalAccessTokensApi(api_client).list_personal_access_tokens()
+        results = PersonalAccessTokensApi(api_client).list_personal_access_tokens()
         # Below is a request that includes all optional parameters
         # results = PersonalAccessTokensApi(api_client).list_personal_access_tokens(owner_id, filters)
         print("The response of PersonalAccessTokensApi->list_personal_access_tokens:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling PersonalAccessTokensApi->list_personal_access_tokens: %s\n" % e)
 ```
 
@@ -250,7 +249,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.v2024
 from sailpoint.v2024.api.personal_access_tokens_api import PersonalAccessTokensApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.get_personal_access_token_response import GetPersonalAccessTokenResponse
@@ -259,26 +257,20 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | The Personal Access Token id # str | The Personal Access Token id
-    [{op=replace, path=/name, value=New name}, {op=replace, path=/scope, value=[sp:scopes:all]}] # List[JsonPatchOperation] | A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * scope 
-     json_patch_operation = {
-          "op" : "replace",
-          "path" : "/description",
-          "value" : "New description"
-        } # List[JsonPatchOperation] | A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * scope 
-    
+    json_patch_operation = '''[{op=replace, path=/name, value=New name}, {op=replace, path=/scope, value=[sp:scopes:all]}]''' # List[JsonPatchOperation] | A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * scope 
 
     try:
         # Patch Personal Access Token
-        new_json_patch_operation = JsonPatchOperation()
-        new_json_patch_operation.from_json(json_patch_operation)
-        results =PersonalAccessTokensApi(api_client).patch_personal_access_token(id, new_json_patch_operation)
+        new_json_patch_operation = JsonPatchOperation.from_json(json_patch_operation)
+        results = PersonalAccessTokensApi(api_client).patch_personal_access_token(id=id, json_patch_operation=new_json_patch_operation)
         # Below is a request that includes all optional parameters
         # results = PersonalAccessTokensApi(api_client).patch_personal_access_token(id, new_json_patch_operation)
         print("The response of PersonalAccessTokensApi->patch_personal_access_token:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling PersonalAccessTokensApi->patch_personal_access_token: %s\n" % e)
 ```
 

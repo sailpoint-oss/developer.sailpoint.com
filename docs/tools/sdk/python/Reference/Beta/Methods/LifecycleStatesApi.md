@@ -91,13 +91,13 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.lifecycle_states_api import LifecycleStatesApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.lifecycle_state import LifecycleState
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
+
 
 with ApiClient(configuration) as api_client:
     identity_profile_id = '2b838de9-db9b-abcf-e646-d4f274ad4238' # str | Identity Profile ID. # str | Identity Profile ID.
@@ -106,12 +106,12 @@ with ApiClient(configuration) as api_client:
     try:
         # Get Lifecycle State
         
-        results =LifecycleStatesApi(api_client).get_lifecycle_states(identity_profile_id, lifecycle_state_id)
+        results = LifecycleStatesApi(api_client).get_lifecycle_states(identity_profile_id=identity_profile_id, lifecycle_state_id=lifecycle_state_id)
         # Below is a request that includes all optional parameters
         # results = LifecycleStatesApi(api_client).get_lifecycle_states(identity_profile_id, lifecycle_state_id)
         print("The response of LifecycleStatesApi->get_lifecycle_states:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling LifecycleStatesApi->get_lifecycle_states: %s\n" % e)
 ```
 
@@ -156,7 +156,6 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-import sailpoint.beta
 from sailpoint.beta.api.lifecycle_states_api import LifecycleStatesApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.json_patch_operation import JsonPatchOperation
@@ -165,27 +164,21 @@ from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+
 with ApiClient(configuration) as api_client:
     identity_profile_id = '2b838de9-db9b-abcf-e646-d4f274ad4238' # str | Identity Profile ID. # str | Identity Profile ID.
     lifecycle_state_id = 'ef38f94347e94562b5bb8424a56397d8' # str | Lifecycle State ID. # str | Lifecycle State ID.
-    [{op=replace, path=/description, value=Updated description!}, {op=replace, path=/accessProfileIds, value=[2c918087742bab150174407a80f3125e, 2c918087742bab150174407a80f3124f]}, {op=replace, path=/accountActions, value=[{action=ENABLE, sourceIds=[2c9180846a2f82fb016a481c1b1560c5, 2c9180846a2f82fb016a481c1b1560cc]}, {action=DISABLE, sourceIds=[2c91808869a0c9980169a207258513fb]}]}, {op=replace, path=/emailNotificationOption, value={notifyManagers=true, notifyAllAdmins=false, notifySpecificUsers=false, emailAddressList=[]}}] # List[JsonPatchOperation] | A list of lifecycle state update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields can be updated: * enabled * description * accountActions * accessProfileIds * emailNotificationOption 
-     json_patch_operation = {
-          "op" : "replace",
-          "path" : "/description",
-          "value" : "New description"
-        } # List[JsonPatchOperation] | A list of lifecycle state update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields can be updated: * enabled * description * accountActions * accessProfileIds * emailNotificationOption 
-    
+    json_patch_operation = '''[{op=replace, path=/description, value=Updated description!}, {op=replace, path=/accessProfileIds, value=[2c918087742bab150174407a80f3125e, 2c918087742bab150174407a80f3124f]}, {op=replace, path=/accountActions, value=[{action=ENABLE, sourceIds=[2c9180846a2f82fb016a481c1b1560c5, 2c9180846a2f82fb016a481c1b1560cc]}, {action=DISABLE, sourceIds=[2c91808869a0c9980169a207258513fb]}]}, {op=replace, path=/emailNotificationOption, value={notifyManagers=true, notifyAllAdmins=false, notifySpecificUsers=false, emailAddressList=[]}}]''' # List[JsonPatchOperation] | A list of lifecycle state update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields can be updated: * enabled * description * accountActions * accessProfileIds * emailNotificationOption 
 
     try:
         # Update Lifecycle State
-        new_json_patch_operation = JsonPatchOperation()
-        new_json_patch_operation.from_json(json_patch_operation)
-        results =LifecycleStatesApi(api_client).update_lifecycle_states(identity_profile_id, lifecycle_state_id, new_json_patch_operation)
+        new_json_patch_operation = JsonPatchOperation.from_json(json_patch_operation)
+        results = LifecycleStatesApi(api_client).update_lifecycle_states(identity_profile_id=identity_profile_id, lifecycle_state_id=lifecycle_state_id, json_patch_operation=new_json_patch_operation)
         # Below is a request that includes all optional parameters
         # results = LifecycleStatesApi(api_client).update_lifecycle_states(identity_profile_id, lifecycle_state_id, new_json_patch_operation)
         print("The response of LifecycleStatesApi->update_lifecycle_states:\n")
         pprint(results)
-        except Exception as e:
+    except Exception as e:
         print("Exception when calling LifecycleStatesApi->update_lifecycle_states: %s\n" % e)
 ```
 

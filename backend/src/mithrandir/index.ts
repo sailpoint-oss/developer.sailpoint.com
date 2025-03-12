@@ -39,6 +39,10 @@ const tableName = process.env.SAMPLE_TABLE;
 
 app.use(logger())
 
+
+// Retrieve a UUID, generate a random encryption key, and return the auth URL with these values pre-populated
+// The state parameter is encoded as a base64 string and contains the UUID and encryption key in JSON format as {id: uuid, encryptionKey: encryptionKey}
+// This state value can be overridden by the client if they wish to provide their own encryption key alongside the pre-populated UUID
 app.post('/uuid', async (c) => {
   if (c.req.header('Content-Type') !== 'application/json') {
     throw new HTTPException(400, { "message": "Content-Type must be application/json" })
@@ -131,13 +135,20 @@ app.post('/uuid', async (c) => {
   }
 })
 
+// Exchange the code for a token, which is encrypted with the encryption key, and store the token in the database
 app.post('/code/:code', async (c) => {
-  const code = c.req.param('code');
+  const {code} = c.req.param();
   if (!code) {
     throw new HTTPException(400, { "message": "code not provided" })
   }
 
-  const { state: uuid } = c.req.query()
+  const { state } = c.req.query()
+
+  if (!state) {
+    throw new HTTPException(400, { "message": "state not provided" })
+  }
+
+  const { id: uuid, encryptionKey } = JSON.parse(atob(state))
 
   console.log("Exchanging code for token", code, uuid)
 

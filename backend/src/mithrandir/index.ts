@@ -239,9 +239,9 @@ app.post('/Prod/sailapps/code/:code', async (c) => {
       new UpdateCommand({
         TableName: tableName,
         Key: {id: uuid},
-        UpdateExpression: 'set token = :token',
+        UpdateExpression: 'set tokenInfo = :tokenInfo',
         ExpressionAttributeValues: {
-          ':token': encryptedTokenWithIv,
+          ':tokenInfo': encryptedTokenWithIv,
         },
       }),
     );

@@ -88,7 +88,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       Events:
-        Api:
+        GenerateSailAppsUuid:
           Type: HttpApi
           Properties:
             Path: /sailapps/uuid
@@ -97,7 +97,7 @@ Resources:
               Ref: DeveloperSailpointApiGatewayApiv2
             Auth:
               Authorizer: NONE
-        Api:
+        PerformSailAppsCodeExchange:
           Type: HttpApi
           Properties:
             Path: /sailapps/code/{code}
@@ -106,7 +106,7 @@ Resources:
               Ref: DeveloperSailpointApiGatewayApiv2
             Auth:
               Authorizer: NONE
-        Api:
+        GetSailAppsToken:
           Type: HttpApi
           Properties:
             Path: /sailapps/uuid/{uuid}

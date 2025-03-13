@@ -34,18 +34,28 @@ properties:
           type: object  
   deprecated:
     type: boolean
+    default: false
+    description: If deprecated set to true
+    example: true
   deprecatedBy:
     type: string
     format: date-time
+    description: Specifies the new endpoint that supersedes this deprecated one
+    example: Name_of_new_api_that_replaces_this_API
   versionNumber:
-    type: integer
+    type: int32
     description: Version number
+    example: 1
   isSimulationEnabled:
     type: boolean
+    default: false
+    description: if enabled set to true
+    example: false
   isDynamicSchema:
       type: boolean
       description: Determines whether the dynamic output schema is returned in place of the action's output schema. The dynamic schema lists non-static properties, like properties of a workflow form where each form has different fields. These will be provided dynamically based on available form fields.
       example: false
+      default: false
   outputSchema:
     type: object
     description: Defines the output schema, if any, that this action produces.

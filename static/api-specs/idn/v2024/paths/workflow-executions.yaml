@@ -22,6 +22,9 @@ get:
       Refer to [Paginating Results](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results) for more information about the query parameters you can use to achieve pagination. 
   security:
     - userAuth: [sp:workflow:read]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
   parameters:
     - name: id
       in: path
@@ -70,7 +73,7 @@ get:
     '403':
       $ref: '../responses/403.yaml'
     '404':
-      $ref: '../responses/404.yaml'  
+      $ref: '../responses/404.yaml'
     '429':
       $ref: '../responses/429.yaml'
     '500':

@@ -1,6 +1,7 @@
 type: object
 properties:
   type:
+    type: string
     description: The type of event
     enum:
     - WorkflowExecutionScheduled
@@ -15,6 +16,10 @@ properties:
     - ActivityTaskStarted
     - ActivityTaskCompleted
     - ActivityTaskFailed
+    - StartChildWorkflowExecutionInitiated
+    - ChildWorkflowExecutionStarted
+    - ChildWorkflowExecutionCompleted
+    - ChildWorkflowExecutionFailed
     example: WorkflowTaskScheduled
   timestamp:
     type: string

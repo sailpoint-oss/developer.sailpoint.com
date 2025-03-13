@@ -15,14 +15,24 @@ properties:
     example: EVENT
   deprecated:
     type: boolean
+    default: false
+    description: If deprecated set to true
+    example: true
   deprecatedBy:
     type: string
     format: date-time
+    description: Specifies the new endpoint that supersedes this deprecated one
+    example: Name_of_new_api_that_replaces_this_API
   isSimulationEnabled:
     type: boolean
+    default: false
+    description: if enabled set to true
+    example: true
   outputSchema:
     type: object
     description: Example output schema
+    example:
+      isTrusted: true
   name:
     type: string
     description: Trigger Name
@@ -35,6 +45,7 @@ properties:
     type: boolean
     description: Determines whether the dynamic output schema is returned in place of the action's output schema. The dynamic schema lists non-static properties, like properties of a workflow form where each form has different fields. These will be provided dynamically based on available form fields.
     example: false
+    default: false
   inputExample:
     type: object
     description: Example trigger payload if applicable

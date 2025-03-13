@@ -1669,6 +1669,8 @@ paths:
     $ref: ./v2024/paths/source-entitlements-schema.yaml
   /sources/{sourceId}/upload-connector-file:
     $ref: ./v2024/paths/source-upload-connector-file.yaml
+  /sources/{sourceId}/connections:
+    $ref: "./v2024/paths/source-connections.yaml"
   /sources/{id}/correlation-config:
     $ref: ./v2024/paths/correlation-config.yaml
   /sources/{sourceId}/password-policies:

@@ -1,0 +1,20 @@
+post:
+  summary: Identity Attributes Changed
+  operationId: identityAttributesChanged
+  description: >-
+    This event trigger fires when Identity Security Cloud (ISC) detects an identity attribute change. 
+    ISC identity attribute changes occur when account attributes aggregated from an authoritative source differ from an identity's current attributes during an identity refresh.
+    
+    This is a `FIRE_AND_FORGET` event trigger. 
+    You can have a maximum of 50 subscriptions for this trigger.
+    For more information about this event trigger, refer to [Identity Attributes Changed](https://developer.sailpoint.com/docs/extensibility/event-triggers/triggers/identity-attribute-changed).
+  tags:
+    - Triggers
+  security:
+    - userAuth: [sp:trigger-service-subscriptions:manage]
+  requestBody:
+    required: true
+    content: 
+      application/json:
+        schema: 
+          $ref: '../schemas/trigger/example-input/IdentityAttributesChanged.yaml'

@@ -1,0 +1,35 @@
+post:
+  summary: Provisioning Completed 
+  operationId: provisioningCompleted
+  description: >-
+    This event trigger fires after Identity Security Cloud (ISC) provisions access to an account. 
+    This trigger provides organizations with a flexible way to extend the provisioning workflow after an identity's access has changed within ISC. 
+
+    These are the requirements to use the trigger:
+      * An oAuth client must be configured with the `ORG_ADMIN` authority.
+      * The organization has enabled the `ARSENAL_ALLOW_POSTPROVISIONING_TRIGGERS` feature flag.
+      * Connectors are configured for provisioning into the target applications.
+      * The organization is configured for automated provisioning. Different event contexts require different setups. For more information about these setups, refer to [Provisioning Completed](https://developer.sailpoint.com/docs/extensibility/event-triggers/triggers/provisioning-completed).
+
+    To provision access to a target application, the source's connector must support these features: 
+      * `ENABLE`: The ability to enable or disable accounts.
+      * `UNLOCK`: The ability to lock or unlock accounts.
+      * `PROVISIONING`: The ability to write to accounts.
+      * `PASSWORD`: The ability to update account passwords.
+    
+    For a list of supported connectors and features, refer to [Identity Security Cloud Connectors](https://documentation.sailpoint.com/connectors/isc/landingpages/help/landingpages/isc_landing.html).
+    For more information about configuring sources for provisioning in ISC, refer to [Configuring Source Account Provisioning](https://documentation.sailpoint.com/saas/help/provisioning/create_profile.html).
+
+    This is a `FIRE_AND_FORGET` event trigger. 
+    You can have a maximum of 50 subscriptions for this trigger.
+    For more information about this event trigger, refer to [Provisioning Completed](https://developer.sailpoint.com/docs/extensibility/event-triggers/triggers/provisioning-completed).
+  tags:
+    - Triggers
+  security:
+    - userAuth: [sp:trigger-service-subscriptions:manage]
+  requestBody:
+    required: true
+    content: 
+      application/json:
+        schema: 
+          $ref: '../schemas/trigger/example-input/ProvisioningCompleted.yaml'

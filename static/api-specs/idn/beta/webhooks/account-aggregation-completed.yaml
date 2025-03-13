@@ -1,0 +1,19 @@
+post:
+  summary: Account Aggregation Completed
+  operationId: accountAggregationCompleted
+  description: >-
+    This event trigger fires after a source aggregation has either succeeded or failed in collecting source accounts but before Identity Security Cloud (ISC) processes the aggregation.
+    
+    This is a `FIRE_AND_FORGET` event trigger. 
+    You can have a maximum of 50 subscriptions for this trigger.
+    For more information about this event trigger, refer to [Account Aggregation Completed](https://developer.sailpoint.com/docs/extensibility/event-triggers/triggers/account-aggregation-completed).
+  tags:
+    - Triggers
+  security:
+    - userAuth: [sp:trigger-service-subscriptions:manage]
+  requestBody:
+    required: true
+    content: 
+      application/json:
+        schema: 
+          $ref: '../schemas/trigger/example-input/AccountAggregationCompleted.yaml'

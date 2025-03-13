@@ -1,0 +1,20 @@
+post:
+  summary: Campaign Generated
+  operationId: campaignGenerated
+  description: >-
+    This event trigger fires after a certification campaign has generated and moved into the 'Preview Ready' state but hasn't been activated yet. 
+    A typical use case for this event trigger is to use it to immediately activate a campaign once it is generated.
+    
+    This is a `FIRE_AND_FORGET` event trigger. 
+    You can have a maximum of 50 subscriptions for this trigger.
+    For more information about this event trigger, refer to [Campaign Generated](https://developer.sailpoint.com/docs/extensibility/event-triggers/triggers/campaign-generated).
+  tags:
+    - Triggers
+  security:
+    - userAuth: [sp:trigger-service-subscriptions:manage]
+  requestBody:
+    required: true
+    content: 
+      application/json:
+        schema: 
+          $ref: '../schemas/trigger/example-input/CampaignGenerated.yaml'

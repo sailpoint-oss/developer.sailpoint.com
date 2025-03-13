@@ -1,0 +1,30 @@
+post:
+  summary: Source Account Updated
+  operationId: sourceAccountUpdated
+  description: >-
+    This event trigger fires when Identity Security Cloud (ISC), during an account aggregation operation, detects a change to one or more account attributes on a single account. 
+    This trigger cannot determine whether the account update happened on the source or in ISC. It omits events related to ISC accounts, such as the ISC Admin.
+
+    These actions are considered updated:
+      * An update to account attributes
+      * Enabling or disabling an account
+      * Locking or unlocking an account
+      * A change to a source account password
+    
+    A typical use for this trigger is to watch for updates to accounts that add highly privileged access, such as an account that is granted privileged access on a sensitive source. 
+
+    This is a `FIRE_AND_FORGET` event trigger. 
+    You can have a maximum of 50 subscriptions for this trigger.
+    For more information about this event trigger, refer to [Source Account Created](https://developer.sailpoint.com/docs/extensibility/event-triggers/triggers/source-account-updated).
+
+    >**Note: This is an early access event trigger. Contact support to enable it on your tenant.**
+  tags:
+    - Triggers
+  security:
+    - userAuth: [sp:trigger-service-subscriptions:manage]
+  requestBody:
+    required: true
+    content: 
+      application/json:
+        schema: 
+          $ref: '../schemas/trigger/example-input/SourceAccountUpdated.yaml'

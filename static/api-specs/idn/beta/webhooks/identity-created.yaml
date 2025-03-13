@@ -1,0 +1,20 @@
+post:
+  summary: Identity Created
+  operationId: identityCreated
+  description: >-
+    This event trigger fires when Identity Security Cloud (ISC) detects a new identity during an aggregation and refresh from an authoritative source.
+    ISC detects a new identity when it finds an account from an authoritative source that isn't correlated to an existing identity.
+    
+    This is a `FIRE_AND_FORGET` event trigger. 
+    You can have a maximum of 50 subscriptions for this trigger.
+    For more information about this event trigger, refer to [Identity Created](https://developer.sailpoint.com/docs/extensibility/event-triggers/triggers/identity-created).
+  tags:
+    - Triggers
+  security:
+    - userAuth: [sp:trigger-service-subscriptions:manage]
+  requestBody:
+    required: true
+    content: 
+      application/json:
+        schema: 
+          $ref: '../schemas/trigger/example-input/IdentityCreated.yaml'

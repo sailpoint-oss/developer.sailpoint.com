@@ -1,0 +1,19 @@
+post:
+  summary: Campaign Activated
+  operationId: campaignActivated
+  description: >-
+    This event trigger fires after a certification campaign is activated.
+    
+    This is a `FIRE_AND_FORGET` event trigger. 
+    You can have a maximum of 50 subscriptions for this trigger.
+    For more information about this event trigger, refer to [Campaign Activated](https://developer.sailpoint.com/docs/extensibility/event-triggers/triggers/campaign-activated).
+  tags:
+    - Triggers
+  security:
+    - userAuth: [sp:trigger-service-subscriptions:manage]
+  requestBody:
+    required: true
+    content: 
+      application/json:
+        schema: 
+          $ref: '../schemas/trigger/example-input/CampaignActivated.yaml'

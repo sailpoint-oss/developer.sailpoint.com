@@ -1,0 +1,23 @@
+post:
+  summary: Source Deleted
+  operationId: sourceDeleted
+  description: >-
+    This event trigger fires when a new source's configuration is changed in Identity Security Cloud (ISC).
+
+    These are some typical use cases for the trigger:
+      * Provide evidence to auditors to show that connector logic and sources are maintained by proper change control processes and aren't vulnerable to outside manipulation. 
+      * Trigger review for an updated source. 
+
+    This is a `FIRE_AND_FORGET` event trigger. 
+    You can have a maximum of 50 subscriptions for this trigger.
+    For more information about this event trigger, refer to [Source Created](https://developer.sailpoint.com/docs/extensibility/event-triggers/triggers/source-updated).
+  tags:
+    - Triggers
+  security:
+    - userAuth: [sp:trigger-service-subscriptions:manage]
+  requestBody:
+    required: true
+    content: 
+      application/json:
+        schema: 
+          $ref: '../schemas/trigger/example-input/SourceUpdated.yaml'

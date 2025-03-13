@@ -1,0 +1,27 @@
+post:
+  summary: Access Request Submitted
+  operationId: accessRequestSubmitted
+  description: >-
+    This event trigger fires after an access request is submitted but before the request is approved or denied. 
+    A service subscribing to the trigger can respond in real-time to approve or deny the request.
+    
+    This is a `REQUEST_RESPONSE` event trigger. 
+    This trigger type expects a response from the subscribers with directions about how to proceed with the event.
+    You can only have one subscriber per event.
+    For more information about this event trigger, refer to [Access Request Submitted](https://developer.sailpoint.com/docs/extensibility/event-triggers/triggers/access-request-submitted).
+  tags:
+    - Triggers
+  security:
+    - userAuth: [sp:trigger-service-subscriptions:manage]
+  requestBody:
+    required: true
+    content: 
+      application/json:
+        schema: 
+          $ref: '../schemas/trigger/example-input/AccessRequestPreApproval.yaml'
+  responses:
+    required: true
+    content:
+      application/json:
+        schema: 
+          $ref: '../schemas/trigger/example-input/AccessRequestSubmittedResponse.yaml'

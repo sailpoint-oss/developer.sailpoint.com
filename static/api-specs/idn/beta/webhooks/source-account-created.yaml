@@ -1,0 +1,24 @@
+post:
+  summary: Source Account Created
+  operationId: sourceAccountCreated
+  description: >-
+    This event trigger fires after Identity Security Cloud (ISC) detects a new account during an account aggregation and refresh from a source. 
+    This trigger cannot determine whether the account creation happened on the source or in ISC. It omits events related to ISC accounts, such as the ISC Admin. 
+    
+    A typical use for this trigger is to watch for new accounts with highly privileged access, such as an account created in Active Directory Domain Admins.
+
+    This is a `FIRE_AND_FORGET` event trigger. 
+    You can have a maximum of 50 subscriptions for this trigger.
+    For more information about this event trigger, refer to [Source Account Created](https://developer.sailpoint.com/docs/extensibility/event-triggers/triggers/source-account-created).
+
+    >**Note: This is an early access event trigger. Contact support to enable it on your tenant.**
+  tags:
+    - Triggers
+  security:
+    - userAuth: [sp:trigger-service-subscriptions:manage]
+  requestBody:
+    required: true
+    content: 
+      application/json:
+        schema: 
+          $ref: '../schemas/trigger/example-input/SourceAccountCreated.yaml'

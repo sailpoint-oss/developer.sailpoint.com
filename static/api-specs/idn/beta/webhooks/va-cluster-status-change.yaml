@@ -1,0 +1,25 @@
+post:
+  summary: VA Cluster Status Change
+  operationId: vaClusterStatusChange
+  description: >-
+    This event trigger fires when Identity Security Cloud (ISC) runs a health check on a virtual appliance (VA) cluster, and the cluster's health status is different from the previous health check, such as a change from healthy to unhealthy or the opposite. 
+    VA cluster health checks run every 30 minutes.
+    Users can use this trigger to monitor all their VA clusters' health status changes.
+    
+    These are some typical use cases for the trigger:
+      * Create real-time health dashboards for VA clusters.
+      * Notify an admin or system to take appropriate actions when a VA cluster's health status changes.
+
+    This is a `FIRE_AND_FORGET` event trigger. 
+    You can have a maximum of 50 subscriptions for this trigger.
+    For more information about this event trigger, refer to [Source Created](https://developer.sailpoint.com/docs/extensibility/event-triggers/triggers/va-cluster-status-change).
+  tags:
+    - Triggers
+  security:
+    - userAuth: [sp:trigger-service-subscriptions:manage]
+  requestBody:
+    required: true
+    content: 
+      application/json:
+        schema: 
+          $ref: '../schemas/trigger/example-input/VAClusterStatusChangeEvent.yaml'

@@ -9,6 +9,7 @@ import { HTTPException } from 'hono/http-exception'
 
 const clientId = "sailpoint-cli"
 const redirectUrl = "https://developer.sailpoint.com/sailapps"
+const devRedirectUrl = "http://localhost:4200/sailapps"
 
 const app = new Hono()
 
@@ -101,7 +102,7 @@ app.post('/uuid', async (c) => {
 
     authURL.searchParams.set("client_id", clientId)
     authURL.searchParams.set("response_type", "code")
-    authURL.searchParams.set("redirect_uri", redirectUrl)
+    authURL.searchParams.set("redirect_uri", body.dev === true ? devRedirectUrl : redirectUrl)
     authURL.searchParams.set("state", btoa(JSON.stringify(state)))
 
     console.log("Generated Auth URL:", authURL.toString())

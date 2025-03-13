@@ -87,6 +87,15 @@ Resources:
   SailAppsAuthFunction:
     Type: AWS::Serverless::Function
     Properties:
+      Events:
+        Api:
+          Type: HttpApi
+          Properties:
+            Path: /sailapps
+            ApiId:
+              Ref: DeveloperSailpointApiGatewayApiv2
+            Auth:
+              Authorizer: NONE
       CodeUri: backend/src/mithrandir/
       Handler: index.handler
       Runtime: nodejs22.x

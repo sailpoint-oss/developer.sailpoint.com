@@ -212,7 +212,7 @@ app.post('/Prod/sailapps/code/:code', async (c) => {
   });
 
   if (!tokenExchangeResp.ok) {
-    console.error('Token Exchange Response:', JSON.stringify(tokenExchangeResp, null, 2));
+    console.log(tokenExchangeResp);
     throw new HTTPException(400, {message: 'Error exchanging code for token'});
   }
 
@@ -221,7 +221,7 @@ app.post('/Prod/sailapps/code/:code', async (c) => {
   console.log(tokenExchangeData);
 
   if (!tokenExchangeData.access_token) {
-    console.error('Token Exchange Response:', JSON.stringify(tokenExchangeData, null, 2));
+    console.log(tokenExchangeResp);
     throw new HTTPException(400, {message: 'Error exchanging code for token'});
   }
 

@@ -131,7 +131,7 @@ app.post('/uuid', async (c) => {
 
 
   } catch (err) {
-    throw new HTTPException(400, { "message": "error retrieving tenant information" })
+    throw new HTTPException(400, { "message": "Error retrieving tenant information" })
   }
 })
 
@@ -155,7 +155,7 @@ console.log()
   try {
     const data = await ddbDocClient.send(new GetCommand({ TableName: tableName, Key: { id: uuid } }));
     if (!data.Item) {
-      throw new HTTPException(400, { "message": "error retrieving table data" })
+      throw new HTTPException(400, { "message": "Error retrieving table data" })
     }
 
     console.log(data.Item)
@@ -172,7 +172,7 @@ console.log()
     })
 
     if (!tokenExchangeResp.ok) {
-      throw new HTTPException(400, { "message": "error exchanging code for token" })
+      throw new HTTPException(400, { "message": "Error exchanging code for token" })
     }
 
     const tokenExchangeData = await tokenExchangeResp.json()
@@ -180,15 +180,13 @@ console.log()
     console.log(tokenExchangeData)
 
     if (!tokenExchangeData.access_token) {
-      throw new HTTPException(400, { "message": "error exchanging code for token" })
+      throw new HTTPException(400, { "message": "Error exchanging code for token" })
     }
-
-    const token = tokenExchangeData.access_token
     
     const iv = crypto.randomBytes(16);
     const cipher = createCipheriv('aes-256-cbc', encryptionKey, iv);
     
-    let encryptedToken = cipher.update(token, 'utf8', 'hex');
+    let encryptedToken = cipher.update(tokenExchangeData.access_token, 'utf8', 'hex');
     encryptedToken += cipher.final('hex');
 
     const encryptedTokenWithIv = iv.toString('hex') + ':' + encryptedToken;
@@ -228,20 +226,20 @@ console.log()
     //@ts-expect-error Unknown error shape
     console.error("Error stack:", err.stack);
 
-    throw new HTTPException(400, { "message": "error retrieving table data" })
+    throw new HTTPException(400, { "message": "Error retrieving table data" })
   }
 })
 
 app.get('/uuid/:uuid', async (c) => {
   const uuid = c.req.param('uuid');
   if (!uuid) {
-    throw new HTTPException(400, { "message": "uuid not provided" })
+    throw new HTTPException(400, { "message": "UUID not provided" })
   }
   try {
     const data = await ddbDocClient.send(new GetCommand({ TableName: tableName, Key: { id: uuid } }));
     console.log(data?.Item)
     if (!data?.Item?.token) {
-      throw new HTTPException(400, { "message": "token not populated" })
+      throw new HTTPException(400, { "message": "Token not populated" })
     }
     return c.json(data.Item)
 
@@ -255,7 +253,7 @@ app.get('/uuid/:uuid', async (c) => {
     //@ts-expect-error Unknown error shape
     console.error("Error stack:", err.stack);
 
-    throw new HTTPException(400, { "message": "error retrieving token" })
+    throw new HTTPException(400, { "message": "Error retrieving token" })
   }
 })
 

@@ -92,6 +92,7 @@ Resources:
           Type: HttpApi
           Properties:
             Path: /sailapps
+            Method: ANY
             ApiId:
               Ref: DeveloperSailpointApiGatewayApiv2
             Auth:

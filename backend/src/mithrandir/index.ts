@@ -38,8 +38,6 @@ const ddbDocClient = DynamoDBDocumentClient.from(ddbClient);
 // Get the DynamoDB table name from environment variables
 const tableName = process.env.SAMPLE_TABLE;
 
-app.use(logger())
-
 // Retrieve a UUID, generate a random encryption key, and return the auth URL with these values pre-populated
 // The state parameter is encoded as a base64 string and contains the UUID and encryption key in JSON format as {id: uuid, encryptionKey: encryptionKey}
 // This state value can be overridden by the client if they wish to provide their own encryption key alongside the pre-populated UUID

@@ -148,9 +148,9 @@ app.post('/code/:code', async (c) => {
     throw new HTTPException(400, { "message": "State not provided" })
   }
 
-console.log()
-
   const { id: uuid, encryptionKey } = JSON.parse(atob(state))
+
+  console.log(`Parsed State UUID: ${uuid}, Encryption Key: ${encryptionKey}`)
 
   try {
     const data = await ddbDocClient.send(new GetCommand({ TableName: tableName, Key: { id: uuid } }));

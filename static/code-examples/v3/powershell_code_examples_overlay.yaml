@@ -8396,15 +8396,15 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v3/methods/sources#get-source-connections
       source: |
-        $Id = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
+        $SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
         
         # Get Source Connections by ID
         
         try {
-            Get-SourceConnections -Id $Id 
+            Get-SourceConnections -SourceId $SourceId 
     
             # Below is a request that includes all optional parameters
-            # Get-SourceConnections -Id $Id   
+            # Get-SourceConnections -SourceId $SourceId   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-SourceConnections"
             Write-Host $_.ErrorDetails

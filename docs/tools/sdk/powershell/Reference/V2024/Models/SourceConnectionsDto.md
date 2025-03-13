@@ -1,12 +1,12 @@
 ---
-id: source-connections-dto
+id: v2024-source-connections-dto
 title: SourceConnectionsDto
 pagination_label: SourceConnectionsDto
 sidebar_label: SourceConnectionsDto
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SourceConnectionsDto', 'SourceConnectionsDto'] 
-slug: /tools/sdk/powershell/v3/models/source-connections-dto
-tags: ['SDK', 'Software Development Kit', 'SourceConnectionsDto', 'SourceConnectionsDto']
+keywords: ['powershell', 'PowerShell', 'sdk', 'SourceConnectionsDto', 'V2024SourceConnectionsDto'] 
+slug: /tools/sdk/powershell/v2024/models/source-connections-dto
+tags: ['SDK', 'Software Development Kit', 'SourceConnectionsDto', 'V2024SourceConnectionsDto']
 ---
 
 
@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SourceConnectionsDto = Initialize-PSSailpoint.V3SourceConnectionsDto  -IdentityProfiles null `
+$SourceConnectionsDto = Initialize-PSSailpoint.V2024SourceConnectionsDto  -IdentityProfiles null `
  -CredentialProfiles null `
  -SourceAttributes null `
  -MappingProfiles [ODS-AD-Profile, ODS-Profile2] `

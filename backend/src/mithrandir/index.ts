@@ -1,7 +1,7 @@
 // Create a DocumentClient that represents the query to add an item
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
 import { DynamoDBDocumentClient, GetCommand, PutCommand, UpdateCommand } from '@aws-sdk/lib-dynamodb';
-import crypto from 'crypto';
+import crypto, { createCipheriv } from 'crypto';
 import { Hono } from 'hono'
 import { handle } from 'hono/aws-lambda'
 import { logger } from 'hono/logger'
@@ -184,12 +184,20 @@ console.log()
     }
 
     const token = tokenExchangeData.access_token
+    
+    const iv = crypto.randomBytes(16);
+    const cipher = createCipheriv('aes-256-cbc', encryptionKey, iv);
+    
+    let encryptedToken = cipher.update(token, 'utf8', 'hex');
+    encryptedToken += cipher.final('hex');
+
+    const encryptedTokenWithIv = iv.toString('hex') + ':' + encryptedToken;
 
     try {
       const data = await ddbDocClient.send(new UpdateCommand({
         TableName: tableName, Key: { id: uuid }, UpdateExpression: "set token = :token",
         ExpressionAttributeValues: {
-          ":token": token,
+          ":token": encryptedTokenWithIv,
         }
       }));
       console.log(data)

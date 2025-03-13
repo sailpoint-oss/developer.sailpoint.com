@@ -91,8 +91,26 @@ Resources:
         Api:
           Type: HttpApi
           Properties:
-            Path: /sailapps
-            Method: ANY
+            Path: /sailapps/uuid
+            Method: POST
+            ApiId:
+              Ref: DeveloperSailpointApiGatewayApiv2
+            Auth:
+              Authorizer: NONE
+        Api:
+          Type: HttpApi
+          Properties:
+            Path: /sailapps/code/{code}
+            Method: POST
+            ApiId:
+              Ref: DeveloperSailpointApiGatewayApiv2
+            Auth:
+              Authorizer: NONE
+        Api:
+          Type: HttpApi
+          Properties:
+            Path: /sailapps/uuid/{uuid}
+            Method: GET
             ApiId:
               Ref: DeveloperSailpointApiGatewayApiv2
             Auth:

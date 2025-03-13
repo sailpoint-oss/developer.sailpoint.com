@@ -61,17 +61,17 @@ This rule gathers additional attributes from SAP systems to build accounts. This
   String firstName = object.get("FirstName");
   String lastName = object.get("LastName");
 
-  StringBuilder initials = new StringBuilder();
+  String initials = "";
 
-  if (firstName != null && !firstName.isEmpty()) {
-    initials.append(Character.toUpperCase(firstName.charAt(0))).append(".");
+  if (firstName != null && firstName.length() > 0) {
+    initials += Character.toUpperCase(firstName.charAt(0)) + ".";
   }
 
-  if (lastName != null && !lastName.isEmpty()) {
-    initials.append(Character.toUpperCase(lastName.charAt(0))).append(".");
+  if (lastName != null && lastName.length() > 0) {
+    initials += Character.toUpperCase(lastName.charAt(0)) + ".";
   }
 
-  object.put("Initials", initials.toString());
+  object.put("Initials", initials);
   object.put("HireDate", object.remove("InitDate"));
 
 ]]></Source>

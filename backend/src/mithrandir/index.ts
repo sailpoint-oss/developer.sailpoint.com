@@ -230,6 +230,8 @@ app.post('/Prod/sailapps/code/:code', async (c) => {
   }
 
   const iv = crypto.randomBytes(32);
+  console.log(iv);
+
   const cipher = createCipheriv('aes-256-cbc', encryptionKey, iv);
 
   let encryptedToken = cipher.update(

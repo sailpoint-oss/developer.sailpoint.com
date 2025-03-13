@@ -40,11 +40,10 @@ const tableName = process.env.SAMPLE_TABLE;
 
 app.use(logger())
 
-
 // Retrieve a UUID, generate a random encryption key, and return the auth URL with these values pre-populated
 // The state parameter is encoded as a base64 string and contains the UUID and encryption key in JSON format as {id: uuid, encryptionKey: encryptionKey}
 // This state value can be overridden by the client if they wish to provide their own encryption key alongside the pre-populated UUID
-app.post('/uuid', async (c) => {
+app.post('/Prod/sailapps/uuid', async (c) => {
   if (c.req.header('Content-Type') !== 'application/json') {
     throw new HTTPException(400, { "message": "Content-Type must be application/json" })
   }
@@ -137,7 +136,7 @@ app.post('/uuid', async (c) => {
 })
 
 // Exchange the code for a token, which is encrypted with the encryption key, and store the token in the database
-app.post('/code/:code', async (c) => {
+app.post('/Prod/sailapps/code/:code', async (c) => {
   const {code} = c.req.param();
   if (!code) {
     throw new HTTPException(400, { "message": "Code not provided" })
@@ -231,7 +230,7 @@ app.post('/code/:code', async (c) => {
   }
 })
 
-app.get('/uuid/:uuid', async (c) => {
+app.get('/Prod/sailapps/uuid/:uuid', async (c) => {
   const uuid = c.req.param('uuid');
   if (!uuid) {
     throw new HTTPException(400, { "message": "UUID not provided" })

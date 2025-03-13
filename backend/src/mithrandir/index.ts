@@ -17,16 +17,6 @@ const devRedirectUrl = 'http://localhost:4200/sailapps';
 
 const app = new Hono();
 
-function generateRandomString(length: number) {
-  const characters =
-    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-  let result = '';
-  for (let i = 0; i < length; i++) {
-    result += characters.charAt(Math.floor(Math.random() * characters.length));
-  }
-  return result;
-}
-
 //DynamoDB Endpoint
 const ENDPOINT_OVERRIDE = process.env.ENDPOINT_OVERRIDE;
 let ddbClient = undefined;
@@ -229,7 +219,7 @@ app.post('/Prod/sailapps/code/:code', async (c) => {
     throw new HTTPException(400, {message: 'Error exchanging code for token'});
   }
 
-  const iv = crypto.randomBytes(32);
+  const iv = crypto.randomBytes(16);
 
   const encryptionKeyBuffer = Buffer.from(encryptionKey, 'hex');
 

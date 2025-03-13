@@ -238,8 +238,6 @@ app.post('/Prod/sailapps/code/:code', async (c) => {
   );
   encryptedToken += cipher.final('hex');
 
-  const encryptedTokenWithIv = iv.toString('hex') + ':' + encryptedToken;
-
   try {
     const data = await ddbDocClient.send(
       new UpdateCommand({
@@ -247,7 +245,7 @@ app.post('/Prod/sailapps/code/:code', async (c) => {
         Key: {id: uuid},
         UpdateExpression: 'set token = :token',
         ExpressionAttributeValues: {
-          ':token': encryptedTokenWithIv,
+          ':token': encryptedToken,
         },
       }),
     );

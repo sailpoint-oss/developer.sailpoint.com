@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'SourceUpdatedActor', 'BetaSourceUpdat
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  **Enum** [  "IDENTITY" ] | DTO type of identity who updated the source. | [required]
-**Id** | **String** | ID of identity who updated the source. | [optional] 
-**Name** | **String** | Display name of identity who updated the source. | [required]
+**Type** |  **Enum** [  "IDENTITY" ] | DTO type of the identity who updated the source. | [required]
+**Id** | **String** | ID of the identity who updated the source. | [required]
+**Name** | **String** | Name of the identity who updated the source. | [required]
 
 ## Examples
 

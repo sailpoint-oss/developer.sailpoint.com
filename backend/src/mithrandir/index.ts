@@ -139,13 +139,13 @@ app.post('/uuid', async (c) => {
 app.post('/code/:code', async (c) => {
   const {code} = c.req.param();
   if (!code) {
-    throw new HTTPException(400, { "message": "code not provided" })
+    throw new HTTPException(400, { "message": "Code not provided" })
   }
 
   const { state } = c.req.query()
 
   if (!state) {
-    throw new HTTPException(400, { "message": "state not provided" })
+    throw new HTTPException(400, { "message": "State not provided" })
   }
 
 console.log()
@@ -202,7 +202,7 @@ console.log()
       if (!data) {
         throw new HTTPException(400, { "message": "Error adding token" })
       }
-      return c.json(data)
+      return c.json({message: "Token added successfully"}, 200)
     } catch (err) {
       //@ts-expect-error Unknown error shape
       console.error("Error retrieving item:", err.message);
@@ -241,7 +241,8 @@ app.get('/uuid/:uuid', async (c) => {
     if (!data?.Item?.token) {
       throw new HTTPException(400, { "message": "Token not populated" })
     }
-    return c.json(data.Item)
+
+    return c.json(data.Item, 200)
 
   } catch (err) {
     //@ts-expect-error Unknown error shape

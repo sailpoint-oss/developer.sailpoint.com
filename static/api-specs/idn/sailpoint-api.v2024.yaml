@@ -1475,6 +1475,8 @@ paths:
     $ref: ./v2024/paths/managed-cluster.yaml
   /managed-clusters/{id}/log-config:
     $ref: './v2024/paths/managed-cluster-log-config.yaml'
+  /managed-clusters/{id}/manualUpgrade:
+    $ref: './v2024/paths/managed-cluster-manualUpgrade.yaml'
   /mfa/okta-verify/config:
     $ref: ./v2024/paths/mfa-okta-config.yaml
   /mfa/duo-web/config:

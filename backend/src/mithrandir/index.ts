@@ -162,6 +162,8 @@ app.post('/Prod/sailapps/code/:code', async (c) => {
 
   const {state} = c.req.query();
 
+  const body = await c.req.json();
+
   if (!state) {
     throw new HTTPException(400, {message: 'State not provided'});
   }
@@ -205,7 +207,7 @@ app.post('/Prod/sailapps/code/:code', async (c) => {
   tokenExchangeURL.searchParams.set('grant_type', 'authorization_code');
   tokenExchangeURL.searchParams.set('client_id', clientId);
   tokenExchangeURL.searchParams.set('code', code);
-  tokenExchangeURL.searchParams.set('redirect_uri', redirectUrl);
+  tokenExchangeURL.searchParams.set('redirect_uri', body.dev === true ? devRedirectUrl : redirectUrl);
 
   const tokenExchangeResp = await fetch(tokenExchangeURL, {
     method: 'POST',

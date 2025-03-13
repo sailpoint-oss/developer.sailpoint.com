@@ -17,7 +17,7 @@ tags: ['SDK', 'Software Development Kit', 'ImportFormDefinitions202Response', 'V
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **errors** | [**[]ImportFormDefinitions202ResponseErrorsInner**](import-form-definitions202-response-errors-inner) |  | [optional] 
-**imported_objects** | [**[]ExportFormDefinitionsByTenant200ResponseInner**](export-form-definitions-by-tenant200-response-inner) |  | [optional] 
+**imported_objects** | [**[]ImportFormDefinitionsRequestInner**](import-form-definitions-request-inner) |  | [optional] 
 **infos** | [**[]ImportFormDefinitions202ResponseErrorsInner**](import-form-definitions202-response-errors-inner) |  | [optional] 
 **warnings** | [**[]ImportFormDefinitions202ResponseErrorsInner**](import-form-definitions202-response-errors-inner) |  | [optional] 
 }
@@ -37,7 +37,7 @@ errors=[
                         text = '', )
                     ],
 imported_objects=[
-                    sailpoint.v2024.models.export_form_definitions_by_tenant_200_response_inner.exportFormDefinitionsByTenant_200_response_inner(
+                    sailpoint.v2024.models.import_form_definitions_request_inner.importFormDefinitions_request_inner(
                         object = sailpoint.v2024.models.form_definition_response.FormDefinitionResponse(
                             id = '00000000-0000-0000-0000-000000000000', 
                             name = 'My form', 

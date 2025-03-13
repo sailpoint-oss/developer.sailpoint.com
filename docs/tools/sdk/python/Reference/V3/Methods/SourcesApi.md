@@ -840,7 +840,7 @@ Use this API to get all dependent Profiles, Attributes, Applications and Custom 
 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | id | **str** | True  | Source ID.
+Path   | source_id | **str** | True  | Source ID.
 
 ### Return type
 [**SourceConnectionsDto**](../models/source-connections-dto)
@@ -872,14 +872,14 @@ configuration = Configuration()
 
 
 with ApiClient(configuration) as api_client:
-    id = '2c9180835d191a86015d28455b4a2329' # str | Source ID. # str | Source ID.
+    source_id = '2c9180835d191a86015d28455b4a2329' # str | Source ID. # str | Source ID.
 
     try:
         # Get Source Connections by ID
         
-        results = SourcesApi(api_client).get_source_connections(id=id)
+        results = SourcesApi(api_client).get_source_connections(source_id=source_id)
         # Below is a request that includes all optional parameters
-        # results = SourcesApi(api_client).get_source_connections(id)
+        # results = SourcesApi(api_client).get_source_connections(source_id)
         print("The response of SourcesApi->get_source_connections:\n")
         pprint(results)
     except Exception as e:

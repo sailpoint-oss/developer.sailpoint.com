@@ -90,6 +90,7 @@ Method | HTTP request | Description
 [**get-source**](#get-source) | **GET** `/sources/{id}` | Get Source by ID
 [**get-source-attr-sync-config**](#get-source-attr-sync-config) | **GET** `/sources/{id}/attribute-sync-config` | Attribute Sync Config
 [**get-source-config**](#get-source-config) | **GET** `/sources/{id}/connectors/source-config` | Gets source config with language translations
+[**get-source-connections**](#get-source-connections) | **GET** `/sources/{sourceId}/connections` | Get Source Connections by ID
 [**get-source-entitlement-request-config**](#get-source-entitlement-request-config) | **GET** `/sources/{id}/entitlement-request-config` | Get Source Entitlement Request Configuration
 [**get-source-health**](#get-source-health) | **GET** `/sources/{sourceId}/source-health` | Fetches source health by id
 [**get-source-schedule**](#get-source-schedule) | **GET** `/sources/{sourceId}/schedules/{scheduleType}` | Get Source Schedule by Type
@@ -1401,6 +1402,66 @@ with ApiClient(configuration) as api_client:
         pprint(results)
     except Exception as e:
         print("Exception when calling SourcesApi->get_source_config: %s\n" % e)
+```
+
+
+
+[[Back to top]](#) 
+
+## get-source-connections
+Get Source Connections by ID
+Use this API to get all dependent Profiles, Attributes, Applications and Custom Transforms for a source by a specified ID in Identity Security Cloud (ISC).
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-source-connections)
+
+### Parameters 
+
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | source_id | **str** | True  | Source ID.
+
+### Return type
+[**SourceConnectionsDto**](../models/source-connections-dto)
+
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | Source Connections object. | SourceConnectionsDto |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
+
+### HTTP request headers
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### Example
+
+```python
+from sailpoint.v2024.api.sources_api import SourcesApi
+from sailpoint.v2024.api_client import ApiClient
+from sailpoint.v2024.models.source_connections_dto import SourceConnectionsDto
+from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
+
+
+with ApiClient(configuration) as api_client:
+    source_id = '2c9180835d191a86015d28455b4a2329' # str | Source ID. # str | Source ID.
+
+    try:
+        # Get Source Connections by ID
+        
+        results = SourcesApi(api_client).get_source_connections(source_id=source_id)
+        # Below is a request that includes all optional parameters
+        # results = SourcesApi(api_client).get_source_connections(source_id)
+        print("The response of SourcesApi->get_source_connections:\n")
+        pprint(results)
+    except Exception as e:
+        print("Exception when calling SourcesApi->get_source_connections: %s\n" % e)
 ```
 
 

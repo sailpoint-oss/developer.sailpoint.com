@@ -957,7 +957,7 @@ Import form definitions from export.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
    | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
- Body  | body | [**[]ExportFormDefinitionsByTenant200ResponseInner**](../models/export-form-definitions-by-tenant200-response-inner) |   (optional) | Body is the request payload to import form definitions
+ Body  | body | [**[]ImportFormDefinitionsRequestInner**](../models/import-form-definitions-request-inner) |   (optional) | Body is the request payload to import form definitions
 
 ### Return type
 [**ImportFormDefinitions202Response**](../models/import-form-definitions202-response)
@@ -981,8 +981,8 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.v2024.api.custom_forms_api import CustomFormsApi
 from sailpoint.v2024.api_client import ApiClient
-from sailpoint.v2024.models.export_form_definitions_by_tenant200_response_inner import ExportFormDefinitionsByTenant200ResponseInner
 from sailpoint.v2024.models.import_form_definitions202_response import ImportFormDefinitions202Response
+from sailpoint.v2024.models.import_form_definitions_request_inner import ImportFormDefinitionsRequestInner
 from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
@@ -991,7 +991,7 @@ configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    body = '''[{version=1, self={name=All fields not required, id=05ed4edb-d0a9-41d9-ad0c-2f6e486ec4aa, type=FORM_DEFINITION}, object={id=05ed4edb-d0a9-41d9-ad0c-2f6e486ec4aa, name=All fields not required, description=description, owner={type=IDENTITY, id=3447d8ec2602455ab6f1e8408a0f0150}, usedBy=[{type=WORKFLOW, id=5008594c-dacc-4295-8fee-41df60477304}, {type=WORKFLOW, id=97e75a75-c179-4fbc-a2da-b5fa4aaa8743}], formInput=[{type=STRING, label=input1, description=A single dynamic scalar value (i.e. number, string, date, etc) that can be passed into the form for use in conditional logic}], formElements=[{id=3069272797630701, elementType=SECTION, config={label=First Section, formElements=[{id=3069272797630700, elementType=TEXT, key=firstName, config={label=First Name}}, {id=3498415402897539, elementType=TEXT, key=lastName, config={label=Last Name}}]}}], formConditions=[{ruleOperator=AND, rules=[{sourceType=INPUT, source=Department, operator=EQ, valueType=STRING, value=Sales}], effects=[{effectType=HIDE, config={element=2614088730489570}}]}], created=2022-10-04T19:27:04.456Z, modified=2022-11-16T20:45:02.172Z}}]''' # List[ExportFormDefinitionsByTenant200ResponseInner] | Body is the request payload to import form definitions (optional)
+    body = '''[{version=1, self={name=All fields not required, id=05ed4edb-d0a9-41d9-ad0c-2f6e486ec4aa, type=FORM_DEFINITION}, object={id=05ed4edb-d0a9-41d9-ad0c-2f6e486ec4aa, name=All fields not required, description=description, owner={type=IDENTITY, id=3447d8ec2602455ab6f1e8408a0f0150}, usedBy=[{type=WORKFLOW, id=5008594c-dacc-4295-8fee-41df60477304}, {type=WORKFLOW, id=97e75a75-c179-4fbc-a2da-b5fa4aaa8743}], formInput=[{type=STRING, label=input1, description=A single dynamic scalar value (i.e. number, string, date, etc) that can be passed into the form for use in conditional logic}], formElements=[{id=3069272797630701, elementType=SECTION, config={label=First Section, formElements=[{id=3069272797630700, elementType=TEXT, key=firstName, config={label=First Name}}, {id=3498415402897539, elementType=TEXT, key=lastName, config={label=Last Name}}]}}], formConditions=[{ruleOperator=AND, rules=[{sourceType=INPUT, source=Department, operator=EQ, valueType=STRING, value=Sales}], effects=[{effectType=HIDE, config={element=2614088730489570}}]}], created=2022-10-04T19:27:04.456Z, modified=2022-11-16T20:45:02.172Z}}]''' # List[ImportFormDefinitionsRequestInner] | Body is the request payload to import form definitions (optional)
 
     try:
         # Import form definitions from export.

@@ -23,6 +23,7 @@ Method | HTTP request | Description
 [**get-managed-cluster**](#get-managed-cluster) | **GET** `/managed-clusters/{id}` | Get Managed Cluster
 [**get-managed-clusters**](#get-managed-clusters) | **GET** `/managed-clusters` | Get Managed Clusters
 [**put-client-log-configuration**](#put-client-log-configuration) | **PUT** `/managed-clusters/{id}/log-config` | Update Managed Cluster Log Configuration
+[**update**](#update) | **POST** `/managed-clusters/{id}/manualUpgrade` | Trigger Manual Upgrade for Managed Cluster
 [**update-managed-cluster**](#update-managed-cluster) | **PATCH** `/managed-clusters/{id}` | Update Managed Cluster
 
 
@@ -396,6 +397,67 @@ with ApiClient(configuration) as api_client:
         pprint(results)
     except Exception as e:
         print("Exception when calling ManagedClustersApi->put_client_log_configuration: %s\n" % e)
+```
+
+
+
+[[Back to top]](#) 
+
+## update
+Trigger Manual Upgrade for Managed Cluster
+Trigger Manual Upgrade for Managed Cluster.
+AMS Security: API, Internal A token with SYSTEM_ADMINISTRATOR authority is required to call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/update)
+
+### Parameters 
+
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | id | **str** | True  | ID of managed cluster to trigger manual upgrade.
+
+### Return type
+[**ClusterManualUpgrade**](../models/cluster-manual-upgrade)
+
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | Manual upgrade of managed cluster for given cluster ID. | ClusterManualUpgrade |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
+
+### HTTP request headers
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### Example
+
+```python
+from sailpoint.v2024.api.managed_clusters_api import ManagedClustersApi
+from sailpoint.v2024.api_client import ApiClient
+from sailpoint.v2024.models.cluster_manual_upgrade import ClusterManualUpgrade
+from pprint import pprint
+from sailpoint.configuration import Configuration
+configuration = Configuration()
+
+
+with ApiClient(configuration) as api_client:
+    id = '2b838de9-db9b-abcf-e646-d4f274ad4238' # str | ID of managed cluster to trigger manual upgrade. # str | ID of managed cluster to trigger manual upgrade.
+
+    try:
+        # Trigger Manual Upgrade for Managed Cluster
+        
+        results = ManagedClustersApi(api_client).update(id=id)
+        # Below is a request that includes all optional parameters
+        # results = ManagedClustersApi(api_client).update(id)
+        print("The response of ManagedClustersApi->update:\n")
+        pprint(results)
+    except Exception as e:
+        print("Exception when calling ManagedClustersApi->update: %s\n" % e)
 ```
 
 

@@ -18,6 +18,7 @@ get:
       type: integer
       format: int64
       default: 0
+      minimum: 0
       x-go-name: Offset
     example: 0
     required: false
@@ -34,8 +35,8 @@ get:
     schema:
       type: integer
       format: int64
-      maxLength: 250
-      minLength: 0
+      minimum: 0
+      maximum: 250
       default: 250
       x-go-name: Limit
     example: 250
@@ -102,7 +103,10 @@ get:
                 object:
                   $ref: ../schemas/forms/FormDefinitionResponse.yaml
                 self:
-                  type: string
+                  type: object
+                  properties:
+                    object:
+                      $ref: ../schemas/forms/FormDefinitionSelfImportExportDto.yaml
                   x-go-name: Self
                 version:
                   type: integer
@@ -205,3 +209,5 @@ get:
   security:
   - userAuth:
     - sp:forms:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN

@@ -275,7 +275,7 @@ app.get('/Prod/sailapps/uuid/:uuid', async (c) => {
       new GetCommand({TableName: tableName, Key: {id: uuid}}),
     );
     console.log(data?.Item);
-    if (!data?.Item?.token) {
+    if (!data?.Item?.tokenInfo) {
       throw new HTTPException(400, {message: 'Token not populated'});
     }
 

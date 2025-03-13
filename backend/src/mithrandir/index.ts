@@ -4,7 +4,6 @@ import { DynamoDBDocumentClient, GetCommand, PutCommand, UpdateCommand } from '@
 import crypto, { createCipheriv } from 'crypto';
 import { Hono } from 'hono'
 import { handle } from 'hono/aws-lambda'
-import { logger } from 'hono/logger'
 import { HTTPException } from 'hono/http-exception'
 
 const clientId = "sailpoint-cli"

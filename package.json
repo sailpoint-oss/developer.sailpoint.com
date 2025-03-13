@@ -25,7 +25,9 @@
     "overlay-code-examples-v3": "node src/components/overlay.js static/code-examples/v3/v3.yaml  static/code-examples/v3/powershell_code_examples_overlay.yaml",
     "speecy-v2024-spec": "speccy resolve --quiet static/api-specs/idn/sailpoint-api.v2024.yaml -o static/code-examples/v2024/v2024.yaml",
     "overlay-code-examples-v2024": "node src/components/overlay.js static/code-examples/v2024/v2024.yaml  static/code-examples/v2024/powershell_code_examples_overlay.yaml",
-    "gen-all-api-specs-code-examples": "npm run speecy-beta-spec && npm run overlay-code-examples-beta && npm run speecy-v3-spec && npm run overlay-code-examples-v3 && npm run speecy-v2024-spec && npm run overlay-code-examples-v2024"
+    "speecy-v2025-spec": "speccy resolve --quiet static/api-specs/idn/sailpoint-api.v2025.yaml -o static/code-examples/v2025/v2025.yaml",
+    "overlay-code-examples-v2025": "node src/components/overlay.js static/code-examples/v2025/v2025.yaml  static/code-examples/v2025/powershell_code_examples_overlay.yaml",
+    "gen-all-api-specs-code-examples": "npm run speecy-beta-spec && npm run overlay-code-examples-beta && npm run speecy-v3-spec && npm run overlay-code-examples-v3 && npm run speecy-v2024-spec && npm run overlay-code-examples-v2024 && npm run speecy-v2025-spec && npm run overlay-code-examples-v2025"
   },
   "dependencies": {
     "@docusaurus/faster": "^3.7.0",

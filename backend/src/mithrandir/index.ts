@@ -231,8 +231,8 @@ app.get('/uuid/:uuid', async (c) => {
   }
   try {
     const data = await ddbDocClient.send(new GetCommand({ TableName: tableName, Key: { id: uuid } }));
-    console.log(data.Item)
-    if (!data.Item.token) {
+    console.log(data?.Item)
+    if (!data?.Item?.token) {
       throw new HTTPException(400, { "message": "token not populated" })
     }
     return c.json(data.Item)

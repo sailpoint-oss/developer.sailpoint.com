@@ -229,7 +229,7 @@ app.post('/Prod/sailapps/code/:code', async (c) => {
     throw new HTTPException(400, {message: 'Error exchanging code for token'});
   }
 
-  const iv = crypto.randomBytes(16);
+  const iv = crypto.randomBytes(32).toString('hex');
 
   const cipher = createCipheriv('aes-256-cbc', encryptionKey, iv);
 
@@ -240,7 +240,7 @@ app.post('/Prod/sailapps/code/:code', async (c) => {
   );
   encryptedToken += cipher.final('hex');
 
-  const encryptedTokenWithIv = iv.toString('hex') + ':' + encryptedToken;
+  const encryptedTokenWithIv = iv + ':' + encryptedToken;
 
   try {
     const data = await ddbDocClient.send(

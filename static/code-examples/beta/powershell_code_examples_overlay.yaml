@@ -4605,7 +4605,7 @@
         }
         "@
         
-        # Returns a Recommendation Based on Object
+        # Returns Recommendation Based on Object
         
         try {
             $Result = ConvertFrom-JsonToRecommendationRequestDto -Json $RecommendationRequestDto

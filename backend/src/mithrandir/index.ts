@@ -229,9 +229,7 @@ app.post('/Prod/sailapps/code/:code', async (c) => {
     throw new HTTPException(400, {message: 'Error exchanging code for token'});
   }
 
-  const iv = crypto.randomBytes(8);
-
-  const cipher = createCipheriv('aes-256-cbc', encryptionKey, iv);
+  const cipher = createCipheriv('aes128', encryptionKey, "null");
 
   let encryptedToken = cipher.update(
     JSON.stringify(tokenExchangeData),

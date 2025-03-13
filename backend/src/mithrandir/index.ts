@@ -212,6 +212,7 @@ app.post('/Prod/sailapps/code/:code', async (c) => {
   });
 
   if (!tokenExchangeResp.ok) {
+    console.error('Token Exchange Response:', JSON.stringify(tokenExchangeResp, null, 2));
     throw new HTTPException(400, {message: 'Error exchanging code for token'});
   }
 

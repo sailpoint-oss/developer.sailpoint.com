@@ -148,24 +148,68 @@ app.post('/code/:code', async (c) => {
     throw new HTTPException(400, { "message": "state not provided" })
   }
 
+console.log()
+
   const { id: uuid, encryptionKey } = JSON.parse(atob(state))
 
-  console.log("Exchanging code for token", code, uuid)
-
-  const token = "temp_token"
-
   try {
-    const data = await ddbDocClient.send(new UpdateCommand({
-      TableName: tableName, Key: { id: uuid }, UpdateExpression: "set token = :token",
-      ExpressionAttributeValues: {
-        ":token": token,
-      }
-    }));
-    console.log(data)
-    if (!data) {
-      throw new HTTPException(400, { "message": "Error adding token" })
+    const data = await ddbDocClient.send(new GetCommand({ TableName: tableName, Key: { id: uuid } }));
+    if (!data.Item) {
+      throw new HTTPException(400, { "message": "error retrieving table data" })
     }
-    return c.json(data)
+
+    console.log(data.Item)
+    
+    console.log("Exchanging code for token", code, uuid)
+
+    if (!data.Item.baseURL) {
+      throw new HTTPException(400, { "message": "baseURL not populated" })
+    }
+    
+    const tokenExchangeResp = await fetch(data.Item.baseURL + `/oauth/token`, {
+      method: "POST",
+      body: JSON.stringify({ code, client_id: clientId, redirect_uri: redirectUrl })
+    })
+
+    if (!tokenExchangeResp.ok) {
+      throw new HTTPException(400, { "message": "error exchanging code for token" })
+    }
+
+    const tokenExchangeData = await tokenExchangeResp.json()
+
+    console.log(tokenExchangeData)
+
+    if (!tokenExchangeData.access_token) {
+      throw new HTTPException(400, { "message": "error exchanging code for token" })
+    }
+
+    const token = tokenExchangeData.access_token
+
+    try {
+      const data = await ddbDocClient.send(new UpdateCommand({
+        TableName: tableName, Key: { id: uuid }, UpdateExpression: "set token = :token",
+        ExpressionAttributeValues: {
+          ":token": token,
+        }
+      }));
+      console.log(data)
+      if (!data) {
+        throw new HTTPException(400, { "message": "Error adding token" })
+      }
+      return c.json(data)
+    } catch (err) {
+      //@ts-expect-error Unknown error shape
+      console.error("Error retrieving item:", err.message);
+      //@ts-expect-error Unknown error shape
+      console.error("Error code:", err.code);
+      //@ts-expect-error Unknown error shape
+      console.error("Error name:", err.name);
+      //@ts-expect-error Unknown error shape
+      console.error("Error stack:", err.stack);
+  
+      throw new HTTPException(400, { "message": "Error creating UUID" })
+    }
+
   } catch (err) {
     //@ts-expect-error Unknown error shape
     console.error("Error retrieving item:", err.message);
@@ -176,7 +220,7 @@ app.post('/code/:code', async (c) => {
     //@ts-expect-error Unknown error shape
     console.error("Error stack:", err.stack);
 
-    throw new HTTPException(400, { "message": "Error creating UUID" })
+    throw new HTTPException(400, { "message": "error retrieving table data" })
   }
 })
 
@@ -187,11 +231,11 @@ app.get('/uuid/:uuid', async (c) => {
   }
   try {
     const data = await ddbDocClient.send(new GetCommand({ TableName: tableName, Key: { id: uuid } }));
-    console.log(data)
-    if (!data) {
-      throw new HTTPException(400, { "message": "uuid not authenticated" })
+    console.log(data.Item)
+    if (!data.Item.token) {
+      throw new HTTPException(400, { "message": "token not populated" })
     }
-    return c.json(data)
+    return c.json(data.Item)
 
   } catch (err) {
     //@ts-expect-error Unknown error shape
@@ -203,7 +247,7 @@ app.get('/uuid/:uuid', async (c) => {
     //@ts-expect-error Unknown error shape
     console.error("Error stack:", err.stack);
 
-    throw new HTTPException(400, { "message": "uuid not authenticated" })
+    throw new HTTPException(400, { "message": "error retrieving token" })
   }
 })
 

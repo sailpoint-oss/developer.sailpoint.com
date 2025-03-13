@@ -157,15 +157,20 @@ app.post('/Prod/sailapps/code/:code', async (c) => {
 
     console.log(data.Item)
     
-    console.log("Exchanging code for token", code, uuid)
+    console.log("Exchanging code for token")
 
     if (!data.Item.baseURL) {
       throw new HTTPException(400, { "message": "baseURL not populated" })
     }
     
-    const tokenExchangeResp = await fetch(data.Item.baseURL + `/oauth/token`, {
+    const tokenExchangeURL = new URL(data.Item.baseURL + `/oauth/token`)
+    tokenExchangeURL.searchParams.set("grant_type", "authorization_code")
+    tokenExchangeURL.searchParams.set("client_id", clientId)
+    tokenExchangeURL.searchParams.set("code", code)
+    tokenExchangeURL.searchParams.set("redirect_uri", redirectUrl)
+
+    const tokenExchangeResp = await fetch(tokenExchangeURL, {
       method: "POST",
-      body: JSON.stringify({ code, client_id: clientId, redirect_uri: redirectUrl })
     })
 
     if (!tokenExchangeResp.ok) {
@@ -183,7 +188,7 @@ app.post('/Prod/sailapps/code/:code', async (c) => {
     const iv = crypto.randomBytes(16);
     const cipher = createCipheriv('aes-256-cbc', encryptionKey, iv);
     
-    let encryptedToken = cipher.update(tokenExchangeData.access_token, 'utf8', 'hex');
+    let encryptedToken = cipher.update(JSON.stringify(tokenExchangeData), 'utf8', 'hex');
     encryptedToken += cipher.final('hex');
 
     const encryptedTokenWithIv = iv.toString('hex') + ':' + encryptedToken;

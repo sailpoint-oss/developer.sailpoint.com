@@ -6,7 +6,7 @@ import {
   PutCommand,
   UpdateCommand,
 } from '@aws-sdk/lib-dynamodb';
-import crypto, {createCipheriv} from 'crypto';
+import {createCipheriv, randomBytes, randomUUID} from 'crypto';
 import {Hono} from 'hono';
 import {handle} from 'hono/aws-lambda';
 import {HTTPException} from 'hono/http-exception';
@@ -86,8 +86,8 @@ app.post('/Prod/sailapps/uuid', async (c) => {
       throw new Error('Error retrieving tenant info');
     }
 
-    const uuid = crypto.randomUUID();
-    const encryptionKey = crypto.randomBytes(32).toString('hex');
+    const uuid = randomUUID();
+    const encryptionKey = randomBytes(32).toString('hex');
 
     const objectToPut = {id: uuid, baseURL};
 
@@ -201,7 +201,7 @@ app.post('/Prod/sailapps/code/:code', async (c) => {
     throw new HTTPException(400, {message: 'Error exchanging code for token'});
   }
 
-  const iv = crypto.randomBytes(16);
+  const iv = randomBytes(16);
 
   const encryptionKeyBuffer = Buffer.from(encryptionKey, 'hex');
 

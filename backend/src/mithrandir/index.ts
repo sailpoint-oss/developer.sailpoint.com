@@ -118,15 +118,7 @@ app.post('/Prod/sailapps/uuid', async (c) => {
       }
       return c.json(objectToRespond);
     } catch (err) {
-      //@ts-expect-error Unknown error shape
-      console.error('Error creating item:', err.message);
-      //@ts-expect-error Unknown error shape
-      console.error('Error code:', err.code);
-      //@ts-expect-error Unknown error shape
-      console.error('Error name:', err.name);
-      //@ts-expect-error Unknown error shape
-      console.error('Error stack:', err.stack);
-
+      console.error('Error creating item:', err);
       throw new HTTPException(400, {message: 'Error creating UUID'});
     }
   } catch (err) {
@@ -164,14 +156,7 @@ app.post('/Prod/sailapps/code/:code', async (c) => {
     }
     tableData = data.Item;
   } catch (err) {
-    //@ts-expect-error Unknown error shape
-    console.error('Error retrieving item:', err.message);
-    //@ts-expect-error Unknown error shape
-    console.error('Error code:', err.code);
-    //@ts-expect-error Unknown error shape
-    console.error('Error name:', err.name);
-    //@ts-expect-error Unknown error shape
-    console.error('Error stack:', err.stack);
+    console.error('Error retrieving item:', err);
 
     throw new HTTPException(400, {message: 'Error retrieving table data'});
   }
@@ -232,16 +217,7 @@ app.post('/Prod/sailapps/code/:code', async (c) => {
     }
     return c.json({message: 'Token added successfully'}, 200);
   } catch (err) {
-    //@ts-expect-error Unknown error shape
-    console.error('Error updating item:', err.message);
-    //@ts-expect-error Unknown error shape
-    console.error('Error code:', err.code);
-    //@ts-expect-error Unknown error shape
-    console.error('Error name:', err.name);
-    //@ts-expect-error Unknown error shape
-    console.error('Error stack:', err.stack);
-    console.error('Full Error:', JSON.stringify(err, null, 2));
-
+    console.error('Error updating item:', err);
     throw new HTTPException(400, {message: 'Error adding token'});
   }
 });
@@ -261,15 +237,7 @@ app.get('/Prod/sailapps/uuid/:uuid', async (c) => {
 
     return c.json(data.Item, 200);
   } catch (err) {
-    //@ts-expect-error Unknown error shape
-    console.error('Error retrieving item:', err.message);
-    //@ts-expect-error Unknown error shape
-    console.error('Error code:', err.code);
-    //@ts-expect-error Unknown error shape
-    console.error('Error name:', err.name);
-    //@ts-expect-error Unknown error shape
-    console.error('Error stack:', err.stack);
-
+    console.error('Error retrieving item:', err);
     throw new HTTPException(400, {message: 'Error retrieving token'});
   }
 });

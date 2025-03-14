@@ -13,7 +13,7 @@ get:
     Use this API to get all dependent Profiles, Attributes, Applications and Custom Transforms for a source by a specified ID in Identity Security Cloud (ISC).
   parameters:
     - in: path
-      name: id
+      name: sourceId
       schema:
         type: string
       required: true

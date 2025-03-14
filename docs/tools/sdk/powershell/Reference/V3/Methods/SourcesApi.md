@@ -746,7 +746,7 @@ Use this API to get all dependent Profiles, Attributes, Applications and Custom 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | Id | **String** | True  | Source ID.
+Path   | SourceId | **String** | True  | Source ID.
 
 ### Return type
 [**SourceConnectionsDto**](../models/source-connections-dto)
@@ -768,15 +768,15 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Id = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
+$SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
 
 # Get Source Connections by ID
 
 try {
-    Get-SourceConnections -Id $Id 
+    Get-SourceConnections -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
-    # Get-SourceConnections -Id $Id  
+    # Get-SourceConnections -SourceId $SourceId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-SourceConnections"
     Write-Host $_.ErrorDetails

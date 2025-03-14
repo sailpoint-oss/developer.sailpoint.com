@@ -1178,6 +1178,58 @@ components:
     SourceUsageStatus:
       $ref: './beta/schemas/SourceUsageStatus.yaml'
 
+x-webhooks:
+  AccessRequestDecision:
+    $ref: './beta/webhooks/access-request-decision.yaml'
+  AccessRequestDynamicApproval:
+    $ref: './beta/webhooks/access-request-dynamic-approval.yaml'
+  AccessRequestSubmitted:
+    $ref: './beta/webhooks/access-request-submitted.yaml'
+  AccountAggregationCompleted:
+    $ref: './beta/webhooks/account-aggregation-completed.yaml'
+  CampaignActivated:
+    $ref: './beta/webhooks/campaign-activated.yaml'
+  CampaignEnded:
+    $ref: './beta/webhooks/campaign-ended.yaml'
+  CampaignGenerated:
+    $ref: './beta/webhooks/campaign-generated.yaml'
+  CertificationSignedOff:
+    $ref: './beta/webhooks/certification-signed-off.yaml'
+  FormSubmitted:
+    $ref: './beta/webhooks/form-submitted.yaml'
+  IdentityAttributesChanged:
+    $ref: './beta/webhooks/identity-attributes-changed.yaml'
+  IdentityCreated:
+    $ref: './beta/webhooks/identity-created.yaml'
+  NativeChangeAccountCreated:
+    $ref: './beta/webhooks/native-change-account-created.yaml'
+  NativeChangeAccountDeleted:
+    $ref: './beta/webhooks/native-change-account-deleted.yaml'
+  NativeChangeAccountUpdated:
+    $ref: './beta/webhooks/native-change-account-updated.yaml'
+  OutlierDetected:
+    $ref: './beta/webhooks/outlier-detected.yaml'
+  ProvisioningCompleted:
+    $ref: './beta/webhooks/provisioning-completed.yaml'
+  ScheduledSearch:
+    $ref: './beta/webhooks/scheduled-search.yaml'
+  SourceCreated:
+    $ref: './beta/webhooks/source-created.yaml'
+  SourceDeleted:
+    $ref: './beta/webhooks/source-deleted.yaml'
+  SourceUpdated:
+    $ref: './beta/webhooks/source-updated.yaml'
+  VaClusterStatusChange:
+    $ref: './beta/webhooks/va-cluster-status-change.yaml'
+  IdentityDeleted:
+    $ref: './beta/webhooks/identity-deleted.yaml'
+  SourceAccountCreated:
+    $ref: './beta/webhooks/source-account-created.yaml'
+  SourceAccountDeleted:
+    $ref: './beta/webhooks/source-account-deleted.yaml'
+  SourceAccountUpdated:
+    $ref: './beta/webhooks/source-account-updated.yaml'
+
 paths:
   /access-model-metadata/attributes:
     $ref: './beta/paths/access-model-metadata-list.yaml'

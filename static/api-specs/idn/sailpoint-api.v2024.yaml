@@ -1272,6 +1272,57 @@ tags:
   - name: Workflows
     description: |
       Workflows allow administrators to create custom automation scripts directly within Identity Security Cloud.  These automation scripts respond to [event triggers](https://developer.sailpoint.com/docs/extensibility/event-triggers/#how-to-get-started-with-event-triggers) and perform a series of actions to perform tasks that are either too cumbersome or not available in the Identity Security Cloud UI.  Workflows can be configured via a graphical user interface within Identity Security Cloud, or by creating and uploading a JSON formatted script to the Workflow service.  The Workflows API collection provides the necessary functionality to create, manage, and test your workflows via REST.
+x-webhooks:
+  AccessRequestDecision:
+    $ref: './v2024/webhooks/access-request-decision.yaml'
+  AccessRequestDynamicApproval:
+    $ref: './v2024/webhooks/access-request-dynamic-approval.yaml'    
+  AccessRequestSubmitted:
+    $ref: './v2024/webhooks/access-request-submitted.yaml'
+  AccountAggregationCompleted:
+    $ref: './v2024/webhooks/account-aggregation-completed.yaml'
+  CampaignActivated:
+    $ref: './v2024/webhooks/campaign-activated.yaml'
+  CampaignEnded:
+    $ref: './v2024/webhooks/campaign-ended.yaml'
+  CampaignGenerated:
+    $ref: './v2024/webhooks/campaign-generated.yaml'
+  CertificationSignedOff:
+    $ref: './v2024/webhooks/certification-signed-off.yaml'
+  FormSubmitted:
+    $ref: './v2024/webhooks/form-submitted.yaml'
+  IdentityAttributesChanged:
+    $ref: './v2024/webhooks/identity-attributes-changed.yaml'
+  IdentityCreated:
+    $ref: './v2024/webhooks/identity-created.yaml'
+  NativeChangeAccountCreated:
+    $ref: './v2024/webhooks/native-change-account-created.yaml'
+  NativeChangeAccountDeleted:
+    $ref: './v2024/webhooks/native-change-account-deleted.yaml'
+  NativeChangeAccountUpdated:
+    $ref: './v2024/webhooks/native-change-account-updated.yaml'
+  OutlierDetected:
+    $ref: './v2024/webhooks/outlier-detected.yaml'
+  ProvisioningCompleted:
+    $ref: './v2024/webhooks/provisioning-completed.yaml'
+  ScheduledSearch:
+    $ref: './v2024/webhooks/scheduled-search.yaml'
+  SourceCreated:
+    $ref: './v2024/webhooks/source-created.yaml'
+  SourceDeleted:
+    $ref: './v2024/webhooks/source-deleted.yaml'
+  SourceUpdated:
+    $ref: './v2024/webhooks/source-updated.yaml'
+  VaClusterStatusChange:
+    $ref: './v2024/webhooks/va-cluster-status-change.yaml'
+  IdentityDeleted:
+    $ref: './v2024/webhooks/identity-deleted.yaml'
+  SourceAccountCreated:
+    $ref: './v2024/webhooks/source-account-created.yaml'
+  SourceAccountDeleted:
+    $ref: './v2024/webhooks/source-account-deleted.yaml'
+  SourceAccountUpdated:
+    $ref: './v2024/webhooks/source-account-updated.yaml'
 paths:
   /access-profiles:
     $ref: ./v2024/paths/access-profiles.yaml
@@ -1669,6 +1720,8 @@ paths:
     $ref: ./v2024/paths/source-entitlements-schema.yaml
   /sources/{sourceId}/upload-connector-file:
     $ref: ./v2024/paths/source-upload-connector-file.yaml
+  /sources/{sourceId}/connections:
+    $ref: "./v2024/paths/source-connections.yaml"
   /sources/{id}/correlation-config:
     $ref: ./v2024/paths/correlation-config.yaml
   /sources/{sourceId}/password-policies:

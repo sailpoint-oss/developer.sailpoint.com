@@ -14631,6 +14631,25 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SourceConfig"
             Write-Host $_.ErrorDetails
         }
+- path: /sources/{sourceId}/connections
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/sources#get-source-connections
+      source: |
+        $SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
+        
+        # Get Source Connections by ID
+        
+        try {
+            Get-V2024SourceConnections -SourceId $SourceId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2024SourceConnections -SourceId $SourceId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SourceConnections"
+            Write-Host $_.ErrorDetails
+        }
 - path: /sources/{id}/entitlement-request-config
   method: GET
   xCodeSample:

@@ -17,7 +17,7 @@ tags: ['SDK', 'Software Development Kit', 'IdentityAttributesChanged', 'BetaIden
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Identity** | [**IdentityAttributesChangedIdentity**](identity-attributes-changed-identity) |  | [required]
-**Changes** | [**[]IdentityAttributesChangedChangesInner**](identity-attributes-changed-changes-inner) | A list of one or more identity attributes that changed on the identity. | [required]
+**Changes** | [**[]IdentityAttributesChangedChangesInner**](identity-attributes-changed-changes-inner) | List of identity's attributes that changed. | [required]
 
 ## Examples
 

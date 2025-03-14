@@ -16,16 +16,16 @@ tags: ['SDK', 'Software Development Kit', 'AccessRequestPostApprovalRequestedIte
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ApprovalComment** | **String** | A comment left by the approver. | [optional] 
-**ApprovalDecision** |  **Enum** [  "APPROVED",    "DENIED" ] | The final decision of the approver. | [required]
-**ApproverName** | **String** | The name of the approver | [required]
-**Approver** | [**AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApprover**](access-request-post-approval-requested-items-status-inner-approval-info-inner-approver) |  | [required]
+**ApprovalComment** | **String** | Approver's comment. | [optional] 
+**ApprovalDecision** |  **Enum** [  "APPROVED",    "DENIED" ] | Approver's final decision. | [required]
+**ApproverName** | **String** | Approver's name. | [required]
+**Approver** | [**AccessItemApproverDto**](access-item-approver-dto) | Approver's identity. | [required]
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInner = Initialize-PSSailpoint.BetaAccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInner  -ApprovalComment This access looks good.  Approved. `
+$AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInner = Initialize-PSSailpoint.BetaAccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInner  -ApprovalComment This access looks good. Approved. `
  -ApprovalDecision APPROVED `
  -ApproverName Stephen.Austin `
  -Approver null

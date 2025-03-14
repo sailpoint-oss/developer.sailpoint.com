@@ -32,7 +32,7 @@ Name | Type | Description | Notes
 **pinned_config** | **bool** | boolean flag indiacting whether or not the cluster configuration is pinned | [optional] [default to False]
 **log_configuration** | [**ClientLogConfiguration**](client-log-configuration) |  | [optional] 
 **operational** | **bool** | Whether or not the cluster is operational or not | [optional] [default to False]
-**status** | **str** | Cluster status | [optional] 
+**status** |  **Enum** [  'CONFIGURING',    'FAILED',    'NO_CLIENTS',    'NORMAL',    'WARNING' ] | Cluster status | [optional] 
 **public_key_certificate** | **str** | Public key certificate | [optional] 
 **public_key_thumbprint** | **str** | Public key thumbprint | [optional] 
 **public_key** | **str** | Public key | [optional] 

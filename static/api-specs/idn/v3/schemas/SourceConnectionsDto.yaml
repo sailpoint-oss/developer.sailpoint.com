@@ -34,9 +34,29 @@ properties:
     items:
       type: string
   dependentCustomTransforms:
+    example: [
+        {
+            "id": "61190eae-290b-4335-aeb8-7335f1fd99cb",
+            "name": "Split Transform",
+            "type": "split",
+            "attributes": {
+                "delimiter": "-",
+                "index": 1,
+                "input": {
+                    "attributes": {
+                        "sourceName": "Example CSV Source",
+                        "attributeName": "last_name"
+                    },
+                    "type": "accountAttribute"
+                }
+            },
+            "internal": false
+        }
+    ]
+    description: A list of custom transforms associated with this source. A transform will be considered associated with a source if any attributes of the transform specify the source as the sourceName.
     type: array
     items:
-      $ref: '../../v3/schemas/Transform.yaml'
+      $ref: '../../v3/schemas/TransformRead.yaml'
   dependentApps:
     type: array
     items:

@@ -5382,8 +5382,8 @@
       source: |
         from sailpoint.v2024.api.custom_forms_api import CustomFormsApi
         from sailpoint.v2024.api_client import ApiClient
-        from sailpoint.v2024.models.export_form_definitions_by_tenant200_response_inner import ExportFormDefinitionsByTenant200ResponseInner
         from sailpoint.v2024.models.import_form_definitions202_response import ImportFormDefinitions202Response
+        from sailpoint.v2024.models.import_form_definitions_request_inner import ImportFormDefinitionsRequestInner
         from pprint import pprint
         from sailpoint.configuration import Configuration
         configuration = Configuration()
@@ -5392,7 +5392,7 @@
 
         with ApiClient(configuration) as api_client:
         x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-        body = '''[{version=1, self={name=All fields not required, id=05ed4edb-d0a9-41d9-ad0c-2f6e486ec4aa, type=FORM_DEFINITION}, object={id=05ed4edb-d0a9-41d9-ad0c-2f6e486ec4aa, name=All fields not required, description=description, owner={type=IDENTITY, id=3447d8ec2602455ab6f1e8408a0f0150}, usedBy=[{type=WORKFLOW, id=5008594c-dacc-4295-8fee-41df60477304}, {type=WORKFLOW, id=97e75a75-c179-4fbc-a2da-b5fa4aaa8743}], formInput=[{type=STRING, label=input1, description=A single dynamic scalar value (i.e. number, string, date, etc) that can be passed into the form for use in conditional logic}], formElements=[{id=3069272797630701, elementType=SECTION, config={label=First Section, formElements=[{id=3069272797630700, elementType=TEXT, key=firstName, config={label=First Name}}, {id=3498415402897539, elementType=TEXT, key=lastName, config={label=Last Name}}]}}], formConditions=[{ruleOperator=AND, rules=[{sourceType=INPUT, source=Department, operator=EQ, valueType=STRING, value=Sales}], effects=[{effectType=HIDE, config={element=2614088730489570}}]}], created=2022-10-04T19:27:04.456Z, modified=2022-11-16T20:45:02.172Z}}]''' # List[ExportFormDefinitionsByTenant200ResponseInner] | Body is the request payload to import form definitions (optional)
+        body = '''[{version=1, self={name=All fields not required, id=05ed4edb-d0a9-41d9-ad0c-2f6e486ec4aa, type=FORM_DEFINITION}, object={id=05ed4edb-d0a9-41d9-ad0c-2f6e486ec4aa, name=All fields not required, description=description, owner={type=IDENTITY, id=3447d8ec2602455ab6f1e8408a0f0150}, usedBy=[{type=WORKFLOW, id=5008594c-dacc-4295-8fee-41df60477304}, {type=WORKFLOW, id=97e75a75-c179-4fbc-a2da-b5fa4aaa8743}], formInput=[{type=STRING, label=input1, description=A single dynamic scalar value (i.e. number, string, date, etc) that can be passed into the form for use in conditional logic}], formElements=[{id=3069272797630701, elementType=SECTION, config={label=First Section, formElements=[{id=3069272797630700, elementType=TEXT, key=firstName, config={label=First Name}}, {id=3498415402897539, elementType=TEXT, key=lastName, config={label=Last Name}}]}}], formConditions=[{ruleOperator=AND, rules=[{sourceType=INPUT, source=Department, operator=EQ, valueType=STRING, value=Sales}], effects=[{effectType=HIDE, config={element=2614088730489570}}]}], created=2022-10-04T19:27:04.456Z, modified=2022-11-16T20:45:02.172Z}}]''' # List[ImportFormDefinitionsRequestInner] | Body is the request payload to import form definitions (optional)
         try:
             # Import form definitions from export.
             
@@ -10733,6 +10733,32 @@
             pprint(results)
         except Exception as e:
             print("Exception when calling ManagedClustersApi->put_client_log_configuration: %s\n" % e)
+- path: /managed-clusters/{id}/manualUpgrade
+  method: POST
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2024/methods/managed-clusters#update
+      source: |
+        from sailpoint.v2024.api.managed_clusters_api import ManagedClustersApi
+        from sailpoint.v2024.api_client import ApiClient
+        from sailpoint.v2024.models.cluster_manual_upgrade import ClusterManualUpgrade
+        from pprint import pprint
+        from sailpoint.configuration import Configuration
+        configuration = Configuration()
+
+
+        with ApiClient(configuration) as api_client:
+        id = '2b838de9-db9b-abcf-e646-d4f274ad4238' # str | ID of managed cluster to trigger manual upgrade. # str | ID of managed cluster to trigger manual upgrade.
+        try:
+            # Trigger Manual Upgrade for Managed Cluster
+            
+            results = ManagedClustersApi(api_client).update(id=id)
+            # Below is a request that includes all optional parameters
+            # results = ManagedClustersApi(api_client).update(id)
+            print("The response of ManagedClustersApi->update:\n")
+            pprint(results)
+        except Exception as e:
+            print("Exception when calling ManagedClustersApi->update: %s\n" % e)
 - path: /managed-clusters/{id}
   method: PATCH
   xCodeSample:
@@ -17525,6 +17551,32 @@
             pprint(results)
         except Exception as e:
             print("Exception when calling SourcesApi->get_source_config: %s\n" % e)
+- path: /sources/{sourceId}/connections
+  method: GET
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2024/methods/sources#get-source-connections
+      source: |
+        from sailpoint.v2024.api.sources_api import SourcesApi
+        from sailpoint.v2024.api_client import ApiClient
+        from sailpoint.v2024.models.source_connections_dto import SourceConnectionsDto
+        from pprint import pprint
+        from sailpoint.configuration import Configuration
+        configuration = Configuration()
+
+
+        with ApiClient(configuration) as api_client:
+        source_id = '2c9180835d191a86015d28455b4a2329' # str | Source ID. # str | Source ID.
+        try:
+            # Get Source Connections by ID
+            
+            results = SourcesApi(api_client).get_source_connections(source_id=source_id)
+            # Below is a request that includes all optional parameters
+            # results = SourcesApi(api_client).get_source_connections(source_id)
+            print("The response of SourcesApi->get_source_connections:\n")
+            pprint(results)
+        except Exception as e:
+            print("Exception when calling SourcesApi->get_source_connections: %s\n" % e)
 - path: /sources/{id}/entitlement-request-config
   method: GET
   xCodeSample:

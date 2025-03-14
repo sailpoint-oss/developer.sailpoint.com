@@ -6,4 +6,4 @@ allOf:
   properties:
     reviewer:
       $ref: './Reviewer.yaml'
-      description: Certification reviewer
+      description: Certification reviewer.

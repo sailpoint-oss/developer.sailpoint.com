@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **credential_profiles** | **[]str** | Name of the CredentialProfile attached to this source | [optional] 
 **source_attributes** | **[]str** | The attributes attached to this source | [optional] 
 **mapping_profiles** | **[]str** | The profiles attached to this source | [optional] 
-**dependent_custom_transforms** | [**[]Transform**](transform) |  | [optional] 
+**dependent_custom_transforms** | [**[]TransformRead**](transform-read) | A list of custom transforms associated with this source. A transform will be considered associated with a source if any attributes of the transform specify the source as the sourceName. | [optional] 
 **dependent_apps** | [**[]DependantAppConnections**](dependant-app-connections) |  | [optional] 
 **missing_dependents** | [**[]DependantConnectionsMissingDto**](dependant-connections-missing-dto) |  | [optional] 
 }
@@ -44,12 +44,7 @@ source_attributes=[
                     '[sAMAccountName, mail, sn, givenName, displayName, employeeNumber, manager, telephoneNumber]'
                     ],
 mapping_profiles=[ODS-AD-Profile, ODS-Profile2],
-dependent_custom_transforms=[
-                    sailpoint.v3.models.transform.Transform(
-                        name = 'Timestamp To Date', 
-                        type = 'dateFormat', 
-                        attributes = sailpoint.v3.models.attributes.attributes(), )
-                    ],
+dependent_custom_transforms=[{id=61190eae-290b-4335-aeb8-7335f1fd99cb, name=Split Transform, type=split, attributes={delimiter=-, index=1, input={attributes={sourceName=Example CSV Source, attributeName=last_name}, type=accountAttribute}}, internal=false}],
 dependent_apps=[
                     sailpoint.v3.models.dependant_app_connections.DependantAppConnections(
                         cloud_app_id = '9e3cdd80edf84f119327df8bbd5bb5ac', 

@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'SavedSearchCompleteSearchResultsIdent
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Count** | **String** | The number of rows in the table. | [required]
-**Noun** | **String** | The type of object represented in the table. | [required]
-**Preview** | **[]String[]** | A sample of the data in the table. | [required]
+**Count** | **String** | Number of rows in the table. | [required]
+**Noun** | **String** | Type of object represented in the table. | [required]
+**Preview** | **[]String[]** | Sample of the table data. | [required]
 
 ## Examples
 

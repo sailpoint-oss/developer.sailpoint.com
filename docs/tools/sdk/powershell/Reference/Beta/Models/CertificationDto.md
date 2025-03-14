@@ -18,17 +18,17 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CampaignRef** | [**CampaignReference**](campaign-reference) |  | [required]
 **Phase** | [**CertificationPhase**](certification-phase) |  | [required]
-**Due** | **System.DateTime** | The due date of the certification. | [required]
-**Signed** | **System.DateTime** | The date the reviewer signed off on the certification. | [required]
+**Due** | **System.DateTime** | Date and time when the certification is due. | [required]
+**Signed** | **System.DateTime** | Date and time when the reviewer signed off on the certification. | [required]
 **Reviewer** | [**Reviewer**](reviewer) |  | [required]
 **Reassignment** | [**Reassignment**](reassignment) |  | [optional] 
-**HasErrors** | **Boolean** | Indicates it the certification has any errors. | [required]
-**ErrorMessage** | **String** | A message indicating what the error is. | [optional] 
-**Completed** | **Boolean** | Indicates if all certification decisions have been made. | [required]
-**DecisionsMade** | **Int32** | The number of approve/revoke/acknowledge decisions that have been made by the reviewer. | [required]
-**DecisionsTotal** | **Int32** | The total number of approve/revoke/acknowledge decisions for the certification. | [required]
-**EntitiesCompleted** | **Int32** | The number of entities (identities, access profiles, roles, etc.) for which all decisions have been made and are complete. | [required]
-**EntitiesTotal** | **Int32** | The total number of entities (identities, access profiles, roles, etc.) in the certification, both complete and incomplete. | [required]
+**HasErrors** | **Boolean** | Indicates whether the certification has any errors. | [required]
+**ErrorMessage** | **String** | Message indicating what the error is. | [optional] 
+**Completed** | **Boolean** | Indicates whether all certification decisions have been made. | [required]
+**DecisionsMade** | **Int32** | Number of approve/revoke/acknowledge decisions the reviewer has made. | [required]
+**DecisionsTotal** | **Int32** | Total number of approve/revoke/acknowledge decisions for the certification. | [required]
+**EntitiesCompleted** | **Int32** | Number of entities (identities, access profiles, roles, etc.) that are complete and all decisions have been made for. | [required]
+**EntitiesTotal** | **Int32** | Total number of entities (identities, access profiles, roles, etc.) in the certification, both complete and incomplete. | [required]
 
 ## Examples
 

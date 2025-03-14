@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'IdentityAttributesChangedChangesInner
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Attribute** | **String** | The name of the identity attribute that changed. | [required]
+**Attribute** | **String** | Identity attribute's name. | [required]
 **OldValue** | [**IdentityAttributesChangedChangesInnerOldValue**](identity-attributes-changed-changes-inner-old-value) |  | [optional] 
 **NewValue** | [**IdentityAttributesChangedChangesInnerNewValue**](identity-attributes-changed-changes-inner-new-value) |  | [optional] 
 

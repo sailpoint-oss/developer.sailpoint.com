@@ -1,0 +1,22 @@
+type: object
+nullable : true
+properties:
+  commentsRequired:
+    type: boolean
+    description: Whether the requester of the containing object must provide comments justifying the request
+    example: true
+    nullable: true
+    default: false
+  denialCommentsRequired:
+    type: boolean
+    description: Whether an approver must provide comments when denying the request
+    example: true
+    nullable: true
+    default: false
+  approvalSchemes:
+    type: array
+    nullable : true
+    description: List describing the steps in approving the request
+    items:
+      $ref: './AccessProfileApprovalScheme.yaml'
+

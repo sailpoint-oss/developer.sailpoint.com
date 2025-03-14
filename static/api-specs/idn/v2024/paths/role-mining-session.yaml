@@ -32,7 +32,7 @@ patch:
         schema:
           type: array
           items:
-            $ref: ../../beta/schemas/JsonPatchOperation.yaml
+            $ref: ../schemas/JsonPatchOperation.yaml
         example:
         - op: replace
           path: /pruneThreshold
@@ -52,19 +52,19 @@ patch:
   responses:
     '202':
       description: Success
-      $ref: ../../v3/responses/202.yaml
+      $ref: ../responses/202.yaml
     '400':
-      $ref: ../../v3/responses/400.yaml
+      $ref: ../responses/400.yaml
     '401':
-      $ref: ../../v3/responses/401.yaml
+      $ref: ../responses/401.yaml
     '403':
-      $ref: ../../v3/responses/403.yaml
+      $ref: ../responses/403.yaml
     '404':
-      $ref: ../../v3/responses/404.yaml
+      $ref: ../responses/404.yaml
     '429':
-      $ref: ../../v3/responses/429.yaml
+      $ref: ../responses/429.yaml
     '500':
-      $ref: ../../v3/responses/500.yaml
+      $ref: ../responses/500.yaml
 get:
   operationId: getRoleMiningSession
   summary: Get a role mining session
@@ -94,16 +94,16 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../../beta/schemas/RoleMiningSessionResponse.yaml
+            $ref: ../schemas/RoleMiningSessionResponse.yaml
     '400':
-      $ref: ../../v3/responses/400.yaml
+      $ref: ../responses/400.yaml
     '401':
-      $ref: ../../v3/responses/400.yaml
+      $ref: ../responses/400.yaml
     '403':
-      $ref: ../../v3/responses/403.yaml
+      $ref: ../responses/403.yaml
     '404':
-      $ref: ../../v3/responses/404.yaml
+      $ref: ../responses/404.yaml
     '429':
-      $ref: ../../v3/responses/429.yaml
+      $ref: ../responses/429.yaml
     '500':
-      $ref: ../../v3/responses/500.yaml
+      $ref: ../responses/500.yaml

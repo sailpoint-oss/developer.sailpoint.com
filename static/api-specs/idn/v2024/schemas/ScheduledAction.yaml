@@ -1,0 +1,34 @@
+type: object
+properties:
+  id:
+    type: string
+    example: "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde"
+  created:
+    type: string
+    format: date-time
+    description: The time when this scheduled action is created.
+    example: "2020-01-01T00:00:00.000000Z"
+  deadline:
+    type: string
+    format: date-time
+    description: The time that this scheduled action should be fired.
+    example: "2020-01-01T00:00:00.000000Z"
+  event:
+    type: object
+    properties:
+      topic:
+        type: string
+        example: "identity"
+      type:
+        type: string
+        example: "IDENTITY_CHANGED"
+      content:
+        type: object
+        example: {"accessRequestId": "1234"}
+      headers:
+        type: object
+        example: {"org": "test", "pod": "echo"}
+  meta:
+    type: object
+    description: Extra metadata fields that are associated with a scheduled action
+    example: {"flag": true}

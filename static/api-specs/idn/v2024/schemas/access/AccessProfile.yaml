@@ -1,0 +1,117 @@
+type: object
+description: Access Profile
+properties:
+  id:
+    type: string
+    description: The ID of the Access Profile
+    example: 2c91808a7190d06e01719938fcd20792
+    readOnly: true
+  name:
+    type: string
+    description: Name of the Access Profile
+    example: Employee-database-read-write
+  description:
+    type: string
+    nullable: true
+    description: Information about the Access Profile
+    example: Collection of entitlements to read/write the employee database
+  created:
+    type: string
+    description: Date the Access Profile was created
+    format: 'date-time'
+    example: '2021-03-01T22:32:58.104Z'
+    readOnly: true
+  modified:
+    type: string
+    description: Date the Access Profile was last modified.
+    format: 'date-time'
+    example: '2021-03-02T20:22:28.104Z'
+    readOnly: true
+  enabled:
+    type: boolean
+    default: true
+    description: Whether the Access Profile is enabled. If the Access Profile is enabled then you must include at least one Entitlement.
+    example: true
+  owner:
+    $ref: './OwnerReference.yaml'
+    description: Owner of the Access Profile
+  source:
+    $ref: './AccessProfileSourceRef.yaml'
+  entitlements:
+    type: array
+    nullable: true
+    description: A list of entitlements associated with the Access Profile. If enabled is false this is allowed to be empty otherwise it needs to contain at least one Entitlement.
+    items:
+      $ref: './EntitlementRef.yaml'
+  requestable:
+    type: boolean
+    default: true
+    description: >- 
+      Whether the Access Profile is requestable via access request. Currently, making an Access Profile non-requestable is only supported 
+      for customers enabled with the new Request Center. Otherwise, attempting to create an Access Profile with a value 
+      **false** in this field results in a 400 error.
+    example: true
+  accessRequestConfig:
+    $ref: './Requestability.yaml'
+    nullable: true
+    description: Access request configuration for this object
+  revocationRequestConfig:
+    $ref: './Revocability.yaml'
+    nullable: true
+    description: >-
+      Revocation request configuration for this object.
+  segments:
+    type: array
+    nullable: true
+    items:
+      type: string
+    description: List of IDs of segments, if any, to which this Access Profile is assigned.
+    example: [
+        "f7b1b8a3-5fed-4fd4-ad29-82014e137e19",
+        "29cb6c06-1da8-43ea-8be4-b3125f248f2a"
+    ]
+  provisioningCriteria:
+    $ref: './ProvisioningCriteriaLevel1.yaml'
+    description: >-
+      When an Identity has multiple Accounts on the Source with which an Access Profile is associated, this expression
+      is evaluated against those Accounts to choose one to provision with the Access Profile.
+    nullable: true
+    example: {
+      "operation": "OR",
+      "children": [
+        {
+          "operation": "AND",
+          "children": [
+            {
+              "attribute": "dn",
+              "operation": "CONTAINS",
+              "value": "useast"
+            },
+            {
+              "attribute": "manager",
+              "operation": "CONTAINS",
+              "value": "Scott.Clark"
+            }
+          ]
+        },
+        {
+          "operation": "AND",
+          "children": [
+            {
+              "attribute": "dn",
+              "operation": "EQUALS",
+              "value": "Gibson"
+            },
+            {
+              "attribute": "telephoneNumber",
+              "operation": "CONTAINS",
+              "value": "512"
+            }
+          ]
+        }
+      ]
+    }
+required:
+  - owner
+  - name
+  - source

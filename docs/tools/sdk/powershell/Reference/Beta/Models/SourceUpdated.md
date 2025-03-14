@@ -16,11 +16,11 @@ tags: ['SDK', 'Software Development Kit', 'SourceUpdated', 'BetaSourceUpdated']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **String** | The unique ID of the source. | [required]
-**Name** | **String** | The user friendly name of the source. | [required]
-**Type** | **String** | The connection type of the source. | [required]
-**Modified** | **System.DateTime** | The date and time the source was modified. | [required]
-**Connector** | **String** | The connector type used to connect to the source. | [required]
+**Id** | **String** | Source's unique ID. | [required]
+**Name** | **String** | Source name. | [required]
+**Type** | **String** | Connection type. | [required]
+**Modified** | **System.DateTime** | Date and time when the source was modified. | [required]
+**Connector** | **String** | Connector type used to connect to the source. | [required]
 **Actor** | [**SourceUpdatedActor**](source-updated-actor) |  | [required]
 
 ## Examples
@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $SourceUpdated = Initialize-PSSailpoint.BetaSourceUpdated  -Id 2c9180866166b5b0016167c32ef31a66 `
- -Name Corporate Active Directory `
+ -Name Test source `
  -Type DIRECT_CONNECT `
  -Modified 2021-03-29T22:01:50.474Z `
  -Connector active-directory `

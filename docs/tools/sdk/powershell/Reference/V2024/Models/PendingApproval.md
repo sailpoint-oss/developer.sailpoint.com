@@ -36,6 +36,7 @@ Name | Type | Description | Notes
 **RemoveDateUpdateRequested** | **Boolean** | If true, then the request is to change the remove date or sunset date. | [optional] [default to $false]
 **CurrentRemoveDate** | **System.DateTime** | The remove date or sunset date that was assigned at the time of the request. | [optional] 
 **SodViolationContext** | [**SodViolationContextCheckCompleted**](sod-violation-context-check-completed) |  | [optional] 
+**ClientMetadata** | **map[string]String** | Arbitrary key-value pairs, if any were included in the corresponding access request item | [optional] 
 
 ## Examples
 
@@ -60,7 +61,8 @@ $PendingApproval = Initialize-PSSailpoint.V2024PendingApproval  -Id id12345 `
  -RemoveDate 2020-07-11T00:00Z `
  -RemoveDateUpdateRequested true `
  -CurrentRemoveDate 2020-07-11T00:00Z `
- -SodViolationContext null
+ -SodViolationContext null `
+ -ClientMetadata {customKey1=custom value 1, customKey2=custom value 2}
 ```
 
 - Convert the resource to JSON

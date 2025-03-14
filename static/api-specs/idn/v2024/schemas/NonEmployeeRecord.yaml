@@ -1,0 +1,62 @@
+type: object
+properties:
+  id:
+    type: string
+    format: UUID
+    description: Non-Employee record id.
+    example: "ac10e21c-931c-1ef2-8193-1c51e7ff0003"
+  accountName:
+    type: string
+    description: Requested identity account name.
+    example: william.smith
+  firstName:
+    type: string
+    description: Non-Employee's first name.
+    example: William
+  lastName:
+    type: string
+    description: Non-Employee's last name.
+    example: Smith
+  email:
+    type: string
+    description: Non-Employee's email.
+    example: william.smith@example.com
+  phone:
+    type: string
+    description: Non-Employee's phone.
+    example: "5125555555"
+  manager:
+    type: string
+    description: The account ID of a valid identity to serve as this non-employee's manager.
+    example: jane.doe
+  sourceId:
+    type: string
+    description: Non-Employee's source id.
+    example: "2c91808568c529c60168cca6f90c1313"
+  data:
+    type: object
+    additionalProperties:
+      type: string
+    description: Additional attributes for a non-employee. Up to 10 custom attributes can be added.
+    example:
+      description: Auditing
+  startDate:
+    type: string
+    format: date-time
+    description: Non-Employee employment start date.
+    example: "2019-08-23T18:52:59.162Z"
+  endDate:
+    type: string
+    format: date-time
+    description: Non-Employee employment end date.
+    example: "2020-08-23T18:52:59.162Z"
+  modified:
+    type: string
+    format: date-time
+    description: When the request was last modified.
+    example: "2019-08-23T18:52:59.162Z"
+  created:
+    type: string
+    format: date-time
+    description: When the request was created.
+    example: "2019-08-23T18:40:35.772Z"

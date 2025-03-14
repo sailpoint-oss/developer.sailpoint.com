@@ -1,0 +1,10 @@
+type: object
+properties:
+  key:
+    type: string
+    description: The key of the message
+    example: 'recommender-api.V2_WEIGHT_FEATURE_PRODUCT_INTERPRETATION_LOW'
+  format:
+    type: string
+    description: The format of the message
+    example: '{0,,\"i18n hint: percentage\"}% of identities with the same {1,,\"i18n hint: name of category feature\"} have this access. This information had a low impact on the overall score.'

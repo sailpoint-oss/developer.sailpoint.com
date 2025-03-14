@@ -6,9 +6,9 @@ get:
   description: >-
     This API returns a list of outliers, containing data such as identity ID, outlier type, detection dates, identity attributes, if identity is ignored, and certification information.
   parameters:
-    - $ref: ../../v3/parameters/limit.yaml
-    - $ref: ../../v3/parameters/offset.yaml
-    - $ref: ../../v3/parameters/count.yaml
+    - $ref: ../parameters/limit.yaml
+    - $ref: ../parameters/offset.yaml
+    - $ref: ../parameters/count.yaml
     - name: type
       in: query
       description: Type of the identity outliers snapshot to filter on
@@ -78,17 +78,17 @@ get:
           schema:
             type: array
             items:
-              $ref: ../../beta/schemas/Outlier.yaml
+              $ref: ../schemas/Outlier.yaml
     '400':
-      $ref: ../../v3/responses/400.yaml
+      $ref: ../responses/400.yaml
     '401':
-      $ref: ../../v3/responses/401.yaml
+      $ref: ../responses/401.yaml
     '403':
-      $ref: ../../v3/responses/403.yaml
+      $ref: ../responses/403.yaml
     '429':
-      $ref: ../../v3/responses/429.yaml
+      $ref: ../responses/429.yaml
     '500':
-      $ref: ../../v3/responses/500.yaml
+      $ref: ../responses/500.yaml
   security:
     - userAuth: [iai:outliers:read, iai:outliers:manage]
     - applicationAuth: [iai:outliers:read, iai:outliers:manage]

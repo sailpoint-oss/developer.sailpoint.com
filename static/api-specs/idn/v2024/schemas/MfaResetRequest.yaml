@@ -1,0 +1,6 @@
+type: object
+properties:
+  requestedFor:
+    type: string
+    description: Either the external ID of a user when resettign someone else's MFA registration or "me" for one's self.
+    example: 2c9180867b50d088017b554662fb281e

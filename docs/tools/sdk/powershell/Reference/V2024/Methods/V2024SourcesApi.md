@@ -92,6 +92,7 @@ Method | HTTP request | Description
 [**Get-V2024Source**](#get-source) | **GET** `/sources/{id}` | Get Source by ID
 [**Get-V2024SourceAttrSyncConfig**](#get-source-attr-sync-config) | **GET** `/sources/{id}/attribute-sync-config` | Attribute Sync Config
 [**Get-V2024SourceConfig**](#get-source-config) | **GET** `/sources/{id}/connectors/source-config` | Gets source config with language translations
+[**Get-V2024SourceConnections**](#get-source-connections) | **GET** `/sources/{sourceId}/connections` | Get Source Connections by ID
 [**Get-V2024SourceEntitlementRequestConfig**](#get-source-entitlement-request-config) | **GET** `/sources/{id}/entitlement-request-config` | Get Source Entitlement Request Configuration
 [**Get-V2024SourceHealth**](#get-source-health) | **GET** `/sources/{sourceId}/source-health` | Fetches source health by id
 [**Get-V2024SourceSchedule**](#get-source-schedule) | **GET** `/sources/{sourceId}/schedules/{scheduleType}` | Get Source Schedule by Type
@@ -1129,12 +1130,12 @@ Path   | Id | **String** | True  | The Source id
   Query | Locale | **String** |   (optional) | The locale to apply to the config. If no viable locale is given, it will default to ""en""
 
 ### Return type
-[**ConnectorDetail1**](../models/connector-detail1)
+[**ConnectorDetail**](../models/connector-detail)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | A Connector Detail object | ConnectorDetail1
+200 | A Connector Detail object | ConnectorDetail
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
@@ -1160,6 +1161,52 @@ try {
     # Get-V2024SourceConfig -Id $Id -XSailPointExperimental $XSailPointExperimental -Locale $Locale  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SourceConfig"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## get-source-connections
+Use this API to get all dependent Profiles, Attributes, Applications and Custom Transforms for a source by a specified ID in Identity Security Cloud (ISC).
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-source-connections)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | SourceId | **String** | True  | Source ID.
+
+### Return type
+[**SourceConnectionsDto**](../models/source-connections-dto)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | Source Connections object. | SourceConnectionsDto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+```powershell
+$SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
+
+# Get Source Connections by ID
+
+try {
+    Get-V2024SourceConnections -SourceId $SourceId 
+    
+    # Below is a request that includes all optional parameters
+    # Get-V2024SourceConnections -SourceId $SourceId  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SourceConnections"
     Write-Host $_.ErrorDetails
 }
 ```

@@ -1,0 +1,14 @@
+description: Details of a change request Service Desk integration
+required:
+  - provision
+  - checkStatus
+type: object
+properties:
+  provision:
+    description: provisioning details for the change request Service Desk integration
+    type: object
+    $ref: './BasicProvision.yaml'
+  checkStatus:
+    description: check status mappings for the Service Desk integration
+    type: object
+    $ref: './CheckStatus.yaml'

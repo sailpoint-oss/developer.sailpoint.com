@@ -1,0 +1,13 @@
+type: object
+properties:
+  userName:
+    type: string
+    description: The username to authenticate.
+    example: "user@example.com"
+  password:
+    type: string
+    nullable: true
+    description: The password to authenticate. On response, this field is set to null as to not return secrets.
+    example: null
+nullable: true
+description: Config required if BASIC_AUTH is used.

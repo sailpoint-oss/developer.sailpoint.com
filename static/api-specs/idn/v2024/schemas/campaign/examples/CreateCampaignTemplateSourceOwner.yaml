@@ -1,0 +1,22 @@
+description: >-
+  This creates a template that can be used to generate source owner campaigns. The campaigns will
+  have a due date that is one month after their creation date, and will review one source.
+value:
+  name: AD Source Review
+  description: A review of our AD source.
+  deadlineDuration: P1M
+  campaign:
+    name: Source Review
+    description: Review everyone's access.
+    type: SOURCE_OWNER
+    filter:
+      type: CAMPAIGN_FILTER
+      id: e0adaae69852e8fe8b8a3d48e5ce757c
+    sourceOwnerCampaignInfo:
+      sourceIds:
+        - 2c918084707deba501709d45ce4e5569
+    emailNotificationEnabled: true
+    autoRevokeAllowed: false
+    recommendationsEnabled: false
+    correlatedStatus: CORRELATED
+    mandatoryCommentRequirement: NO_DECISIONS

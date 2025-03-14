@@ -31,7 +31,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../../beta/schemas/SourceEntitlementRequestConfig.yaml
+            $ref: ../schemas/SourceEntitlementRequestConfig.yaml
           examples:
             Get default config:
               description: The default config for a source should look like the following
@@ -67,15 +67,15 @@ get:
                   requestCommentRequired: true
                   denialCommentRequired: false
     '400':
-      $ref: ../../v3/responses/400.yaml
+      $ref: ../responses/400.yaml
     '401':
-      $ref: ../../v3/responses/401.yaml
+      $ref: ../responses/401.yaml
     '403':
-      $ref: ../../v3/responses/403.yaml
+      $ref: ../responses/403.yaml
     '429':
-      $ref: ../../v3/responses/429.yaml
+      $ref: ../responses/429.yaml
     '500':
-      $ref: ../../v3/responses/500.yaml
+      $ref: ../responses/500.yaml
   parameters:
   - name: X-SailPoint-Experimental
     in: header
@@ -116,7 +116,7 @@ put:
     content:
       application/json:
         schema:
-          $ref: ../../beta/schemas/SourceEntitlementRequestConfig.yaml
+          $ref: ../schemas/SourceEntitlementRequestConfig.yaml
         examples:
           Set config with no approvals:
             description: If no approvals are required, the following config can be
@@ -151,17 +151,17 @@ put:
       content:
         application/json:
           schema:
-            $ref: ../../beta/schemas/SourceEntitlementRequestConfig.yaml
+            $ref: ../schemas/SourceEntitlementRequestConfig.yaml
     '400':
-      $ref: ../../v3/responses/400.yaml
+      $ref: ../responses/400.yaml
     '401':
-      $ref: ../../v3/responses/401.yaml
+      $ref: ../responses/401.yaml
     '403':
-      $ref: ../../v3/responses/403.yaml
+      $ref: ../responses/403.yaml
     '429':
-      $ref: ../../v3/responses/429.yaml
+      $ref: ../responses/429.yaml
     '500':
-      $ref: ../../v3/responses/500.yaml
+      $ref: ../responses/500.yaml
   parameters:
   - name: X-SailPoint-Experimental
     in: header

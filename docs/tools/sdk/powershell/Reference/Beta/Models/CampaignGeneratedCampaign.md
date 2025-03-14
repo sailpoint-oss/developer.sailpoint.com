@@ -16,15 +16,15 @@ tags: ['SDK', 'Software Development Kit', 'CampaignGeneratedCampaign', 'BetaCamp
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **String** | The unique ID of the campaign. | [required]
-**Name** | **String** | Human friendly name of the campaign. | [required]
-**Description** | **String** | Extended description of the campaign. | [required]
-**Created** | **System.DateTime** | The date and time the campaign was created. | [required]
-**Modified** | **String** | The date and time the campaign was last modified. | [optional] 
-**Deadline** | **String** | The date and time when the campaign must be finished by. | [optional] 
-**Type** |  **Enum** [  "MANAGER",    "SOURCE_OWNER",    "SEARCH",    "ROLE_COMPOSITION" ] | The type of campaign that was generated. | [required]
+**Id** | **String** | Campaign's unique ID. | [required]
+**Name** | **String** | Campaign's name. | [required]
+**Description** | **String** | Campaign's extended description. | [required]
+**Created** | **System.DateTime** | Date and time when the campaign was created. | [required]
+**Modified** | **String** | Date and time when the campaign was last modified. | [optional] 
+**Deadline** | **String** | Date and time when the campaign must be finished. | [optional] 
+**Type** |  **Enum** [  "MANAGER",    "SOURCE_OWNER",    "SEARCH",    "ROLE_COMPOSITION" ] | Campaign's type. | [required]
 **CampaignOwner** | [**CampaignGeneratedCampaignCampaignOwner**](campaign-generated-campaign-campaign-owner) |  | [required]
-**Status** |  **Enum** [  "STAGED",    "ACTIVATING",    "ACTIVE" ] | The current status of the campaign. | [required]
+**Status** |  **Enum** [  "STAGED",    "ACTIVATING",    "ACTIVE" ] | Campaign's current status. | [required]
 
 ## Examples
 

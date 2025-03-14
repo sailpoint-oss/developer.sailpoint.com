@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'VAClusterStatusChangeEventPreviousHea
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Message** | **String** | Detailed message of the result of the health check. | [required]
-**ResultType** | **String** | The type of the health check result. | [required]
-**Status** |  **Enum** [  "Succeeded",    "Failed" ] | The status of the health check. | [required]
+**Message** | **String** | Detailed message of the health check result. | [required]
+**ResultType** | **String** | Health check result type. | [required]
+**Status** |  **Enum** [  "Succeeded",    "Failed" ] | Health check status. | [required]
 
 ## Examples
 

@@ -1,0 +1,29 @@
+type: object
+properties:
+  identityIds:
+    type: array
+    items:
+      type: string
+    description: The list of identities for this role mining session.
+    example: ["2c918090761a5aac0176215c46a62d58","2c918090761a5aac01722015c46a62d42"]
+  criteria:
+    type: string
+    description: The "search" criteria that produces the list of identities for this role mining session.
+    nullable: true
+    example: "source.name:DataScienceDataset"
+  attributeFilterCriteria:
+    type: array
+    items:
+      type: object
+    description: The filter criteria for this role mining session.
+    nullable: true
+    example: {
+      displayName: {untranslated: "Location: Miami"},
+      ariaLabel: {untranslated: "Location: Miami"},
+      data: {
+        displayName: {translateKey: "IDN.IDENTITY_ATTRIBUTES.LOCATION"},
+        name: "location",
+        operator: "EQUALS",
+        values: ["Miami"]
+      }
+    }

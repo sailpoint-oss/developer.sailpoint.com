@@ -3,14 +3,17 @@ description: Source configuration information that is used by correlation proces
 properties:
   id:
     type: string
+    nullable: true
     description: The ID of the correlation configuration.
     example: 2c9180835d191a86015d28455b4a2329
   name:
     type: string
+    nullable: true
     description: The name of the correlation configuration.
     example: Source [source] Account Correlation
   attributeAssignments:
     type: array
+    nullable: true
     description: The list of attribute assignments of the correlation configuration.
     items:
       type: object

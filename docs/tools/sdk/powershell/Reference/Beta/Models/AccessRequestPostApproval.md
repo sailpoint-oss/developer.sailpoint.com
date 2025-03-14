@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'AccessRequestPostApproval', 'BetaAcce
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccessRequestId** | **String** | The unique ID of the access request. | [required]
-**RequestedFor** | [**[]AccessItemRequestedForDto**](access-item-requested-for-dto) | Identities access was requested for. | [required]
-**RequestedItemsStatus** | [**[]AccessRequestPostApprovalRequestedItemsStatusInner**](access-request-post-approval-requested-items-status-inner) | Details on the outcome of each access item. | [required]
-**RequestedBy** | [**AccessItemRequesterDto**](access-item-requester-dto) |  | [required]
+**AccessRequestId** | **String** | Access request's unique ID. | [required]
+**RequestedFor** | [**[]AccessItemRequestedForDto1**](access-item-requested-for-dto1) | Identities whom access was requested for. | [required]
+**RequestedItemsStatus** | [**[]AccessRequestPostApprovalRequestedItemsStatusInner**](access-request-post-approval-requested-items-status-inner) | Details about the outcome of each requested access item. | [required]
+**RequestedBy** | [**AccessItemRequesterDto1**](access-item-requester-dto1) |  | [required]
 
 ## Examples
 

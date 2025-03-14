@@ -8,27 +8,27 @@ required:
 properties:
   trackingNumber:
     type: string
-    description: The reference number of the provisioning request. Useful for tracking status in the Account Activity search interface.
+    description: Provisioning request's reference number. Useful for tracking status in the 'Account Activity' search interface.
     example: 4b4d982dddff4267ab12f0f1e72b5a6d
   sources:
     type: string
-    description: One or more sources that the provisioning transaction(s) were done against.  Sources are comma separated.
+    description: Sources the provisioning transactions were performed on. Sources are comma separated.
     example: Corp AD, Corp LDAP, Corp Salesforce
   action:
     nullable: true
     type: string
-    description: Origin of where the provisioning request came from.
+    description: Origin of the provisioning request.
     example: IdentityRefresh
   errors:
     nullable: true
-    description: A list of any accumulated error messages that occurred during provisioning.
+    description: List of any accumulated error messages that occurred during provisioning.
     type: array
     items:
       type: string
       example: Connector AD Failed
   warnings:
     nullable: true
-    description: A list of any accumulated warning messages that occurred during provisioning.
+    description: List of any accumulated warning messages that occurred during provisioning.
     type: array
     items:
       type: string
@@ -53,7 +53,7 @@ properties:
         example: 2c7180a46faadee4016fb4e018c20642
       name:
         type: string
-        description: Provisioning recipient's display name. 
+        description: Provisioning recipient's name. 
         example: Michael Michaels
   requester:
     nullable: true
@@ -76,11 +76,11 @@ properties:
         example: 2c7180a46faadee4016fb4e018c20648
       name:
         type: string
-        description: Provisioning owner's human-readable display name. 
+        description: Provisioning requester's name. 
         example: William Wilson
   accountRequests:
     type: array
-    description: A list of provisioning instructions to perform on an account-by-account basis.  
+    description: List of provisioning instructions to perform on an account-by-account basis.  
     items:
       type: object
       required:
@@ -95,10 +95,10 @@ properties:
           - type
           - name
           type: object
-          description: Reference to the source being provisioned against.
+          description: Source that ISC is provisioning access on.
           properties:
             id:
-              description: ID of the object to which this reference applies
+              description: Source ID.
               type: string
               example: 4e4d982dddff4267ab12f0f1e72b5a6d
             type:
@@ -106,21 +106,28 @@ properties:
               enum:
               - SOURCE
               example: SOURCE
-              description: The type of object that is referenced
+              description: Source DTO type.
             name:
               type: string
-              description: Human-readable display name of the object to which this reference applies
+              description: Source name.
               example: Corporate Active Directory
         accountId:
           type: string
-          description: The unique idenfier of the account being provisioned.
-          example: CN=Chewy.Bacca,ou=hardcorefigter,ou=wookies,dc=starwars,dc=com
+          description: Unique idenfier of the account being provisioned.
+          example: CN=Rob.Robertson,ou=csm,ou=sales,dc=helpco,dc=com
         accountOperation:
           type: string
-          description: The provisioning operation; typically Create, Modify, Enable, Disable, Unlock, or Delete.
+          description: Provisioning operation.
+          enum: 
+          - Create
+          - Modify 
+          - Enable
+          - Disable 
+          - Unlock
+          - Delete
           example: Modify
         provisioningResult:
-          description: The overall result of the provisioning transaction; this could be success, pending, failed, etc.
+          description: Overall result of the provisioning transaction.
           enum:
           - SUCCESS
           - PENDING
@@ -128,16 +135,16 @@ properties:
           example: SUCCESS
         provisioningTarget:
           type: string
-          description: The name of the provisioning channel selected; this could be the same as the source, or could be a Service Desk Integration Module (SDIM).
+          description: Nme of the selected provisioning channel selected. This could be the same as the source, or it could be a Service Desk Integration Module (SDIM).
           example: Corp AD
         ticketId:
           nullable: true
           type: string
-          description: A reference to a tracking number, if this is sent to a Service Desk Integration Module (SDIM).
+          description: Reference to a tracking number for if this is sent to a SDIM.
           example: '72619262'
         attributeRequests:
           nullable: true
-          description: A list of attributes as part of the provisioning transaction.
+          description: List of attributes to include in the provisioning transaction.
           type: array
           items:
             type: object
@@ -147,14 +154,15 @@ properties:
             properties:
               attributeName:
                 type: string
-                description: The name of the attribute being provisioned.
+                description: Name of the attribute being provisioned.
                 example: memberOf
               attributeValue:
                 nullable: true
                 type: string
-                description: The value of the attribute being provisioned.
-                example: CN=jedi,DC=starwars,DC=com
+                description: Value of the attribute being provisioned.
+                example: CN=sales,DC=helpco,DC=com
               operation:
+                type: string
                 enum:
                 - Add
                 - Set

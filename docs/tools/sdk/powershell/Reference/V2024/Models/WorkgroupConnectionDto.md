@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'WorkgroupConnectionDto', 'V2024Workgr
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Object** | [**ConnectedObject**](connected-object) |  | [optional] 
+**Object** | [**WorkgroupConnectionDtoObject**](workgroup-connection-dto-object) |  | [optional] 
 **ConnectionType** |  **Enum** [  "AccessRequestReviewer",    "Owner",    "ManagementWorkgroup" ] | Connection Type. | [optional] 
 
 ## Examples

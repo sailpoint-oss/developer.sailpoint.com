@@ -24,6 +24,10 @@ Name | Type | Description | Notes
 **Description** | **String** | The description of the entitlement | [optional] 
 **Privileged** | **Boolean** | True if the entitlement is privileged | [optional] 
 **CloudGoverned** | **Boolean** | True if the entitlement is cloud governed | [optional] 
+**Requestable** | **Boolean** | True if the entitlement is able to be directly requested | [optional] [default to $false]
+**Owner** | [**EntitlementOwner**](entitlement-owner) |  | [optional] 
+**ManuallyUpdatedFields** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | A map of entitlement fields that have been manually updated. The key is the field name in UPPER_SNAKE_CASE format, and the value is true or false to indicate if the field has been updated. | [optional] 
+**AccessModelMetadata** | [**EntitlementAccessModelMetadata**](entitlement-access-model-metadata) |  | [optional] 
 **Created** | **System.DateTime** | Time when the entitlement was created | [optional] 
 **Modified** | **System.DateTime** | Time when the entitlement was last modified | [optional] 
 **Source** | [**EntitlementSource**](entitlement-source) |  | [optional] 
@@ -43,6 +47,10 @@ $Entitlement = Initialize-PSSailpoint.V2024Entitlement  -Id 2c91808874ff91550175
  -Description CN=LauncherTest2,OU=LauncherTestOrg,OU=slpt-automation,DC=TestAutomationAD,DC=local `
  -Privileged true `
  -CloudGoverned true `
+ -Requestable true `
+ -Owner null `
+ -ManuallyUpdatedFields {DISPLAY_NAME=true, DESCRIPTION=true} `
+ -AccessModelMetadata null `
  -Created 2020-10-08T18:33:52.029Z `
  -Modified 2020-10-08T18:33:52.029Z `
  -Source null `

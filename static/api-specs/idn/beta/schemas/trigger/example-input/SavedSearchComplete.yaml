@@ -11,30 +11,30 @@ required:
 properties:
   fileName:
     type: string
-    description:  A name for the report file.
+    description:  Report file name. 
     example: Modified.zip
   ownerEmail:
     type: string
-    description: The email address of the identity that owns the saved search.
+    description: Email address of the identity who owns the saved search.
     example: test@sailpoint.com
   ownerName:
     type: string
-    description: The name of the identity that owns the saved search.
+    description: Name of the identity who owns the saved search.
     example: Cloud Support
   query:
     type: string
-    description: The search query that was used to generate the report.
+    description: Search query used to generate the report.
     example: 'modified:[now-7y/d TO now]'
   searchName:
     type: string
-    description: The name of the saved search.
+    description: Saved search name. 
     example: Modified Activity
   searchResults:
     type: object
-    description: A preview of the search results for each object type. This includes a count as well as headers, and the first several rows of data, per object type.
+    description: Preview of the search results for each object type. This includes a count as well as headers and the first several rows of data, per object type.
     properties:
       Account:
-        description: A table of accounts that match the search criteria.
+        description: Table of accounts matching the search criteria.
         nullable: true
         type: object
         required:
@@ -44,14 +44,14 @@ properties:
         properties:
           count:
             type: string
-            description: The number of rows in the table.
+            description: Number of rows in the table.
             example: 3
           noun:
             type: string
-            description: The type of object represented in the table.
+            description: Type of object represented in the table.
             example: accounts
           preview:
-            description: A sample of the data in the table.
+            description: Sample of table data.
             type: array
             items:
               type: array
@@ -60,7 +60,7 @@ properties:
                 example: Robert.Chase
               example: []
       Entitlement:
-        description: A table of entitlements that match the search criteria.
+        description: Table of entitlements matching the search criteria.
         nullable: true
         type: object
         required:
@@ -70,14 +70,14 @@ properties:
         properties:
           count:
             type: string
-            description: The number of rows in the table.
+            description: Number of rows in the table.
             example: 2
           noun:
             type: string
-            description: The type of object represented in the table.
+            description: Type of object represented in the table.
             example: entitlements
           preview:
-            description: A sample of the data in the table.
+            description: Sample of table data.
             type: array
             items:
               type: array
@@ -86,7 +86,7 @@ properties:
                 example: Administrator
               example: []
       Identity:
-        description: A table of identities that match the search criteria.
+        description: Table of identities matching the search criteria.
         nullable: true
         type: object
         required:
@@ -96,14 +96,14 @@ properties:
         properties:
           count:
             type: string
-            description: The number of rows in the table.
+            description: Number of rows in the table.
             example: 2
           noun:
             type: string
-            description: The type of object represented in the table.
+            description: Type of object represented in the table.
             example: identities
           preview:
-            description: A sample of the data in the table.
+            description: Sample of the table data.
             type: array
             items:
               type: array

@@ -1,0 +1,26 @@
+description: This contains the common properties for provisioning of incident, change request, or service request tickets to the Ticketing System.
+required:
+  - request
+type: object
+properties:
+  request:
+    description: A request payload attributes map used to create a manual fulfillment ticket to the Ticketing System.
+    type: object
+    additionalProperties: true
+    example:
+      description: SailPoint Access Request,
+      req_description: The Service Request created by SailPoint ServiceNow Service Integration Module (SIM).,
+      req_short_description: SailPoint New Access Request Created from IdentityNow,
+      short_description: SailPoint Access Request $!plan.arguments.identityRequestId
+  requestRootElement:
+    description: The outermost level of the JSON element or root of a request. Optional in some Service Desk Integrations.
+    type: string
+    example: items
+  resource:
+    description: The resource URL to use to create a ticket in the Ticketing System, not including the base URL prefix.
+    type: string
+    example: /api/x_sap_sdim/sailpoint_cart_js_api/create_ticket
+  responseElement:
+    description: A JSON path expression, specifying where to obtain ticket status from a REST response.
+    type: string
+    example: result.state

@@ -1,0 +1,17 @@
+summary: NestedAggregation with FilterAggregation and BucketAggregation using DSL
+value:
+  indices:  [ 'identities' ]
+  aggregationType: 'DSL'
+  aggregationsDsl:
+    access:
+      nested:
+        path: 'access'
+      aggs:
+        Entitlements:
+          filter:
+            term:
+              access.type: 'ENTITLEMENT'
+          aggs:
+            Access Name:
+              terms:
+                field: 'access.name.exact'

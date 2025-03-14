@@ -1,0 +1,18 @@
+type: object
+properties:
+  encryption:
+    type: string
+    description: the encryption type of the user's password. PKI if they are an AD user, HASH otherwise.
+    example: PKI
+  publicKey:
+    type: string
+    description: The public key of the org, if a request was made with an AD user.
+    example: -----BEGIN PUBLIC KEY-----MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArHB72hqWFM6sqM5yo9FdJc8221o8HoS/hEQqkDMQ+7WGuNZ83NjV3Td2lDO6Nzkuzzx1tf4Y24a2mdZojLRHJKyct/JKlaDFOOFDAjCKtUp0UGuWCMnTt2oUhxxJAC9r9KAxYL3MpWPGQGHNFWbabsEStOm3wHVyS3+AmThC6ops0OaAUecbboMSXiLJDKXX7MEpixZJKshkH0qvqzqgr+DpwKHOTelZDnK//XCCwPEuR7ykbfPzvgoJyUSj/obMcOuSzDSMbKplYho/NWhO9uh2PXvR+KGRkazkHsc5y5Zc0ggzMcMg6Vqhjt82Yn8RKr29IN8NyyvQDVejzsIsDwIDAQAB-----END PUBLIC KEY-----
+  loginUrl:
+    type: string
+    description: the login endpoint for the associated tenant.
+    example: "https://some-org.identitynow.com/login/login"
+required:
+  - id
+  - publicKey
+  - loginUrl

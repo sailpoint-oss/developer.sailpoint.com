@@ -11,7 +11,7 @@ properties:
     minLength: 32
     maxLength: 32
     readOnly: true
-    description: The uid of the attribute
+    description: The user-specified identifier of the attribute
     example: myattribute
   label:
     type: string

@@ -1,0 +1,200 @@
+type: object
+properties:
+  success:
+    type: boolean
+    description: The status of the result
+    default: 'true'
+    example: 'true'
+  task:
+    type: object
+    properties:
+      id:
+        description: System-generated unique ID of the task this taskStatus represents
+        type: string
+        example: ef38f94347e94562b5bb8424a56397d8
+      type:
+        description: Type of task this task represents
+        type: string
+        example: QUARTZ
+      name:
+        description: The name of the aggregation process
+        type: string
+        example: Cloud Account Aggregation
+      description:
+        description: The description of the task
+        type: string
+        example: Aggregate from the specified application
+      launcher:
+        description: The user who initiated the task
+        type: string
+        example: John Doe
+      created:
+        type: string
+        description: >-
+          The Task creation date
+        format: date-time
+        example: '2020-09-07T42:14:00.364Z'
+      launched:
+        type: string
+        nullable: true
+        format: date-time
+        description: >-
+          The task start date
+        example: '2020-09-07T42:14:00.521Z'
+      completed:
+        type: string
+        nullable: true
+        format: date-time
+        description: >-
+          The task completion date
+        example: '2020-09-07T42:14:01.137Z'
+      completionStatus:
+        type: string
+        nullable: true
+        enum:
+          - SUCCESS
+          - WARNING
+          - ERROR
+          - TERMINATED
+          - TEMP_ERROR
+        description: >-
+          Task completion status.
+        example: Success
+      parentName:
+        type: string
+        nullable: true
+        description: >-
+          Name of the parent task if exists.
+        example: Audit Report
+      messages:
+        type: array
+        description: >-
+          List of the messages dedicated to the report. 
+          From task definition perspective here usually should be warnings or errors.
+        example: []
+        items:
+          type: object
+          properties:
+            type:
+              type: string
+              description: >-
+                Type of the message.
+              enum:
+                - INFO
+                - WARN
+                - ERROR
+              example: WARN
+            error:
+              type: boolean
+              default: false
+              description: >-
+                Flag whether message is an error.
+              example: false
+            warning:
+              type: boolean
+              default: false
+              description: >-
+                Flag whether message is a warning.
+              example: true
+            key:
+              type: string
+              description: >-
+                Message string identifier.
+              example: "This aggregation failed because the currently running aggregation must complete before the next one can start."
+            localizedText:
+              type: string
+              description: >-
+                Message context with the locale based language.
+              example: "This aggregation failed because the currently running aggregation must complete before the next one can start."
+      progress:
+        type: string
+        nullable: true
+        description: >-
+          Current task state.
+        example: Initializing...
+      attributes:
+        type: object
+        description: >-
+          Extra attributes map(dictionary) for the task.
+        properties:
+          appId:
+            description: The id of the source
+            type: string
+            example: 'c31386cb18bb403cbb6df4c86294ff82'
+          optimizedAggregation:
+            description: The indicator if the aggregation process was enabled/disabled for the aggregation job
+            type: string
+            example: 'enabled'
+        additionalProperties:
+          type: object
+      returns:
+        type: array
+        description: Return values from the task
+        items:
+          type: object
+          properties:
+            displayLabel:
+              type: string
+              description: The display label of the return value
+              example: TASK_OUT_ACCOUNT_AGGREGATION_APPLICATIONS
+            attributeName:
+              type: string
+              description: The attribute name of the return value
+              example: applications
+          example:
+            - displayLabel: "TASK_OUT_ACCOUNT_AGGREGATION_APPLICATIONS"
+              attributeName: "applications"
+            - displayLabel: "TASK_OUT_ACCOUNT_AGGREGATION_TOTAL"
+              attributeName: "total"
+            - displayLabel: "TASK_OUT_ACCOUNT_AGGREGATION_OPTIMIZED"
+              attributeName: "optimizedAggregation"
+            - displayLabel: "TASK_OUT_ACCOUNT_AGGREGATION_IGNORED"
+              attributeName: "ignored"
+            - displayLabel: "TASK_OUT_UNCHANGED_ACCOUNTS"
+              attributeName: "optimized"
+            - displayLabel: "TASK_OUT_ACCOUNT_AGGREGATION_CREATED"
+              attributeName: "created"
+            - displayLabel: "TASK_OUT_ACCOUNT_AGGREGATION_UPDATED"
+              attributeName: "updated"
+            - displayLabel: "TASK_OUT_ACCOUNT_AGGREGATION_DELETED"
+              attributeName: "deleted"
+            - displayLabel: "TASK_OUT_ACCOUNT_AGGREGATION_MANAGER_CHANGES"
+              attributeName: "managerChanges"
+            - displayLabel: "TASK_OUT_ACCOUNT_AGGREGATION_BUSINESS_ROLE_CHANGES"
+              attributeName: "detectedRoleChanges"
+            - displayLabel: "TASK_OUT_ACCOUNT_AGGREGATION_EXCEPTION_CHANGES"
+              attributeName: "exceptionChanges"
+            - displayLabel: "TASK_OUT_ACCOUNT_AGGREGATION_POLICIES"
+              attributeName: "policies"
+            - displayLabel: "TASK_OUT_ACCOUNT_AGGREGATION_POLICY_VIOLATIONS"
+              attributeName: "policyViolations"
+            - displayLabel: "TASK_OUT_ACCOUNT_AGGREGATION_POLICY_NOTIFICATIONS"
+              attributeName: "policyNotifications"
+            - displayLabel: "TASK_OUT_ACCOUNT_AGGREGATION_SCORES_CHANGED"
+              attributeName: "scoresChanged"
+            - displayLabel: "TASK_OUT_ACCOUNT_AGGREGATION_SNAPSHOTS_CREATED"
+              attributeName: "snapshotsCreated"
+            - displayLabel: "TASK_OUT_ACCOUNT_AGGREGATION_SCOPES_CREATED"
+              attributeName: "scopesCreated"
+            - displayLabel: "TASK_OUT_ACCOUNT_AGGREGATION_SCOPES_CORRELATED"
+              attributeName: "scopesCorrelated"
+            - displayLabel: "TASK_OUT_ACCOUNT_AGGREGATION_SCOPES_SELECTED"
+              attributeName: "scopesSelected"
+            - displayLabel: "TASK_OUT_ACCOUNT_AGGREGATION_SCOPES_DORMANT"
+              attributeName: "scopesDormant"
+            - displayLabel: "TASK_OUT_ACCOUNT_AGGREGATION_UNSCOPED_IDENTITIES"
+              attributeName: "unscopedIdentities"
+            - displayLabel: "TASK_OUT_ACCOUNT_AGGREGATION_CERTIFICATIONS_CREATED"
+              attributeName: "certificationsCreated"
+            - displayLabel: "TASK_OUT_ACCOUNT_AGGREGATION_CERTIFICATIONS_DELETED"
+              attributeName: "certificationsDeleted"
+            - displayLabel: "TASK_OUT_ACCOUNT_AGGREGATION_APPLICATIONS_GENERATED"
+              attributeName: "applicationsGenerated"
+            - displayLabel: "TASK_OUT_ACCOUNT_AGGREGATION_MANAGED_ATTRIBUTES_PROMOTED"
+              attributeName: "managedAttributesCreated"
+            - displayLabel: "TASK_OUT_ACCOUNT_AGGREGATION_MANAGED_ATTRIBUTES_PROMOTED_BY_APP"
+              attributeName: "managedAttributesCreatedByApplication"
+            - displayLabel: "TASK_OUT_ACCOUNT_AGGREGATION_IDENTITYENTITLEMENTS_CREATED"
+              attributeName: "identityEntitlementsCreated"
+            - displayLabel: "TASK_OUT_ACCOUNT_AGGREGATION_GROUPS_CREATED"
+              attributeName: "groupsCreated"

@@ -2,7 +2,11 @@ post:
   operationId: addAccessRequestRecommendationsIgnoredItem
   tags:
     - IAI Access Request Recommendations
-  summary: Notification of Ignored Access Request Recommendations
+  security:
+    - userAuth: [ iai:access-request-recommender:manage ]
+  x-sailpoint-userLevels:
+    - Any
+  summary: Ignore Access Request Recommendation
   description: >-
     This API ignores a recommended access request item.
     Once an item is ignored, it will be marked as ignored=true if it is still a recommended item.
@@ -35,7 +39,11 @@ get:
   operationId: getAccessRequestRecommendationsIgnoredItems
   tags:
     - IAI Access Request Recommendations
-  summary: List of Ignored Access Request Recommendations
+  security:
+    - userAuth: [ iai:access-request-recommender:manage ]
+  x-sailpoint-userLevels:
+    - Any
+  summary: List Ignored Access Request Recommendations
   description: >-
     This API returns the list of ignored access request recommendations.
   parameters:
@@ -60,6 +68,7 @@ get:
 
 
         **identityId**: *eq, in*
+      required: false
       example: identityId eq "2c9180846b0a0583016b299f210c1314"
     - in: query
       name: sorters
@@ -71,6 +80,7 @@ get:
 
 
         Sorting is supported for the following fields: **access.id, access.type, identityId, timestamp**
+      required: false
       example: access.id
   responses:
     '200':

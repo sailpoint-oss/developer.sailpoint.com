@@ -1,0 +1,23 @@
+type: object
+required:
+  - attributes
+properties:
+  attributes:
+    description: The schema attribute values for the account
+    type: object
+    required:
+      - sourceId
+    properties:
+      sourceId:
+        type: string
+        description: Target source to create an account
+        example: 34bfcbe116c9407464af37acbaf7a4dc
+    additionalProperties:
+      type: string
+    example:
+      sourceId: 34bfcbe116c9407464af37acbaf7a4dc
+      city: Austin
+      displayName: John Doe
+      userName: jdoe
+      sAMAccountName: jDoe
+      mail: john.doe@sailpoint.com

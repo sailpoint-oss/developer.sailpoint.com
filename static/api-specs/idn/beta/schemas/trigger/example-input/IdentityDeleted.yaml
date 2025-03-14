@@ -24,11 +24,11 @@ properties:
         example: 2c7180a46faadee4016fb4e018c20642
       name:
         type: string
-        description: Deleted identity's display name. 
+        description: Deleted identity's name. 
         example: Michael Michaels
   attributes:
     type: object
-    description: The attributes assigned to the identity. Attributes are determined by the identity profile.
+    description: Identity attributes. The attributes are determined by the identity profile.
     additionalProperties: true
     example: {
       "firstname": "John"

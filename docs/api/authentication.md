@@ -211,7 +211,7 @@ This example cURL command passes client credentials in the body as form-data to 
 
 ```bash
 curl --location 'https://[tenant].api.identitynow.com/oauth/token' \
---header 'scope: sp:scope:all' \
+--header 'scope: sp:scopes:all' \
 --form 'grant_type="client_credentials"' \
 --form 'client_id="{clientId}"' \
 --form 'client_secret="{clientSecret}"'

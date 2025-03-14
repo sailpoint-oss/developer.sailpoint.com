@@ -1,0 +1,32 @@
+type: object
+properties:
+  id:
+    type: string
+    format: uuid
+    readOnly: true
+    description: The id of the page content
+    example: ac4aae0b-4140-49a4-a84c-126762fd0c8f
+  uid:
+    type: string
+    description: The user-specified identifier for the record
+    example: page_content_transation_great_es_es
+  locale:
+    type: string
+    description: The language locale this translation contains.
+    example: es-ES
+  value:
+    type: string
+    description: The translated string to present in the user interface.
+    example: Es stupendo!
+  created_at:
+    type: string
+    format: date-time
+    readOnly: true
+    description: The date-time the record created.
+    example: 2022-12-27 08:26:49.219717
+  updated_at:
+    type: string
+    format: date-time
+    readOnly: true
+    description: The date-time the record was last updated.
+    example: 2022-12-27 08:26:49.219717

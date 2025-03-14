@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'SourceDeletedActor', 'BetaSourceDelet
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  **Enum** [  "IDENTITY" ] | DTO type of identity who deleted the source. | [required]
-**Id** | **String** | ID of identity who deleted the source. | [required]
-**Name** | **String** | Display name of identity who deleted the source. | [required]
+**Type** |  **Enum** [  "IDENTITY" ] | DTO type of the identity who deleted the source. | [required]
+**Id** | **String** | ID of the identity who deleted the source. | [required]
+**Name** | **String** | Name of the identity who deleted the source. | [required]
 
 ## Examples
 

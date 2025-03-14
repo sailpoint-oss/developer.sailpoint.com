@@ -2,7 +2,11 @@ post:
   operationId: addAccessRequestRecommendationsViewedItems
   tags:
   - IAI Access Request Recommendations
-  summary: Notification of Viewed Access Request Recommendations in Bulk
+  security:
+    - userAuth: [ iai:access-request-recommender:manage ]
+  x-sailpoint-userLevels:
+    - Any
+  summary: Bulk Mark Viewed Access Request Recommendations
   description: This API consumes a notification that a set of recommended access request
     item were viewed. Future recommendations with these items will be marked with
     viewed=true. This can be useful for the consumer to determine if there are any
@@ -15,7 +19,7 @@ post:
         schema:
           type: array
           items:
-            $ref: ../../beta/schemas/AccessRequestRecommendationActionItemDto.yaml
+            $ref: ../schemas/AccessRequestRecommendationActionItemDto.yaml
   responses:
     '201':
       description: Recommendations successfully stored as viewed.
@@ -24,17 +28,17 @@ post:
           schema:
             type: array
             items:
-              $ref: ../../beta/schemas/AccessRequestRecommendationActionItemResponseDto.yaml
+              $ref: ../schemas/AccessRequestRecommendationActionItemResponseDto.yaml
     '400':
-      $ref: ../../v3/responses/400.yaml
+      $ref: ../responses/400.yaml
     '401':
-      $ref: ../../v3/responses/401.yaml
+      $ref: ../responses/401.yaml
     '403':
-      $ref: ../../v3/responses/403.yaml
+      $ref: ../responses/403.yaml
     '429':
-      $ref: ../../v3/responses/429.yaml
+      $ref: ../responses/429.yaml
     '500':
-      $ref: ../../v3/responses/500.yaml
+      $ref: ../responses/500.yaml
   parameters:
   - name: X-SailPoint-Experimental
     in: header

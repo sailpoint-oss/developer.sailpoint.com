@@ -1,0 +1,21 @@
+type: object
+properties:
+  start:
+    type: string
+    description: The date the Aggregation was started.
+    format: date-time
+    example: '2020-12-31T23:58:58.104Z'
+  end:
+    type: string
+    description: The end date of the extraction phase of the aggregation.
+    format: date-time
+    example: '2020-12-31T23:59:59.104Z'
+  deltaState:
+    type: object
+    description: The delta state of the source.
+    example: {
+      "dc=testautomationad,dc=local": {
+        "lastDirsyncServer": "10.0.5.127",
+        "users_cookie":"TVNEUwMACCCB1bgmNdXWAQAAAAAAAAAAKAAAAHFanAAAAAAAAAAAAAAAAABxYq0EAAAAAOFygyM+&#xD;&#xA;sGdPq9aP10eUKNoBAAAAAAAAAAEAAAAAAAAA3XKDIz9wZ0+r1o/XR5Qo2gZjrQQAAAAA"
+      }
+    }

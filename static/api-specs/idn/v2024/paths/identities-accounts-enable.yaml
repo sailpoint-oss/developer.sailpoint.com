@@ -16,7 +16,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: ../../beta/schemas/IdentitiesAccountsBulkRequest.yaml
+          $ref: ../schemas/IdentitiesAccountsBulkRequest.yaml
   responses:
     '207':
       description: Bulk response details.
@@ -25,7 +25,7 @@ post:
           schema:
             type: array
             items:
-              $ref: ../../beta/schemas/BulkIdentitiesAccountsResponse.yaml
+              $ref: ../schemas/BulkIdentitiesAccountsResponse.yaml
             example:
             - id: 2c9180858082150f0180893dbaf553fe
               statusCode: 404
@@ -35,15 +35,15 @@ post:
               statusCode: 202
               message: null
     '400':
-      $ref: ../../v3/responses/400.yaml
+      $ref: ../responses/400.yaml
     '401':
-      $ref: ../../v3/responses/401.yaml
+      $ref: ../responses/401.yaml
     '403':
-      $ref: ../../v3/responses/403.yaml
+      $ref: ../responses/403.yaml
     '429':
-      $ref: ../../v3/responses/429.yaml
+      $ref: ../responses/429.yaml
     '500':
-      $ref: ../../v3/responses/500.yaml
+      $ref: ../responses/500.yaml
   parameters:
   - name: X-SailPoint-Experimental
     in: header

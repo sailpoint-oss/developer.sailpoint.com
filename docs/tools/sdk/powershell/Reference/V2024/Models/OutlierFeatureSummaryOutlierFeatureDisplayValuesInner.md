@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DisplayName** | **String** | display name | [optional] 
 **Value** | **String** | value | [optional] 
-**ValueType** |  **Enum** [  "INTEGER",    "FLOAT" ] | The data type of the value field | [optional] 
+**ValueType** | [**OutlierValueType**](outlier-value-type) |  | [optional] 
 
 ## Examples
 
@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 ```powershell
 $OutlierFeatureSummaryOutlierFeatureDisplayValuesInner = Initialize-PSSailpoint.V2024OutlierFeatureSummaryOutlierFeatureDisplayValuesInner  -DisplayName Aliza Chris `
  -Value 55 `
- -ValueType INTEGER
+ -ValueType null
 ```
 
 - Convert the resource to JSON

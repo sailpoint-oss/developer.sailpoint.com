@@ -329,6 +329,8 @@ Gets all Reassignment configuration for the current org.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
+  Query | Limit | **Int32** |   (optional) (default to 20) | Max number of results to return.
+  Query | Offset | **Int32** |   (optional) | Offset into the full result set. Usually specified with *limit* to paginate through the results. Defaults to 0 if not specified.
 
 ### Return type
 [**ConfigurationResponse[]**](../models/configuration-response)
@@ -350,6 +352,8 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
+$Limit = 20 # Int32 | Max number of results to return. (optional) (default to 20)
+$Offset = 10 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. Defaults to 0 if not specified. (optional)
 
 # List Reassignment Configurations
 
@@ -357,7 +361,7 @@ try {
     Get-BetaReassignmentConfigurations 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaReassignmentConfigurations  
+    # Get-BetaReassignmentConfigurations -Limit $Limit -Offset $Offset  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaReassignmentConfigurations"
     Write-Host $_.ErrorDetails

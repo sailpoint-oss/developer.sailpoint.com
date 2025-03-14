@@ -1,7 +1,0 @@
-name: category
-in: query
-description: The category parameter is used to retrieve profiles belonging to profile types categorized under the allowed schema mapping categories. The permitted categories allowed are 'non-employee' and 'assignment'.
-required: false
-schema:
-  type: string
-  example: non-employee

@@ -2,7 +2,7 @@ get:
   operationId: getProfileConfigList
   tags:
   - Auth Profile
-  summary: Get list of Auth Profiles.
+  summary: Get list of Auth Profiles
   description: This API returns a list of auth profiles.
   security:
   - userAuth:
@@ -13,17 +13,19 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../../beta/schemas/AuthProfileSummary.yaml
+            type: array
+            items:
+              $ref: ../schemas/AuthProfileSummary.yaml
     '400':
-      $ref: ../../v3/responses/400.yaml
+      $ref: ../responses/400.yaml
     '401':
-      $ref: ../../v3/responses/401.yaml
+      $ref: ../responses/401.yaml
     '403':
-      $ref: ../../v3/responses/403.yaml
+      $ref: ../responses/403.yaml
     '429':
-      $ref: ../../v3/responses/429.yaml
+      $ref: ../responses/429.yaml
     '500':
-      $ref: ../../v3/responses/500.yaml
+      $ref: ../responses/500.yaml
   parameters:
   - name: X-SailPoint-Experimental
     in: header

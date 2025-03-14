@@ -48,12 +48,13 @@ allOf:
         description: Indicates if the account is of machine type
         example: true
       recommendation:
-        $ref: './Recommendation.yaml'
-        nullable: true
-        description: Indicates that the account is currently classified to be one type but is recommended to be a different one
-        example:
-          type: MACHINE
-          method: DISCOVERY
+        allOf:
+          - $ref: './Recommendation.yaml'
+          - nullable: true
+            description: Indicates that the account is currently classified to be one type but is recommended to be a different one
+            example:
+              type: MACHINE
+              method: DISCOVERY
       attributes:
         type: object
         nullable: true
@@ -108,20 +109,41 @@ allOf:
         description: Indicates if the account has entitlements
         example: true
       identity:
-        $ref: './BaseReferenceDto.yaml'
         description: The identity this account is correlated to
-        example:
-          id: "2c918084660f45d6016617daa9210584"
-          type: "IDENTITY"
-          name: "Adam Kennedy"
+        properties:
+          id:
+            type: string
+            description: The ID of the identity
+            example: 2c918084660f45d6016617daa9210584
+          type:
+            type: string
+            description: The type of object being referenced
+            enum:
+              - IDENTITY
+            example: IDENTITY
+          name:
+            type: string
+            description: display name of identity
+            example: "John Doe"
       sourceOwner:
-        $ref: './BaseReferenceDto.yaml'
+        type: object
         nullable: true
         description: The owner of the source this account belongs to.
-        example:
-          id: "2c918084660f45d6016617daa9210584"
-          type: "IDENTITY"
-          name: "Adam Kennedy"
+        properties:
+          id:
+            type: string
+            description: The ID of the identity
+            example: 2c918084660f45d6016617daa9210584
+          type:
+            type: string
+            description: The type of object being referenced
+            enum:
+              - IDENTITY
+            example: IDENTITY
+          name:
+            type: string
+            description: display name of identity
+            example: "Adam Kennedy"
       features:
         type: string
         description: A string list containing the owning source's features
@@ -137,10 +159,11 @@ allOf:
         description: The origin of the account either aggregated or provisioned
         example: AGGREGATED
       ownerIdentity:
-        $ref: './BaseReferenceDto.yaml'
-        description: The identity who owns this account, used only for machine accounts
-        nullable: true
-        example:
-          id: "2c918084660f45d6016617daa9210584"
-          type: "IDENTITY"
-          name: "Adam Kennedy"
+        allOf:
+          - $ref: './BaseReferenceDto.yaml'
+          - description: The identity who owns this account, used only for machine accounts
+            nullable: true
+            example:
+              id: "2c918084660f45d6016617daa9210584"
+              type: "IDENTITY"
+              name: "Adam Kennedy"

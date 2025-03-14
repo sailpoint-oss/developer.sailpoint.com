@@ -5,9 +5,9 @@ get:
   - Role Insights
   description: This method returns detailed role insights for each role.
   parameters:
-  - $ref: ../../v3/parameters/offset.yaml
-  - $ref: ../../v3/parameters/limit.yaml
-  - $ref: ../../v3/parameters/count.yaml
+  - $ref: ../parameters/offset.yaml
+  - $ref: ../parameters/limit.yaml
+  - $ref: ../parameters/count.yaml
   - name: sorters
     in: query
     description: 'Sort results using the standard syntax described in [V3 API Standard
@@ -61,12 +61,12 @@ get:
           schema:
             type: array
             items:
-              $ref: ../../beta/schemas/RoleInsight.yaml
+              $ref: ../schemas/RoleInsight.yaml
     '400':
-      $ref: ../../v3/responses/400.yaml
+      $ref: ../responses/400.yaml
     '401':
-      $ref: ../../v3/responses/401.yaml
+      $ref: ../responses/401.yaml
     '403':
-      $ref: ../../v3/responses/403.yaml
+      $ref: ../responses/403.yaml
     '500':
-      $ref: ../../v3/responses/500.yaml
+      $ref: ../responses/500.yaml

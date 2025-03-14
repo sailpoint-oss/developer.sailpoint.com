@@ -67,7 +67,6 @@ app.post('/Prod/sailapps/uuid', async (c) => {
     }
   }
 
-  console.log(apiURL);
   if (!apiURL.origin) {
     throw new HTTPException(400, {
       message: 'apiBaseURL or tenant provided is invalid',
@@ -76,15 +75,12 @@ app.post('/Prod/sailapps/uuid', async (c) => {
 
   const baseURL = apiURL?.origin;
 
-  console.log('BaseAPIURL:', baseURL);
-
   try {
     const authInfoResp = await fetch(baseURL + `/oauth/info`);
     if (!authInfoResp.ok) {
       throw new Error('Error retrieving tenant info');
     }
     const authInfo = await authInfoResp.json();
-    console.log(authInfo);
 
     if (!authInfo || !authInfo.authorizeEndpoint) {
       throw new Error('Error retrieving tenant info');
@@ -107,8 +103,6 @@ app.post('/Prod/sailapps/uuid', async (c) => {
     );
     authURL.searchParams.set('state', btoa(JSON.stringify(state)));
 
-    console.log('Generated Auth URL:', authURL.toString());
-
     const objectToRespond = {
       encryptionKey,
       authURL: authURL.toString(),
@@ -119,7 +113,6 @@ app.post('/Prod/sailapps/uuid', async (c) => {
       const data = await ddbDocClient.send(
         new PutCommand({TableName: tableName, Item: objectToPut}),
       );
-      console.log(data);
       if (!data) {
         throw new HTTPException(400, {message: 'Error creating UUID'});
       }
@@ -160,8 +153,6 @@ app.post('/Prod/sailapps/code/:code', async (c) => {
 
   const {id: uuid, encryptionKey} = JSON.parse(atob(state));
 
-  console.log(`Parsed State UUID: ${uuid}, Encryption Key: ${encryptionKey}`);
-
   let tableData;
 
   try {
@@ -185,10 +176,6 @@ app.post('/Prod/sailapps/code/:code', async (c) => {
     throw new HTTPException(400, {message: 'Error retrieving table data'});
   }
 
-  console.log(tableData);
-
-  console.log('Exchanging code for token');
-
   if (!tableData.baseURL) {
     throw new HTTPException(400, {message: 'baseURL not populated'});
   }
@@ -204,18 +191,13 @@ app.post('/Prod/sailapps/code/:code', async (c) => {
   });
 
   if (!tokenExchangeResp.ok) {
-    console.log(tokenExchangeResp);
-    console.log(await tokenExchangeResp.json());
+    console.error(tokenExchangeResp);
     throw new HTTPException(400, {message: 'Error exchanging code for token'});
   }
 
   const tokenExchangeData = await tokenExchangeResp.json();
 
-  console.log(tokenExchangeData);
-
   if (!tokenExchangeData.access_token) {
-    console.log(tokenExchangeResp);
-    console.log(await tokenExchangeResp.json());
     throw new HTTPException(400, {message: 'Error exchanging code for token'});
   }
 
@@ -245,7 +227,6 @@ app.post('/Prod/sailapps/code/:code', async (c) => {
         },
       }),
     );
-    console.log(data);
     if (!data) {
       throw new HTTPException(400, {message: 'Error adding token'});
     }
@@ -274,7 +255,6 @@ app.get('/Prod/sailapps/uuid/:uuid', async (c) => {
     const data = await ddbDocClient.send(
       new GetCommand({TableName: tableName, Key: {id: uuid}}),
     );
-    console.log(data?.Item);
     if (!data?.Item?.tokenInfo) {
       throw new HTTPException(400, {message: 'Token not populated'});
     }

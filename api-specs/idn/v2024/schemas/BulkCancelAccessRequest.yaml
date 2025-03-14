@@ -1,0 +1,17 @@
+type : object
+description: Request body payload for bulk cancel access request endpoint.
+required :
+  - accessRequestIds
+  - comment
+properties:
+  accessRequestIds:
+    type: array
+    description: List of access requests ids to cancel the pending requests
+    items:
+      type: string
+    example: [2c9180835d2e5168015d32f890ca1581, 2c9180835d2e5168015d32f890ca1582]
+
+  comment:
+    type: string
+    description: Reason for cancelling the pending access request.
+    example: "I requested this role by mistake."

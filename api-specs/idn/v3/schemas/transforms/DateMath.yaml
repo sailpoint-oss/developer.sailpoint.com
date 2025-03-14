@@ -1,0 +1,32 @@
+title: dateMath
+type: object
+required:
+- expression
+properties:
+  expression:
+    type: string
+    description: | 
+      A string value of the date and time components to operation on, along with the math operations to execute.
+    externalDocs: 
+      description: Date Math Expressions
+      url: https://developer.sailpoint.com/idn/docs/transforms/operations/date-math#transform-structure
+    example: 'now+1w'  
+  roundUp:
+    type: boolean
+    description: |
+      A boolean value to indicate whether the transform should round up or down when a rounding `/` operation is defined in the expression. 
+      
+      
+      If not provided, the transform will default to `false`
+
+
+      `true` indicates the transform should round up (i.e., truncate the fractional date/time component indicated and then add one unit of that component)
+
+
+      `false` indicates the transform should round down (i.e., truncate the fractional date/time component indicated)
+    example: false
+    default: false
+  requiresPeriodicRefresh:
+    $ref: './RequiresPeriodicRefresh.yaml' 
+  input:
+    $ref: './input.yaml'

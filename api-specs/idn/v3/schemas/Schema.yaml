@@ -1,0 +1,75 @@
+type: object
+properties:
+  id:
+    type: string
+    description: The id of the Schema.
+    example: 2c9180835d191a86015d28455b4a2329
+  name:
+    type: string
+    description: The name of the Schema.
+    example: account
+  nativeObjectType:
+    type: string
+    description: The name of the object type on the native system that the schema represents.
+    example: User
+  identityAttribute:
+    type: string
+    description: The name of the attribute used to calculate the unique identifier for an object in the schema.
+    example: sAMAccountName
+  displayAttribute:
+    type: string
+    description: The name of the attribute used to calculate the display value for an object in the schema.
+    example: distinguishedName
+  hierarchyAttribute:
+    type: string
+    description: The name of the attribute whose values represent other objects in a hierarchy. Only relevant to group schemas.
+    example: memberOf
+  includePermissions:
+    type: boolean
+    description: Flag indicating whether or not the include permissions with the object data when aggregating the schema.
+    example: false
+  features:
+    $ref: '../../v3/schemas/SourceFeature.yaml'
+  configuration:
+    type: object
+    description: Holds any extra configuration data that the schema may require.
+    example: {
+        groupMemberAttribute: "member"
+    }
+  attributes:
+    type: array
+    description: The attribute definitions which form the schema.
+    items:
+      $ref: './AttributeDefinition.yaml'
+    example: [
+        {
+            name: "sAMAccountName",
+            type: "STRING",
+            isMultiValued: false,
+            isEntitlement: false,
+            isGroup: false
+        },
+        {
+            name: "memberOf",
+            type: "STRING",
+            schema: {
+              type: "CONNECTOR_SCHEMA",
+              id: "2c9180887671ff8c01767b4671fc7d60",
+              name: "group"
+            },
+            description: "Group membership",
+            isMultiValued: true,
+            isEntitlement: true,
+            isGroup: true
+        }
+    ]
+  created:
+    type: string
+    description: The date the Schema was created.
+    format: 'date-time'
+    example: '2019-12-24T22:32:58.104Z'
+  modified:
+    type: string
+    description: The date the Schema was last modified.
+    format: 'date-time'
+    example: '2019-12-31T20:22:28.104Z'

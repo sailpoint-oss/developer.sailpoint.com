@@ -1,0 +1,48 @@
+post:
+  # security:
+  #   - oauth2: [idn:helpdesk]
+  operationId: nonEmployeeBulkUploadJobFail
+  tags:
+    - Non-Employee Lifecycle Management
+  summary: Fail Bulk Upload
+  description: |
+    This API does not stop the job. It flags the job as failed. The job continues to run if it was 
+    running when the API was invoked.
+
+    Before you submit this request, verify the transaction is actually failed in Kibana. When 
+    the NON_EMPLOYEE_CREATE_PASSED events have stopped, then the job is completed. 
+
+    Important: This API does not stop the job, it flags the job as failed. The job continues to run if 
+    the it was running when the API was invoked. If invoked while the transaction is still running, 
+    other jobs are allowed to start but the second job to start will fail. 
+
+    Requires role context of `idn:nesr:update`. 
+
+    This is for internal use only.
+  parameters:
+    - in: path
+      name: bulkUploadJobId
+      description: >-
+        Bulk Upload Job ID (UUID)
+      required: true
+      schema:
+        type: string
+      example: e136567de87e4d029e60b3c3c55db56d
+  responses:
+    "200":
+      description: >-
+        The bulk upload job was marked as failed.
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/non-employee/NonEmployeeBulkUploadJob.yaml"
+    "400":
+      $ref: "../responses/400.yaml"
+    "401":
+      $ref: "../responses/401.yaml"
+    "403":
+      $ref: "../responses/403.yaml"
+    "429":
+      $ref: "../responses/429.yaml"
+    "500":
+      $ref: "../responses/500.yaml"

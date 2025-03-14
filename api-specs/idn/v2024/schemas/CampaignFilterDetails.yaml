@@ -1,0 +1,80 @@
+type: object
+description: Campaign Filter Details
+properties:
+  id:
+    type: string
+    description: The unique ID of the campaign filter
+    example: 5ec18cef39020d6fd7a60ad3970aba61
+  name:
+    type: string
+    description: Campaign filter name.
+    example: Identity Attribute Campaign Filter
+  description:
+    type: string
+    description: Campaign filter description.
+    example: Campaign filter to certify data based on an identity attribute's specified property.
+  owner:
+    type: string
+    description: Owner of the filter. This field automatically populates at creation time with the current user.
+    example: SailPoint Support
+    nullable: true
+  mode:
+    description: >-
+      Mode/type of filter, either the INCLUSION or EXCLUSION type. The INCLUSION type includes the data in generated campaigns 
+      as per specified in the criteria, whereas the EXCLUSION type excludes the data in generated campaigns as per specified in criteria.
+    enum:
+      - "INCLUSION"
+      - "EXCLUSION"
+    example: INCLUSION
+  criteriaList:
+    type: array
+    description: List of criteria.
+    items:
+      type: object
+      properties:
+        type:
+          $ref: './CriteriaType.yaml'
+        operation:
+          allOf:
+          - $ref: './Operation.yaml'
+          - nullable: true
+        property:
+          type: string
+          description: Specified key from the type of criteria.
+          example: displayName
+          nullable: true
+        value:
+          type: string
+          description: Value for the specified key from the type of criteria.
+          example: Allie
+          nullable: true
+      required:
+        - type
+        - property
+        - value
+        - operation
+    example: [
+      {
+        "type": "IDENTITY_ATTRIBUTE",
+        "property": "displayName",
+        "value": "support",
+        "operation": "CONTAINS",
+        "negateResult": false,
+        "shortCircuit": false,
+        "recordChildMatches": false,
+        "id": null,
+        "suppressMatchedItems": false,
+        "children": null
+      }
+    ]
+  isSystemFilter:
+    type: boolean
+    default: false
+    description: If true, the filter is created by the system. If false, the filter is created by a user.
+    example: false
+required:
+  - id
+  - name
+  - owner
+  - mode
+  - isSystemFilter

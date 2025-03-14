@@ -1,0 +1,49 @@
+type : object
+properties:
+  entitlementRef:
+    $ref: './RoleMiningEntitlementRef.yaml'
+    description: Details about the entitlement
+    example: {
+      "id": "2c91808a7e95e6e0017e96e2086206c8",
+      "name": "App.entitlement.1",
+      "description": "Entitlement 1",
+      "attribute": "groups"
+    }
+  name:
+    type: string
+    description: Name of the entitlement
+    example: "Add/modify/delete users"
+  applicationName:
+    type: string
+    description: Application name of the entitlement
+    example: "AppName"
+  identityCount:
+    type: integer
+    description: The number of identities with this entitlement in a role.
+    format: int32
+    example: 45
+  popularity:
+    type: number
+    description: The % popularity of this entitlement in a role.
+    format: float
+    example: 65.2
+  popularityInOrg:
+    type: number
+    description: The % popularity of this entitlement in the org.
+    format: float
+    example: 35.8
+  sourceId:
+    type: string
+    description: The ID of the source/application.
+    example: "2c9180877620c1460176267f336a106f"
+  activitySourceState:
+    type: string
+    description: The status of activity data for the source.   Value is complete or notComplete.
+    nullable: true
+    example: "complete"
+  sourceUsagePercent:
+    type: number
+    description: The percentage of identities in the potential role that have usage of the source/application of this entitlement.
+    format: float
+    nullable: true
+    example: 65.6

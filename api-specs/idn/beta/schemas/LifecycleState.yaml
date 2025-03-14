@@ -1,0 +1,56 @@
+type : object
+properties:
+  id:
+    type: string
+    readOnly: true
+    example: 2c9180835d2e5168015d32f890ca1581
+    description: Lifecycle state ID.
+  name:
+    type: string
+    readOnly: true
+    example: Lifecycle Name
+    description: Lifecycle state name.
+  technicalName:
+    type: string
+    readOnly: true
+    example: lifecycleTechnicalName
+    description: Lifecycle state technical name. This is for internal use.
+  description:
+    type: string
+    example: LifecycleDescription
+    description: Lifecycle state description.
+  created:
+    type: string
+    readOnly: true
+    format: date-time
+    example: 2015-05-28T14:07:17Z
+    description: Lifecycle state created date.
+  modified:
+    type: string
+    readOnly: true
+    format: date-time
+    example: 2015-05-28T14:07:17Z
+    description: Lifecycle state modified date.
+  enabled:
+    type: boolean
+    default: false
+    example: true
+    description: Indicates whether the lifecycle state is enabled or disabled.
+  identityCount:
+    type: integer
+    format: int32
+    readOnly: true
+    example: 12
+    description: Number of identities that have the lifecycle state.
+  emailNotificationOption:
+    $ref: 'EmailNotificationOption.yaml'
+  accountActions:
+    type: array
+    items:
+      $ref: 'AccountAction.yaml'
+  accessProfileIds:
+    type: array
+    items:
+      type: string
+    example: ["2c918084660f45d6016617daa9210584", "2c918084660f45d6016617daa9210500"]
+    description: List of access-profile IDs that are associated with the lifecycle state.

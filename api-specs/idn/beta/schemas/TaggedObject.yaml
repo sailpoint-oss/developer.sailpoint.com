@@ -1,0 +1,33 @@
+type: object
+properties:
+  objectRef:
+    type: object
+    properties:
+      type:
+        type: string
+        enum:
+          - ACCESS_PROFILE
+          - APPLICATION
+          - CAMPAIGN
+          - ENTITLEMENT
+          - IDENTITY
+          - ROLE
+          - SOD_POLICY
+          - SOURCE
+        example: IDENTITY
+        description: DTO type
+      id:
+        type: string
+        description: ID of the object to which this reference applies
+        example: 2c91808568c529c60168cca6f90c1313
+      name:
+        nullable: true
+        type: string
+        description: Human-readable display name of the object to which this reference applies
+        example: William Wilson
+  tags:
+    type: array
+    items:
+      type: string
+    description: Labels to be applied to an Object
+    example: ["BU_FINANCE", "PCI"]

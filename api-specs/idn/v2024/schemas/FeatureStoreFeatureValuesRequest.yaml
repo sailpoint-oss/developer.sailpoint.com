@@ -1,0 +1,25 @@
+type : object
+properties:
+  features:
+    type: object
+    description: A mapping from the feature alias to the feature view name and column name in the feature store in the format <view>:<column>
+    additionalProperties:
+      type: string
+    example:
+      ent_count: "identity_entitlement_count:entitlement_count"
+      peerless_score: "identity_peerless_score:peerless_score"
+  entities:
+    type: array
+    description: A list of entity key value mappings to retrieve values for
+    items:
+      type: object
+      additionalProperties:
+        type: string
+    example: [
+      {
+        identity_id: 2c918089762475180176267f885e54ca
+      },
+      {
+        identity_id: 2c918089762475180176267f885e54cb
+      }
+    ]

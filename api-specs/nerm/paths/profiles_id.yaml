@@ -1,0 +1,55 @@
+get:
+  summary: Find profile by id
+  operationId: getProfile
+  description: Find profile by id
+  tags:
+    - profiles
+  parameters:
+    - $ref: "../parameters/path/id.yaml"
+  responses:
+    '200':
+      $ref: "../responses/Profile.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"
+patch:
+  summary: Update a profile by id
+  operationId: patchProfile
+  description: Update a profile by id
+  tags:
+    - profiles
+  parameters:
+    - $ref: "../parameters/path/id.yaml"
+  requestBody:
+    $ref: "../requestBodies/PATCH/Profile.yaml"
+  responses:
+    '200':
+      $ref: "../responses/Profile.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"
+delete:
+  summary: Delete a single profile
+  operationId: deleteProfile
+  description: Delete a single profile
+  tags:
+    - profiles
+  parameters:
+    - $ref: "../parameters/path/id.yaml"
+  responses:
+    '204':
+      description: The Profile was successfully deleted.
+    '400':
+      description: Error deleting Profile
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                description: A message describing the error that occurred
+                type: string
+    '500':
+      $ref: "../responses/500.yaml"

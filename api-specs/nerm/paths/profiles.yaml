@@ -1,0 +1,66 @@
+get:
+  summary: Get profiles
+  operationId: getProfiles
+  description: Get profiles
+  tags:
+    - profiles
+  parameters:
+    - $ref: "../parameters/query/query.yaml"
+    - $ref: "../parameters/query/exclude_attributes.yaml"
+    - $ref: "../parameters/query/name.yaml"
+    - $ref: "../parameters/query/profile_type_id.yaml"
+    - $ref: "../parameters/query/status.yaml"
+    - $ref: "../parameters/query/metadata.yaml"
+    - $ref: "../parameters/query/after_id.yaml"
+  responses:
+    '200':
+      $ref: "../responses/Profiles_Meta.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"
+post:
+  summary: Create multiple profiles
+  operationId: createProfiles
+  description: Create multiple profiles
+  tags:
+    - profiles
+  requestBody:
+    $ref: "../requestBodies/POST/Profiles.yaml"
+  responses:
+    '200':
+      $ref: "../responses/Profiles.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"
+patch:
+  summary: Update multiple profiles
+  operationId: patchProfiles
+  description: Update multiple profiles
+  tags:
+    - profiles
+  requestBody:
+    $ref: "../requestBodies/PATCH/Profiles.yaml"
+  responses:
+    '200':
+      $ref: "../responses/Profiles.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"
+delete:
+  summary: Delete multiple profiles
+  operationId: deleteProfiles
+  description: Delete multiple profiles
+  tags:
+    - profiles
+  requestBody:
+    $ref: "../requestBodies/DELETE/Profiles.yaml"
+  responses:
+    '200':
+      $ref: "../responses/ProfilesJob.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"

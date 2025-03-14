@@ -33,7 +33,7 @@ This is an example input from this trigger:
 
 ## Prerequisites
 
-Before consuming this event trigger, the following prerequesites must be met:
+Before consuming this event trigger, the following prerequisites must be met:
 
 - Your organization must have Access Insights to access Identity Outliers.
 - Your organization must have configured a source and loaded account data.

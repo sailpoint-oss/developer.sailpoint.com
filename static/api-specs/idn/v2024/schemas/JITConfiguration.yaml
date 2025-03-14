@@ -1,0 +1,21 @@
+type: object
+properties:
+  enabled:
+    type: boolean
+    description: The indicator for just-in-time provisioning enabled
+    default: false
+    example: false
+  sourceId:
+    type: string
+    description: the sourceId that mapped to just-in-time provisioning configuration
+    example: 2c9180857377ed2901739c12a2da5ac8
+  sourceAttributeMappings:
+    type: object
+    description: A mapping of identity profile attribute names to SAML assertion attribute names
+    additionalProperties:
+      type: string
+      description: a mapping of JIT source attributes to the SAML assertion attribute
+    example:
+      firstName: okta.firstName
+      lastName: okta.lastName
+      email: okta.email

@@ -1,0 +1,10 @@
+type: object
+description: Set a Clusters key pair
+required:
+  - publicCertificate
+properties:
+  publicKeyCertificate:
+    description: public certificate of the cluster
+    type: string
+    example: -----BEGIN CERTIFICATE-----******-----END CERTIFICATE-----
+

@@ -1,0 +1,66 @@
+type: oauth2
+description: >-
+  OAuth2 Bearer token (JWT). See
+  [Best Practices: IdentityNow REST API Authentication](https://developer.sailpoint.com/idn/api/authentication)
+flows:
+  authorizationCode:
+    authorizationUrl: 'https://tenant.login.sailpoint.com/oauth/authorize'
+    tokenUrl:  'https://tenant.api.identitynow.com/oauth/token'
+    scopes:
+      'idn:task-definition:read': Task Definition read access
+      'idn:task-definition:write': Task Definition write access
+      'idn:task-management:read': Task Management read access (TaskStatus)
+      'idn:task-management:write': Task Management write access (TaskInvocation)
+      'idn:service-desk-integration:read': Service Desk integration read access
+      'idn:service-desk-integration:write': Service Desk integration write access
+      'idn:service-desk-admin:read': Service Desk admin read access
+      'idn:service-desk-admin:write': Service Desk admin write access
+      'idn:managed-cluster:read': ManagedCluster read access
+      'idn:managed-cluster-log-config:read': ManagedCluster log configuration read access
+      'idn:managed-cluster-log-config:write': ManagedCluster log configuration write access
+      'idn:managed-cluster:upgrade': ManagedCluster client version upgrade access
+      idn:managed-cluster-jobs:read: ManagedCluster read cache for jobs
+      'idn:managed-cluster-types:create': ManagedClusterType create access
+      'idn:managed-cluster-types:read': ManagedClusterType read access
+      'idn:managed-cluster-types:update': ManagedClusterType update access
+      'idn:managed-cluster-types:delete': ManagedClusterType delete access
+      'idn:managed-process:create': ManagedProcess create access
+      'idn:managed-process:read': ManagedProcess read access
+      'idn:managed-process:update': ManagedProcess update access
+      'idn:managed-process:delete': ManagedProcess delete access
+      'idn:nesr:create':  Ability to create non-employee records
+      'idn:nesr:delete':  Ability to delete non-employee records
+      'idn:nesr:read':  Ability to read non-employee records
+      'idn:nesr:update':  Ability to update non-employee records
+      idn:provisioning-policy-list:read: Rights to read list of provisioning policies
+      idn:provisioning-policy:read: Right to read provisioning policy
+      idn:provisioning-policy:create: Right to create provisioning policy
+      idn:provisioning-policy:update: Right to update provisioning policy
+      idn:provisioning-policy-bulk:update: Right to update a list of provisioning policies
+      idn:provisioning-policy:delete: Right to delete provisioning policy
+      idn:account:read: Right to read single account
+      idn:account-list:read: Right to read list of accounts
+      idn:account-entitlement:read: Right to read account entitlements
+      idn:account:create: Right to create account
+      idn:account:update: Right to update account
+      idn:account:delete: Right to delete account
+      idn:account:reload: Right to reload account
+      idn:account:enable: Right to enable account
+      idn:account:disable: Right to disable account
+      idn:account:unlock: Right to unlock account
+      'idn:s3-proxy:read': Right to read S3 artifacts
+      'idn:transforms-list:read': Right to access list of transforms
+      'idn:transforms:read': Right to access transforms by id
+      'idn:transforms:write': Right to create and update transforms
+      'idn:transforms:delete': Right to delete transforms
+      'idn:transforms:usage': Right to check whether a transform is referenced elsewhere
+      idn:source-connector:write: Right to configure source-connectors
+      mlops:feature-data:read: Right to retrieve data from the feature store
+      mlops:feature-data:write: Right to update data in the feature store
+      idn:entitlement:read: Right to read entitlements
+      idn:entitlement:update: Right to update entitlements
+      idn:entitlement:create: Right to create entitlements
+      idn:entitlement:delete: Right to delete entitlements
+      idn:attr-sync-source-config:read: Right to read attribute sync source config
+      idn:attr-sync-source-config:manage: Right to manage attribute sync source config
+

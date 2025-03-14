@@ -1,0 +1,20 @@
+type: object
+properties:
+  trainingTimestamp:
+    type: string
+    description: Timestamp when the model was trained
+    format: date-time
+    example: '2022-03-12T13:35:39.098Z'
+  modelVersion:
+    type: string
+    description: Version of the model trained
+    example: '1.0'
+  features:
+    type: string
+    description: Listing of the features in string format used to train the model
+    example: 'entitlement_count'
+  scoreThreshold:
+    type: number
+    format: float
+    description: The score threshold of which features are filtered on
+    example: 0.50   

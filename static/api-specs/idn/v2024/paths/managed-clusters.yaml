@@ -1,0 +1,83 @@
+get:
+  tags:
+    - Managed Clusters
+  summary: Get Managed Clusters
+  description: List current organization's managed clusters, based on request context.
+  operationId: getManagedClusters
+  parameters:
+    - $ref: '../parameters/offset.yaml'
+    - $ref: '../parameters/limit.yaml'
+    - $ref: '../parameters/count.yaml'
+    - in: query
+      name: filters
+      schema:
+        type: string
+      description: >-
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+        Filtering is supported for the following fields and operators:
+
+
+        **operational**: *eq*
+      required: false
+      example: operational eq "operation"
+  responses:
+    "200":
+      description: Response with a list of managed clusters.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/ManagedCluster.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'
+  security:
+    - userAuth: [idn:remote-client:read, idn:remote-client:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+post:
+  tags:
+    - Managed Clusters
+  summary: Create Create Managed Cluster
+  description: >-
+    Create a new Managed Cluster.
+
+    The API returns a result that includes the managed cluster ID.
+  operationId: createManagedCluster
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/ManagedClusterRequest.yaml'
+  responses:
+    "200":
+      description: Created managed cluster.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ManagedCluster.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'
+  security:
+    - userAuth: [idn:remote-client:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN

@@ -17,12 +17,12 @@ tags: ['SDK', 'Software Development Kit', 'GetRoleAssignments200ResponseInner', 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** | Assignment Id | [optional] 
-**Role** | [**BaseReferenceDto1**](base-reference-dto1) |  | [optional] 
+**Role** | [**BaseReferenceDto**](base-reference-dto) |  | [optional] 
 **Comments** | **String** | Comments added by the user when the assignment was made | [optional] 
 **AssignmentSource** | **String** | Source describing how this assignment was made | [optional] 
-**Assigner** | [**BaseReferenceDto1**](base-reference-dto1) |  | [optional] 
-**AssignedDimensions** | [**[]BaseReferenceDto1**](base-reference-dto1) | Dimensions assigned related to this role | [optional] 
-**AssignmentContext** | [**AssignmentContextDto**](assignment-context-dto) |  | [optional] 
+**Assigner** | [**RoleAssignmentDtoAssigner**](role-assignment-dto-assigner) |  | [optional] 
+**AssignedDimensions** | [**[]BaseReferenceDto**](base-reference-dto) | Dimensions assigned related to this role | [optional] 
+**AssignmentContext** | [**RoleAssignmentDtoAssignmentContext**](role-assignment-dto-assignment-context) |  | [optional] 
 **AccountTargets** | [**[]RoleTargetDto**](role-target-dto) |  | [optional] 
 **RemoveDate** | **String** | Date that the assignment will be removed | [optional] 
 

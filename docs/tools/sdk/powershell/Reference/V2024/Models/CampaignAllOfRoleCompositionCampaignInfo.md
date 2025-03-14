@@ -16,7 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'CampaignAllOfRoleCompositionCampaignI
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Reviewer** | [**CampaignAllOfSearchCampaignInfoReviewer**](campaign-all-of-search-campaign-info-reviewer) |  | [optional] 
+**ReviewerId** | **String** | The ID of the identity or governance group reviewing this campaign. Deprecated in favor of the ""reviewer"" object. | [optional] 
+**Reviewer** | [**CampaignAllOfRoleCompositionCampaignInfoReviewer**](campaign-all-of-role-composition-campaign-info-reviewer) |  | [optional] 
 **RoleIds** | **[]String** | Optional list of roles to include in this campaign. Only one of `roleIds` and `query` may be set; if neither are set, all roles are included. | [optional] 
 **RemediatorRef** | [**CampaignAllOfRoleCompositionCampaignInfoRemediatorRef**](campaign-all-of-role-composition-campaign-info-remediator-ref) |  | [required]
 **Query** | **String** | Optional search query to scope this campaign to a set of roles. Only one of `roleIds` and `query` may be set; if neither are set, all roles are included. | [optional] 
@@ -26,7 +27,8 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CampaignAllOfRoleCompositionCampaignInfo = Initialize-PSSailpoint.V2024CampaignAllOfRoleCompositionCampaignInfo  -Reviewer null `
+$CampaignAllOfRoleCompositionCampaignInfo = Initialize-PSSailpoint.V2024CampaignAllOfRoleCompositionCampaignInfo  -ReviewerId 2c91808568c529c60168cca6f90c1313 `
+ -Reviewer null `
  -RoleIds [2c90ad2a70ace7d50170acf22ca90010] `
  -RemediatorRef null `
  -Query Search Query `

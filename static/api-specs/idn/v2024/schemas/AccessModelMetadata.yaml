@@ -1,0 +1,53 @@
+type: object
+description: Metadata that describes an access item
+properties:
+  key:
+    type: string
+    description: Unique identifier for the metadata type
+    example: iscCsp
+  name:
+    type: string
+    description: Human readable name of the metadata type
+    example: CSP
+  multiselect:
+    type: boolean
+    default: false
+    example: true
+    description: Allows selecting multiple values
+  status:
+    type: string
+    description: The state of the metadata item
+    example: active
+  type:
+    type: string
+    description: The type of the metadata item
+    example: governance
+  objectTypes:
+    type: array
+    description: The types of objects
+    items:
+      type: string
+      example: general
+  description:
+    type: string
+    description: Describes the metadata item
+    example: Indicates the type of deployment environment of an access item.
+  values:
+    type: array
+    description: The value to assign to the metadata item
+    items:
+      type: object
+      description: An individual value to assign to the metadata item
+      properties:
+        value:
+          type: string
+          description: The value to assign to the metdata item
+          example: "development"
+        name:
+          type: string
+          description: Display name of the value
+          example: Development
+        status:
+          type: string
+          description: The status of the individual value
+          example: active

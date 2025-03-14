@@ -290,6 +290,7 @@ $Campaign = @"{
       "id" : "2c90ad2a70ace7d50170acf22ca90010",
       "type" : "IDENTITY"
     },
+    "reviewerId" : "2c91808568c529c60168cca6f90c1313",
     "roleIds" : [ "2c90ad2a70ace7d50170acf22ca90010" ],
     "query" : "Search Query",
     "description" : "Role Composition Description",
@@ -458,6 +459,7 @@ $CampaignTemplate = @"{
         "id" : "2c90ad2a70ace7d50170acf22ca90010",
         "type" : "IDENTITY"
       },
+      "reviewerId" : "2c91808568c529c60168cca6f90c1313",
       "roleIds" : [ "2c90ad2a70ace7d50170acf22ca90010" ],
       "query" : "Search Query",
       "description" : "Role Composition Description",

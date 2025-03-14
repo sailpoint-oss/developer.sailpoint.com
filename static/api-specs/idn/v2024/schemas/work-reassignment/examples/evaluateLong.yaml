@@ -1,0 +1,16 @@
+summary: Evaluate response when a long Reassignment trail is found
+value:
+  reassignToId: '2c9180825a6c1adc015a71c9023f0818'
+  lookupTrail:
+    - reassignedToId: '2c918084575812550157589064f33b89'
+      reassignedFromId: '2c9180825a6c1adc015a71c9023f0818'
+      reassignmentType: 'AUTOMATIC_REASSIGNMENT'
+    - reassignedToId: '073204941f3f49c0b3a3c49d1c17ef0e'
+      reassignedFromId: '2c918084575812550157589064f33b89'
+      reassignmentType: 'AUTOMATIC_REASSIGNMENT'
+    - reassignedToId: '31d9c631f5574571a935aaa48a6255df'
+      reassignedFromId: '073204941f3f49c0b3a3c49d1c17ef0e'
+      reassignmentType: 'AUTOMATIC_REASSIGNMENT'
+    - reassignedToId: '279de502e5dc43f4854e1b96f57c578f'
+      reassignedFromId: '31d9c631f5574571a935aaa48a6255df'
+      reassignmentType: 'AUTOMATIC_REASSIGNMENT'

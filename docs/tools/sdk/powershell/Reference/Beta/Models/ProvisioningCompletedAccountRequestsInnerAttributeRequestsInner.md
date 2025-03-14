@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'ProvisioningCompletedAccountRequestsI
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AttributeName** | **String** | The name of the attribute being provisioned. | [required]
-**AttributeValue** | **String** | The value of the attribute being provisioned. | [optional] 
+**AttributeName** | **String** | Name of the attribute being provisioned. | [required]
+**AttributeValue** | **String** | Value of the attribute being provisioned. | [optional] 
 **Operation** |  **Enum** [  "Add",    "Set",    "Remove" ] | The operation to handle the attribute. | [required]
 
 ## Examples
@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $ProvisioningCompletedAccountRequestsInnerAttributeRequestsInner = Initialize-PSSailpoint.BetaProvisioningCompletedAccountRequestsInnerAttributeRequestsInner  -AttributeName memberOf `
- -AttributeValue CN=jedi,DC=starwars,DC=com `
+ -AttributeValue CN=sales,DC=helpco,DC=com `
  -Operation Add
 ```
 

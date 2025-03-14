@@ -1,0 +1,49 @@
+type : object
+properties:
+  startTimestamp:
+    type: string
+    format: 'date-time'
+    description: Timestamp in which the (POSTing) outlier detection engine run began
+    example: '2022-03-12T13:35:39.098Z'
+  outliers:
+    type: array
+    description: The list of outliers detected in the outlier detection engine run
+    items:
+      $ref: './OutlierReference.yaml'
+    example: "2b568c65bc3c4c57a43bd97e3a8e41"
+  outlierTypesUsed:
+    type: array
+    items:
+      type: string
+    description: A list of outlier types the current outlier detection engine run attempted to find
+    example: ["LOW_SIMILARITY", "STRUCTURAL"]
+  outlierMLModelInfo:
+    type: array
+    description: The list of outliers detected in the outlier detection engine run
+    items:
+      $ref: './OutlierMLModelInfo.yaml'
+example:
+  startTimestamp: "2022-03-12T13:35:39.098Z"
+  outlierTypesUsed: ["LOW_SIMILARITY", "STRUCTURAL"]
+  outliers: [
+    {
+      identityId:  "2c9180867769897d01776ed5f1255cff",
+      outlierType: "LOW_SIMILARITY",
+      outlierState: {
+        entitlementIds: ["2c9180867769897d01776ed5f1655d07", "2c9180867769897d01776ed5f1675d08"]
+      },
+      features: [
+        {
+          name: "entitlement_count",
+          value: 10,
+          importance: .81
+        }
+      ]
+    }
+  ]
+  outlierMLModelInfo: {
+    trainingTimestamp: "2022-03-12T13:35:39.098Z",
+    modelVersion: "1.0",
+    features: "entitlement_count",
+    scoreThreshold: 0.50
+  }

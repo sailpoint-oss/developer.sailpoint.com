@@ -149,6 +149,7 @@ This API completes a work item. Either an admin, or the owning/current user must
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | The ID of the work item
+ Body  | Body | **String** |   (optional) | Body is the request payload to create form definition request
 
 ### Return type
 [**WorkItems**](../models/work-items)
@@ -165,12 +166,13 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
+$Body = "MyBody" # String | Body is the request payload to create form definition request (optional)
 
 # Complete a Work Item
 
@@ -178,7 +180,7 @@ try {
     Complete-WorkItem -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Complete-WorkItem -Id $Id  
+    # Complete-WorkItem -Id $Id -Body $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Complete-WorkItem"
     Write-Host $_.ErrorDetails
@@ -344,6 +346,7 @@ Path   | Id | **String** | True  | ID of the work item.
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | The work item with the given ID. | WorkItems
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto

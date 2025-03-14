@@ -1,0 +1,67 @@
+type: object
+properties:
+  eventType:
+    type: string
+    description: the event type
+  identityId:
+    type: string
+    description: the identity id  
+  dt:
+    type: string
+    description: the date of event
+  account:
+    type: object
+    properties:
+      id:
+        type: string
+        description: the ID of the account in the database
+      nativeIdentity:
+        type: string
+        description: the native identifier of the account
+      displayName:
+        type: string
+        description: the display name of the account
+      sourceId:
+        type: string
+        description: the ID of the source for this account
+      sourceName:
+        type: string
+        description: the name of the source for this account
+      entitlementCount:
+        type: integer
+        description: the number of entitlements on this account
+      accessType:
+        type: string
+        description: this value is always "account"
+  statusChange:
+    type: object
+    properties:
+      previousStatus:
+        type: string
+        description: the previous status of the account
+        enum:
+          - enabled
+          - disabled
+          - locked
+      newStatus:
+        type: string
+        description: the new status of the account
+        enum:
+          - enabled
+          - disabled
+          - locked
+example:
+  account: 
+    id: 2c91808a77ff216301782327a50f09bf
+    nativeIdentity: 127999
+    displayName: Sample Name
+    sourceId: 8a80828f643d484f01643e14202e206f
+    sourceName: JDBC Entitlements Source
+    entitlementCount: 0
+    accessType: account
+  statusChange:
+    previousStatus: enabled
+    newStatus: disabled
+  eventType: AccountStatusChanged
+  identityId: 8a80828f643d484f01643e14202e206f
+  date: '2019-03-08T22:37:33.901Z'

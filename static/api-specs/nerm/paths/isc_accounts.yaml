@@ -5,9 +5,9 @@ get:
   tags:
     - isc accounts
   parameters:
-    - $ref: "../parameters/query/category.yaml"
     - $ref: "../parameters/query/page.yaml"
-    - $ref: "../parameters/query/per_page.yaml"
+    - $ref: "../parameters/query/limit.yaml"
+    - $ref: "../parameters/query/offset.yaml"
     - $ref: "../parameters/query/use_schema.yaml"
   responses:
     '200':

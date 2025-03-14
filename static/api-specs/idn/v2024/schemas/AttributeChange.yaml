@@ -1,0 +1,15 @@
+type: object
+properties:
+  name:
+    type: string
+    description: the attribute name
+  previousValue:
+    type: string
+    description: the old value of attribute
+  newValue:
+    type: string
+    description: the new value of attribute
+example:
+  name: firstname
+  previousValue: adam
+  newValue: zampa

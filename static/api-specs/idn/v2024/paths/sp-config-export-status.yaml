@@ -27,7 +27,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../../beta/schemas/SpConfigExportJobStatus.yaml
+            $ref: ../schemas/SpConfigExportJobStatus.yaml
           example:
             jobId: 1e824aa0-4c6e-4f14-95e9-e7dc5234aa51
             status: COMPLETE
@@ -39,14 +39,14 @@ get:
             modified: '2021-05-13T15:04:27.363Z'
             completed: '2021-05-13T15:04:27.358Z'
     '400':
-      $ref: ../../v3/responses/400.yaml
+      $ref: ../responses/400.yaml
     '401':
-      $ref: ../../v3/responses/401.yaml
+      $ref: ../responses/401.yaml
     '403':
-      $ref: ../../v3/responses/403.yaml
+      $ref: ../responses/403.yaml
     '404':
-      $ref: ../../v3/responses/404.yaml
+      $ref: ../responses/404.yaml
     '429':
-      $ref: ../../v3/responses/429.yaml
+      $ref: ../responses/429.yaml
     '500':
-      $ref: ../../v3/responses/500.yaml
+      $ref: ../responses/500.yaml

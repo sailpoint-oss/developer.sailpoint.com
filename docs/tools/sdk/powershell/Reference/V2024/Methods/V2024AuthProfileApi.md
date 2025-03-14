@@ -23,8 +23,8 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Get-V2024ProfileConfig**](#get-profile-config) | **GET** `/auth-profiles/{id}` | Get Auth Profile.
-[**Get-V2024ProfileConfigList**](#get-profile-config-list) | **GET** `/auth-profiles` | Get list of Auth Profiles.
+[**Get-V2024ProfileConfig**](#get-profile-config) | **GET** `/auth-profiles/{id}` | Get Auth Profile
+[**Get-V2024ProfileConfigList**](#get-profile-config-list) | **GET** `/auth-profiles` | Get list of Auth Profiles
 [**Update-V2024ProfileConfig**](#patch-profile-config) | **PATCH** `/auth-profiles/{id}` | Patch a specified Auth Profile
 
 
@@ -65,7 +65,7 @@ Code | Description  | Data Type
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $Id = "2c91808a7813090a017814121919ecca" # String | ID of the Auth Profile to patch.
 
-# Get Auth Profile.
+# Get Auth Profile
 
 try {
     Get-V2024ProfileConfig -XSailPointExperimental $XSailPointExperimental -Id $Id 
@@ -93,12 +93,12 @@ Param Type | Name | Data Type | Required  | Description
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
-[**AuthProfileSummary**](../models/auth-profile-summary)
+[**AuthProfileSummary[]**](../models/auth-profile-summary)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of Auth Profiles | AuthProfileSummary
+200 | List of Auth Profiles | AuthProfileSummary[]
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
@@ -113,7 +113,7 @@ Code | Description  | Data Type
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
-# Get list of Auth Profiles.
+# Get list of Auth Profiles
 
 try {
     Get-V2024ProfileConfigList -XSailPointExperimental $XSailPointExperimental 

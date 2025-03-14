@@ -1,0 +1,9 @@
+type: object
+properties:
+  identityId:
+    type: string
+    format: uuid
+    description: The id of the identity
+    example: 2c9180857893f12901789445619b0366
+  identityAttributeConfig:
+    $ref: './IdentityAttributeConfig.yaml'

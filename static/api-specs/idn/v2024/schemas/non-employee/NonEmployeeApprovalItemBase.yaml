@@ -1,0 +1,35 @@
+type: object
+properties:
+  id:
+    type: string
+    format: UUID
+    description: Non-Employee approval item id
+    example: 2c1e388b-1e55-4b0a-ab5c-897f1204159c
+  approver:
+    $ref: './NonEmployeeIdentityReferenceWithId.yaml'
+    description: Reference to the associated Identity
+  accountName:
+    type: string
+    description: Requested identity account name
+    example: test.account
+  approvalStatus:
+    $ref: './ApprovalStatus.yaml'
+  approvalOrder:
+    type: number
+    description: Approval order
+    example: 1
+    format: float
+  comment:
+    type: string
+    description: comment of approver
+    example: I approve
+  modified:
+    type: string
+    format: date-time
+    description: When the request was last modified.
+    example: "2019-08-23T18:52:59.162Z"
+  created:
+    type: string
+    format: date-time
+    description: When the request was created.
+    example: "2019-08-23T18:40:35.772Z"

@@ -2,7 +2,11 @@ post:
   operationId: addAccessRequestRecommendationsRequestedItem
   tags:
     - IAI Access Request Recommendations
-  summary: Notification of Requested Access Request Recommendations
+  security:
+    - userAuth: [ iai:access-request-recommender:manage ]
+  x-sailpoint-userLevels:
+    - Any
+  summary: Accept Access Request Recommendation
   description: >-
     This API consumes a notification that a recommended access
     request item was requested. This API does not actually make the request, it is just a notification.
@@ -35,7 +39,11 @@ get:
   operationId: getAccessRequestRecommendationsRequestedItems
   tags:
     - IAI Access Request Recommendations
-  summary: List of Requested Access Request Recommendations
+  security:
+    - userAuth: [ iai:access-request-recommender:manage ]
+  x-sailpoint-userLevels:
+    - Any
+  summary: List Accepted Access Request Recommendations
   description: >-
     This API returns a list of requested access request recommendations.
   parameters:
@@ -60,6 +68,7 @@ get:
 
 
         **identityId**: *eq, in*
+      required: false
       example: access.id eq "2c9180846b0a0583016b299f210c1314"
     - in: query
       name: sorters
@@ -71,6 +80,8 @@ get:
 
 
         Sorting is supported for the following fields: **access.id, access.type, identityId, timestamp**
+      required: false
+      example: access.id
   responses:
     '200':
       description: Returns the list of requested access request recommendations.

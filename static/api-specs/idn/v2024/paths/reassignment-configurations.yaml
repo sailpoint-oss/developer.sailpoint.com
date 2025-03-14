@@ -15,19 +15,19 @@ get:
           schema:
             type: array
             items:
-              $ref: ../../beta/schemas/work-reassignment/ConfigurationResponse.yaml
+              $ref: ../schemas/work-reassignment/ConfigurationResponse.yaml
     '400':
-      $ref: ../../v3/responses/400.yaml
+      $ref: ../responses/400.yaml
     '401':
-      $ref: ../../v3/responses/401.yaml
+      $ref: ../responses/401.yaml
     '403':
-      $ref: ../../v3/responses/403.yaml
+      $ref: ../responses/403.yaml
     '404':
-      $ref: ../../v3/responses/404.yaml
+      $ref: ../responses/404.yaml
     '429':
-      $ref: ../../v3/responses/429.yaml
+      $ref: ../responses/429.yaml
     '500':
-      $ref: ../../v3/responses/500.yaml
+      $ref: ../responses/500.yaml
   parameters:
   - name: X-SailPoint-Experimental
     in: header
@@ -51,24 +51,24 @@ post:
     content:
       application/json:
         schema:
-          $ref: ../../beta/schemas/work-reassignment/ConfigurationItemRequest.yaml
+          $ref: ../schemas/work-reassignment/ConfigurationItemRequest.yaml
   responses:
     '201':
       description: The newly created Reassignment Configuration object
       content:
         application/json:
           schema:
-            $ref: ../../beta/schemas/work-reassignment/ConfigurationItemResponse.yaml
+            $ref: ../schemas/work-reassignment/ConfigurationItemResponse.yaml
     '400':
-      $ref: ../../v3/responses/400.yaml
+      $ref: ../responses/400.yaml
     '401':
-      $ref: ../../v3/responses/401.yaml
+      $ref: ../responses/401.yaml
     '403':
-      $ref: ../../v3/responses/403.yaml
+      $ref: ../responses/403.yaml
     '429':
-      $ref: ../../v3/responses/429.yaml
+      $ref: ../responses/429.yaml
     '500':
-      $ref: ../../v3/responses/500.yaml
+      $ref: ../responses/500.yaml
   parameters:
   - name: X-SailPoint-Experimental
     in: header

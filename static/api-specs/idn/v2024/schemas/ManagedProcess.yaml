@@ -1,0 +1,28 @@
+description: Managed Process for Cluster upgrade configuration information
+type: object
+required:
+  - process
+  - pod
+  - org
+  - config
+properties:
+  id:
+    description: ManagedProcess ID
+    readOnly: true
+    type: string
+    example: aProcessId
+  process:
+    description: ManagedProcess process name
+    type: string
+    example: charon
+  pod:
+    description: ManagedProcess pod
+    type: string
+    example: megapod-useast1
+  org:
+    description: ManagedProcess org
+    type: string
+    example: denali-cjh
+  config:
+    description: ManagedProcess configuration map
+    $ref: './ManagedProcessConfiguration.yaml'

@@ -1,0 +1,85 @@
+type: object
+properties:
+  id:
+    type: string
+    description: ID of the work item
+    example: 2c9180835d2e5168015d32f890ca1581
+  requesterId:
+    type: string
+    description: ID of the requester
+    example: 2c9180835d2e5168015d32f890ca1581
+    nullable: true
+  requesterDisplayName:
+    type: string
+    description: The displayname of the requester
+    example: John Smith
+    nullable: true
+  ownerId:
+    type: string
+    description: The ID of the owner
+    example: 2c9180835d2e5168015d32f890ca1581
+    nullable: true
+  ownerName:
+    type: string
+    description: The name of the owner
+    example: Jason Smith
+  created:
+    type: string
+    format: 'date-time'
+    example: '2017-07-11T18:45:37.098Z'
+    description: Time when the work item was created
+  modified:
+    type: string
+    format: 'date-time'
+    example: '2018-06-25T20:22:28.104Z'
+    description: Time when the work item was last updated
+    nullable: true
+  description:
+    type: string
+    description: The description of the work item
+    example: Create account on source 'AD'
+  state:
+    $ref: './WorkItemStateManualWorkItems.yaml'
+  type:
+    $ref: './WorkItemTypeManualWorkItems.yaml'
+  remediationItems:
+    type: array
+    nullable: true
+    items:
+      $ref: './RemediationItemDetails.yaml'
+    description: A list of remediation items
+  approvalItems:
+    type: array
+    nullable: true
+    items:
+      $ref: './ApprovalItemDetails.yaml'
+    description: A list of items that need to be approved
+  name:
+    type: string
+    description: The work item name
+    example: Account Create
+    nullable: true
+  completed:
+    type: string
+    format: 'date-time'
+    example: '2018-10-19T13:49:37.385Z'
+    description: The time at which the work item completed
+    nullable: true
+  numItems:
+    type: integer
+    format: int32
+    description: The number of items in the work item
+    example: 19
+    nullable: true
+  form:
+    allOf:
+    - $ref: './FormDetails.yaml'
+    - nullable: true
+  errors:
+    type: array
+    items: 
+      type: string
+    example: ["The work item ID that was specified was not found."]
+    description: An array of errors that ocurred during the work item
+  
+

@@ -1,0 +1,120 @@
+post:
+  operationId: createCampaignTemplate
+  tags:
+    - Certification Campaigns
+  summary: Create a Campaign Template
+  description: |
+    Use this API to create a certification campaign template based on campaign.
+  security:
+    - userAuth: [idn:campaign-template:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - CERT_ADMIN
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/CampaignTemplate.yaml'
+        examples:
+          Manager:
+            $ref: '../schemas/campaign/examples/CreateCampaignTemplateManager.yaml'
+          Search:
+            $ref: '../schemas/campaign/examples/CreateCampaignTemplateSearch.yaml'
+          Source Owner:
+            $ref: '../schemas/campaign/examples/CreateCampaignTemplateSourceOwner.yaml'
+          RoleComposition:
+            $ref: '../schemas/campaign/examples/CreateCampaignTemplateRoleComposition.yaml'
+  responses:
+    '200':
+      description: Created successfully.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/CampaignTemplate.yaml'
+          examples:
+            Manager:
+              $ref: '../schemas/campaign/examples/CampaignTemplateManager.yaml'
+            Search:
+              $ref: '../schemas/campaign/examples/CampaignTemplateSearch.yaml'
+            Source Owner:
+              $ref: '../schemas/campaign/examples/CampaignTemplateSourceOwner.yaml'
+            RoleComposition:
+              $ref: '../schemas/campaign/examples/CampaignTemplateRoleComposition.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'
+get:
+  operationId: getCampaignTemplates
+  tags:
+    - Certification Campaigns
+  summary: List Campaign Templates
+  description: |
+    Use this API to get a list of all campaign templates. Scope can be reduced through standard V3 query params.
+
+    The API returns all campaign templates matching the query parameters. 
+  security:
+    - userAuth: [idn:campaign-template:read, idn:campaign-template:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - CERT_ADMIN
+  parameters:
+    - $ref: '../parameters/limit.yaml'
+    - $ref: '../parameters/offset.yaml'
+    - $ref: '../parameters/count.yaml'
+    - in: query
+      name: sorters
+      schema:
+        type: string
+        format: comma-separated
+      description: >-
+        Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
+
+
+        Sorting is supported for the following fields: **name, created, modified**
+      example: name
+    - in: query
+      name: filters
+      schema:
+        type: string
+        format: comma-separated
+      description: >-
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+        Filtering is supported for the following fields and operators:
+
+
+        **name**: *eq, ge, gt, in, le, lt, ne, sw*
+
+
+        **id**: *eq, ge, gt, in, le, lt, ne, sw*
+      example: name eq "manager template"
+  responses:
+    '200':
+      description: List of campaign template objects.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/CampaignTemplate.yaml'
+          example:
+            $ref: '../schemas/campaign/examples/CampaignTemplates.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'

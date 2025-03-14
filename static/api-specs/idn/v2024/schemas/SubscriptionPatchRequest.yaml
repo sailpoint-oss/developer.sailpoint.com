@@ -1,0 +1,49 @@
+description: Operations to be applied
+type: array
+items:
+  type: object
+  description: A JSONPatch Operation as defined by [RFC 6902 - JSON Patch](https://tools.ietf.org/html/rfc6902)
+  required:
+    - "op"
+    - "path"
+  properties:
+    op:
+      type: string
+      description: The operation to be performed
+      enum:
+        - "add"
+        - "remove"
+        - "replace"
+        - "move"
+        - "copy"
+      example: "replace"
+    path:
+      type: string
+      description: A string JSON Pointer representing the target path to an element to be affected by the operation
+      example: "/description"
+    value:
+      anyOf:
+        - type: string
+        - type: integer
+        - type: object
+        - type: array
+          items:
+            anyOf:
+              - type: string
+              - type: integer
+              - type: object
+      description: The value to be used for the operation, required for "add" and "replace" operations
+      example: "New description"
+example:
+    [
+      {
+        "op": "replace",
+        "path": "/description",
+        "value": "A new description"
+      },
+      {
+        "op": "replace",
+        "path": "/name",
+        "value": "A new name"
+      }
+    ]

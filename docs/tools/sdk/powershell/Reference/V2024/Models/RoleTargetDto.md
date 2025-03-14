@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'RoleTargetDto', 'V2024RoleTargetDto']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Source** | [**BaseReferenceDto1**](base-reference-dto1) |  | [optional] 
+**Source** | [**BaseReferenceDto**](base-reference-dto) |  | [optional] 
 **AccountInfo** | [**AccountInfoDto**](account-info-dto) |  | [optional] 
 **RoleName** | **String** | Specific role name for this target if using multiple accounts | [optional] 
 

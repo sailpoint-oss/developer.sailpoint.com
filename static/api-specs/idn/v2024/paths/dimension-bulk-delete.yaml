@@ -28,7 +28,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: '../../v3/schemas/access/DimensionBulkDeleteRequest.yaml'
+          $ref: '../schemas/access/DimensionBulkDeleteRequest.yaml'
         example:
           {
             "dimensionIds": [ "2c91808876438bb2017668b91919ecca","2c91808876438ba801766e129f151816" ]
@@ -39,7 +39,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: '../../v3/schemas/TaskResultDto.yaml'
+            $ref: '../schemas/TaskResultDto.yaml'
           example:
             {
               "type": "TASK_RESULT",
@@ -51,7 +51,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: '../../v3/schemas/ErrorResponseDto.yaml'
+            $ref: '../schemas/ErrorResponseDto.yaml'
           examples:
             400.1 Bad Request Content:
               description: Response for bad request content
@@ -81,13 +81,13 @@ post:
                     localeOrigin: DEFAULT
                     text: Referenced dimensionIds ["2c91808876438bb2017668b91919ecca"] was not found.
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: '../responses/401.yaml'
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: '../responses/403.yaml'
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: '../responses/429.yaml'
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: '../responses/500.yaml'
   security:
     - userAuth: [idn:role-unchecked:manage, idn:role-checked:manage]
   x-sailpoint-userLevels:

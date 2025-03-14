@@ -1,0 +1,32 @@
+type: object
+properties:
+  id:
+    type: string
+    description: The id of the reviewer.
+    example: ef38f94347e94562b5bb8424a56397d8
+  name:
+    type: string
+    description: The name of the reviewer.
+    example: 'Reviewer Name'
+  email:
+    type: string
+    description: The email of the reviewing identity.
+    example: reviewer@test.com
+  type:
+    type: string
+    enum:
+      - IDENTITY
+    description: The type of the reviewing identity.
+    example: IDENTITY
+  created:
+    nullable: true
+    example: '2018-06-25T20:22:28.104Z'
+    format: date-time
+    type: string
+    description: The created date of the reviewing identity.
+  modified:
+    nullable: true
+    example: '2018-06-25T20:22:28.104Z'
+    format: date-time
+    type: string
+    description: The modified date of the reviewing identity.

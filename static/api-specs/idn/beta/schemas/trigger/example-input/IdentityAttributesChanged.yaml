@@ -24,10 +24,10 @@ properties:
         example: 2c7180a46faadee4016fb4e018c20642
       name:
         type: string
-        description: Display name of identity whose attributes changed. 
+        description: Name of identity whose attributes changed. 
         example: Michael Michaels
   changes:
-    description: A list of one or more identity attributes that changed on the identity.
+    description: List of identity's attributes that changed.
     type: array
     items:
       type: object
@@ -36,10 +36,10 @@ properties:
       properties:
         attribute:
           type: string
-          description: The name of the identity attribute that changed.
+          description: Identity attribute's name.
           example: department
         oldValue:
-          description: The value of the identity attribute before it changed.
+          description: Identity attribute's previous value before the change.
           nullable: true
           example: sales
           oneOf:
@@ -57,7 +57,7 @@ properties:
               - type: integer
               - type: boolean
         newValue:
-          description: The value of the identity attribute after it changed.
+          description: Identity attribute's new value after the change.
           example: marketing
           oneOf:
           - type: string

@@ -1,0 +1,8 @@
+summary: BucketAggregation using DSL
+value:
+  indices:  [ 'identities' ]
+  aggregationType: 'DSL'
+  aggregationsDsl:
+    Identity Locations:
+      terms:
+        field: 'attributes.city.exact'

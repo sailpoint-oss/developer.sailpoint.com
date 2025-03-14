@@ -1,0 +1,11 @@
+type: object
+properties:
+  id:
+    type: string
+    description: the owner id
+  displayName:
+    type: string
+    description: the name of the owner
+example:
+  id: '2c91808a77ff216301782327a50f09bf'
+  displayName: 'Approver 1'

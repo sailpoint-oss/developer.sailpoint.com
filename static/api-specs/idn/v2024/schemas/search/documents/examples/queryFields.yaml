@@ -1,0 +1,198 @@
+summary: 'Query with Fields'
+value:
+  - name: John Doe
+    firstName: John
+    lastName: Doe
+    displayName: John Doe
+    id: 655f6741762547ec937893f27eab0cec
+    email: John.Doe@sailpointdemo.com
+    created: '2025-01-03T22:36:20.025Z'
+    inactive: false
+    protected: false
+    status: UNREGISTERED
+    isManager: false
+    identityProfile:
+      id: 63e42f96f2fc4b8ba544654eba6068cf
+      name: Contractors
+    source:
+      id: b33c36dbaf974200b4d91f846abc30a5
+      name: Contractors
+    attributes:
+      cloudAuthoritativeSource: b33c36dbaf974200b4d91f846abc30a5
+      cloudLifecycleState: active
+      cloudStatus: UNREGISTERED
+      displayName: John Doe
+      email: John.Doe@sailpointdemo.com
+      endDate: '2199-01-01T00:00:00.000Z'
+      firstname: John
+      identityState: ACTIVE
+      internalCloudStatus: UNREGISTERED
+      lastname: Doe
+      startDate: '2199-01-01T00:00:00.000Z'
+      uid: John Doe
+      visibleSegments:
+        - d75ae486-044b-4eba-8113-0cdacb5341df
+    disabled: false
+    locked: false
+    accounts:
+      - id: 6f9cce655ddd40ca86a8faab8d5d52ec
+        name: John Doe
+        accountId: ac10e3a8-942a-1409-8194-2e4fe3090003
+        source:
+          id: b33c36dbaf974200b4d91f846abc30a5
+          name: Contractors
+          type: Non-Employee
+        disabled: false
+        locked: false
+        privileged: false
+        manuallyCorrelated: false
+        entitlementAttributes: {}
+        created: '2025-01-03T22:36:20.045Z'
+        supportsPasswordChange: false
+      - id: 9e29df88d4c5449ea790b4c24135b85c
+        name: $FHK300-LAAKDKHU50K3
+        accountId: 'CN=John Doe,OU=Demo,DC=seri,DC=sailpointdemo,DC=com'
+        source:
+          id: 5c71ff71195b4794a0b87e7cf36fb017
+          name: Active Directory
+          type: Active Directory - Direct
+        disabled: false
+        locked: false
+        privileged: false
+        manuallyCorrelated: true
+        entitlementAttributes:
+          memberOf:
+            - 'CN=Benefits,OU=Groups,OU=Demo,DC=seri,DC=sailpointdemo,DC=com'
+        created: '2025-01-03T22:36:36.866Z'
+        supportsPasswordChange: true
+      - id: 74e0cd14200943ff92b4f11fa3596eba
+        name: John Doe
+        accountId: John Doe
+        source:
+          id: af4686d6482841ac96d793901372ad9b
+          name: IdentityNow
+          type: IdentityNowConnector
+        disabled: false
+        locked: false
+        privileged: false
+        manuallyCorrelated: false
+        entitlementAttributes: {}
+        created: '2025-01-03T22:36:20.076Z'
+        supportsPasswordChange: true
+        accountAttributes: {}
+    accountCount: 2
+    apps:
+      - id: '20003'
+        name: Active Directory
+        source:
+          id: 5c71ff71195b4794a0b87e7cf36fb017
+          name: Active Directory
+        account:
+          id: 9e29df88d4c5449ea790b4c24135b85c
+          accountId: 'CN=John Doe,OU=Demo,DC=seri,DC=sailpointdemo,DC=com'
+      - id: '20013'
+        name: AD test
+        source:
+          id: 5c71ff71195b4794a0b87e7cf36fb017
+          name: Active Directory
+        account:
+          id: 9e29df88d4c5449ea790b4c24135b85c
+          accountId: 'CN=John Doe,OU=Demo,DC=seri,DC=sailpointdemo,DC=com'
+      - id: '20014'
+        name: Test AD
+        source:
+          id: 5c71ff71195b4794a0b87e7cf36fb017
+          name: Active Directory
+        account:
+          id: 9e29df88d4c5449ea790b4c24135b85c
+          accountId: 'CN=John Doe,OU=Demo,DC=seri,DC=sailpointdemo,DC=com'
+      - id: '5092'
+        name: Accounting
+        source:
+          id: 5c71ff71195b4794a0b87e7cf36fb017
+          name: Active Directory
+        account:
+          id: 9e29df88d4c5449ea790b4c24135b85c
+          accountId: 'CN=John Doe,OU=Demo,DC=seri,DC=sailpointdemo,DC=com'
+      - id: '5822114389092541705'
+        name: IdentityNow app
+        source:
+          id: af4686d6482841ac96d793901372ad9b
+          name: IdentityNow
+        account:
+          id: 74e0cd14200943ff92b4f11fa3596eba
+          accountId: John Doe
+    appCount: 5
+    access:
+      - id: 4919721c3c1a4ca484469b85f0fd9ba1
+        name: Benefits
+        displayName: Benefits
+        type: ENTITLEMENT
+        enabled: false
+        requestable: false
+        requestCommentsRequired: false
+        source:
+          id: 5c71ff71195b4794a0b87e7cf36fb017
+          name: Active Directory
+        disabled: false
+        privileged: false
+        attribute: memberOf
+        value: 'CN=Benefits,OU=Groups,OU=Demo,DC=seri,DC=sailpointdemo,DC=com'
+        standalone: false
+        cloudEligible: false
+        cloudGoverned: false
+        schema: group
+      - id: 7e277d102c874560becc464cdfe33a86
+        name: Benefits Employees
+        displayName: Benefits Employees
+        type: ACCESS_PROFILE
+        description: Access for Benefits Employees. Distribution group and File share access.
+        enabled: false
+        requestable: false
+        requestCommentsRequired: false
+        source:
+          id: 5c71ff71195b4794a0b87e7cf36fb017
+          name: Active Directory
+        owner:
+          id: 278f8a1859df48d2a0adb204257b26a2
+          name: Jerry.Bennett
+          displayName: Jerry.Bennett
+        disabled: false
+        privileged: false
+        standalone: false
+        revocable: false
+        cloudEligible: false
+        cloudGoverned: false
+      - id: ad7025c956734455b28fa35e315e77fe
+        name: Benefits Common Access
+        displayName: Benefits Common Access
+        type: ROLE
+        description: Testing AD provisioning with birthright access
+        enabled: false
+        requestable: false
+        requestCommentsRequired: false
+        owner:
+          id: 322c6bce405a495a8e841a014b7d8410
+          name: tina.smith
+          displayName: tina.smith
+        disabled: false
+        privileged: false
+        standalone: false
+        revocable: false
+        cloudEligible: false
+        cloudGoverned: false
+    accessCount: 3
+    accessProfileCount: 1
+    entitlementCount: 1
+    roleCount: 1
+    modified: '2025-01-03T22:36:37.599Z'
+    visibleSegments:
+      - All Employees
+    visibleSegmentCount: 1
+    tagCount: 0
+    pod: pod01-useast1
+    org: org-name
+    synced: '2025-01-03T22:37:04.452Z'
+    _type: identity
+    type: identity
+    _version: v2

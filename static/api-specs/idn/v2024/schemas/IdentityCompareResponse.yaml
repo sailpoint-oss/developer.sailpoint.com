@@ -1,0 +1,20 @@
+type : object
+properties:
+  accessItemDiff:
+    type: object
+    description: >-
+      Arbitrary key-value pairs. They will never be processed by the IdentityNow system but will be returned on
+      completion of the violation check.
+    additionalProperties:
+      type: object
+example:
+  accessItemDiff: 
+    role:
+      accessAdded: 2
+      accessRemoved: 3
+    entitlement:
+      accessAdded: 4
+      accessRemoved: 0
+    accessProfile:
+      accessAdded: 0
+      accessRemoved: 1  

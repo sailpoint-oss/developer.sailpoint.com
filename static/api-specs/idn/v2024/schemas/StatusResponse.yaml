@@ -1,0 +1,54 @@
+type: object
+title: Status Response
+description: Response model for connection check, configuration test and ping of source connectors.
+properties:
+  id:
+    type: string
+    description: ID of the source
+    example: 2c91808568c529c60168cca6f90c1313
+    readOnly: true
+  name:
+    type: string
+    description: Name of the source
+    example: ODS-AD-Test [source-999999]
+    readOnly: true
+  status:
+    type: string
+    enum:
+      - SUCCESS
+      - FAILURE
+    description: The status of the health check.
+    example: SUCCESS
+    readOnly: true
+  elapsedMillis:
+    type: integer
+    description: The number of milliseconds spent on the entire request.
+    example: 1000
+    readOnly: true
+  details:
+    type: object
+    description: |
+      The document contains the results of the health check.
+      The schema of this document depends on the type of source used.
+    readOnly: true
+    example: {
+      "useTLSForIQService": false,
+      "IQService": {
+        "TLS Port": 0,
+        ".NET CLR Version": "4.0.30319.42000",
+        "SecondaryServiceStatus": "Running",
+        "Port": 5050,
+        "Host": "AUTOMATION-AD",
+        "Name": "IQService",
+        "IQServiceStatus": "Running",
+        "SecondaryService": "IQService-Instance1-Secondary",
+        "Version": "IQService Sep-2020",
+        "secondaryPort": 5051,
+        "OS Architecture": "AMD64",
+        "Operating System": "Microsoft Windows Server 2012 R2 Standard",
+        "highestDotNetVersion": "4.8 or later",
+        "Build Time": "09/22/2020 06:34 AM -0500"
+      },
+      "IQServiceClientAuthEnabled": false,
+      "requestProcessedOn": "1/19/2021 1:47:14 PM"
+    }

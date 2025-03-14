@@ -1,0 +1,28 @@
+type: object
+properties:
+  token:
+    nullable: false
+    type: string
+    description: Token value
+    example: "12345"
+  userAlias:
+    nullable: false
+    type: string
+    description: User alias from table spt_identity field named 'name'
+    example: "will.albin"
+  deliveryType:
+    nullable: false
+    type: string
+    enum:
+      - SMS_PERSONAL #("sms", "phone")
+      - VOICE_PERSONAL #("voice", "phone")
+      - SMS_WORK #("sms", "work")
+      - VOICE_WORK #("voice","work")
+      - EMAIL_WORK #("email"L, "email")
+      - EMAIL_PERSONAL #("email", "personalEmail")
+    description: Token delivery type
+    example: "EMAIL_WORK"
+required:
+  - token
+  - userAlias
+  - deliveryType

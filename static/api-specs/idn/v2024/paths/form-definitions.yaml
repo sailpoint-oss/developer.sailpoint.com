@@ -95,7 +95,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../../beta/schemas/forms/ListFormDefinitionsByTenantResponse.yaml
+            $ref: ../schemas/forms/ListFormDefinitionsByTenantResponse.yaml
     '400':
       description: An error with the request occurred
       content:
@@ -109,7 +109,7 @@ get:
               messages:
                 type: array
                 items:
-                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -131,7 +131,7 @@ get:
               messages:
                 type: array
                 items:
-                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -153,7 +153,7 @@ get:
               messages:
                 type: array
                 items:
-                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -167,7 +167,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../../beta/schemas/forms/Error.yaml
+            $ref: ../schemas/forms/Error.yaml
     '500':
       description: An internal server error occurred
       content:
@@ -181,7 +181,7 @@ get:
               messages:
                 type: array
                 items:
-                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -193,6 +193,8 @@ get:
   security:
   - userAuth:
     - sp:forms:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
 post:
   tags:
   - Custom Forms
@@ -203,13 +205,36 @@ post:
     content:
       application/json:
         schema:
-          $ref: ../../beta/schemas/forms/CreateFormDefinitionRequest.yaml
+          $ref: ../schemas/forms/CreateFormDefinitionRequest.yaml
         example:
           name: my form
           description: my form description
           owner:
             type: IDENTITY
             id: 00000000-0000-0000-0000-000000000000
+          formElements:
+            - id: '000000000000'
+              elementType: SECTION
+              config:
+                alignment: LEFT
+                description: >-
+                  elementType must be 'SECTION' for the root formElements,  child
+                  formElements must be within the 'config' attribute
+                label: Section
+                labelStyle: h2
+                showLabel: true
+                formElements:
+                  - id: '0000000000000'
+                    key: textField
+                    elementType: TEXT
+                    config:
+                      default: ''
+                      description: ''
+                      helpText: form element type text
+                      label: Text Field
+                      placeholder: ''
+                      required: false
+                    validations: []
     required: false
   responses:
     '201':
@@ -217,7 +242,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../../beta/schemas/forms/FormDefinitionResponse.yaml
+            $ref: ../schemas/forms/FormDefinitionResponse.yaml
     '400':
       description: An error with the request occurred
       content:
@@ -231,7 +256,7 @@ post:
               messages:
                 type: array
                 items:
-                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -253,7 +278,7 @@ post:
               messages:
                 type: array
                 items:
-                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -275,7 +300,7 @@ post:
               messages:
                 type: array
                 items:
-                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -289,7 +314,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../../beta/schemas/forms/Error.yaml
+            $ref: ../schemas/forms/Error.yaml
     '500':
       description: An internal server error occurred
       content:
@@ -303,7 +328,7 @@ post:
               messages:
                 type: array
                 items:
-                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -315,6 +340,8 @@ post:
   security:
   - userAuth:
     - sp:forms:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   x-codegen-request-body-name: Body
   parameters:
   - name: X-SailPoint-Experimental

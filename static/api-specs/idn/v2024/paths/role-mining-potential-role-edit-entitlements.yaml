@@ -36,7 +36,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: ../../beta/schemas/RoleMiningPotentialRoleEditEntitlements.yaml
+          $ref: ../schemas/RoleMiningPotentialRoleEditEntitlements.yaml
   responses:
     '201':
       description: Adds or removes entitlements from a potential role's entitlement
@@ -44,12 +44,12 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../../beta/schemas/RoleMiningPotentialRole.yaml
+            $ref: ../schemas/RoleMiningPotentialRole.yaml
     '400':
-      $ref: ../../v3/responses/400.yaml
+      $ref: ../responses/400.yaml
     '401':
-      $ref: ../../v3/responses/401.yaml
+      $ref: ../responses/401.yaml
     '403':
-      $ref: ../../v3/responses/403.yaml
+      $ref: ../responses/403.yaml
     '500':
-      $ref: ../../v3/responses/500.yaml
+      $ref: ../responses/500.yaml

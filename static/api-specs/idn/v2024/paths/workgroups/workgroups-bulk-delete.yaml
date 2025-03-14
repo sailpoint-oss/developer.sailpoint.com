@@ -24,7 +24,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: ../../../beta/schemas/workgroups/WorkgroupBulkDeleteRequest.yaml
+          $ref: ../../schemas/workgroups/WorkgroupBulkDeleteRequest.yaml
         example:
           ids:
           - 567a697e-885b-495a-afc5-d55e1c23a302
@@ -35,17 +35,17 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../../../beta/schemas/workgroups/WorkgroupBulkDeleteResponse.yaml
+            $ref: ../../schemas/workgroups/WorkgroupBulkDeleteResponse.yaml
     '400':
-      $ref: ../../../v3/responses/400.yaml
+      $ref: ../../responses/400.yaml
     '401':
-      $ref: ../../../v3/responses/401.yaml
+      $ref: ../../responses/401.yaml
     '403':
-      $ref: ../../../v3/responses/403.yaml
+      $ref: ../../responses/403.yaml
     '429':
-      $ref: ../../../v3/responses/429.yaml
+      $ref: ../../responses/429.yaml
     '500':
-      $ref: ../../../v3/responses/500.yaml
+      $ref: ../../responses/500.yaml
   security:
   - userAuth:
     - idn:workgroup:write

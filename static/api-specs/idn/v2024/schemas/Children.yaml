@@ -1,0 +1,13 @@
+type: object
+properties:
+  operator:
+    type: string
+    example: EQUALS
+  attribute:
+    type: string
+    example: country
+  value:
+    $ref: './Value.yaml'
+  children:
+    type: string
+    nullable: true

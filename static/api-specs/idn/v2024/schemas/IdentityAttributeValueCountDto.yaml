@@ -1,0 +1,10 @@
+type: object
+properties:
+  attributeValue:
+    type: string
+    description: the value of the attribute
+    example: "bc693f07-e7b6-4553-9626-c25954c58554"
+  count:
+    type: number
+    description: the count of the attribute
+    example: 10

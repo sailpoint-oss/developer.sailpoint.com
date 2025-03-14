@@ -1,0 +1,11 @@
+type: object
+properties:
+  id:
+    type: string
+    example: 64012350-8fd9-4f6c-a170-1fe123683899
+    description: Id of the reference object
+  type:
+    type: string
+    example: AccessRequestId
+    description: What reference object does this ID correspond to
+description: Reference objects related to the approval

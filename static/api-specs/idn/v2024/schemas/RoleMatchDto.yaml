@@ -1,0 +1,13 @@
+type: object
+properties:
+  roleRef:
+    $ref: "./BaseReferenceDto.yaml"
+    description: Role Id and Name related to this match
+    example:
+      id: "e7697a1e96d04db1ac7b0f4544915d2c"
+      type: "DIMENSION"
+      name: "Engineer"
+  matchedAttributes:
+    type: array
+    items:
+      $ref: "./ContextAttributeDto.yaml"

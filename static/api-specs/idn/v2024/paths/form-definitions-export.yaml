@@ -18,6 +18,7 @@ get:
       type: integer
       format: int64
       default: 0
+      minimum: 0
       x-go-name: Offset
     example: 0
     required: false
@@ -34,8 +35,8 @@ get:
     schema:
       type: integer
       format: int64
-      maxLength: 250
-      minLength: 0
+      minimum: 0
+      maximum: 250
       default: 250
       x-go-name: Limit
     example: 250
@@ -100,13 +101,16 @@ get:
               type: object
               properties:
                 object:
-                  $ref: ../../beta/schemas/forms/FormDefinitionResponse.yaml
+                  $ref: ../schemas/forms/FormDefinitionResponse.yaml
                 self:
-                  type: string
+                  type: object
+                  properties:
+                    object:
+                      $ref: ../schemas/forms/FormDefinitionSelfImportExportDto.yaml
                   x-go-name: Self
                 version:
                   type: integer
-                  format: int8
+                  format: int32
                   x-go-name: Version
     '400':
       description: An error with the request occurred
@@ -121,7 +125,7 @@ get:
               messages:
                 type: array
                 items:
-                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -143,7 +147,7 @@ get:
               messages:
                 type: array
                 items:
-                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -165,7 +169,7 @@ get:
               messages:
                 type: array
                 items:
-                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -179,7 +183,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../../beta/schemas/forms/Error.yaml
+            $ref: ../schemas/forms/Error.yaml
     '500':
       description: An internal server error occurred
       content:
@@ -193,7 +197,7 @@ get:
               messages:
                 type: array
                 items:
-                  $ref: ../../beta/schemas/forms/ErrorMessage.yaml
+                  $ref: ../schemas/forms/ErrorMessage.yaml
                 x-go-name: Messages
               statusCode:
                 type: integer
@@ -205,3 +209,5 @@ get:
   security:
   - userAuth:
     - sp:forms:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN

@@ -12,17 +12,17 @@ get:
           schema:
             type: array
             items:
-              $ref: ../../beta/schemas/ConnectorRuleResponse.yaml
+              $ref: ../schemas/ConnectorRuleResponse.yaml
     '400':
-      $ref: ../../v3/responses/400.yaml
+      $ref: ../responses/400.yaml
     '401':
-      $ref: ../../v3/responses/401.yaml
+      $ref: ../responses/401.yaml
     '403':
-      $ref: ../../v3/responses/403.yaml
+      $ref: ../responses/403.yaml
     '429':
-      $ref: ../../v3/responses/429.yaml
+      $ref: ../responses/429.yaml
     '500':
-      $ref: ../../v3/responses/500.yaml
+      $ref: ../responses/500.yaml
   security:
     - userAuth:
       - idn:rule-management-connector:read
@@ -38,9 +38,9 @@ get:
       type: string
       default: true
     required: true
-  - $ref: '../../v3/parameters/limit50.yaml'
-  - $ref: '../../v3/parameters/offset.yaml'
-  - $ref: '../../v3/parameters/count.yaml'
+  - $ref: '../parameters/limit50.yaml'
+  - $ref: '../parameters/offset.yaml'
+  - $ref: '../parameters/count.yaml'
 post:
   tags:
   - Connector Rule Management
@@ -53,24 +53,24 @@ post:
     content:
       application/json:
         schema:
-          $ref: ../../beta/schemas/ConnectorRuleCreateRequest.yaml
+          $ref: ../schemas/ConnectorRuleCreateRequest.yaml
   responses:
     '201':
       description: Created connector rule.
       content:
         application/json:
           schema:
-            $ref: ../../beta/schemas/ConnectorRuleResponse.yaml
+            $ref: ../schemas/ConnectorRuleResponse.yaml
     '400':
-      $ref: ../../v3/responses/400.yaml
+      $ref: ../responses/400.yaml
     '401':
-      $ref: ../../v3/responses/401.yaml
+      $ref: ../responses/401.yaml
     '403':
-      $ref: ../../v3/responses/403.yaml
+      $ref: ../responses/403.yaml
     '429':
-      $ref: ../../v3/responses/429.yaml
+      $ref: ../responses/429.yaml
     '500':
-      $ref: ../../v3/responses/500.yaml
+      $ref: ../responses/500.yaml
   security:
     - userAuth:
       - idn:rule-management-connector:manage

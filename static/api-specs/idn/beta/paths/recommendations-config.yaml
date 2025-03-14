@@ -18,10 +18,14 @@ get:
       $ref: '../../v3/responses/401.yaml'
     '403':
       $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - userAuth: []
+    - userAuth: [ iai:configuration:read ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
 put:
   operationId: updateRecommendationsConfig
   summary: Update certification recommendation config values
@@ -48,7 +52,11 @@ put:
       $ref: '../../v3/responses/401.yaml'
     '403':
       $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - userAuth: []
+    - userAuth: [ iai:configuration:manage ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN

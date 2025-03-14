@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 **AccountManagers** | [**[]IdentityReferenceWithId**](identity-reference-with-id) | List of account managers | [optional] 
 **Modified** | **System.DateTime** | When the request was last modified. | [optional] 
 **Created** | **System.DateTime** | When the request was created. | [optional] 
-**NonEmployeeCount** | **Int32** | Number of non-employee records associated with this source. | [optional] 
+**NonEmployeeCount** | **Int32** | Number of non-employee records associated with this source. This value is 'null' by default. To get the non-employee count, you must set the `non-employee-count` flag in your request to 'true'. | [optional] 
 
 ## Examples
 

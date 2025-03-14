@@ -613,8 +613,20 @@ When your test runs, you will see the output of your logs. These logs can help w
 [INFO] ------------------------------------------------------------------------
 ```
 
-## Next steps
+## Getting Support
 
-Have an issue using the RDK? Reach out to us on GitHub [here](https://github.com/sailpoint-oss/rule-development-kit/issues)
+To get support for the Rule Development Kit, please see our GitHub page, https://github.com/sailpoint-oss/rule-development-kit.
+
+To submit a bug report, please [click here](https://github.com/sailpoint-oss/rule-development-kit/issues/new?assignees=&labels=bug&template=bug-report.md).
+
+To submit a feature request, please [click here](https://github.com/sailpoint-oss/rule-development-kit/issues/new?assignees=&labels=enhancement&template=feature-request.md)
+
+## Contribute
+
+Do you have an idea to help improve the Rule Development Kit? You can contribute directly!
+
+Before you contribute, you must sign our [CLA](https://cla-assistant.io/sailpoint-oss/rule-development-kit) and read the [Contribution Guidelines](https://github.com/sailpoint-oss/developer.sailpoint.com/blob/main/CONTRIBUTING.md).
+
+## Discuss
 
 Discuss the tool and other rule-specific topics in the [SailPoint Developer Community](https://developer.sailpoint.com/discuss/).

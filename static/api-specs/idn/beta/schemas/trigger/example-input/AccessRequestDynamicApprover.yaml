@@ -8,8 +8,7 @@ required:
 properties:
   accessRequestId:
     type: string
-    description: |
-      The unique ID of the access request object. Can be used with the [access request status endpoint](https://developer.sailpoint.com/idn/api/beta/list-access-request-status) to get the status of the request.
+    description: Unique ID of the access request object. You can use this ID with the [Access Request Status endpoint](https://developer.sailpoint.com/idn/api/beta/list-access-request-status) to get the request's status.
     example: 4b4d982dddff4267ab12f0f1e72b5a6d
   requestedFor:
     type: array
@@ -19,7 +18,7 @@ properties:
     minItems: 1
     maxItems: 10
   requestedItems:
-    description: The access items that are being requested.
+    description: Requested access items.
     type: array
     items:
       type: object
@@ -31,34 +30,34 @@ properties:
       properties:
         id:
           type: string
-          description: The unique ID of the access item.
+          description: Access item's unique identifier.
           example: 2c91808b6ef1d43e016efba0ce470904
         name:
           type: string
-          description: Human friendly name of the access item.
+          description: Access item's name.
           example: Engineering Access
         description:
           nullable: true
           type: string
-          description: Extended description of the access item.
+          description: Access item's extended description.
           example: Engineering Access
         type:
           enum:
           - ACCESS_PROFILE
           - ROLE
           - ENTITLEMENT
-          description: The type of access item being requested.
+          description: Type of access item being requested.
           example: ACCESS_PROFILE
         operation:
           enum:
           - Add
           - Remove
-          description: Grant or revoke the access item
+          description: Action to perform on the requested access item.
           example: Add
         comment:
           nullable: true
           type: string
-          description: A comment from the requestor on why the access is needed.
+          description: Comment from the requester about why the access is necessary.
           example: William needs this access for his day to day job activities.
     minItems: 1
     maxItems: 25

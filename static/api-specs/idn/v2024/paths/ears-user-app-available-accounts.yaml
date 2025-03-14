@@ -16,8 +16,8 @@ get:
       schema:
         type: string
         example: 2c91808a7813090a017814121e121518
-    - $ref: '../../v3/parameters/limit.yaml'
-    - $ref: '../../v3/parameters/count.yaml'
+    - $ref: '../parameters/limit.yaml'
+    - $ref: '../parameters/count.yaml'
     - name: X-SailPoint-Experimental
       in: header
       description: Use this header to enable this experimental API.
@@ -36,12 +36,12 @@ get:
             items:
               $ref: '../schemas/app/AppAccountDetails.yaml'
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: '../responses/400.yaml'
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: '../responses/401.yaml'
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: '../responses/403.yaml'
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: '../responses/429.yaml'
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: '../responses/500.yaml'

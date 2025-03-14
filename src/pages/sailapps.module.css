@@ -11,6 +11,14 @@
     font-weight: bold;
     line-height: 100%;
   }
+
+  .gettingStartedTwo {
+    color: red;
+    font-size: 16px;
+    font-weight: 500;
+    max-width: 400px;
+    margin: 20px auto;
+  }
   
   .gettingStartedThree {
     margin-top: 20px;
@@ -20,6 +28,7 @@
   
   .bold {
     font-weight: bold;
+    font-size: 36px;
   }
   
   .button {
@@ -29,11 +38,10 @@
     font-size: 20px;
     font-weight: bold;
     line-height: 100%;
-    width: 259px;
-    height: 61px;
+    width: 270px;
+    height: 62px;
     background: transparent 0% 0% no-repeat padding-box;
     opacity: 1;
-    box-shadow: 0px 20px 60px #00000015;
     border: 2px solid #df61ca;
     border-radius: 5px;
     transition: all 0.3s;

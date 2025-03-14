@@ -10,12 +10,6 @@ slug: /extensibility/event-triggers/triggers/identity-deleted
 tags: ['Event Triggers', 'Early Access Event Triggers', 'Fire and Forget']
 ---
 
-:::info
-
-This is an early access event trigger. Please contact support to have it enabled in your tenant.
-
-:::
-
 ## Event Context
 
 ![Flow](./img/identity-deleted-path.png)

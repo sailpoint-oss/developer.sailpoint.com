@@ -10,12 +10,6 @@ slug: /extensibility/event-triggers/triggers/source-account-updated
 tags: ['Event Triggers', 'Early Access Event Triggers', 'Fire and Forget']
 ---
 
-:::info
-
-This is an early access event trigger. Please contact support to have it enabled in your tenant.
-
-:::
-
 ## Event Context
 
 Source Account Updated events occur whenever one or more account attributes change on a single account during an account aggregation operation. The trigger cannot determine whether the account update happened on a source or in Identity Security Cloud. It omits events related to Identity Security Cloud accounts, such as the Identity Security Cloud Admin. The following actions are considered updates:

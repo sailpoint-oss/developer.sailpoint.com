@@ -1,5 +1,4 @@
-export async function sendCode(gatewayUrl, code, state) {
-  gatewayUrl = `https://57d9ud4zp9.execute-api.us-east-1.amazonaws.com`;
+export async function sendCode(gatewayUrl: string, code: string, state: string) {
   const url = new URL(`${gatewayUrl}/Prod/sailapps/code/${code}`);
   url.searchParams.set('state', state);
   try {

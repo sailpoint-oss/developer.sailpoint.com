@@ -206,7 +206,7 @@ tags:
     description: |
       Use this API to implement approval functionality. With this functionality in place, you can get generic approvals and modify them. 
       
-      The main advantages this API has vs [Access Request Approvals](https://developer.sailpoint.com/docs/api/beta/access-request-approvals) are that you can use it to get generic approvals individually or in batches and make changes to those approvals. 
+      The main advantages this API has vs [Access Request Approvals](https://developer.sailpoint.com/docs/api/v2024/access-request-approvals) are that you can use it to get generic approvals individually or in batches and make changes to those approvals. 
   - name: Apps 
     description: |
       Use this API to implement source application functionality. 
@@ -424,9 +424,9 @@ tags:
       With this functionality in place, administrators can create custom password instructions to help users reset their passwords, change them, unlock their accounts, or recover their usernames.
       This allows administrators to emphasize password policies or provide organization-specific instructions.
 
-      Administrators must first use [Update Password Org Config](https://developer.sailpoint.com/docs/api/beta/put-password-org-config/) to set `customInstructionsEnabled` to `true`.
+      Administrators must first use [Update Password Org Config](https://developer.sailpoint.com/docs/api/v2024/put-password-org-config/) to set `customInstructionsEnabled` to `true`.
 
-      Once they have enabled custom instructions, they can use [Create Custom Password Instructions](https://developer.sailpoint.com/docs/api/beta/create-custom-password-instructions/) to create custom page content for the specific pageId they select.
+      Once they have enabled custom instructions, they can use [Create Custom Password Instructions](https://developer.sailpoint.com/docs/api/v2024/create-custom-password-instructions/) to create custom page content for the specific pageId they select.
 
       For example, an administrator can use the pageId forget-username:user-email to set the custom text for the case when users forget their usernames and must enter their emails.
 
@@ -708,7 +708,7 @@ tags:
       
       Refer to this list https://docs.oracle.com/cd/E13214_01/wli/docs92/xref/xqisocodes.html to see all the available ISO 639-1 language codes and ISO 3166-1 country codes.
 
-      - Upload the .txt file to Identity Security Cloud with [Update Password Dictionary](https://developer.sailpoint.com/docs/api/v3/put-password-dictionary). Uploading a new file always overwrites the previous dictionary file.
+      - Upload the .txt file to Identity Security Cloud with [Update Password Dictionary](https://developer.sailpoint.com/docs/api/v2024/put-password-dictionary). Uploading a new file always overwrites the previous dictionary file.
 
       Administrators can then specify which password policies check new passwords against the password dictionary by doing the following: In the Admin panel, they can use the Password Mgmt dropdown menu to select Policies, select the policy, and select the 'Prevent use of words in this site's password dictionary' checkbox beside it.
 
@@ -798,7 +798,7 @@ tags:
       Refer to [Managing Personal Access Tokens](https://documentation.sailpoint.com/saas/help/common/generate_tokens.html) for more information about PATs.
   - name: Public Identities
     description: |
-      Use this API in conjunction with [Public Identites Config](https://developer.sailpoint.com/docs/api/v3/public-identities-config/) to enable non-administrators to view identities' publicly visible attributes. 
+      Use this API in conjunction with [Public Identites Config](https://developer.sailpoint.com/docs/api/v2024/public-identities-config/) to enable non-administrators to view identities' publicly visible attributes. 
       With this functionality in place, non-administrators can view identity attributes other than the default attributes (email, lifecycle state, and manager), depending on which identity attributes their organization administrators have made public. 
       This can be helpful for access approvers, certification reviewers, managers viewing their direct reports' access, and source owners viewing their tasks.
   - name: Public Identities Config
@@ -812,7 +812,7 @@ tags:
       Administrators can use this API to make those necessary identity attributes public to non-administrators. 
 
       For example, a non-administrator deciding whether to approve another identity's request for access to the Workday application, whose access may be restricted to members of the HR department, would want to know whether the identity is a member of the HR department. 
-      If an administrator has used [Update Public Identity Config](https://developer.sailpoint.com/docs/api/v3/update-public-identity-config/) to make the "department" attribute public, the approver can see the department and make a decision without requesting any more information.
+      If an administrator has used [Update Public Identity Config](https://developer.sailpoint.com/docs/api/v2024/update-public-identity-config/) to make the "department" attribute public, the approver can see the department and make a decision without requesting any more information.
   - name: Reports Data Extraction
     description: |
       Use this API to implement reports lifecycle managing and monitoring.
@@ -821,7 +821,7 @@ tags:
   - name: Requestable Objects
     description: |
       Use this API to implement requestable object functionality. 
-      With this functionality in place, administrators can determine which access items can be requested with the [Access Request APIs](https://developer.sailpoint.com/docs/api/v3/access-requests/), along with their statuses. 
+      With this functionality in place, administrators can determine which access items can be requested with the [Access Request APIs](https://developer.sailpoint.com/docs/api/v2024/access-requests/), along with their statuses. 
       This can be helpful for administrators who are implementing and customizing access request functionality as a way of checking which items are requestable as they are created, assigned, and made available.
   - name: Role Insights
   - name: Roles
@@ -870,7 +870,7 @@ tags:
 
       Search queries in Identity Security Cloud can grow very long and specific, which can make reconstructing them difficult or tedious, so it can be especially helpful to save search queries. 
       It also opens the possibility to configure Identity Security Cloud to run the saved queries on a schedule, which is essential to detecting user information and access changes throughout an organization's tenant and across all its sources. 
-      Refer to [Scheduled Search](https://developer.sailpoint.com/docs/api/v3/scheduled-search/) for more information about running saved searches on a schedule. 
+      Refer to [Scheduled Search](https://developer.sailpoint.com/docs/api/v2024/scheduled-search/) for more information about running saved searches on a schedule. 
       
       In Identity Security Cloud, users can save searches under a name, and then they can access that saved search and run it again when they want. 
 
@@ -930,7 +930,7 @@ tags:
       Please keep this latency in mind when you use search.
   - name: Search Attribute Configuration 
     description: |
-      Use this API to implement search attribute configuration functionality, along with [Search](https://developer.sailpoint.com/docs/api/v3/search).
+      Use this API to implement search attribute configuration functionality, along with [Search](https://developer.sailpoint.com/docs/api/v2024/search).
       With this functionality in place, administrators can create custom search attributes that and run extended searches based on those attributes to further narrow down their searches and get the information and insights they want. 
 
       Identity Security Cloud (ISC) enables organizations to store user data from across all their connected sources and manage the users' access, so the ability to query and filter that data is essential.  

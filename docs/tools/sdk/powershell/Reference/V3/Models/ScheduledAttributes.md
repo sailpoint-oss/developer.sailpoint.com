@@ -21,16 +21,18 @@ Name | Type | Description | Notes
 **TimeZone** | **String** | Time zone identifier | [optional] 
 **WeeklyDays** | **[]String** | Scheduled days of the week for execution | [optional] 
 **WeeklyTimes** | **[]String** | Scheduled execution times | [optional] 
+**YearlyTimes** | **[]String** | Scheduled execution times | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
 $ScheduledAttributes = Initialize-PSSailpoint.V3ScheduledAttributes  -CronString 0 9 * * 1 `
- -Frequency null `
+ -Frequency daily `
  -TimeZone America/Chicago `
  -WeeklyDays Monday `
- -WeeklyTimes Monday
+ -WeeklyTimes Monday `
+ -YearlyTimes 1969-12-31T09:00:00.000Z
 ```
 
 - Convert the resource to JSON

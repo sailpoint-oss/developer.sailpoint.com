@@ -21,3 +21,7 @@ properties:
     type: string
     description: The attribute to filter on
     example: "LifecycleState"  
+  formDefinitionId:
+    type: string
+    description: Form definition's unique identifier.
+    example: Admin_Access_Request_Form

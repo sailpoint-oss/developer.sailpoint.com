@@ -8,6 +8,7 @@ properties:
   frequency:
     type: string
     description: Frequency of execution
+    example: daily
     enum:
       - daily
       - weekly
@@ -20,6 +21,10 @@ properties:
     example: "America/Chicago"
   cronString:
     type: string
+    description: A valid CRON expression
+    externalDocs:
+      description: CRON expression editor
+      url: https://crontab.guru/
     example: "0 9 * * 1"
   weeklyDays:
     type: array
@@ -32,4 +37,10 @@ properties:
     items:
       type: string
     example: Monday
+    description: Scheduled execution times
+  yearlyTimes:
+    type: array
+    items:
+      type: string
+    example: "1969-12-31T09:00:00.000Z"
     description: Scheduled execution times

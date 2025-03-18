@@ -1,6 +1,6 @@
 post:
-  summary: Run an advanced search for profiles, without saving the query
-  operationId: runAdvancedSearch
+  summary: Run profiles advanced search
+  operationId: searchAdvancedSearch
   description: Run an advanced search for profiles, without saving the query
   tags:
     - advanced search

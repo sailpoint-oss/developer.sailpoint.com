@@ -1,6 +1,6 @@
 post:
-  summary: Assign a new role to a user
-  operationId: postUserRole
+  summary: Assign new role to user
+  operationId: submitUserRole
   description: Assign a new role to a user
   tags:
     - user roles

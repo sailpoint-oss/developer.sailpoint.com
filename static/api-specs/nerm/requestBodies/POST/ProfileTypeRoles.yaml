@@ -4,6 +4,6 @@ content:
     schema:
       type: object
       properties:
-        form:
+        profile_type_role:
           type: object
           $ref: "../../schemas/POST/ProfileTypeRoles.yaml"

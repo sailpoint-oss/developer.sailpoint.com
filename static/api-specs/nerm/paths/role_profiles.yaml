@@ -18,7 +18,7 @@ get:
       $ref: "../responses/500.yaml"
 post:
   summary: Create multiple role-profile contributor relationships
-  operationId: postRoleProfiles
+  operationId: submitRoleProfiles
   description: Create multiple role-profile contributor relationships
   tags:
     - role profiles

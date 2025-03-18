@@ -17,8 +17,8 @@ get:
     '500':
       $ref: "../responses/500.yaml"
 post:
-  summary: Create multiple new user role pairings
-  operationId: postUserRoles
+  summary: Create new user role pairings
+  operationId: submitUserRoles
   description: Create multiple new user role pairings
   tags:
     - user roles

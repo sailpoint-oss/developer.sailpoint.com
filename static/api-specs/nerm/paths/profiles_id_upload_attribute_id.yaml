@@ -1,5 +1,5 @@
 get:
-  summary: Retrieves the URL of an attachment attribute value from a profile
+  summary: Retrieves profile attribute attachment URL
   operationId: getProfileUpload
   description: Retrieves the URL of an attachment attribute value from a profile
   tags:
@@ -15,8 +15,8 @@ get:
     '500':
       $ref: "../responses/500.yaml"
 post:
-  summary: Uploads a new attachment attribute value to a profile
-  operationId: postProfileUpload
+  summary: Uploads profile attachment attribute
+  operationId: submitProfileUpload
   description: Uploads a new attachment attribute value to a profile
   tags:
     - profiles

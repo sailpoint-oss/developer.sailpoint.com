@@ -1,3 +1,18 @@
+get:
+  summary: Get forms
+  operationId: getForms
+  description: Get defined forms in the system
+  tags:
+    - forms
+  responses:
+    '200':
+      $ref: "../responses/Forms.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '404':
+      $ref: "../responses/404.yaml"
+    '500':
+      $ref: "../responses/500.yaml"
 post:
   summary: Create a form
   description: This endpoint can create a form

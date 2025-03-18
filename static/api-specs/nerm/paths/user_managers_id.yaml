@@ -1,5 +1,5 @@
 get:
-  summary: Find user-manager relationship by id
+  summary: Find user-manager relationship
   operationId: getUserManager
   description: Info for a specific user-manager relationship
   tags:
@@ -14,7 +14,7 @@ get:
     '500':
       $ref: "../responses/500.yaml"
 patch:
-  summary: Update a user-manager relationship by id
+  summary: Update a user-manager relationship
   operationId: patchUserManager
   description: Update a user-manager relationship by id
   tags:

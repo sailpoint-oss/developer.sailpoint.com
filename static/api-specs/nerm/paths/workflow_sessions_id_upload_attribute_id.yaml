@@ -1,5 +1,5 @@
 get:
-  summary: Retrieves the URL of an attachment attribute value from a workflow session
+  summary: Retrieves workflow session attachment URL
   operationId: getWorkflowSessionUpload
   description: Retrieves the URL of an attachment attribute value from a workflow session
   tags:
@@ -15,8 +15,8 @@ get:
     '500':
       $ref: "../responses/500.yaml"
 post:
-  summary: Uploads a new attachment attribute value to a workflow session
-  operationId: postWorkflowSessionUpload
+  summary: Uploads workflow session attachment
+  operationId: submitWorkflowSessionUpload
   description: Uploads a new attachment attribute value to a workflow session
   tags:
     - workflow sessions

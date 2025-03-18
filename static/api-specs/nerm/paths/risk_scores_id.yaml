@@ -1,5 +1,5 @@
 get:
-  summary: Find risk score data by id
+  summary: Find risk score data
   operationId: getRiskScore
   description: Find risk score data by id
   tags:

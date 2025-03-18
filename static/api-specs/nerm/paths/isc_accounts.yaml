@@ -5,10 +5,10 @@ get:
   tags:
     - isc accounts
   parameters:
-    - $ref: "../parameters/query/page.yaml"
     - $ref: "../parameters/query/limit.yaml"
     - $ref: "../parameters/query/offset.yaml"
     - $ref: "../parameters/query/use_schema.yaml"
+    - $ref: "../parameters/query/override_sync_toggle.yaml"
   responses:
     '200':
       $ref: "../responses/IscAccounts.yaml"

@@ -15,6 +15,37 @@ get:
     - HELPDESK
   parameters:
     - in: query
+      name: filters
+      required: false
+      schema:
+        type: string
+      example: identityId eq "2c9180858082150f0180893dbaf44201"
+      description: 'Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+        Filtering is supported for the following fields and operators:
+
+
+        **id**: *eq, in, sw*
+
+
+        **displayName**: *eq, in, sw*
+
+
+        **cisIdentityId**: *eq, in, sw*
+
+
+        **description**: *eq, in, sw*
+
+
+        **businessApplication**: *eq, in, sw*
+
+
+        **attributes**: *eq*
+
+
+        **manuallyEdited**: *eq*'
+    - in: query
       name: sorters
       schema:
         type: string

@@ -28,8 +28,8 @@ get:
 
 
         Filtering is supported for the following fields and operators:
-
-
+  
+  
         **id**: *eq, in, sw*
 
 
@@ -37,30 +37,54 @@ get:
 
 
         **nativeIdentity**: *eq, in, sw*
-        
-        
+
+
         **machineIdentity**: *eq, in, sw*
 
 
+        **description**: *eq, in, sw*
+
+
+        **ownerIdentity**: *eq, in, sw*
+
+
+        **ownerIdentityId**: *eq, in, sw*
+
+
         **entitlements**: *eq*
-        
-        
+
+
         **accessType**: *eq, in, sw*
-        
-        
+
+
         **subType**: *eq, in, sw*
-        
-        
+
+
+        **environment**: *eq, in, sw*
+
+
         **classificationMethod**: *eq, in, sw*
-        
-        
+
+
         **manuallyCorrelated**: *eq*
 
 
-        **identity.name**: *eq, in, sw*
-        
-        
-        **source.name**: *eq, in*
+        **manuallyEdited**: *eq*
+
+
+        **identity**: *eq, in, sw*
+
+
+        **source**: *eq, in*
+ 
+
+        **hasEntitlement**: *eq*
+
+
+        **locked**: *eq*
+
+
+        **connectorAttributes**: *eq*
     - in: query
       name: sorters
       required: false

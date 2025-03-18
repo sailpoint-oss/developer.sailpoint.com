@@ -85,6 +85,23 @@ patch:
     description: >-
       A JSON of updated values [JSON
       Patch](https://tools.ietf.org/html/rfc6902) standard.
+      The following fields are patchable:
+                * description
+                * ownerIdentity
+                * subType
+                * accessType
+                * environment
+                * attributes
+                * classificationMethod
+                * manuallyEdited
+                * nativeIdentity
+                * uuid
+                * source
+                * manuallyCorrelated
+                * enabled
+                * locked
+                * hasEntitlements
+                * connectorAttributes
     content:
       application/json-patch+json:
         schema:

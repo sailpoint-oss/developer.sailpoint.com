@@ -4,12 +4,12 @@ get:
     - Requestable Objects
   summary: Requestable Objects List
   security:
-    - userAuth: []
+    - userAuth: [idn:requestable-objects:read]
   x-sailpoint-userLevels:
     - ORG_ADMIN
   description: >-
-    This endpoint returns a list of acccess items that that can be requested through the Access Request endpoints.
-    Access items are marked with AVAILABLE, PENDING or ASSIGNED with respect to the identity provided using *identity-id* query param.
+    Get a list of acccess items that can be requested through the [Access Request endpoints](https://developer.sailpoint.com/docs/api/v2024/access-requests).
+    Access items are marked with `AVAILABLE`, `PENDING` or `ASSIGNED` with respect to the identity provided using `identity-id` query parameter.
 
     Any authenticated token can call this endpoint to see their requestable access items.
   parameters:
@@ -27,8 +27,8 @@ get:
     - in: query
       name: types
       description: >-
-        Filters the results to the specified type/types, where each type is one of ROLE or ACCESS_PROFILE. If absent,
-        all types are returned. Support for additional types may be added in the future without notice.
+        Filters the results to the specified type/types, where each type is one of `ROLE` or `ACCESS_PROFILE`. If absent,
+        all types are returned. SailPoint may add support for additional types in the future without notice.
       required: false
       schema:
         type: array
@@ -43,14 +43,14 @@ get:
         type: string
       example: "Finance Role"
       description: >-
-        It allows searching requestable access items with a partial match on the name or description.
-        If term is provided, then the *filter* query parameter will be ignored.
+        Allows searching requestable access items with a partial match on the name or description.
+        If `term` is provided, then the API will ignore the `filter` query parameter.
     - in: query
       name: statuses
       description: >-
-        Filters the result to the specified status/statuses, where each status is one of AVAILABLE, ASSIGNED, or PENDING.
-        It is an error to specify this parameter without also specifying an *identity-id* parameter. Additional statuses
-        may be added in the future without notice.
+        Filters the result to the specified status/statuses, where each status is one of `AVAILABLE`, `ASSIGNED`, or `PENDING`.
+        Specifying this parameter without also specifying an `identity-id` parameter results in an error. 
+        SailPoint may add additional statuses in the future without notice.
       required: false
       schema:
         type: array

@@ -12,6 +12,12 @@ tags: ['Event Triggers', 'Early Access Event Triggers', 'Fire and Forget']
 
 ## Event Context
 
+:::warning
+
+This event trigger has been deprecated, and support will no longer handle requests to enable this trigger. A newer version of this trigger is being developed, and this documentation will be updated once the new trigger is available.
+
+:::
+
 Source Account Created events occur after a new account is detected during an account aggregration and refresh from a source. This trigger cannot determine whether account creation happened on a source or in Identity Security Cloud. It omits events related to Identity Security Cloud accounts, such as the Identity Security Cloud Admin.
 
 Use this event trigger to watch for new accounts with highly privileged access, such as an account created in Active Directory Domain Admins.

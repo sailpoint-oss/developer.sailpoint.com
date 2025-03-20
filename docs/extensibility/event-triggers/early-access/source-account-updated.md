@@ -12,6 +12,12 @@ tags: ['Event Triggers', 'Early Access Event Triggers', 'Fire and Forget']
 
 ## Event Context
 
+:::warning
+
+This event trigger has been deprecated, and support will no longer handle requests to enable this trigger. A newer version of this trigger is being developed, and this documentation will be updated once the new trigger is available.
+
+:::
+
 Source Account Updated events occur whenever one or more account attributes change on a single account during an account aggregation operation. The trigger cannot determine whether the account update happened on a source or in Identity Security Cloud. It omits events related to Identity Security Cloud accounts, such as the Identity Security Cloud Admin. The following actions are considered updates:
 
 - Update account attributes

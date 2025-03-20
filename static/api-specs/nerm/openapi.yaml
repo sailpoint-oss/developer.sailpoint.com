@@ -63,6 +63,11 @@ paths:
   # Identity Proofing Results
   /identity_proofing_results:
     $ref: "./paths/identity_proofing_results.yaml"
+# Isc Accounts
+  /isc/accounts:
+    $ref: "./paths/isc_accounts.yaml"
+  /isc/accounts/{id}:
+    $ref: "./paths/isc_account.yaml"
   # Jobs
   /job_status:
     $ref: "./paths/job_status.yaml"

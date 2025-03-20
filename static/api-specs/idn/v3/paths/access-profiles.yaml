@@ -4,7 +4,7 @@ get:
     - Access Profiles
   summary: List Access Profiles
   description: >-
-    Use this API to get a list of access profiles.
+    Get a list of access profiles.
 
     >**Note:** When you filter for access profiles that have the '+' symbol in their names, the response is blank. 
   parameters:
@@ -13,16 +13,15 @@ get:
       schema:
         type: string
       description: >-
-        If provided, filters the returned list according to what is visible to the indicated ROLE_SUBADMIN or
-        SOURCE_SUBADMIN identity. The value of the parameter is either an identity ID, or the special value **me**,
+        Filters the returned list according to what is visible to the indicated ROLE_SUBADMIN or
+        SOURCE_SUBADMIN identity. The value of the parameter is either an identity ID or the special value **me**,
         which is shorthand for the calling identity's ID.
 
 
-        A 400 Bad Request error is returned if the **for-subadmin** parameter is specified for an identity that is not
-        a subadmin.
+        If you specify an identity that isn't a subadmin, the API returns a 400 Bad Request error.
       example: 8c190e6787aa4ed9a90bd9d5344523fb
       required: false
-    - $ref: '../../v3/parameters/limit50.yaml'
+    - $ref: '../../v3/parameters/limit.yaml'
     - $ref: '../../v3/parameters/offset.yaml'
     - $ref: '../../v3/parameters/count.yaml'
     - in: query
@@ -57,7 +56,7 @@ get:
         **source.id**: *eq, in*
         
         
-        Composite operators supported: *and, or*
+        Supported composite operators are *and, or*
 
 
         Filtering is not supported for access profiles and entitlements that have the '+' symbol in their names. 
@@ -81,9 +80,7 @@ get:
         type: string
         format: comma-separated
       description: >-
-        If present and not empty, additionally filters access profiles to those which are assigned to the segment(s)
-        with the specified IDs.
-
+        Filters access profiles to only those assigned to the segment(s) with the specified IDs.
 
         If segmentation is currently unavailable, specifying this parameter results in an error.
       example: 0b5c9f25-83c6-4762-9073-e38f7bb2ae26,2e8d8180-24bc-4d21-91c6-7affdb473b0d
@@ -95,7 +92,7 @@ get:
         default: true
       description: >-
         Indicates whether the response list should contain unsegmented access profiles.
-        If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error.
+        If `for-segment-ids` is absent or empty, specifying *include-unsegmented* as `false` results in an error.
       example: false
       required: false
   responses:
@@ -132,13 +129,14 @@ post:
     - Access Profiles
   summary: Create Access Profile
   description: >-
-    Use this API to create an access profile.
+    Create an access profile.
 
     A user with only ROLE_SUBADMIN or SOURCE_SUBADMIN authority must be associated with the
-    access profile's Source.
+    access profile's source.
 
     The maximum supported length for the description field is 2000 characters.
-    Longer descriptions will be preserved for existing access profiles. However, any new access profiles as well as any updates to existing descriptions are limited to 2000 characters.
+    Longer descriptions will be preserved for existing access profiles. 
+    However, any new access profiles as well as any updates to existing descriptions are limited to 2000 characters.
   requestBody:
     required: true
     content:

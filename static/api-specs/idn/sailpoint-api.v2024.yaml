@@ -54,7 +54,7 @@ tags:
       
       When users need both Active Directory employee and developer access, they can request access to the 'AD Developers' access profile.
       
-      Access profiles are the most important units of access in Identity Security Cloud. Identity Security Cloud uses access profiles in many features, including the following:
+      Identity Security Cloud uses access profiles in many features, including the following:
       
       - Provisioning: When you use the Provisioning Service, lifecycle states and roles both grant access to users in the form of access profiles.
       
@@ -1183,8 +1183,7 @@ tags:
     description: |
       The purpose of this API is to expose functionality for the manipulation of Transform objects.
       Transforms are a form of configurable objects which define an easy way to manipulate attribute data without having
-      to write code. These endpoints don't require API calls to other resources, audit service is used for keeping track
-      of which users have made changes to the Transforms.
+      to write code. 
 
       Refer to [Transforms](https://developer.sailpoint.com/docs/extensibility/transforms/) for more information about transforms.
   - name: Triggers

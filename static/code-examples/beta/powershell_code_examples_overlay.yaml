@@ -10727,6 +10727,8 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/beta/methods/search-attribute-configuration#get-search-attribute-config
       source: |
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         
         # List Extended Search Attributes
         
@@ -10734,7 +10736,7 @@
             Get-BetaSearchAttributeConfig 
     
             # Below is a request that includes all optional parameters
-            # Get-BetaSearchAttributeConfig   
+            # Get-BetaSearchAttributeConfig -Limit $Limit -Offset $Offset   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaSearchAttributeConfig"
             Write-Host $_.ErrorDetails

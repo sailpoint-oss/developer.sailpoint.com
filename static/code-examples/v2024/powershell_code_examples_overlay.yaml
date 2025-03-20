@@ -13606,6 +13606,8 @@
       label: SDK_tools/sdk/powershell/v2024/methods/search-attribute-configuration#get-search-attribute-config
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         
         # List Extended Search Attributes
         
@@ -13613,7 +13615,7 @@
             Get-V2024SearchAttributeConfig -XSailPointExperimental $XSailPointExperimental 
     
             # Below is a request that includes all optional parameters
-            # Get-V2024SearchAttributeConfig -XSailPointExperimental $XSailPointExperimental   
+            # Get-V2024SearchAttributeConfig -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SearchAttributeConfig"
             Write-Host $_.ErrorDetails

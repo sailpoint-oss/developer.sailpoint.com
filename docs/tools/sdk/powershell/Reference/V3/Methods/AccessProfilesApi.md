@@ -23,7 +23,7 @@ When users only need Active Directory employee access, they can request access t
 
 When users need both Active Directory employee and developer access, they can request access to the &#39;AD Developers&#39; access profile.
 
-Access profiles are the most important units of access in Identity Security Cloud. Identity Security Cloud uses access profiles in many features, including the following:
+Identity Security Cloud uses access profiles in many features, including the following:
 
 - Provisioning: When you use the Provisioning Service, lifecycle states and roles both grant access to users in the form of access profiles.
 

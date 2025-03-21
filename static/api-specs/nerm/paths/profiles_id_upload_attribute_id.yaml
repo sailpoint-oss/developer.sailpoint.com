@@ -17,7 +17,13 @@ get:
 post:
   summary: Uploads profile attachment attribute
   operationId: submitProfileUpload
-  description: Uploads a new attachment attribute value to a profile
+  description: >
+    Uploads a new attachment attribute value to a profile.
+    The upload must be a FORM data type; this is not a JSON API.
+    The upload must include the binary content of the payload under the 'file' named form element.
+    The upload must not attempt to include the file name or its content type as a other form or JSON as parameters.
+    The upload must not attempt to upload the file body as the POST body payload; it has to arrive as a FORM parameter.
+    Do not use a `File/Binary` payload type for the POST operation in your API client.
   tags:
     - profiles
   parameters:

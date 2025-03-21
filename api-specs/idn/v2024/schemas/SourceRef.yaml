@@ -1,0 +1,11 @@
+type: object
+properties:
+  id:
+    type: string
+    readOnly: true
+    description: the id of the Source
+    example: "2c91808568c529c60168cca6f90c1324"
+  name:
+    type: string
+    description: Name of the source
+    example: "Example source name "

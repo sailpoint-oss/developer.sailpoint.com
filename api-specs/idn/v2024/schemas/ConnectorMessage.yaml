@@ -1,0 +1,12 @@
+type: object
+properties:
+  application:
+    type: string
+    description: The source name for the message.
+    example: "Test Active Directory"
+  applicationId:
+    type: string
+    description: The source id for the message.
+    example: "2c928091638fccc601638fcf023d02ef"
+  globalCacheConfig:
+    $ref: './ConnectorCacheConfig.yaml'

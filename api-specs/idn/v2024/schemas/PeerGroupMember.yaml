@@ -1,0 +1,17 @@
+type: object
+properties:
+  id:
+    type: string
+    description: A unique identifier for the peer group member.
+  type:
+    type: string
+    description: The type of the peer group member.
+  peer_group_id:
+    type: string
+    description: The ID of the peer group.
+  attributes:
+    type: object
+    additionalProperties:
+      type: object
+    description: >-
+      Arbitrary key-value pairs, belonging to the peer group member.

@@ -1,0 +1,241 @@
+get:
+  tags:
+    - Custom Forms
+  summary: List form instances by tenant.
+  description: No parameters required.
+  operationId: searchFormInstancesByTenant
+  responses:
+    "200":
+      description: Returns a list of form instances by tenant
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/forms/FormInstanceResponse.yaml'
+    "400":
+      description: An error with the request occurred
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+    "401":
+      description: An error with the authorization occurred
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+    "403":
+      description: An error with the user permissions occurred
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+    "429":
+      description: Too many requests
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/forms/Error.yaml'
+    "500":
+      description: An internal server error occurred
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+  security:
+    - userAuth:
+        - sp:forms:manage
+post:
+  tags:
+    - Custom Forms
+  summary: Creates a form instance.
+  operationId: createFormInstance
+  requestBody:
+    description: Body is the request payload to create a form instance
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/forms/CreateFormInstanceRequest.yaml'
+        example: {
+          "expire": "2023-06-20T15:57:55.332882Z",
+          "formDefinitionId": "00000000-0000-0000-0000-000000000000",
+          "recipients": [ {
+            type: "IDENTITY",
+            id: "an-identity-id"
+          } ],
+          "createdBy": {
+            "type": "WORKFLOW_EXECUTION",
+            "id": "a-workflow-execution-id"
+          },
+        }
+    required: false
+  responses:
+    "201":
+      description: Returns a new form instance
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/forms/FormInstanceResponse.yaml'
+    "400":
+      description: An error with the request occurred
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+    "401":
+      description: An error with the authorization occurred
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+    "403":
+      description: An error with the user permissions occurred
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+    "429":
+      description: Too many requests
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/forms/Error.yaml'
+    "500":
+      description: An internal server error occurred
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detailCode:
+                type: string
+                x-go-name: DetailCode
+              messages:
+                type: array
+                items:
+                  $ref: '../schemas/forms/ErrorMessage.yaml'
+                x-go-name: Messages
+              statusCode:
+                type: integer
+                format: int64
+                x-go-name: StatusCode
+              trackingId:
+                type: string
+                x-go-name: TrackingID
+  security:
+    - userAuth:
+        - sp:forms:manage
+  x-codegen-request-body-name: Body

@@ -1,0 +1,17 @@
+type: object
+properties:
+  attributes:
+    type: object
+    additionalProperties: true
+    description: A JSON object that stores the context.
+    example: {"productUrl":"https://test-org.identitysoon.com","brandingConfigs":{"default":{"narrowLogoURL":null,"productName":"SailPoint","standardLogoURL":null,"navigationColor":"011E64","actionButtonColor":"20B2DE","emailFromAddress":null,"activeLinkColor":"20B2DE","loginInformationalMessage":null}}}
+  created:
+    type: string
+    description: When the global context was created
+    format: 'date-time'
+    example: '2020-04-15T16:16:47.525Z'
+  modified:
+    type: string
+    description: When the global context was last modified
+    format: 'date-time'
+    example: '2020-04-15T16:16:47.525Z'

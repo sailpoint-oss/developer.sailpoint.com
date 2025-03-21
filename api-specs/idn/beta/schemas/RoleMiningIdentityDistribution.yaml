@@ -1,0 +1,13 @@
+type: object
+properties:
+  attributeName:
+    type: string
+    description: Id of the potential role
+    example: "department"
+  distribution:
+    type: array
+    items:
+      type: object
+      additionalProperties:
+        type: string
+    example: [{"attributeValue":"NM Tier 3","count":6}]

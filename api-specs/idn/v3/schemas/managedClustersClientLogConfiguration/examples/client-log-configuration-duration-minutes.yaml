@@ -1,0 +1,8 @@
+summary: Duration Minutes
+value:
+  clientId: 3a38a51992e8445ab51a549c0a70ee66
+  durationMinutes: 120
+  rootLevel: INFO
+  logLevels:
+    sailpoint.connector.ADLDAPConnector: TRACE
+    sailpoint.connector.JDBCConnector: DEBUG

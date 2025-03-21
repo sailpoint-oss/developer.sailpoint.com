@@ -1,0 +1,18 @@
+description: This represents a Multi-Host Integration template type.
+required:
+  - type
+  - scriptName
+type: object
+properties:
+  name:
+    description: This is the name of the type.
+    example: aName
+    type: string
+  type:
+    description: This is the type value for the type.
+    example: aType
+    type: string
+  scriptName:
+    description: This is the scriptName attribute value for the type.
+    example: aScriptName
+    type: string

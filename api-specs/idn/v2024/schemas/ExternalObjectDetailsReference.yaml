@@ -1,0 +1,26 @@
+type: object
+description:  Describes a reference to instance(s) of another name of object.
+properties:
+  type:
+    type: string
+    description: id
+    example: '24bdaf69-e5ce-4c08-96c4-2b93bce82088'
+  name:
+    type: string
+    description: Object`s reference name
+    example: 'role'
+  targets:
+    type: array
+    description: A given target of a reference.
+    items:
+      $ref: '../../beta/schemas/ExternalObjectDetailsReferenceTarget.yaml'
+    example: '[
+                {
+                    "id": "2c91808b6e61caab016e6b8ef796084b",
+                    "name": "support"
+                }
+              ]'
+  label:
+    type: string
+    description: Object`s reference label
+    example: 'roles'

@@ -1,0 +1,18 @@
+type: object
+allOf:
+- $ref: './FormItemDetails.yaml'
+- type: object
+  properties:
+    label:
+      type: string
+      description: Label of the section
+      example: Section 1
+    formItems:
+      type: array
+      items:
+        type: object
+      description: List of FormItems. FormItems can be SectionDetails and/or FieldDetails
+      example: []
+#      oneOf:
+#        - $ref: 'SectionDetails.yaml'
+#        - $ref: 'FieldDetails.yaml'

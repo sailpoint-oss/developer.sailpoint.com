@@ -1,0 +1,58 @@
+get:
+  operationId: getMFAKbaConfig
+  tags:
+    - MFA Configuration
+  summary: Configuration of KBA MFA method
+  description: >-
+    This API returns the KBA configuration for MFA.
+  parameters:
+    - in: query
+      name: allLanguages
+      required: false
+      schema:
+        type: boolean
+      description: >-
+        Indicator whether the question text should be returned in all configured languages
+           * If true, the question text is returned in all languages that it is configured in.
+           * If false, the question text is returned in the user locale if available, else for the default locale. 
+           * If not passed, it behaves the same way as passing this parameter as false
+      example: allLanguages=true
+  security:
+    - userAuth: [idn:mfa-kba:read]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - USER
+  responses:
+    "200":
+      description: The configuration for KBA MFA method.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: "../schemas/KbaQuestion.yaml"
+          example:
+            [
+              {
+                "id": "143cfd3b-c23f-426b-ae5f-d3db06fa5919",
+                "text": "MFA new question -1 ?",
+                "hasAnswer": false,
+                "numAnswers": 0
+              },
+              {
+                "id": "173421",
+                "text": "What is your alphanumeric PIN?",
+                "hasAnswer": false,
+                "numAnswers": 3
+              }
+            ]
+    "400":
+      $ref: "../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"

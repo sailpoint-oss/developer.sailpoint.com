@@ -1,0 +1,54 @@
+get:
+  operationId: listApplications
+  tags:
+    - SaaS Management
+  summary: SaaS Management Applications
+  description: >-
+    This API returns a list of SaaS Management applications sorted by name that satisfy the given query parameters.
+
+    A token with ORG_ADMIN, SOURCE_ADMIN or SOURCE_SUBADMIN authority is required to call this API.
+  parameters:
+    - in: query
+      name: filters
+      schema:
+        type: string
+      description: >-
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+        Filtering is supported for the following fields and operators:
+
+
+        **id**: *eq, in*
+
+
+        **name**: *eq, co, sw*
+
+
+        **integrationType**: *eq, in*
+
+
+        **integrationState**: *eq, in*
+      example: id eq ""
+    - $ref: '../../v3/parameters/limit.yaml'
+    - $ref: '../../v3/parameters/offset.yaml'
+    - $ref: '../../v3/parameters/count.yaml'
+  responses:
+    '200':
+      description: List of SaaS Management applications
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../../beta/schemas/SaasManagementApplication.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

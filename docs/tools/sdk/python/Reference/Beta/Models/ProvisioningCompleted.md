@@ -16,14 +16,14 @@ tags: ['SDK', 'Software Development Kit', 'ProvisioningCompleted', 'BetaProvisio
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**tracking_number** | **str** | The reference number of the provisioning request. Useful for tracking status in the Account Activity search interface. | [required]
-**sources** | **str** | One or more sources that the provisioning transaction(s) were done against.  Sources are comma separated. | [required]
-**action** | **str** | Origin of where the provisioning request came from. | [optional] 
-**errors** | **[]str** | A list of any accumulated error messages that occurred during provisioning. | [optional] 
-**warnings** | **[]str** | A list of any accumulated warning messages that occurred during provisioning. | [optional] 
+**tracking_number** | **str** | Provisioning request's reference number. Useful for tracking status in the 'Account Activity' search interface. | [required]
+**sources** | **str** | Sources the provisioning transactions were performed on. Sources are comma separated. | [required]
+**action** | **str** | Origin of the provisioning request. | [optional] 
+**errors** | **[]str** | List of any accumulated error messages that occurred during provisioning. | [optional] 
+**warnings** | **[]str** | List of any accumulated warning messages that occurred during provisioning. | [optional] 
 **recipient** | [**ProvisioningCompletedRecipient**](provisioning-completed-recipient) |  | [required]
 **requester** | [**ProvisioningCompletedRequester**](provisioning-completed-requester) |  | [optional] 
-**account_requests** | [**[]ProvisioningCompletedAccountRequestsInner**](provisioning-completed-account-requests-inner) | A list of provisioning instructions to perform on an account-by-account basis. | [required]
+**account_requests** | [**[]ProvisioningCompletedAccountRequestsInner**](provisioning-completed-account-requests-inner) | List of provisioning instructions to perform on an account-by-account basis. | [required]
 }
 
 ## Example
@@ -55,7 +55,7 @@ account_requests=[
                             id = '4e4d982dddff4267ab12f0f1e72b5a6d', 
                             type = 'SOURCE', 
                             name = 'Corporate Active Directory', ), 
-                        account_id = 'CN=Chewy.Bacca,ou=hardcorefigter,ou=wookies,dc=starwars,dc=com', 
+                        account_id = 'CN=Rob.Robertson,ou=csm,ou=sales,dc=helpco,dc=com', 
                         account_operation = 'Modify', 
                         provisioning_result = SUCCESS, 
                         provisioning_target = 'Corp AD', 
@@ -63,8 +63,8 @@ account_requests=[
                         attribute_requests = [
                             sailpoint.beta.models.provisioning_completed_account_requests_inner_attribute_requests_inner.ProvisioningCompleted_accountRequests_inner_attributeRequests_inner(
                                 attribute_name = 'memberOf', 
-                                attribute_value = 'CN=jedi,DC=starwars,DC=com', 
-                                operation = Add, )
+                                attribute_value = 'CN=sales,DC=helpco,DC=com', 
+                                operation = 'Add', )
                             ], )
                     ]
 )

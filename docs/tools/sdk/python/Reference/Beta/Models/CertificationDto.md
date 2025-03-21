@@ -18,17 +18,17 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **campaign_ref** | [**CampaignReference**](campaign-reference) |  | [required]
 **phase** | [**CertificationPhase**](certification-phase) |  | [required]
-**due** | **datetime** | The due date of the certification. | [required]
-**signed** | **datetime** | The date the reviewer signed off on the certification. | [required]
+**due** | **datetime** | Date and time when the certification is due. | [required]
+**signed** | **datetime** | Date and time when the reviewer signed off on the certification. | [required]
 **reviewer** | [**Reviewer**](reviewer) |  | [required]
 **reassignment** | [**Reassignment**](reassignment) |  | [optional] 
-**has_errors** | **bool** | Indicates it the certification has any errors. | [required]
-**error_message** | **str** | A message indicating what the error is. | [optional] 
-**completed** | **bool** | Indicates if all certification decisions have been made. | [required]
-**decisions_made** | **int** | The number of approve/revoke/acknowledge decisions that have been made by the reviewer. | [required]
-**decisions_total** | **int** | The total number of approve/revoke/acknowledge decisions for the certification. | [required]
-**entities_completed** | **int** | The number of entities (identities, access profiles, roles, etc.) for which all decisions have been made and are complete. | [required]
-**entities_total** | **int** | The total number of entities (identities, access profiles, roles, etc.) in the certification, both complete and incomplete. | [required]
+**has_errors** | **bool** | Indicates whether the certification has any errors. | [required]
+**error_message** | **str** | Message indicating what the error is. | [optional] 
+**completed** | **bool** | Indicates whether all certification decisions have been made. | [required]
+**decisions_made** | **int** | Number of approve/revoke/acknowledge decisions the reviewer has made. | [required]
+**decisions_total** | **int** | Total number of approve/revoke/acknowledge decisions for the certification. | [required]
+**entities_completed** | **int** | Number of entities (identities, access profiles, roles, etc.) that are complete and all decisions have been made for. | [required]
+**entities_total** | **int** | Total number of entities (identities, access profiles, roles, etc.) in the certification, both complete and incomplete. | [required]
 }
 
 ## Example

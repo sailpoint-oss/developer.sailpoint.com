@@ -17,9 +17,9 @@ Identity who created the source.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** |  **Enum** [  'IDENTITY' ] | DTO type of identity who created the source. | [required]
-**id** | **str** | ID of identity who created the source. | [required]
-**name** | **str** | Display name of identity who created the source. | [required]
+**type** |  **Enum** [  'IDENTITY' ] | DTO type of the identity who created the source. | [required]
+**id** | **str** | ID of the identity who created the source. | [required]
+**name** | **str** | Name of the identity who created the source. | [required]
 }
 
 ## Example

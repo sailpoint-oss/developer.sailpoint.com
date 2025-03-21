@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'AccessRequestPreApproval', 'BetaAcces
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**access_request_id** | **str** | The unique ID of the access request. | [required]
-**requested_for** | [**[]AccessItemRequestedForDto**](access-item-requested-for-dto) | Identities access was requested for. | [required]
-**requested_items** | [**[]AccessRequestPreApprovalRequestedItemsInner**](access-request-pre-approval-requested-items-inner) | Details of the access items being requested. | [required]
-**requested_by** | [**AccessItemRequesterDto**](access-item-requester-dto) |  | [required]
+**access_request_id** | **str** | Access request's unique ID. | [required]
+**requested_for** | [**[]AccessItemRequestedForDto1**](access-item-requested-for-dto1) | Identities whom access was requested for. | [required]
+**requested_items** | [**[]AccessRequestPreApprovalRequestedItemsInner**](access-request-pre-approval-requested-items-inner) | Details about each requested access item. | [required]
+**requested_by** | [**AccessItemRequesterDto1**](access-item-requester-dto1) |  | [required]
 }
 
 ## Example
@@ -30,7 +30,7 @@ from sailpoint.beta.models.access_request_pre_approval import AccessRequestPreAp
 access_request_pre_approval = AccessRequestPreApproval(
 access_request_id='2c91808b6ef1d43e016efba0ce470904',
 requested_for=[
-                    sailpoint.beta.models.access_item_requested_for_dto.AccessItemRequestedForDto(
+                    sailpoint.beta.models.access_item_requested_for_dto_1.AccessItemRequestedForDto_1(
                         type = 'IDENTITY', 
                         id = '2c4180a46faadee4016fb4e018c20626', 
                         name = 'Robert Robinson', )
@@ -44,7 +44,7 @@ requested_items=[
                         operation = Add, 
                         comment = 'William needs this access to do his job.', )
                     ],
-requested_by=sailpoint.beta.models.access_item_requester_dto.AccessItemRequesterDto(
+requested_by=sailpoint.beta.models.access_item_requester_dto_1.AccessItemRequesterDto_1(
                     type = 'IDENTITY', 
                     id = '2c7180a46faadee4016fb4e018c20648', 
                     name = 'William Wilson', )

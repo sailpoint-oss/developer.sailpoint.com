@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'VAClusterStatusChangeEvent', 'BetaVAC
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**created** | **datetime** | The date and time the status change occurred. | [required]
-**type** |  **Enum** [  'SOURCE',    'CLUSTER' ] | The type of the object that initiated this event. | [required]
+**created** | **datetime** | Date and time when the status change occurred. | [required]
+**type** |  **Enum** [  'SOURCE',    'CLUSTER' ] | Type of the object that initiated the event. | [required]
 **application** | [**VAClusterStatusChangeEventApplication**](va-cluster-status-change-event-application) |  | [required]
 **health_check_result** | [**VAClusterStatusChangeEventHealthCheckResult**](va-cluster-status-change-event-health-check-result) |  | [required]
 **previous_health_check_result** | [**VAClusterStatusChangeEventPreviousHealthCheckResult**](va-cluster-status-change-event-previous-health-check-result) |  | [required]
@@ -38,11 +38,11 @@ application=sailpoint.beta.models.va_cluster_status_change_event_application.VAC
 health_check_result=sailpoint.beta.models.va_cluster_status_change_event_health_check_result.VAClusterStatusChangeEvent_healthCheckResult(
                     message = 'Test Connection failed with exception. Error message - java.lang Exception', 
                     result_type = 'SOURCE_STATE_ERROR_CLUSTER', 
-                    status = Succeeded, ),
+                    status = 'Succeeded', ),
 previous_health_check_result=sailpoint.beta.models.va_cluster_status_change_event_previous_health_check_result.VAClusterStatusChangeEvent_previousHealthCheckResult(
                     message = 'Test Connection failed with exception. Error message - java.lang Exception', 
                     result_type = 'SOURCE_STATE_ERROR_CLUSTER', 
-                    status = Failed, )
+                    status = 'Failed', )
 )
 
 ```

@@ -11,7 +11,7 @@ tags: ['SDK', 'Software Development Kit', 'IdentityAttributesChangedChangesInner
 
 # IdentityAttributesChangedChangesInnerOldValue
 
-The value of the identity attribute before it changed.
+Identity attribute's previous value before the change.
 
 ## Properties
 

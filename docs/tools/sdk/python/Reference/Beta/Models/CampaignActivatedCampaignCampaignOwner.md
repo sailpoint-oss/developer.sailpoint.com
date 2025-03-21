@@ -11,15 +11,15 @@ tags: ['SDK', 'Software Development Kit', 'CampaignActivatedCampaignCampaignOwne
 
 # CampaignActivatedCampaignCampaignOwner
 
-Details of the identity that owns the campaign.
+Details of the identity who owns the campaign.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** | The unique ID of the identity. | [required]
-**display_name** | **str** | The human friendly name of the identity. | [required]
-**email** | **str** | The primary email address of the identity. | [required]
+**id** | **str** | Identity's unique ID. | [required]
+**display_name** | **str** | Identity's name. | [required]
+**email** | **str** | Identity's primary email address. | [required]
 }
 
 ## Example
@@ -29,8 +29,8 @@ from sailpoint.beta.models.campaign_activated_campaign_campaign_owner import Cam
 
 campaign_activated_campaign_campaign_owner = CampaignActivatedCampaignCampaignOwner(
 id='37f080867702c1910177031320c40n27',
-display_name='John Snow',
-email='john.snow@example.com'
+display_name='Albert Albertson',
+email='albert.albertson@example.com'
 )
 
 ```

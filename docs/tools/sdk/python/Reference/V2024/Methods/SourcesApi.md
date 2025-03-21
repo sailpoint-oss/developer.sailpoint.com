@@ -1669,6 +1669,14 @@ with ApiClient(configuration) as api_client:
 ## get-source-schedules
 List Schedules on Source
 Use this API to list the schedules that exist on the specified source in Identity Security Cloud (ISC).
+:::info
+This endpoint uses a **cron expression** to schedule a task, following standard **cron job syntax**.
+
+For example, `0 0 12 1/1 * ? *` runs the task **daily at 12:00 PM**.
+
+**Days of the week are represented as 1-7 (Sunday-Saturday).**
+:::
+
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-source-schedules)
 

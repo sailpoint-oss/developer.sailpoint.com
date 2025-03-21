@@ -16,12 +16,12 @@ tags: ['SDK', 'Software Development Kit', 'AccessRequestDynamicApproverRequested
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** | The unique ID of the access item. | [required]
-**name** | **str** | Human friendly name of the access item. | [required]
-**description** | **str** | Extended description of the access item. | [optional] 
-**type** |  **Enum** [  'ACCESS_PROFILE',    'ROLE',    'ENTITLEMENT' ] | The type of access item being requested. | [required]
-**operation** |  **Enum** [  'Add',    'Remove' ] | Grant or revoke the access item | [required]
-**comment** | **str** | A comment from the requestor on why the access is needed. | [optional] 
+**id** | **str** | Access item's unique identifier. | [required]
+**name** | **str** | Access item's name. | [required]
+**description** | **str** | Access item's extended description. | [optional] 
+**type** |  **Enum** [  'ACCESS_PROFILE',    'ROLE',    'ENTITLEMENT' ] | Type of access item being requested. | [required]
+**operation** |  **Enum** [  'Add',    'Remove' ] | Action to perform on the requested access item. | [required]
+**comment** | **str** | Comment from the requester about why the access is necessary. | [optional] 
 }
 
 ## Example

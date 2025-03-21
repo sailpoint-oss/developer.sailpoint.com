@@ -11,15 +11,15 @@ tags: ['SDK', 'Software Development Kit', 'ProvisioningCompletedAccountRequestsI
 
 # ProvisioningCompletedAccountRequestsInnerSource
 
-Reference to the source being provisioned against.
+Source that ISC is provisioning access on.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** | ID of the object to which this reference applies | [required]
-**type** |  **Enum** [  'SOURCE' ] | The type of object that is referenced | [required]
-**name** | **str** | Human-readable display name of the object to which this reference applies | [required]
+**id** | **str** | Source ID. | [required]
+**type** |  **Enum** [  'SOURCE' ] | Source DTO type. | [required]
+**name** | **str** | Source name. | [required]
 }
 
 ## Example

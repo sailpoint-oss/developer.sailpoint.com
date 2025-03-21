@@ -11,15 +11,14 @@ tags: ['SDK', 'Software Development Kit', 'AccessItemApproverDto', 'BetaAccessIt
 
 # AccessItemApproverDto
 
-Identity who approved the access item request.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** |  **Enum** [  'IDENTITY' ] | DTO type of identity who approved the access item request. | [optional] 
-**id** | **str** | ID of identity who approved the access item request. | [optional] 
-**name** | **str** | Human-readable display name of identity who approved the access item request. | [optional] 
+**type** |  **Enum** [  'IDENTITY' ] | DTO type of the identity who approved the access item request. | [optional] 
+**id** | **str** | ID of the identity who approved the access item request. | [optional] 
+**name** | **str** | Name of the identity who approved the access item request. | [optional] 
 }
 
 ## Example

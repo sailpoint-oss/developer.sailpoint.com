@@ -12,7 +12,7 @@ tags: ['SDK', 'Software Development Kit', 'Approvals', 'V2024Approvals']
 # sailpoint.v2024.ApprovalsApi
   Use this API to implement approval functionality. With this functionality in place, you can get generic approvals and modify them. 
 
-The main advantages this API has vs [Access Request Approvals](https://developer.sailpoint.com/docs/api/beta/access-request-approvals) are that you can use it to get generic approvals individually or in batches and make changes to those approvals. 
+The main advantages this API has vs [Access Request Approvals](https://developer.sailpoint.com/docs/api/v2024/access-request-approvals) are that you can use it to get generic approvals individually or in batches and make changes to those approvals. 
  
 All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 

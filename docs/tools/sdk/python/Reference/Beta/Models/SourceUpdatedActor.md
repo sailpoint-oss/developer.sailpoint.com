@@ -17,9 +17,9 @@ Identity who updated the source.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** |  **Enum** [  'IDENTITY' ] | DTO type of identity who updated the source. | [required]
-**id** | **str** | ID of identity who updated the source. | [optional] 
-**name** | **str** | Display name of identity who updated the source. | [required]
+**type** |  **Enum** [  'IDENTITY' ] | DTO type of the identity who updated the source. | [required]
+**id** | **str** | ID of the identity who updated the source. | [required]
+**name** | **str** | Name of the identity who updated the source. | [required]
 }
 
 ## Example

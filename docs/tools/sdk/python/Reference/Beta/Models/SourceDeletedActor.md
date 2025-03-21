@@ -17,9 +17,9 @@ Identity who deleted the source.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** |  **Enum** [  'IDENTITY' ] | DTO type of identity who deleted the source. | [required]
-**id** | **str** | ID of identity who deleted the source. | [required]
-**name** | **str** | Display name of identity who deleted the source. | [required]
+**type** |  **Enum** [  'IDENTITY' ] | DTO type of the identity who deleted the source. | [required]
+**id** | **str** | ID of the identity who deleted the source. | [required]
+**name** | **str** | Name of the identity who deleted the source. | [required]
 }
 
 ## Example

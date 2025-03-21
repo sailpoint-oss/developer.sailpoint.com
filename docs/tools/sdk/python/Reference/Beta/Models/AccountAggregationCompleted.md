@@ -17,11 +17,11 @@ tags: ['SDK', 'Software Development Kit', 'AccountAggregationCompleted', 'BetaAc
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **source** | [**AccountAggregationCompletedSource**](account-aggregation-completed-source) |  | [required]
-**status** |  **Enum** [  'Success',    'Failed',    'Terminated' ] | The overall status of the aggregation. | [required]
-**started** | **datetime** | The date and time when the account aggregation started. | [required]
-**completed** | **datetime** | The date and time when the account aggregation finished. | [required]
-**errors** | **[]str** | A list of errors that occurred during the aggregation. | [required]
-**warnings** | **[]str** | A list of warnings that occurred during the aggregation. | [required]
+**status** |  **Enum** [  'Success',    'Failed',    'Terminated' ] | Aggregation's overall status. | [required]
+**started** | **datetime** | Date and time when the account aggregation started. | [required]
+**completed** | **datetime** | Date and time when the account aggregation finished. | [required]
+**errors** | **[]str** | List of errors that occurred during the aggregation. | [required]
+**warnings** | **[]str** | List of warnings that occurred during the aggregation. | [required]
 **stats** | [**AccountAggregationCompletedStats**](account-aggregation-completed-stats) |  | [required]
 }
 

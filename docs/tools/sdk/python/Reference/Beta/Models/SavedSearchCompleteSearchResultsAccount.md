@@ -11,15 +11,15 @@ tags: ['SDK', 'Software Development Kit', 'SavedSearchCompleteSearchResultsAccou
 
 # SavedSearchCompleteSearchResultsAccount
 
-A table of accounts that match the search criteria.
+Table of accounts matching the search criteria.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**count** | **str** | The number of rows in the table. | [required]
-**noun** | **str** | The type of object represented in the table. | [required]
-**preview** | **[]List[str]** | A sample of the data in the table. | [required]
+**count** | **str** | Number of rows in the table. | [required]
+**noun** | **str** | Type of object represented in the table. | [required]
+**preview** | **[]List[str]** | Sample of table data. | [required]
 }
 
 ## Example

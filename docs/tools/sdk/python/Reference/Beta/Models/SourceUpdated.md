@@ -16,11 +16,11 @@ tags: ['SDK', 'Software Development Kit', 'SourceUpdated', 'BetaSourceUpdated']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** | The unique ID of the source. | [required]
-**name** | **str** | The user friendly name of the source. | [required]
-**type** | **str** | The connection type of the source. | [required]
-**modified** | **datetime** | The date and time the source was modified. | [required]
-**connector** | **str** | The connector type used to connect to the source. | [required]
+**id** | **str** | Source's unique ID. | [required]
+**name** | **str** | Source name. | [required]
+**type** | **str** | Connection type. | [required]
+**modified** | **datetime** | Date and time when the source was modified. | [required]
+**connector** | **str** | Connector type used to connect to the source. | [required]
 **actor** | [**SourceUpdatedActor**](source-updated-actor) |  | [required]
 }
 
@@ -31,7 +31,7 @@ from sailpoint.beta.models.source_updated import SourceUpdated
 
 source_updated = SourceUpdated(
 id='2c9180866166b5b0016167c32ef31a66',
-name='Corporate Active Directory',
+name='Test source',
 type='DIRECT_CONNECT',
 modified='2021-03-29T22:01:50.474Z',
 connector='active-directory',

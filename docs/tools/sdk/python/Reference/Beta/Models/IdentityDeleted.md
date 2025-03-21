@@ -17,7 +17,7 @@ tags: ['SDK', 'Software Development Kit', 'IdentityDeleted', 'BetaIdentityDelete
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **identity** | [**IdentityDeletedIdentity**](identity-deleted-identity) |  | [required]
-**attributes** | **map[string]object** | The attributes assigned to the identity. Attributes are determined by the identity profile. | [required]
+**attributes** | **map[string]object** | Identity attributes. The attributes are determined by the identity profile. | [required]
 }
 
 ## Example

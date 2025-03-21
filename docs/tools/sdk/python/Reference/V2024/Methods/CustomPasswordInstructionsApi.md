@@ -14,9 +14,9 @@ tags: ['SDK', 'Software Development Kit', 'Custom_Password_Instructions', 'V2024
 With this functionality in place, administrators can create custom password instructions to help users reset their passwords, change them, unlock their accounts, or recover their usernames.
 This allows administrators to emphasize password policies or provide organization-specific instructions.
 
-Administrators must first use [Update Password Org Config](https://developer.sailpoint.com/docs/api/beta/put-password-org-config/) to set &#x60;customInstructionsEnabled&#x60; to &#x60;true&#x60;.
+Administrators must first use [Update Password Org Config](https://developer.sailpoint.com/docs/api/v2024/put-password-org-config/) to set &#x60;customInstructionsEnabled&#x60; to &#x60;true&#x60;.
 
-Once they have enabled custom instructions, they can use [Create Custom Password Instructions](https://developer.sailpoint.com/docs/api/beta/create-custom-password-instructions/) to create custom page content for the specific pageId they select.
+Once they have enabled custom instructions, they can use [Create Custom Password Instructions](https://developer.sailpoint.com/docs/api/v2024/create-custom-password-instructions/) to create custom page content for the specific pageId they select.
 
 For example, an administrator can use the pageId forget-username:user-email to set the custom text for the case when users forget their usernames and must enter their emails.
 

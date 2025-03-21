@@ -16,11 +16,11 @@ tags: ['SDK', 'Software Development Kit', 'SourceDeleted', 'BetaSourceDeleted']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** | The unique ID of the source. | [required]
-**name** | **str** | Human friendly name of the source. | [required]
-**type** | **str** | The connection type. | [required]
-**deleted** | **datetime** | The date and time the source was deleted. | [required]
-**connector** | **str** | The connector type used to connect to the source. | [required]
+**id** | **str** | Source's unique ID. | [required]
+**name** | **str** | Source name. | [required]
+**type** | **str** | Connection type. | [required]
+**deleted** | **datetime** | Date and time when the source was deleted. | [required]
+**connector** | **str** | Connector type used to connect to the source. | [required]
 **actor** | [**SourceDeletedActor**](source-deleted-actor) |  | [required]
 }
 

@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type** |  **Enum** [  'IDENTITY' ] | Provisioning recipient DTO type. | [required]
 **id** | **str** | Provisioning recipient's identity ID. | [required]
-**name** | **str** | Provisioning recipient's display name. | [required]
+**name** | **str** | Provisioning recipient's name. | [required]
 }
 
 ## Example

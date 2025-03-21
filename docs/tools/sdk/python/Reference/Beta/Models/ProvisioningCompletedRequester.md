@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type** |  **Enum** [  'IDENTITY' ] | Provisioning requester's DTO type. | [required]
 **id** | **str** | Provisioning requester's identity ID. | [required]
-**name** | **str** | Provisioning owner's human-readable display name. | [required]
+**name** | **str** | Provisioning requester's name. | [required]
 }
 
 ## Example

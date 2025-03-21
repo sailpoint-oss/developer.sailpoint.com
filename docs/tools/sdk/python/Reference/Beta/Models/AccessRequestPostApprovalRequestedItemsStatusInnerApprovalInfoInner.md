@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'AccessRequestPostApprovalRequestedIte
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**approval_comment** | **str** | A comment left by the approver. | [optional] 
-**approval_decision** |  **Enum** [  'APPROVED',    'DENIED' ] | The final decision of the approver. | [required]
-**approver_name** | **str** | The name of the approver | [required]
-**approver** | [**AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApprover**](access-request-post-approval-requested-items-status-inner-approval-info-inner-approver) |  | [required]
+**approval_comment** | **str** | Approver's comment. | [optional] 
+**approval_decision** |  **Enum** [  'APPROVED',    'DENIED' ] | Approver's final decision. | [required]
+**approver_name** | **str** | Approver's name. | [required]
+**approver** | [**AccessItemApproverDto**](access-item-approver-dto) | Approver's identity. | [required]
 }
 
 ## Example
@@ -28,11 +28,13 @@ Name | Type | Description | Notes
 from sailpoint.beta.models.access_request_post_approval_requested_items_status_inner_approval_info_inner import AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInner
 
 access_request_post_approval_requested_items_status_inner_approval_info_inner = AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInner(
-approval_comment='This access looks good.  Approved.',
+approval_comment='This access looks good. Approved.',
 approval_decision=APPROVED,
 approver_name='Stephen.Austin',
-approver=sailpoint.beta.models.access_request_post_approval_requested_items_status_inner_approval_info_inner_approver.AccessRequestPostApproval_requestedItemsStatus_inner_approvalInfo_inner_approver(
-                    type = IDENTITY, )
+approver=sailpoint.beta.models.access_item_approver_dto.AccessItemApproverDto(
+                    type = 'IDENTITY', 
+                    id = '2c3780a46faadee4016fb4e018c20652', 
+                    name = 'Allen Albertson', )
 )
 
 ```

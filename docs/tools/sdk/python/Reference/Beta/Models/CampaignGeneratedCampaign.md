@@ -17,15 +17,15 @@ Details about the campaign that was generated.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** | The unique ID of the campaign. | [required]
-**name** | **str** | Human friendly name of the campaign. | [required]
-**description** | **str** | Extended description of the campaign. | [required]
-**created** | **datetime** | The date and time the campaign was created. | [required]
-**modified** | **str** | The date and time the campaign was last modified. | [optional] 
-**deadline** | **str** | The date and time when the campaign must be finished by. | [optional] 
-**type** |  **Enum** [  'MANAGER',    'SOURCE_OWNER',    'SEARCH',    'ROLE_COMPOSITION' ] | The type of campaign that was generated. | [required]
+**id** | **str** | Campaign's unique ID. | [required]
+**name** | **str** | Campaign's name. | [required]
+**description** | **str** | Campaign's extended description. | [required]
+**created** | **datetime** | Date and time when the campaign was created. | [required]
+**modified** | **str** | Date and time when the campaign was last modified. | [optional] 
+**deadline** | **str** | Date and time when the campaign must be finished. | [optional] 
+**type** |  **Enum** [  'MANAGER',    'SOURCE_OWNER',    'SEARCH',    'ROLE_COMPOSITION' ] | Campaign's type. | [required]
 **campaign_owner** | [**CampaignGeneratedCampaignCampaignOwner**](campaign-generated-campaign-campaign-owner) |  | [required]
-**status** |  **Enum** [  'STAGED',    'ACTIVATING',    'ACTIVE' ] | The current status of the campaign. | [required]
+**status** |  **Enum** [  'STAGED',    'ACTIVATING',    'ACTIVE' ] | Campaign's current status. | [required]
 }
 
 ## Example
@@ -43,8 +43,8 @@ deadline='2021-02-18T03:04:45.815Z',
 type=MANAGER,
 campaign_owner=sailpoint.beta.models.campaign_generated_campaign_campaign_owner.CampaignGenerated_campaign_campaignOwner(
                     id = '37f080867702c1910177031320c40n27', 
-                    display_name = 'John Snow', 
-                    email = 'john.snow@example.com', ),
+                    display_name = 'Albert Albertson', 
+                    email = 'albert.albertson@example.com', ),
 status=STAGED
 )
 

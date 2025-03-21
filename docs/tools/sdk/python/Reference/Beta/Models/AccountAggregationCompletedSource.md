@@ -11,15 +11,15 @@ tags: ['SDK', 'Software Development Kit', 'AccountAggregationCompletedSource', '
 
 # AccountAggregationCompletedSource
 
-The source the accounts are being aggregated from.
+Source ISC is aggregating accounts from.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** |  **Enum** [  'SOURCE' ] | The DTO type of the source the accounts are being aggregated from. | [required]
-**id** | **str** | The ID of the source the accounts are being aggregated from. | [required]
-**name** | **str** | Display name of the source the accounts are being aggregated from. | [required]
+**type** |  **Enum** [  'SOURCE' ] | Source's DTO type. | [required]
+**id** | **str** | Source's unique ID. | [required]
+**name** | **str** | Source's name. | [required]
 }
 
 ## Example

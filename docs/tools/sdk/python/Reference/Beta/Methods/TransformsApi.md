@@ -10,7 +10,12 @@ tags: ['SDK', 'Software Development Kit', 'Transforms', 'BetaTransforms']
 ---
 
 # sailpoint.beta.TransformsApi
-  Operations for creating, managing, and deleting transforms. 
+  The purpose of this API is to expose functionality for the manipulation of Transform objects.
+Transforms are a form of configurable objects which define an easy way to manipulate attribute data without having
+to write code. 
+
+Refer to [Transforms](https://developer.sailpoint.com/docs/extensibility/transforms/) for more information about transforms.
+ 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description

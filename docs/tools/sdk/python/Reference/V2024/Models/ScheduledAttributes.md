@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **time_zone** | **str** | Time zone identifier | [optional] 
 **weekly_days** | **[]str** | Scheduled days of the week for execution | [optional] 
 **weekly_times** | **[]str** | Scheduled execution times | [optional] 
+**yearly_times** | **[]str** | Scheduled execution times | [optional] 
 }
 
 ## Example
@@ -34,7 +35,8 @@ cron_string='0 9 * * 1',
 frequency='daily',
 time_zone='America/Chicago',
 weekly_days=Monday,
-weekly_times=Monday
+weekly_times=Monday,
+yearly_times=1969-12-31T09:00:00.000Z
 )
 
 ```

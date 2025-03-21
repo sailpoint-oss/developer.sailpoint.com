@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type** |  **Enum** [  'IDENTITY' ] | DTO type of identity whose attributes changed. | [required]
 **id** | **str** | ID of identity whose attributes changed. | [required]
-**name** | **str** | Display name of identity whose attributes changed. | [required]
+**name** | **str** | Name of identity whose attributes changed. | [required]
 }
 
 ## Example

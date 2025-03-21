@@ -42,7 +42,8 @@ Method | HTTP request | Description
 
 ## create-search-attribute-config
 Create Extended Search Attributes
-Create and configure extended search attributes. This API accepts an attribute name, an attribute display name and a list of name/value pair associates of application IDs to attribute names. It will then validate the inputs and configure/create and attribute promotion configuration in the Link ObjectConfig.
+Create and configure extended search attributes. This API accepts an attribute name, an attribute display name and a list of name/value pair associates of application IDs to attribute names. It will then validate the inputs and configure/create the attribute promotion configuration in the Link ObjectConfig.
+>**Note: Give searchable attributes unique names.  Do not give them the same names used for account attributes or source attributes.  Also, do not give them the same names present in account schema for a current or future source, regardless of whether that source is included in the searchable attributes' `applicationAttributes`.**
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/create-search-attribute-config)
 
@@ -166,12 +167,16 @@ with ApiClient(configuration) as api_client:
 
 ## get-search-attribute-config
 List Extended Search Attributes
-Get a list of attribute/application associates currently configured in Identity Security Cloud (ISC).
+Get a list of attribute/application attributes currently configured in Identity Security Cloud (ISC).
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-search-attribute-config)
 
 ### Parameters 
-This endpoint does not need any parameter. 
+
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+  Query | limit | **int** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | offset | **int** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
 [**List[SearchAttributeConfig]**](../models/search-attribute-config)
@@ -202,13 +207,15 @@ configuration = Configuration()
 
 
 with ApiClient(configuration) as api_client:
+    limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+    offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 
     try:
         # List Extended Search Attributes
         
         results = SearchAttributeConfigurationApi(api_client).get_search_attribute_config()
         # Below is a request that includes all optional parameters
-        # results = SearchAttributeConfigurationApi(api_client).get_search_attribute_config()
+        # results = SearchAttributeConfigurationApi(api_client).get_search_attribute_config(limit, offset)
         print("The response of SearchAttributeConfigurationApi->get_search_attribute_config:\n")
         pprint(results)
     except Exception as e:

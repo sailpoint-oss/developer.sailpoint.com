@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'ProvisioningCompletedAccountRequestsI
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**attribute_name** | **str** | The name of the attribute being provisioned. | [required]
-**attribute_value** | **str** | The value of the attribute being provisioned. | [optional] 
+**attribute_name** | **str** | Name of the attribute being provisioned. | [required]
+**attribute_value** | **str** | Value of the attribute being provisioned. | [optional] 
 **operation** |  **Enum** [  'Add',    'Set',    'Remove' ] | The operation to handle the attribute. | [required]
 }
 
@@ -28,8 +28,8 @@ from sailpoint.beta.models.provisioning_completed_account_requests_inner_attribu
 
 provisioning_completed_account_requests_inner_attribute_requests_inner = ProvisioningCompletedAccountRequestsInnerAttributeRequestsInner(
 attribute_name='memberOf',
-attribute_value='CN=jedi,DC=starwars,DC=com',
-operation=Add
+attribute_value='CN=sales,DC=helpco,DC=com',
+operation='Add'
 )
 
 ```

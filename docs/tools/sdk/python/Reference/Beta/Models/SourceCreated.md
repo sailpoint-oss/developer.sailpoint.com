@@ -16,11 +16,11 @@ tags: ['SDK', 'Software Development Kit', 'SourceCreated', 'BetaSourceCreated']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** | The unique ID of the source. | [required]
-**name** | **str** | Human friendly name of the source. | [required]
-**type** | **str** | The connection type. | [required]
-**created** | **datetime** | The date and time the source was created. | [required]
-**connector** | **str** | The connector type used to connect to the source. | [required]
+**id** | **str** | Source's unique ID. | [required]
+**name** | **str** | Source name. | [required]
+**type** | **str** | Connection type. | [required]
+**created** | **datetime** | Date and time when the source was created. | [required]
+**connector** | **str** | Connector type used to connect to the source. | [required]
 **actor** | [**SourceCreatedActor**](source-created-actor) |  | [required]
 }
 

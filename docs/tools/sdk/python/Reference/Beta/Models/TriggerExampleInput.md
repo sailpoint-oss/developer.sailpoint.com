@@ -17,52 +17,52 @@ An example of the JSON payload that will be sent by the trigger to the subscribe
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**access_request_id** | **str** | The unique ID of the access request. | [required]
-**requested_for** | [**[]AccessItemRequestedForDto**](access-item-requested-for-dto) | Identities access was requested for. | [required]
-**requested_items** | [**[]AccessRequestPreApprovalRequestedItemsInner**](access-request-pre-approval-requested-items-inner) | Details of the access items being requested. | [required]
-**requested_by** | [**AccessItemRequesterDto**](access-item-requester-dto) |  | [required]
-**requested_items_status** | [**[]AccessRequestPostApprovalRequestedItemsStatusInner**](access-request-post-approval-requested-items-status-inner) | Details on the outcome of each access item. | [required]
+**access_request_id** | **str** | Access request's unique ID. | [required]
+**requested_for** | [**[]AccessItemRequestedForDto1**](access-item-requested-for-dto1) | Identities whom access was requested for. | [required]
+**requested_items** | [**[]AccessRequestPreApprovalRequestedItemsInner**](access-request-pre-approval-requested-items-inner) | Details about each requested access item. | [required]
+**requested_by** | [**AccessItemRequesterDto1**](access-item-requester-dto1) |  | [required]
+**requested_items_status** | [**[]AccessRequestPostApprovalRequestedItemsStatusInner**](access-request-post-approval-requested-items-status-inner) | Details about the outcome of each requested access item. | [required]
 **source** | [**AccountUncorrelatedSource**](account-uncorrelated-source) |  | [required]
 **status** |  **Enum** [  'Success',    'Failed',    'Terminated' ] | The overall status of the collection. | [required]
 **started** | **datetime** | The date and time when the account collection started. | [required]
 **completed** | **datetime** | The date and time when the account collection finished. | [required]
-**errors** | **[]str** | A list of any accumulated error messages that occurred during provisioning. | [required]
-**warnings** | **[]str** | A list of any accumulated warning messages that occurred during provisioning. | [required]
+**errors** | **[]str** | List of any accumulated error messages that occurred during provisioning. | [required]
+**warnings** | **[]str** | List of any accumulated warning messages that occurred during provisioning. | [required]
 **stats** | [**AccountsCollectedForAggregationStats**](accounts-collected-for-aggregation-stats) |  | [required]
 **identity** | [**IdentityDeletedIdentity**](identity-deleted-identity) |  | [required]
 **account** | [**AccountUncorrelatedAccount**](account-uncorrelated-account) |  | [required]
-**changes** | [**[]IdentityAttributesChangedChangesInner**](identity-attributes-changed-changes-inner) | A list of one or more identity attributes that changed on the identity. | [required]
-**attributes** | **map[string]object** | The attributes of the account. The contents of attributes depends on the account schema for the source. | [required]
+**changes** | [**[]IdentityAttributesChangedChangesInner**](identity-attributes-changed-changes-inner) | List of identity's attributes that changed. | [required]
+**attributes** | **map[string]object** | Account attributes. The attributes' contents depend on the source's account schema. | [required]
 **entitlement_count** | **int** | The number of entitlements associated with this account. | [optional] 
 **campaign** | [**CampaignGeneratedCampaign**](campaign-generated-campaign) |  | [required]
 **certification** | [**CertificationSignedOffCertification**](certification-signed-off-certification) |  | [required]
-**tracking_number** | **str** | The reference number of the provisioning request. Useful for tracking status in the Account Activity search interface. | [required]
-**sources** | **str** | One or more sources that the provisioning transaction(s) were done against.  Sources are comma separated. | [required]
-**action** | **str** | Origin of where the provisioning request came from. | [optional] 
+**tracking_number** | **str** | Provisioning request's reference number. Useful for tracking status in the 'Account Activity' search interface. | [required]
+**sources** | **str** | Sources the provisioning transactions were performed on. Sources are comma separated. | [required]
+**action** | **str** | Origin of the provisioning request. | [optional] 
 **recipient** | [**ProvisioningCompletedRecipient**](provisioning-completed-recipient) |  | [required]
 **requester** | [**ProvisioningCompletedRequester**](provisioning-completed-requester) |  | [optional] 
-**account_requests** | [**[]ProvisioningCompletedAccountRequestsInner**](provisioning-completed-account-requests-inner) | A list of provisioning instructions to perform on an account-by-account basis. | [required]
-**file_name** | **str** | A name for the report file. | [required]
-**owner_email** | **str** | The email address of the identity that owns the saved search. | [required]
-**owner_name** | **str** | The name of the identity that owns the saved search. | [required]
-**query** | **str** | The search query that was used to generate the report. | [required]
-**search_name** | **str** | The name of the saved search. | [required]
+**account_requests** | [**[]ProvisioningCompletedAccountRequestsInner**](provisioning-completed-account-requests-inner) | List of provisioning instructions to perform on an account-by-account basis. | [required]
+**file_name** | **str** | Report file name. | [required]
+**owner_email** | **str** | Email address of the identity who owns the saved search. | [required]
+**owner_name** | **str** | Name of the identity who owns the saved search. | [required]
+**query** | **str** | Search query used to generate the report. | [required]
+**search_name** | **str** | Saved search name. | [required]
 **search_results** | [**SavedSearchCompleteSearchResults**](saved-search-complete-search-results) |  | [required]
 **signed_s3_url** | **str** | The Amazon S3 URL to download the report from. | [required]
-**uuid** | **str** | Source unique identifier for the identity. UUID is generated by the source system. | [optional] 
-**id** | **str** | The unique ID of the source. | [required]
-**native_identifier** | **str** | Unique ID of the account on the source. | [required]
-**source_id** | **str** | The ID of the source. | [required]
-**source_name** | **str** | The name of the source. | [required]
-**identity_id** | **str** | The ID of the identity that is correlated with this account. | [required]
-**identity_name** | **str** | The name of the identity that is correlated with this account. | [required]
-**name** | **str** | The user friendly name of the source. | [required]
-**type** | **str** | The connection type of the source. | [required]
-**created** | **datetime** | The date and time the status change occurred. | [required]
-**connector** | **str** | The connector type used to connect to the source. | [required]
+**uuid** | **str** | Identity's universal unique identifier (UUID) on the source. The source system generates the UUID. | [required]
+**id** | **str** | Source's unique ID. | [required]
+**native_identifier** | **str** | Account's unique ID on the source. | [required]
+**source_id** | **str** | Source ID. | [required]
+**source_name** | **str** | Source name. | [required]
+**identity_id** | **str** | ID of the identity correlated with the account. | [required]
+**identity_name** | **str** | Name of the identity correlated with the account. | [required]
+**name** | **str** | Source name. | [required]
+**type** | **str** | Connection type. | [required]
+**created** | **datetime** | Date and time when the status change occurred. | [required]
+**connector** | **str** | Connector type used to connect to the source. | [required]
 **actor** | [**SourceUpdatedActor**](source-updated-actor) |  | [required]
-**deleted** | **datetime** | The date and time the source was deleted. | [required]
-**modified** | **datetime** | The date and time the source was modified. | [required]
+**deleted** | **datetime** | Date and time when the source was deleted. | [required]
+**modified** | **datetime** | Date and time when the source was modified. | [required]
 **application** | [**VAClusterStatusChangeEventApplication**](va-cluster-status-change-event-application) |  | [required]
 **health_check_result** | [**VAClusterStatusChangeEventHealthCheckResult**](va-cluster-status-change-event-health-check-result) |  | [required]
 **previous_health_check_result** | [**VAClusterStatusChangeEventPreviousHealthCheckResult**](va-cluster-status-change-event-previous-health-check-result) |  | [required]
@@ -76,7 +76,7 @@ from sailpoint.beta.models.trigger_example_input import TriggerExampleInput
 trigger_example_input = TriggerExampleInput(
 access_request_id='2c91808b6ef1d43e016efba0ce470904',
 requested_for=[
-                    sailpoint.beta.models.access_item_requested_for_dto.AccessItemRequestedForDto(
+                    sailpoint.beta.models.access_item_requested_for_dto_1.AccessItemRequestedForDto_1(
                         type = 'IDENTITY', 
                         id = '2c4180a46faadee4016fb4e018c20626', 
                         name = 'Robert Robinson', )
@@ -90,7 +90,7 @@ requested_items=[
                         operation = Add, 
                         comment = 'William needs this access to do his job.', )
                     ],
-requested_by=sailpoint.beta.models.access_item_requester_dto.AccessItemRequesterDto(
+requested_by=sailpoint.beta.models.access_item_requester_dto_1.AccessItemRequesterDto_1(
                     type = 'IDENTITY', 
                     id = '2c7180a46faadee4016fb4e018c20648', 
                     name = 'William Wilson', ),
@@ -105,11 +105,10 @@ requested_items_status=[
                         client_metadata = {applicationName=My application}, 
                         approval_info = [
                             sailpoint.beta.models.access_request_post_approval_requested_items_status_inner_approval_info_inner.AccessRequestPostApproval_requestedItemsStatus_inner_approvalInfo_inner(
-                                approval_comment = 'This access looks good.  Approved.', 
+                                approval_comment = 'This access looks good. Approved.', 
                                 approval_decision = APPROVED, 
                                 approver_name = 'Stephen.Austin', 
-                                approver = sailpoint.beta.models.access_request_post_approval_requested_items_status_inner_approval_info_inner_approver.AccessRequestPostApproval_requestedItemsStatus_inner_approvalInfo_inner_approver(
-                                    type = IDENTITY, ), )
+                                approver = null, )
                             ], )
                     ],
 source=sailpoint.beta.models.account_uncorrelated_source.AccountUncorrelated_source(
@@ -159,8 +158,8 @@ campaign=sailpoint.beta.models.campaign_generated_campaign.CampaignGenerated_cam
                     type = MANAGER, 
                     campaign_owner = sailpoint.beta.models.campaign_generated_campaign_campaign_owner.CampaignGenerated_campaign_campaignOwner(
                         id = '37f080867702c1910177031320c40n27', 
-                        display_name = 'John Snow', 
-                        email = 'john.snow@example.com', ), 
+                        display_name = 'Albert Albertson', 
+                        email = 'albert.albertson@example.com', ), 
                     status = STAGED, ),
 certification=sailpoint.beta.models.certification_signed_off_certification.CertificationSignedOff_certification(
                     id = '2c91808576f886190176f88caf0d0067', 
@@ -184,7 +183,7 @@ account_requests=[
                             id = '4e4d982dddff4267ab12f0f1e72b5a6d', 
                             type = 'SOURCE', 
                             name = 'Corporate Active Directory', ), 
-                        account_id = 'CN=Chewy.Bacca,ou=hardcorefigter,ou=wookies,dc=starwars,dc=com', 
+                        account_id = 'CN=Rob.Robertson,ou=csm,ou=sales,dc=helpco,dc=com', 
                         account_operation = 'Modify', 
                         provisioning_result = SUCCESS, 
                         provisioning_target = 'Corp AD', 
@@ -192,8 +191,8 @@ account_requests=[
                         attribute_requests = [
                             sailpoint.beta.models.provisioning_completed_account_requests_inner_attribute_requests_inner.ProvisioningCompleted_accountRequests_inner_attributeRequests_inner(
                                 attribute_name = 'memberOf', 
-                                attribute_value = 'CN=jedi,DC=starwars,DC=com', 
-                                operation = Add, )
+                                attribute_value = 'CN=sales,DC=helpco,DC=com', 
+                                operation = 'Add', )
                             ], )
                     ],
 file_name='Modified.zip',
@@ -228,7 +227,7 @@ source_id='2c918082814e693601816e09471b29b6',
 source_name='Active Directory',
 identity_id='ee769173319b41d19ccec6c235423237b',
 identity_name='john.doe',
-name='Corporate Active Directory',
+name='Test source',
 type='DIRECT_CONNECT',
 created='2020-06-29T22:01:50.474Z',
 connector='active-directory',
@@ -245,11 +244,11 @@ application=sailpoint.beta.models.va_cluster_status_change_event_application.VAC
 health_check_result=sailpoint.beta.models.va_cluster_status_change_event_health_check_result.VAClusterStatusChangeEvent_healthCheckResult(
                     message = 'Test Connection failed with exception. Error message - java.lang Exception', 
                     result_type = 'SOURCE_STATE_ERROR_CLUSTER', 
-                    status = Succeeded, ),
+                    status = 'Succeeded', ),
 previous_health_check_result=sailpoint.beta.models.va_cluster_status_change_event_previous_health_check_result.VAClusterStatusChangeEvent_previousHealthCheckResult(
                     message = 'Test Connection failed with exception. Error message - java.lang Exception', 
                     result_type = 'SOURCE_STATE_ERROR_CLUSTER', 
-                    status = Failed, )
+                    status = 'Failed', )
 )
 
 ```

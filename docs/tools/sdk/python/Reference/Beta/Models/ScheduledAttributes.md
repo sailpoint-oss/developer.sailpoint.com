@@ -19,9 +19,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **frequency** |  **Enum** [  'daily',    'weekly',    'monthly',    'yearly',    'cronSchedule' ] | Frequency of execution | [required]
 **time_zone** | **str** | Time zone identifier | [optional] 
-**cron_string** | **str** |  | [optional] 
+**cron_string** | **str** | A valid CRON expression | [optional] 
 **weekly_days** | **[]str** | Scheduled days of the week for execution | [optional] 
 **weekly_times** | **[]str** | Scheduled execution times | [optional] 
+**yearly_times** | **[]str** | Scheduled execution times | [optional] 
 }
 
 ## Example
@@ -34,7 +35,8 @@ frequency='daily',
 time_zone='America/Chicago',
 cron_string='0 9 * * 1',
 weekly_days=Monday,
-weekly_times=Monday
+weekly_times=Monday,
+yearly_times=1969-12-31T09:00:00.000Z
 )
 
 ```

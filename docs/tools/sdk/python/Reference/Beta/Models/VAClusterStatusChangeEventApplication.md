@@ -11,15 +11,15 @@ tags: ['SDK', 'Software Development Kit', 'VAClusterStatusChangeEventApplication
 
 # VAClusterStatusChangeEventApplication
 
-Details about the `CLUSTER` or `SOURCE` that initiated this event.
+Details about the `CLUSTER` or `SOURCE` that initiated the event.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** | The GUID of the application | [required]
-**name** | **str** | The name of the application | [required]
-**attributes** | **map[string]object** | Custom map of attributes for a source.  This will only be populated if type is `SOURCE` and the source has a proxy. | [required]
+**id** | **str** | Application's globally unique identifier (GUID). | [required]
+**name** | **str** | Application name. | [required]
+**attributes** | **map[string]object** | Custom map of attributes for a source. Attributes only populate if the type is `SOURCE` and the source has a proxy. | [required]
 }
 
 ## Example

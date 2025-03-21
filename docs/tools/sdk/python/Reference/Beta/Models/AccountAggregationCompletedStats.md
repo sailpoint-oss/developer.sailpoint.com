@@ -17,11 +17,11 @@ Overall statistics about the account aggregation.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**scanned** | **int** | The number of accounts which were scanned / iterated over. | [required]
-**unchanged** | **int** | The number of accounts which existed before, but had no changes. | [required]
-**changed** | **int** | The number of accounts which existed before, but had changes. | [required]
-**added** | **int** | The number of accounts which are new - have not existed before. | [required]
-**removed** | **int** | The number accounts which existed before, but no longer exist (thus getting removed). | [required]
+**scanned** | **int** | Number of accounts scanned/iterated over. | [required]
+**unchanged** | **int** | Number of accounts that existed before but had no changes. | [required]
+**changed** | **int** | Number of accounts that existed before but had changes. | [required]
+**added** | **int** | Number of accounts that are new and didn't previously exist. | [required]
+**removed** | **int** | Number accounts that existed before but were removed and no longer exist. | [required]
 }
 
 ## Example

@@ -17,9 +17,9 @@ Created identity.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** |  **Enum** [  'IDENTITY' ] | Created identity's DTO type. | [required]
-**id** | **str** | Created identity ID. | [required]
-**name** | **str** | Created identity's display name. | [required]
+**type** |  **Enum** [  'IDENTITY' ] | Identity's DTO type. | [required]
+**id** | **str** | Identity's unique ID. | [required]
+**name** | **str** | Identity's name. | [required]
 }
 
 ## Example

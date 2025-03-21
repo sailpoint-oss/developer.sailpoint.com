@@ -11,16 +11,16 @@ tags: ['SDK', 'Software Development Kit', 'Reviewer', 'BetaReviewer']
 
 # Reviewer
 
-Details of the reviewer for certification.
+Details of the reviewer for a certification.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** |  **Enum** [  'IDENTITY',    'GOVERNANCE_GROUP' ] | The reviewer's DTO type. | [required]
-**id** | **str** | The reviewer's ID. | [required]
-**name** | **str** | The reviewer's display name. | [required]
-**email** | **str** | The reviewing identity's email. Only applicable to `IDENTITY`. | [optional] 
+**type** |  **Enum** [  'IDENTITY',    'GOVERNANCE_GROUP' ] | Reviewer's DTO type. | [required]
+**id** | **str** | Reviewer's ID. | [required]
+**name** | **str** | Reviewer's display name. | [required]
+**email** | **str** | Reviewing identity's email. This is only applicable to reviewers of the `IDENTITY` type. | [optional] 
 }
 
 ## Example

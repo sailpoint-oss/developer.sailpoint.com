@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type** |  **Enum** [  'IDENTITY' ] | Deleted identity's DTO type. | [required]
 **id** | **str** | Deleted identity ID. | [required]
-**name** | **str** | Deleted identity's display name. | [required]
+**name** | **str** | Deleted identity's name. | [required]
 }
 
 ## Example

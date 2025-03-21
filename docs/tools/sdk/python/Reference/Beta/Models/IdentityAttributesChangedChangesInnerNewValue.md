@@ -11,7 +11,7 @@ tags: ['SDK', 'Software Development Kit', 'IdentityAttributesChangedChangesInner
 
 # IdentityAttributesChangedChangesInnerNewValue
 
-The value of the identity attribute after it changed.
+Identity attribute's new value after the change.
 
 ## Properties
 

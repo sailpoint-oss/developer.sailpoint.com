@@ -16,11 +16,11 @@ tags: ['SDK', 'Software Development Kit', 'SavedSearchComplete', 'BetaSavedSearc
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**file_name** | **str** | A name for the report file. | [required]
-**owner_email** | **str** | The email address of the identity that owns the saved search. | [required]
-**owner_name** | **str** | The name of the identity that owns the saved search. | [required]
-**query** | **str** | The search query that was used to generate the report. | [required]
-**search_name** | **str** | The name of the saved search. | [required]
+**file_name** | **str** | Report file name. | [required]
+**owner_email** | **str** | Email address of the identity who owns the saved search. | [required]
+**owner_name** | **str** | Name of the identity who owns the saved search. | [required]
+**query** | **str** | Search query used to generate the report. | [required]
+**search_name** | **str** | Saved search name. | [required]
 **search_results** | [**SavedSearchCompleteSearchResults**](saved-search-complete-search-results) |  | [required]
 **signed_s3_url** | **str** | The Amazon S3 URL to download the report from. | [required]
 }

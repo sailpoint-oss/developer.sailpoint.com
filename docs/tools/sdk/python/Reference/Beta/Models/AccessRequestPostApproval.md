@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'AccessRequestPostApproval', 'BetaAcce
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**access_request_id** | **str** | The unique ID of the access request. | [required]
-**requested_for** | [**[]AccessItemRequestedForDto**](access-item-requested-for-dto) | Identities access was requested for. | [required]
-**requested_items_status** | [**[]AccessRequestPostApprovalRequestedItemsStatusInner**](access-request-post-approval-requested-items-status-inner) | Details on the outcome of each access item. | [required]
-**requested_by** | [**AccessItemRequesterDto**](access-item-requester-dto) |  | [required]
+**access_request_id** | **str** | Access request's unique ID. | [required]
+**requested_for** | [**[]AccessItemRequestedForDto1**](access-item-requested-for-dto1) | Identities whom access was requested for. | [required]
+**requested_items_status** | [**[]AccessRequestPostApprovalRequestedItemsStatusInner**](access-request-post-approval-requested-items-status-inner) | Details about the outcome of each requested access item. | [required]
+**requested_by** | [**AccessItemRequesterDto1**](access-item-requester-dto1) |  | [required]
 }
 
 ## Example
@@ -30,7 +30,7 @@ from sailpoint.beta.models.access_request_post_approval import AccessRequestPost
 access_request_post_approval = AccessRequestPostApproval(
 access_request_id='2c91808b6ef1d43e016efba0ce470904',
 requested_for=[
-                    sailpoint.beta.models.access_item_requested_for_dto.AccessItemRequestedForDto(
+                    sailpoint.beta.models.access_item_requested_for_dto_1.AccessItemRequestedForDto_1(
                         type = 'IDENTITY', 
                         id = '2c4180a46faadee4016fb4e018c20626', 
                         name = 'Robert Robinson', )
@@ -46,14 +46,13 @@ requested_items_status=[
                         client_metadata = {applicationName=My application}, 
                         approval_info = [
                             sailpoint.beta.models.access_request_post_approval_requested_items_status_inner_approval_info_inner.AccessRequestPostApproval_requestedItemsStatus_inner_approvalInfo_inner(
-                                approval_comment = 'This access looks good.  Approved.', 
+                                approval_comment = 'This access looks good. Approved.', 
                                 approval_decision = APPROVED, 
                                 approver_name = 'Stephen.Austin', 
-                                approver = sailpoint.beta.models.access_request_post_approval_requested_items_status_inner_approval_info_inner_approver.AccessRequestPostApproval_requestedItemsStatus_inner_approvalInfo_inner_approver(
-                                    type = IDENTITY, ), )
+                                approver = null, )
                             ], )
                     ],
-requested_by=sailpoint.beta.models.access_item_requester_dto.AccessItemRequesterDto(
+requested_by=sailpoint.beta.models.access_item_requester_dto_1.AccessItemRequesterDto_1(
                     type = 'IDENTITY', 
                     id = '2c7180a46faadee4016fb4e018c20648', 
                     name = 'William Wilson', )

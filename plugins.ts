@@ -467,6 +467,10 @@ const pluginConfig = [
           to: '/docs/reporting/aic-er-diagram',
         },
         {
+          from: ['/idn/docs/aic-ciem-er-diagram'],
+          to: '/docs/reporting/aic-ciem-er-diagram',
+        },
+        {
           from: ['/idn/docs/aic-videos'],
           to: '/docs/reporting/aic-videos',
         },

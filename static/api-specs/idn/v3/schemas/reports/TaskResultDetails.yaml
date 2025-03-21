@@ -19,6 +19,7 @@ properties:
       Unique task definition identifier.
     example: a248c16fe22222b2bd49615481311111
   reportType:
+    type: string
     enum:
       - ACCOUNTS
       - IDENTITIES_DETAILS
@@ -140,8 +141,6 @@ properties:
     type: object
     description: >-
       Extra attributes map(dictionary) needed for the report.
-    additionalProperties:
-      type: object
     example: {"org": "an-org"}
   progress:
     type: string

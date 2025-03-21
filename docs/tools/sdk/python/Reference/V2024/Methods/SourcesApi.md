@@ -163,7 +163,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.sources_api import SourcesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.provisioning_policy_dto import ProvisioningPolicyDto
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -218,7 +217,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SourcesApi(api_client).create_provisioning_policy(source_id, new_provisioning_policy_dto)
         print("The response of SourcesApi->create_provisioning_policy:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SourcesApi->create_provisioning_policy: %s\n" % e)
 ```
@@ -263,7 +262,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.sources_api import SourcesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.source import Source
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -361,7 +359,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SourcesApi(api_client).create_source(new_source, provision_as_csv)
         print("The response of SourcesApi->create_source:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SourcesApi->create_source: %s\n" % e)
 ```
@@ -407,7 +405,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.sources_api import SourcesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.schedule1 import Schedule1
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -423,7 +420,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SourcesApi(api_client).create_source_schedule(source_id, new_schedule1)
         print("The response of SourcesApi->create_source_schedule:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SourcesApi->create_source_schedule: %s\n" % e)
 ```
@@ -469,7 +466,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.sources_api import SourcesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.model_schema import ModelSchema
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -485,7 +481,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SourcesApi(api_client).create_source_schema(source_id, new_model_schema)
         print("The response of SourcesApi->create_source_schema:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SourcesApi->create_source_schema: %s\n" % e)
 ```
@@ -547,7 +543,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.sources_api import SourcesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.task_result_dto import TaskResultDto
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -564,7 +559,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SourcesApi(api_client).delete_accounts_async(id, x_sail_point_experimental)
         print("The response of SourcesApi->delete_accounts_async:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SourcesApi->delete_accounts_async: %s\n" % e)
 ```
@@ -620,7 +615,6 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.v2024.api.sources_api import SourcesApi
 from sailpoint.v2024.api_client import ApiClient
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -681,7 +675,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.sources_api import SourcesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.usage_type import UsageType
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -741,7 +734,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.sources_api import SourcesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.delete_source202_response import DeleteSource202Response
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -756,7 +748,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SourcesApi(api_client).delete_source(id)
         print("The response of SourcesApi->delete_source:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SourcesApi->delete_source: %s\n" % e)
 ```
@@ -801,7 +793,6 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.v2024.api.sources_api import SourcesApi
 from sailpoint.v2024.api_client import ApiClient
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -860,7 +851,6 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.v2024.api.sources_api import SourcesApi
 from sailpoint.v2024.api_client import ApiClient
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -919,7 +909,6 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.v2024.api.sources_api import SourcesApi
 from sailpoint.v2024.api_client import ApiClient
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -977,7 +966,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.sources_api import SourcesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.correlation_config import CorrelationConfig
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -992,7 +980,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SourcesApi(api_client).get_correlation_config(id)
         print("The response of SourcesApi->get_correlation_config:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SourcesApi->get_correlation_config: %s\n" % e)
 ```
@@ -1039,7 +1027,6 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.v2024.api.sources_api import SourcesApi
 from sailpoint.v2024.api_client import ApiClient
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -1110,7 +1097,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.sources_api import SourcesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.native_change_detection_config import NativeChangeDetectionConfig
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -1127,7 +1113,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SourcesApi(api_client).get_native_change_detection_config(id, x_sail_point_experimental)
         print("The response of SourcesApi->get_native_change_detection_config:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SourcesApi->get_native_change_detection_config: %s\n" % e)
 ```
@@ -1174,7 +1160,6 @@ from sailpoint.v2024.api.sources_api import SourcesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.provisioning_policy_dto import ProvisioningPolicyDto
 from sailpoint.v2024.models.usage_type import UsageType
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -1190,7 +1175,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SourcesApi(api_client).get_provisioning_policy(source_id, usage_type)
         print("The response of SourcesApi->get_provisioning_policy:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SourcesApi->get_provisioning_policy: %s\n" % e)
 ```
@@ -1235,7 +1220,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.sources_api import SourcesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.source import Source
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -1250,7 +1234,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SourcesApi(api_client).get_source(id)
         print("The response of SourcesApi->get_source:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SourcesApi->get_source: %s\n" % e)
 ```
@@ -1307,7 +1291,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.sources_api import SourcesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.attr_sync_source_config import AttrSyncSourceConfig
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -1324,7 +1307,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SourcesApi(api_client).get_source_attr_sync_config(id, x_sail_point_experimental)
         print("The response of SourcesApi->get_source_attr_sync_config:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SourcesApi->get_source_attr_sync_config: %s\n" % e)
 ```
@@ -1381,7 +1364,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.sources_api import SourcesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.connector_detail import ConnectorDetail
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -1399,7 +1381,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SourcesApi(api_client).get_source_config(id, x_sail_point_experimental, locale)
         print("The response of SourcesApi->get_source_config:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SourcesApi->get_source_config: %s\n" % e)
 ```
@@ -1444,7 +1426,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.sources_api import SourcesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.source_connections_dto import SourceConnectionsDto
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -1459,7 +1440,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SourcesApi(api_client).get_source_connections(source_id)
         print("The response of SourcesApi->get_source_connections:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SourcesApi->get_source_connections: %s\n" % e)
 ```
@@ -1518,7 +1499,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.sources_api import SourcesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.source_entitlement_request_config import SourceEntitlementRequestConfig
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -1534,7 +1514,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SourcesApi(api_client).get_source_entitlement_request_config(x_sail_point_experimental)
         print("The response of SourcesApi->get_source_entitlement_request_config:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SourcesApi->get_source_entitlement_request_config: %s\n" % e)
 ```
@@ -1579,7 +1559,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.sources_api import SourcesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.source_health_dto import SourceHealthDto
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -1594,7 +1573,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SourcesApi(api_client).get_source_health(source_id)
         print("The response of SourcesApi->get_source_health:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SourcesApi->get_source_health: %s\n" % e)
 ```
@@ -1641,7 +1620,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.sources_api import SourcesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.schedule1 import Schedule1
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -1657,7 +1635,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SourcesApi(api_client).get_source_schedule(source_id, schedule_type)
         print("The response of SourcesApi->get_source_schedule:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SourcesApi->get_source_schedule: %s\n" % e)
 ```
@@ -1710,7 +1688,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.sources_api import SourcesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.schedule1 import Schedule1
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -1725,7 +1702,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SourcesApi(api_client).get_source_schedules(source_id)
         print("The response of SourcesApi->get_source_schedules:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SourcesApi->get_source_schedules: %s\n" % e)
 ```
@@ -1772,7 +1749,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.sources_api import SourcesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.model_schema import ModelSchema
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -1788,7 +1764,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SourcesApi(api_client).get_source_schema(source_id, schema_id)
         print("The response of SourcesApi->get_source_schema:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SourcesApi->get_source_schema: %s\n" % e)
 ```
@@ -1835,7 +1811,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.sources_api import SourcesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.model_schema import ModelSchema
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -1852,7 +1827,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SourcesApi(api_client).get_source_schemas(source_id, include_types, include_names)
         print("The response of SourcesApi->get_source_schemas:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SourcesApi->get_source_schemas: %s\n" % e)
 ```
@@ -1912,7 +1887,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.sources_api import SourcesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.load_accounts_task import LoadAccountsTask
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -1931,7 +1905,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SourcesApi(api_client).import_accounts(id, x_sail_point_experimental, file, disable_optimization)
         print("The response of SourcesApi->import_accounts:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SourcesApi->import_accounts: %s\n" % e)
 ```
@@ -1982,7 +1956,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.sources_api import SourcesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.model_schema import ModelSchema
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -1998,7 +1971,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SourcesApi(api_client).import_accounts_schema(id, file)
         print("The response of SourcesApi->import_accounts_schema:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SourcesApi->import_accounts_schema: %s\n" % e)
 ```
@@ -2043,7 +2016,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.sources_api import SourcesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.source import Source
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -2059,7 +2031,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SourcesApi(api_client).import_connector_file(source_id, file)
         print("The response of SourcesApi->import_connector_file:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SourcesApi->import_connector_file: %s\n" % e)
 ```
@@ -2111,7 +2083,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.sources_api import SourcesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.model_schema import ModelSchema
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -2128,7 +2099,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SourcesApi(api_client).import_entitlements_schema(id, schema_name, file)
         print("The response of SourcesApi->import_entitlements_schema:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SourcesApi->import_entitlements_schema: %s\n" % e)
 ```
@@ -2185,7 +2156,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.sources_api import SourcesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.load_uncorrelated_accounts_task import LoadUncorrelatedAccountsTask
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -2203,7 +2173,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SourcesApi(api_client).import_uncorrelated_accounts(id, x_sail_point_experimental, file)
         print("The response of SourcesApi->import_uncorrelated_accounts:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SourcesApi->import_uncorrelated_accounts: %s\n" % e)
 ```
@@ -2248,7 +2218,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.sources_api import SourcesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.provisioning_policy_dto import ProvisioningPolicyDto
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -2263,7 +2232,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SourcesApi(api_client).list_provisioning_policies(source_id)
         print("The response of SourcesApi->list_provisioning_policies:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SourcesApi->list_provisioning_policies: %s\n" % e)
 ```
@@ -2314,7 +2283,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.sources_api import SourcesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.source import Source
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -2335,7 +2303,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SourcesApi(api_client).list_sources(limit, offset, count, filters, sorters, for_subadmin, include_idn_source)
         print("The response of SourcesApi->list_sources:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SourcesApi->list_sources: %s\n" % e)
 ```
@@ -2394,7 +2362,6 @@ from sailpoint.v2024.api.sources_api import SourcesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.resource_objects_request import ResourceObjectsRequest
 from sailpoint.v2024.models.resource_objects_response import ResourceObjectsResponse
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -2415,7 +2382,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SourcesApi(api_client).peek_resource_objects(source_id, x_sail_point_experimental, new_resource_objects_request)
         print("The response of SourcesApi->peek_resource_objects:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SourcesApi->peek_resource_objects: %s\n" % e)
 ```
@@ -2472,7 +2439,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.sources_api import SourcesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.status_response import StatusResponse
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -2489,7 +2455,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SourcesApi(api_client).ping_cluster(source_id, x_sail_point_experimental)
         print("The response of SourcesApi->ping_cluster:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SourcesApi->ping_cluster: %s\n" % e)
 ```
@@ -2535,7 +2501,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.sources_api import SourcesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.correlation_config import CorrelationConfig
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -2571,7 +2536,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SourcesApi(api_client).put_correlation_config(id, new_correlation_config)
         print("The response of SourcesApi->put_correlation_config:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SourcesApi->put_correlation_config: %s\n" % e)
 ```
@@ -2629,7 +2594,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.sources_api import SourcesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.native_change_detection_config import NativeChangeDetectionConfig
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -2654,7 +2618,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SourcesApi(api_client).put_native_change_detection_config(id, x_sail_point_experimental, new_native_change_detection_config)
         print("The response of SourcesApi->put_native_change_detection_config:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SourcesApi->put_native_change_detection_config: %s\n" % e)
 ```
@@ -2704,7 +2668,6 @@ from sailpoint.v2024.api.sources_api import SourcesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.provisioning_policy_dto import ProvisioningPolicyDto
 from sailpoint.v2024.models.usage_type import UsageType
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -2760,7 +2723,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SourcesApi(api_client).put_provisioning_policy(source_id, usage_type, new_provisioning_policy_dto)
         print("The response of SourcesApi->put_provisioning_policy:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SourcesApi->put_provisioning_policy: %s\n" % e)
 ```
@@ -2818,7 +2781,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.sources_api import SourcesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.source import Source
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -2916,7 +2878,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SourcesApi(api_client).put_source(id, new_source)
         print("The response of SourcesApi->put_source:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SourcesApi->put_source: %s\n" % e)
 ```
@@ -2975,7 +2937,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.sources_api import SourcesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.attr_sync_source_config import AttrSyncSourceConfig
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -3010,7 +2971,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SourcesApi(api_client).put_source_attr_sync_config(id, x_sail_point_experimental, new_attr_sync_source_config)
         print("The response of SourcesApi->put_source_attr_sync_config:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SourcesApi->put_source_attr_sync_config: %s\n" % e)
 ```
@@ -3067,7 +3028,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.sources_api import SourcesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.model_schema import ModelSchema
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -3084,7 +3044,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SourcesApi(api_client).put_source_schema(source_id, schema_id, new_model_schema)
         print("The response of SourcesApi->put_source_schema:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SourcesApi->put_source_schema: %s\n" % e)
 ```
@@ -3141,7 +3101,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.sources_api import SourcesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.source_sync_job import SourceSyncJob
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -3158,7 +3117,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SourcesApi(api_client).sync_attributes_for_source(id, x_sail_point_experimental)
         print("The response of SourcesApi->sync_attributes_for_source:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SourcesApi->sync_attributes_for_source: %s\n" % e)
 ```
@@ -3215,7 +3174,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.sources_api import SourcesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.status_response import StatusResponse
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -3232,7 +3190,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SourcesApi(api_client).test_source_configuration(source_id, x_sail_point_experimental)
         print("The response of SourcesApi->test_source_configuration:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SourcesApi->test_source_configuration: %s\n" % e)
 ```
@@ -3289,7 +3247,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.sources_api import SourcesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.status_response import StatusResponse
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -3306,7 +3263,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SourcesApi(api_client).test_source_connection(source_id, x_sail_point_experimental)
         print("The response of SourcesApi->test_source_connection:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SourcesApi->test_source_connection: %s\n" % e)
 ```
@@ -3354,7 +3311,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.sources_api import SourcesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.password_policy_holders_dto_inner import PasswordPolicyHoldersDtoInner
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -3370,7 +3326,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SourcesApi(api_client).update_password_policy_holders(source_id, new_password_policy_holders_dto_inner)
         print("The response of SourcesApi->update_password_policy_holders:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SourcesApi->update_password_policy_holders: %s\n" % e)
 ```
@@ -3416,7 +3372,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.sources_api import SourcesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.provisioning_policy_dto import ProvisioningPolicyDto
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -3432,7 +3387,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SourcesApi(api_client).update_provisioning_policies_in_bulk(source_id, new_provisioning_policy_dto)
         print("The response of SourcesApi->update_provisioning_policies_in_bulk:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SourcesApi->update_provisioning_policies_in_bulk: %s\n" % e)
 ```
@@ -3483,7 +3438,6 @@ from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.json_patch_operation import JsonPatchOperation
 from sailpoint.v2024.models.provisioning_policy_dto import ProvisioningPolicyDto
 from sailpoint.v2024.models.usage_type import UsageType
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -3500,7 +3454,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SourcesApi(api_client).update_provisioning_policy(source_id, usage_type, new_json_patch_operation)
         print("The response of SourcesApi->update_provisioning_policy:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SourcesApi->update_provisioning_policy: %s\n" % e)
 ```
@@ -3562,7 +3516,6 @@ from sailpoint.v2024.api.sources_api import SourcesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.json_patch_operation import JsonPatchOperation
 from sailpoint.v2024.models.source import Source
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -3578,7 +3531,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SourcesApi(api_client).update_source(id, new_json_patch_operation)
         print("The response of SourcesApi->update_source:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SourcesApi->update_source: %s\n" % e)
 ```
@@ -3638,7 +3591,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.sources_api import SourcesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.source_entitlement_request_config import SourceEntitlementRequestConfig
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -3667,7 +3619,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SourcesApi(api_client).update_source_entitlement_request_config(x_sail_point_experimental, new_source_entitlement_request_config)
         print("The response of SourcesApi->update_source_entitlement_request_config:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SourcesApi->update_source_entitlement_request_config: %s\n" % e)
 ```
@@ -3720,7 +3672,6 @@ from sailpoint.v2024.api.sources_api import SourcesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.json_patch_operation import JsonPatchOperation
 from sailpoint.v2024.models.schedule1 import Schedule1
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -3737,7 +3688,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SourcesApi(api_client).update_source_schedule(source_id, schedule_type, new_json_patch_operation)
         print("The response of SourcesApi->update_source_schedule:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SourcesApi->update_source_schedule: %s\n" % e)
 ```
@@ -3814,7 +3765,6 @@ from sailpoint.v2024.api.sources_api import SourcesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.json_patch_operation import JsonPatchOperation
 from sailpoint.v2024.models.model_schema import ModelSchema
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -3831,7 +3781,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SourcesApi(api_client).update_source_schema(source_id, schema_id, new_json_patch_operation)
         print("The response of SourcesApi->update_source_schema:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SourcesApi->update_source_schema: %s\n" % e)
 ```

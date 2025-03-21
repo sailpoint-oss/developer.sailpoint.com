@@ -60,7 +60,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.auth_users_api import AuthUsersApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.auth_user import AuthUser
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -75,7 +74,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = AuthUsersApi(api_client).get_auth_user(id)
         print("The response of AuthUsersApi->get_auth_user:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling AuthUsersApi->get_auth_user: %s\n" % e)
 ```
@@ -126,7 +125,6 @@ from sailpoint.v3.api.auth_users_api import AuthUsersApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.auth_user import AuthUser
 from sailpoint.v3.models.json_patch_operation import JsonPatchOperation
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -142,7 +140,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = AuthUsersApi(api_client).patch_auth_user(id, new_json_patch_operation)
         print("The response of AuthUsersApi->patch_auth_user:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling AuthUsersApi->patch_auth_user: %s\n" % e)
 ```

@@ -70,7 +70,6 @@ from sailpoint.v2024.api.saved_search_api import SavedSearchApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.create_saved_search_request import CreateSavedSearchRequest
 from sailpoint.v2024.models.saved_search import SavedSearch
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -85,7 +84,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SavedSearchApi(api_client).create_saved_search(new_create_saved_search_request)
         print("The response of SavedSearchApi->create_saved_search:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SavedSearchApi->create_saved_search: %s\n" % e)
 ```
@@ -130,7 +129,6 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.v2024.api.saved_search_api import SavedSearchApi
 from sailpoint.v2024.api_client import ApiClient
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -190,7 +188,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.saved_search_api import SavedSearchApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.search_arguments import SearchArguments
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -260,7 +257,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.saved_search_api import SavedSearchApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.saved_search import SavedSearch
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -275,7 +271,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SavedSearchApi(api_client).get_saved_search(id)
         print("The response of SavedSearchApi->get_saved_search:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SavedSearchApi->get_saved_search: %s\n" % e)
 ```
@@ -323,7 +319,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.saved_search_api import SavedSearchApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.saved_search import SavedSearch
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -341,7 +336,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SavedSearchApi(api_client).list_saved_searches(offset, limit, count, filters)
         print("The response of SavedSearchApi->list_saved_searches:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SavedSearchApi->list_saved_searches: %s\n" % e)
 ```
@@ -389,7 +384,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.saved_search_api import SavedSearchApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.saved_search import SavedSearch
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -449,7 +443,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SavedSearchApi(api_client).put_saved_search(id, new_saved_search)
         print("The response of SavedSearchApi->put_saved_search:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SavedSearchApi->put_saved_search: %s\n" % e)
 ```

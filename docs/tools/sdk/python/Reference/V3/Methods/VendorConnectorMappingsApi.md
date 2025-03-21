@@ -57,7 +57,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.vendor_connector_mappings_api import VendorConnectorMappingsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.vendor_connector_mapping import VendorConnectorMapping
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -94,7 +93,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = VendorConnectorMappingsApi(api_client).create_vendor_connector_mapping(new_vendor_connector_mapping)
         print("The response of VendorConnectorMappingsApi->create_vendor_connector_mapping:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling VendorConnectorMappingsApi->create_vendor_connector_mapping: %s\n" % e)
 ```
@@ -141,7 +140,6 @@ from sailpoint.v3.api.vendor_connector_mappings_api import VendorConnectorMappin
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.delete_vendor_connector_mapping200_response import DeleteVendorConnectorMapping200Response
 from sailpoint.v3.models.vendor_connector_mapping import VendorConnectorMapping
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -178,7 +176,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = VendorConnectorMappingsApi(api_client).delete_vendor_connector_mapping(new_vendor_connector_mapping)
         print("The response of VendorConnectorMappingsApi->delete_vendor_connector_mapping:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling VendorConnectorMappingsApi->delete_vendor_connector_mapping: %s\n" % e)
 ```
@@ -221,7 +219,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.vendor_connector_mappings_api import VendorConnectorMappingsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.vendor_connector_mapping import VendorConnectorMapping
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -235,7 +232,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = VendorConnectorMappingsApi(api_client).get_vendor_connector_mappings()
         print("The response of VendorConnectorMappingsApi->get_vendor_connector_mappings:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling VendorConnectorMappingsApi->get_vendor_connector_mappings: %s\n" % e)
 ```

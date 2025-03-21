@@ -63,7 +63,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.data_segmentation_api import DataSegmentationApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.data_segment import DataSegment
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -78,7 +77,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = DataSegmentationApi(api_client).create_data_segment(new_data_segment)
         print("The response of DataSegmentationApi->create_data_segment:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling DataSegmentationApi->create_data_segment: %s\n" % e)
 ```
@@ -135,7 +134,6 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.v2024.api.data_segmentation_api import DataSegmentationApi
 from sailpoint.v2024.api_client import ApiClient
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -208,7 +206,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.data_segmentation_api import DataSegmentationApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.data_segment import DataSegment
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -225,7 +222,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = DataSegmentationApi(api_client).get_data_segment(id, x_sail_point_experimental)
         print("The response of DataSegmentationApi->get_data_segment:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling DataSegmentationApi->get_data_segment: %s\n" % e)
 ```
@@ -281,7 +278,6 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.v2024.api.data_segmentation_api import DataSegmentationApi
 from sailpoint.v2024.api_client import ApiClient
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -298,7 +294,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = DataSegmentationApi(api_client).get_data_segment_identity_membership(identity_id, x_sail_point_experimental)
         print("The response of DataSegmentationApi->get_data_segment_identity_membership:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling DataSegmentationApi->get_data_segment_identity_membership: %s\n" % e)
 ```
@@ -354,7 +350,6 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.v2024.api.data_segmentation_api import DataSegmentationApi
 from sailpoint.v2024.api_client import ApiClient
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -371,7 +366,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = DataSegmentationApi(api_client).get_data_segmentation_enabled_for_user(identity_id, x_sail_point_experimental)
         print("The response of DataSegmentationApi->get_data_segmentation_enabled_for_user:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling DataSegmentationApi->get_data_segmentation_enabled_for_user: %s\n" % e)
 ```
@@ -434,7 +429,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.data_segmentation_api import DataSegmentationApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.data_segment import DataSegment
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -457,7 +451,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = DataSegmentationApi(api_client).list_data_segments(x_sail_point_experimental, enabled, unique, published, limit, offset, count, filters)
         print("The response of DataSegmentationApi->list_data_segments:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling DataSegmentationApi->list_data_segments: %s\n" % e)
 ```
@@ -515,7 +509,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.data_segmentation_api import DataSegmentationApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.data_segment import DataSegment
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -533,7 +526,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = DataSegmentationApi(api_client).patch_data_segment(id, x_sail_point_experimental, new_request_body)
         print("The response of DataSegmentationApi->patch_data_segment:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling DataSegmentationApi->patch_data_segment: %s\n" % e)
 ```
@@ -590,7 +583,6 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.v2024.api.data_segmentation_api import DataSegmentationApi
 from sailpoint.v2024.api_client import ApiClient
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 

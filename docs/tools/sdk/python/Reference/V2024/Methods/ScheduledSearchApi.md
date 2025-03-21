@@ -87,7 +87,6 @@ from sailpoint.v2024.api.scheduled_search_api import ScheduledSearchApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.create_scheduled_search_request import CreateScheduledSearchRequest
 from sailpoint.v2024.models.scheduled_search import ScheduledSearch
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -102,7 +101,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = ScheduledSearchApi(api_client).create_scheduled_search(new_create_scheduled_search_request)
         print("The response of ScheduledSearchApi->create_scheduled_search:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling ScheduledSearchApi->create_scheduled_search: %s\n" % e)
 ```
@@ -147,7 +146,6 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.v2024.api.scheduled_search_api import ScheduledSearchApi
 from sailpoint.v2024.api_client import ApiClient
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -205,7 +203,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.scheduled_search_api import ScheduledSearchApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.scheduled_search import ScheduledSearch
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -220,7 +217,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = ScheduledSearchApi(api_client).get_scheduled_search(id)
         print("The response of ScheduledSearchApi->get_scheduled_search:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling ScheduledSearchApi->get_scheduled_search: %s\n" % e)
 ```
@@ -269,7 +266,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.scheduled_search_api import ScheduledSearchApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.scheduled_search import ScheduledSearch
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -287,7 +283,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = ScheduledSearchApi(api_client).list_scheduled_search(offset, limit, count, filters)
         print("The response of ScheduledSearchApi->list_scheduled_search:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling ScheduledSearchApi->list_scheduled_search: %s\n" % e)
 ```
@@ -331,7 +327,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.scheduled_search_api import ScheduledSearchApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.typed_reference import TypedReference
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -395,7 +390,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.scheduled_search_api import ScheduledSearchApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.scheduled_search import ScheduledSearch
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -501,7 +495,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = ScheduledSearchApi(api_client).update_scheduled_search(id, new_scheduled_search)
         print("The response of ScheduledSearchApi->update_scheduled_search:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling ScheduledSearchApi->update_scheduled_search: %s\n" % e)
 ```

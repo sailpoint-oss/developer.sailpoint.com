@@ -88,7 +88,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.account_activities_api import AccountActivitiesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.account_activity import AccountActivity
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -103,7 +102,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = AccountActivitiesApi(api_client).get_account_activity(id)
         print("The response of AccountActivitiesApi->get_account_activity:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling AccountActivitiesApi->get_account_activity: %s\n" % e)
 ```
@@ -154,7 +153,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.account_activities_api import AccountActivitiesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.account_activity import AccountActivity
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -176,7 +174,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = AccountActivitiesApi(api_client).list_account_activities(requested_for, requested_by, regarding_identity, limit, offset, count, filters, sorters)
         print("The response of AccountActivitiesApi->list_account_activities:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling AccountActivitiesApi->list_account_activities: %s\n" % e)
 ```

@@ -64,7 +64,6 @@ from sailpoint.beta.api.transforms_api import TransformsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.transform import Transform
 from sailpoint.beta.models.transform_read import TransformRead
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -83,7 +82,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = TransformsApi(api_client).create_transform(new_transform)
         print("The response of TransformsApi->create_transform:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling TransformsApi->create_transform: %s\n" % e)
 ```
@@ -128,7 +127,6 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.beta.api.transforms_api import TransformsApi
 from sailpoint.beta.api_client import ApiClient
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -187,7 +185,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.transforms_api import TransformsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.transform_read import TransformRead
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -202,7 +199,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = TransformsApi(api_client).get_transform(id)
         print("The response of TransformsApi->get_transform:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling TransformsApi->get_transform: %s\n" % e)
 ```
@@ -252,7 +249,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.transforms_api import TransformsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.transform_read import TransformRead
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -271,7 +267,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = TransformsApi(api_client).list_transforms(offset, limit, count, name, filters)
         print("The response of TransformsApi->list_transforms:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling TransformsApi->list_transforms: %s\n" % e)
 ```
@@ -319,7 +315,6 @@ from sailpoint.beta.api.transforms_api import TransformsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.transform import Transform
 from sailpoint.beta.models.transform_read import TransformRead
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -339,7 +334,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = TransformsApi(api_client).update_transform(id, new_transform)
         print("The response of TransformsApi->update_transform:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling TransformsApi->update_transform: %s\n" % e)
 ```

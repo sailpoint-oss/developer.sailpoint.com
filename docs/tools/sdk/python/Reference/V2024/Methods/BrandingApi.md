@@ -69,7 +69,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.branding_api import BrandingApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.branding_item import BrandingItem
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -91,7 +90,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = BrandingApi(api_client).create_branding_item(name, product_name, action_button_color, active_link_color, navigation_color, email_from_address, login_informational_message, file_standard)
         print("The response of BrandingApi->create_branding_item:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling BrandingApi->create_branding_item: %s\n" % e)
 ```
@@ -135,7 +134,6 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.v2024.api.branding_api import BrandingApi
 from sailpoint.v2024.api_client import ApiClient
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -193,7 +191,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.branding_api import BrandingApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.branding_item import BrandingItem
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -208,7 +205,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = BrandingApi(api_client).get_branding(name)
         print("The response of BrandingApi->get_branding:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling BrandingApi->get_branding: %s\n" % e)
 ```
@@ -249,7 +246,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.branding_api import BrandingApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.branding_item import BrandingItem
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -263,7 +259,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = BrandingApi(api_client).get_branding_list()
         print("The response of BrandingApi->get_branding_list:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling BrandingApi->get_branding_list: %s\n" % e)
 ```
@@ -316,7 +312,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.branding_api import BrandingApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.branding_item import BrandingItem
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -339,7 +334,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = BrandingApi(api_client).set_branding_item(name, name2, product_name, action_button_color, active_link_color, navigation_color, email_from_address, login_informational_message, file_standard)
         print("The response of BrandingApi->set_branding_item:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling BrandingApi->set_branding_item: %s\n" % e)
 ```

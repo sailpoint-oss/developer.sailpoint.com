@@ -58,7 +58,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.tags_api import TagsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.tag import Tag
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -87,7 +86,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = TagsApi(api_client).create_tag(new_tag)
         print("The response of TagsApi->create_tag:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling TagsApi->create_tag: %s\n" % e)
 ```
@@ -133,7 +132,6 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.beta.api.tags_api import TagsApi
 from sailpoint.beta.api_client import ApiClient
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -193,7 +191,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.tags_api import TagsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.tag import Tag
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -208,7 +205,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = TagsApi(api_client).get_tag_by_id(id)
         print("The response of TagsApi->get_tag_by_id:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling TagsApi->get_tag_by_id: %s\n" % e)
 ```
@@ -258,7 +255,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.tags_api import TagsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.tag import Tag
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -277,7 +273,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = TagsApi(api_client).list_tags(limit, offset, count, filters, sorters)
         print("The response of TagsApi->list_tags:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling TagsApi->list_tags: %s\n" % e)
 ```

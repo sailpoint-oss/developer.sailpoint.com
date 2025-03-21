@@ -67,7 +67,6 @@ from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.requestable_object import RequestableObject
 from sailpoint.v2024.models.requestable_object_request_status import RequestableObjectRequestStatus
 from sailpoint.v2024.models.requestable_object_type import RequestableObjectType
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -90,7 +89,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = RequestableObjectsApi(api_client).list_requestable_objects(identity_id, types, term, statuses, limit, offset, count, filters, sorters)
         print("The response of RequestableObjectsApi->list_requestable_objects:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling RequestableObjectsApi->list_requestable_objects: %s\n" % e)
 ```

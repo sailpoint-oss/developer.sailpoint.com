@@ -69,7 +69,6 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.v2024.api.icons_api import IconsApi
 from sailpoint.v2024.api_client import ApiClient
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -144,7 +143,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.icons_api import IconsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.set_icon200_response import SetIcon200Response
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -163,7 +161,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IconsApi(api_client).set_icon(object_type, object_id, x_sail_point_experimental, image)
         print("The response of IconsApi->set_icon:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IconsApi->set_icon: %s\n" % e)
 ```

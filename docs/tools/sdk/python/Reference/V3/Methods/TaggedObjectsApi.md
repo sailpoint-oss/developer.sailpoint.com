@@ -113,7 +113,6 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.v3.api.tagged_objects_api import TaggedObjectsApi
 from sailpoint.v3.api_client import ApiClient
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -171,7 +170,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.tagged_objects_api import TaggedObjectsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.bulk_remove_tagged_object import BulkRemoveTaggedObject
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -240,7 +238,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.tagged_objects_api import TaggedObjectsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.tagged_object import TaggedObject
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -256,7 +253,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = TaggedObjectsApi(api_client).get_tagged_object(type, id)
         print("The response of TaggedObjectsApi->get_tagged_object:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling TaggedObjectsApi->get_tagged_object: %s\n" % e)
 ```
@@ -305,7 +302,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.tagged_objects_api import TaggedObjectsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.tagged_object import TaggedObject
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -323,7 +319,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = TaggedObjectsApi(api_client).list_tagged_objects(limit, offset, count, filters)
         print("The response of TaggedObjectsApi->list_tagged_objects:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling TaggedObjectsApi->list_tagged_objects: %s\n" % e)
 ```
@@ -373,7 +369,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.tagged_objects_api import TaggedObjectsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.tagged_object import TaggedObject
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -392,7 +387,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = TaggedObjectsApi(api_client).list_tagged_objects_by_type(type, limit, offset, count, filters)
         print("The response of TaggedObjectsApi->list_tagged_objects_by_type:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling TaggedObjectsApi->list_tagged_objects_by_type: %s\n" % e)
 ```
@@ -438,7 +433,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.tagged_objects_api import TaggedObjectsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.tagged_object import TaggedObject
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -462,7 +456,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = TaggedObjectsApi(api_client).put_tagged_object(type, id, new_tagged_object)
         print("The response of TaggedObjectsApi->put_tagged_object:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling TaggedObjectsApi->put_tagged_object: %s\n" % e)
 ```
@@ -508,7 +502,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.tagged_objects_api import TaggedObjectsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.tagged_object import TaggedObject
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -573,7 +566,6 @@ from sailpoint.v3.api.tagged_objects_api import TaggedObjectsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.bulk_add_tagged_object import BulkAddTaggedObject
 from sailpoint.v3.models.bulk_tagged_object_response import BulkTaggedObjectResponse
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -600,7 +592,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = TaggedObjectsApi(api_client).set_tags_to_many_objects(new_bulk_add_tagged_object)
         print("The response of TaggedObjectsApi->set_tags_to_many_objects:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling TaggedObjectsApi->set_tags_to_many_objects: %s\n" % e)
 ```

@@ -72,7 +72,6 @@ from sailpoint.beta.api.multi_host_integration_api import MultiHostIntegrationAp
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.multi_host_integrations import MultiHostIntegrations
 from sailpoint.beta.models.multi_host_integrations_create import MultiHostIntegrationsCreate
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -112,7 +111,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = MultiHostIntegrationApi(api_client).create_multi_host_integration(new_multi_host_integrations_create)
         print("The response of MultiHostIntegrationApi->create_multi_host_integration:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling MultiHostIntegrationApi->create_multi_host_integration: %s\n" % e)
 ```
@@ -160,7 +159,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.multi_host_integration_api import MultiHostIntegrationApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.multi_host_integrations_create_sources import MultiHostIntegrationsCreateSources
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -220,7 +218,6 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.beta.api.multi_host_integration_api import MultiHostIntegrationApi
 from sailpoint.beta.api_client import ApiClient
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -280,7 +277,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.multi_host_integration_api import MultiHostIntegrationApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.multi_host_integrations_agg_schedule_update import MultiHostIntegrationsAggScheduleUpdate
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -295,7 +291,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = MultiHostIntegrationApi(api_client).get_acct_aggregation_groups(multihost_id)
         print("The response of MultiHostIntegrationApi->get_acct_aggregation_groups:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling MultiHostIntegrationApi->get_acct_aggregation_groups: %s\n" % e)
 ```
@@ -342,7 +338,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.multi_host_integration_api import MultiHostIntegrationApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.multi_host_integrations_agg_schedule_update import MultiHostIntegrationsAggScheduleUpdate
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -357,7 +352,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = MultiHostIntegrationApi(api_client).get_entitlement_aggregation_groups(multi_host_id)
         print("The response of MultiHostIntegrationApi->get_entitlement_aggregation_groups:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling MultiHostIntegrationApi->get_entitlement_aggregation_groups: %s\n" % e)
 ```
@@ -404,7 +399,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.multi_host_integration_api import MultiHostIntegrationApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.multi_host_integrations import MultiHostIntegrations
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -419,7 +413,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = MultiHostIntegrationApi(api_client).get_multi_host_integrations(multihost_id)
         print("The response of MultiHostIntegrationApi->get_multi_host_integrations:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling MultiHostIntegrationApi->get_multi_host_integrations: %s\n" % e)
 ```
@@ -471,7 +465,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.multi_host_integration_api import MultiHostIntegrationApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.multi_host_integrations import MultiHostIntegrations
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -491,7 +484,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = MultiHostIntegrationApi(api_client).get_multi_host_integrations_list(offset, limit, sorters, filters, count, for_subadmin)
         print("The response of MultiHostIntegrationApi->get_multi_host_integrations_list:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling MultiHostIntegrationApi->get_multi_host_integrations_list: %s\n" % e)
 ```
@@ -538,7 +531,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.multi_host_integration_api import MultiHostIntegrationApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.source_creation_errors import SourceCreationErrors
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -553,7 +545,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = MultiHostIntegrationApi(api_client).get_multi_host_source_creation_errors(multi_host_id)
         print("The response of MultiHostIntegrationApi->get_multi_host_source_creation_errors:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling MultiHostIntegrationApi->get_multi_host_source_creation_errors: %s\n" % e)
 ```
@@ -597,7 +589,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.multi_host_integration_api import MultiHostIntegrationApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.multi_host_integration_template_type import MultiHostIntegrationTemplateType
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -611,7 +602,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = MultiHostIntegrationApi(api_client).get_multihost_integration_types()
         print("The response of MultiHostIntegrationApi->get_multihost_integration_types:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling MultiHostIntegrationApi->get_multihost_integration_types: %s\n" % e)
 ```
@@ -663,7 +654,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.multi_host_integration_api import MultiHostIntegrationApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.multi_host_sources import MultiHostSources
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -683,7 +673,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = MultiHostIntegrationApi(api_client).get_sources_within_multi_host(multihost_id, offset, limit, sorters, filters, count)
         print("The response of MultiHostIntegrationApi->get_sources_within_multi_host:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling MultiHostIntegrationApi->get_sources_within_multi_host: %s\n" % e)
 ```
@@ -729,7 +719,6 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.beta.api.multi_host_integration_api import MultiHostIntegrationApi
 from sailpoint.beta.api_client import ApiClient
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -790,7 +779,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.multi_host_integration_api import MultiHostIntegrationApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.test_source_connection_multihost200_response import TestSourceConnectionMultihost200Response
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -806,7 +794,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = MultiHostIntegrationApi(api_client).test_source_connection_multihost(multihost_id, source_id)
         print("The response of MultiHostIntegrationApi->test_source_connection_multihost:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling MultiHostIntegrationApi->test_source_connection_multihost: %s\n" % e)
 ```
@@ -854,7 +842,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.multi_host_integration_api import MultiHostIntegrationApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.update_multi_host_sources_request_inner import UpdateMultiHostSourcesRequestInner
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 

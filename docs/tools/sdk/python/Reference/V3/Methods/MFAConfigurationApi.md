@@ -60,7 +60,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.mfa_configuration_api import MFAConfigurationApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.mfa_okta_config import MfaOktaConfig
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -75,7 +74,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = MFAConfigurationApi(api_client).delete_mfa_config(method)
         print("The response of MFAConfigurationApi->delete_mfa_config:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling MFAConfigurationApi->delete_mfa_config: %s\n" % e)
 ```
@@ -116,7 +115,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.mfa_configuration_api import MFAConfigurationApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.mfa_duo_config import MfaDuoConfig
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -130,7 +128,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = MFAConfigurationApi(api_client).get_mfa_duo_config()
         print("The response of MFAConfigurationApi->get_mfa_duo_config:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling MFAConfigurationApi->get_mfa_duo_config: %s\n" % e)
 ```
@@ -174,7 +172,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.mfa_configuration_api import MFAConfigurationApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.kba_question import KbaQuestion
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -189,7 +186,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = MFAConfigurationApi(api_client).get_mfa_kba_config(all_languages)
         print("The response of MFAConfigurationApi->get_mfa_kba_config:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling MFAConfigurationApi->get_mfa_kba_config: %s\n" % e)
 ```
@@ -230,7 +227,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.mfa_configuration_api import MFAConfigurationApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.mfa_okta_config import MfaOktaConfig
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -244,7 +240,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = MFAConfigurationApi(api_client).get_mfa_okta_config()
         print("The response of MFAConfigurationApi->get_mfa_okta_config:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling MFAConfigurationApi->get_mfa_okta_config: %s\n" % e)
 ```
@@ -288,7 +284,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.mfa_configuration_api import MFAConfigurationApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.mfa_duo_config import MfaDuoConfig
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -313,7 +308,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = MFAConfigurationApi(api_client).set_mfa_duo_config(new_mfa_duo_config)
         print("The response of MFAConfigurationApi->set_mfa_duo_config:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling MFAConfigurationApi->set_mfa_duo_config: %s\n" % e)
 ```
@@ -357,7 +352,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.mfa_configuration_api import MFAConfigurationApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.mfa_okta_config import MfaOktaConfig
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -378,7 +372,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = MFAConfigurationApi(api_client).set_mfa_okta_config(new_mfa_okta_config)
         print("The response of MFAConfigurationApi->set_mfa_okta_config:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling MFAConfigurationApi->set_mfa_okta_config: %s\n" % e)
 ```
@@ -423,7 +417,6 @@ from sailpoint.v3.api.mfa_configuration_api import MFAConfigurationApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.kba_answer_request_item import KbaAnswerRequestItem
 from sailpoint.v3.models.kba_answer_response_item import KbaAnswerResponseItem
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -438,7 +431,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = MFAConfigurationApi(api_client).set_mfakba_config(new_kba_answer_request_item)
         print("The response of MFAConfigurationApi->set_mfakba_config:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling MFAConfigurationApi->set_mfakba_config: %s\n" % e)
 ```
@@ -482,7 +475,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.mfa_configuration_api import MFAConfigurationApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.mfa_config_test_response import MfaConfigTestResponse
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -497,7 +489,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = MFAConfigurationApi(api_client).test_mfa_config(method)
         print("The response of MFAConfigurationApi->test_mfa_config:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling MFAConfigurationApi->test_mfa_config: %s\n" % e)
 ```

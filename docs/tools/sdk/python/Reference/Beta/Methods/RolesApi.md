@@ -103,7 +103,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.roles_api import RolesApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.role import Role
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -275,7 +274,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = RolesApi(api_client).create_role(new_role)
         print("The response of RolesApi->create_role:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling RolesApi->create_role: %s\n" % e)
 ```
@@ -323,7 +322,6 @@ from sailpoint.beta.api.roles_api import RolesApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.role_bulk_delete_request import RoleBulkDeleteRequest
 from sailpoint.beta.models.task_result_dto import TaskResultDto
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -340,7 +338,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = RolesApi(api_client).delete_bulk_roles(new_role_bulk_delete_request)
         print("The response of RolesApi->delete_bulk_roles:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling RolesApi->delete_bulk_roles: %s\n" % e)
 ```
@@ -385,7 +383,6 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.beta.api.roles_api import RolesApi
 from sailpoint.beta.api_client import ApiClient
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -443,7 +440,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.roles_api import RolesApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.role import Role
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -458,7 +454,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = RolesApi(api_client).get_role(id)
         print("The response of RolesApi->get_role:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling RolesApi->get_role: %s\n" % e)
 ```
@@ -507,7 +503,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.roles_api import RolesApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.role_identity import RoleIdentity
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -527,7 +522,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = RolesApi(api_client).get_role_assigned_identities(id, limit, offset, count, filters, sorters)
         print("The response of RolesApi->get_role_assigned_identities:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling RolesApi->get_role_assigned_identities: %s\n" % e)
 ```
@@ -576,7 +571,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.roles_api import RolesApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.entitlement import Entitlement
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -596,7 +590,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = RolesApi(api_client).get_role_entitlements(id, limit, offset, count, filters, sorters)
         print("The response of RolesApi->get_role_entitlements:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling RolesApi->get_role_entitlements: %s\n" % e)
 ```
@@ -649,7 +643,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.roles_api import RolesApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.role import Role
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -671,7 +664,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = RolesApi(api_client).list_roles(for_subadmin, limit, offset, count, filters, sorters, for_segment_ids, include_unsegmented)
         print("The response of RolesApi->list_roles:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling RolesApi->list_roles: %s\n" % e)
 ```
@@ -737,7 +730,6 @@ from sailpoint.beta.api.roles_api import RolesApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.json_patch_operation import JsonPatchOperation
 from sailpoint.beta.models.role import Role
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -753,7 +745,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = RolesApi(api_client).patch_role(id, new_json_patch_operation)
         print("The response of RolesApi->patch_role:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling RolesApi->patch_role: %s\n" % e)
 ```

@@ -66,7 +66,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.password_policies_api import PasswordPoliciesApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.password_policy_v3_dto import PasswordPolicyV3Dto
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -113,7 +112,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = PasswordPoliciesApi(api_client).create_password_policy(new_password_policy_v3_dto)
         print("The response of PasswordPoliciesApi->create_password_policy:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling PasswordPoliciesApi->create_password_policy: %s\n" % e)
 ```
@@ -157,7 +156,6 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.v3.api.password_policies_api import PasswordPoliciesApi
 from sailpoint.v3.api_client import ApiClient
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -215,7 +213,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.password_policies_api import PasswordPoliciesApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.password_policy_v3_dto import PasswordPolicyV3Dto
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -230,7 +227,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = PasswordPoliciesApi(api_client).get_password_policy_by_id(id)
         print("The response of PasswordPoliciesApi->get_password_policy_by_id:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling PasswordPoliciesApi->get_password_policy_by_id: %s\n" % e)
 ```
@@ -277,7 +274,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.password_policies_api import PasswordPoliciesApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.password_policy_v3_dto import PasswordPolicyV3Dto
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -294,7 +290,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = PasswordPoliciesApi(api_client).list_password_policies(limit, offset, count)
         print("The response of PasswordPoliciesApi->list_password_policies:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling PasswordPoliciesApi->list_password_policies: %s\n" % e)
 ```
@@ -340,7 +336,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.password_policies_api import PasswordPoliciesApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.password_policy_v3_dto import PasswordPolicyV3Dto
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -388,7 +383,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = PasswordPoliciesApi(api_client).set_password_policy(id, new_password_policy_v3_dto)
         print("The response of PasswordPoliciesApi->set_password_policy:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling PasswordPoliciesApi->set_password_policy: %s\n" % e)
 ```

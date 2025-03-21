@@ -67,7 +67,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.suggested_entitlement_description_api import SuggestedEntitlementDescriptionApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.sed_batch_stats import SedBatchStats
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -82,7 +81,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SuggestedEntitlementDescriptionApi(api_client).get_sed_batch_stats(batch_id)
         print("The response of SuggestedEntitlementDescriptionApi->get_sed_batch_stats:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SuggestedEntitlementDescriptionApi->get_sed_batch_stats: %s\n" % e)
 ```
@@ -125,7 +124,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.suggested_entitlement_description_api import SuggestedEntitlementDescriptionApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.sed_batch_status import SedBatchStatus
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -139,7 +137,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SuggestedEntitlementDescriptionApi(api_client).get_sed_batches()
         print("The response of SuggestedEntitlementDescriptionApi->get_sed_batches:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SuggestedEntitlementDescriptionApi->get_sed_batches: %s\n" % e)
 ```
@@ -204,7 +202,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.suggested_entitlement_description_api import SuggestedEntitlementDescriptionApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.sed import Sed
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -225,7 +222,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SuggestedEntitlementDescriptionApi(api_client).list_seds(limit, filters, sorters, count, count_only, requested_by_anyone, show_pending_status_only)
         print("The response of SuggestedEntitlementDescriptionApi->list_seds:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SuggestedEntitlementDescriptionApi->list_seds: %s\n" % e)
 ```
@@ -272,7 +269,6 @@ from sailpoint.beta.api.suggested_entitlement_description_api import SuggestedEn
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.sed import Sed
 from sailpoint.beta.models.sed_patch import SedPatch
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -288,7 +284,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SuggestedEntitlementDescriptionApi(api_client).patch_sed(id, new_sed_patch)
         print("The response of SuggestedEntitlementDescriptionApi->patch_sed:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SuggestedEntitlementDescriptionApi->patch_sed: %s\n" % e)
 ```
@@ -335,7 +331,6 @@ from sailpoint.beta.api.suggested_entitlement_description_api import SuggestedEn
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.sed_approval import SedApproval
 from sailpoint.beta.models.sed_approval_status import SedApprovalStatus
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -350,7 +345,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SuggestedEntitlementDescriptionApi(api_client).submit_sed_approval(new_sed_approval)
         print("The response of SuggestedEntitlementDescriptionApi->submit_sed_approval:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SuggestedEntitlementDescriptionApi->submit_sed_approval: %s\n" % e)
 ```
@@ -397,7 +392,6 @@ from sailpoint.beta.api.suggested_entitlement_description_api import SuggestedEn
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.sed_assignment import SedAssignment
 from sailpoint.beta.models.sed_assignment_response import SedAssignmentResponse
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -418,7 +412,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SuggestedEntitlementDescriptionApi(api_client).submit_sed_assignment(new_sed_assignment)
         print("The response of SuggestedEntitlementDescriptionApi->submit_sed_assignment:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SuggestedEntitlementDescriptionApi->submit_sed_assignment: %s\n" % e)
 ```
@@ -468,7 +462,6 @@ from sailpoint.beta.api.suggested_entitlement_description_api import SuggestedEn
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.sed_batch_request import SedBatchRequest
 from sailpoint.beta.models.sed_batch_response import SedBatchResponse
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -486,7 +479,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SuggestedEntitlementDescriptionApi(api_client).submit_sed_batch_request(new_sed_batch_request)
         print("The response of SuggestedEntitlementDescriptionApi->submit_sed_batch_request:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SuggestedEntitlementDescriptionApi->submit_sed_batch_request: %s\n" % e)
 ```

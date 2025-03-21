@@ -81,7 +81,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.work_items_api import WorkItemsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.work_items import WorkItems
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -97,7 +96,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = WorkItemsApi(api_client).approve_approval_item(id, approval_item_id)
         print("The response of WorkItemsApi->approve_approval_item:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling WorkItemsApi->approve_approval_item: %s\n" % e)
 ```
@@ -142,7 +141,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.work_items_api import WorkItemsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.work_items import WorkItems
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -157,7 +155,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = WorkItemsApi(api_client).approve_approval_items_in_bulk(id)
         print("The response of WorkItemsApi->approve_approval_items_in_bulk:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling WorkItemsApi->approve_approval_items_in_bulk: %s\n" % e)
 ```
@@ -203,7 +201,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.work_items_api import WorkItemsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.work_items import WorkItems
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -219,7 +216,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = WorkItemsApi(api_client).complete_work_item(id, new_body)
         print("The response of WorkItemsApi->complete_work_item:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling WorkItemsApi->complete_work_item: %s\n" % e)
 ```
@@ -266,7 +263,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.work_items_api import WorkItemsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.work_items import WorkItems
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -284,7 +280,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = WorkItemsApi(api_client).get_completed_work_items(owner_id, limit, offset, count)
         print("The response of WorkItemsApi->get_completed_work_items:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling WorkItemsApi->get_completed_work_items: %s\n" % e)
 ```
@@ -328,7 +324,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.work_items_api import WorkItemsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.work_items_count import WorkItemsCount
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -343,7 +338,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = WorkItemsApi(api_client).get_count_completed_work_items(owner_id)
         print("The response of WorkItemsApi->get_count_completed_work_items:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling WorkItemsApi->get_count_completed_work_items: %s\n" % e)
 ```
@@ -387,7 +382,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.work_items_api import WorkItemsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.work_items_count import WorkItemsCount
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -402,7 +396,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = WorkItemsApi(api_client).get_count_work_items(owner_id)
         print("The response of WorkItemsApi->get_count_work_items:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling WorkItemsApi->get_count_work_items: %s\n" % e)
 ```
@@ -447,7 +441,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.work_items_api import WorkItemsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.work_items import WorkItems
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -462,7 +455,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = WorkItemsApi(api_client).get_work_item(id)
         print("The response of WorkItemsApi->get_work_item:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling WorkItemsApi->get_work_item: %s\n" % e)
 ```
@@ -506,7 +499,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.work_items_api import WorkItemsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.work_items_summary import WorkItemsSummary
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -521,7 +513,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = WorkItemsApi(api_client).get_work_items_summary(owner_id)
         print("The response of WorkItemsApi->get_work_items_summary:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling WorkItemsApi->get_work_items_summary: %s\n" % e)
 ```
@@ -568,7 +560,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.work_items_api import WorkItemsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.work_items import WorkItems
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -586,7 +577,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = WorkItemsApi(api_client).list_work_items(limit, offset, count, owner_id)
         print("The response of WorkItemsApi->list_work_items:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling WorkItemsApi->list_work_items: %s\n" % e)
 ```
@@ -632,7 +623,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.work_items_api import WorkItemsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.work_items import WorkItems
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -648,7 +638,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = WorkItemsApi(api_client).reject_approval_item(id, approval_item_id)
         print("The response of WorkItemsApi->reject_approval_item:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling WorkItemsApi->reject_approval_item: %s\n" % e)
 ```
@@ -693,7 +683,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.work_items_api import WorkItemsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.work_items import WorkItems
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -708,7 +697,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = WorkItemsApi(api_client).reject_approval_items_in_bulk(id)
         print("The response of WorkItemsApi->reject_approval_items_in_bulk:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling WorkItemsApi->reject_approval_items_in_bulk: %s\n" % e)
 ```
@@ -753,7 +742,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.work_items_api import WorkItemsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.work_item_forward import WorkItemForward
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -817,7 +805,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.work_items_api import WorkItemsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.work_items import WorkItems
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -833,7 +820,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = WorkItemsApi(api_client).submit_account_selection(id, new_request_body)
         print("The response of WorkItemsApi->submit_account_selection:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling WorkItemsApi->submit_account_selection: %s\n" % e)
 ```

@@ -89,7 +89,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.password_sync_groups_api import PasswordSyncGroupsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.password_sync_group import PasswordSyncGroup
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -111,7 +110,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = PasswordSyncGroupsApi(api_client).create_password_sync_group(new_password_sync_group)
         print("The response of PasswordSyncGroupsApi->create_password_sync_group:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling PasswordSyncGroupsApi->create_password_sync_group: %s\n" % e)
 ```
@@ -154,7 +153,6 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.beta.api.password_sync_groups_api import PasswordSyncGroupsApi
 from sailpoint.beta.api_client import ApiClient
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -212,7 +210,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.password_sync_groups_api import PasswordSyncGroupsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.password_sync_group import PasswordSyncGroup
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -227,7 +224,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = PasswordSyncGroupsApi(api_client).get_password_sync_group(id)
         print("The response of PasswordSyncGroupsApi->get_password_sync_group:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling PasswordSyncGroupsApi->get_password_sync_group: %s\n" % e)
 ```
@@ -273,7 +270,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.password_sync_groups_api import PasswordSyncGroupsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.password_sync_group import PasswordSyncGroup
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -290,7 +286,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = PasswordSyncGroupsApi(api_client).get_password_sync_groups(limit, offset, count)
         print("The response of PasswordSyncGroupsApi->get_password_sync_groups:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling PasswordSyncGroupsApi->get_password_sync_groups: %s\n" % e)
 ```
@@ -336,7 +332,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.password_sync_groups_api import PasswordSyncGroupsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.password_sync_group import PasswordSyncGroup
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -359,7 +354,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = PasswordSyncGroupsApi(api_client).update_password_sync_group(id, new_password_sync_group)
         print("The response of PasswordSyncGroupsApi->update_password_sync_group:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling PasswordSyncGroupsApi->update_password_sync_group: %s\n" % e)
 ```

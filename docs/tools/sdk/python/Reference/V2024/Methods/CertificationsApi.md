@@ -87,7 +87,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.certifications_api import CertificationsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.certification_task import CertificationTask
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -102,7 +101,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CertificationsApi(api_client).get_certification_task(id)
         print("The response of CertificationsApi->get_certification_task:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CertificationsApi->get_certification_task: %s\n" % e)
 ```
@@ -147,7 +146,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.certifications_api import CertificationsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.identity_certification_dto import IdentityCertificationDto
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -162,7 +160,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CertificationsApi(api_client).get_identity_certification(id)
         print("The response of CertificationsApi->get_identity_certification:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CertificationsApi->get_identity_certification: %s\n" % e)
 ```
@@ -212,7 +210,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.certifications_api import CertificationsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.permission_dto import PermissionDto
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -232,7 +229,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CertificationsApi(api_client).get_identity_certification_item_permissions(certification_id, item_id, filters, limit, offset, count)
         print("The response of CertificationsApi->get_identity_certification_item_permissions:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CertificationsApi->get_identity_certification_item_permissions: %s\n" % e)
 ```
@@ -281,7 +278,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.certifications_api import CertificationsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.certification_task import CertificationTask
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -300,7 +296,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CertificationsApi(api_client).get_pending_certification_tasks(reviewer_identity, limit, offset, count, filters)
         print("The response of CertificationsApi->get_pending_certification_tasks:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CertificationsApi->get_pending_certification_tasks: %s\n" % e)
 ```
@@ -350,7 +346,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.certifications_api import CertificationsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.identity_reference_with_name_and_email import IdentityReferenceWithNameAndEmail
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -370,7 +365,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CertificationsApi(api_client).list_certification_reviewers(id, limit, offset, count, filters, sorters)
         print("The response of CertificationsApi->list_certification_reviewers:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CertificationsApi->list_certification_reviewers: %s\n" % e)
 ```
@@ -423,7 +418,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.certifications_api import CertificationsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.access_review_item import AccessReviewItem
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -446,7 +440,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CertificationsApi(api_client).list_identity_access_review_items(id, limit, offset, count, filters, sorters, entitlements, access_profiles, roles)
         print("The response of CertificationsApi->list_identity_access_review_items:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CertificationsApi->list_identity_access_review_items: %s\n" % e)
 ```
@@ -495,7 +489,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.certifications_api import CertificationsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.identity_certification_dto import IdentityCertificationDto
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -515,7 +508,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CertificationsApi(api_client).list_identity_certifications(reviewer_identity, limit, offset, count, filters, sorters)
         print("The response of CertificationsApi->list_identity_certifications:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CertificationsApi->list_identity_certifications: %s\n" % e)
 ```
@@ -562,7 +555,6 @@ from sailpoint.v2024.api.certifications_api import CertificationsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.identity_certification_dto import IdentityCertificationDto
 from sailpoint.v2024.models.review_decision import ReviewDecision
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -578,7 +570,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CertificationsApi(api_client).make_identity_decision(id, new_review_decision)
         print("The response of CertificationsApi->make_identity_decision:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CertificationsApi->make_identity_decision: %s\n" % e)
 ```
@@ -625,7 +617,6 @@ from sailpoint.v2024.api.certifications_api import CertificationsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.identity_certification_dto import IdentityCertificationDto
 from sailpoint.v2024.models.review_reassign import ReviewReassign
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -651,7 +642,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CertificationsApi(api_client).reassign_identity_certifications(id, new_review_reassign)
         print("The response of CertificationsApi->reassign_identity_certifications:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CertificationsApi->reassign_identity_certifications: %s\n" % e)
 ```
@@ -696,7 +687,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.certifications_api import CertificationsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.identity_certification_dto import IdentityCertificationDto
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -711,7 +701,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CertificationsApi(api_client).sign_off_identity_certification(id)
         print("The response of CertificationsApi->sign_off_identity_certification:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CertificationsApi->sign_off_identity_certification: %s\n" % e)
 ```
@@ -763,7 +753,6 @@ from sailpoint.v2024.api.certifications_api import CertificationsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.certification_task import CertificationTask
 from sailpoint.v2024.models.review_reassign import ReviewReassign
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -789,7 +778,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CertificationsApi(api_client).submit_reassign_certs_async(id, new_review_reassign)
         print("The response of CertificationsApi->submit_reassign_certs_async:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CertificationsApi->submit_reassign_certs_async: %s\n" % e)
 ```

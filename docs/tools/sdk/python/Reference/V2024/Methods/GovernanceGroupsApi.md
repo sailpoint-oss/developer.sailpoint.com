@@ -79,7 +79,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.governance_groups_api import GovernanceGroupsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.workgroup_dto import WorkgroupDto
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -111,7 +110,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = GovernanceGroupsApi(api_client).create_workgroup(x_sail_point_experimental, new_workgroup_dto)
         print("The response of GovernanceGroupsApi->create_workgroup:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling GovernanceGroupsApi->create_workgroup: %s\n" % e)
 ```
@@ -166,7 +165,6 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.v2024.api.governance_groups_api import GovernanceGroupsApi
 from sailpoint.v2024.api_client import ApiClient
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -242,7 +240,6 @@ from sailpoint.v2024.api.governance_groups_api import GovernanceGroupsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.identity_preview_response_identity import IdentityPreviewResponseIdentity
 from sailpoint.v2024.models.workgroup_member_delete_item import WorkgroupMemberDeleteItem
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -260,7 +257,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = GovernanceGroupsApi(api_client).delete_workgroup_members(workgroup_id, x_sail_point_experimental, new_identity_preview_response_identity)
         print("The response of GovernanceGroupsApi->delete_workgroup_members:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling GovernanceGroupsApi->delete_workgroup_members: %s\n" % e)
 ```
@@ -328,7 +325,6 @@ from sailpoint.v2024.api.governance_groups_api import GovernanceGroupsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.workgroup_bulk_delete_request import WorkgroupBulkDeleteRequest
 from sailpoint.v2024.models.workgroup_delete_item import WorkgroupDeleteItem
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -347,7 +343,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = GovernanceGroupsApi(api_client).delete_workgroups_in_bulk(x_sail_point_experimental, new_workgroup_bulk_delete_request)
         print("The response of GovernanceGroupsApi->delete_workgroups_in_bulk:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling GovernanceGroupsApi->delete_workgroups_in_bulk: %s\n" % e)
 ```
@@ -403,7 +399,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.governance_groups_api import GovernanceGroupsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.workgroup_dto import WorkgroupDto
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -420,7 +415,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = GovernanceGroupsApi(api_client).get_workgroup(id, x_sail_point_experimental)
         print("The response of GovernanceGroupsApi->get_workgroup:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling GovernanceGroupsApi->get_workgroup: %s\n" % e)
 ```
@@ -480,7 +475,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.governance_groups_api import GovernanceGroupsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.workgroup_connection_dto import WorkgroupConnectionDto
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -501,7 +495,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = GovernanceGroupsApi(api_client).list_connections(workgroup_id, x_sail_point_experimental, offset, limit, count, sorters)
         print("The response of GovernanceGroupsApi->list_connections:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling GovernanceGroupsApi->list_connections: %s\n" % e)
 ```
@@ -561,7 +555,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.governance_groups_api import GovernanceGroupsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.list_workgroup_members200_response_inner import ListWorkgroupMembers200ResponseInner
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -582,7 +575,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = GovernanceGroupsApi(api_client).list_workgroup_members(workgroup_id, x_sail_point_experimental, offset, limit, count, sorters)
         print("The response of GovernanceGroupsApi->list_workgroup_members:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling GovernanceGroupsApi->list_workgroup_members: %s\n" % e)
 ```
@@ -642,7 +635,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.governance_groups_api import GovernanceGroupsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.workgroup_dto import WorkgroupDto
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -663,7 +655,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = GovernanceGroupsApi(api_client).list_workgroups(x_sail_point_experimental, offset, limit, count, filters, sorters)
         print("The response of GovernanceGroupsApi->list_workgroups:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling GovernanceGroupsApi->list_workgroups: %s\n" % e)
 ```
@@ -724,7 +716,6 @@ from sailpoint.v2024.api.governance_groups_api import GovernanceGroupsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.json_patch_operation import JsonPatchOperation
 from sailpoint.v2024.models.workgroup_dto import WorkgroupDto
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -742,7 +733,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = GovernanceGroupsApi(api_client).patch_workgroup(id, x_sail_point_experimental, new_json_patch_operation)
         print("The response of GovernanceGroupsApi->patch_workgroup:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling GovernanceGroupsApi->patch_workgroup: %s\n" % e)
 ```
@@ -804,7 +795,6 @@ from sailpoint.v2024.api.governance_groups_api import GovernanceGroupsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.identity_preview_response_identity import IdentityPreviewResponseIdentity
 from sailpoint.v2024.models.workgroup_member_add_item import WorkgroupMemberAddItem
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -822,7 +812,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = GovernanceGroupsApi(api_client).update_workgroup_members(workgroup_id, x_sail_point_experimental, new_identity_preview_response_identity)
         print("The response of GovernanceGroupsApi->update_workgroup_members:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling GovernanceGroupsApi->update_workgroup_members: %s\n" % e)
 ```

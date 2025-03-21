@@ -56,7 +56,6 @@ from sailpoint.beta.api.iai_recommendations_api import IAIRecommendationsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.recommendation_request_dto import RecommendationRequestDto
 from sailpoint.beta.models.recommendation_response_dto import RecommendationResponseDto
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -89,7 +88,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IAIRecommendationsApi(api_client).get_recommendations(new_recommendation_request_dto)
         print("The response of IAIRecommendationsApi->get_recommendations:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IAIRecommendationsApi->get_recommendations: %s\n" % e)
 ```
@@ -130,7 +129,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.iai_recommendations_api import IAIRecommendationsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.recommendation_config_dto import RecommendationConfigDto
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -144,7 +142,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IAIRecommendationsApi(api_client).get_recommendations_config()
         print("The response of IAIRecommendationsApi->get_recommendations_config:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IAIRecommendationsApi->get_recommendations_config: %s\n" % e)
 ```
@@ -188,7 +186,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.iai_recommendations_api import IAIRecommendationsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.recommendation_config_dto import RecommendationConfigDto
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -208,7 +205,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IAIRecommendationsApi(api_client).update_recommendations_config(new_recommendation_config_dto)
         print("The response of IAIRecommendationsApi->update_recommendations_config:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IAIRecommendationsApi->update_recommendations_config: %s\n" % e)
 ```

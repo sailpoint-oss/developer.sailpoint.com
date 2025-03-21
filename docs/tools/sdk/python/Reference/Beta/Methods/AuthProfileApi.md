@@ -62,7 +62,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.auth_profile_api import AuthProfileApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.auth_profile import AuthProfile
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -77,7 +76,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = AuthProfileApi(api_client).get_profile_config(id)
         print("The response of AuthProfileApi->get_profile_config:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling AuthProfileApi->get_profile_config: %s\n" % e)
 ```
@@ -118,7 +117,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.auth_profile_api import AuthProfileApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.auth_profile_summary import AuthProfileSummary
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -132,7 +130,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = AuthProfileApi(api_client).get_profile_config_list()
         print("The response of AuthProfileApi->get_profile_config_list:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling AuthProfileApi->get_profile_config_list: %s\n" % e)
 ```
@@ -179,7 +177,6 @@ from sailpoint.beta.api.auth_profile_api import AuthProfileApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.auth_profile import AuthProfile
 from sailpoint.beta.models.json_patch_operation import JsonPatchOperation
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -195,7 +192,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = AuthProfileApi(api_client).patch_profile_config(id, new_json_patch_operation)
         print("The response of AuthProfileApi->patch_profile_config:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling AuthProfileApi->patch_profile_config: %s\n" % e)
 ```

@@ -63,7 +63,6 @@ from sailpoint.beta.api.launchers_api import LaunchersApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.launcher import Launcher
 from sailpoint.beta.models.launcher_request import LauncherRequest
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -88,7 +87,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = LaunchersApi(api_client).create_launcher(new_launcher_request)
         print("The response of LaunchersApi->create_launcher:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling LaunchersApi->create_launcher: %s\n" % e)
 ```
@@ -132,7 +131,6 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.beta.api.launchers_api import LaunchersApi
 from sailpoint.beta.api_client import ApiClient
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -190,7 +188,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.launchers_api import LaunchersApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.launcher import Launcher
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -205,7 +202,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = LaunchersApi(api_client).get_launcher(launcher_id)
         print("The response of LaunchersApi->get_launcher:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling LaunchersApi->get_launcher: %s\n" % e)
 ```
@@ -252,7 +249,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.launchers_api import LaunchersApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.get_launchers200_response import GetLaunchers200Response
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -269,7 +265,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = LaunchersApi(api_client).get_launchers(filters, next, limit)
         print("The response of LaunchersApi->get_launchers:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling LaunchersApi->get_launchers: %s\n" % e)
 ```
@@ -316,7 +312,6 @@ from sailpoint.beta.api.launchers_api import LaunchersApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.launcher import Launcher
 from sailpoint.beta.models.launcher_request import LauncherRequest
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -342,7 +337,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = LaunchersApi(api_client).put_launcher(launcher_id, new_launcher_request)
         print("The response of LaunchersApi->put_launcher:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling LaunchersApi->put_launcher: %s\n" % e)
 ```
@@ -387,7 +382,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.launchers_api import LaunchersApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.start_launcher200_response import StartLauncher200Response
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -402,7 +396,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = LaunchersApi(api_client).start_launcher(launcher_id)
         print("The response of LaunchersApi->start_launcher:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling LaunchersApi->start_launcher: %s\n" % e)
 ```

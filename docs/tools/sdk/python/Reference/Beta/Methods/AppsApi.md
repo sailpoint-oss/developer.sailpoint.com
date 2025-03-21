@@ -69,7 +69,6 @@ from sailpoint.beta.api.apps_api import AppsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.source_app import SourceApp
 from sailpoint.beta.models.source_app_create_dto import SourceAppCreateDto
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -93,7 +92,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = AppsApi(api_client).create_source_app(new_source_app_create_dto)
         print("The response of AppsApi->create_source_app:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling AppsApi->create_source_app: %s\n" % e)
 ```
@@ -139,7 +138,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.apps_api import AppsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.access_profile_details import AccessProfileDetails
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -156,7 +154,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = AppsApi(api_client).delete_access_profiles_from_source_app_by_bulk(id, new_request_body, limit)
         print("The response of AppsApi->delete_access_profiles_from_source_app_by_bulk:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling AppsApi->delete_access_profiles_from_source_app_by_bulk: %s\n" % e)
 ```
@@ -200,7 +198,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.apps_api import AppsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.source_app import SourceApp
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -215,7 +212,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = AppsApi(api_client).delete_source_app(id)
         print("The response of AppsApi->delete_source_app:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling AppsApi->delete_source_app: %s\n" % e)
 ```
@@ -260,7 +257,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.apps_api import AppsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.source_app import SourceApp
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -275,7 +271,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = AppsApi(api_client).get_source_app(id)
         print("The response of AppsApi->get_source_app:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling AppsApi->get_source_app: %s\n" % e)
 ```
@@ -322,7 +318,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.apps_api import AppsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.access_profile_details import AccessProfileDetails
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -340,7 +335,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = AppsApi(api_client).list_access_profiles_for_source_app(id, limit, offset, filters)
         print("The response of AppsApi->list_access_profiles_for_source_app:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling AppsApi->list_access_profiles_for_source_app: %s\n" % e)
 ```
@@ -390,7 +385,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.apps_api import AppsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.source_app import SourceApp
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -409,7 +403,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = AppsApi(api_client).list_all_source_app(limit, count, offset, sorters, filters)
         print("The response of AppsApi->list_all_source_app:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling AppsApi->list_all_source_app: %s\n" % e)
 ```
@@ -457,7 +451,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.apps_api import AppsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.user_app import UserApp
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -475,7 +468,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = AppsApi(api_client).list_all_user_apps(filters, limit, count, offset)
         print("The response of AppsApi->list_all_user_apps:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling AppsApi->list_all_user_apps: %s\n" % e)
 ```
@@ -523,7 +516,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.apps_api import AppsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.source_app import SourceApp
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -542,7 +534,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = AppsApi(api_client).list_assigned_source_app(limit, count, offset, sorters, filters)
         print("The response of AppsApi->list_assigned_source_app:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling AppsApi->list_assigned_source_app: %s\n" % e)
 ```
@@ -589,7 +581,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.apps_api import AppsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.app_account_details import AppAccountDetails
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -607,7 +598,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = AppsApi(api_client).list_available_accounts_for_user_app(id, limit, count, offset)
         print("The response of AppsApi->list_available_accounts_for_user_app:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling AppsApi->list_available_accounts_for_user_app: %s\n" % e)
 ```
@@ -655,7 +646,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.apps_api import AppsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.source_app import SourceApp
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -674,7 +664,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = AppsApi(api_client).list_available_source_apps(limit, count, offset, sorters, filters)
         print("The response of AppsApi->list_available_source_apps:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling AppsApi->list_available_source_apps: %s\n" % e)
 ```
@@ -721,7 +711,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.apps_api import AppsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.user_app import UserApp
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -739,7 +728,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = AppsApi(api_client).list_owned_user_apps(limit, count, offset, filters)
         print("The response of AppsApi->list_owned_user_apps:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling AppsApi->list_owned_user_apps: %s\n" % e)
 ```
@@ -788,7 +777,6 @@ from sailpoint.beta.api.apps_api import AppsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.json_patch_operation import JsonPatchOperation
 from sailpoint.beta.models.source_app_patch_dto import SourceAppPatchDto
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -804,7 +792,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = AppsApi(api_client).patch_source_app(id, new_json_patch_operation)
         print("The response of AppsApi->patch_source_app:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling AppsApi->patch_source_app: %s\n" % e)
 ```
@@ -852,7 +840,6 @@ from sailpoint.beta.api.apps_api import AppsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.json_patch_operation import JsonPatchOperation
 from sailpoint.beta.models.user_app import UserApp
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -868,7 +855,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = AppsApi(api_client).patch_user_app(id, new_json_patch_operation)
         print("The response of AppsApi->patch_user_app:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling AppsApi->patch_user_app: %s\n" % e)
 ```
@@ -915,7 +902,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.apps_api import AppsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.source_app_bulk_update_request import SourceAppBulkUpdateRequest
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 

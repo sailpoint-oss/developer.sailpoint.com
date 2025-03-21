@@ -61,7 +61,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.role_insights_api import RoleInsightsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.role_insights_response import RoleInsightsResponse
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -75,7 +74,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = RoleInsightsApi(api_client).create_role_insight_requests()
         print("The response of RoleInsightsApi->create_role_insight_requests:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling RoleInsightsApi->create_role_insight_requests: %s\n" % e)
 ```
@@ -119,7 +118,6 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.beta.api.role_insights_api import RoleInsightsApi
 from sailpoint.beta.api_client import ApiClient
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -136,7 +134,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = RoleInsightsApi(api_client).download_role_insights_entitlements_changes(insight_id, sorters, filters)
         print("The response of RoleInsightsApi->download_role_insights_entitlements_changes:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling RoleInsightsApi->download_role_insights_entitlements_changes: %s\n" % e)
 ```
@@ -186,7 +184,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.role_insights_api import RoleInsightsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.role_insights_identities import RoleInsightsIdentities
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -208,7 +205,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = RoleInsightsApi(api_client).get_entitlement_changes_identities(insight_id, entitlement_id, has_entitlement, offset, limit, count, sorters, filters)
         print("The response of RoleInsightsApi->get_entitlement_changes_identities:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling RoleInsightsApi->get_entitlement_changes_identities: %s\n" % e)
 ```
@@ -251,7 +248,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.role_insights_api import RoleInsightsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.role_insight import RoleInsight
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -266,7 +262,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = RoleInsightsApi(api_client).get_role_insight(insight_id)
         print("The response of RoleInsightsApi->get_role_insight:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling RoleInsightsApi->get_role_insight: %s\n" % e)
 ```
@@ -313,7 +309,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.role_insights_api import RoleInsightsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.role_insight import RoleInsight
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -332,7 +327,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = RoleInsightsApi(api_client).get_role_insights(offset, limit, count, sorters, filters)
         print("The response of RoleInsightsApi->get_role_insights:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling RoleInsightsApi->get_role_insights: %s\n" % e)
 ```
@@ -376,7 +371,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.role_insights_api import RoleInsightsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.role_insights_entitlement import RoleInsightsEntitlement
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -392,7 +386,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = RoleInsightsApi(api_client).get_role_insights_current_entitlements(insight_id, filters)
         print("The response of RoleInsightsApi->get_role_insights_current_entitlements:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling RoleInsightsApi->get_role_insights_current_entitlements: %s\n" % e)
 ```
@@ -437,7 +431,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.role_insights_api import RoleInsightsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.role_insights_entitlement_changes import RoleInsightsEntitlementChanges
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -454,7 +447,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = RoleInsightsApi(api_client).get_role_insights_entitlements_changes(insight_id, sorters, filters)
         print("The response of RoleInsightsApi->get_role_insights_entitlements_changes:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling RoleInsightsApi->get_role_insights_entitlements_changes: %s\n" % e)
 ```
@@ -501,7 +494,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.role_insights_api import RoleInsightsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.role_insights_response import RoleInsightsResponse
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -516,7 +508,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = RoleInsightsApi(api_client).get_role_insights_requests(id)
         print("The response of RoleInsightsApi->get_role_insights_requests:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling RoleInsightsApi->get_role_insights_requests: %s\n" % e)
 ```
@@ -556,7 +548,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.role_insights_api import RoleInsightsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.role_insights_summary import RoleInsightsSummary
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -570,7 +561,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = RoleInsightsApi(api_client).get_role_insights_summary()
         print("The response of RoleInsightsApi->get_role_insights_summary:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling RoleInsightsApi->get_role_insights_summary: %s\n" % e)
 ```

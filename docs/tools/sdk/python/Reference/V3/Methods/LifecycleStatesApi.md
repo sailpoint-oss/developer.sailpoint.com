@@ -97,7 +97,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.lifecycle_states_api import LifecycleStatesApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.lifecycle_state import LifecycleState
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -137,7 +136,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = LifecycleStatesApi(api_client).create_lifecycle_state(identity_profile_id, new_lifecycle_state)
         print("The response of LifecycleStatesApi->create_lifecycle_state:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling LifecycleStatesApi->create_lifecycle_state: %s\n" % e)
 ```
@@ -183,7 +182,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.lifecycle_states_api import LifecycleStatesApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.lifecyclestate_deleted import LifecyclestateDeleted
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -199,7 +197,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = LifecycleStatesApi(api_client).delete_lifecycle_state(identity_profile_id, lifecycle_state_id)
         print("The response of LifecycleStatesApi->delete_lifecycle_state:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling LifecycleStatesApi->delete_lifecycle_state: %s\n" % e)
 ```
@@ -245,7 +243,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.lifecycle_states_api import LifecycleStatesApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.lifecycle_state import LifecycleState
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -261,7 +258,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = LifecycleStatesApi(api_client).get_lifecycle_state(identity_profile_id, lifecycle_state_id)
         print("The response of LifecycleStatesApi->get_lifecycle_state:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling LifecycleStatesApi->get_lifecycle_state: %s\n" % e)
 ```
@@ -309,7 +306,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.lifecycle_states_api import LifecycleStatesApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.lifecycle_state import LifecycleState
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -328,7 +324,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = LifecycleStatesApi(api_client).get_lifecycle_states(identity_profile_id, limit, offset, count, sorters)
         print("The response of LifecycleStatesApi->get_lifecycle_states:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling LifecycleStatesApi->get_lifecycle_states: %s\n" % e)
 ```
@@ -375,7 +371,6 @@ from sailpoint.v3.api.lifecycle_states_api import LifecycleStatesApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.set_lifecycle_state200_response import SetLifecycleState200Response
 from sailpoint.v3.models.set_lifecycle_state_request import SetLifecycleStateRequest
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -391,7 +386,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = LifecycleStatesApi(api_client).set_lifecycle_state(identity_id, new_set_lifecycle_state_request)
         print("The response of LifecycleStatesApi->set_lifecycle_state:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling LifecycleStatesApi->set_lifecycle_state: %s\n" % e)
 ```
@@ -439,7 +434,6 @@ from sailpoint.v3.api.lifecycle_states_api import LifecycleStatesApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.json_patch_operation import JsonPatchOperation
 from sailpoint.v3.models.lifecycle_state import LifecycleState
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -456,7 +450,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = LifecycleStatesApi(api_client).update_lifecycle_states(identity_profile_id, lifecycle_state_id, new_json_patch_operation)
         print("The response of LifecycleStatesApi->update_lifecycle_states:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling LifecycleStatesApi->update_lifecycle_states: %s\n" % e)
 ```

@@ -55,7 +55,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.org_config_api import OrgConfigApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.org_config import OrgConfig
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -69,7 +68,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = OrgConfigApi(api_client).get_org_config()
         print("The response of OrgConfigApi->get_org_config:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling OrgConfigApi->get_org_config: %s\n" % e)
 ```
@@ -109,7 +108,6 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.beta.api.org_config_api import OrgConfigApi
 from sailpoint.beta.api_client import ApiClient
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -123,7 +121,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = OrgConfigApi(api_client).get_valid_time_zones()
         print("The response of OrgConfigApi->get_valid_time_zones:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling OrgConfigApi->get_valid_time_zones: %s\n" % e)
 ```
@@ -169,7 +167,6 @@ from sailpoint.beta.api.org_config_api import OrgConfigApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.json_patch_operation import JsonPatchOperation
 from sailpoint.beta.models.org_config import OrgConfig
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -184,7 +181,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = OrgConfigApi(api_client).patch_org_config(new_json_patch_operation)
         print("The response of OrgConfigApi->patch_org_config:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling OrgConfigApi->patch_org_config: %s\n" % e)
 ```

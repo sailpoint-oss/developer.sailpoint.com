@@ -98,7 +98,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.sod_policies_api import SODPoliciesApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.sod_policy import SodPolicy
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -168,7 +167,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SODPoliciesApi(api_client).create_sod_policy(new_sod_policy)
         print("The response of SODPoliciesApi->create_sod_policy:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SODPoliciesApi->create_sod_policy: %s\n" % e)
 ```
@@ -217,7 +216,6 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.beta.api.sod_policies_api import SODPoliciesApi
 from sailpoint.beta.api_client import ApiClient
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -279,7 +277,6 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.beta.api.sod_policies_api import SODPoliciesApi
 from sailpoint.beta.api_client import ApiClient
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -341,7 +338,6 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.beta.api.sod_policies_api import SODPoliciesApi
 from sailpoint.beta.api_client import ApiClient
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -357,7 +353,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SODPoliciesApi(api_client).get_custom_violation_report(report_result_id, file_name)
         print("The response of SODPoliciesApi->get_custom_violation_report:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SODPoliciesApi->get_custom_violation_report: %s\n" % e)
 ```
@@ -405,7 +401,6 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.beta.api.sod_policies_api import SODPoliciesApi
 from sailpoint.beta.api_client import ApiClient
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -420,7 +415,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SODPoliciesApi(api_client).get_default_violation_report(report_result_id)
         print("The response of SODPoliciesApi->get_default_violation_report:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SODPoliciesApi->get_default_violation_report: %s\n" % e)
 ```
@@ -465,7 +460,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.sod_policies_api import SODPoliciesApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.report_result_reference import ReportResultReference
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -479,7 +473,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SODPoliciesApi(api_client).get_sod_all_report_run_status()
         print("The response of SODPoliciesApi->get_sod_all_report_run_status:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SODPoliciesApi->get_sod_all_report_run_status: %s\n" % e)
 ```
@@ -528,7 +522,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.sod_policies_api import SODPoliciesApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.sod_policy import SodPolicy
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -543,7 +536,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SODPoliciesApi(api_client).get_sod_policy(id)
         print("The response of SODPoliciesApi->get_sod_policy:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SODPoliciesApi->get_sod_policy: %s\n" % e)
 ```
@@ -591,7 +584,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.sod_policies_api import SODPoliciesApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.sod_policy_schedule import SodPolicySchedule
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -606,7 +598,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SODPoliciesApi(api_client).get_sod_policy_schedule(id)
         print("The response of SODPoliciesApi->get_sod_policy_schedule:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SODPoliciesApi->get_sod_policy_schedule: %s\n" % e)
 ```
@@ -655,7 +647,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.sod_policies_api import SODPoliciesApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.report_result_reference import ReportResultReference
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -670,7 +661,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SODPoliciesApi(api_client).get_sod_violation_report_run_status(report_result_id)
         print("The response of SODPoliciesApi->get_sod_violation_report_run_status:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SODPoliciesApi->get_sod_violation_report_run_status: %s\n" % e)
 ```
@@ -719,7 +710,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.sod_policies_api import SODPoliciesApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.report_result_reference import ReportResultReference
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -734,7 +724,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SODPoliciesApi(api_client).get_sod_violation_report_status(id)
         print("The response of SODPoliciesApi->get_sod_violation_report_status:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SODPoliciesApi->get_sod_violation_report_status: %s\n" % e)
 ```
@@ -786,7 +776,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.sod_policies_api import SODPoliciesApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.sod_policy import SodPolicy
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -805,7 +794,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SODPoliciesApi(api_client).list_sod_policies(limit, offset, count, filters, sorters)
         print("The response of SODPoliciesApi->list_sod_policies:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SODPoliciesApi->list_sod_policies: %s\n" % e)
 ```
@@ -856,7 +845,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.sod_policies_api import SODPoliciesApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.sod_policy import SodPolicy
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -872,7 +860,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SODPoliciesApi(api_client).patch_sod_policy(id, new_request_body)
         print("The response of SODPoliciesApi->patch_sod_policy:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SODPoliciesApi->patch_sod_policy: %s\n" % e)
 ```
@@ -921,7 +909,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.sod_policies_api import SODPoliciesApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.sod_policy_schedule import SodPolicySchedule
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -1022,7 +1009,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SODPoliciesApi(api_client).put_policy_schedule(id, new_sod_policy_schedule)
         print("The response of SODPoliciesApi->put_policy_schedule:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SODPoliciesApi->put_policy_schedule: %s\n" % e)
 ```
@@ -1072,7 +1059,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.sod_policies_api import SODPoliciesApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.sod_policy import SodPolicy
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -1143,7 +1129,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SODPoliciesApi(api_client).put_sod_policy(id, new_sod_policy)
         print("The response of SODPoliciesApi->put_sod_policy:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SODPoliciesApi->put_sod_policy: %s\n" % e)
 ```
@@ -1192,7 +1178,6 @@ from sailpoint.beta.api.sod_policies_api import SODPoliciesApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.multi_policy_request import MultiPolicyRequest
 from sailpoint.beta.models.report_result_reference import ReportResultReference
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -1209,7 +1194,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SODPoliciesApi(api_client).start_sod_all_policies_for_org(new_multi_policy_request)
         print("The response of SODPoliciesApi->start_sod_all_policies_for_org:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SODPoliciesApi->start_sod_all_policies_for_org: %s\n" % e)
 ```
@@ -1258,7 +1243,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.sod_policies_api import SODPoliciesApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.report_result_reference import ReportResultReference
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -1273,7 +1257,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SODPoliciesApi(api_client).start_sod_policy(id)
         print("The response of SODPoliciesApi->start_sod_policy:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SODPoliciesApi->start_sod_policy: %s\n" % e)
 ```

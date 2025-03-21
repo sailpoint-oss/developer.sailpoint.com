@@ -78,7 +78,6 @@ from sailpoint.beta.api.sod_violations_api import SODViolationsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.identity_with_new_access import IdentityWithNewAccess
 from sailpoint.beta.models.violation_prediction import ViolationPrediction
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -104,7 +103,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SODViolationsApi(api_client).start_predict_sod_violations(new_identity_with_new_access)
         print("The response of SODViolationsApi->start_predict_sod_violations:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SODViolationsApi->start_predict_sod_violations: %s\n" % e)
 ```

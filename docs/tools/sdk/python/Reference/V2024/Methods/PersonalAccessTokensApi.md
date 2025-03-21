@@ -68,7 +68,6 @@ from sailpoint.v2024.api.personal_access_tokens_api import PersonalAccessTokensA
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.create_personal_access_token_request import CreatePersonalAccessTokenRequest
 from sailpoint.v2024.models.create_personal_access_token_response import CreatePersonalAccessTokenResponse
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -87,7 +86,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = PersonalAccessTokensApi(api_client).create_personal_access_token(new_create_personal_access_token_request)
         print("The response of PersonalAccessTokensApi->create_personal_access_token:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling PersonalAccessTokensApi->create_personal_access_token: %s\n" % e)
 ```
@@ -131,7 +130,6 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.v2024.api.personal_access_tokens_api import PersonalAccessTokensApi
 from sailpoint.v2024.api_client import ApiClient
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -189,7 +187,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.personal_access_tokens_api import PersonalAccessTokensApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.get_personal_access_token_response import GetPersonalAccessTokenResponse
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -205,7 +202,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = PersonalAccessTokensApi(api_client).list_personal_access_tokens(owner_id, filters)
         print("The response of PersonalAccessTokensApi->list_personal_access_tokens:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling PersonalAccessTokensApi->list_personal_access_tokens: %s\n" % e)
 ```
@@ -253,7 +250,6 @@ from sailpoint.v2024.api.personal_access_tokens_api import PersonalAccessTokensA
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.get_personal_access_token_response import GetPersonalAccessTokenResponse
 from sailpoint.v2024.models.json_patch_operation import JsonPatchOperation
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -269,7 +265,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = PersonalAccessTokensApi(api_client).patch_personal_access_token(id, new_json_patch_operation)
         print("The response of PersonalAccessTokensApi->patch_personal_access_token:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling PersonalAccessTokensApi->patch_personal_access_token: %s\n" % e)
 ```

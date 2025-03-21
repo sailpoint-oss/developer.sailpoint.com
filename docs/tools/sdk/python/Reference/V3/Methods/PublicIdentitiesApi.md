@@ -61,7 +61,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.public_identities_api import PublicIdentitiesApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.public_identity import PublicIdentity
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -81,7 +80,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = PublicIdentitiesApi(api_client).get_public_identities(limit, offset, count, filters, add_core_filters, sorters)
         print("The response of PublicIdentitiesApi->get_public_identities:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling PublicIdentitiesApi->get_public_identities: %s\n" % e)
 ```

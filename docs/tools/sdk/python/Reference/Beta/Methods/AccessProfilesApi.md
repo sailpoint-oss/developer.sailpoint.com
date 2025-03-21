@@ -96,7 +96,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.access_profiles_api import AccessProfilesApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.access_profile import AccessProfile
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -195,7 +194,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = AccessProfilesApi(api_client).create_access_profile(new_access_profile)
         print("The response of AccessProfilesApi->create_access_profile:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling AccessProfilesApi->create_access_profile: %s\n" % e)
 ```
@@ -242,7 +241,6 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.beta.api.access_profiles_api import AccessProfilesApi
 from sailpoint.beta.api_client import ApiClient
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -304,7 +302,6 @@ from sailpoint.beta.api.access_profiles_api import AccessProfilesApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.access_profile_bulk_delete_request import AccessProfileBulkDeleteRequest
 from sailpoint.beta.models.access_profile_bulk_delete_response import AccessProfileBulkDeleteResponse
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -322,7 +319,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = AccessProfilesApi(api_client).delete_access_profiles_in_bulk(new_access_profile_bulk_delete_request)
         print("The response of AccessProfilesApi->delete_access_profiles_in_bulk:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling AccessProfilesApi->delete_access_profiles_in_bulk: %s\n" % e)
 ```
@@ -366,7 +363,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.access_profiles_api import AccessProfilesApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.access_profile import AccessProfile
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -381,7 +377,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = AccessProfilesApi(api_client).get_access_profile(id)
         print("The response of AccessProfilesApi->get_access_profile:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling AccessProfilesApi->get_access_profile: %s\n" % e)
 ```
@@ -431,7 +427,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.access_profiles_api import AccessProfilesApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.entitlement import Entitlement
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -451,7 +446,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = AccessProfilesApi(api_client).get_access_profile_entitlements(id, limit, offset, count, filters, sorters)
         print("The response of AccessProfilesApi->get_access_profile_entitlements:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling AccessProfilesApi->get_access_profile_entitlements: %s\n" % e)
 ```
@@ -503,7 +498,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.access_profiles_api import AccessProfilesApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.access_profile import AccessProfile
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -525,7 +519,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = AccessProfilesApi(api_client).list_access_profiles(for_subadmin, limit, offset, count, filters, sorters, for_segment_ids, include_unsegmented)
         print("The response of AccessProfilesApi->list_access_profiles:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling AccessProfilesApi->list_access_profiles: %s\n" % e)
 ```
@@ -576,7 +570,6 @@ from sailpoint.beta.api.access_profiles_api import AccessProfilesApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.access_profile import AccessProfile
 from sailpoint.beta.models.json_patch_operation import JsonPatchOperation
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -592,7 +585,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = AccessProfilesApi(api_client).patch_access_profile(id, new_json_patch_operation)
         print("The response of AccessProfilesApi->patch_access_profile:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling AccessProfilesApi->patch_access_profile: %s\n" % e)
 ```
@@ -644,7 +637,6 @@ from sailpoint.beta.api.access_profiles_api import AccessProfilesApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.access_profile_bulk_update_request_inner import AccessProfileBulkUpdateRequestInner
 from sailpoint.beta.models.access_profile_update_item import AccessProfileUpdateItem
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -659,7 +651,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = AccessProfilesApi(api_client).update_access_profiles_in_bulk(new_access_profile_bulk_update_request_inner)
         print("The response of AccessProfilesApi->update_access_profiles_in_bulk:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling AccessProfilesApi->update_access_profiles_in_bulk: %s\n" % e)
 ```

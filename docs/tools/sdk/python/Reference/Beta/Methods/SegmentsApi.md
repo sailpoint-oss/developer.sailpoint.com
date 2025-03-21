@@ -76,7 +76,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.segments_api import SegmentsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.segment import Segment
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -114,7 +113,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SegmentsApi(api_client).create_segment(new_segment)
         print("The response of SegmentsApi->create_segment:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SegmentsApi->create_segment: %s\n" % e)
 ```
@@ -160,7 +159,6 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.beta.api.segments_api import SegmentsApi
 from sailpoint.beta.api_client import ApiClient
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -219,7 +217,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.segments_api import SegmentsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.segment import Segment
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -234,7 +231,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SegmentsApi(api_client).get_segment(id)
         print("The response of SegmentsApi->get_segment:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SegmentsApi->get_segment: %s\n" % e)
 ```
@@ -281,7 +278,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.segments_api import SegmentsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.segment import Segment
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -298,7 +294,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SegmentsApi(api_client).list_segments(limit, offset, count)
         print("The response of SegmentsApi->list_segments:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SegmentsApi->list_segments: %s\n" % e)
 ```
@@ -346,7 +342,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.segments_api import SegmentsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.segment import Segment
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -362,7 +357,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SegmentsApi(api_client).patch_segment(id, new_request_body)
         print("The response of SegmentsApi->patch_segment:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SegmentsApi->patch_segment: %s\n" % e)
 ```

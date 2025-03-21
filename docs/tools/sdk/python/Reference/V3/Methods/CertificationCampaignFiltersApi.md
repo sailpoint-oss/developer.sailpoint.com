@@ -84,7 +84,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.certification_campaign_filters_api import CertificationCampaignFiltersApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.campaign_filter_details import CampaignFilterDetails
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -116,7 +115,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CertificationCampaignFiltersApi(api_client).create_campaign_filter(new_campaign_filter_details)
         print("The response of CertificationCampaignFiltersApi->create_campaign_filter:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CertificationCampaignFiltersApi->create_campaign_filter: %s\n" % e)
 ```
@@ -160,7 +159,6 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.v3.api.certification_campaign_filters_api import CertificationCampaignFiltersApi
 from sailpoint.v3.api_client import ApiClient
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -218,7 +216,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.certification_campaign_filters_api import CertificationCampaignFiltersApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.campaign_filter_details import CampaignFilterDetails
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -233,7 +230,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CertificationCampaignFiltersApi(api_client).get_campaign_filter_by_id(id)
         print("The response of CertificationCampaignFiltersApi->get_campaign_filter_by_id:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CertificationCampaignFiltersApi->get_campaign_filter_by_id: %s\n" % e)
 ```
@@ -279,7 +276,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.certification_campaign_filters_api import CertificationCampaignFiltersApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.list_campaign_filters200_response import ListCampaignFilters200Response
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -296,7 +292,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CertificationCampaignFiltersApi(api_client).list_campaign_filters(limit, start, include_system_filters)
         print("The response of CertificationCampaignFiltersApi->list_campaign_filters:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CertificationCampaignFiltersApi->list_campaign_filters: %s\n" % e)
 ```
@@ -341,7 +337,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.certification_campaign_filters_api import CertificationCampaignFiltersApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.campaign_filter_details import CampaignFilterDetails
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -374,7 +369,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CertificationCampaignFiltersApi(api_client).update_campaign_filter(filter_id, new_campaign_filter_details)
         print("The response of CertificationCampaignFiltersApi->update_campaign_filter:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CertificationCampaignFiltersApi->update_campaign_filter: %s\n" % e)
 ```

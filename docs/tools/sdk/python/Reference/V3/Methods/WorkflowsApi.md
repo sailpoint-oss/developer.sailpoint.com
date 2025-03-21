@@ -71,7 +71,6 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.v3.api.workflows_api import WorkflowsApi
 from sailpoint.v3.api_client import ApiClient
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -130,7 +129,6 @@ from sailpoint.v3.api.workflows_api import WorkflowsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.create_external_execute_workflow200_response import CreateExternalExecuteWorkflow200Response
 from sailpoint.v3.models.create_external_execute_workflow_request import CreateExternalExecuteWorkflowRequest
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -146,7 +144,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = WorkflowsApi(api_client).create_external_execute_workflow(id, new_create_external_execute_workflow_request)
         print("The response of WorkflowsApi->create_external_execute_workflow:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling WorkflowsApi->create_external_execute_workflow: %s\n" % e)
 ```
@@ -191,7 +189,6 @@ from sailpoint.v3.api.workflows_api import WorkflowsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.create_workflow_request import CreateWorkflowRequest
 from sailpoint.v3.models.workflow import Workflow
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -206,7 +203,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = WorkflowsApi(api_client).create_workflow(new_create_workflow_request)
         print("The response of WorkflowsApi->create_workflow:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling WorkflowsApi->create_workflow: %s\n" % e)
 ```
@@ -250,7 +247,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.workflows_api import WorkflowsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.workflow_o_auth_client import WorkflowOAuthClient
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -265,7 +261,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = WorkflowsApi(api_client).create_workflow_external_trigger(id)
         print("The response of WorkflowsApi->create_workflow_external_trigger:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling WorkflowsApi->create_workflow_external_trigger: %s\n" % e)
 ```
@@ -308,7 +304,6 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.v3.api.workflows_api import WorkflowsApi
 from sailpoint.v3.api_client import ApiClient
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -365,7 +360,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.workflows_api import WorkflowsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.workflow import Workflow
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -380,7 +374,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = WorkflowsApi(api_client).get_workflow(id)
         print("The response of WorkflowsApi->get_workflow:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling WorkflowsApi->get_workflow: %s\n" % e)
 ```
@@ -424,7 +418,6 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.v3.api.workflows_api import WorkflowsApi
 from sailpoint.v3.api_client import ApiClient
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -439,7 +432,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = WorkflowsApi(api_client).get_workflow_execution(id)
         print("The response of WorkflowsApi->get_workflow_execution:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling WorkflowsApi->get_workflow_execution: %s\n" % e)
 ```
@@ -484,7 +477,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.workflows_api import WorkflowsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.workflow_execution_event import WorkflowExecutionEvent
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -499,7 +491,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = WorkflowsApi(api_client).get_workflow_execution_history(id)
         print("The response of WorkflowsApi->get_workflow_execution_history:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling WorkflowsApi->get_workflow_execution_history: %s\n" % e)
 ```
@@ -558,7 +550,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.workflows_api import WorkflowsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.workflow_execution import WorkflowExecution
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -577,7 +568,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = WorkflowsApi(api_client).get_workflow_executions(id, limit, offset, count, filters)
         print("The response of WorkflowsApi->get_workflow_executions:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling WorkflowsApi->get_workflow_executions: %s\n" % e)
 ```
@@ -622,7 +613,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.workflows_api import WorkflowsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.list_complete_workflow_library200_response_inner import ListCompleteWorkflowLibrary200ResponseInner
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -638,7 +628,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = WorkflowsApi(api_client).list_complete_workflow_library(limit, offset)
         print("The response of WorkflowsApi->list_complete_workflow_library:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling WorkflowsApi->list_complete_workflow_library: %s\n" % e)
 ```
@@ -684,7 +674,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.workflows_api import WorkflowsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.workflow_library_action import WorkflowLibraryAction
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -701,7 +690,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = WorkflowsApi(api_client).list_workflow_library_actions(limit, offset, filters)
         print("The response of WorkflowsApi->list_workflow_library_actions:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling WorkflowsApi->list_workflow_library_actions: %s\n" % e)
 ```
@@ -742,7 +731,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.workflows_api import WorkflowsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.workflow_library_operator import WorkflowLibraryOperator
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -756,7 +744,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = WorkflowsApi(api_client).list_workflow_library_operators()
         print("The response of WorkflowsApi->list_workflow_library_operators:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling WorkflowsApi->list_workflow_library_operators: %s\n" % e)
 ```
@@ -802,7 +790,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.workflows_api import WorkflowsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.workflow_library_trigger import WorkflowLibraryTrigger
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -819,7 +806,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = WorkflowsApi(api_client).list_workflow_library_triggers(limit, offset, filters)
         print("The response of WorkflowsApi->list_workflow_library_triggers:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling WorkflowsApi->list_workflow_library_triggers: %s\n" % e)
 ```
@@ -860,7 +847,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.workflows_api import WorkflowsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.workflow import Workflow
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -874,7 +860,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = WorkflowsApi(api_client).list_workflows()
         print("The response of WorkflowsApi->list_workflows:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling WorkflowsApi->list_workflows: %s\n" % e)
 ```
@@ -920,7 +906,6 @@ from sailpoint.v3.api.workflows_api import WorkflowsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.json_patch_operation import JsonPatchOperation
 from sailpoint.v3.models.workflow import Workflow
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -936,7 +921,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = WorkflowsApi(api_client).patch_workflow(id, new_json_patch_operation)
         print("The response of WorkflowsApi->patch_workflow:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling WorkflowsApi->patch_workflow: %s\n" % e)
 ```
@@ -982,7 +967,6 @@ from sailpoint.v3.api.workflows_api import WorkflowsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.workflow import Workflow
 from sailpoint.v3.models.workflow_body import WorkflowBody
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -1037,7 +1021,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = WorkflowsApi(api_client).put_workflow(id, new_workflow_body)
         print("The response of WorkflowsApi->put_workflow:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling WorkflowsApi->put_workflow: %s\n" % e)
 ```
@@ -1083,7 +1067,6 @@ from sailpoint.v3.api.workflows_api import WorkflowsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.test_external_execute_workflow200_response import TestExternalExecuteWorkflow200Response
 from sailpoint.v3.models.test_external_execute_workflow_request import TestExternalExecuteWorkflowRequest
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -1099,7 +1082,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = WorkflowsApi(api_client).test_external_execute_workflow(id, new_test_external_execute_workflow_request)
         print("The response of WorkflowsApi->test_external_execute_workflow:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling WorkflowsApi->test_external_execute_workflow: %s\n" % e)
 ```
@@ -1147,7 +1130,6 @@ from sailpoint.v3.api.workflows_api import WorkflowsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.test_workflow200_response import TestWorkflow200Response
 from sailpoint.v3.models.test_workflow_request import TestWorkflowRequest
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -1163,7 +1145,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = WorkflowsApi(api_client).test_workflow(id, new_test_workflow_request)
         print("The response of WorkflowsApi->test_workflow:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling WorkflowsApi->test_workflow: %s\n" % e)
 ```

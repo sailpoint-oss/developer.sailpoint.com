@@ -68,7 +68,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.machine_accounts_api import MachineAccountsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.machine_account import MachineAccount
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -85,7 +84,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = MachineAccountsApi(api_client).get_machine_account(id, x_sail_point_experimental)
         print("The response of MachineAccountsApi->get_machine_account:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling MachineAccountsApi->get_machine_account: %s\n" % e)
 ```
@@ -146,7 +145,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.machine_accounts_api import MachineAccountsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.machine_account import MachineAccount
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -167,7 +165,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = MachineAccountsApi(api_client).list_machine_accounts(x_sail_point_experimental, limit, offset, count, filters, sorters)
         print("The response of MachineAccountsApi->list_machine_accounts:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling MachineAccountsApi->list_machine_accounts: %s\n" % e)
 ```
@@ -226,7 +224,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.machine_accounts_api import MachineAccountsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.machine_account import MachineAccount
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -244,7 +241,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = MachineAccountsApi(api_client).update_machine_account(id, x_sail_point_experimental, new_request_body)
         print("The response of MachineAccountsApi->update_machine_account:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling MachineAccountsApi->update_machine_account: %s\n" % e)
 ```

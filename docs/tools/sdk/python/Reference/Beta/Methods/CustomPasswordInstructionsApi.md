@@ -64,7 +64,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.custom_password_instructions_api import CustomPasswordInstructionsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.custom_password_instruction import CustomPasswordInstruction
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -83,7 +82,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CustomPasswordInstructionsApi(api_client).create_custom_password_instructions(new_custom_password_instruction)
         print("The response of CustomPasswordInstructionsApi->create_custom_password_instructions:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CustomPasswordInstructionsApi->create_custom_password_instructions: %s\n" % e)
 ```
@@ -126,7 +125,6 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.beta.api.custom_password_instructions_api import CustomPasswordInstructionsApi
 from sailpoint.beta.api_client import ApiClient
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -184,7 +182,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.custom_password_instructions_api import CustomPasswordInstructionsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.custom_password_instruction import CustomPasswordInstruction
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -200,7 +197,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CustomPasswordInstructionsApi(api_client).get_custom_password_instructions(page_id, locale)
         print("The response of CustomPasswordInstructionsApi->get_custom_password_instructions:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CustomPasswordInstructionsApi->get_custom_password_instructions: %s\n" % e)
 ```

@@ -151,7 +151,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.certification_campaigns_api import CertificationCampaignsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.campaign_complete_options import CampaignCompleteOptions
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -169,7 +168,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CertificationCampaignsApi(api_client).complete_campaign(id, new_campaign_complete_options)
         print("The response of CertificationCampaignsApi->complete_campaign:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CertificationCampaignsApi->complete_campaign: %s\n" % e)
 ```
@@ -214,7 +213,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.certification_campaigns_api import CertificationCampaignsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.campaign import Campaign
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -337,7 +335,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CertificationCampaignsApi(api_client).create_campaign(new_campaign)
         print("The response of CertificationCampaignsApi->create_campaign:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CertificationCampaignsApi->create_campaign: %s\n" % e)
 ```
@@ -382,7 +380,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.certification_campaigns_api import CertificationCampaignsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.campaign_template import CampaignTemplate
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -520,7 +517,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CertificationCampaignsApi(api_client).create_campaign_template(new_campaign_template)
         print("The response of CertificationCampaignsApi->create_campaign_template:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CertificationCampaignsApi->create_campaign_template: %s\n" % e)
 ```
@@ -565,7 +562,6 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.v3.api.certification_campaigns_api import CertificationCampaignsApi
 from sailpoint.v3.api_client import ApiClient
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -623,7 +619,6 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.v3.api.certification_campaigns_api import CertificationCampaignsApi
 from sailpoint.v3.api_client import ApiClient
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -682,7 +677,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.certification_campaigns_api import CertificationCampaignsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.campaigns_delete_request import CampaignsDeleteRequest
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -699,7 +693,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CertificationCampaignsApi(api_client).delete_campaigns(new_campaigns_delete_request)
         print("The response of CertificationCampaignsApi->delete_campaigns:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CertificationCampaignsApi->delete_campaigns: %s\n" % e)
 ```
@@ -749,7 +743,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.certification_campaigns_api import CertificationCampaignsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.get_active_campaigns200_response_inner import GetActiveCampaigns200ResponseInner
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -769,7 +762,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CertificationCampaignsApi(api_client).get_active_campaigns(detail, limit, offset, count, filters, sorters)
         print("The response of CertificationCampaignsApi->get_active_campaigns:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CertificationCampaignsApi->get_active_campaigns: %s\n" % e)
 ```
@@ -816,7 +809,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.certification_campaigns_api import CertificationCampaignsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.get_active_campaigns200_response_inner import GetActiveCampaigns200ResponseInner
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -832,7 +824,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CertificationCampaignsApi(api_client).get_campaign(id, detail)
         print("The response of CertificationCampaignsApi->get_campaign:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CertificationCampaignsApi->get_campaign: %s\n" % e)
 ```
@@ -878,7 +870,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.certification_campaigns_api import CertificationCampaignsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.campaign_report import CampaignReport
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -893,7 +884,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CertificationCampaignsApi(api_client).get_campaign_reports(id)
         print("The response of CertificationCampaignsApi->get_campaign_reports:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CertificationCampaignsApi->get_campaign_reports: %s\n" % e)
 ```
@@ -935,7 +926,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.certification_campaigns_api import CertificationCampaignsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.campaign_reports_config import CampaignReportsConfig
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -949,7 +939,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CertificationCampaignsApi(api_client).get_campaign_reports_config()
         print("The response of CertificationCampaignsApi->get_campaign_reports_config:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CertificationCampaignsApi->get_campaign_reports_config: %s\n" % e)
 ```
@@ -995,7 +985,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.certification_campaigns_api import CertificationCampaignsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.campaign_template import CampaignTemplate
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -1010,7 +999,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CertificationCampaignsApi(api_client).get_campaign_template(id)
         print("The response of CertificationCampaignsApi->get_campaign_template:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CertificationCampaignsApi->get_campaign_template: %s\n" % e)
 ```
@@ -1056,7 +1045,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.certification_campaigns_api import CertificationCampaignsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.schedule import Schedule
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -1071,7 +1059,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CertificationCampaignsApi(api_client).get_campaign_template_schedule(id)
         print("The response of CertificationCampaignsApi->get_campaign_template_schedule:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CertificationCampaignsApi->get_campaign_template_schedule: %s\n" % e)
 ```
@@ -1122,7 +1110,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.certification_campaigns_api import CertificationCampaignsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.campaign_template import CampaignTemplate
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -1141,7 +1128,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CertificationCampaignsApi(api_client).get_campaign_templates(limit, offset, count, sorters, filters)
         print("The response of CertificationCampaignsApi->get_campaign_templates:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CertificationCampaignsApi->get_campaign_templates: %s\n" % e)
 ```
@@ -1189,7 +1176,6 @@ from sailpoint.v3.api.certification_campaigns_api import CertificationCampaignsA
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.admin_review_reassign import AdminReviewReassign
 from sailpoint.v3.models.certification_task import CertificationTask
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -1212,7 +1198,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CertificationCampaignsApi(api_client).move(id, new_admin_review_reassign)
         print("The response of CertificationCampaignsApi->move:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CertificationCampaignsApi->move: %s\n" % e)
 ```
@@ -1260,7 +1246,6 @@ from sailpoint.v3.api.certification_campaigns_api import CertificationCampaignsA
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.campaign_template import CampaignTemplate
 from sailpoint.v3.models.json_patch_operation import JsonPatchOperation
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -1276,7 +1261,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CertificationCampaignsApi(api_client).patch_campaign_template(id, new_json_patch_operation)
         print("The response of CertificationCampaignsApi->patch_campaign_template:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CertificationCampaignsApi->patch_campaign_template: %s\n" % e)
 ```
@@ -1321,7 +1306,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.certification_campaigns_api import CertificationCampaignsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.campaign_reports_config import CampaignReportsConfig
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -1338,7 +1322,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CertificationCampaignsApi(api_client).set_campaign_reports_config(new_campaign_reports_config)
         print("The response of CertificationCampaignsApi->set_campaign_reports_config:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CertificationCampaignsApi->set_campaign_reports_config: %s\n" % e)
 ```
@@ -1385,7 +1369,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.certification_campaigns_api import CertificationCampaignsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.schedule import Schedule
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -1465,7 +1448,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.certification_campaigns_api import CertificationCampaignsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.activate_campaign_options import ActivateCampaignOptions
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -1483,7 +1465,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CertificationCampaignsApi(api_client).start_campaign(id, new_activate_campaign_options)
         print("The response of CertificationCampaignsApi->start_campaign:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CertificationCampaignsApi->start_campaign: %s\n" % e)
 ```
@@ -1528,7 +1510,6 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.v3.api.certification_campaigns_api import CertificationCampaignsApi
 from sailpoint.v3.api_client import ApiClient
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -1543,7 +1524,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CertificationCampaignsApi(api_client).start_campaign_remediation_scan(id)
         print("The response of CertificationCampaignsApi->start_campaign_remediation_scan:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CertificationCampaignsApi->start_campaign_remediation_scan: %s\n" % e)
 ```
@@ -1590,7 +1571,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.certification_campaigns_api import CertificationCampaignsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.report_type import ReportType
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -1606,7 +1586,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CertificationCampaignsApi(api_client).start_campaign_report(id, type)
         print("The response of CertificationCampaignsApi->start_campaign_report:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CertificationCampaignsApi->start_campaign_report: %s\n" % e)
 ```
@@ -1661,7 +1641,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.certification_campaigns_api import CertificationCampaignsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.campaign_reference import CampaignReference
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -1676,7 +1655,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CertificationCampaignsApi(api_client).start_generate_campaign_template(id)
         print("The response of CertificationCampaignsApi->start_generate_campaign_template:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CertificationCampaignsApi->start_generate_campaign_template: %s\n" % e)
 ```
@@ -1724,7 +1703,6 @@ from sailpoint.v3.api.certification_campaigns_api import CertificationCampaignsA
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.json_patch_operation import JsonPatchOperation
 from sailpoint.v3.models.slim_campaign import SlimCampaign
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -1740,7 +1718,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CertificationCampaignsApi(api_client).update_campaign(id, new_json_patch_operation)
         print("The response of CertificationCampaignsApi->update_campaign:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CertificationCampaignsApi->update_campaign: %s\n" % e)
 ```

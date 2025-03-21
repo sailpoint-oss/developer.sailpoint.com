@@ -65,7 +65,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.global_tenant_security_settings_api import GlobalTenantSecuritySettingsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.network_configuration import NetworkConfiguration
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -84,7 +83,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = GlobalTenantSecuritySettingsApi(api_client).create_auth_org_network_config(new_network_configuration)
         print("The response of GlobalTenantSecuritySettingsApi->create_auth_org_network_config:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling GlobalTenantSecuritySettingsApi->create_auth_org_network_config: %s\n" % e)
 ```
@@ -126,7 +125,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.global_tenant_security_settings_api import GlobalTenantSecuritySettingsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.lockout_configuration import LockoutConfiguration
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -140,7 +138,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = GlobalTenantSecuritySettingsApi(api_client).get_auth_org_lockout_config()
         print("The response of GlobalTenantSecuritySettingsApi->get_auth_org_lockout_config:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling GlobalTenantSecuritySettingsApi->get_auth_org_lockout_config: %s\n" % e)
 ```
@@ -182,7 +180,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.global_tenant_security_settings_api import GlobalTenantSecuritySettingsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.network_configuration import NetworkConfiguration
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -196,7 +193,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = GlobalTenantSecuritySettingsApi(api_client).get_auth_org_network_config()
         print("The response of GlobalTenantSecuritySettingsApi->get_auth_org_network_config:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling GlobalTenantSecuritySettingsApi->get_auth_org_network_config: %s\n" % e)
 ```
@@ -238,7 +235,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.global_tenant_security_settings_api import GlobalTenantSecuritySettingsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.service_provider_configuration import ServiceProviderConfiguration
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -252,7 +248,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = GlobalTenantSecuritySettingsApi(api_client).get_auth_org_service_provider_config()
         print("The response of GlobalTenantSecuritySettingsApi->get_auth_org_service_provider_config:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling GlobalTenantSecuritySettingsApi->get_auth_org_service_provider_config: %s\n" % e)
 ```
@@ -294,7 +290,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.global_tenant_security_settings_api import GlobalTenantSecuritySettingsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.session_configuration import SessionConfiguration
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -308,7 +303,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = GlobalTenantSecuritySettingsApi(api_client).get_auth_org_session_config()
         print("The response of GlobalTenantSecuritySettingsApi->get_auth_org_session_config:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling GlobalTenantSecuritySettingsApi->get_auth_org_session_config: %s\n" % e)
 ```
@@ -355,7 +350,6 @@ from sailpoint.v3.api.global_tenant_security_settings_api import GlobalTenantSec
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.json_patch_operation import JsonPatchOperation
 from sailpoint.v3.models.lockout_configuration import LockoutConfiguration
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -370,7 +364,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = GlobalTenantSecuritySettingsApi(api_client).patch_auth_org_lockout_config(new_json_patch_operation)
         print("The response of GlobalTenantSecuritySettingsApi->patch_auth_org_lockout_config:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling GlobalTenantSecuritySettingsApi->patch_auth_org_lockout_config: %s\n" % e)
 ```
@@ -417,7 +411,6 @@ from sailpoint.v3.api.global_tenant_security_settings_api import GlobalTenantSec
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.json_patch_operation import JsonPatchOperation
 from sailpoint.v3.models.network_configuration import NetworkConfiguration
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -432,7 +425,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = GlobalTenantSecuritySettingsApi(api_client).patch_auth_org_network_config(new_json_patch_operation)
         print("The response of GlobalTenantSecuritySettingsApi->patch_auth_org_network_config:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling GlobalTenantSecuritySettingsApi->patch_auth_org_network_config: %s\n" % e)
 ```
@@ -478,7 +471,6 @@ from sailpoint.v3.api.global_tenant_security_settings_api import GlobalTenantSec
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.json_patch_operation import JsonPatchOperation
 from sailpoint.v3.models.service_provider_configuration import ServiceProviderConfiguration
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -493,7 +485,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = GlobalTenantSecuritySettingsApi(api_client).patch_auth_org_service_provider_config(new_json_patch_operation)
         print("The response of GlobalTenantSecuritySettingsApi->patch_auth_org_service_provider_config:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling GlobalTenantSecuritySettingsApi->patch_auth_org_service_provider_config: %s\n" % e)
 ```
@@ -539,7 +531,6 @@ from sailpoint.v3.api.global_tenant_security_settings_api import GlobalTenantSec
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.json_patch_operation import JsonPatchOperation
 from sailpoint.v3.models.session_configuration import SessionConfiguration
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -554,7 +545,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = GlobalTenantSecuritySettingsApi(api_client).patch_auth_org_session_config(new_json_patch_operation)
         print("The response of GlobalTenantSecuritySettingsApi->patch_auth_org_session_config:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling GlobalTenantSecuritySettingsApi->patch_auth_org_session_config: %s\n" % e)
 ```

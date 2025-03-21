@@ -62,7 +62,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.application_discovery_api import ApplicationDiscoveryApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.get_discovered_applications200_response_inner import GetDiscoveredApplications200ResponseInner
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -81,7 +80,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = ApplicationDiscoveryApi(api_client).get_discovered_applications(limit, offset, detail, filter, sorters)
         print("The response of ApplicationDiscoveryApi->get_discovered_applications:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling ApplicationDiscoveryApi->get_discovered_applications: %s\n" % e)
 ```
@@ -125,7 +124,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.application_discovery_api import ApplicationDiscoveryApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.manual_discover_applications_template import ManualDiscoverApplicationsTemplate
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -139,7 +137,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = ApplicationDiscoveryApi(api_client).get_manual_discover_applications_csv_template()
         print("The response of ApplicationDiscoveryApi->get_manual_discover_applications_csv_template:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling ApplicationDiscoveryApi->get_manual_discover_applications_csv_template: %s\n" % e)
 ```
@@ -183,7 +181,6 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.v2024.api.application_discovery_api import ApplicationDiscoveryApi
 from sailpoint.v2024.api_client import ApiClient
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 

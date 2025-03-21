@@ -71,7 +71,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.account_aggregations_api import AccountAggregationsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.account_aggregation_status import AccountAggregationStatus
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -86,7 +85,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = AccountAggregationsApi(api_client).get_account_aggregation_status(id)
         print("The response of AccountAggregationsApi->get_account_aggregation_status:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling AccountAggregationsApi->get_account_aggregation_status: %s\n" % e)
 ```

@@ -102,7 +102,6 @@ from sailpoint.v3.api.accounts_api import AccountsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.account_attributes_create import AccountAttributesCreate
 from sailpoint.v3.models.accounts_async_result import AccountsAsyncResult
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -126,7 +125,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = AccountsApi(api_client).create_account(new_account_attributes_create)
         print("The response of AccountsApi->create_account:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling AccountsApi->create_account: %s\n" % e)
 ```
@@ -174,7 +173,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.accounts_api import AccountsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.accounts_async_result import AccountsAsyncResult
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -189,7 +187,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = AccountsApi(api_client).delete_account(id)
         print("The response of AccountsApi->delete_account:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling AccountsApi->delete_account: %s\n" % e)
 ```
@@ -236,7 +234,6 @@ from sailpoint.v3.api.accounts_api import AccountsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.account_toggle_request import AccountToggleRequest
 from sailpoint.v3.models.accounts_async_result import AccountsAsyncResult
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -255,7 +252,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = AccountsApi(api_client).disable_account(id, new_account_toggle_request)
         print("The response of AccountsApi->disable_account:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling AccountsApi->disable_account: %s\n" % e)
 ```
@@ -302,7 +299,6 @@ from sailpoint.v3.api.accounts_api import AccountsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.account_toggle_request import AccountToggleRequest
 from sailpoint.v3.models.accounts_async_result import AccountsAsyncResult
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -321,7 +317,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = AccountsApi(api_client).enable_account(id, new_account_toggle_request)
         print("The response of AccountsApi->enable_account:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling AccountsApi->enable_account: %s\n" % e)
 ```
@@ -366,7 +362,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.accounts_api import AccountsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.account import Account
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -381,7 +376,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = AccountsApi(api_client).get_account(id)
         print("The response of AccountsApi->get_account:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling AccountsApi->get_account: %s\n" % e)
 ```
@@ -429,7 +424,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.accounts_api import AccountsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.entitlement import Entitlement
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -447,7 +441,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = AccountsApi(api_client).get_account_entitlements(id, limit, offset, count)
         print("The response of AccountsApi->get_account_entitlements:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling AccountsApi->get_account_entitlements: %s\n" % e)
 ```
@@ -496,7 +490,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.accounts_api import AccountsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.account import Account
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -516,7 +509,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = AccountsApi(api_client).list_accounts(limit, offset, count, detail_level, filters, sorters)
         print("The response of AccountsApi->list_accounts:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling AccountsApi->list_accounts: %s\n" % e)
 ```
@@ -568,7 +561,6 @@ from sailpoint.v3.api.accounts_api import AccountsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.account_attributes import AccountAttributes
 from sailpoint.v3.models.accounts_async_result import AccountsAsyncResult
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -592,7 +584,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = AccountsApi(api_client).put_account(id, new_account_attributes)
         print("The response of AccountsApi->put_account:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling AccountsApi->put_account: %s\n" % e)
 ```
@@ -637,7 +629,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.accounts_api import AccountsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.accounts_async_result import AccountsAsyncResult
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -652,7 +643,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = AccountsApi(api_client).submit_reload_account(id)
         print("The response of AccountsApi->submit_reload_account:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling AccountsApi->submit_reload_account: %s\n" % e)
 ```
@@ -700,7 +691,6 @@ from sailpoint.v3.api.accounts_api import AccountsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.account_unlock_request import AccountUnlockRequest
 from sailpoint.v3.models.accounts_async_result import AccountsAsyncResult
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -720,7 +710,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = AccountsApi(api_client).unlock_account(id, new_account_unlock_request)
         print("The response of AccountsApi->unlock_account:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling AccountsApi->unlock_account: %s\n" % e)
 ```
@@ -775,7 +765,6 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.v3.api.accounts_api import AccountsApi
 from sailpoint.v3.api_client import ApiClient
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -791,7 +780,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = AccountsApi(api_client).update_account(id, new_request_body)
         print("The response of AccountsApi->update_account:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling AccountsApi->update_account: %s\n" % e)
 ```

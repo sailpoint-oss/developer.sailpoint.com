@@ -77,7 +77,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.access_request_approvals_api import AccessRequestApprovalsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.comment_dto import CommentDto
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -101,7 +100,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = AccessRequestApprovalsApi(api_client).approve_access_request(approval_id, new_comment_dto)
         print("The response of AccessRequestApprovalsApi->approve_access_request:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling AccessRequestApprovalsApi->approve_access_request: %s\n" % e)
 ```
@@ -147,7 +146,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.access_request_approvals_api import AccessRequestApprovalsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.forward_approval_dto import ForwardApprovalDto
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -166,7 +164,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = AccessRequestApprovalsApi(api_client).forward_access_request(approval_id, new_forward_approval_dto)
         print("The response of AccessRequestApprovalsApi->forward_access_request:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling AccessRequestApprovalsApi->forward_access_request: %s\n" % e)
 ```
@@ -211,7 +209,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.access_request_approvals_api import AccessRequestApprovalsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.approval_summary import ApprovalSummary
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -227,7 +224,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = AccessRequestApprovalsApi(api_client).get_access_request_approval_summary(owner_id, from_date)
         print("The response of AccessRequestApprovalsApi->get_access_request_approval_summary:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling AccessRequestApprovalsApi->get_access_request_approval_summary: %s\n" % e)
 ```
@@ -275,7 +272,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.access_request_approvals_api import AccessRequestApprovalsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.completed_approval import CompletedApproval
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -295,7 +291,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = AccessRequestApprovalsApi(api_client).list_completed_approvals(owner_id, limit, offset, count, filters, sorters)
         print("The response of AccessRequestApprovalsApi->list_completed_approvals:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling AccessRequestApprovalsApi->list_completed_approvals: %s\n" % e)
 ```
@@ -343,7 +339,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.access_request_approvals_api import AccessRequestApprovalsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.pending_approval import PendingApproval
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -363,7 +358,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = AccessRequestApprovalsApi(api_client).list_pending_approvals(owner_id, limit, offset, count, filters, sorters)
         print("The response of AccessRequestApprovalsApi->list_pending_approvals:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling AccessRequestApprovalsApi->list_pending_approvals: %s\n" % e)
 ```
@@ -409,7 +404,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.access_request_approvals_api import AccessRequestApprovalsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.comment_dto import CommentDto
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -433,7 +427,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = AccessRequestApprovalsApi(api_client).reject_access_request(approval_id, new_comment_dto)
         print("The response of AccessRequestApprovalsApi->reject_access_request:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling AccessRequestApprovalsApi->reject_access_request: %s\n" % e)
 ```

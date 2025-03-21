@@ -82,7 +82,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.certifications_api import CertificationsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.permission_dto import PermissionDto
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -102,7 +101,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CertificationsApi(api_client).get_identity_certification_item_permissions(certification_id, item_id, filters, limit, offset, count)
         print("The response of CertificationsApi->get_identity_certification_item_permissions:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CertificationsApi->get_identity_certification_item_permissions: %s\n" % e)
 ```
@@ -147,7 +146,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.certifications_api import CertificationsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.identity_certification_task import IdentityCertificationTask
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -162,7 +160,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CertificationsApi(api_client).get_identity_certification_pending_tasks(id)
         print("The response of CertificationsApi->get_identity_certification_pending_tasks:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CertificationsApi->get_identity_certification_pending_tasks: %s\n" % e)
 ```
@@ -208,7 +206,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.certifications_api import CertificationsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.identity_certification_task import IdentityCertificationTask
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -224,7 +221,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CertificationsApi(api_client).get_identity_certification_task_status(id, task_id)
         print("The response of CertificationsApi->get_identity_certification_task_status:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CertificationsApi->get_identity_certification_task_status: %s\n" % e)
 ```
@@ -277,7 +274,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.certifications_api import CertificationsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.identity_reference_with_name_and_email import IdentityReferenceWithNameAndEmail
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -297,7 +293,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CertificationsApi(api_client).list_certification_reviewers(id, limit, offset, count, filters, sorters)
         print("The response of CertificationsApi->list_certification_reviewers:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CertificationsApi->list_certification_reviewers: %s\n" % e)
 ```
@@ -346,7 +342,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.certifications_api import CertificationsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.certification_dto import CertificationDto
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -366,7 +361,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CertificationsApi(api_client).list_certifications(reviewer_identitiy, limit, offset, count, filters, sorters)
         print("The response of CertificationsApi->list_certifications:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CertificationsApi->list_certifications: %s\n" % e)
 ```
@@ -416,7 +411,6 @@ from sailpoint.beta.api.certifications_api import CertificationsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.identity_certification_task import IdentityCertificationTask
 from sailpoint.beta.models.review_reassign import ReviewReassign
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -442,7 +436,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CertificationsApi(api_client).submit_reassign_certs_async(id, new_review_reassign)
         print("The response of CertificationsApi->submit_reassign_certs_async:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CertificationsApi->submit_reassign_certs_async: %s\n" % e)
 ```

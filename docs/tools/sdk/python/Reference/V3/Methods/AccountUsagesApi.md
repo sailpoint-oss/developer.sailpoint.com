@@ -60,7 +60,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.account_usages_api import AccountUsagesApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.account_usage import AccountUsage
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -79,7 +78,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = AccountUsagesApi(api_client).get_usages_by_account_id(account_id, limit, offset, count, sorters)
         print("The response of AccountUsagesApi->get_usages_by_account_id:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling AccountUsagesApi->get_usages_by_account_id: %s\n" % e)
 ```

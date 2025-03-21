@@ -54,7 +54,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.ui_metadata_api import UIMetadataApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.tenant_ui_metadata_item_response import TenantUiMetadataItemResponse
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -68,7 +67,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = UIMetadataApi(api_client).get_tenant_ui_metadata()
         print("The response of UIMetadataApi->get_tenant_ui_metadata:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling UIMetadataApi->get_tenant_ui_metadata: %s\n" % e)
 ```
@@ -115,7 +114,6 @@ from sailpoint.beta.api.ui_metadata_api import UIMetadataApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.tenant_ui_metadata_item_response import TenantUiMetadataItemResponse
 from sailpoint.beta.models.tenant_ui_metadata_item_update_request import TenantUiMetadataItemUpdateRequest
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -134,7 +132,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = UIMetadataApi(api_client).set_tenant_ui_metadata(new_tenant_ui_metadata_item_update_request)
         print("The response of UIMetadataApi->set_tenant_ui_metadata:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling UIMetadataApi->set_tenant_ui_metadata: %s\n" % e)
 ```

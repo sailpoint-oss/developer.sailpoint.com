@@ -71,7 +71,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.machine_identities_api import MachineIdentitiesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.machine_identity import MachineIdentity
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -97,7 +96,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = MachineIdentitiesApi(api_client).create_machine_identity(x_sail_point_experimental, new_machine_identity)
         print("The response of MachineIdentitiesApi->create_machine_identity:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling MachineIdentitiesApi->create_machine_identity: %s\n" % e)
 ```
@@ -153,7 +152,6 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.v2024.api.machine_identities_api import MachineIdentitiesApi
 from sailpoint.v2024.api_client import ApiClient
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -225,7 +223,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.machine_identities_api import MachineIdentitiesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.machine_identity import MachineIdentity
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -242,7 +239,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = MachineIdentitiesApi(api_client).get_machine_identity(id, x_sail_point_experimental)
         print("The response of MachineIdentitiesApi->get_machine_identity:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling MachineIdentitiesApi->get_machine_identity: %s\n" % e)
 ```
@@ -303,7 +300,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.machine_identities_api import MachineIdentitiesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.machine_identity import MachineIdentity
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -324,7 +320,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = MachineIdentitiesApi(api_client).list_machine_identities(x_sail_point_experimental, filters, sorters, count, limit, offset)
         print("The response of MachineIdentitiesApi->list_machine_identities:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling MachineIdentitiesApi->list_machine_identities: %s\n" % e)
 ```
@@ -383,7 +379,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.machine_identities_api import MachineIdentitiesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.machine_identity import MachineIdentity
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -401,7 +396,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = MachineIdentitiesApi(api_client).update_machine_identity(id, x_sail_point_experimental, new_request_body)
         print("The response of MachineIdentitiesApi->update_machine_identity:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling MachineIdentitiesApi->update_machine_identity: %s\n" % e)
 ```

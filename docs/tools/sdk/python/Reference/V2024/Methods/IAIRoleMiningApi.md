@@ -94,7 +94,6 @@ from sailpoint.v2024.api.iai_role_mining_api import IAIRoleMiningApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.role_mining_potential_role_provision_request import RoleMiningPotentialRoleProvisionRequest
 from sailpoint.v2024.models.role_mining_potential_role_summary import RoleMiningPotentialRoleSummary
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -121,7 +120,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IAIRoleMiningApi(api_client).create_potential_role_provision_request(session_id, potential_role_id, x_sail_point_experimental, min_entitlement_popularity, include_common_access, new_role_mining_potential_role_provision_request)
         print("The response of IAIRoleMiningApi->create_potential_role_provision_request:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IAIRoleMiningApi->create_potential_role_provision_request: %s\n" % e)
 ```
@@ -178,7 +177,6 @@ from sailpoint.v2024.api.iai_role_mining_api import IAIRoleMiningApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.role_mining_session_dto import RoleMiningSessionDto
 from sailpoint.v2024.models.role_mining_session_response import RoleMiningSessionResponse
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -226,7 +224,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IAIRoleMiningApi(api_client).create_role_mining_sessions(x_sail_point_experimental, new_role_mining_session_dto)
         print("The response of IAIRoleMiningApi->create_role_mining_sessions:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IAIRoleMiningApi->create_role_mining_sessions: %s\n" % e)
 ```
@@ -282,7 +280,6 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.v2024.api.iai_role_mining_api import IAIRoleMiningApi
 from sailpoint.v2024.api_client import ApiClient
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -301,7 +298,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IAIRoleMiningApi(api_client).download_role_mining_potential_role_zip(session_id, potential_role_id, export_id, x_sail_point_experimental)
         print("The response of IAIRoleMiningApi->download_role_mining_potential_role_zip:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IAIRoleMiningApi->download_role_mining_potential_role_zip: %s\n" % e)
 ```
@@ -356,7 +353,6 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.v2024.api.iai_role_mining_api import IAIRoleMiningApi
 from sailpoint.v2024.api_client import ApiClient
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -374,7 +370,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IAIRoleMiningApi(api_client).export_role_mining_potential_role(session_id, potential_role_id, x_sail_point_experimental)
         print("The response of IAIRoleMiningApi->export_role_mining_potential_role:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IAIRoleMiningApi->export_role_mining_potential_role: %s\n" % e)
 ```
@@ -432,7 +428,6 @@ from sailpoint.v2024.api.iai_role_mining_api import IAIRoleMiningApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.role_mining_potential_role_export_request import RoleMiningPotentialRoleExportRequest
 from sailpoint.v2024.models.role_mining_potential_role_export_response import RoleMiningPotentialRoleExportResponse
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -454,7 +449,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IAIRoleMiningApi(api_client).export_role_mining_potential_role_async(session_id, potential_role_id, x_sail_point_experimental, new_role_mining_potential_role_export_request)
         print("The response of IAIRoleMiningApi->export_role_mining_potential_role_async:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IAIRoleMiningApi->export_role_mining_potential_role_async: %s\n" % e)
 ```
@@ -511,7 +506,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.iai_role_mining_api import IAIRoleMiningApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.role_mining_potential_role_export_response import RoleMiningPotentialRoleExportResponse
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -530,7 +524,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IAIRoleMiningApi(api_client).export_role_mining_potential_role_status(session_id, potential_role_id, export_id, x_sail_point_experimental)
         print("The response of IAIRoleMiningApi->export_role_mining_potential_role_status:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IAIRoleMiningApi->export_role_mining_potential_role_status: %s\n" % e)
 ```
@@ -590,7 +584,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.iai_role_mining_api import IAIRoleMiningApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.role_mining_potential_role_summary import RoleMiningPotentialRoleSummary
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -611,7 +604,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IAIRoleMiningApi(api_client).get_all_potential_role_summaries(x_sail_point_experimental, sorters, filters, offset, limit, count)
         print("The response of IAIRoleMiningApi->get_all_potential_role_summaries:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IAIRoleMiningApi->get_all_potential_role_summaries: %s\n" % e)
 ```
@@ -667,7 +660,6 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.v2024.api.iai_role_mining_api import IAIRoleMiningApi
 from sailpoint.v2024.api_client import ApiClient
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -686,7 +678,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IAIRoleMiningApi(api_client).get_entitlement_distribution_potential_role(session_id, potential_role_id, x_sail_point_experimental, include_common_access)
         print("The response of IAIRoleMiningApi->get_entitlement_distribution_potential_role:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IAIRoleMiningApi->get_entitlement_distribution_potential_role: %s\n" % e)
 ```
@@ -749,7 +741,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.iai_role_mining_api import IAIRoleMiningApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.role_mining_entitlement import RoleMiningEntitlement
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -773,7 +764,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IAIRoleMiningApi(api_client).get_entitlements_potential_role(session_id, potential_role_id, x_sail_point_experimental, include_common_access, sorters, filters, offset, limit, count)
         print("The response of IAIRoleMiningApi->get_entitlements_potential_role:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IAIRoleMiningApi->get_entitlements_potential_role: %s\n" % e)
 ```
@@ -834,7 +825,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.iai_role_mining_api import IAIRoleMiningApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.role_mining_entitlement import RoleMiningEntitlement
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -857,7 +847,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IAIRoleMiningApi(api_client).get_excluded_entitlements_potential_role(session_id, potential_role_id, x_sail_point_experimental, sorters, filters, offset, limit, count)
         print("The response of IAIRoleMiningApi->get_excluded_entitlements_potential_role:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IAIRoleMiningApi->get_excluded_entitlements_potential_role: %s\n" % e)
 ```
@@ -918,7 +908,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.iai_role_mining_api import IAIRoleMiningApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.role_mining_identity import RoleMiningIdentity
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -941,7 +930,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IAIRoleMiningApi(api_client).get_identities_potential_role(session_id, potential_role_id, x_sail_point_experimental, sorters, filters, offset, limit, count)
         print("The response of IAIRoleMiningApi->get_identities_potential_role:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IAIRoleMiningApi->get_identities_potential_role: %s\n" % e)
 ```
@@ -998,7 +987,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.iai_role_mining_api import IAIRoleMiningApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.role_mining_potential_role import RoleMiningPotentialRole
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -1016,7 +1004,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IAIRoleMiningApi(api_client).get_potential_role(session_id, potential_role_id, x_sail_point_experimental)
         print("The response of IAIRoleMiningApi->get_potential_role:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IAIRoleMiningApi->get_potential_role: %s\n" % e)
 ```
@@ -1077,7 +1065,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.iai_role_mining_api import IAIRoleMiningApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.role_mining_potential_role_application import RoleMiningPotentialRoleApplication
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -1099,7 +1086,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IAIRoleMiningApi(api_client).get_potential_role_applications(session_id, potential_role_id, x_sail_point_experimental, filters, offset, limit, count)
         print("The response of IAIRoleMiningApi->get_potential_role_applications:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IAIRoleMiningApi->get_potential_role_applications: %s\n" % e)
 ```
@@ -1160,7 +1147,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.iai_role_mining_api import IAIRoleMiningApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.role_mining_potential_role_entitlements import RoleMiningPotentialRoleEntitlements
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -1182,7 +1168,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IAIRoleMiningApi(api_client).get_potential_role_entitlements(session_id, potential_role_id, x_sail_point_experimental, filters, offset, limit, count)
         print("The response of IAIRoleMiningApi->get_potential_role_entitlements:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IAIRoleMiningApi->get_potential_role_entitlements: %s\n" % e)
 ```
@@ -1243,7 +1229,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.iai_role_mining_api import IAIRoleMiningApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.role_mining_potential_role_source_usage import RoleMiningPotentialRoleSourceUsage
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -1265,7 +1250,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IAIRoleMiningApi(api_client).get_potential_role_source_identity_usage(potential_role_id, source_id, x_sail_point_experimental, sorters, offset, limit, count)
         print("The response of IAIRoleMiningApi->get_potential_role_source_identity_usage:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IAIRoleMiningApi->get_potential_role_source_identity_usage: %s\n" % e)
 ```
@@ -1326,7 +1311,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.iai_role_mining_api import IAIRoleMiningApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.role_mining_potential_role_summary import RoleMiningPotentialRoleSummary
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -1348,7 +1332,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IAIRoleMiningApi(api_client).get_potential_role_summaries(session_id, x_sail_point_experimental, sorters, filters, offset, limit, count)
         print("The response of IAIRoleMiningApi->get_potential_role_summaries:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IAIRoleMiningApi->get_potential_role_summaries: %s\n" % e)
 ```
@@ -1404,7 +1388,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.iai_role_mining_api import IAIRoleMiningApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.role_mining_potential_role import RoleMiningPotentialRole
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -1421,7 +1404,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IAIRoleMiningApi(api_client).get_role_mining_potential_role(potential_role_id, x_sail_point_experimental)
         print("The response of IAIRoleMiningApi->get_role_mining_potential_role:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IAIRoleMiningApi->get_role_mining_potential_role: %s\n" % e)
 ```
@@ -1478,7 +1461,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.iai_role_mining_api import IAIRoleMiningApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.role_mining_session_response import RoleMiningSessionResponse
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -1495,7 +1477,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IAIRoleMiningApi(api_client).get_role_mining_session(session_id, x_sail_point_experimental)
         print("The response of IAIRoleMiningApi->get_role_mining_session:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IAIRoleMiningApi->get_role_mining_session: %s\n" % e)
 ```
@@ -1550,7 +1532,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.iai_role_mining_api import IAIRoleMiningApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.role_mining_session_status import RoleMiningSessionStatus
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -1567,7 +1548,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IAIRoleMiningApi(api_client).get_role_mining_session_status(session_id, x_sail_point_experimental)
         print("The response of IAIRoleMiningApi->get_role_mining_session_status:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IAIRoleMiningApi->get_role_mining_session_status: %s\n" % e)
 ```
@@ -1627,7 +1608,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.iai_role_mining_api import IAIRoleMiningApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.role_mining_session_dto import RoleMiningSessionDto
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -1648,7 +1628,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IAIRoleMiningApi(api_client).get_role_mining_sessions(x_sail_point_experimental, filters, sorters, offset, limit, count)
         print("The response of IAIRoleMiningApi->get_role_mining_sessions:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IAIRoleMiningApi->get_role_mining_sessions: %s\n" % e)
 ```
@@ -1707,7 +1687,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.iai_role_mining_api import IAIRoleMiningApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.role_mining_session_draft_role_dto import RoleMiningSessionDraftRoleDto
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -1727,7 +1706,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IAIRoleMiningApi(api_client).get_saved_potential_roles(x_sail_point_experimental, sorters, offset, limit, count)
         print("The response of IAIRoleMiningApi->get_saved_potential_roles:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IAIRoleMiningApi->get_saved_potential_roles: %s\n" % e)
 ```
@@ -1798,7 +1777,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.iai_role_mining_api import IAIRoleMiningApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.patch_potential_role_request_inner import PatchPotentialRoleRequestInner
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -1817,7 +1795,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IAIRoleMiningApi(api_client).patch_potential_role(session_id, potential_role_id, x_sail_point_experimental, new_patch_potential_role_request_inner)
         print("The response of IAIRoleMiningApi->patch_potential_role:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IAIRoleMiningApi->patch_potential_role: %s\n" % e)
 ```
@@ -1888,7 +1866,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.iai_role_mining_api import IAIRoleMiningApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.patch_potential_role_request_inner import PatchPotentialRoleRequestInner
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -1907,7 +1884,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IAIRoleMiningApi(api_client).patch_potential_role_0(session_id, potential_role_id, x_sail_point_experimental, new_patch_potential_role_request_inner)
         print("The response of IAIRoleMiningApi->patch_potential_role_0:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IAIRoleMiningApi->patch_potential_role_0: %s\n" % e)
 ```
@@ -1965,7 +1942,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.iai_role_mining_api import IAIRoleMiningApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.json_patch_operation import JsonPatchOperation
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -1983,7 +1959,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IAIRoleMiningApi(api_client).patch_role_mining_session(session_id, x_sail_point_experimental, new_json_patch_operation)
         print("The response of IAIRoleMiningApi->patch_role_mining_session:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IAIRoleMiningApi->patch_role_mining_session: %s\n" % e)
 ```
@@ -2041,7 +2017,6 @@ from sailpoint.v2024.api.iai_role_mining_api import IAIRoleMiningApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.role_mining_potential_role import RoleMiningPotentialRole
 from sailpoint.v2024.models.role_mining_potential_role_edit_entitlements import RoleMiningPotentialRoleEditEntitlements
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -2063,7 +2038,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IAIRoleMiningApi(api_client).update_entitlements_potential_role(session_id, potential_role_id, x_sail_point_experimental, new_role_mining_potential_role_edit_entitlements)
         print("The response of IAIRoleMiningApi->update_entitlements_potential_role:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IAIRoleMiningApi->update_entitlements_potential_role: %s\n" % e)
 ```

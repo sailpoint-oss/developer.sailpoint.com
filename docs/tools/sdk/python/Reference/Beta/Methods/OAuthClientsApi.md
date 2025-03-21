@@ -61,7 +61,6 @@ from sailpoint.beta.api.o_auth_clients_api import OAuthClientsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.create_o_auth_client_request import CreateOAuthClientRequest
 from sailpoint.beta.models.create_o_auth_client_response import CreateOAuthClientResponse
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -92,7 +91,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = OAuthClientsApi(api_client).create_oauth_client(new_create_o_auth_client_request)
         print("The response of OAuthClientsApi->create_oauth_client:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling OAuthClientsApi->create_oauth_client: %s\n" % e)
 ```
@@ -136,7 +135,6 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.beta.api.o_auth_clients_api import OAuthClientsApi
 from sailpoint.beta.api_client import ApiClient
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -194,7 +192,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.o_auth_clients_api import OAuthClientsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.get_o_auth_client_response import GetOAuthClientResponse
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -209,7 +206,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = OAuthClientsApi(api_client).get_oauth_client(id)
         print("The response of OAuthClientsApi->get_oauth_client:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling OAuthClientsApi->get_oauth_client: %s\n" % e)
 ```
@@ -253,7 +250,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.o_auth_clients_api import OAuthClientsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.get_o_auth_client_response import GetOAuthClientResponse
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -268,7 +264,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = OAuthClientsApi(api_client).list_oauth_clients(filters)
         print("The response of OAuthClientsApi->list_oauth_clients:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling OAuthClientsApi->list_oauth_clients: %s\n" % e)
 ```
@@ -317,7 +313,6 @@ from sailpoint.beta.api.o_auth_clients_api import OAuthClientsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.get_o_auth_client_response import GetOAuthClientResponse
 from sailpoint.beta.models.json_patch_operation import JsonPatchOperation
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -333,7 +328,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = OAuthClientsApi(api_client).patch_oauth_client(id, new_json_patch_operation)
         print("The response of OAuthClientsApi->patch_oauth_client:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling OAuthClientsApi->patch_oauth_client: %s\n" % e)
 ```

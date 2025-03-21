@@ -76,7 +76,6 @@ from sailpoint.v3.api.configuration_hub_api import ConfigurationHubApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.object_mapping_request import ObjectMappingRequest
 from sailpoint.v3.models.object_mapping_response import ObjectMappingResponse
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -98,7 +97,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = ConfigurationHubApi(api_client).create_object_mapping(source_org, new_object_mapping_request)
         print("The response of ConfigurationHubApi->create_object_mapping:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling ConfigurationHubApi->create_object_mapping: %s\n" % e)
 ```
@@ -148,7 +147,6 @@ from sailpoint.v3.api.configuration_hub_api import ConfigurationHubApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.object_mapping_bulk_create_request import ObjectMappingBulkCreateRequest
 from sailpoint.v3.models.object_mapping_bulk_create_response import ObjectMappingBulkCreateResponse
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -178,7 +176,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = ConfigurationHubApi(api_client).create_object_mappings(source_org, new_object_mapping_bulk_create_request)
         print("The response of ConfigurationHubApi->create_object_mappings:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling ConfigurationHubApi->create_object_mappings: %s\n" % e)
 ```
@@ -227,7 +225,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.configuration_hub_api import ConfigurationHubApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.backup_response import BackupResponse
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -243,7 +240,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = ConfigurationHubApi(api_client).create_uploaded_configuration(data, name)
         print("The response of ConfigurationHubApi->create_uploaded_configuration:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling ConfigurationHubApi->create_uploaded_configuration: %s\n" % e)
 ```
@@ -291,7 +288,6 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.v3.api.configuration_hub_api import ConfigurationHubApi
 from sailpoint.v3.api_client import ApiClient
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -353,7 +349,6 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.v3.api.configuration_hub_api import ConfigurationHubApi
 from sailpoint.v3.api_client import ApiClient
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -414,7 +409,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.configuration_hub_api import ConfigurationHubApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.object_mapping_response import ObjectMappingResponse
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -429,7 +423,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = ConfigurationHubApi(api_client).get_object_mappings(source_org)
         print("The response of ConfigurationHubApi->get_object_mappings:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling ConfigurationHubApi->get_object_mappings: %s\n" % e)
 ```
@@ -474,7 +468,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.configuration_hub_api import ConfigurationHubApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.backup_response import BackupResponse
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -489,7 +482,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = ConfigurationHubApi(api_client).get_uploaded_configuration(id)
         print("The response of ConfigurationHubApi->get_uploaded_configuration:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling ConfigurationHubApi->get_uploaded_configuration: %s\n" % e)
 ```
@@ -534,7 +527,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.configuration_hub_api import ConfigurationHubApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.backup_response import BackupResponse
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -549,7 +541,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = ConfigurationHubApi(api_client).list_uploaded_configurations(filters)
         print("The response of ConfigurationHubApi->list_uploaded_configurations:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling ConfigurationHubApi->list_uploaded_configurations: %s\n" % e)
 ```
@@ -599,7 +591,6 @@ from sailpoint.v3.api.configuration_hub_api import ConfigurationHubApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.object_mapping_bulk_patch_request import ObjectMappingBulkPatchRequest
 from sailpoint.v3.models.object_mapping_bulk_patch_response import ObjectMappingBulkPatchResponse
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -628,7 +619,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = ConfigurationHubApi(api_client).update_object_mappings(source_org, new_object_mapping_bulk_patch_request)
         print("The response of ConfigurationHubApi->update_object_mappings:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling ConfigurationHubApi->update_object_mappings: %s\n" % e)
 ```

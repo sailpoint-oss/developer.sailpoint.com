@@ -74,7 +74,6 @@ from sailpoint.v2024.api.sod_violations_api import SODViolationsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.identity_with_new_access import IdentityWithNewAccess
 from sailpoint.v2024.models.violation_prediction import ViolationPrediction
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -100,7 +99,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SODViolationsApi(api_client).start_predict_sod_violations(new_identity_with_new_access)
         print("The response of SODViolationsApi->start_predict_sod_violations:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SODViolationsApi->start_predict_sod_violations: %s\n" % e)
 ```
@@ -146,7 +145,6 @@ from sailpoint.v2024.api.sod_violations_api import SODViolationsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.identity_with_new_access1 import IdentityWithNewAccess1
 from sailpoint.v2024.models.sod_violation_check import SodViolationCheck
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -161,7 +159,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SODViolationsApi(api_client).start_violation_check(new_identity_with_new_access1)
         print("The response of SODViolationsApi->start_violation_check:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SODViolationsApi->start_violation_check: %s\n" % e)
 ```

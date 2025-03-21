@@ -91,7 +91,6 @@ from sailpoint.v2024.api.custom_forms_api import CustomFormsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.create_form_definition_request import CreateFormDefinitionRequest
 from sailpoint.v2024.models.form_definition_response import FormDefinitionResponse
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -218,7 +217,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CustomFormsApi(api_client).create_form_definition(x_sail_point_experimental, new_body)
         print("The response of CustomFormsApi->create_form_definition:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CustomFormsApi->create_form_definition: %s\n" % e)
 ```
@@ -276,7 +275,6 @@ from sailpoint.v2024.api.custom_forms_api import CustomFormsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.form_definition_dynamic_schema_request import FormDefinitionDynamicSchemaRequest
 from sailpoint.v2024.models.form_definition_dynamic_schema_response import FormDefinitionDynamicSchemaResponse
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -301,7 +299,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CustomFormsApi(api_client).create_form_definition_dynamic_schema(x_sail_point_experimental, new_body)
         print("The response of CustomFormsApi->create_form_definition_dynamic_schema:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CustomFormsApi->create_form_definition_dynamic_schema: %s\n" % e)
 ```
@@ -362,7 +360,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.custom_forms_api import CustomFormsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.form_definition_file_upload_response import FormDefinitionFileUploadResponse
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -380,7 +377,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CustomFormsApi(api_client).create_form_definition_file_request(form_definition_id, x_sail_point_experimental, file)
         print("The response of CustomFormsApi->create_form_definition_file_request:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CustomFormsApi->create_form_definition_file_request: %s\n" % e)
 ```
@@ -437,7 +434,6 @@ from sailpoint.v2024.api.custom_forms_api import CustomFormsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.create_form_instance_request import CreateFormInstanceRequest
 from sailpoint.v2024.models.form_instance_response import FormInstanceResponse
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -474,7 +470,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CustomFormsApi(api_client).create_form_instance(x_sail_point_experimental, new_body)
         print("The response of CustomFormsApi->create_form_instance:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CustomFormsApi->create_form_instance: %s\n" % e)
 ```
@@ -530,7 +526,6 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.v2024.api.custom_forms_api import CustomFormsApi
 from sailpoint.v2024.api_client import ApiClient
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -547,7 +542,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CustomFormsApi(api_client).delete_form_definition(form_definition_id, x_sail_point_experimental)
         print("The response of CustomFormsApi->delete_form_definition:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CustomFormsApi->delete_form_definition: %s\n" % e)
 ```
@@ -606,7 +601,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.custom_forms_api import CustomFormsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.export_form_definitions_by_tenant200_response_inner import ExportFormDefinitionsByTenant200ResponseInner
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -626,7 +620,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CustomFormsApi(api_client).export_form_definitions_by_tenant(x_sail_point_experimental, offset, limit, filters, sorters)
         print("The response of CustomFormsApi->export_form_definitions_by_tenant:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CustomFormsApi->export_form_definitions_by_tenant: %s\n" % e)
 ```
@@ -684,7 +678,6 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.v2024.api.custom_forms_api import CustomFormsApi
 from sailpoint.v2024.api_client import ApiClient
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -702,7 +695,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CustomFormsApi(api_client).get_file_from_s3(form_definition_id, file_id, x_sail_point_experimental)
         print("The response of CustomFormsApi->get_file_from_s3:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CustomFormsApi->get_file_from_s3: %s\n" % e)
 ```
@@ -759,7 +752,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.custom_forms_api import CustomFormsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.form_definition_response import FormDefinitionResponse
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -776,7 +768,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CustomFormsApi(api_client).get_form_definition_by_key(form_definition_id, x_sail_point_experimental)
         print("The response of CustomFormsApi->get_form_definition_by_key:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CustomFormsApi->get_form_definition_by_key: %s\n" % e)
 ```
@@ -833,7 +825,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.custom_forms_api import CustomFormsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.form_instance_response import FormInstanceResponse
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -850,7 +841,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CustomFormsApi(api_client).get_form_instance_by_key(form_instance_id, x_sail_point_experimental)
         print("The response of CustomFormsApi->get_form_instance_by_key:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CustomFormsApi->get_form_instance_by_key: %s\n" % e)
 ```
@@ -908,7 +899,6 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.v2024.api.custom_forms_api import CustomFormsApi
 from sailpoint.v2024.api_client import ApiClient
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -926,7 +916,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CustomFormsApi(api_client).get_form_instance_file(form_instance_id, file_id, x_sail_point_experimental)
         print("The response of CustomFormsApi->get_form_instance_file:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CustomFormsApi->get_form_instance_file: %s\n" % e)
 ```
@@ -983,7 +973,6 @@ from sailpoint.v2024.api.custom_forms_api import CustomFormsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.import_form_definitions202_response import ImportFormDefinitions202Response
 from sailpoint.v2024.models.import_form_definitions_request_inner import ImportFormDefinitionsRequestInner
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -1000,7 +989,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CustomFormsApi(api_client).import_form_definitions(x_sail_point_experimental, new_body)
         print("The response of CustomFormsApi->import_form_definitions:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CustomFormsApi->import_form_definitions: %s\n" % e)
 ```
@@ -1058,7 +1047,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.custom_forms_api import CustomFormsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.form_definition_response import FormDefinitionResponse
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -1076,7 +1064,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CustomFormsApi(api_client).patch_form_definition(form_definition_id, x_sail_point_experimental, new_body)
         print("The response of CustomFormsApi->patch_form_definition:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CustomFormsApi->patch_form_definition: %s\n" % e)
 ```
@@ -1135,7 +1123,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.custom_forms_api import CustomFormsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.form_instance_response import FormInstanceResponse
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -1153,7 +1140,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CustomFormsApi(api_client).patch_form_instance(form_instance_id, x_sail_point_experimental, new_body)
         print("The response of CustomFormsApi->patch_form_instance:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CustomFormsApi->patch_form_instance: %s\n" % e)
 ```
@@ -1212,7 +1199,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.custom_forms_api import CustomFormsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.list_form_definitions_by_tenant_response import ListFormDefinitionsByTenantResponse
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -1232,7 +1218,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CustomFormsApi(api_client).search_form_definitions_by_tenant(x_sail_point_experimental, offset, limit, filters, sorters)
         print("The response of CustomFormsApi->search_form_definitions_by_tenant:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CustomFormsApi->search_form_definitions_by_tenant: %s\n" % e)
 ```
@@ -1294,7 +1280,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.custom_forms_api import CustomFormsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.list_form_element_data_by_element_id_response import ListFormElementDataByElementIDResponse
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -1315,7 +1300,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CustomFormsApi(api_client).search_form_element_data_by_element_id(form_instance_id, form_element_id, x_sail_point_experimental, limit, filters, query)
         print("The response of CustomFormsApi->search_form_element_data_by_element_id:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CustomFormsApi->search_form_element_data_by_element_id: %s\n" % e)
 ```
@@ -1370,7 +1355,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.custom_forms_api import CustomFormsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.list_form_instances_by_tenant_response import ListFormInstancesByTenantResponse
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -1386,7 +1370,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CustomFormsApi(api_client).search_form_instances_by_tenant(x_sail_point_experimental)
         print("The response of CustomFormsApi->search_form_instances_by_tenant:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CustomFormsApi->search_form_instances_by_tenant: %s\n" % e)
 ```
@@ -1441,7 +1425,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.custom_forms_api import CustomFormsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.list_predefined_select_options_response import ListPredefinedSelectOptionsResponse
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -1457,7 +1440,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CustomFormsApi(api_client).search_pre_defined_select_options(x_sail_point_experimental)
         print("The response of CustomFormsApi->search_pre_defined_select_options:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CustomFormsApi->search_pre_defined_select_options: %s\n" % e)
 ```
@@ -1519,7 +1502,6 @@ from sailpoint.v2024.api.custom_forms_api import CustomFormsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.form_element_preview_request import FormElementPreviewRequest
 from sailpoint.v2024.models.preview_data_source_response import PreviewDataSourceResponse
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -1550,7 +1532,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CustomFormsApi(api_client).show_preview_data_source(form_definition_id, x_sail_point_experimental, limit, filters, query, new_form_element_preview_request)
         print("The response of CustomFormsApi->show_preview_data_source:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CustomFormsApi->show_preview_data_source: %s\n" % e)
 ```

@@ -62,7 +62,6 @@ from sailpoint.beta.api.sp_config_api import SPConfigApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.export_payload import ExportPayload
 from sailpoint.beta.models.sp_config_export_job import SpConfigExportJob
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -79,7 +78,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SPConfigApi(api_client).export_sp_config(new_export_payload)
         print("The response of SPConfigApi->export_sp_config:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SPConfigApi->export_sp_config: %s\n" % e)
 ```
@@ -126,7 +125,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.sp_config_api import SPConfigApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.sp_config_export_results import SpConfigExportResults
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -141,7 +139,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SPConfigApi(api_client).get_sp_config_export(id)
         print("The response of SPConfigApi->get_sp_config_export:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SPConfigApi->get_sp_config_export: %s\n" % e)
 ```
@@ -188,7 +186,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.sp_config_api import SPConfigApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.sp_config_export_job_status import SpConfigExportJobStatus
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -203,7 +200,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SPConfigApi(api_client).get_sp_config_export_status(id)
         print("The response of SPConfigApi->get_sp_config_export_status:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SPConfigApi->get_sp_config_export_status: %s\n" % e)
 ```
@@ -250,7 +247,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.sp_config_api import SPConfigApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.sp_config_import_results import SpConfigImportResults
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -265,7 +261,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SPConfigApi(api_client).get_sp_config_import(id)
         print("The response of SPConfigApi->get_sp_config_import:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SPConfigApi->get_sp_config_import: %s\n" % e)
 ```
@@ -311,7 +307,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.sp_config_api import SPConfigApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.sp_config_import_job_status import SpConfigImportJobStatus
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -326,7 +321,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SPConfigApi(api_client).get_sp_config_import_status(id)
         print("The response of SPConfigApi->get_sp_config_import_status:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SPConfigApi->get_sp_config_import_status: %s\n" % e)
 ```
@@ -384,7 +379,6 @@ from sailpoint.beta.api.sp_config_api import SPConfigApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.import_options import ImportOptions
 from sailpoint.beta.models.sp_config_job import SpConfigJob
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -401,7 +395,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SPConfigApi(api_client).import_sp_config(data, preview, options)
         print("The response of SPConfigApi->import_sp_config:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SPConfigApi->import_sp_config: %s\n" % e)
 ```
@@ -443,7 +437,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.sp_config_api import SPConfigApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.sp_config_object import SpConfigObject
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -457,7 +450,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SPConfigApi(api_client).list_sp_config_objects()
         print("The response of SPConfigApi->list_sp_config_objects:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SPConfigApi->list_sp_config_objects: %s\n" % e)
 ```

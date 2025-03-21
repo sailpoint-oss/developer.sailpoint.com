@@ -80,7 +80,6 @@ from sailpoint.v2024.api.sim_integrations_api import SIMIntegrationsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.service_desk_integration_dto import ServiceDeskIntegrationDto
 from sailpoint.v2024.models.sim_integration_details import SimIntegrationDetails
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -114,7 +113,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SIMIntegrationsApi(api_client).create_sim_integration(x_sail_point_experimental, new_sim_integration_details)
         print("The response of SIMIntegrationsApi->create_sim_integration:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SIMIntegrationsApi->create_sim_integration: %s\n" % e)
 ```
@@ -170,7 +169,6 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.v2024.api.sim_integrations_api import SIMIntegrationsApi
 from sailpoint.v2024.api_client import ApiClient
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -242,7 +240,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.sim_integrations_api import SIMIntegrationsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.service_desk_integration_dto import ServiceDeskIntegrationDto
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -259,7 +256,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SIMIntegrationsApi(api_client).get_sim_integration(id, x_sail_point_experimental)
         print("The response of SIMIntegrationsApi->get_sim_integration:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SIMIntegrationsApi->get_sim_integration: %s\n" % e)
 ```
@@ -315,7 +312,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.sim_integrations_api import SIMIntegrationsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.service_desk_integration_dto import ServiceDeskIntegrationDto
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -331,7 +327,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SIMIntegrationsApi(api_client).get_sim_integrations(x_sail_point_experimental)
         print("The response of SIMIntegrationsApi->get_sim_integrations:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SIMIntegrationsApi->get_sim_integrations: %s\n" % e)
 ```
@@ -390,7 +386,6 @@ from sailpoint.v2024.api.sim_integrations_api import SIMIntegrationsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.json_patch import JsonPatch
 from sailpoint.v2024.models.service_desk_integration_dto import ServiceDeskIntegrationDto
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -418,7 +413,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SIMIntegrationsApi(api_client).patch_before_provisioning_rule(id, x_sail_point_experimental, new_json_patch)
         print("The response of SIMIntegrationsApi->patch_before_provisioning_rule:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SIMIntegrationsApi->patch_before_provisioning_rule: %s\n" % e)
 ```
@@ -477,7 +472,6 @@ from sailpoint.v2024.api.sim_integrations_api import SIMIntegrationsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.json_patch import JsonPatch
 from sailpoint.v2024.models.service_desk_integration_dto import ServiceDeskIntegrationDto
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -505,7 +499,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SIMIntegrationsApi(api_client).patch_sim_attributes(id, x_sail_point_experimental, new_json_patch)
         print("The response of SIMIntegrationsApi->patch_sim_attributes:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SIMIntegrationsApi->patch_sim_attributes: %s\n" % e)
 ```
@@ -564,7 +558,6 @@ from sailpoint.v2024.api.sim_integrations_api import SIMIntegrationsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.service_desk_integration_dto import ServiceDeskIntegrationDto
 from sailpoint.v2024.models.sim_integration_details import SimIntegrationDetails
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -599,7 +592,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SIMIntegrationsApi(api_client).put_sim_integration(id, x_sail_point_experimental, new_sim_integration_details)
         print("The response of SIMIntegrationsApi->put_sim_integration:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SIMIntegrationsApi->put_sim_integration: %s\n" % e)
 ```

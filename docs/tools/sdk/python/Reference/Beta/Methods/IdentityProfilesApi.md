@@ -75,7 +75,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.identity_profiles_api import IdentityProfilesApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.identity_profile import IdentityProfile
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -138,7 +137,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IdentityProfilesApi(api_client).create_identity_profile(new_identity_profile)
         print("The response of IdentityProfilesApi->create_identity_profile:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IdentityProfilesApi->create_identity_profile: %s\n" % e)
 ```
@@ -185,7 +184,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.identity_profiles_api import IdentityProfilesApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.task_result_simplified import TaskResultSimplified
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -200,7 +198,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IdentityProfilesApi(api_client).delete_identity_profile(identity_profile_id)
         print("The response of IdentityProfilesApi->delete_identity_profile:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IdentityProfilesApi->delete_identity_profile: %s\n" % e)
 ```
@@ -250,7 +248,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.identity_profiles_api import IdentityProfilesApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.task_result_simplified import TaskResultSimplified
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -265,7 +262,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IdentityProfilesApi(api_client).delete_identity_profiles(new_request_body)
         print("The response of IdentityProfilesApi->delete_identity_profiles:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IdentityProfilesApi->delete_identity_profiles: %s\n" % e)
 ```
@@ -314,7 +311,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.identity_profiles_api import IdentityProfilesApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.identity_profile_exported_object import IdentityProfileExportedObject
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -333,7 +329,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IdentityProfilesApi(api_client).export_identity_profiles(limit, offset, count, filters, sorters)
         print("The response of IdentityProfilesApi->export_identity_profiles:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IdentityProfilesApi->export_identity_profiles: %s\n" % e)
 ```
@@ -379,7 +375,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.identity_profiles_api import IdentityProfilesApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.identity_attribute_config import IdentityAttributeConfig
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -394,7 +389,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IdentityProfilesApi(api_client).get_default_identity_attribute_config(identity_profile_id)
         print("The response of IdentityProfilesApi->get_default_identity_attribute_config:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IdentityProfilesApi->get_default_identity_attribute_config: %s\n" % e)
 ```
@@ -440,7 +435,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.identity_profiles_api import IdentityProfilesApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.identity_profile import IdentityProfile
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -455,7 +449,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IdentityProfilesApi(api_client).get_identity_profile(identity_profile_id)
         print("The response of IdentityProfilesApi->get_identity_profile:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IdentityProfilesApi->get_identity_profile: %s\n" % e)
 ```
@@ -500,7 +494,6 @@ from sailpoint.beta.api.identity_profiles_api import IdentityProfilesApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.identity_profile_exported_object import IdentityProfileExportedObject
 from sailpoint.beta.models.object_import_result import ObjectImportResult
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -515,7 +508,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IdentityProfilesApi(api_client).import_identity_profiles(new_identity_profile_exported_object)
         print("The response of IdentityProfilesApi->import_identity_profiles:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IdentityProfilesApi->import_identity_profiles: %s\n" % e)
 ```
@@ -564,7 +557,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.identity_profiles_api import IdentityProfilesApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.identity_profile import IdentityProfile
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -583,7 +575,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IdentityProfilesApi(api_client).list_identity_profiles(limit, offset, count, filters, sorters)
         print("The response of IdentityProfilesApi->list_identity_profiles:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IdentityProfilesApi->list_identity_profiles: %s\n" % e)
 ```
@@ -630,7 +622,6 @@ from sailpoint.beta.api.identity_profiles_api import IdentityProfilesApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.identity_preview_request import IdentityPreviewRequest
 from sailpoint.beta.models.identity_preview_response import IdentityPreviewResponse
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -671,7 +662,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IdentityProfilesApi(api_client).show_generate_identity_preview(new_identity_preview_request)
         print("The response of IdentityProfilesApi->show_generate_identity_preview:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IdentityProfilesApi->show_generate_identity_preview: %s\n" % e)
 ```
@@ -720,7 +711,6 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.beta.api.identity_profiles_api import IdentityProfilesApi
 from sailpoint.beta.api_client import ApiClient
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -735,7 +725,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IdentityProfilesApi(api_client).sync_identity_profile(identity_profile_id)
         print("The response of IdentityProfilesApi->sync_identity_profile:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IdentityProfilesApi->sync_identity_profile: %s\n" % e)
 ```
@@ -790,7 +780,6 @@ from sailpoint.beta.api.identity_profiles_api import IdentityProfilesApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.identity_profile import IdentityProfile
 from sailpoint.beta.models.json_patch_operation import JsonPatchOperation
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -806,7 +795,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IdentityProfilesApi(api_client).update_identity_profile(identity_profile_id, new_json_patch_operation)
         print("The response of IdentityProfilesApi->update_identity_profile:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IdentityProfilesApi->update_identity_profile: %s\n" % e)
 ```

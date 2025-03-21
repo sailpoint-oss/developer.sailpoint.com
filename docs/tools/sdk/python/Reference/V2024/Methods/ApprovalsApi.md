@@ -69,7 +69,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.approvals_api import ApprovalsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.approval import Approval
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -86,7 +85,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = ApprovalsApi(api_client).get_approval(id, x_sail_point_experimental)
         print("The response of ApprovalsApi->get_approval:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling ApprovalsApi->get_approval: %s\n" % e)
 ```
@@ -145,7 +144,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.approvals_api import ApprovalsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.approval import Approval
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -164,7 +162,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = ApprovalsApi(api_client).get_approvals(x_sail_point_experimental, mine, requester_id, filters)
         print("The response of ApprovalsApi->get_approvals:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling ApprovalsApi->get_approvals: %s\n" % e)
 ```

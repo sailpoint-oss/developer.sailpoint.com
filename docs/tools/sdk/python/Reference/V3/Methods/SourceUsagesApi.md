@@ -57,7 +57,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.source_usages_api import SourceUsagesApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.source_usage_status import SourceUsageStatus
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -72,7 +71,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SourceUsagesApi(api_client).get_status_by_source_id(source_id)
         print("The response of SourceUsagesApi->get_status_by_source_id:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SourceUsagesApi->get_status_by_source_id: %s\n" % e)
 ```
@@ -120,7 +119,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.source_usages_api import SourceUsagesApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.source_usage import SourceUsage
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -139,7 +137,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SourceUsagesApi(api_client).get_usages_by_source_id(source_id, limit, offset, count, sorters)
         print("The response of SourceUsagesApi->get_usages_by_source_id:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SourceUsagesApi->get_usages_by_source_id: %s\n" % e)
 ```

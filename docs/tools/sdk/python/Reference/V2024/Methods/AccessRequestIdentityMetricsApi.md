@@ -58,7 +58,6 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.v2024.api.access_request_identity_metrics_api import AccessRequestIdentityMetricsApi
 from sailpoint.v2024.api_client import ApiClient
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -75,7 +74,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = AccessRequestIdentityMetricsApi(api_client).get_access_request_identity_metrics(identity_id, requested_object_id, type)
         print("The response of AccessRequestIdentityMetricsApi->get_access_request_identity_metrics:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling AccessRequestIdentityMetricsApi->get_access_request_identity_metrics: %s\n" % e)
 ```

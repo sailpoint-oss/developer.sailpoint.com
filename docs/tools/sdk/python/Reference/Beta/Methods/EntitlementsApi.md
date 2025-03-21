@@ -115,7 +115,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.entitlements_api import EntitlementsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.entitlement import Entitlement
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -132,7 +131,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = EntitlementsApi(api_client).create_access_model_metadata_for_entitlement(id, attribute_key, attribute_value)
         print("The response of EntitlementsApi->create_access_model_metadata_for_entitlement:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling EntitlementsApi->create_access_model_metadata_for_entitlement: %s\n" % e)
 ```
@@ -177,7 +176,6 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.beta.api.entitlements_api import EntitlementsApi
 from sailpoint.beta.api_client import ApiClient
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -237,7 +235,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.entitlements_api import EntitlementsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.entitlement import Entitlement
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -252,7 +249,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = EntitlementsApi(api_client).get_entitlement(id)
         print("The response of EntitlementsApi->get_entitlement:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling EntitlementsApi->get_entitlement: %s\n" % e)
 ```
@@ -297,7 +294,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.entitlements_api import EntitlementsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.entitlement_request_config import EntitlementRequestConfig
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -312,7 +308,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = EntitlementsApi(api_client).get_entitlement_request_config(id)
         print("The response of EntitlementsApi->get_entitlement_request_config:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling EntitlementsApi->get_entitlement_request_config: %s\n" % e)
 ```
@@ -364,7 +360,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.entitlements_api import EntitlementsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.load_entitlement_task import LoadEntitlementTask
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -380,7 +375,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = EntitlementsApi(api_client).import_entitlements_by_source(id, csv_file)
         print("The response of EntitlementsApi->import_entitlements_by_source:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling EntitlementsApi->import_entitlements_by_source: %s\n" % e)
 ```
@@ -430,7 +425,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.entitlements_api import EntitlementsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.entitlement import Entitlement
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -450,7 +444,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = EntitlementsApi(api_client).list_entitlement_children(id, limit, offset, count, sorters, filters)
         print("The response of EntitlementsApi->list_entitlement_children:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling EntitlementsApi->list_entitlement_children: %s\n" % e)
 ```
@@ -500,7 +494,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.entitlements_api import EntitlementsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.entitlement import Entitlement
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -520,7 +513,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = EntitlementsApi(api_client).list_entitlement_parents(id, limit, offset, count, sorters, filters)
         print("The response of EntitlementsApi->list_entitlement_parents:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling EntitlementsApi->list_entitlement_parents: %s\n" % e)
 ```
@@ -576,7 +569,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.entitlements_api import EntitlementsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.entitlement import Entitlement
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -599,7 +591,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = EntitlementsApi(api_client).list_entitlements(account_id, segmented_for_identity, for_segment_ids, include_unsegmented, offset, limit, count, sorters, filters)
         print("The response of EntitlementsApi->list_entitlements:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling EntitlementsApi->list_entitlements: %s\n" % e)
 ```
@@ -652,7 +644,6 @@ from sailpoint.beta.api.entitlements_api import EntitlementsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.entitlement import Entitlement
 from sailpoint.beta.models.json_patch_operation import JsonPatchOperation
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -668,7 +659,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = EntitlementsApi(api_client).patch_entitlement(id, new_json_patch_operation)
         print("The response of EntitlementsApi->patch_entitlement:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling EntitlementsApi->patch_entitlement: %s\n" % e)
 ```
@@ -714,7 +705,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.entitlements_api import EntitlementsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.entitlement_request_config import EntitlementRequestConfig
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -742,7 +732,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = EntitlementsApi(api_client).put_entitlement_request_config(id, new_entitlement_request_config)
         print("The response of EntitlementsApi->put_entitlement_request_config:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling EntitlementsApi->put_entitlement_request_config: %s\n" % e)
 ```
@@ -787,7 +777,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.entitlements_api import EntitlementsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.entitlement_source_reset_base_reference_dto import EntitlementSourceResetBaseReferenceDto
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -802,7 +791,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = EntitlementsApi(api_client).reset_source_entitlements(source_id)
         print("The response of EntitlementsApi->reset_source_entitlements:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling EntitlementsApi->reset_source_entitlements: %s\n" % e)
 ```
@@ -859,7 +848,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.entitlements_api import EntitlementsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.entitlement_bulk_update_request import EntitlementBulkUpdateRequest
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 

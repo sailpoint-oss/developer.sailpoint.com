@@ -59,7 +59,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.iai_peer_group_strategies_api import IAIPeerGroupStrategiesApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.peer_group_member import PeerGroupMember
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -77,7 +76,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IAIPeerGroupStrategiesApi(api_client).get_peer_group_outliers(strategy, limit, offset, count)
         print("The response of IAIPeerGroupStrategiesApi->get_peer_group_outliers:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IAIPeerGroupStrategiesApi->get_peer_group_outliers: %s\n" % e)
 ```

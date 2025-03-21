@@ -53,7 +53,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.iai_message_catalogs_api import IAIMessageCatalogsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.message_catalog_dto import MessageCatalogDto
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -68,7 +67,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IAIMessageCatalogsApi(api_client).get_message_catalogs(catalog_id)
         print("The response of IAIMessageCatalogsApi->get_message_catalogs:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IAIMessageCatalogsApi->get_message_catalogs: %s\n" % e)
 ```

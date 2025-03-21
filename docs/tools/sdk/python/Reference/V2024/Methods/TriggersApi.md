@@ -116,7 +116,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.triggers_api import TriggersApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.complete_invocation import CompleteInvocation
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -197,7 +196,6 @@ from sailpoint.v2024.api.triggers_api import TriggersApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.subscription import Subscription
 from sailpoint.v2024.models.subscription_post_request import SubscriptionPostRequest
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -238,7 +236,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = TriggersApi(api_client).create_subscription(x_sail_point_experimental, new_subscription_post_request)
         print("The response of TriggersApi->create_subscription:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling TriggersApi->create_subscription: %s\n" % e)
 ```
@@ -294,7 +292,6 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.v2024.api.triggers_api import TriggersApi
 from sailpoint.v2024.api_client import ApiClient
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -369,7 +366,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.triggers_api import TriggersApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.subscription import Subscription
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -390,7 +386,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = TriggersApi(api_client).list_subscriptions(x_sail_point_experimental, limit, offset, count, filters, sorters)
         print("The response of TriggersApi->list_subscriptions:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling TriggersApi->list_subscriptions: %s\n" % e)
 ```
@@ -452,7 +448,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.triggers_api import TriggersApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.invocation_status import InvocationStatus
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -473,7 +468,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = TriggersApi(api_client).list_trigger_invocation_status(x_sail_point_experimental, limit, offset, count, filters, sorters)
         print("The response of TriggersApi->list_trigger_invocation_status:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling TriggersApi->list_trigger_invocation_status: %s\n" % e)
 ```
@@ -533,7 +528,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.triggers_api import TriggersApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.trigger import Trigger
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -554,7 +548,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = TriggersApi(api_client).list_triggers(x_sail_point_experimental, limit, offset, count, filters, sorters)
         print("The response of TriggersApi->list_triggers:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling TriggersApi->list_triggers: %s\n" % e)
 ```
@@ -615,7 +609,6 @@ from sailpoint.v2024.api.triggers_api import TriggersApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.subscription import Subscription
 from sailpoint.v2024.models.subscription_patch_request_inner import SubscriptionPatchRequestInner
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -633,7 +626,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = TriggersApi(api_client).patch_subscription(id, x_sail_point_experimental, new_subscription_patch_request_inner)
         print("The response of TriggersApi->patch_subscription:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling TriggersApi->patch_subscription: %s\n" % e)
 ```
@@ -691,7 +684,6 @@ from sailpoint.v2024.api.triggers_api import TriggersApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.invocation import Invocation
 from sailpoint.v2024.models.test_invocation import TestInvocation
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -717,7 +709,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = TriggersApi(api_client).start_test_trigger_invocation(x_sail_point_experimental, new_test_invocation)
         print("The response of TriggersApi->start_test_trigger_invocation:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling TriggersApi->start_test_trigger_invocation: %s\n" % e)
 ```
@@ -775,7 +767,6 @@ from sailpoint.v2024.api.triggers_api import TriggersApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.validate_filter_input_dto import ValidateFilterInputDto
 from sailpoint.v2024.models.validate_filter_output_dto import ValidateFilterOutputDto
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -797,7 +788,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = TriggersApi(api_client).test_subscription_filter(x_sail_point_experimental, new_validate_filter_input_dto)
         print("The response of TriggersApi->test_subscription_filter:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling TriggersApi->test_subscription_filter: %s\n" % e)
 ```
@@ -865,7 +856,6 @@ from sailpoint.v2024.api.triggers_api import TriggersApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.subscription import Subscription
 from sailpoint.v2024.models.subscription_put_request import SubscriptionPutRequest
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -906,7 +896,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = TriggersApi(api_client).update_subscription(id, x_sail_point_experimental, new_subscription_put_request)
         print("The response of TriggersApi->update_subscription:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling TriggersApi->update_subscription: %s\n" % e)
 ```

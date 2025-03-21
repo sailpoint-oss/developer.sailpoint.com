@@ -59,7 +59,6 @@ from sailpoint.v3.api.mfa_controller_api import MFAControllerApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.send_token_request import SendTokenRequest
 from sailpoint.v3.models.send_token_response import SendTokenResponse
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -77,7 +76,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = MFAControllerApi(api_client).create_send_token(new_send_token_request)
         print("The response of MFAControllerApi->create_send_token:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling MFAControllerApi->create_send_token: %s\n" % e)
 ```
@@ -123,7 +122,6 @@ from sailpoint.v3.api.mfa_controller_api import MFAControllerApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.verification_poll_request import VerificationPollRequest
 from sailpoint.v3.models.verification_response import VerificationResponse
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -141,7 +139,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = MFAControllerApi(api_client).ping_verification_status(method, new_verification_poll_request)
         print("The response of MFAControllerApi->ping_verification_status:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling MFAControllerApi->ping_verification_status: %s\n" % e)
 ```
@@ -186,7 +184,6 @@ from sailpoint.v3.api.mfa_controller_api import MFAControllerApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.duo_verification_request import DuoVerificationRequest
 from sailpoint.v3.models.verification_response import VerificationResponse
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -204,7 +201,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = MFAControllerApi(api_client).send_duo_verify_request(new_duo_verification_request)
         print("The response of MFAControllerApi->send_duo_verify_request:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling MFAControllerApi->send_duo_verify_request: %s\n" % e)
 ```
@@ -249,7 +246,6 @@ from sailpoint.v3.api.mfa_controller_api import MFAControllerApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.kba_answer_request_item import KbaAnswerRequestItem
 from sailpoint.v3.models.kba_auth_response import KbaAuthResponse
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -264,7 +260,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = MFAControllerApi(api_client).send_kba_answers(new_kba_answer_request_item)
         print("The response of MFAControllerApi->send_kba_answers:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling MFAControllerApi->send_kba_answers: %s\n" % e)
 ```
@@ -309,7 +305,6 @@ from sailpoint.v3.api.mfa_controller_api import MFAControllerApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.okta_verification_request import OktaVerificationRequest
 from sailpoint.v3.models.verification_response import VerificationResponse
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -326,7 +321,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = MFAControllerApi(api_client).send_okta_verify_request(new_okta_verification_request)
         print("The response of MFAControllerApi->send_okta_verify_request:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling MFAControllerApi->send_okta_verify_request: %s\n" % e)
 ```
@@ -371,7 +366,6 @@ from sailpoint.v3.api.mfa_controller_api import MFAControllerApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.token_auth_request import TokenAuthRequest
 from sailpoint.v3.models.token_auth_response import TokenAuthResponse
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -390,7 +384,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = MFAControllerApi(api_client).send_token_auth_request(new_token_auth_request)
         print("The response of MFAControllerApi->send_token_auth_request:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling MFAControllerApi->send_token_auth_request: %s\n" % e)
 ```

@@ -75,7 +75,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.role_insights_api import RoleInsightsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.role_insights_response import RoleInsightsResponse
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -91,7 +90,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = RoleInsightsApi(api_client).create_role_insight_requests(x_sail_point_experimental)
         print("The response of RoleInsightsApi->create_role_insight_requests:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling RoleInsightsApi->create_role_insight_requests: %s\n" % e)
 ```
@@ -147,7 +146,6 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.v2024.api.role_insights_api import RoleInsightsApi
 from sailpoint.v2024.api_client import ApiClient
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -166,7 +164,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = RoleInsightsApi(api_client).download_role_insights_entitlements_changes(insight_id, x_sail_point_experimental, sorters, filters)
         print("The response of RoleInsightsApi->download_role_insights_entitlements_changes:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling RoleInsightsApi->download_role_insights_entitlements_changes: %s\n" % e)
 ```
@@ -228,7 +226,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.role_insights_api import RoleInsightsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.role_insights_identities import RoleInsightsIdentities
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -252,7 +249,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = RoleInsightsApi(api_client).get_entitlement_changes_identities(insight_id, entitlement_id, x_sail_point_experimental, has_entitlement, offset, limit, count, sorters, filters)
         print("The response of RoleInsightsApi->get_entitlement_changes_identities:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling RoleInsightsApi->get_entitlement_changes_identities: %s\n" % e)
 ```
@@ -307,7 +304,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.role_insights_api import RoleInsightsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.role_insight import RoleInsight
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -324,7 +320,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = RoleInsightsApi(api_client).get_role_insight(insight_id, x_sail_point_experimental)
         print("The response of RoleInsightsApi->get_role_insight:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling RoleInsightsApi->get_role_insight: %s\n" % e)
 ```
@@ -383,7 +379,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.role_insights_api import RoleInsightsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.role_insight import RoleInsight
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -404,7 +399,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = RoleInsightsApi(api_client).get_role_insights(x_sail_point_experimental, offset, limit, count, sorters, filters)
         print("The response of RoleInsightsApi->get_role_insights:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling RoleInsightsApi->get_role_insights: %s\n" % e)
 ```
@@ -460,7 +455,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.role_insights_api import RoleInsightsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.role_insights_entitlement import RoleInsightsEntitlement
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -478,7 +472,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = RoleInsightsApi(api_client).get_role_insights_current_entitlements(insight_id, x_sail_point_experimental, filters)
         print("The response of RoleInsightsApi->get_role_insights_current_entitlements:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling RoleInsightsApi->get_role_insights_current_entitlements: %s\n" % e)
 ```
@@ -535,7 +529,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.role_insights_api import RoleInsightsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.role_insights_entitlement_changes import RoleInsightsEntitlementChanges
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -554,7 +547,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = RoleInsightsApi(api_client).get_role_insights_entitlements_changes(insight_id, x_sail_point_experimental, sorters, filters)
         print("The response of RoleInsightsApi->get_role_insights_entitlements_changes:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling RoleInsightsApi->get_role_insights_entitlements_changes: %s\n" % e)
 ```
@@ -613,7 +606,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.role_insights_api import RoleInsightsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.role_insights_response import RoleInsightsResponse
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -630,7 +622,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = RoleInsightsApi(api_client).get_role_insights_requests(id, x_sail_point_experimental)
         print("The response of RoleInsightsApi->get_role_insights_requests:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling RoleInsightsApi->get_role_insights_requests: %s\n" % e)
 ```
@@ -684,7 +676,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.role_insights_api import RoleInsightsApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.role_insights_summary import RoleInsightsSummary
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -700,7 +691,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = RoleInsightsApi(api_client).get_role_insights_summary(x_sail_point_experimental)
         print("The response of RoleInsightsApi->get_role_insights_summary:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling RoleInsightsApi->get_role_insights_summary: %s\n" % e)
 ```

@@ -59,7 +59,6 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.beta.api.task_management_api import TaskManagementApi
 from sailpoint.beta.api_client import ApiClient
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -121,7 +120,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.task_management_api import TaskManagementApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.task_status import TaskStatus
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -138,7 +136,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = TaskManagementApi(api_client).get_pending_tasks(offset, limit, count)
         print("The response of TaskManagementApi->get_pending_tasks:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling TaskManagementApi->get_pending_tasks: %s\n" % e)
 ```
@@ -183,7 +181,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.task_management_api import TaskManagementApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.task_status import TaskStatus
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -198,7 +195,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = TaskManagementApi(api_client).get_task_status(id)
         print("The response of TaskManagementApi->get_task_status:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling TaskManagementApi->get_task_status: %s\n" % e)
 ```
@@ -248,7 +245,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.task_management_api import TaskManagementApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.task_status import TaskStatus
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -267,7 +263,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = TaskManagementApi(api_client).get_task_status_list(limit, offset, count, filters, sorters)
         print("The response of TaskManagementApi->get_task_status_list:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling TaskManagementApi->get_task_status_list: %s\n" % e)
 ```
@@ -314,7 +310,6 @@ from sailpoint.beta.api.task_management_api import TaskManagementApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.json_patch_operation import JsonPatchOperation
 from sailpoint.beta.models.task_status import TaskStatus
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -330,7 +325,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = TaskManagementApi(api_client).update_task_status(id, new_json_patch_operation)
         print("The response of TaskManagementApi->update_task_status:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling TaskManagementApi->update_task_status: %s\n" % e)
 ```

@@ -62,7 +62,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.managed_clusters_api import ManagedClustersApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.client_log_configuration import ClientLogConfiguration
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -77,7 +76,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = ManagedClustersApi(api_client).get_client_log_configuration(id)
         print("The response of ManagedClustersApi->get_client_log_configuration:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling ManagedClustersApi->get_client_log_configuration: %s\n" % e)
 ```
@@ -125,7 +124,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.managed_clusters_api import ManagedClustersApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.managed_cluster import ManagedCluster
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -140,7 +138,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = ManagedClustersApi(api_client).get_managed_cluster(id)
         print("The response of ManagedClustersApi->get_managed_cluster:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling ManagedClustersApi->get_managed_cluster: %s\n" % e)
 ```
@@ -190,7 +188,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.managed_clusters_api import ManagedClustersApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.managed_cluster import ManagedCluster
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -208,7 +205,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = ManagedClustersApi(api_client).get_managed_clusters(offset, limit, count, filters)
         print("The response of ManagedClustersApi->get_managed_clusters:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling ManagedClustersApi->get_managed_clusters: %s\n" % e)
 ```
@@ -257,7 +254,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.managed_clusters_api import ManagedClustersApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.client_log_configuration import ClientLogConfiguration
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -279,7 +275,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = ManagedClustersApi(api_client).put_client_log_configuration(id, new_client_log_configuration)
         print("The response of ManagedClustersApi->put_client_log_configuration:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling ManagedClustersApi->put_client_log_configuration: %s\n" % e)
 ```

@@ -79,7 +79,6 @@ from sailpoint.v3.api.connectors_api import ConnectorsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.v3_connector_dto import V3ConnectorDto
 from sailpoint.v3.models.v3_create_connector_dto import V3CreateConnectorDto
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -100,7 +99,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = ConnectorsApi(api_client).create_custom_connector(new_v3_create_connector_dto)
         print("The response of ConnectorsApi->create_custom_connector:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling ConnectorsApi->create_custom_connector: %s\n" % e)
 ```
@@ -144,7 +143,6 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.v3.api.connectors_api import ConnectorsApi
 from sailpoint.v3.api_client import ApiClient
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -203,7 +201,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.connectors_api import ConnectorsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.connector_detail import ConnectorDetail
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -219,7 +216,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = ConnectorsApi(api_client).get_connector(script_name, locale)
         print("The response of ConnectorsApi->get_connector:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling ConnectorsApi->get_connector: %s\n" % e)
 ```
@@ -268,7 +265,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.connectors_api import ConnectorsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.v3_connector_dto import V3ConnectorDto
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -287,7 +283,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = ConnectorsApi(api_client).get_connector_list(filters, limit, offset, count, locale)
         print("The response of ConnectorsApi->get_connector_list:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling ConnectorsApi->get_connector_list: %s\n" % e)
 ```
@@ -331,7 +327,6 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.v3.api.connectors_api import ConnectorsApi
 from sailpoint.v3.api_client import ApiClient
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -346,7 +341,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = ConnectorsApi(api_client).get_connector_source_config(script_name)
         print("The response of ConnectorsApi->get_connector_source_config:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling ConnectorsApi->get_connector_source_config: %s\n" % e)
 ```
@@ -390,7 +385,6 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.v3.api.connectors_api import ConnectorsApi
 from sailpoint.v3.api_client import ApiClient
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -405,7 +399,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = ConnectorsApi(api_client).get_connector_source_template(script_name)
         print("The response of ConnectorsApi->get_connector_source_template:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling ConnectorsApi->get_connector_source_template: %s\n" % e)
 ```
@@ -450,7 +444,6 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.v3.api.connectors_api import ConnectorsApi
 from sailpoint.v3.api_client import ApiClient
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -466,7 +459,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = ConnectorsApi(api_client).get_connector_translations(script_name, locale)
         print("The response of ConnectorsApi->get_connector_translations:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling ConnectorsApi->get_connector_translations: %s\n" % e)
 ```
@@ -512,7 +505,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.connectors_api import ConnectorsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.update_detail import UpdateDetail
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -528,7 +520,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = ConnectorsApi(api_client).put_connector_source_config(script_name, file)
         print("The response of ConnectorsApi->put_connector_source_config:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling ConnectorsApi->put_connector_source_config: %s\n" % e)
 ```
@@ -574,7 +566,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.connectors_api import ConnectorsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.update_detail import UpdateDetail
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -590,7 +581,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = ConnectorsApi(api_client).put_connector_source_template(script_name, file)
         print("The response of ConnectorsApi->put_connector_source_template:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling ConnectorsApi->put_connector_source_template: %s\n" % e)
 ```
@@ -636,7 +627,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.connectors_api import ConnectorsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.update_detail import UpdateDetail
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -652,7 +642,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = ConnectorsApi(api_client).put_connector_translations(script_name, locale)
         print("The response of ConnectorsApi->put_connector_translations:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling ConnectorsApi->put_connector_translations: %s\n" % e)
 ```
@@ -711,7 +701,6 @@ from sailpoint.v3.api.connectors_api import ConnectorsApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.connector_detail import ConnectorDetail
 from sailpoint.v3.models.json_patch_operation import JsonPatchOperation
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -727,7 +716,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = ConnectorsApi(api_client).update_connector(script_name, new_json_patch_operation)
         print("The response of ConnectorsApi->update_connector:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling ConnectorsApi->update_connector: %s\n" % e)
 ```

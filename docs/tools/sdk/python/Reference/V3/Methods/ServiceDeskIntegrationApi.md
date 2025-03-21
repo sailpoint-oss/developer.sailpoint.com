@@ -87,7 +87,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.service_desk_integration_api import ServiceDeskIntegrationApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.service_desk_integration_dto import ServiceDeskIntegrationDto
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -135,7 +134,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = ServiceDeskIntegrationApi(api_client).create_service_desk_integration(new_service_desk_integration_dto)
         print("The response of ServiceDeskIntegrationApi->create_service_desk_integration:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling ServiceDeskIntegrationApi->create_service_desk_integration: %s\n" % e)
 ```
@@ -179,7 +178,6 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.v3.api.service_desk_integration_api import ServiceDeskIntegrationApi
 from sailpoint.v3.api_client import ApiClient
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -237,7 +235,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.service_desk_integration_api import ServiceDeskIntegrationApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.service_desk_integration_dto import ServiceDeskIntegrationDto
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -252,7 +249,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = ServiceDeskIntegrationApi(api_client).get_service_desk_integration(id)
         print("The response of ServiceDeskIntegrationApi->get_service_desk_integration:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling ServiceDeskIntegrationApi->get_service_desk_integration: %s\n" % e)
 ```
@@ -297,7 +294,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.service_desk_integration_api import ServiceDeskIntegrationApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.service_desk_integration_template_dto import ServiceDeskIntegrationTemplateDto
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -312,7 +308,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = ServiceDeskIntegrationApi(api_client).get_service_desk_integration_template(script_name)
         print("The response of ServiceDeskIntegrationApi->get_service_desk_integration_template:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling ServiceDeskIntegrationApi->get_service_desk_integration_template: %s\n" % e)
 ```
@@ -354,7 +350,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.service_desk_integration_api import ServiceDeskIntegrationApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.service_desk_integration_template_type import ServiceDeskIntegrationTemplateType
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -368,7 +363,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = ServiceDeskIntegrationApi(api_client).get_service_desk_integration_types()
         print("The response of ServiceDeskIntegrationApi->get_service_desk_integration_types:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling ServiceDeskIntegrationApi->get_service_desk_integration_types: %s\n" % e)
 ```
@@ -417,7 +412,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.service_desk_integration_api import ServiceDeskIntegrationApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.service_desk_integration_dto import ServiceDeskIntegrationDto
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -436,7 +430,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = ServiceDeskIntegrationApi(api_client).get_service_desk_integrations(offset, limit, sorters, filters, count)
         print("The response of ServiceDeskIntegrationApi->get_service_desk_integrations:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling ServiceDeskIntegrationApi->get_service_desk_integrations: %s\n" % e)
 ```
@@ -478,7 +472,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.service_desk_integration_api import ServiceDeskIntegrationApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.queued_check_config_details import QueuedCheckConfigDetails
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -492,7 +485,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = ServiceDeskIntegrationApi(api_client).get_status_check_details()
         print("The response of ServiceDeskIntegrationApi->get_status_check_details:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling ServiceDeskIntegrationApi->get_status_check_details: %s\n" % e)
 ```
@@ -539,7 +532,6 @@ from sailpoint.v3.api.service_desk_integration_api import ServiceDeskIntegration
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.patch_service_desk_integration_request import PatchServiceDeskIntegrationRequest
 from sailpoint.v3.models.service_desk_integration_dto import ServiceDeskIntegrationDto
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -555,7 +547,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = ServiceDeskIntegrationApi(api_client).patch_service_desk_integration(id, new_patch_service_desk_integration_request)
         print("The response of ServiceDeskIntegrationApi->patch_service_desk_integration:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling ServiceDeskIntegrationApi->patch_service_desk_integration: %s\n" % e)
 ```
@@ -601,7 +593,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.service_desk_integration_api import ServiceDeskIntegrationApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.service_desk_integration_dto import ServiceDeskIntegrationDto
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -650,7 +641,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = ServiceDeskIntegrationApi(api_client).put_service_desk_integration(id, new_service_desk_integration_dto)
         print("The response of ServiceDeskIntegrationApi->put_service_desk_integration:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling ServiceDeskIntegrationApi->put_service_desk_integration: %s\n" % e)
 ```
@@ -695,7 +686,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.service_desk_integration_api import ServiceDeskIntegrationApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.queued_check_config_details import QueuedCheckConfigDetails
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -713,7 +703,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = ServiceDeskIntegrationApi(api_client).update_status_check_details(new_queued_check_config_details)
         print("The response of ServiceDeskIntegrationApi->update_status_check_details:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling ServiceDeskIntegrationApi->update_status_check_details: %s\n" % e)
 ```

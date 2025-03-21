@@ -77,7 +77,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.search_attribute_configuration_api import SearchAttributeConfigurationApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.search_attribute_config import SearchAttributeConfig
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -99,7 +98,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SearchAttributeConfigurationApi(api_client).create_search_attribute_config(new_search_attribute_config)
         print("The response of SearchAttributeConfigurationApi->create_search_attribute_config:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SearchAttributeConfigurationApi->create_search_attribute_config: %s\n" % e)
 ```
@@ -143,7 +142,6 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.v3.api.search_attribute_configuration_api import SearchAttributeConfigurationApi
 from sailpoint.v3.api_client import ApiClient
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -201,7 +199,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.search_attribute_configuration_api import SearchAttributeConfigurationApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.search_attribute_config import SearchAttributeConfig
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -217,7 +214,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SearchAttributeConfigurationApi(api_client).get_search_attribute_config(limit, offset)
         print("The response of SearchAttributeConfigurationApi->get_search_attribute_config:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SearchAttributeConfigurationApi->get_search_attribute_config: %s\n" % e)
 ```
@@ -263,7 +260,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.search_attribute_configuration_api import SearchAttributeConfigurationApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.search_attribute_config import SearchAttributeConfig
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -278,7 +274,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SearchAttributeConfigurationApi(api_client).get_single_search_attribute_config(name)
         print("The response of SearchAttributeConfigurationApi->get_single_search_attribute_config:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SearchAttributeConfigurationApi->get_single_search_attribute_config: %s\n" % e)
 ```
@@ -327,7 +323,6 @@ from sailpoint.v3.api.search_attribute_configuration_api import SearchAttributeC
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.json_patch_operation import JsonPatchOperation
 from sailpoint.v3.models.search_attribute_config import SearchAttributeConfig
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -343,7 +338,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SearchAttributeConfigurationApi(api_client).patch_search_attribute_config(name, new_json_patch_operation)
         print("The response of SearchAttributeConfigurationApi->patch_search_attribute_config:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SearchAttributeConfigurationApi->patch_search_attribute_config: %s\n" % e)
 ```

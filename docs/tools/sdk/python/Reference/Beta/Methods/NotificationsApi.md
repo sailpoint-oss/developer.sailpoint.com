@@ -69,7 +69,6 @@ from sailpoint.beta.api.notifications_api import NotificationsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.domain_address import DomainAddress
 from sailpoint.beta.models.domain_status_dto import DomainStatusDto
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -86,7 +85,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = NotificationsApi(api_client).create_domain_dkim(new_domain_address)
         print("The response of NotificationsApi->create_domain_dkim:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling NotificationsApi->create_domain_dkim: %s\n" % e)
 ```
@@ -132,7 +131,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.notifications_api import NotificationsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.template_dto import TemplateDto
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -164,7 +162,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = NotificationsApi(api_client).create_notification_template(new_template_dto)
         print("The response of NotificationsApi->create_notification_template:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling NotificationsApi->create_notification_template: %s\n" % e)
 ```
@@ -208,7 +206,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.notifications_api import NotificationsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.email_status_dto import EmailStatusDto
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -228,7 +225,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = NotificationsApi(api_client).create_verified_from_address(new_email_status_dto)
         print("The response of NotificationsApi->create_verified_from_address:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling NotificationsApi->create_verified_from_address: %s\n" % e)
 ```
@@ -272,7 +269,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.notifications_api import NotificationsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.template_bulk_delete_dto import TemplateBulkDeleteDto
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -329,7 +325,6 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.beta.api.notifications_api import NotificationsApi
 from sailpoint.beta.api_client import ApiClient
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -383,7 +378,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.notifications_api import NotificationsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.dkim_attributes import DkimAttributes
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -397,7 +391,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = NotificationsApi(api_client).get_dkim_attributes()
         print("The response of NotificationsApi->get_dkim_attributes:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling NotificationsApi->get_dkim_attributes: %s\n" % e)
 ```
@@ -441,7 +435,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.notifications_api import NotificationsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.mail_from_attributes import MailFromAttributes
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -456,7 +449,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = NotificationsApi(api_client).get_mail_from_attributes(identity_id)
         print("The response of NotificationsApi->get_mail_from_attributes:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling NotificationsApi->get_mail_from_attributes: %s\n" % e)
 ```
@@ -500,7 +493,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.notifications_api import NotificationsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.template_dto import TemplateDto
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -515,7 +507,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = NotificationsApi(api_client).get_notification_template(id)
         print("The response of NotificationsApi->get_notification_template:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling NotificationsApi->get_notification_template: %s\n" % e)
 ```
@@ -557,7 +549,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.notifications_api import NotificationsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.notification_template_context import NotificationTemplateContext
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -571,7 +562,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = NotificationsApi(api_client).get_notifications_template_context()
         print("The response of NotificationsApi->get_notifications_template_context:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling NotificationsApi->get_notifications_template_context: %s\n" % e)
 ```
@@ -618,7 +609,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.notifications_api import NotificationsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.email_status_dto import EmailStatusDto
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -637,7 +627,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = NotificationsApi(api_client).list_from_addresses(limit, offset, count, filters, sorters)
         print("The response of NotificationsApi->list_from_addresses:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling NotificationsApi->list_from_addresses: %s\n" % e)
 ```
@@ -682,7 +672,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.notifications_api import NotificationsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.preferences_dto import PreferencesDto
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -697,7 +686,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = NotificationsApi(api_client).list_notification_preferences(key)
         print("The response of NotificationsApi->list_notification_preferences:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling NotificationsApi->list_notification_preferences: %s\n" % e)
 ```
@@ -743,7 +732,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.notifications_api import NotificationsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.template_dto_default import TemplateDtoDefault
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -760,7 +748,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = NotificationsApi(api_client).list_notification_template_defaults(limit, offset, filters)
         print("The response of NotificationsApi->list_notification_template_defaults:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling NotificationsApi->list_notification_template_defaults: %s\n" % e)
 ```
@@ -806,7 +794,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.notifications_api import NotificationsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.template_dto import TemplateDto
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -823,7 +810,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = NotificationsApi(api_client).list_notification_templates(limit, offset, filters)
         print("The response of NotificationsApi->list_notification_templates:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling NotificationsApi->list_notification_templates: %s\n" % e)
 ```
@@ -868,7 +855,6 @@ from sailpoint.beta.api.notifications_api import NotificationsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.mail_from_attributes import MailFromAttributes
 from sailpoint.beta.models.mail_from_attributes_dto import MailFromAttributesDto
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -886,7 +872,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = NotificationsApi(api_client).put_mail_from_attributes(new_mail_from_attributes_dto)
         print("The response of NotificationsApi->put_mail_from_attributes:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling NotificationsApi->put_mail_from_attributes: %s\n" % e)
 ```
@@ -931,7 +917,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.notifications_api import NotificationsApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.send_test_notification_request_dto import SendTestNotificationRequestDto
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 

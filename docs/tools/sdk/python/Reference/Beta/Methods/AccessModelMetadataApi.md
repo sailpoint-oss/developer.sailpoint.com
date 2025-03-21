@@ -66,7 +66,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.access_model_metadata_api import AccessModelMetadataApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.attribute_dto import AttributeDTO
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -81,7 +80,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = AccessModelMetadataApi(api_client).get_access_model_metadata_attribute(key)
         print("The response of AccessModelMetadataApi->get_access_model_metadata_attribute:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling AccessModelMetadataApi->get_access_model_metadata_attribute: %s\n" % e)
 ```
@@ -126,7 +125,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.access_model_metadata_api import AccessModelMetadataApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.attribute_value_dto import AttributeValueDTO
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -142,7 +140,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = AccessModelMetadataApi(api_client).get_access_model_metadata_attribute_value(key, value)
         print("The response of AccessModelMetadataApi->get_access_model_metadata_attribute_value:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling AccessModelMetadataApi->get_access_model_metadata_attribute_value: %s\n" % e)
 ```
@@ -186,7 +184,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.access_model_metadata_api import AccessModelMetadataApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.attribute_dto import AttributeDTO
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -201,7 +198,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = AccessModelMetadataApi(api_client).list_access_model_metadata_attribute(filters)
         print("The response of AccessModelMetadataApi->list_access_model_metadata_attribute:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling AccessModelMetadataApi->list_access_model_metadata_attribute: %s\n" % e)
 ```
@@ -245,7 +242,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.beta.api.access_model_metadata_api import AccessModelMetadataApi
 from sailpoint.beta.api_client import ApiClient
 from sailpoint.beta.models.attribute_value_dto import AttributeValueDTO
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -260,7 +256,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = AccessModelMetadataApi(api_client).list_access_model_metadata_attribute_value(key)
         print("The response of AccessModelMetadataApi->list_access_model_metadata_attribute_value:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling AccessModelMetadataApi->list_access_model_metadata_attribute_value: %s\n" % e)
 ```

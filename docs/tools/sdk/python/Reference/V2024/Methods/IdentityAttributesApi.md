@@ -71,7 +71,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.identity_attributes_api import IdentityAttributesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.identity_attribute import IdentityAttribute
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -109,7 +108,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IdentityAttributesApi(api_client).create_identity_attribute(x_sail_point_experimental, new_identity_attribute)
         print("The response of IdentityAttributesApi->create_identity_attribute:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IdentityAttributesApi->create_identity_attribute: %s\n" % e)
 ```
@@ -165,7 +164,6 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.v2024.api.identity_attributes_api import IdentityAttributesApi
 from sailpoint.v2024.api_client import ApiClient
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -237,7 +235,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.identity_attributes_api import IdentityAttributesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.identity_attribute_names import IdentityAttributeNames
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -311,7 +308,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.identity_attributes_api import IdentityAttributesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.identity_attribute import IdentityAttribute
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -328,7 +324,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IdentityAttributesApi(api_client).get_identity_attribute(name, x_sail_point_experimental)
         print("The response of IdentityAttributesApi->get_identity_attribute:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IdentityAttributesApi->get_identity_attribute: %s\n" % e)
 ```
@@ -387,7 +383,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.identity_attributes_api import IdentityAttributesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.identity_attribute import IdentityAttribute
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -407,7 +402,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IdentityAttributesApi(api_client).list_identity_attributes(x_sail_point_experimental, include_system, include_silent, searchable_only, count)
         print("The response of IdentityAttributesApi->list_identity_attributes:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IdentityAttributesApi->list_identity_attributes: %s\n" % e)
 ```
@@ -465,7 +460,6 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v2024.api.identity_attributes_api import IdentityAttributesApi
 from sailpoint.v2024.api_client import ApiClient
 from sailpoint.v2024.models.identity_attribute import IdentityAttribute
-from pprint import pprint
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -504,7 +498,7 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IdentityAttributesApi(api_client).put_identity_attribute(name, x_sail_point_experimental, new_identity_attribute)
         print("The response of IdentityAttributesApi->put_identity_attribute:\n")
-        pprint(results)
+        print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IdentityAttributesApi->put_identity_attribute: %s\n" % e)
 ```

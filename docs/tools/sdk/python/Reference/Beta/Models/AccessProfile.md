@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **description** | **str** | Information about the Access Profile | [optional] 
 **created** | **datetime** | Date the Access Profile was created | [optional] [readonly] 
 **modified** | **datetime** | Date the Access Profile was last modified. | [optional] [readonly] 
-**enabled** | **bool** | Whether the Access Profile is enabled. If the Access Profile is enabled then you must include at least one Entitlement. | [optional] [default to True]
+**enabled** | **bool** | Whether the Access Profile is enabled. If the Access Profile is enabled then you must include at least one Entitlement. | [optional] [default to False]
 **owner** | [**OwnerReference**](owner-reference) |  | [required]
 **source** | [**AccessProfileSourceRef**](access-profile-source-ref) |  | [required]
 **entitlements** | [**[]EntitlementRef**](entitlement-ref) | A list of entitlements associated with the Access Profile. If enabled is false this is allowed to be empty otherwise it needs to contain at least one Entitlement. | [optional] 

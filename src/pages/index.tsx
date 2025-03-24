@@ -8,9 +8,8 @@ import HomepageBasics from '@site/src/components/homepage/HomepageBasics';
 import HomepageTrainingGuides from '@site/src/components/homepage/HomepageTrainingGuides';
 import HomepageDiscuss from '@site/src/components/homepage/HomepageDiscuss';
 import HomepageTeam from '@site/src/components/homepage/HomepageTeam';
+import HomePageDeveloperDays from '@site/src/components/homepage/HomepageDeveloperDays';
 import Heading from '@theme/Heading';
-import HomePageDeveloperDays from '@site/src/components/homepage/HomePageDeveloperDays';
-
 import styles from './index.module.css';
 
 export default function Home(): ReactNode {

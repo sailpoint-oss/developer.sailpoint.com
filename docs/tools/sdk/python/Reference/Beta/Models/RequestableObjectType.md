@@ -11,7 +11,7 @@ tags: ['SDK', 'Software Development Kit', 'RequestableObjectType', 'BetaRequesta
 
 # RequestableObjectType
 
-The currently supported requestable object types. 
+Currently supported requestable object types.
 
 ## Enum
 

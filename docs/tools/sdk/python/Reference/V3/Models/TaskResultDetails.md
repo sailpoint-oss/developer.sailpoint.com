@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 **completion_status** |  **Enum** [  'SUCCESS',    'WARNING',    'ERROR',    'TERMINATED',    'TEMP_ERROR' ] | Report completion status. | [optional] 
 **messages** | [**[]TaskResultDetailsMessagesInner**](task-result-details-messages-inner) | List of the messages dedicated to the report.  From task definition perspective here usually should be warnings or errors. | [optional] 
 **returns** | [**[]TaskResultDetailsReturnsInner**](task-result-details-returns-inner) | Task definition results, if necessary. | [optional] 
-**attributes** | **map[string]object** | Extra attributes map(dictionary) needed for the report. | [optional] 
+**attributes** | **object** | Extra attributes map(dictionary) needed for the report. | [optional] 
 **progress** | **str** | Current report state. | [optional] 
 }
 
@@ -41,7 +41,7 @@ from sailpoint.v3.models.task_result_details import TaskResultDetails
 task_result_details = TaskResultDetails(
 type='MENTOS',
 id='a248c16fe22222b2bd49615481311111',
-report_type=IDENTITIES_DETAILS,
+report_type='IDENTITIES_DETAILS',
 description='A detailed view of the identities in the system.',
 parent_name='Audit Report',
 launcher='cloudadmin',

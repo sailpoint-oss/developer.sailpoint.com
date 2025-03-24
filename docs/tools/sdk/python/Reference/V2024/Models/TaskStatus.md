@@ -81,7 +81,7 @@ task_definition_summary=sailpoint.v2024.models.task_definition_summary.TaskDefin
                     description = 'Aggregates from the specified application.', 
                     parent_name = 'Cloud Account Aggregation', 
                     executor = 'sailpoint.task.ServiceTaskExecutor', 
-                    arguments = { }, )
+                    arguments = {mantisExecutor=com.sailpoint.mantis.sources.task.AccountAggregationTask, eventClassesCsv=sailpoint.thunderbolt.events.AggregationEvents, serviceClass=sailpoint.thunderbolt.service.AggregationService, serviceMethod=accountAggregationTask}, )
 )
 
 ```

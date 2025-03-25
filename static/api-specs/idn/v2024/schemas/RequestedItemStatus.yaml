@@ -143,3 +143,9 @@ properties:
         "key1": "value1",
         "key2": "value2"
       }
+  requestedAccounts:
+    nullable: true
+    type: array
+    items:
+      $ref: './RequestedAccountRef.yaml'
+    description: The accounts selected by the user for the access to be provisioned on, in case they have multiple accounts on one or more sources.

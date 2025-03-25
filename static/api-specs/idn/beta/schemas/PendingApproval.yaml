@@ -85,3 +85,10 @@ properties:
     example:
       customKey1: custom value 1
       customKey2: custom value 2
+  requestedAccounts:
+    nullable: true
+    type: array
+    items:
+      $ref: '../../v3/schemas/RequestedAccountRef.yaml'
+    description: The accounts selected by the user for the access to be provisioned on, in case they have multiple accounts on one or more sources.
+

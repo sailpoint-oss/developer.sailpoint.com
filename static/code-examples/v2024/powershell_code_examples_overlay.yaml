@@ -3307,6 +3307,50 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024ObjectMappings"
             Write-Host $_.ErrorDetails
         }
+- path: /configuration-hub/scheduled-actions
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/configuration-hub#create-scheduled-action
+      source: |
+        $ScheduledActionPayload = @"
+        {
+          "cronString" : "0 0 12 * * ?",
+          "timeZoneId" : "America/Chicago",
+          "startTime" : "2024-08-16T14:16:58.389Z",
+          "jobType" : "BACKUP",
+          "content" : {
+            "sourceTenant" : "tenant-name",
+            "draftId" : "9012b87d-48ca-439a-868f-2160001da8c3",
+            "name" : "Daily Backup",
+            "backupOptions" : {
+              "includeTypes" : [ "ROLE", "IDENTITY_PROFILE" ],
+              "objectOptions" : {
+                "SOURCE" : {
+                  "includedNames" : [ "Source1", "Source2" ]
+                },
+                "ROLE" : {
+                  "includedNames" : [ "Admin Role", "User Role" ]
+                }
+              }
+            },
+            "sourceBackupId" : "5678b87d-48ca-439a-868f-2160001da8c2"
+          }
+        }
+        "@
+        
+        # Create Scheduled Action
+        
+        try {
+            $Result = ConvertFrom-JsonToScheduledActionPayload -Json $ScheduledActionPayload
+            New-V2024ScheduledAction -ScheduledActionPayload $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-V2024ScheduledAction -ScheduledActionPayload $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024ScheduledAction"
+            Write-Host $_.ErrorDetails
+        }
 - path: /configuration-hub/backups/uploads
   method: POST
   xCodeSample:
@@ -3383,6 +3427,25 @@
             # Remove-V2024ObjectMapping -SourceOrg $SourceOrg -ObjectMappingId $ObjectMappingId   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024ObjectMapping"
+            Write-Host $_.ErrorDetails
+        }
+- path: /configuration-hub/scheduled-actions/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/configuration-hub#delete-scheduled-action
+      source: |
+        $ScheduledActionId = "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde" # String | The ID of the scheduled action.
+        
+        # Delete Scheduled Action
+        
+        try {
+            Remove-V2024ScheduledAction -ScheduledActionId $ScheduledActionId 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-V2024ScheduledAction -ScheduledActionId $ScheduledActionId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024ScheduledAction"
             Write-Host $_.ErrorDetails
         }
 - path: /configuration-hub/backups/uploads/{id}
@@ -3517,6 +3580,24 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024Drafts"
             Write-Host $_.ErrorDetails
         }
+- path: /configuration-hub/scheduled-actions
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/configuration-hub#list-scheduled-actions
+      source: |
+        
+        # List Scheduled Actions
+        
+        try {
+            Get-V2024ScheduledActions 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2024ScheduledActions   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024ScheduledActions"
+            Write-Host $_.ErrorDetails
+        }
 - path: /configuration-hub/backups/uploads
   method: GET
   xCodeSample:
@@ -3570,6 +3651,39 @@
             # Update-V2024ObjectMappings -SourceOrg $SourceOrg -ObjectMappingBulkPatchRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024ObjectMappings"
+            Write-Host $_.ErrorDetails
+        }
+- path: /configuration-hub/scheduled-actions/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/configuration-hub#update-scheduled-action
+      source: |
+        $ScheduledActionId = "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde" # String | The ID of the scheduled action.
+        $JsonPatch = @"
+        {
+          "operations" : [ {
+            "op" : "replace",
+            "path" : "/description",
+            "value" : "New description"
+          }, {
+            "op" : "replace",
+            "path" : "/description",
+            "value" : "New description"
+          } ]
+        }
+        "@
+        
+        # Update Scheduled Action
+        
+        try {
+            $Result = ConvertFrom-JsonToJsonPatch -Json $JsonPatch
+            Update-V2024ScheduledAction -ScheduledActionId $ScheduledActionId -JsonPatch $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-V2024ScheduledAction -ScheduledActionId $ScheduledActionId -JsonPatch $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024ScheduledAction"
             Write-Host $_.ErrorDetails
         }
 - path: /connector-rules

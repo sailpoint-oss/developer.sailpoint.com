@@ -36,6 +36,7 @@ Name | Type | Description | Notes
 **CurrentRemoveDate** | **System.DateTime** | The remove date or sunset date that was assigned at the time of the request. | [optional] 
 **SodViolationContext** | [**SodViolationContextCheckCompleted1**](sod-violation-context-check-completed1) |  | [optional] 
 **ClientMetadata** | **map[string]String** | Arbitrary key-value pairs, if any were included in the corresponding access request item | [optional] 
+**RequestedAccounts** | [**[]RequestedAccountRef**](requested-account-ref) | The accounts selected by the user for the access to be provisioned on, in case they have multiple accounts on one or more sources. | [optional] 
 
 ## Examples
 
@@ -60,7 +61,8 @@ $PendingApproval = Initialize-PSSailpoint.BetaPendingApproval  -Id 2c9180835d2e5
  -RemoveDateUpdateRequested true `
  -CurrentRemoveDate 2020-07-11T00:00Z `
  -SodViolationContext null `
- -ClientMetadata {customKey1=custom value 1, customKey2=custom value 2}
+ -ClientMetadata {customKey1=custom value 1, customKey2=custom value 2} `
+ -RequestedAccounts null
 ```
 
 - Convert the resource to JSON

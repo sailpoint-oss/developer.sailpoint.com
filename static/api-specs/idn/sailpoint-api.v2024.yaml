@@ -1461,6 +1461,10 @@ paths:
     $ref: ./v2024/paths/configuration-hub/object-mapping-bulk-create.yaml
   /configuration-hub/object-mappings/{sourceOrg}/bulk-patch:
     $ref: ./v2024/paths/configuration-hub/object-mapping-bulk-update.yaml
+  /configuration-hub/scheduled-actions:
+    $ref: ./v2024/paths/configuration-hub/scheduled-actions.yaml
+  /configuration-hub/scheduled-actions/{id}:
+    $ref: ./v2024/paths/configuration-hub/scheduled-actions-id.yaml
   /configuration-hub/backups/uploads:
     $ref: ./v2024/paths/configuration-hub/backup-uploads.yaml
   /configuration-hub/backups/uploads/{id}:

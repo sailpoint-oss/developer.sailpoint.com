@@ -1179,6 +1179,10 @@ tags:
   - name: Task Management
   - name: Tenant
     description: API for reading tenant details.
+  - name: Tenant Context
+    description: |
+      The purpose of this API is to manage key-value pairs specific to a tenant's context, enabling dynamic configuration and personalized settings per tenant.
+      Context key-value pairs will consist of common terms and acronyms used within your organization.
   - name: Transforms
     description: |
       The purpose of this API is to expose functionality for the manipulation of Transform objects.
@@ -2111,6 +2115,8 @@ paths:
     $ref: ./v2024/paths/task-status-pending.yaml
   /tenant:
     $ref: ./v2024/paths/tenant.yaml
+  /tenant-context:
+    $ref: ./v2024/paths/tenant-context.yaml
   /triggers:
     $ref: ./v2024/paths/triggers.yaml
   /trigger-subscriptions:

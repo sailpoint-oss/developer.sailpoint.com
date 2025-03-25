@@ -3910,6 +3910,54 @@
               print(results.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling ConfigurationHubApi->create_object_mappings: %s\n" % e)
+- path: /configuration-hub/scheduled-actions
+  method: POST
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2024/methods/configuration-hub#create-scheduled-action
+      source: |
+        from sailpoint.v2024.api.configuration_hub_api import ConfigurationHubApi
+        from sailpoint.v2024.api_client import ApiClient
+        from sailpoint.v2024.models.scheduled_action_payload import ScheduledActionPayload
+        from sailpoint.v2024.models.scheduled_action_response import ScheduledActionResponse
+        from sailpoint.configuration import Configuration
+        configuration = Configuration()
+
+
+        with ApiClient(configuration) as api_client:
+          scheduled_action_payload = '''{
+          "cronString" : "0 0 12 * * ?",
+          "timeZoneId" : "America/Chicago",
+          "startTime" : "2024-08-16T14:16:58.389Z",
+          "jobType" : "BACKUP",
+          "content" : {
+            "sourceTenant" : "tenant-name",
+            "draftId" : "9012b87d-48ca-439a-868f-2160001da8c3",
+            "name" : "Daily Backup",
+            "backupOptions" : {
+              "includeTypes" : [ "ROLE", "IDENTITY_PROFILE" ],
+              "objectOptions" : {
+                "SOURCE" : {
+                  "includedNames" : [ "Source1", "Source2" ]
+                },
+                "ROLE" : {
+                  "includedNames" : [ "Admin Role", "User Role" ]
+                }
+              }
+            },
+            "sourceBackupId" : "5678b87d-48ca-439a-868f-2160001da8c2"
+          }
+        }''' # ScheduledActionPayload | The scheduled action creation request body.
+          try:
+              # Create Scheduled Action
+              new_scheduled_action_payload = ScheduledActionPayload.from_json(scheduled_action_payload)
+              results = ConfigurationHubApi(api_client).create_scheduled_action(scheduled_action_payload=new_scheduled_action_payload)
+              # Below is a request that includes all optional parameters
+              # results = ConfigurationHubApi(api_client).create_scheduled_action(new_scheduled_action_payload)
+              print("The response of ConfigurationHubApi->create_scheduled_action:\n")
+              print(results.model_dump_json(by_alias=True, indent=4))
+          except Exception as e:
+              print("Exception when calling ConfigurationHubApi->create_scheduled_action: %s\n" % e)
 - path: /configuration-hub/backups/uploads
   method: POST
   xCodeSample:
@@ -4003,6 +4051,28 @@
               # ConfigurationHubApi(api_client).delete_object_mapping(source_org, object_mapping_id)
           except Exception as e:
               print("Exception when calling ConfigurationHubApi->delete_object_mapping: %s\n" % e)
+- path: /configuration-hub/scheduled-actions/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2024/methods/configuration-hub#delete-scheduled-action
+      source: |
+        from sailpoint.v2024.api.configuration_hub_api import ConfigurationHubApi
+        from sailpoint.v2024.api_client import ApiClient
+        from sailpoint.configuration import Configuration
+        configuration = Configuration()
+
+
+        with ApiClient(configuration) as api_client:
+          scheduled_action_id = '0f11f2a4-7c94-4bf3-a2bd-742580fe3bde' # str | The ID of the scheduled action. # str | The ID of the scheduled action.
+          try:
+              # Delete Scheduled Action
+              
+              ConfigurationHubApi(api_client).delete_scheduled_action(scheduled_action_id=scheduled_action_id)
+              # Below is a request that includes all optional parameters
+              # ConfigurationHubApi(api_client).delete_scheduled_action(scheduled_action_id)
+          except Exception as e:
+              print("Exception when calling ConfigurationHubApi->delete_scheduled_action: %s\n" % e)
 - path: /configuration-hub/backups/uploads/{id}
   method: DELETE
   xCodeSample:
@@ -4174,6 +4244,30 @@
               print(results.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling ConfigurationHubApi->list_drafts: %s\n" % e)
+- path: /configuration-hub/scheduled-actions
+  method: GET
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2024/methods/configuration-hub#list-scheduled-actions
+      source: |
+        from sailpoint.v2024.api.configuration_hub_api import ConfigurationHubApi
+        from sailpoint.v2024.api_client import ApiClient
+        from sailpoint.v2024.models.scheduled_action_response import ScheduledActionResponse
+        from sailpoint.configuration import Configuration
+        configuration = Configuration()
+
+
+        with ApiClient(configuration) as api_client:
+          try:
+              # List Scheduled Actions
+              
+              results = ConfigurationHubApi(api_client).list_scheduled_actions()
+              # Below is a request that includes all optional parameters
+              # results = ConfigurationHubApi(api_client).list_scheduled_actions()
+              print("The response of ConfigurationHubApi->list_scheduled_actions:\n")
+              print(results.model_dump_json(by_alias=True, indent=4))
+          except Exception as e:
+              print("Exception when calling ConfigurationHubApi->list_scheduled_actions: %s\n" % e)
 - path: /configuration-hub/backups/uploads
   method: GET
   xCodeSample:
@@ -4239,6 +4333,43 @@
               print(results.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling ConfigurationHubApi->update_object_mappings: %s\n" % e)
+- path: /configuration-hub/scheduled-actions/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2024/methods/configuration-hub#update-scheduled-action
+      source: |
+        from sailpoint.v2024.api.configuration_hub_api import ConfigurationHubApi
+        from sailpoint.v2024.api_client import ApiClient
+        from sailpoint.v2024.models.json_patch import JsonPatch
+        from sailpoint.v2024.models.scheduled_action_response import ScheduledActionResponse
+        from sailpoint.configuration import Configuration
+        configuration = Configuration()
+
+
+        with ApiClient(configuration) as api_client:
+          scheduled_action_id = '0f11f2a4-7c94-4bf3-a2bd-742580fe3bde' # str | The ID of the scheduled action. # str | The ID of the scheduled action.
+          json_patch = '''{
+          "operations" : [ {
+            "op" : "replace",
+            "path" : "/description",
+            "value" : "New description"
+          }, {
+            "op" : "replace",
+            "path" : "/description",
+            "value" : "New description"
+          } ]
+        }''' # JsonPatch | The JSON Patch document containing the changes to apply to the scheduled action.
+          try:
+              # Update Scheduled Action
+              new_json_patch = JsonPatch.from_json(json_patch)
+              results = ConfigurationHubApi(api_client).update_scheduled_action(scheduled_action_id=scheduled_action_id, json_patch=new_json_patch)
+              # Below is a request that includes all optional parameters
+              # results = ConfigurationHubApi(api_client).update_scheduled_action(scheduled_action_id, new_json_patch)
+              print("The response of ConfigurationHubApi->update_scheduled_action:\n")
+              print(results.model_dump_json(by_alias=True, indent=4))
+          except Exception as e:
+              print("Exception when calling ConfigurationHubApi->update_scheduled_action: %s\n" % e)
 - path: /connector-rules
   method: POST
   xCodeSample:

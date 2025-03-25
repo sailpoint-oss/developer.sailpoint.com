@@ -41,6 +41,7 @@ Name | Type | Description | Notes
 **cancelable** | **bool** | True if the request can be canceled. | [optional] [default to False]
 **access_request_id** | **str** | This is the account activity id. | [optional] 
 **client_metadata** | **map[string]str** | Arbitrary key-value pairs, if any were included in the corresponding access request | [optional] 
+**requested_accounts** | [**[]RequestedAccountRef**](requested-account-ref) | The accounts selected by the user for the access to be provisioned on, in case they have multiple accounts on one or more sources. | [optional] 
 }
 
 ## Example
@@ -130,7 +131,15 @@ description='This is the Engineering role that engineers are granted.',
 remove_date='2019-10-23T00:00Z',
 cancelable=True,
 access_request_id='2b838de9-db9b-abcf-e646-d4f274ad4238',
-client_metadata={key1=value1, key2=value2}
+client_metadata={key1=value1, key2=value2},
+requested_accounts=[
+                    sailpoint.v2024.models.requested_account_ref.RequestedAccountRef(
+                        name = 'Glen.067da3248e914', 
+                        type = 'IDENTITY', 
+                        account_uuid = '{fab7119e-004f-4822-9c33-b8d570d6c6a6}', 
+                        account_id = 'CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local', 
+                        source_name = 'Multi Account AD source name', )
+                    ]
 )
 
 ```

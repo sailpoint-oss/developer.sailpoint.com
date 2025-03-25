@@ -39,6 +39,7 @@ Name | Type | Description | Notes
 **sod_violation_context** | [**SodViolationContextCheckCompleted**](sod-violation-context-check-completed) |  | [optional] 
 **pre_approval_trigger_result** | [**CompletedApprovalPreApprovalTriggerResult**](completed-approval-pre-approval-trigger-result) |  | [optional] 
 **client_metadata** | **map[string]str** | Arbitrary key-value pairs provided during the request. | [optional] 
+**requested_accounts** | [**[]RequestedAccountRef**](requested-account-ref) | The accounts selected by the user for the access to be provisioned on, in case they have multiple accounts on one or more sources. | [optional] 
 }
 
 ## Example
@@ -135,7 +136,15 @@ pre_approval_trigger_result=sailpoint.v2024.models.completed_approval_pre_approv
                     decision = 'APPROVED', 
                     reviewer = 'Automated AR Approval', 
                     date = '2022-06-07T19:18:40.748Z', ),
-client_metadata={requestedAppName=test-app, requestedAppId=2c91808f7892918f0178b78da4a305a1}
+client_metadata={requestedAppName=test-app, requestedAppId=2c91808f7892918f0178b78da4a305a1},
+requested_accounts=[
+                    sailpoint.v2024.models.requested_account_ref.RequestedAccountRef(
+                        name = 'Glen.067da3248e914', 
+                        type = 'IDENTITY', 
+                        account_uuid = '{fab7119e-004f-4822-9c33-b8d570d6c6a6}', 
+                        account_id = 'CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local', 
+                        source_name = 'Multi Account AD source name', )
+                    ]
 )
 
 ```

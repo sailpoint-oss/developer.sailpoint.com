@@ -38,7 +38,7 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
     }
     "Resource Access" {
         varchar CIEM_KEY PK "composite key: CLOUD_PROVIDER-SERVICE-ENTITLEMENT_ACCOUNT_NATIVE_IDENTITY-CLOUD_SOURCE_NATIVE_ID-CLOUD_SUB_SOURCE_NATIVE_ID"
-        varchar ACCOUNT_NATIVE_IDENTITY "Account native id"
+        varchar ACCOUNT_NATIVE_IDENTITY PK "Account native id"
         varchar ACCESS_LEVEL "The access level(s) the account has to the resource (Read, Write, Admin)"
         varchar ACCOUNT_SOURCE_TYPE "Cloud provider of the account GCP|AWS|Azure|Okta"
         varchar RESOURCE_ACCESS_CLOUD_PROVIDER "Cloud provider of the resource (gcp|aws|azure)"
@@ -74,9 +74,9 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
         timestamp IDENTITY_SYNC_DATE "Timestamp of latest sync of identity to source tables"
     }
     ACCOUNT {
-        varchar ACCOUNT_NATIVE_IDENTITY "Cloud native id of account"
-        varchar IDENTITY_ID "ISC unique identifier of the identity correlated with the account (null if uncorrelated)"
-        varchar ACCOUNT_ID PK "ISC unique identifier of account"
+        varchar ACCOUNT_NATIVE_IDENTITY PK "Cloud native id of account"
+        varchar IDENTITY_ID PK "ISC unique identifier of the identity correlated with the account (null if uncorrelated)"
+        varchar ACCOUNT_ID "ISC unique identifier of account"
         varchar ACCOUNT_NAME "Name of account as configured in ISC"
         varchar ACCOUNT_CREATED_DATE "Account creation date (ingestion/creation in ISC)"
         varchar ACCOUNT_UPDATED_DATE "Account update date (updated in ISC)"

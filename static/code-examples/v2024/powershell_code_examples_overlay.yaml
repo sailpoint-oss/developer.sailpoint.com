@@ -16100,6 +16100,52 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024Tenant"
             Write-Host $_.ErrorDetails
         }
+- path: /tenant-context
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/tenant-context#get-tenant-context
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # Retrieve tenant context
+        
+        try {
+            Get-V2024TenantContext -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2024TenantContext -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024TenantContext"
+            Write-Host $_.ErrorDetails
+        }
+- path: /tenant-context
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/tenant-context#patch-tenant-context
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $JsonPatchOperation = @"
+        {
+          "op" : "replace",
+          "path" : "/description",
+          "value" : "New description"
+        }
+        "@
+        
+        # Update tenant context
+        
+        try {
+            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            Update-V2024TenantContext -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-V2024TenantContext -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024TenantContext"
+            Write-Host $_.ErrorDetails
+        }
 - path: /transforms
   method: POST
   xCodeSample:

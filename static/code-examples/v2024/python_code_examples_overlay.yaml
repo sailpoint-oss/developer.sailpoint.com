@@ -18899,6 +18899,61 @@
               print(results.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling TenantApi->get_tenant: %s\n" % e)
+- path: /tenant-context
+  method: GET
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2024/methods/tenant-context#get-tenant-context
+      source: |
+        from sailpoint.v2024.api.tenant_context_api import TenantContextApi
+        from sailpoint.v2024.api_client import ApiClient
+        from sailpoint.v2024.models.get_tenant_context200_response_inner import GetTenantContext200ResponseInner
+        from sailpoint.configuration import Configuration
+        configuration = Configuration()
+
+        configuration.experimental = true
+
+        with ApiClient(configuration) as api_client:
+          x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
+          try:
+              # Retrieve tenant context
+              
+              results = TenantContextApi(api_client).get_tenant_context(x_sail_point_experimental=x_sail_point_experimental)
+              # Below is a request that includes all optional parameters
+              # results = TenantContextApi(api_client).get_tenant_context(x_sail_point_experimental)
+              print("The response of TenantContextApi->get_tenant_context:\n")
+              print(results.model_dump_json(by_alias=True, indent=4))
+          except Exception as e:
+              print("Exception when calling TenantContextApi->get_tenant_context: %s\n" % e)
+- path: /tenant-context
+  method: PATCH
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2024/methods/tenant-context#patch-tenant-context
+      source: |
+        from sailpoint.v2024.api.tenant_context_api import TenantContextApi
+        from sailpoint.v2024.api_client import ApiClient
+        from sailpoint.v2024.models.json_patch_operation import JsonPatchOperation
+        from sailpoint.configuration import Configuration
+        configuration = Configuration()
+
+        configuration.experimental = true
+
+        with ApiClient(configuration) as api_client:
+          x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
+          json_patch_operation = '''{
+          "op" : "replace",
+          "path" : "/description",
+          "value" : "New description"
+        }''' # JsonPatchOperation | 
+          try:
+              # Update tenant context
+              new_json_patch_operation = JsonPatchOperation.from_json(json_patch_operation)
+              TenantContextApi(api_client).patch_tenant_context(x_sail_point_experimental=x_sail_point_experimental, json_patch_operation=new_json_patch_operation)
+              # Below is a request that includes all optional parameters
+              # TenantContextApi(api_client).patch_tenant_context(x_sail_point_experimental, new_json_patch_operation)
+          except Exception as e:
+              print("Exception when calling TenantContextApi->patch_tenant_context: %s\n" % e)
 - path: /transforms
   method: POST
   xCodeSample:

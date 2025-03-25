@@ -20,7 +20,7 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
 
 <MermaidViewer diagram='erDiagram
     "Entitlement Service Usage" {
-        varchar ENTITLEMENT_VALUE "ISC entitlement value (usually cloud native id) associated with the access"
+        varchar ENTITLEMENT_VALUE PK "ISC entitlement value (usually cloud native id) associated with the access"
         varchar CIEM_KEY PK "composite key: CLOUD_PROVIDER-SERVICE-ENTITLEMENT_ACCOUNT_NATIVE_IDENTITY-CLOUD_SOURCE_NATIVE_ID-CLOUD_SUB_SOURCE_NATIVE_ID"
         varchar ACCESS_ASSIGNMENT_ID "Cloud native id of the access assignment object. AWS: <policy arn>|<statement id> GCP: <policy id>:<role id>, Azure: RoleAssignment, RoleAssignmentScheduleInstance (PIM) or RoleEligibilityScheduleInstance (PIM)"
         varchar ACCOUNT_CLOUD_NAME "Cloud provider associated with the account (AWS|GCP|Okta|Azure), note this will be different than CLOUD_PROVIDER in the case of federated access"
@@ -52,25 +52,25 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
         varchar RESOURCE_ACCESS_SOURCE_NAME "ISC source name associated with the resource"
     }
     ENTITLEMENT {
-        varchar ENTITLEMENT_VALUE "ISC entitlement value (usually cloud native id) associated with the access"
-        varchar _PK_ PK "Primary key, constructed as tenantID concatted with entitlement UUID"
+        varchar ENTITLEMENT_VALUE PK "ISC entitlement value (usually cloud native id) associated with the access"
         varchar ENTITLEMENT_ATTRIBUTE "Entitlement type as determined by ISC sources"
         varchar ENTITLEMENT_DISPLAY_NAME "Human readable name of the entitlement as constructed by ISC"
         timestamp ENTITLEMENT_SYNC_DATE "Timestamp of latest sync of entitlement to source tables"
     }
     IDENTITY {
         varchar IDENTITY_ID PK "Unique identifier of the identity"
+        varchar TENANT_ID PK "Tenant unique identifier"
         timestamp IDENTITY_CREATED "Identity created date in ISC"
         timestamp IDENTITY_UPDATED "Identity modified date in ISC"
-        varchar IDENTITY_NAME "Name of the identity"
+        varchar NAME "Name of the identity"
         varchar IDENTITY_DISPLAY_NAME "User friendly label for the identity; usually First Name Last Name"
-        varchar IDENTITY_MANAGERS_NAME "Managers name for the identity"
-        varchar IDENTITY_EMAIL "Email of the identity"
-        varchar LIFECYCLE_STATE "Lifecycle state of the identity"
-        varchar IDENTITY_JOB_TITLE "Job title of the identity"
-        varchar IDENTITY_LOCATION "Location of the identity"
-        varchar IDENTITY_LOCATION_CODE "Location code of the identity"
-        varchar IDENTITY_DEPARTMENT "Department of identity"
+        varchar MANAGERS_NAME "Managers name for the identity"
+        varchar EMAIL "Email of the identity"
+        varchar STATUS "Status of the identity"
+        varchar JOB_TITLE "Job title of the identity"
+        varchar LOCATION "Location of the identity"
+        varchar LOCATION_CODE "Location code of the identity"
+        varchar DEPARTMENT "Department of identity"
         timestamp IDENTITY_SYNC_DATE "Timestamp of latest sync of identity to source tables"
     }
     ACCOUNT {

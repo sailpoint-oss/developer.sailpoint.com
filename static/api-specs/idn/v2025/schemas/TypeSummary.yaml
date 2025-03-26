@@ -1,0 +1,11 @@
+type: object
+properties:
+  type:
+    type: string
+    description: Type of object
+    example: 'identity'
+  count:
+    type: integer
+    description: Count of objects of this type
+    format: int32
+    example: 42

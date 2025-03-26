@@ -1,0 +1,21 @@
+type: object
+nullable: true
+properties:
+  commenterId:
+    type: string
+    description: Id of the identity making the comment
+    example: 2c918084660f45d6016617daa9210584
+  commenterName:
+    type: string
+    description: Human-readable display name of the identity making the comment
+    example: Adam Kennedy
+  body:
+    type: string
+    description: Content of the comment
+    example: Et quam massa maximus vivamus nisi ut urna tincidunt metus elementum erat.
+  date:
+    type: string
+    format: 'date-time'
+    description: Date and time comment was made
+    example: '2017-07-11T18:45:37.098Z'
+

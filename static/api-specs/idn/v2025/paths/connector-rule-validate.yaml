@@ -1,0 +1,45 @@
+post:
+  tags:
+  - Connector Rule Management
+  operationId: testConnectorRule
+  summary: Validate Connector Rule
+  description: Detect issues within the connector rule's code to fix and list them. 
+  requestBody:
+    required: true
+    description: Code to validate.
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/SourceCode.yaml
+  responses:
+    '200':
+      description: Status of the code's eligibility as a connector rule.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/ConnectorRuleValidationResponse.yaml
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml
+  security:
+  - userAuth:
+    - idn:rule-management-connector:read
+    - idn:rule-management-connector:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  parameters:
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true

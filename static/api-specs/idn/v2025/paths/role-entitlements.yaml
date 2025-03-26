@@ -1,0 +1,109 @@
+get:
+  operationId: getRoleEntitlements
+  tags:
+  - Roles
+  summary: List Role's Entitlements
+  description: >-
+    Get a list of entitlements associated with a specified role.
+  parameters:
+  - name: id
+    in: path
+    description: Containing role's ID.
+    required: true
+    x-sailpoint-resource-operation-id: listRoles
+    schema:
+      type: string
+      example: 2c91808a7813090a017814121919ecca
+  - $ref: ../parameters/limit50.yaml
+  - $ref: ../parameters/offset.yaml
+  - $ref: ../parameters/count.yaml
+  - in: query
+    name: filters
+    schema:
+      type: string
+    description: 'Filter results using the standard syntax described in [V3 API Standard
+      Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+      Filtering is supported for the following fields and operators:
+
+
+      **id**: *eq, in*
+
+
+      **name**: *eq, sw*
+
+
+      **attribute**: *eq, sw*
+
+
+      **value**: *eq, sw*
+
+
+      **created**: *gt, lt, ge, le*
+
+
+      **modified**: *gt, lt, ge, le*
+
+
+      **owner.id**: *eq, in*
+
+
+      **source.id**: *eq, in*'
+    example: attribute eq "memberOf"
+    required: false
+  - in: query
+    name: sorters
+    schema:
+      type: string
+      format: comma-separated
+    description: 'Sort results using the standard syntax described in [V3 API Standard
+      Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
+
+
+      Sorting is supported for the following fields: **name, attribute, value, created,
+      modified**'
+    example: name,-modified
+    required: false
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  responses:
+    '200':
+      description: List of Entitlements
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../schemas/Entitlement.yaml
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml
+  security:
+    - userAuth:
+      - idn:role-unchecked:read
+      - idn:role-unchecked:manage
+      - idn:role-checked:manage
+      - idn:role-checked:read
+    - applicationAuth:
+      - idn:role-unchecked:read
+      - idn:role-unchecked:manage
+      - idn:role-checked:manage
+      - idn:role-checked:read
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - ROLE_ADMIN
+    - ROLE_SUBADMIN

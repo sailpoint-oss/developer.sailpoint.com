@@ -1,0 +1,14 @@
+title: static
+type: object
+required:
+- values
+properties:
+  values:
+    type: string
+    description: This must evaluate to a JSON string, either through a fixed value or through conditional logic using the Apache Velocity Template Language.
+    example: "string$variable"
+    externalDocs:
+      description: Static Transform Documentation 
+      url: https://developer.sailpoint.com/idn/docs/transforms/operations/static
+  requiresPeriodicRefresh:
+    $ref: './RequiresPeriodicRefresh.yaml'

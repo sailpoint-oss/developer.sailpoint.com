@@ -1,0 +1,43 @@
+post:
+  tags:
+    - Managed Clusters
+  summary: Trigger Manual Upgrade for Managed Cluster
+  description: >-
+    Trigger Manual Upgrade for Managed Cluster.
+
+    AMS Security: API, Internal
+    A token with SYSTEM_ADMINISTRATOR authority is required to call this API.
+  operationId: update
+  parameters:
+    - name: id
+      in: path
+      description: ID of managed cluster to trigger manual upgrade.
+      required: true
+      x-sailpoint-resource-operation-id: getManagedClusters
+      schema:
+        type: string
+        format: uuid
+      example: 2b838de9-db9b-abcf-e646-d4f274ad4238
+  responses:
+    "200":
+      description: Manual upgrade of managed cluster for given cluster ID.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ClusterManualUpgrade.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'  
+  security:
+    - userAuth: [idn:managed-cluster-upgrade:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN

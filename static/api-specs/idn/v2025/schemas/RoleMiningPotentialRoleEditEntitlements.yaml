@@ -1,0 +1,13 @@
+type: object
+properties:
+  ids:
+    description: The list of entitlement ids to be edited
+    type: array
+    items:
+      type: string
+  exclude:
+    type: boolean
+    description: If true, add ids to be exclusion list. If false, remove ids from the exclusion list.
+example:
+  ids: ["entId1", "entId2"]
+  exclude: true

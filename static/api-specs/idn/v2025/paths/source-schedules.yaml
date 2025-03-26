@@ -1,0 +1,96 @@
+
+get:
+  operationId: getSourceSchedules
+  security:
+    - userAuth: [ idn:sources:read ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+  tags:
+    - Sources
+  summary: List Schedules on Source
+  description: |
+   Use this API to list the schedules that exist on the specified source in Identity Security Cloud (ISC).
+   :::info
+   This endpoint uses a **cron expression** to schedule a task, following standard **cron job syntax**.
+
+   For example, `0 0 12 1/1 * ? *` runs the task **daily at 12:00 PM**.
+
+   **Days of the week are represented as 1-7 (Sunday-Saturday).**
+   :::
+  parameters:
+    - in: path
+      name: sourceId
+      required: true
+      x-sailpoint-resource-operation-id: listSources
+      schema:
+        type: string
+      description: Source ID.
+      example: 2c9180835d191a86015d28455b4a2329
+  responses:
+    '200':
+      description: The schedules were successfully retrieved.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/sources/Schedule.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'
+post:
+  operationId: createSourceSchedule
+  security:
+    - userAuth: [ idn:sources:update ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+  tags:
+    - Sources
+  summary: Create Schedule on Source
+  description: |
+    Use this API to create a new schedule for a type on the specified source in Identity Security Cloud (ISC).
+  parameters:
+    - in: path
+      name: sourceId
+      required: true
+      x-sailpoint-resource-operation-id: listSources
+      schema:
+        type: string
+      description: Source ID.
+      example: 2c9180835d191a86015d28455b4a2329
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/sources/Schedule.yaml'
+  responses:
+    '201':
+      description: The schedule was successfully created on the specified source.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/sources/Schedule.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'

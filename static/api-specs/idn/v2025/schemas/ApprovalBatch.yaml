@@ -1,0 +1,12 @@
+type: object
+properties:
+  batchId:
+    type: string
+    example: 38453251-6be2-5f8f-df93-5ce19e295837
+    description: ID of the batch
+  batchSize:
+    type: integer
+    format: int64
+    example: 100
+    description: How many approvals are going to be in this batch. Defaults to 1 if not provided.
+description: Batch properties if an approval is sent via batching.

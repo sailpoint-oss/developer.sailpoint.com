@@ -1,0 +1,10 @@
+summary: Filter with Exists
+value:
+  indices:
+  - 'identities'
+  query:
+    query: 'attributes.city:Austin'
+  filters:
+    attributes.personalEmail:
+      type: 'EXISTS'
+      exclude: true

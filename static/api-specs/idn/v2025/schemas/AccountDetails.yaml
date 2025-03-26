@@ -1,0 +1,77 @@
+description: Account Details
+type: object
+properties:
+  id:
+    description: unique id of this object
+    type: string
+    example: 2c91808474683da6017468693c260195
+  name:
+    type: string
+  accountId:
+    type: string
+    example: 4191808474683da6017468693c260195
+  description:
+    type: string
+  nativeIdentity:
+    type: string
+  uuid:
+    type: string
+  displayName:
+    type: string
+  disabled:
+    type: boolean
+  locked:
+    type: boolean
+  uncorrelated:
+    type: boolean
+  systemAccount:
+    type: boolean
+  authoritative:
+    type: boolean
+  supportsPasswordChange:
+    type: boolean
+  attributes:
+    type: object
+  application:
+    type: object
+  identity:
+    type: object
+  schema:
+    type: object
+  pendingAccessRequestIds:
+    type: array
+    items:
+      type: string
+  features:
+    type: array
+    items:
+      type: string
+      enum:
+        - AUTHENTICATE
+        - COMPOSITE
+        - DIRECT_PERMISSIONS
+        - DISCOVER_SCHEMA
+        - ENABLE
+        - MANAGER_LOOKUP
+        - NO_RANDOM_ACCESS
+        - PROXY
+        - SEARCH
+        - TEMPLATE
+        - UNLOCK
+        - UNSTRUCTURED_TARGETS
+        - SHAREPOINT_TARGET
+        - PROVISIONING
+        - GROUP_PROVISIONING
+        - SYNC_PROVISIONING
+        - PASSWORD
+        - CURRENT_PASSWORD
+        - ACCOUNT_ONLY_REQUEST
+        - ADDITIONAL_ACCOUNT_REQUEST
+        - NO_AGGREGATION
+        - GROUPS_HAVE_MEMBERS
+        - NO_PERMISSIONS_PROVISIONING
+        - NO_GROUP_PERMISSIONS_PROVISIONING
+        - NO_UNSTRUCTURED_TARGETS_PROVISIONING
+        - NO_DIRECT_PERMISSIONS_PROVISIONING
+  meta:
+    type: object

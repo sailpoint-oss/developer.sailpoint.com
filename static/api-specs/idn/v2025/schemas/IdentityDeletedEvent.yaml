@@ -1,0 +1,23 @@
+type: object
+properties:
+  account:
+    type: string
+    description: the account details
+    $ref: './AccessItemAccountResponse.yaml'
+  statusChange:
+    type: string
+    description: the status change details
+    $ref: './StatusChange.yaml'
+  eventType:
+    type: string
+    description: the event type
+  identityId:
+    type: string
+    description: the identity id  
+  dt:
+    type: string
+    description: the date of event    
+example:
+  eventType: IdentityDeletedEvent
+  identityId: 8a80828f643d484f01643e14202e206f
+  dt: '2019-03-08T22:37:33.901Z'

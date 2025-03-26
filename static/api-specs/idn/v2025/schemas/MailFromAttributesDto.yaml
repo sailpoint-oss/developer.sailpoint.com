@@ -1,0 +1,11 @@
+type: object
+properties:
+  identity:
+    type: string
+    example: BobSmith@sailpoint.com
+    description: The identity or domain address
+  mailFromDomain:
+    type: string
+    example: example.sailpoint.com
+    description: The new MAIL FROM domain of the identity. Must be a subdomain of the identity.
+description: MAIL FROM attributes for a domain / identity

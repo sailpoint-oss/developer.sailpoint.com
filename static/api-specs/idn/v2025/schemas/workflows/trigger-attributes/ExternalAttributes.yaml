@@ -1,0 +1,23 @@
+title: External Trigger Attributes
+type: object
+description: Attributes related to an external trigger
+# required:
+# - name
+additionalProperties: false
+properties:
+  name:
+    type: string
+    description: A unique name for the external trigger
+    example: "search-and-notify"
+  description:
+    type: string
+    description: Additonal context about the external trigger
+    example: Run a search and notify the results
+  clientId:
+    type: string
+    description: OAuth Client ID to authenticate with this trigger
+    example: "87e239b2-b85b-4bde-b9a7-55bf304ddcdc"
+  url:
+    type: string
+    description: URL to invoke this workflow
+    example: "https://tenant.api.identitynow.com/beta/workflows/execute/external/c79e0079-562c-4df5-aa73-60a9e25c916d"

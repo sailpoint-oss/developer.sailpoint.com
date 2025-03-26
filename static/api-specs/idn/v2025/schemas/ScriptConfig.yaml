@@ -1,0 +1,15 @@
+type: object
+description: This configuration is required only when the subscription type is SCRIPT.
+properties:
+  language:
+    type: string
+    description: The programming language of the script.
+    enum:
+      - JAVASCRIPT
+    example: JAVASCRIPT
+  responseMode:
+    $ref: './ResponseMode.yaml'
+  source:
+    type: string
+    example: "async (event, context) => { const triggerOutput = { approved: false }; return new EventCallResult(Status.SUCCESS, triggerOutput, null); }"
+    description: The source code of the script.

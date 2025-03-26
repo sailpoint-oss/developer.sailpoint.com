@@ -1,0 +1,17 @@
+type: object
+description: Identity of workgroup member. 
+properties:
+  type:
+    type: string 
+    description: Workgroup member identity DTO type. 
+    enum: 
+      - IDENTITY
+    example: IDENTITY
+  id:
+    type: string
+    description: Workgroup member identity ID. 
+    example: 2c7180a46faadee4016fb4e018c20642
+  name:
+    type: string
+    description: Workgroup member identity display name. 
+    example: Michael Michaels

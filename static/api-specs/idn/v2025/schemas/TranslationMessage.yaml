@@ -1,0 +1,12 @@
+type: object
+properties:
+  key:
+    type: string
+    description: The key of the translation message
+    example: 'recommender-api.V2_WEIGHT_FEATURE_PRODUCT_INTERPRETATION_HIGH'
+  values:
+    type: array
+    description: The values corresponding to the translation messages
+    items:
+      type: string
+    example: ["75","department"]  

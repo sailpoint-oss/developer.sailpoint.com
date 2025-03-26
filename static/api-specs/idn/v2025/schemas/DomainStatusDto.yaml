@@ -1,0 +1,25 @@
+type: object
+properties:
+  id:
+    type: string
+    example: 123b45b0-aaaa-bbbb-a7db-123456a56abc
+    description: New UUID associated with domain to be verified
+  domain:
+    type: string
+    example: sailpoint.com
+    description: A domain address
+  dkimEnabled:
+    default: false
+    example: true
+    description: DKIM is enabled for this domain
+  dkimTokens:
+    type: array
+    items:
+      type: string
+    example: ["token1", "token2", "token3"]
+    description: DKIM tokens required for authentication
+  dkimVerificationStatus:
+    type: string
+    example: PENDING
+    description: Status of DKIM authentication
+description: Domain status DTO containing everything required to verify via DKIM

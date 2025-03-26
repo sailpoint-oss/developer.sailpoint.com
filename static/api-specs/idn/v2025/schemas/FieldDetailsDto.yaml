@@ -1,0 +1,36 @@
+type: object
+properties:
+  name:
+    type: string
+    description: The name of the attribute.
+    example: userName
+  transform:
+    type: object
+    description: The transform to apply to the field
+    example: { type: "rule", attributes: { "name": "Create Unique LDAP Attribute" } }
+    default: {}
+  attributes:
+    type: object
+    description: Attributes required for the transform
+    example:
+      {
+        template: "${firstname}.${lastname}${uniqueCounter}",
+        cloudMaxUniqueChecks: "50",
+        cloudMaxSize: "20",
+        cloudRequired: "true",
+      }
+  isRequired:
+    type: boolean
+    readOnly: true
+    description: Flag indicating whether or not the attribute is required.
+    default: false
+    example: false
+  type:
+    type: string
+    description: The type of the attribute.
+    example: string
+  isMultiValued:
+    type: boolean
+    description: Flag indicating whether or not the attribute is multi-valued.
+    default: false
+    example: false

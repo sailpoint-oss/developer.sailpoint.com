@@ -1,0 +1,52 @@
+get:
+  operationId: getValidTimeZones
+  tags:
+  - Org Config
+  summary: Get Valid Time Zones
+  security:
+  - userAuth:
+    - idn:org-configs:read
+    - idn:org-configs-user:read
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  description: List the valid time zones that can be set in organization configurations.
+  responses:
+    '200':
+      description: Request successful.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              type: string
+          example:
+          - Etc/GMT-6
+          - Etc/GMT+8
+          - EST
+          - America/Chicago
+          - America/Toronto
+          - Asia/Gaza
+          - Europe/Brussels
+          - Europe/Kiev
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml
+  parameters:
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  - $ref: '../parameters/limit50.yaml'
+  - $ref: '../parameters/offset.yaml'
+  - $ref: '../parameters/count.yaml'

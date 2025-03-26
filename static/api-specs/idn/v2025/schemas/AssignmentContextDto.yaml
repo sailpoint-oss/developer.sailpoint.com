@@ -1,0 +1,12 @@
+type: object
+properties:
+  requested:
+    $ref: "./AccessRequestContext.yaml"
+  matched:
+    type: array
+    items:
+      $ref: "./RoleMatchDto.yaml"
+  computedDate:
+    type: string
+    description: "Date that the assignment will was evaluated"
+    example: "Wed Feb 14 10:58:42"

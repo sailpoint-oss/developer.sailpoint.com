@@ -1,0 +1,38 @@
+type: object
+properties:
+  name:
+    type: string
+    description: The name of the workflow
+    example: "Send Email"
+  owner:
+    type: object
+    description: The identity that owns the workflow.  The owner's permissions in IDN will determine what actions the workflow is allowed to perform.  Ownership can be changed by updating the owner in a PUT or PATCH request.
+    properties:
+      type:
+        type: string
+        enum:
+        - "IDENTITY"
+        example: "IDENTITY"
+        description: The type of object that is referenced
+      id:
+        type: string
+        description: The unique ID of the object
+        example: "2c91808568c529c60168cca6f90c1313"
+      name:
+        type: string
+        description: The name of the object
+        example: "William Wilson"
+  description:
+    type: string
+    description: Description of what the workflow accomplishes
+    example: "Send an email to the identity who's attributes changed."
+  definition:
+    $ref: './WorkflowDefinition.yaml'
+  enabled:
+    type: boolean
+    description: Enable or disable the workflow.  Workflows cannot be created in an enabled state.
+    default: false
+    example: false
+  trigger:
+    $ref: './WorkflowTrigger.yaml'
+    description: Workflow Trigger.

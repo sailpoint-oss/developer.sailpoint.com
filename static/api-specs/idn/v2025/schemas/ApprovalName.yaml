@@ -1,0 +1,11 @@
+type: object
+properties:
+  value:
+    type: string
+    example: Audit DB Access
+    description: Name of the approval
+  locale:
+    type: string
+    example: en_US
+    description: What locale the name of the approval is using
+description: Approval Name Object

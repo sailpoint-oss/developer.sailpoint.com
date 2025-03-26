@@ -1,0 +1,118 @@
+description: Managed Cluster Status
+type: object
+required:
+  - id
+  - clientType
+  - ccgVersion
+properties:
+  id:
+    description: ManagedCluster ID
+    type: string
+    example: aClusterId
+  name:
+    description: ManagedCluster name
+    type: string
+    example: Managed Cluster Name
+  keyPair:
+    description: key pair for the ManagedCluster
+    $ref: './ManagedClusterKeyPair.yaml'
+  description:
+    description: ManagedCluster description
+    type: string
+    example: A short description of the managed cluster.
+  clientType:
+    description: type of client for the ManagedCluster
+    $ref: './ManagedClientType.yaml'
+  ccgVersion:
+    description: CCG version used by the ManagedCluster
+    type: string
+    example: v01
+  pinnedConfig:
+    description: boolean flag indiacting whether or not the cluster configuration is pinned
+    type: boolean
+    default: false
+    example: false
+  logConfiguration:
+    description: client log configuration for the cluster
+    example: '{
+          "rootLevel": "WARN",
+          "logLevels": { "foobar": "WARN" }
+        }'
+    $ref: './ClientLogConfiguration.yaml'
+  operational:
+    description: Whether or not the cluster is operational or not
+    type: boolean
+    default: false
+    example: false
+  status:
+    description: Cluster status
+    type: string
+    example: NORMAL
+  clientsStatus:
+    type: array
+    description: List of clients in a cluster
+    items:
+      $ref: './ClientStatusBody.yaml'
+  serviceCount:
+    description: Number of services bound to a cluster
+    type: integer
+    format: int32
+    default: 0
+    example: 6
+  ccId:
+    description: CC ID only used in calling CC, will be removed without notice when Migration to CEGS is finished
+    type: string
+    default: "0"
+    example: "1533"
+  connections:
+    type: array
+    description: client log configuration for the cluster
+    items:
+      $ref: './ClusterSource.yaml'
+  alertKey:
+    type: string
+    description: Alert Key for the UI to decode into badges
+    example: LIMITED_RESOURCES
+  dependencies:
+    type: object
+    description: The active Process Dependencies for the cluster type
+    example:
+      '{
+          "charon": {
+            "version": "393",
+            "path": "sailpoint/charon",
+            "description": null,
+            "dependencies": null
+          },
+          "ccg": {
+            "version": "503_668_96.2.0",
+            "path": "sailpoint/ccg",
+            "description": null,
+            "dependencies": null
+          },
+          "toolbox": {
+            "version": "15",
+            "path": "sailpoint/toolbox",
+            "description": null,
+            "dependencies": null
+          },
+          "fluent": {
+            "version": "50",
+            "path": "fluent/va",
+            "description": null,
+            "dependencies": null
+          },
+          "va_agent": {
+            "version": "99",
+            "path": "sailpoint/va_agent",
+            "description": null,
+            "dependencies": null
+          }
+        }'
+    additionalProperties:
+      $ref: './ManagedProcessConfiguration.yaml'
+  debug:
+    description: Whether or not the cluster debugging is enabled
+    type: boolean
+    default: false
+    example: false

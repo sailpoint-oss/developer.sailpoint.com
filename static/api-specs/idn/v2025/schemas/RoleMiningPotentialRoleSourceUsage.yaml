@@ -1,0 +1,19 @@
+type: object
+properties:
+  id:
+    type: string
+    description: The identity ID
+    example: "2c918089762475180176267f894b54dc"
+  displayName:
+    type: string
+    description: Display name for the identity
+    example: "Kirk Koepp"
+  email:
+    type: string
+    description: Email address for the identity
+    example: "kirk.koepp@testmail.identitynow.com"
+  usageCount:
+    type: integer
+    description: The number of days there has been usage of the source by the identity.
+    format: int32
+    example: 25

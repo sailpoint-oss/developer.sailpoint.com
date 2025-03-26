@@ -1,0 +1,19 @@
+title: Access Request Pre Approval
+type: object
+required:
+- approved
+- comment
+- approver
+properties:
+  approved:
+    type: boolean
+    description: Whether or not to approve the access request.
+    example: false
+  comment:
+    type: string
+    description: A comment about the decision to approve or deny the request.
+    example: This access should be denied, because this will cause an SOD violation.
+  approver:
+    type: string
+    description: The name of the entity that approved or denied the request.
+    example: AcmeCorpExternalIntegration

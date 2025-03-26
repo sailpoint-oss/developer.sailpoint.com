@@ -1,0 +1,14 @@
+type: object
+properties:
+  id:
+    type: string
+    description: The ID of the custom rule
+    example: 51a8015db2f890ca15812c9185644c4a
+  name:
+    type: string
+    description: Name of the rule
+    example: Custom rule created by services
+  description:
+    type: string
+    description: A description for the rule
+    example: Custom rule to assign access to the company database.

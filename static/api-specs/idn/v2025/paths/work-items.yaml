@@ -1,0 +1,39 @@
+get:
+  operationId: listWorkItems
+  tags:
+    - Work Items
+  summary: List Work Items
+  description: >-
+    This gets a collection of work items belonging to either the specified user(admin required), or the current user.
+  parameters:
+    - $ref: '../parameters/limit.yaml'
+    - $ref: '../parameters/offset.yaml'
+    - $ref: '../parameters/count.yaml'
+    - in: query
+      name: ownerId
+      schema:
+        type: string
+      description: ID of the work item owner.
+      required: false
+      example: 1211bcaa32112bcef6122adb21cef1ac
+  responses:
+    '200':
+      description: List of work items
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/WorkItems.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'
+
+

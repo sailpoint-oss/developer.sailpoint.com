@@ -1,0 +1,50 @@
+post:
+  operationId: addAccessRequestRecommendationsViewedItems
+  tags:
+  - IAI Access Request Recommendations
+  security:
+    - userAuth: [ iai:access-request-recommender:manage ]
+  x-sailpoint-userLevels:
+    - Any
+  summary: Bulk Mark Viewed Access Request Recommendations
+  description: This API consumes a notification that a set of recommended access request
+    item were viewed. Future recommendations with these items will be marked with
+    viewed=true. This can be useful for the consumer to determine if there are any
+    new/unviewed recommendations.
+  requestBody:
+    description: The recommended access items that were viewed for an identity.
+    required: true
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            $ref: ../schemas/AccessRequestRecommendationActionItemDto.yaml
+  responses:
+    '201':
+      description: Recommendations successfully stored as viewed.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../schemas/AccessRequestRecommendationActionItemResponseDto.yaml
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml
+  parameters:
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true

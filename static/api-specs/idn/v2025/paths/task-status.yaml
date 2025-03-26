@@ -1,0 +1,127 @@
+get:
+  tags:
+  - Task Management
+  summary: Get Task Status by ID
+  description: Get task status by task ID. Types of tasks include account and entitlement aggregation and other general background processing tasks.  Data for tasks older than 90 days will not be returned.
+  operationId: getTaskStatus
+  parameters:
+  - name: id
+    in: path
+    description: Task ID.
+    required: true
+    x-sailpoint-resource-operation-id: getTaskStatusList
+    example: 00eebcf881994e419d72e757fd30dc0e
+    style: simple
+    explode: false
+    schema:
+      type: string
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  responses:
+    '200':
+      description: Responds with a TaskStatus for the task with the given task ID.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/TaskStatus.yaml
+    '403':
+      description: Forbidden, generally due to a lack of security rights
+    '404':
+      description: TaskStatus with the given id was not found.
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml
+  security:
+    - userAuth: [idn:task-management:read, idn:task-management:write]
+    - applicationAuth: [idn:task-management:read, idn:task-management:write]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - HELPDESK
+    - CERT_ADMIN
+    - REPORT_ADMIN
+    - ROLE_ADMIN
+    - ROLE_SUBADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+patch:
+  operationId: updateTaskStatus
+  tags:
+  - Task Management
+  summary: Update Task Status by ID
+  description: Update a current task status by task ID. Use this API to clear a pending task by updating the completionStatus and completed attributes.
+  parameters:
+  - name: id
+    in: path
+    description: Task ID.
+    example: 00eebcf881994e419d72e757fd30dc0e
+    required: true
+    x-sailpoint-resource-operation-id: getTaskStatusList
+    style: simple
+    explode: false
+    schema:
+      type: string
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  requestBody:
+    required: true
+    description: The JSONPatch payload used to update the object.
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: ../schemas/JsonPatchOperation.yaml
+          example:
+          - op: replace
+            path: /completionStatus
+            value: Error
+          - op: replace
+            path: /completed
+            value: 2024-05-17 19:33:16.470000+00:00
+  responses:
+    '200':
+      description: This response indicates the PATCH operation succeeded, and the
+        API returns the updated task object.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/TaskStatus.yaml
+    '400':
+      $ref: ../responses/400.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '404':
+      $ref: ../responses/404.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml
+  security:
+    - userAuth: [idn:task-management:write]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - CERT_ADMIN
+    - REPORT_ADMIN
+    - ROLE_ADMIN
+    - ROLE_SUBADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN

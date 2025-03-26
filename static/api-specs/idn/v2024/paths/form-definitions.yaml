@@ -81,14 +81,6 @@ get:
     example: name
     required: false
     x-go-name: Sorters
-  - name: X-SailPoint-Experimental
-    in: header
-    description: Use this header to enable this experimental API.
-    example: true
-    schema:
-      type: string
-      default: true
-    required: true
   responses:
     '200':
       description: Returns a list of form definitions by tenant
@@ -343,12 +335,3 @@ post:
   x-sailpoint-userLevels:
     - ORG_ADMIN
   x-codegen-request-body-name: Body
-  parameters:
-  - name: X-SailPoint-Experimental
-    in: header
-    description: Use this header to enable this experimental API.
-    example: true
-    schema:
-      type: string
-      default: true
-    required: true

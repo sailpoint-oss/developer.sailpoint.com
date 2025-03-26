@@ -15,14 +15,6 @@ get:
       x-go-name: FormDefinitionID
     example: 00000000-0000-0000-0000-000000000000
     x-go-name: FormDefinitionID
-  - name: X-SailPoint-Experimental
-    in: header
-    description: Use this header to enable this experimental API.
-    example: true
-    schema:
-      type: string
-      default: true
-    required: true
   responses:
     '200':
       description: Returns a form definition
@@ -166,14 +158,6 @@ delete:
       x-go-name: FormDefinitionID
     example: 00000000-0000-0000-0000-000000000000
     x-go-name: FormDefinitionID
-  - name: X-SailPoint-Experimental
-    in: header
-    description: Use this header to enable this experimental API.
-    example: true
-    schema:
-      type: string
-      default: true
-    required: true
   responses:
     '204':
       description: Returns an empty body
@@ -317,14 +301,6 @@ patch:
       x-go-name: FormDefinitionID
     example: 00000000-0000-0000-0000-000000000000
     x-go-name: FormDefinitionID
-  - name: X-SailPoint-Experimental
-    in: header
-    description: Use this header to enable this experimental API.
-    example: true
-    schema:
-      type: string
-      default: true
-    required: true
   requestBody:
     description: 'Body is the request payload to patch a form definition, check: https://jsonpatch.com'
     content:

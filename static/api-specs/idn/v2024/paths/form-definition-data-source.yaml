@@ -69,14 +69,6 @@ post:
     example: ac
     required: false
     x-go-name: Query
-  - name: X-SailPoint-Experimental
-    in: header
-    description: Use this header to enable this experimental API.
-    example: true
-    schema:
-      type: string
-      default: true
-    required: true
   requestBody:
     description: Body is the request payload to create a form definition dynamic schema
     content:

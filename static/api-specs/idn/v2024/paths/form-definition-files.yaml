@@ -18,14 +18,6 @@ post:
       type: string
       x-go-name: FormDefinitionID
     x-go-name: FormDefinitionID
-  - name: X-SailPoint-Experimental
-    in: header
-    description: Use this header to enable this experimental API.
-    example: true
-    schema:
-      type: string
-      default: true
-    required: true
   requestBody:
     content:
       multipart/form-data:

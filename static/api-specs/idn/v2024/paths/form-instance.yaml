@@ -15,14 +15,6 @@ get:
       x-go-name: FormInstanceID
     example: 00000000-0000-0000-0000-000000000000
     x-go-name: FormInstanceID
-  - name: X-SailPoint-Experimental
-    in: header
-    description: Use this header to enable this experimental API.
-    example: true
-    schema:
-      type: string
-      default: true
-    required: true
   responses:
     '200':
       description: Returns a form instance by its key
@@ -165,14 +157,6 @@ patch:
       x-go-name: FormInstanceID
     example: 00000000-0000-0000-0000-000000000000
     x-go-name: FormInstanceID
-  - name: X-SailPoint-Experimental
-    in: header
-    description: Use this header to enable this experimental API.
-    example: true
-    schema:
-      type: string
-      default: true
-    required: true
   requestBody:
     description: 'Body is the request payload to patch a form instance, check: https://jsonpatch.com'
     content:

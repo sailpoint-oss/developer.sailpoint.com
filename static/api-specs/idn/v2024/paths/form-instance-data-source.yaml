@@ -83,14 +83,6 @@ get:
     example: support
     required: false
     x-go-name: Query
-  - name: X-SailPoint-Experimental
-    in: header
-    description: Use this header to enable this experimental API.
-    example: true
-    schema:
-      type: string
-      default: true
-    required: true
   responses:
     '200':
       description: Retrieves dynamic data to aid in correctly completing a valid form

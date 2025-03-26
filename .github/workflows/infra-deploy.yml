@@ -38,7 +38,7 @@ jobs:
           role-to-assume: arn:aws:iam::176038645705:role/github-action-role
           role-session-name: deploy-developer-site-infra-to-aws
           aws-region: us-east-1
-          duration-seconds: 7200
+          role-duration-seconds: 7200
 
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Check out repo

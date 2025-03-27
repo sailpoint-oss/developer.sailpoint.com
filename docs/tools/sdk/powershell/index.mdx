@@ -52,6 +52,9 @@ Run this command to install the required dependencies:
 
 ```powershell
 Install-Module -Name PSSailpoint
+Install-Module -Name PSSailpoint.Beta
+Install-Module -Name PSSailpoint.V3
+Install-Module -Name PSSailpoint.V2024
 ```
 
 The command installs the SailPoint PowerShell SDK module. You will be prompted to confirm that you want to install the module from 'PSGallery'. Enter "A" to say "Yes to All".
@@ -60,6 +63,9 @@ If you already have a version of the PowerShell SDK installed, you can install a
 
 ```powershell
 Install-Module -Name PSSailpoint -Force
+Install-Module -Name PSSailpoint.Beta -Force
+Install-Module -Name PSSailpoint.V3 -Force
+Install-Module -Name PSSailpoint.V2024 -Force
 ```
 
 To validate that the module is installed, run this command, `Get-Module -ListAvailable PSSailpoint`, and verify that the module is listed. Additionally, you can run this command, `Get-Command -Module PSSailpoint`, to see the available commands included in the module.

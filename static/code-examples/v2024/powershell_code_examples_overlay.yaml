@@ -3686,13 +3686,137 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024ScheduledAction"
             Write-Host $_.ErrorDetails
         }
+- path: /connector-customizers
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/connector-customizers#create-connector-customizer
+      source: |
+        $ConnectorCustomizerCreateRequest = @"
+        {
+          "name" : "My Custom Connector"
+        }
+        "@
+        
+        # Create Connector Customizer
+        
+        try {
+            $Result = ConvertFrom-JsonToConnectorCustomizerCreateRequest -Json $ConnectorCustomizerCreateRequest
+            New-V2024ConnectorCustomizer -ConnectorCustomizerCreateRequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-V2024ConnectorCustomizer -ConnectorCustomizerCreateRequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024ConnectorCustomizer"
+            Write-Host $_.ErrorDetails
+        }
+- path: /connector-customizers/{id}/versions
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/connector-customizers#create-connector-customizer-version
+      source: |
+        $Id = "b07dc46a-1498-4de8-bfbb-259a68e70c8a" # String | The id of the connector customizer.
+        
+        # Creates a connector customizer version
+        
+        try {
+            New-V2024ConnectorCustomizerVersion -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # New-V2024ConnectorCustomizerVersion -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024ConnectorCustomizerVersion"
+            Write-Host $_.ErrorDetails
+        }
+- path: /connector-customizers/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/connector-customizers#delete-connector-customizer
+      source: |
+        $Id = "b07dc46a-1498-4de8-bfbb-259a68e70c8a" # String | ID of the connector customizer to delete.
+        
+        # Delete Connector Customizer
+        
+        try {
+            Remove-V2024ConnectorCustomizer -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-V2024ConnectorCustomizer -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024ConnectorCustomizer"
+            Write-Host $_.ErrorDetails
+        }
+- path: /connector-customizers/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/connector-customizers#get-connector-customizer
+      source: |
+        $Id = "b07dc46a-1498-4de8-bfbb-259a68e70c8a" # String | ID of the connector customizer to get.
+        
+        # Get connector customizer
+        
+        try {
+            Get-V2024ConnectorCustomizer -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2024ConnectorCustomizer -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024ConnectorCustomizer"
+            Write-Host $_.ErrorDetails
+        }
+- path: /connector-customizers
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/connector-customizers#list-connector-customizers
+      source: |
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        
+        # List All Connector Customizers
+        
+        try {
+            Get-V2024ConnectorCustomizers 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2024ConnectorCustomizers -Offset $Offset -Limit $Limit   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024ConnectorCustomizers"
+            Write-Host $_.ErrorDetails
+        }
+- path: /connector-customizers/{id}
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/connector-customizers#put-connector-customizer
+      source: |
+        $Id = "b07dc46a-1498-4de8-bfbb-259a68e70c8a" # String | ID of the connector customizer to update.
+        $ConnectorCustomizerUpdateRequest = @"
+        {
+          "name" : "My Custom Connector"
+        }
+        "@
+        
+        # Update Connector Customizer
+        
+        try {
+            Send-V2024ConnectorCustomizer -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Send-V2024ConnectorCustomizer -Id $Id -ConnectorCustomizerUpdateRequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024ConnectorCustomizer"
+            Write-Host $_.ErrorDetails
+        }
 - path: /connector-rules
   method: POST
   xCodeSample:
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2024/methods/connector-rule-management#create-connector-rule
       source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $ConnectorRuleCreateRequest = @"
         {
           "sourceCode" : {
@@ -3726,10 +3850,10 @@
         
         try {
             $Result = ConvertFrom-JsonToConnectorRuleCreateRequest -Json $ConnectorRuleCreateRequest
-            New-V2024ConnectorRule -XSailPointExperimental $XSailPointExperimental -ConnectorRuleCreateRequest $Result 
+            New-V2024ConnectorRule -ConnectorRuleCreateRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # New-V2024ConnectorRule -XSailPointExperimental $XSailPointExperimental -ConnectorRuleCreateRequest $Result   
+            # New-V2024ConnectorRule -ConnectorRuleCreateRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024ConnectorRule"
             Write-Host $_.ErrorDetails
@@ -3741,15 +3865,14 @@
       label: SDK_tools/sdk/powershell/v2024/methods/connector-rule-management#delete-connector-rule
       source: |
         $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | ID of the connector rule to delete.
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # Delete Connector Rule
         
         try {
-            Remove-V2024ConnectorRule -Id $Id -XSailPointExperimental $XSailPointExperimental 
+            Remove-V2024ConnectorRule -Id $Id 
     
             # Below is a request that includes all optional parameters
-            # Remove-V2024ConnectorRule -Id $Id -XSailPointExperimental $XSailPointExperimental   
+            # Remove-V2024ConnectorRule -Id $Id   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024ConnectorRule"
             Write-Host $_.ErrorDetails
@@ -3761,15 +3884,14 @@
       label: SDK_tools/sdk/powershell/v2024/methods/connector-rule-management#get-connector-rule
       source: |
         $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | ID of the connector rule to get.
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # Get Connector Rule
         
         try {
-            Get-V2024ConnectorRule -Id $Id -XSailPointExperimental $XSailPointExperimental 
+            Get-V2024ConnectorRule -Id $Id 
     
             # Below is a request that includes all optional parameters
-            # Get-V2024ConnectorRule -Id $Id -XSailPointExperimental $XSailPointExperimental   
+            # Get-V2024ConnectorRule -Id $Id   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024ConnectorRule"
             Write-Host $_.ErrorDetails
@@ -3780,7 +3902,6 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2024/methods/connector-rule-management#get-connector-rule-list
       source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Limit = 50 # Int32 | Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 50)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
@@ -3788,10 +3909,10 @@
         # List Connector Rules
         
         try {
-            Get-V2024ConnectorRuleList -XSailPointExperimental $XSailPointExperimental 
+            Get-V2024ConnectorRuleList 
     
             # Below is a request that includes all optional parameters
-            # Get-V2024ConnectorRuleList -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Count $Count   
+            # Get-V2024ConnectorRuleList -Limit $Limit -Offset $Offset -Count $Count   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024ConnectorRuleList"
             Write-Host $_.ErrorDetails
@@ -3803,7 +3924,6 @@
       label: SDK_tools/sdk/powershell/v2024/methods/connector-rule-management#put-connector-rule
       source: |
         $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | ID of the connector rule to update.
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $ConnectorRuleUpdateRequest = @"
         {
           "sourceCode" : {
@@ -3837,10 +3957,10 @@
         # Update Connector Rule
         
         try {
-            Send-V2024ConnectorRule -Id $Id -XSailPointExperimental $XSailPointExperimental 
+            Send-V2024ConnectorRule -Id $Id 
     
             # Below is a request that includes all optional parameters
-            # Send-V2024ConnectorRule -Id $Id -XSailPointExperimental $XSailPointExperimental -ConnectorRuleUpdateRequest $Result   
+            # Send-V2024ConnectorRule -Id $Id -ConnectorRuleUpdateRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024ConnectorRule"
             Write-Host $_.ErrorDetails
@@ -3851,7 +3971,6 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2024/methods/connector-rule-management#test-connector-rule
       source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $SourceCode = @"
         {
           "version" : "1.0",
@@ -3863,10 +3982,10 @@
         
         try {
             $Result = ConvertFrom-JsonToSourceCode -Json $SourceCode
-            Test-V2024ConnectorRule -XSailPointExperimental $XSailPointExperimental -SourceCode $Result 
+            Test-V2024ConnectorRule -SourceCode $Result 
     
             # Below is a request that includes all optional parameters
-            # Test-V2024ConnectorRule -XSailPointExperimental $XSailPointExperimental -SourceCode $Result   
+            # Test-V2024ConnectorRule -SourceCode $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Test-V2024ConnectorRule"
             Write-Host $_.ErrorDetails
@@ -8838,6 +8957,128 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024ManagedClient"
             Write-Host $_.ErrorDetails
         }
+- path: /managed-cluster-types
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/managed-cluster-types#create-managed-cluster-type
+      source: |
+        $ManagedClusterType = @"
+        {
+          "managedProcessIds" : [ "someId", "someId2" ],
+          "pod" : "megapod-useast1",
+          "org" : "denali-cjh",
+          "id" : "aClusterTypeId",
+          "type" : "idn"
+        }
+        "@
+        
+        # Create new Managed Cluster Type
+        
+        try {
+            $Result = ConvertFrom-JsonToManagedClusterType -Json $ManagedClusterType
+            New-V2024ManagedClusterType -ManagedClusterType $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-V2024ManagedClusterType -ManagedClusterType $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024ManagedClusterType"
+            Write-Host $_.ErrorDetails
+        }
+- path: /managed-cluster-types/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/managed-cluster-types#delete-managed-cluster-type
+      source: |
+        $Id = "aClusterTypeId" # String | The Managed Cluster Type ID
+        
+        # Delete a Managed Cluster Type
+        
+        try {
+            Remove-V2024ManagedClusterType -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-V2024ManagedClusterType -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024ManagedClusterType"
+            Write-Host $_.ErrorDetails
+        }
+- path: /managed-cluster-types/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/managed-cluster-types#get-managed-cluster-type
+      source: |
+        $Id = "aClusterTypeId" # String | The Managed Cluster Type ID
+        
+        # Get a Managed Cluster Type
+        
+        try {
+            Get-V2024ManagedClusterType -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2024ManagedClusterType -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024ManagedClusterType"
+            Write-Host $_.ErrorDetails
+        }
+- path: /managed-cluster-types
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/managed-cluster-types#get-managed-cluster-types
+      source: |
+        $Type = "IDN" # String | Type descriptor (optional)
+        $Pod = "megapod-useast1" # String | Pinned pod (or default) (optional)
+        $Org = "denali-xyz" # String | Pinned org (or default) (optional)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        
+        # Get Managed Cluster Types
+        
+        try {
+            Get-V2024ManagedClusterTypes 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2024ManagedClusterTypes -Type $Type -Pod $Pod -Org $Org -Offset $Offset -Limit $Limit   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024ManagedClusterTypes"
+            Write-Host $_.ErrorDetails
+        }
+- path: /managed-cluster-types/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/managed-cluster-types#update-managed-cluster-type
+      source: |
+        $Id = "aClusterTypeId" # String | The Managed Cluster Type ID
+        $JsonPatch = @"
+        {
+          "operations" : [ {
+            "op" : "replace",
+            "path" : "/description",
+            "value" : "New description"
+          }, {
+            "op" : "replace",
+            "path" : "/description",
+            "value" : "New description"
+          } ]
+        }
+        "@
+        
+        # Update a Managed Cluster Type
+        
+        try {
+            $Result = ConvertFrom-JsonToJsonPatch -Json $JsonPatch
+            Update-V2024ManagedClusterType -Id $Id -JsonPatch $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-V2024ManagedClusterType -Id $Id -JsonPatch $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024ManagedClusterType"
+            Write-Host $_.ErrorDetails
+        }
 - path: /managed-clusters
   method: POST
   xCodeSample:
@@ -9014,6 +9255,312 @@
             # Update-V2024ManagedCluster -Id $Id -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024ManagedCluster"
+            Write-Host $_.ErrorDetails
+        }
+- path: /multihosts
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/multi-host-integration#create-multi-host-integration
+      source: |
+        $MultiHostIntegrationsCreate = @"
+        {
+          "owner" : {
+            "name" : "MyName",
+            "id" : "2c91808568c529c60168cca6f90c1313",
+            "type" : "IDENTITY"
+          },
+          "managementWorkgroup" : {
+            "name" : "My Management Workgroup",
+            "id" : "2c91808568c529c60168cca6f90c2222",
+            "type" : "GOVERNANCE_GROUP"
+          },
+          "cluster" : {
+            "name" : "Corporate Cluster",
+            "id" : "2c9180866166b5b0016167c32ef31a66",
+            "type" : "CLUSTER"
+          },
+          "connector" : "multihost-microsoft-sql-server",
+          "connectorAttributes" : {
+            "maxSourcesPerAggGroup" : 10,
+            "maxAllowedSources" : 300
+          },
+          "created" : "2022-02-08T14:50:03.827Z",
+          "name" : "My Multi-Host Integration",
+          "description" : "This is the Multi-Host Integration.",
+          "modified" : "2024-01-23T18:08:50.897Z"
+        }
+        "@
+        
+        # Create Multi-Host Integration
+        
+        try {
+            $Result = ConvertFrom-JsonToMultiHostIntegrationsCreate -Json $MultiHostIntegrationsCreate
+            New-V2024MultiHostIntegration -MultiHostIntegrationsCreate $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-V2024MultiHostIntegration -MultiHostIntegrationsCreate $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024MultiHostIntegration"
+            Write-Host $_.ErrorDetails
+        }
+- path: /multihosts/{multihostId}
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/multi-host-integration#create-sources-within-multi-host
+      source: |
+        $MultihostId = "2c91808568c529c60168cca6f90c1326" # String | ID of the Multi-Host Integration.
+        $MultiHostIntegrationsCreateSources = @"{
+          "connectorAttributes" : {
+            "authType" : "SQLAuthentication",
+            "url" : "jdbc:sqlserver://178.18.41.118:1433",
+            "user" : "username",
+            "driverClass" : "com.microsoft.sqlserver.jdbc.SQLServerDriver",
+            "maxSourcesPerAggGroup" : 10,
+            "maxAllowedSources" : 300
+          },
+          "name" : "My Source",
+          "description" : "This is the corporate directory."
+        }"@ 
+        
+        
+        # Create Sources Within Multi-Host Integration
+        
+        try {
+            $Result = ConvertFrom-JsonToMultiHostIntegrationsCreateSources -Json $MultiHostIntegrationsCreateSources
+            New-V2024SourcesWithinMultiHost -MultihostId $MultihostId -MultiHostIntegrationsCreateSources $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-V2024SourcesWithinMultiHost -MultihostId $MultihostId -MultiHostIntegrationsCreateSources $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024SourcesWithinMultiHost"
+            Write-Host $_.ErrorDetails
+        }
+- path: /multihosts/{multihostId}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/multi-host-integration#delete-multi-host
+      source: |
+        $MultihostId = "2c91808568c529c60168cca6f90c1326" # String | ID of Multi-Host Integration to delete.
+        
+        # Delete Multi-Host Integration
+        
+        try {
+            Remove-V2024MultiHost -MultihostId $MultihostId 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-V2024MultiHost -MultihostId $MultihostId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024MultiHost"
+            Write-Host $_.ErrorDetails
+        }
+- path: /multihosts/{multihostId}/acctAggregationGroups
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/multi-host-integration#get-acct-aggregation-groups
+      source: |
+        $MultihostId = "aMultiHostId" # String | ID of the Multi-Host Integration to update
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        
+        # List Account-Aggregation-Groups by Multi-Host ID
+        
+        try {
+            Get-V2024AcctAggregationGroups -MultihostId $MultihostId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2024AcctAggregationGroups -MultihostId $MultihostId -Offset $Offset -Limit $Limit   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024AcctAggregationGroups"
+            Write-Host $_.ErrorDetails
+        }
+- path: /multihosts/{multiHostId}/entitlementAggregationGroups
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/multi-host-integration#get-entitlement-aggregation-groups
+      source: |
+        $MultiHostId = "aMultiHostId" # String | ID of the Multi-Host Integration to update
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        
+        # List Entitlement-Aggregation-Groups by Integration ID
+        
+        try {
+            Get-V2024EntitlementAggregationGroups -MultiHostId $MultiHostId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2024EntitlementAggregationGroups -MultiHostId $MultiHostId -Offset $Offset -Limit $Limit   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024EntitlementAggregationGroups"
+            Write-Host $_.ErrorDetails
+        }
+- path: /multihosts/{multihostId}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/multi-host-integration#get-multi-host-integrations
+      source: |
+        $MultihostId = "2c91808568c529c60168cca6f90c1326" # String | ID of the Multi-Host Integration.
+        
+        # Get Multi-Host Integration By ID
+        
+        try {
+            Get-V2024MultiHostIntegrations -MultihostId $MultihostId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2024MultiHostIntegrations -MultihostId $MultihostId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024MultiHostIntegrations"
+            Write-Host $_.ErrorDetails
+        }
+- path: /multihosts
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/multi-host-integration#get-multi-host-integrations-list
+      source: |
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Sorters = "name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name** (optional)
+        $Filters = "id eq 2c91808b6ef1d43e016efba0ce470904" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **type**: *in*  **forSubAdminId**: *in* (optional)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $ForSubadmin = "5168015d32f890ca15812c9180835d2e" # String | If provided, filters the returned list according to what is visible to the indicated ROLE_SUBADMIN Identity or SOURCE_SUBADMIN identity.  The value of the parameter is either an Identity ID, or the special value **me**, which is shorthand for the calling Identity's ID.  A 400 Bad Request error is returned if the **for-subadmin** parameter is specified for an Identity that is not a subadmin. (optional)
+        
+        # List All Existing Multi-Host Integrations
+        
+        try {
+            Get-V2024MultiHostIntegrationsList 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2024MultiHostIntegrationsList -Offset $Offset -Limit $Limit -Sorters $Sorters -Filters $Filters -Count $Count -ForSubadmin $ForSubadmin   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024MultiHostIntegrationsList"
+            Write-Host $_.ErrorDetails
+        }
+- path: /multihosts/{multiHostId}/sources/errors
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/multi-host-integration#get-multi-host-source-creation-errors
+      source: |
+        $MultiHostId = "004091cb79b04636b88662afa50a4440" # String | ID of the Multi-Host Integration
+        
+        # List Multi-Host Source Creation Errors
+        
+        try {
+            Get-V2024MultiHostSourceCreationErrors -MultiHostId $MultiHostId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2024MultiHostSourceCreationErrors -MultiHostId $MultiHostId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024MultiHostSourceCreationErrors"
+            Write-Host $_.ErrorDetails
+        }
+- path: /multihosts/types
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/multi-host-integration#get-multihost-integration-types
+      source: |
+        
+        # List Multi-Host Integration Types
+        
+        try {
+            Get-V2024MultihostIntegrationTypes 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2024MultihostIntegrationTypes   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024MultihostIntegrationTypes"
+            Write-Host $_.ErrorDetails
+        }
+- path: /multihosts/{multihostId}/sources
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/multi-host-integration#get-sources-within-multi-host
+      source: |
+        $MultihostId = "aMultiHostId" # String | ID of the Multi-Host Integration to update
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Sorters = "name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name** (optional)
+        $Filters = "id eq 2c91808b6ef1d43e016efba0ce470904" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *in* (optional)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        
+        # List Sources Within Multi-Host Integration
+        
+        try {
+            Get-V2024SourcesWithinMultiHost -MultihostId $MultihostId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2024SourcesWithinMultiHost -MultihostId $MultihostId -Offset $Offset -Limit $Limit -Sorters $Sorters -Filters $Filters -Count $Count   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SourcesWithinMultiHost"
+            Write-Host $_.ErrorDetails
+        }
+- path: /multihosts/{multihostId}/sources/testConnection
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/multi-host-integration#test-connection-multi-host-sources
+      source: |
+        $MultihostId = "2c91808568c529c60168cca6f90c1324" # String | ID of the Multi-Host Integration
+        
+        # Test Configuration For Multi-Host Integration
+        
+        try {
+            Test-V2024ConnectionMultiHostSources -MultihostId $MultihostId 
+    
+            # Below is a request that includes all optional parameters
+            # Test-V2024ConnectionMultiHostSources -MultihostId $MultihostId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Test-V2024ConnectionMultiHostSources"
+            Write-Host $_.ErrorDetails
+        }
+- path: /multihosts/{multihostId}/sources/{sourceId}/testConnection
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/multi-host-integration#test-source-connection-multihost
+      source: |
+        $MultihostId = "2c91808568c529c60168cca6f90c1326" # String | ID of the Multi-Host Integration
+        $SourceId = "2c91808568c529f60168cca6f90c1324" # String | ID of the source within the Multi-Host Integration
+        
+        # Test Configuration For Multi-Host Integration's Single Source
+        
+        try {
+            Test-V2024SourceConnectionMultihost -MultihostId $MultihostId -SourceId $SourceId 
+    
+            # Below is a request that includes all optional parameters
+            # Test-V2024SourceConnectionMultihost -MultihostId $MultihostId -SourceId $SourceId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Test-V2024SourceConnectionMultihost"
+            Write-Host $_.ErrorDetails
+        }
+- path: /multihosts/{multihostId}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/multi-host-integration#update-multi-host-sources
+      source: |
+        $MultihostId = "anId" # String | ID of the Multi-Host Integration to update.
+        $UpdateMultiHostSourcesRequestInner = @"[{op=add, path=/description, value=MDK Multi-Host Integration 222 description}]"@ 
+        
+        
+        # Update Multi-Host Integration
+        
+        try {
+            $Result = ConvertFrom-JsonToUpdateMultiHostSourcesRequestInner -Json $UpdateMultiHostSourcesRequestInner
+            Update-V2024MultiHostSources -MultihostId $MultihostId -UpdateMultiHostSourcesRequestInner $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-V2024MultiHostSources -MultihostId $MultihostId -UpdateMultiHostSourcesRequestInner $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024MultiHostSources"
             Write-Host $_.ErrorDetails
         }
 - path: /non-employee-approvals/{id}/approve
@@ -14715,17 +15262,16 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2024/methods/sources#get-source-config
       source: |
-        $Id = "MyId" # String | The Source id
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Id = "cef3ee201db947c5912551015ba0c679" # String | The Source id
         $Locale = "de" # String | The locale to apply to the config. If no viable locale is given, it will default to ""en"" (optional)
         
-        # Gets source config with language translations
+        # Gets source config with language-translations
         
         try {
-            Get-V2024SourceConfig -Id $Id -XSailPointExperimental $XSailPointExperimental 
+            Get-V2024SourceConfig -Id $Id 
     
             # Below is a request that includes all optional parameters
-            # Get-V2024SourceConfig -Id $Id -XSailPointExperimental $XSailPointExperimental -Locale $Locale   
+            # Get-V2024SourceConfig -Id $Id -Locale $Locale   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SourceConfig"
             Write-Host $_.ErrorDetails
@@ -15015,33 +15561,6 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024Sources"
             Write-Host $_.ErrorDetails
         }
-- path: /sources/{sourceId}/connector/peek-resource-objects
-  method: POST
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/sources#peek-resource-objects
-      source: |
-        $SourceId = "cef3ee201db947c5912551015ba0c679" # String | The ID of the Source
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $ResourceObjectsRequest = @"
-        {
-          "maxCount" : 100,
-          "objectType" : "group"
-        }
-        "@
-        
-        # Peek source connector's resource objects
-        
-        try {
-            $Result = ConvertFrom-JsonToResourceObjectsRequest -Json $ResourceObjectsRequest
-            Receive-V2024ResourceObjects -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -ResourceObjectsRequest $Result 
-    
-            # Below is a request that includes all optional parameters
-            # Receive-V2024ResourceObjects -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -ResourceObjectsRequest $Result   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Receive-V2024ResourceObjects"
-            Write-Host $_.ErrorDetails
-        }
 - path: /sources/{sourceId}/connector/ping-cluster
   method: POST
   xCodeSample:
@@ -15049,15 +15568,14 @@
       label: SDK_tools/sdk/powershell/v2024/methods/sources#ping-cluster
       source: |
         $SourceId = "cef3ee201db947c5912551015ba0c679" # String | The ID of the Source
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # Ping cluster for source connector
         
         try {
-            Ping-V2024Cluster -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental 
+            Ping-V2024Cluster -SourceId $SourceId 
     
             # Below is a request that includes all optional parameters
-            # Ping-V2024Cluster -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental   
+            # Ping-V2024Cluster -SourceId $SourceId   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Ping-V2024Cluster"
             Write-Host $_.ErrorDetails
@@ -15402,6 +15920,32 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024SourceSchema"
             Write-Host $_.ErrorDetails
         }
+- path: /sources/{sourceId}/connector/peek-resource-objects
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/sources#search-resource-objects
+      source: |
+        $SourceId = "cef3ee201db947c5912551015ba0c679" # String | The ID of the Source
+        $ResourceObjectsRequest = @"
+        {
+          "maxCount" : 100,
+          "objectType" : "group"
+        }
+        "@
+        
+        # Peek source connector's resource objects
+        
+        try {
+            $Result = ConvertFrom-JsonToResourceObjectsRequest -Json $ResourceObjectsRequest
+            Search-V2024ResourceObjects -SourceId $SourceId -ResourceObjectsRequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Search-V2024ResourceObjects -SourceId $SourceId -ResourceObjectsRequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Search-V2024ResourceObjects"
+            Write-Host $_.ErrorDetails
+        }
 - path: /sources/{id}/synchronize-attributes
   method: POST
   xCodeSample:
@@ -15429,15 +15973,14 @@
       label: SDK_tools/sdk/powershell/v2024/methods/sources#test-source-configuration
       source: |
         $SourceId = "cef3ee201db947c5912551015ba0c679" # String | The ID of the Source
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # Test configuration for source connector
         
         try {
-            Test-V2024SourceConfiguration -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental 
+            Test-V2024SourceConfiguration -SourceId $SourceId 
     
             # Below is a request that includes all optional parameters
-            # Test-V2024SourceConfiguration -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental   
+            # Test-V2024SourceConfiguration -SourceId $SourceId   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Test-V2024SourceConfiguration"
             Write-Host $_.ErrorDetails
@@ -15449,15 +15992,14 @@
       label: SDK_tools/sdk/powershell/v2024/methods/sources#test-source-connection
       source: |
         $SourceId = "cef3ee201db947c5912551015ba0c679" # String | The ID of the Source.
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # Check connection for source connector.
         
         try {
-            Test-V2024SourceConnection -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental 
+            Test-V2024SourceConnection -SourceId $SourceId 
     
             # Below is a request that includes all optional parameters
-            # Test-V2024SourceConnection -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental   
+            # Test-V2024SourceConnection -SourceId $SourceId   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Test-V2024SourceConnection"
             Write-Host $_.ErrorDetails

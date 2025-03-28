@@ -1,5 +1,5 @@
 get:
-  summary: Retrieve single schema-mapped profile
+  summary: Get Profile
   operationId: getSingleSchemaMappedProfile
   description: It returns a single stored profile, optionally with schema-mapped field names.
   tags:
@@ -14,7 +14,7 @@ get:
     '500':
       $ref: "../responses/500.yaml"
 patch:
-  summary: Updates a profile via reverse mapping of schema-mapped fields
+  summary: Update Profile
   operationId: updateProfile
   description: Updates a profile only through ISC schema-mapped attributes, performs a reverse mapping to match the NERM attributes to update.
   tags:

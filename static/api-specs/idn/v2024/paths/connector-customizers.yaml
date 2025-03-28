@@ -1,18 +1,21 @@
 get:
   tags:
-  - Connector Rule Management
-  operationId: getConnectorRuleList
-  summary: List Connector Rules
-  description: List existing connector rules.
+    - Connector Customizers
+  operationId: listConnectorCustomizers
+  summary: List All Connector Customizers
+  description: List all connector customizers.
+  parameters:
+    - $ref: '../parameters/offset.yaml'
+    - $ref: '../parameters/limit.yaml'
   responses:
     '200':
-      description: List of connector rules.
+      description: List all connector customizers.
       content:
         application/json:
           schema:
             type: array
             items:
-              $ref: ../schemas/ConnectorRuleResponse.yaml
+              $ref: ../schemas/ConnectorCustomizersResponse.yaml
     '400':
       $ref: ../responses/400.yaml
     '401':
@@ -25,34 +28,29 @@ get:
       $ref: ../responses/500.yaml
   security:
     - userAuth:
-      - idn:rule-management-connector:read
-      - idn:rule-management-connector:manage
+        - sp:connector:read
   x-sailpoint-userLevels:
     - ORG_ADMIN
-  parameters:
-  - $ref: '../parameters/limit50.yaml'
-  - $ref: '../parameters/offset.yaml'
-  - $ref: '../parameters/count.yaml'
 post:
   tags:
-  - Connector Rule Management
-  operationId: createConnectorRule
-  summary: Create Connector Rule
-  description: Create a connector rule from the available types.
+    - Connector Customizers
+  operationId: createConnectorCustomizer
+  summary: Create Connector Customizer
+  description: Create a connector customizer.
   requestBody:
     required: true
-    description: Connector rule to create.
+    description: Connector customizer to create.
     content:
       application/json:
         schema:
-          $ref: ../schemas/ConnectorRuleCreateRequest.yaml
+          $ref: ../schemas/ConnectorCustomizerCreateRequest.yaml
   responses:
     '201':
-      description: Created connector rule.
+      description: Created connector customizer.
       content:
         application/json:
           schema:
-            $ref: ../schemas/ConnectorRuleResponse.yaml
+            $ref: ../schemas/ConnectorCustomizerCreateResponse.yaml
     '400':
       $ref: ../responses/400.yaml
     '401':
@@ -65,6 +63,6 @@ post:
       $ref: ../responses/500.yaml
   security:
     - userAuth:
-      - idn:rule-management-connector:manage
+        - sp:connector:create
   x-sailpoint-userLevels:
     - ORG_ADMIN

@@ -54,26 +54,161 @@ properties:
         type: string
         description: Cluster's human-readable display name.
         example: Corporate Cluster
+  accountCorrelationConfig:
+    description: Reference to account correlation config object.
+    type: object
+    nullable: true
+    properties:
+      type:
+        description: Type of object being referenced.
+        type: string
+        enum:
+          - ACCOUNT_CORRELATION_CONFIG
+        example: ACCOUNT_CORRELATION_CONFIG
+      id:
+        type: string
+        description: Account correlation config ID.
+        example: 2c9180855d191c59015d28583727245a
+      name:
+        type: string
+        description: Account correlation config's human-readable display name.
+        example: Directory [source-62867] Account Correlation
+  accountCorrelationRule:
+    description: >-
+      Reference to a rule that can do COMPLEX correlation. Only use this rule when you can't use accountCorrelationConfig.
+    type: object
+    nullable: true
+    properties:
+      type:
+        description: Type of object being referenced.
+        type: string
+        enum:
+          - RULE
+        example: RULE
+      id:
+        type: string
+        description: Rule ID.
+        example: 2c918085708c274401708c2a8a760001
+      name:
+        type: string
+        description: Rule's human-readable display name.
+        example: Example Rule
+  managerCorrelationMapping:
+    allOf:
+      - $ref: './ManagerCorrelationMapping.yaml'
+      - nullable: true
+        description: |
+          Filter object used during manager correlation to match incoming manager values to an existing manager's
+          account/identity.
+  managerCorrelationRule:
+    description: >-
+      Reference to the ManagerCorrelationRule. Only use this rule when a simple filter isn't sufficient.
+    type: object
+    nullable: true
+    properties:
+      type:
+        description: Type of object being referenced.
+        type: string
+        enum:
+          - RULE
+        example: RULE
+      id:
+        type: string
+        description: Rule ID.
+        example: 2c918085708c274401708c2a8a760001
+      name:
+        type: string
+        description: Rule's human-readable display name.
+        example: Example Rule
+  beforeProvisioningRule:
+    description: >-
+      Rule that runs on the CCG and allows for customization of provisioning plans before the API calls the connector.
+    type: object
+    nullable: true
+    properties:
+      type:
+        description: Type of object being referenced.
+        type: string
+        enum:
+          - RULE
+        example: RULE
+      id:
+        type: string
+        description: Rule ID.
+        example: 2c918085708c274401708c2a8a760001
+      name:
+        type: string
+        description: Rule's human-readable display name.
+        example: Example Rule
+  schemas:
+    type: array
+    items:
+      type: object
+      properties:
+        type:
+          description: Type of object being referenced.
+          type: string
+          enum:
+            - CONNECTOR_SCHEMA
+          example: CONNECTOR_SCHEMA
+        id:
+          type: string
+          description: Schema ID.
+          example: 2c91808568c529c60168cca6f90c1777
+        name:
+          type: string
+          description: Schema's human-readable display name.
+          example: MySchema
+    description: >-
+      List of references to schema objects.
+    example:
+      - type: "CONNECTOR_SCHEMA"
+        id: "2c9180835d191a86015d28455b4b232a"
+        name: "account"
+      - type: "CONNECTOR_SCHEMA"
+        id: "2c9180835d191a86015d28455b4b232b"
+        name: "group"
+  passwordPolicies:
+    type: array
+    nullable: true
+    items:
+      type: object
+      properties:
+        type:
+          description: Type of object being referenced.
+          type: string
+          enum:
+            - PASSWORD_POLICY
+          example: PASSWORD_POLICY
+        id:
+          type: string
+          description: Policy ID.
+          example: 2c91808568c529c60168cca6f90c1777
+        name:
+          type: string
+          description: Policy's human-readable display name.
+          example: My Password Policy
+    description: >-
+      List of references to the associated PasswordPolicy objects.
+    example:
+      - type: "PASSWORD_POLICY"
+        id: "2c9180855d191c59015d291ceb053980"
+        name: "Corporate Password Policy"
+      - type: "PASSWORD_POLICY"
+        id: "2c9180855d191c59015d291ceb057777"
+        name: "Vendor Password Policy"
+  features:
+    $ref: './SourceFeature.yaml'
   type:
     type: string
     description: >-
       Specifies the type of system being managed e.g. Workday, Multi-Host - Microsoft SQL Server, etc..
-      If you are creating a delimited file source, you must set the `provisionasCsv` query parameter to `true`. 
+      If you are creating a delimited file source, you must set the `provisionasCsv` query parameter to `true`.
     example: Multi-Host - Microsoft SQL Server
   connector:
     type: string
     description: Connector script name.
     example: multihost-microsoft-sql-server
-  lastSourceUploadSuccessCount:
-    type: integer
-    format: int32
-    description: Last successfully uploaded source count of given Multi-Host Integration.
-    example: 50
-  maxSourcesPerAggGroup:
-    type: integer
-    format: int32
-    description: Maximum sources that can contain in a aggregation group of Multi-Host Integration.
-    example: 10
   connectorClass:
     type: string
     description: >-
@@ -85,7 +220,7 @@ properties:
       type: string
     description: >-
       Connector specific configuration. This configuration will differ for Multi-Host Integration type.
-    properties: 
+    properties:
       maxAllowedSources:
         type: integer
         format: int32
@@ -98,7 +233,7 @@ properties:
         example: 40
       connectorFileUploadHistory:
         type: object
-        properties: 
+        properties:
           connectorFileNameUploadedDate:
             description: File name of the connector JAR
             type: string
@@ -148,10 +283,10 @@ properties:
             example: My Username
     example:
       multiHostAttributes: {
-         "password": "Password",
-         "user": "Username",
-         "connector_files": "mssql-jdbc-8.4.1.jre8.jar",
-         "authType": "SQLAuthentication"
+        "password": "Password",
+        "user": "Username",
+        "connector_files": "mssql-jdbc-8.4.1.jre8.jar",
+        "authType": "SQLAuthentication"
       }
       connectorFileUploadHistory: {
         "connectorFileNameUploadedDate": "2024-08-29T10:20:38.896479Z"
@@ -215,7 +350,7 @@ properties:
       - SOURCE_STATE_UNCHECKED_SOURCE
       - SOURCE_STATE_UNCHECKED_SOURCE_NO_ACCOUNTS
     description: >-
-      Status identifier that gives specific information about why a source is or isn't healthy. 
+      Status identifier that gives specific information about why a source is or isn't healthy.
     example: SOURCE_STATE_HEALTHY
   since:
     type: string
@@ -265,6 +400,34 @@ properties:
     default: null
     description: Source category (e.g. null, CredentialProvider).
     example: CredentialProvider
+  accountsFile:
+    description: Reference to accounts file for the source.
+    type: object
+    nullable: true
+    properties:
+      name:
+        description: Name of the accounts file.
+        type: string
+        example: My Accounts File
+      key:
+        type: string
+        description: The accounts file key.
+        example: 2c91808568c529c60168cca6f90c2222
+      uploadTime:
+        type: string
+        description: Date-time when the file was uploaded
+        format: date-time
+        example: 2022-02-08T14:50:03.827Z
+      expiry:
+        type: string
+        description: Date-time when the accounts file expired.
+        format: date-time
+        example: 2022-02-08T14:50:03.827Z
+      expired:
+        type: boolean
+        default: false
+        description: If this is true, it indicates that the accounts file has expired.
+        example: false
 required:
   - name
   - owner

@@ -1,7 +1,7 @@
 get:
   tags:
     - Multi-Host Integration
-  summary: Get Entitlement Aggregation Groups Within Multi-Host Integration ID
+  summary: List Entitlement-Aggregation-Groups by Integration ID
   description: >-
     This API will return array of aggregation groups within provided Multi-Host Integration ID.  
     
@@ -19,13 +19,17 @@ get:
       schema:
         type: string
         example: aMultiHostId
+    - $ref: '../parameters/offset.yaml'
+    - $ref: '../parameters/limit.yaml'
   responses:
     "200":
       description: OK. Returned if the request was successfully accepted into the system.
       content:
         application/json:
           schema:
-            $ref: '../schemas/MultiHostIntegrationsAggScheduleUpdate.yaml'
+            type: array
+            items:
+              $ref: '../schemas/MultiHostIntegrationsAggScheduleUpdate.yaml'
     '400':
       $ref: '../responses/400.yaml'
     '401':
@@ -40,3 +44,5 @@ get:
       $ref: '../responses/500.yaml'
   security:
     - userAuth: [idn:multihosts:update]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN

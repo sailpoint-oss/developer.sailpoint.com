@@ -383,6 +383,11 @@ tags:
       - Upload configurations and manage object mappings between tenants.
       
       Refer to [Using the SailPoint Configuration Hub](https://documentation.sailpoint.com/saas/help/confighub/config_hub.html) for more information about Configuration Hub.
+  - name: Connector Customizers
+    description: |
+      Saas Connectivity Customizers are cloud-based connector customizers. The customizers allow you to customize the out of the box connectors in a similar way to how you can use rules to customize VA (virtual appliance) based connectors.
+      
+      Use these APIs to implement connector customizers functionality.
   - name: Connector Rule Management
     description: |
       Use this API to implement connector rule management functionality. 
@@ -599,6 +604,10 @@ tags:
     description: |
       Use this API to implement managed client functionality. 
       With this functionality in place, administrators can modify and delete existing managed clients, create new ones, and view and make changes to their log configurations. 
+  - name: Managed Cluster Types
+    description: |
+      Use this API to implement managed cluster types functionality. 
+      With this functionality in place, administrators can modify and delete existing managed cluster types and create new ones.
   - name: Managed Clusters
     description: |
       Use this API to implement managed cluster functionality. 
@@ -613,6 +622,11 @@ tags:
     description: Configure and test multifactor authentication (MFA) methods
   - name: MFA Controller
     description: This API used for multifactor authentication functionality belong to gov-multi-auth service. This controller allow you to verify authentication by specified method
+  - name: Multi-Host Integration
+    description: |
+      Use this API to build a Multi-Host Integration.
+      Multi-Host Integration will help customers to configure and manage similar type of target system in Identity Security Cloud.
+      In Identity Security Cloud, administrators can create a Multi-Host Integration by going to Admin > Connections > Multi-Host Sources and selecting 'Create.'
   - name: Non-Employee Lifecycle Management
     description: |
       Use this API to implement non-employee lifecycle management functionality. 
@@ -1453,6 +1467,12 @@ paths:
     $ref: ./v2024/paths/certification-task.yaml
   /certification-tasks:
     $ref: ./v2024/paths/certification-tasks.yaml
+  /connector-customizers:
+    $ref: ./v2024/paths/connector-customizers.yaml
+  /connector-customizers/{id}:
+    $ref: ./v2024/paths/connector-customizers-id.yaml
+  /connector-customizers/{id}/versions:
+    $ref: ./v2024/paths/connector-customizers-versions.yaml
   /configuration-hub/object-mappings/{sourceOrg}:
     $ref: ./v2024/paths/configuration-hub/object-mapping.yaml
   /configuration-hub/object-mappings/{sourceOrg}/{objectMappingId}:
@@ -1493,6 +1513,12 @@ paths:
     $ref: ./v2024/paths/connectors-source-template.yaml
   /connectors/{scriptName}/correlation-config:
     $ref: ./v2024/paths/connectors-correlation-config.yaml
+  /connector-rules:
+    $ref: ./v2024/paths/connector-rules.yaml
+  /connector-rules/{id}:
+    $ref: ./v2024/paths/connector-rule.yaml
+  /connector-rules/validate:
+    $ref: ./v2024/paths/connector-rule-validate.yaml
   /data-segments/membership/{identityId}:
     $ref: "./v2024/paths/data-segment-membership.yaml"
   /data-segments/user-enabled/{identityId}:
@@ -1535,6 +1561,10 @@ paths:
     $ref: './v2024/paths/managed-cluster-log-config.yaml'
   /managed-clusters/{id}/manualUpgrade:
     $ref: './v2024/paths/managed-cluster-manualUpgrade.yaml'
+  /managed-cluster-types:
+    $ref: ./v2024/paths/managed-cluster-types.yaml
+  /managed-cluster-types/{id}:
+    $ref: ./v2024/paths/managed-cluster-types-path.yaml
   /mfa/okta-verify/config:
     $ref: ./v2024/paths/mfa-okta-config.yaml
   /mfa/duo-web/config:
@@ -1545,6 +1575,24 @@ paths:
     $ref: ./v2024/paths/mfa-kba-config-answers.yaml
   /mfa/{method}/test:
     $ref: ./v2024/paths/mfa-config-test.yaml
+  /multihosts:
+    $ref: './v2024/paths/multi-host-integration.yaml'
+  /multihosts/types:
+    $ref: './v2024/paths/multi-host-integration-types.yaml'
+  /multihosts/{multihostId}:
+    $ref: './v2024/paths/multi-host-integrations.yaml'
+  /multihosts/{multihostId}/sources/testConnection:
+    $ref: './v2024/paths/multi-host-integration-test-connection.yaml'
+  /multihosts/{multihostId}/sources/{sourceId}/testConnection:
+    $ref: './v2024/paths/multi-host-integration-test-connection-source.yaml'
+  /multihosts/{multihostId}/sources:
+    $ref: './v2024/paths/multi-host-integration-list-sources.yaml'
+  /multihosts/{multiHostId}/sources/errors:
+    $ref: './v2024/paths/multi-host-integration-sources-creation-error.yaml'
+  /multihosts/{multihostId}/acctAggregationGroups:
+    $ref: './v2024/paths/multi-host-integration-get-acct-agg-groups.yaml'
+  /multihosts/{multiHostId}/entitlementAggregationGroups:
+    $ref: './v2024/paths/multi-host-integration-get-entitlement-agg-groups.yaml'
   /non-employee-records:
     $ref: ./v2024/paths/non-employee-records.yaml
   /non-employee-records/{id}:
@@ -1733,6 +1781,16 @@ paths:
     $ref: ./v2024/paths/correlation-config.yaml
   /sources/{sourceId}/password-policies:
     $ref: ./v2024/paths/sources-policy-holders.yaml
+  /sources/{sourceId}/connector/check-connection:
+    $ref: ./v2024/paths/source-connector-check-connection.yaml
+  /sources/{sourceId}/connector/peek-resource-objects:
+    $ref: ./v2024/paths/source-connector-peek-resource-objects.yaml
+  /sources/{sourceId}/connector/ping-cluster:
+    $ref: ./v2024/paths/source-connector-ping-cluster.yaml
+  /sources/{sourceId}/connector/test-configuration:
+    $ref: ./v2024/paths/source-connector-test-configuration.yaml
+  /sources/{id}/connectors/source-config:
+    $ref: ./v2024/paths/source-connectors-source-config.yaml
   /tagged-objects:
     $ref: ./v2024/paths/tagged-objects.yaml
   /tagged-objects/{type}:
@@ -1853,12 +1911,6 @@ paths:
     $ref: ./v2024/paths/auth-profiles.yaml
   /auth-profiles/{id}:
     $ref: ./v2024/paths/auth-profile.yaml
-  /connector-rules:
-    $ref: ./v2024/paths/connector-rules.yaml
-  /connector-rules/{id}:
-    $ref: ./v2024/paths/connector-rule.yaml
-  /connector-rules/validate:
-    $ref: ./v2024/paths/connector-rule-validate.yaml
   /custom-password-instructions:
     $ref: ./v2024/paths/custom-password-instructions.yaml
   /custom-password-instructions/{pageId}:
@@ -2089,16 +2141,6 @@ paths:
     $ref: ./v2024/paths/sp-config-objects.yaml
   /sources/{id}/attribute-sync-config:
     $ref: ./v2024/paths/attr-sync-config-source.yaml
-  /sources/{sourceId}/connector/check-connection:
-    $ref: ./v2024/paths/source-connector-check-connection.yaml
-  /sources/{sourceId}/connector/peek-resource-objects:
-    $ref: ./v2024/paths/source-connector-peek-resource-objects.yaml
-  /sources/{sourceId}/connector/ping-cluster:
-    $ref: ./v2024/paths/source-connector-ping-cluster.yaml
-  /sources/{sourceId}/connector/test-configuration:
-    $ref: ./v2024/paths/source-connector-test-configuration.yaml
-  /sources/{id}/connectors/source-config:
-    $ref: ./v2024/paths/source-connectors-source-config.yaml
   /sources/{sourceId}/native-change-detection-config:
     $ref: ./v2024/paths/native-change-detection-config.yaml
   /sources/{id}/remove-accounts:

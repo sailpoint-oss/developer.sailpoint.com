@@ -1,32 +1,35 @@
 get:
   tags:
     - Managed Cluster Types
-  summary: Get Managed Cluster Types
+  summary: List Managed Cluster Types
   description: >-
     Get a list of Managed Cluster Types.
 
-    AMS Security: Devops, Internal
-    A token with SaaS Platform Internal or DevOps is required to access this endpoint.
   operationId: getManagedClusterTypes
   parameters:
     - name: type
       in: query
+      required: false
       description: Type descriptor
       schema:
         type: string
         example: IDN
     - name: pod
       in: query
+      required: false
       description: Pinned pod (or default)
       schema:
         type: string
         example: megapod-useast1
     - name: org
       in: query
+      required: false
       description: Pinned org (or default)
       schema:
         type: string
         example: denali-xyz
+    - $ref: '../parameters/offset.yaml'
+    - $ref: '../parameters/limit.yaml'
   responses:
     "200":
       description: Responds with a list of ManagedClusterType based on the query params provided
@@ -49,7 +52,9 @@ get:
     '500':
       $ref: '../responses/500.yaml'
   security:
-    - userAuth: [idn:managed-cluster-types:read, idn:managed-cluster-types:manage]
+    - userAuth: [idn:managed-cluster-types:read]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
 post:
   tags:
     - Managed Cluster Types
@@ -57,8 +62,6 @@ post:
   description: >-
     Create a new Managed Cluster Type.
 
-    AMS Security: Devops, Internal
-    A token with SaaS Platform Internal or DevOps is required to access this endpoint.
 
     The API returns a result that includes the Managed Cluster Type ID
   operationId: createManagedClusterType
@@ -88,4 +91,6 @@ post:
     '500':
       $ref: '../responses/500.yaml'
   security:
-    - userAuth: [idn:managed-cluster-types:manage]
+    - userAuth: [dn:managed-cluster-types:create]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN

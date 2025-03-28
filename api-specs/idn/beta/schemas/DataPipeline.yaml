@@ -1,0 +1,31 @@
+type: object
+properties:
+  type:
+    type: string
+    enum:
+      - PGA
+      - STREAMING
+    description: The type of the data pipeline
+    example: STREAMING
+  dags:
+    type: array
+    description: List of airflow DAGs for a customer
+    items:
+      $ref: './AirflowDagDto.yaml'
+    example:
+      - id: airflow-dag-1
+        runUrl: /admin/airflow/graph?dag_id=airflow-dag-1&execution_date=2020-06-02+15%3A05%3A03%2B00%3A00
+        executionDate: '2020-06-02T15:05:03Z'
+        startDate: '2020-06-02T15:05:02Z'
+        lastUpdatedDate: '2020-07-02T15:05:02Z'
+        qualifiers: 
+          - 20110909124646
+          - 20119093434324
+      - id: airflow-dag-2
+        runUrl: /admin/airflow/graph?dag_id=airflow-dag-2&execution_date=2020-06-02+17%3A05%3A03%2B00%3A00
+        executionDate: '2020-06-02T17:05:03Z'
+        startDate: '2020-06-02T17:05:02Z'
+        lastUpdatedDate: '2020-07-02T15:05:02Z'
+        qualifiers:
+          - 20110909124646
+          - 20119093434324

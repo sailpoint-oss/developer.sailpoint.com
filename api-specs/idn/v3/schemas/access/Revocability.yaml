@@ -1,0 +1,10 @@
+type: object
+nullable : true
+properties:
+  approvalSchemes:
+    type: array
+    nullable: true
+    description: List describing the steps in approving the revocation request
+    items:
+      $ref: './AccessProfileApprovalScheme.yaml'
+

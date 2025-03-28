@@ -1,0 +1,27 @@
+type: object
+properties:
+  id:
+    type: string
+    description: Job ID.
+    example: "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde"
+  status:
+    type: string
+    description: The job status.
+    enum:
+      - QUEUED
+      - IN_PROGRESS
+      - SUCCESS
+      - ERROR
+    example: "IN_PROGRESS"
+  payload:
+    description: Job payload.
+    $ref: './SourceSyncPayload.yaml'
+    example:
+      {
+        "type": "SYNCHRONIZE_SOURCE_ATTRIBUTES",
+        "dataJson": "{\"sourceId\":\"2c918083746f642c01746f990884012a\"}"
+      }
+required:
+  - id
+  - status
+  - payload

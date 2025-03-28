@@ -1,0 +1,61 @@
+type: object
+properties:
+  forwarded:
+    type: boolean
+    default: false
+    description:
+      True if the request for this item was forwarded from one owner to another.
+    example: false
+  originalOwner:
+    type: object
+    description: Identity of orginal approval owner. 
+    properties:
+      type:
+        type: string 
+        description: DTO type of original approval owner's identity.  
+        enum: 
+          - GOVERNANCE_GROUP
+          - IDENTITY
+        example: IDENTITY
+      id:
+        type: string
+        description: ID of original approval owner's identity. 
+        example: 2c7180a46faadee4016fb4e018c20642
+      name:
+        type: string
+        description: Display name of original approval owner. 
+        example: Michael Michaels
+  currentOwner:
+    allOf:
+    - $ref: './AccessItemReviewedBy.yaml'
+    - nullable: true
+  modified:
+    type: string
+    format: date-time
+    description: Time at which item was modified.
+    example: "2019-08-23T18:52:57.398Z"
+    nullable: true
+  status:
+    $ref: "./ManualWorkItemState.yaml"
+  scheme:
+    $ref: "./ApprovalScheme.yaml"
+  errorMessages:
+    type: array
+    items:
+      $ref: "./ErrorMessageDto.yaml"
+    description: >-
+      If the request failed, includes any error messages that were generated.
+    nullable: true
+  comment:
+    type: string
+    description: Comment, if any, provided by the approver.
+    example: I approve this request
+    nullable: true
+  removeDate:
+    type: string
+    description:
+      The date the role or access profile or entitlement is no longer assigned to the specified
+      identity.
+    format: "date-time"
+    example: "2020-07-11T00:00:00Z"
+    nullable: true

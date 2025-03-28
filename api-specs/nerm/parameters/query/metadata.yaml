@@ -1,0 +1,8 @@
+name: metadata
+in: query
+description: Returns batching metadata in the response
+required: false
+schema:
+  type: boolean
+  default: false
+  example: true

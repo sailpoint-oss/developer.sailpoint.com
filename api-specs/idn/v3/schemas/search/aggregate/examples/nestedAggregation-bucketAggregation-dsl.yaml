@@ -1,0 +1,12 @@
+summary: NestedAggregation with BucketAggregation using DSL
+value:
+  indices:  [ 'identities' ]
+  aggregationType: 'DSL'
+  aggregationsDsl:
+    access:
+      nested:
+        path: 'access'
+      aggs:
+        Access Source Name:
+          terms:
+            field: 'access.source.name.exact'

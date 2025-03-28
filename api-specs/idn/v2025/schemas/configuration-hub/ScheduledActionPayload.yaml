@@ -1,0 +1,78 @@
+type: object
+required:
+  - jobType
+  - content
+properties:
+  jobType:
+    type: string
+    description: Type of the scheduled job.
+    enum:
+      - BACKUP
+      - CREATE_DRAFT
+      - CONFIG_DEPLOY_DRAFT
+    example: BACKUP
+  startTime:
+    type: string
+    format: date-time
+    description: The time when this scheduled action should start. Optional.
+    example: 2024-08-16T14:16:58.389Z
+  cronString:
+    type: string
+    description: Cron expression defining the schedule for this action. Optional for repeated events.
+    example: "0 0 12 * * ?"
+  timeZoneId:
+    type: string
+    description: Time zone ID for interpreting the cron expression. Optional, will default to current time zone.
+    example: "America/Chicago"
+  content:
+    type: object
+    required:
+      - name
+    properties:
+      name:
+        type: string
+        description: Name of the scheduled action (maximum 50 characters).
+        maxLength: 50
+        example: Daily Backup
+      backupOptions:
+        type: object
+        description: Options for BACKUP type jobs. Required for BACKUP jobs.
+        properties:
+          includeTypes:
+            type: array
+            description: Object types that are to be included in the backup.
+            items:
+              type: string
+            example: ["ROLE", "IDENTITY_PROFILE"]
+          objectOptions:
+            type: object
+            description: Map of objectType string to the options to be passed to the target service for that objectType.
+            additionalProperties:
+              type: object
+              properties:
+                includedNames:
+                  type: array
+                  description: Set of names to be included.
+                  items:
+                    type: string
+                  example: ["Admin Role", "User Role"]
+            example: {
+              "SOURCE": {
+                "includedNames": ["Source1", "Source2"]
+              },
+              "ROLE": {
+                "includedNames": ["Admin Role", "User Role"]
+              }
+            }
+      sourceBackupId:
+        type: string
+        description: ID of the source backup. Required for CREATE_DRAFT jobs.
+        example: 5678b87d-48ca-439a-868f-2160001da8c2
+      sourceTenant:
+        type: string
+        description: Source tenant identifier. Required for CREATE_DRAFT jobs.
+        example: tenant-name
+      draftId:
+        type: string
+        description: ID of the draft to be deployed. Required for CONFIG_DEPLOY_DRAFT jobs.
+        example: 9012b87d-48ca-439a-868f-2160001da8c3

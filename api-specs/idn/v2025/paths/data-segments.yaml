@@ -1,0 +1,125 @@
+get:
+  operationId: listDataSegments
+  security:
+    - userAuth: [ idn:data-segments:read ]
+    - applicationAuth: [ idn:data-segments:read ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  tags:
+    - Data Segmentation
+  summary: Get Segments
+  description: >-
+    This API returns the segment specified by the given ID.
+
+  parameters:
+    - in: query
+      name: enabled
+      required: false
+      description: This boolean indicates whether the segment is currently active. Inactive segments have no effect.
+      schema:
+        type: boolean
+        default: true
+      example: true
+    - in: query
+      name: unique
+      required: false
+      description: This returns only one record if set to true and that would be the published record if exists.
+      schema:
+        type: boolean
+        default: false
+      example: false
+    - in: query
+      name: published
+      required: false
+      description: This boolean indicates whether the segment is being applied to the accounts. If unpublished its being actively modified until published
+      schema:
+        type: boolean
+        default: true
+      example: true
+    - $ref: '../parameters/limit.yaml'
+    - $ref: '../parameters/offset.yaml'
+    - $ref: '../parameters/count.yaml'
+    - in: query
+      name: filters
+      required: false
+      schema:
+        type: string
+        example: name eq ""
+      description: >-
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+      
+      
+        Filtering is supported for the following fields and operators:
+        
+        
+        **id**: *eq, in, sw*
+        
+        
+        **name**: *eq, in, sw*
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
+  responses:
+    '200':
+      description: List of all segments
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/data-segment/Data-Segment.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'
+post:
+  operationId: createDataSegment
+  security:
+    - userAuth: [ idn:data-segments:write ]
+    - applicationAuth: [ idn:data-segments:write ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  tags:
+    - Data Segmentation
+  summary: Create Segment
+  description: >-
+    This API creates a segment. 
+
+    >**Note:** Segment definitions may take time to propagate to all identities.
+
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/data-segment/Data-Segment.yaml'
+  responses:
+    '201':
+      description: Segment created
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/data-segment/Data-Segment.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'

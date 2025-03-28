@@ -1,0 +1,6 @@
+type: object
+description: Entitlement Request Configuration
+properties:
+  accessRequestConfig:
+    $ref: './EntitlementAccessRequestConfig.yaml'
+    description: Configuration for requesting access to entitlements

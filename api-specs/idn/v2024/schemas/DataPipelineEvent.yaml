@@ -1,0 +1,40 @@
+type: object
+properties:
+  timestamp:
+    type: string
+    format: 'date-time'
+    example: '2017-07-11T18:45:37.098Z'
+  type:
+    type: string
+    enum:
+      - IAI_PIPELINE_META
+      - IAI_PIPELINE_STREAMING
+      - IAI_PIPELINE_BATCH
+      - IAI_PIPELINE_ERROR
+    description: The type of the data pipeline event.
+    example: IAI_PIPELINE_STREAMING
+  dagId:
+    type: string
+    description: The Id of the Directed Acyclic Graph that produced the event.
+    example: ida-sp-one-streaming-144
+  qualifier:
+    type: string
+    description: The specific run of this dag and its associated data.
+    example: 20110909123456
+  operation:
+    type: string
+    description: The name of task/operation that produced this event
+    example: ProvisionFlinkCluster
+  status:
+    type: string
+    description: The outcome of the operation
+    enum:
+      - success
+      - failure
+    example: success
+  details:
+    type: object
+    additionalProperties:
+      type: string
+    description: >-
+      Arbitrary key-value pairs, related details of the event.

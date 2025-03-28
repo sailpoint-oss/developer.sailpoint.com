@@ -1,0 +1,120 @@
+get:
+  tags:
+    - Connector Customizers
+  summary: Get connector customizer
+  operationId: getConnectorCustomizer
+  description: Gets connector customizer by ID.
+  parameters:
+    - name: id
+      in: path
+      description: ID of the connector customizer to get.
+      required: true
+      schema:
+        type: string
+        example: b07dc46a-1498-4de8-bfbb-259a68e70c8a
+      x-sailpoint-resource-operation-id: listConnectorCustomizers
+  responses:
+    '200':
+      description: Connector customizer with the given ID.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/ConnectorCustomizersResponse.yaml
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '404':
+      $ref: ../responses/404.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml
+  security:
+    - userAuth:
+        - sp:connector:read
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+put:
+  tags:
+    - Connector Customizers
+  summary: Update Connector Customizer
+  description: >-
+    Update an existing connector customizer with the one provided in the request body. These fields are immutable: `id`, `name`, `type`.
+  operationId: putConnectorCustomizer
+  parameters:
+    - name: id
+      in: path
+      description: ID of the connector customizer to update.
+      required: true
+      schema:
+        type: string
+        example: b07dc46a-1498-4de8-bfbb-259a68e70c8a
+      x-sailpoint-resource-operation-id: listConnectorCustomizers
+  requestBody:
+    description: Connector rule with updated data.
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/ConnectorCustomizerUpdateRequest.yaml
+  responses:
+    '200':
+      description: Updated connector customizer.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/ConnectorCustomizerUpdateResponse.yaml
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '404':
+      $ref: ../responses/404.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml
+  security:
+    - userAuth:
+        - sp:connector:update
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+delete:
+  tags:
+    - Connector Customizers
+  summary: Delete Connector Customizer
+  description: Delete the connector customizer for the given ID.
+  operationId: deleteConnectorCustomizer
+  parameters:
+    - name: id
+      in: path
+      description: ID of the connector customizer to delete.
+      required: true
+      schema:
+        type: string
+        example: b07dc46a-1498-4de8-bfbb-259a68e70c8a
+      x-sailpoint-resource-operation-id: listConnectorCustomizers
+  responses:
+    '204':
+      $ref: ../responses/204.yaml
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '404':
+      $ref: ../responses/404.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml
+  security:
+    - userAuth:
+        - sp:connector:delete
+  x-sailpoint-userLevels:
+    - ORG_ADMIN

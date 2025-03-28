@@ -1,0 +1,67 @@
+type: object
+properties:
+    cloudAppId:
+        type: string
+        description: Id of the connected Application
+        example: 9e3cdd80edf84f119327df8bbd5bb5ac
+    description:
+        type: string
+        description: Description of the connected Application
+        example: This is a Sailpoint application
+    enabled:
+        type: boolean
+        description: Is the Application enabled
+        example: true
+        default: true
+    provisionRequestEnabled:
+        type: boolean
+        description: Is Provisioning enabled for connected Application
+        example: true
+        default: true
+    accountSource:
+        type: object
+        description: The Account Source of the connected Application
+        properties:
+            useForPasswordManagement:
+                type: boolean
+                description: Use this Account Source for password management
+                example: false
+                default: false
+            passwordPolicies:
+                type: array
+                description: A list of Password Policies for this Account Source
+                items:
+                    type: object
+                    properties:
+                        type:
+                            type: string
+                            description: DTO type
+                            example: PASSWORD_POLICY
+                        id:
+                            type: string
+                            description: ID of the object to which this reference applies
+                            example: 2c91808568c529c60168cca6f90c1313
+                        name:
+                            type: string
+                            description: Human-readable display name of the object to which this reference applies
+                            example: Policy ODS
+    launcherCount:
+        type: integer
+        format: int64
+        description: The amount of launchers for connected Application (long type)
+        example: 100
+    matchAllAccount:
+        type: boolean
+        description: Is Provisioning enabled for connected Application
+        example: true
+        default: false
+    owner:
+        type: array
+        description: The owner of the connected Application
+        items:
+            $ref: '../../v3/schemas/BaseReferenceDto.yaml'
+    appCenterEnabled:
+        type: boolean
+        description: Is App Center enabled for connected Application
+        example: false
+        default: false

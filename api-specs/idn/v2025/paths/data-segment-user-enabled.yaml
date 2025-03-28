@@ -1,0 +1,47 @@
+get:
+  operationId: getDataSegmentationEnabledForUser
+  security:
+    - userAuth: [ idn:data-segments:read ]
+    - applicationAuth: [ idn:data-segments:read ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  tags:
+    - Data Segmentation
+  summary: Is Segmentation enabled by Identity
+  description: >-
+    This API returns whether or not segmentation is enabled for the identity.
+  parameters:
+    - in: path
+      name: identityId
+      schema:
+        type: string
+      required: true
+      description: The identity ID to retrieve if segmentation is enabled for the identity.
+      example: ef38f943-47e9-4562-b5bb-8424a56397d8
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
+  responses:
+    '200':
+      description: Returns if segmentation is enabled for a specified User
+      content:
+        application/json:
+          schema:
+            type: boolean
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'

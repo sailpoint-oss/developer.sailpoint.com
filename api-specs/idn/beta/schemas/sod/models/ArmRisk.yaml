@@ -1,0 +1,48 @@
+description: An object containing the details of an ARM risk listing of the SOD violation reasons detected by this check.
+type: object
+properties:
+  name:
+    type: string
+    description: Risk Name
+    example: "BS02_RISK"
+  description:
+    type: string
+    description: Description
+    example: "This is a description of risk code BS02"
+  owners:
+    type: array
+    items:
+      type: string
+    description: List of risk owners' SAP usernames
+    example: []
+  externalReference:
+    type: string
+    description: URL to "what if" details in ARM
+    example: https://webui-dev.erpmaestro.com/home/what-if-report/100000
+  rating:
+    type: string
+    description: Risk Rating
+    example: "Informational"
+  businessFunctions:
+    type: object
+    description: A map from business function codes to "Left side" or "Right side"
+    additionalProperties:
+      type: string
+    example:
+      BS02_01: Left side
+      BS02_02: Right side
+  approvers:
+    type: array
+    items:
+      type: string
+    description: List of risk approvers' SAP usernames
+    example:
+      - JOE USER
+  mitigatingControls:
+    type: string
+    description: What was done to mitigate risks
+    example: Required two levels of verification
+  correctionAdvice:
+    type: string
+    description: Recommendation on how to resolve risk
+    example: Run a certification campaign and determine if access should be revoked

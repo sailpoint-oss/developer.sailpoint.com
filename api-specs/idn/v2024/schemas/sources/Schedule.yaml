@@ -1,0 +1,16 @@
+type: object
+required:
+  - type
+  - cronExpression
+properties:
+  type:
+    type: string
+    enum:
+      - ACCOUNT_AGGREGATION
+      - GROUP_AGGREGATION
+    description: The type of the Schedule.
+    example: ACCOUNT_AGGREGATION
+  cronExpression:
+    type: string
+    description: The cron expression of the schedule.
+    example: "0 0 5,13,21 * * ?"

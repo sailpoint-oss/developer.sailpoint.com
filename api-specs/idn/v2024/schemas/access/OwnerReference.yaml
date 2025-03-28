@@ -1,0 +1,18 @@
+type: object
+nullable: false
+description: The owner of this object.
+properties:
+  type:
+    type: string 
+    enum: 
+      - IDENTITY
+    description: Owner type. This field must be either left null or set to 'IDENTITY' on input, otherwise a 400 Bad Request error will result.
+    example: 'IDENTITY'
+  id:
+    type: string
+    description: Identity id
+    example: '2c9180a46faadee4016fb4e018c20639'
+  name:
+    type: string
+    description: Human-readable display name of the owner. It may be left null or omitted in a POST or PATCH. If set, it must match the current value of the owner's display name, otherwise a 400 Bad Request error will result.
+    example: 'support'

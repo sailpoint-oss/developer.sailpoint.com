@@ -1,0 +1,16 @@
+type: object
+properties:
+  segmentId:
+    type: string
+    description: Segment id
+    example: 313c28e5-3c3f-4bfe-bdd6-748afc123576
+  assignments:
+    type: array
+    description: Array of entitlement IDs to be assigned to the segment.
+    items:
+      $ref: './EntitlementRef.yaml'
+  removals:
+    type: array
+    description: Array of entitlement ids to be removed from the segment
+    items:
+      $ref: './EntitlementRef.yaml'

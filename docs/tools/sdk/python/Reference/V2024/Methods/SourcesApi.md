@@ -89,7 +89,7 @@ Method | HTTP request | Description
 [**get-provisioning-policy**](#get-provisioning-policy) | **GET** `/sources/{sourceId}/provisioning-policies/{usageType}` | Get Provisioning Policy by UsageType
 [**get-source**](#get-source) | **GET** `/sources/{id}` | Get Source by ID
 [**get-source-attr-sync-config**](#get-source-attr-sync-config) | **GET** `/sources/{id}/attribute-sync-config` | Attribute Sync Config
-[**get-source-config**](#get-source-config) | **GET** `/sources/{id}/connectors/source-config` | Gets source config with language translations
+[**get-source-config**](#get-source-config) | **GET** `/sources/{id}/connectors/source-config` | Gets source config with language-translations
 [**get-source-connections**](#get-source-connections) | **GET** `/sources/{sourceId}/connections` | Get Source Connections by ID
 [**get-source-entitlement-request-config**](#get-source-entitlement-request-config) | **GET** `/sources/{id}/entitlement-request-config` | Get Source Entitlement Request Configuration
 [**get-source-health**](#get-source-health) | **GET** `/sources/{sourceId}/source-health` | Fetches source health by id
@@ -104,7 +104,6 @@ Method | HTTP request | Description
 [**import-uncorrelated-accounts**](#import-uncorrelated-accounts) | **POST** `/sources/{id}/load-uncorrelated-accounts` | Process Uncorrelated Accounts
 [**list-provisioning-policies**](#list-provisioning-policies) | **GET** `/sources/{sourceId}/provisioning-policies` | Lists ProvisioningPolicies
 [**list-sources**](#list-sources) | **GET** `/sources` | Lists all sources in IdentityNow.
-[**peek-resource-objects**](#peek-resource-objects) | **POST** `/sources/{sourceId}/connector/peek-resource-objects` | Peek source connector&#39;s resource objects
 [**ping-cluster**](#ping-cluster) | **POST** `/sources/{sourceId}/connector/ping-cluster` | Ping cluster for source connector
 [**put-correlation-config**](#put-correlation-config) | **PUT** `/sources/{id}/correlation-config` | Update Source Correlation Configuration
 [**put-native-change-detection-config**](#put-native-change-detection-config) | **PUT** `/sources/{sourceId}/native-change-detection-config` | Update Native Change Detection Configuration
@@ -112,6 +111,7 @@ Method | HTTP request | Description
 [**put-source**](#put-source) | **PUT** `/sources/{id}` | Update Source (Full)
 [**put-source-attr-sync-config**](#put-source-attr-sync-config) | **PUT** `/sources/{id}/attribute-sync-config` | Update Attribute Sync Config
 [**put-source-schema**](#put-source-schema) | **PUT** `/sources/{sourceId}/schemas/{schemaId}` | Update Source Schema (Full)
+[**search-resource-objects**](#search-resource-objects) | **POST** `/sources/{sourceId}/connector/peek-resource-objects` | Peek source connector&#39;s resource objects
 [**sync-attributes-for-source**](#sync-attributes-for-source) | **POST** `/sources/{id}/synchronize-attributes` | Synchronize single source attributes.
 [**test-source-configuration**](#test-source-configuration) | **POST** `/sources/{sourceId}/connector/test-configuration` | Test configuration for source connector
 [**test-source-connection**](#test-source-connection) | **POST** `/sources/{sourceId}/connector/check-connection` | Check connection for source connector.
@@ -1317,18 +1317,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-source-config
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```python
-   configuration = Configuration()
-   configuration.experimental = True
- ```
-:::
-Gets source config with language translations
+Gets source config with language-translations
 Looks up and returns the source config for the requested source id after populating the source config values and applying language translations.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-source-config)
@@ -1338,7 +1327,6 @@ Looks up and returns the source config for the requested source id after populat
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | id | **str** | True  | The Source id
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
   Query | locale | **str** |   (optional) | The locale to apply to the config. If no viable locale is given, it will default to \"en\"
 
 ### Return type
@@ -1348,6 +1336,7 @@ Path   | id | **str** | True  | The Source id
 Code | Description  | Data Type | Response headers |
 ------------- | ------------- | ------------- |------------------|
 200 | A Connector Detail object | ConnectorDetail |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
 404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
@@ -1367,19 +1356,17 @@ from sailpoint.v2024.models.connector_detail import ConnectorDetail
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
-    id = 'id_example' # str | The Source id # str | The Source id
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    locale = 'locale_example' # str | The locale to apply to the config. If no viable locale is given, it will default to \"en\" (optional) # str | The locale to apply to the config. If no viable locale is given, it will default to \"en\" (optional)
+    id = 'cef3ee201db947c5912551015ba0c679' # str | The Source id # str | The Source id
+    locale = 'en' # str | The locale to apply to the config. If no viable locale is given, it will default to \"en\" (optional) # str | The locale to apply to the config. If no viable locale is given, it will default to \"en\" (optional)
 
     try:
-        # Gets source config with language translations
+        # Gets source config with language-translations
         
-        results = SourcesApi(api_client).get_source_config(id=id, x_sail_point_experimental=x_sail_point_experimental)
+        results = SourcesApi(api_client).get_source_config(id=id)
         # Below is a request that includes all optional parameters
-        # results = SourcesApi(api_client).get_source_config(id, x_sail_point_experimental, locale)
+        # results = SourcesApi(api_client).get_source_config(id, locale)
         print("The response of SourcesApi->get_source_config:\n")
         print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
@@ -2312,97 +2299,7 @@ with ApiClient(configuration) as api_client:
 
 [[Back to top]](#) 
 
-## peek-resource-objects
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```python
-   configuration = Configuration()
-   configuration.experimental = True
- ```
-:::
-Peek source connector's resource objects
-Retrieves a sample of data returned from account and group aggregation requests.
-
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/peek-resource-objects)
-
-### Parameters 
-
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | source_id | **str** | True  | The ID of the Source
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
- Body  | resource_objects_request | [**ResourceObjectsRequest**](../models/resource-objects-request) | True  | 
-
-### Return type
-[**ResourceObjectsResponse**](../models/resource-objects-response)
-
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | List of resource objects that was fetched from the source connector. | ResourceObjectsResponse |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
-### HTTP request headers
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### Example
-
-```python
-from sailpoint.v2024.api.sources_api import SourcesApi
-from sailpoint.v2024.api_client import ApiClient
-from sailpoint.v2024.models.resource_objects_request import ResourceObjectsRequest
-from sailpoint.v2024.models.resource_objects_response import ResourceObjectsResponse
-from sailpoint.configuration import Configuration
-configuration = Configuration()
-
-configuration.experimental = true
-
-with ApiClient(configuration) as api_client:
-    source_id = 'cef3ee201db947c5912551015ba0c679' # str | The ID of the Source # str | The ID of the Source
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    resource_objects_request = '''{
-          "maxCount" : 100,
-          "objectType" : "group"
-        }''' # ResourceObjectsRequest | 
-
-    try:
-        # Peek source connector's resource objects
-        new_resource_objects_request = ResourceObjectsRequest.from_json(resource_objects_request)
-        results = SourcesApi(api_client).peek_resource_objects(source_id=source_id, x_sail_point_experimental=x_sail_point_experimental, resource_objects_request=new_resource_objects_request)
-        # Below is a request that includes all optional parameters
-        # results = SourcesApi(api_client).peek_resource_objects(source_id, x_sail_point_experimental, new_resource_objects_request)
-        print("The response of SourcesApi->peek_resource_objects:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling SourcesApi->peek_resource_objects: %s\n" % e)
-```
-
-
-
-[[Back to top]](#) 
-
 ## ping-cluster
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```python
-   configuration = Configuration()
-   configuration.experimental = True
- ```
-:::
 Ping cluster for source connector
 This endpoint validates that the cluster being used by the source is reachable from IdentityNow.
 
@@ -2413,7 +2310,6 @@ This endpoint validates that the cluster being used by the source is reachable f
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | source_id | **str** | True  | The ID of the Source
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
 
 ### Return type
 [**StatusResponse**](../models/status-response)
@@ -2442,18 +2338,16 @@ from sailpoint.v2024.models.status_response import StatusResponse
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     source_id = 'cef3ee201db947c5912551015ba0c679' # str | The ID of the Source # str | The ID of the Source
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
         # Ping cluster for source connector
         
-        results = SourcesApi(api_client).ping_cluster(source_id=source_id, x_sail_point_experimental=x_sail_point_experimental)
+        results = SourcesApi(api_client).ping_cluster(source_id=source_id)
         # Below is a request that includes all optional parameters
-        # results = SourcesApi(api_client).ping_cluster(source_id, x_sail_point_experimental)
+        # results = SourcesApi(api_client).ping_cluster(source_id)
         print("The response of SourcesApi->ping_cluster:\n")
         print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
@@ -3053,6 +2947,71 @@ with ApiClient(configuration) as api_client:
 
 [[Back to top]](#) 
 
+## search-resource-objects
+Peek source connector's resource objects
+Retrieves a sample of data returned from account and group aggregation requests.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/search-resource-objects)
+
+### Parameters 
+
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | source_id | **str** | True  | The ID of the Source
+ Body  | resource_objects_request | [**ResourceObjectsRequest**](../models/resource-objects-request) | True  | 
+
+### Return type
+[**ResourceObjectsResponse**](../models/resource-objects-response)
+
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | List of resource objects that was fetched from the source connector. | ResourceObjectsResponse |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
+
+### HTTP request headers
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### Example
+
+```python
+from sailpoint.v2024.api.sources_api import SourcesApi
+from sailpoint.v2024.api_client import ApiClient
+from sailpoint.v2024.models.resource_objects_request import ResourceObjectsRequest
+from sailpoint.v2024.models.resource_objects_response import ResourceObjectsResponse
+from sailpoint.configuration import Configuration
+configuration = Configuration()
+
+
+with ApiClient(configuration) as api_client:
+    source_id = 'cef3ee201db947c5912551015ba0c679' # str | The ID of the Source # str | The ID of the Source
+    resource_objects_request = '''{
+          "maxCount" : 100,
+          "objectType" : "group"
+        }''' # ResourceObjectsRequest | 
+
+    try:
+        # Peek source connector's resource objects
+        new_resource_objects_request = ResourceObjectsRequest.from_json(resource_objects_request)
+        results = SourcesApi(api_client).search_resource_objects(source_id=source_id, resource_objects_request=new_resource_objects_request)
+        # Below is a request that includes all optional parameters
+        # results = SourcesApi(api_client).search_resource_objects(source_id, new_resource_objects_request)
+        print("The response of SourcesApi->search_resource_objects:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling SourcesApi->search_resource_objects: %s\n" % e)
+```
+
+
+
+[[Back to top]](#) 
+
 ## sync-attributes-for-source
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
@@ -3127,17 +3086,6 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## test-source-configuration
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```python
-   configuration = Configuration()
-   configuration.experimental = True
- ```
-:::
 Test configuration for source connector
 This endpoint performs a more detailed validation of the source''s configuration that can take longer than the lighter weight credential validation performed by the checkConnection API.
 
@@ -3148,7 +3096,6 @@ This endpoint performs a more detailed validation of the source''s configuration
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | source_id | **str** | True  | The ID of the Source
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
 
 ### Return type
 [**StatusResponse**](../models/status-response)
@@ -3177,18 +3124,16 @@ from sailpoint.v2024.models.status_response import StatusResponse
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     source_id = 'cef3ee201db947c5912551015ba0c679' # str | The ID of the Source # str | The ID of the Source
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
         # Test configuration for source connector
         
-        results = SourcesApi(api_client).test_source_configuration(source_id=source_id, x_sail_point_experimental=x_sail_point_experimental)
+        results = SourcesApi(api_client).test_source_configuration(source_id=source_id)
         # Below is a request that includes all optional parameters
-        # results = SourcesApi(api_client).test_source_configuration(source_id, x_sail_point_experimental)
+        # results = SourcesApi(api_client).test_source_configuration(source_id)
         print("The response of SourcesApi->test_source_configuration:\n")
         print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
@@ -3200,17 +3145,6 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## test-source-connection
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```python
-   configuration = Configuration()
-   configuration.experimental = True
- ```
-:::
 Check connection for source connector.
 This endpoint validates that the configured credentials are valid and will properly authenticate with the source identified by the sourceId path parameter.
 
@@ -3221,7 +3155,6 @@ This endpoint validates that the configured credentials are valid and will prope
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | source_id | **str** | True  | The ID of the Source.
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
 
 ### Return type
 [**StatusResponse**](../models/status-response)
@@ -3250,18 +3183,16 @@ from sailpoint.v2024.models.status_response import StatusResponse
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     source_id = 'cef3ee201db947c5912551015ba0c679' # str | The ID of the Source. # str | The ID of the Source.
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
         # Check connection for source connector.
         
-        results = SourcesApi(api_client).test_source_connection(source_id=source_id, x_sail_point_experimental=x_sail_point_experimental)
+        results = SourcesApi(api_client).test_source_connection(source_id=source_id)
         # Below is a request that includes all optional parameters
-        # results = SourcesApi(api_client).test_source_connection(source_id, x_sail_point_experimental)
+        # results = SourcesApi(api_client).test_source_connection(source_id)
         print("The response of SourcesApi->test_source_connection:\n")
         print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:

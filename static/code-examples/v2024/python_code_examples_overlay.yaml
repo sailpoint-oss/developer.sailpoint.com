@@ -15841,7 +15841,7 @@
 
         with ApiClient(configuration) as api_client:
           try:
-              # Get config object details
+              # List Config Objects
               
               results = SPConfigApi(api_client).list_sp_config_objects()
               # Below is a request that includes all optional parameters

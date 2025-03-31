@@ -21,7 +21,7 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
 <MermaidViewer diagram='erDiagram
     "Entitlement Service Usage" {
         varchar ENTITLEMENT_VALUE PK "ISC entitlement value associated with the access. Usually the cloud native ID."
-        varchar CIEM_KEY PK "composite key: CLOUD_PROVIDER-SERVICE-ENTITLEMENT_ACCOUNT_NATIVE_IDENTITY-CLOUD_SOURCE_NATIVE_ID-CLOUD_SUB_SOURCE_NATIVE_ID"
+        varchar CIEM_KEY PK "composite key: CLOUD_PROVIDER-SERVICE-ENTITLEMENT_ACCOUNT_NATIVE_IDENTITY-CLOUD_SOURCE_NATIVE_ID"
         varchar ACCESS_ASSIGNMENT_ID "Cloud native ID of the access assignment object. AWS: <policy arn>|<statement id> GCP: <policy id>:<role id>, Azure: RoleAssignment, RoleAssignmentScheduleInstance (PIM) or RoleEligibilityScheduleInstance (PIM)"
         varchar ACCOUNT_CLOUD_NAME "Cloud provider associated with the account (AWS|GCP|Okta|Azure). When the access is federated, this will be different than CLOUD_PROVIDER."
         varchar DISPLAY_NAME "Account display name"
@@ -37,7 +37,7 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
         array ENTITLEMENT_USAGE "Aggregated usage across all accounts and services for the ENTITLEMENT_VALUE"
     }
     "Resource Access" {
-        varchar CIEM_KEY PK "composite key: CLOUD_PROVIDER-SERVICE-ENTITLEMENT_ACCOUNT_NATIVE_IDENTITY-CLOUD_SOURCE_NATIVE_ID-CLOUD_SUB_SOURCE_NATIVE_ID"
+        varchar CIEM_KEY PK "composite key: CLOUD_PROVIDER-SERVICE-ENTITLEMENT_ACCOUNT_NATIVE_IDENTITY-CLOUD_SOURCE_NATIVE_ID"
         varchar ACCOUNT_NATIVE_IDENTITY "Account native ID"
         varchar ACCESS_LEVEL "The access level(s) the account has to the resource (Read, Write, Admin)"
         varchar ACCOUNT_SOURCE_TYPE "Cloud provider of the account GCP|AWS|Azure|Okta"

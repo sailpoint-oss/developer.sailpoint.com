@@ -1,0 +1,33 @@
+---
+id: put-connector-source-config-request
+title: PutConnectorSourceConfigRequest
+pagination_label: PutConnectorSourceConfigRequest
+sidebar_label: PutConnectorSourceConfigRequest
+sidebar_class_name: pythonsdk
+keywords: ['python', 'Python', 'sdk', 'PutConnectorSourceConfigRequest', 'PutConnectorSourceConfigRequest'] 
+slug: /tools/sdk/python/v3/models/put-connector-source-config-request
+tags: ['SDK', 'Software Development Kit', 'PutConnectorSourceConfigRequest', 'PutConnectorSourceConfigRequest']
+---
+
+# PutConnectorSourceConfigRequest
+
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**file** | **bytearray** | connector source config xml file | [required]
+}
+
+## Example
+
+```python
+from sailpoint.v3.models.put_connector_source_config_request import PutConnectorSourceConfigRequest
+
+put_connector_source_config_request = PutConnectorSourceConfigRequest(
+file=bytes(b'blah')
+)
+
+```
+[[Back to top]](#) 
+

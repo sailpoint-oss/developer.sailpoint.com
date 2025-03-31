@@ -1,0 +1,114 @@
+post:
+  summary: Add metadata to an entitlement.
+  description: Add single Access Model Metadata to an entitlement.
+  tags:
+  - Entitlements
+  operationId: createAccessModelMetadataForEntitlement
+  security:
+  - userAuth:
+    - idn:entitlement:update
+  parameters:
+  - name: id
+    in: path
+    required: true
+    x-sailpoint-resource-operation-id: listEntitlements
+    schema:
+      type: string
+    description: The entitlement id.
+    example: 2c91808c74ff913f0175097daa9d59cd
+  - name: attributeKey
+    in: path
+    required: true
+    x-sailpoint-resource-operation-id: listAccessModelMetadataAttribute
+    schema:
+      type: string
+    description: Technical name of the Attribute.
+    example: iscPrivacy
+  - name: attributeValue
+    in: path
+    required: true
+    x-sailpoint-resource-operation-id: listAccessModelMetadataAttributeValue
+    schema:
+      type: string
+    description: Technical name of the Attribute Value.
+    example: public
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/Entitlement.yaml
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml
+delete:
+  summary: Remove metadata from an entitlement.
+  description: Remove single Access Model Metadata from an entitlement.
+  tags:
+  - Entitlements
+  operationId: deleteAccessModelMetadataFromEntitlement
+  security:
+  - userAuth:
+    - idn:entitlement:delete
+  parameters:
+  - name: id
+    in: path
+    required: true
+    x-sailpoint-resource-operation-id: listEntitlements
+    schema:
+      type: string
+    description: The entitlement id.
+    example: 2c91808c74ff913f0175097daa9d59cd
+  - name: attributeKey
+    in: path
+    required: true
+    x-sailpoint-resource-operation-id: listAccessModelMetadataAttribute
+    schema:
+      type: string
+    description: Technical name of the Attribute.
+    example: iscPrivacy
+  - name: attributeValue
+    in: path
+    required: true
+    x-sailpoint-resource-operation-id: listAccessModelMetadataAttributeValue
+    schema:
+      type: string
+    description: Technical name of the Attribute Value.
+    example: public
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+  responses:
+    '200':
+      description: OK
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml

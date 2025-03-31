@@ -3,7 +3,7 @@ id: reference
 title: PowerShell SDK Reference 
 pagination_label: Reference
 sidebar_label: Reference
-sidebar_position: 1
+sidebar_position: 9
 sidebar_class_name: reference
 keywords: ['reference']
 description: PowerShell SDK reference.

@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'VAClusterStatusChangeEventApplication
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **String** | The GUID of the application | [required]
-**Name** | **String** | The name of the application | [required]
-**Attributes** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | Custom map of attributes for a source.  This will only be populated if type is `SOURCE` and the source has a proxy. | [required]
+**Id** | **String** | Application's globally unique identifier (GUID). | [required]
+**Name** | **String** | Application name. | [required]
+**Attributes** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | Custom map of attributes for a source. Attributes only populate if the type is `SOURCE` and the source has a proxy. | [required]
 
 ## Examples
 

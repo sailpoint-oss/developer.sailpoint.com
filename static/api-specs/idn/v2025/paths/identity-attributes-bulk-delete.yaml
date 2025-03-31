@@ -1,0 +1,42 @@
+delete:
+  operationId: deleteIdentityAttributesInBulk
+  tags:
+  - Identity Attributes
+  summary: Bulk delete Identity Attributes
+  description: Use this API to bulk delete identity attributes for a given set of
+    names. Attributes that are currently mapped in an identity profile cannot be deleted.  The
+    `system` and `standard` properties must be set to 'false' before you can delete
+    an identity attribute.
+  security:
+  - userAuth:
+    - idn:identity-profile-attribute-bulk:delete
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/identity-attributes/IdentityAttributeNames.yaml
+  responses:
+    '204':
+      $ref: ../responses/204.yaml
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '404':
+      $ref: ../responses/404.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml
+  parameters:
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true

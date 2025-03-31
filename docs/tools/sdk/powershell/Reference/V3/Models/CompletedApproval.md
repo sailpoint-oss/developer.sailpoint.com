@@ -39,6 +39,7 @@ Name | Type | Description | Notes
 **SodViolationContext** | [**SodViolationContextCheckCompleted**](sod-violation-context-check-completed) |  | [optional] 
 **PreApprovalTriggerResult** | [**CompletedApprovalPreApprovalTriggerResult**](completed-approval-pre-approval-trigger-result) |  | [optional] 
 **ClientMetadata** | **map[string]String** | Arbitrary key-value pairs provided during the request. | [optional] 
+**RequestedAccounts** | [**[]RequestedAccountRef**](requested-account-ref) | The accounts selected by the user for the access to be provisioned on, in case they have multiple accounts on one or more sources. | [optional] 
 
 ## Examples
 
@@ -66,7 +67,8 @@ $CompletedApproval = Initialize-PSSailpoint.V3CompletedApproval  -Id id12345 `
  -CurrentRemoveDate 2020-07-11T00:00Z `
  -SodViolationContext null `
  -PreApprovalTriggerResult null `
- -ClientMetadata {requestedAppName=test-app, requestedAppId=2c91808f7892918f0178b78da4a305a1}
+ -ClientMetadata {requestedAppName=test-app, requestedAppId=2c91808f7892918f0178b78da4a305a1} `
+ -RequestedAccounts null
 ```
 
 - Convert the resource to JSON

@@ -10,17 +10,17 @@ properties:
   created:
     type: string
     format: date-time
-    description: The date and time the status change occurred.
+    description: Date and time when the status change occurred.
     example: '2020-06-29T22:01:50.474Z'
   type:
     enum:
     - SOURCE
     - CLUSTER
-    description: The type of the object that initiated this event.
+    description: Type of the object that initiated the event.
     example: CLUSTER
   application:
     type: object
-    description: Details about the `CLUSTER` or `SOURCE` that initiated this event.
+    description: Details about the `CLUSTER` or `SOURCE` that initiated the event.
     required:
     - id
     - name
@@ -28,21 +28,21 @@ properties:
     properties:
       id:
         type: string
-        description: The GUID of the application
+        description: Application's globally unique identifier (GUID).
         example: 2c9180866166b5b0016167c32ef31a66
       name:
         type: string
-        description: The name of the application
+        description: Application name.
         example: Production VA Cluster
       attributes:
         type: object
-        description: Custom map of attributes for a source.  This will only be populated if type is `SOURCE` and the source has a proxy.
+        description: Custom map of attributes for a source. Attributes only populate if the type is `SOURCE` and the source has a proxy.
         additionalProperties: true
         nullable: true
         example: null
   healthCheckResult:
     type: object
-    description: The results of the most recent health check.
+    description: Results of the most recent health check.
     required:
     - message
     - resultType
@@ -50,21 +50,22 @@ properties:
     properties:
       message:
         type: string
-        description: Detailed message of the result of the health check.
+        description: Detailed message of the health check result..
         example: "Test Connection failed with exception. Error message - java.lang Exception"
       resultType:
         type: string
-        description: The type of the health check result.
+        description: Health check result type.
         example: SOURCE_STATE_ERROR_CLUSTER
       status:
+        type: string
         enum:
         - Succeeded
         - Failed
-        description: The status of the health check.
+        description: Health check status.
         example: Succeeded
   previousHealthCheckResult:
     type: object
-    description: The results of the last health check.
+    description: Results of the last health check.
     required:
     - message
     - resultType
@@ -72,15 +73,16 @@ properties:
     properties:
       message:
         type: string
-        description: Detailed message of the result of the health check.
+        description: Detailed message of the health check result.
         example: "Test Connection failed with exception. Error message - java.lang Exception"
       resultType:
         type: string
-        description: The type of the health check result.
+        description: Health check result type.
         example: SOURCE_STATE_ERROR_CLUSTER
       status:
+        type: string
         enum:
         - Succeeded
         - Failed
-        description: The status of the health check.
+        description: Health check status.
         example: Failed

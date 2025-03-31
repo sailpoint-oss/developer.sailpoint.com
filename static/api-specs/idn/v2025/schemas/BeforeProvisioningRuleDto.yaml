@@ -1,0 +1,17 @@
+type: object
+description: Before Provisioning Rule. 
+properties:
+  type:
+    type: string 
+    description: Before Provisioning Rule DTO type. 
+    enum: 
+      - RULE
+    example: RULE
+  id:
+    type: string
+    description: Before Provisioning Rule ID. 
+    example: 048eb3d55c5a4758bd07dccb87741c78
+  name:
+    type: string
+    description: Rule display name. 
+    example: Before Provisioning Airtable Rule

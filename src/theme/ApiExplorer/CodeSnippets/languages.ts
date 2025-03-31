@@ -93,7 +93,7 @@ export function generateLanguageSet() {
       },
       variant: variants[0],
       variants: variants,
-      tag: language.key === 'powershell' ? 'sailpoint-sdk' : '', // Only add the "sailpoint-sdk" tag for PowerShell
+      tag: language.key === 'powershell' || language.key === 'python' ? 'sailpoint-sdk' : '', // Only add the "sailpoint-sdk" tag for PowerShell or Python
     });
   });
 

@@ -5,3 +5,4 @@ required: false
 schema:
   type: string
   format: uuid
+  example: c5e1dd38-7e29-464f-a0da-0c0d886d022a

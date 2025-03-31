@@ -29,12 +29,14 @@ interface BlogPost {
   readTime: number;
 }
 
-const BlogCards: React.FC<BlogCardsProps> = ({ filterCallback = ['identity-security-cloud'], limit, featured }) => {
+const BlogCards: React.FC<BlogCardsProps> = ({ filterCallback, limit, featured }) => {
   const [cardData, setCardData] = useState<BlogPost[] | undefined>();
   const [loadingCards, setLoadingCards] = useState<boolean>(true);
 
   const getPosts = async () => {
-    const filters = featured ? ['featured'] : filterCallback;
+    let filters = filterCallback ?? ['identity-security-cloud'];
+    if (featured) filters = ['featured'];
+    
     const data = await getBlogPosts(filters.join('+'));
     const resultset: BlogPost[] = [];
     const titleList: { group: string; title: string }[] = [];

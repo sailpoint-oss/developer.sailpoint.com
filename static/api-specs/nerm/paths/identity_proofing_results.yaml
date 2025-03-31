@@ -1,7 +1,7 @@
 get:
-  summary: Get identity proofing result data in bulk
+  summary: Get identity proofing result data
   operationId: getIdentityProofingResults
-  description: This endpoint can retrieve identity proofing result data in bulk from Lifecycle
+  description: Retrieves identity proofing result data in bulk from Lifecycle
   tags:
     - identity proofing results
   parameters:

@@ -32,7 +32,7 @@ $TaskDefinitionSummary = Initialize-PSSailpoint.V2024TaskDefinitionSummary  -Id 
  -Description Aggregates from the specified application. `
  -ParentName Cloud Account Aggregation `
  -Executor sailpoint.task.ServiceTaskExecutor `
- -Arguments null
+ -Arguments {mantisExecutor=com.sailpoint.mantis.sources.task.AccountAggregationTask, eventClassesCsv=sailpoint.thunderbolt.events.AggregationEvents, serviceClass=sailpoint.thunderbolt.service.AggregationService, serviceMethod=accountAggregationTask}
 ```
 
 - Convert the resource to JSON

@@ -1,0 +1,36 @@
+type: object
+properties:
+  request:
+    $ref: './RecommendationRequest.yaml'
+  recommendation:
+    type: string
+    example: YES
+    description: The recommendation - 
+                    YES if the access is recommended,  
+                    NO if not recommended,  
+                    MAYBE if there is not enough information to make a recommendation,  
+                    NOT_FOUND if the identity is not found in the system
+    enum:
+      - YES
+      - NO
+      - MAYBE
+      - NOT_FOUND  
+  interpretations:
+    type: array
+    items:
+      type: string
+    description: The list of interpretations explaining the recommendation. The array is empty if includeInterpretations is false or not present in the request. e.g. - [ "Not approved in the last 6 months." ]. Interpretations will be translated using the client's locale as found in the Accept-Language header. If a translation for the client's locale cannot be found, the US English translation will be returned.
+    example: [
+        "75% of identities with the same department have this access. This information had a high impact on the overall score.",
+        "67% of identities with the same peer group have this access. This information had a low impact on the overall score.",
+        "42% of identities with the same location have this access. This information had a low impact on the overall score."
+    ]
+  translationMessages:
+    type: array
+    example: [{key: recommender-api.V2_WEIGHT_FEATURE_PRODUCT_INTERPRETATION_HIGH, values: ["75","department"]}]
+    items:
+      $ref: './TranslationMessage.yaml'
+    description: The list of translation messages, if they have been requested.  
+  recommenderCalculations:
+    $ref: './RecommenderCalculations.yaml'
+    description: The calcuations performed behind the scenes that provide recommendations to the user.    

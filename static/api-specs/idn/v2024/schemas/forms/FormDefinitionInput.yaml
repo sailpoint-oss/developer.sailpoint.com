@@ -10,6 +10,7 @@ properties:
       STRING FormDefinitionInputTypeString
     enum:
       - STRING
+      - ARRAY
     example: STRING
     type: string
     x-go-enum-desc: STRING FormDefinitionInputTypeString

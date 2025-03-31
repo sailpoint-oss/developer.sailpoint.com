@@ -2,6 +2,10 @@ get:
   operationId: getAccessRequestRecommendations
   tags:
     - IAI Access Request Recommendations
+  security:
+    - userAuth: [ iai:access-request-recommender:read ]
+  x-sailpoint-userLevels:
+    - Any
   summary: Identity Access Request Recommendations
   description: >-
     This API returns the access request recommendations for the specified identity. The default identity is *me* which indicates the current user.
@@ -22,9 +26,11 @@ get:
       required: false
       schema:
         type: integer
+        format: int32
         minimum: 0
         maximum: 15
         default: 15
+      example: 15
     - $ref: '../../v3/parameters/offset.yaml'
     - $ref: '../../v3/parameters/count.yaml'
     - in: query
@@ -54,6 +60,7 @@ get:
 
 
         **access.description**: *co, eq, in*
+      required: false
       example: access.name co "admin"
     - in: query
       name: sorters
@@ -68,6 +75,8 @@ get:
 
 
         By default the recommendations are sorted by highest confidence first.
+      required: false
+      example: access.name
   responses:
     '200':
       description: List of access request recommendations for the identityId

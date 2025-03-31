@@ -1,0 +1,39 @@
+post:
+  operationId: cancelAccessRequest
+  security:
+    - userAuth: [ idn:access-request:cancel ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  tags:
+    - Access Requests
+  summary: Cancel Access Request
+  description: >-
+    This API endpoint cancels a pending access request. An access request can be cancelled only if it has not passed the approval step.
+
+    In addition to users with ORG_ADMIN, any user who originally submitted the access request may cancel it.
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/CancelAccessRequest.yaml'
+        example:
+          {
+            "accountActivityId": "2c91808568c529c60168cca6f90c1313",
+            "comment": "I requested this role by mistake."
+          }
+  responses:
+    '202':
+      $ref: '../responses/202.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'

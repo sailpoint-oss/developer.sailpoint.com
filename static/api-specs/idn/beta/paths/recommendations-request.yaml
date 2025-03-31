@@ -1,6 +1,6 @@
 post:
   operationId: getRecommendations
-  summary: Returns a Recommendation Based on Object
+  summary: Returns Recommendation Based on Object
   tags:
     - IAI Recommendations
   description: >-
@@ -29,4 +29,6 @@ post:
     '500':
       $ref: '../../v3/responses/500.yaml'
   security:
-    - userAuth: []
+    - userAuth: [ iai:decisions:manage ]
+  x-sailpoint-userLevels:
+    - Any

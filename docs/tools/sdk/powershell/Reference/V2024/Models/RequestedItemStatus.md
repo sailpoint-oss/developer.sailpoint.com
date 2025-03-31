@@ -41,6 +41,7 @@ Name | Type | Description | Notes
 **Cancelable** | **Boolean** | True if the request can be canceled. | [optional] [default to $false]
 **AccessRequestId** | **String** | This is the account activity id. | [optional] 
 **ClientMetadata** | **map[string]String** | Arbitrary key-value pairs, if any were included in the corresponding access request | [optional] 
+**RequestedAccounts** | [**[]RequestedAccountRef**](requested-account-ref) | The accounts selected by the user for the access to be provisioned on, in case they have multiple accounts on one or more sources. | [optional] 
 
 ## Examples
 
@@ -70,7 +71,8 @@ $RequestedItemStatus = Initialize-PSSailpoint.V2024RequestedItemStatus  -Id 2c91
  -RemoveDate 2019-10-23T00:00Z `
  -Cancelable true `
  -AccessRequestId 2b838de9-db9b-abcf-e646-d4f274ad4238 `
- -ClientMetadata {key1=value1, key2=value2}
+ -ClientMetadata {key1=value1, key2=value2} `
+ -RequestedAccounts null
 ```
 
 - Convert the resource to JSON

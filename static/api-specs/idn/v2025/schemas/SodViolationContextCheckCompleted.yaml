@@ -1,0 +1,20 @@
+description: An object referencing a completed SOD violation check
+type: object
+nullable: true
+properties:
+  state:
+    type: string
+    enum: 
+    - SUCCESS
+    - ERROR
+    - null
+    description: The status of SOD violation check
+    example: "SUCCESS"
+    nullable: true
+  uuid:
+    description: The id of the Violation check event
+    type: string
+    example: "f73d16e9-a038-46c5-b217-1246e15fdbdd"
+    nullable: true
+  violationCheckResult:
+    $ref: "./SodViolationCheckResult.yaml"

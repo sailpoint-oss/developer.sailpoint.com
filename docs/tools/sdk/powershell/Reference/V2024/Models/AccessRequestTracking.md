@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **RequestedFor** | **String** | The identity id in which the access request is for. | [optional] 
 **RequestedItemsDetails** | [**[]RequestedItemDetails**](requested-item-details) | The details of the item requested. | [optional] 
-**AttributesHash** | **String** | a hash representation of the access requested, useful for longer term tracking client side. | [optional] 
+**AttributesHash** | **Int32** | a hash representation of the access requested, useful for longer term tracking client side. | [optional] 
 **AccessRequestIds** | **[]String** | a list of access request identifiers, generally only one will be populated, but high volume requested may result in multiple ids. | [optional] 
 
 ## Examples

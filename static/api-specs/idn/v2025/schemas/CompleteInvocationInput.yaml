@@ -1,0 +1,9 @@
+type: object
+properties:
+  localizedError:
+    $ref: './LocalizedMessage.yaml'
+  output:
+    type: object
+    nullable: true
+    example: {"approved": false}
+    description: Trigger output that completed the invocation. Its schema is defined in the trigger definition.

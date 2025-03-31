@@ -1,0 +1,11 @@
+type: object
+properties:
+  locale:
+    type: string
+    description: The language in which the messages are returned
+    example: 'en_US'
+  messages:
+    type: array
+    items:
+      $ref: './ResourceBundleMessage.yaml'
+    description: The list of message with their keys and formats

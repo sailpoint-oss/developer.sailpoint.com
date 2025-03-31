@@ -21,6 +21,8 @@ get:
         application/json:
           schema:
             $ref: '../schemas/WorkItems.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
     '401':
       $ref: '../../v3/responses/401.yaml'
     '403':
@@ -47,6 +49,13 @@ post:
       x-sailpoint-resource-operation-id: listWorkItems
       description: The ID of the work item
       example: ef38f94347e94562b5bb8424a56397d8
+  requestBody:
+    description: Body is the request payload to create form definition request
+    content:
+      application/json:
+        schema:
+          type: "string"
+          nullable: true
   responses:
     '200':
       description: A WorkItems object

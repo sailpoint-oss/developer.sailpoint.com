@@ -1,0 +1,142 @@
+post:
+  operationId: createCampaignFilter
+  tags:
+    - Certification Campaign Filters
+  summary: Create Campaign Filter
+  description: >-
+    Use this API to create a campaign filter based on filter details and criteria.
+  security:
+    - userAuth: [ idn:campaign-filter:create ]
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/CampaignFilterDetails.yaml'
+  responses:
+    '200':
+      description: Created successfully.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/CampaignFilterDetails.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'
+get:
+  operationId: listCampaignFilters
+  tags:
+    - Certification Campaign Filters
+  summary: List Campaign Filters
+  description: >-
+    Use this API to list all campaign filters. You can reduce scope with standard V3 query parameters.
+
+  security:
+    - userAuth: [ idn:campaign-filter-list:read ]
+  parameters:
+    - $ref: '../parameters/limit.yaml'
+    - in: query
+      name: start
+      description: >-
+        Start/Offset into the full result set. Usually specified with *limit* to paginate through the results.
+        See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters)
+        for more information.
+      required: false
+      example: 0
+      schema:
+        type: integer
+        format: int32
+        minimum: 0
+        default: 0
+    - in: query
+      name: includeSystemFilters
+      description: >-
+        If this is true, the API includes system filters in the count and results. Otherwise it excludes them. If no value is provided, the default is true. 
+      required: false
+      example: true
+      schema:
+        type: boolean
+        default: true
+  responses:
+    '200':
+      description: List of campaign filter objects.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              items:
+                type: array
+                description: List of campaign filters.
+                items:
+                  $ref: '../schemas/CampaignFilterDetails.yaml'
+              count:
+                type: integer
+                description: Number of filters returned.
+                example: 2
+          example: {
+            "items": [
+              {
+                "id": "5b8a2ba86393dd174495c4436dd76b25",
+                "name": "IdentityAttribute Inclusion Campaign Filter",
+                "description": "IdentityAttribute Inclusion Campaign Filter",
+                "owner": "SailPoint Support",
+                "mode": "INCLUSION",
+                "criteriaList": [
+                  {
+                    "type": "IDENTITY_ATTRIBUTE",
+                    "property": "displayName",
+                    "value": "#",
+                    "operation": "CONTAINS",
+                    "negateResult": false,
+                    "shortCircuit": false,
+                    "recordChildMatches": false,
+                    "id": null,
+                    "suppressMatchedItems": false,
+                    "children": null
+                  }
+                ],
+                "isSystemFilter": false
+              },
+              {
+                "id": "e9f9a1397b842fd5a65842087040d3ac",
+                "name": "Exclusion Campaign Filter",
+                "description": "Campaign filter for Exclusion update",
+                "owner": "SailPoint Support",
+                "mode": "EXCLUSION",
+                "criteriaList": [
+                  {
+                    "type": "IDENTITY_ATTRIBUTE",
+                    "property": "displayName",
+                    "value": "#@",
+                    "operation": "CONTAINS",
+                    "negateResult": false,
+                    "shortCircuit": false,
+                    "recordChildMatches": false,
+                    "id": null,
+                    "suppressMatchedItems": false,
+                    "children": null
+                  }
+                ],
+                "isSystemFilter": false
+              }
+            ],
+            "count": 2
+          }
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'

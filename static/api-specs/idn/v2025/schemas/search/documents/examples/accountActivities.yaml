@@ -1,0 +1,73 @@
+summary: 'A collection of Account Activities'
+value:
+  - id: 6f76c3add1db4ba8bbe0d42aaceb7a07
+    _type: accountactivity
+    type: accountactivity
+    requester:
+      name: Amos.Cunningham
+      id: ef1e2a36099447cb9448c68e1804dd9f
+      type: Identity
+    sources: Active Directory
+    created: '2025-01-02T21:45:59.795Z'
+    accountRequests:
+      - result:
+          status: committed
+        accountId: 'CN=Amos Cunningham,OU=Sales,OU=AI,OU=Demo,DC=seri,DC=sailpointdemo,DC=com'
+        op: Modify
+        provisioningTarget:
+          name: Active Directory
+          id: 5c71ff71195b4794a0b87e7cf36fb017
+          type: ADLDAPConnector
+        source:
+          name: Active Directory
+          id: 5c71ff71195b4794a0b87e7cf36fb017
+          type: ADLDAPConnector
+        attributeRequests:
+          - op: Add
+            name: memberOf
+            value: 'CN=HelpDesk,OU=Groups,OU=Demo,DC=seri,DC=sailpointdemo,DC=com'
+    stage: Completed
+    originalRequests:
+      - result:
+          status: Manual Task Created
+        accountId: 'CN=Amos Cunningham,OU=Sales,OU=AI,OU=Demo,DC=seri,DC=sailpointdemo,DC=com'
+        op: Modify
+        accountUuid: '{17413e85-1c08-4bb0-b658-9afdaad11d0a}'
+        source:
+          name: Active Directory
+          id: 5c71ff71195b4794a0b87e7cf36fb017
+          type: ADLDAPConnector
+        attributeRequests:
+          - op: Add
+            name: memberOf
+            value: 'CN=HelpDesk,OU=Groups,OU=Demo,DC=seri,DC=sailpointdemo,DC=com'
+    expansionItems: []
+    approvals:
+      - owner:
+          name: tina.smith
+          id: 322c6bce405a495a8e841a014b7d8410
+          type: Identity
+        result: Finished
+        attributeRequest:
+          op: Add
+          name: memberOf
+          value:
+            - 'CN=HelpDesk,OU=Groups,OU=Demo,DC=seri,DC=sailpointdemo,DC=com'
+        accountUuid: '{17413e85-1c08-4bb0-b658-9afdaad11d0a}'
+        modified: '2025-01-02T21:47:16.903Z'
+        source:
+          name: Active Directory
+          id: 5c71ff71195b4794a0b87e7cf36fb017
+          type: ADLDAPConnector
+    recipient:
+      name: Amos.Cunningham
+      id: ef1e2a36099447cb9448c68e1804dd9f
+      type: Identity
+    action: Access Request
+    modified: '2025-01-02T21:47:16.903Z'
+    trackingNumber: 051d09b0bb5b453d91f658ba7f1e3171
+    status: Complete
+    pod: pod01-useast1
+    org: org-name
+    synced: '2025-01-02T21:47:16.953Z'
+    _version: v2

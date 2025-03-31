@@ -5,3 +5,4 @@ required: false
 schema:
   type: boolean
   default: false
+  example: false

@@ -1,0 +1,6 @@
+summary: Query for Acccount Activities
+value:
+  indices:
+    - accountactivities
+  query:
+    query: 'sources:"Active Directory"'

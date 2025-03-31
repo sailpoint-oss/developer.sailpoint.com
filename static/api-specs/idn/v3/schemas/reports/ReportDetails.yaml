@@ -16,7 +16,7 @@ properties:
       Use this property to define what report should be processed in the RDE service.
     example: ACCOUNTS
   arguments:
-    oneOf:
+    anyOf:
       - $ref: '../reports/arguments/accounts-export-report-arguments.yaml'
       - $ref: '../reports/arguments/identities-details-report-arguments.yaml'
       - $ref: '../reports/arguments/identities-report-arguments.yaml'

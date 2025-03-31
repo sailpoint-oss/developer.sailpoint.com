@@ -15,24 +15,24 @@ properties:
     - name
     - id
     type: object
-    description: The source the accounts are being aggregated from. 
+    description: Source ISC is aggregating accounts from.
     properties:
       type:
         type: string 
-        description: The DTO type of the source the accounts are being aggregated from. 
+        description: Source's DTO type.
         enum: 
           - SOURCE
         example: SOURCE
       id:
         type: string
-        description: The ID of the source the accounts are being aggregated from. 
+        description: Source's unique ID.
         example: 2c9180835d191a86015d28455b4b232a
       name:
         type: string
-        description: Display name of the source the accounts are being aggregated from. 
+        description: Source's name.
         example: HR Active Directory
   status:
-    description: The overall status of the aggregation.
+    description: Aggregation's overall status.
     enum:
     - Success
     - Failed
@@ -41,28 +41,28 @@ properties:
   started:
     type: string
     format: date-time
-    description: The date and time when the account aggregation started.
+    description: Date and time when the account aggregation started.
     example: "2020-06-29T22:01:50.474Z"
   completed:
     type: string
     format: date-time
-    description: The date and time when the account aggregation finished.
+    description: Date and time when the account aggregation finished.
     example: "2020-06-29T22:02:04.090Z"
   errors:
     nullable: true
-    description: A list of errors that occurred during the aggregation.
+    description: List of errors that occurred during the aggregation.
     type: array
     items:
       type: string
-      description: A descriptive error message.
+      description: Descriptive error message.
       example: Accounts unable to be aggregated.
   warnings:
     nullable: true
-    description: A list of warnings that occurred during the aggregation.
+    description: List of warnings that occurred during the aggregation.
     type: array
     items:
       type: string
-      description: A descriptive warning message.
+      description: Descriptive warning message.
       example: Account Skipped
   stats:
     type: object
@@ -79,33 +79,33 @@ properties:
         format: int32
         minimum: 0
         maximum: 2147483647
-        description: The number of accounts which were scanned / iterated over.
+        description: Number of accounts scanned/iterated over.
         example: 200
       unchanged:
         type: integer
         format: int32
         minimum: 0
         maximum: 2147483647
-        description: The number of accounts which existed before, but had no changes.
+        description: Number of accounts that existed before but had no changes.
         example: 190
       changed:
         type: integer
         format: int32
         minimum: 0
         maximum: 2147483647
-        description: The number of accounts which existed before, but had changes.
+        description: Number of accounts that existed before but had changes.
         example: 6
       added:
         type: integer
         format: int32
         minimum: 0
         maximum: 2147483647
-        description: The number of accounts which are new - have not existed before.
+        description: Number of accounts that are new and didn't previously exist.
         example: 4
       removed:
         type: integer
         minimum: 0
         maximum: 2147483647
         format: int32
-        description: The number accounts which existed before, but no longer exist (thus getting removed).
+        description: Number accounts that existed before but were removed and no longer exist.
         example: 3

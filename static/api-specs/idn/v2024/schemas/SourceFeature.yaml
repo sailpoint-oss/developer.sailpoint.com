@@ -33,6 +33,7 @@ items:
     - ARM_UTILIZATION_EXTRACT
     - ARM_CHANGELOG_EXTRACT
     - USES_UUID
+    - APPLICATION_DISCOVERY
   example: AUTHENTICATE
 description: >-
   Optional features that can be supported by a source. Modifying the features array may cause source configuration errors that are unsupportable. It is recommended to not modify this array for SailPoint supported connectors.

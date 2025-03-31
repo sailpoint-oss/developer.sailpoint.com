@@ -1,0 +1,24 @@
+type: object
+properties:
+  authTenant:
+    type: string
+    description: The tenant providing support.
+    example: sailpoint
+  authUserName:
+    type: string
+    description: The username in the target tenant that the authTenant's support and services user will log in as.
+    example: slpt.services
+  role:
+    type: string
+    description: The user access role in the auth tenant capable of providing admin-level support
+    example: Support and Services Role
+  modified:
+    type: string
+    format: date-time
+    description: When the request was last modified.
+    example: "2019-08-23T18:52:59.162Z"
+  created:
+    type: string
+    format: date-time
+    description: When the request was created.
+    example: "2019-08-23T18:40:35.772Z"

@@ -1,5 +1,5 @@
 patch:
-  summary: Update a saved advanced search query
+  summary: Update a saved advanced search
   operationId: patchAdvancedSearch
   description: Update a saved advanced search query
   tags:

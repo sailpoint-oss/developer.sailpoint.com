@@ -10,13 +10,13 @@ slug: /extensibility/event-triggers/triggers/source-account-deleted
 tags: ['Event Triggers', 'Early Access Event Triggers', 'Fire and Forget']
 ---
 
-:::info
+## Event Context
 
-This is an early access event trigger. Please contact support to have it enabled in your tenant.
+:::warning
+
+This event trigger has been deprecated, and support will no longer handle requests to enable this trigger. A newer version of this trigger is being developed, and this documentation will be updated once the new trigger is available.
 
 :::
-
-## Event Context
 
 Source Account Deleted events occur whenever an account is deleted from its source during an account aggregation operation. The account may have been manually removed or deleted as the result of a provisioning event. The trigger cannot determine whether the account deletion happened on a source or in Identity Security Cloud. It omits events related to Identity Security Cloud accounts, such as the Identity Security Cloud Admin.
 

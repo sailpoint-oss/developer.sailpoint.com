@@ -16,12 +16,12 @@ tags: ['SDK', 'Software Development Kit', 'AccessRequestPreApprovalRequestedItem
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **String** | The unique ID of the access item being requested. | [required]
-**Name** | **String** | The human friendly name of the access item. | [required]
-**Description** | **String** | Detailed description of the access item. | [optional] 
-**Type** |  **Enum** [  "ACCESS_PROFILE",    "ROLE",    "ENTITLEMENT" ] | The type of access item. | [required]
-**Operation** |  **Enum** [  "Add",    "Remove" ] | The action to perform on the access item. | [required]
-**Comment** | **String** | A comment from the identity requesting the access. | [optional] 
+**Id** | **String** | Access item's unique ID. | [required]
+**Name** | **String** | Access item's name. | [required]
+**Description** | **String** | Access item's description. | [optional] 
+**Type** |  **Enum** [  "ACCESS_PROFILE",    "ROLE",    "ENTITLEMENT" ] | Access item's type. | [required]
+**Operation** |  **Enum** [  "Add",    "Remove" ] | Action to perform on the access item. | [required]
+**Comment** | **String** | Comment from the identity requesting access. | [optional] 
 
 ## Examples
 

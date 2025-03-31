@@ -37,7 +37,9 @@ get:
     '500':
       $ref: '../responses/500.yaml'
   security:
-    - userAuth: [idn:managed-cluster-types:read, idn:managed-cluster-types:manage]
+    - userAuth: [idn:managed-cluster-types:read]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
 patch:
   tags:
     - Managed Cluster Types
@@ -84,7 +86,9 @@ patch:
     '500':
       $ref: '../responses/500.yaml'
   security:
-    - userAuth: [idn:managed-cluster-types:manage]
+    - userAuth: [idn:managed-cluster-types:update]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
 delete:
   operationId: deleteManagedClusterType
   tags:
@@ -119,4 +123,6 @@ delete:
     '500':
       $ref: '../responses/500.yaml'
   security:
-    - userAuth: [idn:managed-cluster-types:manage]
+    - userAuth: [idn:managed-cluster-types:delete]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN

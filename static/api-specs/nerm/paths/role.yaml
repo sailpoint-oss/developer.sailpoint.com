@@ -1,6 +1,6 @@
 post:
   summary: Create a new role
-  operationId: postRole
+  operationId: submitRole
   description: Create a new role
   tags:
     - roles

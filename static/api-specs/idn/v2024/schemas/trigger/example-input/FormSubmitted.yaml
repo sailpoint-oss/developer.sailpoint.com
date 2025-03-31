@@ -1,0 +1,83 @@
+title: Form Submitted
+type: object
+required:
+- submittedAt
+- tenantId
+- formInstanceId
+- formDefinitionId
+- name
+- createdBy
+- submittedBy
+- formData
+properties:
+  submittedAt:
+    type: date-time
+    description: Date and time when the user submitted the form.
+    example: 2020-06-29T22:01:50.474Z
+  tenantId: 
+    type: string
+    description: ISC tenant's unique identifier.
+    example: 2c9180845d1edece015d27a9717c3e19
+  formInstanceId: 
+    type: string
+    description: Form instance's unique identifier.
+    example: 2c9180835d2e5168015d32f890ca1582
+  formDefinitionId: 
+    type: string
+    description: Form definition's unique identifier.
+    example: 2c9180835d2e5168015d32f890ca1581
+  name: 
+    type: string
+    description: Form's name.
+    example: Open Service Request
+  createdBy: 
+    type: object
+    description: Origin of the form creation. 
+    required: 
+      - type
+      - id
+    properties: 
+      type: 
+        type: string
+        description: Form creation origin's type.
+        enum: 
+          - WORKFLOW_EXECUTION
+          - SOURCE
+        example: WORKFLOW_EXECUTION
+      id: 
+        type: string
+        description: Unique identifier of the origin of the form creation.
+        example: 2c9180845d1edece015d27a9717c3e19
+  submittedBy:
+    type: object
+    description: Identity who submitted the form. 
+    required: 
+      - type
+      - id
+      - name
+    properties:
+      type: 
+        type: string
+        description: DTO type of the identity who submitted the form.
+        enum: 
+          - IDENTITY
+        example: IDENTITY
+      id: 
+        type: string
+        description: Unique identifier of the identity who submitted the form.
+        example: 2c9180845d1edece015d27a9717c3e19
+      name: 
+        type: string
+        description: Name of the identity who submitted the form.
+        example: Rob.Robertson
+  formData:
+    type: object
+    description: Data in the submitted form.
+    nullable: true
+    additionalProperties: true
+    example: {
+      "department": "IT",
+      "requestType": "New Laptop",
+      "laptop": "New Laptop type for Engineer",
+      "comments": "My laptop is running slowly, and I need to get a shiny new laptop to get my work done. Thanks!"
+    }

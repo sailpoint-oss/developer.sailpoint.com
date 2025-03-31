@@ -1,7 +1,7 @@
 get:
-  summary: Get the status of a bulk job
+  summary: Get bulk job status
   operationId: getJobStatus
-  description: Get the status of a bulk job
+  description: Retrieve the status of a bulk job
   tags:
     - job status
   parameters:

@@ -1,0 +1,37 @@
+get:
+  operationId: listNotificationPreferences
+  tags:
+  - Notifications
+  summary: List Notification Preferences for tenant.
+  description: Returns a list of notification preferences for tenant.
+  security:
+  - userAuth:
+    - idn:notification-preferences:read
+  responses:
+    '200':
+      description: Return preference for the given notification key.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/PreferencesDto.yaml
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '404':
+      $ref: ../responses/404.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml
+  parameters:
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true

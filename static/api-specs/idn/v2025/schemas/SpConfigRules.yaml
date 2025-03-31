@@ -1,0 +1,17 @@
+type: object
+title: Config Object Rules
+description: Rules to be applied to the config object during draft process
+properties:
+  takeFromTargetRules:
+    type: array
+    items:
+      $ref: ./SpConfigRule.yaml
+  defaultRules:
+    type: array
+    items:
+      $ref: ./SpConfigRule.yaml
+  editable:
+    type: boolean
+    default: false
+    description: Whether this object can be edited
+    example: true

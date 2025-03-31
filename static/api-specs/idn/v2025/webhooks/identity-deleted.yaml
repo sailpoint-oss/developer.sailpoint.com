@@ -1,0 +1,32 @@
+post:
+  summary: Identity Deleted
+  operationId: identityDeletedEvent
+  description: >-
+    This event trigger fires after an identity has been completely deleted from Identity Security Cloud (ISC).
+    ISC only deletes an identity when it meets all these requirements: 
+      * It has no correlated accounts.
+      * It's not an owner of a role, access profile, application, source, or task result. 
+      * It's not an owner or requester of a work item.
+      * It's not a protected account or manager.
+      * It has no assigned capabilities, such as being an assigned certification reviewer.
+      * It's not involved in any active certification as a target (its access is not being certified).
+    
+    These are some typical use cases for the trigger:
+      * Notify an administrator or system to take the appropriate provisioning actions as part of the leaver workflow.
+      * Notify a system to trigger another action, such as deactivating an employee's badge upon termination.
+
+    This is a `FIRE_AND_FORGET` event trigger. 
+    You can have a maximum of 50 subscriptions for this trigger.
+    For more information about this event trigger, refer to [Identity Deleted](https://developer.sailpoint.com/docs/extensibility/event-triggers/triggers/identity-deleted).
+
+    >**Note: This is an early access event trigger. Contact support to enable it on your tenant.**
+  tags:
+    - Triggers
+  security:
+    - userAuth: [sp:trigger-service-subscriptions:manage]
+  requestBody:
+    required: true
+    content: 
+      application/json:
+        schema: 
+          $ref: '../schemas/trigger/example-input/IdentityDeleted.yaml'

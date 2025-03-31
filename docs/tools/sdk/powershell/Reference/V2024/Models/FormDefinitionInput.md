@@ -17,7 +17,7 @@ tags: ['SDK', 'Software Development Kit', 'FormDefinitionInput', 'V2024FormDefin
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** | Unique identifier for the form input. | [optional] 
-**Type** |  **Enum** [  "STRING" ] | FormDefinitionInputType value. STRING FormDefinitionInputTypeString | [optional] 
+**Type** |  **Enum** [  "STRING",    "ARRAY" ] | FormDefinitionInputType value. STRING FormDefinitionInputTypeString | [optional] 
 **Label** | **String** | Name for the form input. | [optional] 
 **Description** | **String** | Form input's description. | [optional] 
 

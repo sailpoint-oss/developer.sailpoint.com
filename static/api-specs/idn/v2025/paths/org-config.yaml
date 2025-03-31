@@ -1,0 +1,95 @@
+get:
+  operationId: getOrgConfig
+  tags:
+  - Org Config
+  summary: Get Org Config Settings
+  security:
+  - userAuth:
+    - idn:org-configs:read
+    - idn:org-configs:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  description: Get the current organization's configuration settings, only external accessible properties.
+  responses:
+    '200':
+      description: Request succeeded.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/OrgConfig.yaml
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '404':
+      $ref: ../responses/404.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml
+  parameters:
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+patch:
+  operationId: patchOrgConfig
+  tags:
+  - Org Config
+  summary: Patch Org Config
+  security:
+  - userAuth:
+    - idn:org-configs:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  description: Patch the current organization's configuration, using http://jsonpatch.com/
+    syntax. This is commonly used to changing an organization's time zone.
+  requestBody:
+    description: A list of schema attribute update operations according to the [JSON
+      Patch](https://tools.ietf.org/html/rfc6902) standard.
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: ../schemas/JsonPatchOperation.yaml
+        example:
+        - op: replace
+          path: /timeZone
+          value: America/Toronto
+    required: true
+  responses:
+    '200':
+      description: Successfully patched org config.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/OrgConfig.yaml
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '404':
+      $ref: ../responses/404.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml
+  parameters:
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+

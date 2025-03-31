@@ -1,0 +1,22 @@
+description: ConnectorCustomizerVersionCreateResponse
+type: object
+nullable: true
+properties:
+  customizerID:
+    type: string
+    description: ID of connector customizer.
+    example: 'b07dc46a-1498-4de8-bfbb-259a68e70c8a'
+  imageID:
+    type: string
+    description: ImageID of the connector customizer.
+    example: 2c91808568c529c60168cca6f90c1324
+  version:
+    type: integer
+    format: int64
+    description: Image version of the connector customizer.
+    example: 1
+  created:
+    type: string
+    description: Date-time when the connector customizer version was created.
+    format: date-time
+    example: 2022-02-08T14:50:03.827Z

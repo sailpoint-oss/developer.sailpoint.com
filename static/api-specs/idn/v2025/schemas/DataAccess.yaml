@@ -1,0 +1,36 @@
+type: object
+description: DAS data for the entitlement
+nullable: true
+properties:
+  policies:
+    type: array
+    description: List of classification policies that apply to resources the entitlement \ groups has access to
+    items:
+      type: object
+      properties:
+        value:
+          type: string
+          description: Value of the policy
+          example: GDPR-20
+  categories:
+    type: array
+    description: List of classification categories that apply to resources the entitlement \ groups has access to
+    items:
+      type: object
+      properties:
+        value:
+          type: string
+          description: Value of the category
+          example: email-7
+        matchCount:
+          type: integer
+          description: Number of matched for each category
+          example: 10
+  impactScore:
+    type: object
+    properties:
+      value:
+        type: string
+        description: Impact Score for this data
+        example: Medium
+

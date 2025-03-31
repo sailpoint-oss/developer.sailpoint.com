@@ -1,5 +1,5 @@
 get:
-  summary: Find workflow session by id
+  summary: Find workflow session
   operationId: getWorkflowSession
   description: Find workflow session by id
   tags:
@@ -14,7 +14,7 @@ get:
     '500':
       $ref: "../responses/500.yaml"
 patch:
-  summary: Update a workflow session by id
+  summary: Update a workflow session
   operationId: patchWorkflowSession
   description: Update a workflow session by id
   tags:

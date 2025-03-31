@@ -18,7 +18,7 @@ get:
       $ref: "../responses/500.yaml"
 post:
   summary: Create multiple new user-manager relationships
-  operationId: postUserManagers
+  operationId: submitUserManagers
   description: Create multiple new user-manager relationships
   tags:
     - user managers

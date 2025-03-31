@@ -74,3 +74,21 @@ properties:
   sodViolationContext:
     $ref: './SodViolationContextCheckCompleted.yaml'
     description: The details of the SOD violations for the associated approval.
+  clientMetadata:
+    nullable: true
+    type: object
+    additionalProperties:
+      type: string
+    description: >-
+      Arbitrary key-value pairs, if any were included in the corresponding
+      access request item
+    example:
+      customKey1: custom value 1
+      customKey2: custom value 2
+  requestedAccounts:
+    nullable: true
+    type: array
+    items:
+      $ref: '../../v3/schemas/RequestedAccountRef.yaml'
+    description: The accounts selected by the user for the access to be provisioned on, in case they have multiple accounts on one or more sources.
+

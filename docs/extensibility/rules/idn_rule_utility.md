@@ -1,19 +1,19 @@
 ---
 id: rule-utility
-title: Using ISCRuleUtil as a Wrapper for Common Rule Operations
+title: Using IdnRuleUtil as a Wrapper for Common Rule Operations
 pagination_label: Identity Security Cloud Rule Utility
 sidebar_label: Identity Security Cloud Rule Utility
 sidebar_position: 4
 sidebar_class_name: ruleUtility
 keywords: ['rule', 'utility']
-description: Using ISCRuleUtil as a Wrapper for Common Rule Operations
+description: Using IdnRuleUtil as a Wrapper for Common Rule Operations
 slug: /extensibility/rules/rule-utility
 tags: ['Rules']
 ---
 
 ## Overview
 
-Use this guide to learn how to configure searchable account attributes within Identity Security Cloud and then leverage them within the ISCRuleUtil wrapper class when searching accounts for attributes such as uniqueness checks. There are also methods in the ISCRuleUtil wrapper class you can use without the additional searchable attributes.
+Use this guide to learn how to configure searchable account attributes within Identity Security Cloud and then leverage them within the IdnRuleUtil wrapper class when searching accounts for attributes such as uniqueness checks. There are also methods in the IdnRuleUtil wrapper class you can use without the additional searchable attributes.
 
 Search attributes allow you to search across accounts and sources to determine whether a specific attribute value is being used in your Identity Security Cloud environment.
 

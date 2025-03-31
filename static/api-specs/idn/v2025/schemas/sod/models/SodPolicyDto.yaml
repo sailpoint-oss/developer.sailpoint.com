@@ -1,0 +1,17 @@
+type: object
+description: SOD policy. 
+properties:
+  type:
+    type: string 
+    description: SOD policy DTO type. 
+    enum: 
+      - SOD_POLICY
+    example: SOD_POLICY
+  id:
+    type: string
+    description: SOD policy ID. 
+    example: 0f11f2a4-7c94-4bf3-a2bd-742580fe3bde
+  name:
+    type: string
+    description: SOD policy display name. 
+    example: Business SOD Policy 

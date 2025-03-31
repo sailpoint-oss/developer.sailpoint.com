@@ -30,6 +30,13 @@ yarn.lock
 /products/iiq/api
 /products/nerm/api
 
+/static/code-examples/beta/beta.yaml
+/static/code-examples/beta/merged_code_examples.yaml
+/static/code-examples/v3/v3.yaml
+/static/code-examples/v3/merged_code_examples.yaml
+/static/code-examples/v2024/v2024.yaml
+/static/code-examples/v2024/merged_code_examples.yaml
+
 /docs/api/v3/*
 /docs/api/beta/*
 /docs/api/iiq

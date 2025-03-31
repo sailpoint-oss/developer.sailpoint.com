@@ -1,0 +1,11 @@
+description: This configuration is required only when the subscription type is INLINE.
+type: object
+properties:
+  error:
+    type: string
+    description: An error message.
+    example: "Access is denied"
+  output:
+    type: object
+    description: The details of the inline configuration.
+    example: {"accessRequestId": "1234"}

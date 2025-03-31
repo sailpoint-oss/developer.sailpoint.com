@@ -1,0 +1,31 @@
+type: object
+properties:
+  accessType:
+    type: string
+    example: account
+    description: the access item type. account in this case
+  id:
+    type: string
+    example: 2c918087763e69d901763e72e97f006f
+    description: the access item id
+  nativeIdentity:
+    type: string
+    example: dr.arden.ogahn.d
+    description: the native identifier used to uniquely identify an acccount 
+  sourceName:
+    type: string
+    example: DataScienceDataset
+    description: the name of the source
+  sourceId:
+    type: string
+    example: 2793o32dwd
+    description: the id of the source
+  entitlementCount:
+    type: string
+    example: 12
+    description: the number of entitlements the account will create
+  displayName:
+    type: string
+    example: Dr. Arden Rogahn MD
+    description: the display name of the identity
+  

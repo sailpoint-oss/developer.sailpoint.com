@@ -10662,7 +10662,7 @@
       label: SDK_tools/sdk/powershell/beta/methods/sp-config#list-sp-config-objects
       source: |
         
-        # Get config object details
+        # List Config Objects
         
         try {
             Get-BetaSpConfigObjects 

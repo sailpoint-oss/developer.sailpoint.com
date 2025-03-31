@@ -13338,7 +13338,7 @@
       label: SDK_tools/sdk/powershell/v2024/methods/sp-config#list-sp-config-objects
       source: |
         
-        # Get config object details
+        # List Config Objects
         
         try {
             Get-V2024SpConfigObjects 

@@ -10,5 +10,6 @@ enum:
   - ACCOUNT
   - AGGREGATED_ENTITLEMENT
   - INVALID_CERTIFIABLE_ENTITY
+  - INVALID_CERTIFIABLE_BUNDLE
 description: Type of the criteria in the filter. The `COMPOSITE` filter can contain multiple filters in an AND/OR relationship. 
 example: IDENTITY_ATTRIBUTE

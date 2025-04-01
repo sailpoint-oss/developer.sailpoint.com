@@ -221,7 +221,7 @@ try {
 [[Back to top]](#) 
 
 ## get-workflow-execution
-Use this API to get a single workflow execution. Workflow executions are available for up to 90 days before being archived. If you attempt to access a workflow execution that has been archived, you will receive a "404 Not Found" response.
+Get a single workflow execution. Workflow executions are available for up to 90 days before being archived. If you attempt to access a workflow execution that has been archived, you will receive a "404 Not Found" response.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-workflow-execution)
 

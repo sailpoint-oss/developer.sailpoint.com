@@ -41,6 +41,7 @@ properties:
       - SuccessFactorsOperationProvisioning
       - WebServiceAfterOperationRule
       - WebServiceBeforeOperationRule
+      - ResourceObjectCustomization
     description: the type of rule
     example: BuildMap
   signature:

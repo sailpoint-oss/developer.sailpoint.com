@@ -1,10 +1,10 @@
 type: object
 title: Config Object Rule
-description: Format of Config Hub Object Rules
+description: Format of Config Hub object rules.
 properties:
   path:
     type: string
-    description: JSONPath expression denoting the path within the object where a value substitution should be applied
+    description: JSONPath expression denoting the path within the object where a value substitution should be applied.
     example: $.enabled
   value:
     anyOf:
@@ -14,10 +14,10 @@ properties:
       - type: number
       - type: boolean
     nullable: true
-    description: Value to be assigned at the jsonPath location within the object
+    description: Value to be assigned at the jsonPath location within the object.
   modes:
     type: array
-    description: Draft modes to which this rule will apply
+    description: Draft modes the rule will apply to.
     items:
       type: string
       enum:

@@ -1,6 +1,6 @@
 type: object
 title: Config Object Rules
-description: Rules to be applied to the config object during draft process
+description: Rules to be applied to the config object during the draft process.
 properties:
   takeFromTargetRules:
     type: array
@@ -13,5 +13,5 @@ properties:
   editable:
     type: boolean
     default: false
-    description: Whether this object can be edited
+    description: Indicates whether the object can be edited.
     example: true

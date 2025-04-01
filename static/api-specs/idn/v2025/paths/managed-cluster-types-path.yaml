@@ -5,8 +5,6 @@ get:
   description: >-
     Get a Managed Cluster Type.
 
-    AMS Security: Devops, Internal
-    A token with SaaS Platform Internal or DevOps is required to access this endpoint.
   operationId: getManagedClusterType
   parameters:
     - name: id
@@ -37,7 +35,9 @@ get:
     '500':
       $ref: '../responses/500.yaml'
   security:
-    - userAuth: [idn:managed-cluster-types:read, idn:managed-cluster-types:manage]
+    - userAuth: [idn:managed-cluster-types:read]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
 patch:
   tags:
     - Managed Cluster Types
@@ -45,8 +45,6 @@ patch:
   description: >-
     Update an existing Managed Cluster Type.
 
-    AMS Security: Devops, Internal
-    A token with SaaS Platform Internal or DevOps is required to access this endpoint.
   operationId: updateManagedClusterType
   parameters:
     - in: path
@@ -84,7 +82,9 @@ patch:
     '500':
       $ref: '../responses/500.yaml'
   security:
-    - userAuth: [idn:managed-cluster-types:manage]
+    - userAuth: [idn:managed-cluster-types:update]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
 delete:
   operationId: deleteManagedClusterType
   tags:
@@ -93,8 +93,6 @@ delete:
   description: >-
     Delete an existing Managed Cluster Type.
 
-    AMS Security: Devops, Internal
-    A token with SaaS Platform Internal or DevOps is required to access this endpoint.
   parameters:
     - in: path
       name: id
@@ -119,4 +117,6 @@ delete:
     '500':
       $ref: '../responses/500.yaml'
   security:
-    - userAuth: [idn:managed-cluster-types:manage]
+    - userAuth: [idn:managed-cluster-types:delete]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN

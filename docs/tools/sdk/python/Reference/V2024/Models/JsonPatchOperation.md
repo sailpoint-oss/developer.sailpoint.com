@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **op** |  **Enum** [  'add',    'remove',    'replace',    'move',    'copy',    'test' ] | The operation to be performed | [required]
 **path** | **str** | A string JSON Pointer representing the target path to an element to be affected by the operation | [required]
-**value** | [**JsonPatchOperationValue**](json-patch-operation-value) |  | [optional] 
+**value** | [**UpdateMultiHostSourcesRequestInnerValue**](update-multi-host-sources-request-inner-value) |  | [optional] 
 }
 
 ## Example

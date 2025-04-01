@@ -15,10 +15,13 @@ properties:
       - monthly
       - yearly
       - cronSchedule
+      - null
+    nullable: true
   timeZone:
     type: string
     description: Time zone identifier
     example: "America/Chicago"
+    nullable: true
   cronString:
     type: string
     description: A valid CRON expression
@@ -26,21 +29,25 @@ properties:
       description: CRON expression editor
       url: https://crontab.guru/
     example: "0 9 * * 1"
+    nullable: true
   weeklyDays:
     type: array
     items:
       type: string
     example: Monday
     description: Scheduled days of the week for execution
+    nullable: true
   weeklyTimes:
     type: array
     items:
       type: string
     example: Monday
     description: Scheduled execution times
+    nullable: true
   yearlyTimes:
     type: array
     items:
       type: string
     example: "1969-12-31T09:00:00.000Z"
     description: Scheduled execution times
+    nullable: true

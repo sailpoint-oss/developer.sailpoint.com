@@ -20,7 +20,7 @@ properties:
   profile_id:
     type: string
     format: uuid
-    description: The user profile id
+    description: The user profile id. Not required for NeprofileUser
     example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
   title:
     type: string
@@ -47,6 +47,6 @@ properties:
     example: fr-CA
   password:
     type: string
-    description: The user password
+    description: The user password. Not required for NeprofileUser
     required: false
     example: U*bF7hy9fW

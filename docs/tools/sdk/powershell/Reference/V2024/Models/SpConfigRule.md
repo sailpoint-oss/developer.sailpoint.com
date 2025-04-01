@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'SpConfigRule', 'V2024SpConfigRule']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Path** | **String** | JSONPath expression denoting the path within the object where a value substitution should be applied | [optional] 
+**Path** | **String** | JSONPath expression denoting the path within the object where a value substitution should be applied. | [optional] 
 **Value** | [**SpConfigRuleValue**](sp-config-rule-value) |  | [optional] 
-**Modes** | **[]String** | Draft modes to which this rule will apply | [optional] 
+**Modes** | **[]String** | Draft modes the rule will apply to. | [optional] 
 
 ## Examples
 

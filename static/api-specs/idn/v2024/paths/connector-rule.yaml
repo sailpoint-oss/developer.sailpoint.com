@@ -15,14 +15,6 @@ get:
     schema:
       type: string
     example: 8c190e6787aa4ed9a90bd9d5344523fb
-  - name: X-SailPoint-Experimental
-    in: header
-    description: Use this header to enable this experimental API.
-    example: true
-    schema:
-      type: string
-      default: true
-    required: true
   responses:
     '200':
       description: Connector rule with the given ID.
@@ -66,14 +58,6 @@ put:
     schema:
       type: string
     example: 8c190e6787aa4ed9a90bd9d5344523fb
-  - name: X-SailPoint-Experimental
-    in: header
-    description: Use this header to enable this experimental API.
-    example: true
-    schema:
-      type: string
-      default: true
-    required: true
   requestBody:
     description: Connector rule with updated data.
     content:
@@ -121,14 +105,6 @@ delete:
     schema:
       type: string
     example: 8c190e6787aa4ed9a90bd9d5344523fb
-  - name: X-SailPoint-Experimental
-    in: header
-    description: Use this header to enable this experimental API.
-    example: true
-    schema:
-      type: string
-      default: true
-    required: true
   responses:
     '204':
       $ref: ../responses/204.yaml

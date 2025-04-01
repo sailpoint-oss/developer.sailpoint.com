@@ -9,19 +9,24 @@ properties:
     type: string
     description: The unique ID of the trigger
     example: "idn:identity-attributes-changed"
+    nullable: true
   "filter.$":
     type: string
     description: JSON path expression that will limit which events the trigger will fire on
     example: "$.changes[?(@.attribute == 'manager')]"
+    nullable: true
   description:
     type: string
     description: Description of the event trigger
     example: "Triggered when an identity's manager attribute changes"
+    nullable: true
   attributeToFilter:
     type: string
     description: The attribute to filter on
-    example: "LifecycleState"  
+    example: "LifecycleState"
+    nullable: true
   formDefinitionId:
     type: string
     description: Form definition's unique identifier.
     example: Admin_Access_Request_Form
+    nullable: true

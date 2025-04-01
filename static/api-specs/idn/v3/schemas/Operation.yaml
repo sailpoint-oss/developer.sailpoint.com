@@ -10,3 +10,4 @@ enum:
   - null
 description: Operation on a specific criteria
 example: EQUALS
+nullable: true

@@ -3,14 +3,6 @@ content:
     schema:
       type: object
       properties:
-        id:
-          name: id
-          in: query
-          required: true
-          type: string
-          format: uuid
-          description: The profile account id.
-          example: 79ed1cb6-9977-4965-9bfe-f2bcc2424444
         profile:
           name: profile
           in: body

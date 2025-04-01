@@ -19,6 +19,8 @@ patch:
   description: Updates a profile only through ISC schema-mapped attributes, performs a reverse mapping to match the NERM attributes to update.
   tags:
     - isc accounts
+  parameters:
+    - $ref: "../parameters/path/id.yaml"
   requestBody:
     $ref: "../requestBodies/PATCH/ProfileAccount.yaml"
   responses:

@@ -1083,8 +1083,8 @@ const pluginConfig = [
       docsPluginId: 'isc',
       config: {
         isc_versioned: {
-          specPath: 'static/code-examples/v2024/v2024.yaml',
-          outputDir: 'docs/api/v2024',
+          specPath: 'static/code-examples/v2025/v2025.yaml',
+          outputDir: 'docs/api/v2025',
           sidebarOptions: {
             groupPathsBy: 'tag',
             categoryLinkSource: 'tag',
@@ -1125,21 +1125,22 @@ const pluginConfig = [
               };
             },
           }},
-          version: 'v2024',
-          label: 'v2024',
-          downloadUrl: 'https://raw.githubusercontent.com/sailpoint-oss/api-specs/refs/heads/main/dereferenced/deref-sailpoint-api.v2024.yaml',
-          baseUrl: '/docs/api/v2024',
+          version: 'v2025',
+          label: 'v2025',
+          downloadUrl: 'https://raw.githubusercontent.com/sailpoint-oss/api-specs/refs/heads/main/dereferenced/deref-sailpoint-api.v2025.yaml',
+          baseUrl: '/docs/api/v2025',
           template: 'api.mustache',
           markdownGenerators: {
             createApiPageMD,
           },
           versions: {
-            // v2025: {
-            //   specPath: 'static/api-specs/idn/sailpoint-api.v2025.yaml',
-            //   outputDir: 'docs/api/v2025',
-            //   label: 'v2025',
-            //   baseUrl: '/docs/api/v2025',
-            // },
+            v2024: {
+              specPath: 'static/code-examples/v2024/v2024.yaml',
+              outputDir: 'docs/api/v2024',
+              downloadUrl: 'https://raw.githubusercontent.com/sailpoint-oss/api-specs/main/dereferenced/deref-sailpoint-api.v2024.yaml',
+              label: 'v2024',
+              baseUrl: '/docs/api/v2024',
+            },
             v3: {
               specPath: 'static/code-examples/v3/v3.yaml',
               outputDir: 'docs/api/v3',

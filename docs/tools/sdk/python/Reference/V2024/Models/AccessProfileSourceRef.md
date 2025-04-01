@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'AccessProfileSourceRef', 'V2024Access
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** | The ID of the Source with with which the Access Profile is associated | [optional] 
-**type** |  **Enum** [  'SOURCE' ] | The type of the Source, will always be SOURCE | [optional] 
-**name** | **str** | The display name of the associated Source | [optional] 
+**id** | **str** | ID of the source the access profile is associated with. | [optional] 
+**type** |  **Enum** [  'SOURCE' ] | Source's DTO type. | [optional] 
+**name** | **str** | Source name. | [optional] 
 }
 
 ## Example

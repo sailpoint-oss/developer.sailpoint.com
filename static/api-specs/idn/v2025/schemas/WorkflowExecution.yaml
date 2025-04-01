@@ -29,6 +29,7 @@ properties:
     - "Completed"
     - "Failed"
     - "Canceled"
+    - "Queued"
     - "Running"
     example: "Completed"
     

@@ -1,71 +1,71 @@
 type: object
-description: Access Profile
+description: Access profile.
 properties:
   id:
     type: string
-    description: The ID of the Access Profile
+    description: Access profile ID.
     example: 2c91808a7190d06e01719938fcd20792
     readOnly: true
   name:
     type: string
-    description: Name of the Access Profile
+    description: Access profile name.
     example: Employee-database-read-write
   description:
     type: string
     nullable: true
-    description: Information about the Access Profile
+    description: Access profile description.
     example: Collection of entitlements to read/write the employee database
   created:
     type: string
-    description: Date the Access Profile was created
+    description: Date and time when the access profile was created.
     format: 'date-time'
     example: '2021-03-01T22:32:58.104Z'
     readOnly: true
   modified:
     type: string
-    description: Date the Access Profile was last modified.
+    description: Date and time when the access profile was last modified.
     format: 'date-time'
     example: '2021-03-02T20:22:28.104Z'
     readOnly: true
   enabled:
     type: boolean
-    default: true
-    description: Whether the Access Profile is enabled. If the Access Profile is enabled then you must include at least one Entitlement.
+    default: false
+    description: Indicates whether the access profile is enabled. If it's enabled, you must include at least one entitlement.
     example: true
   owner:
     $ref: './OwnerReference.yaml'
-    description: Owner of the Access Profile
+    description: Access profile owner.
   source:
     $ref: './AccessProfileSourceRef.yaml'
   entitlements:
     type: array
     nullable: true
-    description: A list of entitlements associated with the Access Profile. If enabled is false this is allowed to be empty otherwise it needs to contain at least one Entitlement.
+    description: List of entitlements associated with the access profile. If `enabled` is false, this can be empty. Otherwise, it must contain at least one entitlement.
     items:
       $ref: './EntitlementRef.yaml'
   requestable:
     type: boolean
     default: true
     description: >- 
-      Whether the Access Profile is requestable via access request. Currently, making an Access Profile non-requestable is only supported 
-      for customers enabled with the new Request Center. Otherwise, attempting to create an Access Profile with a value 
+      Indicates whether the access profile is requestable by access request. Currently, making an access profile non-requestable is only supported 
+      for customers enabled with the new Request Center. Otherwise, attempting to create an access profile with a value 
       **false** in this field results in a 400 error.
     example: true
   accessRequestConfig:
     $ref: './Requestability.yaml'
     nullable: true
-    description: Access request configuration for this object
+    description: Access request configuration for the object.
   revocationRequestConfig:
     $ref: './Revocability.yaml'
     nullable: true
     description: >-
-      Revocation request configuration for this object.
+      Revocation request configuration for the object.
   segments:
     type: array
     nullable: true
     items:
       type: string
-    description: List of IDs of segments, if any, to which this Access Profile is assigned.
+    description: List of segment IDs, if any, that the access profile is assigned to.
     example: [
         "f7b1b8a3-5fed-4fd4-ad29-82014e137e19",
         "29cb6c06-1da8-43ea-8be4-b3125f248f2a"
@@ -73,8 +73,8 @@ properties:
   provisioningCriteria:
     $ref: './ProvisioningCriteriaLevel1.yaml'
     description: >-
-      When an Identity has multiple Accounts on the Source with which an Access Profile is associated, this expression
-      is evaluated against those Accounts to choose one to provision with the Access Profile.
+      When an identity has multiple accounts on the source the access profile is associated with, the API evaluates this expression
+      against those accounts to choose one to provision with the access profile.
     nullable: true
     example: {
       "operation": "OR",

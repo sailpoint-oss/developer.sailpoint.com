@@ -4,7 +4,7 @@ properties:
   approvalSchemes:
     type: array
     nullable: true
-    description: List describing the steps in approving the revocation request
+    description: List describing the steps involved in approving the revocation request.
     items:
       $ref: './AccessProfileApprovalScheme.yaml'
 

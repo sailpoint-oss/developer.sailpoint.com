@@ -53,6 +53,7 @@ get:
       $ref: '../responses/500.yaml'
   security:
     - userAuth: [idn:remote-client:read, idn:remote-client:manage]
+    - applicationAuth: [idn:remote-client:read, idn:remote-client:manage]
   x-sailpoint-userLevels:
     - ORG_ADMIN
 post:

@@ -41,6 +41,12 @@ Name | Type | Description | Notes
 **CcId** | **String** | CC ID only used in calling CC, will be removed without notice when Migration to CEGS is finished | [optional] [default to "0"]
 **CreatedAt** | **System.DateTime** | The date/time this cluster was created | [optional] 
 **UpdatedAt** | **System.DateTime** | The date/time this cluster was last updated | [optional] 
+**LastReleaseNotifiedAt** | **System.DateTime** | The date/time this cluster was notified for the last release | [optional] 
+**UpdatePreferences** | [**ManagedClusterUpdatePreferences**](managed-cluster-update-preferences) |  | [optional] 
+**CurrentInstalledReleaseVersion** | **String** | The current installed release on the Managed cluster | [optional] 
+**UpdatePackage** | **String** | New available updates for the Managed cluster | [optional] 
+**IsOutOfDateNotifiedAt** | **System.DateTime** | The time at which out of date notification was sent for the Managed cluster | [optional] 
+**ConsolidatedHealthIndicatorsStatus** |  **Enum** [  "NORMAL",    "WARNING",    "ERROR" ] | The consolidated Health Status for the Managed cluster | [optional] 
 
 ## Examples
 
@@ -70,7 +76,13 @@ $ManagedCluster = Initialize-PSSailpoint.V2024ManagedCluster  -Id e1ff7bb24c9342
  -ServiceCount 6 `
  -CcId 1533 `
  -CreatedAt 2023-08-04T20:48:01.865Z `
- -UpdatedAt 2023-08-04T20:48:01.865Z
+ -UpdatedAt 2023-08-04T20:48:01.865Z `
+ -LastReleaseNotifiedAt 2025-03-11T07:00:13.729721Z `
+ -UpdatePreferences null `
+ -CurrentInstalledReleaseVersion 123.1 `
+ -UpdatePackage null `
+ -IsOutOfDateNotifiedAt 2025-03-11T07:00:13.734393Z `
+ -ConsolidatedHealthIndicatorsStatus ERROR
 ```
 
 - Convert the resource to JSON

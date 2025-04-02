@@ -42,6 +42,12 @@ Name | Type | Description | Notes
 **cc_id** | **str** | CC ID only used in calling CC, will be removed without notice when Migration to CEGS is finished | [optional] [default to '0']
 **created_at** | **datetime** | The date/time this cluster was created | [optional] 
 **updated_at** | **datetime** | The date/time this cluster was last updated | [optional] 
+**last_release_notified_at** | **datetime** | The date/time this cluster was notified for the last release | [optional] 
+**update_preferences** | [**ManagedClusterUpdatePreferences**](managed-cluster-update-preferences) |  | [optional] 
+**current_installed_release_version** | **str** | The current installed release on the Managed cluster | [optional] 
+**update_package** | **str** | New available updates for the Managed cluster | [optional] 
+**is_out_of_date_notified_at** | **datetime** | The time at which out of date notification was sent for the Managed cluster | [optional] 
+**consolidated_health_indicators_status** |  **Enum** [  'NORMAL',    'WARNING',    'ERROR' ] | The consolidated Health Status for the Managed cluster | [optional] 
 }
 
 ## Example
@@ -88,7 +94,16 @@ client_ids=[1244, 1245],
 service_count=6,
 cc_id='0',
 created_at='2023-08-04T20:48:01.865Z',
-updated_at='2023-08-04T20:48:01.865Z'
+updated_at='2023-08-04T20:48:01.865Z',
+last_release_notified_at='2025-03-11T07:00:13.729721Z',
+update_preferences=sailpoint.v2024.models.managed_cluster_update_preferences.ManagedCluster_updatePreferences(
+                    process_groups = '', 
+                    update_state = 'DISABLED', 
+                    notification_email = 'test@mail.com', ),
+current_installed_release_version='123.1',
+update_package='',
+is_out_of_date_notified_at='2025-03-11T07:00:13.734393Z',
+consolidated_health_indicators_status='ERROR'
 )
 
 ```

@@ -19,8 +19,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | ManagedClient ID | [optional] [readonly] 
 **alert_key** | **str** | ManagedClient alert key | [optional] [readonly] 
-**api_gateway_base_url** | **str** |  | [optional] 
-**cookbook** | **str** |  | [optional] 
+**api_gateway_base_url** | **str** | apiGatewayBaseUrl for the Managed client | [optional] 
+**cookbook** | **str** | cookbook id for the Managed client | [optional] 
 **cc_id** | **int** | Previous CC ID to be used in data migration. (This field will be deleted after CC migration!) | [optional] 
 **client_id** | **str** | The client ID used in API management | [required]
 **cluster_id** | **str** | Cluster ID that the ManagedClient is linked to | [required]
@@ -38,6 +38,7 @@ Name | Type | Description | Notes
 **created_at** | **datetime** | The date/time this ManagedClient was created | [optional] 
 **updated_at** | **datetime** | The date/time this ManagedClient was last updated | [optional] 
 **provision_status** |  **Enum** [  'PROVISIONED',    'DRAFT' ] | The provisioning status of the ManagedClient | [optional] [readonly] 
+**health_indicators** | **object** | The health indicators of the ManagedClient | [optional] 
 }
 
 ## Example
@@ -66,7 +67,8 @@ va_version='va-megapod-useast1-610-1621372012',
 secret='ef878e15eaa8c8d3e2fa52f41125e2a0eeadadc6a14f931a33ad3e1b62d56381',
 created_at='2023-08-04T20:48:01.865Z',
 updated_at='2023-08-04T20:48:01.865Z',
-provision_status='PROVISIONED'
+provision_status='PROVISIONED',
+health_indicators={ "network": { "errors": [], "warnings": [] }, "memory": { "errors": [], "warnings": [] }, "cpu": { "errors": [], "warnings": [] } }
 )
 
 ```

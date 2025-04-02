@@ -15,7 +15,7 @@ tags: ['SDK', 'Software Development Kit', 'SetIconRequest', 'BetaSetIconRequest'
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Image** | ***os.File** | file with icon. Allowed mime-types [&#39;image/png&#39;, &#39;image/jpeg&#39;] | 
+**Image** | ***os.File** | file with icon. Allowed mime-types ['image/png', 'image/jpeg'] | 
 
 ## Methods
 

@@ -16,14 +16,14 @@ tags: ['SDK', 'Software Development Kit', 'Campaign', 'BetaCampaign']
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** | Id of the campaign | [optional] [readonly] 
-**Name** | **string** | The campaign name. If this object is part of a template, special formatting applies; see the &#x60;/campaign-templates/{id}/generate&#x60; endpoint documentation for details.  | 
-**Description** | **string** | The campaign description. If this object is part of a template, special formatting applies; see the &#x60;/campaign-templates/{id}/generate&#x60; endpoint documentation for details.  | 
-**Deadline** | Pointer to **time.Time** | The campaign&#39;s completion deadline.  This date must be in the future in order to activate the campaign.  If you try to activate a campaign with a deadline of today or in the past, you will receive a 400 error response. | [optional] 
+**Name** | **string** | The campaign name. If this object is part of a template, special formatting applies; see the `/campaign-templates/{id}/generate` endpoint documentation for details.  | 
+**Description** | **string** | The campaign description. If this object is part of a template, special formatting applies; see the `/campaign-templates/{id}/generate` endpoint documentation for details.  | 
+**Deadline** | Pointer to **time.Time** | The campaign's completion deadline.  This date must be in the future in order to activate the campaign.  If you try to activate a campaign with a deadline of today or in the past, you will receive a 400 error response. | [optional] 
 **Type** | **string** | The type of campaign. Could be extended in the future. | 
 **EmailNotificationEnabled** | Pointer to **bool** | Enables email notification for this campaign | [optional] [default to false]
 **AutoRevokeAllowed** | Pointer to **bool** | Allows auto revoke for this campaign | [optional] [default to false]
 **RecommendationsEnabled** | Pointer to **bool** | Enables IAI for this campaign. Accepts true even if the IAI product feature is off. If IAI is turned off then campaigns generated from this template will indicate false. The real value will then be returned if IAI is ever enabled for the org in the future.  | [optional] [default to false]
-**Status** | Pointer to **string** | The campaign&#39;s current status. | [optional] [readonly] 
+**Status** | Pointer to **string** | The campaign's current status. | [optional] [readonly] 
 **CorrelatedStatus** | Pointer to **string** | The correlatedStatus of the campaign. Only SOURCE_OWNER campaigns can be Uncorrelated. An Uncorrelated certification campaign only includes Uncorrelated identities (An identity is uncorrelated if it has no accounts on an authoritative source). | [optional] 
 **Created** | Pointer to **time.Time** | Created time of the campaign | [optional] [readonly] 
 **TotalCertifications** | Pointer to **int32** | The total number of certifications in this campaign. | [optional] [readonly] 
@@ -36,7 +36,7 @@ Name | Type | Description | Notes
 **SearchCampaignInfo** | Pointer to [**FullcampaignAllOfSearchCampaignInfo**](fullcampaign-all-of-search-campaign-info) |  | [optional] 
 **RoleCompositionCampaignInfo** | Pointer to [**FullcampaignAllOfRoleCompositionCampaignInfo**](fullcampaign-all-of-role-composition-campaign-info) |  | [optional] 
 **MachineAccountCampaignInfo** | Pointer to [**FullcampaignAllOfMachineAccountCampaignInfo**](fullcampaign-all-of-machine-account-campaign-info) |  | [optional] 
-**SourcesWithOrphanEntitlements** | Pointer to [**[]FullcampaignAllOfSourcesWithOrphanEntitlements**](fullcampaign-all-of-sources-with-orphan-entitlements) | A list of sources in the campaign that contain \\\&quot;orphan entitlements\\\&quot; (entitlements without a corresponding Managed Attribute). An empty list indicates the campaign has no orphan entitlements. Null indicates there may be unknown orphan entitlements in the campaign (the campaign was created before this feature was implemented). | [optional] [readonly] 
+**SourcesWithOrphanEntitlements** | Pointer to [**[]FullcampaignAllOfSourcesWithOrphanEntitlements**](fullcampaign-all-of-sources-with-orphan-entitlements) | A list of sources in the campaign that contain \\\"orphan entitlements\\\" (entitlements without a corresponding Managed Attribute). An empty list indicates the campaign has no orphan entitlements. Null indicates there may be unknown orphan entitlements in the campaign (the campaign was created before this feature was implemented). | [optional] [readonly] 
 **MandatoryCommentRequirement** | Pointer to **string** | Determines whether comments are required for decisions during certification reviews. You can require comments for all decisions, revoke-only decisions, or no decisions. By default, comments are not required for decisions. | [optional] 
 
 ## Methods

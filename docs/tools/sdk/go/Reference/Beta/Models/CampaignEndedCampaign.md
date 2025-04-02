@@ -15,15 +15,15 @@ tags: ['SDK', 'Software Development Kit', 'CampaignEndedCampaign', 'BetaCampaign
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | Campaign&#39;s unique ID for the campaign. | 
-**Name** | **string** | Campaign&#39;s unique ID. | 
-**Description** | **string** | Campaign&#39;s extended description. | 
+**Id** | **string** | Campaign's unique ID for the campaign. | 
+**Name** | **string** | Campaign's unique ID. | 
+**Description** | **string** | Campaign's extended description. | 
 **Created** | **time.Time** | Date and time when the campaign was created. | 
 **Modified** | Pointer to **NullableTime** | Date and time when the campaign was last modified. | [optional] 
 **Deadline** | **time.Time** | Date and time when the campaign is due. | 
-**Type** | **map[string]interface{}** | Campaign&#39;s type. | 
+**Type** | **map[string]interface{}** | Campaign's type. | 
 **CampaignOwner** | [**CampaignActivatedCampaignCampaignOwner**](campaign-activated-campaign-campaign-owner) |  | 
-**Status** | **map[string]interface{}** | Campaign&#39;s current status. | 
+**Status** | **map[string]interface{}** | Campaign's current status. | 
 
 ## Methods
 

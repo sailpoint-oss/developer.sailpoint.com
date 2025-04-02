@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'ReportConfigDTO', 'BetaReportConfigDT
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ColumnName** | Pointer to **string** | Name of column in report | [optional] 
-**Required** | Pointer to **bool** | If true, column is required in all reports, and this entry is immutable. A 400 error will result from any attempt to modify the column&#39;s definition. | [optional] [default to false]
-**Included** | Pointer to **bool** | If true, column is included in the report. A 400 error will be thrown if an attempt is made to set included&#x3D;false if required&#x3D;&#x3D;true. | [optional] [default to false]
+**Required** | Pointer to **bool** | If true, column is required in all reports, and this entry is immutable. A 400 error will result from any attempt to modify the column's definition. | [optional] [default to false]
+**Included** | Pointer to **bool** | If true, column is included in the report. A 400 error will be thrown if an attempt is made to set included=false if required==true. | [optional] [default to false]
 **Order** | Pointer to **int32** | Relative sort order for the column. Columns will be displayed left-to-right in nondecreasing order. | [optional] 
 
 ## Methods

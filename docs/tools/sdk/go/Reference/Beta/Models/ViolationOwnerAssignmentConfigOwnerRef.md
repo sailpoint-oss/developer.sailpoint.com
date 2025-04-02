@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'ViolationOwnerAssignmentConfigOwnerRe
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | Pointer to **NullableString** | Owner type. | [optional] 
-**Id** | Pointer to **string** | Owner&#39;s ID. | [optional] 
-**Name** | Pointer to **string** | Owner&#39;s name. | [optional] 
+**Id** | Pointer to **string** | Owner's ID. | [optional] 
+**Name** | Pointer to **string** | Owner's name. | [optional] 
 
 ## Methods
 

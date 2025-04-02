@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 **DeprecatedBy** | Pointer to **time.Time** |  | [optional] 
 **VersionNumber** | Pointer to **int32** | Version number | [optional] 
 **IsSimulationEnabled** | Pointer to **bool** |  | [optional] 
-**IsDynamicSchema** | Pointer to **bool** | Determines whether the dynamic output schema is returned in place of the action&#39;s output schema. The dynamic schema lists non-static properties, like properties of a workflow form where each form has different fields. These will be provided dynamically based on available form fields. | [optional] 
+**IsDynamicSchema** | Pointer to **bool** | Determines whether the dynamic output schema is returned in place of the action's output schema. The dynamic schema lists non-static properties, like properties of a workflow form where each form has different fields. These will be provided dynamically based on available form fields. | [optional] 
 **OutputSchema** | Pointer to **map[string]interface{}** | Defines the output schema, if any, that this action produces. | [optional] 
 
 ## Methods

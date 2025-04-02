@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 **Enabled** | **bool** | An indicator of whether the API Client is enabled for use | 
 **StrongAuthSupported** | Pointer to **bool** | An indicator of whether the API Client supports strong authentication | [optional] 
 **ClaimsSupported** | Pointer to **bool** | An indicator of whether the API Client supports the serialization of SAML claims when used with the authorization_code flow | [optional] 
-**Scope** | Pointer to **[]string** | Scopes of the API Client. If no scope is specified, the client will be created with the default scope \&quot;sp:scopes:all\&quot;. This means the API Client will have all the rights of the owner who created it. | [optional] 
+**Scope** | Pointer to **[]string** | Scopes of the API Client. If no scope is specified, the client will be created with the default scope \"sp:scopes:all\". This means the API Client will have all the rights of the owner who created it. | [optional] 
 
 ## Methods
 

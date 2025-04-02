@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | Pointer to **string** | Type of object being referenced. | [optional] 
 **Id** | Pointer to **string** | Rule ID. | [optional] 
-**Name** | Pointer to **string** | Rule&#39;s human-readable display name. | [optional] 
+**Name** | Pointer to **string** | Rule's human-readable display name. | [optional] 
 
 ## Methods
 

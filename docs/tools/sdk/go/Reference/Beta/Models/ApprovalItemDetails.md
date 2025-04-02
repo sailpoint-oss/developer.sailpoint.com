@@ -15,12 +15,12 @@ tags: ['SDK', 'Software Development Kit', 'ApprovalItemDetails', 'BetaApprovalIt
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** | The approval item&#39;s ID | [optional] 
+**Id** | Pointer to **string** | The approval item's ID | [optional] 
 **Account** | Pointer to **NullableString** | The account referenced by the approval item | [optional] 
 **Application** | Pointer to **string** | The name of the application/source | [optional] 
-**Name** | Pointer to **NullableString** | The attribute&#39;s name | [optional] 
-**Operation** | Pointer to **string** | The attribute&#39;s operation | [optional] 
-**Value** | Pointer to **NullableString** | The attribute&#39;s value | [optional] 
+**Name** | Pointer to **NullableString** | The attribute's name | [optional] 
+**Operation** | Pointer to **string** | The attribute's operation | [optional] 
+**Value** | Pointer to **NullableString** | The attribute's value | [optional] 
 **State** | Pointer to [**NullableWorkItemState**](work-item-state) |  | [optional] 
 
 ## Methods

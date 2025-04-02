@@ -17,8 +17,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AccessRequestIds** | **[]string** | Access Request IDs for the requests to be closed. Accepts 1-500 Identity Request IDs per request. | 
 **Message** | Pointer to **string** | Reason for closing the access request. Displayed under Warnings in IdentityNow. | [optional] [default to "The IdentityNow Administrator manually closed this request."]
-**ExecutionStatus** | Pointer to **string** | The request&#39;s provisioning status. Displayed as Stage in IdentityNow. | [optional] [default to "Terminated"]
-**CompletionStatus** | Pointer to **string** | The request&#39;s overall status. Displayed as Status in IdentityNow. | [optional] [default to "Failure"]
+**ExecutionStatus** | Pointer to **string** | The request's provisioning status. Displayed as Stage in IdentityNow. | [optional] [default to "Terminated"]
+**CompletionStatus** | Pointer to **string** | The request's overall status. Displayed as Status in IdentityNow. | [optional] [default to "Failure"]
 
 ## Methods
 

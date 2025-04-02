@@ -15,7 +15,7 @@ tags: ['SDK', 'Software Development Kit', 'AccessRequestPreApproval', 'BetaAcces
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccessRequestId** | **string** | Access request&#39;s unique ID. | 
+**AccessRequestId** | **string** | Access request's unique ID. | 
 **RequestedFor** | [**[]AccessItemRequestedForDto1**](access-item-requested-for-dto1) | Identities whom access was requested for. | 
 **RequestedItems** | [**[]AccessRequestPreApprovalRequestedItemsInner**](access-request-pre-approval-requested-items-inner) | Details about each requested access item. | 
 **RequestedBy** | [**AccessItemRequesterDto1**](access-item-requester-dto1) |  | 

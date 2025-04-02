@@ -15,10 +15,10 @@ tags: ['SDK', 'Software Development Kit', 'AccessRequestPostApprovalRequestedIte
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ApprovalComment** | Pointer to **NullableString** | Approver&#39;s comment. | [optional] 
-**ApprovalDecision** | **map[string]interface{}** | Approver&#39;s final decision. | 
-**ApproverName** | **string** | Approver&#39;s name. | 
-**Approver** | [**AccessItemApproverDto**](access-item-approver-dto) | Approver&#39;s identity. | 
+**ApprovalComment** | Pointer to **NullableString** | Approver's comment. | [optional] 
+**ApprovalDecision** | **map[string]interface{}** | Approver's final decision. | 
+**ApproverName** | **string** | Approver's name. | 
+**Approver** | [**AccessItemApproverDto**](access-item-approver-dto) | Approver's identity. | 
 
 ## Methods
 

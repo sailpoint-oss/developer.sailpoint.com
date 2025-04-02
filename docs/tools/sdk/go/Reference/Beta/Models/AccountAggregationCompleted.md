@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'AccountAggregationCompleted', 'BetaAc
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Source** | [**AccountAggregationCompletedSource**](account-aggregation-completed-source) |  | 
-**Status** | **map[string]interface{}** | Aggregation&#39;s overall status. | 
+**Status** | **map[string]interface{}** | Aggregation's overall status. | 
 **Started** | **time.Time** | Date and time when the account aggregation started. | 
 **Completed** | **time.Time** | Date and time when the account aggregation finished. | 
 **Errors** | **[]string** | List of errors that occurred during the aggregation. | 

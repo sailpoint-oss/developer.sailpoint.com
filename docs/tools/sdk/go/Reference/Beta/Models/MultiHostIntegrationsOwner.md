@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'MultiHostIntegrationsOwner', 'BetaMul
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | Pointer to **string** | Type of object being referenced. | [optional] 
-**Id** | Pointer to **string** | Owner identity&#39;s ID. | [optional] 
-**Name** | Pointer to **string** | Owner identity&#39;s human-readable display name. | [optional] 
+**Id** | Pointer to **string** | Owner identity's ID. | [optional] 
+**Name** | Pointer to **string** | Owner identity's human-readable display name. | [optional] 
 
 ## Methods
 

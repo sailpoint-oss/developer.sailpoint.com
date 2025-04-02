@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'UserAppOwner', 'BetaUserAppOwner']
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** | The identity ID | [optional] 
-**Type** | Pointer to **string** | It will always be \&quot;IDENTITY\&quot; | [optional] 
+**Type** | Pointer to **string** | It will always be \"IDENTITY\" | [optional] 
 **Name** | Pointer to **string** | The identity name | [optional] 
 **Alias** | Pointer to **string** | The identity alias | [optional] 
 

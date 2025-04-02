@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'SodRecipient', 'BetaSodRecipient']
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | Pointer to **string** | SOD policy recipient DTO type. | [optional] 
-**Id** | Pointer to **string** | SOD policy recipient&#39;s identity ID. | [optional] 
-**Name** | Pointer to **string** | SOD policy recipient&#39;s display name. | [optional] 
+**Id** | Pointer to **string** | SOD policy recipient's identity ID. | [optional] 
+**Name** | Pointer to **string** | SOD policy recipient's display name. | [optional] 
 
 ## Methods
 

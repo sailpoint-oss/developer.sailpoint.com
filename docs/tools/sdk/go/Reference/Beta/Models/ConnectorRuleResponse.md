@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'ConnectorRuleResponse', 'BetaConnecto
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** | the name of the rule | 
-**Description** | Pointer to **string** | a description of the rule&#39;s purpose | [optional] 
+**Description** | Pointer to **string** | a description of the rule's purpose | [optional] 
 **Type** | **string** | the type of rule | 
 **Signature** | Pointer to [**ConnectorRuleCreateRequestSignature**](connector-rule-create-request-signature) |  | [optional] 
 **SourceCode** | [**SourceCode**](source-code) |  | 

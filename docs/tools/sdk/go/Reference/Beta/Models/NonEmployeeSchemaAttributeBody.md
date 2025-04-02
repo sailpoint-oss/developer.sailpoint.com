@@ -15,7 +15,7 @@ tags: ['SDK', 'Software Development Kit', 'NonEmployeeSchemaAttributeBody', 'Bet
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **string** | Type of the attribute. Only type &#39;TEXT&#39; is supported for custom attributes. | 
+**Type** | **string** | Type of the attribute. Only type 'TEXT' is supported for custom attributes. | 
 **Label** | **string** | Label displayed on the UI for this schema attribute. | 
 **TechnicalName** | **string** | The technical name of the attribute. Must be unique per source. | 
 **HelpText** | Pointer to **string** | help text displayed by UI. | [optional] 

@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'AccountAction', 'BetaAccountAction']
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Action** | Pointer to **string** | Describes if action will be enabled or disabled | [optional] 
-**SourceIds** | Pointer to **[]string** | List of source IDs. The sources must have the ENABLE feature or flat file source. See \&quot;/sources\&quot; endpoint for source features. | [optional] 
+**SourceIds** | Pointer to **[]string** | List of source IDs. The sources must have the ENABLE feature or flat file source. See \"/sources\" endpoint for source features. | [optional] 
 
 ## Methods
 

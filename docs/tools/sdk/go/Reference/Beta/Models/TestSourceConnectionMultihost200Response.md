@@ -15,11 +15,11 @@ tags: ['SDK', 'Software Development Kit', 'TestSourceConnectionMultihost200Respo
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Success** | Pointer to **bool** | Source&#39;s test connection status. | [optional] 
-**Message** | Pointer to **string** | Source&#39;s test connection message. | [optional] 
-**Timing** | Pointer to **int32** | Source&#39;s test connection timing. | [optional] 
-**ResultType** | Pointer to **map[string]interface{}** | Source&#39;s human-readable result type. | [optional] 
-**TestConnectionDetails** | Pointer to **string** | Source&#39;s human-readable test connection details. | [optional] 
+**Success** | Pointer to **bool** | Source's test connection status. | [optional] 
+**Message** | Pointer to **string** | Source's test connection message. | [optional] 
+**Timing** | Pointer to **int32** | Source's test connection timing. | [optional] 
+**ResultType** | Pointer to **map[string]interface{}** | Source's human-readable result type. | [optional] 
+**TestConnectionDetails** | Pointer to **string** | Source's human-readable test connection details. | [optional] 
 
 ## Methods
 

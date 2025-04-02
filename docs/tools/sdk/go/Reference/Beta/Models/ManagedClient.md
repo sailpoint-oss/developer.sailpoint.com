@@ -30,8 +30,8 @@ Name | Type | Description | Notes
 **Status** | Pointer to [**ManagedClientStatusEnum**](managed-client-status-enum) | Status of the ManagedClient | [optional] [readonly] 
 **Type** | **string** | Type of the ManagedClient (VA, CCG) | 
 **VaDownloadUrl** | Pointer to **string** | ManagedClient VA download URL | [optional] [readonly] 
-**VaVersion** | Pointer to **string** | Version that the ManagedClient&#39;s VA is running | [optional] [readonly] 
-**Secret** | Pointer to **string** | Client&#39;s apiKey | [optional] 
+**VaVersion** | Pointer to **string** | Version that the ManagedClient's VA is running | [optional] [readonly] 
+**Secret** | Pointer to **string** | Client's apiKey | [optional] 
 
 ## Methods
 

@@ -15,7 +15,7 @@ tags: ['SDK', 'Software Development Kit', 'ClientLogConfiguration', 'BetaClientL
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClientId** | Pointer to **string** | Log configuration&#39;s client ID | [optional] 
+**ClientId** | Pointer to **string** | Log configuration's client ID | [optional] 
 **DurationMinutes** | **int32** | Duration in minutes for log configuration to remain in effect before resetting to defaults | 
 **Expiration** | Pointer to **time.Time** | Expiration date-time of the log configuration request | [optional] 
 **RootLevel** | [**StandardLevel**](standard-level) |  | 

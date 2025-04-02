@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'SourceCreationErrors', 'BetaSourceCre
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **MultihostId** | Pointer to **string** | Multi-Host Integration ID. | [optional] [readonly] 
-**SourceName** | Pointer to **string** | Source&#39;s human-readable name. | [optional] 
-**SourceError** | Pointer to **string** | Source&#39;s human-readable description. | [optional] 
+**SourceName** | Pointer to **string** | Source's human-readable name. | [optional] 
+**SourceError** | Pointer to **string** | Source's human-readable description. | [optional] 
 **Created** | Pointer to **time.Time** | Date-time when the source was created | [optional] 
 **Modified** | Pointer to **time.Time** | Date-time when the source was last modified. | [optional] 
 **Operation** | Pointer to **NullableString** | operation category (e.g. DELETE). | [optional] 

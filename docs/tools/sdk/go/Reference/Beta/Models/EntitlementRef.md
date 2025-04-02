@@ -15,9 +15,9 @@ tags: ['SDK', 'Software Development Kit', 'EntitlementRef', 'BetaEntitlementRef'
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | Pointer to **string** | Entitlement&#39;s DTO type. | [optional] 
-**Id** | Pointer to **string** | Entitlement&#39;s ID. | [optional] 
-**Name** | Pointer to **NullableString** | Entitlement&#39;s display name. | [optional] 
+**Type** | Pointer to **string** | Entitlement's DTO type. | [optional] 
+**Id** | Pointer to **string** | Entitlement's ID. | [optional] 
+**Name** | Pointer to **NullableString** | Entitlement's display name. | [optional] 
 
 ## Methods
 

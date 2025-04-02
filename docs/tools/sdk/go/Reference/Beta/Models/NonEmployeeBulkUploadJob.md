@@ -15,11 +15,11 @@ tags: ['SDK', 'Software Development Kit', 'NonEmployeeBulkUploadJob', 'BetaNonEm
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** | The bulk upload job&#39;s ID. (UUID) | [optional] 
+**Id** | Pointer to **string** | The bulk upload job's ID. (UUID) | [optional] 
 **SourceId** | Pointer to **string** | The ID of the source to bulk-upload non-employees to. (UUID) | [optional] 
 **Created** | Pointer to **time.Time** | The date-time the job was submitted. | [optional] 
 **Modified** | Pointer to **time.Time** | The date-time that the job was last updated. | [optional] 
-**Status** | Pointer to **string** | Returns the following values indicating the progress or result of the bulk upload job. \&quot;PENDING\&quot; means the job is queued and waiting to be processed. \&quot;IN_PROGRESS\&quot; means the job is currently being processed. \&quot;COMPLETED\&quot; means the job has been completed without any errors. \&quot;ERROR\&quot; means the job failed to process with errors.  | [optional] 
+**Status** | Pointer to **string** | Returns the following values indicating the progress or result of the bulk upload job. \"PENDING\" means the job is queued and waiting to be processed. \"IN_PROGRESS\" means the job is currently being processed. \"COMPLETED\" means the job has been completed without any errors. \"ERROR\" means the job failed to process with errors.  | [optional] 
 
 ## Methods
 

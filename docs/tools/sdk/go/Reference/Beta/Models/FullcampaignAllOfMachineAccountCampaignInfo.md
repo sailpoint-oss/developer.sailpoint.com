@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'FullcampaignAllOfMachineAccountCampai
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **SourceIds** | Pointer to **[]string** | The list of sources to be included in the campaign. | [optional] 
-**ReviewerType** | Pointer to **string** | The reviewer&#39;s type. | [optional] 
+**ReviewerType** | Pointer to **string** | The reviewer's type. | [optional] 
 
 ## Methods
 

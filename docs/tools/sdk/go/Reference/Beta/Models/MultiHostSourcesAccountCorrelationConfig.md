@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | Pointer to **string** | Type of object being referenced. | [optional] 
 **Id** | Pointer to **string** | Account correlation config ID. | [optional] 
-**Name** | Pointer to **string** | Account correlation config&#39;s human-readable display name. | [optional] 
+**Name** | Pointer to **string** | Account correlation config's human-readable display name. | [optional] 
 
 ## Methods
 

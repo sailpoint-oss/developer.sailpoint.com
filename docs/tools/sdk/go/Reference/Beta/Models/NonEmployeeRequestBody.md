@@ -16,12 +16,12 @@ tags: ['SDK', 'Software Development Kit', 'NonEmployeeRequestBody', 'BetaNonEmpl
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AccountName** | **string** | Requested identity account name. | 
-**FirstName** | **string** | Non-Employee&#39;s first name. | 
-**LastName** | **string** | Non-Employee&#39;s last name. | 
-**Email** | **string** | Non-Employee&#39;s email. | 
-**Phone** | **string** | Non-Employee&#39;s phone. | 
-**Manager** | **string** | The account ID of a valid identity to serve as this non-employee&#39;s manager. | 
-**SourceId** | **string** | Non-Employee&#39;s source id. | 
+**FirstName** | **string** | Non-Employee's first name. | 
+**LastName** | **string** | Non-Employee's last name. | 
+**Email** | **string** | Non-Employee's email. | 
+**Phone** | **string** | Non-Employee's phone. | 
+**Manager** | **string** | The account ID of a valid identity to serve as this non-employee's manager. | 
+**SourceId** | **string** | Non-Employee's source id. | 
 **Data** | Pointer to **map[string]string** | Additional attributes for a non-employee. Up to 10 custom attributes can be added. | [optional] 
 **StartDate** | **time.Time** | Non-Employee employment start date. | 
 **EndDate** | **time.Time** | Non-Employee employment end date. | 

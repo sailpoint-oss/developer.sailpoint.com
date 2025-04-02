@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'PasswordOrgConfig', 'BetaPasswordOrgC
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CustomInstructionsEnabled** | Pointer to **bool** | Indicator whether custom password instructions feature is enabled. The default value is false. | [optional] [default to false]
-**DigitTokenEnabled** | Pointer to **bool** | Indicator whether \&quot;digit token\&quot; feature is enabled. The default value is false. | [optional] [default to false]
-**DigitTokenDurationMinutes** | Pointer to **int32** | The duration of \&quot;digit token\&quot; in minutes. The default value is 5. | [optional] [default to 5]
-**DigitTokenLength** | Pointer to **int32** | The length of \&quot;digit token\&quot;. The default value is 6. | [optional] [default to 6]
+**DigitTokenEnabled** | Pointer to **bool** | Indicator whether \"digit token\" feature is enabled. The default value is false. | [optional] [default to false]
+**DigitTokenDurationMinutes** | Pointer to **int32** | The duration of \"digit token\" in minutes. The default value is 5. | [optional] [default to 5]
+**DigitTokenLength** | Pointer to **int32** | The length of \"digit token\". The default value is 6. | [optional] [default to 6]
 
 ## Methods
 

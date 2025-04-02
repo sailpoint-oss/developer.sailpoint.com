@@ -16,11 +16,11 @@ tags: ['SDK', 'Software Development Kit', 'MultiHostIntegrations', 'BetaMultiHos
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | Multi-Host Integration ID. | [readonly] 
-**Name** | **string** | Multi-Host Integration&#39;s human-readable name. | 
-**Description** | **string** | Multi-Host Integration&#39;s human-readable description. | 
+**Name** | **string** | Multi-Host Integration's human-readable name. | 
+**Description** | **string** | Multi-Host Integration's human-readable description. | 
 **Owner** | [**MultiHostIntegrationsOwner**](multi-host-integrations-owner) |  | 
 **Cluster** | Pointer to [**NullableMultiHostIntegrationsCluster**](multi-host-integrations-cluster) |  | [optional] 
-**Type** | Pointer to **string** | Specifies the type of system being managed e.g. Workday, Multi-Host - Microsoft SQL Server, etc.. If you are creating a delimited file source, you must set the &#x60;provisionasCsv&#x60; query parameter to &#x60;true&#x60;.  | [optional] 
+**Type** | Pointer to **string** | Specifies the type of system being managed e.g. Workday, Multi-Host - Microsoft SQL Server, etc.. If you are creating a delimited file source, you must set the `provisionasCsv` query parameter to `true`.  | [optional] 
 **Connector** | **string** | Connector script name. | 
 **LastSourceUploadSuccessCount** | Pointer to **int32** | Last successfully uploaded source count of given Multi-Host Integration. | [optional] 
 **MaxSourcesPerAggGroup** | Pointer to **int32** | Maximum sources that can contain in a aggregation group of Multi-Host Integration. | [optional] 
@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 **Authoritative** | Pointer to **bool** | When this is true, it indicates that the source is referenced by an identity profile. | [optional] [default to false]
 **ManagementWorkgroup** | Pointer to [**NullableMultiHostIntegrationsManagementWorkgroup**](multi-host-integrations-management-workgroup) |  | [optional] 
 **Healthy** | Pointer to **bool** | When this is true, it indicates that the source is healthy. | [optional] [default to false]
-**Status** | Pointer to **string** | Status identifier that gives specific information about why a source is or isn&#39;t healthy.  | [optional] 
+**Status** | Pointer to **string** | Status identifier that gives specific information about why a source is or isn't healthy.  | [optional] 
 **Since** | Pointer to **time.Time** | Timestamp that shows when a source health check was last performed. | [optional] 
 **ConnectorId** | Pointer to **string** | Connector ID | [optional] 
 **ConnectorName** | Pointer to **string** | Name of the connector that was chosen during source creation. | [optional] 

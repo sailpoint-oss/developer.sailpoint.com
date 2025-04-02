@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | **string** | Type of object being referenced. | 
 **Id** | **string** | Cluster ID. | 
-**Name** | **string** | Cluster&#39;s human-readable display name. | 
+**Name** | **string** | Cluster's human-readable display name. | 
 
 ## Methods
 

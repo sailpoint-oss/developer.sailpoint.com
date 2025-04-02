@@ -15,7 +15,7 @@ tags: ['SDK', 'Software Development Kit', 'TriggerExampleInput', 'BetaTriggerExa
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccessRequestId** | **string** | Access request&#39;s unique ID. | 
+**AccessRequestId** | **string** | Access request's unique ID. | 
 **RequestedFor** | [**[]AccessItemRequestedForDto1**](access-item-requested-for-dto1) | Identities whom access was requested for. | 
 **RequestedItems** | [**[]AccessRequestPreApprovalRequestedItemsInner**](access-request-pre-approval-requested-items-inner) | Details about each requested access item. | 
 **RequestedBy** | [**AccessItemRequesterDto1**](access-item-requester-dto1) |  | 
@@ -29,12 +29,12 @@ Name | Type | Description | Notes
 **Stats** | [**AccountsCollectedForAggregationStats**](accounts-collected-for-aggregation-stats) |  | 
 **Identity** | [**IdentityDeletedIdentity**](identity-deleted-identity) |  | 
 **Account** | [**AccountUncorrelatedAccount**](account-uncorrelated-account) |  | 
-**Changes** | [**[]IdentityAttributesChangedChangesInner**](identity-attributes-changed-changes-inner) | List of identity&#39;s attributes that changed. | 
-**Attributes** | **map[string]interface{}** | Account attributes. The attributes&#39; contents depend on the source&#39;s account schema. | 
+**Changes** | [**[]IdentityAttributesChangedChangesInner**](identity-attributes-changed-changes-inner) | List of identity's attributes that changed. | 
+**Attributes** | **map[string]interface{}** | Account attributes. The attributes' contents depend on the source's account schema. | 
 **EntitlementCount** | Pointer to **int32** | The number of entitlements associated with this account. | [optional] 
 **Campaign** | [**CampaignGeneratedCampaign**](campaign-generated-campaign) |  | 
 **Certification** | [**CertificationSignedOffCertification**](certification-signed-off-certification) |  | 
-**TrackingNumber** | **string** | Provisioning request&#39;s reference number. Useful for tracking status in the &#39;Account Activity&#39; search interface. | 
+**TrackingNumber** | **string** | Provisioning request's reference number. Useful for tracking status in the 'Account Activity' search interface. | 
 **Sources** | **string** | Sources the provisioning transactions were performed on. Sources are comma separated. | 
 **Action** | Pointer to **NullableString** | Origin of the provisioning request. | [optional] 
 **Recipient** | [**ProvisioningCompletedRecipient**](provisioning-completed-recipient) |  | 
@@ -47,9 +47,9 @@ Name | Type | Description | Notes
 **SearchName** | **string** | Saved search name. | 
 **SearchResults** | [**SavedSearchCompleteSearchResults**](saved-search-complete-search-results) |  | 
 **SignedS3Url** | **string** | The Amazon S3 URL to download the report from. | 
-**Uuid** | **string** | Identity&#39;s universal unique identifier (UUID) on the source. The source system generates the UUID. | 
-**Id** | **string** | Source&#39;s unique ID. | 
-**NativeIdentifier** | **string** | Account&#39;s unique ID on the source. | 
+**Uuid** | **string** | Identity's universal unique identifier (UUID) on the source. The source system generates the UUID. | 
+**Id** | **string** | Source's unique ID. | 
+**NativeIdentifier** | **string** | Account's unique ID on the source. | 
 **SourceId** | **string** | Source ID. | 
 **SourceName** | **string** | Source name. | 
 **IdentityId** | **string** | ID of the identity correlated with the account. | 

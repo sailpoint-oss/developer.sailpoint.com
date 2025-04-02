@@ -20,8 +20,8 @@ Name | Type | Description | Notes
 **OutlierFeatureDisplayValues** | Pointer to [**[]OutlierFeatureSummaryOutlierFeatureDisplayValuesInner**](outlier-feature-summary-outlier-feature-display-values-inner) |  | [optional] 
 **FeatureDefinition** | Pointer to **string** | Definition of the feature | [optional] 
 **FeatureExplanation** | Pointer to **string** | Detailed explanation of the feature | [optional] 
-**PeerDisplayName** | Pointer to **string** | outlier&#39;s peer identity display name | [optional] 
-**PeerIdentityId** | Pointer to **string** | outlier&#39;s peer identity id | [optional] 
+**PeerDisplayName** | Pointer to **string** | outlier's peer identity display name | [optional] 
+**PeerIdentityId** | Pointer to **string** | outlier's peer identity id | [optional] 
 **AccessItemReference** | Pointer to **map[string]interface{}** | Access Item reference | [optional] 
 
 ## Methods

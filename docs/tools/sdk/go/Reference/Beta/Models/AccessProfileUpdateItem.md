@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | Identifier of Access Profile in bulk update request. | 
 **Requestable** | **bool** | Access Profile requestable or not. | 
-**Status** | **string** |  The HTTP response status code returned for an individual Access Profile that is requested for update during a bulk update operation.  &gt; 201   - Access profile is updated successfully.  &gt; 404   - Access profile not found.  | 
+**Status** | **string** |  The HTTP response status code returned for an individual Access Profile that is requested for update during a bulk update operation.  > 201   - Access profile is updated successfully.  > 404   - Access profile not found.  | 
 **Description** | Pointer to **string** | Human readable status description and containing additional context information about success or failures etc.  | [optional] 
 
 ## Methods

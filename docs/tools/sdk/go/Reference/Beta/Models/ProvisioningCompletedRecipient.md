@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'ProvisioningCompletedRecipient', 'Bet
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | **string** | Provisioning recipient DTO type. | 
-**Id** | **string** | Provisioning recipient&#39;s identity ID. | 
-**Name** | **string** | Provisioning recipient&#39;s name. | 
+**Id** | **string** | Provisioning recipient's identity ID. | 
+**Name** | **string** | Provisioning recipient's name. | 
 
 ## Methods
 

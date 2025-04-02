@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Request** | Pointer to [**RecommendationRequest**](recommendation-request) |  | [optional] 
 **Recommendation** | Pointer to **string** | The recommendation - YES if the access is recommended, NO if not recommended, MAYBE if there is not enough information to make a recommendation, NOT_FOUND if the identity is not found in the system | [optional] 
-**Interpretations** | Pointer to **[]string** | The list of interpretations explaining the recommendation. The array is empty if includeInterpretations is false or not present in the request. e.g. - [ \&quot;Not approved in the last 6 months.\&quot; ]. Interpretations will be translated using the client&#39;s locale as found in the Accept-Language header. If a translation for the client&#39;s locale cannot be found, the US English translation will be returned. | [optional] 
+**Interpretations** | Pointer to **[]string** | The list of interpretations explaining the recommendation. The array is empty if includeInterpretations is false or not present in the request. e.g. - [ \"Not approved in the last 6 months.\" ]. Interpretations will be translated using the client's locale as found in the Accept-Language header. If a translation for the client's locale cannot be found, the US English translation will be returned. | [optional] 
 **TranslationMessages** | Pointer to [**[]TranslationMessage**](translation-message) | The list of translation messages, if they have been requested. | [optional] 
 **RecommenderCalculations** | Pointer to [**RecommenderCalculations**](recommender-calculations) |  | [optional] 
 

@@ -15,9 +15,9 @@ tags: ['SDK', 'Software Development Kit', 'AccountAggregationCompletedSource', '
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **string** | Source&#39;s DTO type. | 
-**Id** | **string** | Source&#39;s unique ID. | 
-**Name** | **string** | Source&#39;s name. | 
+**Type** | **string** | Source's DTO type. | 
+**Id** | **string** | Source's unique ID. | 
+**Name** | **string** | Source's name. | 
 
 ## Methods
 

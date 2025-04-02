@@ -15,14 +15,14 @@ tags: ['SDK', 'Software Development Kit', 'SourceAccountCreated', 'BetaSourceAcc
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Uuid** | **string** | Identity&#39;s universal unique identifier (UUID) on the source. The source system generates the UUID. | 
+**Uuid** | **string** | Identity's universal unique identifier (UUID) on the source. The source system generates the UUID. | 
 **Id** | **string** | SailPoint generated unique identifier. | 
-**NativeIdentifier** | **string** | Account&#39;s unique ID on the source. | 
+**NativeIdentifier** | **string** | Account's unique ID on the source. | 
 **SourceId** | **string** | Source ID. | 
 **SourceName** | **string** | Source name. | 
 **IdentityId** | **string** | ID of the identity correlated with the account. | 
 **IdentityName** | **string** | Name of the identity correlated with the account. | 
-**Attributes** | **map[string]interface{}** | Account attributes. The attributes&#39; contents depend on the source&#39;s account schema. | 
+**Attributes** | **map[string]interface{}** | Account attributes. The attributes' contents depend on the source's account schema. | 
 
 ## Methods
 

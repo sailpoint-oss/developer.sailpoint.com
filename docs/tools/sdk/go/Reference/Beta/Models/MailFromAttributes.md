@@ -17,8 +17,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Identity** | Pointer to **string** | The email identity | [optional] 
 **MailFromDomain** | Pointer to **string** | The name of a domain that an email identity uses as a custom MAIL FROM domain | [optional] 
-**MxRecord** | Pointer to **string** | MX record that is required in customer&#39;s DNS to allow the domain to receive bounce and complaint notifications that email providers send you | [optional] 
-**TxtRecord** | Pointer to **string** | TXT record that is required in customer&#39;s DNS in order to prove that Amazon SES is authorized to send email from your domain | [optional] 
+**MxRecord** | Pointer to **string** | MX record that is required in customer's DNS to allow the domain to receive bounce and complaint notifications that email providers send you | [optional] 
+**TxtRecord** | Pointer to **string** | TXT record that is required in customer's DNS in order to prove that Amazon SES is authorized to send email from your domain | [optional] 
 **MailFromDomainStatus** | Pointer to **string** | The current status of the MAIL FROM verification | [optional] 
 
 ## Methods

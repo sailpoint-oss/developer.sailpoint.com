@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **Description** | Pointer to **string** | Trigger Description. | [optional] 
 **InputSchema** | **string** | The JSON schema of the payload that will be sent by the trigger to the subscribed service. | 
 **ExampleInput** | [**TriggerExampleInput**](trigger-example-input) |  | 
-**OutputSchema** | Pointer to **NullableString** | The JSON schema of the response that will be sent by the subscribed service to the trigger in response to an event.  This only applies to a trigger type of &#x60;REQUEST_RESPONSE&#x60;. | [optional] 
+**OutputSchema** | Pointer to **NullableString** | The JSON schema of the response that will be sent by the subscribed service to the trigger in response to an event.  This only applies to a trigger type of `REQUEST_RESPONSE`. | [optional] 
 **ExampleOutput** | Pointer to [**NullableTriggerExampleOutput**](trigger-example-output) |  | [optional] 
 
 ## Methods

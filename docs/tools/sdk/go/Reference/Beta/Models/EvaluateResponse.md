@@ -15,8 +15,8 @@ tags: ['SDK', 'Software Development Kit', 'EvaluateResponse', 'BetaEvaluateRespo
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ReassignToId** | Pointer to **string** | The Identity ID which should be the recipient of any work items sent to a specific identity &amp; work type | [optional] 
-**LookupTrail** | Pointer to [**[]LookupStep**](lookup-step) | List of Reassignments found by looking up the next &#x60;TargetIdentity&#x60; in a ReassignmentConfiguration | [optional] 
+**ReassignToId** | Pointer to **string** | The Identity ID which should be the recipient of any work items sent to a specific identity & work type | [optional] 
+**LookupTrail** | Pointer to [**[]LookupStep**](lookup-step) | List of Reassignments found by looking up the next `TargetIdentity` in a ReassignmentConfiguration | [optional] 
 
 ## Methods
 

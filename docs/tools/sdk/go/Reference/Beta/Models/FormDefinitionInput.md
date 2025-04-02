@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **Id** | Pointer to **string** | Unique identifier for the form input. | [optional] 
 **Type** | Pointer to **string** | FormDefinitionInputType value. STRING FormDefinitionInputTypeString | [optional] 
 **Label** | Pointer to **string** | Name for the form input. | [optional] 
-**Description** | Pointer to **string** | Form input&#39;s description. | [optional] 
+**Description** | Pointer to **string** | Form input's description. | [optional] 
 
 ## Methods
 

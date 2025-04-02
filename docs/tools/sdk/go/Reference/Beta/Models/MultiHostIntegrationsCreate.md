@@ -15,8 +15,8 @@ tags: ['SDK', 'Software Development Kit', 'MultiHostIntegrationsCreate', 'BetaMu
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** | Multi-Host Integration&#39;s human-readable name. | 
-**Description** | **string** | Multi-Host Integration&#39;s human-readable description. | 
+**Name** | **string** | Multi-Host Integration's human-readable name. | 
+**Description** | **string** | Multi-Host Integration's human-readable description. | 
 **Owner** | [**MultiHostIntegrationsOwner**](multi-host-integrations-owner) |  | 
 **Cluster** | Pointer to [**NullableMultiHostIntegrationsCluster**](multi-host-integrations-cluster) |  | [optional] 
 **Connector** | **string** | Connector script name. | 

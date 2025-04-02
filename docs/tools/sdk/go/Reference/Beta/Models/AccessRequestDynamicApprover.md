@@ -15,7 +15,7 @@ tags: ['SDK', 'Software Development Kit', 'AccessRequestDynamicApprover', 'BetaA
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccessRequestId** | **string** | Unique ID of the access request object. You can use this ID with the [Access Request Status endpoint](https://developer.sailpoint.com/idn/api/beta/list-access-request-status) to get the request&#39;s status. | 
+**AccessRequestId** | **string** | Unique ID of the access request object. You can use this ID with the [Access Request Status endpoint](https://developer.sailpoint.com/idn/api/beta/list-access-request-status) to get the request's status. | 
 **RequestedFor** | [**[]AccessItemRequestedForDto1**](access-item-requested-for-dto1) | Identities access was requested for. | 
 **RequestedItems** | [**[]AccessRequestDynamicApproverRequestedItemsInner**](access-request-dynamic-approver-requested-items-inner) | Requested access items. | 
 **RequestedBy** | [**AccessItemRequesterDto1**](access-item-requester-dto1) |  | 

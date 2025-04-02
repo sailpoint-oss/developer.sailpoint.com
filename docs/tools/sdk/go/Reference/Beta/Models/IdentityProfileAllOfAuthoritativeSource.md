@@ -15,9 +15,9 @@ tags: ['SDK', 'Software Development Kit', 'IdentityProfileAllOfAuthoritativeSour
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | Pointer to **string** | Authoritative source&#39;s object type. | [optional] 
-**Id** | Pointer to **string** | Authoritative source&#39;s ID. | [optional] 
-**Name** | Pointer to **string** | Authoritative source&#39;s name. | [optional] 
+**Type** | Pointer to **string** | Authoritative source's object type. | [optional] 
+**Id** | Pointer to **string** | Authoritative source's ID. | [optional] 
+**Name** | Pointer to **string** | Authoritative source's name. | [optional] 
 
 ## Methods
 

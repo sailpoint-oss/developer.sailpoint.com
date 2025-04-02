@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'AccessItemRef', 'BetaAccessItemRef']
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** | ID of the access item to retrieve the recommendation for. | [optional] 
-**Type** | Pointer to **string** | Access item&#39;s type. | [optional] 
+**Type** | Pointer to **string** | Access item's type. | [optional] 
 
 ## Methods
 

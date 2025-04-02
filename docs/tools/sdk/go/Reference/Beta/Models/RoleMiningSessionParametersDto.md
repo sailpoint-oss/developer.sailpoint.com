@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'RoleMiningSessionParametersDto', 'Bet
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** | The ID of the role mining session | [optional] 
-**Name** | Pointer to **NullableString** | The session&#39;s saved name | [optional] 
+**Name** | Pointer to **NullableString** | The session's saved name | [optional] 
 **MinNumIdentitiesInPotentialRole** | Pointer to **NullableInt32** | Minimum number of identities in a potential role | [optional] 
 **PruneThreshold** | Pointer to **NullableInt32** | The prune threshold to be used or null to calculate prescribedPruneThreshold | [optional] 
-**Saved** | Pointer to **bool** | The session&#39;s saved status | [optional] [default to true]
+**Saved** | Pointer to **bool** | The session's saved status | [optional] [default to true]
 **Scope** | Pointer to [**RoleMiningSessionScope**](role-mining-session-scope) |  | [optional] 
 **Type** | Pointer to [**RoleMiningRoleType**](role-mining-role-type) |  | [optional] 
 **State** | Pointer to [**RoleMiningSessionState**](role-mining-session-state) |  | [optional] 

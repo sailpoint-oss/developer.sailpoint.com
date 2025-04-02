@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 **Owner** | Pointer to [**AccessItemOwnerDto**](access-item-owner-dto) |  | [optional] 
 **RequestedObject** | Pointer to [**RequestableObjectReference**](requestable-object-reference) |  | [optional] 
 **RequesterComment** | Pointer to [**CommentDto1**](comment-dto1) |  | [optional] 
-**ReviewerComment** | Pointer to [**NullableCommentDto**](comment-dto) | The approval&#39;s reviewer&#39;s comment. | [optional] 
+**ReviewerComment** | Pointer to [**NullableCommentDto**](comment-dto) | The approval's reviewer's comment. | [optional] 
 **PreviousReviewersComments** | Pointer to [**[]CommentDto1**](comment-dto1) | The history of the previous reviewers comments. | [optional] 
 **ForwardHistory** | Pointer to [**[]ApprovalForwardHistory**](approval-forward-history) | The history of approval forward action. | [optional] 
 **CommentRequiredWhenRejected** | Pointer to **bool** | When true the rejector has to provide comments when rejecting | [optional] [default to false]

@@ -15,9 +15,9 @@ tags: ['SDK', 'Software Development Kit', 'IdentityProfileAllOfOwner', 'BetaIden
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | Pointer to **string** | Owner&#39;s object type. | [optional] 
-**Id** | Pointer to **string** | Owner&#39;s ID. | [optional] 
-**Name** | Pointer to **string** | Owner&#39;s name. | [optional] 
+**Type** | Pointer to **string** | Owner's object type. | [optional] 
+**Id** | Pointer to **string** | Owner's ID. | [optional] 
+**Name** | Pointer to **string** | Owner's name. | [optional] 
 
 ## Methods
 

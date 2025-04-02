@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **Filter** | Pointer to **NullableString** | JSON path expression that will limit which events the trigger will fire on | [optional] 
 **Description** | Pointer to **NullableString** | Additional context about the external trigger | [optional] 
 **AttributeToFilter** | Pointer to **NullableString** | The attribute to filter on | [optional] 
-**FormDefinitionId** | Pointer to **NullableString** | Form definition&#39;s unique identifier. | [optional] 
+**FormDefinitionId** | Pointer to **NullableString** | Form definition's unique identifier. | [optional] 
 **Name** | Pointer to **NullableString** | A unique name for the external trigger | [optional] 
 **ClientId** | Pointer to **NullableString** | OAuth Client ID to authenticate with this trigger | [optional] 
 **Url** | Pointer to **NullableString** | URL to invoke this workflow | [optional] 

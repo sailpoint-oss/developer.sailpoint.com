@@ -16,13 +16,13 @@ tags: ['SDK', 'Software Development Kit', 'Identity', 'BetaIdentity']
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** | System-generated unique ID of the identity | [optional] [readonly] 
-**Name** | **string** | The identity&#39;s name is equivalent to its Display Name attribute. | 
+**Name** | **string** | The identity's name is equivalent to its Display Name attribute. | 
 **Created** | Pointer to **time.Time** | Creation date of the identity | [optional] [readonly] 
 **Modified** | Pointer to **time.Time** | Last modification date of the identity | [optional] [readonly] 
-**Alias** | Pointer to **string** | The identity&#39;s alternate unique identifier is equivalent to its Account Name on the authoritative source account schema. | [optional] 
+**Alias** | Pointer to **string** | The identity's alternate unique identifier is equivalent to its Account Name on the authoritative source account schema. | [optional] 
 **EmailAddress** | Pointer to **NullableString** | The email address of the identity | [optional] 
 **ProcessingState** | Pointer to **NullableString** | The processing state of the identity | [optional] 
-**IdentityStatus** | Pointer to **string** | The identity&#39;s status in the system | [optional] 
+**IdentityStatus** | Pointer to **string** | The identity's status in the system | [optional] 
 **ManagerRef** | Pointer to [**NullableIdentityManagerRef**](identity-manager-ref) |  | [optional] 
 **IsManager** | Pointer to **bool** | Whether this identity is a manager of another identity | [optional] [default to false]
 **LastRefresh** | Pointer to **time.Time** | The last time the identity was refreshed by the system | [optional] 

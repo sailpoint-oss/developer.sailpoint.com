@@ -40,7 +40,7 @@ Name | Type | Description | Notes
 **HasEntitlements** | **bool** | Indicates if the account has entitlements | 
 **Identity** | Pointer to [**BaseReferenceDto**](base-reference-dto) |  | [optional] 
 **SourceOwner** | Pointer to [**BaseReferenceDto**](base-reference-dto) |  | [optional] 
-**Features** | Pointer to **NullableString** | A string list containing the owning source&#39;s features | [optional] 
+**Features** | Pointer to **NullableString** | A string list containing the owning source's features | [optional] 
 **Origin** | Pointer to **NullableString** | The origin of the account either aggregated or provisioned | [optional] 
 **OwnerIdentity** | Pointer to [**BaseReferenceDto**](base-reference-dto) |  | [optional] 
 

@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **Filter** | Pointer to **NullableString** | JSON path expression that will limit which events the trigger will fire on | [optional] 
 **Description** | Pointer to **NullableString** | Description of the event trigger | [optional] 
 **AttributeToFilter** | Pointer to **NullableString** | The attribute to filter on | [optional] 
-**FormDefinitionId** | Pointer to **NullableString** | Form definition&#39;s unique identifier. | [optional] 
+**FormDefinitionId** | Pointer to **NullableString** | Form definition's unique identifier. | [optional] 
 
 ## Methods
 

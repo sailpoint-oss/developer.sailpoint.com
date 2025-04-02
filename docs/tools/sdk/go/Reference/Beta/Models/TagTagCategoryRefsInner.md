@@ -15,9 +15,9 @@ tags: ['SDK', 'Software Development Kit', 'TagTagCategoryRefsInner', 'BetaTagTag
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | Pointer to **string** | DTO type of the tagged object&#39;s category. | [optional] 
-**Id** | Pointer to **string** | Tagged object&#39;s ID. | [optional] 
-**Name** | Pointer to **string** | Tagged object&#39;s display name. | [optional] 
+**Type** | Pointer to **string** | DTO type of the tagged object's category. | [optional] 
+**Id** | Pointer to **string** | Tagged object's ID. | [optional] 
+**Name** | Pointer to **string** | Tagged object's display name. | [optional] 
 
 ## Methods
 

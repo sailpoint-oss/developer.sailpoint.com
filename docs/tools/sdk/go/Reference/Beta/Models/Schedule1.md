@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **Days** | Pointer to [**Schedule1Days**](schedule1-days) |  | [optional] 
 **Hours** | [**Schedule1Hours**](schedule1-hours) |  | 
 **Expiration** | Pointer to **NullableTime** | A date-time in ISO-8601 format | [optional] 
-**TimeZoneId** | Pointer to **NullableString** | The canonical TZ identifier the schedule will run in (ex. America/New_York).  If no timezone is specified, the org&#39;s default timezone is used. | [optional] 
+**TimeZoneId** | Pointer to **NullableString** | The canonical TZ identifier the schedule will run in (ex. America/New_York).  If no timezone is specified, the org's default timezone is used. | [optional] 
 
 ## Methods
 

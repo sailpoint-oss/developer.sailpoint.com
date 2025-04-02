@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **Name** | Pointer to **string** | Operator friendly name | [optional] 
 **Type** | Pointer to **string** | Operator type | [optional] 
 **Description** | Pointer to **string** | Description of the operator | [optional] 
-**IsDynamicSchema** | Pointer to **bool** | Determines whether the dynamic output schema is returned in place of the action&#39;s output schema. The dynamic schema lists non-static properties, like properties of a workflow form where each form has different fields. These will be provided dynamically based on available form fields. | [optional] 
+**IsDynamicSchema** | Pointer to **bool** | Determines whether the dynamic output schema is returned in place of the action's output schema. The dynamic schema lists non-static properties, like properties of a workflow form where each form has different fields. These will be provided dynamically based on available form fields. | [optional] 
 **Deprecated** | Pointer to **bool** |  | [optional] 
 **DeprecatedBy** | Pointer to **time.Time** |  | [optional] 
 **IsSimulationEnabled** | Pointer to **bool** |  | [optional] 

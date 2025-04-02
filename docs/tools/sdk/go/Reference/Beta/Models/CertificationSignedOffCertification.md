@@ -15,8 +15,8 @@ tags: ['SDK', 'Software Development Kit', 'CertificationSignedOffCertification',
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | Certification&#39;s unique ID. | 
-**Name** | **string** | Certification&#39;s name. | 
+**Id** | **string** | Certification's unique ID. | 
+**Name** | **string** | Certification's name. | 
 **Created** | **time.Time** | Date and time when the certification was created. | 
 **Modified** | Pointer to **NullableTime** | Date and time when the certification was last modified. | [optional] 
 **CampaignRef** | [**CampaignReference**](campaign-reference) |  | 

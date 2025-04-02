@@ -15,9 +15,9 @@ tags: ['SDK', 'Software Development Kit', 'CampaignActivatedCampaignCampaignOwne
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | Identity&#39;s unique ID. | 
-**DisplayName** | **string** | Identity&#39;s name. | 
-**Email** | **string** | Identity&#39;s primary email address. | 
+**Id** | **string** | Identity's unique ID. | 
+**DisplayName** | **string** | Identity's name. | 
+**Email** | **string** | Identity's primary email address. | 
 
 ## Methods
 

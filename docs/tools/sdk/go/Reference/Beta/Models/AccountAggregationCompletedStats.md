@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **Scanned** | **int32** | Number of accounts scanned/iterated over. | 
 **Unchanged** | **int32** | Number of accounts that existed before but had no changes. | 
 **Changed** | **int32** | Number of accounts that existed before but had changes. | 
-**Added** | **int32** | Number of accounts that are new and didn&#39;t previously exist. | 
+**Added** | **int32** | Number of accounts that are new and didn't previously exist. | 
 **Removed** | **int32** | Number accounts that existed before but were removed and no longer exist. | 
 
 ## Methods

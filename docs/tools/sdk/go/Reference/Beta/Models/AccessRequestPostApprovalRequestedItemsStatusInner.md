@@ -15,10 +15,10 @@ tags: ['SDK', 'Software Development Kit', 'AccessRequestPostApprovalRequestedIte
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | Access item&#39;s unique ID. | 
-**Name** | **string** | Access item&#39;s name. | 
-**Description** | Pointer to **NullableString** | Access item&#39;s description. | [optional] 
-**Type** | **map[string]interface{}** | Access item&#39;s type. | 
+**Id** | **string** | Access item's unique ID. | 
+**Name** | **string** | Access item's name. | 
+**Description** | Pointer to **NullableString** | Access item's description. | [optional] 
+**Type** | **map[string]interface{}** | Access item's type. | 
 **Operation** | **map[string]interface{}** | Action to perform on the requested access item. | 
 **Comment** | Pointer to **NullableString** | Comment from the identity requesting access. | [optional] 
 **ClientMetadata** | Pointer to **map[string]interface{}** | Additional customer defined metadata about the access item. | [optional] 

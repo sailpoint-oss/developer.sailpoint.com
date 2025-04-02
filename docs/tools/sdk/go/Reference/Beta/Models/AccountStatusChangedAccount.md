@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **SourceId** | Pointer to **string** | the ID of the source for this account | [optional] 
 **SourceName** | Pointer to **string** | the name of the source for this account | [optional] 
 **EntitlementCount** | Pointer to **int32** | the number of entitlements on this account | [optional] 
-**AccessType** | Pointer to **string** | this value is always \&quot;account\&quot; | [optional] 
+**AccessType** | Pointer to **string** | this value is always \"account\" | [optional] 
 
 ## Methods
 

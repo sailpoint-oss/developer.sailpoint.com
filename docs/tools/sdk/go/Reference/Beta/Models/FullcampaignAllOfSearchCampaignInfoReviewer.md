@@ -15,9 +15,9 @@ tags: ['SDK', 'Software Development Kit', 'FullcampaignAllOfSearchCampaignInfoRe
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | Pointer to **string** | The reviewer&#39;s DTO type. | [optional] 
-**Id** | Pointer to **string** | The reviewer&#39;s ID. | [optional] 
-**Name** | Pointer to **string** | The reviewer&#39;s name. | [optional] 
+**Type** | Pointer to **string** | The reviewer's DTO type. | [optional] 
+**Id** | Pointer to **string** | The reviewer's ID. | [optional] 
+**Name** | Pointer to **string** | The reviewer's name. | [optional] 
 
 ## Methods
 

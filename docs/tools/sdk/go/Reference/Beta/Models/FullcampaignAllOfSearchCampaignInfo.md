@@ -18,9 +18,9 @@ Name | Type | Description | Notes
 **Type** | **string** | The type of search campaign represented. | 
 **Description** | Pointer to **string** | Describes this search campaign. Intended for storing the query used, and possibly the number of identities selected/available. | [optional] 
 **Reviewer** | Pointer to [**FullcampaignAllOfSearchCampaignInfoReviewer**](fullcampaign-all-of-search-campaign-info-reviewer) |  | [optional] 
-**Query** | Pointer to **string** | The scope for the campaign. The campaign will cover identities returned by the query and identities that have access items returned by the query. One of &#x60;query&#x60; or &#x60;identityIds&#x60; must be set. | [optional] 
-**IdentityIds** | Pointer to **[]string** | A direct list of identities to include in this campaign. One of &#x60;identityIds&#x60; or &#x60;query&#x60; must be set. | [optional] 
-**AccessConstraints** | Pointer to [**[]AccessConstraint**](access-constraint) | Further reduces the scope of the campaign by excluding identities (from &#x60;query&#x60; or &#x60;identityIds&#x60;) that do not have this access. | [optional] 
+**Query** | Pointer to **string** | The scope for the campaign. The campaign will cover identities returned by the query and identities that have access items returned by the query. One of `query` or `identityIds` must be set. | [optional] 
+**IdentityIds** | Pointer to **[]string** | A direct list of identities to include in this campaign. One of `identityIds` or `query` must be set. | [optional] 
+**AccessConstraints** | Pointer to [**[]AccessConstraint**](access-constraint) | Further reduces the scope of the campaign by excluding identities (from `query` or `identityIds`) that do not have this access. | [optional] 
 
 ## Methods
 

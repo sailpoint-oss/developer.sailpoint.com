@@ -15,14 +15,14 @@ tags: ['SDK', 'Software Development Kit', 'IdentityAttribute', 'BetaIdentityAttr
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** | Identity attribute&#39;s technical name. | 
-**DisplayName** | Pointer to **string** | Identity attribute&#39;s business-friendly name. | [optional] 
-**Standard** | Pointer to **bool** | Indicates whether the attribute is &#39;standard&#39; or &#39;default&#39;. | [optional] [default to false]
-**Type** | Pointer to **NullableString** | Identity attribute&#39;s type. | [optional] 
+**Name** | **string** | Identity attribute's technical name. | 
+**DisplayName** | Pointer to **string** | Identity attribute's business-friendly name. | [optional] 
+**Standard** | Pointer to **bool** | Indicates whether the attribute is 'standard' or 'default'. | [optional] [default to false]
+**Type** | Pointer to **NullableString** | Identity attribute's type. | [optional] 
 **Multi** | Pointer to **bool** | Indicates whether the identity attribute is multi-valued. | [optional] [default to false]
 **Searchable** | Pointer to **bool** | Indicates whether the identity attribute is searchable. | [optional] [default to false]
-**System** | Pointer to **bool** | Indicates whether the identity attribute is &#39;system&#39;, meaning that it doesn&#39;t have a source and isn&#39;t configurable. | [optional] [default to false]
-**Sources** | Pointer to [**[]Source1**](source1) | Identity attribute&#39;s list of sources - this specifies how the rule&#39;s value is derived. | [optional] 
+**System** | Pointer to **bool** | Indicates whether the identity attribute is 'system', meaning that it doesn't have a source and isn't configurable. | [optional] [default to false]
+**Sources** | Pointer to [**[]Source1**](source1) | Identity attribute's list of sources - this specifies how the rule's value is derived. | [optional] 
 
 ## Methods
 

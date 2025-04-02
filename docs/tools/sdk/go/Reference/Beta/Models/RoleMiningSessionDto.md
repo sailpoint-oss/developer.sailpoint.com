@@ -24,8 +24,8 @@ Name | Type | Description | Notes
 **Type** | Pointer to [**RoleMiningRoleType**](role-mining-role-type) |  | [optional] 
 **EmailRecipientId** | Pointer to **NullableString** | The id of the user who will receive an email about the role mining session | [optional] 
 **IdentityCount** | Pointer to **int32** | Number of identities in the population which meet the search criteria or identity list provided | [optional] 
-**Saved** | Pointer to **bool** | The session&#39;s saved status | [optional] [default to false]
-**Name** | Pointer to **NullableString** | The session&#39;s saved name | [optional] 
+**Saved** | Pointer to **bool** | The session's saved status | [optional] [default to false]
+**Name** | Pointer to **NullableString** | The session's saved name | [optional] 
 
 ## Methods
 

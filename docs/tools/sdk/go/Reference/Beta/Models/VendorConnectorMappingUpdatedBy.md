@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'VendorConnectorMappingUpdatedBy', 'Be
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **String** | Pointer to **string** | The identifier of the user who last updated the mapping, if available. | [optional] 
-**Valid** | Pointer to **bool** | A flag indicating if the &#39;String&#39; field is set and valid. | [optional] [default to false]
+**Valid** | Pointer to **bool** | A flag indicating if the 'String' field is set and valid. | [optional] [default to false]
 
 ## Methods
 

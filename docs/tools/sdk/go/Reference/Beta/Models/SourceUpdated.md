@@ -15,7 +15,7 @@ tags: ['SDK', 'Software Development Kit', 'SourceUpdated', 'BetaSourceUpdated']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | Source&#39;s unique ID. | 
+**Id** | **string** | Source's unique ID. | 
 **Name** | **string** | Source name. | 
 **Type** | **string** | Connection type. | 
 **Modified** | **time.Time** | Date and time when the source was modified. | 

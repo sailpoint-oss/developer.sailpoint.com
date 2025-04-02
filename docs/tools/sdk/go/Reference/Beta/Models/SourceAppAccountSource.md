@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'SourceAppAccountSource', 'BetaSourceA
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** | The source ID | [optional] 
-**Type** | Pointer to **string** | The source type, will always be \&quot;SOURCE\&quot; | [optional] 
+**Type** | Pointer to **string** | The source type, will always be \"SOURCE\" | [optional] 
 **Name** | Pointer to **string** | The source name | [optional] 
 **UseForPasswordManagement** | Pointer to **bool** | If the source is used for password management | [optional] [default to false]
 **PasswordPolicies** | Pointer to [**[]BaseReferenceDto**](base-reference-dto) | The password policies for the source | [optional] 

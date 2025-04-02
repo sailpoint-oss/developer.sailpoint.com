@@ -15,9 +15,9 @@ tags: ['SDK', 'Software Development Kit', 'FormDefinitionSelfImportExportDto', '
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | Pointer to **string** | Imported/exported object&#39;s DTO type. | [optional] 
-**Id** | Pointer to **string** | Imported/exported object&#39;s ID. | [optional] 
-**Name** | Pointer to **string** | Imported/exported object&#39;s display name. | [optional] 
+**Type** | Pointer to **string** | Imported/exported object's DTO type. | [optional] 
+**Id** | Pointer to **string** | Imported/exported object's ID. | [optional] 
+**Name** | Pointer to **string** | Imported/exported object's display name. | [optional] 
 
 ## Methods
 

@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 **ProvisionState** | Pointer to [**RoleMiningPotentialRoleProvisionState**](role-mining-potential-role-provision-state) |  | [optional] 
 **Quality** | Pointer to **int32** | The quality of a potential role. | [optional] 
 **RoleId** | Pointer to **NullableString** | The roleId of a potential role. | [optional] 
-**Saved** | Pointer to **bool** | The potential role&#39;s saved status. | [optional] 
+**Saved** | Pointer to **bool** | The potential role's saved status. | [optional] 
 **Session** | Pointer to [**RoleMiningSessionParametersDto**](role-mining-session-parameters-dto) |  | [optional] 
 **Type** | Pointer to [**RoleMiningRoleType**](role-mining-role-type) |  | [optional] 
 **Id** | Pointer to **string** | Id of the potential role | [optional] 

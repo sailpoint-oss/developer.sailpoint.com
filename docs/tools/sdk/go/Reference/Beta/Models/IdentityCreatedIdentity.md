@@ -15,9 +15,9 @@ tags: ['SDK', 'Software Development Kit', 'IdentityCreatedIdentity', 'BetaIdenti
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **string** | Identity&#39;s DTO type. | 
-**Id** | **string** | Identity&#39;s unique ID. | 
-**Name** | **string** | Identity&#39;s name. | 
+**Type** | **string** | Identity's DTO type. | 
+**Id** | **string** | Identity's unique ID. | 
+**Name** | **string** | Identity's name. | 
 
 ## Methods
 

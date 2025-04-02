@@ -15,9 +15,9 @@ tags: ['SDK', 'Software Development Kit', 'AccessRequestDynamicApproverRequested
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | Access item&#39;s unique identifier. | 
-**Name** | **string** | Access item&#39;s name. | 
-**Description** | Pointer to **NullableString** | Access item&#39;s extended description. | [optional] 
+**Id** | **string** | Access item's unique identifier. | 
+**Name** | **string** | Access item's name. | 
+**Description** | Pointer to **NullableString** | Access item's extended description. | [optional] 
 **Type** | **map[string]interface{}** | Type of access item being requested. | 
 **Operation** | **map[string]interface{}** | Action to perform on the requested access item. | 
 **Comment** | Pointer to **NullableString** | Comment from the requester about why the access is necessary. | [optional] 

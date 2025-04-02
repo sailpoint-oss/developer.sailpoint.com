@@ -15,15 +15,15 @@ tags: ['SDK', 'Software Development Kit', 'ServiceDeskIntegrationDto', 'BetaServ
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** | Service Desk integration&#39;s name. The name must be unique. | 
-**Description** | **string** | Service Desk integration&#39;s description. | 
+**Name** | **string** | Service Desk integration's name. The name must be unique. | 
+**Description** | **string** | Service Desk integration's description. | 
 **Type** | **string** | Service Desk integration types:  - ServiceNowSDIM - ServiceNow  | [default to "ServiceNowSDIM"]
 **OwnerRef** | Pointer to [**OwnerDto**](owner-dto) |  | [optional] 
 **ClusterRef** | Pointer to [**SourceClusterDto**](source-cluster-dto) |  | [optional] 
 **Cluster** | Pointer to **string** | Cluster ID for the Service Desk integration (replaced by clusterRef, retained for backward compatibility). | [optional] 
 **ManagedSources** | Pointer to **[]string** | Source IDs for the Service Desk integration (replaced by provisioningConfig.managedSResourceRefs, but retained here for backward compatibility). | [optional] 
 **ProvisioningConfig** | Pointer to [**ProvisioningConfig**](provisioning-config) |  | [optional] 
-**Attributes** | **map[string]interface{}** | Service Desk integration&#39;s attributes. Validation constraints enforced by the implementation. | 
+**Attributes** | **map[string]interface{}** | Service Desk integration's attributes. Validation constraints enforced by the implementation. | 
 **BeforeProvisioningRule** | Pointer to [**BeforeProvisioningRuleDto**](before-provisioning-rule-dto) |  | [optional] 
 
 ## Methods

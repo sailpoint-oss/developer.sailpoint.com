@@ -15,7 +15,7 @@ tags: ['SDK', 'Software Development Kit', 'ProvisioningCompleted', 'BetaProvisio
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TrackingNumber** | **string** | Provisioning request&#39;s reference number. Useful for tracking status in the &#39;Account Activity&#39; search interface. | 
+**TrackingNumber** | **string** | Provisioning request's reference number. Useful for tracking status in the 'Account Activity' search interface. | 
 **Sources** | **string** | Sources the provisioning transactions were performed on. Sources are comma separated. | 
 **Action** | Pointer to **NullableString** | Origin of the provisioning request. | [optional] 
 **Errors** | Pointer to **[]string** | List of any accumulated error messages that occurred during provisioning. | [optional] 

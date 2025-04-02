@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'SourceAppCreateDtoAccountSource', 'Be
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | The source ID | 
-**Type** | Pointer to **string** | The source type, will always be \&quot;SOURCE\&quot; | [optional] 
+**Type** | Pointer to **string** | The source type, will always be \"SOURCE\" | [optional] 
 **Name** | Pointer to **string** | The source name | [optional] 
 
 ## Methods

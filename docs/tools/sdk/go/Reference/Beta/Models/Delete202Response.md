@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | Pointer to **string** | Type of object being referenced. | [optional] 
 **Id** | Pointer to **string** | Task result ID. | [optional] 
-**Name** | Pointer to **string** | Task result&#39;s human-readable display name (this should be null/empty). | [optional] 
+**Name** | Pointer to **string** | Task result's human-readable display name (this should be null/empty). | [optional] 
 
 ## Methods
 

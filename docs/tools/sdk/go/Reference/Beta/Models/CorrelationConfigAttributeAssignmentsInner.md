@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **Property** | Pointer to **string** | The property of the attribute assignment. | [optional] 
 **Value** | Pointer to **string** | The value of the attribute assignment. | [optional] 
 **Operation** | Pointer to **string** | The operation of the attribute assignment. | [optional] 
-**Complex** | Pointer to **bool** | Whether or not the it&#39;s a complex attribute assignment. | [optional] [default to false]
+**Complex** | Pointer to **bool** | Whether or not the it's a complex attribute assignment. | [optional] [default to false]
 **IgnoreCase** | Pointer to **bool** | Whether or not the attribute assignment should ignore case. | [optional] [default to false]
 **MatchMode** | Pointer to **string** | The match mode of the attribute assignment. | [optional] 
 **FilterString** | Pointer to **string** | The filter string of the attribute assignment. | [optional] 

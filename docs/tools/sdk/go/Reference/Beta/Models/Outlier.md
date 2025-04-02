@@ -15,7 +15,7 @@ tags: ['SDK', 'Software Development Kit', 'Outlier', 'BetaOutlier']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** | The identity&#39;s unique identifier for the outlier record | [optional] 
+**Id** | Pointer to **string** | The identity's unique identifier for the outlier record | [optional] 
 **IdentityId** | Pointer to **string** | The ID of the identity that is detected as an outlier | [optional] 
 **Type** | Pointer to **string** | The type of outlier summary | [optional] 
 **FirstDetectionDate** | Pointer to **time.Time** | The first date the outlier was detected | [optional] 

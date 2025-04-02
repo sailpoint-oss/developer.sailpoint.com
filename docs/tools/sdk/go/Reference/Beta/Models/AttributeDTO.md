@@ -19,8 +19,8 @@ Name | Type | Description | Notes
 **Name** | Pointer to **string** | The display name of the key. | [optional] 
 **Multiselect** | Pointer to **bool** | Indicates whether the attribute can have multiple values. | [optional] [default to false]
 **Status** | Pointer to **string** | The status of the Attribute. | [optional] 
-**Type** | Pointer to **string** | The type of the Attribute. This can be either \&quot;custom\&quot; or \&quot;governance\&quot;. | [optional] 
-**ObjectTypes** | Pointer to **[]string** | An array of object types this attributes values can be applied to. Possible values are \&quot;all\&quot; or \&quot;entitlement\&quot;. Value \&quot;all\&quot; means this attribute can be used with all object types that are supported. | [optional] 
+**Type** | Pointer to **string** | The type of the Attribute. This can be either \"custom\" or \"governance\". | [optional] 
+**ObjectTypes** | Pointer to **[]string** | An array of object types this attributes values can be applied to. Possible values are \"all\" or \"entitlement\". Value \"all\" means this attribute can be used with all object types that are supported. | [optional] 
 **Description** | Pointer to **string** | The description of the Attribute. | [optional] 
 **Values** | Pointer to [**[]AttributeValueDTO**](attribute-value-dto) |  | [optional] 
 

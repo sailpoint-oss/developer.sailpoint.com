@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'UserAppAccount', 'BetaUserAppAccount'
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** | the account ID | [optional] 
-**Type** | Pointer to **string** | It will always be \&quot;ACCOUNT\&quot; | [optional] 
+**Type** | Pointer to **string** | It will always be \"ACCOUNT\" | [optional] 
 **Name** | Pointer to **string** | the account name | [optional] 
 
 ## Methods

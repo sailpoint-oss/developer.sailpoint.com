@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'UserAppSource', 'BetaUserAppSource']
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** | the source ID | [optional] 
-**Type** | Pointer to **string** | It will always be \&quot;SOURCE\&quot; | [optional] 
+**Type** | Pointer to **string** | It will always be \"SOURCE\" | [optional] 
 **Name** | Pointer to **string** | the source name | [optional] 
 
 ## Methods

@@ -15,8 +15,8 @@ tags: ['SDK', 'Software Development Kit', 'InviteIdentitiesRequest', 'BetaInvite
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Ids** | Pointer to **[]string** | The list of Identities IDs to invite - required when &#39;uninvited&#39; is false | [optional] 
-**Uninvited** | Pointer to **bool** | indicator (optional) to invite all unregistered identities in the system within a limit 1000. This parameter makes sense only when &#39;ids&#39; is empty. | [optional] [default to false]
+**Ids** | Pointer to **[]string** | The list of Identities IDs to invite - required when 'uninvited' is false | [optional] 
+**Uninvited** | Pointer to **bool** | indicator (optional) to invite all unregistered identities in the system within a limit 1000. This parameter makes sense only when 'ids' is empty. | [optional] [default to false]
 
 ## Methods
 

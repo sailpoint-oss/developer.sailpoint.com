@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **PotentialRoleRef** | Pointer to [**RoleMiningPotentialRoleRef**](role-mining-potential-role-ref) |  | [optional] 
 **IdentityCount** | Pointer to **int32** | The number of identities in a potential role. | [optional] 
 **EntitlementCount** | Pointer to **int32** | The number of entitlements in a potential role. | [optional] 
-**IdentityGroupStatus** | Pointer to **string** | The status for this identity group which can be \&quot;REQUESTED\&quot; or \&quot;OBTAINED\&quot; | [optional] 
+**IdentityGroupStatus** | Pointer to **string** | The status for this identity group which can be \"REQUESTED\" or \"OBTAINED\" | [optional] 
 **ProvisionState** | Pointer to [**RoleMiningPotentialRoleProvisionState**](role-mining-potential-role-provision-state) |  | [optional] 
 **RoleId** | Pointer to **NullableString** | ID of the provisioned role in IIQ or IDN.  Null if this potential role has not been provisioned. | [optional] 
 **Density** | Pointer to **int32** | The density metric (0-100) of this potential role. Higher density values indicate higher similarity amongst the identities. | [optional] 
@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 **Type** | Pointer to [**RoleMiningRoleType**](role-mining-role-type) |  | [optional] 
 **CreatedBy** | Pointer to [**RoleMiningPotentialRoleSummaryCreatedBy**](role-mining-potential-role-summary-created-by) |  | [optional] 
 **CreatedDate** | Pointer to **time.Time** | The date-time when this potential role was created. | [optional] 
-**Saved** | Pointer to **bool** | The potential role&#39;s saved status | [optional] [default to false]
+**Saved** | Pointer to **bool** | The potential role's saved status | [optional] [default to false]
 **Description** | Pointer to **NullableString** | Description of the potential role | [optional] 
 **Session** | Pointer to [**RoleMiningSessionParametersDto**](role-mining-session-parameters-dto) |  | [optional] 
 

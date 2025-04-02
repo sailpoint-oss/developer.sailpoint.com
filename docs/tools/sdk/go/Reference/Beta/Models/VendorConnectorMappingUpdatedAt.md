@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'VendorConnectorMappingUpdatedAt', 'Be
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Time** | Pointer to **time.Time** | The timestamp when the mapping was last updated, represented in ISO 8601 format. | [optional] 
-**Valid** | Pointer to **bool** | A flag indicating if the &#39;Time&#39; field is set and valid. | [optional] [default to false]
+**Valid** | Pointer to **bool** | A flag indicating if the 'Time' field is set and valid. | [optional] [default to false]
 
 ## Methods
 

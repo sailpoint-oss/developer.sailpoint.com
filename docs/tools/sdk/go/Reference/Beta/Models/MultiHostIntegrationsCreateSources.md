@@ -15,8 +15,8 @@ tags: ['SDK', 'Software Development Kit', 'MultiHostIntegrationsCreateSources', 
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** | Source&#39;s human-readable name. | 
-**Description** | Pointer to **string** | Source&#39;s human-readable description. | [optional] 
+**Name** | **string** | Source's human-readable name. | 
+**Description** | Pointer to **string** | Source's human-readable description. | [optional] 
 **ConnectorAttributes** | Pointer to **map[string]interface{}** | Connector specific configuration. This configuration will differ from type to type. | [optional] 
 
 ## Methods

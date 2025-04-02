@@ -17,8 +17,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | Pointer to **string** | The type can only be IDENTITY. This is read-only. | [optional] 
 **Id** | Pointer to **string** | Identity ID. | [optional] 
-**Name** | Pointer to **string** | Identity&#39;s human-readable display name. This is read-only. | [optional] 
-**Email** | Pointer to **string** | Identity&#39;s email address. This is read-only. | [optional] 
+**Name** | Pointer to **string** | Identity's human-readable display name. This is read-only. | [optional] 
+**Email** | Pointer to **string** | Identity's email address. This is read-only. | [optional] 
 
 ## Methods
 

@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 **Zone** | Pointer to **string** | Zone | [optional] 
 **Status** | Pointer to **string** | Status of the product | [optional] 
 **StatusDateTime** | Pointer to **time.Time** | Status datetime | [optional] 
-**Reason** | Pointer to **string** | If there&#39;s a tenant provisioning failure then reason will have the description of error | [optional] 
+**Reason** | Pointer to **string** | If there's a tenant provisioning failure then reason will have the description of error | [optional] 
 **Notes** | Pointer to **string** | Product could have additional notes added during tenant provisioning. | [optional] 
 **DateCreated** | Pointer to **NullableTime** | Date when the product was created | [optional] 
 **LastUpdated** | Pointer to **NullableTime** | Date when the product was last updated | [optional] 

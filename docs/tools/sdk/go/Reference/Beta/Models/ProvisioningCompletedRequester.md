@@ -15,9 +15,9 @@ tags: ['SDK', 'Software Development Kit', 'ProvisioningCompletedRequester', 'Bet
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **string** | Provisioning requester&#39;s DTO type. | 
-**Id** | **string** | Provisioning requester&#39;s identity ID. | 
-**Name** | **string** | Provisioning requester&#39;s name. | 
+**Type** | **string** | Provisioning requester's DTO type. | 
+**Id** | **string** | Provisioning requester's identity ID. | 
+**Name** | **string** | Provisioning requester's name. | 
 
 ## Methods
 

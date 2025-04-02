@@ -22,8 +22,8 @@ Name | Type | Description | Notes
 **Schedule** | Pointer to [**Schedule1**](schedule1) |  | [optional] 
 **Recipients** | Pointer to [**[]SodRecipient**](sod-recipient) |  | [optional] 
 **EmailEmptyResults** | Pointer to **bool** | Indicates if empty results need to be emailed | [optional] 
-**CreatorId** | Pointer to **string** | Policy&#39;s creator ID | [optional] 
-**ModifierId** | Pointer to **string** | Policy&#39;s modifier ID | [optional] 
+**CreatorId** | Pointer to **string** | Policy's creator ID | [optional] 
+**ModifierId** | Pointer to **string** | Policy's modifier ID | [optional] 
 
 ## Methods
 

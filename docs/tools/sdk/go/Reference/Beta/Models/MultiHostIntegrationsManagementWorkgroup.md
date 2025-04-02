@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | Pointer to **string** | Type of object being referenced. | [optional] 
 **Id** | Pointer to **string** | Management workgroup ID. | [optional] 
-**Name** | Pointer to **string** | Management workgroup&#39;s human-readable display name. | [optional] 
+**Name** | Pointer to **string** | Management workgroup's human-readable display name. | [optional] 
 
 ## Methods
 

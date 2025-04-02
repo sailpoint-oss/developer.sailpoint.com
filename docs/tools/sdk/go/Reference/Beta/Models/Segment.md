@@ -15,11 +15,11 @@ tags: ['SDK', 'Software Development Kit', 'Segment', 'BetaSegment']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** | The segment&#39;s ID. | [optional] 
-**Name** | Pointer to **string** | The segment&#39;s business name. | [optional] 
+**Id** | Pointer to **string** | The segment's ID. | [optional] 
+**Name** | Pointer to **string** | The segment's business name. | [optional] 
 **Created** | Pointer to **time.Time** | The time when the segment is created. | [optional] 
 **Modified** | Pointer to **time.Time** | The time when the segment is modified. | [optional] 
-**Description** | Pointer to **string** | The segment&#39;s optional description. | [optional] 
+**Description** | Pointer to **string** | The segment's optional description. | [optional] 
 **Owner** | Pointer to [**NullableOwnerReferenceSegments**](owner-reference-segments) |  | [optional] 
 **VisibilityCriteria** | Pointer to [**NullableVisibilityCriteria**](visibility-criteria) |  | [optional] 
 **Active** | Pointer to **bool** | This boolean indicates whether the segment is currently active. Inactive segments have no effect. | [optional] [default to false]

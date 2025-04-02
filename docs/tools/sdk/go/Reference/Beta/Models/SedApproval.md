@@ -15,7 +15,7 @@ tags: ['SDK', 'Software Development Kit', 'SedApproval', 'BetaSedApproval']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Items** | Pointer to **[]string** | List of SED id&#39;s | [optional] 
+**Items** | Pointer to **[]string** | List of SED id's | [optional] 
 
 ## Methods
 

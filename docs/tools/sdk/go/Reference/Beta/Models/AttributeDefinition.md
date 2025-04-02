@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **Description** | Pointer to **string** | A human-readable description of the attribute. | [optional] 
 **IsMulti** | Pointer to **bool** | Flag indicating whether or not the attribute is multi-valued. | [optional] [default to false]
 **IsEntitlement** | Pointer to **bool** | Flag indicating whether or not the attribute is an entitlement. | [optional] [default to false]
-**IsGroup** | Pointer to **bool** | Flag indicating whether or not the attribute represents a group. This can only be &#x60;true&#x60; if &#x60;isEntitlement&#x60; is also &#x60;true&#x60; **and** there is a schema defined for the attribute.  | [optional] [default to false]
+**IsGroup** | Pointer to **bool** | Flag indicating whether or not the attribute represents a group. This can only be `true` if `isEntitlement` is also `true` **and** there is a schema defined for the attribute.  | [optional] [default to false]
 
 ## Methods
 

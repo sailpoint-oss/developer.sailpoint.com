@@ -15,9 +15,9 @@ tags: ['SDK', 'Software Development Kit', 'WorkflowAllOfCreator', 'BetaWorkflowA
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | Pointer to **string** | Workflow creator&#39;s DTO type. | [optional] 
-**Id** | Pointer to **string** | Workflow creator&#39;s identity ID. | [optional] 
-**Name** | Pointer to **string** | Workflow creator&#39;s display name. | [optional] 
+**Type** | Pointer to **string** | Workflow creator's DTO type. | [optional] 
+**Id** | Pointer to **string** | Workflow creator's identity ID. | [optional] 
+**Name** | Pointer to **string** | Workflow creator's display name. | [optional] 
 
 ## Methods
 

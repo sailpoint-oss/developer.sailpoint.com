@@ -9,6 +9,10 @@ get:
     A token with ORG_ADMIN, CERT_ADMIN or REPORT_ADMIN authority is required to call this API.
   security:
     - userAuth: [idn:campaign:read, idn:campaign:manage, idn:campaign-report:read, idn:campaign-report:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - CERT_ADMIN
+    - REPORT_ADMIN
   deprecated: true
   parameters:
     - in: query
@@ -64,9 +68,9 @@ get:
           schema:
             type: array
             items:
-              oneOf:
-                - $ref: '../schemas/SlimCampaign.yaml'
+              anyOf:
                 - $ref: '../schemas/Campaign.yaml'
+                - $ref: '../schemas/SlimCampaign.yaml'
 
           examples:
             Slim Campaign:
@@ -94,6 +98,9 @@ post:
     A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
   security:
     - userAuth: [idn:campaign:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - CERT_ADMIN
   deprecated: true
   requestBody:
     required: true

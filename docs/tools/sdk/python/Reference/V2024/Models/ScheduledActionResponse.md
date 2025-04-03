@@ -3,50 +3,218 @@ id: v2024-scheduled-action-response
 title: ScheduledActionResponse
 pagination_label: ScheduledActionResponse
 sidebar_label: ScheduledActionResponse
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'ScheduledActionResponse', 'V2024ScheduledActionResponse'] 
-slug: /tools/sdk/python/v2024/models/scheduled-action-response
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'ScheduledActionResponse', 'V2024ScheduledActionResponse'] 
+slug: /tools/sdk/go/v2024/models/scheduled-action-response
 tags: ['SDK', 'Software Development Kit', 'ScheduledActionResponse', 'V2024ScheduledActionResponse']
 ---
 
 # ScheduledActionResponse
 
-
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** | Unique identifier for this scheduled action. | [optional] 
-**created** | **datetime** | The time when this scheduled action was created. | [optional] 
-**job_type** |  **Enum** [  'BACKUP',    'CREATE_DRAFT',    'CONFIG_DEPLOY_DRAFT' ] | Type of the scheduled job. | [optional] 
-**content** | [**ScheduledActionResponseContent**](scheduled-action-response-content) |  | [optional] 
-**start_time** | **datetime** | The time when this scheduled action should start. | [optional] 
-**cron_string** | **str** | Cron expression defining the schedule for this action. | [optional] 
-**time_zone_id** | **str** | Time zone ID for interpreting the cron expression. | [optional] 
-}
+**Id** | Pointer to **string** | Unique identifier for this scheduled action. | [optional] 
+**Created** | Pointer to **SailPointTime** | The time when this scheduled action was created. | [optional] 
+**JobType** | Pointer to **string** | Type of the scheduled job. | [optional] 
+**Content** | Pointer to [**ScheduledActionResponseContent**](scheduled-action-response-content) |  | [optional] 
+**StartTime** | Pointer to **SailPointTime** | The time when this scheduled action should start. | [optional] 
+**CronString** | Pointer to **string** | Cron expression defining the schedule for this action. | [optional] 
+**TimeZoneId** | Pointer to **string** | Time zone ID for interpreting the cron expression. | [optional] 
 
-## Example
+## Methods
 
-```python
-from sailpoint.v2024.models.scheduled_action_response import ScheduledActionResponse
+### NewScheduledActionResponse
 
-scheduled_action_response = ScheduledActionResponse(
-id='3469b87d-48ca-439a-868f-2160001da8c1',
-created='2021-05-11T22:23:16Z',
-job_type='BACKUP',
-content=sailpoint.v2024.models.scheduled_action_response_content.ScheduledActionResponse_content(
-                    name = 'Daily Backup', 
-                    backup_options = sailpoint.v2024.models.scheduled_action_response_content_backup_options.ScheduledActionResponse_content_backupOptions(
-                        include_types = [ROLE, IDENTITY_PROFILE], 
-                        object_options = {SOURCE={includedNames=[Source1, Source2]}, ROLE={includedNames=[Admin Role, User Role]}}, ), 
-                    source_backup_id = '5678b87d-48ca-439a-868f-2160001da8c2', 
-                    source_tenant = 'tenant-name', 
-                    draft_id = '9012b87d-48ca-439a-868f-2160001da8c3', ),
-start_time='2021-05-12T10:00Z',
-cron_string='0 0 12 * * ?',
-time_zone_id='America/Chicago'
-)
+`func NewScheduledActionResponse() *ScheduledActionResponse`
 
-```
-[[Back to top]](#) 
+NewScheduledActionResponse instantiates a new ScheduledActionResponse object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewScheduledActionResponseWithDefaults
+
+`func NewScheduledActionResponseWithDefaults() *ScheduledActionResponse`
+
+NewScheduledActionResponseWithDefaults instantiates a new ScheduledActionResponse object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetId
+
+`func (o *ScheduledActionResponse) GetId() string`
+
+GetId returns the Id field if non-nil, zero value otherwise.
+
+### GetIdOk
+
+`func (o *ScheduledActionResponse) GetIdOk() (*string, bool)`
+
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetId
+
+`func (o *ScheduledActionResponse) SetId(v string)`
+
+SetId sets Id field to given value.
+
+### HasId
+
+`func (o *ScheduledActionResponse) HasId() bool`
+
+HasId returns a boolean if a field has been set.
+
+### GetCreated
+
+`func (o *ScheduledActionResponse) GetCreated() SailPointTime`
+
+GetCreated returns the Created field if non-nil, zero value otherwise.
+
+### GetCreatedOk
+
+`func (o *ScheduledActionResponse) GetCreatedOk() (*SailPointTime, bool)`
+
+GetCreatedOk returns a tuple with the Created field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCreated
+
+`func (o *ScheduledActionResponse) SetCreated(v SailPointTime)`
+
+SetCreated sets Created field to given value.
+
+### HasCreated
+
+`func (o *ScheduledActionResponse) HasCreated() bool`
+
+HasCreated returns a boolean if a field has been set.
+
+### GetJobType
+
+`func (o *ScheduledActionResponse) GetJobType() string`
+
+GetJobType returns the JobType field if non-nil, zero value otherwise.
+
+### GetJobTypeOk
+
+`func (o *ScheduledActionResponse) GetJobTypeOk() (*string, bool)`
+
+GetJobTypeOk returns a tuple with the JobType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetJobType
+
+`func (o *ScheduledActionResponse) SetJobType(v string)`
+
+SetJobType sets JobType field to given value.
+
+### HasJobType
+
+`func (o *ScheduledActionResponse) HasJobType() bool`
+
+HasJobType returns a boolean if a field has been set.
+
+### GetContent
+
+`func (o *ScheduledActionResponse) GetContent() ScheduledActionResponseContent`
+
+GetContent returns the Content field if non-nil, zero value otherwise.
+
+### GetContentOk
+
+`func (o *ScheduledActionResponse) GetContentOk() (*ScheduledActionResponseContent, bool)`
+
+GetContentOk returns a tuple with the Content field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetContent
+
+`func (o *ScheduledActionResponse) SetContent(v ScheduledActionResponseContent)`
+
+SetContent sets Content field to given value.
+
+### HasContent
+
+`func (o *ScheduledActionResponse) HasContent() bool`
+
+HasContent returns a boolean if a field has been set.
+
+### GetStartTime
+
+`func (o *ScheduledActionResponse) GetStartTime() SailPointTime`
+
+GetStartTime returns the StartTime field if non-nil, zero value otherwise.
+
+### GetStartTimeOk
+
+`func (o *ScheduledActionResponse) GetStartTimeOk() (*SailPointTime, bool)`
+
+GetStartTimeOk returns a tuple with the StartTime field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStartTime
+
+`func (o *ScheduledActionResponse) SetStartTime(v SailPointTime)`
+
+SetStartTime sets StartTime field to given value.
+
+### HasStartTime
+
+`func (o *ScheduledActionResponse) HasStartTime() bool`
+
+HasStartTime returns a boolean if a field has been set.
+
+### GetCronString
+
+`func (o *ScheduledActionResponse) GetCronString() string`
+
+GetCronString returns the CronString field if non-nil, zero value otherwise.
+
+### GetCronStringOk
+
+`func (o *ScheduledActionResponse) GetCronStringOk() (*string, bool)`
+
+GetCronStringOk returns a tuple with the CronString field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCronString
+
+`func (o *ScheduledActionResponse) SetCronString(v string)`
+
+SetCronString sets CronString field to given value.
+
+### HasCronString
+
+`func (o *ScheduledActionResponse) HasCronString() bool`
+
+HasCronString returns a boolean if a field has been set.
+
+### GetTimeZoneId
+
+`func (o *ScheduledActionResponse) GetTimeZoneId() string`
+
+GetTimeZoneId returns the TimeZoneId field if non-nil, zero value otherwise.
+
+### GetTimeZoneIdOk
+
+`func (o *ScheduledActionResponse) GetTimeZoneIdOk() (*string, bool)`
+
+GetTimeZoneIdOk returns a tuple with the TimeZoneId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTimeZoneId
+
+`func (o *ScheduledActionResponse) SetTimeZoneId(v string)`
+
+SetTimeZoneId sets TimeZoneId field to given value.
+
+### HasTimeZoneId
+
+`func (o *ScheduledActionResponse) HasTimeZoneId() bool`
+
+HasTimeZoneId returns a boolean if a field has been set.
+
 

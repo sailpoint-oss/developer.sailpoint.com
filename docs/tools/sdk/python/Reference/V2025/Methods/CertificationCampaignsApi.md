@@ -1,15 +1,15 @@
 ---
 id: v2025-certification-campaigns
-title: Certification_Campaigns
-pagination_label: Certification_Campaigns
-sidebar_label: Certification_Campaigns
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'Certification_Campaigns', 'V2025Certification_Campaigns'] 
-slug: /tools/sdk/python/v2025/methods/certification-campaigns
-tags: ['SDK', 'Software Development Kit', 'Certification_Campaigns', 'V2025Certification_Campaigns']
+title: CertificationCampaigns
+pagination_label: CertificationCampaigns
+sidebar_label: CertificationCampaigns
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'CertificationCampaigns', 'V2025CertificationCampaigns'] 
+slug: /tools/sdk/go/v2025/methods/certification-campaigns
+tags: ['SDK', 'Software Development Kit', 'CertificationCampaigns', 'V2025CertificationCampaigns']
 ---
 
-# sailpoint.v2025.CertificationCampaignsApi
+# CertificationCampaignsAPI
   Use this API to implement certification campaign functionality.
 With this functionality in place, administrators can create, customize, and manage certification campaigns for their organizations&#39; use. 
 Certification campaigns provide Identity Security Cloud users with an interactive review process they can use to identify and verify access to systems. 
@@ -80,28 +80,28 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**complete-campaign**](#complete-campaign) | **POST** `/campaigns/{id}/complete` | Complete a Campaign
-[**create-campaign**](#create-campaign) | **POST** `/campaigns` | Create a campaign
-[**create-campaign-template**](#create-campaign-template) | **POST** `/campaign-templates` | Create a Campaign Template
-[**delete-campaign-template**](#delete-campaign-template) | **DELETE** `/campaign-templates/{id}` | Delete a Campaign Template
-[**delete-campaign-template-schedule**](#delete-campaign-template-schedule) | **DELETE** `/campaign-templates/{id}/schedule` | Delete Campaign Template Schedule
-[**delete-campaigns**](#delete-campaigns) | **POST** `/campaigns/delete` | Delete Campaigns
-[**get-active-campaigns**](#get-active-campaigns) | **GET** `/campaigns` | List Campaigns
-[**get-campaign**](#get-campaign) | **GET** `/campaigns/{id}` | Get Campaign
-[**get-campaign-reports**](#get-campaign-reports) | **GET** `/campaigns/{id}/reports` | Get Campaign Reports
-[**get-campaign-reports-config**](#get-campaign-reports-config) | **GET** `/campaigns/reports-configuration` | Get Campaign Reports Configuration
-[**get-campaign-template**](#get-campaign-template) | **GET** `/campaign-templates/{id}` | Get a Campaign Template
-[**get-campaign-template-schedule**](#get-campaign-template-schedule) | **GET** `/campaign-templates/{id}/schedule` | Get Campaign Template Schedule
-[**get-campaign-templates**](#get-campaign-templates) | **GET** `/campaign-templates` | List Campaign Templates
-[**move**](#move) | **POST** `/campaigns/{id}/reassign` | Reassign Certifications
-[**patch-campaign-template**](#patch-campaign-template) | **PATCH** `/campaign-templates/{id}` | Update a Campaign Template
-[**set-campaign-reports-config**](#set-campaign-reports-config) | **PUT** `/campaigns/reports-configuration` | Set Campaign Reports Configuration
-[**set-campaign-template-schedule**](#set-campaign-template-schedule) | **PUT** `/campaign-templates/{id}/schedule` | Set Campaign Template Schedule
-[**start-campaign**](#start-campaign) | **POST** `/campaigns/{id}/activate` | Activate a Campaign
-[**start-campaign-remediation-scan**](#start-campaign-remediation-scan) | **POST** `/campaigns/{id}/run-remediation-scan` | Run Campaign Remediation Scan
-[**start-campaign-report**](#start-campaign-report) | **POST** `/campaigns/{id}/run-report/{type}` | Run Campaign Report
-[**start-generate-campaign-template**](#start-generate-campaign-template) | **POST** `/campaign-templates/{id}/generate` | Generate a Campaign from Template
-[**update-campaign**](#update-campaign) | **PATCH** `/campaigns/{id}` | Update a Campaign
+[**complete-campaign**](#complete-campaign) | **Post** `/campaigns/{id}/complete` | Complete a Campaign
+[**create-campaign**](#create-campaign) | **Post** `/campaigns` | Create a campaign
+[**create-campaign-template**](#create-campaign-template) | **Post** `/campaign-templates` | Create a Campaign Template
+[**delete-campaign-template**](#delete-campaign-template) | **Delete** `/campaign-templates/{id}` | Delete a Campaign Template
+[**delete-campaign-template-schedule**](#delete-campaign-template-schedule) | **Delete** `/campaign-templates/{id}/schedule` | Delete Campaign Template Schedule
+[**delete-campaigns**](#delete-campaigns) | **Post** `/campaigns/delete` | Delete Campaigns
+[**get-active-campaigns**](#get-active-campaigns) | **Get** `/campaigns` | List Campaigns
+[**get-campaign**](#get-campaign) | **Get** `/campaigns/{id}` | Get Campaign
+[**get-campaign-reports**](#get-campaign-reports) | **Get** `/campaigns/{id}/reports` | Get Campaign Reports
+[**get-campaign-reports-config**](#get-campaign-reports-config) | **Get** `/campaigns/reports-configuration` | Get Campaign Reports Configuration
+[**get-campaign-template**](#get-campaign-template) | **Get** `/campaign-templates/{id}` | Get a Campaign Template
+[**get-campaign-template-schedule**](#get-campaign-template-schedule) | **Get** `/campaign-templates/{id}/schedule` | Get Campaign Template Schedule
+[**get-campaign-templates**](#get-campaign-templates) | **Get** `/campaign-templates` | List Campaign Templates
+[**move**](#move) | **Post** `/campaigns/{id}/reassign` | Reassign Certifications
+[**patch-campaign-template**](#patch-campaign-template) | **Patch** `/campaign-templates/{id}` | Update a Campaign Template
+[**set-campaign-reports-config**](#set-campaign-reports-config) | **Put** `/campaigns/reports-configuration` | Set Campaign Reports Configuration
+[**set-campaign-template-schedule**](#set-campaign-template-schedule) | **Put** `/campaign-templates/{id}/schedule` | Set Campaign Template Schedule
+[**start-campaign**](#start-campaign) | **Post** `/campaigns/{id}/activate` | Activate a Campaign
+[**start-campaign-remediation-scan**](#start-campaign-remediation-scan) | **Post** `/campaigns/{id}/run-remediation-scan` | Run Campaign Remediation Scan
+[**start-campaign-report**](#start-campaign-report) | **Post** `/campaigns/{id}/run-report/{type}` | Run Campaign Report
+[**start-generate-campaign-template**](#start-generate-campaign-template) | **Post** `/campaign-templates/{id}/generate` | Generate a Campaign from Template
+[**update-campaign**](#update-campaign) | **Patch** `/campaigns/{id}` | Update a Campaign
 
 
 ## complete-campaign
@@ -120,62 +120,65 @@ can complete a certification even if all items have not been completed.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/complete-campaign)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | id | **str** | True  | Campaign ID.
- Body  | campaign_complete_options | [**CampaignCompleteOptions**](../models/campaign-complete-options) |   (optional) | Optional. Default behavior is for the campaign to auto-approve upon completion, unless autoCompleteAction=REVOKE
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | Campaign ID. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCompleteCampaignRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **campaignCompleteOptions** | [**CampaignCompleteOptions**](../models/campaign-complete-options) | Optional. Default behavior is for the campaign to auto-approve upon completion, unless autoCompleteAction&#x3D;REVOKE | 
 
 ### Return type
-**object**
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-202 | Accepted - Returned if the request was successfully accepted into the system. | object |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
+**map[string]interface{}**
 
 ### HTTP request headers
- - **Content-Type**: application/json
- - **Accept**: application/json
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.certification_campaigns_api import CertificationCampaignsApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.campaign_complete_options import CampaignCompleteOptions
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    id = 'ef38f94347e94562b5bb8424a56397d8' # str | Campaign ID. # str | Campaign ID.
-    campaign_complete_options = '''{
+func main() {
+    id := ef38f94347e94562b5bb8424a56397d8 # string | Campaign ID. # string | Campaign ID.
+    campaignCompleteOptions := fmt.Sprintf(`{
           "autoCompleteAction" : "REVOKE"
-        }''' # CampaignCompleteOptions | Optional. Default behavior is for the campaign to auto-approve upon completion, unless autoCompleteAction=REVOKE (optional)
+        }`) # CampaignCompleteOptions | Optional. Default behavior is for the campaign to auto-approve upon completion, unless autoCompleteAction=REVOKE (optional)
 
-    try:
-        # Complete a Campaign
-        
-        results = CertificationCampaignsApi(api_client).complete_campaign(id=id)
-        # Below is a request that includes all optional parameters
-        # results = CertificationCampaignsApi(api_client).complete_campaign(id, new_campaign_complete_options)
-        print("The response of CertificationCampaignsApi->complete_campaign:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling CertificationCampaignsApi->complete_campaign: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.CertificationCampaignsAPI.CompleteCampaign(context.Background(), id).CampaignCompleteOptions(campaignCompleteOptions).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CertificationCampaignsAPI.CompleteCampaign``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CompleteCampaign`: map[string]interface{}
+	fmt.Fprintf(os.Stdout, "Response from `CertificationCampaignsAPI.CompleteCampaign`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## create-campaign
 Create a campaign
@@ -184,41 +187,43 @@ Use this API to create a certification campaign with the information provided in
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/create-campaign)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | campaign | [**Campaign**](../models/campaign) | True  | 
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreateCampaignRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **campaign** | [**Campaign**](../models/campaign) |  | 
 
 ### Return type
+
 [**Campaign**](../models/campaign)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | This response indicates that the requested campaign was successfully created, and the API returns its representation. | Campaign |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: application/json
- - **Accept**: application/json
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.certification_campaigns_api import CertificationCampaignsApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.campaign import Campaign
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    campaign = '''{
+func main() {
+    campaign := fmt.Sprintf(`{
           "totalCertifications" : 100,
           "sourcesWithOrphanEntitlements" : [ {
             "name" : "Source with orphan entitlements",
@@ -327,23 +332,21 @@ with ApiClient(configuration) as api_client:
           "deadline" : "2020-03-15T10:00:01.456Z",
           "status" : "ACTIVE",
           "correlatedStatus" : "CORRELATED"
-        }''' # Campaign | 
+        }`) # Campaign | 
 
-    try:
-        # Create a campaign
-        new_campaign = Campaign.from_json(campaign)
-        results = CertificationCampaignsApi(api_client).create_campaign(campaign=new_campaign)
-        # Below is a request that includes all optional parameters
-        # results = CertificationCampaignsApi(api_client).create_campaign(new_campaign)
-        print("The response of CertificationCampaignsApi->create_campaign:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling CertificationCampaignsApi->create_campaign: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.CertificationCampaignsAPI.CreateCampaign(context.Background()).Campaign(campaign).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CertificationCampaignsAPI.CreateCampaign``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateCampaign`: Campaign
+	fmt.Fprintf(os.Stdout, "Response from `CertificationCampaignsAPI.CreateCampaign`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## create-campaign-template
 Create a Campaign Template
@@ -352,41 +355,44 @@ Use this API to create a certification campaign template based on campaign.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/create-campaign-template)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | campaign_template | [**CampaignTemplate**](../models/campaign-template) | True  | 
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreateCampaignTemplateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **campaignTemplate** | [**CampaignTemplate**](../models/campaign-template) |  | 
 
 ### Return type
+
 [**CampaignTemplate**](../models/campaign-template)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | Created successfully. | CampaignTemplate |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: application/json
- - **Accept**: application/json
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.certification_campaigns_api import CertificationCampaignsApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.campaign_template import CampaignTemplate
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+    
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    campaign_template = '''{
+func main() {
+    campaignTemplate := fmt.Sprintf(`{
           "ownerRef" : {
             "name" : "Mister Manager",
             "id" : "2c918086676d3e0601677611dbde220f",
@@ -510,23 +516,21 @@ with ApiClient(configuration) as api_client:
             "correlatedStatus" : "CORRELATED"
           },
           "id" : "2c9079b270a266a60170a277bb960008"
-        }''' # CampaignTemplate | 
+        }`) # CampaignTemplate | 
 
-    try:
-        # Create a Campaign Template
-        new_campaign_template = CampaignTemplate.from_json(campaign_template)
-        results = CertificationCampaignsApi(api_client).create_campaign_template(campaign_template=new_campaign_template)
-        # Below is a request that includes all optional parameters
-        # results = CertificationCampaignsApi(api_client).create_campaign_template(new_campaign_template)
-        print("The response of CertificationCampaignsApi->create_campaign_template:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling CertificationCampaignsApi->create_campaign_template: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.CertificationCampaignsAPI.CreateCampaignTemplate(context.Background()).CampaignTemplate(campaignTemplate).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CertificationCampaignsAPI.CreateCampaignTemplate``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateCampaignTemplate`: CampaignTemplate
+	fmt.Fprintf(os.Stdout, "Response from `CertificationCampaignsAPI.CreateCampaignTemplate`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## delete-campaign-template
 Delete a Campaign Template
@@ -535,55 +539,59 @@ Use this API to delete a certification campaign template by ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-campaign-template)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | id | **str** | True  | ID of the campaign template being deleted.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | ID of the campaign template being deleted. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteCampaignTemplateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
 
 ### Return type
+
  (empty response body)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-204 | No content - indicates the request was successful but there is no content to be returned in the response. |  |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.certification_campaigns_api import CertificationCampaignsApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    id = '2c9180835d191a86015d28455b4a2329' # str | ID of the campaign template being deleted. # str | ID of the campaign template being deleted.
+func main() {
+    id := 2c9180835d191a86015d28455b4a2329 # string | ID of the campaign template being deleted. # string | ID of the campaign template being deleted.
 
-    try:
-        # Delete a Campaign Template
-        
-        CertificationCampaignsApi(api_client).delete_campaign_template(id=id)
-        # Below is a request that includes all optional parameters
-        # CertificationCampaignsApi(api_client).delete_campaign_template(id)
-    except Exception as e:
-        print("Exception when calling CertificationCampaignsApi->delete_campaign_template: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	r, err := apiClient.V2025.CertificationCampaignsAPI.DeleteCampaignTemplate(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CertificationCampaignsAPI.DeleteCampaignTemplate``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## delete-campaign-template-schedule
 Delete Campaign Template Schedule
@@ -592,55 +600,59 @@ Use this API to delete the schedule for a certification campaign template. The A
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-campaign-template-schedule)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | id | **str** | True  | ID of the campaign template whose schedule is being deleted.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | ID of the campaign template whose schedule is being deleted. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteCampaignTemplateScheduleRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
 
 ### Return type
+
  (empty response body)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-204 | No content - indicates the request was successful but there is no content to be returned in the response. |  |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.certification_campaigns_api import CertificationCampaignsApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    id = '04bedce387bd47b2ae1f86eb0bb36dee' # str | ID of the campaign template whose schedule is being deleted. # str | ID of the campaign template whose schedule is being deleted.
+func main() {
+    id := 04bedce387bd47b2ae1f86eb0bb36dee # string | ID of the campaign template whose schedule is being deleted. # string | ID of the campaign template whose schedule is being deleted.
 
-    try:
-        # Delete Campaign Template Schedule
-        
-        CertificationCampaignsApi(api_client).delete_campaign_template_schedule(id=id)
-        # Below is a request that includes all optional parameters
-        # CertificationCampaignsApi(api_client).delete_campaign_template_schedule(id)
-    except Exception as e:
-        print("Exception when calling CertificationCampaignsApi->delete_campaign_template_schedule: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	r, err := apiClient.V2025.CertificationCampaignsAPI.DeleteCampaignTemplateSchedule(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CertificationCampaignsAPI.DeleteCampaignTemplateSchedule``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## delete-campaigns
 Delete Campaigns
@@ -649,60 +661,59 @@ Use this API to delete certification campaigns whose IDs are specified in the pr
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-campaigns)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | campaigns_delete_request | [**CampaignsDeleteRequest**](../models/campaigns-delete-request) | True  | IDs of the campaigns to delete.
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteCampaignsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **campaignsDeleteRequest** | [**CampaignsDeleteRequest**](../models/campaigns-delete-request) | IDs of the campaigns to delete. | 
 
 ### Return type
-**object**
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-202 | Accepted - Returned if the request was successfully accepted into the system. | object |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
+**map[string]interface{}**
 
 ### HTTP request headers
- - **Content-Type**: application/json
- - **Accept**: application/json
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.certification_campaigns_api import CertificationCampaignsApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.campaigns_delete_request import CampaignsDeleteRequest
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    campaigns_delete_request = '''{
+func main() {
+    campaignsDeleteRequest := fmt.Sprintf(`{
           "ids" : [ "2c9180887335cee10173490db1776c26", "2c9180836a712436016a7125a90c0021" ]
-        }''' # CampaignsDeleteRequest | IDs of the campaigns to delete.
+        }`) # CampaignsDeleteRequest | IDs of the campaigns to delete.
 
-    try:
-        # Delete Campaigns
-        new_campaigns_delete_request = CampaignsDeleteRequest.from_json(campaigns_delete_request)
-        results = CertificationCampaignsApi(api_client).delete_campaigns(campaigns_delete_request=new_campaigns_delete_request)
-        # Below is a request that includes all optional parameters
-        # results = CertificationCampaignsApi(api_client).delete_campaigns(new_campaigns_delete_request)
-        print("The response of CertificationCampaignsApi->delete_campaigns:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling CertificationCampaignsApi->delete_campaigns: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.CertificationCampaignsAPI.DeleteCampaigns(context.Background()).CampaignsDeleteRequest(campaignsDeleteRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CertificationCampaignsAPI.DeleteCampaigns``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `DeleteCampaigns`: map[string]interface{}
+	fmt.Fprintf(os.Stdout, "Response from `CertificationCampaignsAPI.DeleteCampaigns`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## get-active-campaigns
 List Campaigns
@@ -711,67 +722,67 @@ Use this API to get a list of campaigns. This API can provide increased level of
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-active-campaigns)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-  Query | detail | **str** |   (optional) | Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior.
-  Query | limit | **int** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-  Query | offset | **int** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-  Query | count | **bool** |   (optional) (default to False) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-  Query | filters | **str** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **status**: *eq, in*
-  Query | sorters | **str** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created**
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetActiveCampaignsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **detail** | **string** | Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior. | 
+ **limit** | **int32** | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to 250]
+ **offset** | **int32** | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to 0]
+ **count** | **bool** | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to false]
+ **filters** | **string** | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **status**: *eq, in* | 
+ **sorters** | **string** | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created** | 
 
 ### Return type
-[**List[GetActiveCampaigns200ResponseInner]**](../models/get-active-campaigns200-response-inner)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | A list of campaign objects. By default list of SLIM campaigns is returned. | List[GetActiveCampaigns200ResponseInner] |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
+[**[]GetActiveCampaigns200ResponseInner**](../models/get-active-campaigns200-response-inner)
 
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.certification_campaigns_api import CertificationCampaignsApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.get_active_campaigns200_response_inner import GetActiveCampaigns200ResponseInner
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    detail = 'FULL' # str | Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior. (optional) # str | Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior. (optional)
-    limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-    offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-    count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
-    filters = 'name eq \"Manager Campaign\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **status**: *eq, in* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **status**: *eq, in* (optional)
-    sorters = 'name' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created** (optional)
+func main() {
+    detail := FULL # string | Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior. (optional) # string | Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior. (optional)
+    limit := 250 # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+    offset := 0 # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+    count := true # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+    filters := name eq "Manager Campaign" # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **status**: *eq, in* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **status**: *eq, in* (optional)
+    sorters := name # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created** (optional) # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created** (optional)
 
-    try:
-        # List Campaigns
-        
-        results = CertificationCampaignsApi(api_client).get_active_campaigns()
-        # Below is a request that includes all optional parameters
-        # results = CertificationCampaignsApi(api_client).get_active_campaigns(detail, limit, offset, count, filters, sorters)
-        print("The response of CertificationCampaignsApi->get_active_campaigns:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling CertificationCampaignsApi->get_active_campaigns: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.CertificationCampaignsAPI.GetActiveCampaigns(context.Background()).Detail(detail).Limit(limit).Offset(offset).Count(count).Filters(filters).Sorters(sorters).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CertificationCampaignsAPI.GetActiveCampaigns``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetActiveCampaigns`: []GetActiveCampaigns200ResponseInner
+	fmt.Fprintf(os.Stdout, "Response from `CertificationCampaignsAPI.GetActiveCampaigns`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## get-campaign
 Get Campaign
@@ -780,60 +791,63 @@ Use this API to get information for an existing certification campaign by the ca
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-campaign)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | id | **str** | True  | ID of the campaign to be retrieved.
-  Query | detail | **str** |   (optional) | Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | ID of the campaign to be retrieved. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetCampaignRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **detail** | **string** | Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior. | 
 
 ### Return type
+
 [**GetActiveCampaigns200ResponseInner**](../models/get-active-campaigns200-response-inner)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | Requested campaign object. | GetActiveCampaigns200ResponseInner |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.certification_campaigns_api import CertificationCampaignsApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.get_active_campaigns200_response_inner import GetActiveCampaigns200ResponseInner
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    id = '2c91808571bcfcf80171c23e4b4221fc' # str | ID of the campaign to be retrieved. # str | ID of the campaign to be retrieved.
-    detail = 'FULL' # str | Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior. (optional) # str | Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior. (optional)
+func main() {
+    id := 2c91808571bcfcf80171c23e4b4221fc # string | ID of the campaign to be retrieved. # string | ID of the campaign to be retrieved.
+    detail := FULL # string | Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior. (optional) # string | Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior. (optional)
 
-    try:
-        # Get Campaign
-        
-        results = CertificationCampaignsApi(api_client).get_campaign(id=id)
-        # Below is a request that includes all optional parameters
-        # results = CertificationCampaignsApi(api_client).get_campaign(id, detail)
-        print("The response of CertificationCampaignsApi->get_campaign:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling CertificationCampaignsApi->get_campaign: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.CertificationCampaignsAPI.GetCampaign(context.Background(), id).Detail(detail).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CertificationCampaignsAPI.GetCampaign``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetCampaign`: GetActiveCampaigns200ResponseInner
+	fmt.Fprintf(os.Stdout, "Response from `CertificationCampaignsAPI.GetCampaign`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## get-campaign-reports
 Get Campaign Reports
@@ -842,58 +856,61 @@ Use this API to fetch all reports for a certification campaign by campaign ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-campaign-reports)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | id | **str** | True  | ID of the campaign whose reports are being fetched.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | ID of the campaign whose reports are being fetched. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetCampaignReportsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
 
 ### Return type
-[**List[CampaignReport]**](../models/campaign-report)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | Array of campaign report objects. | List[CampaignReport] |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
+[**[]CampaignReport**](../models/campaign-report)
 
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.certification_campaigns_api import CertificationCampaignsApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.campaign_report import CampaignReport
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    id = '2c91808571bcfcf80171c23e4b4221fc' # str | ID of the campaign whose reports are being fetched. # str | ID of the campaign whose reports are being fetched.
+func main() {
+    id := 2c91808571bcfcf80171c23e4b4221fc # string | ID of the campaign whose reports are being fetched. # string | ID of the campaign whose reports are being fetched.
 
-    try:
-        # Get Campaign Reports
-        
-        results = CertificationCampaignsApi(api_client).get_campaign_reports(id=id)
-        # Below is a request that includes all optional parameters
-        # results = CertificationCampaignsApi(api_client).get_campaign_reports(id)
-        print("The response of CertificationCampaignsApi->get_campaign_reports:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling CertificationCampaignsApi->get_campaign_reports: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.CertificationCampaignsAPI.GetCampaignReports(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CertificationCampaignsAPI.GetCampaignReports``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetCampaignReports`: []CampaignReport
+	fmt.Fprintf(os.Stdout, "Response from `CertificationCampaignsAPI.GetCampaignReports`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## get-campaign-reports-config
 Get Campaign Reports Configuration
@@ -902,53 +919,52 @@ Use this API to fetch the configuration for certification campaign reports. The 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-campaign-reports-config)
 
-### Parameters 
-This endpoint does not need any parameter. 
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetCampaignReportsConfigRequest struct via the builder pattern
+
 
 ### Return type
+
 [**CampaignReportsConfig**](../models/campaign-reports-config)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | Campaign report configuration. | CampaignReportsConfig |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.certification_campaigns_api import CertificationCampaignsApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.campaign_reports_config import CampaignReportsConfig
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
+func main() {
 
-    try:
-        # Get Campaign Reports Configuration
-        
-        results = CertificationCampaignsApi(api_client).get_campaign_reports_config()
-        # Below is a request that includes all optional parameters
-        # results = CertificationCampaignsApi(api_client).get_campaign_reports_config()
-        print("The response of CertificationCampaignsApi->get_campaign_reports_config:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling CertificationCampaignsApi->get_campaign_reports_config: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.CertificationCampaignsAPI.GetCampaignReportsConfig(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CertificationCampaignsAPI.GetCampaignReportsConfig``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetCampaignReportsConfig`: CampaignReportsConfig
+	fmt.Fprintf(os.Stdout, "Response from `CertificationCampaignsAPI.GetCampaignReportsConfig`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## get-campaign-template
 Get a Campaign Template
@@ -957,58 +973,61 @@ Use this API to fetch a certification campaign template by ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-campaign-template)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | id | **str** | True  | Requested campaign template's ID.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | Requested campaign template&#39;s ID. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetCampaignTemplateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
 
 ### Return type
+
 [**CampaignTemplate**](../models/campaign-template)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | Data for the campaign matching the given ID. | CampaignTemplate |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.certification_campaigns_api import CertificationCampaignsApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.campaign_template import CampaignTemplate
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    id = '2c9180835d191a86015d28455b4a2329' # str | Requested campaign template's ID. # str | Requested campaign template's ID.
+func main() {
+    id := 2c9180835d191a86015d28455b4a2329 # string | Requested campaign template's ID. # string | Requested campaign template's ID.
 
-    try:
-        # Get a Campaign Template
-        
-        results = CertificationCampaignsApi(api_client).get_campaign_template(id=id)
-        # Below is a request that includes all optional parameters
-        # results = CertificationCampaignsApi(api_client).get_campaign_template(id)
-        print("The response of CertificationCampaignsApi->get_campaign_template:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling CertificationCampaignsApi->get_campaign_template: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.CertificationCampaignsAPI.GetCampaignTemplate(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CertificationCampaignsAPI.GetCampaignTemplate``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetCampaignTemplate`: CampaignTemplate
+	fmt.Fprintf(os.Stdout, "Response from `CertificationCampaignsAPI.GetCampaignTemplate`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## get-campaign-template-schedule
 Get Campaign Template Schedule
@@ -1017,58 +1036,61 @@ Use this API to get the schedule for a certification campaign template. The API 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-campaign-template-schedule)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | id | **str** | True  | ID of the campaign template whose schedule is being fetched.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | ID of the campaign template whose schedule is being fetched. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetCampaignTemplateScheduleRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
 
 ### Return type
+
 [**Schedule**](../models/schedule)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | Current schedule for the campaign template. See the [Set Campaign Template Schedule endpoint documentation](https://developer.sailpoint.com/docs/api/v3/set-campaign-template-schedule) for more examples. | Schedule |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.certification_campaigns_api import CertificationCampaignsApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.schedule import Schedule
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    id = '04bedce387bd47b2ae1f86eb0bb36dee' # str | ID of the campaign template whose schedule is being fetched. # str | ID of the campaign template whose schedule is being fetched.
+func main() {
+    id := 04bedce387bd47b2ae1f86eb0bb36dee # string | ID of the campaign template whose schedule is being fetched. # string | ID of the campaign template whose schedule is being fetched.
 
-    try:
-        # Get Campaign Template Schedule
-        
-        results = CertificationCampaignsApi(api_client).get_campaign_template_schedule(id=id)
-        # Below is a request that includes all optional parameters
-        # results = CertificationCampaignsApi(api_client).get_campaign_template_schedule(id)
-        print("The response of CertificationCampaignsApi->get_campaign_template_schedule:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling CertificationCampaignsApi->get_campaign_template_schedule: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.CertificationCampaignsAPI.GetCampaignTemplateSchedule(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CertificationCampaignsAPI.GetCampaignTemplateSchedule``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetCampaignTemplateSchedule`: Schedule
+	fmt.Fprintf(os.Stdout, "Response from `CertificationCampaignsAPI.GetCampaignTemplateSchedule`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## get-campaign-templates
 List Campaign Templates
@@ -1079,65 +1101,65 @@ The API returns all campaign templates matching the query parameters.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-campaign-templates)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-  Query | limit | **int** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-  Query | offset | **int** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-  Query | count | **bool** |   (optional) (default to False) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-  Query | sorters | **str** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified**
-  Query | filters | **str** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq, ge, gt, in, le, lt, ne, sw*  **id**: *eq, ge, gt, in, le, lt, ne, sw*
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetCampaignTemplatesRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **int32** | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to 250]
+ **offset** | **int32** | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to 0]
+ **count** | **bool** | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to false]
+ **sorters** | **string** | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified** | 
+ **filters** | **string** | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq, ge, gt, in, le, lt, ne, sw*  **id**: *eq, ge, gt, in, le, lt, ne, sw* | 
 
 ### Return type
-[**List[CampaignTemplate]**](../models/campaign-template)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | List of campaign template objects. | List[CampaignTemplate] |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
+[**[]CampaignTemplate**](../models/campaign-template)
 
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.certification_campaigns_api import CertificationCampaignsApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.campaign_template import CampaignTemplate
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-    offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-    count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
-    sorters = 'name' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified** (optional)
-    filters = 'name eq \"manager template\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq, ge, gt, in, le, lt, ne, sw*  **id**: *eq, ge, gt, in, le, lt, ne, sw* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq, ge, gt, in, le, lt, ne, sw*  **id**: *eq, ge, gt, in, le, lt, ne, sw* (optional)
+func main() {
+    limit := 250 # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+    offset := 0 # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+    count := true # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+    sorters := name # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified** (optional) # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified** (optional)
+    filters := name eq "manager template" # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq, ge, gt, in, le, lt, ne, sw*  **id**: *eq, ge, gt, in, le, lt, ne, sw* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq, ge, gt, in, le, lt, ne, sw*  **id**: *eq, ge, gt, in, le, lt, ne, sw* (optional)
 
-    try:
-        # List Campaign Templates
-        
-        results = CertificationCampaignsApi(api_client).get_campaign_templates()
-        # Below is a request that includes all optional parameters
-        # results = CertificationCampaignsApi(api_client).get_campaign_templates(limit, offset, count, sorters, filters)
-        print("The response of CertificationCampaignsApi->get_campaign_templates:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling CertificationCampaignsApi->get_campaign_templates: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.CertificationCampaignsAPI.GetCampaignTemplates(context.Background()).Limit(limit).Offset(offset).Count(count).Sorters(sorters).Filters(filters).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CertificationCampaignsAPI.GetCampaignTemplates``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetCampaignTemplates`: []CampaignTemplate
+	fmt.Fprintf(os.Stdout, "Response from `CertificationCampaignsAPI.GetCampaignTemplates`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## move
 Reassign Certifications
@@ -1146,68 +1168,70 @@ This API reassigns the specified certifications from one identity to another.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/move)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | id | **str** | True  | The certification campaign ID
- Body  | admin_review_reassign | [**AdminReviewReassign**](../models/admin-review-reassign) | True  | 
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | The certification campaign ID | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiMoveRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **adminReviewReassign** | [**AdminReviewReassign**](../models/admin-review-reassign) |  | 
 
 ### Return type
+
 [**CertificationTask**](../models/certification-task)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-202 | The reassign task that has been submitted. | CertificationTask |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: application/json
- - **Accept**: application/json
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.certification_campaigns_api import CertificationCampaignsApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.admin_review_reassign import AdminReviewReassign
-from sailpoint.v2025.models.certification_task import CertificationTask
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    id = 'ef38f94347e94562b5bb8424a56397d8' # str | The certification campaign ID # str | The certification campaign ID
-    admin_review_reassign = '''{
+func main() {
+    id := ef38f94347e94562b5bb8424a56397d8 # string | The certification campaign ID # string | The certification campaign ID
+    adminReviewReassign := fmt.Sprintf(`{
           "certificationIds" : [ "af3859464779471211bb8424a563abc1", "af3859464779471211bb8424a563abc2", "af3859464779471211bb8424a563abc3" ],
           "reason" : "reassigned for some reason",
           "reassignTo" : {
             "id" : "ef38f94347e94562b5bb8424a56397d8",
             "type" : "IDENTITY"
           }
-        }''' # AdminReviewReassign | 
+        }`) # AdminReviewReassign | 
 
-    try:
-        # Reassign Certifications
-        new_admin_review_reassign = AdminReviewReassign.from_json(admin_review_reassign)
-        results = CertificationCampaignsApi(api_client).move(id=id, admin_review_reassign=new_admin_review_reassign)
-        # Below is a request that includes all optional parameters
-        # results = CertificationCampaignsApi(api_client).move(id, new_admin_review_reassign)
-        print("The response of CertificationCampaignsApi->move:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling CertificationCampaignsApi->move: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.CertificationCampaignsAPI.Move(context.Background(), id).AdminReviewReassign(adminReviewReassign).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CertificationCampaignsAPI.Move``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `Move`: CertificationTask
+	fmt.Fprintf(os.Stdout, "Response from `CertificationCampaignsAPI.Move`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## patch-campaign-template
 Update a Campaign Template
@@ -1216,61 +1240,63 @@ Use this API to update individual fields on a certification campaign template, u
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/patch-campaign-template)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | id | **str** | True  | ID of the campaign template being modified.
- Body  | json_patch_operation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * deadlineDuration * campaign (all fields that are allowed during create) 
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | ID of the campaign template being modified. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchCampaignTemplateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **jsonPatchOperation** | [**[]JsonPatchOperation**](../models/json-patch-operation) | A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * deadlineDuration * campaign (all fields that are allowed during create)  | 
 
 ### Return type
+
 [**CampaignTemplate**](../models/campaign-template)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | This response indicates that the PATCH operation succeeded, and the API returns the template&#39;s new representation. | CampaignTemplate |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: application/json-patch+json
- - **Accept**: application/json
+
+- **Content-Type**: application/json-patch+json
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.certification_campaigns_api import CertificationCampaignsApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.campaign_template import CampaignTemplate
-from sailpoint.v2025.models.json_patch_operation import JsonPatchOperation
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    id = '2c9180835d191a86015d28455b4a2329' # str | ID of the campaign template being modified. # str | ID of the campaign template being modified.
-    json_patch_operation = '''[{op=replace, path=/description, value=Updated description!}, {op=replace, path=/campaign/filter/id, value=ff80818155fe8c080155fe8d925b0316}]''' # List[JsonPatchOperation] | A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * deadlineDuration * campaign (all fields that are allowed during create) 
+func main() {
+    id := 2c9180835d191a86015d28455b4a2329 # string | ID of the campaign template being modified. # string | ID of the campaign template being modified.
+    jsonPatchOperation := fmt.Sprintf(`[{op=replace, path=/description, value=Updated description!}, {op=replace, path=/campaign/filter/id, value=ff80818155fe8c080155fe8d925b0316}]`) # []JsonPatchOperation | A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * deadlineDuration * campaign (all fields that are allowed during create) 
 
-    try:
-        # Update a Campaign Template
-        new_json_patch_operation = JsonPatchOperation.from_json(json_patch_operation)
-        results = CertificationCampaignsApi(api_client).patch_campaign_template(id=id, json_patch_operation=new_json_patch_operation)
-        # Below is a request that includes all optional parameters
-        # results = CertificationCampaignsApi(api_client).patch_campaign_template(id, new_json_patch_operation)
-        print("The response of CertificationCampaignsApi->patch_campaign_template:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling CertificationCampaignsApi->patch_campaign_template: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.CertificationCampaignsAPI.PatchCampaignTemplate(context.Background(), id).JsonPatchOperation(jsonPatchOperation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CertificationCampaignsAPI.PatchCampaignTemplate``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchCampaignTemplate`: CampaignTemplate
+	fmt.Fprintf(os.Stdout, "Response from `CertificationCampaignsAPI.PatchCampaignTemplate`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## set-campaign-reports-config
 Set Campaign Reports Configuration
@@ -1279,59 +1305,59 @@ Use this API to overwrite the configuration for campaign reports.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/set-campaign-reports-config)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | campaign_reports_config | [**CampaignReportsConfig**](../models/campaign-reports-config) | True  | Campaign report configuration.
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiSetCampaignReportsConfigRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **campaignReportsConfig** | [**CampaignReportsConfig**](../models/campaign-reports-config) | Campaign report configuration. | 
 
 ### Return type
+
 [**CampaignReportsConfig**](../models/campaign-reports-config)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | The persisted campaign report configuration. | CampaignReportsConfig |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: application/json
- - **Accept**: application/json
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.certification_campaigns_api import CertificationCampaignsApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.campaign_reports_config import CampaignReportsConfig
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    campaign_reports_config = '''{
+func main() {
+    campaignReportsConfig := fmt.Sprintf(`{
           "identityAttributeColumns" : [ "firstname", "lastname" ]
-        }''' # CampaignReportsConfig | Campaign report configuration.
+        }`) # CampaignReportsConfig | Campaign report configuration.
 
-    try:
-        # Set Campaign Reports Configuration
-        new_campaign_reports_config = CampaignReportsConfig.from_json(campaign_reports_config)
-        results = CertificationCampaignsApi(api_client).set_campaign_reports_config(campaign_reports_config=new_campaign_reports_config)
-        # Below is a request that includes all optional parameters
-        # results = CertificationCampaignsApi(api_client).set_campaign_reports_config(new_campaign_reports_config)
-        print("The response of CertificationCampaignsApi->set_campaign_reports_config:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling CertificationCampaignsApi->set_campaign_reports_config: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.CertificationCampaignsAPI.SetCampaignReportsConfig(context.Background()).CampaignReportsConfig(campaignReportsConfig).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CertificationCampaignsAPI.SetCampaignReportsConfig``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `SetCampaignReportsConfig`: CampaignReportsConfig
+	fmt.Fprintf(os.Stdout, "Response from `CertificationCampaignsAPI.SetCampaignReportsConfig`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## set-campaign-template-schedule
 Set Campaign Template Schedule
@@ -1340,44 +1366,49 @@ Use this API to set the schedule for a certification campaign template. If a sch
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/set-campaign-template-schedule)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | id | **str** | True  | ID of the campaign template being scheduled.
- Body  | schedule | [**Schedule**](../models/schedule) |   (optional) | 
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | ID of the campaign template being scheduled. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiSetCampaignTemplateScheduleRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **schedule** | [**Schedule**](../models/schedule) |  | 
 
 ### Return type
+
  (empty response body)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-204 | No content - indicates the request was successful but there is no content to be returned in the response. |  |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: application/json
- - **Accept**: application/json
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.certification_campaigns_api import CertificationCampaignsApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.schedule import Schedule
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    id = '04bedce387bd47b2ae1f86eb0bb36dee' # str | ID of the campaign template being scheduled. # str | ID of the campaign template being scheduled.
-    schedule = '''{
+func main() {
+    id := 04bedce387bd47b2ae1f86eb0bb36dee # string | ID of the campaign template being scheduled. # string | ID of the campaign template being scheduled.
+    schedule := fmt.Sprintf(`{
           "hours" : {
             "values" : [ "1" ],
             "interval" : 2,
@@ -1396,21 +1427,19 @@ with ApiClient(configuration) as api_client:
           },
           "expiration" : "2000-01-23T04:56:07.000+00:00",
           "type" : "WEEKLY"
-        }''' # Schedule |  (optional)
+        }`) # Schedule |  (optional)
 
-    try:
-        # Set Campaign Template Schedule
-        
-        CertificationCampaignsApi(api_client).set_campaign_template_schedule(id=id)
-        # Below is a request that includes all optional parameters
-        # CertificationCampaignsApi(api_client).set_campaign_template_schedule(id, new_schedule)
-    except Exception as e:
-        print("Exception when calling CertificationCampaignsApi->set_campaign_template_schedule: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	r, err := apiClient.V2025.CertificationCampaignsAPI.SetCampaignTemplateSchedule(context.Background(), id).Schedule(schedule).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CertificationCampaignsAPI.SetCampaignTemplateSchedule``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## start-campaign
 Activate a Campaign
@@ -1419,62 +1448,65 @@ Use this API to submit a job to activate the certified campaign with the specifi
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/start-campaign)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | id | **str** | True  | Campaign ID.
- Body  | activate_campaign_options | [**ActivateCampaignOptions**](../models/activate-campaign-options) |   (optional) | Optional. If no timezone is specified, the standard UTC timezone is used (i.e. UTC+00:00). Although this can take any timezone, the intended value is the caller's timezone. The activation time calculated from the given timezone may cause the campaign deadline time to be modified, but it will remain within the original date. The timezone must be in a valid ISO 8601 format.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | Campaign ID. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiStartCampaignRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **activateCampaignOptions** | [**ActivateCampaignOptions**](../models/activate-campaign-options) | Optional. If no timezone is specified, the standard UTC timezone is used (i.e. UTC+00:00). Although this can take any timezone, the intended value is the caller&#39;s timezone. The activation time calculated from the given timezone may cause the campaign deadline time to be modified, but it will remain within the original date. The timezone must be in a valid ISO 8601 format. | 
 
 ### Return type
-**object**
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-202 | Accepted - Returned if the request was successfully accepted into the system. | object |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
+**map[string]interface{}**
 
 ### HTTP request headers
- - **Content-Type**: application/json
- - **Accept**: application/json
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.certification_campaigns_api import CertificationCampaignsApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.activate_campaign_options import ActivateCampaignOptions
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    id = 'ef38f94347e94562b5bb8424a56397d8' # str | Campaign ID. # str | Campaign ID.
-    activate_campaign_options = '''{
+func main() {
+    id := ef38f94347e94562b5bb8424a56397d8 # string | Campaign ID. # string | Campaign ID.
+    activateCampaignOptions := fmt.Sprintf(`{
           "timeZone" : "-05:00"
-        }''' # ActivateCampaignOptions | Optional. If no timezone is specified, the standard UTC timezone is used (i.e. UTC+00:00). Although this can take any timezone, the intended value is the caller's timezone. The activation time calculated from the given timezone may cause the campaign deadline time to be modified, but it will remain within the original date. The timezone must be in a valid ISO 8601 format. (optional)
+        }`) # ActivateCampaignOptions | Optional. If no timezone is specified, the standard UTC timezone is used (i.e. UTC+00:00). Although this can take any timezone, the intended value is the caller's timezone. The activation time calculated from the given timezone may cause the campaign deadline time to be modified, but it will remain within the original date. The timezone must be in a valid ISO 8601 format. (optional)
 
-    try:
-        # Activate a Campaign
-        
-        results = CertificationCampaignsApi(api_client).start_campaign(id=id)
-        # Below is a request that includes all optional parameters
-        # results = CertificationCampaignsApi(api_client).start_campaign(id, new_activate_campaign_options)
-        print("The response of CertificationCampaignsApi->start_campaign:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling CertificationCampaignsApi->start_campaign: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.CertificationCampaignsAPI.StartCampaign(context.Background(), id).ActivateCampaignOptions(activateCampaignOptions).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CertificationCampaignsAPI.StartCampaign``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `StartCampaign`: map[string]interface{}
+	fmt.Fprintf(os.Stdout, "Response from `CertificationCampaignsAPI.StartCampaign`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## start-campaign-remediation-scan
 Run Campaign Remediation Scan
@@ -1483,57 +1515,61 @@ Use this API to run a remediation scan task for a certification campaign.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/start-campaign-remediation-scan)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | id | **str** | True  | ID of the campaign the remediation scan is being run for.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | ID of the campaign the remediation scan is being run for. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiStartCampaignRemediationScanRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
 
 ### Return type
-**object**
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-202 | Accepted - Returned if the request was successfully accepted into the system. | object |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
+**map[string]interface{}**
 
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.certification_campaigns_api import CertificationCampaignsApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    id = '2c91808571bcfcf80171c23e4b4221fc' # str | ID of the campaign the remediation scan is being run for. # str | ID of the campaign the remediation scan is being run for.
+func main() {
+    id := 2c91808571bcfcf80171c23e4b4221fc # string | ID of the campaign the remediation scan is being run for. # string | ID of the campaign the remediation scan is being run for.
 
-    try:
-        # Run Campaign Remediation Scan
-        
-        results = CertificationCampaignsApi(api_client).start_campaign_remediation_scan(id=id)
-        # Below is a request that includes all optional parameters
-        # results = CertificationCampaignsApi(api_client).start_campaign_remediation_scan(id)
-        print("The response of CertificationCampaignsApi->start_campaign_remediation_scan:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling CertificationCampaignsApi->start_campaign_remediation_scan: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.CertificationCampaignsAPI.StartCampaignRemediationScan(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CertificationCampaignsAPI.StartCampaignRemediationScan``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `StartCampaignRemediationScan`: map[string]interface{}
+	fmt.Fprintf(os.Stdout, "Response from `CertificationCampaignsAPI.StartCampaignRemediationScan`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## start-campaign-report
 Run Campaign Report
@@ -1542,60 +1578,64 @@ Use this API to run a report for a certification campaign.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/start-campaign-report)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | id | **str** | True  | ID of the campaign the report is being run for.
-Path   | type | [**ReportType**](../models/report-type) | True  | Type of the report to run.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | ID of the campaign the report is being run for. | 
+**type_** | [**ReportType**](../models/) | Type of the report to run. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiStartCampaignReportRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
 
 ### Return type
-**object**
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-202 | Accepted - Returned if the request was successfully accepted into the system. | object |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
+**map[string]interface{}**
 
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.certification_campaigns_api import CertificationCampaignsApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.report_type import ReportType
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    id = '2c91808571bcfcf80171c23e4b4221fc' # str | ID of the campaign the report is being run for. # str | ID of the campaign the report is being run for.
-    type = sailpoint.v2025.ReportType() # ReportType | Type of the report to run. # ReportType | Type of the report to run.
+func main() {
+    id := 2c91808571bcfcf80171c23e4b4221fc # string | ID of the campaign the report is being run for. # string | ID of the campaign the report is being run for.
+    type_ :=  # ReportType | Type of the report to run. # ReportType | Type of the report to run.
 
-    try:
-        # Run Campaign Report
-        
-        results = CertificationCampaignsApi(api_client).start_campaign_report(id=id, type=type)
-        # Below is a request that includes all optional parameters
-        # results = CertificationCampaignsApi(api_client).start_campaign_report(id, type)
-        print("The response of CertificationCampaignsApi->start_campaign_report:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling CertificationCampaignsApi->start_campaign_report: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.CertificationCampaignsAPI.StartCampaignReport(context.Background(), id, type_).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CertificationCampaignsAPI.StartCampaignReport``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `StartCampaignReport`: map[string]interface{}
+	fmt.Fprintf(os.Stdout, "Response from `CertificationCampaignsAPI.StartCampaignReport`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## start-generate-campaign-template
 Generate a Campaign from Template
@@ -1614,57 +1654,61 @@ Valid placeholders are the date/time conversion suffix characters supported by [
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/start-generate-campaign-template)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | id | **str** | True  | ID of the campaign template to use for generation.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | ID of the campaign template to use for generation. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiStartGenerateCampaignTemplateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
 
 ### Return type
+
 [**CampaignReference**](../models/campaign-reference)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | This response indicates that a campaign was successfully generated from this template, and the API returns a reference to the new campaign. | CampaignReference |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.certification_campaigns_api import CertificationCampaignsApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.campaign_reference import CampaignReference
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    id = '2c9180835d191a86015d28455b4a2329' # str | ID of the campaign template to use for generation. # str | ID of the campaign template to use for generation.
+func main() {
+    id := 2c9180835d191a86015d28455b4a2329 # string | ID of the campaign template to use for generation. # string | ID of the campaign template to use for generation.
 
-    try:
-        # Generate a Campaign from Template
-        
-        results = CertificationCampaignsApi(api_client).start_generate_campaign_template(id=id)
-        # Below is a request that includes all optional parameters
-        # results = CertificationCampaignsApi(api_client).start_generate_campaign_template(id)
-        print("The response of CertificationCampaignsApi->start_generate_campaign_template:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling CertificationCampaignsApi->start_generate_campaign_template: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.CertificationCampaignsAPI.StartGenerateCampaignTemplate(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CertificationCampaignsAPI.StartGenerateCampaignTemplate``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `StartGenerateCampaignTemplate`: CampaignReference
+	fmt.Fprintf(os.Stdout, "Response from `CertificationCampaignsAPI.StartGenerateCampaignTemplate`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## update-campaign
 Update a Campaign
@@ -1673,61 +1717,61 @@ Use this API to update individual fields on a certification campaign, using the 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/update-campaign)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | id | **str** | True  | ID of the campaign template being modified.
- Body  | json_patch_operation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The fields that can be patched differ based on the status of the campaign.  When the campaign is in the *STAGED* status, you can patch these fields: * name * description * recommendationsEnabled * deadline * emailNotificationEnabled * autoRevokeAllowed  When the campaign is in the *ACTIVE* status, you can patch these fields: * deadline 
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | ID of the campaign template being modified. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUpdateCampaignRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **jsonPatchOperation** | [**[]JsonPatchOperation**](../models/json-patch-operation) | A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The fields that can be patched differ based on the status of the campaign.  When the campaign is in the *STAGED* status, you can patch these fields: * name * description * recommendationsEnabled * deadline * emailNotificationEnabled * autoRevokeAllowed  When the campaign is in the *ACTIVE* status, you can patch these fields: * deadline  | 
 
 ### Return type
+
 [**SlimCampaign**](../models/slim-campaign)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | This response indicates that the PATCH operation succeeded, and the API returns the campaign&#39;s new representation. | SlimCampaign |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: application/json-patch+json
- - **Accept**: application/json
+
+- **Content-Type**: application/json-patch+json
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.certification_campaigns_api import CertificationCampaignsApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.json_patch_operation import JsonPatchOperation
-from sailpoint.v2025.models.slim_campaign import SlimCampaign
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    id = '2c91808571bcfcf80171c23e4b4221fc' # str | ID of the campaign template being modified. # str | ID of the campaign template being modified.
-    json_patch_operation = '''[{op=replace, path=/name, value=This field has been updated!}, {op=copy, from=/name, path=/description}]''' # List[JsonPatchOperation] | A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The fields that can be patched differ based on the status of the campaign.  When the campaign is in the *STAGED* status, you can patch these fields: * name * description * recommendationsEnabled * deadline * emailNotificationEnabled * autoRevokeAllowed  When the campaign is in the *ACTIVE* status, you can patch these fields: * deadline 
+func main() {
+    id := 2c91808571bcfcf80171c23e4b4221fc # string | ID of the campaign template being modified. # string | ID of the campaign template being modified.
+    jsonPatchOperation := fmt.Sprintf(`[{op=replace, path=/name, value=This field has been updated!}, {op=copy, from=/name, path=/description}]`) # []JsonPatchOperation | A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The fields that can be patched differ based on the status of the campaign.  When the campaign is in the *STAGED* status, you can patch these fields: * name * description * recommendationsEnabled * deadline * emailNotificationEnabled * autoRevokeAllowed  When the campaign is in the *ACTIVE* status, you can patch these fields: * deadline 
 
-    try:
-        # Update a Campaign
-        new_json_patch_operation = JsonPatchOperation.from_json(json_patch_operation)
-        results = CertificationCampaignsApi(api_client).update_campaign(id=id, json_patch_operation=new_json_patch_operation)
-        # Below is a request that includes all optional parameters
-        # results = CertificationCampaignsApi(api_client).update_campaign(id, new_json_patch_operation)
-        print("The response of CertificationCampaignsApi->update_campaign:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling CertificationCampaignsApi->update_campaign: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.CertificationCampaignsAPI.UpdateCampaign(context.Background(), id).JsonPatchOperation(jsonPatchOperation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CertificationCampaignsAPI.UpdateCampaign``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UpdateCampaign`: SlimCampaign
+	fmt.Fprintf(os.Stdout, "Response from `CertificationCampaignsAPI.UpdateCampaign`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
-
-
+[[Back to top]](#)
 

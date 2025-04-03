@@ -3,33 +3,88 @@ id: manual-discover-applications-template
 title: ManualDiscoverApplicationsTemplate
 pagination_label: ManualDiscoverApplicationsTemplate
 sidebar_label: ManualDiscoverApplicationsTemplate
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'ManualDiscoverApplicationsTemplate', 'ManualDiscoverApplicationsTemplate'] 
-slug: /tools/sdk/python/v3/models/manual-discover-applications-template
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'ManualDiscoverApplicationsTemplate', 'ManualDiscoverApplicationsTemplate'] 
+slug: /tools/sdk/go/v3/models/manual-discover-applications-template
 tags: ['SDK', 'Software Development Kit', 'ManualDiscoverApplicationsTemplate', 'ManualDiscoverApplicationsTemplate']
 ---
 
 # ManualDiscoverApplicationsTemplate
 
-
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**application_name** | **str** | Name of the application. | [optional] 
-**description** | **str** | Description of the application. | [optional] 
-}
+**ApplicationName** | Pointer to **string** | Name of the application. | [optional] 
+**Description** | Pointer to **string** | Description of the application. | [optional] 
 
-## Example
+## Methods
 
-```python
-from sailpoint.v3.models.manual_discover_applications_template import ManualDiscoverApplicationsTemplate
+### NewManualDiscoverApplicationsTemplate
 
-manual_discover_applications_template = ManualDiscoverApplicationsTemplate(
-application_name='Example Application',
-description='Example Description'
-)
+`func NewManualDiscoverApplicationsTemplate() *ManualDiscoverApplicationsTemplate`
 
-```
-[[Back to top]](#) 
+NewManualDiscoverApplicationsTemplate instantiates a new ManualDiscoverApplicationsTemplate object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewManualDiscoverApplicationsTemplateWithDefaults
+
+`func NewManualDiscoverApplicationsTemplateWithDefaults() *ManualDiscoverApplicationsTemplate`
+
+NewManualDiscoverApplicationsTemplateWithDefaults instantiates a new ManualDiscoverApplicationsTemplate object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetApplicationName
+
+`func (o *ManualDiscoverApplicationsTemplate) GetApplicationName() string`
+
+GetApplicationName returns the ApplicationName field if non-nil, zero value otherwise.
+
+### GetApplicationNameOk
+
+`func (o *ManualDiscoverApplicationsTemplate) GetApplicationNameOk() (*string, bool)`
+
+GetApplicationNameOk returns a tuple with the ApplicationName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetApplicationName
+
+`func (o *ManualDiscoverApplicationsTemplate) SetApplicationName(v string)`
+
+SetApplicationName sets ApplicationName field to given value.
+
+### HasApplicationName
+
+`func (o *ManualDiscoverApplicationsTemplate) HasApplicationName() bool`
+
+HasApplicationName returns a boolean if a field has been set.
+
+### GetDescription
+
+`func (o *ManualDiscoverApplicationsTemplate) GetDescription() string`
+
+GetDescription returns the Description field if non-nil, zero value otherwise.
+
+### GetDescriptionOk
+
+`func (o *ManualDiscoverApplicationsTemplate) GetDescriptionOk() (*string, bool)`
+
+GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDescription
+
+`func (o *ManualDiscoverApplicationsTemplate) SetDescription(v string)`
+
+SetDescription sets Description field to given value.
+
+### HasDescription
+
+`func (o *ManualDiscoverApplicationsTemplate) HasDescription() bool`
+
+HasDescription returns a boolean if a field has been set.
+
 

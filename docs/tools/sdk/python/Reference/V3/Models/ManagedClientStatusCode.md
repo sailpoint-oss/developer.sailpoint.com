@@ -3,31 +3,29 @@ id: managed-client-status-code
 title: ManagedClientStatusCode
 pagination_label: ManagedClientStatusCode
 sidebar_label: ManagedClientStatusCode
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'ManagedClientStatusCode', 'ManagedClientStatusCode'] 
-slug: /tools/sdk/python/v3/models/managed-client-status-code
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'ManagedClientStatusCode', 'ManagedClientStatusCode'] 
+slug: /tools/sdk/go/v3/models/managed-client-status-code
 tags: ['SDK', 'Software Development Kit', 'ManagedClientStatusCode', 'ManagedClientStatusCode']
 ---
 
 # ManagedClientStatusCode
 
-Status of a Managed Client
-
 ## Enum
 
-* `NORMAL` (value: `'NORMAL'`)
 
-* `UNDEFINED` (value: `'UNDEFINED'`)
+* `NORMAL` (value: `"NORMAL"`)
 
-* `NOT_CONFIGURED` (value: `'NOT_CONFIGURED'`)
+* `UNDEFINED` (value: `"UNDEFINED"`)
 
-* `CONFIGURING` (value: `'CONFIGURING'`)
+* `NOT_CONFIGURED` (value: `"NOT_CONFIGURED"`)
 
-* `WARNING` (value: `'WARNING'`)
+* `CONFIGURING` (value: `"CONFIGURING"`)
 
-* `ERROR` (value: `'ERROR'`)
+* `WARNING` (value: `"WARNING"`)
 
-* `FAILED` (value: `'FAILED'`)
+* `ERROR` (value: `"ERROR"`)
 
-[[Back to top]](#) 
+* `FAILED` (value: `"FAILED"`)
+
 

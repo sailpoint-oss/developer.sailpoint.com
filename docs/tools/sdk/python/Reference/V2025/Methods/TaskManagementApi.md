@@ -1,25 +1,25 @@
 ---
 id: v2025-task-management
-title: Task_Management
-pagination_label: Task_Management
-sidebar_label: Task_Management
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'Task_Management', 'V2025Task_Management'] 
-slug: /tools/sdk/python/v2025/methods/task-management
-tags: ['SDK', 'Software Development Kit', 'Task_Management', 'V2025Task_Management']
+title: TaskManagement
+pagination_label: TaskManagement
+sidebar_label: TaskManagement
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'TaskManagement', 'V2025TaskManagement'] 
+slug: /tools/sdk/go/v2025/methods/task-management
+tags: ['SDK', 'Software Development Kit', 'TaskManagement', 'V2025TaskManagement']
 ---
 
-# sailpoint.v2025.TaskManagementApi
+# TaskManagementAPI
    
 All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get-pending-task-headers**](#get-pending-task-headers) | **HEAD** `/task-status/pending-tasks` | Retrieve Pending Task List Headers
-[**get-pending-tasks**](#get-pending-tasks) | **GET** `/task-status/pending-tasks` | Retrieve Pending Task Status List
-[**get-task-status**](#get-task-status) | **GET** `/task-status/{id}` | Get Task Status by ID
-[**get-task-status-list**](#get-task-status-list) | **GET** `/task-status` | Retrieve Task Status List
-[**update-task-status**](#update-task-status) | **PATCH** `/task-status/{id}` | Update Task Status by ID
+[**get-pending-task-headers**](#get-pending-task-headers) | **Head** `/task-status/pending-tasks` | Retrieve Pending Task List Headers
+[**get-pending-tasks**](#get-pending-tasks) | **Get** `/task-status/pending-tasks` | Retrieve Pending Task Status List
+[**get-task-status**](#get-task-status) | **Get** `/task-status/{id}` | Get Task Status by ID
+[**get-task-status-list**](#get-task-status-list) | **Get** `/task-status` | Retrieve Task Status List
+[**update-task-status**](#update-task-status) | **Patch** `/task-status/{id}` | Update Task Status by ID
 
 
 ## get-pending-task-headers
@@ -29,7 +29,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::tip setting x-sailpoint-experimental header
  on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
  Example:
- ```python
+ ```go
    configuration = Configuration()
    configuration.experimental = True
  ```
@@ -39,62 +39,61 @@ Responds with headers only for list of task statuses for pending tasks.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-pending-task-headers)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
-  Query | offset | **int** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-  Query | limit | **int** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-  Query | count | **bool** |   (optional) (default to False) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetPendingTaskHeadersRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
+ **offset** | **int32** | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to 0]
+ **limit** | **int32** | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to 250]
+ **count** | **bool** | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to false]
 
 ### Return type
+
  (empty response body)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | Retrieve headers for a list of TaskStatus for pending tasks. |  |  -  |
-204 | No content - indicates the request was successful but there is no content to be returned in the response. |  |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.task_management_api import TaskManagementApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
-configuration.experimental = true
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-    limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-    count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
+func main() {
+    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+    offset := 0 # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+    limit := 250 # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+    count := true # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
 
-    try:
-        # Retrieve Pending Task List Headers
-        
-        TaskManagementApi(api_client).get_pending_task_headers(x_sail_point_experimental=x_sail_point_experimental)
-        # Below is a request that includes all optional parameters
-        # TaskManagementApi(api_client).get_pending_task_headers(x_sail_point_experimental, offset, limit, count)
-    except Exception as e:
-        print("Exception when calling TaskManagementApi->get_pending_task_headers: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	r, err := apiClient.V2025.TaskManagementAPI.GetPendingTaskHeaders(context.Background()).XSailPointExperimental(xSailPointExperimental).Offset(offset).Limit(limit).Count(count).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TaskManagementAPI.GetPendingTaskHeaders``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## get-pending-tasks
 :::warning experimental 
@@ -103,7 +102,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::tip setting x-sailpoint-experimental header
  on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
  Example:
- ```python
+ ```go
    configuration = Configuration()
    configuration.experimental = True
  ```
@@ -113,65 +112,63 @@ Retrieve a list of statuses for pending tasks. Types of tasks include account an
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-pending-tasks)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
-  Query | offset | **int** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-  Query | limit | **int** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-  Query | count | **bool** |   (optional) (default to False) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetPendingTasksRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
+ **offset** | **int32** | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to 0]
+ **limit** | **int32** | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to 250]
+ **count** | **bool** | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to false]
 
 ### Return type
-[**List[TaskStatus]**](../models/task-status)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | Responds with a list of TaskStatus for pending tasks. | List[TaskStatus] |  -  |
-204 | No content - indicates the request was successful but there is no content to be returned in the response. |  |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
+[**[]TaskStatus**](../models/task-status)
 
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.task_management_api import TaskManagementApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.task_status import TaskStatus
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
-configuration.experimental = true
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-    limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-    count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
+func main() {
+    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+    offset := 0 # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+    limit := 250 # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+    count := true # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
 
-    try:
-        # Retrieve Pending Task Status List
-        
-        results = TaskManagementApi(api_client).get_pending_tasks(x_sail_point_experimental=x_sail_point_experimental)
-        # Below is a request that includes all optional parameters
-        # results = TaskManagementApi(api_client).get_pending_tasks(x_sail_point_experimental, offset, limit, count)
-        print("The response of TaskManagementApi->get_pending_tasks:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling TaskManagementApi->get_pending_tasks: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.TaskManagementAPI.GetPendingTasks(context.Background()).XSailPointExperimental(xSailPointExperimental).Offset(offset).Limit(limit).Count(count).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TaskManagementAPI.GetPendingTasks``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetPendingTasks`: []TaskStatus
+	fmt.Fprintf(os.Stdout, "Response from `TaskManagementAPI.GetPendingTasks`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## get-task-status
 :::warning experimental 
@@ -180,7 +177,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::tip setting x-sailpoint-experimental header
  on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
  Example:
- ```python
+ ```go
    configuration = Configuration()
    configuration.experimental = True
  ```
@@ -190,61 +187,63 @@ Get task status by task ID. Types of tasks include account and entitlement aggre
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-task-status)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | id | **str** | True  | Task ID.
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | Task ID. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetTaskStatusRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
 
 ### Return type
+
 [**TaskStatus**](../models/task-status)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | Responds with a TaskStatus for the task with the given task ID. | TaskStatus |  -  |
-403 | Forbidden, generally due to a lack of security rights |  |  -  |
-404 | TaskStatus with the given id was not found. |  |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.task_management_api import TaskManagementApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.task_status import TaskStatus
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
-configuration.experimental = true
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    id = '00eebcf881994e419d72e757fd30dc0e' # str | Task ID. # str | Task ID.
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
+func main() {
+    id := 00eebcf881994e419d72e757fd30dc0e # string | Task ID. # string | Task ID.
+    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
 
-    try:
-        # Get Task Status by ID
-        
-        results = TaskManagementApi(api_client).get_task_status(id=id, x_sail_point_experimental=x_sail_point_experimental)
-        # Below is a request that includes all optional parameters
-        # results = TaskManagementApi(api_client).get_task_status(id, x_sail_point_experimental)
-        print("The response of TaskManagementApi->get_task_status:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling TaskManagementApi->get_task_status: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.TaskManagementAPI.GetTaskStatus(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TaskManagementAPI.GetTaskStatus``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetTaskStatus`: TaskStatus
+	fmt.Fprintf(os.Stdout, "Response from `TaskManagementAPI.GetTaskStatus`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## get-task-status-list
 :::warning experimental 
@@ -253,7 +252,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::tip setting x-sailpoint-experimental header
  on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
  Example:
- ```python
+ ```go
    configuration = Configuration()
    configuration.experimental = True
  ```
@@ -264,69 +263,67 @@ Use this endpoint to get a list of statuses for **completed** tasks. Types of ta
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-task-status-list)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
-  Query | limit | **int** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-  Query | offset | **int** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-  Query | count | **bool** |   (optional) (default to False) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-  Query | filters | **str** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **sourceId**: *eq, in*  **completionStatus**: *eq, in*  **type**: *eq, in*
-  Query | sorters | **str** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created**
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetTaskStatusListRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
+ **limit** | **int32** | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to 250]
+ **offset** | **int32** | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to 0]
+ **count** | **bool** | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to false]
+ **filters** | **string** | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **sourceId**: *eq, in*  **completionStatus**: *eq, in*  **type**: *eq, in* | 
+ **sorters** | **string** | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created** | 
 
 ### Return type
-[**List[TaskStatus]**](../models/task-status)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | Responds with a TaskStatus for the task with the given task ID. | List[TaskStatus] |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
+[**[]TaskStatus**](../models/task-status)
 
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.task_management_api import TaskManagementApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.task_status import TaskStatus
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
-configuration.experimental = true
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-    offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-    count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
-    filters = 'completionStatus eq \"Success\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **sourceId**: *eq, in*  **completionStatus**: *eq, in*  **type**: *eq, in* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **sourceId**: *eq, in*  **completionStatus**: *eq, in*  **type**: *eq, in* (optional)
-    sorters = '-created' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created** (optional)
+func main() {
+    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+    limit := 250 # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+    offset := 0 # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+    count := true # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+    filters := completionStatus eq "Success" # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **sourceId**: *eq, in*  **completionStatus**: *eq, in*  **type**: *eq, in* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **sourceId**: *eq, in*  **completionStatus**: *eq, in*  **type**: *eq, in* (optional)
+    sorters := -created # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created** (optional) # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created** (optional)
 
-    try:
-        # Retrieve Task Status List
-        
-        results = TaskManagementApi(api_client).get_task_status_list(x_sail_point_experimental=x_sail_point_experimental)
-        # Below is a request that includes all optional parameters
-        # results = TaskManagementApi(api_client).get_task_status_list(x_sail_point_experimental, limit, offset, count, filters, sorters)
-        print("The response of TaskManagementApi->get_task_status_list:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling TaskManagementApi->get_task_status_list: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.TaskManagementAPI.GetTaskStatusList(context.Background()).XSailPointExperimental(xSailPointExperimental).Limit(limit).Offset(offset).Count(count).Filters(filters).Sorters(sorters).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TaskManagementAPI.GetTaskStatusList``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetTaskStatusList`: []TaskStatus
+	fmt.Fprintf(os.Stdout, "Response from `TaskManagementAPI.GetTaskStatusList`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## update-task-status
 :::warning experimental 
@@ -335,7 +332,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::tip setting x-sailpoint-experimental header
  on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
  Example:
- ```python
+ ```go
    configuration = Configuration()
    configuration.experimental = True
  ```
@@ -345,64 +342,63 @@ Update a current task status by task ID. Use this API to clear a pending task by
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/update-task-status)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | id | **str** | True  | Task ID.
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
- Body  | json_patch_operation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | The JSONPatch payload used to update the object.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | Task ID. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUpdateTaskStatusRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
+ **jsonPatchOperation** | [**[]JsonPatchOperation**](../models/json-patch-operation) | The JSONPatch payload used to update the object. | 
 
 ### Return type
+
 [**TaskStatus**](../models/task-status)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | This response indicates the PATCH operation succeeded, and the API returns the updated task object. | TaskStatus |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: application/json-patch+json
- - **Accept**: application/json
+
+- **Content-Type**: application/json-patch+json
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.task_management_api import TaskManagementApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.json_patch_operation import JsonPatchOperation
-from sailpoint.v2025.models.task_status import TaskStatus
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
-configuration.experimental = true
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    id = '00eebcf881994e419d72e757fd30dc0e' # str | Task ID. # str | Task ID.
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    json_patch_operation = '''[sailpoint.v2025.JsonPatchOperation()]''' # List[JsonPatchOperation] | The JSONPatch payload used to update the object.
+func main() {
+    id := 00eebcf881994e419d72e757fd30dc0e # string | Task ID. # string | Task ID.
+    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+    jsonPatchOperation := fmt.Sprintf(``) # []JsonPatchOperation | The JSONPatch payload used to update the object.
 
-    try:
-        # Update Task Status by ID
-        new_json_patch_operation = JsonPatchOperation.from_json(json_patch_operation)
-        results = TaskManagementApi(api_client).update_task_status(id=id, x_sail_point_experimental=x_sail_point_experimental, json_patch_operation=new_json_patch_operation)
-        # Below is a request that includes all optional parameters
-        # results = TaskManagementApi(api_client).update_task_status(id, x_sail_point_experimental, new_json_patch_operation)
-        print("The response of TaskManagementApi->update_task_status:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling TaskManagementApi->update_task_status: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.TaskManagementAPI.UpdateTaskStatus(context.Background(), id).XSailPointExperimental(xSailPointExperimental).JsonPatchOperation(jsonPatchOperation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TaskManagementAPI.UpdateTaskStatus``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UpdateTaskStatus`: TaskStatus
+	fmt.Fprintf(os.Stdout, "Response from `TaskManagementAPI.UpdateTaskStatus`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
-
-
+[[Back to top]](#)
 

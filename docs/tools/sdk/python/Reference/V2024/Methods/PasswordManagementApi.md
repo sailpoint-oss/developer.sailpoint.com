@@ -1,15 +1,15 @@
 ---
 id: v2024-password-management
-title: Password_Management
-pagination_label: Password_Management
-sidebar_label: Password_Management
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'Password_Management', 'V2024Password_Management'] 
-slug: /tools/sdk/python/v2024/methods/password-management
-tags: ['SDK', 'Software Development Kit', 'Password_Management', 'V2024Password_Management']
+title: PasswordManagement
+pagination_label: PasswordManagement
+sidebar_label: PasswordManagement
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'PasswordManagement', 'V2024PasswordManagement'] 
+slug: /tools/sdk/go/v2024/methods/password-management
+tags: ['SDK', 'Software Development Kit', 'PasswordManagement', 'V2024PasswordManagement']
 ---
 
-# sailpoint.v2024.PasswordManagementApi
+# PasswordManagementAPI
   Use this API to implement password management functionality.  
 With this functionality in place, users can manage their identity passwords for all their applications.
 
@@ -39,10 +39,10 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-digit-token**](#create-digit-token) | **POST** `/generate-password-reset-token/digit` | Generate a digit token
-[**get-password-change-status**](#get-password-change-status) | **GET** `/password-change-status/{id}` | Get Password Change Request Status
-[**query-password-info**](#query-password-info) | **POST** `/query-password-info` | Query Password Info
-[**set-password**](#set-password) | **POST** `/set-password` | Set Identity&#39;s Password
+[**create-digit-token**](#create-digit-token) | **Post** `/generate-password-reset-token/digit` | Generate a digit token
+[**get-password-change-status**](#get-password-change-status) | **Get** `/password-change-status/{id}` | Get Password Change Request Status
+[**query-password-info**](#query-password-info) | **Post** `/query-password-info` | Query Password Info
+[**set-password**](#set-password) | **Post** `/set-password` | Set Identity&#39;s Password
 
 
 ## create-digit-token
@@ -52,7 +52,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::tip setting x-sailpoint-experimental header
  on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
  Example:
- ```python
+ ```go
    configuration = Configuration()
    configuration.experimental = True
  ```
@@ -62,65 +62,63 @@ This API is used to generate a digit token for password management. Requires aut
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/create-digit-token)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
- Body  | password_digit_token_reset | [**PasswordDigitTokenReset**](../models/password-digit-token-reset) | True  | 
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreateDigitTokenRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
+ **passwordDigitTokenReset** | [**PasswordDigitTokenReset**](../models/password-digit-token-reset) |  | 
 
 ### Return type
+
 [**PasswordDigitToken**](../models/password-digit-token)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | The digit token for password management. | PasswordDigitToken |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: application/json
- - **Accept**: application/json
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2024.api.password_management_api import PasswordManagementApi
-from sailpoint.v2024.api_client import ApiClient
-from sailpoint.v2024.models.password_digit_token import PasswordDigitToken
-from sailpoint.v2024.models.password_digit_token_reset import PasswordDigitTokenReset
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
-configuration.experimental = true
+import (
+	"context"
+	"fmt"
+	"os"
+  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    password_digit_token_reset = '''{
+func main() {
+    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+    passwordDigitTokenReset := fmt.Sprintf(`{
           "durationMinutes" : 5,
           "length" : 8,
           "userId" : "Abby.Smith"
-        }''' # PasswordDigitTokenReset | 
+        }`) # PasswordDigitTokenReset | 
 
-    try:
-        # Generate a digit token
-        new_password_digit_token_reset = PasswordDigitTokenReset.from_json(password_digit_token_reset)
-        results = PasswordManagementApi(api_client).create_digit_token(x_sail_point_experimental=x_sail_point_experimental, password_digit_token_reset=new_password_digit_token_reset)
-        # Below is a request that includes all optional parameters
-        # results = PasswordManagementApi(api_client).create_digit_token(x_sail_point_experimental, new_password_digit_token_reset)
-        print("The response of PasswordManagementApi->create_digit_token:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling PasswordManagementApi->create_digit_token: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2024.PasswordManagementAPI.CreateDigitToken(context.Background()).XSailPointExperimental(xSailPointExperimental).PasswordDigitTokenReset(passwordDigitTokenReset).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PasswordManagementAPI.CreateDigitToken``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateDigitToken`: PasswordDigitToken
+	fmt.Fprintf(os.Stdout, "Response from `PasswordManagementAPI.CreateDigitToken`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## get-password-change-status
 Get Password Change Request Status
@@ -128,58 +126,61 @@ This API returns the status of a password change request.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-password-change-status)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | id | **str** | True  | Password change request ID
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | Password change request ID | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetPasswordChangeStatusRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
 
 ### Return type
+
 [**PasswordStatus**](../models/password-status)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | Status of the password change request | PasswordStatus |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2024.api.password_management_api import PasswordManagementApi
-from sailpoint.v2024.api_client import ApiClient
-from sailpoint.v2024.models.password_status import PasswordStatus
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    id = '089899f13a8f4da7824996191587bab9' # str | Password change request ID # str | Password change request ID
+func main() {
+    id := 089899f13a8f4da7824996191587bab9 # string | Password change request ID # string | Password change request ID
 
-    try:
-        # Get Password Change Request Status
-        
-        results = PasswordManagementApi(api_client).get_password_change_status(id=id)
-        # Below is a request that includes all optional parameters
-        # results = PasswordManagementApi(api_client).get_password_change_status(id)
-        print("The response of PasswordManagementApi->get_password_change_status:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling PasswordManagementApi->get_password_change_status: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2024.PasswordManagementAPI.GetPasswordChangeStatus(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PasswordManagementAPI.GetPasswordChangeStatus``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetPasswordChangeStatus`: PasswordStatus
+	fmt.Fprintf(os.Stdout, "Response from `PasswordManagementAPI.GetPasswordChangeStatus`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## query-password-info
 Query Password Info
@@ -188,61 +189,60 @@ This API is used to query password related information.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/query-password-info)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | password_info_query_dto | [**PasswordInfoQueryDTO**](../models/password-info-query-dto) | True  | 
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiQueryPasswordInfoRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **passwordInfoQueryDTO** | [**PasswordInfoQueryDTO**](../models/password-info-query-dto) |  | 
 
 ### Return type
+
 [**PasswordInfo**](../models/password-info)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | Reference to the password info. | PasswordInfo |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: application/json
- - **Accept**: application/json
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2024.api.password_management_api import PasswordManagementApi
-from sailpoint.v2024.api_client import ApiClient
-from sailpoint.v2024.models.password_info import PasswordInfo
-from sailpoint.v2024.models.password_info_query_dto import PasswordInfoQueryDTO
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    password_info_query_dto = '''{
+func main() {
+    passwordInfoQueryDTO := fmt.Sprintf(`{
           "sourceName" : "My-AD",
           "userName" : "Abby.Smith"
-        }''' # PasswordInfoQueryDTO | 
+        }`) # PasswordInfoQueryDTO | 
 
-    try:
-        # Query Password Info
-        new_password_info_query_dto = PasswordInfoQueryDto.from_json(password_info_query_dto)
-        results = PasswordManagementApi(api_client).query_password_info(password_info_query_dto=new_password_info_query_dto)
-        # Below is a request that includes all optional parameters
-        # results = PasswordManagementApi(api_client).query_password_info(new_password_info_query_dto)
-        print("The response of PasswordManagementApi->query_password_info:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling PasswordManagementApi->query_password_info: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2024.PasswordManagementAPI.QueryPasswordInfo(context.Background()).PasswordInfoQueryDTO(passwordInfoQueryDTO).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PasswordManagementAPI.QueryPasswordInfo``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `QueryPasswordInfo`: PasswordInfo
+	fmt.Fprintf(os.Stdout, "Response from `PasswordManagementAPI.QueryPasswordInfo`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## set-password
 Set Identity's Password
@@ -269,64 +269,61 @@ You can then use [Get Password Change Request Status](https://developer.sailpoin
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/set-password)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | password_change_request | [**PasswordChangeRequest**](../models/password-change-request) | True  | 
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiSetPasswordRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **passwordChangeRequest** | [**PasswordChangeRequest**](../models/password-change-request) |  | 
 
 ### Return type
+
 [**PasswordChangeResponse**](../models/password-change-response)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-202 | Reference to the password change. | PasswordChangeResponse |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: application/json
- - **Accept**: application/json
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2024.api.password_management_api import PasswordManagementApi
-from sailpoint.v2024.api_client import ApiClient
-from sailpoint.v2024.models.password_change_request import PasswordChangeRequest
-from sailpoint.v2024.models.password_change_response import PasswordChangeResponse
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    password_change_request = '''{
+func main() {
+    passwordChangeRequest := fmt.Sprintf(`{
           "sourceId" : "8a807d4c73c545510173c545d4b60246",
           "accountId" : "CN=Abby Smith,OU=Austin,OU=Americas,OU=Demo,DC=seri,DC=acme,DC=com",
           "identityId" : "8a807d4c73c545510173c545f0a002ff",
           "publicKeyId" : "YWQ2NjQ4MTItZjY0NC00MWExLWFjMjktOGNmMzU3Y2VlNjk2",
           "encryptedPassword" : "XzN+YwKgr2C+InkMYFMBG3UtjMEw5ZIql/XFlXo8cJNeslmkplx6vn4kd4/43IF9STBk5RnzR6XmjpEO+FwHDoiBwYZAkAZK/Iswxk4OdybG6Y4MStJCOCiK8osKr35IMMSV/mbO4wAeltoCk7daTWzTGLiI6UaT5tf+F2EgdjJZ7YqM8W8r7aUWsm3p2Xt01Y46ZRx0QaM91QruiIx2rECFT2pUO0wr+7oQ77jypATyGWRtADsu3YcvCk/6U5MqCnXMzKBcRas7NnZdSL/d5H1GglVGz3VLPMaivG4/oL4chOMmFCRl/zVsGxZ9RhN8rxsRGFFKn+rhExTi+bax3A=="
-        }''' # PasswordChangeRequest | 
+        }`) # PasswordChangeRequest | 
 
-    try:
-        # Set Identity's Password
-        new_password_change_request = PasswordChangeRequest.from_json(password_change_request)
-        results = PasswordManagementApi(api_client).set_password(password_change_request=new_password_change_request)
-        # Below is a request that includes all optional parameters
-        # results = PasswordManagementApi(api_client).set_password(new_password_change_request)
-        print("The response of PasswordManagementApi->set_password:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling PasswordManagementApi->set_password: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2024.PasswordManagementAPI.SetPassword(context.Background()).PasswordChangeRequest(passwordChangeRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PasswordManagementAPI.SetPassword``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `SetPassword`: PasswordChangeResponse
+	fmt.Fprintf(os.Stdout, "Response from `PasswordManagementAPI.SetPassword`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
-
-
+[[Back to top]](#)
 

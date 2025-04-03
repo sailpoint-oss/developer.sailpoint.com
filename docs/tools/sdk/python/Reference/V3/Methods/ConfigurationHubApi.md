@@ -1,15 +1,15 @@
 ---
 id: configuration-hub
-title: Configuration_Hub
-pagination_label: Configuration_Hub
-sidebar_label: Configuration_Hub
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'Configuration_Hub', 'Configuration_Hub'] 
-slug: /tools/sdk/python/v3/methods/configuration-hub
-tags: ['SDK', 'Software Development Kit', 'Configuration_Hub', 'Configuration_Hub']
+title: ConfigurationHub
+pagination_label: ConfigurationHub
+sidebar_label: ConfigurationHub
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'ConfigurationHub', 'ConfigurationHub'] 
+slug: /tools/sdk/go/v3/methods/configuration-hub
+tags: ['SDK', 'Software Development Kit', 'ConfigurationHub', 'ConfigurationHub']
 ---
 
-# sailpoint.v3.ConfigurationHubApi
+# ConfigurationHubAPI
   Upload configurations and manage object mappings between tenants.
 
 Configuration files can be managed and deployed using Configuration Hub by uploading a JSON file which contains configuration data.
@@ -24,15 +24,15 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-object-mapping**](#create-object-mapping) | **POST** `/configuration-hub/object-mappings/{sourceOrg}` | Creates an object mapping
-[**create-object-mappings**](#create-object-mappings) | **POST** `/configuration-hub/object-mappings/{sourceOrg}/bulk-create` | Bulk creates object mappings
-[**create-uploaded-configuration**](#create-uploaded-configuration) | **POST** `/configuration-hub/backups/uploads` | Upload a Configuration
-[**delete-object-mapping**](#delete-object-mapping) | **DELETE** `/configuration-hub/object-mappings/{sourceOrg}/{objectMappingId}` | Deletes an object mapping
-[**delete-uploaded-configuration**](#delete-uploaded-configuration) | **DELETE** `/configuration-hub/backups/uploads/{id}` | Delete an Uploaded Configuration
-[**get-object-mappings**](#get-object-mappings) | **GET** `/configuration-hub/object-mappings/{sourceOrg}` | Gets list of object mappings
-[**get-uploaded-configuration**](#get-uploaded-configuration) | **GET** `/configuration-hub/backups/uploads/{id}` | Get an Uploaded Configuration
-[**list-uploaded-configurations**](#list-uploaded-configurations) | **GET** `/configuration-hub/backups/uploads` | List Uploaded Configurations
-[**update-object-mappings**](#update-object-mappings) | **POST** `/configuration-hub/object-mappings/{sourceOrg}/bulk-patch` | Bulk updates object mappings
+[**create-object-mapping**](#create-object-mapping) | **Post** `/configuration-hub/object-mappings/{sourceOrg}` | Creates an object mapping
+[**create-object-mappings**](#create-object-mappings) | **Post** `/configuration-hub/object-mappings/{sourceOrg}/bulk-create` | Bulk creates object mappings
+[**create-uploaded-configuration**](#create-uploaded-configuration) | **Post** `/configuration-hub/backups/uploads` | Upload a Configuration
+[**delete-object-mapping**](#delete-object-mapping) | **Delete** `/configuration-hub/object-mappings/{sourceOrg}/{objectMappingId}` | Deletes an object mapping
+[**delete-uploaded-configuration**](#delete-uploaded-configuration) | **Delete** `/configuration-hub/backups/uploads/{id}` | Delete an Uploaded Configuration
+[**get-object-mappings**](#get-object-mappings) | **Get** `/configuration-hub/object-mappings/{sourceOrg}` | Gets list of object mappings
+[**get-uploaded-configuration**](#get-uploaded-configuration) | **Get** `/configuration-hub/backups/uploads/{id}` | Get an Uploaded Configuration
+[**list-uploaded-configurations**](#list-uploaded-configurations) | **Get** `/configuration-hub/backups/uploads` | List Uploaded Configurations
+[**update-object-mappings**](#update-object-mappings) | **Post** `/configuration-hub/object-mappings/{sourceOrg}/bulk-patch` | Bulk updates object mappings
 
 
 ## create-object-mapping
@@ -44,67 +44,69 @@ The request will need the following security scope:
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/create-object-mapping)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | source_org | **str** | True  | The name of the source org.
- Body  | object_mapping_request | [**ObjectMappingRequest**](../models/object-mapping-request) | True  | The object mapping request body.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**sourceOrg** | **string** | The name of the source org. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreateObjectMappingRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **objectMappingRequest** | [**ObjectMappingRequest**](../models/object-mapping-request) | The object mapping request body. | 
 
 ### Return type
+
 [**ObjectMappingResponse**](../models/object-mapping-response)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | The created object mapping between current org and source org. | ObjectMappingResponse |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: application/json
- - **Accept**: application/json
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v3.api.configuration_hub_api import ConfigurationHubApi
-from sailpoint.v3.api_client import ApiClient
-from sailpoint.v3.models.object_mapping_request import ObjectMappingRequest
-from sailpoint.v3.models.object_mapping_response import ObjectMappingResponse
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    source_org = 'source-org' # str | The name of the source org. # str | The name of the source org.
-    object_mapping_request = '''{
+func main() {
+    sourceOrg := source-org # string | The name of the source org. # string | The name of the source org.
+    objectMappingRequest := fmt.Sprintf(`{
           "targetValue" : "My New Governance Group Name",
           "jsonPath" : "$.name",
           "sourceValue" : "My Governance Group Name",
           "enabled" : false,
           "objectType" : "IDENTITY"
-        }''' # ObjectMappingRequest | The object mapping request body.
+        }`) # ObjectMappingRequest | The object mapping request body.
 
-    try:
-        # Creates an object mapping
-        new_object_mapping_request = ObjectMappingRequest.from_json(object_mapping_request)
-        results = ConfigurationHubApi(api_client).create_object_mapping(source_org=source_org, object_mapping_request=new_object_mapping_request)
-        # Below is a request that includes all optional parameters
-        # results = ConfigurationHubApi(api_client).create_object_mapping(source_org, new_object_mapping_request)
-        print("The response of ConfigurationHubApi->create_object_mapping:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling ConfigurationHubApi->create_object_mapping: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V3.ConfigurationHubAPI.CreateObjectMapping(context.Background(), sourceOrg).ObjectMappingRequest(objectMappingRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationHubAPI.CreateObjectMapping``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateObjectMapping`: ObjectMappingResponse
+	fmt.Fprintf(os.Stdout, "Response from `ConfigurationHubAPI.CreateObjectMapping`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## create-object-mappings
 Bulk creates object mappings
@@ -115,45 +117,49 @@ The request will need the following security scope:
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/create-object-mappings)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | source_org | **str** | True  | The name of the source org.
- Body  | object_mapping_bulk_create_request | [**ObjectMappingBulkCreateRequest**](../models/object-mapping-bulk-create-request) | True  | The bulk create object mapping request body.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**sourceOrg** | **string** | The name of the source org. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreateObjectMappingsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **objectMappingBulkCreateRequest** | [**ObjectMappingBulkCreateRequest**](../models/object-mapping-bulk-create-request) | The bulk create object mapping request body. | 
 
 ### Return type
+
 [**ObjectMappingBulkCreateResponse**](../models/object-mapping-bulk-create-response)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | The created object mapping between current org and source org. | ObjectMappingBulkCreateResponse |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: application/json
- - **Accept**: application/json
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v3.api.configuration_hub_api import ConfigurationHubApi
-from sailpoint.v3.api_client import ApiClient
-from sailpoint.v3.models.object_mapping_bulk_create_request import ObjectMappingBulkCreateRequest
-from sailpoint.v3.models.object_mapping_bulk_create_response import ObjectMappingBulkCreateResponse
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    source_org = 'source-org' # str | The name of the source org. # str | The name of the source org.
-    object_mapping_bulk_create_request = '''{
+func main() {
+    sourceOrg := source-org # string | The name of the source org. # string | The name of the source org.
+    objectMappingBulkCreateRequest := fmt.Sprintf(`{
           "newObjectsMappings" : [ {
             "targetValue" : "My New Governance Group Name",
             "jsonPath" : "$.name",
@@ -167,23 +173,21 @@ with ApiClient(configuration) as api_client:
             "enabled" : false,
             "objectType" : "IDENTITY"
           } ]
-        }''' # ObjectMappingBulkCreateRequest | The bulk create object mapping request body.
+        }`) # ObjectMappingBulkCreateRequest | The bulk create object mapping request body.
 
-    try:
-        # Bulk creates object mappings
-        new_object_mapping_bulk_create_request = ObjectMappingBulkCreateRequest.from_json(object_mapping_bulk_create_request)
-        results = ConfigurationHubApi(api_client).create_object_mappings(source_org=source_org, object_mapping_bulk_create_request=new_object_mapping_bulk_create_request)
-        # Below is a request that includes all optional parameters
-        # results = ConfigurationHubApi(api_client).create_object_mappings(source_org, new_object_mapping_bulk_create_request)
-        print("The response of ConfigurationHubApi->create_object_mappings:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling ConfigurationHubApi->create_object_mappings: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V3.ConfigurationHubAPI.CreateObjectMappings(context.Background(), sourceOrg).ObjectMappingBulkCreateRequest(objectMappingBulkCreateRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationHubAPI.CreateObjectMappings``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateObjectMappings`: ObjectMappingBulkCreateResponse
+	fmt.Fprintf(os.Stdout, "Response from `ConfigurationHubAPI.CreateObjectMappings`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## create-uploaded-configuration
 Upload a Configuration
@@ -195,59 +199,59 @@ Refer to [SaaS Configuration](https://developer.sailpoint.com/idn/docs/saas-conf
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/create-uploaded-configuration)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-   | data | **bytearray** | True  | JSON file containing the objects to be imported.
-   | name | **str** | True  | Name that will be assigned to the uploaded configuration file.
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreateUploadedConfigurationRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **data** | ***os.File** | JSON file containing the objects to be imported. | 
+ **name** | **string** | Name that will be assigned to the uploaded configuration file. | 
 
 ### Return type
+
 [**BackupResponse**](../models/backup-response)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-202 | Upload job accepted and queued for processing. | BackupResponse |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: multipart/form-data
- - **Accept**: application/json
+
+- **Content-Type**: multipart/form-data
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v3.api.configuration_hub_api import ConfigurationHubApi
-from sailpoint.v3.api_client import ApiClient
-from sailpoint.v3.models.backup_response import BackupResponse
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    data = None # bytearray | JSON file containing the objects to be imported. # bytearray | JSON file containing the objects to be imported.
-    name = 'name_example' # str | Name that will be assigned to the uploaded configuration file. # str | Name that will be assigned to the uploaded configuration file.
+func main() {
+    data := BINARY_DATA_HERE # *os.File | JSON file containing the objects to be imported. # *os.File | JSON file containing the objects to be imported.
+    name := name_example # string | Name that will be assigned to the uploaded configuration file. # string | Name that will be assigned to the uploaded configuration file.
 
-    try:
-        # Upload a Configuration
-        
-        results = ConfigurationHubApi(api_client).create_uploaded_configuration(data=data, name=name)
-        # Below is a request that includes all optional parameters
-        # results = ConfigurationHubApi(api_client).create_uploaded_configuration(data, name)
-        print("The response of ConfigurationHubApi->create_uploaded_configuration:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling ConfigurationHubApi->create_uploaded_configuration: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V3.ConfigurationHubAPI.CreateUploadedConfiguration(context.Background()).Data(data).Name(name).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationHubAPI.CreateUploadedConfiguration``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateUploadedConfiguration`: BackupResponse
+	fmt.Fprintf(os.Stdout, "Response from `ConfigurationHubAPI.CreateUploadedConfiguration`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## delete-object-mapping
 Deletes an object mapping
@@ -258,57 +262,62 @@ The request will need the following security scope:
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/delete-object-mapping)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | source_org | **str** | True  | The name of the source org.
-Path   | object_mapping_id | **str** | True  | The id of the object mapping to be deleted.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**sourceOrg** | **string** | The name of the source org. | 
+**objectMappingId** | **string** | The id of the object mapping to be deleted. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteObjectMappingRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
 
 ### Return type
+
  (empty response body)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-204 | No content - indicates the request was successful but there is no content to be returned in the response. |  |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v3.api.configuration_hub_api import ConfigurationHubApi
-from sailpoint.v3.api_client import ApiClient
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    source_org = 'source-org' # str | The name of the source org. # str | The name of the source org.
-    object_mapping_id = '3d6e0144-963f-4bd6-8d8d-d77b4e507ce4' # str | The id of the object mapping to be deleted. # str | The id of the object mapping to be deleted.
+func main() {
+    sourceOrg := source-org # string | The name of the source org. # string | The name of the source org.
+    objectMappingId := 3d6e0144-963f-4bd6-8d8d-d77b4e507ce4 # string | The id of the object mapping to be deleted. # string | The id of the object mapping to be deleted.
 
-    try:
-        # Deletes an object mapping
-        
-        ConfigurationHubApi(api_client).delete_object_mapping(source_org=source_org, object_mapping_id=object_mapping_id)
-        # Below is a request that includes all optional parameters
-        # ConfigurationHubApi(api_client).delete_object_mapping(source_org, object_mapping_id)
-    except Exception as e:
-        print("Exception when calling ConfigurationHubApi->delete_object_mapping: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	r, err := apiClient.V3.ConfigurationHubAPI.DeleteObjectMapping(context.Background(), sourceOrg, objectMappingId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationHubAPI.DeleteObjectMapping``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## delete-uploaded-configuration
 Delete an Uploaded Configuration
@@ -320,55 +329,59 @@ The uploaded configuration id can be obtained from the response after a successf
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/delete-uploaded-configuration)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | id | **str** | True  | The id of the uploaded configuration.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | The id of the uploaded configuration. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteUploadedConfigurationRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
 
 ### Return type
+
  (empty response body)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-204 | No content - indicates the request was successful but there is no content to be returned in the response. |  |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v3.api.configuration_hub_api import ConfigurationHubApi
-from sailpoint.v3.api_client import ApiClient
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    id = '3d0fe04b-57df-4a46-a83b-8f04b0f9d10b' # str | The id of the uploaded configuration. # str | The id of the uploaded configuration.
+func main() {
+    id := 3d0fe04b-57df-4a46-a83b-8f04b0f9d10b # string | The id of the uploaded configuration. # string | The id of the uploaded configuration.
 
-    try:
-        # Delete an Uploaded Configuration
-        
-        ConfigurationHubApi(api_client).delete_uploaded_configuration(id=id)
-        # Below is a request that includes all optional parameters
-        # ConfigurationHubApi(api_client).delete_uploaded_configuration(id)
-    except Exception as e:
-        print("Exception when calling ConfigurationHubApi->delete_uploaded_configuration: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	r, err := apiClient.V3.ConfigurationHubAPI.DeleteUploadedConfiguration(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationHubAPI.DeleteUploadedConfiguration``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## get-object-mappings
 Gets list of object mappings
@@ -379,58 +392,61 @@ The request will need the following security scope:
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-object-mappings)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | source_org | **str** | True  | The name of the source org.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**sourceOrg** | **string** | The name of the source org. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetObjectMappingsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
 
 ### Return type
-[**List[ObjectMappingResponse]**](../models/object-mapping-response)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | List of existing object mappings between current org and source org. | List[ObjectMappingResponse] |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
+[**[]ObjectMappingResponse**](../models/object-mapping-response)
 
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v3.api.configuration_hub_api import ConfigurationHubApi
-from sailpoint.v3.api_client import ApiClient
-from sailpoint.v3.models.object_mapping_response import ObjectMappingResponse
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    source_org = 'source-org' # str | The name of the source org. # str | The name of the source org.
+func main() {
+    sourceOrg := source-org # string | The name of the source org. # string | The name of the source org.
 
-    try:
-        # Gets list of object mappings
-        
-        results = ConfigurationHubApi(api_client).get_object_mappings(source_org=source_org)
-        # Below is a request that includes all optional parameters
-        # results = ConfigurationHubApi(api_client).get_object_mappings(source_org)
-        print("The response of ConfigurationHubApi->get_object_mappings:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling ConfigurationHubApi->get_object_mappings: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V3.ConfigurationHubAPI.GetObjectMappings(context.Background(), sourceOrg).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationHubAPI.GetObjectMappings``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetObjectMappings`: []ObjectMappingResponse
+	fmt.Fprintf(os.Stdout, "Response from `ConfigurationHubAPI.GetObjectMappings`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## get-uploaded-configuration
 Get an Uploaded Configuration
@@ -438,58 +454,61 @@ This API gets an existing uploaded configuration for the current tenant.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-uploaded-configuration)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | id | **str** | True  | The id of the uploaded configuration.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | The id of the uploaded configuration. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetUploadedConfigurationRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
 
 ### Return type
+
 [**BackupResponse**](../models/backup-response)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | Gets an uploaded configuration details. | BackupResponse |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v3.api.configuration_hub_api import ConfigurationHubApi
-from sailpoint.v3.api_client import ApiClient
-from sailpoint.v3.models.backup_response import BackupResponse
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    id = '3d0fe04b-57df-4a46-a83b-8f04b0f9d10b' # str | The id of the uploaded configuration. # str | The id of the uploaded configuration.
+func main() {
+    id := 3d0fe04b-57df-4a46-a83b-8f04b0f9d10b # string | The id of the uploaded configuration. # string | The id of the uploaded configuration.
 
-    try:
-        # Get an Uploaded Configuration
-        
-        results = ConfigurationHubApi(api_client).get_uploaded_configuration(id=id)
-        # Below is a request that includes all optional parameters
-        # results = ConfigurationHubApi(api_client).get_uploaded_configuration(id)
-        print("The response of ConfigurationHubApi->get_uploaded_configuration:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling ConfigurationHubApi->get_uploaded_configuration: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V3.ConfigurationHubAPI.GetUploadedConfiguration(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationHubAPI.GetUploadedConfiguration``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetUploadedConfiguration`: BackupResponse
+	fmt.Fprintf(os.Stdout, "Response from `ConfigurationHubAPI.GetUploadedConfiguration`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## list-uploaded-configurations
 List Uploaded Configurations
@@ -497,58 +516,57 @@ This API gets a list of existing uploaded configurations for the current tenant.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/list-uploaded-configurations)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-  Query | filters | **str** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq*
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiListUploadedConfigurationsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **filters** | **string** | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq* | 
 
 ### Return type
-[**List[BackupResponse]**](../models/backup-response)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | List of existing uploaded configurations. | List[BackupResponse] |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
+[**[]BackupResponse**](../models/backup-response)
 
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v3.api.configuration_hub_api import ConfigurationHubApi
-from sailpoint.v3.api_client import ApiClient
-from sailpoint.v3.models.backup_response import BackupResponse
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    filters = 'status eq \"COMPLETE\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq* (optional)
+func main() {
+    filters := status eq "COMPLETE" # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq* (optional)
 
-    try:
-        # List Uploaded Configurations
-        
-        results = ConfigurationHubApi(api_client).list_uploaded_configurations()
-        # Below is a request that includes all optional parameters
-        # results = ConfigurationHubApi(api_client).list_uploaded_configurations(filters)
-        print("The response of ConfigurationHubApi->list_uploaded_configurations:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling ConfigurationHubApi->list_uploaded_configurations: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V3.ConfigurationHubAPI.ListUploadedConfigurations(context.Background()).Filters(filters).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationHubAPI.ListUploadedConfigurations``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ListUploadedConfigurations`: []BackupResponse
+	fmt.Fprintf(os.Stdout, "Response from `ConfigurationHubAPI.ListUploadedConfigurations`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## update-object-mappings
 Bulk updates object mappings
@@ -559,45 +577,49 @@ The request will need the following security scope:
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/update-object-mappings)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | source_org | **str** | True  | The name of the source org.
- Body  | object_mapping_bulk_patch_request | [**ObjectMappingBulkPatchRequest**](../models/object-mapping-bulk-patch-request) | True  | The object mapping request body.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**sourceOrg** | **string** | The name of the source org. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUpdateObjectMappingsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **objectMappingBulkPatchRequest** | [**ObjectMappingBulkPatchRequest**](../models/object-mapping-bulk-patch-request) | The object mapping request body. | 
 
 ### Return type
+
 [**ObjectMappingBulkPatchResponse**](../models/object-mapping-bulk-patch-response)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | The updated object mappings. | ObjectMappingBulkPatchResponse |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: application/json
- - **Accept**: application/json
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v3.api.configuration_hub_api import ConfigurationHubApi
-from sailpoint.v3.api_client import ApiClient
-from sailpoint.v3.models.object_mapping_bulk_patch_request import ObjectMappingBulkPatchRequest
-from sailpoint.v3.models.object_mapping_bulk_patch_response import ObjectMappingBulkPatchResponse
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    source_org = 'source-org' # str | The name of the source org. # str | The name of the source org.
-    object_mapping_bulk_patch_request = '''{
+func main() {
+    sourceOrg := source-org # string | The name of the source org. # string | The name of the source org.
+    objectMappingBulkPatchRequest := fmt.Sprintf(`{
           "patches" : {
             "603b1a61-d03d-4ed1-864f-a508fbd1995d" : [ {
               "op" : "replace",
@@ -610,23 +632,19 @@ with ApiClient(configuration) as api_client:
               "value" : "New Target Value"
             } ]
           }
-        }''' # ObjectMappingBulkPatchRequest | The object mapping request body.
+        }`) # ObjectMappingBulkPatchRequest | The object mapping request body.
 
-    try:
-        # Bulk updates object mappings
-        new_object_mapping_bulk_patch_request = ObjectMappingBulkPatchRequest.from_json(object_mapping_bulk_patch_request)
-        results = ConfigurationHubApi(api_client).update_object_mappings(source_org=source_org, object_mapping_bulk_patch_request=new_object_mapping_bulk_patch_request)
-        # Below is a request that includes all optional parameters
-        # results = ConfigurationHubApi(api_client).update_object_mappings(source_org, new_object_mapping_bulk_patch_request)
-        print("The response of ConfigurationHubApi->update_object_mappings:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling ConfigurationHubApi->update_object_mappings: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V3.ConfigurationHubAPI.UpdateObjectMappings(context.Background(), sourceOrg).ObjectMappingBulkPatchRequest(objectMappingBulkPatchRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationHubAPI.UpdateObjectMappings``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UpdateObjectMappings`: ObjectMappingBulkPatchResponse
+	fmt.Fprintf(os.Stdout, "Response from `ConfigurationHubAPI.UpdateObjectMappings`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
-
-
+[[Back to top]](#)
 

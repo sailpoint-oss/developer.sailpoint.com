@@ -3,36 +3,114 @@ id: v2024-entitlement-document-all-of-source
 title: EntitlementDocumentAllOfSource
 pagination_label: EntitlementDocumentAllOfSource
 sidebar_label: EntitlementDocumentAllOfSource
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'EntitlementDocumentAllOfSource', 'V2024EntitlementDocumentAllOfSource'] 
-slug: /tools/sdk/python/v2024/models/entitlement-document-all-of-source
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'EntitlementDocumentAllOfSource', 'V2024EntitlementDocumentAllOfSource'] 
+slug: /tools/sdk/go/v2024/models/entitlement-document-all-of-source
 tags: ['SDK', 'Software Development Kit', 'EntitlementDocumentAllOfSource', 'V2024EntitlementDocumentAllOfSource']
 ---
 
 # EntitlementDocumentAllOfSource
 
-Entitlement's source.
-
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** | ID of entitlement's source. | [optional] 
-**name** | **str** | Display name of entitlement's source. | [optional] 
-**type** | **str** | Type of object. | [optional] 
-}
+**Id** | Pointer to **string** | ID of entitlement's source. | [optional] 
+**Name** | Pointer to **string** | Display name of entitlement's source. | [optional] 
+**Type** | Pointer to **string** | Type of object. | [optional] 
 
-## Example
+## Methods
 
-```python
-from sailpoint.v2024.models.entitlement_document_all_of_source import EntitlementDocumentAllOfSource
+### NewEntitlementDocumentAllOfSource
 
-entitlement_document_all_of_source = EntitlementDocumentAllOfSource(
-id='2c91808b6e9e6fb8016eec1a2b6f7b5f',
-name='ODS-HR-Employees',
-type='SOURCE'
-)
+`func NewEntitlementDocumentAllOfSource() *EntitlementDocumentAllOfSource`
 
-```
-[[Back to top]](#) 
+NewEntitlementDocumentAllOfSource instantiates a new EntitlementDocumentAllOfSource object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewEntitlementDocumentAllOfSourceWithDefaults
+
+`func NewEntitlementDocumentAllOfSourceWithDefaults() *EntitlementDocumentAllOfSource`
+
+NewEntitlementDocumentAllOfSourceWithDefaults instantiates a new EntitlementDocumentAllOfSource object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetId
+
+`func (o *EntitlementDocumentAllOfSource) GetId() string`
+
+GetId returns the Id field if non-nil, zero value otherwise.
+
+### GetIdOk
+
+`func (o *EntitlementDocumentAllOfSource) GetIdOk() (*string, bool)`
+
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetId
+
+`func (o *EntitlementDocumentAllOfSource) SetId(v string)`
+
+SetId sets Id field to given value.
+
+### HasId
+
+`func (o *EntitlementDocumentAllOfSource) HasId() bool`
+
+HasId returns a boolean if a field has been set.
+
+### GetName
+
+`func (o *EntitlementDocumentAllOfSource) GetName() string`
+
+GetName returns the Name field if non-nil, zero value otherwise.
+
+### GetNameOk
+
+`func (o *EntitlementDocumentAllOfSource) GetNameOk() (*string, bool)`
+
+GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetName
+
+`func (o *EntitlementDocumentAllOfSource) SetName(v string)`
+
+SetName sets Name field to given value.
+
+### HasName
+
+`func (o *EntitlementDocumentAllOfSource) HasName() bool`
+
+HasName returns a boolean if a field has been set.
+
+### GetType
+
+`func (o *EntitlementDocumentAllOfSource) GetType() string`
+
+GetType returns the Type field if non-nil, zero value otherwise.
+
+### GetTypeOk
+
+`func (o *EntitlementDocumentAllOfSource) GetTypeOk() (*string, bool)`
+
+GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetType
+
+`func (o *EntitlementDocumentAllOfSource) SetType(v string)`
+
+SetType sets Type field to given value.
+
+### HasType
+
+`func (o *EntitlementDocumentAllOfSource) HasType() bool`
+
+HasType returns a boolean if a field has been set.
+
 

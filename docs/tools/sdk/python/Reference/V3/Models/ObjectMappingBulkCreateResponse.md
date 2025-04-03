@@ -3,41 +3,62 @@ id: object-mapping-bulk-create-response
 title: ObjectMappingBulkCreateResponse
 pagination_label: ObjectMappingBulkCreateResponse
 sidebar_label: ObjectMappingBulkCreateResponse
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'ObjectMappingBulkCreateResponse', 'ObjectMappingBulkCreateResponse'] 
-slug: /tools/sdk/python/v3/models/object-mapping-bulk-create-response
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'ObjectMappingBulkCreateResponse', 'ObjectMappingBulkCreateResponse'] 
+slug: /tools/sdk/go/v3/models/object-mapping-bulk-create-response
 tags: ['SDK', 'Software Development Kit', 'ObjectMappingBulkCreateResponse', 'ObjectMappingBulkCreateResponse']
 ---
 
 # ObjectMappingBulkCreateResponse
 
-
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**added_objects** | [**[]ObjectMappingResponse**](object-mapping-response) |  | [optional] 
-}
+**AddedObjects** | Pointer to [**[]ObjectMappingResponse**](object-mapping-response) |  | [optional] 
 
-## Example
+## Methods
 
-```python
-from sailpoint.v3.models.object_mapping_bulk_create_response import ObjectMappingBulkCreateResponse
+### NewObjectMappingBulkCreateResponse
 
-object_mapping_bulk_create_response = ObjectMappingBulkCreateResponse(
-added_objects=[
-                    sailpoint.v3.models.object_mapping_response.Object Mapping Response(
-                        object_mapping_id = '3d6e0144-963f-4bd6-8d8d-d77b4e507ce4', 
-                        object_type = 'IDENTITY', 
-                        json_path = '$.name', 
-                        source_value = 'My Governance Group Name', 
-                        target_value = 'My New Governance Group Name', 
-                        enabled = False, 
-                        created = '2024-03-19T23:18:53.732Z', 
-                        modified = '2024-03-19T23:18:53.732Z', )
-                    ]
-)
+`func NewObjectMappingBulkCreateResponse() *ObjectMappingBulkCreateResponse`
 
-```
-[[Back to top]](#) 
+NewObjectMappingBulkCreateResponse instantiates a new ObjectMappingBulkCreateResponse object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewObjectMappingBulkCreateResponseWithDefaults
+
+`func NewObjectMappingBulkCreateResponseWithDefaults() *ObjectMappingBulkCreateResponse`
+
+NewObjectMappingBulkCreateResponseWithDefaults instantiates a new ObjectMappingBulkCreateResponse object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetAddedObjects
+
+`func (o *ObjectMappingBulkCreateResponse) GetAddedObjects() []ObjectMappingResponse`
+
+GetAddedObjects returns the AddedObjects field if non-nil, zero value otherwise.
+
+### GetAddedObjectsOk
+
+`func (o *ObjectMappingBulkCreateResponse) GetAddedObjectsOk() (*[]ObjectMappingResponse, bool)`
+
+GetAddedObjectsOk returns a tuple with the AddedObjects field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAddedObjects
+
+`func (o *ObjectMappingBulkCreateResponse) SetAddedObjects(v []ObjectMappingResponse)`
+
+SetAddedObjects sets AddedObjects field to given value.
+
+### HasAddedObjects
+
+`func (o *ObjectMappingBulkCreateResponse) HasAddedObjects() bool`
+
+HasAddedObjects returns a boolean if a field has been set.
+
 

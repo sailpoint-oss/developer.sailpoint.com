@@ -3,31 +3,62 @@ id: v2024-workgroup-bulk-delete-request
 title: WorkgroupBulkDeleteRequest
 pagination_label: WorkgroupBulkDeleteRequest
 sidebar_label: WorkgroupBulkDeleteRequest
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'WorkgroupBulkDeleteRequest', 'V2024WorkgroupBulkDeleteRequest'] 
-slug: /tools/sdk/python/v2024/models/workgroup-bulk-delete-request
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'WorkgroupBulkDeleteRequest', 'V2024WorkgroupBulkDeleteRequest'] 
+slug: /tools/sdk/go/v2024/models/workgroup-bulk-delete-request
 tags: ['SDK', 'Software Development Kit', 'WorkgroupBulkDeleteRequest', 'V2024WorkgroupBulkDeleteRequest']
 ---
 
 # WorkgroupBulkDeleteRequest
 
-
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ids** | **[]str** | List of IDs of Governance Groups to be deleted. | [optional] 
-}
+**Ids** | Pointer to **[]string** | List of IDs of Governance Groups to be deleted. | [optional] 
 
-## Example
+## Methods
 
-```python
-from sailpoint.v2024.models.workgroup_bulk_delete_request import WorkgroupBulkDeleteRequest
+### NewWorkgroupBulkDeleteRequest
 
-workgroup_bulk_delete_request = WorkgroupBulkDeleteRequest(
-ids=[567a697e-885b-495a-afc5-d55e1c23a302, c7b0f7b2-1e78-4063-b294-a555333dacd2]
-)
+`func NewWorkgroupBulkDeleteRequest() *WorkgroupBulkDeleteRequest`
 
-```
-[[Back to top]](#) 
+NewWorkgroupBulkDeleteRequest instantiates a new WorkgroupBulkDeleteRequest object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewWorkgroupBulkDeleteRequestWithDefaults
+
+`func NewWorkgroupBulkDeleteRequestWithDefaults() *WorkgroupBulkDeleteRequest`
+
+NewWorkgroupBulkDeleteRequestWithDefaults instantiates a new WorkgroupBulkDeleteRequest object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetIds
+
+`func (o *WorkgroupBulkDeleteRequest) GetIds() []string`
+
+GetIds returns the Ids field if non-nil, zero value otherwise.
+
+### GetIdsOk
+
+`func (o *WorkgroupBulkDeleteRequest) GetIdsOk() (*[]string, bool)`
+
+GetIdsOk returns a tuple with the Ids field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIds
+
+`func (o *WorkgroupBulkDeleteRequest) SetIds(v []string)`
+
+SetIds sets Ids field to given value.
+
+### HasIds
+
+`func (o *WorkgroupBulkDeleteRequest) HasIds() bool`
+
+HasIds returns a boolean if a field has been set.
+
 

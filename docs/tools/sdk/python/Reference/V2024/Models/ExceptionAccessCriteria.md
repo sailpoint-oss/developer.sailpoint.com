@@ -3,35 +3,88 @@ id: v2024-exception-access-criteria
 title: ExceptionAccessCriteria
 pagination_label: ExceptionAccessCriteria
 sidebar_label: ExceptionAccessCriteria
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'ExceptionAccessCriteria', 'V2024ExceptionAccessCriteria'] 
-slug: /tools/sdk/python/v2024/models/exception-access-criteria
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'ExceptionAccessCriteria', 'V2024ExceptionAccessCriteria'] 
+slug: /tools/sdk/go/v2024/models/exception-access-criteria
 tags: ['SDK', 'Software Development Kit', 'ExceptionAccessCriteria', 'V2024ExceptionAccessCriteria']
 ---
 
 # ExceptionAccessCriteria
 
-
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**left_criteria** | [**ExceptionCriteria**](exception-criteria) |  | [optional] 
-**right_criteria** | [**ExceptionCriteria**](exception-criteria) |  | [optional] 
-}
+**LeftCriteria** | Pointer to [**ExceptionCriteria**](exception-criteria) |  | [optional] 
+**RightCriteria** | Pointer to [**ExceptionCriteria**](exception-criteria) |  | [optional] 
 
-## Example
+## Methods
 
-```python
-from sailpoint.v2024.models.exception_access_criteria import ExceptionAccessCriteria
+### NewExceptionAccessCriteria
 
-exception_access_criteria = ExceptionAccessCriteria(
-left_criteria=sailpoint.v2024.models.exception_criteria.ExceptionCriteria(
-                    criteria_list = [{type=ENTITLEMENT, id=2c9180866166b5b0016167c32ef31a66, existing=true}, {type=ENTITLEMENT, id=2c9180866166b5b0016167c32ef31a67, existing=false}], ),
-right_criteria=sailpoint.v2024.models.exception_criteria.ExceptionCriteria(
-                    criteria_list = [{type=ENTITLEMENT, id=2c9180866166b5b0016167c32ef31a66, existing=true}, {type=ENTITLEMENT, id=2c9180866166b5b0016167c32ef31a67, existing=false}], )
-)
+`func NewExceptionAccessCriteria() *ExceptionAccessCriteria`
 
-```
-[[Back to top]](#) 
+NewExceptionAccessCriteria instantiates a new ExceptionAccessCriteria object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewExceptionAccessCriteriaWithDefaults
+
+`func NewExceptionAccessCriteriaWithDefaults() *ExceptionAccessCriteria`
+
+NewExceptionAccessCriteriaWithDefaults instantiates a new ExceptionAccessCriteria object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetLeftCriteria
+
+`func (o *ExceptionAccessCriteria) GetLeftCriteria() ExceptionCriteria`
+
+GetLeftCriteria returns the LeftCriteria field if non-nil, zero value otherwise.
+
+### GetLeftCriteriaOk
+
+`func (o *ExceptionAccessCriteria) GetLeftCriteriaOk() (*ExceptionCriteria, bool)`
+
+GetLeftCriteriaOk returns a tuple with the LeftCriteria field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLeftCriteria
+
+`func (o *ExceptionAccessCriteria) SetLeftCriteria(v ExceptionCriteria)`
+
+SetLeftCriteria sets LeftCriteria field to given value.
+
+### HasLeftCriteria
+
+`func (o *ExceptionAccessCriteria) HasLeftCriteria() bool`
+
+HasLeftCriteria returns a boolean if a field has been set.
+
+### GetRightCriteria
+
+`func (o *ExceptionAccessCriteria) GetRightCriteria() ExceptionCriteria`
+
+GetRightCriteria returns the RightCriteria field if non-nil, zero value otherwise.
+
+### GetRightCriteriaOk
+
+`func (o *ExceptionAccessCriteria) GetRightCriteriaOk() (*ExceptionCriteria, bool)`
+
+GetRightCriteriaOk returns a tuple with the RightCriteria field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRightCriteria
+
+`func (o *ExceptionAccessCriteria) SetRightCriteria(v ExceptionCriteria)`
+
+SetRightCriteria sets RightCriteria field to given value.
+
+### HasRightCriteria
+
+`func (o *ExceptionAccessCriteria) HasRightCriteria() bool`
+
+HasRightCriteria returns a boolean if a field has been set.
+
 

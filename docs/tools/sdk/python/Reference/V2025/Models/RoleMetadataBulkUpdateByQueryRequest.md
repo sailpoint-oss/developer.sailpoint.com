@@ -3,42 +3,125 @@ id: v2025-role-metadata-bulk-update-by-query-request
 title: RoleMetadataBulkUpdateByQueryRequest
 pagination_label: RoleMetadataBulkUpdateByQueryRequest
 sidebar_label: RoleMetadataBulkUpdateByQueryRequest
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'RoleMetadataBulkUpdateByQueryRequest', 'V2025RoleMetadataBulkUpdateByQueryRequest'] 
-slug: /tools/sdk/python/v2025/models/role-metadata-bulk-update-by-query-request
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'RoleMetadataBulkUpdateByQueryRequest', 'V2025RoleMetadataBulkUpdateByQueryRequest'] 
+slug: /tools/sdk/go/v2025/models/role-metadata-bulk-update-by-query-request
 tags: ['SDK', 'Software Development Kit', 'RoleMetadataBulkUpdateByQueryRequest', 'V2025RoleMetadataBulkUpdateByQueryRequest']
 ---
 
 # RoleMetadataBulkUpdateByQueryRequest
 
-Bulk update by query request of Role metadata. The maximum meta data values that one single role assigned can not exceed 25. Custom metadata need suit licensed. For more information about the query could refer to  [V3 API Perform Search](https://developer.sailpoint.com/docs/api/v3/search-post)
-
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**query** | **object** | query the identities to be updated | [required]
-**operation** |  **Enum** [  'ADD',    'REMOVE',    'REPLACE' ] | The operation to be performed | [required]
-**replace_scope** |  **Enum** [  'ALL',    'ATTRIBUTE' ] | The choice of update scope. | [optional] 
-**values** | [**[]RoleMetadataBulkUpdateByQueryRequestValuesInner**](role-metadata-bulk-update-by-query-request-values-inner) | The metadata to be updated, including attribute key and value. | [required]
-}
+**Query** | **map[string]interface{}** | query the identities to be updated | 
+**Operation** | **string** | The operation to be performed | 
+**ReplaceScope** | Pointer to **string** | The choice of update scope. | [optional] 
+**Values** | [**[]RoleMetadataBulkUpdateByQueryRequestValuesInner**](role-metadata-bulk-update-by-query-request-values-inner) | The metadata to be updated, including attribute key and value. | 
 
-## Example
+## Methods
 
-```python
-from sailpoint.v2025.models.role_metadata_bulk_update_by_query_request import RoleMetadataBulkUpdateByQueryRequest
+### NewRoleMetadataBulkUpdateByQueryRequest
 
-role_metadata_bulk_update_by_query_request = RoleMetadataBulkUpdateByQueryRequest(
-query={query"={indices=[roles], queryType=TEXT, textQuery={terms=[test123], fields=[id], matchAny=false, contains=true}, includeNested=false}},
-operation='REPLACE',
-replace_scope='ALL',
-values=[
-                    sailpoint.v2025.models.role_metadata_bulk_update_by_query_request_values_inner.RoleMetadataBulkUpdateByQueryRequest_values_inner(
-                        attribute_key = 'iscFederalClassifications', 
-                        attribute_value = [topSecret], )
-                    ]
-)
+`func NewRoleMetadataBulkUpdateByQueryRequest(query map[string]interface{}, operation string, values []RoleMetadataBulkUpdateByQueryRequestValuesInner, ) *RoleMetadataBulkUpdateByQueryRequest`
 
-```
-[[Back to top]](#) 
+NewRoleMetadataBulkUpdateByQueryRequest instantiates a new RoleMetadataBulkUpdateByQueryRequest object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewRoleMetadataBulkUpdateByQueryRequestWithDefaults
+
+`func NewRoleMetadataBulkUpdateByQueryRequestWithDefaults() *RoleMetadataBulkUpdateByQueryRequest`
+
+NewRoleMetadataBulkUpdateByQueryRequestWithDefaults instantiates a new RoleMetadataBulkUpdateByQueryRequest object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetQuery
+
+`func (o *RoleMetadataBulkUpdateByQueryRequest) GetQuery() map[string]interface{}`
+
+GetQuery returns the Query field if non-nil, zero value otherwise.
+
+### GetQueryOk
+
+`func (o *RoleMetadataBulkUpdateByQueryRequest) GetQueryOk() (*map[string]interface{}, bool)`
+
+GetQueryOk returns a tuple with the Query field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetQuery
+
+`func (o *RoleMetadataBulkUpdateByQueryRequest) SetQuery(v map[string]interface{})`
+
+SetQuery sets Query field to given value.
+
+
+### GetOperation
+
+`func (o *RoleMetadataBulkUpdateByQueryRequest) GetOperation() string`
+
+GetOperation returns the Operation field if non-nil, zero value otherwise.
+
+### GetOperationOk
+
+`func (o *RoleMetadataBulkUpdateByQueryRequest) GetOperationOk() (*string, bool)`
+
+GetOperationOk returns a tuple with the Operation field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOperation
+
+`func (o *RoleMetadataBulkUpdateByQueryRequest) SetOperation(v string)`
+
+SetOperation sets Operation field to given value.
+
+
+### GetReplaceScope
+
+`func (o *RoleMetadataBulkUpdateByQueryRequest) GetReplaceScope() string`
+
+GetReplaceScope returns the ReplaceScope field if non-nil, zero value otherwise.
+
+### GetReplaceScopeOk
+
+`func (o *RoleMetadataBulkUpdateByQueryRequest) GetReplaceScopeOk() (*string, bool)`
+
+GetReplaceScopeOk returns a tuple with the ReplaceScope field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetReplaceScope
+
+`func (o *RoleMetadataBulkUpdateByQueryRequest) SetReplaceScope(v string)`
+
+SetReplaceScope sets ReplaceScope field to given value.
+
+### HasReplaceScope
+
+`func (o *RoleMetadataBulkUpdateByQueryRequest) HasReplaceScope() bool`
+
+HasReplaceScope returns a boolean if a field has been set.
+
+### GetValues
+
+`func (o *RoleMetadataBulkUpdateByQueryRequest) GetValues() []RoleMetadataBulkUpdateByQueryRequestValuesInner`
+
+GetValues returns the Values field if non-nil, zero value otherwise.
+
+### GetValuesOk
+
+`func (o *RoleMetadataBulkUpdateByQueryRequest) GetValuesOk() (*[]RoleMetadataBulkUpdateByQueryRequestValuesInner, bool)`
+
+GetValuesOk returns a tuple with the Values field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetValues
+
+`func (o *RoleMetadataBulkUpdateByQueryRequest) SetValues(v []RoleMetadataBulkUpdateByQueryRequestValuesInner)`
+
+SetValues sets Values field to given value.
+
+
 

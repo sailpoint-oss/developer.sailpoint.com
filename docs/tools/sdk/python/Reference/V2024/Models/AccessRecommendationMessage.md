@@ -3,31 +3,62 @@ id: v2024-access-recommendation-message
 title: AccessRecommendationMessage
 pagination_label: AccessRecommendationMessage
 sidebar_label: AccessRecommendationMessage
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'AccessRecommendationMessage', 'V2024AccessRecommendationMessage'] 
-slug: /tools/sdk/python/v2024/models/access-recommendation-message
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'AccessRecommendationMessage', 'V2024AccessRecommendationMessage'] 
+slug: /tools/sdk/go/v2024/models/access-recommendation-message
 tags: ['SDK', 'Software Development Kit', 'AccessRecommendationMessage', 'V2024AccessRecommendationMessage']
 ---
 
 # AccessRecommendationMessage
 
-
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**interpretation** | **str** | Information about why the access item was recommended. | [optional] 
-}
+**Interpretation** | Pointer to **string** | Information about why the access item was recommended. | [optional] 
 
-## Example
+## Methods
 
-```python
-from sailpoint.v2024.models.access_recommendation_message import AccessRecommendationMessage
+### NewAccessRecommendationMessage
 
-access_recommendation_message = AccessRecommendationMessage(
-interpretation='95% of your peers have this access.'
-)
+`func NewAccessRecommendationMessage() *AccessRecommendationMessage`
 
-```
-[[Back to top]](#) 
+NewAccessRecommendationMessage instantiates a new AccessRecommendationMessage object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewAccessRecommendationMessageWithDefaults
+
+`func NewAccessRecommendationMessageWithDefaults() *AccessRecommendationMessage`
+
+NewAccessRecommendationMessageWithDefaults instantiates a new AccessRecommendationMessage object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetInterpretation
+
+`func (o *AccessRecommendationMessage) GetInterpretation() string`
+
+GetInterpretation returns the Interpretation field if non-nil, zero value otherwise.
+
+### GetInterpretationOk
+
+`func (o *AccessRecommendationMessage) GetInterpretationOk() (*string, bool)`
+
+GetInterpretationOk returns a tuple with the Interpretation field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInterpretation
+
+`func (o *AccessRecommendationMessage) SetInterpretation(v string)`
+
+SetInterpretation sets Interpretation field to given value.
+
+### HasInterpretation
+
+`func (o *AccessRecommendationMessage) HasInterpretation() bool`
+
+HasInterpretation returns a boolean if a field has been set.
+
 

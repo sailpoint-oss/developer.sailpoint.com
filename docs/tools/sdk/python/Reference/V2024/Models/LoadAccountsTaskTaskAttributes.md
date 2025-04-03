@@ -3,34 +3,88 @@ id: v2024-load-accounts-task-task-attributes
 title: LoadAccountsTaskTaskAttributes
 pagination_label: LoadAccountsTaskTaskAttributes
 sidebar_label: LoadAccountsTaskTaskAttributes
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'LoadAccountsTaskTaskAttributes', 'V2024LoadAccountsTaskTaskAttributes'] 
-slug: /tools/sdk/python/v2024/models/load-accounts-task-task-attributes
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'LoadAccountsTaskTaskAttributes', 'V2024LoadAccountsTaskTaskAttributes'] 
+slug: /tools/sdk/go/v2024/models/load-accounts-task-task-attributes
 tags: ['SDK', 'Software Development Kit', 'LoadAccountsTaskTaskAttributes', 'V2024LoadAccountsTaskTaskAttributes']
 ---
 
 # LoadAccountsTaskTaskAttributes
 
-Extra attributes map(dictionary) for the task.
-
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**app_id** | **str** | The id of the source | [optional] 
-**optimized_aggregation** | **str** | The indicator if the aggregation process was enabled/disabled for the aggregation job | [optional] 
-}
+**AppId** | Pointer to **string** | The id of the source | [optional] 
+**OptimizedAggregation** | Pointer to **string** | The indicator if the aggregation process was enabled/disabled for the aggregation job | [optional] 
 
-## Example
+## Methods
 
-```python
-from sailpoint.v2024.models.load_accounts_task_task_attributes import LoadAccountsTaskTaskAttributes
+### NewLoadAccountsTaskTaskAttributes
 
-load_accounts_task_task_attributes = LoadAccountsTaskTaskAttributes(
-app_id='c31386cb18bb403cbb6df4c86294ff82',
-optimized_aggregation='enabled'
-)
+`func NewLoadAccountsTaskTaskAttributes() *LoadAccountsTaskTaskAttributes`
 
-```
-[[Back to top]](#) 
+NewLoadAccountsTaskTaskAttributes instantiates a new LoadAccountsTaskTaskAttributes object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewLoadAccountsTaskTaskAttributesWithDefaults
+
+`func NewLoadAccountsTaskTaskAttributesWithDefaults() *LoadAccountsTaskTaskAttributes`
+
+NewLoadAccountsTaskTaskAttributesWithDefaults instantiates a new LoadAccountsTaskTaskAttributes object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetAppId
+
+`func (o *LoadAccountsTaskTaskAttributes) GetAppId() string`
+
+GetAppId returns the AppId field if non-nil, zero value otherwise.
+
+### GetAppIdOk
+
+`func (o *LoadAccountsTaskTaskAttributes) GetAppIdOk() (*string, bool)`
+
+GetAppIdOk returns a tuple with the AppId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAppId
+
+`func (o *LoadAccountsTaskTaskAttributes) SetAppId(v string)`
+
+SetAppId sets AppId field to given value.
+
+### HasAppId
+
+`func (o *LoadAccountsTaskTaskAttributes) HasAppId() bool`
+
+HasAppId returns a boolean if a field has been set.
+
+### GetOptimizedAggregation
+
+`func (o *LoadAccountsTaskTaskAttributes) GetOptimizedAggregation() string`
+
+GetOptimizedAggregation returns the OptimizedAggregation field if non-nil, zero value otherwise.
+
+### GetOptimizedAggregationOk
+
+`func (o *LoadAccountsTaskTaskAttributes) GetOptimizedAggregationOk() (*string, bool)`
+
+GetOptimizedAggregationOk returns a tuple with the OptimizedAggregation field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOptimizedAggregation
+
+`func (o *LoadAccountsTaskTaskAttributes) SetOptimizedAggregation(v string)`
+
+SetOptimizedAggregation sets OptimizedAggregation field to given value.
+
+### HasOptimizedAggregation
+
+`func (o *LoadAccountsTaskTaskAttributes) HasOptimizedAggregation() bool`
+
+HasOptimizedAggregation returns a boolean if a field has been set.
+
 

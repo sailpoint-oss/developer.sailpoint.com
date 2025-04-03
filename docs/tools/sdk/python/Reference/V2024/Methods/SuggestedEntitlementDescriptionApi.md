@@ -1,15 +1,15 @@
 ---
 id: v2024-suggested-entitlement-description
-title: Suggested_Entitlement_Description
-pagination_label: Suggested_Entitlement_Description
-sidebar_label: Suggested_Entitlement_Description
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'Suggested_Entitlement_Description', 'V2024Suggested_Entitlement_Description'] 
-slug: /tools/sdk/python/v2024/methods/suggested-entitlement-description
-tags: ['SDK', 'Software Development Kit', 'Suggested_Entitlement_Description', 'V2024Suggested_Entitlement_Description']
+title: SuggestedEntitlementDescription
+pagination_label: SuggestedEntitlementDescription
+sidebar_label: SuggestedEntitlementDescription
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'SuggestedEntitlementDescription', 'V2024SuggestedEntitlementDescription'] 
+slug: /tools/sdk/go/v2024/methods/suggested-entitlement-description
+tags: ['SDK', 'Software Development Kit', 'SuggestedEntitlementDescription', 'V2024SuggestedEntitlementDescription']
 ---
 
-# sailpoint.v2024.SuggestedEntitlementDescriptionApi
+# SuggestedEntitlementDescriptionAPI
   Use this API to implement Suggested Entitlement Description (SED) functionality. 
 SED functionality leverages the power of LLM to generate suggested entitlement descriptions. 
 Refer to [GenAI Entitlement Descriptions](https://documentation.sailpoint.com/saas/help/access/entitlements.html#genai-entitlement-descriptions) to learn more about SED in Identity Security Cloud (ISC). 
@@ -18,13 +18,13 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get-sed-batch-stats**](#get-sed-batch-stats) | **GET** `/suggested-entitlement-description-batches/{batchId}/stats` | Submit Sed Batch Stats Request
-[**get-sed-batches**](#get-sed-batches) | **GET** `/suggested-entitlement-description-batches` | List Sed Batch Request
-[**list-seds**](#list-seds) | **GET** `/suggested-entitlement-descriptions` | List Suggested Entitlement Descriptions
-[**patch-sed**](#patch-sed) | **PATCH** `/suggested-entitlement-descriptions` | Patch Suggested Entitlement Description
-[**submit-sed-approval**](#submit-sed-approval) | **POST** `/suggested-entitlement-description-approvals` | Submit Bulk Approval Request
-[**submit-sed-assignment**](#submit-sed-assignment) | **POST** `/suggested-entitlement-description-assignments` | Submit Sed Assignment Request
-[**submit-sed-batch-request**](#submit-sed-batch-request) | **POST** `/suggested-entitlement-description-batches` | Submit Sed Batch Request
+[**get-sed-batch-stats**](#get-sed-batch-stats) | **Get** `/suggested-entitlement-description-batches/{batchId}/stats` | Submit Sed Batch Stats Request
+[**get-sed-batches**](#get-sed-batches) | **Get** `/suggested-entitlement-description-batches` | List Sed Batch Request
+[**list-seds**](#list-seds) | **Get** `/suggested-entitlement-descriptions` | List Suggested Entitlement Descriptions
+[**patch-sed**](#patch-sed) | **Patch** `/suggested-entitlement-descriptions` | Patch Suggested Entitlement Description
+[**submit-sed-approval**](#submit-sed-approval) | **Post** `/suggested-entitlement-description-approvals` | Submit Bulk Approval Request
+[**submit-sed-assignment**](#submit-sed-assignment) | **Post** `/suggested-entitlement-description-assignments` | Submit Sed Assignment Request
+[**submit-sed-batch-request**](#submit-sed-batch-request) | **Post** `/suggested-entitlement-description-batches` | Submit Sed Batch Request
 
 
 ## get-sed-batch-stats
@@ -37,58 +37,61 @@ Submit Sed Batch Stats Request
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-sed-batch-stats)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | batch_id | **str** | True  | Batch Id
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**batchId** | **string** | Batch Id | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetSedBatchStatsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
 
 ### Return type
+
 [**SedBatchStats**](../models/sed-batch-stats)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | Stats of Sed batch. | SedBatchStats |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2024.api.suggested_entitlement_description_api import SuggestedEntitlementDescriptionApi
-from sailpoint.v2024.api_client import ApiClient
-from sailpoint.v2024.models.sed_batch_stats import SedBatchStats
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    batch_id = '8c190e67-87aa-4ed9-a90b-d9d5344523fb' # str | Batch Id # str | Batch Id
+func main() {
+    batchId := 8c190e67-87aa-4ed9-a90b-d9d5344523fb # string | Batch Id # string | Batch Id
 
-    try:
-        # Submit Sed Batch Stats Request
-        
-        results = SuggestedEntitlementDescriptionApi(api_client).get_sed_batch_stats(batch_id=batch_id)
-        # Below is a request that includes all optional parameters
-        # results = SuggestedEntitlementDescriptionApi(api_client).get_sed_batch_stats(batch_id)
-        print("The response of SuggestedEntitlementDescriptionApi->get_sed_batch_stats:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling SuggestedEntitlementDescriptionApi->get_sed_batch_stats: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2024.SuggestedEntitlementDescriptionAPI.GetSedBatchStats(context.Background(), batchId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SuggestedEntitlementDescriptionAPI.GetSedBatchStats``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetSedBatchStats`: SedBatchStats
+	fmt.Fprintf(os.Stdout, "Response from `SuggestedEntitlementDescriptionAPI.GetSedBatchStats`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## get-sed-batches
 List Sed Batch Request
@@ -97,54 +100,52 @@ API responses with Sed Batch Status
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-sed-batches)
 
-### Parameters 
-This endpoint does not need any parameter. 
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetSedBatchesRequest struct via the builder pattern
+
 
 ### Return type
+
 [**SedBatchStatus**](../models/sed-batch-status)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | Status of batch | SedBatchStatus |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2024.api.suggested_entitlement_description_api import SuggestedEntitlementDescriptionApi
-from sailpoint.v2024.api_client import ApiClient
-from sailpoint.v2024.models.sed_batch_status import SedBatchStatus
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
+func main() {
 
-    try:
-        # List Sed Batch Request
-        
-        results = SuggestedEntitlementDescriptionApi(api_client).get_sed_batches()
-        # Below is a request that includes all optional parameters
-        # results = SuggestedEntitlementDescriptionApi(api_client).get_sed_batches()
-        print("The response of SuggestedEntitlementDescriptionApi->get_sed_batches:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling SuggestedEntitlementDescriptionApi->get_sed_batches: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2024.SuggestedEntitlementDescriptionAPI.GetSedBatches(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SuggestedEntitlementDescriptionAPI.GetSedBatches``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetSedBatches`: SedBatchStatus
+	fmt.Fprintf(os.Stdout, "Response from `SuggestedEntitlementDescriptionAPI.GetSedBatches`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## list-seds
 List Suggested Entitlement Descriptions
@@ -166,72 +167,71 @@ SED field descriptions:
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-seds)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-  Query | limit | **int** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-  Query | offset | **int** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-  Query | count | **bool** |   (optional) (default to False) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-  Query | filters | **str** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **batchId**: *eq, ne*  **displayName**: *eq, ne, co*  **sourceName**: *eq, ne, co*  **sourceId**: *eq, ne*  **status**: *eq, ne*  **fullText**: *co*
-  Query | sorters | **str** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName, sourceName, status**
-  Query | count_only | **bool** |   (optional) (default to False) | If `true` it will populate the `X-Total-Count` response header with the number of results that would be returned if `limit` and `offset` were ignored. This parameter differs from the count parameter in that this one skips executing the actual query and always return an empty array.
-  Query | requested_by_anyone | **bool** |   (optional) (default to False) | By default, the ListSeds API will only return items that you have requested to be generated.   This option will allow you to see all items that have been requested
-  Query | show_pending_status_only | **bool** |   (optional) (default to False) | Will limit records to items that are in \"suggested\" or \"approved\" status
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiListSedsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **int32** | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to 250]
+ **offset** | **int32** | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to 0]
+ **count** | **bool** | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to false]
+ **filters** | **string** | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **batchId**: *eq, ne*  **displayName**: *eq, ne, co*  **sourceName**: *eq, ne, co*  **sourceId**: *eq, ne*  **status**: *eq, ne*  **fullText**: *co* | 
+ **sorters** | **string** | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName, sourceName, status** | 
+ **countOnly** | **bool** | If &#x60;true&#x60; it will populate the &#x60;X-Total-Count&#x60; response header with the number of results that would be returned if &#x60;limit&#x60; and &#x60;offset&#x60; were ignored. This parameter differs from the count parameter in that this one skips executing the actual query and always return an empty array. | [default to false]
+ **requestedByAnyone** | **bool** | By default, the ListSeds API will only return items that you have requested to be generated.   This option will allow you to see all items that have been requested | [default to false]
+ **showPendingStatusOnly** | **bool** | Will limit records to items that are in \&quot;suggested\&quot; or \&quot;approved\&quot; status | [default to false]
 
 ### Return type
-[**List[Sed]**](../models/sed)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | List of Suggested Entitlement Details | List[Sed] |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
+[**[]Sed**](../models/sed)
 
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2024.api.suggested_entitlement_description_api import SuggestedEntitlementDescriptionApi
-from sailpoint.v2024.api_client import ApiClient
-from sailpoint.v2024.models.sed import Sed
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-    offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-    count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
-    filters = 'displayName co \"Read and Write\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **batchId**: *eq, ne*  **displayName**: *eq, ne, co*  **sourceName**: *eq, ne, co*  **sourceId**: *eq, ne*  **status**: *eq, ne*  **fullText**: *co* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **batchId**: *eq, ne*  **displayName**: *eq, ne, co*  **sourceName**: *eq, ne, co*  **sourceId**: *eq, ne*  **status**: *eq, ne*  **fullText**: *co* (optional)
-    sorters = 'sorters=displayName' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName, sourceName, status** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName, sourceName, status** (optional)
-    count_only = False # bool | If `true` it will populate the `X-Total-Count` response header with the number of results that would be returned if `limit` and `offset` were ignored. This parameter differs from the count parameter in that this one skips executing the actual query and always return an empty array. (optional) (default to False) # bool | If `true` it will populate the `X-Total-Count` response header with the number of results that would be returned if `limit` and `offset` were ignored. This parameter differs from the count parameter in that this one skips executing the actual query and always return an empty array. (optional) (default to False)
-    requested_by_anyone = False # bool | By default, the ListSeds API will only return items that you have requested to be generated.   This option will allow you to see all items that have been requested (optional) (default to False) # bool | By default, the ListSeds API will only return items that you have requested to be generated.   This option will allow you to see all items that have been requested (optional) (default to False)
-    show_pending_status_only = False # bool | Will limit records to items that are in \"suggested\" or \"approved\" status (optional) (default to False) # bool | Will limit records to items that are in \"suggested\" or \"approved\" status (optional) (default to False)
+func main() {
+    limit := 250 # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+    offset := 0 # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+    count := true # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+    filters := displayName co "Read and Write" # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **batchId**: *eq, ne*  **displayName**: *eq, ne, co*  **sourceName**: *eq, ne, co*  **sourceId**: *eq, ne*  **status**: *eq, ne*  **fullText**: *co* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **batchId**: *eq, ne*  **displayName**: *eq, ne, co*  **sourceName**: *eq, ne, co*  **sourceId**: *eq, ne*  **status**: *eq, ne*  **fullText**: *co* (optional)
+    sorters := sorters=displayName # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName, sourceName, status** (optional) # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName, sourceName, status** (optional)
+    countOnly := count-only=true # bool | If `true` it will populate the `X-Total-Count` response header with the number of results that would be returned if `limit` and `offset` were ignored. This parameter differs from the count parameter in that this one skips executing the actual query and always return an empty array. (optional) (default to false) # bool | If `true` it will populate the `X-Total-Count` response header with the number of results that would be returned if `limit` and `offset` were ignored. This parameter differs from the count parameter in that this one skips executing the actual query and always return an empty array. (optional) (default to false)
+    requestedByAnyone := requested-by-anyone=true # bool | By default, the ListSeds API will only return items that you have requested to be generated.   This option will allow you to see all items that have been requested (optional) (default to false) # bool | By default, the ListSeds API will only return items that you have requested to be generated.   This option will allow you to see all items that have been requested (optional) (default to false)
+    showPendingStatusOnly := show-pending-status-only=true # bool | Will limit records to items that are in \"suggested\" or \"approved\" status (optional) (default to false) # bool | Will limit records to items that are in \"suggested\" or \"approved\" status (optional) (default to false)
 
-    try:
-        # List Suggested Entitlement Descriptions
-        
-        results = SuggestedEntitlementDescriptionApi(api_client).list_seds()
-        # Below is a request that includes all optional parameters
-        # results = SuggestedEntitlementDescriptionApi(api_client).list_seds(limit, offset, count, filters, sorters, count_only, requested_by_anyone, show_pending_status_only)
-        print("The response of SuggestedEntitlementDescriptionApi->list_seds:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling SuggestedEntitlementDescriptionApi->list_seds: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2024.SuggestedEntitlementDescriptionAPI.ListSeds(context.Background()).Limit(limit).Offset(offset).Count(count).Filters(filters).Sorters(sorters).CountOnly(countOnly).RequestedByAnyone(requestedByAnyone).ShowPendingStatusOnly(showPendingStatusOnly).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SuggestedEntitlementDescriptionAPI.ListSeds``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ListSeds`: []Sed
+	fmt.Fprintf(os.Stdout, "Response from `SuggestedEntitlementDescriptionAPI.ListSeds`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## patch-sed
 Patch Suggested Entitlement Description
@@ -239,61 +239,63 @@ Patch Suggested Entitlement Description
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/patch-sed)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | id | **str** | True  | id is sed id
- Body  | sed_patch | [**[]SedPatch**](../models/sed-patch) | True  | Sed Patch Request
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | id is sed id | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchSedRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **sedPatch** | [**[]SedPatch**](../models/sed-patch) | Sed Patch Request | 
 
 ### Return type
+
 [**Sed**](../models/sed)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | detail of patched sed | Sed |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: application/json-patch+json
- - **Accept**: application/json
+
+- **Content-Type**: application/json-patch+json
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2024.api.suggested_entitlement_description_api import SuggestedEntitlementDescriptionApi
-from sailpoint.v2024.api_client import ApiClient
-from sailpoint.v2024.models.sed import Sed
-from sailpoint.v2024.models.sed_patch import SedPatch
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    id = 'ebab396f-0af1-4050-89b7-dafc63ec70e7' # str | id is sed id # str | id is sed id
-    sed_patch = '''[sailpoint.v2024.SedPatch()]''' # List[SedPatch] | Sed Patch Request
+func main() {
+    id := ebab396f-0af1-4050-89b7-dafc63ec70e7 # string | id is sed id # string | id is sed id
+    sedPatch := fmt.Sprintf(``) # []SedPatch | Sed Patch Request
 
-    try:
-        # Patch Suggested Entitlement Description
-        new_sed_patch = SedPatch.from_json(sed_patch)
-        results = SuggestedEntitlementDescriptionApi(api_client).patch_sed(id=id, sed_patch=new_sed_patch)
-        # Below is a request that includes all optional parameters
-        # results = SuggestedEntitlementDescriptionApi(api_client).patch_sed(id, new_sed_patch)
-        print("The response of SuggestedEntitlementDescriptionApi->patch_sed:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling SuggestedEntitlementDescriptionApi->patch_sed: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2024.SuggestedEntitlementDescriptionAPI.PatchSed(context.Background(), id).SedPatch(sedPatch).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SuggestedEntitlementDescriptionAPI.PatchSed``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchSed`: Sed
+	fmt.Fprintf(os.Stdout, "Response from `SuggestedEntitlementDescriptionAPI.PatchSed`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## submit-sed-approval
 Submit Bulk Approval Request
@@ -302,59 +304,57 @@ Request body takes list of SED Ids. API responses with list of SED Approval Stat
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/submit-sed-approval)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | sed_approval | [**[]SedApproval**](../models/sed-approval) | True  | Sed Approval
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiSubmitSedApprovalRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **sedApproval** | [**[]SedApproval**](../models/sed-approval) | Sed Approval | 
 
 ### Return type
-[**List[SedApprovalStatus]**](../models/sed-approval-status)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | List of SED Approval Status | List[SedApprovalStatus] |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
+[**[]SedApprovalStatus**](../models/sed-approval-status)
 
 ### HTTP request headers
- - **Content-Type**: application/json-patch+json
- - **Accept**: application/json
+
+- **Content-Type**: application/json-patch+json
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2024.api.suggested_entitlement_description_api import SuggestedEntitlementDescriptionApi
-from sailpoint.v2024.api_client import ApiClient
-from sailpoint.v2024.models.sed_approval import SedApproval
-from sailpoint.v2024.models.sed_approval_status import SedApprovalStatus
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    sed_approval = '''[sailpoint.v2024.SedApproval()]''' # List[SedApproval] | Sed Approval
+func main() {
+    sedApproval := fmt.Sprintf(``) # []SedApproval | Sed Approval
 
-    try:
-        # Submit Bulk Approval Request
-        new_sed_approval = SedApproval.from_json(sed_approval)
-        results = SuggestedEntitlementDescriptionApi(api_client).submit_sed_approval(sed_approval=new_sed_approval)
-        # Below is a request that includes all optional parameters
-        # results = SuggestedEntitlementDescriptionApi(api_client).submit_sed_approval(new_sed_approval)
-        print("The response of SuggestedEntitlementDescriptionApi->submit_sed_approval:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling SuggestedEntitlementDescriptionApi->submit_sed_approval: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2024.SuggestedEntitlementDescriptionAPI.SubmitSedApproval(context.Background()).SedApproval(sedApproval).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SuggestedEntitlementDescriptionAPI.SubmitSedApproval``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `SubmitSedApproval`: []SedApprovalStatus
+	fmt.Fprintf(os.Stdout, "Response from `SuggestedEntitlementDescriptionAPI.SubmitSedApproval`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## submit-sed-assignment
 Submit Sed Assignment Request
@@ -363,65 +363,63 @@ Request body has an assignee, and list of SED Ids that are assigned to that assi
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/submit-sed-assignment)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | sed_assignment | [**SedAssignment**](../models/sed-assignment) | True  | Sed Assignment Request
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiSubmitSedAssignmentRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **sedAssignment** | [**SedAssignment**](../models/sed-assignment) | Sed Assignment Request | 
 
 ### Return type
+
 [**SedAssignmentResponse**](../models/sed-assignment-response)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-202 | Sed Assignment Response | SedAssignmentResponse |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: application/json-patch+json
- - **Accept**: application/json
+
+- **Content-Type**: application/json-patch+json
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2024.api.suggested_entitlement_description_api import SuggestedEntitlementDescriptionApi
-from sailpoint.v2024.api_client import ApiClient
-from sailpoint.v2024.models.sed_assignment import SedAssignment
-from sailpoint.v2024.models.sed_assignment_response import SedAssignmentResponse
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    sed_assignment = '''{
+func main() {
+    sedAssignment := fmt.Sprintf(`{
           "assignee" : {
             "type" : "SOURCE_OWNER",
             "value" : "016629d1-1d25-463f-97f3-c6686846650"
           },
           "items" : [ "016629d1-1d25-463f-97f3-0c6686846650", "016629d1-1d25-463f-97f3-0c6686846650" ]
-        }''' # SedAssignment | Sed Assignment Request
+        }`) # SedAssignment | Sed Assignment Request
 
-    try:
-        # Submit Sed Assignment Request
-        new_sed_assignment = SedAssignment.from_json(sed_assignment)
-        results = SuggestedEntitlementDescriptionApi(api_client).submit_sed_assignment(sed_assignment=new_sed_assignment)
-        # Below is a request that includes all optional parameters
-        # results = SuggestedEntitlementDescriptionApi(api_client).submit_sed_assignment(new_sed_assignment)
-        print("The response of SuggestedEntitlementDescriptionApi->submit_sed_assignment:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling SuggestedEntitlementDescriptionApi->submit_sed_assignment: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2024.SuggestedEntitlementDescriptionAPI.SubmitSedAssignment(context.Background()).SedAssignment(sedAssignment).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SuggestedEntitlementDescriptionAPI.SubmitSedAssignment``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `SubmitSedAssignment`: SedAssignmentResponse
+	fmt.Fprintf(os.Stdout, "Response from `SuggestedEntitlementDescriptionAPI.SubmitSedAssignment`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## submit-sed-batch-request
 Submit Sed Batch Request
@@ -430,62 +428,58 @@ Request body has one of the following: - a list of entitlement Ids - a list of S
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/submit-sed-batch-request)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | sed_batch_request | [**SedBatchRequest**](../models/sed-batch-request) |   (optional) | Sed Batch Request
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiSubmitSedBatchRequestRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **sedBatchRequest** | [**SedBatchRequest**](../models/sed-batch-request) | Sed Batch Request | 
 
 ### Return type
+
 [**SedBatchResponse**](../models/sed-batch-response)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | Sed Batch Response | SedBatchResponse |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: application/json-patch+json
- - **Accept**: application/json
+
+- **Content-Type**: application/json-patch+json
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2024.api.suggested_entitlement_description_api import SuggestedEntitlementDescriptionApi
-from sailpoint.v2024.api_client import ApiClient
-from sailpoint.v2024.models.sed_batch_request import SedBatchRequest
-from sailpoint.v2024.models.sed_batch_response import SedBatchResponse
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    sed_batch_request = '''{
+func main() {
+    sedBatchRequest := fmt.Sprintf(`{
           "entitlements" : [ "016629d1-1d25-463f-97f3-c6686846650", "016629d1-1d25-463f-97f3-c6686846650" ],
           "seds" : [ "016629d1-1d25-463f-97f3-c6686846650", "016629d1-1d25-463f-97f3-c6686846650" ]
-        }''' # SedBatchRequest | Sed Batch Request (optional)
+        }`) # SedBatchRequest | Sed Batch Request (optional)
 
-    try:
-        # Submit Sed Batch Request
-        
-        results = SuggestedEntitlementDescriptionApi(api_client).submit_sed_batch_request()
-        # Below is a request that includes all optional parameters
-        # results = SuggestedEntitlementDescriptionApi(api_client).submit_sed_batch_request(new_sed_batch_request)
-        print("The response of SuggestedEntitlementDescriptionApi->submit_sed_batch_request:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling SuggestedEntitlementDescriptionApi->submit_sed_batch_request: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2024.SuggestedEntitlementDescriptionAPI.SubmitSedBatchRequest(context.Background()).SedBatchRequest(sedBatchRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SuggestedEntitlementDescriptionAPI.SubmitSedBatchRequest``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `SubmitSedBatchRequest`: SedBatchResponse
+	fmt.Fprintf(os.Stdout, "Response from `SuggestedEntitlementDescriptionAPI.SubmitSedBatchRequest`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
-
-
+[[Back to top]](#)
 

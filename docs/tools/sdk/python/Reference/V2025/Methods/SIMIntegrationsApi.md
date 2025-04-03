@@ -1,15 +1,15 @@
 ---
 id: v2025-sim-integrations
-title: SIM_Integrations
-pagination_label: SIM_Integrations
-sidebar_label: SIM_Integrations
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'SIM_Integrations', 'V2025SIM_Integrations'] 
-slug: /tools/sdk/python/v2025/methods/sim-integrations
-tags: ['SDK', 'Software Development Kit', 'SIM_Integrations', 'V2025SIM_Integrations']
+title: SIMIntegrations
+pagination_label: SIMIntegrations
+sidebar_label: SIMIntegrations
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'SIMIntegrations', 'V2025SIMIntegrations'] 
+slug: /tools/sdk/go/v2025/methods/sim-integrations
+tags: ['SDK', 'Software Development Kit', 'SIMIntegrations', 'V2025SIMIntegrations']
 ---
 
-# sailpoint.v2025.SIMIntegrationsApi
+# SIMIntegrationsAPI
   Use this API to administer IdentityNow&#39;s Service Integration Module, or SIM integration with ServiceNow, so that it converts IdentityNow provisioning actions into tickets in ServiceNow.
 
 ServiceNow is a software platform that supports IT service management and automates common business processes for requesting and fulfilling service requests across a business enterprise.
@@ -22,13 +22,13 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-sim-integration**](#create-sim-integration) | **POST** `/sim-integrations` | Create new SIM integration
-[**delete-sim-integration**](#delete-sim-integration) | **DELETE** `/sim-integrations/{id}` | Delete a SIM integration
-[**get-sim-integration**](#get-sim-integration) | **GET** `/sim-integrations/{id}` | Get a SIM integration details.
-[**get-sim-integrations**](#get-sim-integrations) | **GET** `/sim-integrations` | List the existing SIM integrations.
-[**patch-before-provisioning-rule**](#patch-before-provisioning-rule) | **PATCH** `/sim-integrations/{id}/beforeProvisioningRule` | Patch a SIM beforeProvisioningRule attribute.
-[**patch-sim-attributes**](#patch-sim-attributes) | **PATCH** `/sim-integrations/{id}` | Patch a SIM attribute.
-[**put-sim-integration**](#put-sim-integration) | **PUT** `/sim-integrations/{id}` | Update an existing SIM integration
+[**create-sim-integration**](#create-sim-integration) | **Post** `/sim-integrations` | Create new SIM integration
+[**delete-sim-integration**](#delete-sim-integration) | **Delete** `/sim-integrations/{id}` | Delete a SIM integration
+[**get-sim-integration**](#get-sim-integration) | **Get** `/sim-integrations/{id}` | Get a SIM integration details.
+[**get-sim-integrations**](#get-sim-integrations) | **Get** `/sim-integrations` | List the existing SIM integrations.
+[**patch-before-provisioning-rule**](#patch-before-provisioning-rule) | **Patch** `/sim-integrations/{id}/beforeProvisioningRule` | Patch a SIM beforeProvisioningRule attribute.
+[**patch-sim-attributes**](#patch-sim-attributes) | **Patch** `/sim-integrations/{id}` | Patch a SIM attribute.
+[**put-sim-integration**](#put-sim-integration) | **Put** `/sim-integrations/{id}` | Update an existing SIM integration
 
 
 ## create-sim-integration
@@ -38,7 +38,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::tip setting x-sailpoint-experimental header
  on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
  Example:
- ```python
+ ```go
    configuration = Configuration()
    configuration.experimental = True
  ```
@@ -48,46 +48,45 @@ Create a new SIM Integrations.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/create-sim-integration)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
- Body  | sim_integration_details | [**SimIntegrationDetails**](../models/sim-integration-details) | True  | DTO containing the details of the SIM integration
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreateSIMIntegrationRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
+ **simIntegrationDetails** | [**SimIntegrationDetails**](../models/sim-integration-details) | DTO containing the details of the SIM integration | 
 
 ### Return type
+
 [**ServiceDeskIntegrationDto**](../models/service-desk-integration-dto)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | details of the created integration | ServiceDeskIntegrationDto |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: application/json
- - **Accept**: application/json
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.sim_integrations_api import SIMIntegrationsApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.service_desk_integration_dto import ServiceDeskIntegrationDto
-from sailpoint.v2025.models.sim_integration_details import SimIntegrationDetails
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
-configuration.experimental = true
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    sim_integration_details = '''{
+func main() {
+    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+    simIntegrationDetails := fmt.Sprintf(`{
           "cluster" : "xyzzy999",
           "statusMap" : "{closed_cancelled=Failed, closed_complete=Committed, closed_incomplete=Failed, closed_rejected=Failed, in_process=Queued, requested=Queued}",
           "request" : "{description=SailPoint Access Request,, req_description=The Service Request created by SailPoint ServiceNow Service Integration Module (SIM).,, req_short_description=SailPoint New Access Request Created from IdentityNow,, short_description=SailPoint Access Request $!plan.arguments.identityRequestId}",
@@ -104,23 +103,21 @@ with ApiClient(configuration) as api_client:
             "id" : "2c918085708c274401708c2a8a760001",
             "type" : "IDENTITY"
           }
-        }''' # SimIntegrationDetails | DTO containing the details of the SIM integration
+        }`) # SimIntegrationDetails | DTO containing the details of the SIM integration
 
-    try:
-        # Create new SIM integration
-        new_sim_integration_details = SimIntegrationDetails.from_json(sim_integration_details)
-        results = SIMIntegrationsApi(api_client).create_sim_integration(x_sail_point_experimental=x_sail_point_experimental, sim_integration_details=new_sim_integration_details)
-        # Below is a request that includes all optional parameters
-        # results = SIMIntegrationsApi(api_client).create_sim_integration(x_sail_point_experimental, new_sim_integration_details)
-        print("The response of SIMIntegrationsApi->create_sim_integration:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling SIMIntegrationsApi->create_sim_integration: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.SIMIntegrationsAPI.CreateSIMIntegration(context.Background()).XSailPointExperimental(xSailPointExperimental).SimIntegrationDetails(simIntegrationDetails).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SIMIntegrationsAPI.CreateSIMIntegration``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateSIMIntegration`: ServiceDeskIntegrationDto
+	fmt.Fprintf(os.Stdout, "Response from `SIMIntegrationsAPI.CreateSIMIntegration`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## delete-sim-integration
 :::warning experimental 
@@ -129,7 +126,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::tip setting x-sailpoint-experimental header
  on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
  Example:
- ```python
+ ```go
    configuration = Configuration()
    configuration.experimental = True
  ```
@@ -139,58 +136,61 @@ Get the details of a SIM integration.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-sim-integration)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | id | **str** | True  | The id of the integration to delete.
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | The id of the integration to delete. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteSIMIntegrationRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
 
 ### Return type
+
  (empty response body)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | No content response |  |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.sim_integrations_api import SIMIntegrationsApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
-configuration.experimental = true
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    id = '12345' # str | The id of the integration to delete. # str | The id of the integration to delete.
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
+func main() {
+    id := 12345 # string | The id of the integration to delete. # string | The id of the integration to delete.
+    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
 
-    try:
-        # Delete a SIM integration
-        
-        SIMIntegrationsApi(api_client).delete_sim_integration(id=id, x_sail_point_experimental=x_sail_point_experimental)
-        # Below is a request that includes all optional parameters
-        # SIMIntegrationsApi(api_client).delete_sim_integration(id, x_sail_point_experimental)
-    except Exception as e:
-        print("Exception when calling SIMIntegrationsApi->delete_sim_integration: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	r, err := apiClient.V2025.SIMIntegrationsAPI.DeleteSIMIntegration(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SIMIntegrationsAPI.DeleteSIMIntegration``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## get-sim-integration
 :::warning experimental 
@@ -199,7 +199,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::tip setting x-sailpoint-experimental header
  on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
  Example:
- ```python
+ ```go
    configuration = Configuration()
    configuration.experimental = True
  ```
@@ -209,61 +209,63 @@ Get the details of a SIM integration.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-sim-integration)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | id | **str** | True  | The id of the integration.
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | The id of the integration. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetSIMIntegrationRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
 
 ### Return type
+
 [**ServiceDeskIntegrationDto**](../models/service-desk-integration-dto)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | The DTO containing the details of the SIM integration | ServiceDeskIntegrationDto |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.sim_integrations_api import SIMIntegrationsApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.service_desk_integration_dto import ServiceDeskIntegrationDto
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
-configuration.experimental = true
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    id = '12345' # str | The id of the integration. # str | The id of the integration.
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
+func main() {
+    id := 12345 # string | The id of the integration. # string | The id of the integration.
+    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
 
-    try:
-        # Get a SIM integration details.
-        
-        results = SIMIntegrationsApi(api_client).get_sim_integration(id=id, x_sail_point_experimental=x_sail_point_experimental)
-        # Below is a request that includes all optional parameters
-        # results = SIMIntegrationsApi(api_client).get_sim_integration(id, x_sail_point_experimental)
-        print("The response of SIMIntegrationsApi->get_sim_integration:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling SIMIntegrationsApi->get_sim_integration: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.SIMIntegrationsAPI.GetSIMIntegration(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SIMIntegrationsAPI.GetSIMIntegration``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetSIMIntegration`: ServiceDeskIntegrationDto
+	fmt.Fprintf(os.Stdout, "Response from `SIMIntegrationsAPI.GetSIMIntegration`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## get-sim-integrations
 :::warning experimental 
@@ -272,7 +274,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::tip setting x-sailpoint-experimental header
  on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
  Example:
- ```python
+ ```go
    configuration = Configuration()
    configuration.experimental = True
  ```
@@ -282,59 +284,57 @@ List the existing SIM integrations.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-sim-integrations)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetSIMIntegrationsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
 
 ### Return type
-[**List[ServiceDeskIntegrationDto]**](../models/service-desk-integration-dto)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | The DTO containing the details of the SIM integration | List[ServiceDeskIntegrationDto] |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
+[**[]ServiceDeskIntegrationDto**](../models/service-desk-integration-dto)
 
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.sim_integrations_api import SIMIntegrationsApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.service_desk_integration_dto import ServiceDeskIntegrationDto
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
-configuration.experimental = true
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
+func main() {
+    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
 
-    try:
-        # List the existing SIM integrations.
-        
-        results = SIMIntegrationsApi(api_client).get_sim_integrations(x_sail_point_experimental=x_sail_point_experimental)
-        # Below is a request that includes all optional parameters
-        # results = SIMIntegrationsApi(api_client).get_sim_integrations(x_sail_point_experimental)
-        print("The response of SIMIntegrationsApi->get_sim_integrations:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling SIMIntegrationsApi->get_sim_integrations: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.SIMIntegrationsAPI.GetSIMIntegrations(context.Background()).XSailPointExperimental(xSailPointExperimental).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SIMIntegrationsAPI.GetSIMIntegrations``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetSIMIntegrations`: []ServiceDeskIntegrationDto
+	fmt.Fprintf(os.Stdout, "Response from `SIMIntegrationsAPI.GetSIMIntegrations`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## patch-before-provisioning-rule
 :::warning experimental 
@@ -343,7 +343,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::tip setting x-sailpoint-experimental header
  on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
  Example:
- ```python
+ ```go
    configuration = Configuration()
    configuration.experimental = True
  ```
@@ -353,48 +353,51 @@ Patch a SIM beforeProvisioningRule attribute given a JsonPatch object.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/patch-before-provisioning-rule)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | id | **str** | True  | SIM integration id
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
- Body  | json_patch | [**JsonPatch**](../models/json-patch) | True  | The JsonPatch object that describes the changes of SIM beforeProvisioningRule.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | SIM integration id | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchBeforeProvisioningRuleRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
+ **jsonPatch** | [**JsonPatch**](../models/json-patch) | The JsonPatch object that describes the changes of SIM beforeProvisioningRule. | 
 
 ### Return type
+
 [**ServiceDeskIntegrationDto**](../models/service-desk-integration-dto)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | The updated DTO containing the details of the SIM integration. | ServiceDeskIntegrationDto |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: application/json-patch+json
- - **Accept**: application/json
+
+- **Content-Type**: application/json-patch+json
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.sim_integrations_api import SIMIntegrationsApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.json_patch import JsonPatch
-from sailpoint.v2025.models.service_desk_integration_dto import ServiceDeskIntegrationDto
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
-configuration.experimental = true
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    id = '12345' # str | SIM integration id # str | SIM integration id
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    json_patch = '''{
+func main() {
+    id := 12345 # string | SIM integration id # string | SIM integration id
+    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+    jsonPatch := fmt.Sprintf(`{
           "operations" : [ {
             "op" : "replace",
             "path" : "/description",
@@ -404,23 +407,21 @@ with ApiClient(configuration) as api_client:
             "path" : "/description",
             "value" : "New description"
           } ]
-        }''' # JsonPatch | The JsonPatch object that describes the changes of SIM beforeProvisioningRule.
+        }`) # JsonPatch | The JsonPatch object that describes the changes of SIM beforeProvisioningRule.
 
-    try:
-        # Patch a SIM beforeProvisioningRule attribute.
-        new_json_patch = JsonPatch.from_json(json_patch)
-        results = SIMIntegrationsApi(api_client).patch_before_provisioning_rule(id=id, x_sail_point_experimental=x_sail_point_experimental, json_patch=new_json_patch)
-        # Below is a request that includes all optional parameters
-        # results = SIMIntegrationsApi(api_client).patch_before_provisioning_rule(id, x_sail_point_experimental, new_json_patch)
-        print("The response of SIMIntegrationsApi->patch_before_provisioning_rule:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling SIMIntegrationsApi->patch_before_provisioning_rule: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.SIMIntegrationsAPI.PatchBeforeProvisioningRule(context.Background(), id).XSailPointExperimental(xSailPointExperimental).JsonPatch(jsonPatch).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SIMIntegrationsAPI.PatchBeforeProvisioningRule``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchBeforeProvisioningRule`: ServiceDeskIntegrationDto
+	fmt.Fprintf(os.Stdout, "Response from `SIMIntegrationsAPI.PatchBeforeProvisioningRule`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## patch-sim-attributes
 :::warning experimental 
@@ -429,7 +430,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::tip setting x-sailpoint-experimental header
  on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
  Example:
- ```python
+ ```go
    configuration = Configuration()
    configuration.experimental = True
  ```
@@ -439,48 +440,51 @@ Patch a SIM attribute given a JsonPatch object.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/patch-sim-attributes)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | id | **str** | True  | SIM integration id
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
- Body  | json_patch | [**JsonPatch**](../models/json-patch) | True  | The JsonPatch object that describes the changes of SIM
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | SIM integration id | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchSIMAttributesRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
+ **jsonPatch** | [**JsonPatch**](../models/json-patch) | The JsonPatch object that describes the changes of SIM | 
 
 ### Return type
+
 [**ServiceDeskIntegrationDto**](../models/service-desk-integration-dto)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | The updated DTO containing the details of the SIM integration. | ServiceDeskIntegrationDto |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: application/json-patch+json
- - **Accept**: application/json
+
+- **Content-Type**: application/json-patch+json
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.sim_integrations_api import SIMIntegrationsApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.json_patch import JsonPatch
-from sailpoint.v2025.models.service_desk_integration_dto import ServiceDeskIntegrationDto
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
-configuration.experimental = true
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    id = '12345' # str | SIM integration id # str | SIM integration id
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    json_patch = '''{
+func main() {
+    id := 12345 # string | SIM integration id # string | SIM integration id
+    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+    jsonPatch := fmt.Sprintf(`{
           "operations" : [ {
             "op" : "replace",
             "path" : "/description",
@@ -490,23 +494,21 @@ with ApiClient(configuration) as api_client:
             "path" : "/description",
             "value" : "New description"
           } ]
-        }''' # JsonPatch | The JsonPatch object that describes the changes of SIM
+        }`) # JsonPatch | The JsonPatch object that describes the changes of SIM
 
-    try:
-        # Patch a SIM attribute.
-        new_json_patch = JsonPatch.from_json(json_patch)
-        results = SIMIntegrationsApi(api_client).patch_sim_attributes(id=id, x_sail_point_experimental=x_sail_point_experimental, json_patch=new_json_patch)
-        # Below is a request that includes all optional parameters
-        # results = SIMIntegrationsApi(api_client).patch_sim_attributes(id, x_sail_point_experimental, new_json_patch)
-        print("The response of SIMIntegrationsApi->patch_sim_attributes:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling SIMIntegrationsApi->patch_sim_attributes: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.SIMIntegrationsAPI.PatchSIMAttributes(context.Background(), id).XSailPointExperimental(xSailPointExperimental).JsonPatch(jsonPatch).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SIMIntegrationsAPI.PatchSIMAttributes``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchSIMAttributes`: ServiceDeskIntegrationDto
+	fmt.Fprintf(os.Stdout, "Response from `SIMIntegrationsAPI.PatchSIMAttributes`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## put-sim-integration
 :::warning experimental 
@@ -515,7 +517,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::tip setting x-sailpoint-experimental header
  on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
  Example:
- ```python
+ ```go
    configuration = Configuration()
    configuration.experimental = True
  ```
@@ -525,48 +527,51 @@ Update an existing SIM integration.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/put-sim-integration)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | id | **str** | True  | The id of the integration.
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
- Body  | sim_integration_details | [**SimIntegrationDetails**](../models/sim-integration-details) | True  | The full DTO of the integration containing the updated model
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | The id of the integration. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPutSIMIntegrationRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
+ **simIntegrationDetails** | [**SimIntegrationDetails**](../models/sim-integration-details) | The full DTO of the integration containing the updated model | 
 
 ### Return type
+
 [**ServiceDeskIntegrationDto**](../models/service-desk-integration-dto)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | details of the updated integration | ServiceDeskIntegrationDto |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: application/json
- - **Accept**: application/json
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.sim_integrations_api import SIMIntegrationsApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.service_desk_integration_dto import ServiceDeskIntegrationDto
-from sailpoint.v2025.models.sim_integration_details import SimIntegrationDetails
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
-configuration.experimental = true
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    id = '12345' # str | The id of the integration. # str | The id of the integration.
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    sim_integration_details = '''{
+func main() {
+    id := 12345 # string | The id of the integration. # string | The id of the integration.
+    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+    simIntegrationDetails := fmt.Sprintf(`{
           "cluster" : "xyzzy999",
           "statusMap" : "{closed_cancelled=Failed, closed_complete=Committed, closed_incomplete=Failed, closed_rejected=Failed, in_process=Queued, requested=Queued}",
           "request" : "{description=SailPoint Access Request,, req_description=The Service Request created by SailPoint ServiceNow Service Integration Module (SIM).,, req_short_description=SailPoint New Access Request Created from IdentityNow,, short_description=SailPoint Access Request $!plan.arguments.identityRequestId}",
@@ -583,23 +588,19 @@ with ApiClient(configuration) as api_client:
             "id" : "2c918085708c274401708c2a8a760001",
             "type" : "IDENTITY"
           }
-        }''' # SimIntegrationDetails | The full DTO of the integration containing the updated model
+        }`) # SimIntegrationDetails | The full DTO of the integration containing the updated model
 
-    try:
-        # Update an existing SIM integration
-        new_sim_integration_details = SimIntegrationDetails.from_json(sim_integration_details)
-        results = SIMIntegrationsApi(api_client).put_sim_integration(id=id, x_sail_point_experimental=x_sail_point_experimental, sim_integration_details=new_sim_integration_details)
-        # Below is a request that includes all optional parameters
-        # results = SIMIntegrationsApi(api_client).put_sim_integration(id, x_sail_point_experimental, new_sim_integration_details)
-        print("The response of SIMIntegrationsApi->put_sim_integration:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling SIMIntegrationsApi->put_sim_integration: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.SIMIntegrationsAPI.PutSIMIntegration(context.Background(), id).XSailPointExperimental(xSailPointExperimental).SimIntegrationDetails(simIntegrationDetails).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SIMIntegrationsAPI.PutSIMIntegration``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PutSIMIntegration`: ServiceDeskIntegrationDto
+	fmt.Fprintf(os.Stdout, "Response from `SIMIntegrationsAPI.PutSIMIntegration`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
-
-
+[[Back to top]](#)
 

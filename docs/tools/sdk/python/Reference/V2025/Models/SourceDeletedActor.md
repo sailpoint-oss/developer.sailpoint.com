@@ -3,36 +3,99 @@ id: v2025-source-deleted-actor
 title: SourceDeletedActor
 pagination_label: SourceDeletedActor
 sidebar_label: SourceDeletedActor
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'SourceDeletedActor', 'V2025SourceDeletedActor'] 
-slug: /tools/sdk/python/v2025/models/source-deleted-actor
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'SourceDeletedActor', 'V2025SourceDeletedActor'] 
+slug: /tools/sdk/go/v2025/models/source-deleted-actor
 tags: ['SDK', 'Software Development Kit', 'SourceDeletedActor', 'V2025SourceDeletedActor']
 ---
 
 # SourceDeletedActor
 
-Identity who deleted the source.
-
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** |  **Enum** [  'IDENTITY' ] | DTO type of identity who deleted the source. | [required]
-**id** | **str** | ID of identity who deleted the source. | [required]
-**name** | **str** | Display name of identity who deleted the source. | [required]
-}
+**Type** | **string** | DTO type of identity who deleted the source. | 
+**Id** | **string** | ID of identity who deleted the source. | 
+**Name** | **string** | Display name of identity who deleted the source. | 
 
-## Example
+## Methods
 
-```python
-from sailpoint.v2025.models.source_deleted_actor import SourceDeletedActor
+### NewSourceDeletedActor
 
-source_deleted_actor = SourceDeletedActor(
-type='IDENTITY',
-id='2c7180a46faadee4016fb4e018c20648',
-name='William Wilson'
-)
+`func NewSourceDeletedActor(type_ string, id string, name string, ) *SourceDeletedActor`
 
-```
-[[Back to top]](#) 
+NewSourceDeletedActor instantiates a new SourceDeletedActor object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewSourceDeletedActorWithDefaults
+
+`func NewSourceDeletedActorWithDefaults() *SourceDeletedActor`
+
+NewSourceDeletedActorWithDefaults instantiates a new SourceDeletedActor object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetType
+
+`func (o *SourceDeletedActor) GetType() string`
+
+GetType returns the Type field if non-nil, zero value otherwise.
+
+### GetTypeOk
+
+`func (o *SourceDeletedActor) GetTypeOk() (*string, bool)`
+
+GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetType
+
+`func (o *SourceDeletedActor) SetType(v string)`
+
+SetType sets Type field to given value.
+
+
+### GetId
+
+`func (o *SourceDeletedActor) GetId() string`
+
+GetId returns the Id field if non-nil, zero value otherwise.
+
+### GetIdOk
+
+`func (o *SourceDeletedActor) GetIdOk() (*string, bool)`
+
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetId
+
+`func (o *SourceDeletedActor) SetId(v string)`
+
+SetId sets Id field to given value.
+
+
+### GetName
+
+`func (o *SourceDeletedActor) GetName() string`
+
+GetName returns the Name field if non-nil, zero value otherwise.
+
+### GetNameOk
+
+`func (o *SourceDeletedActor) GetNameOk() (*string, bool)`
+
+GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetName
+
+`func (o *SourceDeletedActor) SetName(v string)`
+
+SetName sets Name field to given value.
+
+
 

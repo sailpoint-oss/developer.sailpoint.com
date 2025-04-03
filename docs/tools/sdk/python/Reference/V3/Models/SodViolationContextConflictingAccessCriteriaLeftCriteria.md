@@ -3,37 +3,62 @@ id: sod-violation-context-conflicting-access-criteria-left-criteria
 title: SodViolationContextConflictingAccessCriteriaLeftCriteria
 pagination_label: SodViolationContextConflictingAccessCriteriaLeftCriteria
 sidebar_label: SodViolationContextConflictingAccessCriteriaLeftCriteria
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'SodViolationContextConflictingAccessCriteriaLeftCriteria', 'SodViolationContextConflictingAccessCriteriaLeftCriteria'] 
-slug: /tools/sdk/python/v3/models/sod-violation-context-conflicting-access-criteria-left-criteria
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'SodViolationContextConflictingAccessCriteriaLeftCriteria', 'SodViolationContextConflictingAccessCriteriaLeftCriteria'] 
+slug: /tools/sdk/go/v3/models/sod-violation-context-conflicting-access-criteria-left-criteria
 tags: ['SDK', 'Software Development Kit', 'SodViolationContextConflictingAccessCriteriaLeftCriteria', 'SodViolationContextConflictingAccessCriteriaLeftCriteria']
 ---
 
 # SodViolationContextConflictingAccessCriteriaLeftCriteria
 
-
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**criteria_list** | [**[]SodExemptCriteria**](sod-exempt-criteria) |  | [optional] 
-}
+**CriteriaList** | Pointer to [**[]SodExemptCriteria**](sod-exempt-criteria) |  | [optional] 
 
-## Example
+## Methods
 
-```python
-from sailpoint.v3.models.sod_violation_context_conflicting_access_criteria_left_criteria import SodViolationContextConflictingAccessCriteriaLeftCriteria
+### NewSodViolationContextConflictingAccessCriteriaLeftCriteria
 
-sod_violation_context_conflicting_access_criteria_left_criteria = SodViolationContextConflictingAccessCriteriaLeftCriteria(
-criteria_list=[
-                    sailpoint.v3.models.sod_exempt_criteria.SodExemptCriteria(
-                        existing = True, 
-                        type = 'IDENTITY', 
-                        id = '2c918085771e9d3301773b3cb66f6398', 
-                        name = 'My HR Entitlement', )
-                    ]
-)
+`func NewSodViolationContextConflictingAccessCriteriaLeftCriteria() *SodViolationContextConflictingAccessCriteriaLeftCriteria`
 
-```
-[[Back to top]](#) 
+NewSodViolationContextConflictingAccessCriteriaLeftCriteria instantiates a new SodViolationContextConflictingAccessCriteriaLeftCriteria object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewSodViolationContextConflictingAccessCriteriaLeftCriteriaWithDefaults
+
+`func NewSodViolationContextConflictingAccessCriteriaLeftCriteriaWithDefaults() *SodViolationContextConflictingAccessCriteriaLeftCriteria`
+
+NewSodViolationContextConflictingAccessCriteriaLeftCriteriaWithDefaults instantiates a new SodViolationContextConflictingAccessCriteriaLeftCriteria object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetCriteriaList
+
+`func (o *SodViolationContextConflictingAccessCriteriaLeftCriteria) GetCriteriaList() []SodExemptCriteria`
+
+GetCriteriaList returns the CriteriaList field if non-nil, zero value otherwise.
+
+### GetCriteriaListOk
+
+`func (o *SodViolationContextConflictingAccessCriteriaLeftCriteria) GetCriteriaListOk() (*[]SodExemptCriteria, bool)`
+
+GetCriteriaListOk returns a tuple with the CriteriaList field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCriteriaList
+
+`func (o *SodViolationContextConflictingAccessCriteriaLeftCriteria) SetCriteriaList(v []SodExemptCriteria)`
+
+SetCriteriaList sets CriteriaList field to given value.
+
+### HasCriteriaList
+
+`func (o *SodViolationContextConflictingAccessCriteriaLeftCriteria) HasCriteriaList() bool`
+
+HasCriteriaList returns a boolean if a field has been set.
+
 

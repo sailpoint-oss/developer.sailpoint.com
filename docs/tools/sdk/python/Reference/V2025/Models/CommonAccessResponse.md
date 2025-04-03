@@ -3,51 +3,254 @@ id: v2025-common-access-response
 title: CommonAccessResponse
 pagination_label: CommonAccessResponse
 sidebar_label: CommonAccessResponse
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'CommonAccessResponse', 'V2025CommonAccessResponse'] 
-slug: /tools/sdk/python/v2025/models/common-access-response
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'CommonAccessResponse', 'V2025CommonAccessResponse'] 
+slug: /tools/sdk/go/v2025/models/common-access-response
 tags: ['SDK', 'Software Development Kit', 'CommonAccessResponse', 'V2025CommonAccessResponse']
 ---
 
 # CommonAccessResponse
 
-
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** | Unique ID of the common access item | [optional] 
-**access** | [**CommonAccessItemAccess**](common-access-item-access) |  | [optional] 
-**status** | **str** | CONFIRMED or DENIED | [optional] 
-**common_access_type** | **str** |  | [optional] 
-**last_updated** | **datetime** |  | [optional] [readonly] 
-**reviewed_by_user** | **bool** | true if user has confirmed or denied status | [optional] 
-**last_reviewed** | **datetime** |  | [optional] [readonly] 
-**created_by_user** | **bool** |  | [optional] [default to False]
-}
+**Id** | Pointer to **string** | Unique ID of the common access item | [optional] 
+**Access** | Pointer to [**CommonAccessItemAccess**](common-access-item-access) |  | [optional] 
+**Status** | Pointer to **string** | CONFIRMED or DENIED | [optional] 
+**CommonAccessType** | Pointer to **string** |  | [optional] 
+**LastUpdated** | Pointer to **SailPointTime** |  | [optional] [readonly] 
+**ReviewedByUser** | Pointer to **bool** | true if user has confirmed or denied status | [optional] 
+**LastReviewed** | Pointer to **NullableTime** |  | [optional] [readonly] 
+**CreatedByUser** | Pointer to **bool** |  | [optional] [default to false]
 
-## Example
+## Methods
 
-```python
-from sailpoint.v2025.models.common_access_response import CommonAccessResponse
+### NewCommonAccessResponse
 
-common_access_response = CommonAccessResponse(
-id='555ab47a-0d32-4813-906f-adf3567de6a4',
-access=sailpoint.v2025.models.common_access_item_access.CommonAccessItemAccess(
-                    id = '', 
-                    type = 'ACCESS_PROFILE', 
-                    name = '', 
-                    description = '', 
-                    owner_name = '', 
-                    owner_id = '', ),
-status='',
-common_access_type='UNSET',
-last_updated=datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-reviewed_by_user=True,
-last_reviewed=datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-created_by_user=False
-)
+`func NewCommonAccessResponse() *CommonAccessResponse`
 
-```
-[[Back to top]](#) 
+NewCommonAccessResponse instantiates a new CommonAccessResponse object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewCommonAccessResponseWithDefaults
+
+`func NewCommonAccessResponseWithDefaults() *CommonAccessResponse`
+
+NewCommonAccessResponseWithDefaults instantiates a new CommonAccessResponse object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetId
+
+`func (o *CommonAccessResponse) GetId() string`
+
+GetId returns the Id field if non-nil, zero value otherwise.
+
+### GetIdOk
+
+`func (o *CommonAccessResponse) GetIdOk() (*string, bool)`
+
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetId
+
+`func (o *CommonAccessResponse) SetId(v string)`
+
+SetId sets Id field to given value.
+
+### HasId
+
+`func (o *CommonAccessResponse) HasId() bool`
+
+HasId returns a boolean if a field has been set.
+
+### GetAccess
+
+`func (o *CommonAccessResponse) GetAccess() CommonAccessItemAccess`
+
+GetAccess returns the Access field if non-nil, zero value otherwise.
+
+### GetAccessOk
+
+`func (o *CommonAccessResponse) GetAccessOk() (*CommonAccessItemAccess, bool)`
+
+GetAccessOk returns a tuple with the Access field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAccess
+
+`func (o *CommonAccessResponse) SetAccess(v CommonAccessItemAccess)`
+
+SetAccess sets Access field to given value.
+
+### HasAccess
+
+`func (o *CommonAccessResponse) HasAccess() bool`
+
+HasAccess returns a boolean if a field has been set.
+
+### GetStatus
+
+`func (o *CommonAccessResponse) GetStatus() string`
+
+GetStatus returns the Status field if non-nil, zero value otherwise.
+
+### GetStatusOk
+
+`func (o *CommonAccessResponse) GetStatusOk() (*string, bool)`
+
+GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStatus
+
+`func (o *CommonAccessResponse) SetStatus(v string)`
+
+SetStatus sets Status field to given value.
+
+### HasStatus
+
+`func (o *CommonAccessResponse) HasStatus() bool`
+
+HasStatus returns a boolean if a field has been set.
+
+### GetCommonAccessType
+
+`func (o *CommonAccessResponse) GetCommonAccessType() string`
+
+GetCommonAccessType returns the CommonAccessType field if non-nil, zero value otherwise.
+
+### GetCommonAccessTypeOk
+
+`func (o *CommonAccessResponse) GetCommonAccessTypeOk() (*string, bool)`
+
+GetCommonAccessTypeOk returns a tuple with the CommonAccessType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCommonAccessType
+
+`func (o *CommonAccessResponse) SetCommonAccessType(v string)`
+
+SetCommonAccessType sets CommonAccessType field to given value.
+
+### HasCommonAccessType
+
+`func (o *CommonAccessResponse) HasCommonAccessType() bool`
+
+HasCommonAccessType returns a boolean if a field has been set.
+
+### GetLastUpdated
+
+`func (o *CommonAccessResponse) GetLastUpdated() SailPointTime`
+
+GetLastUpdated returns the LastUpdated field if non-nil, zero value otherwise.
+
+### GetLastUpdatedOk
+
+`func (o *CommonAccessResponse) GetLastUpdatedOk() (*SailPointTime, bool)`
+
+GetLastUpdatedOk returns a tuple with the LastUpdated field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLastUpdated
+
+`func (o *CommonAccessResponse) SetLastUpdated(v SailPointTime)`
+
+SetLastUpdated sets LastUpdated field to given value.
+
+### HasLastUpdated
+
+`func (o *CommonAccessResponse) HasLastUpdated() bool`
+
+HasLastUpdated returns a boolean if a field has been set.
+
+### GetReviewedByUser
+
+`func (o *CommonAccessResponse) GetReviewedByUser() bool`
+
+GetReviewedByUser returns the ReviewedByUser field if non-nil, zero value otherwise.
+
+### GetReviewedByUserOk
+
+`func (o *CommonAccessResponse) GetReviewedByUserOk() (*bool, bool)`
+
+GetReviewedByUserOk returns a tuple with the ReviewedByUser field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetReviewedByUser
+
+`func (o *CommonAccessResponse) SetReviewedByUser(v bool)`
+
+SetReviewedByUser sets ReviewedByUser field to given value.
+
+### HasReviewedByUser
+
+`func (o *CommonAccessResponse) HasReviewedByUser() bool`
+
+HasReviewedByUser returns a boolean if a field has been set.
+
+### GetLastReviewed
+
+`func (o *CommonAccessResponse) GetLastReviewed() SailPointTime`
+
+GetLastReviewed returns the LastReviewed field if non-nil, zero value otherwise.
+
+### GetLastReviewedOk
+
+`func (o *CommonAccessResponse) GetLastReviewedOk() (*SailPointTime, bool)`
+
+GetLastReviewedOk returns a tuple with the LastReviewed field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLastReviewed
+
+`func (o *CommonAccessResponse) SetLastReviewed(v SailPointTime)`
+
+SetLastReviewed sets LastReviewed field to given value.
+
+### HasLastReviewed
+
+`func (o *CommonAccessResponse) HasLastReviewed() bool`
+
+HasLastReviewed returns a boolean if a field has been set.
+
+### SetLastReviewedNil
+
+`func (o *CommonAccessResponse) SetLastReviewedNil(b bool)`
+
+ SetLastReviewedNil sets the value for LastReviewed to be an explicit nil
+
+### UnsetLastReviewed
+`func (o *CommonAccessResponse) UnsetLastReviewed()`
+
+UnsetLastReviewed ensures that no value is present for LastReviewed, not even an explicit nil
+### GetCreatedByUser
+
+`func (o *CommonAccessResponse) GetCreatedByUser() bool`
+
+GetCreatedByUser returns the CreatedByUser field if non-nil, zero value otherwise.
+
+### GetCreatedByUserOk
+
+`func (o *CommonAccessResponse) GetCreatedByUserOk() (*bool, bool)`
+
+GetCreatedByUserOk returns a tuple with the CreatedByUser field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCreatedByUser
+
+`func (o *CommonAccessResponse) SetCreatedByUser(v bool)`
+
+SetCreatedByUser sets CreatedByUser field to given value.
+
+### HasCreatedByUser
+
+`func (o *CommonAccessResponse) HasCreatedByUser() bool`
+
+HasCreatedByUser returns a boolean if a field has been set.
+
 

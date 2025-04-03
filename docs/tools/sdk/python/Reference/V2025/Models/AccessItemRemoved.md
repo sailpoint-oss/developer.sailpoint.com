@@ -3,48 +3,166 @@ id: v2025-access-item-removed
 title: AccessItemRemoved
 pagination_label: AccessItemRemoved
 sidebar_label: AccessItemRemoved
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'AccessItemRemoved', 'V2025AccessItemRemoved'] 
-slug: /tools/sdk/python/v2025/models/access-item-removed
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'AccessItemRemoved', 'V2025AccessItemRemoved'] 
+slug: /tools/sdk/go/v2025/models/access-item-removed
 tags: ['SDK', 'Software Development Kit', 'AccessItemRemoved', 'V2025AccessItemRemoved']
 ---
 
 # AccessItemRemoved
 
-
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**access_item** | [**AccessItemAssociatedAccessItem**](access-item-associated-access-item) |  | [optional] 
-**identity_id** | **str** | the identity id | [optional] 
-**event_type** | **str** | the event type | [optional] 
-**dt** | **str** | the date of event | [optional] 
-**governance_event** | [**CorrelatedGovernanceEvent**](correlated-governance-event) |  | [optional] 
-}
+**AccessItem** | Pointer to [**AccessItemAssociatedAccessItem**](access-item-associated-access-item) |  | [optional] 
+**IdentityId** | Pointer to **string** | the identity id | [optional] 
+**EventType** | Pointer to **string** | the event type | [optional] 
+**Dt** | Pointer to **string** | the date of event | [optional] 
+**GovernanceEvent** | Pointer to [**CorrelatedGovernanceEvent**](correlated-governance-event) |  | [optional] 
 
-## Example
+## Methods
 
-```python
-from sailpoint.v2025.models.access_item_removed import AccessItemRemoved
+### NewAccessItemRemoved
 
-access_item_removed = AccessItemRemoved(
-access_item={id=8c190e6787aa4ed9a90bd9d5344523fb, accessType=account, nativeIdentity=127999, sourceName=JDBC Entitlements Source, entitlementCount=0, displayName=Sample Name},
-identity_id='8c190e6787aa4ed9a90bd9d5344523fb',
-event_type='AccessItemRemoved',
-dt='2019-03-08T22:37:33.901Z',
-governance_event=sailpoint.v2025.models.correlated_governance_event.CorrelatedGovernanceEvent(
-                    name = 'Manager Certification for Jon Snow', 
-                    dt = '2019-03-08T22:37:33.901Z', 
-                    type = 'certification', 
-                    governance_id = '2c91808a77ff216301782327a50f09bf', 
-                    owners = [{id=8a80828f643d484f01643e14202e206f, displayName=John Snow}], 
-                    reviewers = [{id=8a80828f643d484f01643e14202e206f, displayName=John Snow}], 
-                    decision_maker = sailpoint.v2025.models.certifier_response.CertifierResponse(
-                        id = '8a80828f643d484f01643e14202e206f', 
-                        display_name = 'John Snow', ), )
-)
+`func NewAccessItemRemoved() *AccessItemRemoved`
 
-```
-[[Back to top]](#) 
+NewAccessItemRemoved instantiates a new AccessItemRemoved object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewAccessItemRemovedWithDefaults
+
+`func NewAccessItemRemovedWithDefaults() *AccessItemRemoved`
+
+NewAccessItemRemovedWithDefaults instantiates a new AccessItemRemoved object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetAccessItem
+
+`func (o *AccessItemRemoved) GetAccessItem() AccessItemAssociatedAccessItem`
+
+GetAccessItem returns the AccessItem field if non-nil, zero value otherwise.
+
+### GetAccessItemOk
+
+`func (o *AccessItemRemoved) GetAccessItemOk() (*AccessItemAssociatedAccessItem, bool)`
+
+GetAccessItemOk returns a tuple with the AccessItem field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAccessItem
+
+`func (o *AccessItemRemoved) SetAccessItem(v AccessItemAssociatedAccessItem)`
+
+SetAccessItem sets AccessItem field to given value.
+
+### HasAccessItem
+
+`func (o *AccessItemRemoved) HasAccessItem() bool`
+
+HasAccessItem returns a boolean if a field has been set.
+
+### GetIdentityId
+
+`func (o *AccessItemRemoved) GetIdentityId() string`
+
+GetIdentityId returns the IdentityId field if non-nil, zero value otherwise.
+
+### GetIdentityIdOk
+
+`func (o *AccessItemRemoved) GetIdentityIdOk() (*string, bool)`
+
+GetIdentityIdOk returns a tuple with the IdentityId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIdentityId
+
+`func (o *AccessItemRemoved) SetIdentityId(v string)`
+
+SetIdentityId sets IdentityId field to given value.
+
+### HasIdentityId
+
+`func (o *AccessItemRemoved) HasIdentityId() bool`
+
+HasIdentityId returns a boolean if a field has been set.
+
+### GetEventType
+
+`func (o *AccessItemRemoved) GetEventType() string`
+
+GetEventType returns the EventType field if non-nil, zero value otherwise.
+
+### GetEventTypeOk
+
+`func (o *AccessItemRemoved) GetEventTypeOk() (*string, bool)`
+
+GetEventTypeOk returns a tuple with the EventType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEventType
+
+`func (o *AccessItemRemoved) SetEventType(v string)`
+
+SetEventType sets EventType field to given value.
+
+### HasEventType
+
+`func (o *AccessItemRemoved) HasEventType() bool`
+
+HasEventType returns a boolean if a field has been set.
+
+### GetDt
+
+`func (o *AccessItemRemoved) GetDt() string`
+
+GetDt returns the Dt field if non-nil, zero value otherwise.
+
+### GetDtOk
+
+`func (o *AccessItemRemoved) GetDtOk() (*string, bool)`
+
+GetDtOk returns a tuple with the Dt field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDt
+
+`func (o *AccessItemRemoved) SetDt(v string)`
+
+SetDt sets Dt field to given value.
+
+### HasDt
+
+`func (o *AccessItemRemoved) HasDt() bool`
+
+HasDt returns a boolean if a field has been set.
+
+### GetGovernanceEvent
+
+`func (o *AccessItemRemoved) GetGovernanceEvent() CorrelatedGovernanceEvent`
+
+GetGovernanceEvent returns the GovernanceEvent field if non-nil, zero value otherwise.
+
+### GetGovernanceEventOk
+
+`func (o *AccessItemRemoved) GetGovernanceEventOk() (*CorrelatedGovernanceEvent, bool)`
+
+GetGovernanceEventOk returns a tuple with the GovernanceEvent field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetGovernanceEvent
+
+`func (o *AccessItemRemoved) SetGovernanceEvent(v CorrelatedGovernanceEvent)`
+
+SetGovernanceEvent sets GovernanceEvent field to given value.
+
+### HasGovernanceEvent
+
+`func (o *AccessItemRemoved) HasGovernanceEvent() bool`
+
+HasGovernanceEvent returns a boolean if a field has been set.
+
 

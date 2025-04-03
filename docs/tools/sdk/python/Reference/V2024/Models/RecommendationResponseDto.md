@@ -3,58 +3,62 @@ id: v2024-recommendation-response-dto
 title: RecommendationResponseDto
 pagination_label: RecommendationResponseDto
 sidebar_label: RecommendationResponseDto
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'RecommendationResponseDto', 'V2024RecommendationResponseDto'] 
-slug: /tools/sdk/python/v2024/models/recommendation-response-dto
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'RecommendationResponseDto', 'V2024RecommendationResponseDto'] 
+slug: /tools/sdk/go/v2024/models/recommendation-response-dto
 tags: ['SDK', 'Software Development Kit', 'RecommendationResponseDto', 'V2024RecommendationResponseDto']
 ---
 
 # RecommendationResponseDto
 
-
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**response** | [**[]RecommendationResponse**](recommendation-response) |  | [optional] 
-}
+**Response** | Pointer to [**[]RecommendationResponse**](recommendation-response) |  | [optional] 
 
-## Example
+## Methods
 
-```python
-from sailpoint.v2024.models.recommendation_response_dto import RecommendationResponseDto
+### NewRecommendationResponseDto
 
-recommendation_response_dto = RecommendationResponseDto(
-response=[
-                    sailpoint.v2024.models.recommendation_response.RecommendationResponse(
-                        request = sailpoint.v2024.models.recommendation_request.RecommendationRequest(
-                            identity_id = '2c938083633d259901633d25c68c00fa', 
-                            item = sailpoint.v2024.models.access_item_ref.AccessItemRef(
-                                id = '2c938083633d259901633d2623ec0375', 
-                                type = 'ENTITLEMENT', ), ), 
-                        recommendation = 'true', 
-                        interpretations = [75% of identities with the same department have this access. This information had a high impact on the overall score., 67% of identities with the same peer group have this access. This information had a low impact on the overall score., 42% of identities with the same location have this access. This information had a low impact on the overall score.], 
-                        translation_messages = [{key=recommender-api.V2_WEIGHT_FEATURE_PRODUCT_INTERPRETATION_HIGH, values=[75, department]}], 
-                        recommender_calculations = sailpoint.v2024.models.recommender_calculations.RecommenderCalculations(
-                            identity_id = '2c91808457d8f3ab0157e3e62cb4213c', 
-                            entitlement_id = '2c91809050db617d0150e0bf3215385e', 
-                            recommendation = 'YES', 
-                            overall_weighted_score = 1.337, 
-                            feature_weighted_scores = {
-                                'key' : 1.337
-                                }, 
-                            threshold = 1.337, 
-                            identity_attributes = {
-                                'key' : sailpoint.v2024.models.recommender_calculations_identity_attributes_value.RecommenderCalculations_identityAttributes_value(
-                                    value = '', )
-                                }, 
-                            feature_values = sailpoint.v2024.models.feature_value_dto.FeatureValueDto(
-                                feature = 'department', 
-                                numerator = 14, 
-                                denominator = 14, ), ), )
-                    ]
-)
+`func NewRecommendationResponseDto() *RecommendationResponseDto`
 
-```
-[[Back to top]](#) 
+NewRecommendationResponseDto instantiates a new RecommendationResponseDto object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewRecommendationResponseDtoWithDefaults
+
+`func NewRecommendationResponseDtoWithDefaults() *RecommendationResponseDto`
+
+NewRecommendationResponseDtoWithDefaults instantiates a new RecommendationResponseDto object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetResponse
+
+`func (o *RecommendationResponseDto) GetResponse() []RecommendationResponse`
+
+GetResponse returns the Response field if non-nil, zero value otherwise.
+
+### GetResponseOk
+
+`func (o *RecommendationResponseDto) GetResponseOk() (*[]RecommendationResponse, bool)`
+
+GetResponseOk returns a tuple with the Response field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetResponse
+
+`func (o *RecommendationResponseDto) SetResponse(v []RecommendationResponse)`
+
+SetResponse sets Response field to given value.
+
+### HasResponse
+
+`func (o *RecommendationResponseDto) HasResponse() bool`
+
+HasResponse returns a boolean if a field has been set.
+
 

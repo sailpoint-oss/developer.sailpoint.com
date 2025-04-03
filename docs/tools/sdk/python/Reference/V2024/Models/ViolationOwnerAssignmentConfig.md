@@ -3,36 +3,108 @@ id: v2024-violation-owner-assignment-config
 title: ViolationOwnerAssignmentConfig
 pagination_label: ViolationOwnerAssignmentConfig
 sidebar_label: ViolationOwnerAssignmentConfig
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'ViolationOwnerAssignmentConfig', 'V2024ViolationOwnerAssignmentConfig'] 
-slug: /tools/sdk/python/v2024/models/violation-owner-assignment-config
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'ViolationOwnerAssignmentConfig', 'V2024ViolationOwnerAssignmentConfig'] 
+slug: /tools/sdk/go/v2024/models/violation-owner-assignment-config
 tags: ['SDK', 'Software Development Kit', 'ViolationOwnerAssignmentConfig', 'V2024ViolationOwnerAssignmentConfig']
 ---
 
 # ViolationOwnerAssignmentConfig
 
-
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**assignment_rule** |  **Enum** [  'MANAGER',    'STATIC' ] | Details about the violations owner. MANAGER - identity's manager STATIC - Governance Group or Identity | [optional] 
-**owner_ref** | [**ViolationOwnerAssignmentConfigOwnerRef**](violation-owner-assignment-config-owner-ref) |  | [optional] 
-}
+**AssignmentRule** | Pointer to **NullableString** | Details about the violations owner. MANAGER - identity's manager STATIC - Governance Group or Identity | [optional] 
+**OwnerRef** | Pointer to [**NullableViolationOwnerAssignmentConfigOwnerRef**](violation-owner-assignment-config-owner-ref) |  | [optional] 
 
-## Example
+## Methods
 
-```python
-from sailpoint.v2024.models.violation_owner_assignment_config import ViolationOwnerAssignmentConfig
+### NewViolationOwnerAssignmentConfig
 
-violation_owner_assignment_config = ViolationOwnerAssignmentConfig(
-assignment_rule='MANAGER',
-owner_ref=sailpoint.v2024.models.violation_owner_assignment_config_owner_ref.ViolationOwnerAssignmentConfig_ownerRef(
-                    type = 'IDENTITY', 
-                    id = '2c9180a46faadee4016fb4e018c20639', 
-                    name = 'Support', )
-)
+`func NewViolationOwnerAssignmentConfig() *ViolationOwnerAssignmentConfig`
 
-```
-[[Back to top]](#) 
+NewViolationOwnerAssignmentConfig instantiates a new ViolationOwnerAssignmentConfig object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewViolationOwnerAssignmentConfigWithDefaults
+
+`func NewViolationOwnerAssignmentConfigWithDefaults() *ViolationOwnerAssignmentConfig`
+
+NewViolationOwnerAssignmentConfigWithDefaults instantiates a new ViolationOwnerAssignmentConfig object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetAssignmentRule
+
+`func (o *ViolationOwnerAssignmentConfig) GetAssignmentRule() string`
+
+GetAssignmentRule returns the AssignmentRule field if non-nil, zero value otherwise.
+
+### GetAssignmentRuleOk
+
+`func (o *ViolationOwnerAssignmentConfig) GetAssignmentRuleOk() (*string, bool)`
+
+GetAssignmentRuleOk returns a tuple with the AssignmentRule field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAssignmentRule
+
+`func (o *ViolationOwnerAssignmentConfig) SetAssignmentRule(v string)`
+
+SetAssignmentRule sets AssignmentRule field to given value.
+
+### HasAssignmentRule
+
+`func (o *ViolationOwnerAssignmentConfig) HasAssignmentRule() bool`
+
+HasAssignmentRule returns a boolean if a field has been set.
+
+### SetAssignmentRuleNil
+
+`func (o *ViolationOwnerAssignmentConfig) SetAssignmentRuleNil(b bool)`
+
+ SetAssignmentRuleNil sets the value for AssignmentRule to be an explicit nil
+
+### UnsetAssignmentRule
+`func (o *ViolationOwnerAssignmentConfig) UnsetAssignmentRule()`
+
+UnsetAssignmentRule ensures that no value is present for AssignmentRule, not even an explicit nil
+### GetOwnerRef
+
+`func (o *ViolationOwnerAssignmentConfig) GetOwnerRef() ViolationOwnerAssignmentConfigOwnerRef`
+
+GetOwnerRef returns the OwnerRef field if non-nil, zero value otherwise.
+
+### GetOwnerRefOk
+
+`func (o *ViolationOwnerAssignmentConfig) GetOwnerRefOk() (*ViolationOwnerAssignmentConfigOwnerRef, bool)`
+
+GetOwnerRefOk returns a tuple with the OwnerRef field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwnerRef
+
+`func (o *ViolationOwnerAssignmentConfig) SetOwnerRef(v ViolationOwnerAssignmentConfigOwnerRef)`
+
+SetOwnerRef sets OwnerRef field to given value.
+
+### HasOwnerRef
+
+`func (o *ViolationOwnerAssignmentConfig) HasOwnerRef() bool`
+
+HasOwnerRef returns a boolean if a field has been set.
+
+### SetOwnerRefNil
+
+`func (o *ViolationOwnerAssignmentConfig) SetOwnerRefNil(b bool)`
+
+ SetOwnerRefNil sets the value for OwnerRef to be an explicit nil
+
+### UnsetOwnerRef
+`func (o *ViolationOwnerAssignmentConfig) UnsetOwnerRef()`
+
+UnsetOwnerRef ensures that no value is present for OwnerRef, not even an explicit nil
 

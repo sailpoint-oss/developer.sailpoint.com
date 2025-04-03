@@ -3,48 +3,228 @@ id: v2025-role-insights-entitlement-changes
 title: RoleInsightsEntitlementChanges
 pagination_label: RoleInsightsEntitlementChanges
 sidebar_label: RoleInsightsEntitlementChanges
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'RoleInsightsEntitlementChanges', 'V2025RoleInsightsEntitlementChanges'] 
-slug: /tools/sdk/python/v2025/models/role-insights-entitlement-changes
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'RoleInsightsEntitlementChanges', 'V2025RoleInsightsEntitlementChanges'] 
+slug: /tools/sdk/go/v2025/models/role-insights-entitlement-changes
 tags: ['SDK', 'Software Development Kit', 'RoleInsightsEntitlementChanges', 'V2025RoleInsightsEntitlementChanges']
 ---
 
 # RoleInsightsEntitlementChanges
 
-
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **str** | Name of the entitlement | [optional] 
-**id** | **str** | Id of the entitlement | [optional] 
-**description** | **str** | Description for the entitlement | [optional] 
-**attribute** | **str** | Attribute for the entitlement | [optional] 
-**value** | **str** | Attribute value for the entitlement | [optional] 
-**source** | **str** | Source or the application for the entitlement | [optional] 
-**insight** | [**RoleInsightsInsight**](role-insights-insight) |  | [optional] 
-}
+**Name** | Pointer to **string** | Name of the entitlement | [optional] 
+**Id** | Pointer to **string** | Id of the entitlement | [optional] 
+**Description** | Pointer to **NullableString** | Description for the entitlement | [optional] 
+**Attribute** | Pointer to **string** | Attribute for the entitlement | [optional] 
+**Value** | Pointer to **string** | Attribute value for the entitlement | [optional] 
+**Source** | Pointer to **string** | Source or the application for the entitlement | [optional] 
+**Insight** | Pointer to [**RoleInsightsInsight**](role-insights-insight) |  | [optional] 
 
-## Example
+## Methods
 
-```python
-from sailpoint.v2025.models.role_insights_entitlement_changes import RoleInsightsEntitlementChanges
+### NewRoleInsightsEntitlementChanges
 
-role_insights_entitlement_changes = RoleInsightsEntitlementChanges(
-name='Administrator',
-id='8c190e67-87aa-4ed9-a90b-d9d5344523fb',
-description='Full administrative access to IdentityNow',
-attribute='assignedGroups',
-value='ORG_ADMIN',
-source='IdentityNow',
-insight=sailpoint.v2025.models.role_insights_insight.RoleInsightsInsight(
-                    type = 'ADD', 
-                    identities_with_access = 850, 
-                    identities_impacted = 150, 
-                    total_number_of_identities = 1000, 
-                    impacted_identity_names = '', )
-)
+`func NewRoleInsightsEntitlementChanges() *RoleInsightsEntitlementChanges`
 
-```
-[[Back to top]](#) 
+NewRoleInsightsEntitlementChanges instantiates a new RoleInsightsEntitlementChanges object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewRoleInsightsEntitlementChangesWithDefaults
+
+`func NewRoleInsightsEntitlementChangesWithDefaults() *RoleInsightsEntitlementChanges`
+
+NewRoleInsightsEntitlementChangesWithDefaults instantiates a new RoleInsightsEntitlementChanges object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetName
+
+`func (o *RoleInsightsEntitlementChanges) GetName() string`
+
+GetName returns the Name field if non-nil, zero value otherwise.
+
+### GetNameOk
+
+`func (o *RoleInsightsEntitlementChanges) GetNameOk() (*string, bool)`
+
+GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetName
+
+`func (o *RoleInsightsEntitlementChanges) SetName(v string)`
+
+SetName sets Name field to given value.
+
+### HasName
+
+`func (o *RoleInsightsEntitlementChanges) HasName() bool`
+
+HasName returns a boolean if a field has been set.
+
+### GetId
+
+`func (o *RoleInsightsEntitlementChanges) GetId() string`
+
+GetId returns the Id field if non-nil, zero value otherwise.
+
+### GetIdOk
+
+`func (o *RoleInsightsEntitlementChanges) GetIdOk() (*string, bool)`
+
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetId
+
+`func (o *RoleInsightsEntitlementChanges) SetId(v string)`
+
+SetId sets Id field to given value.
+
+### HasId
+
+`func (o *RoleInsightsEntitlementChanges) HasId() bool`
+
+HasId returns a boolean if a field has been set.
+
+### GetDescription
+
+`func (o *RoleInsightsEntitlementChanges) GetDescription() string`
+
+GetDescription returns the Description field if non-nil, zero value otherwise.
+
+### GetDescriptionOk
+
+`func (o *RoleInsightsEntitlementChanges) GetDescriptionOk() (*string, bool)`
+
+GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDescription
+
+`func (o *RoleInsightsEntitlementChanges) SetDescription(v string)`
+
+SetDescription sets Description field to given value.
+
+### HasDescription
+
+`func (o *RoleInsightsEntitlementChanges) HasDescription() bool`
+
+HasDescription returns a boolean if a field has been set.
+
+### SetDescriptionNil
+
+`func (o *RoleInsightsEntitlementChanges) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *RoleInsightsEntitlementChanges) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
+### GetAttribute
+
+`func (o *RoleInsightsEntitlementChanges) GetAttribute() string`
+
+GetAttribute returns the Attribute field if non-nil, zero value otherwise.
+
+### GetAttributeOk
+
+`func (o *RoleInsightsEntitlementChanges) GetAttributeOk() (*string, bool)`
+
+GetAttributeOk returns a tuple with the Attribute field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAttribute
+
+`func (o *RoleInsightsEntitlementChanges) SetAttribute(v string)`
+
+SetAttribute sets Attribute field to given value.
+
+### HasAttribute
+
+`func (o *RoleInsightsEntitlementChanges) HasAttribute() bool`
+
+HasAttribute returns a boolean if a field has been set.
+
+### GetValue
+
+`func (o *RoleInsightsEntitlementChanges) GetValue() string`
+
+GetValue returns the Value field if non-nil, zero value otherwise.
+
+### GetValueOk
+
+`func (o *RoleInsightsEntitlementChanges) GetValueOk() (*string, bool)`
+
+GetValueOk returns a tuple with the Value field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetValue
+
+`func (o *RoleInsightsEntitlementChanges) SetValue(v string)`
+
+SetValue sets Value field to given value.
+
+### HasValue
+
+`func (o *RoleInsightsEntitlementChanges) HasValue() bool`
+
+HasValue returns a boolean if a field has been set.
+
+### GetSource
+
+`func (o *RoleInsightsEntitlementChanges) GetSource() string`
+
+GetSource returns the Source field if non-nil, zero value otherwise.
+
+### GetSourceOk
+
+`func (o *RoleInsightsEntitlementChanges) GetSourceOk() (*string, bool)`
+
+GetSourceOk returns a tuple with the Source field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSource
+
+`func (o *RoleInsightsEntitlementChanges) SetSource(v string)`
+
+SetSource sets Source field to given value.
+
+### HasSource
+
+`func (o *RoleInsightsEntitlementChanges) HasSource() bool`
+
+HasSource returns a boolean if a field has been set.
+
+### GetInsight
+
+`func (o *RoleInsightsEntitlementChanges) GetInsight() RoleInsightsInsight`
+
+GetInsight returns the Insight field if non-nil, zero value otherwise.
+
+### GetInsightOk
+
+`func (o *RoleInsightsEntitlementChanges) GetInsightOk() (*RoleInsightsInsight, bool)`
+
+GetInsightOk returns a tuple with the Insight field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInsight
+
+`func (o *RoleInsightsEntitlementChanges) SetInsight(v RoleInsightsInsight)`
+
+SetInsight sets Insight field to given value.
+
+### HasInsight
+
+`func (o *RoleInsightsEntitlementChanges) HasInsight() bool`
+
+HasInsight returns a boolean if a field has been set.
+
 

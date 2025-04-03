@@ -3,31 +3,57 @@ id: v2024-create-form-definition-file-request-request
 title: CreateFormDefinitionFileRequestRequest
 pagination_label: CreateFormDefinitionFileRequestRequest
 sidebar_label: CreateFormDefinitionFileRequestRequest
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'CreateFormDefinitionFileRequestRequest', 'V2024CreateFormDefinitionFileRequestRequest'] 
-slug: /tools/sdk/python/v2024/models/create-form-definition-file-request-request
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'CreateFormDefinitionFileRequestRequest', 'V2024CreateFormDefinitionFileRequestRequest'] 
+slug: /tools/sdk/go/v2024/models/create-form-definition-file-request-request
 tags: ['SDK', 'Software Development Kit', 'CreateFormDefinitionFileRequestRequest', 'V2024CreateFormDefinitionFileRequestRequest']
 ---
 
 # CreateFormDefinitionFileRequestRequest
 
-
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**file** | **bytearray** | File specifying the multipart | [required]
-}
+**File** | ***os.File** | File specifying the multipart | 
 
-## Example
+## Methods
 
-```python
-from sailpoint.v2024.models.create_form_definition_file_request_request import CreateFormDefinitionFileRequestRequest
+### NewCreateFormDefinitionFileRequestRequest
 
-create_form_definition_file_request_request = CreateFormDefinitionFileRequestRequest(
-file=bytes(b'blah')
-)
+`func NewCreateFormDefinitionFileRequestRequest(file *os.File, ) *CreateFormDefinitionFileRequestRequest`
 
-```
-[[Back to top]](#) 
+NewCreateFormDefinitionFileRequestRequest instantiates a new CreateFormDefinitionFileRequestRequest object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewCreateFormDefinitionFileRequestRequestWithDefaults
+
+`func NewCreateFormDefinitionFileRequestRequestWithDefaults() *CreateFormDefinitionFileRequestRequest`
+
+NewCreateFormDefinitionFileRequestRequestWithDefaults instantiates a new CreateFormDefinitionFileRequestRequest object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetFile
+
+`func (o *CreateFormDefinitionFileRequestRequest) GetFile() *os.File`
+
+GetFile returns the File field if non-nil, zero value otherwise.
+
+### GetFileOk
+
+`func (o *CreateFormDefinitionFileRequestRequest) GetFileOk() (**os.File, bool)`
+
+GetFileOk returns a tuple with the File field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFile
+
+`func (o *CreateFormDefinitionFileRequestRequest) SetFile(v *os.File)`
+
+SetFile sets File field to given value.
+
+
 

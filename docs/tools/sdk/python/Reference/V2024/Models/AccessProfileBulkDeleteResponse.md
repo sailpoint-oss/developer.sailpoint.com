@@ -3,44 +3,114 @@ id: v2024-access-profile-bulk-delete-response
 title: AccessProfileBulkDeleteResponse
 pagination_label: AccessProfileBulkDeleteResponse
 sidebar_label: AccessProfileBulkDeleteResponse
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'AccessProfileBulkDeleteResponse', 'V2024AccessProfileBulkDeleteResponse'] 
-slug: /tools/sdk/python/v2024/models/access-profile-bulk-delete-response
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'AccessProfileBulkDeleteResponse', 'V2024AccessProfileBulkDeleteResponse'] 
+slug: /tools/sdk/go/v2024/models/access-profile-bulk-delete-response
 tags: ['SDK', 'Software Development Kit', 'AccessProfileBulkDeleteResponse', 'V2024AccessProfileBulkDeleteResponse']
 ---
 
 # AccessProfileBulkDeleteResponse
 
-
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**task_id** | **str** | ID of the task which is executing the bulk deletion. This can be passed to the **/task-status** API to track status. | [optional] 
-**pending** | **[]str** | List of IDs of Access Profiles which are pending deletion. | [optional] 
-**in_use** | [**[]AccessProfileUsage**](access-profile-usage) | List of usages of Access Profiles targeted for deletion. | [optional] 
-}
+**TaskId** | Pointer to **string** | ID of the task which is executing the bulk deletion. This can be passed to the **_/task-status** API to track status. | [optional] 
+**Pending** | Pointer to **[]string** | List of IDs of Access Profiles which are pending deletion. | [optional] 
+**InUse** | Pointer to [**[]AccessProfileUsage**](access-profile-usage) | List of usages of Access Profiles targeted for deletion. | [optional] 
 
-## Example
+## Methods
 
-```python
-from sailpoint.v2024.models.access_profile_bulk_delete_response import AccessProfileBulkDeleteResponse
+### NewAccessProfileBulkDeleteResponse
 
-access_profile_bulk_delete_response = AccessProfileBulkDeleteResponse(
-task_id='2c9180867817ac4d017817c491119a20',
-pending=[2c91808876438bbb017668c21919ecca, 2c91808876438bb201766e129f151816],
-in_use=[
-                    sailpoint.v2024.models.access_profile_usage.AccessProfileUsage(
-                        access_profile_id = '2c91808876438bbb017668c21919ecca', 
-                        used_by = [
-                            sailpoint.v2024.models.access_profile_usage_used_by_inner.AccessProfileUsage_usedBy_inner(
-                                type = 'ROLE', 
-                                id = '2c8180857a9b3da0017aa03418480f9d', 
-                                name = 'Manager Role', )
-                            ], )
-                    ]
-)
+`func NewAccessProfileBulkDeleteResponse() *AccessProfileBulkDeleteResponse`
 
-```
-[[Back to top]](#) 
+NewAccessProfileBulkDeleteResponse instantiates a new AccessProfileBulkDeleteResponse object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewAccessProfileBulkDeleteResponseWithDefaults
+
+`func NewAccessProfileBulkDeleteResponseWithDefaults() *AccessProfileBulkDeleteResponse`
+
+NewAccessProfileBulkDeleteResponseWithDefaults instantiates a new AccessProfileBulkDeleteResponse object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetTaskId
+
+`func (o *AccessProfileBulkDeleteResponse) GetTaskId() string`
+
+GetTaskId returns the TaskId field if non-nil, zero value otherwise.
+
+### GetTaskIdOk
+
+`func (o *AccessProfileBulkDeleteResponse) GetTaskIdOk() (*string, bool)`
+
+GetTaskIdOk returns a tuple with the TaskId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTaskId
+
+`func (o *AccessProfileBulkDeleteResponse) SetTaskId(v string)`
+
+SetTaskId sets TaskId field to given value.
+
+### HasTaskId
+
+`func (o *AccessProfileBulkDeleteResponse) HasTaskId() bool`
+
+HasTaskId returns a boolean if a field has been set.
+
+### GetPending
+
+`func (o *AccessProfileBulkDeleteResponse) GetPending() []string`
+
+GetPending returns the Pending field if non-nil, zero value otherwise.
+
+### GetPendingOk
+
+`func (o *AccessProfileBulkDeleteResponse) GetPendingOk() (*[]string, bool)`
+
+GetPendingOk returns a tuple with the Pending field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPending
+
+`func (o *AccessProfileBulkDeleteResponse) SetPending(v []string)`
+
+SetPending sets Pending field to given value.
+
+### HasPending
+
+`func (o *AccessProfileBulkDeleteResponse) HasPending() bool`
+
+HasPending returns a boolean if a field has been set.
+
+### GetInUse
+
+`func (o *AccessProfileBulkDeleteResponse) GetInUse() []AccessProfileUsage`
+
+GetInUse returns the InUse field if non-nil, zero value otherwise.
+
+### GetInUseOk
+
+`func (o *AccessProfileBulkDeleteResponse) GetInUseOk() (*[]AccessProfileUsage, bool)`
+
+GetInUseOk returns a tuple with the InUse field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInUse
+
+`func (o *AccessProfileBulkDeleteResponse) SetInUse(v []AccessProfileUsage)`
+
+SetInUse sets InUse field to given value.
+
+### HasInUse
+
+`func (o *AccessProfileBulkDeleteResponse) HasInUse() bool`
+
+HasInUse returns a boolean if a field has been set.
+
 

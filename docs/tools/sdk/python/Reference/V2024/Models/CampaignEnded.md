@@ -3,43 +3,57 @@ id: v2024-campaign-ended
 title: CampaignEnded
 pagination_label: CampaignEnded
 sidebar_label: CampaignEnded
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'CampaignEnded', 'V2024CampaignEnded'] 
-slug: /tools/sdk/python/v2024/models/campaign-ended
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'CampaignEnded', 'V2024CampaignEnded'] 
+slug: /tools/sdk/go/v2024/models/campaign-ended
 tags: ['SDK', 'Software Development Kit', 'CampaignEnded', 'V2024CampaignEnded']
 ---
 
 # CampaignEnded
 
-
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**campaign** | [**CampaignEndedCampaign**](campaign-ended-campaign) |  | [required]
-}
+**Campaign** | [**CampaignEndedCampaign**](campaign-ended-campaign) |  | 
 
-## Example
+## Methods
 
-```python
-from sailpoint.v2024.models.campaign_ended import CampaignEnded
+### NewCampaignEnded
 
-campaign_ended = CampaignEnded(
-campaign=sailpoint.v2024.models.campaign_ended_campaign.CampaignEnded_campaign(
-                    id = '2c91808576f886190176f88cac5a0010', 
-                    name = 'Manager Access Campaign', 
-                    description = 'Audit access for all employees.', 
-                    created = '2021-02-16T03:04:45.815Z', 
-                    modified = '2021-03-16T03:06:45.815Z', 
-                    deadline = '2021-03-16T03:04:45.815Z', 
-                    type = MANAGER, 
-                    campaign_owner = sailpoint.v2024.models.campaign_activated_campaign_campaign_owner.CampaignActivated_campaign_campaignOwner(
-                        id = '37f080867702c1910177031320c40n27', 
-                        display_name = 'John Snow', 
-                        email = 'john.snow@example.com', ), 
-                    status = COMPLETED, )
-)
+`func NewCampaignEnded(campaign CampaignEndedCampaign, ) *CampaignEnded`
 
-```
-[[Back to top]](#) 
+NewCampaignEnded instantiates a new CampaignEnded object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewCampaignEndedWithDefaults
+
+`func NewCampaignEndedWithDefaults() *CampaignEnded`
+
+NewCampaignEndedWithDefaults instantiates a new CampaignEnded object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetCampaign
+
+`func (o *CampaignEnded) GetCampaign() CampaignEndedCampaign`
+
+GetCampaign returns the Campaign field if non-nil, zero value otherwise.
+
+### GetCampaignOk
+
+`func (o *CampaignEnded) GetCampaignOk() (*CampaignEndedCampaign, bool)`
+
+GetCampaignOk returns a tuple with the Campaign field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCampaign
+
+`func (o *CampaignEnded) SetCampaign(v CampaignEndedCampaign)`
+
+SetCampaign sets Campaign field to given value.
+
+
 

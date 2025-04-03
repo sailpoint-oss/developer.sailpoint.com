@@ -3,31 +3,57 @@ id: v2025-account-attributes-create
 title: AccountAttributesCreate
 pagination_label: AccountAttributesCreate
 sidebar_label: AccountAttributesCreate
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'AccountAttributesCreate', 'V2025AccountAttributesCreate'] 
-slug: /tools/sdk/python/v2025/models/account-attributes-create
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'AccountAttributesCreate', 'V2025AccountAttributesCreate'] 
+slug: /tools/sdk/go/v2025/models/account-attributes-create
 tags: ['SDK', 'Software Development Kit', 'AccountAttributesCreate', 'V2025AccountAttributesCreate']
 ---
 
 # AccountAttributesCreate
 
-
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**attributes** | [**AccountAttributesCreateAttributes**](account-attributes-create-attributes) |  | [required]
-}
+**Attributes** | [**AccountAttributesCreateAttributes**](account-attributes-create-attributes) |  | 
 
-## Example
+## Methods
 
-```python
-from sailpoint.v2025.models.account_attributes_create import AccountAttributesCreate
+### NewAccountAttributesCreate
 
-account_attributes_create = AccountAttributesCreate(
-attributes={sourceId=34bfcbe116c9407464af37acbaf7a4dc, city=Austin, displayName=John Doe, userName=jdoe, sAMAccountName=jDoe, mail=john.doe@sailpoint.com}
-)
+`func NewAccountAttributesCreate(attributes AccountAttributesCreateAttributes, ) *AccountAttributesCreate`
 
-```
-[[Back to top]](#) 
+NewAccountAttributesCreate instantiates a new AccountAttributesCreate object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewAccountAttributesCreateWithDefaults
+
+`func NewAccountAttributesCreateWithDefaults() *AccountAttributesCreate`
+
+NewAccountAttributesCreateWithDefaults instantiates a new AccountAttributesCreate object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetAttributes
+
+`func (o *AccountAttributesCreate) GetAttributes() AccountAttributesCreateAttributes`
+
+GetAttributes returns the Attributes field if non-nil, zero value otherwise.
+
+### GetAttributesOk
+
+`func (o *AccountAttributesCreate) GetAttributesOk() (*AccountAttributesCreateAttributes, bool)`
+
+GetAttributesOk returns a tuple with the Attributes field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAttributes
+
+`func (o *AccountAttributesCreate) SetAttributes(v AccountAttributesCreateAttributes)`
+
+SetAttributes sets Attributes field to given value.
+
+
 

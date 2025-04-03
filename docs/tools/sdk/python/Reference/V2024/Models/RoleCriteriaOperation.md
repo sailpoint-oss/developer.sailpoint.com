@@ -3,31 +3,29 @@ id: v2024-role-criteria-operation
 title: RoleCriteriaOperation
 pagination_label: RoleCriteriaOperation
 sidebar_label: RoleCriteriaOperation
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'RoleCriteriaOperation', 'V2024RoleCriteriaOperation'] 
-slug: /tools/sdk/python/v2024/models/role-criteria-operation
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'RoleCriteriaOperation', 'V2024RoleCriteriaOperation'] 
+slug: /tools/sdk/go/v2024/models/role-criteria-operation
 tags: ['SDK', 'Software Development Kit', 'RoleCriteriaOperation', 'V2024RoleCriteriaOperation']
 ---
 
 # RoleCriteriaOperation
 
-An operation
-
 ## Enum
 
-* `EQUALS` (value: `'EQUALS'`)
 
-* `NOT_EQUALS` (value: `'NOT_EQUALS'`)
+* `EQUALS` (value: `"EQUALS"`)
 
-* `CONTAINS` (value: `'CONTAINS'`)
+* `NOT_EQUALS` (value: `"NOT_EQUALS"`)
 
-* `STARTS_WITH` (value: `'STARTS_WITH'`)
+* `CONTAINS` (value: `"CONTAINS"`)
 
-* `ENDS_WITH` (value: `'ENDS_WITH'`)
+* `STARTS_WITH` (value: `"STARTS_WITH"`)
 
-* `AND` (value: `'AND'`)
+* `ENDS_WITH` (value: `"ENDS_WITH"`)
 
-* `OR` (value: `'OR'`)
+* `AND` (value: `"AND"`)
 
-[[Back to top]](#) 
+* `OR` (value: `"OR"`)
+
 

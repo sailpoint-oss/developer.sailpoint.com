@@ -3,13 +3,13 @@ id: v2025-accounts
 title: Accounts
 pagination_label: Accounts
 sidebar_label: Accounts
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'Accounts', 'V2025Accounts'] 
-slug: /tools/sdk/python/v2025/methods/accounts
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'Accounts', 'V2025Accounts'] 
+slug: /tools/sdk/go/v2025/methods/accounts
 tags: ['SDK', 'Software Development Kit', 'Accounts', 'V2025Accounts']
 ---
 
-# sailpoint.v2025.AccountsApi
+# AccountsAPI
   Use this API to implement and customize account functionality.
 With this functionality in place, administrators can manage users&#39; access across sources in Identity Security Cloud. 
 
@@ -42,22 +42,22 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-account**](#create-account) | **POST** `/accounts` | Create Account
-[**delete-account**](#delete-account) | **DELETE** `/accounts/{id}` | Delete Account
-[**delete-account-async**](#delete-account-async) | **POST** `/accounts/{id}/remove` | Remove Account
-[**disable-account**](#disable-account) | **POST** `/accounts/{id}/disable` | Disable Account
-[**disable-account-for-identity**](#disable-account-for-identity) | **POST** `/identities-accounts/{id}/disable` | Disable IDN Account for Identity
-[**disable-accounts-for-identities**](#disable-accounts-for-identities) | **POST** `/identities-accounts/disable` | Disable IDN Accounts for Identities
-[**enable-account**](#enable-account) | **POST** `/accounts/{id}/enable` | Enable Account
-[**enable-account-for-identity**](#enable-account-for-identity) | **POST** `/identities-accounts/{id}/enable` | Enable IDN Account for Identity
-[**enable-accounts-for-identities**](#enable-accounts-for-identities) | **POST** `/identities-accounts/enable` | Enable IDN Accounts for Identities
-[**get-account**](#get-account) | **GET** `/accounts/{id}` | Account Details
-[**get-account-entitlements**](#get-account-entitlements) | **GET** `/accounts/{id}/entitlements` | Account Entitlements
-[**list-accounts**](#list-accounts) | **GET** `/accounts` | Accounts List
-[**put-account**](#put-account) | **PUT** `/accounts/{id}` | Update Account
-[**submit-reload-account**](#submit-reload-account) | **POST** `/accounts/{id}/reload` | Reload Account
-[**unlock-account**](#unlock-account) | **POST** `/accounts/{id}/unlock` | Unlock Account
-[**update-account**](#update-account) | **PATCH** `/accounts/{id}` | Update Account
+[**create-account**](#create-account) | **Post** `/accounts` | Create Account
+[**delete-account**](#delete-account) | **Delete** `/accounts/{id}` | Delete Account
+[**delete-account-async**](#delete-account-async) | **Post** `/accounts/{id}/remove` | Remove Account
+[**disable-account**](#disable-account) | **Post** `/accounts/{id}/disable` | Disable Account
+[**disable-account-for-identity**](#disable-account-for-identity) | **Post** `/identities-accounts/{id}/disable` | Disable IDN Account for Identity
+[**disable-accounts-for-identities**](#disable-accounts-for-identities) | **Post** `/identities-accounts/disable` | Disable IDN Accounts for Identities
+[**enable-account**](#enable-account) | **Post** `/accounts/{id}/enable` | Enable Account
+[**enable-account-for-identity**](#enable-account-for-identity) | **Post** `/identities-accounts/{id}/enable` | Enable IDN Account for Identity
+[**enable-accounts-for-identities**](#enable-accounts-for-identities) | **Post** `/identities-accounts/enable` | Enable IDN Accounts for Identities
+[**get-account**](#get-account) | **Get** `/accounts/{id}` | Account Details
+[**get-account-entitlements**](#get-account-entitlements) | **Get** `/accounts/{id}/entitlements` | Account Entitlements
+[**list-accounts**](#list-accounts) | **Get** `/accounts` | Accounts List
+[**put-account**](#put-account) | **Put** `/accounts/{id}` | Update Account
+[**submit-reload-account**](#submit-reload-account) | **Post** `/accounts/{id}/reload` | Reload Account
+[**unlock-account**](#unlock-account) | **Post** `/accounts/{id}/unlock` | Unlock Account
+[**update-account**](#update-account) | **Patch** `/accounts/{id}` | Update Account
 
 
 ## create-account
@@ -77,42 +77,43 @@ By providing the account ID of an existing account in the request body, this API
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/create-account)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | account_attributes_create | [**AccountAttributesCreate**](../models/account-attributes-create) | True  | 
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreateAccountRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **accountAttributesCreate** | [**AccountAttributesCreate**](../models/account-attributes-create) |  | 
 
 ### Return type
+
 [**AccountsAsyncResult**](../models/accounts-async-result)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-202 | Async task details. | AccountsAsyncResult |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: application/json
- - **Accept**: application/json
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.accounts_api import AccountsApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.account_attributes_create import AccountAttributesCreate
-from sailpoint.v2025.models.accounts_async_result import AccountsAsyncResult
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    account_attributes_create = '''{
+func main() {
+    accountAttributesCreate := fmt.Sprintf(`{
           "attributes" : {
             "sourceId" : "34bfcbe116c9407464af37acbaf7a4dc",
             "city" : "Austin",
@@ -121,23 +122,21 @@ with ApiClient(configuration) as api_client:
             "sAMAccountName" : "jDoe",
             "mail" : "john.doe@sailpoint.com"
           }
-        }''' # AccountAttributesCreate | 
+        }`) # AccountAttributesCreate | 
 
-    try:
-        # Create Account
-        new_account_attributes_create = AccountAttributesCreate.from_json(account_attributes_create)
-        results = AccountsApi(api_client).create_account(account_attributes_create=new_account_attributes_create)
-        # Below is a request that includes all optional parameters
-        # results = AccountsApi(api_client).create_account(new_account_attributes_create)
-        print("The response of AccountsApi->create_account:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling AccountsApi->create_account: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.AccountsAPI.CreateAccount(context.Background()).AccountAttributesCreate(accountAttributesCreate).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.CreateAccount``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateAccount`: AccountsAsyncResult
+	fmt.Fprintf(os.Stdout, "Response from `AccountsAPI.CreateAccount`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## delete-account
 Delete Account
@@ -148,58 +147,61 @@ This endpoint only deletes the account from IdentityNow, not the source itself, 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-account)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | id | **str** | True  | Account ID.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | Account ID. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteAccountRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
 
 ### Return type
+
 [**AccountsAsyncResult**](../models/accounts-async-result)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-202 | Async task details. | AccountsAsyncResult |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.accounts_api import AccountsApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.accounts_async_result import AccountsAsyncResult
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    id = 'ef38f94347e94562b5bb8424a56397d8' # str | Account ID. # str | Account ID.
+func main() {
+    id := ef38f94347e94562b5bb8424a56397d8 # string | Account ID. # string | Account ID.
 
-    try:
-        # Delete Account
-        
-        results = AccountsApi(api_client).delete_account(id=id)
-        # Below is a request that includes all optional parameters
-        # results = AccountsApi(api_client).delete_account(id)
-        print("The response of AccountsApi->delete_account:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling AccountsApi->delete_account: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.AccountsAPI.DeleteAccount(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.DeleteAccount``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `DeleteAccount`: AccountsAsyncResult
+	fmt.Fprintf(os.Stdout, "Response from `AccountsAPI.DeleteAccount`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## delete-account-async
 :::warning experimental 
@@ -208,7 +210,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::tip setting x-sailpoint-experimental header
  on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
  Example:
- ```python
+ ```go
    configuration = Configuration()
    configuration.experimental = True
  ```
@@ -224,60 +226,63 @@ This endpoint is good for:
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-account-async)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | id | **str** | True  | The account id
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | The account id | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteAccountAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
 
 ### Return type
+
 [**TaskResultDto**](../models/task-result-dto)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-202 | Accepted. Returns task result details of removal request. | TaskResultDto |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.accounts_api import AccountsApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.task_result_dto import TaskResultDto
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
-configuration.experimental = true
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    id = 'c350d6aa4f104c61b062cb632421ad10' # str | The account id # str | The account id
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
+func main() {
+    id := c350d6aa4f104c61b062cb632421ad10 # string | The account id # string | The account id
+    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
 
-    try:
-        # Remove Account
-        
-        results = AccountsApi(api_client).delete_account_async(id=id, x_sail_point_experimental=x_sail_point_experimental)
-        # Below is a request that includes all optional parameters
-        # results = AccountsApi(api_client).delete_account_async(id, x_sail_point_experimental)
-        print("The response of AccountsApi->delete_account_async:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling AccountsApi->delete_account_async: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.AccountsAPI.DeleteAccountAsync(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.DeleteAccountAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `DeleteAccountAsync`: TaskResultDto
+	fmt.Fprintf(os.Stdout, "Response from `AccountsAPI.DeleteAccountAsync`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## disable-account
 Disable Account
@@ -285,64 +290,66 @@ This API submits a task to disable the account and returns the task ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/disable-account)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | id | **str** | True  | The account id
- Body  | account_toggle_request | [**AccountToggleRequest**](../models/account-toggle-request) | True  | 
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | The account id | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDisableAccountRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **accountToggleRequest** | [**AccountToggleRequest**](../models/account-toggle-request) |  | 
 
 ### Return type
+
 [**AccountsAsyncResult**](../models/accounts-async-result)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-202 | Async task details | AccountsAsyncResult |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: application/json
- - **Accept**: application/json
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.accounts_api import AccountsApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.account_toggle_request import AccountToggleRequest
-from sailpoint.v2025.models.accounts_async_result import AccountsAsyncResult
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    id = 'ef38f94347e94562b5bb8424a56397d8' # str | The account id # str | The account id
-    account_toggle_request = '''{
+func main() {
+    id := ef38f94347e94562b5bb8424a56397d8 # string | The account id # string | The account id
+    accountToggleRequest := fmt.Sprintf(`{
           "forceProvisioning" : false,
           "externalVerificationId" : "3f9180835d2e5168015d32f890ca1581"
-        }''' # AccountToggleRequest | 
+        }`) # AccountToggleRequest | 
 
-    try:
-        # Disable Account
-        new_account_toggle_request = AccountToggleRequest.from_json(account_toggle_request)
-        results = AccountsApi(api_client).disable_account(id=id, account_toggle_request=new_account_toggle_request)
-        # Below is a request that includes all optional parameters
-        # results = AccountsApi(api_client).disable_account(id, new_account_toggle_request)
-        print("The response of AccountsApi->disable_account:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling AccountsApi->disable_account: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.AccountsAPI.DisableAccount(context.Background(), id).AccountToggleRequest(accountToggleRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.DisableAccount``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `DisableAccount`: AccountsAsyncResult
+	fmt.Fprintf(os.Stdout, "Response from `AccountsAPI.DisableAccount`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## disable-account-for-identity
 :::warning experimental 
@@ -351,7 +358,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::tip setting x-sailpoint-experimental header
  on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
  Example:
- ```python
+ ```go
    configuration = Configuration()
    configuration.experimental = True
  ```
@@ -361,60 +368,63 @@ This API submits a task to disable IDN account for a single identity.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/disable-account-for-identity)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | id | **str** | True  | The identity id.
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | The identity id. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDisableAccountForIdentityRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
 
 ### Return type
-**object**
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-202 | Accepted - Returned if the request was successfully accepted into the system. | object |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
+**map[string]interface{}**
 
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.accounts_api import AccountsApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
-configuration.experimental = true
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    id = '2c91808384203c2d018437e631158309' # str | The identity id. # str | The identity id.
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
+func main() {
+    id := 2c91808384203c2d018437e631158309 # string | The identity id. # string | The identity id.
+    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
 
-    try:
-        # Disable IDN Account for Identity
-        
-        results = AccountsApi(api_client).disable_account_for_identity(id=id, x_sail_point_experimental=x_sail_point_experimental)
-        # Below is a request that includes all optional parameters
-        # results = AccountsApi(api_client).disable_account_for_identity(id, x_sail_point_experimental)
-        print("The response of AccountsApi->disable_account_for_identity:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling AccountsApi->disable_account_for_identity: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.AccountsAPI.DisableAccountForIdentity(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.DisableAccountForIdentity``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `DisableAccountForIdentity`: map[string]interface{}
+	fmt.Fprintf(os.Stdout, "Response from `AccountsAPI.DisableAccountForIdentity`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## disable-accounts-for-identities
 :::warning experimental 
@@ -423,7 +433,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::tip setting x-sailpoint-experimental header
  on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
  Example:
- ```python
+ ```go
    configuration = Configuration()
    configuration.experimental = True
  ```
@@ -433,63 +443,61 @@ This API submits tasks to disable IDN account for each identity provided in the 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/disable-accounts-for-identities)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
- Body  | identities_accounts_bulk_request | [**IdentitiesAccountsBulkRequest**](../models/identities-accounts-bulk-request) | True  | 
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDisableAccountsForIdentitiesRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
+ **identitiesAccountsBulkRequest** | [**IdentitiesAccountsBulkRequest**](../models/identities-accounts-bulk-request) |  | 
 
 ### Return type
-[**List[BulkIdentitiesAccountsResponse]**](../models/bulk-identities-accounts-response)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-207 | Bulk response details. | List[BulkIdentitiesAccountsResponse] |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
+[**[]BulkIdentitiesAccountsResponse**](../models/bulk-identities-accounts-response)
 
 ### HTTP request headers
- - **Content-Type**: application/json
- - **Accept**: application/json
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.accounts_api import AccountsApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.bulk_identities_accounts_response import BulkIdentitiesAccountsResponse
-from sailpoint.v2025.models.identities_accounts_bulk_request import IdentitiesAccountsBulkRequest
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
-configuration.experimental = true
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    identities_accounts_bulk_request = '''{
+func main() {
+    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+    identitiesAccountsBulkRequest := fmt.Sprintf(`{
           "identityIds" : [ "2c91808384203c2d018437e631158308", "2c9180858082150f0180893dbaf553fe" ]
-        }''' # IdentitiesAccountsBulkRequest | 
+        }`) # IdentitiesAccountsBulkRequest | 
 
-    try:
-        # Disable IDN Accounts for Identities
-        new_identities_accounts_bulk_request = IdentitiesAccountsBulkRequest.from_json(identities_accounts_bulk_request)
-        results = AccountsApi(api_client).disable_accounts_for_identities(x_sail_point_experimental=x_sail_point_experimental, identities_accounts_bulk_request=new_identities_accounts_bulk_request)
-        # Below is a request that includes all optional parameters
-        # results = AccountsApi(api_client).disable_accounts_for_identities(x_sail_point_experimental, new_identities_accounts_bulk_request)
-        print("The response of AccountsApi->disable_accounts_for_identities:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling AccountsApi->disable_accounts_for_identities: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.AccountsAPI.DisableAccountsForIdentities(context.Background()).XSailPointExperimental(xSailPointExperimental).IdentitiesAccountsBulkRequest(identitiesAccountsBulkRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.DisableAccountsForIdentities``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `DisableAccountsForIdentities`: []BulkIdentitiesAccountsResponse
+	fmt.Fprintf(os.Stdout, "Response from `AccountsAPI.DisableAccountsForIdentities`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## enable-account
 Enable Account
@@ -497,64 +505,66 @@ This API submits a task to enable account and returns the task ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/enable-account)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | id | **str** | True  | The account id
- Body  | account_toggle_request | [**AccountToggleRequest**](../models/account-toggle-request) | True  | 
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | The account id | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEnableAccountRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **accountToggleRequest** | [**AccountToggleRequest**](../models/account-toggle-request) |  | 
 
 ### Return type
+
 [**AccountsAsyncResult**](../models/accounts-async-result)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-202 | Async task details | AccountsAsyncResult |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: application/json
- - **Accept**: application/json
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.accounts_api import AccountsApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.account_toggle_request import AccountToggleRequest
-from sailpoint.v2025.models.accounts_async_result import AccountsAsyncResult
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    id = 'ef38f94347e94562b5bb8424a56397d8' # str | The account id # str | The account id
-    account_toggle_request = '''{
+func main() {
+    id := ef38f94347e94562b5bb8424a56397d8 # string | The account id # string | The account id
+    accountToggleRequest := fmt.Sprintf(`{
           "forceProvisioning" : false,
           "externalVerificationId" : "3f9180835d2e5168015d32f890ca1581"
-        }''' # AccountToggleRequest | 
+        }`) # AccountToggleRequest | 
 
-    try:
-        # Enable Account
-        new_account_toggle_request = AccountToggleRequest.from_json(account_toggle_request)
-        results = AccountsApi(api_client).enable_account(id=id, account_toggle_request=new_account_toggle_request)
-        # Below is a request that includes all optional parameters
-        # results = AccountsApi(api_client).enable_account(id, new_account_toggle_request)
-        print("The response of AccountsApi->enable_account:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling AccountsApi->enable_account: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.AccountsAPI.EnableAccount(context.Background(), id).AccountToggleRequest(accountToggleRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.EnableAccount``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EnableAccount`: AccountsAsyncResult
+	fmt.Fprintf(os.Stdout, "Response from `AccountsAPI.EnableAccount`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## enable-account-for-identity
 :::warning experimental 
@@ -563,7 +573,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::tip setting x-sailpoint-experimental header
  on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
  Example:
- ```python
+ ```go
    configuration = Configuration()
    configuration.experimental = True
  ```
@@ -573,60 +583,63 @@ This API submits a task to enable IDN account for a single identity.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/enable-account-for-identity)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | id | **str** | True  | The identity id.
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | The identity id. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEnableAccountForIdentityRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
 
 ### Return type
-**object**
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-202 | Accepted - Returned if the request was successfully accepted into the system. | object |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
+**map[string]interface{}**
 
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.accounts_api import AccountsApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
-configuration.experimental = true
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    id = '2c91808384203c2d018437e631158309' # str | The identity id. # str | The identity id.
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
+func main() {
+    id := 2c91808384203c2d018437e631158309 # string | The identity id. # string | The identity id.
+    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
 
-    try:
-        # Enable IDN Account for Identity
-        
-        results = AccountsApi(api_client).enable_account_for_identity(id=id, x_sail_point_experimental=x_sail_point_experimental)
-        # Below is a request that includes all optional parameters
-        # results = AccountsApi(api_client).enable_account_for_identity(id, x_sail_point_experimental)
-        print("The response of AccountsApi->enable_account_for_identity:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling AccountsApi->enable_account_for_identity: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.AccountsAPI.EnableAccountForIdentity(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.EnableAccountForIdentity``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EnableAccountForIdentity`: map[string]interface{}
+	fmt.Fprintf(os.Stdout, "Response from `AccountsAPI.EnableAccountForIdentity`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## enable-accounts-for-identities
 :::warning experimental 
@@ -635,7 +648,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::tip setting x-sailpoint-experimental header
  on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
  Example:
- ```python
+ ```go
    configuration = Configuration()
    configuration.experimental = True
  ```
@@ -645,63 +658,61 @@ This API submits tasks to enable IDN account for each identity provided in the r
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/enable-accounts-for-identities)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
- Body  | identities_accounts_bulk_request | [**IdentitiesAccountsBulkRequest**](../models/identities-accounts-bulk-request) | True  | 
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEnableAccountsForIdentitiesRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
+ **identitiesAccountsBulkRequest** | [**IdentitiesAccountsBulkRequest**](../models/identities-accounts-bulk-request) |  | 
 
 ### Return type
-[**List[BulkIdentitiesAccountsResponse]**](../models/bulk-identities-accounts-response)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-207 | Bulk response details. | List[BulkIdentitiesAccountsResponse] |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
+[**[]BulkIdentitiesAccountsResponse**](../models/bulk-identities-accounts-response)
 
 ### HTTP request headers
- - **Content-Type**: application/json
- - **Accept**: application/json
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.accounts_api import AccountsApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.bulk_identities_accounts_response import BulkIdentitiesAccountsResponse
-from sailpoint.v2025.models.identities_accounts_bulk_request import IdentitiesAccountsBulkRequest
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
-configuration.experimental = true
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    identities_accounts_bulk_request = '''{
+func main() {
+    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+    identitiesAccountsBulkRequest := fmt.Sprintf(`{
           "identityIds" : [ "2c91808384203c2d018437e631158308", "2c9180858082150f0180893dbaf553fe" ]
-        }''' # IdentitiesAccountsBulkRequest | 
+        }`) # IdentitiesAccountsBulkRequest | 
 
-    try:
-        # Enable IDN Accounts for Identities
-        new_identities_accounts_bulk_request = IdentitiesAccountsBulkRequest.from_json(identities_accounts_bulk_request)
-        results = AccountsApi(api_client).enable_accounts_for_identities(x_sail_point_experimental=x_sail_point_experimental, identities_accounts_bulk_request=new_identities_accounts_bulk_request)
-        # Below is a request that includes all optional parameters
-        # results = AccountsApi(api_client).enable_accounts_for_identities(x_sail_point_experimental, new_identities_accounts_bulk_request)
-        print("The response of AccountsApi->enable_accounts_for_identities:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling AccountsApi->enable_accounts_for_identities: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.AccountsAPI.EnableAccountsForIdentities(context.Background()).XSailPointExperimental(xSailPointExperimental).IdentitiesAccountsBulkRequest(identitiesAccountsBulkRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.EnableAccountsForIdentities``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EnableAccountsForIdentities`: []BulkIdentitiesAccountsResponse
+	fmt.Fprintf(os.Stdout, "Response from `AccountsAPI.EnableAccountsForIdentities`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## get-account
 Account Details
@@ -709,58 +720,61 @@ Use this API to return the details for a single account by its ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-account)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | id | **str** | True  | Account ID.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | Account ID. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetAccountRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
 
 ### Return type
+
 [**Account**](../models/account)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | Account object. | Account |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.accounts_api import AccountsApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.account import Account
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    id = 'ef38f94347e94562b5bb8424a56397d8' # str | Account ID. # str | Account ID.
+func main() {
+    id := ef38f94347e94562b5bb8424a56397d8 # string | Account ID. # string | Account ID.
 
-    try:
-        # Account Details
-        
-        results = AccountsApi(api_client).get_account(id=id)
-        # Below is a request that includes all optional parameters
-        # results = AccountsApi(api_client).get_account(id)
-        print("The response of AccountsApi->get_account:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling AccountsApi->get_account: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.AccountsAPI.GetAccount(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.GetAccount``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetAccount`: Account
+	fmt.Fprintf(os.Stdout, "Response from `AccountsAPI.GetAccount`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## get-account-entitlements
 Account Entitlements
@@ -768,64 +782,67 @@ This API returns entitlements of the account.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-account-entitlements)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | id | **str** | True  | The account id
-  Query | limit | **int** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-  Query | offset | **int** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-  Query | count | **bool** |   (optional) (default to False) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | The account id | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetAccountEntitlementsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **limit** | **int32** | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to 250]
+ **offset** | **int32** | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to 0]
+ **count** | **bool** | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to false]
 
 ### Return type
-[**List[Entitlement]**](../models/entitlement)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | An array of account entitlements | List[Entitlement] |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
+[**[]Entitlement**](../models/entitlement)
 
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.accounts_api import AccountsApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.entitlement import Entitlement
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    id = 'ef38f94347e94562b5bb8424a56397d8' # str | The account id # str | The account id
-    limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-    offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-    count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
+func main() {
+    id := ef38f94347e94562b5bb8424a56397d8 # string | The account id # string | The account id
+    limit := 250 # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+    offset := 0 # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+    count := true # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
 
-    try:
-        # Account Entitlements
-        
-        results = AccountsApi(api_client).get_account_entitlements(id=id)
-        # Below is a request that includes all optional parameters
-        # results = AccountsApi(api_client).get_account_entitlements(id, limit, offset, count)
-        print("The response of AccountsApi->get_account_entitlements:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling AccountsApi->get_account_entitlements: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.AccountsAPI.GetAccountEntitlements(context.Background(), id).Limit(limit).Offset(offset).Count(count).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.GetAccountEntitlements``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetAccountEntitlements`: []Entitlement
+	fmt.Fprintf(os.Stdout, "Response from `AccountsAPI.GetAccountEntitlements`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## list-accounts
 Accounts List
@@ -833,67 +850,67 @@ List accounts.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/list-accounts)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-  Query | limit | **int** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-  Query | offset | **int** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-  Query | count | **bool** |   (optional) (default to False) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-  Query | detail_level | **str** |   (optional) | This value determines whether the API provides `SLIM` or increased level of detail (`FULL`) for each account in the returned list. `FULL` is the default behavior.
-  Query | filters | **str** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **identityId**: *eq, in, sw*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **hasEntitlements**: *eq*  **sourceId**: *eq, in, sw*  **uncorrelated**: *eq*  **entitlements**: *eq*  **origin**: *eq, in*  **manuallyCorrelated**: *eq*  **identity.name**: *eq, in, sw*  **identity.correlated**: *eq*  **identity.identityState**: *eq, in*  **source.displayableName**: *eq, in*  **source.authoritative**: *eq*  **source.connectionType**: *eq, in*  **recommendation.method**: *eq, in, isnull*  **created**: *eq, ge, gt, le, lt*  **modified**: *eq, ge, gt, le, lt*
-  Query | sorters | **str** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, nativeIdentity, uuid, manuallyCorrelated, entitlements, origin, identity.name, identity.identityState, identity.correlated, source.displayableName, source.authoritative, source.connectionType**
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiListAccountsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **int32** | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to 250]
+ **offset** | **int32** | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to 0]
+ **count** | **bool** | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to false]
+ **detailLevel** | **string** | This value determines whether the API provides &#x60;SLIM&#x60; or increased level of detail (&#x60;FULL&#x60;) for each account in the returned list. &#x60;FULL&#x60; is the default behavior. | 
+ **filters** | **string** | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **identityId**: *eq, in, sw*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **hasEntitlements**: *eq*  **sourceId**: *eq, in, sw*  **uncorrelated**: *eq*  **entitlements**: *eq*  **origin**: *eq, in*  **manuallyCorrelated**: *eq*  **identity.name**: *eq, in, sw*  **identity.correlated**: *eq*  **identity.identityState**: *eq, in*  **source.displayableName**: *eq, in*  **source.authoritative**: *eq*  **source.connectionType**: *eq, in*  **recommendation.method**: *eq, in, isnull*  **created**: *eq, ge, gt, le, lt*  **modified**: *eq, ge, gt, le, lt* | 
+ **sorters** | **string** | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, nativeIdentity, uuid, manuallyCorrelated, entitlements, origin, identity.name, identity.identityState, identity.correlated, source.displayableName, source.authoritative, source.connectionType** | 
 
 ### Return type
-[**List[Account]**](../models/account)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | List of account objects. | List[Account] |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
+[**[]Account**](../models/account)
 
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.accounts_api import AccountsApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.account import Account
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-    offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-    count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
-    detail_level = 'FULL' # str | This value determines whether the API provides `SLIM` or increased level of detail (`FULL`) for each account in the returned list. `FULL` is the default behavior. (optional) # str | This value determines whether the API provides `SLIM` or increased level of detail (`FULL`) for each account in the returned list. `FULL` is the default behavior. (optional)
-    filters = 'identityId eq \"2c9180858082150f0180893dbaf44201\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **identityId**: *eq, in, sw*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **hasEntitlements**: *eq*  **sourceId**: *eq, in, sw*  **uncorrelated**: *eq*  **entitlements**: *eq*  **origin**: *eq, in*  **manuallyCorrelated**: *eq*  **identity.name**: *eq, in, sw*  **identity.correlated**: *eq*  **identity.identityState**: *eq, in*  **source.displayableName**: *eq, in*  **source.authoritative**: *eq*  **source.connectionType**: *eq, in*  **recommendation.method**: *eq, in, isnull*  **created**: *eq, ge, gt, le, lt*  **modified**: *eq, ge, gt, le, lt* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **identityId**: *eq, in, sw*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **hasEntitlements**: *eq*  **sourceId**: *eq, in, sw*  **uncorrelated**: *eq*  **entitlements**: *eq*  **origin**: *eq, in*  **manuallyCorrelated**: *eq*  **identity.name**: *eq, in, sw*  **identity.correlated**: *eq*  **identity.identityState**: *eq, in*  **source.displayableName**: *eq, in*  **source.authoritative**: *eq*  **source.connectionType**: *eq, in*  **recommendation.method**: *eq, in, isnull*  **created**: *eq, ge, gt, le, lt*  **modified**: *eq, ge, gt, le, lt* (optional)
-    sorters = 'id,name' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, nativeIdentity, uuid, manuallyCorrelated, entitlements, origin, identity.name, identity.identityState, identity.correlated, source.displayableName, source.authoritative, source.connectionType** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, nativeIdentity, uuid, manuallyCorrelated, entitlements, origin, identity.name, identity.identityState, identity.correlated, source.displayableName, source.authoritative, source.connectionType** (optional)
+func main() {
+    limit := 250 # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+    offset := 0 # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+    count := true # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+    detailLevel := FULL # string | This value determines whether the API provides `SLIM` or increased level of detail (`FULL`) for each account in the returned list. `FULL` is the default behavior. (optional) # string | This value determines whether the API provides `SLIM` or increased level of detail (`FULL`) for each account in the returned list. `FULL` is the default behavior. (optional)
+    filters := identityId eq "2c9180858082150f0180893dbaf44201" # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **identityId**: *eq, in, sw*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **hasEntitlements**: *eq*  **sourceId**: *eq, in, sw*  **uncorrelated**: *eq*  **entitlements**: *eq*  **origin**: *eq, in*  **manuallyCorrelated**: *eq*  **identity.name**: *eq, in, sw*  **identity.correlated**: *eq*  **identity.identityState**: *eq, in*  **source.displayableName**: *eq, in*  **source.authoritative**: *eq*  **source.connectionType**: *eq, in*  **recommendation.method**: *eq, in, isnull*  **created**: *eq, ge, gt, le, lt*  **modified**: *eq, ge, gt, le, lt* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **identityId**: *eq, in, sw*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **hasEntitlements**: *eq*  **sourceId**: *eq, in, sw*  **uncorrelated**: *eq*  **entitlements**: *eq*  **origin**: *eq, in*  **manuallyCorrelated**: *eq*  **identity.name**: *eq, in, sw*  **identity.correlated**: *eq*  **identity.identityState**: *eq, in*  **source.displayableName**: *eq, in*  **source.authoritative**: *eq*  **source.connectionType**: *eq, in*  **recommendation.method**: *eq, in, isnull*  **created**: *eq, ge, gt, le, lt*  **modified**: *eq, ge, gt, le, lt* (optional)
+    sorters := id,name # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, nativeIdentity, uuid, manuallyCorrelated, entitlements, origin, identity.name, identity.identityState, identity.correlated, source.displayableName, source.authoritative, source.connectionType** (optional) # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, nativeIdentity, uuid, manuallyCorrelated, entitlements, origin, identity.name, identity.identityState, identity.correlated, source.displayableName, source.authoritative, source.connectionType** (optional)
 
-    try:
-        # Accounts List
-        
-        results = AccountsApi(api_client).list_accounts()
-        # Below is a request that includes all optional parameters
-        # results = AccountsApi(api_client).list_accounts(limit, offset, count, detail_level, filters, sorters)
-        print("The response of AccountsApi->list_accounts:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling AccountsApi->list_accounts: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.AccountsAPI.ListAccounts(context.Background()).Limit(limit).Offset(offset).Count(count).DetailLevel(detailLevel).Filters(filters).Sorters(sorters).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.ListAccounts``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ListAccounts`: []Account
+	fmt.Fprintf(os.Stdout, "Response from `AccountsAPI.ListAccounts`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## put-account
 Update Account
@@ -906,45 +923,49 @@ This endpoint submits an account update task and returns the task ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/put-account)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | id | **str** | True  | Account ID.
- Body  | account_attributes | [**AccountAttributes**](../models/account-attributes) | True  | 
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | Account ID. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPutAccountRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **accountAttributes** | [**AccountAttributes**](../models/account-attributes) |  | 
 
 ### Return type
+
 [**AccountsAsyncResult**](../models/accounts-async-result)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-202 | Async task details. | AccountsAsyncResult |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: application/json
- - **Accept**: application/json
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.accounts_api import AccountsApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.account_attributes import AccountAttributes
-from sailpoint.v2025.models.accounts_async_result import AccountsAsyncResult
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    id = 'ef38f94347e94562b5bb8424a56397d8' # str | Account ID. # str | Account ID.
-    account_attributes = '''{
+func main() {
+    id := ef38f94347e94562b5bb8424a56397d8 # string | Account ID. # string | Account ID.
+    accountAttributes := fmt.Sprintf(`{
           "attributes" : {
             "city" : "Austin",
             "displayName" : "John Doe",
@@ -952,23 +973,21 @@ with ApiClient(configuration) as api_client:
             "sAMAccountName" : "jDoe",
             "mail" : "john.doe@sailpoint.com"
           }
-        }''' # AccountAttributes | 
+        }`) # AccountAttributes | 
 
-    try:
-        # Update Account
-        new_account_attributes = AccountAttributes.from_json(account_attributes)
-        results = AccountsApi(api_client).put_account(id=id, account_attributes=new_account_attributes)
-        # Below is a request that includes all optional parameters
-        # results = AccountsApi(api_client).put_account(id, new_account_attributes)
-        print("The response of AccountsApi->put_account:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling AccountsApi->put_account: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.AccountsAPI.PutAccount(context.Background(), id).AccountAttributes(accountAttributes).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.PutAccount``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PutAccount`: AccountsAsyncResult
+	fmt.Fprintf(os.Stdout, "Response from `AccountsAPI.PutAccount`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## submit-reload-account
 Reload Account
@@ -976,58 +995,61 @@ This API asynchronously reloads the account directly from the connector and perf
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/submit-reload-account)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | id | **str** | True  | The account id
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | The account id | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiSubmitReloadAccountRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
 
 ### Return type
+
 [**AccountsAsyncResult**](../models/accounts-async-result)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-202 | Async task details | AccountsAsyncResult |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.accounts_api import AccountsApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.accounts_async_result import AccountsAsyncResult
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    id = 'ef38f94347e94562b5bb8424a56397d8' # str | The account id # str | The account id
+func main() {
+    id := ef38f94347e94562b5bb8424a56397d8 # string | The account id # string | The account id
 
-    try:
-        # Reload Account
-        
-        results = AccountsApi(api_client).submit_reload_account(id=id)
-        # Below is a request that includes all optional parameters
-        # results = AccountsApi(api_client).submit_reload_account(id)
-        print("The response of AccountsApi->submit_reload_account:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling AccountsApi->submit_reload_account: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.AccountsAPI.SubmitReloadAccount(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.SubmitReloadAccount``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `SubmitReloadAccount`: AccountsAsyncResult
+	fmt.Fprintf(os.Stdout, "Response from `AccountsAPI.SubmitReloadAccount`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## unlock-account
 Unlock Account
@@ -1036,65 +1058,67 @@ To use this endpoint to unlock an account that has the `forceProvisioning` optio
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/unlock-account)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | id | **str** | True  | The account ID.
- Body  | account_unlock_request | [**AccountUnlockRequest**](../models/account-unlock-request) | True  | 
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | The account ID. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUnlockAccountRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **accountUnlockRequest** | [**AccountUnlockRequest**](../models/account-unlock-request) |  | 
 
 ### Return type
+
 [**AccountsAsyncResult**](../models/accounts-async-result)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-202 | Async task details | AccountsAsyncResult |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: application/json
- - **Accept**: application/json
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.accounts_api import AccountsApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.account_unlock_request import AccountUnlockRequest
-from sailpoint.v2025.models.accounts_async_result import AccountsAsyncResult
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    id = 'ef38f94347e94562b5bb8424a56397d8' # str | The account ID. # str | The account ID.
-    account_unlock_request = '''{
+func main() {
+    id := ef38f94347e94562b5bb8424a56397d8 # string | The account ID. # string | The account ID.
+    accountUnlockRequest := fmt.Sprintf(`{
           "forceProvisioning" : false,
           "externalVerificationId" : "3f9180835d2e5168015d32f890ca1581",
           "unlockIDNAccount" : false
-        }''' # AccountUnlockRequest | 
+        }`) # AccountUnlockRequest | 
 
-    try:
-        # Unlock Account
-        new_account_unlock_request = AccountUnlockRequest.from_json(account_unlock_request)
-        results = AccountsApi(api_client).unlock_account(id=id, account_unlock_request=new_account_unlock_request)
-        # Below is a request that includes all optional parameters
-        # results = AccountsApi(api_client).unlock_account(id, new_account_unlock_request)
-        print("The response of AccountsApi->unlock_account:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling AccountsApi->unlock_account: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.AccountsAPI.UnlockAccount(context.Background(), id).AccountUnlockRequest(accountUnlockRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.UnlockAccount``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UnlockAccount`: AccountsAsyncResult
+	fmt.Fprintf(os.Stdout, "Response from `AccountsAPI.UnlockAccount`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## update-account
 Update Account
@@ -1112,59 +1136,61 @@ All accounts that are reassigned will be set to `manuallyCorrelated: true` unles
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/update-account)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | id | **str** | True  | Account ID.
- Body  | request_body | **[]object** | True  | A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | Account ID. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUpdateAccountRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **requestBody** | **[]map[string]interface{}** | A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. | 
 
 ### Return type
-**object**
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-202 | Accepted - Returned if the request was successfully accepted into the system. | object |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
+**map[string]interface{}**
 
 ### HTTP request headers
- - **Content-Type**: application/json-patch+json
- - **Accept**: application/json
+
+- **Content-Type**: application/json-patch+json
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.accounts_api import AccountsApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    id = 'ef38f94347e94562b5bb8424a56397d8' # str | Account ID. # str | Account ID.
-    request_body = '''[{op=remove, path=/identityId}]''' # List[object] | A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+func main() {
+    id := ef38f94347e94562b5bb8424a56397d8 # string | Account ID. # string | Account ID.
+    requestBody := fmt.Sprintf(`[{op=remove, path=/identityId}]`) # []map[string]interface{} | A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
-    try:
-        # Update Account
-        new_request_body = RequestBody.from_json(request_body)
-        results = AccountsApi(api_client).update_account(id=id, request_body=new_request_body)
-        # Below is a request that includes all optional parameters
-        # results = AccountsApi(api_client).update_account(id, new_request_body)
-        print("The response of AccountsApi->update_account:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling AccountsApi->update_account: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.AccountsAPI.UpdateAccount(context.Background(), id).RequestBody(requestBody).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.UpdateAccount``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UpdateAccount`: map[string]interface{}
+	fmt.Fprintf(os.Stdout, "Response from `AccountsAPI.UpdateAccount`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
-
-
+[[Back to top]](#)
 

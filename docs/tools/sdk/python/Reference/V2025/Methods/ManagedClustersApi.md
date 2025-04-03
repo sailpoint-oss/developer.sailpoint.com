@@ -1,15 +1,15 @@
 ---
 id: v2025-managed-clusters
-title: Managed_Clusters
-pagination_label: Managed_Clusters
-sidebar_label: Managed_Clusters
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'Managed_Clusters', 'V2025Managed_Clusters'] 
-slug: /tools/sdk/python/v2025/methods/managed-clusters
-tags: ['SDK', 'Software Development Kit', 'Managed_Clusters', 'V2025Managed_Clusters']
+title: ManagedClusters
+pagination_label: ManagedClusters
+sidebar_label: ManagedClusters
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'ManagedClusters', 'V2025ManagedClusters'] 
+slug: /tools/sdk/go/v2025/methods/managed-clusters
+tags: ['SDK', 'Software Development Kit', 'ManagedClusters', 'V2025ManagedClusters']
 ---
 
-# sailpoint.v2025.ManagedClustersApi
+# ManagedClustersAPI
   Use this API to implement managed cluster functionality. 
 With this functionality in place, administrators can modify and delete existing managed clients, get their statuses, and create new ones. 
  
@@ -17,14 +17,14 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-managed-cluster**](#create-managed-cluster) | **POST** `/managed-clusters` | Create Create Managed Cluster
-[**delete-managed-cluster**](#delete-managed-cluster) | **DELETE** `/managed-clusters/{id}` | Delete Managed Cluster
-[**get-client-log-configuration**](#get-client-log-configuration) | **GET** `/managed-clusters/{id}/log-config` | Get Managed Cluster Log Configuration
-[**get-managed-cluster**](#get-managed-cluster) | **GET** `/managed-clusters/{id}` | Get Managed Cluster
-[**get-managed-clusters**](#get-managed-clusters) | **GET** `/managed-clusters` | Get Managed Clusters
-[**put-client-log-configuration**](#put-client-log-configuration) | **PUT** `/managed-clusters/{id}/log-config` | Update Managed Cluster Log Configuration
-[**update**](#update) | **POST** `/managed-clusters/{id}/manualUpgrade` | Trigger Manual Upgrade for Managed Cluster
-[**update-managed-cluster**](#update-managed-cluster) | **PATCH** `/managed-clusters/{id}` | Update Managed Cluster
+[**create-managed-cluster**](#create-managed-cluster) | **Post** `/managed-clusters` | Create Create Managed Cluster
+[**delete-managed-cluster**](#delete-managed-cluster) | **Delete** `/managed-clusters/{id}` | Delete Managed Cluster
+[**get-client-log-configuration**](#get-client-log-configuration) | **Get** `/managed-clusters/{id}/log-config` | Get Managed Cluster Log Configuration
+[**get-managed-cluster**](#get-managed-cluster) | **Get** `/managed-clusters/{id}` | Get Managed Cluster
+[**get-managed-clusters**](#get-managed-clusters) | **Get** `/managed-clusters` | Get Managed Clusters
+[**put-client-log-configuration**](#put-client-log-configuration) | **Put** `/managed-clusters/{id}/log-config` | Update Managed Cluster Log Configuration
+[**update**](#update) | **Post** `/managed-clusters/{id}/manualUpgrade` | Trigger Manual Upgrade for Managed Cluster
+[**update-managed-cluster**](#update-managed-cluster) | **Patch** `/managed-clusters/{id}` | Update Managed Cluster
 
 
 ## create-managed-cluster
@@ -34,42 +34,43 @@ The API returns a result that includes the managed cluster ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/create-managed-cluster)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | managed_cluster_request | [**ManagedClusterRequest**](../models/managed-cluster-request) | True  | 
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreateManagedClusterRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **managedClusterRequest** | [**ManagedClusterRequest**](../models/managed-cluster-request) |  | 
 
 ### Return type
+
 [**ManagedCluster**](../models/managed-cluster)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | Created managed cluster. | ManagedCluster |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: application/json
- - **Accept**: application/json
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.managed_clusters_api import ManagedClustersApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.managed_cluster import ManagedCluster
-from sailpoint.v2025.models.managed_cluster_request import ManagedClusterRequest
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    managed_cluster_request = '''{
+func main() {
+    managedClusterRequest := fmt.Sprintf(`{
           "configuration" : {
             "clusterExternalId" : "externalId",
             "ccgVersion" : "77.0.0"
@@ -77,23 +78,21 @@ with ApiClient(configuration) as api_client:
           "name" : "Managed Cluster Name",
           "description" : "A short description of the managed cluster.",
           "type" : "idn"
-        }''' # ManagedClusterRequest | 
+        }`) # ManagedClusterRequest | 
 
-    try:
-        # Create Create Managed Cluster
-        new_managed_cluster_request = ManagedClusterRequest.from_json(managed_cluster_request)
-        results = ManagedClustersApi(api_client).create_managed_cluster(managed_cluster_request=new_managed_cluster_request)
-        # Below is a request that includes all optional parameters
-        # results = ManagedClustersApi(api_client).create_managed_cluster(new_managed_cluster_request)
-        print("The response of ManagedClustersApi->create_managed_cluster:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling ManagedClustersApi->create_managed_cluster: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.ManagedClustersAPI.CreateManagedCluster(context.Background()).ManagedClusterRequest(managedClusterRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ManagedClustersAPI.CreateManagedCluster``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateManagedCluster`: ManagedCluster
+	fmt.Fprintf(os.Stdout, "Response from `ManagedClustersAPI.CreateManagedCluster`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## delete-managed-cluster
 Delete Managed Cluster
@@ -101,56 +100,61 @@ Delete an existing managed cluster.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-managed-cluster)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | id | **str** | True  | Managed cluster ID.
-  Query | remove_clients | **bool** |   (optional) (default to False) | Flag to determine the need to delete a cluster with clients.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | Managed cluster ID. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteManagedClusterRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **removeClients** | **bool** | Flag to determine the need to delete a cluster with clients. | [default to false]
 
 ### Return type
+
  (empty response body)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-204 | No content - indicates the request was successful but there is no content to be returned in the response. |  |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.managed_clusters_api import ManagedClustersApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    id = '2c9180897de347a2017de8859e8c5039' # str | Managed cluster ID. # str | Managed cluster ID.
-    remove_clients = False # bool | Flag to determine the need to delete a cluster with clients. (optional) (default to False) # bool | Flag to determine the need to delete a cluster with clients. (optional) (default to False)
+func main() {
+    id := 2c9180897de347a2017de8859e8c5039 # string | Managed cluster ID. # string | Managed cluster ID.
+    removeClients := false # bool | Flag to determine the need to delete a cluster with clients. (optional) (default to false) # bool | Flag to determine the need to delete a cluster with clients. (optional) (default to false)
 
-    try:
-        # Delete Managed Cluster
-        
-        ManagedClustersApi(api_client).delete_managed_cluster(id=id)
-        # Below is a request that includes all optional parameters
-        # ManagedClustersApi(api_client).delete_managed_cluster(id, remove_clients)
-    except Exception as e:
-        print("Exception when calling ManagedClustersApi->delete_managed_cluster: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	r, err := apiClient.V2025.ManagedClustersAPI.DeleteManagedCluster(context.Background(), id).RemoveClients(removeClients).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ManagedClustersAPI.DeleteManagedCluster``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## get-client-log-configuration
 Get Managed Cluster Log Configuration
@@ -158,59 +162,61 @@ Get a managed cluster's log configuration.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-client-log-configuration)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | id | **str** | True  | ID of managed cluster to get log configuration for.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | ID of managed cluster to get log configuration for. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetClientLogConfigurationRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
 
 ### Return type
+
 [**ClientLogConfiguration**](../models/client-log-configuration)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | Log configuration of managed cluster for given cluster ID. | ClientLogConfiguration |  -  |
-204 | No content - indicates the request was successful but there is no content to be returned in the response. |  |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.managed_clusters_api import ManagedClustersApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.client_log_configuration import ClientLogConfiguration
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    id = '2b838de9-db9b-abcf-e646-d4f274ad4238' # str | ID of managed cluster to get log configuration for. # str | ID of managed cluster to get log configuration for.
+func main() {
+    id := 2b838de9-db9b-abcf-e646-d4f274ad4238 # string | ID of managed cluster to get log configuration for. # string | ID of managed cluster to get log configuration for.
 
-    try:
-        # Get Managed Cluster Log Configuration
-        
-        results = ManagedClustersApi(api_client).get_client_log_configuration(id=id)
-        # Below is a request that includes all optional parameters
-        # results = ManagedClustersApi(api_client).get_client_log_configuration(id)
-        print("The response of ManagedClustersApi->get_client_log_configuration:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling ManagedClustersApi->get_client_log_configuration: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.ManagedClustersAPI.GetClientLogConfiguration(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ManagedClustersAPI.GetClientLogConfiguration``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetClientLogConfiguration`: ClientLogConfiguration
+	fmt.Fprintf(os.Stdout, "Response from `ManagedClustersAPI.GetClientLogConfiguration`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## get-managed-cluster
 Get Managed Cluster
@@ -218,58 +224,61 @@ Get a managed cluster by ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-managed-cluster)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | id | **str** | True  | Managed cluster ID.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | Managed cluster ID. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetManagedClusterRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
 
 ### Return type
+
 [**ManagedCluster**](../models/managed-cluster)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | Response with managed cluster for the given ID. | ManagedCluster |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.managed_clusters_api import ManagedClustersApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.managed_cluster import ManagedCluster
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    id = '2c9180897de347a2017de8859e8c5039' # str | Managed cluster ID. # str | Managed cluster ID.
+func main() {
+    id := 2c9180897de347a2017de8859e8c5039 # string | Managed cluster ID. # string | Managed cluster ID.
 
-    try:
-        # Get Managed Cluster
-        
-        results = ManagedClustersApi(api_client).get_managed_cluster(id=id)
-        # Below is a request that includes all optional parameters
-        # results = ManagedClustersApi(api_client).get_managed_cluster(id)
-        print("The response of ManagedClustersApi->get_managed_cluster:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling ManagedClustersApi->get_managed_cluster: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.ManagedClustersAPI.GetManagedCluster(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ManagedClustersAPI.GetManagedCluster``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetManagedCluster`: ManagedCluster
+	fmt.Fprintf(os.Stdout, "Response from `ManagedClustersAPI.GetManagedCluster`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## get-managed-clusters
 Get Managed Clusters
@@ -277,63 +286,63 @@ List current organization's managed clusters, based on request context.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-managed-clusters)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-  Query | offset | **int** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-  Query | limit | **int** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-  Query | count | **bool** |   (optional) (default to False) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-  Query | filters | **str** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **operational**: *eq*
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetManagedClustersRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **offset** | **int32** | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to 0]
+ **limit** | **int32** | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to 250]
+ **count** | **bool** | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to false]
+ **filters** | **string** | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **operational**: *eq* | 
 
 ### Return type
-[**List[ManagedCluster]**](../models/managed-cluster)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | Response with a list of managed clusters. | List[ManagedCluster] |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
+[**[]ManagedCluster**](../models/managed-cluster)
 
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.managed_clusters_api import ManagedClustersApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.managed_cluster import ManagedCluster
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-    limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-    count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
-    filters = 'operational eq \"operation\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **operational**: *eq* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **operational**: *eq* (optional)
+func main() {
+    offset := 0 # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+    limit := 250 # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+    count := true # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+    filters := operational eq "operation" # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **operational**: *eq* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **operational**: *eq* (optional)
 
-    try:
-        # Get Managed Clusters
-        
-        results = ManagedClustersApi(api_client).get_managed_clusters()
-        # Below is a request that includes all optional parameters
-        # results = ManagedClustersApi(api_client).get_managed_clusters(offset, limit, count, filters)
-        print("The response of ManagedClustersApi->get_managed_clusters:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling ManagedClustersApi->get_managed_clusters: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.ManagedClustersAPI.GetManagedClusters(context.Background()).Offset(offset).Limit(limit).Count(count).Filters(filters).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ManagedClustersAPI.GetManagedClusters``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetManagedClusters`: []ManagedCluster
+	fmt.Fprintf(os.Stdout, "Response from `ManagedClustersAPI.GetManagedClusters`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## put-client-log-configuration
 Update Managed Cluster Log Configuration
@@ -341,61 +350,63 @@ Update a managed cluster's log configuration. You may only specify one of `durat
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/put-client-log-configuration)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | id | **str** | True  | ID of the managed cluster to update the log configuration for.
- Body  | put_client_log_configuration_request | [**PutClientLogConfigurationRequest**](../models/put-client-log-configuration-request) | True  | Client log configuration for the given managed cluster.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | ID of the managed cluster to update the log configuration for. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPutClientLogConfigurationRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **putClientLogConfigurationRequest** | [**PutClientLogConfigurationRequest**](../models/put-client-log-configuration-request) | Client log configuration for the given managed cluster. | 
 
 ### Return type
+
 [**ClientLogConfiguration**](../models/client-log-configuration)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | Response with updated client log configuration for the given managed cluster. | ClientLogConfiguration |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: application/json
- - **Accept**: application/json
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.managed_clusters_api import ManagedClustersApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.client_log_configuration import ClientLogConfiguration
-from sailpoint.v2025.models.put_client_log_configuration_request import PutClientLogConfigurationRequest
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    id = '2b838de9-db9b-abcf-e646-d4f274ad4238' # str | ID of the managed cluster to update the log configuration for. # str | ID of the managed cluster to update the log configuration for.
-    put_client_log_configuration_request = '''sailpoint.v2025.PutClientLogConfigurationRequest()''' # PutClientLogConfigurationRequest | Client log configuration for the given managed cluster.
+func main() {
+    id := 2b838de9-db9b-abcf-e646-d4f274ad4238 # string | ID of the managed cluster to update the log configuration for. # string | ID of the managed cluster to update the log configuration for.
+    putClientLogConfigurationRequest := fmt.Sprintf(``) # PutClientLogConfigurationRequest | Client log configuration for the given managed cluster.
 
-    try:
-        # Update Managed Cluster Log Configuration
-        new_put_client_log_configuration_request = PutClientLogConfigurationRequest.from_json(put_client_log_configuration_request)
-        results = ManagedClustersApi(api_client).put_client_log_configuration(id=id, put_client_log_configuration_request=new_put_client_log_configuration_request)
-        # Below is a request that includes all optional parameters
-        # results = ManagedClustersApi(api_client).put_client_log_configuration(id, new_put_client_log_configuration_request)
-        print("The response of ManagedClustersApi->put_client_log_configuration:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling ManagedClustersApi->put_client_log_configuration: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.ManagedClustersAPI.PutClientLogConfiguration(context.Background(), id).PutClientLogConfigurationRequest(putClientLogConfigurationRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ManagedClustersAPI.PutClientLogConfiguration``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PutClientLogConfiguration`: ClientLogConfiguration
+	fmt.Fprintf(os.Stdout, "Response from `ManagedClustersAPI.PutClientLogConfiguration`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## update
 Trigger Manual Upgrade for Managed Cluster
@@ -404,58 +415,61 @@ AMS Security: API, Internal A token with SYSTEM_ADMINISTRATOR authority is requi
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/update)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | id | **str** | True  | ID of managed cluster to trigger manual upgrade.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | ID of managed cluster to trigger manual upgrade. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUpdateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
 
 ### Return type
+
 [**ClusterManualUpgrade**](../models/cluster-manual-upgrade)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | Manual upgrade of managed cluster for given cluster ID. | ClusterManualUpgrade |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.managed_clusters_api import ManagedClustersApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.cluster_manual_upgrade import ClusterManualUpgrade
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    id = '2b838de9-db9b-abcf-e646-d4f274ad4238' # str | ID of managed cluster to trigger manual upgrade. # str | ID of managed cluster to trigger manual upgrade.
+func main() {
+    id := 2b838de9-db9b-abcf-e646-d4f274ad4238 # string | ID of managed cluster to trigger manual upgrade. # string | ID of managed cluster to trigger manual upgrade.
 
-    try:
-        # Trigger Manual Upgrade for Managed Cluster
-        
-        results = ManagedClustersApi(api_client).update(id=id)
-        # Below is a request that includes all optional parameters
-        # results = ManagedClustersApi(api_client).update(id)
-        print("The response of ManagedClustersApi->update:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling ManagedClustersApi->update: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.ManagedClustersAPI.Update(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ManagedClustersAPI.Update``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `Update`: ClusterManualUpgrade
+	fmt.Fprintf(os.Stdout, "Response from `ManagedClustersAPI.Update`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## update-managed-cluster
 Update Managed Cluster
@@ -463,61 +477,61 @@ Update an existing managed cluster.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/update-managed-cluster)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | id | **str** | True  | Managed cluster ID.
- Body  | json_patch_operation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | JSONPatch payload used to update the object.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | Managed cluster ID. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUpdateManagedClusterRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **jsonPatchOperation** | [**[]JsonPatchOperation**](../models/json-patch-operation) | JSONPatch payload used to update the object. | 
 
 ### Return type
+
 [**ManagedCluster**](../models/managed-cluster)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | Updated managed cluster. | ManagedCluster |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: application/json-patch+json
- - **Accept**: application/json
+
+- **Content-Type**: application/json-patch+json
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.managed_clusters_api import ManagedClustersApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.json_patch_operation import JsonPatchOperation
-from sailpoint.v2025.models.managed_cluster import ManagedCluster
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    id = '2c9180897de347a2017de8859e8c5039' # str | Managed cluster ID. # str | Managed cluster ID.
-    json_patch_operation = '''[sailpoint.v2025.JsonPatchOperation()]''' # List[JsonPatchOperation] | JSONPatch payload used to update the object.
+func main() {
+    id := 2c9180897de347a2017de8859e8c5039 # string | Managed cluster ID. # string | Managed cluster ID.
+    jsonPatchOperation := fmt.Sprintf(``) # []JsonPatchOperation | JSONPatch payload used to update the object.
 
-    try:
-        # Update Managed Cluster
-        new_json_patch_operation = JsonPatchOperation.from_json(json_patch_operation)
-        results = ManagedClustersApi(api_client).update_managed_cluster(id=id, json_patch_operation=new_json_patch_operation)
-        # Below is a request that includes all optional parameters
-        # results = ManagedClustersApi(api_client).update_managed_cluster(id, new_json_patch_operation)
-        print("The response of ManagedClustersApi->update_managed_cluster:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling ManagedClustersApi->update_managed_cluster: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.ManagedClustersAPI.UpdateManagedCluster(context.Background(), id).JsonPatchOperation(jsonPatchOperation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ManagedClustersAPI.UpdateManagedCluster``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UpdateManagedCluster`: ManagedCluster
+	fmt.Fprintf(os.Stdout, "Response from `ManagedClustersAPI.UpdateManagedCluster`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
-
-
+[[Back to top]](#)
 

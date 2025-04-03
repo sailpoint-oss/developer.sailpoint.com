@@ -3,30 +3,36 @@ id: v2024-identity-attributes-changed-changes-inner-old-value
 title: IdentityAttributesChangedChangesInnerOldValue
 pagination_label: IdentityAttributesChangedChangesInnerOldValue
 sidebar_label: IdentityAttributesChangedChangesInnerOldValue
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'IdentityAttributesChangedChangesInnerOldValue', 'V2024IdentityAttributesChangedChangesInnerOldValue'] 
-slug: /tools/sdk/python/v2024/models/identity-attributes-changed-changes-inner-old-value
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'IdentityAttributesChangedChangesInnerOldValue', 'V2024IdentityAttributesChangedChangesInnerOldValue'] 
+slug: /tools/sdk/go/v2024/models/identity-attributes-changed-changes-inner-old-value
 tags: ['SDK', 'Software Development Kit', 'IdentityAttributesChangedChangesInnerOldValue', 'V2024IdentityAttributesChangedChangesInnerOldValue']
 ---
 
 # IdentityAttributesChangedChangesInnerOldValue
 
-The value of the identity attribute before it changed.
-
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-}
 
-## Example
+## Methods
 
-```python
-from sailpoint.v2024.models.identity_attributes_changed_changes_inner_old_value import IdentityAttributesChangedChangesInnerOldValue
+### NewIdentityAttributesChangedChangesInnerOldValue
 
-identity_attributes_changed_changes_inner_old_value = IdentityAttributesChangedChangesInnerOldValue(
-)
+`func NewIdentityAttributesChangedChangesInnerOldValue() *IdentityAttributesChangedChangesInnerOldValue`
 
-```
-[[Back to top]](#) 
+NewIdentityAttributesChangedChangesInnerOldValue instantiates a new IdentityAttributesChangedChangesInnerOldValue object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewIdentityAttributesChangedChangesInnerOldValueWithDefaults
+
+`func NewIdentityAttributesChangedChangesInnerOldValueWithDefaults() *IdentityAttributesChangedChangesInnerOldValue`
+
+NewIdentityAttributesChangedChangesInnerOldValueWithDefaults instantiates a new IdentityAttributesChangedChangesInnerOldValue object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
 

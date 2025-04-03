@@ -1,15 +1,15 @@
 ---
 id: v2025-sod-violations
-title: SOD_Violations
-pagination_label: SOD_Violations
-sidebar_label: SOD_Violations
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'SOD_Violations', 'V2025SOD_Violations'] 
-slug: /tools/sdk/python/v2025/methods/sod-violations
-tags: ['SDK', 'Software Development Kit', 'SOD_Violations', 'V2025SOD_Violations']
+title: SODViolations
+pagination_label: SODViolations
+sidebar_label: SODViolations
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'SODViolations', 'V2025SODViolations'] 
+slug: /tools/sdk/go/v2025/methods/sod-violations
+tags: ['SDK', 'Software Development Kit', 'SODViolations', 'V2025SODViolations']
 ---
 
-# sailpoint.v2025.SODViolationsApi
+# SODViolationsAPI
   Use this API to check for current &quot;separation of duties&quot; (SOD) policy violations as well as potential future SOD policy violations. 
 With SOD violation functionality in place, administrators can get information about current SOD policy violations and predict whether an access change will trigger new violations, which helps to prevent them from occurring at all. 
 
@@ -33,8 +33,8 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**start-predict-sod-violations**](#start-predict-sod-violations) | **POST** `/sod-violations/predict` | Predict SOD violations for identity.
-[**start-violation-check**](#start-violation-check) | **POST** `/sod-violations/check` | Check SOD violations
+[**start-predict-sod-violations**](#start-predict-sod-violations) | **Post** `/sod-violations/predict` | Predict SOD violations for identity.
+[**start-violation-check**](#start-violation-check) | **Post** `/sod-violations/check` | Check SOD violations
 
 
 ## start-predict-sod-violations
@@ -43,43 +43,43 @@ This API is used to check if granting some additional accesses would cause the s
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/start-predict-sod-violations)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | identity_with_new_access | [**IdentityWithNewAccess**](../models/identity-with-new-access) | True  | 
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiStartPredictSodViolationsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **identityWithNewAccess** | [**IdentityWithNewAccess**](../models/identity-with-new-access) |  | 
 
 ### Return type
+
 [**ViolationPrediction**](../models/violation-prediction)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | Violation Contexts | ViolationPrediction |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: application/json
- - **Accept**: application/json
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.sod_violations_api import SODViolationsApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.identity_with_new_access import IdentityWithNewAccess
-from sailpoint.v2025.models.violation_prediction import ViolationPrediction
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    identity_with_new_access = '''{
+func main() {
+    identityWithNewAccess := fmt.Sprintf(`{
           "identityId" : "2c91808568c529c60168cca6f90c1313",
           "accessRefs" : [ {
             "type" : "ENTITLEMENT",
@@ -90,23 +90,21 @@ with ApiClient(configuration) as api_client:
             "id" : "2c918087682f9a86016839c0509c1ab2",
             "name" : "CN=Information Technology,OU=test,OU=test-service,DC=TestAD,DC=local"
           } ]
-        }''' # IdentityWithNewAccess | 
+        }`) # IdentityWithNewAccess | 
 
-    try:
-        # Predict SOD violations for identity.
-        new_identity_with_new_access = IdentityWithNewAccess.from_json(identity_with_new_access)
-        results = SODViolationsApi(api_client).start_predict_sod_violations(identity_with_new_access=new_identity_with_new_access)
-        # Below is a request that includes all optional parameters
-        # results = SODViolationsApi(api_client).start_predict_sod_violations(new_identity_with_new_access)
-        print("The response of SODViolationsApi->start_predict_sod_violations:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling SODViolationsApi->start_predict_sod_violations: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.SODViolationsAPI.StartPredictSodViolations(context.Background()).IdentityWithNewAccess(identityWithNewAccess).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SODViolationsAPI.StartPredictSodViolations``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `StartPredictSodViolations`: ViolationPrediction
+	fmt.Fprintf(os.Stdout, "Response from `SODViolationsAPI.StartPredictSodViolations`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## start-violation-check
 Check SOD violations
@@ -114,59 +112,55 @@ This API initiates a SOD policy verification asynchronously.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/start-violation-check)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | identity_with_new_access1 | [**IdentityWithNewAccess1**](../models/identity-with-new-access1) | True  | 
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiStartViolationCheckRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **identityWithNewAccess1** | [**IdentityWithNewAccess1**](../models/identity-with-new-access1) |  | 
 
 ### Return type
+
 [**SodViolationCheck**](../models/sod-violation-check)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-202 | Request ID with a timestamp. | SodViolationCheck |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: application/json
- - **Accept**: application/json
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.sod_violations_api import SODViolationsApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.identity_with_new_access1 import IdentityWithNewAccess1
-from sailpoint.v2025.models.sod_violation_check import SodViolationCheck
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    identity_with_new_access1 = '''{identityId=2c91808568c529c60168cca6f90c1313, accessRefs=[{type=ENTITLEMENT, id=2c918087682f9a86016839c050861ab1, name=CN=Information Access,OU=test,OU=test-service,DC=TestAD,DC=local}, {type=ENTITLEMENT, id=2c918087682f9a86016839c0509c1ab2, name=CN=Information Technology,OU=test,OU=test-service,DC=TestAD,DC=local}], clientMetadata={additionalProp1=string, additionalProp2=string, additionalProp3=string}}''' # IdentityWithNewAccess1 | 
+func main() {
+    identityWithNewAccess1 := fmt.Sprintf(`{identityId=2c91808568c529c60168cca6f90c1313, accessRefs=[{type=ENTITLEMENT, id=2c918087682f9a86016839c050861ab1, name=CN=Information Access,OU=test,OU=test-service,DC=TestAD,DC=local}, {type=ENTITLEMENT, id=2c918087682f9a86016839c0509c1ab2, name=CN=Information Technology,OU=test,OU=test-service,DC=TestAD,DC=local}], clientMetadata={additionalProp1=string, additionalProp2=string, additionalProp3=string}}`) # IdentityWithNewAccess1 | 
 
-    try:
-        # Check SOD violations
-        new_identity_with_new_access1 = IdentityWithNewAccess1.from_json(identity_with_new_access1)
-        results = SODViolationsApi(api_client).start_violation_check(identity_with_new_access1=new_identity_with_new_access1)
-        # Below is a request that includes all optional parameters
-        # results = SODViolationsApi(api_client).start_violation_check(new_identity_with_new_access1)
-        print("The response of SODViolationsApi->start_violation_check:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling SODViolationsApi->start_violation_check: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.SODViolationsAPI.StartViolationCheck(context.Background()).IdentityWithNewAccess1(identityWithNewAccess1).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SODViolationsAPI.StartViolationCheck``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `StartViolationCheck`: SodViolationCheck
+	fmt.Fprintf(os.Stdout, "Response from `SODViolationsAPI.StartViolationCheck`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
-
-
+[[Back to top]](#)
 

@@ -3,62 +3,120 @@ id: v2024-access-request-post-approval
 title: AccessRequestPostApproval
 pagination_label: AccessRequestPostApproval
 sidebar_label: AccessRequestPostApproval
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'AccessRequestPostApproval', 'V2024AccessRequestPostApproval'] 
-slug: /tools/sdk/python/v2024/models/access-request-post-approval
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'AccessRequestPostApproval', 'V2024AccessRequestPostApproval'] 
+slug: /tools/sdk/go/v2024/models/access-request-post-approval
 tags: ['SDK', 'Software Development Kit', 'AccessRequestPostApproval', 'V2024AccessRequestPostApproval']
 ---
 
 # AccessRequestPostApproval
 
-
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**access_request_id** | **str** | The unique ID of the access request. | [required]
-**requested_for** | [**[]AccessItemRequestedForDto**](access-item-requested-for-dto) | Identities access was requested for. | [required]
-**requested_items_status** | [**[]AccessRequestPostApprovalRequestedItemsStatusInner**](access-request-post-approval-requested-items-status-inner) | Details on the outcome of each access item. | [required]
-**requested_by** | [**AccessItemRequesterDto**](access-item-requester-dto) |  | [required]
-}
+**AccessRequestId** | **string** | The unique ID of the access request. | 
+**RequestedFor** | [**[]AccessItemRequestedForDto**](access-item-requested-for-dto) | Identities access was requested for. | 
+**RequestedItemsStatus** | [**[]AccessRequestPostApprovalRequestedItemsStatusInner**](access-request-post-approval-requested-items-status-inner) | Details on the outcome of each access item. | 
+**RequestedBy** | [**AccessItemRequesterDto**](access-item-requester-dto) |  | 
 
-## Example
+## Methods
 
-```python
-from sailpoint.v2024.models.access_request_post_approval import AccessRequestPostApproval
+### NewAccessRequestPostApproval
 
-access_request_post_approval = AccessRequestPostApproval(
-access_request_id='2c91808b6ef1d43e016efba0ce470904',
-requested_for=[
-                    sailpoint.v2024.models.access_item_requested_for_dto.AccessItemRequestedForDto(
-                        type = 'IDENTITY', 
-                        id = '2c4180a46faadee4016fb4e018c20626', 
-                        name = 'Robert Robinson', )
-                    ],
-requested_items_status=[
-                    sailpoint.v2024.models.access_request_post_approval_requested_items_status_inner.AccessRequestPostApproval_requestedItemsStatus_inner(
-                        id = '2c91808b6ef1d43e016efba0ce470904', 
-                        name = 'Engineering Access', 
-                        description = 'Access to engineering database', 
-                        type = ACCESS_PROFILE, 
-                        operation = Add, 
-                        comment = 'William needs this access to do his job.', 
-                        client_metadata = {applicationName=My application}, 
-                        approval_info = [
-                            sailpoint.v2024.models.access_request_post_approval_requested_items_status_inner_approval_info_inner.AccessRequestPostApproval_requestedItemsStatus_inner_approvalInfo_inner(
-                                approval_comment = 'This access looks good.  Approved.', 
-                                approval_decision = APPROVED, 
-                                approver_name = 'Stephen.Austin', 
-                                approver = sailpoint.v2024.models.access_request_post_approval_requested_items_status_inner_approval_info_inner_approver.AccessRequestPostApproval_requestedItemsStatus_inner_approvalInfo_inner_approver(
-                                    type = IDENTITY, ), )
-                            ], )
-                    ],
-requested_by=sailpoint.v2024.models.access_item_requester_dto.AccessItemRequesterDto(
-                    type = 'IDENTITY', 
-                    id = '2c7180a46faadee4016fb4e018c20648', 
-                    name = 'William Wilson', )
-)
+`func NewAccessRequestPostApproval(accessRequestId string, requestedFor []AccessItemRequestedForDto, requestedItemsStatus []AccessRequestPostApprovalRequestedItemsStatusInner, requestedBy AccessItemRequesterDto, ) *AccessRequestPostApproval`
 
-```
-[[Back to top]](#) 
+NewAccessRequestPostApproval instantiates a new AccessRequestPostApproval object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewAccessRequestPostApprovalWithDefaults
+
+`func NewAccessRequestPostApprovalWithDefaults() *AccessRequestPostApproval`
+
+NewAccessRequestPostApprovalWithDefaults instantiates a new AccessRequestPostApproval object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetAccessRequestId
+
+`func (o *AccessRequestPostApproval) GetAccessRequestId() string`
+
+GetAccessRequestId returns the AccessRequestId field if non-nil, zero value otherwise.
+
+### GetAccessRequestIdOk
+
+`func (o *AccessRequestPostApproval) GetAccessRequestIdOk() (*string, bool)`
+
+GetAccessRequestIdOk returns a tuple with the AccessRequestId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAccessRequestId
+
+`func (o *AccessRequestPostApproval) SetAccessRequestId(v string)`
+
+SetAccessRequestId sets AccessRequestId field to given value.
+
+
+### GetRequestedFor
+
+`func (o *AccessRequestPostApproval) GetRequestedFor() []AccessItemRequestedForDto`
+
+GetRequestedFor returns the RequestedFor field if non-nil, zero value otherwise.
+
+### GetRequestedForOk
+
+`func (o *AccessRequestPostApproval) GetRequestedForOk() (*[]AccessItemRequestedForDto, bool)`
+
+GetRequestedForOk returns a tuple with the RequestedFor field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRequestedFor
+
+`func (o *AccessRequestPostApproval) SetRequestedFor(v []AccessItemRequestedForDto)`
+
+SetRequestedFor sets RequestedFor field to given value.
+
+
+### GetRequestedItemsStatus
+
+`func (o *AccessRequestPostApproval) GetRequestedItemsStatus() []AccessRequestPostApprovalRequestedItemsStatusInner`
+
+GetRequestedItemsStatus returns the RequestedItemsStatus field if non-nil, zero value otherwise.
+
+### GetRequestedItemsStatusOk
+
+`func (o *AccessRequestPostApproval) GetRequestedItemsStatusOk() (*[]AccessRequestPostApprovalRequestedItemsStatusInner, bool)`
+
+GetRequestedItemsStatusOk returns a tuple with the RequestedItemsStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRequestedItemsStatus
+
+`func (o *AccessRequestPostApproval) SetRequestedItemsStatus(v []AccessRequestPostApprovalRequestedItemsStatusInner)`
+
+SetRequestedItemsStatus sets RequestedItemsStatus field to given value.
+
+
+### GetRequestedBy
+
+`func (o *AccessRequestPostApproval) GetRequestedBy() AccessItemRequesterDto`
+
+GetRequestedBy returns the RequestedBy field if non-nil, zero value otherwise.
+
+### GetRequestedByOk
+
+`func (o *AccessRequestPostApproval) GetRequestedByOk() (*AccessItemRequesterDto, bool)`
+
+GetRequestedByOk returns a tuple with the RequestedBy field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRequestedBy
+
+`func (o *AccessRequestPostApproval) SetRequestedBy(v AccessItemRequesterDto)`
+
+SetRequestedBy sets RequestedBy field to given value.
+
+
 

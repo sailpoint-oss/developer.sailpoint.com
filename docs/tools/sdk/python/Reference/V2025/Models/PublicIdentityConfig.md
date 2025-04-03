@@ -3,43 +3,134 @@ id: v2025-public-identity-config
 title: PublicIdentityConfig
 pagination_label: PublicIdentityConfig
 sidebar_label: PublicIdentityConfig
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'PublicIdentityConfig', 'V2025PublicIdentityConfig'] 
-slug: /tools/sdk/python/v2025/models/public-identity-config
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'PublicIdentityConfig', 'V2025PublicIdentityConfig'] 
+slug: /tools/sdk/go/v2025/models/public-identity-config
 tags: ['SDK', 'Software Development Kit', 'PublicIdentityConfig', 'V2025PublicIdentityConfig']
 ---
 
 # PublicIdentityConfig
 
-Details of up to 5 Identity attributes that will be publicly accessible for all Identities to anyone in the org.
-
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**attributes** | [**[]PublicIdentityAttributeConfig**](public-identity-attribute-config) | Up to 5 identity attributes that will be available to everyone in the org for all users in the org. | [optional] 
-**modified** | **datetime** | When this configuration was last modified. | [optional] 
-**modified_by** | [**IdentityReference**](identity-reference) |  | [optional] 
-}
+**Attributes** | Pointer to [**[]PublicIdentityAttributeConfig**](public-identity-attribute-config) | Up to 5 identity attributes that will be available to everyone in the org for all users in the org. | [optional] 
+**Modified** | Pointer to **NullableTime** | When this configuration was last modified. | [optional] 
+**ModifiedBy** | Pointer to [**NullableIdentityReference**](identity-reference) |  | [optional] 
 
-## Example
+## Methods
 
-```python
-from sailpoint.v2025.models.public_identity_config import PublicIdentityConfig
+### NewPublicIdentityConfig
 
-public_identity_config = PublicIdentityConfig(
-attributes=[
-                    sailpoint.v2025.models.public_identity_attribute_config.PublicIdentityAttributeConfig(
-                        key = 'country', 
-                        name = 'Country', )
-                    ],
-modified='2018-06-25T20:22:28.104Z',
-modified_by=sailpoint.v2025.models.identity_reference.IdentityReference(
-                    type = 'IDENTITY', 
-                    id = '2c9180a46faadee4016fb4e018c20639', 
-                    name = 'Thomas Edison', )
-)
+`func NewPublicIdentityConfig() *PublicIdentityConfig`
 
-```
-[[Back to top]](#) 
+NewPublicIdentityConfig instantiates a new PublicIdentityConfig object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewPublicIdentityConfigWithDefaults
+
+`func NewPublicIdentityConfigWithDefaults() *PublicIdentityConfig`
+
+NewPublicIdentityConfigWithDefaults instantiates a new PublicIdentityConfig object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetAttributes
+
+`func (o *PublicIdentityConfig) GetAttributes() []PublicIdentityAttributeConfig`
+
+GetAttributes returns the Attributes field if non-nil, zero value otherwise.
+
+### GetAttributesOk
+
+`func (o *PublicIdentityConfig) GetAttributesOk() (*[]PublicIdentityAttributeConfig, bool)`
+
+GetAttributesOk returns a tuple with the Attributes field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAttributes
+
+`func (o *PublicIdentityConfig) SetAttributes(v []PublicIdentityAttributeConfig)`
+
+SetAttributes sets Attributes field to given value.
+
+### HasAttributes
+
+`func (o *PublicIdentityConfig) HasAttributes() bool`
+
+HasAttributes returns a boolean if a field has been set.
+
+### GetModified
+
+`func (o *PublicIdentityConfig) GetModified() SailPointTime`
+
+GetModified returns the Modified field if non-nil, zero value otherwise.
+
+### GetModifiedOk
+
+`func (o *PublicIdentityConfig) GetModifiedOk() (*SailPointTime, bool)`
+
+GetModifiedOk returns a tuple with the Modified field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetModified
+
+`func (o *PublicIdentityConfig) SetModified(v SailPointTime)`
+
+SetModified sets Modified field to given value.
+
+### HasModified
+
+`func (o *PublicIdentityConfig) HasModified() bool`
+
+HasModified returns a boolean if a field has been set.
+
+### SetModifiedNil
+
+`func (o *PublicIdentityConfig) SetModifiedNil(b bool)`
+
+ SetModifiedNil sets the value for Modified to be an explicit nil
+
+### UnsetModified
+`func (o *PublicIdentityConfig) UnsetModified()`
+
+UnsetModified ensures that no value is present for Modified, not even an explicit nil
+### GetModifiedBy
+
+`func (o *PublicIdentityConfig) GetModifiedBy() IdentityReference`
+
+GetModifiedBy returns the ModifiedBy field if non-nil, zero value otherwise.
+
+### GetModifiedByOk
+
+`func (o *PublicIdentityConfig) GetModifiedByOk() (*IdentityReference, bool)`
+
+GetModifiedByOk returns a tuple with the ModifiedBy field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetModifiedBy
+
+`func (o *PublicIdentityConfig) SetModifiedBy(v IdentityReference)`
+
+SetModifiedBy sets ModifiedBy field to given value.
+
+### HasModifiedBy
+
+`func (o *PublicIdentityConfig) HasModifiedBy() bool`
+
+HasModifiedBy returns a boolean if a field has been set.
+
+### SetModifiedByNil
+
+`func (o *PublicIdentityConfig) SetModifiedByNil(b bool)`
+
+ SetModifiedByNil sets the value for ModifiedBy to be an explicit nil
+
+### UnsetModifiedBy
+`func (o *PublicIdentityConfig) UnsetModifiedBy()`
+
+UnsetModifiedBy ensures that no value is present for ModifiedBy, not even an explicit nil
 

@@ -3,35 +3,109 @@ id: v2025-source-app-create-dto-account-source
 title: SourceAppCreateDtoAccountSource
 pagination_label: SourceAppCreateDtoAccountSource
 sidebar_label: SourceAppCreateDtoAccountSource
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'SourceAppCreateDtoAccountSource', 'V2025SourceAppCreateDtoAccountSource'] 
-slug: /tools/sdk/python/v2025/models/source-app-create-dto-account-source
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'SourceAppCreateDtoAccountSource', 'V2025SourceAppCreateDtoAccountSource'] 
+slug: /tools/sdk/go/v2025/models/source-app-create-dto-account-source
 tags: ['SDK', 'Software Development Kit', 'SourceAppCreateDtoAccountSource', 'V2025SourceAppCreateDtoAccountSource']
 ---
 
 # SourceAppCreateDtoAccountSource
 
-
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** | The source ID | [required]
-**type** | **str** | The source type, will always be \"SOURCE\" | [optional] 
-**name** | **str** | The source name | [optional] 
-}
+**Id** | **string** | The source ID | 
+**Type** | Pointer to **string** | The source type, will always be \"SOURCE\" | [optional] 
+**Name** | Pointer to **string** | The source name | [optional] 
 
-## Example
+## Methods
 
-```python
-from sailpoint.v2025.models.source_app_create_dto_account_source import SourceAppCreateDtoAccountSource
+### NewSourceAppCreateDtoAccountSource
 
-source_app_create_dto_account_source = SourceAppCreateDtoAccountSource(
-id='2c9180827ca885d7017ca8ce28a000eb',
-type='SOURCE',
-name='ODS-AD-Source'
-)
+`func NewSourceAppCreateDtoAccountSource(id string, ) *SourceAppCreateDtoAccountSource`
 
-```
-[[Back to top]](#) 
+NewSourceAppCreateDtoAccountSource instantiates a new SourceAppCreateDtoAccountSource object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewSourceAppCreateDtoAccountSourceWithDefaults
+
+`func NewSourceAppCreateDtoAccountSourceWithDefaults() *SourceAppCreateDtoAccountSource`
+
+NewSourceAppCreateDtoAccountSourceWithDefaults instantiates a new SourceAppCreateDtoAccountSource object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetId
+
+`func (o *SourceAppCreateDtoAccountSource) GetId() string`
+
+GetId returns the Id field if non-nil, zero value otherwise.
+
+### GetIdOk
+
+`func (o *SourceAppCreateDtoAccountSource) GetIdOk() (*string, bool)`
+
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetId
+
+`func (o *SourceAppCreateDtoAccountSource) SetId(v string)`
+
+SetId sets Id field to given value.
+
+
+### GetType
+
+`func (o *SourceAppCreateDtoAccountSource) GetType() string`
+
+GetType returns the Type field if non-nil, zero value otherwise.
+
+### GetTypeOk
+
+`func (o *SourceAppCreateDtoAccountSource) GetTypeOk() (*string, bool)`
+
+GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetType
+
+`func (o *SourceAppCreateDtoAccountSource) SetType(v string)`
+
+SetType sets Type field to given value.
+
+### HasType
+
+`func (o *SourceAppCreateDtoAccountSource) HasType() bool`
+
+HasType returns a boolean if a field has been set.
+
+### GetName
+
+`func (o *SourceAppCreateDtoAccountSource) GetName() string`
+
+GetName returns the Name field if non-nil, zero value otherwise.
+
+### GetNameOk
+
+`func (o *SourceAppCreateDtoAccountSource) GetNameOk() (*string, bool)`
+
+GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetName
+
+`func (o *SourceAppCreateDtoAccountSource) SetName(v string)`
+
+SetName sets Name field to given value.
+
+### HasName
+
+`func (o *SourceAppCreateDtoAccountSource) HasName() bool`
+
+HasName returns a boolean if a field has been set.
+
 

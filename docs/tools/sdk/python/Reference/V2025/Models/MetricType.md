@@ -3,31 +3,29 @@ id: v2025-metric-type
 title: MetricType
 pagination_label: MetricType
 sidebar_label: MetricType
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'MetricType', 'V2025MetricType'] 
-slug: /tools/sdk/python/v2025/models/metric-type
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'MetricType', 'V2025MetricType'] 
+slug: /tools/sdk/go/v2025/models/metric-type
 tags: ['SDK', 'Software Development Kit', 'MetricType', 'V2025MetricType']
 ---
 
 # MetricType
 
-Enum representing the currently supported metric aggregation types. Additional values may be added in the future without notice.
-
 ## Enum
 
-* `COUNT` (value: `'COUNT'`)
 
-* `UNIQUE_COUNT` (value: `'UNIQUE_COUNT'`)
+* `COUNT` (value: `"COUNT"`)
 
-* `AVG` (value: `'AVG'`)
+* `UNIQUE_COUNT` (value: `"UNIQUE_COUNT"`)
 
-* `SUM` (value: `'SUM'`)
+* `AVG` (value: `"AVG"`)
 
-* `MEDIAN` (value: `'MEDIAN'`)
+* `SUM` (value: `"SUM"`)
 
-* `MIN` (value: `'MIN'`)
+* `MEDIAN` (value: `"MEDIAN"`)
 
-* `MAX` (value: `'MAX'`)
+* `MIN` (value: `"MIN"`)
 
-[[Back to top]](#) 
+* `MAX` (value: `"MAX"`)
+
 

@@ -3,29 +3,27 @@ id: v2024-manual-work-item-state
 title: ManualWorkItemState
 pagination_label: ManualWorkItemState
 sidebar_label: ManualWorkItemState
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'ManualWorkItemState', 'V2024ManualWorkItemState'] 
-slug: /tools/sdk/python/v2024/models/manual-work-item-state
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'ManualWorkItemState', 'V2024ManualWorkItemState'] 
+slug: /tools/sdk/go/v2024/models/manual-work-item-state
 tags: ['SDK', 'Software Development Kit', 'ManualWorkItemState', 'V2024ManualWorkItemState']
 ---
 
 # ManualWorkItemState
 
-Indicates the state of the request processing for this item: * PENDING: The request for this item is awaiting processing. * APPROVED: The request for this item has been approved. * REJECTED: The request for this item was rejected. * EXPIRED: The request for this item expired with no action taken. * CANCELLED: The request for this item was cancelled with no user action. * ARCHIVED: The request for this item has been archived after completion.
-
 ## Enum
 
-* `PENDING` (value: `'PENDING'`)
 
-* `APPROVED` (value: `'APPROVED'`)
+* `PENDING` (value: `"PENDING"`)
 
-* `REJECTED` (value: `'REJECTED'`)
+* `APPROVED` (value: `"APPROVED"`)
 
-* `EXPIRED` (value: `'EXPIRED'`)
+* `REJECTED` (value: `"REJECTED"`)
 
-* `CANCELLED` (value: `'CANCELLED'`)
+* `EXPIRED` (value: `"EXPIRED"`)
 
-* `ARCHIVED` (value: `'ARCHIVED'`)
+* `CANCELLED` (value: `"CANCELLED"`)
 
-[[Back to top]](#) 
+* `ARCHIVED` (value: `"ARCHIVED"`)
+
 

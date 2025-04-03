@@ -3,36 +3,99 @@ id: v2025-source-created-actor
 title: SourceCreatedActor
 pagination_label: SourceCreatedActor
 sidebar_label: SourceCreatedActor
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'SourceCreatedActor', 'V2025SourceCreatedActor'] 
-slug: /tools/sdk/python/v2025/models/source-created-actor
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'SourceCreatedActor', 'V2025SourceCreatedActor'] 
+slug: /tools/sdk/go/v2025/models/source-created-actor
 tags: ['SDK', 'Software Development Kit', 'SourceCreatedActor', 'V2025SourceCreatedActor']
 ---
 
 # SourceCreatedActor
 
-Identity who created the source.
-
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** |  **Enum** [  'IDENTITY' ] | DTO type of identity who created the source. | [required]
-**id** | **str** | ID of identity who created the source. | [required]
-**name** | **str** | Display name of identity who created the source. | [required]
-}
+**Type** | **string** | DTO type of identity who created the source. | 
+**Id** | **string** | ID of identity who created the source. | 
+**Name** | **string** | Display name of identity who created the source. | 
 
-## Example
+## Methods
 
-```python
-from sailpoint.v2025.models.source_created_actor import SourceCreatedActor
+### NewSourceCreatedActor
 
-source_created_actor = SourceCreatedActor(
-type='IDENTITY',
-id='2c7180a46faadee4016fb4e018c20648',
-name='William Wilson'
-)
+`func NewSourceCreatedActor(type_ string, id string, name string, ) *SourceCreatedActor`
 
-```
-[[Back to top]](#) 
+NewSourceCreatedActor instantiates a new SourceCreatedActor object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewSourceCreatedActorWithDefaults
+
+`func NewSourceCreatedActorWithDefaults() *SourceCreatedActor`
+
+NewSourceCreatedActorWithDefaults instantiates a new SourceCreatedActor object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetType
+
+`func (o *SourceCreatedActor) GetType() string`
+
+GetType returns the Type field if non-nil, zero value otherwise.
+
+### GetTypeOk
+
+`func (o *SourceCreatedActor) GetTypeOk() (*string, bool)`
+
+GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetType
+
+`func (o *SourceCreatedActor) SetType(v string)`
+
+SetType sets Type field to given value.
+
+
+### GetId
+
+`func (o *SourceCreatedActor) GetId() string`
+
+GetId returns the Id field if non-nil, zero value otherwise.
+
+### GetIdOk
+
+`func (o *SourceCreatedActor) GetIdOk() (*string, bool)`
+
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetId
+
+`func (o *SourceCreatedActor) SetId(v string)`
+
+SetId sets Id field to given value.
+
+
+### GetName
+
+`func (o *SourceCreatedActor) GetName() string`
+
+GetName returns the Name field if non-nil, zero value otherwise.
+
+### GetNameOk
+
+`func (o *SourceCreatedActor) GetNameOk() (*string, bool)`
+
+GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetName
+
+`func (o *SourceCreatedActor) SetName(v string)`
+
+SetName sets Name field to given value.
+
+
 

@@ -3,25 +3,23 @@ id: v2024-reassignment-type-enum
 title: ReassignmentTypeEnum
 pagination_label: ReassignmentTypeEnum
 sidebar_label: ReassignmentTypeEnum
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'ReassignmentTypeEnum', 'V2024ReassignmentTypeEnum'] 
-slug: /tools/sdk/python/v2024/models/reassignment-type-enum
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'ReassignmentTypeEnum', 'V2024ReassignmentTypeEnum'] 
+slug: /tools/sdk/go/v2024/models/reassignment-type-enum
 tags: ['SDK', 'Software Development Kit', 'ReassignmentTypeEnum', 'V2024ReassignmentTypeEnum']
 ---
 
 # ReassignmentTypeEnum
 
-Enum list containing types of Reassignment that can be found in the evaluate response.
-
 ## Enum
 
-* `MANUAL_REASSIGNMENT_COMMA` (value: `'MANUAL_REASSIGNMENT,'`)
 
-* `AUTOMATIC_REASSIGNMENT_COMMA` (value: `'AUTOMATIC_REASSIGNMENT,'`)
+* `MANUAL_REASSIGNMENT` (value: `"MANUAL_REASSIGNMENT,"`)
 
-* `AUTO_ESCALATION_COMMA` (value: `'AUTO_ESCALATION,'`)
+* `AUTOMATIC_REASSIGNMENT` (value: `"AUTOMATIC_REASSIGNMENT,"`)
 
-* `SELF_REVIEW_DELEGATION` (value: `'SELF_REVIEW_DELEGATION'`)
+* `AUTO_ESCALATION` (value: `"AUTO_ESCALATION,"`)
 
-[[Back to top]](#) 
+* `SELF_REVIEW_DELEGATION` (value: `"SELF_REVIEW_DELEGATION"`)
+
 

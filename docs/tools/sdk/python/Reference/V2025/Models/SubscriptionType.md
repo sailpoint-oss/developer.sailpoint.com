@@ -3,27 +3,25 @@ id: v2025-subscription-type
 title: SubscriptionType
 pagination_label: SubscriptionType
 sidebar_label: SubscriptionType
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'SubscriptionType', 'V2025SubscriptionType'] 
-slug: /tools/sdk/python/v2025/models/subscription-type
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'SubscriptionType', 'V2025SubscriptionType'] 
+slug: /tools/sdk/go/v2025/models/subscription-type
 tags: ['SDK', 'Software Development Kit', 'SubscriptionType', 'V2025SubscriptionType']
 ---
 
 # SubscriptionType
 
-Subscription type. **NOTE** If type is EVENTBRIDGE, then eventBridgeConfig is required. If type is HTTP, then httpConfig is required.
-
 ## Enum
 
-* `HTTP` (value: `'HTTP'`)
 
-* `EVENTBRIDGE` (value: `'EVENTBRIDGE'`)
+* `HTTP` (value: `"HTTP"`)
 
-* `INLINE` (value: `'INLINE'`)
+* `EVENTBRIDGE` (value: `"EVENTBRIDGE"`)
 
-* `SCRIPT` (value: `'SCRIPT'`)
+* `INLINE` (value: `"INLINE"`)
 
-* `WORKFLOW` (value: `'WORKFLOW'`)
+* `SCRIPT` (value: `"SCRIPT"`)
 
-[[Back to top]](#) 
+* `WORKFLOW` (value: `"WORKFLOW"`)
+
 

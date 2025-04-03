@@ -1,15 +1,15 @@
 ---
 id: v2025-global-tenant-security-settings
-title: Global_Tenant_Security_Settings
-pagination_label: Global_Tenant_Security_Settings
-sidebar_label: Global_Tenant_Security_Settings
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'Global_Tenant_Security_Settings', 'V2025Global_Tenant_Security_Settings'] 
-slug: /tools/sdk/python/v2025/methods/global-tenant-security-settings
-tags: ['SDK', 'Software Development Kit', 'Global_Tenant_Security_Settings', 'V2025Global_Tenant_Security_Settings']
+title: GlobalTenantSecuritySettings
+pagination_label: GlobalTenantSecuritySettings
+sidebar_label: GlobalTenantSecuritySettings
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'GlobalTenantSecuritySettings', 'V2025GlobalTenantSecuritySettings'] 
+slug: /tools/sdk/go/v2025/methods/global-tenant-security-settings
+tags: ['SDK', 'Software Development Kit', 'GlobalTenantSecuritySettings', 'V2025GlobalTenantSecuritySettings']
 ---
 
-# sailpoint.v2025.GlobalTenantSecuritySettingsApi
+# GlobalTenantSecuritySettingsAPI
   Use this API to implement and customize global tenant security settings.
 With this functionality in place, administrators can manage the global security settings that a tenant/org has.
 This API can be used to configure the networks and Geographies allowed to access Identity Security Cloud URLs.
@@ -18,9 +18,9 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-auth-org-network-config**](#create-auth-org-network-config) | **POST** `/auth-org/network-config` | Create security network configuration.
-[**get-auth-org-network-config**](#get-auth-org-network-config) | **GET** `/auth-org/network-config` | Get security network configuration.
-[**patch-auth-org-network-config**](#patch-auth-org-network-config) | **PATCH** `/auth-org/network-config` | Update security network configuration.
+[**create-auth-org-network-config**](#create-auth-org-network-config) | **Post** `/auth-org/network-config` | Create security network configuration.
+[**get-auth-org-network-config**](#get-auth-org-network-config) | **Get** `/auth-org/network-config` | Get security network configuration.
+[**patch-auth-org-network-config**](#patch-auth-org-network-config) | **Patch** `/auth-org/network-config` | Update security network configuration.
 
 
 ## create-auth-org-network-config
@@ -29,62 +29,61 @@ This API returns the details of an org's network auth configuration. Requires se
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/create-auth-org-network-config)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | network_configuration | [**NetworkConfiguration**](../models/network-configuration) | True  | Network configuration creation request body.   The following constraints ensure the request body conforms to certain logical guidelines, which are:   1. Each string element in the range array must be a valid ip address or ip subnet mask.   2. Each string element in the geolocation array must be 2 characters, and they can only be uppercase letters.
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreateAuthOrgNetworkConfigRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **networkConfiguration** | [**NetworkConfiguration**](../models/network-configuration) | Network configuration creation request body.   The following constraints ensure the request body conforms to certain logical guidelines, which are:   1. Each string element in the range array must be a valid ip address or ip subnet mask.   2. Each string element in the geolocation array must be 2 characters, and they can only be uppercase letters. | 
 
 ### Return type
+
 [**NetworkConfiguration**](../models/network-configuration)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | Network configuration for the tenant. | NetworkConfiguration |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: application/json
- - **Accept**: application/json
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.global_tenant_security_settings_api import GlobalTenantSecuritySettingsApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.network_configuration import NetworkConfiguration
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    network_configuration = '''{
+func main() {
+    networkConfiguration := fmt.Sprintf(`{
           "range" : [ "1.3.7.2", "255.255.255.252/30" ],
           "whitelisted" : true,
           "geolocation" : [ "CA", "FR", "HT" ]
-        }''' # NetworkConfiguration | Network configuration creation request body.   The following constraints ensure the request body conforms to certain logical guidelines, which are:   1. Each string element in the range array must be a valid ip address or ip subnet mask.   2. Each string element in the geolocation array must be 2 characters, and they can only be uppercase letters.
+        }`) # NetworkConfiguration | Network configuration creation request body.   The following constraints ensure the request body conforms to certain logical guidelines, which are:   1. Each string element in the range array must be a valid ip address or ip subnet mask.   2. Each string element in the geolocation array must be 2 characters, and they can only be uppercase letters.
 
-    try:
-        # Create security network configuration.
-        new_network_configuration = NetworkConfiguration.from_json(network_configuration)
-        results = GlobalTenantSecuritySettingsApi(api_client).create_auth_org_network_config(network_configuration=new_network_configuration)
-        # Below is a request that includes all optional parameters
-        # results = GlobalTenantSecuritySettingsApi(api_client).create_auth_org_network_config(new_network_configuration)
-        print("The response of GlobalTenantSecuritySettingsApi->create_auth_org_network_config:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling GlobalTenantSecuritySettingsApi->create_auth_org_network_config: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.GlobalTenantSecuritySettingsAPI.CreateAuthOrgNetworkConfig(context.Background()).NetworkConfiguration(networkConfiguration).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `GlobalTenantSecuritySettingsAPI.CreateAuthOrgNetworkConfig``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateAuthOrgNetworkConfig`: NetworkConfiguration
+	fmt.Fprintf(os.Stdout, "Response from `GlobalTenantSecuritySettingsAPI.CreateAuthOrgNetworkConfig`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## get-auth-org-network-config
 Get security network configuration.
@@ -92,54 +91,52 @@ This API returns the details of an org's network auth configuration.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-auth-org-network-config)
 
-### Parameters 
-This endpoint does not need any parameter. 
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetAuthOrgNetworkConfigRequest struct via the builder pattern
+
 
 ### Return type
+
 [**NetworkConfiguration**](../models/network-configuration)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | Network configuration for the tenant&#39;s auth org. | NetworkConfiguration |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.global_tenant_security_settings_api import GlobalTenantSecuritySettingsApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.network_configuration import NetworkConfiguration
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
+func main() {
 
-    try:
-        # Get security network configuration.
-        
-        results = GlobalTenantSecuritySettingsApi(api_client).get_auth_org_network_config()
-        # Below is a request that includes all optional parameters
-        # results = GlobalTenantSecuritySettingsApi(api_client).get_auth_org_network_config()
-        print("The response of GlobalTenantSecuritySettingsApi->get_auth_org_network_config:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling GlobalTenantSecuritySettingsApi->get_auth_org_network_config: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.GlobalTenantSecuritySettingsAPI.GetAuthOrgNetworkConfig(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `GlobalTenantSecuritySettingsAPI.GetAuthOrgNetworkConfig``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetAuthOrgNetworkConfig`: NetworkConfiguration
+	fmt.Fprintf(os.Stdout, "Response from `GlobalTenantSecuritySettingsAPI.GetAuthOrgNetworkConfig`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## patch-auth-org-network-config
 Update security network configuration.
@@ -148,59 +145,55 @@ This API updates an existing network configuration for an org using PATCH
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/patch-auth-org-network-config)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | json_patch_operation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | A list of auth org network configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Ensures that the patched Network Config conforms to certain logical guidelines, which are:   1. Each string element in the range array must be a valid ip address or ip subnet mask.   2. Each string element in the geolocation array must be 2 characters, and they can only be uppercase letters.
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchAuthOrgNetworkConfigRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **jsonPatchOperation** | [**[]JsonPatchOperation**](../models/json-patch-operation) | A list of auth org network configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Ensures that the patched Network Config conforms to certain logical guidelines, which are:   1. Each string element in the range array must be a valid ip address or ip subnet mask.   2. Each string element in the geolocation array must be 2 characters, and they can only be uppercase letters. | 
 
 ### Return type
+
 [**NetworkConfiguration**](../models/network-configuration)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | Updated Auth Org network configuration. | NetworkConfiguration |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: application/json-patch+json
- - **Accept**: application/json
+
+- **Content-Type**: application/json-patch+json
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.global_tenant_security_settings_api import GlobalTenantSecuritySettingsApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.json_patch_operation import JsonPatchOperation
-from sailpoint.v2025.models.network_configuration import NetworkConfiguration
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    json_patch_operation = '''[{op=replace, path=/whitelisted, value=false,}, {op=add, path=/geolocation, value=[AF, HN, ES]}]''' # List[JsonPatchOperation] | A list of auth org network configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Ensures that the patched Network Config conforms to certain logical guidelines, which are:   1. Each string element in the range array must be a valid ip address or ip subnet mask.   2. Each string element in the geolocation array must be 2 characters, and they can only be uppercase letters.
+func main() {
+    jsonPatchOperation := fmt.Sprintf(`[{op=replace, path=/whitelisted, value=false,}, {op=add, path=/geolocation, value=[AF, HN, ES]}]`) # []JsonPatchOperation | A list of auth org network configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Ensures that the patched Network Config conforms to certain logical guidelines, which are:   1. Each string element in the range array must be a valid ip address or ip subnet mask.   2. Each string element in the geolocation array must be 2 characters, and they can only be uppercase letters.
 
-    try:
-        # Update security network configuration.
-        new_json_patch_operation = JsonPatchOperation.from_json(json_patch_operation)
-        results = GlobalTenantSecuritySettingsApi(api_client).patch_auth_org_network_config(json_patch_operation=new_json_patch_operation)
-        # Below is a request that includes all optional parameters
-        # results = GlobalTenantSecuritySettingsApi(api_client).patch_auth_org_network_config(new_json_patch_operation)
-        print("The response of GlobalTenantSecuritySettingsApi->patch_auth_org_network_config:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling GlobalTenantSecuritySettingsApi->patch_auth_org_network_config: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.GlobalTenantSecuritySettingsAPI.PatchAuthOrgNetworkConfig(context.Background()).JsonPatchOperation(jsonPatchOperation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `GlobalTenantSecuritySettingsAPI.PatchAuthOrgNetworkConfig``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchAuthOrgNetworkConfig`: NetworkConfiguration
+	fmt.Fprintf(os.Stdout, "Response from `GlobalTenantSecuritySettingsAPI.PatchAuthOrgNetworkConfig`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
-
-
+[[Back to top]](#)
 

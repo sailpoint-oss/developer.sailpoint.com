@@ -3,33 +3,33 @@ id: v2025-notifications
 title: Notifications
 pagination_label: Notifications
 sidebar_label: Notifications
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'Notifications', 'V2025Notifications'] 
-slug: /tools/sdk/python/v2025/methods/notifications
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'Notifications', 'V2025Notifications'] 
+slug: /tools/sdk/go/v2025/methods/notifications
 tags: ['SDK', 'Software Development Kit', 'Notifications', 'V2025Notifications']
 ---
 
-# sailpoint.v2025.NotificationsApi
+# NotificationsAPI
    
 All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-domain-dkim**](#create-domain-dkim) | **POST** `/verified-domains` | Verify domain address via DKIM
-[**create-notification-template**](#create-notification-template) | **POST** `/notification-templates` | Create Notification Template
-[**create-verified-from-address**](#create-verified-from-address) | **POST** `/verified-from-addresses` | Create Verified From Address
-[**delete-notification-templates-in-bulk**](#delete-notification-templates-in-bulk) | **POST** `/notification-templates/bulk-delete` | Bulk Delete Notification Templates
-[**delete-verified-from-address**](#delete-verified-from-address) | **DELETE** `/verified-from-addresses/{id}` | Delete Verified From Address
-[**get-dkim-attributes**](#get-dkim-attributes) | **GET** `/verified-domains` | Get DKIM Attributes
-[**get-mail-from-attributes**](#get-mail-from-attributes) | **GET** `/mail-from-attributes/{identity}` | Get MAIL FROM Attributes
-[**get-notification-template**](#get-notification-template) | **GET** `/notification-templates/{id}` | Get Notification Template By Id
-[**get-notifications-template-context**](#get-notifications-template-context) | **GET** `/notification-template-context` | Get Notification Template Context
-[**list-from-addresses**](#list-from-addresses) | **GET** `/verified-from-addresses` | List From Addresses
-[**list-notification-preferences**](#list-notification-preferences) | **GET** `/notification-preferences/{key}` | List Notification Preferences for tenant.
-[**list-notification-template-defaults**](#list-notification-template-defaults) | **GET** `/notification-template-defaults` | List Notification Template Defaults
-[**list-notification-templates**](#list-notification-templates) | **GET** `/notification-templates` | List Notification Templates
-[**put-mail-from-attributes**](#put-mail-from-attributes) | **PUT** `/mail-from-attributes` | Change MAIL FROM domain
-[**send-test-notification**](#send-test-notification) | **POST** `/send-test-notification` | Send Test Notification
+[**create-domain-dkim**](#create-domain-dkim) | **Post** `/verified-domains` | Verify domain address via DKIM
+[**create-notification-template**](#create-notification-template) | **Post** `/notification-templates` | Create Notification Template
+[**create-verified-from-address**](#create-verified-from-address) | **Post** `/verified-from-addresses` | Create Verified From Address
+[**delete-notification-templates-in-bulk**](#delete-notification-templates-in-bulk) | **Post** `/notification-templates/bulk-delete` | Bulk Delete Notification Templates
+[**delete-verified-from-address**](#delete-verified-from-address) | **Delete** `/verified-from-addresses/{id}` | Delete Verified From Address
+[**get-dkim-attributes**](#get-dkim-attributes) | **Get** `/verified-domains` | Get DKIM Attributes
+[**get-mail-from-attributes**](#get-mail-from-attributes) | **Get** `/mail-from-attributes/{identity}` | Get MAIL FROM Attributes
+[**get-notification-template**](#get-notification-template) | **Get** `/notification-templates/{id}` | Get Notification Template By Id
+[**get-notifications-template-context**](#get-notifications-template-context) | **Get** `/notification-template-context` | Get Notification Template Context
+[**list-from-addresses**](#list-from-addresses) | **Get** `/verified-from-addresses` | List From Addresses
+[**list-notification-preferences**](#list-notification-preferences) | **Get** `/notification-preferences/{key}` | List Notification Preferences for tenant.
+[**list-notification-template-defaults**](#list-notification-template-defaults) | **Get** `/notification-template-defaults` | List Notification Template Defaults
+[**list-notification-templates**](#list-notification-templates) | **Get** `/notification-templates` | List Notification Templates
+[**put-mail-from-attributes**](#put-mail-from-attributes) | **Put** `/mail-from-attributes` | Change MAIL FROM domain
+[**send-test-notification**](#send-test-notification) | **Post** `/send-test-notification` | Send Test Notification
 
 
 ## create-domain-dkim
@@ -39,7 +39,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::tip setting x-sailpoint-experimental header
  on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
  Example:
- ```python
+ ```go
    configuration = Configuration()
    configuration.experimental = True
  ```
@@ -49,64 +49,61 @@ Create a domain to be verified via DKIM (DomainKeys Identified Mail)
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/create-domain-dkim)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
- Body  | domain_address | [**DomainAddress**](../models/domain-address) | True  | 
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreateDomainDkimRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
+ **domainAddress** | [**DomainAddress**](../models/domain-address) |  | 
 
 ### Return type
+
 [**DomainStatusDto**](../models/domain-status-dto)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | List of DKIM tokens required for the verification process. | DomainStatusDto |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-405 | Method Not Allowed - indicates that the server knows the request method, but the target resource doesn&#39;t support this method. | CreateDomainDkim405Response |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: application/json
- - **Accept**: application/json
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.notifications_api import NotificationsApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.domain_address import DomainAddress
-from sailpoint.v2025.models.domain_status_dto import DomainStatusDto
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
-configuration.experimental = true
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    domain_address = '''{
+func main() {
+    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+    domainAddress := fmt.Sprintf(`{
           "domain" : "sailpoint.com"
-        }''' # DomainAddress | 
+        }`) # DomainAddress | 
 
-    try:
-        # Verify domain address via DKIM
-        new_domain_address = DomainAddress.from_json(domain_address)
-        results = NotificationsApi(api_client).create_domain_dkim(x_sail_point_experimental=x_sail_point_experimental, domain_address=new_domain_address)
-        # Below is a request that includes all optional parameters
-        # results = NotificationsApi(api_client).create_domain_dkim(x_sail_point_experimental, new_domain_address)
-        print("The response of NotificationsApi->create_domain_dkim:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling NotificationsApi->create_domain_dkim: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.NotificationsAPI.CreateDomainDkim(context.Background()).XSailPointExperimental(xSailPointExperimental).DomainAddress(domainAddress).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `NotificationsAPI.CreateDomainDkim``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateDomainDkim`: DomainStatusDto
+	fmt.Fprintf(os.Stdout, "Response from `NotificationsAPI.CreateDomainDkim`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## create-notification-template
 :::warning experimental 
@@ -115,7 +112,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::tip setting x-sailpoint-experimental header
  on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
  Example:
- ```python
+ ```go
    configuration = Configuration()
    configuration.experimental = True
  ```
@@ -127,44 +124,45 @@ You can also use this endpoint to update a template.  First, copy the response b
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/create-notification-template)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
- Body  | template_dto | [**TemplateDto**](../models/template-dto) | True  | 
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreateNotificationTemplateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
+ **templateDto** | [**TemplateDto**](../models/template-dto) |  | 
 
 ### Return type
+
 [**TemplateDto**](../models/template-dto)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | A template object for your site | TemplateDto |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: application/json
- - **Accept**: application/json
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.notifications_api import NotificationsApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.template_dto import TemplateDto
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
-configuration.experimental = true
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    template_dto = '''{
+func main() {
+    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+    templateDto := fmt.Sprintf(`{
           "slackTemplate" : "slackTemplate",
           "footer" : "footer",
           "teamsTemplate" : "teamsTemplate",
@@ -181,23 +179,21 @@ with ApiClient(configuration) as api_client:
           "from" : "$__global.emailFromAddress",
           "id" : "c17bea3a-574d-453c-9e04-4365fbf5af0b",
           "key" : "cloud_manual_work_item_summary"
-        }''' # TemplateDto | 
+        }`) # TemplateDto | 
 
-    try:
-        # Create Notification Template
-        new_template_dto = TemplateDto.from_json(template_dto)
-        results = NotificationsApi(api_client).create_notification_template(x_sail_point_experimental=x_sail_point_experimental, template_dto=new_template_dto)
-        # Below is a request that includes all optional parameters
-        # results = NotificationsApi(api_client).create_notification_template(x_sail_point_experimental, new_template_dto)
-        print("The response of NotificationsApi->create_notification_template:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling NotificationsApi->create_notification_template: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.NotificationsAPI.CreateNotificationTemplate(context.Background()).XSailPointExperimental(xSailPointExperimental).TemplateDto(templateDto).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `NotificationsAPI.CreateNotificationTemplate``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateNotificationTemplate`: TemplateDto
+	fmt.Fprintf(os.Stdout, "Response from `NotificationsAPI.CreateNotificationTemplate`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## create-verified-from-address
 :::warning experimental 
@@ -206,7 +202,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::tip setting x-sailpoint-experimental header
  on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
  Example:
- ```python
+ ```go
    configuration = Configuration()
    configuration.experimental = True
  ```
@@ -216,65 +212,64 @@ Create a new sender email address and initiate verification process.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/create-verified-from-address)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
- Body  | email_status_dto | [**EmailStatusDto**](../models/email-status-dto) | True  | 
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreateVerifiedFromAddressRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
+ **emailStatusDto** | [**EmailStatusDto**](../models/email-status-dto) |  | 
 
 ### Return type
+
 [**EmailStatusDto**](../models/email-status-dto)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-201 | New Verified Email Status | EmailStatusDto |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: application/json
- - **Accept**: application/json
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.notifications_api import NotificationsApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.email_status_dto import EmailStatusDto
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
-configuration.experimental = true
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    email_status_dto = '''{
+func main() {
+    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+    emailStatusDto := fmt.Sprintf(`{
           "isVerifiedByDomain" : false,
           "verificationStatus" : "PENDING",
           "id" : "id",
           "email" : "sender@example.com"
-        }''' # EmailStatusDto | 
+        }`) # EmailStatusDto | 
 
-    try:
-        # Create Verified From Address
-        new_email_status_dto = EmailStatusDto.from_json(email_status_dto)
-        results = NotificationsApi(api_client).create_verified_from_address(x_sail_point_experimental=x_sail_point_experimental, email_status_dto=new_email_status_dto)
-        # Below is a request that includes all optional parameters
-        # results = NotificationsApi(api_client).create_verified_from_address(x_sail_point_experimental, new_email_status_dto)
-        print("The response of NotificationsApi->create_verified_from_address:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling NotificationsApi->create_verified_from_address: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.NotificationsAPI.CreateVerifiedFromAddress(context.Background()).XSailPointExperimental(xSailPointExperimental).EmailStatusDto(emailStatusDto).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `NotificationsAPI.CreateVerifiedFromAddress``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateVerifiedFromAddress`: EmailStatusDto
+	fmt.Fprintf(os.Stdout, "Response from `NotificationsAPI.CreateVerifiedFromAddress`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## delete-notification-templates-in-bulk
 :::warning experimental 
@@ -283,7 +278,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::tip setting x-sailpoint-experimental header
  on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
  Example:
- ```python
+ ```go
    configuration = Configuration()
    configuration.experimental = True
  ```
@@ -293,58 +288,57 @@ This lets you bulk delete templates that you previously created for your site. S
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-notification-templates-in-bulk)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
- Body  | template_bulk_delete_dto | [**[]TemplateBulkDeleteDto**](../models/template-bulk-delete-dto) | True  | 
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteNotificationTemplatesInBulkRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
+ **templateBulkDeleteDto** | [**[]TemplateBulkDeleteDto**](../models/template-bulk-delete-dto) |  | 
 
 ### Return type
+
  (empty response body)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-204 | No content - indicates the request was successful but there is no content to be returned in the response. |  |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: application/json
- - **Accept**: application/json
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.notifications_api import NotificationsApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.template_bulk_delete_dto import TemplateBulkDeleteDto
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
-configuration.experimental = true
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    template_bulk_delete_dto = '''[sailpoint.v2025.TemplateBulkDeleteDto()]''' # List[TemplateBulkDeleteDto] | 
+func main() {
+    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+    templateBulkDeleteDto := fmt.Sprintf(``) # []TemplateBulkDeleteDto | 
 
-    try:
-        # Bulk Delete Notification Templates
-        new_template_bulk_delete_dto = TemplateBulkDeleteDto.from_json(template_bulk_delete_dto)
-        NotificationsApi(api_client).delete_notification_templates_in_bulk(x_sail_point_experimental=x_sail_point_experimental, template_bulk_delete_dto=new_template_bulk_delete_dto)
-        # Below is a request that includes all optional parameters
-        # NotificationsApi(api_client).delete_notification_templates_in_bulk(x_sail_point_experimental, new_template_bulk_delete_dto)
-    except Exception as e:
-        print("Exception when calling NotificationsApi->delete_notification_templates_in_bulk: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	r, err := apiClient.V2025.NotificationsAPI.DeleteNotificationTemplatesInBulk(context.Background()).XSailPointExperimental(xSailPointExperimental).TemplateBulkDeleteDto(templateBulkDeleteDto).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `NotificationsAPI.DeleteNotificationTemplatesInBulk``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## delete-verified-from-address
 :::warning experimental 
@@ -353,7 +347,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::tip setting x-sailpoint-experimental header
  on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
  Example:
- ```python
+ ```go
    configuration = Configuration()
    configuration.experimental = True
  ```
@@ -363,58 +357,61 @@ Delete a verified sender email address
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-verified-from-address)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | id | **str** | True  | 
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteVerifiedFromAddressRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
 
 ### Return type
+
  (empty response body)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-204 | No content - indicates the request was successful but there is no content to be returned in the response. |  |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.notifications_api import NotificationsApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
-configuration.experimental = true
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    id = 'id_example' # str |  # str | 
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
+func main() {
+    id := id_example # string |  # string | 
+    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
 
-    try:
-        # Delete Verified From Address
-        
-        NotificationsApi(api_client).delete_verified_from_address(id=id, x_sail_point_experimental=x_sail_point_experimental)
-        # Below is a request that includes all optional parameters
-        # NotificationsApi(api_client).delete_verified_from_address(id, x_sail_point_experimental)
-    except Exception as e:
-        print("Exception when calling NotificationsApi->delete_verified_from_address: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	r, err := apiClient.V2025.NotificationsAPI.DeleteVerifiedFromAddress(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `NotificationsAPI.DeleteVerifiedFromAddress``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## get-dkim-attributes
 :::warning experimental 
@@ -423,7 +420,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::tip setting x-sailpoint-experimental header
  on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
  Example:
- ```python
+ ```go
    configuration = Configuration()
    configuration.experimental = True
  ```
@@ -433,58 +430,57 @@ Retrieve DKIM (DomainKeys Identified Mail) attributes for all your tenants' AWS 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-dkim-attributes)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetDkimAttributesRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
 
 ### Return type
-[**List[DkimAttributes]**](../models/dkim-attributes)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | List of DKIM Attributes | List[DkimAttributes] |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
+[**[]DkimAttributes**](../models/dkim-attributes)
 
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.notifications_api import NotificationsApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.dkim_attributes import DkimAttributes
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
-configuration.experimental = true
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
+func main() {
+    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
 
-    try:
-        # Get DKIM Attributes
-        
-        results = NotificationsApi(api_client).get_dkim_attributes(x_sail_point_experimental=x_sail_point_experimental)
-        # Below is a request that includes all optional parameters
-        # results = NotificationsApi(api_client).get_dkim_attributes(x_sail_point_experimental)
-        print("The response of NotificationsApi->get_dkim_attributes:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling NotificationsApi->get_dkim_attributes: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.NotificationsAPI.GetDkimAttributes(context.Background()).XSailPointExperimental(xSailPointExperimental).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `NotificationsAPI.GetDkimAttributes``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetDkimAttributes`: []DkimAttributes
+	fmt.Fprintf(os.Stdout, "Response from `NotificationsAPI.GetDkimAttributes`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## get-mail-from-attributes
 :::warning experimental 
@@ -493,7 +489,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::tip setting x-sailpoint-experimental header
  on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
  Example:
- ```python
+ ```go
    configuration = Configuration()
    configuration.experimental = True
  ```
@@ -503,60 +499,59 @@ Retrieve MAIL FROM attributes for a given AWS SES identity.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-mail-from-attributes)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-  Query | id | **str** | True  | Returns the MX and TXT record to be put in your DNS, as well as the MAIL FROM domain status
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetMailFromAttributesRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **string** | Returns the MX and TXT record to be put in your DNS, as well as the MAIL FROM domain status | 
+ **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
 
 ### Return type
+
 [**MailFromAttributes**](../models/mail-from-attributes)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | MAIL FROM Attributes object | MailFromAttributes |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.notifications_api import NotificationsApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.mail_from_attributes import MailFromAttributes
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
-configuration.experimental = true
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    id = 'bobsmith@sailpoint.com' # str | Returns the MX and TXT record to be put in your DNS, as well as the MAIL FROM domain status # str | Returns the MX and TXT record to be put in your DNS, as well as the MAIL FROM domain status
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
+func main() {
+    id := bobsmith@sailpoint.com # string | Returns the MX and TXT record to be put in your DNS, as well as the MAIL FROM domain status # string | Returns the MX and TXT record to be put in your DNS, as well as the MAIL FROM domain status
+    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
 
-    try:
-        # Get MAIL FROM Attributes
-        
-        results = NotificationsApi(api_client).get_mail_from_attributes(id=id, x_sail_point_experimental=x_sail_point_experimental)
-        # Below is a request that includes all optional parameters
-        # results = NotificationsApi(api_client).get_mail_from_attributes(id, x_sail_point_experimental)
-        print("The response of NotificationsApi->get_mail_from_attributes:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling NotificationsApi->get_mail_from_attributes: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.NotificationsAPI.GetMailFromAttributes(context.Background()).Id(id).XSailPointExperimental(xSailPointExperimental).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `NotificationsAPI.GetMailFromAttributes``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetMailFromAttributes`: MailFromAttributes
+	fmt.Fprintf(os.Stdout, "Response from `NotificationsAPI.GetMailFromAttributes`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## get-notification-template
 :::warning experimental 
@@ -565,7 +560,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::tip setting x-sailpoint-experimental header
  on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
  Example:
- ```python
+ ```go
    configuration = Configuration()
    configuration.experimental = True
  ```
@@ -575,60 +570,63 @@ This gets a template that you have modified for your site by Id.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-notification-template)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | id | **str** | True  | Id of the Notification Template
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | Id of the Notification Template | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetNotificationTemplateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
 
 ### Return type
+
 [**TemplateDto**](../models/template-dto)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | A template object for your site | TemplateDto |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.notifications_api import NotificationsApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.template_dto import TemplateDto
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
-configuration.experimental = true
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    id = 'c17bea3a-574d-453c-9e04-4365fbf5af0b' # str | Id of the Notification Template # str | Id of the Notification Template
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
+func main() {
+    id := c17bea3a-574d-453c-9e04-4365fbf5af0b # string | Id of the Notification Template # string | Id of the Notification Template
+    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
 
-    try:
-        # Get Notification Template By Id
-        
-        results = NotificationsApi(api_client).get_notification_template(id=id, x_sail_point_experimental=x_sail_point_experimental)
-        # Below is a request that includes all optional parameters
-        # results = NotificationsApi(api_client).get_notification_template(id, x_sail_point_experimental)
-        print("The response of NotificationsApi->get_notification_template:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling NotificationsApi->get_notification_template: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.NotificationsAPI.GetNotificationTemplate(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `NotificationsAPI.GetNotificationTemplate``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetNotificationTemplate`: TemplateDto
+	fmt.Fprintf(os.Stdout, "Response from `NotificationsAPI.GetNotificationTemplate`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## get-notifications-template-context
 :::warning experimental 
@@ -637,7 +635,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::tip setting x-sailpoint-experimental header
  on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
  Example:
- ```python
+ ```go
    configuration = Configuration()
    configuration.experimental = True
  ```
@@ -648,58 +646,57 @@ The notification service maintains metadata to construct the notification templa
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-notifications-template-context)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetNotificationsTemplateContextRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
 
 ### Return type
+
 [**NotificationTemplateContext**](../models/notification-template-context)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | Notification template context attributes for a specific tenant. | NotificationTemplateContext |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.notifications_api import NotificationsApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.notification_template_context import NotificationTemplateContext
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
-configuration.experimental = true
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
+func main() {
+    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
 
-    try:
-        # Get Notification Template Context
-        
-        results = NotificationsApi(api_client).get_notifications_template_context(x_sail_point_experimental=x_sail_point_experimental)
-        # Below is a request that includes all optional parameters
-        # results = NotificationsApi(api_client).get_notifications_template_context(x_sail_point_experimental)
-        print("The response of NotificationsApi->get_notifications_template_context:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling NotificationsApi->get_notifications_template_context: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.NotificationsAPI.GetNotificationsTemplateContext(context.Background()).XSailPointExperimental(xSailPointExperimental).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `NotificationsAPI.GetNotificationsTemplateContext``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetNotificationsTemplateContext`: NotificationTemplateContext
+	fmt.Fprintf(os.Stdout, "Response from `NotificationsAPI.GetNotificationsTemplateContext`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## list-from-addresses
 :::warning experimental 
@@ -708,7 +705,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::tip setting x-sailpoint-experimental header
  on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
  Example:
- ```python
+ ```go
    configuration = Configuration()
    configuration.experimental = True
  ```
@@ -718,67 +715,67 @@ Retrieve a list of sender email addresses and their verification statuses
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/list-from-addresses)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
-  Query | limit | **int** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-  Query | offset | **int** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-  Query | count | **bool** |   (optional) (default to False) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-  Query | filters | **str** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **email**: *eq, ge, le, sw*
-  Query | sorters | **str** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **email**
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiListFromAddressesRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
+ **limit** | **int32** | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to 250]
+ **offset** | **int32** | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to 0]
+ **count** | **bool** | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to false]
+ **filters** | **string** | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **email**: *eq, ge, le, sw* | 
+ **sorters** | **string** | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **email** | 
 
 ### Return type
-[**List[EmailStatusDto]**](../models/email-status-dto)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | List of Email Status | List[EmailStatusDto] |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
+[**[]EmailStatusDto**](../models/email-status-dto)
 
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.notifications_api import NotificationsApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.email_status_dto import EmailStatusDto
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
-configuration.experimental = true
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-    offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-    count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
-    filters = 'email eq \"john.doe@company.com\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **email**: *eq, ge, le, sw* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **email**: *eq, ge, le, sw* (optional)
-    sorters = 'email' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **email** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **email** (optional)
+func main() {
+    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+    limit := 250 # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+    offset := 0 # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+    count := true # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+    filters := email eq "john.doe@company.com" # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **email**: *eq, ge, le, sw* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **email**: *eq, ge, le, sw* (optional)
+    sorters := email # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **email** (optional) # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **email** (optional)
 
-    try:
-        # List From Addresses
-        
-        results = NotificationsApi(api_client).list_from_addresses(x_sail_point_experimental=x_sail_point_experimental)
-        # Below is a request that includes all optional parameters
-        # results = NotificationsApi(api_client).list_from_addresses(x_sail_point_experimental, limit, offset, count, filters, sorters)
-        print("The response of NotificationsApi->list_from_addresses:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling NotificationsApi->list_from_addresses: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.NotificationsAPI.ListFromAddresses(context.Background()).XSailPointExperimental(xSailPointExperimental).Limit(limit).Offset(offset).Count(count).Filters(filters).Sorters(sorters).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `NotificationsAPI.ListFromAddresses``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ListFromAddresses`: []EmailStatusDto
+	fmt.Fprintf(os.Stdout, "Response from `NotificationsAPI.ListFromAddresses`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## list-notification-preferences
 :::warning experimental 
@@ -787,7 +784,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::tip setting x-sailpoint-experimental header
  on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
  Example:
- ```python
+ ```go
    configuration = Configuration()
    configuration.experimental = True
  ```
@@ -797,59 +794,57 @@ Returns a list of notification preferences for tenant.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/list-notification-preferences)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiListNotificationPreferencesRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
 
 ### Return type
+
 [**PreferencesDto**](../models/preferences-dto)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | Return preference for the given notification key. | PreferencesDto |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.notifications_api import NotificationsApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.preferences_dto import PreferencesDto
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
-configuration.experimental = true
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
+func main() {
+    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
 
-    try:
-        # List Notification Preferences for tenant.
-        
-        results = NotificationsApi(api_client).list_notification_preferences(x_sail_point_experimental=x_sail_point_experimental)
-        # Below is a request that includes all optional parameters
-        # results = NotificationsApi(api_client).list_notification_preferences(x_sail_point_experimental)
-        print("The response of NotificationsApi->list_notification_preferences:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling NotificationsApi->list_notification_preferences: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.NotificationsAPI.ListNotificationPreferences(context.Background()).XSailPointExperimental(xSailPointExperimental).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `NotificationsAPI.ListNotificationPreferences``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ListNotificationPreferences`: PreferencesDto
+	fmt.Fprintf(os.Stdout, "Response from `NotificationsAPI.ListNotificationPreferences`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## list-notification-template-defaults
 :::warning experimental 
@@ -858,7 +853,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::tip setting x-sailpoint-experimental header
  on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
  Example:
- ```python
+ ```go
    configuration = Configuration()
    configuration.experimental = True
  ```
@@ -868,64 +863,63 @@ This lists the default templates used for notifications, such as emails from Ide
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/list-notification-template-defaults)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
-  Query | limit | **int** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-  Query | offset | **int** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-  Query | filters | **str** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, in, sw*  **medium**: *eq, sw*  **locale**: *eq, sw*
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiListNotificationTemplateDefaultsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
+ **limit** | **int32** | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to 250]
+ **offset** | **int32** | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to 0]
+ **filters** | **string** | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, in, sw*  **medium**: *eq, sw*  **locale**: *eq, sw* | 
 
 ### Return type
-[**List[TemplateDtoDefault]**](../models/template-dto-default)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | A list of the default template objects | List[TemplateDtoDefault] |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
+[**[]TemplateDtoDefault**](../models/template-dto-default)
 
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.notifications_api import NotificationsApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.template_dto_default import TemplateDtoDefault
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
-configuration.experimental = true
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-    offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-    filters = 'key eq \"cloud_manual_work_item_summary\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, in, sw*  **medium**: *eq, sw*  **locale**: *eq, sw* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, in, sw*  **medium**: *eq, sw*  **locale**: *eq, sw* (optional)
+func main() {
+    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+    limit := 250 # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+    offset := 0 # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+    filters := key eq "cloud_manual_work_item_summary" # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, in, sw*  **medium**: *eq, sw*  **locale**: *eq, sw* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, in, sw*  **medium**: *eq, sw*  **locale**: *eq, sw* (optional)
 
-    try:
-        # List Notification Template Defaults
-        
-        results = NotificationsApi(api_client).list_notification_template_defaults(x_sail_point_experimental=x_sail_point_experimental)
-        # Below is a request that includes all optional parameters
-        # results = NotificationsApi(api_client).list_notification_template_defaults(x_sail_point_experimental, limit, offset, filters)
-        print("The response of NotificationsApi->list_notification_template_defaults:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling NotificationsApi->list_notification_template_defaults: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.NotificationsAPI.ListNotificationTemplateDefaults(context.Background()).XSailPointExperimental(xSailPointExperimental).Limit(limit).Offset(offset).Filters(filters).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `NotificationsAPI.ListNotificationTemplateDefaults``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ListNotificationTemplateDefaults`: []TemplateDtoDefault
+	fmt.Fprintf(os.Stdout, "Response from `NotificationsAPI.ListNotificationTemplateDefaults`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## list-notification-templates
 :::warning experimental 
@@ -934,7 +928,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::tip setting x-sailpoint-experimental header
  on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
  Example:
- ```python
+ ```go
    configuration = Configuration()
    configuration.experimental = True
  ```
@@ -944,64 +938,63 @@ This lists the templates that you have modified for your site.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/list-notification-templates)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
-  Query | limit | **int** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-  Query | offset | **int** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-  Query | filters | **str** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, in, sw*  **medium**: *eq, sw*  **locale**: *eq, sw*
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiListNotificationTemplatesRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
+ **limit** | **int32** | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to 250]
+ **offset** | **int32** | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to 0]
+ **filters** | **string** | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, in, sw*  **medium**: *eq, sw*  **locale**: *eq, sw* | 
 
 ### Return type
-[**List[TemplateDto]**](../models/template-dto)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | A list of template objects for your site | List[TemplateDto] |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
+[**[]TemplateDto**](../models/template-dto)
 
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.notifications_api import NotificationsApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.template_dto import TemplateDto
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
-configuration.experimental = true
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-    offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-    filters = 'medium eq \"EMAIL\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, in, sw*  **medium**: *eq, sw*  **locale**: *eq, sw* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, in, sw*  **medium**: *eq, sw*  **locale**: *eq, sw* (optional)
+func main() {
+    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+    limit := 250 # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+    offset := 0 # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+    filters := medium eq "EMAIL" # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, in, sw*  **medium**: *eq, sw*  **locale**: *eq, sw* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, in, sw*  **medium**: *eq, sw*  **locale**: *eq, sw* (optional)
 
-    try:
-        # List Notification Templates
-        
-        results = NotificationsApi(api_client).list_notification_templates(x_sail_point_experimental=x_sail_point_experimental)
-        # Below is a request that includes all optional parameters
-        # results = NotificationsApi(api_client).list_notification_templates(x_sail_point_experimental, limit, offset, filters)
-        print("The response of NotificationsApi->list_notification_templates:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling NotificationsApi->list_notification_templates: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.NotificationsAPI.ListNotificationTemplates(context.Background()).XSailPointExperimental(xSailPointExperimental).Limit(limit).Offset(offset).Filters(filters).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `NotificationsAPI.ListNotificationTemplates``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ListNotificationTemplates`: []TemplateDto
+	fmt.Fprintf(os.Stdout, "Response from `NotificationsAPI.ListNotificationTemplates`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## put-mail-from-attributes
 :::warning experimental 
@@ -1010,7 +1003,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::tip setting x-sailpoint-experimental header
  on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
  Example:
- ```python
+ ```go
    configuration = Configuration()
    configuration.experimental = True
  ```
@@ -1020,64 +1013,62 @@ Change the MAIL FROM domain of an AWS SES email identity and provide the MX and 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/put-mail-from-attributes)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
- Body  | mail_from_attributes_dto | [**MailFromAttributesDto**](../models/mail-from-attributes-dto) | True  | 
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPutMailFromAttributesRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
+ **mailFromAttributesDto** | [**MailFromAttributesDto**](../models/mail-from-attributes-dto) |  | 
 
 ### Return type
+
 [**MailFromAttributes**](../models/mail-from-attributes)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | MAIL FROM Attributes required to verify the change | MailFromAttributes |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: application/json
- - **Accept**: application/json
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.notifications_api import NotificationsApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.mail_from_attributes import MailFromAttributes
-from sailpoint.v2025.models.mail_from_attributes_dto import MailFromAttributesDto
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
-configuration.experimental = true
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    mail_from_attributes_dto = '''{
+func main() {
+    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+    mailFromAttributesDto := fmt.Sprintf(`{
           "identity" : "BobSmith@sailpoint.com",
           "mailFromDomain" : "example.sailpoint.com"
-        }''' # MailFromAttributesDto | 
+        }`) # MailFromAttributesDto | 
 
-    try:
-        # Change MAIL FROM domain
-        new_mail_from_attributes_dto = MailFromAttributesDto.from_json(mail_from_attributes_dto)
-        results = NotificationsApi(api_client).put_mail_from_attributes(x_sail_point_experimental=x_sail_point_experimental, mail_from_attributes_dto=new_mail_from_attributes_dto)
-        # Below is a request that includes all optional parameters
-        # results = NotificationsApi(api_client).put_mail_from_attributes(x_sail_point_experimental, new_mail_from_attributes_dto)
-        print("The response of NotificationsApi->put_mail_from_attributes:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling NotificationsApi->put_mail_from_attributes: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.NotificationsAPI.PutMailFromAttributes(context.Background()).XSailPointExperimental(xSailPointExperimental).MailFromAttributesDto(mailFromAttributesDto).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `NotificationsAPI.PutMailFromAttributes``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PutMailFromAttributes`: MailFromAttributes
+	fmt.Fprintf(os.Stdout, "Response from `NotificationsAPI.PutMailFromAttributes`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## send-test-notification
 :::warning experimental 
@@ -1086,7 +1077,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::tip setting x-sailpoint-experimental header
  on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
  Example:
- ```python
+ ```go
    configuration = Configuration()
    configuration.experimental = True
  ```
@@ -1096,63 +1087,59 @@ Send a Test Notification
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/send-test-notification)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
- Body  | send_test_notification_request_dto | [**SendTestNotificationRequestDto**](../models/send-test-notification-request-dto) | True  | 
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiSendTestNotificationRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
+ **sendTestNotificationRequestDto** | [**SendTestNotificationRequestDto**](../models/send-test-notification-request-dto) |  | 
 
 ### Return type
+
  (empty response body)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-204 | No content - indicates the request was successful but there is no content to be returned in the response. |  |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: application/json
- - **Accept**: application/json
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.notifications_api import NotificationsApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.send_test_notification_request_dto import SendTestNotificationRequestDto
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
-configuration.experimental = true
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    send_test_notification_request_dto = '''{
+func main() {
+    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+    sendTestNotificationRequestDto := fmt.Sprintf(`{
           "context" : "{}",
           "medium" : "EMAIL",
           "key" : "cloud_manual_work_item_summary"
-        }''' # SendTestNotificationRequestDto | 
+        }`) # SendTestNotificationRequestDto | 
 
-    try:
-        # Send Test Notification
-        new_send_test_notification_request_dto = SendTestNotificationRequestDto.from_json(send_test_notification_request_dto)
-        NotificationsApi(api_client).send_test_notification(x_sail_point_experimental=x_sail_point_experimental, send_test_notification_request_dto=new_send_test_notification_request_dto)
-        # Below is a request that includes all optional parameters
-        # NotificationsApi(api_client).send_test_notification(x_sail_point_experimental, new_send_test_notification_request_dto)
-    except Exception as e:
-        print("Exception when calling NotificationsApi->send_test_notification: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	r, err := apiClient.V2025.NotificationsAPI.SendTestNotification(context.Background()).XSailPointExperimental(xSailPointExperimental).SendTestNotificationRequestDto(sendTestNotificationRequestDto).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `NotificationsAPI.SendTestNotification``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
 ```
 
-
-
-[[Back to top]](#) 
-
-
+[[Back to top]](#)
 

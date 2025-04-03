@@ -3,36 +3,99 @@ id: v2025-provisioning-completed-recipient
 title: ProvisioningCompletedRecipient
 pagination_label: ProvisioningCompletedRecipient
 sidebar_label: ProvisioningCompletedRecipient
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'ProvisioningCompletedRecipient', 'V2025ProvisioningCompletedRecipient'] 
-slug: /tools/sdk/python/v2025/models/provisioning-completed-recipient
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'ProvisioningCompletedRecipient', 'V2025ProvisioningCompletedRecipient'] 
+slug: /tools/sdk/go/v2025/models/provisioning-completed-recipient
 tags: ['SDK', 'Software Development Kit', 'ProvisioningCompletedRecipient', 'V2025ProvisioningCompletedRecipient']
 ---
 
 # ProvisioningCompletedRecipient
 
-Provisioning recpient.
-
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** |  **Enum** [  'IDENTITY' ] | Provisioning recipient DTO type. | [required]
-**id** | **str** | Provisioning recipient's identity ID. | [required]
-**name** | **str** | Provisioning recipient's display name. | [required]
-}
+**Type** | **string** | Provisioning recipient DTO type. | 
+**Id** | **string** | Provisioning recipient's identity ID. | 
+**Name** | **string** | Provisioning recipient's display name. | 
 
-## Example
+## Methods
 
-```python
-from sailpoint.v2025.models.provisioning_completed_recipient import ProvisioningCompletedRecipient
+### NewProvisioningCompletedRecipient
 
-provisioning_completed_recipient = ProvisioningCompletedRecipient(
-type='IDENTITY',
-id='2c7180a46faadee4016fb4e018c20642',
-name='Michael Michaels'
-)
+`func NewProvisioningCompletedRecipient(type_ string, id string, name string, ) *ProvisioningCompletedRecipient`
 
-```
-[[Back to top]](#) 
+NewProvisioningCompletedRecipient instantiates a new ProvisioningCompletedRecipient object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewProvisioningCompletedRecipientWithDefaults
+
+`func NewProvisioningCompletedRecipientWithDefaults() *ProvisioningCompletedRecipient`
+
+NewProvisioningCompletedRecipientWithDefaults instantiates a new ProvisioningCompletedRecipient object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetType
+
+`func (o *ProvisioningCompletedRecipient) GetType() string`
+
+GetType returns the Type field if non-nil, zero value otherwise.
+
+### GetTypeOk
+
+`func (o *ProvisioningCompletedRecipient) GetTypeOk() (*string, bool)`
+
+GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetType
+
+`func (o *ProvisioningCompletedRecipient) SetType(v string)`
+
+SetType sets Type field to given value.
+
+
+### GetId
+
+`func (o *ProvisioningCompletedRecipient) GetId() string`
+
+GetId returns the Id field if non-nil, zero value otherwise.
+
+### GetIdOk
+
+`func (o *ProvisioningCompletedRecipient) GetIdOk() (*string, bool)`
+
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetId
+
+`func (o *ProvisioningCompletedRecipient) SetId(v string)`
+
+SetId sets Id field to given value.
+
+
+### GetName
+
+`func (o *ProvisioningCompletedRecipient) GetName() string`
+
+GetName returns the Name field if non-nil, zero value otherwise.
+
+### GetNameOk
+
+`func (o *ProvisioningCompletedRecipient) GetNameOk() (*string, bool)`
+
+GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetName
+
+`func (o *ProvisioningCompletedRecipient) SetName(v string)`
+
+SetName sets Name field to given value.
+
+
 

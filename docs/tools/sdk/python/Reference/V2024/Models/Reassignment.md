@@ -3,43 +3,88 @@ id: v2024-reassignment
 title: Reassignment
 pagination_label: Reassignment
 sidebar_label: Reassignment
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'Reassignment', 'V2024Reassignment'] 
-slug: /tools/sdk/python/v2024/models/reassignment
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'Reassignment', 'V2024Reassignment'] 
+slug: /tools/sdk/go/v2024/models/reassignment
 tags: ['SDK', 'Software Development Kit', 'Reassignment', 'V2024Reassignment']
 ---
 
 # Reassignment
 
-
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**var_from** | [**CertificationReference**](certification-reference) |  | [optional] 
-**comment** | **str** | The comment entered when the Certification was reassigned | [optional] 
-}
+**From** | Pointer to [**CertificationReference**](certification-reference) |  | [optional] 
+**Comment** | Pointer to **string** | The comment entered when the Certification was reassigned | [optional] 
 
-## Example
+## Methods
 
-```python
-from sailpoint.v2024.models.reassignment import Reassignment
+### NewReassignment
 
-reassignment = Reassignment(
-var_from=sailpoint.v2024.models.certification_reference.CertificationReference(
-                    id = 'ef38f94347e94562b5bb8424a56397d8', 
-                    name = 'Certification Name', 
-                    type = 'CERTIFICATION', 
-                    reviewer = sailpoint.v2024.models.reviewer.Reviewer(
-                        id = 'ef38f94347e94562b5bb8424a56397d8', 
-                        name = 'Reviewer Name', 
-                        email = 'reviewer@test.com', 
-                        type = 'IDENTITY', 
-                        created = '2018-06-25T20:22:28.104Z', 
-                        modified = '2018-06-25T20:22:28.104Z', ), ),
-comment='Reassigned for a reason'
-)
+`func NewReassignment() *Reassignment`
 
-```
-[[Back to top]](#) 
+NewReassignment instantiates a new Reassignment object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewReassignmentWithDefaults
+
+`func NewReassignmentWithDefaults() *Reassignment`
+
+NewReassignmentWithDefaults instantiates a new Reassignment object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetFrom
+
+`func (o *Reassignment) GetFrom() CertificationReference`
+
+GetFrom returns the From field if non-nil, zero value otherwise.
+
+### GetFromOk
+
+`func (o *Reassignment) GetFromOk() (*CertificationReference, bool)`
+
+GetFromOk returns a tuple with the From field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFrom
+
+`func (o *Reassignment) SetFrom(v CertificationReference)`
+
+SetFrom sets From field to given value.
+
+### HasFrom
+
+`func (o *Reassignment) HasFrom() bool`
+
+HasFrom returns a boolean if a field has been set.
+
+### GetComment
+
+`func (o *Reassignment) GetComment() string`
+
+GetComment returns the Comment field if non-nil, zero value otherwise.
+
+### GetCommentOk
+
+`func (o *Reassignment) GetCommentOk() (*string, bool)`
+
+GetCommentOk returns a tuple with the Comment field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetComment
+
+`func (o *Reassignment) SetComment(v string)`
+
+SetComment sets Comment field to given value.
+
+### HasComment
+
+`func (o *Reassignment) HasComment() bool`
+
+HasComment returns a boolean if a field has been set.
+
 

@@ -3,59 +3,166 @@ id: v2025-recommendation-response
 title: RecommendationResponse
 pagination_label: RecommendationResponse
 sidebar_label: RecommendationResponse
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'RecommendationResponse', 'V2025RecommendationResponse'] 
-slug: /tools/sdk/python/v2025/models/recommendation-response
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'RecommendationResponse', 'V2025RecommendationResponse'] 
+slug: /tools/sdk/go/v2025/models/recommendation-response
 tags: ['SDK', 'Software Development Kit', 'RecommendationResponse', 'V2025RecommendationResponse']
 ---
 
 # RecommendationResponse
 
-
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**request** | [**RecommendationRequest**](recommendation-request) |  | [optional] 
-**recommendation** |  **Enum** [  'true',    'false',    'MAYBE',    'NOT_FOUND' ] | The recommendation - YES if the access is recommended, NO if not recommended, MAYBE if there is not enough information to make a recommendation, NOT_FOUND if the identity is not found in the system | [optional] 
-**interpretations** | **[]str** | The list of interpretations explaining the recommendation. The array is empty if includeInterpretations is false or not present in the request. e.g. - [ \"Not approved in the last 6 months.\" ]. Interpretations will be translated using the client's locale as found in the Accept-Language header. If a translation for the client's locale cannot be found, the US English translation will be returned. | [optional] 
-**translation_messages** | [**[]TranslationMessage**](translation-message) | The list of translation messages, if they have been requested. | [optional] 
-**recommender_calculations** | [**RecommenderCalculations**](recommender-calculations) |  | [optional] 
-}
+**Request** | Pointer to [**RecommendationRequest**](recommendation-request) |  | [optional] 
+**Recommendation** | Pointer to **string** | The recommendation - YES if the access is recommended, NO if not recommended, MAYBE if there is not enough information to make a recommendation, NOT_FOUND if the identity is not found in the system | [optional] 
+**Interpretations** | Pointer to **[]string** | The list of interpretations explaining the recommendation. The array is empty if includeInterpretations is false or not present in the request. e.g. - [ \"Not approved in the last 6 months.\" ]. Interpretations will be translated using the client's locale as found in the Accept-Language header. If a translation for the client's locale cannot be found, the US English translation will be returned. | [optional] 
+**TranslationMessages** | Pointer to [**[]TranslationMessage**](translation-message) | The list of translation messages, if they have been requested. | [optional] 
+**RecommenderCalculations** | Pointer to [**RecommenderCalculations**](recommender-calculations) |  | [optional] 
 
-## Example
+## Methods
 
-```python
-from sailpoint.v2025.models.recommendation_response import RecommendationResponse
+### NewRecommendationResponse
 
-recommendation_response = RecommendationResponse(
-request=sailpoint.v2025.models.recommendation_request.RecommendationRequest(
-                    identity_id = '2c938083633d259901633d25c68c00fa', 
-                    item = sailpoint.v2025.models.access_item_ref.AccessItemRef(
-                        id = '2c938083633d259901633d2623ec0375', 
-                        type = 'ENTITLEMENT', ), ),
-recommendation='true',
-interpretations=[75% of identities with the same department have this access. This information had a high impact on the overall score., 67% of identities with the same peer group have this access. This information had a low impact on the overall score., 42% of identities with the same location have this access. This information had a low impact on the overall score.],
-translation_messages=[{key=recommender-api.V2_WEIGHT_FEATURE_PRODUCT_INTERPRETATION_HIGH, values=[75, department]}],
-recommender_calculations=sailpoint.v2025.models.recommender_calculations.RecommenderCalculations(
-                    identity_id = '2c91808457d8f3ab0157e3e62cb4213c', 
-                    entitlement_id = '2c91809050db617d0150e0bf3215385e', 
-                    recommendation = 'YES', 
-                    overall_weighted_score = 1.337, 
-                    feature_weighted_scores = {
-                        'key' : 1.337
-                        }, 
-                    threshold = 1.337, 
-                    identity_attributes = {
-                        'key' : sailpoint.v2025.models.recommender_calculations_identity_attributes_value.RecommenderCalculations_identityAttributes_value(
-                            value = '', )
-                        }, 
-                    feature_values = sailpoint.v2025.models.feature_value_dto.FeatureValueDto(
-                        feature = 'department', 
-                        numerator = 14, 
-                        denominator = 14, ), )
-)
+`func NewRecommendationResponse() *RecommendationResponse`
 
-```
-[[Back to top]](#) 
+NewRecommendationResponse instantiates a new RecommendationResponse object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewRecommendationResponseWithDefaults
+
+`func NewRecommendationResponseWithDefaults() *RecommendationResponse`
+
+NewRecommendationResponseWithDefaults instantiates a new RecommendationResponse object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetRequest
+
+`func (o *RecommendationResponse) GetRequest() RecommendationRequest`
+
+GetRequest returns the Request field if non-nil, zero value otherwise.
+
+### GetRequestOk
+
+`func (o *RecommendationResponse) GetRequestOk() (*RecommendationRequest, bool)`
+
+GetRequestOk returns a tuple with the Request field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRequest
+
+`func (o *RecommendationResponse) SetRequest(v RecommendationRequest)`
+
+SetRequest sets Request field to given value.
+
+### HasRequest
+
+`func (o *RecommendationResponse) HasRequest() bool`
+
+HasRequest returns a boolean if a field has been set.
+
+### GetRecommendation
+
+`func (o *RecommendationResponse) GetRecommendation() string`
+
+GetRecommendation returns the Recommendation field if non-nil, zero value otherwise.
+
+### GetRecommendationOk
+
+`func (o *RecommendationResponse) GetRecommendationOk() (*string, bool)`
+
+GetRecommendationOk returns a tuple with the Recommendation field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRecommendation
+
+`func (o *RecommendationResponse) SetRecommendation(v string)`
+
+SetRecommendation sets Recommendation field to given value.
+
+### HasRecommendation
+
+`func (o *RecommendationResponse) HasRecommendation() bool`
+
+HasRecommendation returns a boolean if a field has been set.
+
+### GetInterpretations
+
+`func (o *RecommendationResponse) GetInterpretations() []string`
+
+GetInterpretations returns the Interpretations field if non-nil, zero value otherwise.
+
+### GetInterpretationsOk
+
+`func (o *RecommendationResponse) GetInterpretationsOk() (*[]string, bool)`
+
+GetInterpretationsOk returns a tuple with the Interpretations field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInterpretations
+
+`func (o *RecommendationResponse) SetInterpretations(v []string)`
+
+SetInterpretations sets Interpretations field to given value.
+
+### HasInterpretations
+
+`func (o *RecommendationResponse) HasInterpretations() bool`
+
+HasInterpretations returns a boolean if a field has been set.
+
+### GetTranslationMessages
+
+`func (o *RecommendationResponse) GetTranslationMessages() []TranslationMessage`
+
+GetTranslationMessages returns the TranslationMessages field if non-nil, zero value otherwise.
+
+### GetTranslationMessagesOk
+
+`func (o *RecommendationResponse) GetTranslationMessagesOk() (*[]TranslationMessage, bool)`
+
+GetTranslationMessagesOk returns a tuple with the TranslationMessages field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTranslationMessages
+
+`func (o *RecommendationResponse) SetTranslationMessages(v []TranslationMessage)`
+
+SetTranslationMessages sets TranslationMessages field to given value.
+
+### HasTranslationMessages
+
+`func (o *RecommendationResponse) HasTranslationMessages() bool`
+
+HasTranslationMessages returns a boolean if a field has been set.
+
+### GetRecommenderCalculations
+
+`func (o *RecommendationResponse) GetRecommenderCalculations() RecommenderCalculations`
+
+GetRecommenderCalculations returns the RecommenderCalculations field if non-nil, zero value otherwise.
+
+### GetRecommenderCalculationsOk
+
+`func (o *RecommendationResponse) GetRecommenderCalculationsOk() (*RecommenderCalculations, bool)`
+
+GetRecommenderCalculationsOk returns a tuple with the RecommenderCalculations field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRecommenderCalculations
+
+`func (o *RecommendationResponse) SetRecommenderCalculations(v RecommenderCalculations)`
+
+SetRecommenderCalculations sets RecommenderCalculations field to given value.
+
+### HasRecommenderCalculations
+
+`func (o *RecommendationResponse) HasRecommenderCalculations() bool`
+
+HasRecommenderCalculations returns a boolean if a field has been set.
+
 

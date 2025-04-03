@@ -1,15 +1,15 @@
 ---
 id: v2024-work-reassignment
-title: Work_Reassignment
-pagination_label: Work_Reassignment
-sidebar_label: Work_Reassignment
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'Work_Reassignment', 'V2024Work_Reassignment'] 
-slug: /tools/sdk/python/v2024/methods/work-reassignment
-tags: ['SDK', 'Software Development Kit', 'Work_Reassignment', 'V2024Work_Reassignment']
+title: WorkReassignment
+pagination_label: WorkReassignment
+sidebar_label: WorkReassignment
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'WorkReassignment', 'V2024WorkReassignment'] 
+slug: /tools/sdk/go/v2024/methods/work-reassignment
+tags: ['SDK', 'Software Development Kit', 'WorkReassignment', 'V2024WorkReassignment']
 ---
 
-# sailpoint.v2024.WorkReassignmentApi
+# WorkReassignmentAPI
   Use this API to implement work reassignment functionality.
 
 Work Reassignment allows access request reviews, certifications, and manual provisioning tasks assigned to a user to be reassigned to a different user. This is primarily used for:
@@ -25,15 +25,15 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-reassignment-configuration**](#create-reassignment-configuration) | **POST** `/reassignment-configurations` | Create a Reassignment Configuration
-[**delete-reassignment-configuration**](#delete-reassignment-configuration) | **DELETE** `/reassignment-configurations/{identityId}/{configType}` | Delete Reassignment Configuration
-[**get-evaluate-reassignment-configuration**](#get-evaluate-reassignment-configuration) | **GET** `/reassignment-configurations/{identityId}/evaluate/{configType}` | Evaluate Reassignment Configuration
-[**get-reassignment-config-types**](#get-reassignment-config-types) | **GET** `/reassignment-configurations/types` | List Reassignment Config Types
-[**get-reassignment-configuration**](#get-reassignment-configuration) | **GET** `/reassignment-configurations/{identityId}` | Get Reassignment Configuration
-[**get-tenant-config-configuration**](#get-tenant-config-configuration) | **GET** `/reassignment-configurations/tenant-config` | Get Tenant-wide Reassignment Configuration settings
-[**list-reassignment-configurations**](#list-reassignment-configurations) | **GET** `/reassignment-configurations` | List Reassignment Configurations
-[**put-reassignment-config**](#put-reassignment-config) | **PUT** `/reassignment-configurations/{identityId}` | Update Reassignment Configuration
-[**put-tenant-configuration**](#put-tenant-configuration) | **PUT** `/reassignment-configurations/tenant-config` | Update Tenant-wide Reassignment Configuration settings
+[**create-reassignment-configuration**](#create-reassignment-configuration) | **Post** `/reassignment-configurations` | Create a Reassignment Configuration
+[**delete-reassignment-configuration**](#delete-reassignment-configuration) | **Delete** `/reassignment-configurations/{identityId}/{configType}` | Delete Reassignment Configuration
+[**get-evaluate-reassignment-configuration**](#get-evaluate-reassignment-configuration) | **Get** `/reassignment-configurations/{identityId}/evaluate/{configType}` | Evaluate Reassignment Configuration
+[**get-reassignment-config-types**](#get-reassignment-config-types) | **Get** `/reassignment-configurations/types` | List Reassignment Config Types
+[**get-reassignment-configuration**](#get-reassignment-configuration) | **Get** `/reassignment-configurations/{identityId}` | Get Reassignment Configuration
+[**get-tenant-config-configuration**](#get-tenant-config-configuration) | **Get** `/reassignment-configurations/tenant-config` | Get Tenant-wide Reassignment Configuration settings
+[**list-reassignment-configurations**](#list-reassignment-configurations) | **Get** `/reassignment-configurations` | List Reassignment Configurations
+[**put-reassignment-config**](#put-reassignment-config) | **Put** `/reassignment-configurations/{identityId}` | Update Reassignment Configuration
+[**put-tenant-configuration**](#put-tenant-configuration) | **Put** `/reassignment-configurations/tenant-config` | Update Tenant-wide Reassignment Configuration settings
 
 
 ## create-reassignment-configuration
@@ -43,7 +43,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::tip setting x-sailpoint-experimental header
  on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
  Example:
- ```python
+ ```go
    configuration = Configuration()
    configuration.experimental = True
  ```
@@ -53,67 +53,65 @@ Creates a new Reassignment Configuration for the specified identity.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/create-reassignment-configuration)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
- Body  | configuration_item_request | [**ConfigurationItemRequest**](../models/configuration-item-request) | True  | 
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreateReassignmentConfigurationRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
+ **configurationItemRequest** | [**ConfigurationItemRequest**](../models/configuration-item-request) |  | 
 
 ### Return type
+
 [**ConfigurationItemResponse**](../models/configuration-item-response)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-201 | The newly created Reassignment Configuration object | ConfigurationItemResponse |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: application/json
- - **Accept**: application/json
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2024.api.work_reassignment_api import WorkReassignmentApi
-from sailpoint.v2024.api_client import ApiClient
-from sailpoint.v2024.models.configuration_item_request import ConfigurationItemRequest
-from sailpoint.v2024.models.configuration_item_response import ConfigurationItemResponse
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
-configuration.experimental = true
+import (
+	"context"
+	"fmt"
+	"os"
+  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    configuration_item_request = '''{
+func main() {
+    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+    configurationItemRequest := fmt.Sprintf(`{
           "endDate" : "2022-07-30T17:00:00Z",
           "reassignedFromId" : "2c91808781a71ddb0181b9090b5c504e",
           "configType" : "ACCESS_REQUESTS",
           "reassignedToId" : "2c91808781a71ddb0181b9090b53504a",
           "startDate" : "2022-07-21T11:13:12.345Z"
-        }''' # ConfigurationItemRequest | 
+        }`) # ConfigurationItemRequest | 
 
-    try:
-        # Create a Reassignment Configuration
-        new_configuration_item_request = ConfigurationItemRequest.from_json(configuration_item_request)
-        results = WorkReassignmentApi(api_client).create_reassignment_configuration(x_sail_point_experimental=x_sail_point_experimental, configuration_item_request=new_configuration_item_request)
-        # Below is a request that includes all optional parameters
-        # results = WorkReassignmentApi(api_client).create_reassignment_configuration(x_sail_point_experimental, new_configuration_item_request)
-        print("The response of WorkReassignmentApi->create_reassignment_configuration:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling WorkReassignmentApi->create_reassignment_configuration: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2024.WorkReassignmentAPI.CreateReassignmentConfiguration(context.Background()).XSailPointExperimental(xSailPointExperimental).ConfigurationItemRequest(configurationItemRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `WorkReassignmentAPI.CreateReassignmentConfiguration``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateReassignmentConfiguration`: ConfigurationItemResponse
+	fmt.Fprintf(os.Stdout, "Response from `WorkReassignmentAPI.CreateReassignmentConfiguration`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## delete-reassignment-configuration
 :::warning experimental 
@@ -122,7 +120,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::tip setting x-sailpoint-experimental header
  on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
  Example:
- ```python
+ ```go
    configuration = Configuration()
    configuration.experimental = True
  ```
@@ -132,60 +130,64 @@ Deletes a single reassignment configuration for the specified identity
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-reassignment-configuration)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | identity_id | **str** | True  | unique identity id
-Path   | config_type | [**ConfigTypeEnum**](../models/config-type-enum) | True  | 
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**identityId** | **string** | unique identity id | 
+**configType** | [**ConfigTypeEnum**](../models/) |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteReassignmentConfigurationRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
 
 ### Return type
+
  (empty response body)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-204 | Reassignment Configuration deleted |  |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2024.api.work_reassignment_api import WorkReassignmentApi
-from sailpoint.v2024.api_client import ApiClient
-from sailpoint.v2024.models.config_type_enum import ConfigTypeEnum
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
-configuration.experimental = true
+import (
+	"context"
+	"fmt"
+	"os"
+  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    identity_id = '2c91808781a71ddb0181b9090b5c504e' # str | unique identity id # str | unique identity id
-    config_type = sailpoint.v2024.ConfigTypeEnum() # ConfigTypeEnum |  # ConfigTypeEnum | 
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
+func main() {
+    identityId := 2c91808781a71ddb0181b9090b5c504e # string | unique identity id # string | unique identity id
+    configType :=  # ConfigTypeEnum |  # ConfigTypeEnum | 
+    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
 
-    try:
-        # Delete Reassignment Configuration
-        
-        WorkReassignmentApi(api_client).delete_reassignment_configuration(identity_id=identity_id, config_type=config_type, x_sail_point_experimental=x_sail_point_experimental)
-        # Below is a request that includes all optional parameters
-        # WorkReassignmentApi(api_client).delete_reassignment_configuration(identity_id, config_type, x_sail_point_experimental)
-    except Exception as e:
-        print("Exception when calling WorkReassignmentApi->delete_reassignment_configuration: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	r, err := apiClient.V2024.WorkReassignmentAPI.DeleteReassignmentConfiguration(context.Background(), identityId, configType).XSailPointExperimental(xSailPointExperimental).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `WorkReassignmentAPI.DeleteReassignmentConfiguration``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## get-evaluate-reassignment-configuration
 :::warning experimental 
@@ -194,7 +196,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::tip setting x-sailpoint-experimental header
  on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
  Example:
- ```python
+ ```go
    configuration = Configuration()
    configuration.experimental = True
  ```
@@ -204,65 +206,68 @@ Evaluates the Reassignment Configuration for an `Identity` to determine if work 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-evaluate-reassignment-configuration)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | identity_id | **str** | True  | unique identity id
-Path   | config_type | [**ConfigTypeEnum**](../models/config-type-enum) | True  | Reassignment work type
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
-  Query | exclusion_filters | **[]str** |   (optional) | Exclusion filters that disable parts of the reassignment evaluation. Possible values are listed below: - `SELF_REVIEW_DELEGATION`: This will exclude delegations of self-review reassignments
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**identityId** | **string** | unique identity id | 
+**configType** | [**ConfigTypeEnum**](../models/) | Reassignment work type | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetEvaluateReassignmentConfigurationRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
+ **exclusionFilters** | **[]string** | Exclusion filters that disable parts of the reassignment evaluation. Possible values are listed below: - &#x60;SELF_REVIEW_DELEGATION&#x60;: This will exclude delegations of self-review reassignments | 
 
 ### Return type
-[**List[EvaluateResponse]**](../models/evaluate-response)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | Evaluated Reassignment Configuration | List[EvaluateResponse] |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
+[**[]EvaluateResponse**](../models/evaluate-response)
 
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2024.api.work_reassignment_api import WorkReassignmentApi
-from sailpoint.v2024.api_client import ApiClient
-from sailpoint.v2024.models.config_type_enum import ConfigTypeEnum
-from sailpoint.v2024.models.evaluate_response import EvaluateResponse
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
-configuration.experimental = true
+import (
+	"context"
+	"fmt"
+	"os"
+  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    identity_id = '2c91808781a71ddb0181b9090b5c504e' # str | unique identity id # str | unique identity id
-    config_type = sailpoint.v2024.ConfigTypeEnum() # ConfigTypeEnum | Reassignment work type # ConfigTypeEnum | Reassignment work type
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    exclusion_filters = '''['SELF_REVIEW_DELEGATION']''' # List[str] | Exclusion filters that disable parts of the reassignment evaluation. Possible values are listed below: - `SELF_REVIEW_DELEGATION`: This will exclude delegations of self-review reassignments (optional)
+func main() {
+    identityId := 2c91808781a71ddb0181b9090b5c504e # string | unique identity id # string | unique identity id
+    configType := accessRequests # ConfigTypeEnum | Reassignment work type # ConfigTypeEnum | Reassignment work type
+    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+    exclusionFilters := fmt.Sprintf(`SELF_REVIEW_DELEGATION`) # []string | Exclusion filters that disable parts of the reassignment evaluation. Possible values are listed below: - `SELF_REVIEW_DELEGATION`: This will exclude delegations of self-review reassignments (optional)
 
-    try:
-        # Evaluate Reassignment Configuration
-        
-        results = WorkReassignmentApi(api_client).get_evaluate_reassignment_configuration(identity_id=identity_id, config_type=config_type, x_sail_point_experimental=x_sail_point_experimental)
-        # Below is a request that includes all optional parameters
-        # results = WorkReassignmentApi(api_client).get_evaluate_reassignment_configuration(identity_id, config_type, x_sail_point_experimental, exclusion_filters)
-        print("The response of WorkReassignmentApi->get_evaluate_reassignment_configuration:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling WorkReassignmentApi->get_evaluate_reassignment_configuration: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2024.WorkReassignmentAPI.GetEvaluateReassignmentConfiguration(context.Background(), identityId, configType).XSailPointExperimental(xSailPointExperimental).ExclusionFilters(exclusionFilters).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `WorkReassignmentAPI.GetEvaluateReassignmentConfiguration``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetEvaluateReassignmentConfiguration`: []EvaluateResponse
+	fmt.Fprintf(os.Stdout, "Response from `WorkReassignmentAPI.GetEvaluateReassignmentConfiguration`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## get-reassignment-config-types
 :::warning experimental 
@@ -271,7 +276,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::tip setting x-sailpoint-experimental header
  on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
  Example:
- ```python
+ ```go
    configuration = Configuration()
    configuration.experimental = True
  ```
@@ -281,58 +286,57 @@ Gets a collection of types which are available in the Reassignment Configuration
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-reassignment-config-types)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetReassignmentConfigTypesRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
 
 ### Return type
-[**List[ConfigType]**](../models/config-type)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | List of Reassignment Configuration Types | List[ConfigType] |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
+[**[]ConfigType**](../models/config-type)
 
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2024.api.work_reassignment_api import WorkReassignmentApi
-from sailpoint.v2024.api_client import ApiClient
-from sailpoint.v2024.models.config_type import ConfigType
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
-configuration.experimental = true
+import (
+	"context"
+	"fmt"
+	"os"
+  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
+func main() {
+    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
 
-    try:
-        # List Reassignment Config Types
-        
-        results = WorkReassignmentApi(api_client).get_reassignment_config_types(x_sail_point_experimental=x_sail_point_experimental)
-        # Below is a request that includes all optional parameters
-        # results = WorkReassignmentApi(api_client).get_reassignment_config_types(x_sail_point_experimental)
-        print("The response of WorkReassignmentApi->get_reassignment_config_types:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling WorkReassignmentApi->get_reassignment_config_types: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2024.WorkReassignmentAPI.GetReassignmentConfigTypes(context.Background()).XSailPointExperimental(xSailPointExperimental).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `WorkReassignmentAPI.GetReassignmentConfigTypes``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetReassignmentConfigTypes`: []ConfigType
+	fmt.Fprintf(os.Stdout, "Response from `WorkReassignmentAPI.GetReassignmentConfigTypes`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## get-reassignment-configuration
 :::warning experimental 
@@ -341,7 +345,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::tip setting x-sailpoint-experimental header
  on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
  Example:
- ```python
+ ```go
    configuration = Configuration()
    configuration.experimental = True
  ```
@@ -351,61 +355,63 @@ Gets the Reassignment Configuration for an identity.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-reassignment-configuration)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | identity_id | **str** | True  | unique identity id
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**identityId** | **string** | unique identity id | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetReassignmentConfigurationRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
 
 ### Return type
+
 [**ConfigurationResponse**](../models/configuration-response)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | Reassignment Configuration for an identity | ConfigurationResponse |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2024.api.work_reassignment_api import WorkReassignmentApi
-from sailpoint.v2024.api_client import ApiClient
-from sailpoint.v2024.models.configuration_response import ConfigurationResponse
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
-configuration.experimental = true
+import (
+	"context"
+	"fmt"
+	"os"
+  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    identity_id = '2c91808781a71ddb0181b9090b5c504f' # str | unique identity id # str | unique identity id
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
+func main() {
+    identityId := 2c91808781a71ddb0181b9090b5c504f # string | unique identity id # string | unique identity id
+    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
 
-    try:
-        # Get Reassignment Configuration
-        
-        results = WorkReassignmentApi(api_client).get_reassignment_configuration(identity_id=identity_id, x_sail_point_experimental=x_sail_point_experimental)
-        # Below is a request that includes all optional parameters
-        # results = WorkReassignmentApi(api_client).get_reassignment_configuration(identity_id, x_sail_point_experimental)
-        print("The response of WorkReassignmentApi->get_reassignment_configuration:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling WorkReassignmentApi->get_reassignment_configuration: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2024.WorkReassignmentAPI.GetReassignmentConfiguration(context.Background(), identityId).XSailPointExperimental(xSailPointExperimental).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `WorkReassignmentAPI.GetReassignmentConfiguration``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetReassignmentConfiguration`: ConfigurationResponse
+	fmt.Fprintf(os.Stdout, "Response from `WorkReassignmentAPI.GetReassignmentConfiguration`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## get-tenant-config-configuration
 :::warning experimental 
@@ -414,7 +420,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::tip setting x-sailpoint-experimental header
  on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
  Example:
- ```python
+ ```go
    configuration = Configuration()
    configuration.experimental = True
  ```
@@ -424,59 +430,57 @@ Gets the global Reassignment Configuration settings for the requestor's tenant.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-tenant-config-configuration)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetTenantConfigConfigurationRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
 
 ### Return type
+
 [**TenantConfigurationResponse**](../models/tenant-configuration-response)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | Tenant-wide Reassignment Configuration settings | TenantConfigurationResponse |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2024.api.work_reassignment_api import WorkReassignmentApi
-from sailpoint.v2024.api_client import ApiClient
-from sailpoint.v2024.models.tenant_configuration_response import TenantConfigurationResponse
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
-configuration.experimental = true
+import (
+	"context"
+	"fmt"
+	"os"
+  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
+func main() {
+    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
 
-    try:
-        # Get Tenant-wide Reassignment Configuration settings
-        
-        results = WorkReassignmentApi(api_client).get_tenant_config_configuration(x_sail_point_experimental=x_sail_point_experimental)
-        # Below is a request that includes all optional parameters
-        # results = WorkReassignmentApi(api_client).get_tenant_config_configuration(x_sail_point_experimental)
-        print("The response of WorkReassignmentApi->get_tenant_config_configuration:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling WorkReassignmentApi->get_tenant_config_configuration: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2024.WorkReassignmentAPI.GetTenantConfigConfiguration(context.Background()).XSailPointExperimental(xSailPointExperimental).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `WorkReassignmentAPI.GetTenantConfigConfiguration``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetTenantConfigConfiguration`: TenantConfigurationResponse
+	fmt.Fprintf(os.Stdout, "Response from `WorkReassignmentAPI.GetTenantConfigConfiguration`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## list-reassignment-configurations
 :::warning experimental 
@@ -485,7 +489,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::tip setting x-sailpoint-experimental header
  on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
  Example:
- ```python
+ ```go
    configuration = Configuration()
    configuration.experimental = True
  ```
@@ -495,59 +499,57 @@ Gets all Reassignment configuration for the current org.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-reassignment-configurations)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiListReassignmentConfigurationsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
 
 ### Return type
-[**List[ConfigurationResponse]**](../models/configuration-response)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | A list of Reassignment Configurations for an org | List[ConfigurationResponse] |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
+[**[]ConfigurationResponse**](../models/configuration-response)
 
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2024.api.work_reassignment_api import WorkReassignmentApi
-from sailpoint.v2024.api_client import ApiClient
-from sailpoint.v2024.models.configuration_response import ConfigurationResponse
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
-configuration.experimental = true
+import (
+	"context"
+	"fmt"
+	"os"
+  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
+func main() {
+    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
 
-    try:
-        # List Reassignment Configurations
-        
-        results = WorkReassignmentApi(api_client).list_reassignment_configurations(x_sail_point_experimental=x_sail_point_experimental)
-        # Below is a request that includes all optional parameters
-        # results = WorkReassignmentApi(api_client).list_reassignment_configurations(x_sail_point_experimental)
-        print("The response of WorkReassignmentApi->list_reassignment_configurations:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling WorkReassignmentApi->list_reassignment_configurations: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2024.WorkReassignmentAPI.ListReassignmentConfigurations(context.Background()).XSailPointExperimental(xSailPointExperimental).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `WorkReassignmentAPI.ListReassignmentConfigurations``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ListReassignmentConfigurations`: []ConfigurationResponse
+	fmt.Fprintf(os.Stdout, "Response from `WorkReassignmentAPI.ListReassignmentConfigurations`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## put-reassignment-config
 :::warning experimental 
@@ -556,7 +558,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::tip setting x-sailpoint-experimental header
  on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
  Example:
- ```python
+ ```go
    configuration = Configuration()
    configuration.experimental = True
  ```
@@ -566,69 +568,71 @@ Replaces existing Reassignment configuration for an identity with the newly prov
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/put-reassignment-config)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | identity_id | **str** | True  | unique identity id
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
- Body  | configuration_item_request | [**ConfigurationItemRequest**](../models/configuration-item-request) | True  | 
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**identityId** | **string** | unique identity id | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPutReassignmentConfigRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
+ **configurationItemRequest** | [**ConfigurationItemRequest**](../models/configuration-item-request) |  | 
 
 ### Return type
+
 [**ConfigurationItemResponse**](../models/configuration-item-response)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | Reassignment Configuration updated | ConfigurationItemResponse |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: application/json
- - **Accept**: application/json
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2024.api.work_reassignment_api import WorkReassignmentApi
-from sailpoint.v2024.api_client import ApiClient
-from sailpoint.v2024.models.configuration_item_request import ConfigurationItemRequest
-from sailpoint.v2024.models.configuration_item_response import ConfigurationItemResponse
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
-configuration.experimental = true
+import (
+	"context"
+	"fmt"
+	"os"
+  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    identity_id = '2c91808781a71ddb0181b9090b5c504e' # str | unique identity id # str | unique identity id
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    configuration_item_request = '''{
+func main() {
+    identityId := 2c91808781a71ddb0181b9090b5c504e # string | unique identity id # string | unique identity id
+    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+    configurationItemRequest := fmt.Sprintf(`{
           "endDate" : "2022-07-30T17:00:00Z",
           "reassignedFromId" : "2c91808781a71ddb0181b9090b5c504e",
           "configType" : "ACCESS_REQUESTS",
           "reassignedToId" : "2c91808781a71ddb0181b9090b53504a",
           "startDate" : "2022-07-21T11:13:12.345Z"
-        }''' # ConfigurationItemRequest | 
+        }`) # ConfigurationItemRequest | 
 
-    try:
-        # Update Reassignment Configuration
-        new_configuration_item_request = ConfigurationItemRequest.from_json(configuration_item_request)
-        results = WorkReassignmentApi(api_client).put_reassignment_config(identity_id=identity_id, x_sail_point_experimental=x_sail_point_experimental, configuration_item_request=new_configuration_item_request)
-        # Below is a request that includes all optional parameters
-        # results = WorkReassignmentApi(api_client).put_reassignment_config(identity_id, x_sail_point_experimental, new_configuration_item_request)
-        print("The response of WorkReassignmentApi->put_reassignment_config:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling WorkReassignmentApi->put_reassignment_config: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2024.WorkReassignmentAPI.PutReassignmentConfig(context.Background(), identityId).XSailPointExperimental(xSailPointExperimental).ConfigurationItemRequest(configurationItemRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `WorkReassignmentAPI.PutReassignmentConfig``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PutReassignmentConfig`: ConfigurationItemResponse
+	fmt.Fprintf(os.Stdout, "Response from `WorkReassignmentAPI.PutReassignmentConfig`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## put-tenant-configuration
 :::warning experimental 
@@ -637,7 +641,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::tip setting x-sailpoint-experimental header
  on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
  Example:
- ```python
+ ```go
    configuration = Configuration()
    configuration.experimental = True
  ```
@@ -647,65 +651,61 @@ Replaces existing Tenant-wide Reassignment Configuration settings with the newly
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/put-tenant-configuration)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
- Body  | tenant_configuration_request | [**TenantConfigurationRequest**](../models/tenant-configuration-request) | True  | 
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPutTenantConfigurationRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
+ **tenantConfigurationRequest** | [**TenantConfigurationRequest**](../models/tenant-configuration-request) |  | 
 
 ### Return type
+
 [**TenantConfigurationResponse**](../models/tenant-configuration-response)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | Tenant-wide Reassignment Configuration settings | TenantConfigurationResponse |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: application/json
- - **Accept**: application/json
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2024.api.work_reassignment_api import WorkReassignmentApi
-from sailpoint.v2024.api_client import ApiClient
-from sailpoint.v2024.models.tenant_configuration_request import TenantConfigurationRequest
-from sailpoint.v2024.models.tenant_configuration_response import TenantConfigurationResponse
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
-configuration.experimental = true
+import (
+	"context"
+	"fmt"
+	"os"
+  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    tenant_configuration_request = '''{
+func main() {
+    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+    tenantConfigurationRequest := fmt.Sprintf(`{
           "configDetails" : {
             "disabled" : true
           }
-        }''' # TenantConfigurationRequest | 
+        }`) # TenantConfigurationRequest | 
 
-    try:
-        # Update Tenant-wide Reassignment Configuration settings
-        new_tenant_configuration_request = TenantConfigurationRequest.from_json(tenant_configuration_request)
-        results = WorkReassignmentApi(api_client).put_tenant_configuration(x_sail_point_experimental=x_sail_point_experimental, tenant_configuration_request=new_tenant_configuration_request)
-        # Below is a request that includes all optional parameters
-        # results = WorkReassignmentApi(api_client).put_tenant_configuration(x_sail_point_experimental, new_tenant_configuration_request)
-        print("The response of WorkReassignmentApi->put_tenant_configuration:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling WorkReassignmentApi->put_tenant_configuration: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2024.WorkReassignmentAPI.PutTenantConfiguration(context.Background()).XSailPointExperimental(xSailPointExperimental).TenantConfigurationRequest(tenantConfigurationRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `WorkReassignmentAPI.PutTenantConfiguration``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PutTenantConfiguration`: TenantConfigurationResponse
+	fmt.Fprintf(os.Stdout, "Response from `WorkReassignmentAPI.PutTenantConfiguration`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
-
-
+[[Back to top]](#)
 

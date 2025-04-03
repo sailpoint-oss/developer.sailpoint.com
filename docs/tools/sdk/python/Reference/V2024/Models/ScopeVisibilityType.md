@@ -3,25 +3,23 @@ id: v2024-scope-visibility-type
 title: ScopeVisibilityType
 pagination_label: ScopeVisibilityType
 sidebar_label: ScopeVisibilityType
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'ScopeVisibilityType', 'V2024ScopeVisibilityType'] 
-slug: /tools/sdk/python/v2024/models/scope-visibility-type
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'ScopeVisibilityType', 'V2024ScopeVisibilityType'] 
+slug: /tools/sdk/go/v2024/models/scope-visibility-type
 tags: ['SDK', 'Software Development Kit', 'ScopeVisibilityType', 'V2024ScopeVisibilityType']
 ---
 
 # ScopeVisibilityType
 
-An enumeration of the types of scope visibility choices
-
 ## Enum
 
-* `ALL` (value: `'ALL'`)
 
-* `FILTER` (value: `'FILTER'`)
+* `ALL` (value: `"ALL"`)
 
-* `SELECTION` (value: `'SELECTION'`)
+* `FILTER` (value: `"FILTER"`)
 
-* `UNSEGMENTED` (value: `'UNSEGMENTED'`)
+* `SELECTION` (value: `"SELECTION"`)
 
-[[Back to top]](#) 
+* `UNSEGMENTED` (value: `"UNSEGMENTED"`)
+
 

@@ -3,87 +3,114 @@ id: v2025-import-form-definitions-request-inner
 title: ImportFormDefinitionsRequestInner
 pagination_label: ImportFormDefinitionsRequestInner
 sidebar_label: ImportFormDefinitionsRequestInner
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'ImportFormDefinitionsRequestInner', 'V2025ImportFormDefinitionsRequestInner'] 
-slug: /tools/sdk/python/v2025/models/import-form-definitions-request-inner
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'ImportFormDefinitionsRequestInner', 'V2025ImportFormDefinitionsRequestInner'] 
+slug: /tools/sdk/go/v2025/models/import-form-definitions-request-inner
 tags: ['SDK', 'Software Development Kit', 'ImportFormDefinitionsRequestInner', 'V2025ImportFormDefinitionsRequestInner']
 ---
 
 # ImportFormDefinitionsRequestInner
 
-
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**object** | [**FormDefinitionResponse**](form-definition-response) |  | [optional] 
-**var_self** | **str** |  | [optional] 
-**version** | **int** |  | [optional] 
-}
+**Object** | Pointer to [**FormDefinitionResponse**](form-definition-response) |  | [optional] 
+**Self** | Pointer to **string** |  | [optional] 
+**Version** | Pointer to **int32** |  | [optional] 
 
-## Example
+## Methods
 
-```python
-from sailpoint.v2025.models.import_form_definitions_request_inner import ImportFormDefinitionsRequestInner
+### NewImportFormDefinitionsRequestInner
 
-import_form_definitions_request_inner = ImportFormDefinitionsRequestInner(
-object=sailpoint.v2025.models.form_definition_response.FormDefinitionResponse(
-                    id = '00000000-0000-0000-0000-000000000000', 
-                    name = 'My form', 
-                    description = 'My form description', 
-                    owner = sailpoint.v2025.models.form_owner.FormOwner(
-                        type = 'IDENTITY', 
-                        id = '2c9180867624cbd7017642d8c8c81f67', 
-                        name = 'Grant Smith', ), 
-                    used_by = [
-                        sailpoint.v2025.models.form_used_by.FormUsedBy(
-                            type = 'WORKFLOW', 
-                            id = '61940a92-5484-42bc-bc10-b9982b218cdf', 
-                            name = 'Access Request Form', )
-                        ], 
-                    form_input = [
-                        sailpoint.v2025.models.form_definition_input.FormDefinitionInput(
-                            id = '00000000-0000-0000-0000-000000000000', 
-                            type = 'STRING', 
-                            label = 'input1', 
-                            description = 'A single dynamic scalar value (i.e. number, string, date, etc.) that can be passed into the form for use in conditional logic', )
-                        ], 
-                    form_elements = [
-                        sailpoint.v2025.models.form_element.FormElement(
-                            id = '00000000-0000-0000-0000-000000000000', 
-                            element_type = 'TEXT', 
-                            config = {label=Department}, 
-                            key = 'department', 
-                            validations = [
-                                sailpoint.v2025.models.form_element_validations_set.FormElementValidationsSet(
-                                    validation_type = 'REQUIRED', )
-                                ], )
-                        ], 
-                    form_conditions = [
-                        sailpoint.v2025.models.form_condition.FormCondition(
-                            rule_operator = 'AND', 
-                            rules = [
-                                sailpoint.v2025.models.condition_rule.ConditionRule(
-                                    source_type = 'ELEMENT', 
-                                    source = 'department', 
-                                    operator = 'EQ', 
-                                    value_type = 'STRING', 
-                                    value = 'Engineering', )
-                                ], 
-                            effects = [
-                                sailpoint.v2025.models.condition_effect.ConditionEffect(
-                                    effect_type = 'HIDE', 
-                                    config = sailpoint.v2025.models.condition_effect_config.ConditionEffect_config(
-                                        default_value_label = 'Access to Remove', 
-                                        element = '8110662963316867', ), )
-                                ], )
-                        ], 
-                    created = '2023-07-12T20:14:57.744860Z', 
-                    modified = '2023-07-12T20:14:57.744860Z', ),
-var_self='',
-version=56
-)
+`func NewImportFormDefinitionsRequestInner() *ImportFormDefinitionsRequestInner`
 
-```
-[[Back to top]](#) 
+NewImportFormDefinitionsRequestInner instantiates a new ImportFormDefinitionsRequestInner object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewImportFormDefinitionsRequestInnerWithDefaults
+
+`func NewImportFormDefinitionsRequestInnerWithDefaults() *ImportFormDefinitionsRequestInner`
+
+NewImportFormDefinitionsRequestInnerWithDefaults instantiates a new ImportFormDefinitionsRequestInner object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetObject
+
+`func (o *ImportFormDefinitionsRequestInner) GetObject() FormDefinitionResponse`
+
+GetObject returns the Object field if non-nil, zero value otherwise.
+
+### GetObjectOk
+
+`func (o *ImportFormDefinitionsRequestInner) GetObjectOk() (*FormDefinitionResponse, bool)`
+
+GetObjectOk returns a tuple with the Object field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetObject
+
+`func (o *ImportFormDefinitionsRequestInner) SetObject(v FormDefinitionResponse)`
+
+SetObject sets Object field to given value.
+
+### HasObject
+
+`func (o *ImportFormDefinitionsRequestInner) HasObject() bool`
+
+HasObject returns a boolean if a field has been set.
+
+### GetSelf
+
+`func (o *ImportFormDefinitionsRequestInner) GetSelf() string`
+
+GetSelf returns the Self field if non-nil, zero value otherwise.
+
+### GetSelfOk
+
+`func (o *ImportFormDefinitionsRequestInner) GetSelfOk() (*string, bool)`
+
+GetSelfOk returns a tuple with the Self field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSelf
+
+`func (o *ImportFormDefinitionsRequestInner) SetSelf(v string)`
+
+SetSelf sets Self field to given value.
+
+### HasSelf
+
+`func (o *ImportFormDefinitionsRequestInner) HasSelf() bool`
+
+HasSelf returns a boolean if a field has been set.
+
+### GetVersion
+
+`func (o *ImportFormDefinitionsRequestInner) GetVersion() int32`
+
+GetVersion returns the Version field if non-nil, zero value otherwise.
+
+### GetVersionOk
+
+`func (o *ImportFormDefinitionsRequestInner) GetVersionOk() (*int32, bool)`
+
+GetVersionOk returns a tuple with the Version field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVersion
+
+`func (o *ImportFormDefinitionsRequestInner) SetVersion(v int32)`
+
+SetVersion sets Version field to given value.
+
+### HasVersion
+
+`func (o *ImportFormDefinitionsRequestInner) HasVersion() bool`
+
+HasVersion returns a boolean if a field has been set.
+
 

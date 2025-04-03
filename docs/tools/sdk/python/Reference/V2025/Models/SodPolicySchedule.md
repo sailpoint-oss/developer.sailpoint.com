@@ -3,58 +3,270 @@ id: v2025-sod-policy-schedule
 title: SodPolicySchedule
 pagination_label: SodPolicySchedule
 sidebar_label: SodPolicySchedule
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'SodPolicySchedule', 'V2025SodPolicySchedule'] 
-slug: /tools/sdk/python/v2025/models/sod-policy-schedule
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'SodPolicySchedule', 'V2025SodPolicySchedule'] 
+slug: /tools/sdk/go/v2025/models/sod-policy-schedule
 tags: ['SDK', 'Software Development Kit', 'SodPolicySchedule', 'V2025SodPolicySchedule']
 ---
 
 # SodPolicySchedule
 
-
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **str** | SOD Policy schedule name | [optional] 
-**created** | **datetime** | The time when this SOD policy schedule is created. | [optional] [readonly] 
-**modified** | **datetime** | The time when this SOD policy schedule is modified. | [optional] [readonly] 
-**description** | **str** | SOD Policy schedule description | [optional] 
-**schedule** | [**Schedule2**](schedule2) |  | [optional] 
-**recipients** | [**[]SodRecipient**](sod-recipient) |  | [optional] 
-**email_empty_results** | **bool** | Indicates if empty results need to be emailed | [optional] [default to False]
-**creator_id** | **str** | Policy's creator ID | [optional] [readonly] 
-**modifier_id** | **str** | Policy's modifier ID | [optional] [readonly] 
-}
+**Name** | Pointer to **string** | SOD Policy schedule name | [optional] 
+**Created** | Pointer to **SailPointTime** | The time when this SOD policy schedule is created. | [optional] [readonly] 
+**Modified** | Pointer to **SailPointTime** | The time when this SOD policy schedule is modified. | [optional] [readonly] 
+**Description** | Pointer to **string** | SOD Policy schedule description | [optional] 
+**Schedule** | Pointer to [**Schedule2**](schedule2) |  | [optional] 
+**Recipients** | Pointer to [**[]SodRecipient**](sod-recipient) |  | [optional] 
+**EmailEmptyResults** | Pointer to **bool** | Indicates if empty results need to be emailed | [optional] [default to false]
+**CreatorId** | Pointer to **string** | Policy's creator ID | [optional] [readonly] 
+**ModifierId** | Pointer to **string** | Policy's modifier ID | [optional] [readonly] 
 
-## Example
+## Methods
 
-```python
-from sailpoint.v2025.models.sod_policy_schedule import SodPolicySchedule
+### NewSodPolicySchedule
 
-sod_policy_schedule = SodPolicySchedule(
-name='SCH-1584312283015',
-created='2020-01-01T00:00Z',
-modified='2020-01-01T00:00Z',
-description='Schedule for policy xyz',
-schedule=sailpoint.v2025.models.schedule_2.Schedule_2(
-                    type = 'WEEKLY', 
-                    months = null, 
-                    days = null, 
-                    hours = null, 
-                    expiration = '2018-06-25T20:22:28.104Z', 
-                    time_zone_id = 'America/Chicago', ),
-recipients=[
-                    sailpoint.v2025.models.sod_recipient.SodRecipient(
-                        type = 'IDENTITY', 
-                        id = '2c7180a46faadee4016fb4e018c20642', 
-                        name = 'Michael Michaels', )
-                    ],
-email_empty_results=False,
-creator_id='0f11f2a47c944bf3a2bd742580fe3bde',
-modifier_id='0f11f2a47c944bf3a2bd742580fe3bde'
-)
+`func NewSodPolicySchedule() *SodPolicySchedule`
 
-```
-[[Back to top]](#) 
+NewSodPolicySchedule instantiates a new SodPolicySchedule object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewSodPolicyScheduleWithDefaults
+
+`func NewSodPolicyScheduleWithDefaults() *SodPolicySchedule`
+
+NewSodPolicyScheduleWithDefaults instantiates a new SodPolicySchedule object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetName
+
+`func (o *SodPolicySchedule) GetName() string`
+
+GetName returns the Name field if non-nil, zero value otherwise.
+
+### GetNameOk
+
+`func (o *SodPolicySchedule) GetNameOk() (*string, bool)`
+
+GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetName
+
+`func (o *SodPolicySchedule) SetName(v string)`
+
+SetName sets Name field to given value.
+
+### HasName
+
+`func (o *SodPolicySchedule) HasName() bool`
+
+HasName returns a boolean if a field has been set.
+
+### GetCreated
+
+`func (o *SodPolicySchedule) GetCreated() SailPointTime`
+
+GetCreated returns the Created field if non-nil, zero value otherwise.
+
+### GetCreatedOk
+
+`func (o *SodPolicySchedule) GetCreatedOk() (*SailPointTime, bool)`
+
+GetCreatedOk returns a tuple with the Created field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCreated
+
+`func (o *SodPolicySchedule) SetCreated(v SailPointTime)`
+
+SetCreated sets Created field to given value.
+
+### HasCreated
+
+`func (o *SodPolicySchedule) HasCreated() bool`
+
+HasCreated returns a boolean if a field has been set.
+
+### GetModified
+
+`func (o *SodPolicySchedule) GetModified() SailPointTime`
+
+GetModified returns the Modified field if non-nil, zero value otherwise.
+
+### GetModifiedOk
+
+`func (o *SodPolicySchedule) GetModifiedOk() (*SailPointTime, bool)`
+
+GetModifiedOk returns a tuple with the Modified field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetModified
+
+`func (o *SodPolicySchedule) SetModified(v SailPointTime)`
+
+SetModified sets Modified field to given value.
+
+### HasModified
+
+`func (o *SodPolicySchedule) HasModified() bool`
+
+HasModified returns a boolean if a field has been set.
+
+### GetDescription
+
+`func (o *SodPolicySchedule) GetDescription() string`
+
+GetDescription returns the Description field if non-nil, zero value otherwise.
+
+### GetDescriptionOk
+
+`func (o *SodPolicySchedule) GetDescriptionOk() (*string, bool)`
+
+GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDescription
+
+`func (o *SodPolicySchedule) SetDescription(v string)`
+
+SetDescription sets Description field to given value.
+
+### HasDescription
+
+`func (o *SodPolicySchedule) HasDescription() bool`
+
+HasDescription returns a boolean if a field has been set.
+
+### GetSchedule
+
+`func (o *SodPolicySchedule) GetSchedule() Schedule2`
+
+GetSchedule returns the Schedule field if non-nil, zero value otherwise.
+
+### GetScheduleOk
+
+`func (o *SodPolicySchedule) GetScheduleOk() (*Schedule2, bool)`
+
+GetScheduleOk returns a tuple with the Schedule field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSchedule
+
+`func (o *SodPolicySchedule) SetSchedule(v Schedule2)`
+
+SetSchedule sets Schedule field to given value.
+
+### HasSchedule
+
+`func (o *SodPolicySchedule) HasSchedule() bool`
+
+HasSchedule returns a boolean if a field has been set.
+
+### GetRecipients
+
+`func (o *SodPolicySchedule) GetRecipients() []SodRecipient`
+
+GetRecipients returns the Recipients field if non-nil, zero value otherwise.
+
+### GetRecipientsOk
+
+`func (o *SodPolicySchedule) GetRecipientsOk() (*[]SodRecipient, bool)`
+
+GetRecipientsOk returns a tuple with the Recipients field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRecipients
+
+`func (o *SodPolicySchedule) SetRecipients(v []SodRecipient)`
+
+SetRecipients sets Recipients field to given value.
+
+### HasRecipients
+
+`func (o *SodPolicySchedule) HasRecipients() bool`
+
+HasRecipients returns a boolean if a field has been set.
+
+### GetEmailEmptyResults
+
+`func (o *SodPolicySchedule) GetEmailEmptyResults() bool`
+
+GetEmailEmptyResults returns the EmailEmptyResults field if non-nil, zero value otherwise.
+
+### GetEmailEmptyResultsOk
+
+`func (o *SodPolicySchedule) GetEmailEmptyResultsOk() (*bool, bool)`
+
+GetEmailEmptyResultsOk returns a tuple with the EmailEmptyResults field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEmailEmptyResults
+
+`func (o *SodPolicySchedule) SetEmailEmptyResults(v bool)`
+
+SetEmailEmptyResults sets EmailEmptyResults field to given value.
+
+### HasEmailEmptyResults
+
+`func (o *SodPolicySchedule) HasEmailEmptyResults() bool`
+
+HasEmailEmptyResults returns a boolean if a field has been set.
+
+### GetCreatorId
+
+`func (o *SodPolicySchedule) GetCreatorId() string`
+
+GetCreatorId returns the CreatorId field if non-nil, zero value otherwise.
+
+### GetCreatorIdOk
+
+`func (o *SodPolicySchedule) GetCreatorIdOk() (*string, bool)`
+
+GetCreatorIdOk returns a tuple with the CreatorId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCreatorId
+
+`func (o *SodPolicySchedule) SetCreatorId(v string)`
+
+SetCreatorId sets CreatorId field to given value.
+
+### HasCreatorId
+
+`func (o *SodPolicySchedule) HasCreatorId() bool`
+
+HasCreatorId returns a boolean if a field has been set.
+
+### GetModifierId
+
+`func (o *SodPolicySchedule) GetModifierId() string`
+
+GetModifierId returns the ModifierId field if non-nil, zero value otherwise.
+
+### GetModifierIdOk
+
+`func (o *SodPolicySchedule) GetModifierIdOk() (*string, bool)`
+
+GetModifierIdOk returns a tuple with the ModifierId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetModifierId
+
+`func (o *SodPolicySchedule) SetModifierId(v string)`
+
+SetModifierId sets ModifierId field to given value.
+
+### HasModifierId
+
+`func (o *SodPolicySchedule) HasModifierId() bool`
+
+HasModifierId returns a boolean if a field has been set.
+
 

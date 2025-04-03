@@ -3,23 +3,21 @@ id: v2024-dimension-criteria-operation
 title: DimensionCriteriaOperation
 pagination_label: DimensionCriteriaOperation
 sidebar_label: DimensionCriteriaOperation
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'DimensionCriteriaOperation', 'V2024DimensionCriteriaOperation'] 
-slug: /tools/sdk/python/v2024/models/dimension-criteria-operation
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'DimensionCriteriaOperation', 'V2024DimensionCriteriaOperation'] 
+slug: /tools/sdk/go/v2024/models/dimension-criteria-operation
 tags: ['SDK', 'Software Development Kit', 'DimensionCriteriaOperation', 'V2024DimensionCriteriaOperation']
 ---
 
 # DimensionCriteriaOperation
 
-An operation
-
 ## Enum
 
-* `EQUALS` (value: `'EQUALS'`)
 
-* `AND` (value: `'AND'`)
+* `EQUALS` (value: `"EQUALS"`)
 
-* `OR` (value: `'OR'`)
+* `AND` (value: `"AND"`)
 
-[[Back to top]](#) 
+* `OR` (value: `"OR"`)
+
 

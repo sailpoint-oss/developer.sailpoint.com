@@ -3,142 +3,228 @@ id: v2024-access-review-item
 title: AccessReviewItem
 pagination_label: AccessReviewItem
 sidebar_label: AccessReviewItem
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'AccessReviewItem', 'V2024AccessReviewItem'] 
-slug: /tools/sdk/python/v2024/models/access-review-item
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'AccessReviewItem', 'V2024AccessReviewItem'] 
+slug: /tools/sdk/go/v2024/models/access-review-item
 tags: ['SDK', 'Software Development Kit', 'AccessReviewItem', 'V2024AccessReviewItem']
 ---
 
 # AccessReviewItem
 
-
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**access_summary** | [**AccessSummary**](access-summary) |  | [optional] 
-**identity_summary** | [**CertificationIdentitySummary**](certification-identity-summary) |  | [optional] 
-**id** | **str** | The review item's id | [optional] 
-**completed** | **bool** | Whether the review item is complete | [optional] 
-**new_access** | **bool** | Indicates whether the review item is for new access to a source | [optional] 
-**decision** | [**CertificationDecision**](certification-decision) |  | [optional] 
-**comments** | **str** | Comments for this review item | [optional] 
-}
+**AccessSummary** | Pointer to [**AccessSummary**](access-summary) |  | [optional] 
+**IdentitySummary** | Pointer to [**CertificationIdentitySummary**](certification-identity-summary) |  | [optional] 
+**Id** | Pointer to **string** | The review item's id | [optional] 
+**Completed** | Pointer to **bool** | Whether the review item is complete | [optional] 
+**NewAccess** | Pointer to **bool** | Indicates whether the review item is for new access to a source | [optional] 
+**Decision** | Pointer to [**CertificationDecision**](certification-decision) |  | [optional] 
+**Comments** | Pointer to **NullableString** | Comments for this review item | [optional] 
 
-## Example
+## Methods
 
-```python
-from sailpoint.v2024.models.access_review_item import AccessReviewItem
+### NewAccessReviewItem
 
-access_review_item = AccessReviewItem(
-access_summary=sailpoint.v2024.models.access_summary.AccessSummary(
-                    access = sailpoint.v2024.models.access_summary_access.AccessSummary_access(
-                        type = 'IDENTITY', 
-                        id = '2c9180867160846801719932c5153fb7', 
-                        name = 'Entitlement for Company Database', ), 
-                    entitlement = sailpoint.v2024.models.reviewable_entitlement.ReviewableEntitlement(
-                        id = '2c918085718230600171993742c63558', 
-                        name = 'CN=entitlement.bbb7c650', 
-                        description = 'Gives read/write access to the company database', 
-                        privileged = False, 
-                        owner = sailpoint.v2024.models.identity_reference_with_name_and_email.IdentityReferenceWithNameAndEmail(
-                            id = '5168015d32f890ca15812c9180835d2e', 
-                            name = 'Alison Ferguso', 
-                            email = 'alison.ferguso@identitysoon.com', ), 
-                        attribute_name = 'memberOf', 
-                        attribute_value = 'CN=entitlement.bbb7c650', 
-                        source_schema_object_type = 'groups', 
-                        source_name = 'ODS-AD-Source', 
-                        source_type = 'Active Directory - Direct', 
-                        source_id = '78ca6be511cb41fbb86dba2fcca7780c', 
-                        has_permissions = False, 
-                        is_permission = False, 
-                        revocable = True, 
-                        cloud_governed = False, 
-                        contains_data_access = True, 
-                        data_access = sailpoint.v2024.models.data_access.DataAccess(
-                            policies = [
-                                sailpoint.v2024.models.data_access_policies_inner.DataAccess_policies_inner(
-                                    value = 'GDPR-20', )
-                                ], 
-                            categories = [
-                                sailpoint.v2024.models.data_access_categories_inner.DataAccess_categories_inner(
-                                    value = 'email-7', 
-                                    match_count = 10, )
-                                ], 
-                            impact_score = sailpoint.v2024.models.data_access_impact_score.DataAccess_impactScore(
-                                value = 'Medium', ), ), 
-                        account = sailpoint.v2024.models.reviewable_entitlement_account.ReviewableEntitlement_account(
-                            native_identity = 'CN=Alison Ferguso', 
-                            disabled = False, 
-                            locked = False, 
-                            id = '2c9180857182305e0171993737eb29e6', 
-                            name = 'Alison Ferguso', 
-                            created = '2020-04-20T20:11:05.067Z', 
-                            modified = '2020-05-20T18:57:16.987Z', 
-                            activity_insights = sailpoint.v2024.models.activity_insights.ActivityInsights(
-                                account_id = 'c4ddd5421d8549f0abd309162cafd3b1', 
-                                usage_days = 45, 
-                                usage_days_state = 'COMPLETE', ), 
-                            description = 'Account for Read/write to the company database', 
-                            governance_group_id = '2c9180857182305e0171993737eb29e6', ), ), 
-                    access_profile = sailpoint.v2024.models.reviewable_access_profile.ReviewableAccessProfile(
-                        id = '2c91808a7190d06e01719938fcd20792', 
-                        name = 'Employee-database-read-write', 
-                        description = 'Collection of entitlements to read/write the employee database', 
-                        privileged = False, 
-                        cloud_governed = False, 
-                        end_date = '2021-12-25T00:00Z', 
-                        entitlements = [
-                            sailpoint.v2024.models.reviewable_entitlement.ReviewableEntitlement(
-                                id = '2c918085718230600171993742c63558', 
-                                name = 'CN=entitlement.bbb7c650', 
-                                description = 'Gives read/write access to the company database', 
-                                privileged = False, 
-                                attribute_name = 'memberOf', 
-                                attribute_value = 'CN=entitlement.bbb7c650', 
-                                source_schema_object_type = 'groups', 
-                                source_name = 'ODS-AD-Source', 
-                                source_type = 'Active Directory - Direct', 
-                                source_id = '78ca6be511cb41fbb86dba2fcca7780c', 
-                                has_permissions = False, 
-                                is_permission = False, 
-                                revocable = True, 
-                                cloud_governed = False, 
-                                contains_data_access = True, )
-                            ], 
-                        created = '2021-01-01T22:32:58.104Z', 
-                        modified = '2021-02-01T22:32:58.104Z', ), 
-                    role = sailpoint.v2024.models.reviewable_role.ReviewableRole(
-                        id = '2c91808a7190d06e0171993907fd0794', 
-                        name = 'Accounting-Employees', 
-                        description = 'Role for members of the accounting department with the necessary Access Profiles', 
-                        privileged = False, 
-                        revocable = False, 
-                        end_date = '2021-12-25T00:00Z', 
-                        access_profiles = [
-                            sailpoint.v2024.models.reviewable_access_profile.ReviewableAccessProfile(
-                                id = '2c91808a7190d06e01719938fcd20792', 
-                                name = 'Employee-database-read-write', 
-                                description = 'Collection of entitlements to read/write the employee database', 
-                                privileged = False, 
-                                cloud_governed = False, 
-                                end_date = '2021-12-25T00:00Z', 
-                                created = '2021-01-01T22:32:58.104Z', 
-                                modified = '2021-02-01T22:32:58.104Z', )
-                            ], ), ),
-identity_summary=sailpoint.v2024.models.certification_identity_summary.CertificationIdentitySummary(
-                    id = '2c91808772a504f50172a9540e501ba7', 
-                    name = 'Alison Ferguso', 
-                    identity_id = '2c9180857182306001719937377a33de', 
-                    completed = True, ),
-id='ef38f94347e94562b5bb8424a56397d8',
-completed=False,
-new_access=False,
-decision='APPROVE',
-comments='This user still needs access to this source'
-)
+`func NewAccessReviewItem() *AccessReviewItem`
 
-```
-[[Back to top]](#) 
+NewAccessReviewItem instantiates a new AccessReviewItem object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewAccessReviewItemWithDefaults
+
+`func NewAccessReviewItemWithDefaults() *AccessReviewItem`
+
+NewAccessReviewItemWithDefaults instantiates a new AccessReviewItem object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetAccessSummary
+
+`func (o *AccessReviewItem) GetAccessSummary() AccessSummary`
+
+GetAccessSummary returns the AccessSummary field if non-nil, zero value otherwise.
+
+### GetAccessSummaryOk
+
+`func (o *AccessReviewItem) GetAccessSummaryOk() (*AccessSummary, bool)`
+
+GetAccessSummaryOk returns a tuple with the AccessSummary field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAccessSummary
+
+`func (o *AccessReviewItem) SetAccessSummary(v AccessSummary)`
+
+SetAccessSummary sets AccessSummary field to given value.
+
+### HasAccessSummary
+
+`func (o *AccessReviewItem) HasAccessSummary() bool`
+
+HasAccessSummary returns a boolean if a field has been set.
+
+### GetIdentitySummary
+
+`func (o *AccessReviewItem) GetIdentitySummary() CertificationIdentitySummary`
+
+GetIdentitySummary returns the IdentitySummary field if non-nil, zero value otherwise.
+
+### GetIdentitySummaryOk
+
+`func (o *AccessReviewItem) GetIdentitySummaryOk() (*CertificationIdentitySummary, bool)`
+
+GetIdentitySummaryOk returns a tuple with the IdentitySummary field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIdentitySummary
+
+`func (o *AccessReviewItem) SetIdentitySummary(v CertificationIdentitySummary)`
+
+SetIdentitySummary sets IdentitySummary field to given value.
+
+### HasIdentitySummary
+
+`func (o *AccessReviewItem) HasIdentitySummary() bool`
+
+HasIdentitySummary returns a boolean if a field has been set.
+
+### GetId
+
+`func (o *AccessReviewItem) GetId() string`
+
+GetId returns the Id field if non-nil, zero value otherwise.
+
+### GetIdOk
+
+`func (o *AccessReviewItem) GetIdOk() (*string, bool)`
+
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetId
+
+`func (o *AccessReviewItem) SetId(v string)`
+
+SetId sets Id field to given value.
+
+### HasId
+
+`func (o *AccessReviewItem) HasId() bool`
+
+HasId returns a boolean if a field has been set.
+
+### GetCompleted
+
+`func (o *AccessReviewItem) GetCompleted() bool`
+
+GetCompleted returns the Completed field if non-nil, zero value otherwise.
+
+### GetCompletedOk
+
+`func (o *AccessReviewItem) GetCompletedOk() (*bool, bool)`
+
+GetCompletedOk returns a tuple with the Completed field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCompleted
+
+`func (o *AccessReviewItem) SetCompleted(v bool)`
+
+SetCompleted sets Completed field to given value.
+
+### HasCompleted
+
+`func (o *AccessReviewItem) HasCompleted() bool`
+
+HasCompleted returns a boolean if a field has been set.
+
+### GetNewAccess
+
+`func (o *AccessReviewItem) GetNewAccess() bool`
+
+GetNewAccess returns the NewAccess field if non-nil, zero value otherwise.
+
+### GetNewAccessOk
+
+`func (o *AccessReviewItem) GetNewAccessOk() (*bool, bool)`
+
+GetNewAccessOk returns a tuple with the NewAccess field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNewAccess
+
+`func (o *AccessReviewItem) SetNewAccess(v bool)`
+
+SetNewAccess sets NewAccess field to given value.
+
+### HasNewAccess
+
+`func (o *AccessReviewItem) HasNewAccess() bool`
+
+HasNewAccess returns a boolean if a field has been set.
+
+### GetDecision
+
+`func (o *AccessReviewItem) GetDecision() CertificationDecision`
+
+GetDecision returns the Decision field if non-nil, zero value otherwise.
+
+### GetDecisionOk
+
+`func (o *AccessReviewItem) GetDecisionOk() (*CertificationDecision, bool)`
+
+GetDecisionOk returns a tuple with the Decision field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDecision
+
+`func (o *AccessReviewItem) SetDecision(v CertificationDecision)`
+
+SetDecision sets Decision field to given value.
+
+### HasDecision
+
+`func (o *AccessReviewItem) HasDecision() bool`
+
+HasDecision returns a boolean if a field has been set.
+
+### GetComments
+
+`func (o *AccessReviewItem) GetComments() string`
+
+GetComments returns the Comments field if non-nil, zero value otherwise.
+
+### GetCommentsOk
+
+`func (o *AccessReviewItem) GetCommentsOk() (*string, bool)`
+
+GetCommentsOk returns a tuple with the Comments field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetComments
+
+`func (o *AccessReviewItem) SetComments(v string)`
+
+SetComments sets Comments field to given value.
+
+### HasComments
+
+`func (o *AccessReviewItem) HasComments() bool`
+
+HasComments returns a boolean if a field has been set.
+
+### SetCommentsNil
+
+`func (o *AccessReviewItem) SetCommentsNil(b bool)`
+
+ SetCommentsNil sets the value for Comments to be an explicit nil
+
+### UnsetComments
+`func (o *AccessReviewItem) UnsetComments()`
+
+UnsetComments ensures that no value is present for Comments, not even an explicit nil
 

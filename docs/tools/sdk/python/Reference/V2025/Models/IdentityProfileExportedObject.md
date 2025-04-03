@@ -3,39 +3,114 @@ id: v2025-identity-profile-exported-object
 title: IdentityProfileExportedObject
 pagination_label: IdentityProfileExportedObject
 sidebar_label: IdentityProfileExportedObject
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'IdentityProfileExportedObject', 'V2025IdentityProfileExportedObject'] 
-slug: /tools/sdk/python/v2025/models/identity-profile-exported-object
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'IdentityProfileExportedObject', 'V2025IdentityProfileExportedObject'] 
+slug: /tools/sdk/go/v2025/models/identity-profile-exported-object
 tags: ['SDK', 'Software Development Kit', 'IdentityProfileExportedObject', 'V2025IdentityProfileExportedObject']
 ---
 
 # IdentityProfileExportedObject
 
-Identity profile exported object.
-
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**version** | **int** | Version or object from the target service. | [optional] 
-**var_self** | [**IdentityProfileExportedObjectSelf**](identity-profile-exported-object-self) |  | [optional] 
-**object** | [**IdentityProfile**](identity-profile) |  | [optional] 
-}
+**Version** | Pointer to **int32** | Version or object from the target service. | [optional] 
+**Self** | Pointer to [**IdentityProfileExportedObjectSelf**](identity-profile-exported-object-self) |  | [optional] 
+**Object** | Pointer to [**IdentityProfile**](identity-profile) |  | [optional] 
 
-## Example
+## Methods
 
-```python
-from sailpoint.v2025.models.identity_profile_exported_object import IdentityProfileExportedObject
+### NewIdentityProfileExportedObject
 
-identity_profile_exported_object = IdentityProfileExportedObject(
-version=1,
-var_self=sailpoint.v2025.models.identity_profile_exported_object_self.IdentityProfileExportedObject_self(
-                    type = 'SOURCE', 
-                    id = '2c9180835d191a86015d28455b4b232a', 
-                    name = 'HR Active Directory', ),
-object=
-)
+`func NewIdentityProfileExportedObject() *IdentityProfileExportedObject`
 
-```
-[[Back to top]](#) 
+NewIdentityProfileExportedObject instantiates a new IdentityProfileExportedObject object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewIdentityProfileExportedObjectWithDefaults
+
+`func NewIdentityProfileExportedObjectWithDefaults() *IdentityProfileExportedObject`
+
+NewIdentityProfileExportedObjectWithDefaults instantiates a new IdentityProfileExportedObject object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetVersion
+
+`func (o *IdentityProfileExportedObject) GetVersion() int32`
+
+GetVersion returns the Version field if non-nil, zero value otherwise.
+
+### GetVersionOk
+
+`func (o *IdentityProfileExportedObject) GetVersionOk() (*int32, bool)`
+
+GetVersionOk returns a tuple with the Version field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVersion
+
+`func (o *IdentityProfileExportedObject) SetVersion(v int32)`
+
+SetVersion sets Version field to given value.
+
+### HasVersion
+
+`func (o *IdentityProfileExportedObject) HasVersion() bool`
+
+HasVersion returns a boolean if a field has been set.
+
+### GetSelf
+
+`func (o *IdentityProfileExportedObject) GetSelf() IdentityProfileExportedObjectSelf`
+
+GetSelf returns the Self field if non-nil, zero value otherwise.
+
+### GetSelfOk
+
+`func (o *IdentityProfileExportedObject) GetSelfOk() (*IdentityProfileExportedObjectSelf, bool)`
+
+GetSelfOk returns a tuple with the Self field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSelf
+
+`func (o *IdentityProfileExportedObject) SetSelf(v IdentityProfileExportedObjectSelf)`
+
+SetSelf sets Self field to given value.
+
+### HasSelf
+
+`func (o *IdentityProfileExportedObject) HasSelf() bool`
+
+HasSelf returns a boolean if a field has been set.
+
+### GetObject
+
+`func (o *IdentityProfileExportedObject) GetObject() IdentityProfile`
+
+GetObject returns the Object field if non-nil, zero value otherwise.
+
+### GetObjectOk
+
+`func (o *IdentityProfileExportedObject) GetObjectOk() (*IdentityProfile, bool)`
+
+GetObjectOk returns a tuple with the Object field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetObject
+
+`func (o *IdentityProfileExportedObject) SetObject(v IdentityProfile)`
+
+SetObject sets Object field to given value.
+
+### HasObject
+
+`func (o *IdentityProfileExportedObject) HasObject() bool`
+
+HasObject returns a boolean if a field has been set.
+
 

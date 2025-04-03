@@ -3,36 +3,62 @@ id: v2024-visibility-criteria
 title: VisibilityCriteria
 pagination_label: VisibilityCriteria
 sidebar_label: VisibilityCriteria
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'VisibilityCriteria', 'V2024VisibilityCriteria'] 
-slug: /tools/sdk/python/v2024/models/visibility-criteria
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'VisibilityCriteria', 'V2024VisibilityCriteria'] 
+slug: /tools/sdk/go/v2024/models/visibility-criteria
 tags: ['SDK', 'Software Development Kit', 'VisibilityCriteria', 'V2024VisibilityCriteria']
 ---
 
 # VisibilityCriteria
 
-
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**expression** | [**Expression**](expression) |  | [optional] 
-}
+**Expression** | Pointer to [**Expression**](expression) |  | [optional] 
 
-## Example
+## Methods
 
-```python
-from sailpoint.v2024.models.visibility_criteria import VisibilityCriteria
+### NewVisibilityCriteria
 
-visibility_criteria = VisibilityCriteria(
-expression=sailpoint.v2024.models.expression.Expression(
-                    operator = 'EQUALS', 
-                    attribute = 'location', 
-                    value = sailpoint.v2024.models.value.Value(
-                        type = 'STRING', ), 
-                    children = [], )
-)
+`func NewVisibilityCriteria() *VisibilityCriteria`
 
-```
-[[Back to top]](#) 
+NewVisibilityCriteria instantiates a new VisibilityCriteria object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewVisibilityCriteriaWithDefaults
+
+`func NewVisibilityCriteriaWithDefaults() *VisibilityCriteria`
+
+NewVisibilityCriteriaWithDefaults instantiates a new VisibilityCriteria object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetExpression
+
+`func (o *VisibilityCriteria) GetExpression() Expression`
+
+GetExpression returns the Expression field if non-nil, zero value otherwise.
+
+### GetExpressionOk
+
+`func (o *VisibilityCriteria) GetExpressionOk() (*Expression, bool)`
+
+GetExpressionOk returns a tuple with the Expression field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExpression
+
+`func (o *VisibilityCriteria) SetExpression(v Expression)`
+
+SetExpression sets Expression field to given value.
+
+### HasExpression
+
+`func (o *VisibilityCriteria) HasExpression() bool`
+
+HasExpression returns a boolean if a field has been set.
+
 

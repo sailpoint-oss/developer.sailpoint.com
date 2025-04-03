@@ -3,37 +3,88 @@ id: v2024-common-access-id-status
 title: CommonAccessIDStatus
 pagination_label: CommonAccessIDStatus
 sidebar_label: CommonAccessIDStatus
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'CommonAccessIDStatus', 'V2024CommonAccessIDStatus'] 
-slug: /tools/sdk/python/v2024/models/common-access-id-status
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'CommonAccessIDStatus', 'V2024CommonAccessIDStatus'] 
+slug: /tools/sdk/go/v2024/models/common-access-id-status
 tags: ['SDK', 'Software Development Kit', 'CommonAccessIDStatus', 'V2024CommonAccessIDStatus']
 ---
 
 # CommonAccessIDStatus
 
-
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**confirmed_ids** | **[]str** | List of confirmed common access ids. | [optional] 
-**denied_ids** | **[]str** | List of denied common access ids. | [optional] 
-}
+**ConfirmedIds** | Pointer to **[]string** | List of confirmed common access ids. | [optional] 
+**DeniedIds** | Pointer to **[]string** | List of denied common access ids. | [optional] 
 
-## Example
+## Methods
 
-```python
-from sailpoint.v2024.models.common_access_id_status import CommonAccessIDStatus
+### NewCommonAccessIDStatus
 
-common_access_id_status = CommonAccessIDStatus(
-confirmed_ids=[
-                    ''
-                    ],
-denied_ids=[
-                    ''
-                    ]
-)
+`func NewCommonAccessIDStatus() *CommonAccessIDStatus`
 
-```
-[[Back to top]](#) 
+NewCommonAccessIDStatus instantiates a new CommonAccessIDStatus object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewCommonAccessIDStatusWithDefaults
+
+`func NewCommonAccessIDStatusWithDefaults() *CommonAccessIDStatus`
+
+NewCommonAccessIDStatusWithDefaults instantiates a new CommonAccessIDStatus object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetConfirmedIds
+
+`func (o *CommonAccessIDStatus) GetConfirmedIds() []string`
+
+GetConfirmedIds returns the ConfirmedIds field if non-nil, zero value otherwise.
+
+### GetConfirmedIdsOk
+
+`func (o *CommonAccessIDStatus) GetConfirmedIdsOk() (*[]string, bool)`
+
+GetConfirmedIdsOk returns a tuple with the ConfirmedIds field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetConfirmedIds
+
+`func (o *CommonAccessIDStatus) SetConfirmedIds(v []string)`
+
+SetConfirmedIds sets ConfirmedIds field to given value.
+
+### HasConfirmedIds
+
+`func (o *CommonAccessIDStatus) HasConfirmedIds() bool`
+
+HasConfirmedIds returns a boolean if a field has been set.
+
+### GetDeniedIds
+
+`func (o *CommonAccessIDStatus) GetDeniedIds() []string`
+
+GetDeniedIds returns the DeniedIds field if non-nil, zero value otherwise.
+
+### GetDeniedIdsOk
+
+`func (o *CommonAccessIDStatus) GetDeniedIdsOk() (*[]string, bool)`
+
+GetDeniedIdsOk returns a tuple with the DeniedIds field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDeniedIds
+
+`func (o *CommonAccessIDStatus) SetDeniedIds(v []string)`
+
+SetDeniedIds sets DeniedIds field to given value.
+
+### HasDeniedIds
+
+`func (o *CommonAccessIDStatus) HasDeniedIds() bool`
+
+HasDeniedIds returns a boolean if a field has been set.
+
 

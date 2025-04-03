@@ -3,33 +3,78 @@ id: duo-verification-request
 title: DuoVerificationRequest
 pagination_label: DuoVerificationRequest
 sidebar_label: DuoVerificationRequest
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'DuoVerificationRequest', 'DuoVerificationRequest'] 
-slug: /tools/sdk/python/v3/models/duo-verification-request
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'DuoVerificationRequest', 'DuoVerificationRequest'] 
+slug: /tools/sdk/go/v3/models/duo-verification-request
 tags: ['SDK', 'Software Development Kit', 'DuoVerificationRequest', 'DuoVerificationRequest']
 ---
 
 # DuoVerificationRequest
 
-
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**user_id** | **str** | User id for Verification request. | [required]
-**signed_response** | **str** | User id for Verification request. | [required]
-}
+**UserId** | **string** | User id for Verification request. | 
+**SignedResponse** | **string** | User id for Verification request. | 
 
-## Example
+## Methods
 
-```python
-from sailpoint.v3.models.duo_verification_request import DuoVerificationRequest
+### NewDuoVerificationRequest
 
-duo_verification_request = DuoVerificationRequest(
-user_id='2c9180947f0ef465017f215cbcfd004b',
-signed_response='AUTH|d2lsbC5hbGJpbnxESTZNMFpHSThKQVRWTVpZN0M5VXwxNzAxMjUzMDg5|f1f5f8ced5b340f3d303b05d0efa0e43b6a8f970:APP|d2lsbC5hbGJpbnxESTZNMFpHSThKQVRWTVpZN0M5VXwxNzAxMjU2NjE5|cb44cf44353f5127edcae31b1da0355f87357db2'
-)
+`func NewDuoVerificationRequest(userId string, signedResponse string, ) *DuoVerificationRequest`
 
-```
-[[Back to top]](#) 
+NewDuoVerificationRequest instantiates a new DuoVerificationRequest object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewDuoVerificationRequestWithDefaults
+
+`func NewDuoVerificationRequestWithDefaults() *DuoVerificationRequest`
+
+NewDuoVerificationRequestWithDefaults instantiates a new DuoVerificationRequest object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetUserId
+
+`func (o *DuoVerificationRequest) GetUserId() string`
+
+GetUserId returns the UserId field if non-nil, zero value otherwise.
+
+### GetUserIdOk
+
+`func (o *DuoVerificationRequest) GetUserIdOk() (*string, bool)`
+
+GetUserIdOk returns a tuple with the UserId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUserId
+
+`func (o *DuoVerificationRequest) SetUserId(v string)`
+
+SetUserId sets UserId field to given value.
+
+
+### GetSignedResponse
+
+`func (o *DuoVerificationRequest) GetSignedResponse() string`
+
+GetSignedResponse returns the SignedResponse field if non-nil, zero value otherwise.
+
+### GetSignedResponseOk
+
+`func (o *DuoVerificationRequest) GetSignedResponseOk() (*string, bool)`
+
+GetSignedResponseOk returns a tuple with the SignedResponse field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSignedResponse
+
+`func (o *DuoVerificationRequest) SetSignedResponse(v string)`
+
+SetSignedResponse sets SignedResponse field to given value.
+
+
 

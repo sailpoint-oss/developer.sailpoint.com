@@ -3,36 +3,88 @@ id: permission-dto
 title: PermissionDto
 pagination_label: PermissionDto
 sidebar_label: PermissionDto
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'PermissionDto', 'PermissionDto'] 
-slug: /tools/sdk/python/v3/models/permission-dto
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'PermissionDto', 'PermissionDto'] 
+slug: /tools/sdk/go/v3/models/permission-dto
 tags: ['SDK', 'Software Development Kit', 'PermissionDto', 'PermissionDto']
 ---
 
 # PermissionDto
 
-Simplified DTO for the Permission objects stored in SailPoint's database. The data is aggregated from customer systems and is free-form, so its appearance can vary largely between different clients/customers.
-
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**rights** | **[]str** | All the rights (e.g. actions) that this permission allows on the target | [optional] [readonly] 
-**target** | **str** | The target the permission would grants rights on. | [optional] [readonly] 
-}
+**Rights** | Pointer to **[]string** | All the rights (e.g. actions) that this permission allows on the target | [optional] [readonly] 
+**Target** | Pointer to **string** | The target the permission would grants rights on. | [optional] [readonly] 
 
-## Example
+## Methods
 
-```python
-from sailpoint.v3.models.permission_dto import PermissionDto
+### NewPermissionDto
 
-permission_dto = PermissionDto(
-rights=[
-                    'SELECT'
-                    ],
-target='SYS.GV_$TRANSACTION'
-)
+`func NewPermissionDto() *PermissionDto`
 
-```
-[[Back to top]](#) 
+NewPermissionDto instantiates a new PermissionDto object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewPermissionDtoWithDefaults
+
+`func NewPermissionDtoWithDefaults() *PermissionDto`
+
+NewPermissionDtoWithDefaults instantiates a new PermissionDto object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetRights
+
+`func (o *PermissionDto) GetRights() []string`
+
+GetRights returns the Rights field if non-nil, zero value otherwise.
+
+### GetRightsOk
+
+`func (o *PermissionDto) GetRightsOk() (*[]string, bool)`
+
+GetRightsOk returns a tuple with the Rights field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRights
+
+`func (o *PermissionDto) SetRights(v []string)`
+
+SetRights sets Rights field to given value.
+
+### HasRights
+
+`func (o *PermissionDto) HasRights() bool`
+
+HasRights returns a boolean if a field has been set.
+
+### GetTarget
+
+`func (o *PermissionDto) GetTarget() string`
+
+GetTarget returns the Target field if non-nil, zero value otherwise.
+
+### GetTargetOk
+
+`func (o *PermissionDto) GetTargetOk() (*string, bool)`
+
+GetTargetOk returns a tuple with the Target field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTarget
+
+`func (o *PermissionDto) SetTarget(v string)`
+
+SetTarget sets Target field to given value.
+
+### HasTarget
+
+`func (o *PermissionDto) HasTarget() bool`
+
+HasTarget returns a boolean if a field has been set.
+
 

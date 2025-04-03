@@ -3,36 +3,88 @@ id: identity-attribute-transform
 title: IdentityAttributeTransform
 pagination_label: IdentityAttributeTransform
 sidebar_label: IdentityAttributeTransform
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'IdentityAttributeTransform', 'IdentityAttributeTransform'] 
-slug: /tools/sdk/python/v3/models/identity-attribute-transform
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'IdentityAttributeTransform', 'IdentityAttributeTransform'] 
+slug: /tools/sdk/go/v3/models/identity-attribute-transform
 tags: ['SDK', 'Software Development Kit', 'IdentityAttributeTransform', 'IdentityAttributeTransform']
 ---
 
 # IdentityAttributeTransform
 
-Transform definition for an identity attribute.
-
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**identity_attribute_name** | **str** | Identity attribute's name. | [optional] 
-**transform_definition** | [**TransformDefinition**](transform-definition) |  | [optional] 
-}
+**IdentityAttributeName** | Pointer to **string** | Identity attribute's name. | [optional] 
+**TransformDefinition** | Pointer to [**TransformDefinition**](transform-definition) |  | [optional] 
 
-## Example
+## Methods
 
-```python
-from sailpoint.v3.models.identity_attribute_transform import IdentityAttributeTransform
+### NewIdentityAttributeTransform
 
-identity_attribute_transform = IdentityAttributeTransform(
-identity_attribute_name='email',
-transform_definition=sailpoint.v3.models.transform_definition.TransformDefinition(
-                    type = 'accountAttribute', 
-                    attributes = {attributeName=e-mail, sourceName=MySource, sourceId=2c9180877a826e68017a8c0b03da1a53}, )
-)
+`func NewIdentityAttributeTransform() *IdentityAttributeTransform`
 
-```
-[[Back to top]](#) 
+NewIdentityAttributeTransform instantiates a new IdentityAttributeTransform object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewIdentityAttributeTransformWithDefaults
+
+`func NewIdentityAttributeTransformWithDefaults() *IdentityAttributeTransform`
+
+NewIdentityAttributeTransformWithDefaults instantiates a new IdentityAttributeTransform object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetIdentityAttributeName
+
+`func (o *IdentityAttributeTransform) GetIdentityAttributeName() string`
+
+GetIdentityAttributeName returns the IdentityAttributeName field if non-nil, zero value otherwise.
+
+### GetIdentityAttributeNameOk
+
+`func (o *IdentityAttributeTransform) GetIdentityAttributeNameOk() (*string, bool)`
+
+GetIdentityAttributeNameOk returns a tuple with the IdentityAttributeName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIdentityAttributeName
+
+`func (o *IdentityAttributeTransform) SetIdentityAttributeName(v string)`
+
+SetIdentityAttributeName sets IdentityAttributeName field to given value.
+
+### HasIdentityAttributeName
+
+`func (o *IdentityAttributeTransform) HasIdentityAttributeName() bool`
+
+HasIdentityAttributeName returns a boolean if a field has been set.
+
+### GetTransformDefinition
+
+`func (o *IdentityAttributeTransform) GetTransformDefinition() TransformDefinition`
+
+GetTransformDefinition returns the TransformDefinition field if non-nil, zero value otherwise.
+
+### GetTransformDefinitionOk
+
+`func (o *IdentityAttributeTransform) GetTransformDefinitionOk() (*TransformDefinition, bool)`
+
+GetTransformDefinitionOk returns a tuple with the TransformDefinition field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTransformDefinition
+
+`func (o *IdentityAttributeTransform) SetTransformDefinition(v TransformDefinition)`
+
+SetTransformDefinition sets TransformDefinition field to given value.
+
+### HasTransformDefinition
+
+`func (o *IdentityAttributeTransform) HasTransformDefinition() bool`
+
+HasTransformDefinition returns a boolean if a field has been set.
+
 

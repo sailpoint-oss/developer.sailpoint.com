@@ -3,25 +3,23 @@ id: v2024-role-mining-potential-role-provision-state
 title: RoleMiningPotentialRoleProvisionState
 pagination_label: RoleMiningPotentialRoleProvisionState
 sidebar_label: RoleMiningPotentialRoleProvisionState
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'RoleMiningPotentialRoleProvisionState', 'V2024RoleMiningPotentialRoleProvisionState'] 
-slug: /tools/sdk/python/v2024/models/role-mining-potential-role-provision-state
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'RoleMiningPotentialRoleProvisionState', 'V2024RoleMiningPotentialRoleProvisionState'] 
+slug: /tools/sdk/go/v2024/models/role-mining-potential-role-provision-state
 tags: ['SDK', 'Software Development Kit', 'RoleMiningPotentialRoleProvisionState', 'V2024RoleMiningPotentialRoleProvisionState']
 ---
 
 # RoleMiningPotentialRoleProvisionState
 
-Provision state
-
 ## Enum
 
-* `POTENTIAL` (value: `'POTENTIAL'`)
 
-* `PENDING` (value: `'PENDING'`)
+* `POTENTIAL` (value: `"POTENTIAL"`)
 
-* `COMPLETE` (value: `'COMPLETE'`)
+* `PENDING` (value: `"PENDING"`)
 
-* `FAILED` (value: `'FAILED'`)
+* `COMPLETE` (value: `"COMPLETE"`)
 
-[[Back to top]](#) 
+* `FAILED` (value: `"FAILED"`)
+
 

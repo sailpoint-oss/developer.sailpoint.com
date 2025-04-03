@@ -3,55 +3,192 @@ id: access-request-config
 title: AccessRequestConfig
 pagination_label: AccessRequestConfig
 sidebar_label: AccessRequestConfig
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'AccessRequestConfig', 'AccessRequestConfig'] 
-slug: /tools/sdk/python/v3/models/access-request-config
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'AccessRequestConfig', 'AccessRequestConfig'] 
+slug: /tools/sdk/go/v3/models/access-request-config
 tags: ['SDK', 'Software Development Kit', 'AccessRequestConfig', 'AccessRequestConfig']
 ---
 
 # AccessRequestConfig
 
-
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**approvals_must_be_external** | **bool** | If this is true, approvals must be processed by an external system. Also, if this is true, it blocks Request Center access requests and returns an error for any user who isn't an org admin. | [optional] [default to False]
-**auto_approval_enabled** | **bool** | If this is true and the requester and reviewer are the same, the request is automatically approved. | [optional] [default to False]
-**reauthorization_enabled** | **bool** | If this is true, reauthorization will be enforced for appropriately configured access items. Enablement of this feature is currently in a limited state. | [optional] [default to False]
-**request_on_behalf_of_config** | [**RequestOnBehalfOfConfig**](request-on-behalf-of-config) |  | [optional] 
-**approval_reminder_and_escalation_config** | [**ApprovalReminderAndEscalationConfig**](approval-reminder-and-escalation-config) |  | [optional] 
-**entitlement_request_config** | [**EntitlementRequestConfig**](entitlement-request-config) |  | [optional] 
-}
+**ApprovalsMustBeExternal** | Pointer to **bool** | If this is true, approvals must be processed by an external system. Also, if this is true, it blocks Request Center access requests and returns an error for any user who isn't an org admin. | [optional] [default to false]
+**AutoApprovalEnabled** | Pointer to **bool** | If this is true and the requester and reviewer are the same, the request is automatically approved. | [optional] [default to false]
+**ReauthorizationEnabled** | Pointer to **bool** | If this is true, reauthorization will be enforced for appropriately configured access items. Enablement of this feature is currently in a limited state. | [optional] [default to false]
+**RequestOnBehalfOfConfig** | Pointer to [**RequestOnBehalfOfConfig**](request-on-behalf-of-config) |  | [optional] 
+**ApprovalReminderAndEscalationConfig** | Pointer to [**ApprovalReminderAndEscalationConfig**](approval-reminder-and-escalation-config) |  | [optional] 
+**EntitlementRequestConfig** | Pointer to [**EntitlementRequestConfig**](entitlement-request-config) |  | [optional] 
 
-## Example
+## Methods
 
-```python
-from sailpoint.v3.models.access_request_config import AccessRequestConfig
+### NewAccessRequestConfig
 
-access_request_config = AccessRequestConfig(
-approvals_must_be_external=True,
-auto_approval_enabled=True,
-reauthorization_enabled=True,
-request_on_behalf_of_config=sailpoint.v3.models.request_on_behalf_of_config.RequestOnBehalfOfConfig(
-                    allow_request_on_behalf_of_anyone_by_anyone = True, 
-                    allow_request_on_behalf_of_employee_by_manager = True, ),
-approval_reminder_and_escalation_config=sailpoint.v3.models.approval_reminder_and_escalation_config.ApprovalReminderAndEscalationConfig(
-                    days_until_escalation = 0, 
-                    days_between_reminders = 0, 
-                    max_reminders = 1, 
-                    fallback_approver_ref = sailpoint.v3.models.identity_reference_with_name_and_email.IdentityReferenceWithNameAndEmail(
-                        type = 'IDENTITY', 
-                        id = '5168015d32f890ca15812c9180835d2e', 
-                        name = 'Alison Ferguso', 
-                        email = 'alison.ferguso@identitysoon.com', ), ),
-entitlement_request_config=sailpoint.v3.models.entitlement_request_config.EntitlementRequestConfig(
-                    allow_entitlement_request = True, 
-                    request_comments_required = False, 
-                    denied_comments_required = False, 
-                    grant_request_approval_schemes = 'sourceOwner', )
-)
+`func NewAccessRequestConfig() *AccessRequestConfig`
 
-```
-[[Back to top]](#) 
+NewAccessRequestConfig instantiates a new AccessRequestConfig object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewAccessRequestConfigWithDefaults
+
+`func NewAccessRequestConfigWithDefaults() *AccessRequestConfig`
+
+NewAccessRequestConfigWithDefaults instantiates a new AccessRequestConfig object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetApprovalsMustBeExternal
+
+`func (o *AccessRequestConfig) GetApprovalsMustBeExternal() bool`
+
+GetApprovalsMustBeExternal returns the ApprovalsMustBeExternal field if non-nil, zero value otherwise.
+
+### GetApprovalsMustBeExternalOk
+
+`func (o *AccessRequestConfig) GetApprovalsMustBeExternalOk() (*bool, bool)`
+
+GetApprovalsMustBeExternalOk returns a tuple with the ApprovalsMustBeExternal field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetApprovalsMustBeExternal
+
+`func (o *AccessRequestConfig) SetApprovalsMustBeExternal(v bool)`
+
+SetApprovalsMustBeExternal sets ApprovalsMustBeExternal field to given value.
+
+### HasApprovalsMustBeExternal
+
+`func (o *AccessRequestConfig) HasApprovalsMustBeExternal() bool`
+
+HasApprovalsMustBeExternal returns a boolean if a field has been set.
+
+### GetAutoApprovalEnabled
+
+`func (o *AccessRequestConfig) GetAutoApprovalEnabled() bool`
+
+GetAutoApprovalEnabled returns the AutoApprovalEnabled field if non-nil, zero value otherwise.
+
+### GetAutoApprovalEnabledOk
+
+`func (o *AccessRequestConfig) GetAutoApprovalEnabledOk() (*bool, bool)`
+
+GetAutoApprovalEnabledOk returns a tuple with the AutoApprovalEnabled field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAutoApprovalEnabled
+
+`func (o *AccessRequestConfig) SetAutoApprovalEnabled(v bool)`
+
+SetAutoApprovalEnabled sets AutoApprovalEnabled field to given value.
+
+### HasAutoApprovalEnabled
+
+`func (o *AccessRequestConfig) HasAutoApprovalEnabled() bool`
+
+HasAutoApprovalEnabled returns a boolean if a field has been set.
+
+### GetReauthorizationEnabled
+
+`func (o *AccessRequestConfig) GetReauthorizationEnabled() bool`
+
+GetReauthorizationEnabled returns the ReauthorizationEnabled field if non-nil, zero value otherwise.
+
+### GetReauthorizationEnabledOk
+
+`func (o *AccessRequestConfig) GetReauthorizationEnabledOk() (*bool, bool)`
+
+GetReauthorizationEnabledOk returns a tuple with the ReauthorizationEnabled field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetReauthorizationEnabled
+
+`func (o *AccessRequestConfig) SetReauthorizationEnabled(v bool)`
+
+SetReauthorizationEnabled sets ReauthorizationEnabled field to given value.
+
+### HasReauthorizationEnabled
+
+`func (o *AccessRequestConfig) HasReauthorizationEnabled() bool`
+
+HasReauthorizationEnabled returns a boolean if a field has been set.
+
+### GetRequestOnBehalfOfConfig
+
+`func (o *AccessRequestConfig) GetRequestOnBehalfOfConfig() RequestOnBehalfOfConfig`
+
+GetRequestOnBehalfOfConfig returns the RequestOnBehalfOfConfig field if non-nil, zero value otherwise.
+
+### GetRequestOnBehalfOfConfigOk
+
+`func (o *AccessRequestConfig) GetRequestOnBehalfOfConfigOk() (*RequestOnBehalfOfConfig, bool)`
+
+GetRequestOnBehalfOfConfigOk returns a tuple with the RequestOnBehalfOfConfig field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRequestOnBehalfOfConfig
+
+`func (o *AccessRequestConfig) SetRequestOnBehalfOfConfig(v RequestOnBehalfOfConfig)`
+
+SetRequestOnBehalfOfConfig sets RequestOnBehalfOfConfig field to given value.
+
+### HasRequestOnBehalfOfConfig
+
+`func (o *AccessRequestConfig) HasRequestOnBehalfOfConfig() bool`
+
+HasRequestOnBehalfOfConfig returns a boolean if a field has been set.
+
+### GetApprovalReminderAndEscalationConfig
+
+`func (o *AccessRequestConfig) GetApprovalReminderAndEscalationConfig() ApprovalReminderAndEscalationConfig`
+
+GetApprovalReminderAndEscalationConfig returns the ApprovalReminderAndEscalationConfig field if non-nil, zero value otherwise.
+
+### GetApprovalReminderAndEscalationConfigOk
+
+`func (o *AccessRequestConfig) GetApprovalReminderAndEscalationConfigOk() (*ApprovalReminderAndEscalationConfig, bool)`
+
+GetApprovalReminderAndEscalationConfigOk returns a tuple with the ApprovalReminderAndEscalationConfig field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetApprovalReminderAndEscalationConfig
+
+`func (o *AccessRequestConfig) SetApprovalReminderAndEscalationConfig(v ApprovalReminderAndEscalationConfig)`
+
+SetApprovalReminderAndEscalationConfig sets ApprovalReminderAndEscalationConfig field to given value.
+
+### HasApprovalReminderAndEscalationConfig
+
+`func (o *AccessRequestConfig) HasApprovalReminderAndEscalationConfig() bool`
+
+HasApprovalReminderAndEscalationConfig returns a boolean if a field has been set.
+
+### GetEntitlementRequestConfig
+
+`func (o *AccessRequestConfig) GetEntitlementRequestConfig() EntitlementRequestConfig`
+
+GetEntitlementRequestConfig returns the EntitlementRequestConfig field if non-nil, zero value otherwise.
+
+### GetEntitlementRequestConfigOk
+
+`func (o *AccessRequestConfig) GetEntitlementRequestConfigOk() (*EntitlementRequestConfig, bool)`
+
+GetEntitlementRequestConfigOk returns a tuple with the EntitlementRequestConfig field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEntitlementRequestConfig
+
+`func (o *AccessRequestConfig) SetEntitlementRequestConfig(v EntitlementRequestConfig)`
+
+SetEntitlementRequestConfig sets EntitlementRequestConfig field to given value.
+
+### HasEntitlementRequestConfig
+
+`func (o *AccessRequestConfig) HasEntitlementRequestConfig() bool`
+
+HasEntitlementRequestConfig returns a boolean if a field has been set.
+
 

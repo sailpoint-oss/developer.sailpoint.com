@@ -3,37 +3,35 @@ id: account-activity-item-operation
 title: AccountActivityItemOperation
 pagination_label: AccountActivityItemOperation
 sidebar_label: AccountActivityItemOperation
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'AccountActivityItemOperation', 'AccountActivityItemOperation'] 
-slug: /tools/sdk/python/v3/models/account-activity-item-operation
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'AccountActivityItemOperation', 'AccountActivityItemOperation'] 
+slug: /tools/sdk/go/v3/models/account-activity-item-operation
 tags: ['SDK', 'Software Development Kit', 'AccountActivityItemOperation', 'AccountActivityItemOperation']
 ---
 
 # AccountActivityItemOperation
 
-Represents an operation in an account activity item
-
 ## Enum
 
-* `ADD` (value: `'ADD'`)
 
-* `CREATE` (value: `'CREATE'`)
+* `ADD` (value: `"ADD"`)
 
-* `MODIFY` (value: `'MODIFY'`)
+* `CREATE` (value: `"CREATE"`)
 
-* `DELETE` (value: `'DELETE'`)
+* `MODIFY` (value: `"MODIFY"`)
 
-* `DISABLE` (value: `'DISABLE'`)
+* `DELETE` (value: `"DELETE"`)
 
-* `ENABLE` (value: `'ENABLE'`)
+* `DISABLE` (value: `"DISABLE"`)
 
-* `UNLOCK` (value: `'UNLOCK'`)
+* `ENABLE` (value: `"ENABLE"`)
 
-* `LOCK` (value: `'LOCK'`)
+* `UNLOCK` (value: `"UNLOCK"`)
 
-* `REMOVE` (value: `'REMOVE'`)
+* `LOCK` (value: `"LOCK"`)
 
-* `SET` (value: `'SET'`)
+* `REMOVE` (value: `"REMOVE"`)
 
-[[Back to top]](#) 
+* `SET` (value: `"SET"`)
+
 

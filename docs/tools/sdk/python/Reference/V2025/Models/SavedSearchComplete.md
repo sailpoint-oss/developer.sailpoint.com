@@ -3,61 +3,183 @@ id: v2025-saved-search-complete
 title: SavedSearchComplete
 pagination_label: SavedSearchComplete
 sidebar_label: SavedSearchComplete
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'SavedSearchComplete', 'V2025SavedSearchComplete'] 
-slug: /tools/sdk/python/v2025/models/saved-search-complete
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'SavedSearchComplete', 'V2025SavedSearchComplete'] 
+slug: /tools/sdk/go/v2025/models/saved-search-complete
 tags: ['SDK', 'Software Development Kit', 'SavedSearchComplete', 'V2025SavedSearchComplete']
 ---
 
 # SavedSearchComplete
 
-
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**file_name** | **str** | A name for the report file. | [required]
-**owner_email** | **str** | The email address of the identity that owns the saved search. | [required]
-**owner_name** | **str** | The name of the identity that owns the saved search. | [required]
-**query** | **str** | The search query that was used to generate the report. | [required]
-**search_name** | **str** | The name of the saved search. | [required]
-**search_results** | [**SavedSearchCompleteSearchResults**](saved-search-complete-search-results) |  | [required]
-**signed_s3_url** | **str** | The Amazon S3 URL to download the report from. | [required]
-}
+**FileName** | **string** | A name for the report file. | 
+**OwnerEmail** | **string** | The email address of the identity that owns the saved search. | 
+**OwnerName** | **string** | The name of the identity that owns the saved search. | 
+**Query** | **string** | The search query that was used to generate the report. | 
+**SearchName** | **string** | The name of the saved search. | 
+**SearchResults** | [**SavedSearchCompleteSearchResults**](saved-search-complete-search-results) |  | 
+**SignedS3Url** | **string** | The Amazon S3 URL to download the report from. | 
 
-## Example
+## Methods
 
-```python
-from sailpoint.v2025.models.saved_search_complete import SavedSearchComplete
+### NewSavedSearchComplete
 
-saved_search_complete = SavedSearchComplete(
-file_name='Modified.zip',
-owner_email='test@sailpoint.com',
-owner_name='Cloud Support',
-query='modified:[now-7y/d TO now]',
-search_name='Modified Activity',
-search_results=sailpoint.v2025.models.saved_search_complete_search_results.SavedSearchComplete_searchResults(
-                    account = sailpoint.v2025.models.saved_search_complete_search_results_account.SavedSearchComplete_searchResults_Account(
-                        count = '3', 
-                        noun = 'accounts', 
-                        preview = [
-                            []
-                            ], ), 
-                    entitlement = sailpoint.v2025.models.saved_search_complete_search_results_entitlement.SavedSearchComplete_searchResults_Entitlement(
-                        count = '2', 
-                        noun = 'entitlements', 
-                        preview = [
-                            []
-                            ], ), 
-                    identity = sailpoint.v2025.models.saved_search_complete_search_results_identity.SavedSearchComplete_searchResults_Identity(
-                        count = '2', 
-                        noun = 'identities', 
-                        preview = [
-                            []
-                            ], ), ),
-signed_s3_url='https://sptcbu-org-data-useast1.s3.amazonaws.com/arsenal-john/reports/Events%20Export.2020-05-06%2018%2759%20GMT.3e580592-86e4-4953-8aea-49e6ef20a086.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200506T185919Z&X-Amz-SignedHeaders=host&X-Amz-Expires=899&X-Amz-Credential=AKIAV5E54XOGTS4Q4L7A%2F20200506%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=2e732bb97a12a1fd8a215613e3c31fcdae8ba1fb6a25916843ab5b51d2ddefbc'
-)
+`func NewSavedSearchComplete(fileName string, ownerEmail string, ownerName string, query string, searchName string, searchResults SavedSearchCompleteSearchResults, signedS3Url string, ) *SavedSearchComplete`
 
-```
-[[Back to top]](#) 
+NewSavedSearchComplete instantiates a new SavedSearchComplete object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewSavedSearchCompleteWithDefaults
+
+`func NewSavedSearchCompleteWithDefaults() *SavedSearchComplete`
+
+NewSavedSearchCompleteWithDefaults instantiates a new SavedSearchComplete object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetFileName
+
+`func (o *SavedSearchComplete) GetFileName() string`
+
+GetFileName returns the FileName field if non-nil, zero value otherwise.
+
+### GetFileNameOk
+
+`func (o *SavedSearchComplete) GetFileNameOk() (*string, bool)`
+
+GetFileNameOk returns a tuple with the FileName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFileName
+
+`func (o *SavedSearchComplete) SetFileName(v string)`
+
+SetFileName sets FileName field to given value.
+
+
+### GetOwnerEmail
+
+`func (o *SavedSearchComplete) GetOwnerEmail() string`
+
+GetOwnerEmail returns the OwnerEmail field if non-nil, zero value otherwise.
+
+### GetOwnerEmailOk
+
+`func (o *SavedSearchComplete) GetOwnerEmailOk() (*string, bool)`
+
+GetOwnerEmailOk returns a tuple with the OwnerEmail field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwnerEmail
+
+`func (o *SavedSearchComplete) SetOwnerEmail(v string)`
+
+SetOwnerEmail sets OwnerEmail field to given value.
+
+
+### GetOwnerName
+
+`func (o *SavedSearchComplete) GetOwnerName() string`
+
+GetOwnerName returns the OwnerName field if non-nil, zero value otherwise.
+
+### GetOwnerNameOk
+
+`func (o *SavedSearchComplete) GetOwnerNameOk() (*string, bool)`
+
+GetOwnerNameOk returns a tuple with the OwnerName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwnerName
+
+`func (o *SavedSearchComplete) SetOwnerName(v string)`
+
+SetOwnerName sets OwnerName field to given value.
+
+
+### GetQuery
+
+`func (o *SavedSearchComplete) GetQuery() string`
+
+GetQuery returns the Query field if non-nil, zero value otherwise.
+
+### GetQueryOk
+
+`func (o *SavedSearchComplete) GetQueryOk() (*string, bool)`
+
+GetQueryOk returns a tuple with the Query field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetQuery
+
+`func (o *SavedSearchComplete) SetQuery(v string)`
+
+SetQuery sets Query field to given value.
+
+
+### GetSearchName
+
+`func (o *SavedSearchComplete) GetSearchName() string`
+
+GetSearchName returns the SearchName field if non-nil, zero value otherwise.
+
+### GetSearchNameOk
+
+`func (o *SavedSearchComplete) GetSearchNameOk() (*string, bool)`
+
+GetSearchNameOk returns a tuple with the SearchName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSearchName
+
+`func (o *SavedSearchComplete) SetSearchName(v string)`
+
+SetSearchName sets SearchName field to given value.
+
+
+### GetSearchResults
+
+`func (o *SavedSearchComplete) GetSearchResults() SavedSearchCompleteSearchResults`
+
+GetSearchResults returns the SearchResults field if non-nil, zero value otherwise.
+
+### GetSearchResultsOk
+
+`func (o *SavedSearchComplete) GetSearchResultsOk() (*SavedSearchCompleteSearchResults, bool)`
+
+GetSearchResultsOk returns a tuple with the SearchResults field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSearchResults
+
+`func (o *SavedSearchComplete) SetSearchResults(v SavedSearchCompleteSearchResults)`
+
+SetSearchResults sets SearchResults field to given value.
+
+
+### GetSignedS3Url
+
+`func (o *SavedSearchComplete) GetSignedS3Url() string`
+
+GetSignedS3Url returns the SignedS3Url field if non-nil, zero value otherwise.
+
+### GetSignedS3UrlOk
+
+`func (o *SavedSearchComplete) GetSignedS3UrlOk() (*string, bool)`
+
+GetSignedS3UrlOk returns a tuple with the SignedS3Url field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSignedS3Url
+
+`func (o *SavedSearchComplete) SetSignedS3Url(v string)`
+
+SetSignedS3Url sets SignedS3Url field to given value.
+
+
 

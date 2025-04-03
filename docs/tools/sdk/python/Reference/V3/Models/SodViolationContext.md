@@ -3,46 +3,88 @@ id: sod-violation-context
 title: SodViolationContext
 pagination_label: SodViolationContext
 sidebar_label: SodViolationContext
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'SodViolationContext', 'SodViolationContext'] 
-slug: /tools/sdk/python/v3/models/sod-violation-context
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'SodViolationContext', 'SodViolationContext'] 
+slug: /tools/sdk/go/v3/models/sod-violation-context
 tags: ['SDK', 'Software Development Kit', 'SodViolationContext', 'SodViolationContext']
 ---
 
 # SodViolationContext
 
-The contextual information of the violated criteria
-
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**policy** | [**SodPolicyDto**](sod-policy-dto) |  | [optional] 
-**conflicting_access_criteria** | [**SodViolationContextConflictingAccessCriteria**](sod-violation-context-conflicting-access-criteria) |  | [optional] 
-}
+**Policy** | Pointer to [**SodPolicyDto**](sod-policy-dto) |  | [optional] 
+**ConflictingAccessCriteria** | Pointer to [**SodViolationContextConflictingAccessCriteria**](sod-violation-context-conflicting-access-criteria) |  | [optional] 
 
-## Example
+## Methods
 
-```python
-from sailpoint.v3.models.sod_violation_context import SodViolationContext
+### NewSodViolationContext
 
-sod_violation_context = SodViolationContext(
-policy=sailpoint.v3.models.sod_policy_dto.SodPolicyDto(
-                    type = 'SOD_POLICY', 
-                    id = '0f11f2a4-7c94-4bf3-a2bd-742580fe3bde', 
-                    name = 'Business SOD Policy', ),
-conflicting_access_criteria=sailpoint.v3.models.sod_violation_context_conflicting_access_criteria.SodViolationContext_conflictingAccessCriteria(
-                    left_criteria = sailpoint.v3.models.sod_violation_context_conflicting_access_criteria_left_criteria.SodViolationContext_conflictingAccessCriteria_leftCriteria(
-                        criteria_list = [
-                            sailpoint.v3.models.sod_exempt_criteria.SodExemptCriteria(
-                                existing = True, 
-                                type = 'IDENTITY', 
-                                id = '2c918085771e9d3301773b3cb66f6398', 
-                                name = 'My HR Entitlement', )
-                            ], ), 
-                    right_criteria = sailpoint.v3.models.sod_violation_context_conflicting_access_criteria_left_criteria.SodViolationContext_conflictingAccessCriteria_leftCriteria(), )
-)
+`func NewSodViolationContext() *SodViolationContext`
 
-```
-[[Back to top]](#) 
+NewSodViolationContext instantiates a new SodViolationContext object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewSodViolationContextWithDefaults
+
+`func NewSodViolationContextWithDefaults() *SodViolationContext`
+
+NewSodViolationContextWithDefaults instantiates a new SodViolationContext object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetPolicy
+
+`func (o *SodViolationContext) GetPolicy() SodPolicyDto`
+
+GetPolicy returns the Policy field if non-nil, zero value otherwise.
+
+### GetPolicyOk
+
+`func (o *SodViolationContext) GetPolicyOk() (*SodPolicyDto, bool)`
+
+GetPolicyOk returns a tuple with the Policy field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPolicy
+
+`func (o *SodViolationContext) SetPolicy(v SodPolicyDto)`
+
+SetPolicy sets Policy field to given value.
+
+### HasPolicy
+
+`func (o *SodViolationContext) HasPolicy() bool`
+
+HasPolicy returns a boolean if a field has been set.
+
+### GetConflictingAccessCriteria
+
+`func (o *SodViolationContext) GetConflictingAccessCriteria() SodViolationContextConflictingAccessCriteria`
+
+GetConflictingAccessCriteria returns the ConflictingAccessCriteria field if non-nil, zero value otherwise.
+
+### GetConflictingAccessCriteriaOk
+
+`func (o *SodViolationContext) GetConflictingAccessCriteriaOk() (*SodViolationContextConflictingAccessCriteria, bool)`
+
+GetConflictingAccessCriteriaOk returns a tuple with the ConflictingAccessCriteria field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetConflictingAccessCriteria
+
+`func (o *SodViolationContext) SetConflictingAccessCriteria(v SodViolationContextConflictingAccessCriteria)`
+
+SetConflictingAccessCriteria sets ConflictingAccessCriteria field to given value.
+
+### HasConflictingAccessCriteria
+
+`func (o *SodViolationContext) HasConflictingAccessCriteria() bool`
+
+HasConflictingAccessCriteria returns a boolean if a field has been set.
+
 

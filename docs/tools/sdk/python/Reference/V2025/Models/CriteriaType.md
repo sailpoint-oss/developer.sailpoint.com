@@ -3,39 +3,37 @@ id: v2025-criteria-type
 title: CriteriaType
 pagination_label: CriteriaType
 sidebar_label: CriteriaType
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'CriteriaType', 'V2025CriteriaType'] 
-slug: /tools/sdk/python/v2025/models/criteria-type
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'CriteriaType', 'V2025CriteriaType'] 
+slug: /tools/sdk/go/v2025/models/criteria-type
 tags: ['SDK', 'Software Development Kit', 'CriteriaType', 'V2025CriteriaType']
 ---
 
 # CriteriaType
 
-Type of the criteria in the filter. The `COMPOSITE` filter can contain multiple filters in an AND/OR relationship.
-
 ## Enum
 
-* `COMPOSITE` (value: `'COMPOSITE'`)
 
-* `ROLE` (value: `'ROLE'`)
+* `COMPOSITE` (value: `"COMPOSITE"`)
 
-* `IDENTITY` (value: `'IDENTITY'`)
+* `ROLE` (value: `"ROLE"`)
 
-* `IDENTITY_ATTRIBUTE` (value: `'IDENTITY_ATTRIBUTE'`)
+* `IDENTITY` (value: `"IDENTITY"`)
 
-* `ENTITLEMENT` (value: `'ENTITLEMENT'`)
+* `IDENTITY_ATTRIBUTE` (value: `"IDENTITY_ATTRIBUTE"`)
 
-* `ACCESS_PROFILE` (value: `'ACCESS_PROFILE'`)
+* `ENTITLEMENT` (value: `"ENTITLEMENT"`)
 
-* `SOURCE` (value: `'SOURCE'`)
+* `ACCESS_PROFILE` (value: `"ACCESS_PROFILE"`)
 
-* `ACCOUNT` (value: `'ACCOUNT'`)
+* `SOURCE` (value: `"SOURCE"`)
 
-* `AGGREGATED_ENTITLEMENT` (value: `'AGGREGATED_ENTITLEMENT'`)
+* `ACCOUNT` (value: `"ACCOUNT"`)
 
-* `INVALID_CERTIFIABLE_ENTITY` (value: `'INVALID_CERTIFIABLE_ENTITY'`)
+* `AGGREGATED_ENTITLEMENT` (value: `"AGGREGATED_ENTITLEMENT"`)
 
-* `INVALID_CERTIFIABLE_BUNDLE` (value: `'INVALID_CERTIFIABLE_BUNDLE'`)
+* `INVALID_CERTIFIABLE_ENTITY` (value: `"INVALID_CERTIFIABLE_ENTITY"`)
 
-[[Back to top]](#) 
+* `INVALID_CERTIFIABLE_BUNDLE` (value: `"INVALID_CERTIFIABLE_BUNDLE"`)
+
 

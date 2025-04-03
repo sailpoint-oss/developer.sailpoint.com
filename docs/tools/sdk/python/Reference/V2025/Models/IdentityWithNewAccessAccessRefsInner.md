@@ -3,36 +3,114 @@ id: v2025-identity-with-new-access-access-refs-inner
 title: IdentityWithNewAccessAccessRefsInner
 pagination_label: IdentityWithNewAccessAccessRefsInner
 sidebar_label: IdentityWithNewAccessAccessRefsInner
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'IdentityWithNewAccessAccessRefsInner', 'V2025IdentityWithNewAccessAccessRefsInner'] 
-slug: /tools/sdk/python/v2025/models/identity-with-new-access-access-refs-inner
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'IdentityWithNewAccessAccessRefsInner', 'V2025IdentityWithNewAccessAccessRefsInner'] 
+slug: /tools/sdk/go/v2025/models/identity-with-new-access-access-refs-inner
 tags: ['SDK', 'Software Development Kit', 'IdentityWithNewAccessAccessRefsInner', 'V2025IdentityWithNewAccessAccessRefsInner']
 ---
 
 # IdentityWithNewAccessAccessRefsInner
 
-Entitlement including a specific set of access.
-
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** |  **Enum** [  'ENTITLEMENT' ] | Entitlement's DTO type. | [optional] 
-**id** | **str** | Entitlement's ID. | [optional] 
-**name** | **str** | Entitlement's display name. | [optional] 
-}
+**Type** | Pointer to **string** | Entitlement's DTO type. | [optional] 
+**Id** | Pointer to **string** | Entitlement's ID. | [optional] 
+**Name** | Pointer to **string** | Entitlement's display name. | [optional] 
 
-## Example
+## Methods
 
-```python
-from sailpoint.v2025.models.identity_with_new_access_access_refs_inner import IdentityWithNewAccessAccessRefsInner
+### NewIdentityWithNewAccessAccessRefsInner
 
-identity_with_new_access_access_refs_inner = IdentityWithNewAccessAccessRefsInner(
-type='ENTITLEMENT',
-id='2c91809773dee32014e13e122092014e',
-name='CN=entitlement.490efde5,OU=OrgCo,OU=ServiceDept,DC=HQAD,DC=local'
-)
+`func NewIdentityWithNewAccessAccessRefsInner() *IdentityWithNewAccessAccessRefsInner`
 
-```
-[[Back to top]](#) 
+NewIdentityWithNewAccessAccessRefsInner instantiates a new IdentityWithNewAccessAccessRefsInner object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewIdentityWithNewAccessAccessRefsInnerWithDefaults
+
+`func NewIdentityWithNewAccessAccessRefsInnerWithDefaults() *IdentityWithNewAccessAccessRefsInner`
+
+NewIdentityWithNewAccessAccessRefsInnerWithDefaults instantiates a new IdentityWithNewAccessAccessRefsInner object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetType
+
+`func (o *IdentityWithNewAccessAccessRefsInner) GetType() string`
+
+GetType returns the Type field if non-nil, zero value otherwise.
+
+### GetTypeOk
+
+`func (o *IdentityWithNewAccessAccessRefsInner) GetTypeOk() (*string, bool)`
+
+GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetType
+
+`func (o *IdentityWithNewAccessAccessRefsInner) SetType(v string)`
+
+SetType sets Type field to given value.
+
+### HasType
+
+`func (o *IdentityWithNewAccessAccessRefsInner) HasType() bool`
+
+HasType returns a boolean if a field has been set.
+
+### GetId
+
+`func (o *IdentityWithNewAccessAccessRefsInner) GetId() string`
+
+GetId returns the Id field if non-nil, zero value otherwise.
+
+### GetIdOk
+
+`func (o *IdentityWithNewAccessAccessRefsInner) GetIdOk() (*string, bool)`
+
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetId
+
+`func (o *IdentityWithNewAccessAccessRefsInner) SetId(v string)`
+
+SetId sets Id field to given value.
+
+### HasId
+
+`func (o *IdentityWithNewAccessAccessRefsInner) HasId() bool`
+
+HasId returns a boolean if a field has been set.
+
+### GetName
+
+`func (o *IdentityWithNewAccessAccessRefsInner) GetName() string`
+
+GetName returns the Name field if non-nil, zero value otherwise.
+
+### GetNameOk
+
+`func (o *IdentityWithNewAccessAccessRefsInner) GetNameOk() (*string, bool)`
+
+GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetName
+
+`func (o *IdentityWithNewAccessAccessRefsInner) SetName(v string)`
+
+SetName sets Name field to given value.
+
+### HasName
+
+`func (o *IdentityWithNewAccessAccessRefsInner) HasName() bool`
+
+HasName returns a boolean if a field has been set.
+
 

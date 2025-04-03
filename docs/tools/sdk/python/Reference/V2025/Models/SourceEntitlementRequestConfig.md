@@ -3,39 +3,62 @@ id: v2025-source-entitlement-request-config
 title: SourceEntitlementRequestConfig
 pagination_label: SourceEntitlementRequestConfig
 sidebar_label: SourceEntitlementRequestConfig
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'SourceEntitlementRequestConfig', 'V2025SourceEntitlementRequestConfig'] 
-slug: /tools/sdk/python/v2025/models/source-entitlement-request-config
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'SourceEntitlementRequestConfig', 'V2025SourceEntitlementRequestConfig'] 
+slug: /tools/sdk/go/v2025/models/source-entitlement-request-config
 tags: ['SDK', 'Software Development Kit', 'SourceEntitlementRequestConfig', 'V2025SourceEntitlementRequestConfig']
 ---
 
 # SourceEntitlementRequestConfig
 
-Entitlement Request Configuration
-
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**access_request_config** | [**EntitlementAccessRequestConfig**](entitlement-access-request-config) |  | [optional] 
-}
+**AccessRequestConfig** | Pointer to [**EntitlementAccessRequestConfig**](entitlement-access-request-config) |  | [optional] 
 
-## Example
+## Methods
 
-```python
-from sailpoint.v2025.models.source_entitlement_request_config import SourceEntitlementRequestConfig
+### NewSourceEntitlementRequestConfig
 
-source_entitlement_request_config = SourceEntitlementRequestConfig(
-access_request_config=sailpoint.v2025.models.entitlement_access_request_config.EntitlementAccessRequestConfig(
-                    approval_schemes = [
-                        sailpoint.v2025.models.entitlement_approval_scheme.EntitlementApprovalScheme(
-                            approver_type = 'GOVERNANCE_GROUP', 
-                            approver_id = 'e3eab852-8315-467f-9de7-70eda97f63c8', )
-                        ], 
-                    request_comment_required = True, 
-                    denial_comment_required = False, )
-)
+`func NewSourceEntitlementRequestConfig() *SourceEntitlementRequestConfig`
 
-```
-[[Back to top]](#) 
+NewSourceEntitlementRequestConfig instantiates a new SourceEntitlementRequestConfig object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewSourceEntitlementRequestConfigWithDefaults
+
+`func NewSourceEntitlementRequestConfigWithDefaults() *SourceEntitlementRequestConfig`
+
+NewSourceEntitlementRequestConfigWithDefaults instantiates a new SourceEntitlementRequestConfig object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetAccessRequestConfig
+
+`func (o *SourceEntitlementRequestConfig) GetAccessRequestConfig() EntitlementAccessRequestConfig`
+
+GetAccessRequestConfig returns the AccessRequestConfig field if non-nil, zero value otherwise.
+
+### GetAccessRequestConfigOk
+
+`func (o *SourceEntitlementRequestConfig) GetAccessRequestConfigOk() (*EntitlementAccessRequestConfig, bool)`
+
+GetAccessRequestConfigOk returns a tuple with the AccessRequestConfig field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAccessRequestConfig
+
+`func (o *SourceEntitlementRequestConfig) SetAccessRequestConfig(v EntitlementAccessRequestConfig)`
+
+SetAccessRequestConfig sets AccessRequestConfig field to given value.
+
+### HasAccessRequestConfig
+
+`func (o *SourceEntitlementRequestConfig) HasAccessRequestConfig() bool`
+
+HasAccessRequestConfig returns a boolean if a field has been set.
+
 

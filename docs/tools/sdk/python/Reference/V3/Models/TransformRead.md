@@ -3,39 +3,151 @@ id: transform-read
 title: TransformRead
 pagination_label: TransformRead
 sidebar_label: TransformRead
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'TransformRead', 'TransformRead'] 
-slug: /tools/sdk/python/v3/models/transform-read
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'TransformRead', 'TransformRead'] 
+slug: /tools/sdk/go/v3/models/transform-read
 tags: ['SDK', 'Software Development Kit', 'TransformRead', 'TransformRead']
 ---
 
 # TransformRead
 
-
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **str** | Unique name of this transform | [required]
-**type** |  **Enum** [  'accountAttribute',    'base64Decode',    'base64Encode',    'concat',    'conditional',    'dateCompare',    'dateFormat',    'dateMath',    'decomposeDiacriticalMarks',    'e164phone',    'firstValid',    'rule',    'identityAttribute',    'indexOf',    'iso3166',    'lastIndexOf',    'leftPad',    'lookup',    'lower',    'normalizeNames',    'randomAlphaNumeric',    'randomNumeric',    'reference',    'replaceAll',    'replace',    'rightPad',    'split',    'static',    'substring',    'trim',    'upper',    'usernameGenerator',    'uuid',    'displayName',    'rfc5646' ] | The type of transform operation | [required]
-**attributes** | **object** | Meta-data about the transform. Values in this list are specific to the type of transform to be executed. | [required]
-**id** | **str** | Unique ID of this transform | [required]
-**internal** | **bool** | Indicates whether this is an internal SailPoint-created transform or a customer-created transform | [required][default to False]
-}
+**Name** | **string** | Unique name of this transform | 
+**Type** | **string** | The type of transform operation | 
+**Attributes** | **map[string]interface{}** | Meta-data about the transform. Values in this list are specific to the type of transform to be executed. | 
+**Id** | **string** | Unique ID of this transform | 
+**Internal** | **bool** | Indicates whether this is an internal SailPoint-created transform or a customer-created transform | [default to false]
 
-## Example
+## Methods
 
-```python
-from sailpoint.v3.models.transform_read import TransformRead
+### NewTransformRead
 
-transform_read = TransformRead(
-name='Timestamp To Date',
-type='dateFormat',
-attributes=sailpoint.v3.models.attributes.attributes(),
-id='2cd78adghjkja34jh2b1hkjhasuecd',
-internal=False
-)
+`func NewTransformRead(name string, type_ string, attributes map[string]interface{}, id string, internal bool, ) *TransformRead`
 
-```
-[[Back to top]](#) 
+NewTransformRead instantiates a new TransformRead object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewTransformReadWithDefaults
+
+`func NewTransformReadWithDefaults() *TransformRead`
+
+NewTransformReadWithDefaults instantiates a new TransformRead object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetName
+
+`func (o *TransformRead) GetName() string`
+
+GetName returns the Name field if non-nil, zero value otherwise.
+
+### GetNameOk
+
+`func (o *TransformRead) GetNameOk() (*string, bool)`
+
+GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetName
+
+`func (o *TransformRead) SetName(v string)`
+
+SetName sets Name field to given value.
+
+
+### GetType
+
+`func (o *TransformRead) GetType() string`
+
+GetType returns the Type field if non-nil, zero value otherwise.
+
+### GetTypeOk
+
+`func (o *TransformRead) GetTypeOk() (*string, bool)`
+
+GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetType
+
+`func (o *TransformRead) SetType(v string)`
+
+SetType sets Type field to given value.
+
+
+### GetAttributes
+
+`func (o *TransformRead) GetAttributes() map[string]interface{}`
+
+GetAttributes returns the Attributes field if non-nil, zero value otherwise.
+
+### GetAttributesOk
+
+`func (o *TransformRead) GetAttributesOk() (*map[string]interface{}, bool)`
+
+GetAttributesOk returns a tuple with the Attributes field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAttributes
+
+`func (o *TransformRead) SetAttributes(v map[string]interface{})`
+
+SetAttributes sets Attributes field to given value.
+
+
+### SetAttributesNil
+
+`func (o *TransformRead) SetAttributesNil(b bool)`
+
+ SetAttributesNil sets the value for Attributes to be an explicit nil
+
+### UnsetAttributes
+`func (o *TransformRead) UnsetAttributes()`
+
+UnsetAttributes ensures that no value is present for Attributes, not even an explicit nil
+### GetId
+
+`func (o *TransformRead) GetId() string`
+
+GetId returns the Id field if non-nil, zero value otherwise.
+
+### GetIdOk
+
+`func (o *TransformRead) GetIdOk() (*string, bool)`
+
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetId
+
+`func (o *TransformRead) SetId(v string)`
+
+SetId sets Id field to given value.
+
+
+### GetInternal
+
+`func (o *TransformRead) GetInternal() bool`
+
+GetInternal returns the Internal field if non-nil, zero value otherwise.
+
+### GetInternalOk
+
+`func (o *TransformRead) GetInternalOk() (*bool, bool)`
+
+GetInternalOk returns a tuple with the Internal field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInternal
+
+`func (o *TransformRead) SetInternal(v bool)`
+
+SetInternal sets Internal field to given value.
+
+
 

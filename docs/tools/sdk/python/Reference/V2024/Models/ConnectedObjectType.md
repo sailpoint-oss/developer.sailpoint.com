@@ -3,25 +3,23 @@ id: v2024-connected-object-type
 title: ConnectedObjectType
 pagination_label: ConnectedObjectType
 sidebar_label: ConnectedObjectType
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'ConnectedObjectType', 'V2024ConnectedObjectType'] 
-slug: /tools/sdk/python/v2024/models/connected-object-type
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'ConnectedObjectType', 'V2024ConnectedObjectType'] 
+slug: /tools/sdk/go/v2024/models/connected-object-type
 tags: ['SDK', 'Software Development Kit', 'ConnectedObjectType', 'V2024ConnectedObjectType']
 ---
 
 # ConnectedObjectType
 
-An enumeration of the types of Objects associated with a Governance Group. Supported object types are ACCESS_PROFILE, ROLE, SOD_POLICY and SOURCE.
-
 ## Enum
 
-* `ACCESS_PROFILE` (value: `'ACCESS_PROFILE'`)
 
-* `ROLE` (value: `'ROLE'`)
+* `ACCESS_PROFILE` (value: `"ACCESS_PROFILE"`)
 
-* `SOD_POLICY` (value: `'SOD_POLICY'`)
+* `ROLE` (value: `"ROLE"`)
 
-* `SOURCE` (value: `'SOURCE'`)
+* `SOD_POLICY` (value: `"SOD_POLICY"`)
 
-[[Back to top]](#) 
+* `SOURCE` (value: `"SOURCE"`)
+
 

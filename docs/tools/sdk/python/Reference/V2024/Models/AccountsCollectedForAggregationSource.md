@@ -3,36 +3,99 @@ id: v2024-accounts-collected-for-aggregation-source
 title: AccountsCollectedForAggregationSource
 pagination_label: AccountsCollectedForAggregationSource
 sidebar_label: AccountsCollectedForAggregationSource
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'AccountsCollectedForAggregationSource', 'V2024AccountsCollectedForAggregationSource'] 
-slug: /tools/sdk/python/v2024/models/accounts-collected-for-aggregation-source
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'AccountsCollectedForAggregationSource', 'V2024AccountsCollectedForAggregationSource'] 
+slug: /tools/sdk/go/v2024/models/accounts-collected-for-aggregation-source
 tags: ['SDK', 'Software Development Kit', 'AccountsCollectedForAggregationSource', 'V2024AccountsCollectedForAggregationSource']
 ---
 
 # AccountsCollectedForAggregationSource
 
-Reference to the source that has been aggregated.
-
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** | ID of the object to which this reference applies | [required]
-**type** |  **Enum** [  'SOURCE' ] | The type of object that is referenced | [required]
-**name** | **str** | Human-readable display name of the object to which this reference applies | [required]
-}
+**Id** | **string** | ID of the object to which this reference applies | 
+**Type** | **string** | The type of object that is referenced | 
+**Name** | **string** | Human-readable display name of the object to which this reference applies | 
 
-## Example
+## Methods
 
-```python
-from sailpoint.v2024.models.accounts_collected_for_aggregation_source import AccountsCollectedForAggregationSource
+### NewAccountsCollectedForAggregationSource
 
-accounts_collected_for_aggregation_source = AccountsCollectedForAggregationSource(
-id='4e4d982dddff4267ab12f0f1e72b5a6d',
-type='SOURCE',
-name='Corporate Active Directory'
-)
+`func NewAccountsCollectedForAggregationSource(id string, type_ string, name string, ) *AccountsCollectedForAggregationSource`
 
-```
-[[Back to top]](#) 
+NewAccountsCollectedForAggregationSource instantiates a new AccountsCollectedForAggregationSource object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewAccountsCollectedForAggregationSourceWithDefaults
+
+`func NewAccountsCollectedForAggregationSourceWithDefaults() *AccountsCollectedForAggregationSource`
+
+NewAccountsCollectedForAggregationSourceWithDefaults instantiates a new AccountsCollectedForAggregationSource object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetId
+
+`func (o *AccountsCollectedForAggregationSource) GetId() string`
+
+GetId returns the Id field if non-nil, zero value otherwise.
+
+### GetIdOk
+
+`func (o *AccountsCollectedForAggregationSource) GetIdOk() (*string, bool)`
+
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetId
+
+`func (o *AccountsCollectedForAggregationSource) SetId(v string)`
+
+SetId sets Id field to given value.
+
+
+### GetType
+
+`func (o *AccountsCollectedForAggregationSource) GetType() string`
+
+GetType returns the Type field if non-nil, zero value otherwise.
+
+### GetTypeOk
+
+`func (o *AccountsCollectedForAggregationSource) GetTypeOk() (*string, bool)`
+
+GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetType
+
+`func (o *AccountsCollectedForAggregationSource) SetType(v string)`
+
+SetType sets Type field to given value.
+
+
+### GetName
+
+`func (o *AccountsCollectedForAggregationSource) GetName() string`
+
+GetName returns the Name field if non-nil, zero value otherwise.
+
+### GetNameOk
+
+`func (o *AccountsCollectedForAggregationSource) GetNameOk() (*string, bool)`
+
+GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetName
+
+`func (o *AccountsCollectedForAggregationSource) SetName(v string)`
+
+SetName sets Name field to given value.
+
+
 

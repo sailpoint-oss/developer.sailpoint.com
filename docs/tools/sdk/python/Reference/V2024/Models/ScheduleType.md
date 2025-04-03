@@ -3,27 +3,25 @@ id: v2024-schedule-type
 title: ScheduleType
 pagination_label: ScheduleType
 sidebar_label: ScheduleType
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'ScheduleType', 'V2024ScheduleType'] 
-slug: /tools/sdk/python/v2024/models/schedule-type
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'ScheduleType', 'V2024ScheduleType'] 
+slug: /tools/sdk/go/v2024/models/schedule-type
 tags: ['SDK', 'Software Development Kit', 'ScheduleType', 'V2024ScheduleType']
 ---
 
 # ScheduleType
 
-Enum representing the currently supported schedule types.  Additional values may be added in the future without notice. 
-
 ## Enum
 
-* `DAILY` (value: `'DAILY'`)
 
-* `WEEKLY` (value: `'WEEKLY'`)
+* `DAILY` (value: `"DAILY"`)
 
-* `MONTHLY` (value: `'MONTHLY'`)
+* `WEEKLY` (value: `"WEEKLY"`)
 
-* `CALENDAR` (value: `'CALENDAR'`)
+* `MONTHLY` (value: `"MONTHLY"`)
 
-* `ANNUALLY` (value: `'ANNUALLY'`)
+* `CALENDAR` (value: `"CALENDAR"`)
 
-[[Back to top]](#) 
+* `ANNUALLY` (value: `"ANNUALLY"`)
+
 

@@ -3,33 +3,62 @@ id: v2025-process-identities-request
 title: ProcessIdentitiesRequest
 pagination_label: ProcessIdentitiesRequest
 sidebar_label: ProcessIdentitiesRequest
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'ProcessIdentitiesRequest', 'V2025ProcessIdentitiesRequest'] 
-slug: /tools/sdk/python/v2025/models/process-identities-request
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'ProcessIdentitiesRequest', 'V2025ProcessIdentitiesRequest'] 
+slug: /tools/sdk/go/v2025/models/process-identities-request
 tags: ['SDK', 'Software Development Kit', 'ProcessIdentitiesRequest', 'V2025ProcessIdentitiesRequest']
 ---
 
 # ProcessIdentitiesRequest
 
-
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**identity_ids** | **[]str** | List of up to 250 identity IDs to process. | [optional] 
-}
+**IdentityIds** | Pointer to **[]string** | List of up to 250 identity IDs to process. | [optional] 
 
-## Example
+## Methods
 
-```python
-from sailpoint.v2025.models.process_identities_request import ProcessIdentitiesRequest
+### NewProcessIdentitiesRequest
 
-process_identities_request = ProcessIdentitiesRequest(
-identity_ids=[
-                    'ef38f94347e94562b5bb8424a56397d8'
-                    ]
-)
+`func NewProcessIdentitiesRequest() *ProcessIdentitiesRequest`
 
-```
-[[Back to top]](#) 
+NewProcessIdentitiesRequest instantiates a new ProcessIdentitiesRequest object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewProcessIdentitiesRequestWithDefaults
+
+`func NewProcessIdentitiesRequestWithDefaults() *ProcessIdentitiesRequest`
+
+NewProcessIdentitiesRequestWithDefaults instantiates a new ProcessIdentitiesRequest object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetIdentityIds
+
+`func (o *ProcessIdentitiesRequest) GetIdentityIds() []string`
+
+GetIdentityIds returns the IdentityIds field if non-nil, zero value otherwise.
+
+### GetIdentityIdsOk
+
+`func (o *ProcessIdentitiesRequest) GetIdentityIdsOk() (*[]string, bool)`
+
+GetIdentityIdsOk returns a tuple with the IdentityIds field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIdentityIds
+
+`func (o *ProcessIdentitiesRequest) SetIdentityIds(v []string)`
+
+SetIdentityIds sets IdentityIds field to given value.
+
+### HasIdentityIds
+
+`func (o *ProcessIdentitiesRequest) HasIdentityIds() bool`
+
+HasIdentityIds returns a boolean if a field has been set.
+
 

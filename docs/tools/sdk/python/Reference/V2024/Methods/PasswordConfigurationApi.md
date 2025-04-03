@@ -1,15 +1,15 @@
 ---
 id: v2024-password-configuration
-title: Password_Configuration
-pagination_label: Password_Configuration
-sidebar_label: Password_Configuration
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'Password_Configuration', 'V2024Password_Configuration'] 
-slug: /tools/sdk/python/v2024/methods/password-configuration
-tags: ['SDK', 'Software Development Kit', 'Password_Configuration', 'V2024Password_Configuration']
+title: PasswordConfiguration
+pagination_label: PasswordConfiguration
+sidebar_label: PasswordConfiguration
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'PasswordConfiguration', 'V2024PasswordConfiguration'] 
+slug: /tools/sdk/go/v2024/methods/password-configuration
+tags: ['SDK', 'Software Development Kit', 'PasswordConfiguration', 'V2024PasswordConfiguration']
 ---
 
-# sailpoint.v2024.PasswordConfigurationApi
+# PasswordConfigurationAPI
   Use this API to implement organization password configuration functionality. 
 With this functionality in place, organization administrators can create organization-specific password configurations. 
 
@@ -21,9 +21,9 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-password-org-config**](#create-password-org-config) | **POST** `/password-org-config` | Create Password Org Config
-[**get-password-org-config**](#get-password-org-config) | **GET** `/password-org-config` | Get Password Org Config
-[**put-password-org-config**](#put-password-org-config) | **PUT** `/password-org-config` | Update Password Org Config
+[**create-password-org-config**](#create-password-org-config) | **Post** `/password-org-config` | Create Password Org Config
+[**get-password-org-config**](#get-password-org-config) | **Get** `/password-org-config` | Get Password Org Config
+[**put-password-org-config**](#put-password-org-config) | **Put** `/password-org-config` | Update Password Org Config
 
 
 ## create-password-org-config
@@ -34,62 +34,62 @@ Requires ORG_ADMIN, API role or authorization scope of 'idn:password-org-config:
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/create-password-org-config)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | password_org_config | [**PasswordOrgConfig**](../models/password-org-config) | True  | 
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreatePasswordOrgConfigRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **passwordOrgConfig** | [**PasswordOrgConfig**](../models/password-org-config) |  | 
 
 ### Return type
+
 [**PasswordOrgConfig**](../models/password-org-config)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | Reference to the password org config. | PasswordOrgConfig |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: application/json
- - **Accept**: application/json
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2024.api.password_configuration_api import PasswordConfigurationApi
-from sailpoint.v2024.api_client import ApiClient
-from sailpoint.v2024.models.password_org_config import PasswordOrgConfig
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    password_org_config = '''{
+func main() {
+    passwordOrgConfig := fmt.Sprintf(`{
           "digitTokenLength" : 9,
           "digitTokenEnabled" : true,
           "digitTokenDurationMinutes" : 10,
           "customInstructionsEnabled" : true
-        }''' # PasswordOrgConfig | 
+        }`) # PasswordOrgConfig | 
 
-    try:
-        # Create Password Org Config
-        new_password_org_config = PasswordOrgConfig.from_json(password_org_config)
-        results = PasswordConfigurationApi(api_client).create_password_org_config(password_org_config=new_password_org_config)
-        # Below is a request that includes all optional parameters
-        # results = PasswordConfigurationApi(api_client).create_password_org_config(new_password_org_config)
-        print("The response of PasswordConfigurationApi->create_password_org_config:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling PasswordConfigurationApi->create_password_org_config: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2024.PasswordConfigurationAPI.CreatePasswordOrgConfig(context.Background()).PasswordOrgConfig(passwordOrgConfig).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PasswordConfigurationAPI.CreatePasswordOrgConfig``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreatePasswordOrgConfig`: PasswordOrgConfig
+	fmt.Fprintf(os.Stdout, "Response from `PasswordConfigurationAPI.CreatePasswordOrgConfig`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## get-password-org-config
 Get Password Org Config
@@ -97,53 +97,52 @@ This API returns the password org config . Requires ORG_ADMIN, API role or autho
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-password-org-config)
 
-### Parameters 
-This endpoint does not need any parameter. 
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetPasswordOrgConfigRequest struct via the builder pattern
+
 
 ### Return type
+
 [**PasswordOrgConfig**](../models/password-org-config)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | Reference to the password org config. | PasswordOrgConfig |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2024.api.password_configuration_api import PasswordConfigurationApi
-from sailpoint.v2024.api_client import ApiClient
-from sailpoint.v2024.models.password_org_config import PasswordOrgConfig
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
+func main() {
 
-    try:
-        # Get Password Org Config
-        
-        results = PasswordConfigurationApi(api_client).get_password_org_config()
-        # Below is a request that includes all optional parameters
-        # results = PasswordConfigurationApi(api_client).get_password_org_config()
-        print("The response of PasswordConfigurationApi->get_password_org_config:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling PasswordConfigurationApi->get_password_org_config: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2024.PasswordConfigurationAPI.GetPasswordOrgConfig(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PasswordConfigurationAPI.GetPasswordOrgConfig``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetPasswordOrgConfig`: PasswordOrgConfig
+	fmt.Fprintf(os.Stdout, "Response from `PasswordConfigurationAPI.GetPasswordOrgConfig`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## put-password-org-config
 Update Password Org Config
@@ -153,62 +152,60 @@ Requires ORG_ADMIN, API role or authorization scope of 'idn:password-org-config:
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/put-password-org-config)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | password_org_config | [**PasswordOrgConfig**](../models/password-org-config) | True  | 
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPutPasswordOrgConfigRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **passwordOrgConfig** | [**PasswordOrgConfig**](../models/password-org-config) |  | 
 
 ### Return type
+
 [**PasswordOrgConfig**](../models/password-org-config)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | Reference to the password org config. | PasswordOrgConfig |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: application/json
- - **Accept**: application/json
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2024.api.password_configuration_api import PasswordConfigurationApi
-from sailpoint.v2024.api_client import ApiClient
-from sailpoint.v2024.models.password_org_config import PasswordOrgConfig
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    password_org_config = '''{
+func main() {
+    passwordOrgConfig := fmt.Sprintf(`{
           "digitTokenLength" : 9,
           "digitTokenEnabled" : true,
           "digitTokenDurationMinutes" : 10,
           "customInstructionsEnabled" : true
-        }''' # PasswordOrgConfig | 
+        }`) # PasswordOrgConfig | 
 
-    try:
-        # Update Password Org Config
-        new_password_org_config = PasswordOrgConfig.from_json(password_org_config)
-        results = PasswordConfigurationApi(api_client).put_password_org_config(password_org_config=new_password_org_config)
-        # Below is a request that includes all optional parameters
-        # results = PasswordConfigurationApi(api_client).put_password_org_config(new_password_org_config)
-        print("The response of PasswordConfigurationApi->put_password_org_config:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling PasswordConfigurationApi->put_password_org_config: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2024.PasswordConfigurationAPI.PutPasswordOrgConfig(context.Background()).PasswordOrgConfig(passwordOrgConfig).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PasswordConfigurationAPI.PutPasswordOrgConfig``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PutPasswordOrgConfig`: PasswordOrgConfig
+	fmt.Fprintf(os.Stdout, "Response from `PasswordConfigurationAPI.PutPasswordOrgConfig`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
-
-
+[[Back to top]](#)
 

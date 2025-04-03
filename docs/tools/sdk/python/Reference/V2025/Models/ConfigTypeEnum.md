@@ -3,23 +3,21 @@ id: v2025-config-type-enum
 title: ConfigTypeEnum
 pagination_label: ConfigTypeEnum
 sidebar_label: ConfigTypeEnum
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'ConfigTypeEnum', 'V2025ConfigTypeEnum'] 
-slug: /tools/sdk/python/v2025/models/config-type-enum
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'ConfigTypeEnum', 'V2025ConfigTypeEnum'] 
+slug: /tools/sdk/go/v2025/models/config-type-enum
 tags: ['SDK', 'Software Development Kit', 'ConfigTypeEnum', 'V2025ConfigTypeEnum']
 ---
 
 # ConfigTypeEnum
 
-Enum list of valid work types that can be selected for a Reassignment Configuration
-
 ## Enum
 
-* `ACCESS_REQUESTS` (value: `'ACCESS_REQUESTS'`)
 
-* `CERTIFICATIONS` (value: `'CERTIFICATIONS'`)
+* `ACCESS_REQUESTS` (value: `"ACCESS_REQUESTS"`)
 
-* `MANUAL_TASKS` (value: `'MANUAL_TASKS'`)
+* `CERTIFICATIONS` (value: `"CERTIFICATIONS"`)
 
-[[Back to top]](#) 
+* `MANUAL_TASKS` (value: `"MANUAL_TASKS"`)
+
 

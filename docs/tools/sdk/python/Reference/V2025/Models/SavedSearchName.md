@@ -3,33 +3,98 @@ id: v2025-saved-search-name
 title: SavedSearchName
 pagination_label: SavedSearchName
 sidebar_label: SavedSearchName
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'SavedSearchName', 'V2025SavedSearchName'] 
-slug: /tools/sdk/python/v2025/models/saved-search-name
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'SavedSearchName', 'V2025SavedSearchName'] 
+slug: /tools/sdk/go/v2025/models/saved-search-name
 tags: ['SDK', 'Software Development Kit', 'SavedSearchName', 'V2025SavedSearchName']
 ---
 
 # SavedSearchName
 
-
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **str** | The name of the saved search.  | [optional] 
-**description** | **str** | The description of the saved search.  | [optional] 
-}
+**Name** | Pointer to **string** | The name of the saved search.  | [optional] 
+**Description** | Pointer to **NullableString** | The description of the saved search.  | [optional] 
 
-## Example
+## Methods
 
-```python
-from sailpoint.v2025.models.saved_search_name import SavedSearchName
+### NewSavedSearchName
 
-saved_search_name = SavedSearchName(
-name='Disabled accounts',
-description='Disabled accounts'
-)
+`func NewSavedSearchName() *SavedSearchName`
 
-```
-[[Back to top]](#) 
+NewSavedSearchName instantiates a new SavedSearchName object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewSavedSearchNameWithDefaults
+
+`func NewSavedSearchNameWithDefaults() *SavedSearchName`
+
+NewSavedSearchNameWithDefaults instantiates a new SavedSearchName object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetName
+
+`func (o *SavedSearchName) GetName() string`
+
+GetName returns the Name field if non-nil, zero value otherwise.
+
+### GetNameOk
+
+`func (o *SavedSearchName) GetNameOk() (*string, bool)`
+
+GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetName
+
+`func (o *SavedSearchName) SetName(v string)`
+
+SetName sets Name field to given value.
+
+### HasName
+
+`func (o *SavedSearchName) HasName() bool`
+
+HasName returns a boolean if a field has been set.
+
+### GetDescription
+
+`func (o *SavedSearchName) GetDescription() string`
+
+GetDescription returns the Description field if non-nil, zero value otherwise.
+
+### GetDescriptionOk
+
+`func (o *SavedSearchName) GetDescriptionOk() (*string, bool)`
+
+GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDescription
+
+`func (o *SavedSearchName) SetDescription(v string)`
+
+SetDescription sets Description field to given value.
+
+### HasDescription
+
+`func (o *SavedSearchName) HasDescription() bool`
+
+HasDescription returns a boolean if a field has been set.
+
+### SetDescriptionNil
+
+`func (o *SavedSearchName) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *SavedSearchName) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 

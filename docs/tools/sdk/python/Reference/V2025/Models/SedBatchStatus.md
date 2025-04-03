@@ -3,32 +3,62 @@ id: v2025-sed-batch-status
 title: SedBatchStatus
 pagination_label: SedBatchStatus
 sidebar_label: SedBatchStatus
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'SedBatchStatus', 'V2025SedBatchStatus'] 
-slug: /tools/sdk/python/v2025/models/sed-batch-status
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'SedBatchStatus', 'V2025SedBatchStatus'] 
+slug: /tools/sdk/go/v2025/models/sed-batch-status
 tags: ['SDK', 'Software Development Kit', 'SedBatchStatus', 'V2025SedBatchStatus']
 ---
 
 # SedBatchStatus
 
-Sed Batch Status
-
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status** | **str** | status of batch | [optional] 
-}
+**Status** | Pointer to **string** | status of batch | [optional] 
 
-## Example
+## Methods
 
-```python
-from sailpoint.v2025.models.sed_batch_status import SedBatchStatus
+### NewSedBatchStatus
 
-sed_batch_status = SedBatchStatus(
-status='OK'
-)
+`func NewSedBatchStatus() *SedBatchStatus`
 
-```
-[[Back to top]](#) 
+NewSedBatchStatus instantiates a new SedBatchStatus object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewSedBatchStatusWithDefaults
+
+`func NewSedBatchStatusWithDefaults() *SedBatchStatus`
+
+NewSedBatchStatusWithDefaults instantiates a new SedBatchStatus object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetStatus
+
+`func (o *SedBatchStatus) GetStatus() string`
+
+GetStatus returns the Status field if non-nil, zero value otherwise.
+
+### GetStatusOk
+
+`func (o *SedBatchStatus) GetStatusOk() (*string, bool)`
+
+GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStatus
+
+`func (o *SedBatchStatus) SetStatus(v string)`
+
+SetStatus sets Status field to given value.
+
+### HasStatus
+
+`func (o *SedBatchStatus) HasStatus() bool`
+
+HasStatus returns a boolean if a field has been set.
+
 

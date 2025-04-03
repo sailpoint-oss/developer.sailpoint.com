@@ -3,75 +3,73 @@ id: dto-type
 title: DtoType
 pagination_label: DtoType
 sidebar_label: DtoType
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'DtoType', 'DtoType'] 
-slug: /tools/sdk/python/v3/models/dto-type
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'DtoType', 'DtoType'] 
+slug: /tools/sdk/go/v3/models/dto-type
 tags: ['SDK', 'Software Development Kit', 'DtoType', 'DtoType']
 ---
 
 # DtoType
 
-An enumeration of the types of DTOs supported within the IdentityNow infrastructure.
-
 ## Enum
 
-* `ACCOUNT_CORRELATION_CONFIG` (value: `'ACCOUNT_CORRELATION_CONFIG'`)
 
-* `ACCESS_PROFILE` (value: `'ACCESS_PROFILE'`)
+* `ACCOUNT_CORRELATION_CONFIG` (value: `"ACCOUNT_CORRELATION_CONFIG"`)
 
-* `ACCESS_REQUEST_APPROVAL` (value: `'ACCESS_REQUEST_APPROVAL'`)
+* `ACCESS_PROFILE` (value: `"ACCESS_PROFILE"`)
 
-* `ACCOUNT` (value: `'ACCOUNT'`)
+* `ACCESS_REQUEST_APPROVAL` (value: `"ACCESS_REQUEST_APPROVAL"`)
 
-* `APPLICATION` (value: `'APPLICATION'`)
+* `ACCOUNT` (value: `"ACCOUNT"`)
 
-* `CAMPAIGN` (value: `'CAMPAIGN'`)
+* `APPLICATION` (value: `"APPLICATION"`)
 
-* `CAMPAIGN_FILTER` (value: `'CAMPAIGN_FILTER'`)
+* `CAMPAIGN` (value: `"CAMPAIGN"`)
 
-* `CERTIFICATION` (value: `'CERTIFICATION'`)
+* `CAMPAIGN_FILTER` (value: `"CAMPAIGN_FILTER"`)
 
-* `CLUSTER` (value: `'CLUSTER'`)
+* `CERTIFICATION` (value: `"CERTIFICATION"`)
 
-* `CONNECTOR_SCHEMA` (value: `'CONNECTOR_SCHEMA'`)
+* `CLUSTER` (value: `"CLUSTER"`)
 
-* `ENTITLEMENT` (value: `'ENTITLEMENT'`)
+* `CONNECTOR_SCHEMA` (value: `"CONNECTOR_SCHEMA"`)
 
-* `GOVERNANCE_GROUP` (value: `'GOVERNANCE_GROUP'`)
+* `ENTITLEMENT` (value: `"ENTITLEMENT"`)
 
-* `IDENTITY` (value: `'IDENTITY'`)
+* `GOVERNANCE_GROUP` (value: `"GOVERNANCE_GROUP"`)
 
-* `IDENTITY_PROFILE` (value: `'IDENTITY_PROFILE'`)
+* `IDENTITY` (value: `"IDENTITY"`)
 
-* `IDENTITY_REQUEST` (value: `'IDENTITY_REQUEST'`)
+* `IDENTITY_PROFILE` (value: `"IDENTITY_PROFILE"`)
 
-* `MACHINE_IDENTITY` (value: `'MACHINE_IDENTITY'`)
+* `IDENTITY_REQUEST` (value: `"IDENTITY_REQUEST"`)
 
-* `LIFECYCLE_STATE` (value: `'LIFECYCLE_STATE'`)
+* `MACHINE_IDENTITY` (value: `"MACHINE_IDENTITY"`)
 
-* `PASSWORD_POLICY` (value: `'PASSWORD_POLICY'`)
+* `LIFECYCLE_STATE` (value: `"LIFECYCLE_STATE"`)
 
-* `ROLE` (value: `'ROLE'`)
+* `PASSWORD_POLICY` (value: `"PASSWORD_POLICY"`)
 
-* `RULE` (value: `'RULE'`)
+* `ROLE` (value: `"ROLE"`)
 
-* `SOD_POLICY` (value: `'SOD_POLICY'`)
+* `RULE` (value: `"RULE"`)
 
-* `SOURCE` (value: `'SOURCE'`)
+* `SOD_POLICY` (value: `"SOD_POLICY"`)
 
-* `TAG` (value: `'TAG'`)
+* `SOURCE` (value: `"SOURCE"`)
 
-* `TAG_CATEGORY` (value: `'TAG_CATEGORY'`)
+* `TAG` (value: `"TAG"`)
 
-* `TASK_RESULT` (value: `'TASK_RESULT'`)
+* `TAG_CATEGORY` (value: `"TAG_CATEGORY"`)
 
-* `REPORT_RESULT` (value: `'REPORT_RESULT'`)
+* `TASK_RESULT` (value: `"TASK_RESULT"`)
 
-* `SOD_VIOLATION` (value: `'SOD_VIOLATION'`)
+* `REPORT_RESULT` (value: `"REPORT_RESULT"`)
 
-* `ACCOUNT_ACTIVITY` (value: `'ACCOUNT_ACTIVITY'`)
+* `SOD_VIOLATION` (value: `"SOD_VIOLATION"`)
 
-* `WORKGROUP` (value: `'WORKGROUP'`)
+* `ACCOUNT_ACTIVITY` (value: `"ACCOUNT_ACTIVITY"`)
 
-[[Back to top]](#) 
+* `WORKGROUP` (value: `"WORKGROUP"`)
+
 

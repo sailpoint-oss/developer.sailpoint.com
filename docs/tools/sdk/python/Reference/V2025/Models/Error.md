@@ -3,40 +3,114 @@ id: v2025-error
 title: Error
 pagination_label: Error
 sidebar_label: Error
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'Error', 'V2025Error'] 
-slug: /tools/sdk/python/v2025/models/error
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'Error', 'V2025Error'] 
+slug: /tools/sdk/go/v2025/models/error
 tags: ['SDK', 'Software Development Kit', 'Error', 'V2025Error']
 ---
 
 # Error
 
-
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**detail_code** | **str** | DetailCode is the text of the status code returned | [optional] 
-**messages** | [**[]ErrorMessage**](error-message) |  | [optional] 
-**tracking_id** | **str** | TrackingID is the request tracking unique identifier | [optional] 
-}
+**DetailCode** | Pointer to **string** | DetailCode is the text of the status code returned | [optional] 
+**Messages** | Pointer to [**[]ErrorMessage**](error-message) |  | [optional] 
+**TrackingId** | Pointer to **string** | TrackingID is the request tracking unique identifier | [optional] 
 
-## Example
+## Methods
 
-```python
-from sailpoint.v2025.models.error import Error
+### NewError
 
-error = Error(
-detail_code='Internal Server Error',
-messages=[
-                    sailpoint.v2025.models.error_message_is_the_standard_api_error_response_message_type/.ErrorMessage is the standard API error response message type.(
-                        locale = 'en-US', 
-                        locale_origin = 'DEFAULT', 
-                        text = 'This is an error', )
-                    ],
-tracking_id='9cd03ef80e6a425eb6b11bdbb057cdb4'
-)
+`func NewError() *Error`
 
-```
-[[Back to top]](#) 
+NewError instantiates a new Error object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewErrorWithDefaults
+
+`func NewErrorWithDefaults() *Error`
+
+NewErrorWithDefaults instantiates a new Error object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetDetailCode
+
+`func (o *Error) GetDetailCode() string`
+
+GetDetailCode returns the DetailCode field if non-nil, zero value otherwise.
+
+### GetDetailCodeOk
+
+`func (o *Error) GetDetailCodeOk() (*string, bool)`
+
+GetDetailCodeOk returns a tuple with the DetailCode field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDetailCode
+
+`func (o *Error) SetDetailCode(v string)`
+
+SetDetailCode sets DetailCode field to given value.
+
+### HasDetailCode
+
+`func (o *Error) HasDetailCode() bool`
+
+HasDetailCode returns a boolean if a field has been set.
+
+### GetMessages
+
+`func (o *Error) GetMessages() []ErrorMessage`
+
+GetMessages returns the Messages field if non-nil, zero value otherwise.
+
+### GetMessagesOk
+
+`func (o *Error) GetMessagesOk() (*[]ErrorMessage, bool)`
+
+GetMessagesOk returns a tuple with the Messages field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMessages
+
+`func (o *Error) SetMessages(v []ErrorMessage)`
+
+SetMessages sets Messages field to given value.
+
+### HasMessages
+
+`func (o *Error) HasMessages() bool`
+
+HasMessages returns a boolean if a field has been set.
+
+### GetTrackingId
+
+`func (o *Error) GetTrackingId() string`
+
+GetTrackingId returns the TrackingId field if non-nil, zero value otherwise.
+
+### GetTrackingIdOk
+
+`func (o *Error) GetTrackingIdOk() (*string, bool)`
+
+GetTrackingIdOk returns a tuple with the TrackingId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTrackingId
+
+`func (o *Error) SetTrackingId(v string)`
+
+SetTrackingId sets TrackingId field to given value.
+
+### HasTrackingId
+
+`func (o *Error) HasTrackingId() bool`
+
+HasTrackingId returns a boolean if a field has been set.
+
 

@@ -1,27 +1,27 @@
 ---
 id: v2025-sp-config
-title: SP_Config
-pagination_label: SP_Config
-sidebar_label: SP_Config
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'SP_Config', 'V2025SP_Config'] 
-slug: /tools/sdk/python/v2025/methods/sp-config
-tags: ['SDK', 'Software Development Kit', 'SP_Config', 'V2025SP_Config']
+title: SPConfig
+pagination_label: SPConfig
+sidebar_label: SPConfig
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'SPConfig', 'V2025SPConfig'] 
+slug: /tools/sdk/go/v2025/methods/sp-config
+tags: ['SDK', 'Software Development Kit', 'SPConfig', 'V2025SPConfig']
 ---
 
-# sailpoint.v2025.SPConfigApi
+# SPConfigAPI
   Import and export configuration for some objects between tenants. 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**export-sp-config**](#export-sp-config) | **POST** `/sp-config/export` | Initiates configuration objects export job
-[**get-sp-config-export**](#get-sp-config-export) | **GET** `/sp-config/export/{id}/download` | Download export job result.
-[**get-sp-config-export-status**](#get-sp-config-export-status) | **GET** `/sp-config/export/{id}` | Get export job status
-[**get-sp-config-import**](#get-sp-config-import) | **GET** `/sp-config/import/{id}/download` | Download import job result
-[**get-sp-config-import-status**](#get-sp-config-import-status) | **GET** `/sp-config/import/{id}` | Get import job status
-[**import-sp-config**](#import-sp-config) | **POST** `/sp-config/import` | Initiates configuration objects import job
-[**list-sp-config-objects**](#list-sp-config-objects) | **GET** `/sp-config/config-objects` | List Config Objects
+[**export-sp-config**](#export-sp-config) | **Post** `/sp-config/export` | Initiates configuration objects export job
+[**get-sp-config-export**](#get-sp-config-export) | **Get** `/sp-config/export/{id}/download` | Download export job result.
+[**get-sp-config-export-status**](#get-sp-config-export-status) | **Get** `/sp-config/export/{id}` | Get export job status
+[**get-sp-config-import**](#get-sp-config-import) | **Get** `/sp-config/import/{id}/download` | Download import job result
+[**get-sp-config-import-status**](#get-sp-config-import-status) | **Get** `/sp-config/import/{id}` | Get import job status
+[**import-sp-config**](#import-sp-config) | **Post** `/sp-config/import` | Initiates configuration objects import job
+[**list-sp-config-objects**](#list-sp-config-objects) | **Get** `/sp-config/config-objects` | List Config Objects
 
 
 ## export-sp-config
@@ -31,61 +31,59 @@ For more information about the object types that currently support export functi
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/export-sp-config)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | export_payload | [**ExportPayload**](../models/export-payload) | True  | Export options control what will be included in the export.
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiExportSpConfigRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **exportPayload** | [**ExportPayload**](../models/export-payload) | Export options control what will be included in the export. | 
 
 ### Return type
+
 [**SpConfigExportJob**](../models/sp-config-export-job)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-202 | Export job accepted and queued for processing. | SpConfigExportJob |  -  |
-400 | Client Error - Returned if the request body is invalid.  | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: application/json
- - **Accept**: application/json
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.sp_config_api import SPConfigApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.export_payload import ExportPayload
-from sailpoint.v2025.models.sp_config_export_job import SpConfigExportJob
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    export_payload = '''{
+func main() {
+    exportPayload := fmt.Sprintf(`{
           "description" : "Export Job 1 Test"
-        }''' # ExportPayload | Export options control what will be included in the export.
+        }`) # ExportPayload | Export options control what will be included in the export.
 
-    try:
-        # Initiates configuration objects export job
-        new_export_payload = ExportPayload.from_json(export_payload)
-        results = SPConfigApi(api_client).export_sp_config(export_payload=new_export_payload)
-        # Below is a request that includes all optional parameters
-        # results = SPConfigApi(api_client).export_sp_config(new_export_payload)
-        print("The response of SPConfigApi->export_sp_config:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling SPConfigApi->export_sp_config: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.SPConfigAPI.ExportSpConfig(context.Background()).ExportPayload(exportPayload).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SPConfigAPI.ExportSpConfig``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ExportSpConfig`: SpConfigExportJob
+	fmt.Fprintf(os.Stdout, "Response from `SPConfigAPI.ExportSpConfig`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## get-sp-config-export
 Download export job result.
@@ -95,58 +93,61 @@ The request will need one of the following security scopes:
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-sp-config-export)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | id | **str** | True  | The ID of the export job whose results will be downloaded.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | The ID of the export job whose results will be downloaded. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetSpConfigExportRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
 
 ### Return type
+
 [**SpConfigExportResults**](../models/sp-config-export-results)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | Exported JSON objects. | SpConfigExportResults |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.sp_config_api import SPConfigApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.sp_config_export_results import SpConfigExportResults
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    id = 'ef38f94347e94562b5bb8424a56397d8' # str | The ID of the export job whose results will be downloaded. # str | The ID of the export job whose results will be downloaded.
+func main() {
+    id := ef38f94347e94562b5bb8424a56397d8 # string | The ID of the export job whose results will be downloaded. # string | The ID of the export job whose results will be downloaded.
 
-    try:
-        # Download export job result.
-        
-        results = SPConfigApi(api_client).get_sp_config_export(id=id)
-        # Below is a request that includes all optional parameters
-        # results = SPConfigApi(api_client).get_sp_config_export(id)
-        print("The response of SPConfigApi->get_sp_config_export:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling SPConfigApi->get_sp_config_export: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.SPConfigAPI.GetSpConfigExport(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SPConfigAPI.GetSpConfigExport``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetSpConfigExport`: SpConfigExportResults
+	fmt.Fprintf(os.Stdout, "Response from `SPConfigAPI.GetSpConfigExport`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## get-sp-config-export-status
 Get export job status
@@ -156,58 +157,61 @@ The request will need one of the following security scopes:
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-sp-config-export-status)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | id | **str** | True  | The ID of the export job whose status will be returned.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | The ID of the export job whose status will be returned. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetSpConfigExportStatusRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
 
 ### Return type
+
 [**SpConfigExportJobStatus**](../models/sp-config-export-job-status)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | Export job status successfully returned. | SpConfigExportJobStatus |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.sp_config_api import SPConfigApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.sp_config_export_job_status import SpConfigExportJobStatus
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    id = 'ef38f94347e94562b5bb8424a56397d8' # str | The ID of the export job whose status will be returned. # str | The ID of the export job whose status will be returned.
+func main() {
+    id := ef38f94347e94562b5bb8424a56397d8 # string | The ID of the export job whose status will be returned. # string | The ID of the export job whose status will be returned.
 
-    try:
-        # Get export job status
-        
-        results = SPConfigApi(api_client).get_sp_config_export_status(id=id)
-        # Below is a request that includes all optional parameters
-        # results = SPConfigApi(api_client).get_sp_config_export_status(id)
-        print("The response of SPConfigApi->get_sp_config_export_status:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling SPConfigApi->get_sp_config_export_status: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.SPConfigAPI.GetSpConfigExportStatus(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SPConfigAPI.GetSpConfigExportStatus``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetSpConfigExportStatus`: SpConfigExportJobStatus
+	fmt.Fprintf(os.Stdout, "Response from `SPConfigAPI.GetSpConfigExportStatus`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## get-sp-config-import
 Download import job result
@@ -217,58 +221,61 @@ The request will need the following security scope:
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-sp-config-import)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | id | **str** | True  | The ID of the import job whose results will be downloaded.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | The ID of the import job whose results will be downloaded. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetSpConfigImportRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
 
 ### Return type
+
 [**SpConfigImportResults**](../models/sp-config-import-results)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | Import results JSON object, containing detailed results of the import operation. | SpConfigImportResults |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.sp_config_api import SPConfigApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.sp_config_import_results import SpConfigImportResults
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    id = 'ef38f94347e94562b5bb8424a56397d8' # str | The ID of the import job whose results will be downloaded. # str | The ID of the import job whose results will be downloaded.
+func main() {
+    id := ef38f94347e94562b5bb8424a56397d8 # string | The ID of the import job whose results will be downloaded. # string | The ID of the import job whose results will be downloaded.
 
-    try:
-        # Download import job result
-        
-        results = SPConfigApi(api_client).get_sp_config_import(id=id)
-        # Below is a request that includes all optional parameters
-        # results = SPConfigApi(api_client).get_sp_config_import(id)
-        print("The response of SPConfigApi->get_sp_config_import:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling SPConfigApi->get_sp_config_import: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.SPConfigAPI.GetSpConfigImport(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SPConfigAPI.GetSpConfigImport``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetSpConfigImport`: SpConfigImportResults
+	fmt.Fprintf(os.Stdout, "Response from `SPConfigAPI.GetSpConfigImport`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## get-sp-config-import-status
 Get import job status
@@ -280,58 +287,61 @@ Get import job status
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-sp-config-import-status)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | id | **str** | True  | The ID of the import job whose status will be returned.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | The ID of the import job whose status will be returned. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetSpConfigImportStatusRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
 
 ### Return type
+
 [**SpConfigImportJobStatus**](../models/sp-config-import-job-status)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | Import job status successfully returned. | SpConfigImportJobStatus |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.sp_config_api import SPConfigApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.sp_config_import_job_status import SpConfigImportJobStatus
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    id = 'ef38f94347e94562b5bb8424a56397d8' # str | The ID of the import job whose status will be returned. # str | The ID of the import job whose status will be returned.
+func main() {
+    id := ef38f94347e94562b5bb8424a56397d8 # string | The ID of the import job whose status will be returned. # string | The ID of the import job whose status will be returned.
 
-    try:
-        # Get import job status
-        
-        results = SPConfigApi(api_client).get_sp_config_import_status(id=id)
-        # Below is a request that includes all optional parameters
-        # results = SPConfigApi(api_client).get_sp_config_import_status(id)
-        print("The response of SPConfigApi->get_sp_config_import_status:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling SPConfigApi->get_sp_config_import_status: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.SPConfigAPI.GetSpConfigImportStatus(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SPConfigAPI.GetSpConfigImportStatus``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetSpConfigImportStatus`: SpConfigImportJobStatus
+	fmt.Fprintf(os.Stdout, "Response from `SPConfigAPI.GetSpConfigImportStatus`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## import-sp-config
 Initiates configuration objects import job
@@ -349,63 +359,61 @@ For more information about the object types that currently support import functi
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/import-sp-config)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-   | data | **bytearray** | True  | JSON file containing the objects to be imported.
-  Query | preview | **bool** |   (optional) (default to False) | This option is intended to give the user information about how an import operation would proceed, without having any effect on the target tenant. If this parameter is \"true\", no objects will be imported. Instead, the import process will pre-process the import file and attempt to resolve references within imported objects. The import result file will contain messages pertaining to how specific references were resolved, any errors associated with the preprocessing, and messages indicating which objects would be imported. 
-   | options | [**ImportOptions**](../models/import-options) |   (optional) | 
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiImportSpConfigRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **data** | ***os.File** | JSON file containing the objects to be imported. | 
+ **preview** | **bool** | This option is intended to give the user information about how an import operation would proceed, without having any effect on the target tenant. If this parameter is \&quot;true\&quot;, no objects will be imported. Instead, the import process will pre-process the import file and attempt to resolve references within imported objects. The import result file will contain messages pertaining to how specific references were resolved, any errors associated with the preprocessing, and messages indicating which objects would be imported.  | [default to false]
+ **options** | [**ImportOptions**](../models/import-options) |  | 
 
 ### Return type
+
 [**SpConfigJob**](../models/sp-config-job)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-202 | Import job accepted and queued for processing. | SpConfigJob |  -  |
-400 | Client Error - Returned if the request body is invalid.  | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: multipart/form-data
- - **Accept**: application/json
+
+- **Content-Type**: multipart/form-data
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.sp_config_api import SPConfigApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.import_options import ImportOptions
-from sailpoint.v2025.models.sp_config_job import SpConfigJob
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    data = None # bytearray | JSON file containing the objects to be imported. # bytearray | JSON file containing the objects to be imported.
-    preview = False # bool | This option is intended to give the user information about how an import operation would proceed, without having any effect on the target tenant. If this parameter is \"true\", no objects will be imported. Instead, the import process will pre-process the import file and attempt to resolve references within imported objects. The import result file will contain messages pertaining to how specific references were resolved, any errors associated with the preprocessing, and messages indicating which objects would be imported.  (optional) (default to False) # bool | This option is intended to give the user information about how an import operation would proceed, without having any effect on the target tenant. If this parameter is \"true\", no objects will be imported. Instead, the import process will pre-process the import file and attempt to resolve references within imported objects. The import result file will contain messages pertaining to how specific references were resolved, any errors associated with the preprocessing, and messages indicating which objects would be imported.  (optional) (default to False)
-    options = '''sailpoint.v2025.ImportOptions()''' # ImportOptions |  (optional)
+func main() {
+    data := BINARY_DATA_HERE # *os.File | JSON file containing the objects to be imported. # *os.File | JSON file containing the objects to be imported.
+    preview := true # bool | This option is intended to give the user information about how an import operation would proceed, without having any effect on the target tenant. If this parameter is \"true\", no objects will be imported. Instead, the import process will pre-process the import file and attempt to resolve references within imported objects. The import result file will contain messages pertaining to how specific references were resolved, any errors associated with the preprocessing, and messages indicating which objects would be imported.  (optional) (default to false) # bool | This option is intended to give the user information about how an import operation would proceed, without having any effect on the target tenant. If this parameter is \"true\", no objects will be imported. Instead, the import process will pre-process the import file and attempt to resolve references within imported objects. The import result file will contain messages pertaining to how specific references were resolved, any errors associated with the preprocessing, and messages indicating which objects would be imported.  (optional) (default to false)
+    options := fmt.Sprintf(``) # ImportOptions |  (optional)
 
-    try:
-        # Initiates configuration objects import job
-        
-        results = SPConfigApi(api_client).import_sp_config(data=data)
-        # Below is a request that includes all optional parameters
-        # results = SPConfigApi(api_client).import_sp_config(data, preview, options)
-        print("The response of SPConfigApi->import_sp_config:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling SPConfigApi->import_sp_config: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.SPConfigAPI.ImportSpConfig(context.Background()).Data(data).Preview(preview).Options(options).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SPConfigAPI.ImportSpConfig``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ImportSpConfig`: SpConfigJob
+	fmt.Fprintf(os.Stdout, "Response from `SPConfigAPI.ImportSpConfig`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## list-sp-config-objects
 List Config Objects
@@ -413,54 +421,50 @@ Get a list of object configurations that the tenant export/import service knows.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/list-sp-config-objects)
 
-### Parameters 
-This endpoint does not need any parameter. 
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiListSpConfigObjectsRequest struct via the builder pattern
+
 
 ### Return type
-[**List[SpConfigObject]**](../models/sp-config-object)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | Object configurations returned successfully. | List[SpConfigObject] |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
+[**[]SpConfigObject**](../models/sp-config-object)
 
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.sp_config_api import SPConfigApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.sp_config_object import SpConfigObject
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
+func main() {
 
-    try:
-        # List Config Objects
-        
-        results = SPConfigApi(api_client).list_sp_config_objects()
-        # Below is a request that includes all optional parameters
-        # results = SPConfigApi(api_client).list_sp_config_objects()
-        print("The response of SPConfigApi->list_sp_config_objects:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling SPConfigApi->list_sp_config_objects: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.SPConfigAPI.ListSpConfigObjects(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SPConfigAPI.ListSpConfigObjects``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ListSpConfigObjects`: []SpConfigObject
+	fmt.Fprintf(os.Stdout, "Response from `SPConfigAPI.ListSpConfigObjects`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
-
-
+[[Back to top]](#)
 

@@ -3,29 +3,27 @@ id: v2024-account-activity-approval-status
 title: AccountActivityApprovalStatus
 pagination_label: AccountActivityApprovalStatus
 sidebar_label: AccountActivityApprovalStatus
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'AccountActivityApprovalStatus', 'V2024AccountActivityApprovalStatus'] 
-slug: /tools/sdk/python/v2024/models/account-activity-approval-status
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'AccountActivityApprovalStatus', 'V2024AccountActivityApprovalStatus'] 
+slug: /tools/sdk/go/v2024/models/account-activity-approval-status
 tags: ['SDK', 'Software Development Kit', 'AccountActivityApprovalStatus', 'V2024AccountActivityApprovalStatus']
 ---
 
 # AccountActivityApprovalStatus
 
-The state of an approval status
-
 ## Enum
 
-* `FINISHED` (value: `'FINISHED'`)
 
-* `REJECTED` (value: `'REJECTED'`)
+* `FINISHED` (value: `"FINISHED"`)
 
-* `RETURNED` (value: `'RETURNED'`)
+* `REJECTED` (value: `"REJECTED"`)
 
-* `EXPIRED` (value: `'EXPIRED'`)
+* `RETURNED` (value: `"RETURNED"`)
 
-* `PENDING` (value: `'PENDING'`)
+* `EXPIRED` (value: `"EXPIRED"`)
 
-* `CANCELED` (value: `'CANCELED'`)
+* `PENDING` (value: `"PENDING"`)
 
-[[Back to top]](#) 
+* `CANCELED` (value: `"CANCELED"`)
+
 

@@ -3,35 +3,114 @@ id: v2025-custom-password-instruction
 title: CustomPasswordInstruction
 pagination_label: CustomPasswordInstruction
 sidebar_label: CustomPasswordInstruction
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'CustomPasswordInstruction', 'V2025CustomPasswordInstruction'] 
-slug: /tools/sdk/python/v2025/models/custom-password-instruction
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'CustomPasswordInstruction', 'V2025CustomPasswordInstruction'] 
+slug: /tools/sdk/go/v2025/models/custom-password-instruction
 tags: ['SDK', 'Software Development Kit', 'CustomPasswordInstruction', 'V2025CustomPasswordInstruction']
 ---
 
 # CustomPasswordInstruction
 
-
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**page_id** |  **Enum** [  'change-password:enter-password',    'change-password:finish',    'flow-selection:select',    'forget-username:user-email',    'mfa:enter-code',    'mfa:enter-kba',    'mfa:select',    'reset-password:enter-password',    'reset-password:enter-username',    'reset-password:finish',    'unlock-account:enter-username',    'unlock-account:finish' ] | The page ID that represents the page for forget user name, reset password and unlock account flow. | [optional] 
-**page_content** | **str** | The custom instructions for the specified page. Allow basic HTML format and maximum length is 1000 characters. The custom instructions will be sanitized to avoid attacks. If the customization text includes a link, like `<A HREF=\\\"URL\\\">...</A>` clicking on this will open the link on the current browser page. If you want your link to be redirected to a different page, please redirect it to \"_blank\" like this: `<a href=\\\"URL\" target=\\\"_blank\\\" >link</a>`. This will open a new tab when the link is clicked. Notice we're only supporting _blank as the redirection target.  | [optional] 
-**locale** | **str** | The locale for the custom instructions, a BCP47 language tag. The default value is \\\"default\\\". | [optional] 
-}
+**PageId** | Pointer to **string** | The page ID that represents the page for forget user name, reset password and unlock account flow. | [optional] 
+**PageContent** | Pointer to **string** | The custom instructions for the specified page. Allow basic HTML format and maximum length is 1000 characters. The custom instructions will be sanitized to avoid attacks. If the customization text includes a link, like `<A HREF=\\\"URL\\\">...</A>` clicking on this will open the link on the current browser page. If you want your link to be redirected to a different page, please redirect it to \"_blank\" like this: `<a href=\\\"URL\" target=\\\"_blank\\\" >link</a>`. This will open a new tab when the link is clicked. Notice we're only supporting _blank as the redirection target.  | [optional] 
+**Locale** | Pointer to **string** | The locale for the custom instructions, a BCP47 language tag. The default value is \\\"default\\\". | [optional] 
 
-## Example
+## Methods
 
-```python
-from sailpoint.v2025.models.custom_password_instruction import CustomPasswordInstruction
+### NewCustomPasswordInstruction
 
-custom_password_instruction = CustomPasswordInstruction(
-page_id='change-password:enter-password',
-page_content='Please enter a new password. Your password must be at least 8 characters long and contain at least one number and one letter.',
-locale='en'
-)
+`func NewCustomPasswordInstruction() *CustomPasswordInstruction`
 
-```
-[[Back to top]](#) 
+NewCustomPasswordInstruction instantiates a new CustomPasswordInstruction object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewCustomPasswordInstructionWithDefaults
+
+`func NewCustomPasswordInstructionWithDefaults() *CustomPasswordInstruction`
+
+NewCustomPasswordInstructionWithDefaults instantiates a new CustomPasswordInstruction object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetPageId
+
+`func (o *CustomPasswordInstruction) GetPageId() string`
+
+GetPageId returns the PageId field if non-nil, zero value otherwise.
+
+### GetPageIdOk
+
+`func (o *CustomPasswordInstruction) GetPageIdOk() (*string, bool)`
+
+GetPageIdOk returns a tuple with the PageId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPageId
+
+`func (o *CustomPasswordInstruction) SetPageId(v string)`
+
+SetPageId sets PageId field to given value.
+
+### HasPageId
+
+`func (o *CustomPasswordInstruction) HasPageId() bool`
+
+HasPageId returns a boolean if a field has been set.
+
+### GetPageContent
+
+`func (o *CustomPasswordInstruction) GetPageContent() string`
+
+GetPageContent returns the PageContent field if non-nil, zero value otherwise.
+
+### GetPageContentOk
+
+`func (o *CustomPasswordInstruction) GetPageContentOk() (*string, bool)`
+
+GetPageContentOk returns a tuple with the PageContent field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPageContent
+
+`func (o *CustomPasswordInstruction) SetPageContent(v string)`
+
+SetPageContent sets PageContent field to given value.
+
+### HasPageContent
+
+`func (o *CustomPasswordInstruction) HasPageContent() bool`
+
+HasPageContent returns a boolean if a field has been set.
+
+### GetLocale
+
+`func (o *CustomPasswordInstruction) GetLocale() string`
+
+GetLocale returns the Locale field if non-nil, zero value otherwise.
+
+### GetLocaleOk
+
+`func (o *CustomPasswordInstruction) GetLocaleOk() (*string, bool)`
+
+GetLocaleOk returns a tuple with the Locale field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLocale
+
+`func (o *CustomPasswordInstruction) SetLocale(v string)`
+
+SetLocale sets Locale field to given value.
+
+### HasLocale
+
+`func (o *CustomPasswordInstruction) HasLocale() bool`
+
+HasLocale returns a boolean if a field has been set.
+
 

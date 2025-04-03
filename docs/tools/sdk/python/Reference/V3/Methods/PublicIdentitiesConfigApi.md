@@ -1,15 +1,15 @@
 ---
 id: public-identities-config
-title: Public_Identities_Config
-pagination_label: Public_Identities_Config
-sidebar_label: Public_Identities_Config
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'Public_Identities_Config', 'Public_Identities_Config'] 
-slug: /tools/sdk/python/v3/methods/public-identities-config
-tags: ['SDK', 'Software Development Kit', 'Public_Identities_Config', 'Public_Identities_Config']
+title: PublicIdentitiesConfig
+pagination_label: PublicIdentitiesConfig
+sidebar_label: PublicIdentitiesConfig
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'PublicIdentitiesConfig', 'PublicIdentitiesConfig'] 
+slug: /tools/sdk/go/v3/methods/public-identities-config
+tags: ['SDK', 'Software Development Kit', 'PublicIdentitiesConfig', 'PublicIdentitiesConfig']
 ---
 
-# sailpoint.v3.PublicIdentitiesConfigApi
+# PublicIdentitiesConfigAPI
   Use this API to implement public identity configuration functionality. 
 With this functionality in place, administrators can make up to 5 identity attributes publicly visible so other non-administrator users can see the relevant information they need to make decisions. 
 This can be helpful for approvers making approvals, certification reviewers, managers viewing their direct reports&#39; access, and source owners viewing their tasks.
@@ -25,8 +25,8 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get-public-identity-config**](#get-public-identity-config) | **GET** `/public-identities-config` | Get the Public Identities Configuration
-[**update-public-identity-config**](#update-public-identity-config) | **PUT** `/public-identities-config` | Update the Public Identities Configuration
+[**get-public-identity-config**](#get-public-identity-config) | **Get** `/public-identities-config` | Get the Public Identities Configuration
+[**update-public-identity-config**](#update-public-identity-config) | **Put** `/public-identities-config` | Update the Public Identities Configuration
 
 
 ## get-public-identity-config
@@ -35,53 +35,52 @@ Returns the publicly visible attributes of an identity available to request appr
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-public-identity-config)
 
-### Parameters 
-This endpoint does not need any parameter. 
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetPublicIdentityConfigRequest struct via the builder pattern
+
 
 ### Return type
+
 [**PublicIdentityConfig**](../models/public-identity-config)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | Request succeeded. | PublicIdentityConfig |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v3.api.public_identities_config_api import PublicIdentitiesConfigApi
-from sailpoint.v3.api_client import ApiClient
-from sailpoint.v3.models.public_identity_config import PublicIdentityConfig
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
+func main() {
 
-    try:
-        # Get the Public Identities Configuration
-        
-        results = PublicIdentitiesConfigApi(api_client).get_public_identity_config()
-        # Below is a request that includes all optional parameters
-        # results = PublicIdentitiesConfigApi(api_client).get_public_identity_config()
-        print("The response of PublicIdentitiesConfigApi->get_public_identity_config:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling PublicIdentitiesConfigApi->get_public_identity_config: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V3.PublicIdentitiesConfigAPI.GetPublicIdentityConfig(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PublicIdentitiesConfigAPI.GetPublicIdentityConfig``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetPublicIdentityConfig`: PublicIdentityConfig
+	fmt.Fprintf(os.Stdout, "Response from `PublicIdentitiesConfigAPI.GetPublicIdentityConfig`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## update-public-identity-config
 Update the Public Identities Configuration
@@ -89,41 +88,43 @@ Updates the publicly visible attributes of an identity available to request appr
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/update-public-identity-config)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | public_identity_config | [**PublicIdentityConfig**](../models/public-identity-config) | True  | 
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUpdatePublicIdentityConfigRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **publicIdentityConfig** | [**PublicIdentityConfig**](../models/public-identity-config) |  | 
 
 ### Return type
+
 [**PublicIdentityConfig**](../models/public-identity-config)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | Request succeeded. | PublicIdentityConfig |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: application/json
- - **Accept**: application/json
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v3.api.public_identities_config_api import PublicIdentitiesConfigApi
-from sailpoint.v3.api_client import ApiClient
-from sailpoint.v3.models.public_identity_config import PublicIdentityConfig
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    public_identity_config = '''{
+func main() {
+    publicIdentityConfig := fmt.Sprintf(`{
           "modified" : "2018-06-25T20:22:28.104Z",
           "attributes" : [ {
             "name" : "Country",
@@ -137,23 +138,19 @@ with ApiClient(configuration) as api_client:
             "id" : "2c9180a46faadee4016fb4e018c20639",
             "type" : "IDENTITY"
           }
-        }''' # PublicIdentityConfig | 
+        }`) # PublicIdentityConfig | 
 
-    try:
-        # Update the Public Identities Configuration
-        new_public_identity_config = PublicIdentityConfig.from_json(public_identity_config)
-        results = PublicIdentitiesConfigApi(api_client).update_public_identity_config(public_identity_config=new_public_identity_config)
-        # Below is a request that includes all optional parameters
-        # results = PublicIdentitiesConfigApi(api_client).update_public_identity_config(new_public_identity_config)
-        print("The response of PublicIdentitiesConfigApi->update_public_identity_config:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling PublicIdentitiesConfigApi->update_public_identity_config: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V3.PublicIdentitiesConfigAPI.UpdatePublicIdentityConfig(context.Background()).PublicIdentityConfig(publicIdentityConfig).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PublicIdentitiesConfigAPI.UpdatePublicIdentityConfig``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UpdatePublicIdentityConfig`: PublicIdentityConfig
+	fmt.Fprintf(os.Stdout, "Response from `PublicIdentitiesConfigAPI.UpdatePublicIdentityConfig`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
-
-
+[[Back to top]](#)
 

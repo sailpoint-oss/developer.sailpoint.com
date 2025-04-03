@@ -1,15 +1,15 @@
 ---
 id: v2024-managed-clients
-title: Managed_Clients
-pagination_label: Managed_Clients
-sidebar_label: Managed_Clients
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'Managed_Clients', 'V2024Managed_Clients'] 
-slug: /tools/sdk/python/v2024/methods/managed-clients
-tags: ['SDK', 'Software Development Kit', 'Managed_Clients', 'V2024Managed_Clients']
+title: ManagedClients
+pagination_label: ManagedClients
+sidebar_label: ManagedClients
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'ManagedClients', 'V2024ManagedClients'] 
+slug: /tools/sdk/go/v2024/methods/managed-clients
+tags: ['SDK', 'Software Development Kit', 'ManagedClients', 'V2024ManagedClients']
 ---
 
-# sailpoint.v2024.ManagedClientsApi
+# ManagedClientsAPI
   Use this API to implement managed client functionality. 
 With this functionality in place, administrators can modify and delete existing managed clients, create new ones, and view and make changes to their log configurations. 
  
@@ -17,12 +17,12 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-managed-client**](#create-managed-client) | **POST** `/managed-clients` | Create Managed Client
-[**delete-managed-client**](#delete-managed-client) | **DELETE** `/managed-clients/{id}` | Delete Managed Client
-[**get-managed-client**](#get-managed-client) | **GET** `/managed-clients/{id}` | Get Managed Client
-[**get-managed-client-status**](#get-managed-client-status) | **GET** `/managed-clients/{id}/status` | Get Managed Client Status
-[**get-managed-clients**](#get-managed-clients) | **GET** `/managed-clients` | Get Managed Clients
-[**update-managed-client**](#update-managed-client) | **PATCH** `/managed-clients/{id}` | Update Managed Client
+[**create-managed-client**](#create-managed-client) | **Post** `/managed-clients` | Create Managed Client
+[**delete-managed-client**](#delete-managed-client) | **Delete** `/managed-clients/{id}` | Delete Managed Client
+[**get-managed-client**](#get-managed-client) | **Get** `/managed-clients/{id}` | Get Managed Client
+[**get-managed-client-status**](#get-managed-client-status) | **Get** `/managed-clients/{id}/status` | Get Managed Client Status
+[**get-managed-clients**](#get-managed-clients) | **Get** `/managed-clients` | Get Managed Clients
+[**update-managed-client**](#update-managed-client) | **Patch** `/managed-clients/{id}` | Update Managed Client
 
 
 ## create-managed-client
@@ -32,63 +32,62 @@ The API returns a result that includes the managed client ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/create-managed-client)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | managed_client_request | [**ManagedClientRequest**](../models/managed-client-request) | True  | 
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreateManagedClientRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **managedClientRequest** | [**ManagedClientRequest**](../models/managed-client-request) |  | 
 
 ### Return type
+
 [**ManagedClient**](../models/managed-client)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | Created managed client. | ManagedClient |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: application/json
- - **Accept**: application/json
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2024.api.managed_clients_api import ManagedClientsApi
-from sailpoint.v2024.api_client import ApiClient
-from sailpoint.v2024.models.managed_client import ManagedClient
-from sailpoint.v2024.models.managed_client_request import ManagedClientRequest
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    managed_client_request = '''{
+func main() {
+    managedClientRequest := fmt.Sprintf(`{
           "name" : "aName",
           "description" : "A short description of the ManagedClient",
           "clusterId" : "aClusterId",
           "type" : "VA"
-        }''' # ManagedClientRequest | 
+        }`) # ManagedClientRequest | 
 
-    try:
-        # Create Managed Client
-        new_managed_client_request = ManagedClientRequest.from_json(managed_client_request)
-        results = ManagedClientsApi(api_client).create_managed_client(managed_client_request=new_managed_client_request)
-        # Below is a request that includes all optional parameters
-        # results = ManagedClientsApi(api_client).create_managed_client(new_managed_client_request)
-        print("The response of ManagedClientsApi->create_managed_client:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling ManagedClientsApi->create_managed_client: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2024.ManagedClientsAPI.CreateManagedClient(context.Background()).ManagedClientRequest(managedClientRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ManagedClientsAPI.CreateManagedClient``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateManagedClient`: ManagedClient
+	fmt.Fprintf(os.Stdout, "Response from `ManagedClientsAPI.CreateManagedClient`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## delete-managed-client
 Delete Managed Client
@@ -96,54 +95,59 @@ Delete an existing managed client.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-managed-client)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | id | **str** | True  | Managed client ID.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | Managed client ID. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteManagedClientRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
 
 ### Return type
+
  (empty response body)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-204 | No content - indicates the request was successful but there is no content to be returned in the response. |  |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2024.api.managed_clients_api import ManagedClientsApi
-from sailpoint.v2024.api_client import ApiClient
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    id = '4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7' # str | Managed client ID. # str | Managed client ID.
+func main() {
+    id := 4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7 # string | Managed client ID. # string | Managed client ID.
 
-    try:
-        # Delete Managed Client
-        
-        ManagedClientsApi(api_client).delete_managed_client(id=id)
-        # Below is a request that includes all optional parameters
-        # ManagedClientsApi(api_client).delete_managed_client(id)
-    except Exception as e:
-        print("Exception when calling ManagedClientsApi->delete_managed_client: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	r, err := apiClient.V2024.ManagedClientsAPI.DeleteManagedClient(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ManagedClientsAPI.DeleteManagedClient``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## get-managed-client
 Get Managed Client
@@ -151,58 +155,61 @@ Get managed client by ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-managed-client)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | id | **str** | True  | Managed client ID.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | Managed client ID. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetManagedClientRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
 
 ### Return type
+
 [**ManagedClient**](../models/managed-client)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | Managed client response. | ManagedClient |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2024.api.managed_clients_api import ManagedClientsApi
-from sailpoint.v2024.api_client import ApiClient
-from sailpoint.v2024.models.managed_client import ManagedClient
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    id = '4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7' # str | Managed client ID. # str | Managed client ID.
+func main() {
+    id := 4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7 # string | Managed client ID. # string | Managed client ID.
 
-    try:
-        # Get Managed Client
-        
-        results = ManagedClientsApi(api_client).get_managed_client(id=id)
-        # Below is a request that includes all optional parameters
-        # results = ManagedClientsApi(api_client).get_managed_client(id)
-        print("The response of ManagedClientsApi->get_managed_client:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling ManagedClientsApi->get_managed_client: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2024.ManagedClientsAPI.GetManagedClient(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ManagedClientsAPI.GetManagedClient``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetManagedClient`: ManagedClient
+	fmt.Fprintf(os.Stdout, "Response from `ManagedClientsAPI.GetManagedClient`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## get-managed-client-status
 Get Managed Client Status
@@ -210,61 +217,63 @@ Get a managed client's status, using its ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-managed-client-status)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | id | **str** | True  | Managed client ID to get status for.
-  Query | type | [**ManagedClientType**](../models/managed-client-type) | True  | Managed client type to get status for.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | Managed client ID to get status for. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetManagedClientStatusRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **type_** | [**ManagedClientType**](../models/managed-client-type) | Managed client type to get status for. | 
 
 ### Return type
+
 [**ManagedClientStatus**](../models/managed-client-status)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | Response with the managed client status, with the given ID and type. | ManagedClientStatus |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2024.api.managed_clients_api import ManagedClientsApi
-from sailpoint.v2024.api_client import ApiClient
-from sailpoint.v2024.models.managed_client_status import ManagedClientStatus
-from sailpoint.v2024.models.managed_client_type import ManagedClientType
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    id = 'aClientId' # str | Managed client ID to get status for. # str | Managed client ID to get status for.
-    type = sailpoint.v2024.ManagedClientType() # ManagedClientType | Managed client type to get status for. # ManagedClientType | Managed client type to get status for.
+func main() {
+    id := aClientId # string | Managed client ID to get status for. # string | Managed client ID to get status for.
+    type_ :=  # ManagedClientType | Managed client type to get status for. # ManagedClientType | Managed client type to get status for.
 
-    try:
-        # Get Managed Client Status
-        
-        results = ManagedClientsApi(api_client).get_managed_client_status(id=id, type=type)
-        # Below is a request that includes all optional parameters
-        # results = ManagedClientsApi(api_client).get_managed_client_status(id, type)
-        print("The response of ManagedClientsApi->get_managed_client_status:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling ManagedClientsApi->get_managed_client_status: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2024.ManagedClientsAPI.GetManagedClientStatus(context.Background(), id).Type_(type_).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ManagedClientsAPI.GetManagedClientStatus``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetManagedClientStatus`: ManagedClientStatus
+	fmt.Fprintf(os.Stdout, "Response from `ManagedClientsAPI.GetManagedClientStatus`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## get-managed-clients
 Get Managed Clients
@@ -272,63 +281,63 @@ List managed clients.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-managed-clients)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-  Query | offset | **int** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-  Query | limit | **int** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-  Query | count | **bool** |   (optional) (default to False) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-  Query | filters | **str** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **name**: *eq*  **clientId**: *eq*  **clusterId**: *eq*
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetManagedClientsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **offset** | **int32** | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to 0]
+ **limit** | **int32** | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to 250]
+ **count** | **bool** | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to false]
+ **filters** | **string** | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **name**: *eq*  **clientId**: *eq*  **clusterId**: *eq* | 
 
 ### Return type
-[**List[ManagedClient]**](../models/managed-client)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | Response with a list of managed clients, based on the specified query parameters. | List[ManagedClient] |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
+[**[]ManagedClient**](../models/managed-client)
 
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2024.api.managed_clients_api import ManagedClientsApi
-from sailpoint.v2024.api_client import ApiClient
-from sailpoint.v2024.models.managed_client import ManagedClient
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-    limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-    count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
-    filters = 'name eq \"client name\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **name**: *eq*  **clientId**: *eq*  **clusterId**: *eq* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **name**: *eq*  **clientId**: *eq*  **clusterId**: *eq* (optional)
+func main() {
+    offset := 0 # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+    limit := 250 # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+    count := true # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+    filters := name eq "client name" # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **name**: *eq*  **clientId**: *eq*  **clusterId**: *eq* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **name**: *eq*  **clientId**: *eq*  **clusterId**: *eq* (optional)
 
-    try:
-        # Get Managed Clients
-        
-        results = ManagedClientsApi(api_client).get_managed_clients()
-        # Below is a request that includes all optional parameters
-        # results = ManagedClientsApi(api_client).get_managed_clients(offset, limit, count, filters)
-        print("The response of ManagedClientsApi->get_managed_clients:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling ManagedClientsApi->get_managed_clients: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2024.ManagedClientsAPI.GetManagedClients(context.Background()).Offset(offset).Limit(limit).Count(count).Filters(filters).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ManagedClientsAPI.GetManagedClients``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetManagedClients`: []ManagedClient
+	fmt.Fprintf(os.Stdout, "Response from `ManagedClientsAPI.GetManagedClients`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## update-managed-client
 Update Managed Client
@@ -336,61 +345,61 @@ Update an existing managed client.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/update-managed-client)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | id | **str** | True  | Managed client ID.
- Body  | json_patch_operation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | JSONPatch payload used to update the object.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | Managed client ID. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUpdateManagedClientRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **jsonPatchOperation** | [**[]JsonPatchOperation**](../models/json-patch-operation) | JSONPatch payload used to update the object. | 
 
 ### Return type
+
 [**ManagedClient**](../models/managed-client)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | Updated managed client. | ManagedClient |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: application/json-patch+json
- - **Accept**: application/json
+
+- **Content-Type**: application/json-patch+json
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2024.api.managed_clients_api import ManagedClientsApi
-from sailpoint.v2024.api_client import ApiClient
-from sailpoint.v2024.models.json_patch_operation import JsonPatchOperation
-from sailpoint.v2024.models.managed_client import ManagedClient
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    id = '4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7' # str | Managed client ID. # str | Managed client ID.
-    json_patch_operation = '''[sailpoint.v2024.JsonPatchOperation()]''' # List[JsonPatchOperation] | JSONPatch payload used to update the object.
+func main() {
+    id := 4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7 # string | Managed client ID. # string | Managed client ID.
+    jsonPatchOperation := fmt.Sprintf(``) # []JsonPatchOperation | JSONPatch payload used to update the object.
 
-    try:
-        # Update Managed Client
-        new_json_patch_operation = JsonPatchOperation.from_json(json_patch_operation)
-        results = ManagedClientsApi(api_client).update_managed_client(id=id, json_patch_operation=new_json_patch_operation)
-        # Below is a request that includes all optional parameters
-        # results = ManagedClientsApi(api_client).update_managed_client(id, new_json_patch_operation)
-        print("The response of ManagedClientsApi->update_managed_client:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling ManagedClientsApi->update_managed_client: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2024.ManagedClientsAPI.UpdateManagedClient(context.Background(), id).JsonPatchOperation(jsonPatchOperation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ManagedClientsAPI.UpdateManagedClient``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UpdateManagedClient`: ManagedClient
+	fmt.Fprintf(os.Stdout, "Response from `ManagedClientsAPI.UpdateManagedClient`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
-
-
+[[Back to top]](#)
 

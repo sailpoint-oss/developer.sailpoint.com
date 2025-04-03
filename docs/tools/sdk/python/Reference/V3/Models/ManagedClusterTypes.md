@@ -3,21 +3,19 @@ id: managed-cluster-types
 title: ManagedClusterTypes
 pagination_label: ManagedClusterTypes
 sidebar_label: ManagedClusterTypes
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'ManagedClusterTypes', 'ManagedClusterTypes'] 
-slug: /tools/sdk/python/v3/models/managed-cluster-types
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'ManagedClusterTypes', 'ManagedClusterTypes'] 
+slug: /tools/sdk/go/v3/models/managed-cluster-types
 tags: ['SDK', 'Software Development Kit', 'ManagedClusterTypes', 'ManagedClusterTypes']
 ---
 
 # ManagedClusterTypes
 
-The Type of Cluster
-
 ## Enum
 
-* `IDN` (value: `'idn'`)
 
-* `IAI` (value: `'iai'`)
+* `IDN` (value: `"idn"`)
 
-[[Back to top]](#) 
+* `IAI` (value: `"iai"`)
+
 

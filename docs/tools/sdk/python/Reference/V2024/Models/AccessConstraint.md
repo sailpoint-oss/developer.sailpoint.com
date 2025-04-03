@@ -3,35 +3,104 @@ id: v2024-access-constraint
 title: AccessConstraint
 pagination_label: AccessConstraint
 sidebar_label: AccessConstraint
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'AccessConstraint', 'V2024AccessConstraint'] 
-slug: /tools/sdk/python/v2024/models/access-constraint
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'AccessConstraint', 'V2024AccessConstraint'] 
+slug: /tools/sdk/go/v2024/models/access-constraint
 tags: ['SDK', 'Software Development Kit', 'AccessConstraint', 'V2024AccessConstraint']
 ---
 
 # AccessConstraint
 
-
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** |  **Enum** [  'ENTITLEMENT',    'ACCESS_PROFILE',    'ROLE' ] | Type of Access | [required]
-**ids** | **[]str** | Must be set only if operator is SELECTED. | [optional] 
-**operator** |  **Enum** [  'ALL',    'SELECTED' ] | Used to determine whether the scope of the campaign should be reduced for selected ids or all. | [required]
-}
+**Type** | **string** | Type of Access | 
+**Ids** | Pointer to **[]string** | Must be set only if operator is SELECTED. | [optional] 
+**Operator** | **string** | Used to determine whether the scope of the campaign should be reduced for selected ids or all. | 
 
-## Example
+## Methods
 
-```python
-from sailpoint.v2024.models.access_constraint import AccessConstraint
+### NewAccessConstraint
 
-access_constraint = AccessConstraint(
-type='ENTITLEMENT',
-ids=[2c90ad2a70ace7d50170acf22ca90010],
-operator='SELECTED'
-)
+`func NewAccessConstraint(type_ string, operator string, ) *AccessConstraint`
 
-```
-[[Back to top]](#) 
+NewAccessConstraint instantiates a new AccessConstraint object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewAccessConstraintWithDefaults
+
+`func NewAccessConstraintWithDefaults() *AccessConstraint`
+
+NewAccessConstraintWithDefaults instantiates a new AccessConstraint object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetType
+
+`func (o *AccessConstraint) GetType() string`
+
+GetType returns the Type field if non-nil, zero value otherwise.
+
+### GetTypeOk
+
+`func (o *AccessConstraint) GetTypeOk() (*string, bool)`
+
+GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetType
+
+`func (o *AccessConstraint) SetType(v string)`
+
+SetType sets Type field to given value.
+
+
+### GetIds
+
+`func (o *AccessConstraint) GetIds() []string`
+
+GetIds returns the Ids field if non-nil, zero value otherwise.
+
+### GetIdsOk
+
+`func (o *AccessConstraint) GetIdsOk() (*[]string, bool)`
+
+GetIdsOk returns a tuple with the Ids field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIds
+
+`func (o *AccessConstraint) SetIds(v []string)`
+
+SetIds sets Ids field to given value.
+
+### HasIds
+
+`func (o *AccessConstraint) HasIds() bool`
+
+HasIds returns a boolean if a field has been set.
+
+### GetOperator
+
+`func (o *AccessConstraint) GetOperator() string`
+
+GetOperator returns the Operator field if non-nil, zero value otherwise.
+
+### GetOperatorOk
+
+`func (o *AccessConstraint) GetOperatorOk() (*string, bool)`
+
+GetOperatorOk returns a tuple with the Operator field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOperator
+
+`func (o *AccessConstraint) SetOperator(v string)`
+
+SetOperator sets Operator field to given value.
+
+
 

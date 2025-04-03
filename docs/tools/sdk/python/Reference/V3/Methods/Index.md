@@ -5,8 +5,8 @@ pagination_label: Methods
 sidebar_label: Methods
 sidebar_position: 3
 sidebar_class_name: methods
-keywords: ['python', 'Python', 'sdk', 'methods'] 
-slug: /tools/sdk/python/v3/methods
+keywords: ['go', 'Golang', 'sdk', 'methods'] 
+slug: /tools/sdk/go/v3/methods
 tags: ['SDK', 'Software Development Kit', 'v3', 'methods']
 ---
 

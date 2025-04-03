@@ -1,15 +1,15 @@
 ---
 id: v2025-data-segmentation
-title: Data_Segmentation
-pagination_label: Data_Segmentation
-sidebar_label: Data_Segmentation
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'Data_Segmentation', 'V2025Data_Segmentation'] 
-slug: /tools/sdk/python/v2025/methods/data-segmentation
-tags: ['SDK', 'Software Development Kit', 'Data_Segmentation', 'V2025Data_Segmentation']
+title: DataSegmentation
+pagination_label: DataSegmentation
+sidebar_label: DataSegmentation
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'DataSegmentation', 'V2025DataSegmentation'] 
+slug: /tools/sdk/go/v2025/methods/data-segmentation
+tags: ['SDK', 'Software Development Kit', 'DataSegmentation', 'V2025DataSegmentation']
 ---
 
-# sailpoint.v2025.DataSegmentationApi
+# DataSegmentationAPI
   This service is responsible for creating segments that will determine how access is delegated to identities
 withing the organization.
  
@@ -17,14 +17,14 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-data-segment**](#create-data-segment) | **POST** `/data-segments` | Create Segment
-[**delete-data-segment**](#delete-data-segment) | **DELETE** `/data-segments/{segmentId}` | Delete Segment by ID
-[**get-data-segment**](#get-data-segment) | **GET** `/data-segments/{segmentId}` | Get Segment by ID
-[**get-data-segment-identity-membership**](#get-data-segment-identity-membership) | **GET** `/data-segments/membership/{identityId}` | Get SegmentMembership by Identity ID
-[**get-data-segmentation-enabled-for-user**](#get-data-segmentation-enabled-for-user) | **GET** `/data-segments/user-enabled/{identityId}` | Is Segmentation enabled by Identity
-[**list-data-segments**](#list-data-segments) | **GET** `/data-segments` | Get Segments
-[**patch-data-segment**](#patch-data-segment) | **PATCH** `/data-segments/{segmentId}` | Update Segment
-[**publish-data-segment**](#publish-data-segment) | **POST** `/data-segments/{segmentId}` | Publish segment by ID
+[**create-data-segment**](#create-data-segment) | **Post** `/data-segments` | Create Segment
+[**delete-data-segment**](#delete-data-segment) | **Delete** `/data-segments/{segmentId}` | Delete Segment by ID
+[**get-data-segment**](#get-data-segment) | **Get** `/data-segments/{segmentId}` | Get Segment by ID
+[**get-data-segment-identity-membership**](#get-data-segment-identity-membership) | **Get** `/data-segments/membership/{identityId}` | Get SegmentMembership by Identity ID
+[**get-data-segmentation-enabled-for-user**](#get-data-segmentation-enabled-for-user) | **Get** `/data-segments/user-enabled/{identityId}` | Is Segmentation enabled by Identity
+[**list-data-segments**](#list-data-segments) | **Get** `/data-segments` | Get Segments
+[**patch-data-segment**](#patch-data-segment) | **Patch** `/data-segments/{segmentId}` | Update Segment
+[**publish-data-segment**](#publish-data-segment) | **Post** `/data-segments/{segmentId}` | Publish segment by ID
 
 
 ## create-data-segment
@@ -34,57 +34,57 @@ This API creates a segment.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/create-data-segment)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | data_segment | [**DataSegment**](../models/data-segment) | True  | 
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreateDataSegmentRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **dataSegment** | [**DataSegment**](../models/data-segment) |  | 
 
 ### Return type
+
 [**DataSegment**](../models/data-segment)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-201 | Segment created | DataSegment |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: application/json
- - **Accept**: application/json
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.data_segmentation_api import DataSegmentationApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.data_segment import DataSegment
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    data_segment = '''sailpoint.v2025.DataSegment()''' # DataSegment | 
+func main() {
+    dataSegment := fmt.Sprintf(``) # DataSegment | 
 
-    try:
-        # Create Segment
-        new_data_segment = DataSegment.from_json(data_segment)
-        results = DataSegmentationApi(api_client).create_data_segment(data_segment=new_data_segment)
-        # Below is a request that includes all optional parameters
-        # results = DataSegmentationApi(api_client).create_data_segment(new_data_segment)
-        print("The response of DataSegmentationApi->create_data_segment:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling DataSegmentationApi->create_data_segment: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.DataSegmentationAPI.CreateDataSegment(context.Background()).DataSegment(dataSegment).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DataSegmentationAPI.CreateDataSegment``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateDataSegment`: DataSegment
+	fmt.Fprintf(os.Stdout, "Response from `DataSegmentationAPI.CreateDataSegment`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## delete-data-segment
 :::warning experimental 
@@ -93,7 +93,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::tip setting x-sailpoint-experimental header
  on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
  Example:
- ```python
+ ```go
    configuration = Configuration()
    configuration.experimental = True
  ```
@@ -103,60 +103,63 @@ This API deletes the segment specified by the given ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-data-segment)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | id | **str** | True  | The segment ID to delete.
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
-  Query | published | **bool** |   (optional) (default to False) | This determines which version of the segment to delete
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | The segment ID to delete. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteDataSegmentRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
+ **published** | **bool** | This determines which version of the segment to delete | [default to false]
 
 ### Return type
+
  (empty response body)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-204 | No content. |  |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.data_segmentation_api import DataSegmentationApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
-configuration.experimental = true
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    id = 'ef38f943-47e9-4562-b5bb-8424a56397d8' # str | The segment ID to delete. # str | The segment ID to delete.
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    published = False # bool | This determines which version of the segment to delete (optional) (default to False) # bool | This determines which version of the segment to delete (optional) (default to False)
+func main() {
+    id := ef38f943-47e9-4562-b5bb-8424a56397d8 # string | The segment ID to delete. # string | The segment ID to delete.
+    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+    published := false # bool | This determines which version of the segment to delete (optional) (default to false) # bool | This determines which version of the segment to delete (optional) (default to false)
 
-    try:
-        # Delete Segment by ID
-        
-        DataSegmentationApi(api_client).delete_data_segment(id=id, x_sail_point_experimental=x_sail_point_experimental)
-        # Below is a request that includes all optional parameters
-        # DataSegmentationApi(api_client).delete_data_segment(id, x_sail_point_experimental, published)
-    except Exception as e:
-        print("Exception when calling DataSegmentationApi->delete_data_segment: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	r, err := apiClient.V2025.DataSegmentationAPI.DeleteDataSegment(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Published(published).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DataSegmentationAPI.DeleteDataSegment``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## get-data-segment
 :::warning experimental 
@@ -165,7 +168,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::tip setting x-sailpoint-experimental header
  on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
  Example:
- ```python
+ ```go
    configuration = Configuration()
    configuration.experimental = True
  ```
@@ -175,61 +178,63 @@ This API returns the segment specified by the given ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-data-segment)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | id | **str** | True  | The segment ID to retrieve.
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | The segment ID to retrieve. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetDataSegmentRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
 
 ### Return type
+
 [**DataSegment**](../models/data-segment)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | Segment | DataSegment |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.data_segmentation_api import DataSegmentationApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.data_segment import DataSegment
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
-configuration.experimental = true
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    id = 'ef38f943-47e9-4562-b5bb-8424a56397d8' # str | The segment ID to retrieve. # str | The segment ID to retrieve.
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
+func main() {
+    id := ef38f943-47e9-4562-b5bb-8424a56397d8 # string | The segment ID to retrieve. # string | The segment ID to retrieve.
+    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
 
-    try:
-        # Get Segment by ID
-        
-        results = DataSegmentationApi(api_client).get_data_segment(id=id, x_sail_point_experimental=x_sail_point_experimental)
-        # Below is a request that includes all optional parameters
-        # results = DataSegmentationApi(api_client).get_data_segment(id, x_sail_point_experimental)
-        print("The response of DataSegmentationApi->get_data_segment:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling DataSegmentationApi->get_data_segment: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.DataSegmentationAPI.GetDataSegment(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DataSegmentationAPI.GetDataSegment``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetDataSegment`: DataSegment
+	fmt.Fprintf(os.Stdout, "Response from `DataSegmentationAPI.GetDataSegment`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## get-data-segment-identity-membership
 :::warning experimental 
@@ -238,7 +243,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::tip setting x-sailpoint-experimental header
  on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
  Example:
- ```python
+ ```go
    configuration = Configuration()
    configuration.experimental = True
  ```
@@ -248,60 +253,63 @@ This API returns the segment membership specified by the given identity ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-data-segment-identity-membership)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | identity_id | **str** | True  | The identity ID to retrieve the segments they are in.
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**identityId** | **string** | The identity ID to retrieve the segments they are in. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetDataSegmentIdentityMembershipRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
 
 ### Return type
-**object**
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | Segment Memberships for specified identity | object |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
+**map[string]interface{}**
 
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.data_segmentation_api import DataSegmentationApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
-configuration.experimental = true
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    identity_id = 'ef38f943-47e9-4562-b5bb-8424a56397d8' # str | The identity ID to retrieve the segments they are in. # str | The identity ID to retrieve the segments they are in.
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
+func main() {
+    identityId := ef38f943-47e9-4562-b5bb-8424a56397d8 # string | The identity ID to retrieve the segments they are in. # string | The identity ID to retrieve the segments they are in.
+    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
 
-    try:
-        # Get SegmentMembership by Identity ID
-        
-        results = DataSegmentationApi(api_client).get_data_segment_identity_membership(identity_id=identity_id, x_sail_point_experimental=x_sail_point_experimental)
-        # Below is a request that includes all optional parameters
-        # results = DataSegmentationApi(api_client).get_data_segment_identity_membership(identity_id, x_sail_point_experimental)
-        print("The response of DataSegmentationApi->get_data_segment_identity_membership:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling DataSegmentationApi->get_data_segment_identity_membership: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.DataSegmentationAPI.GetDataSegmentIdentityMembership(context.Background(), identityId).XSailPointExperimental(xSailPointExperimental).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DataSegmentationAPI.GetDataSegmentIdentityMembership``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetDataSegmentIdentityMembership`: map[string]interface{}
+	fmt.Fprintf(os.Stdout, "Response from `DataSegmentationAPI.GetDataSegmentIdentityMembership`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## get-data-segmentation-enabled-for-user
 :::warning experimental 
@@ -310,7 +318,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::tip setting x-sailpoint-experimental header
  on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
  Example:
- ```python
+ ```go
    configuration = Configuration()
    configuration.experimental = True
  ```
@@ -320,60 +328,63 @@ This API returns whether or not segmentation is enabled for the identity.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-data-segmentation-enabled-for-user)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | identity_id | **str** | True  | The identity ID to retrieve if segmentation is enabled for the identity.
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**identityId** | **string** | The identity ID to retrieve if segmentation is enabled for the identity. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetDataSegmentationEnabledForUserRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
 
 ### Return type
+
 **bool**
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | Returns if segmentation is enabled for a specified User | bool |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.data_segmentation_api import DataSegmentationApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
-configuration.experimental = true
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    identity_id = 'ef38f943-47e9-4562-b5bb-8424a56397d8' # str | The identity ID to retrieve if segmentation is enabled for the identity. # str | The identity ID to retrieve if segmentation is enabled for the identity.
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
+func main() {
+    identityId := ef38f943-47e9-4562-b5bb-8424a56397d8 # string | The identity ID to retrieve if segmentation is enabled for the identity. # string | The identity ID to retrieve if segmentation is enabled for the identity.
+    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
 
-    try:
-        # Is Segmentation enabled by Identity
-        
-        results = DataSegmentationApi(api_client).get_data_segmentation_enabled_for_user(identity_id=identity_id, x_sail_point_experimental=x_sail_point_experimental)
-        # Below is a request that includes all optional parameters
-        # results = DataSegmentationApi(api_client).get_data_segmentation_enabled_for_user(identity_id, x_sail_point_experimental)
-        print("The response of DataSegmentationApi->get_data_segmentation_enabled_for_user:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling DataSegmentationApi->get_data_segmentation_enabled_for_user: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.DataSegmentationAPI.GetDataSegmentationEnabledForUser(context.Background(), identityId).XSailPointExperimental(xSailPointExperimental).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DataSegmentationAPI.GetDataSegmentationEnabledForUser``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetDataSegmentationEnabledForUser`: bool
+	fmt.Fprintf(os.Stdout, "Response from `DataSegmentationAPI.GetDataSegmentationEnabledForUser`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## list-data-segments
 :::warning experimental 
@@ -382,7 +393,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::tip setting x-sailpoint-experimental header
  on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
  Example:
- ```python
+ ```go
    configuration = Configuration()
    configuration.experimental = True
  ```
@@ -392,73 +403,71 @@ This API returns the segment specified by the given ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/list-data-segments)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
-  Query | enabled | **bool** |   (optional) (default to True) | This boolean indicates whether the segment is currently active. Inactive segments have no effect.
-  Query | unique | **bool** |   (optional) (default to False) | This returns only one record if set to true and that would be the published record if exists.
-  Query | published | **bool** |   (optional) (default to True) | This boolean indicates whether the segment is being applied to the accounts. If unpublished its being actively modified until published
-  Query | limit | **int** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-  Query | offset | **int** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-  Query | count | **bool** |   (optional) (default to False) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-  Query | filters | **str** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **name**: *eq, in, sw*
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiListDataSegmentsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
+ **enabled** | **bool** | This boolean indicates whether the segment is currently active. Inactive segments have no effect. | [default to true]
+ **unique** | **bool** | This returns only one record if set to true and that would be the published record if exists. | [default to false]
+ **published** | **bool** | This boolean indicates whether the segment is being applied to the accounts. If unpublished its being actively modified until published | [default to true]
+ **limit** | **int32** | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to 250]
+ **offset** | **int32** | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to 0]
+ **count** | **bool** | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to false]
+ **filters** | **string** | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **name**: *eq, in, sw* | 
 
 ### Return type
-[**List[DataSegment]**](../models/data-segment)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | List of all segments | List[DataSegment] |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
+[**[]DataSegment**](../models/data-segment)
 
 ### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.data_segmentation_api import DataSegmentationApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.data_segment import DataSegment
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
-configuration.experimental = true
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    enabled = True # bool | This boolean indicates whether the segment is currently active. Inactive segments have no effect. (optional) (default to True) # bool | This boolean indicates whether the segment is currently active. Inactive segments have no effect. (optional) (default to True)
-    unique = False # bool | This returns only one record if set to true and that would be the published record if exists. (optional) (default to False) # bool | This returns only one record if set to true and that would be the published record if exists. (optional) (default to False)
-    published = True # bool | This boolean indicates whether the segment is being applied to the accounts. If unpublished its being actively modified until published (optional) (default to True) # bool | This boolean indicates whether the segment is being applied to the accounts. If unpublished its being actively modified until published (optional) (default to True)
-    limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-    offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-    count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
-    filters = 'name eq \"\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **name**: *eq, in, sw* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **name**: *eq, in, sw* (optional)
+func main() {
+    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+    enabled := true # bool | This boolean indicates whether the segment is currently active. Inactive segments have no effect. (optional) (default to true) # bool | This boolean indicates whether the segment is currently active. Inactive segments have no effect. (optional) (default to true)
+    unique := false # bool | This returns only one record if set to true and that would be the published record if exists. (optional) (default to false) # bool | This returns only one record if set to true and that would be the published record if exists. (optional) (default to false)
+    published := true # bool | This boolean indicates whether the segment is being applied to the accounts. If unpublished its being actively modified until published (optional) (default to true) # bool | This boolean indicates whether the segment is being applied to the accounts. If unpublished its being actively modified until published (optional) (default to true)
+    limit := 250 # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+    offset := 0 # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+    count := true # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+    filters := name eq "" # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **name**: *eq, in, sw* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **name**: *eq, in, sw* (optional)
 
-    try:
-        # Get Segments
-        
-        results = DataSegmentationApi(api_client).list_data_segments(x_sail_point_experimental=x_sail_point_experimental)
-        # Below is a request that includes all optional parameters
-        # results = DataSegmentationApi(api_client).list_data_segments(x_sail_point_experimental, enabled, unique, published, limit, offset, count, filters)
-        print("The response of DataSegmentationApi->list_data_segments:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling DataSegmentationApi->list_data_segments: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.DataSegmentationAPI.ListDataSegments(context.Background()).XSailPointExperimental(xSailPointExperimental).Enabled(enabled).Unique(unique).Published(published).Limit(limit).Offset(offset).Count(count).Filters(filters).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DataSegmentationAPI.ListDataSegments``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ListDataSegments`: []DataSegment
+	fmt.Fprintf(os.Stdout, "Response from `DataSegmentationAPI.ListDataSegments`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## patch-data-segment
 :::warning experimental 
@@ -467,7 +476,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::tip setting x-sailpoint-experimental header
  on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
  Example:
- ```python
+ ```go
    configuration = Configuration()
    configuration.experimental = True
  ```
@@ -477,63 +486,65 @@ Use this API to update segment fields by using the [JSON Patch](https://tools.ie
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/patch-data-segment)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | id | **str** | True  | The segment ID to modify.
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
- Body  | request_body | **[]object** | True  | A list of segment update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * membership * memberFilter * memberSelection * scopes * enabled 
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | The segment ID to modify. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchDataSegmentRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
+ **requestBody** | **[]map[string]interface{}** | A list of segment update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * membership * memberFilter * memberSelection * scopes * enabled  | 
 
 ### Return type
+
 [**DataSegment**](../models/data-segment)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | Indicates the PATCH operation succeeded, and returns the segment&#39;s new representation. | DataSegment |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: application/json-patch+json
- - **Accept**: application/json
+
+- **Content-Type**: application/json-patch+json
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.data_segmentation_api import DataSegmentationApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.data_segment import DataSegment
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
-configuration.experimental = true
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    id = 'ef38f943-47e9-4562-b5bb-8424a56397d8' # str | The segment ID to modify. # str | The segment ID to modify.
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    request_body = '''[{op=replace, path=/memberFilter, value={expression={operator=AND, children=[{operator=EQUALS, attribute=location, value={type=STRING, value=Philadelphia}}, {operator=EQUALS, attribute=department, value={type=STRING, value=HR}}]}}}]''' # List[object] | A list of segment update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * membership * memberFilter * memberSelection * scopes * enabled 
+func main() {
+    id := ef38f943-47e9-4562-b5bb-8424a56397d8 # string | The segment ID to modify. # string | The segment ID to modify.
+    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+    requestBody := fmt.Sprintf(`[{op=replace, path=/memberFilter, value={expression={operator=AND, children=[{operator=EQUALS, attribute=location, value={type=STRING, value=Philadelphia}}, {operator=EQUALS, attribute=department, value={type=STRING, value=HR}}]}}}]`) # []map[string]interface{} | A list of segment update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * membership * memberFilter * memberSelection * scopes * enabled 
 
-    try:
-        # Update Segment
-        new_request_body = RequestBody.from_json(request_body)
-        results = DataSegmentationApi(api_client).patch_data_segment(id=id, x_sail_point_experimental=x_sail_point_experimental, request_body=new_request_body)
-        # Below is a request that includes all optional parameters
-        # results = DataSegmentationApi(api_client).patch_data_segment(id, x_sail_point_experimental, new_request_body)
-        print("The response of DataSegmentationApi->patch_data_segment:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling DataSegmentationApi->patch_data_segment: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	resp, r, err := apiClient.V2025.DataSegmentationAPI.PatchDataSegment(context.Background(), id).XSailPointExperimental(xSailPointExperimental).RequestBody(requestBody).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DataSegmentationAPI.PatchDataSegment``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PatchDataSegment`: DataSegment
+	fmt.Fprintf(os.Stdout, "Response from `DataSegmentationAPI.PatchDataSegment`: %v\n", resp)
+}
 ```
 
-
-
-[[Back to top]](#) 
+[[Back to top]](#)
 
 ## publish-data-segment
 :::warning experimental 
@@ -542,7 +553,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::tip setting x-sailpoint-experimental header
  on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
  Example:
- ```python
+ ```go
    configuration = Configuration()
    configuration.experimental = True
  ```
@@ -552,60 +563,57 @@ This will publish the segment so that it starts applying the segmentation to the
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/publish-data-segment)
 
-### Parameters 
+### Path Parameters
 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
- Body  | request_body | **[]str** | True  | A list of segment ids that you wish to publish
-  Query | publish_all | **bool** |   (optional) (default to True) | This flag decides whether you want to publish all unpublished or a list of specific segment ids
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPublishDataSegmentRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
+ **requestBody** | **[]string** | A list of segment ids that you wish to publish | 
+ **publishAll** | **bool** | This flag decides whether you want to publish all unpublished or a list of specific segment ids | [default to true]
 
 ### Return type
+
  (empty response body)
 
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | Segments published |  |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
 ### HTTP request headers
- - **Content-Type**: application/json
- - **Accept**: application/json
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### Example
 
-```python
-from sailpoint.v2025.api.data_segmentation_api import DataSegmentationApi
-from sailpoint.v2025.api_client import ApiClient
-from sailpoint.configuration import Configuration
-configuration = Configuration()
+```go
+package main
 
-configuration.experimental = true
+import (
+	"context"
+	"fmt"
+	"os"
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+)
 
-with ApiClient(configuration) as api_client:
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    request_body = '''['request_body_example']''' # List[str] | A list of segment ids that you wish to publish
-    publish_all = True # bool | This flag decides whether you want to publish all unpublished or a list of specific segment ids (optional) (default to True) # bool | This flag decides whether you want to publish all unpublished or a list of specific segment ids (optional) (default to True)
+func main() {
+    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+    requestBody := fmt.Sprintf(``) # []string | A list of segment ids that you wish to publish
+    publishAll := true # bool | This flag decides whether you want to publish all unpublished or a list of specific segment ids (optional) (default to true) # bool | This flag decides whether you want to publish all unpublished or a list of specific segment ids (optional) (default to true)
 
-    try:
-        # Publish segment by ID
-        new_request_body = RequestBody.from_json(request_body)
-        DataSegmentationApi(api_client).publish_data_segment(x_sail_point_experimental=x_sail_point_experimental, request_body=new_request_body)
-        # Below is a request that includes all optional parameters
-        # DataSegmentationApi(api_client).publish_data_segment(x_sail_point_experimental, new_request_body, publish_all)
-    except Exception as e:
-        print("Exception when calling DataSegmentationApi->publish_data_segment: %s\n" % e)
+	configuration := NewDefaultConfiguration()
+	apiClient := NewAPIClient(configuration)
+	r, err := apiClient.V2025.DataSegmentationAPI.PublishDataSegment(context.Background()).XSailPointExperimental(xSailPointExperimental).RequestBody(requestBody).PublishAll(publishAll).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DataSegmentationAPI.PublishDataSegment``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
 ```
 
-
-
-[[Back to top]](#) 
-
-
+[[Back to top]](#)
 

@@ -3,30 +3,36 @@ id: v2024-sp-config-rule-value
 title: SpConfigRuleValue
 pagination_label: SpConfigRuleValue
 sidebar_label: SpConfigRuleValue
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'SpConfigRuleValue', 'V2024SpConfigRuleValue'] 
-slug: /tools/sdk/python/v2024/models/sp-config-rule-value
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'SpConfigRuleValue', 'V2024SpConfigRuleValue'] 
+slug: /tools/sdk/go/v2024/models/sp-config-rule-value
 tags: ['SDK', 'Software Development Kit', 'SpConfigRuleValue', 'V2024SpConfigRuleValue']
 ---
 
 # SpConfigRuleValue
 
-Value to be assigned at the jsonPath location within the object.
-
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-}
 
-## Example
+## Methods
 
-```python
-from sailpoint.v2024.models.sp_config_rule_value import SpConfigRuleValue
+### NewSpConfigRuleValue
 
-sp_config_rule_value = SpConfigRuleValue(
-)
+`func NewSpConfigRuleValue() *SpConfigRuleValue`
 
-```
-[[Back to top]](#) 
+NewSpConfigRuleValue instantiates a new SpConfigRuleValue object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewSpConfigRuleValueWithDefaults
+
+`func NewSpConfigRuleValueWithDefaults() *SpConfigRuleValue`
+
+NewSpConfigRuleValueWithDefaults instantiates a new SpConfigRuleValue object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
 

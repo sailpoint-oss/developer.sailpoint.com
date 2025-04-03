@@ -3,38 +3,99 @@ id: v2024-saved-search-complete-search-results-entitlement
 title: SavedSearchCompleteSearchResultsEntitlement
 pagination_label: SavedSearchCompleteSearchResultsEntitlement
 sidebar_label: SavedSearchCompleteSearchResultsEntitlement
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'SavedSearchCompleteSearchResultsEntitlement', 'V2024SavedSearchCompleteSearchResultsEntitlement'] 
-slug: /tools/sdk/python/v2024/models/saved-search-complete-search-results-entitlement
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'SavedSearchCompleteSearchResultsEntitlement', 'V2024SavedSearchCompleteSearchResultsEntitlement'] 
+slug: /tools/sdk/go/v2024/models/saved-search-complete-search-results-entitlement
 tags: ['SDK', 'Software Development Kit', 'SavedSearchCompleteSearchResultsEntitlement', 'V2024SavedSearchCompleteSearchResultsEntitlement']
 ---
 
 # SavedSearchCompleteSearchResultsEntitlement
 
-A table of entitlements that match the search criteria.
-
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**count** | **str** | The number of rows in the table. | [required]
-**noun** | **str** | The type of object represented in the table. | [required]
-**preview** | **[]List[str]** | A sample of the data in the table. | [required]
-}
+**Count** | **string** | The number of rows in the table. | 
+**Noun** | **string** | The type of object represented in the table. | 
+**Preview** | **[][]string** | A sample of the data in the table. | 
 
-## Example
+## Methods
 
-```python
-from sailpoint.v2024.models.saved_search_complete_search_results_entitlement import SavedSearchCompleteSearchResultsEntitlement
+### NewSavedSearchCompleteSearchResultsEntitlement
 
-saved_search_complete_search_results_entitlement = SavedSearchCompleteSearchResultsEntitlement(
-count='2',
-noun='entitlements',
-preview=[
-                    []
-                    ]
-)
+`func NewSavedSearchCompleteSearchResultsEntitlement(count string, noun string, preview [][]string, ) *SavedSearchCompleteSearchResultsEntitlement`
 
-```
-[[Back to top]](#) 
+NewSavedSearchCompleteSearchResultsEntitlement instantiates a new SavedSearchCompleteSearchResultsEntitlement object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewSavedSearchCompleteSearchResultsEntitlementWithDefaults
+
+`func NewSavedSearchCompleteSearchResultsEntitlementWithDefaults() *SavedSearchCompleteSearchResultsEntitlement`
+
+NewSavedSearchCompleteSearchResultsEntitlementWithDefaults instantiates a new SavedSearchCompleteSearchResultsEntitlement object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetCount
+
+`func (o *SavedSearchCompleteSearchResultsEntitlement) GetCount() string`
+
+GetCount returns the Count field if non-nil, zero value otherwise.
+
+### GetCountOk
+
+`func (o *SavedSearchCompleteSearchResultsEntitlement) GetCountOk() (*string, bool)`
+
+GetCountOk returns a tuple with the Count field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCount
+
+`func (o *SavedSearchCompleteSearchResultsEntitlement) SetCount(v string)`
+
+SetCount sets Count field to given value.
+
+
+### GetNoun
+
+`func (o *SavedSearchCompleteSearchResultsEntitlement) GetNoun() string`
+
+GetNoun returns the Noun field if non-nil, zero value otherwise.
+
+### GetNounOk
+
+`func (o *SavedSearchCompleteSearchResultsEntitlement) GetNounOk() (*string, bool)`
+
+GetNounOk returns a tuple with the Noun field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNoun
+
+`func (o *SavedSearchCompleteSearchResultsEntitlement) SetNoun(v string)`
+
+SetNoun sets Noun field to given value.
+
+
+### GetPreview
+
+`func (o *SavedSearchCompleteSearchResultsEntitlement) GetPreview() [][]string`
+
+GetPreview returns the Preview field if non-nil, zero value otherwise.
+
+### GetPreviewOk
+
+`func (o *SavedSearchCompleteSearchResultsEntitlement) GetPreviewOk() (*[][]string, bool)`
+
+GetPreviewOk returns a tuple with the Preview field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPreview
+
+`func (o *SavedSearchCompleteSearchResultsEntitlement) SetPreview(v [][]string)`
+
+SetPreview sets Preview field to given value.
+
+
 

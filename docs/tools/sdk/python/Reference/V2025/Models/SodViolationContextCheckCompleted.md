@@ -3,63 +3,134 @@ id: v2025-sod-violation-context-check-completed
 title: SodViolationContextCheckCompleted
 pagination_label: SodViolationContextCheckCompleted
 sidebar_label: SodViolationContextCheckCompleted
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'SodViolationContextCheckCompleted', 'V2025SodViolationContextCheckCompleted'] 
-slug: /tools/sdk/python/v2025/models/sod-violation-context-check-completed
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'SodViolationContextCheckCompleted', 'V2025SodViolationContextCheckCompleted'] 
+slug: /tools/sdk/go/v2025/models/sod-violation-context-check-completed
 tags: ['SDK', 'Software Development Kit', 'SodViolationContextCheckCompleted', 'V2025SodViolationContextCheckCompleted']
 ---
 
 # SodViolationContextCheckCompleted
 
-An object referencing a completed SOD violation check
-
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**state** |  **Enum** [  'SUCCESS',    'ERROR' ] | The status of SOD violation check | [optional] 
-**uuid** | **str** | The id of the Violation check event | [optional] 
-**violation_check_result** | [**SodViolationCheckResult**](sod-violation-check-result) |  | [optional] 
-}
+**State** | Pointer to **NullableString** | The status of SOD violation check | [optional] 
+**Uuid** | Pointer to **NullableString** | The id of the Violation check event | [optional] 
+**ViolationCheckResult** | Pointer to [**SodViolationCheckResult**](sod-violation-check-result) |  | [optional] 
 
-## Example
+## Methods
 
-```python
-from sailpoint.v2025.models.sod_violation_context_check_completed import SodViolationContextCheckCompleted
+### NewSodViolationContextCheckCompleted
 
-sod_violation_context_check_completed = SodViolationContextCheckCompleted(
-state='SUCCESS',
-uuid='f73d16e9-a038-46c5-b217-1246e15fdbdd',
-violation_check_result=sailpoint.v2025.models.sod_violation_check_result.SodViolationCheckResult(
-                    message = sailpoint.v2025.models.error_message_dto.ErrorMessageDto(
-                        locale = 'en-US', 
-                        locale_origin = 'DEFAULT', 
-                        text = 'The request was syntactically correct but its content is semantically invalid.', ), 
-                    client_metadata = {requestedAppName=test-app, requestedAppId=2c91808f7892918f0178b78da4a305a1}, 
-                    violation_contexts = [
-                        sailpoint.v2025.models.sod_violation_context.SodViolationContext(
-                            policy = sailpoint.v2025.models.sod_policy_dto.SodPolicyDto(
-                                type = 'SOD_POLICY', 
-                                id = '0f11f2a4-7c94-4bf3-a2bd-742580fe3bde', 
-                                name = 'Business SOD Policy', ), 
-                            conflicting_access_criteria = sailpoint.v2025.models.sod_violation_context_conflicting_access_criteria.SodViolationContext_conflictingAccessCriteria(
-                                left_criteria = sailpoint.v2025.models.sod_violation_context_conflicting_access_criteria_left_criteria.SodViolationContext_conflictingAccessCriteria_leftCriteria(
-                                    criteria_list = [
-                                        sailpoint.v2025.models.sod_exempt_criteria.SodExemptCriteria(
-                                            existing = True, 
-                                            type = 'IDENTITY', 
-                                            id = '2c918085771e9d3301773b3cb66f6398', 
-                                            name = 'My HR Entitlement', )
-                                        ], ), 
-                                right_criteria = sailpoint.v2025.models.sod_violation_context_conflicting_access_criteria_left_criteria.SodViolationContext_conflictingAccessCriteria_leftCriteria(), ), )
-                        ], 
-                    violated_policies = [
-                        sailpoint.v2025.models.sod_policy_dto.SodPolicyDto(
-                            id = '0f11f2a4-7c94-4bf3-a2bd-742580fe3bde', 
-                            name = 'Business SOD Policy', )
-                        ], )
-)
+`func NewSodViolationContextCheckCompleted() *SodViolationContextCheckCompleted`
 
-```
-[[Back to top]](#) 
+NewSodViolationContextCheckCompleted instantiates a new SodViolationContextCheckCompleted object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewSodViolationContextCheckCompletedWithDefaults
+
+`func NewSodViolationContextCheckCompletedWithDefaults() *SodViolationContextCheckCompleted`
+
+NewSodViolationContextCheckCompletedWithDefaults instantiates a new SodViolationContextCheckCompleted object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetState
+
+`func (o *SodViolationContextCheckCompleted) GetState() string`
+
+GetState returns the State field if non-nil, zero value otherwise.
+
+### GetStateOk
+
+`func (o *SodViolationContextCheckCompleted) GetStateOk() (*string, bool)`
+
+GetStateOk returns a tuple with the State field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetState
+
+`func (o *SodViolationContextCheckCompleted) SetState(v string)`
+
+SetState sets State field to given value.
+
+### HasState
+
+`func (o *SodViolationContextCheckCompleted) HasState() bool`
+
+HasState returns a boolean if a field has been set.
+
+### SetStateNil
+
+`func (o *SodViolationContextCheckCompleted) SetStateNil(b bool)`
+
+ SetStateNil sets the value for State to be an explicit nil
+
+### UnsetState
+`func (o *SodViolationContextCheckCompleted) UnsetState()`
+
+UnsetState ensures that no value is present for State, not even an explicit nil
+### GetUuid
+
+`func (o *SodViolationContextCheckCompleted) GetUuid() string`
+
+GetUuid returns the Uuid field if non-nil, zero value otherwise.
+
+### GetUuidOk
+
+`func (o *SodViolationContextCheckCompleted) GetUuidOk() (*string, bool)`
+
+GetUuidOk returns a tuple with the Uuid field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUuid
+
+`func (o *SodViolationContextCheckCompleted) SetUuid(v string)`
+
+SetUuid sets Uuid field to given value.
+
+### HasUuid
+
+`func (o *SodViolationContextCheckCompleted) HasUuid() bool`
+
+HasUuid returns a boolean if a field has been set.
+
+### SetUuidNil
+
+`func (o *SodViolationContextCheckCompleted) SetUuidNil(b bool)`
+
+ SetUuidNil sets the value for Uuid to be an explicit nil
+
+### UnsetUuid
+`func (o *SodViolationContextCheckCompleted) UnsetUuid()`
+
+UnsetUuid ensures that no value is present for Uuid, not even an explicit nil
+### GetViolationCheckResult
+
+`func (o *SodViolationContextCheckCompleted) GetViolationCheckResult() SodViolationCheckResult`
+
+GetViolationCheckResult returns the ViolationCheckResult field if non-nil, zero value otherwise.
+
+### GetViolationCheckResultOk
+
+`func (o *SodViolationContextCheckCompleted) GetViolationCheckResultOk() (*SodViolationCheckResult, bool)`
+
+GetViolationCheckResultOk returns a tuple with the ViolationCheckResult field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetViolationCheckResult
+
+`func (o *SodViolationContextCheckCompleted) SetViolationCheckResult(v SodViolationCheckResult)`
+
+SetViolationCheckResult sets ViolationCheckResult field to given value.
+
+### HasViolationCheckResult
+
+`func (o *SodViolationContextCheckCompleted) HasViolationCheckResult() bool`
+
+HasViolationCheckResult returns a boolean if a field has been set.
+
 

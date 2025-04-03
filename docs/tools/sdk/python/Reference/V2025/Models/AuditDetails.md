@@ -3,42 +3,140 @@ id: v2025-audit-details
 title: AuditDetails
 pagination_label: AuditDetails
 sidebar_label: AuditDetails
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'AuditDetails', 'V2025AuditDetails'] 
-slug: /tools/sdk/python/v2025/models/audit-details
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'AuditDetails', 'V2025AuditDetails'] 
+slug: /tools/sdk/go/v2025/models/audit-details
 tags: ['SDK', 'Software Development Kit', 'AuditDetails', 'V2025AuditDetails']
 ---
 
 # AuditDetails
 
-Audit details for the reassignment configuration of an identity
-
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**created** | **datetime** | Initial date and time when the record was created | [optional] 
-**created_by** | [**Identity1**](identity1) |  | [optional] 
-**modified** | **datetime** | Last modified date and time for the record | [optional] 
-**modified_by** | [**Identity1**](identity1) |  | [optional] 
-}
+**Created** | Pointer to **SailPointTime** | Initial date and time when the record was created | [optional] 
+**CreatedBy** | Pointer to [**Identity1**](identity1) |  | [optional] 
+**Modified** | Pointer to **SailPointTime** | Last modified date and time for the record | [optional] 
+**ModifiedBy** | Pointer to [**Identity1**](identity1) |  | [optional] 
 
-## Example
+## Methods
 
-```python
-from sailpoint.v2025.models.audit_details import AuditDetails
+### NewAuditDetails
 
-audit_details = AuditDetails(
-created='2022-07-21T11:13:12.345Z',
-created_by=sailpoint.v2025.models.identity_1.Identity_1(
-                    id = '2c91808380aa05580180aaaaf1940410', 
-                    name = 'William Wilson', ),
-modified='2022-07-21T11:13:12.345Z',
-modified_by=sailpoint.v2025.models.identity_1.Identity_1(
-                    id = '2c91808380aa05580180aaaaf1940410', 
-                    name = 'William Wilson', )
-)
+`func NewAuditDetails() *AuditDetails`
 
-```
-[[Back to top]](#) 
+NewAuditDetails instantiates a new AuditDetails object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewAuditDetailsWithDefaults
+
+`func NewAuditDetailsWithDefaults() *AuditDetails`
+
+NewAuditDetailsWithDefaults instantiates a new AuditDetails object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetCreated
+
+`func (o *AuditDetails) GetCreated() SailPointTime`
+
+GetCreated returns the Created field if non-nil, zero value otherwise.
+
+### GetCreatedOk
+
+`func (o *AuditDetails) GetCreatedOk() (*SailPointTime, bool)`
+
+GetCreatedOk returns a tuple with the Created field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCreated
+
+`func (o *AuditDetails) SetCreated(v SailPointTime)`
+
+SetCreated sets Created field to given value.
+
+### HasCreated
+
+`func (o *AuditDetails) HasCreated() bool`
+
+HasCreated returns a boolean if a field has been set.
+
+### GetCreatedBy
+
+`func (o *AuditDetails) GetCreatedBy() Identity1`
+
+GetCreatedBy returns the CreatedBy field if non-nil, zero value otherwise.
+
+### GetCreatedByOk
+
+`func (o *AuditDetails) GetCreatedByOk() (*Identity1, bool)`
+
+GetCreatedByOk returns a tuple with the CreatedBy field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCreatedBy
+
+`func (o *AuditDetails) SetCreatedBy(v Identity1)`
+
+SetCreatedBy sets CreatedBy field to given value.
+
+### HasCreatedBy
+
+`func (o *AuditDetails) HasCreatedBy() bool`
+
+HasCreatedBy returns a boolean if a field has been set.
+
+### GetModified
+
+`func (o *AuditDetails) GetModified() SailPointTime`
+
+GetModified returns the Modified field if non-nil, zero value otherwise.
+
+### GetModifiedOk
+
+`func (o *AuditDetails) GetModifiedOk() (*SailPointTime, bool)`
+
+GetModifiedOk returns a tuple with the Modified field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetModified
+
+`func (o *AuditDetails) SetModified(v SailPointTime)`
+
+SetModified sets Modified field to given value.
+
+### HasModified
+
+`func (o *AuditDetails) HasModified() bool`
+
+HasModified returns a boolean if a field has been set.
+
+### GetModifiedBy
+
+`func (o *AuditDetails) GetModifiedBy() Identity1`
+
+GetModifiedBy returns the ModifiedBy field if non-nil, zero value otherwise.
+
+### GetModifiedByOk
+
+`func (o *AuditDetails) GetModifiedByOk() (*Identity1, bool)`
+
+GetModifiedByOk returns a tuple with the ModifiedBy field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetModifiedBy
+
+`func (o *AuditDetails) SetModifiedBy(v Identity1)`
+
+SetModifiedBy sets ModifiedBy field to given value.
+
+### HasModifiedBy
+
+`func (o *AuditDetails) HasModifiedBy() bool`
+
+HasModifiedBy returns a boolean if a field has been set.
+
 

@@ -3,25 +3,23 @@ id: v2024-scope-type
 title: ScopeType
 pagination_label: ScopeType
 sidebar_label: ScopeType
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'ScopeType', 'V2024ScopeType'] 
-slug: /tools/sdk/python/v2024/models/scope-type
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'ScopeType', 'V2024ScopeType'] 
+slug: /tools/sdk/go/v2024/models/scope-type
 tags: ['SDK', 'Software Development Kit', 'ScopeType', 'V2024ScopeType']
 ---
 
 # ScopeType
 
-An enumeration of the types of scope choices
-
 ## Enum
 
-* `ENTITLEMENT` (value: `'ENTITLEMENT'`)
 
-* `CERTIFICATION` (value: `'CERTIFICATION'`)
+* `ENTITLEMENT` (value: `"ENTITLEMENT"`)
 
-* `IDENTITY` (value: `'IDENTITY'`)
+* `CERTIFICATION` (value: `"CERTIFICATION"`)
 
-* `ENTITLEMENTREQUEST` (value: `'ENTITLEMENTREQUEST'`)
+* `IDENTITY` (value: `"IDENTITY"`)
 
-[[Back to top]](#) 
+* `ENTITLEMENTREQUEST` (value: `"ENTITLEMENTREQUEST"`)
+
 

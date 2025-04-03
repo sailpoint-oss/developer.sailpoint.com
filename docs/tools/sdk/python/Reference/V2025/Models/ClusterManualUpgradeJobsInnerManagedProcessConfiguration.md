@@ -3,61 +3,166 @@ id: v2025-cluster-manual-upgrade-jobs-inner-managed-process-configuration
 title: ClusterManualUpgradeJobsInnerManagedProcessConfiguration
 pagination_label: ClusterManualUpgradeJobsInnerManagedProcessConfiguration
 sidebar_label: ClusterManualUpgradeJobsInnerManagedProcessConfiguration
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'ClusterManualUpgradeJobsInnerManagedProcessConfiguration', 'V2025ClusterManualUpgradeJobsInnerManagedProcessConfiguration'] 
-slug: /tools/sdk/python/v2025/models/cluster-manual-upgrade-jobs-inner-managed-process-configuration
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'ClusterManualUpgradeJobsInnerManagedProcessConfiguration', 'V2025ClusterManualUpgradeJobsInnerManagedProcessConfiguration'] 
+slug: /tools/sdk/go/v2025/models/cluster-manual-upgrade-jobs-inner-managed-process-configuration
 tags: ['SDK', 'Software Development Kit', 'ClusterManualUpgradeJobsInnerManagedProcessConfiguration', 'V2025ClusterManualUpgradeJobsInnerManagedProcessConfiguration']
 ---
 
 # ClusterManualUpgradeJobsInnerManagedProcessConfiguration
 
-Configuration of the managed processes involved in the upgrade.
-
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**charon** | [**ClusterManualUpgradeJobsInnerManagedProcessConfigurationCharon**](cluster-manual-upgrade-jobs-inner-managed-process-configuration-charon) |  | [optional] 
-**ccg** | [**ClusterManualUpgradeJobsInnerManagedProcessConfigurationCcg**](cluster-manual-upgrade-jobs-inner-managed-process-configuration-ccg) |  | [optional] 
-**otel_agent** | [**ClusterManualUpgradeJobsInnerManagedProcessConfigurationOtelAgent**](cluster-manual-upgrade-jobs-inner-managed-process-configuration-otel-agent) |  | [optional] 
-**relay** | [**ClusterManualUpgradeJobsInnerManagedProcessConfigurationRelay**](cluster-manual-upgrade-jobs-inner-managed-process-configuration-relay) |  | [optional] 
-**toolbox** | [**ClusterManualUpgradeJobsInnerManagedProcessConfigurationToolbox**](cluster-manual-upgrade-jobs-inner-managed-process-configuration-toolbox) |  | [optional] 
-}
+**Charon** | Pointer to [**ClusterManualUpgradeJobsInnerManagedProcessConfigurationCharon**](cluster-manual-upgrade-jobs-inner-managed-process-configuration-charon) |  | [optional] 
+**Ccg** | Pointer to [**ClusterManualUpgradeJobsInnerManagedProcessConfigurationCcg**](cluster-manual-upgrade-jobs-inner-managed-process-configuration-ccg) |  | [optional] 
+**OtelAgent** | Pointer to [**ClusterManualUpgradeJobsInnerManagedProcessConfigurationOtelAgent**](cluster-manual-upgrade-jobs-inner-managed-process-configuration-otel-agent) |  | [optional] 
+**Relay** | Pointer to [**ClusterManualUpgradeJobsInnerManagedProcessConfigurationRelay**](cluster-manual-upgrade-jobs-inner-managed-process-configuration-relay) |  | [optional] 
+**Toolbox** | Pointer to [**ClusterManualUpgradeJobsInnerManagedProcessConfigurationToolbox**](cluster-manual-upgrade-jobs-inner-managed-process-configuration-toolbox) |  | [optional] 
 
-## Example
+## Methods
 
-```python
-from sailpoint.v2025.models.cluster_manual_upgrade_jobs_inner_managed_process_configuration import ClusterManualUpgradeJobsInnerManagedProcessConfiguration
+### NewClusterManualUpgradeJobsInnerManagedProcessConfiguration
 
-cluster_manual_upgrade_jobs_inner_managed_process_configuration = ClusterManualUpgradeJobsInnerManagedProcessConfiguration(
-charon=sailpoint.v2025.models.cluster_manual_upgrade_jobs_inner_managed_process_configuration_charon.ClusterManualUpgrade_jobs_inner_managedProcessConfiguration_charon(
-                    version = '3047', 
-                    path = 'sailpoint/charon', 
-                    description = 'version of charon used by the va', 
-                    restart_needed = True, ),
-ccg=sailpoint.v2025.models.cluster_manual_upgrade_jobs_inner_managed_process_configuration_ccg.ClusterManualUpgrade_jobs_inner_managedProcessConfiguration_ccg(
-                    version = '1798_1054_241.0.0', 
-                    path = 'sailpoint/ccg', 
-                    description = 'CCG Deployment through ops-cli', 
-                    restart_needed = True, 
-                    dependencies = {IQService=743/IQService-743.zip, connector-bundle-jdbc=432/connector-bundle-jdbc-432.zip, connector-bundle-misc=437/connector-bundle-misc-437.zip, connector-bundle-unix=242/connector-bundle-unix-242.zip, connector-common-config=208/connector-common-config-208.zip, connector-bundle-filebased=222/connector-bundle-filebased-222.zip, connector-bundle-imprivata=3/connector-bundle-imprivata-3.zip, connector-bundle-mainframe=211/connector-bundle-mainframe-211.zip, connector-bundle-directories=681/connector-bundle-directories-681.zip, connector-bundle-sap-on-prem=196/connector-bundle-sap-on-prem-196.zip, connector-bundle-webservices=1535/connector-bundle-webservices-1535.zip, connector-bundle-sap-cloud-app=175/connector-bundle-sap-cloud-app-175.zip, connector-bundle-healthcare-epic=302/connector-bundle-healthcare-epic-302.zip, connector-bundle-hrms-oraclefusionhcm=166/connector-bundle-hrms-oraclefusionhcm-166.zip, connector-bundle-collaboration-connectors=246/connector-bundle-collaboration-connectors-246.zip}, ),
-otel_agent=sailpoint.v2025.models.cluster_manual_upgrade_jobs_inner_managed_process_configuration_otel_agent.ClusterManualUpgrade_jobs_inner_managedProcessConfiguration_otel_agent(
-                    version = '3003', 
-                    path = 'sailpoint/otel_agent', 
-                    description = 'version of otel_agent used by the va', 
-                    restart_needed = True, ),
-relay=sailpoint.v2025.models.cluster_manual_upgrade_jobs_inner_managed_process_configuration_relay.ClusterManualUpgrade_jobs_inner_managedProcessConfiguration_relay(
-                    version = '3000', 
-                    path = 'sailpoint/relay', 
-                    description = 'version of relay used by the va', 
-                    restart_needed = True, ),
-toolbox=sailpoint.v2025.models.cluster_manual_upgrade_jobs_inner_managed_process_configuration_toolbox.ClusterManualUpgrade_jobs_inner_managedProcessConfiguration_toolbox(
-                    version = '3004', 
-                    path = 'sailpoint/toolbox', 
-                    description = 'version of toolbox used by the va', 
-                    restart_needed = True, )
-)
+`func NewClusterManualUpgradeJobsInnerManagedProcessConfiguration() *ClusterManualUpgradeJobsInnerManagedProcessConfiguration`
 
-```
-[[Back to top]](#) 
+NewClusterManualUpgradeJobsInnerManagedProcessConfiguration instantiates a new ClusterManualUpgradeJobsInnerManagedProcessConfiguration object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewClusterManualUpgradeJobsInnerManagedProcessConfigurationWithDefaults
+
+`func NewClusterManualUpgradeJobsInnerManagedProcessConfigurationWithDefaults() *ClusterManualUpgradeJobsInnerManagedProcessConfiguration`
+
+NewClusterManualUpgradeJobsInnerManagedProcessConfigurationWithDefaults instantiates a new ClusterManualUpgradeJobsInnerManagedProcessConfiguration object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetCharon
+
+`func (o *ClusterManualUpgradeJobsInnerManagedProcessConfiguration) GetCharon() ClusterManualUpgradeJobsInnerManagedProcessConfigurationCharon`
+
+GetCharon returns the Charon field if non-nil, zero value otherwise.
+
+### GetCharonOk
+
+`func (o *ClusterManualUpgradeJobsInnerManagedProcessConfiguration) GetCharonOk() (*ClusterManualUpgradeJobsInnerManagedProcessConfigurationCharon, bool)`
+
+GetCharonOk returns a tuple with the Charon field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCharon
+
+`func (o *ClusterManualUpgradeJobsInnerManagedProcessConfiguration) SetCharon(v ClusterManualUpgradeJobsInnerManagedProcessConfigurationCharon)`
+
+SetCharon sets Charon field to given value.
+
+### HasCharon
+
+`func (o *ClusterManualUpgradeJobsInnerManagedProcessConfiguration) HasCharon() bool`
+
+HasCharon returns a boolean if a field has been set.
+
+### GetCcg
+
+`func (o *ClusterManualUpgradeJobsInnerManagedProcessConfiguration) GetCcg() ClusterManualUpgradeJobsInnerManagedProcessConfigurationCcg`
+
+GetCcg returns the Ccg field if non-nil, zero value otherwise.
+
+### GetCcgOk
+
+`func (o *ClusterManualUpgradeJobsInnerManagedProcessConfiguration) GetCcgOk() (*ClusterManualUpgradeJobsInnerManagedProcessConfigurationCcg, bool)`
+
+GetCcgOk returns a tuple with the Ccg field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCcg
+
+`func (o *ClusterManualUpgradeJobsInnerManagedProcessConfiguration) SetCcg(v ClusterManualUpgradeJobsInnerManagedProcessConfigurationCcg)`
+
+SetCcg sets Ccg field to given value.
+
+### HasCcg
+
+`func (o *ClusterManualUpgradeJobsInnerManagedProcessConfiguration) HasCcg() bool`
+
+HasCcg returns a boolean if a field has been set.
+
+### GetOtelAgent
+
+`func (o *ClusterManualUpgradeJobsInnerManagedProcessConfiguration) GetOtelAgent() ClusterManualUpgradeJobsInnerManagedProcessConfigurationOtelAgent`
+
+GetOtelAgent returns the OtelAgent field if non-nil, zero value otherwise.
+
+### GetOtelAgentOk
+
+`func (o *ClusterManualUpgradeJobsInnerManagedProcessConfiguration) GetOtelAgentOk() (*ClusterManualUpgradeJobsInnerManagedProcessConfigurationOtelAgent, bool)`
+
+GetOtelAgentOk returns a tuple with the OtelAgent field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOtelAgent
+
+`func (o *ClusterManualUpgradeJobsInnerManagedProcessConfiguration) SetOtelAgent(v ClusterManualUpgradeJobsInnerManagedProcessConfigurationOtelAgent)`
+
+SetOtelAgent sets OtelAgent field to given value.
+
+### HasOtelAgent
+
+`func (o *ClusterManualUpgradeJobsInnerManagedProcessConfiguration) HasOtelAgent() bool`
+
+HasOtelAgent returns a boolean if a field has been set.
+
+### GetRelay
+
+`func (o *ClusterManualUpgradeJobsInnerManagedProcessConfiguration) GetRelay() ClusterManualUpgradeJobsInnerManagedProcessConfigurationRelay`
+
+GetRelay returns the Relay field if non-nil, zero value otherwise.
+
+### GetRelayOk
+
+`func (o *ClusterManualUpgradeJobsInnerManagedProcessConfiguration) GetRelayOk() (*ClusterManualUpgradeJobsInnerManagedProcessConfigurationRelay, bool)`
+
+GetRelayOk returns a tuple with the Relay field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRelay
+
+`func (o *ClusterManualUpgradeJobsInnerManagedProcessConfiguration) SetRelay(v ClusterManualUpgradeJobsInnerManagedProcessConfigurationRelay)`
+
+SetRelay sets Relay field to given value.
+
+### HasRelay
+
+`func (o *ClusterManualUpgradeJobsInnerManagedProcessConfiguration) HasRelay() bool`
+
+HasRelay returns a boolean if a field has been set.
+
+### GetToolbox
+
+`func (o *ClusterManualUpgradeJobsInnerManagedProcessConfiguration) GetToolbox() ClusterManualUpgradeJobsInnerManagedProcessConfigurationToolbox`
+
+GetToolbox returns the Toolbox field if non-nil, zero value otherwise.
+
+### GetToolboxOk
+
+`func (o *ClusterManualUpgradeJobsInnerManagedProcessConfiguration) GetToolboxOk() (*ClusterManualUpgradeJobsInnerManagedProcessConfigurationToolbox, bool)`
+
+GetToolboxOk returns a tuple with the Toolbox field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetToolbox
+
+`func (o *ClusterManualUpgradeJobsInnerManagedProcessConfiguration) SetToolbox(v ClusterManualUpgradeJobsInnerManagedProcessConfigurationToolbox)`
+
+SetToolbox sets Toolbox field to given value.
+
+### HasToolbox
+
+`func (o *ClusterManualUpgradeJobsInnerManagedProcessConfiguration) HasToolbox() bool`
+
+HasToolbox returns a boolean if a field has been set.
+
 

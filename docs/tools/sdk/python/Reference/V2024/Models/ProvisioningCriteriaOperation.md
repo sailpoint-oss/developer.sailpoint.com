@@ -3,29 +3,27 @@ id: v2024-provisioning-criteria-operation
 title: ProvisioningCriteriaOperation
 pagination_label: ProvisioningCriteriaOperation
 sidebar_label: ProvisioningCriteriaOperation
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'ProvisioningCriteriaOperation', 'V2024ProvisioningCriteriaOperation'] 
-slug: /tools/sdk/python/v2024/models/provisioning-criteria-operation
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'ProvisioningCriteriaOperation', 'V2024ProvisioningCriteriaOperation'] 
+slug: /tools/sdk/go/v2024/models/provisioning-criteria-operation
 tags: ['SDK', 'Software Development Kit', 'ProvisioningCriteriaOperation', 'V2024ProvisioningCriteriaOperation']
 ---
 
 # ProvisioningCriteriaOperation
 
-Supported operations on ProvisioningCriteria
-
 ## Enum
 
-* `EQUALS` (value: `'EQUALS'`)
 
-* `NOT_EQUALS` (value: `'NOT_EQUALS'`)
+* `EQUALS` (value: `"EQUALS"`)
 
-* `CONTAINS` (value: `'CONTAINS'`)
+* `NOT_EQUALS` (value: `"NOT_EQUALS"`)
 
-* `HAS` (value: `'HAS'`)
+* `CONTAINS` (value: `"CONTAINS"`)
 
-* `AND` (value: `'AND'`)
+* `HAS` (value: `"HAS"`)
 
-* `OR` (value: `'OR'`)
+* `AND` (value: `"AND"`)
 
-[[Back to top]](#) 
+* `OR` (value: `"OR"`)
+
 

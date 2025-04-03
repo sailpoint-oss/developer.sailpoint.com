@@ -3,34 +3,78 @@ id: v2024-bulk-cancel-access-request
 title: BulkCancelAccessRequest
 pagination_label: BulkCancelAccessRequest
 sidebar_label: BulkCancelAccessRequest
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'BulkCancelAccessRequest', 'V2024BulkCancelAccessRequest'] 
-slug: /tools/sdk/python/v2024/models/bulk-cancel-access-request
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'BulkCancelAccessRequest', 'V2024BulkCancelAccessRequest'] 
+slug: /tools/sdk/go/v2024/models/bulk-cancel-access-request
 tags: ['SDK', 'Software Development Kit', 'BulkCancelAccessRequest', 'V2024BulkCancelAccessRequest']
 ---
 
 # BulkCancelAccessRequest
 
-Request body payload for bulk cancel access request endpoint.
-
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**access_request_ids** | **[]str** | List of access requests ids to cancel the pending requests | [required]
-**comment** | **str** | Reason for cancelling the pending access request. | [required]
-}
+**AccessRequestIds** | **[]string** | List of access requests ids to cancel the pending requests | 
+**Comment** | **string** | Reason for cancelling the pending access request. | 
 
-## Example
+## Methods
 
-```python
-from sailpoint.v2024.models.bulk_cancel_access_request import BulkCancelAccessRequest
+### NewBulkCancelAccessRequest
 
-bulk_cancel_access_request = BulkCancelAccessRequest(
-access_request_ids=[2c9180835d2e5168015d32f890ca1581, 2c9180835d2e5168015d32f890ca1582],
-comment='I requested this role by mistake.'
-)
+`func NewBulkCancelAccessRequest(accessRequestIds []string, comment string, ) *BulkCancelAccessRequest`
 
-```
-[[Back to top]](#) 
+NewBulkCancelAccessRequest instantiates a new BulkCancelAccessRequest object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewBulkCancelAccessRequestWithDefaults
+
+`func NewBulkCancelAccessRequestWithDefaults() *BulkCancelAccessRequest`
+
+NewBulkCancelAccessRequestWithDefaults instantiates a new BulkCancelAccessRequest object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetAccessRequestIds
+
+`func (o *BulkCancelAccessRequest) GetAccessRequestIds() []string`
+
+GetAccessRequestIds returns the AccessRequestIds field if non-nil, zero value otherwise.
+
+### GetAccessRequestIdsOk
+
+`func (o *BulkCancelAccessRequest) GetAccessRequestIdsOk() (*[]string, bool)`
+
+GetAccessRequestIdsOk returns a tuple with the AccessRequestIds field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAccessRequestIds
+
+`func (o *BulkCancelAccessRequest) SetAccessRequestIds(v []string)`
+
+SetAccessRequestIds sets AccessRequestIds field to given value.
+
+
+### GetComment
+
+`func (o *BulkCancelAccessRequest) GetComment() string`
+
+GetComment returns the Comment field if non-nil, zero value otherwise.
+
+### GetCommentOk
+
+`func (o *BulkCancelAccessRequest) GetCommentOk() (*string, bool)`
+
+GetCommentOk returns a tuple with the Comment field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetComment
+
+`func (o *BulkCancelAccessRequest) SetComment(v string)`
+
+SetComment sets Comment field to given value.
+
+
 

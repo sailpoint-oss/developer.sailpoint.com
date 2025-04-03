@@ -3,37 +3,99 @@ id: v2025-source-sync-job
 title: SourceSyncJob
 pagination_label: SourceSyncJob
 sidebar_label: SourceSyncJob
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'SourceSyncJob', 'V2025SourceSyncJob'] 
-slug: /tools/sdk/python/v2025/models/source-sync-job
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'SourceSyncJob', 'V2025SourceSyncJob'] 
+slug: /tools/sdk/go/v2025/models/source-sync-job
 tags: ['SDK', 'Software Development Kit', 'SourceSyncJob', 'V2025SourceSyncJob']
 ---
 
 # SourceSyncJob
 
-
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** | Job ID. | [required]
-**status** |  **Enum** [  'QUEUED',    'IN_PROGRESS',    'SUCCESS',    'ERROR' ] | The job status. | [required]
-**payload** | [**SourceSyncPayload**](source-sync-payload) |  | [required]
-}
+**Id** | **string** | Job ID. | 
+**Status** | **string** | The job status. | 
+**Payload** | [**SourceSyncPayload**](source-sync-payload) |  | 
 
-## Example
+## Methods
 
-```python
-from sailpoint.v2025.models.source_sync_job import SourceSyncJob
+### NewSourceSyncJob
 
-source_sync_job = SourceSyncJob(
-id='0f11f2a4-7c94-4bf3-a2bd-742580fe3bde',
-status='IN_PROGRESS',
-payload=sailpoint.v2025.models.source_sync_payload.SourceSyncPayload(
-                    type = 'SYNCHRONIZE_SOURCE_ATTRIBUTES', 
-                    data_json = '{"sourceId":"2c918083746f642c01746f990884012a"}', )
-)
+`func NewSourceSyncJob(id string, status string, payload SourceSyncPayload, ) *SourceSyncJob`
 
-```
-[[Back to top]](#) 
+NewSourceSyncJob instantiates a new SourceSyncJob object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewSourceSyncJobWithDefaults
+
+`func NewSourceSyncJobWithDefaults() *SourceSyncJob`
+
+NewSourceSyncJobWithDefaults instantiates a new SourceSyncJob object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetId
+
+`func (o *SourceSyncJob) GetId() string`
+
+GetId returns the Id field if non-nil, zero value otherwise.
+
+### GetIdOk
+
+`func (o *SourceSyncJob) GetIdOk() (*string, bool)`
+
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetId
+
+`func (o *SourceSyncJob) SetId(v string)`
+
+SetId sets Id field to given value.
+
+
+### GetStatus
+
+`func (o *SourceSyncJob) GetStatus() string`
+
+GetStatus returns the Status field if non-nil, zero value otherwise.
+
+### GetStatusOk
+
+`func (o *SourceSyncJob) GetStatusOk() (*string, bool)`
+
+GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStatus
+
+`func (o *SourceSyncJob) SetStatus(v string)`
+
+SetStatus sets Status field to given value.
+
+
+### GetPayload
+
+`func (o *SourceSyncJob) GetPayload() SourceSyncPayload`
+
+GetPayload returns the Payload field if non-nil, zero value otherwise.
+
+### GetPayloadOk
+
+`func (o *SourceSyncJob) GetPayloadOk() (*SourceSyncPayload, bool)`
+
+GetPayloadOk returns a tuple with the Payload field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPayload
+
+`func (o *SourceSyncJob) SetPayload(v SourceSyncPayload)`
+
+SetPayload sets Payload field to given value.
+
+
 

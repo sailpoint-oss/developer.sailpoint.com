@@ -3,29 +3,27 @@ id: provisioning-state
 title: ProvisioningState
 pagination_label: ProvisioningState
 sidebar_label: ProvisioningState
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'ProvisioningState', 'ProvisioningState'] 
-slug: /tools/sdk/python/v3/models/provisioning-state
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'ProvisioningState', 'ProvisioningState'] 
+slug: /tools/sdk/go/v3/models/provisioning-state
 tags: ['SDK', 'Software Development Kit', 'ProvisioningState', 'ProvisioningState']
 ---
 
 # ProvisioningState
 
-Provisioning state of an account activity item
-
 ## Enum
 
-* `PENDING` (value: `'PENDING'`)
 
-* `FINISHED` (value: `'FINISHED'`)
+* `PENDING` (value: `"PENDING"`)
 
-* `UNVERIFIABLE` (value: `'UNVERIFIABLE'`)
+* `FINISHED` (value: `"FINISHED"`)
 
-* `COMMITED` (value: `'COMMITED'`)
+* `UNVERIFIABLE` (value: `"UNVERIFIABLE"`)
 
-* `FAILED` (value: `'FAILED'`)
+* `COMMITED` (value: `"COMMITED"`)
 
-* `RETRY` (value: `'RETRY'`)
+* `FAILED` (value: `"FAILED"`)
 
-[[Back to top]](#) 
+* `RETRY` (value: `"RETRY"`)
+
 

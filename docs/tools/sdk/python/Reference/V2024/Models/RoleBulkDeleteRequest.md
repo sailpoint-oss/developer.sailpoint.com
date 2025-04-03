@@ -3,31 +3,57 @@ id: v2024-role-bulk-delete-request
 title: RoleBulkDeleteRequest
 pagination_label: RoleBulkDeleteRequest
 sidebar_label: RoleBulkDeleteRequest
-sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'RoleBulkDeleteRequest', 'V2024RoleBulkDeleteRequest'] 
-slug: /tools/sdk/python/v2024/models/role-bulk-delete-request
+sidebar_class_name: gosdk
+keywords: ['go', 'Golang', 'sdk', 'RoleBulkDeleteRequest', 'V2024RoleBulkDeleteRequest'] 
+slug: /tools/sdk/go/v2024/models/role-bulk-delete-request
 tags: ['SDK', 'Software Development Kit', 'RoleBulkDeleteRequest', 'V2024RoleBulkDeleteRequest']
 ---
 
 # RoleBulkDeleteRequest
 
-
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**role_ids** | **[]str** | List of IDs of Roles to be deleted. | [required]
-}
+**RoleIds** | **[]string** | List of IDs of Roles to be deleted. | 
 
-## Example
+## Methods
 
-```python
-from sailpoint.v2024.models.role_bulk_delete_request import RoleBulkDeleteRequest
+### NewRoleBulkDeleteRequest
 
-role_bulk_delete_request = RoleBulkDeleteRequest(
-role_ids=[2c9180847812e0b1017817051919ecca, 2c9180887812e0b201781e129f151816]
-)
+`func NewRoleBulkDeleteRequest(roleIds []string, ) *RoleBulkDeleteRequest`
 
-```
-[[Back to top]](#) 
+NewRoleBulkDeleteRequest instantiates a new RoleBulkDeleteRequest object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewRoleBulkDeleteRequestWithDefaults
+
+`func NewRoleBulkDeleteRequestWithDefaults() *RoleBulkDeleteRequest`
+
+NewRoleBulkDeleteRequestWithDefaults instantiates a new RoleBulkDeleteRequest object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetRoleIds
+
+`func (o *RoleBulkDeleteRequest) GetRoleIds() []string`
+
+GetRoleIds returns the RoleIds field if non-nil, zero value otherwise.
+
+### GetRoleIdsOk
+
+`func (o *RoleBulkDeleteRequest) GetRoleIdsOk() (*[]string, bool)`
+
+GetRoleIdsOk returns a tuple with the RoleIds field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRoleIds
+
+`func (o *RoleBulkDeleteRequest) SetRoleIds(v []string)`
+
+SetRoleIds sets RoleIds field to given value.
+
+
 

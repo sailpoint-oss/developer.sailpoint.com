@@ -224,7 +224,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SuggestedEntitlementDescriptionApi(api_client).list_seds(limit, offset, count, filters, sorters, count_only, requested_by_anyone, show_pending_status_only)
         print("The response of SuggestedEntitlementDescriptionApi->list_seds:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SuggestedEntitlementDescriptionApi->list_seds: %s\n" % e)
 ```
@@ -347,7 +348,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SuggestedEntitlementDescriptionApi(api_client).submit_sed_approval(new_sed_approval)
         print("The response of SuggestedEntitlementDescriptionApi->submit_sed_approval:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SuggestedEntitlementDescriptionApi->submit_sed_approval: %s\n" % e)
 ```

@@ -320,7 +320,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = MachineIdentitiesApi(api_client).list_machine_identities(x_sail_point_experimental, filters, sorters, count, limit, offset)
         print("The response of MachineIdentitiesApi->list_machine_identities:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling MachineIdentitiesApi->list_machine_identities: %s\n" % e)
 ```

@@ -477,7 +477,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = NotificationsApi(api_client).get_dkim_attributes(x_sail_point_experimental)
         print("The response of NotificationsApi->get_dkim_attributes:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling NotificationsApi->get_dkim_attributes: %s\n" % e)
 ```
@@ -771,7 +772,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = NotificationsApi(api_client).list_from_addresses(x_sail_point_experimental, limit, offset, count, filters, sorters)
         print("The response of NotificationsApi->list_from_addresses:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling NotificationsApi->list_from_addresses: %s\n" % e)
 ```
@@ -918,7 +920,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = NotificationsApi(api_client).list_notification_template_defaults(x_sail_point_experimental, limit, offset, filters)
         print("The response of NotificationsApi->list_notification_template_defaults:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling NotificationsApi->list_notification_template_defaults: %s\n" % e)
 ```
@@ -994,7 +997,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = NotificationsApi(api_client).list_notification_templates(x_sail_point_experimental, limit, offset, filters)
         print("The response of NotificationsApi->list_notification_templates:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling NotificationsApi->list_notification_templates: %s\n" % e)
 ```

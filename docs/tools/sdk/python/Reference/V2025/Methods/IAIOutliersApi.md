@@ -172,7 +172,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IAIOutliersApi(api_client).get_identity_outlier_snapshots(x_sail_point_experimental, limit, offset, type, filters, sorters)
         print("The response of IAIOutliersApi->get_identity_outlier_snapshots:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IAIOutliersApi->get_identity_outlier_snapshots: %s\n" % e)
 ```
@@ -254,7 +255,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IAIOutliersApi(api_client).get_identity_outliers(x_sail_point_experimental, limit, offset, count, type, filters, sorters)
         print("The response of IAIOutliersApi->get_identity_outliers:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IAIOutliersApi->get_identity_outliers: %s\n" % e)
 ```
@@ -327,7 +329,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IAIOutliersApi(api_client).get_latest_identity_outlier_snapshots(x_sail_point_experimental, type)
         print("The response of IAIOutliersApi->get_latest_identity_outlier_snapshots:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IAIOutliersApi->get_latest_identity_outlier_snapshots: %s\n" % e)
 ```
@@ -489,7 +492,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IAIOutliersApi(api_client).get_peer_group_outliers_contributing_features(outlier_id, x_sail_point_experimental, limit, offset, count, include_translation_messages, sorters)
         print("The response of IAIOutliersApi->get_peer_group_outliers_contributing_features:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IAIOutliersApi->get_peer_group_outliers_contributing_features: %s\n" % e)
 ```
@@ -646,7 +650,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IAIOutliersApi(api_client).list_outliers_contributing_feature_access_items(outlier_id, contributing_feature_name, x_sail_point_experimental, limit, offset, count, access_type, sorters)
         print("The response of IAIOutliersApi->list_outliers_contributing_feature_access_items:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IAIOutliersApi->list_outliers_contributing_feature_access_items: %s\n" % e)
 ```

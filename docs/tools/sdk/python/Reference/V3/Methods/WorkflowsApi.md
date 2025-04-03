@@ -491,7 +491,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = WorkflowsApi(api_client).get_workflow_execution_history(id)
         print("The response of WorkflowsApi->get_workflow_execution_history:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling WorkflowsApi->get_workflow_execution_history: %s\n" % e)
 ```
@@ -568,7 +569,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = WorkflowsApi(api_client).get_workflow_executions(id, limit, offset, count, filters)
         print("The response of WorkflowsApi->get_workflow_executions:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling WorkflowsApi->get_workflow_executions: %s\n" % e)
 ```
@@ -628,7 +630,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = WorkflowsApi(api_client).list_complete_workflow_library(limit, offset)
         print("The response of WorkflowsApi->list_complete_workflow_library:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling WorkflowsApi->list_complete_workflow_library: %s\n" % e)
 ```
@@ -690,7 +693,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = WorkflowsApi(api_client).list_workflow_library_actions(limit, offset, filters)
         print("The response of WorkflowsApi->list_workflow_library_actions:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling WorkflowsApi->list_workflow_library_actions: %s\n" % e)
 ```
@@ -744,7 +748,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = WorkflowsApi(api_client).list_workflow_library_operators()
         print("The response of WorkflowsApi->list_workflow_library_operators:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling WorkflowsApi->list_workflow_library_operators: %s\n" % e)
 ```
@@ -806,7 +811,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = WorkflowsApi(api_client).list_workflow_library_triggers(limit, offset, filters)
         print("The response of WorkflowsApi->list_workflow_library_triggers:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling WorkflowsApi->list_workflow_library_triggers: %s\n" % e)
 ```
@@ -860,7 +866,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = WorkflowsApi(api_client).list_workflows()
         print("The response of WorkflowsApi->list_workflows:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling WorkflowsApi->list_workflows: %s\n" % e)
 ```

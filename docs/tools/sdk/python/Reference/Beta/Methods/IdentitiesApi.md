@@ -334,7 +334,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IdentitiesApi(api_client).get_role_assignments(identity_id, role_id, role_name)
         print("The response of IdentitiesApi->get_role_assignments:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IdentitiesApi->get_role_assignments: %s\n" % e)
 ```
@@ -402,7 +403,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IdentitiesApi(api_client).list_identities(filters, sorters, default_filter, count, limit, offset)
         print("The response of IdentitiesApi->list_identities:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IdentitiesApi->list_identities: %s\n" % e)
 ```

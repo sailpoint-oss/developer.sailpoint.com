@@ -764,7 +764,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CertificationCampaignsApi(api_client).get_active_campaigns(detail, limit, offset, count, filters, sorters)
         print("The response of CertificationCampaignsApi->get_active_campaigns:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CertificationCampaignsApi->get_active_campaigns: %s\n" % e)
 ```
@@ -886,7 +887,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CertificationCampaignsApi(api_client).get_campaign_reports(id)
         print("The response of CertificationCampaignsApi->get_campaign_reports:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CertificationCampaignsApi->get_campaign_reports: %s\n" % e)
 ```
@@ -1130,7 +1132,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CertificationCampaignsApi(api_client).get_campaign_templates(limit, offset, count, sorters, filters)
         print("The response of CertificationCampaignsApi->get_campaign_templates:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CertificationCampaignsApi->get_campaign_templates: %s\n" % e)
 ```

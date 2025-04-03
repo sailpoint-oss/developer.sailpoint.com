@@ -89,7 +89,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = RequestableObjectsApi(api_client).list_requestable_objects(identity_id, types, term, statuses, limit, offset, count, filters, sorters)
         print("The response of RequestableObjectsApi->list_requestable_objects:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling RequestableObjectsApi->list_requestable_objects: %s\n" % e)
 ```

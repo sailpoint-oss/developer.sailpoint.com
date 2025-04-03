@@ -327,7 +327,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SIMIntegrationsApi(api_client).get_sim_integrations(x_sail_point_experimental)
         print("The response of SIMIntegrationsApi->get_sim_integrations:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SIMIntegrationsApi->get_sim_integrations: %s\n" % e)
 ```

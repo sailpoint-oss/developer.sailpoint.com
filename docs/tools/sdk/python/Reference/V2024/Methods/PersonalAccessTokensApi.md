@@ -202,7 +202,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = PersonalAccessTokensApi(api_client).list_personal_access_tokens(owner_id, filters)
         print("The response of PersonalAccessTokensApi->list_personal_access_tokens:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling PersonalAccessTokensApi->list_personal_access_tokens: %s\n" % e)
 ```

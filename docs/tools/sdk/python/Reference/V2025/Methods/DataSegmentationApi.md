@@ -451,7 +451,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = DataSegmentationApi(api_client).list_data_segments(x_sail_point_experimental, enabled, unique, published, limit, offset, count, filters)
         print("The response of DataSegmentationApi->list_data_segments:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling DataSegmentationApi->list_data_segments: %s\n" % e)
 ```

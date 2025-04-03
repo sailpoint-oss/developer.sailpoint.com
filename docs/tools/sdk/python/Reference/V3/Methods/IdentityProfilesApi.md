@@ -323,7 +323,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IdentityProfilesApi(api_client).export_identity_profiles(limit, offset, count, filters, sorters)
         print("The response of IdentityProfilesApi->export_identity_profiles:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IdentityProfilesApi->export_identity_profiles: %s\n" % e)
 ```
@@ -566,7 +567,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IdentityProfilesApi(api_client).list_identity_profiles(limit, offset, count, filters, sorters)
         print("The response of IdentityProfilesApi->list_identity_profiles:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IdentityProfilesApi->list_identity_profiles: %s\n" % e)
 ```

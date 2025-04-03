@@ -71,7 +71,8 @@
               # Below is a request that includes all optional parameters
               # results = AccessModelMetadataApi(api_client).list_access_model_metadata_attribute(filters)
               print("The response of AccessModelMetadataApi->list_access_model_metadata_attribute:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling AccessModelMetadataApi->list_access_model_metadata_attribute: %s\n" % e)
 - path: /access-model-metadata/attributes/{key}/values
@@ -96,7 +97,8 @@
               # Below is a request that includes all optional parameters
               # results = AccessModelMetadataApi(api_client).list_access_model_metadata_attribute_value(key)
               print("The response of AccessModelMetadataApi->list_access_model_metadata_attribute_value:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling AccessModelMetadataApi->list_access_model_metadata_attribute_value: %s\n" % e)
 - path: /access-profiles
@@ -311,7 +313,8 @@
               # Below is a request that includes all optional parameters
               # results = AccessProfilesApi(api_client).get_access_profile_entitlements(id, limit, offset, count, filters, sorters)
               print("The response of AccessProfilesApi->get_access_profile_entitlements:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling AccessProfilesApi->get_access_profile_entitlements: %s\n" % e)
 - path: /access-profiles
@@ -343,7 +346,8 @@
               # Below is a request that includes all optional parameters
               # results = AccessProfilesApi(api_client).list_access_profiles(for_subadmin, limit, offset, count, filters, sorters, for_segment_ids, include_unsegmented)
               print("The response of AccessProfilesApi->list_access_profiles:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling AccessProfilesApi->list_access_profiles: %s\n" % e)
 - path: /access-profiles/{id}
@@ -396,7 +400,8 @@
               # Below is a request that includes all optional parameters
               # results = AccessProfilesApi(api_client).update_access_profiles_in_bulk(new_access_profile_bulk_update_request_inner)
               print("The response of AccessProfilesApi->update_access_profiles_in_bulk:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling AccessProfilesApi->update_access_profiles_in_bulk: %s\n" % e)
 - path: /access-request-approvals/{approvalId}/approve
@@ -515,7 +520,8 @@
               # Below is a request that includes all optional parameters
               # results = AccessRequestApprovalsApi(api_client).list_completed_approvals(owner_id, limit, offset, count, filters, sorters)
               print("The response of AccessRequestApprovalsApi->list_completed_approvals:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling AccessRequestApprovalsApi->list_completed_approvals: %s\n" % e)
 - path: /access-request-approvals/pending
@@ -545,7 +551,8 @@
               # Below is a request that includes all optional parameters
               # results = AccessRequestApprovalsApi(api_client).list_pending_approvals(owner_id, limit, offset, count, filters, sorters)
               print("The response of AccessRequestApprovalsApi->list_pending_approvals:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling AccessRequestApprovalsApi->list_pending_approvals: %s\n" % e)
 - path: /access-request-approvals/{approvalId}/reject
@@ -800,7 +807,8 @@
               # Below is a request that includes all optional parameters
               # results = AccessRequestsApi(api_client).list_access_request_status(requested_for, requested_by, regarding_identity, assigned_to, count, limit, offset, filters, sorters, request_state)
               print("The response of AccessRequestsApi->list_access_request_status:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling AccessRequestsApi->list_access_request_status: %s\n" % e)
 - path: /access-request-config
@@ -908,7 +916,8 @@
               # Below is a request that includes all optional parameters
               # results = AccountActivitiesApi(api_client).list_account_activities(requested_for, requested_by, regarding_identity, type, limit, offset, count, filters, sorters)
               print("The response of AccountActivitiesApi->list_account_activities:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling AccountActivitiesApi->list_account_activities: %s\n" % e)
 - path: /account-aggregations/{id}/status
@@ -962,7 +971,8 @@
               # Below is a request that includes all optional parameters
               # results = AccountUsagesApi(api_client).get_usages_by_account_id(account_id, limit, offset, count, sorters)
               print("The response of AccountUsagesApi->get_usages_by_account_id:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling AccountUsagesApi->get_usages_by_account_id: %s\n" % e)
 - path: /accounts
@@ -1129,7 +1139,8 @@
               # Below is a request that includes all optional parameters
               # results = AccountsApi(api_client).disable_accounts_for_identities(new_identities_accounts_bulk_request)
               print("The response of AccountsApi->disable_accounts_for_identities:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling AccountsApi->disable_accounts_for_identities: %s\n" % e)
 - path: /accounts/{id}/enable
@@ -1211,7 +1222,8 @@
               # Below is a request that includes all optional parameters
               # results = AccountsApi(api_client).enable_accounts_for_identities(new_identities_accounts_bulk_request)
               print("The response of AccountsApi->enable_accounts_for_identities:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling AccountsApi->enable_accounts_for_identities: %s\n" % e)
 - path: /accounts/{id}
@@ -1264,7 +1276,8 @@
               # Below is a request that includes all optional parameters
               # results = AccountsApi(api_client).get_account_entitlements(id, offset, limit, count)
               print("The response of AccountsApi->get_account_entitlements:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling AccountsApi->get_account_entitlements: %s\n" % e)
 - path: /accounts
@@ -1294,7 +1307,8 @@
               # Below is a request that includes all optional parameters
               # results = AccountsApi(api_client).list_accounts(detail_level, limit, offset, count, filters, sorters)
               print("The response of AccountsApi->list_accounts:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling AccountsApi->list_accounts: %s\n" % e)
 - path: /accounts/{id}
@@ -1461,7 +1475,8 @@
               # Below is a request that includes all optional parameters
               # results = ApplicationDiscoveryApi(api_client).get_discovered_applications(limit, offset, detail, filter, sorters)
               print("The response of ApplicationDiscoveryApi->get_discovered_applications:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling ApplicationDiscoveryApi->get_discovered_applications: %s\n" % e)
 - path: /manual-discover-applications-template
@@ -1583,7 +1598,8 @@
               # Below is a request that includes all optional parameters
               # results = ApprovalsApi(api_client).get_approvals(mine, requester_id, filters)
               print("The response of ApprovalsApi->get_approvals:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling ApprovalsApi->get_approvals: %s\n" % e)
 - path: /source-apps
@@ -1645,7 +1661,8 @@
               # Below is a request that includes all optional parameters
               # results = AppsApi(api_client).delete_access_profiles_from_source_app_by_bulk(id, new_request_body, limit)
               print("The response of AppsApi->delete_access_profiles_from_source_app_by_bulk:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling AppsApi->delete_access_profiles_from_source_app_by_bulk: %s\n" % e)
 - path: /source-apps/{id}
@@ -1723,7 +1740,8 @@
               # Below is a request that includes all optional parameters
               # results = AppsApi(api_client).list_access_profiles_for_source_app(id, limit, offset, filters)
               print("The response of AppsApi->list_access_profiles_for_source_app:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling AppsApi->list_access_profiles_for_source_app: %s\n" % e)
 - path: /source-apps/all
@@ -1752,7 +1770,8 @@
               # Below is a request that includes all optional parameters
               # results = AppsApi(api_client).list_all_source_app(limit, count, offset, sorters, filters)
               print("The response of AppsApi->list_all_source_app:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling AppsApi->list_all_source_app: %s\n" % e)
 - path: /user-apps/all
@@ -1780,7 +1799,8 @@
               # Below is a request that includes all optional parameters
               # results = AppsApi(api_client).list_all_user_apps(filters, limit, count, offset)
               print("The response of AppsApi->list_all_user_apps:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling AppsApi->list_all_user_apps: %s\n" % e)
 - path: /source-apps/assigned
@@ -1809,7 +1829,8 @@
               # Below is a request that includes all optional parameters
               # results = AppsApi(api_client).list_assigned_source_app(limit, count, offset, sorters, filters)
               print("The response of AppsApi->list_assigned_source_app:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling AppsApi->list_assigned_source_app: %s\n" % e)
 - path: /user-apps/{id}/available-accounts
@@ -1837,7 +1858,8 @@
               # Below is a request that includes all optional parameters
               # results = AppsApi(api_client).list_available_accounts_for_user_app(id, limit, count, offset)
               print("The response of AppsApi->list_available_accounts_for_user_app:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling AppsApi->list_available_accounts_for_user_app: %s\n" % e)
 - path: /source-apps
@@ -1866,7 +1888,8 @@
               # Below is a request that includes all optional parameters
               # results = AppsApi(api_client).list_available_source_apps(limit, count, offset, sorters, filters)
               print("The response of AppsApi->list_available_source_apps:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling AppsApi->list_available_source_apps: %s\n" % e)
 - path: /user-apps
@@ -1894,7 +1917,8 @@
               # Below is a request that includes all optional parameters
               # results = AppsApi(api_client).list_owned_user_apps(limit, count, offset, filters)
               print("The response of AppsApi->list_owned_user_apps:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling AppsApi->list_owned_user_apps: %s\n" % e)
 - path: /source-apps/{id}
@@ -2031,7 +2055,8 @@
               # Below is a request that includes all optional parameters
               # results = AuthProfileApi(api_client).get_profile_config_list()
               print("The response of AuthProfileApi->get_profile_config_list:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling AuthProfileApi->get_profile_config_list: %s\n" % e)
 - path: /auth-profiles/{id}
@@ -2468,7 +2493,8 @@
               # Below is a request that includes all optional parameters
               # results = CertificationCampaignsApi(api_client).get_active_campaigns(detail, limit, offset, count, filters, sorters)
               print("The response of CertificationCampaignsApi->get_active_campaigns:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling CertificationCampaignsApi->get_active_campaigns: %s\n" % e)
 - path: /campaigns/{id}
@@ -2518,7 +2544,8 @@
               # Below is a request that includes all optional parameters
               # results = CertificationCampaignsApi(api_client).get_campaign_reports(id)
               print("The response of CertificationCampaignsApi->get_campaign_reports:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling CertificationCampaignsApi->get_campaign_reports: %s\n" % e)
 - path: /campaigns/reports-configuration
@@ -2621,7 +2648,8 @@
               # Below is a request that includes all optional parameters
               # results = CertificationCampaignsApi(api_client).get_campaign_templates(limit, offset, count, sorters, filters)
               print("The response of CertificationCampaignsApi->get_campaign_templates:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling CertificationCampaignsApi->get_campaign_templates: %s\n" % e)
 - path: /campaigns/{id}/reassign
@@ -2911,7 +2939,8 @@
               # Below is a request that includes all optional parameters
               # results = CertificationsApi(api_client).get_identity_certification_item_permissions(certification_id, item_id, filters, limit, offset, count)
               print("The response of CertificationsApi->get_identity_certification_item_permissions:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling CertificationsApi->get_identity_certification_item_permissions: %s\n" % e)
 - path: /certifications/{id}/tasks-pending
@@ -2936,7 +2965,8 @@
               # Below is a request that includes all optional parameters
               # results = CertificationsApi(api_client).get_identity_certification_pending_tasks(id)
               print("The response of CertificationsApi->get_identity_certification_pending_tasks:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling CertificationsApi->get_identity_certification_pending_tasks: %s\n" % e)
 - path: /certifications/{id}/tasks/{taskId}
@@ -2992,7 +3022,8 @@
               # Below is a request that includes all optional parameters
               # results = CertificationsApi(api_client).list_certification_reviewers(id, limit, offset, count, filters, sorters)
               print("The response of CertificationsApi->list_certification_reviewers:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling CertificationsApi->list_certification_reviewers: %s\n" % e)
 - path: /certifications
@@ -3022,7 +3053,8 @@
               # Below is a request that includes all optional parameters
               # results = CertificationsApi(api_client).list_certifications(reviewer_identitiy, limit, offset, count, filters, sorters)
               print("The response of CertificationsApi->list_certifications:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling CertificationsApi->list_certifications: %s\n" % e)
 - path: /certifications/{id}/reassign-async
@@ -3181,7 +3213,8 @@
               # Below is a request that includes all optional parameters
               # results = ConnectorRuleManagementApi(api_client).get_connector_rule_list()
               print("The response of ConnectorRuleManagementApi->get_connector_rule_list:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling ConnectorRuleManagementApi->get_connector_rule_list: %s\n" % e)
 - path: /connector-rules/{id}
@@ -3292,7 +3325,8 @@
               # Below is a request that includes all optional parameters
               # results = ConnectorsApi(api_client).get_connector_list(filters, limit, offset, count, locale)
               print("The response of ConnectorsApi->get_connector_list:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling ConnectorsApi->get_connector_list: %s\n" % e)
 - path: /form-definitions
@@ -3722,7 +3756,8 @@
               # Below is a request that includes all optional parameters
               # results = CustomFormsApi(api_client).export_form_definitions_by_tenant(offset, limit, filters, sorters)
               print("The response of CustomFormsApi->export_form_definitions_by_tenant:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling CustomFormsApi->export_form_definitions_by_tenant: %s\n" % e)
 - path: /form-definitions/{formDefinitionID}/file/{fileID}
@@ -3981,7 +4016,8 @@
               # Below is a request that includes all optional parameters
               # results = CustomFormsApi(api_client).search_form_instances_by_tenant()
               print("The response of CustomFormsApi->search_form_instances_by_tenant:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling CustomFormsApi->search_form_instances_by_tenant: %s\n" % e)
 - path: /form-definitions/predefined-select-options
@@ -4280,7 +4316,8 @@
               # Below is a request that includes all optional parameters
               # results = EntitlementsApi(api_client).list_entitlement_children(id, limit, offset, count, sorters, filters)
               print("The response of EntitlementsApi->list_entitlement_children:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling EntitlementsApi->list_entitlement_children: %s\n" % e)
 - path: /entitlements/{id}/parents
@@ -4310,7 +4347,8 @@
               # Below is a request that includes all optional parameters
               # results = EntitlementsApi(api_client).list_entitlement_parents(id, limit, offset, count, sorters, filters)
               print("The response of EntitlementsApi->list_entitlement_parents:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling EntitlementsApi->list_entitlement_parents: %s\n" % e)
 - path: /entitlements
@@ -4343,7 +4381,8 @@
               # Below is a request that includes all optional parameters
               # results = EntitlementsApi(api_client).list_entitlements(account_id, segmented_for_identity, for_segment_ids, include_unsegmented, offset, limit, count, sorters, filters)
               print("The response of EntitlementsApi->list_entitlements:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling EntitlementsApi->list_entitlements: %s\n" % e)
 - path: /entitlements/{id}
@@ -4556,7 +4595,8 @@
               # Below is a request that includes all optional parameters
               # results = GovernanceGroupsApi(api_client).delete_workgroup_members(workgroup_id, new_bulk_workgroup_members_request_inner)
               print("The response of GovernanceGroupsApi->delete_workgroup_members:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling GovernanceGroupsApi->delete_workgroup_members: %s\n" % e)
 - path: /workgroups/bulk-delete
@@ -4584,7 +4624,8 @@
               # Below is a request that includes all optional parameters
               # results = GovernanceGroupsApi(api_client).delete_workgroups_in_bulk(new_workgroup_bulk_delete_request)
               print("The response of GovernanceGroupsApi->delete_workgroups_in_bulk:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling GovernanceGroupsApi->delete_workgroups_in_bulk: %s\n" % e)
 - path: /workgroups/{id}
@@ -4638,7 +4679,8 @@
               # Below is a request that includes all optional parameters
               # results = GovernanceGroupsApi(api_client).list_connections(workgroup_id, offset, limit, count, sorters)
               print("The response of GovernanceGroupsApi->list_connections:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling GovernanceGroupsApi->list_connections: %s\n" % e)
 - path: /workgroups/{workgroupId}/members
@@ -4667,7 +4709,8 @@
               # Below is a request that includes all optional parameters
               # results = GovernanceGroupsApi(api_client).list_workgroup_members(workgroup_id, offset, limit, count, sorters)
               print("The response of GovernanceGroupsApi->list_workgroup_members:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling GovernanceGroupsApi->list_workgroup_members: %s\n" % e)
 - path: /workgroups
@@ -4696,7 +4739,8 @@
               # Below is a request that includes all optional parameters
               # results = GovernanceGroupsApi(api_client).list_workgroups(offset, limit, count, filters, sorters)
               print("The response of GovernanceGroupsApi->list_workgroups:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling GovernanceGroupsApi->list_workgroups: %s\n" % e)
 - path: /workgroups/{id}
@@ -4750,7 +4794,8 @@
               # Below is a request that includes all optional parameters
               # results = GovernanceGroupsApi(api_client).update_workgroup_members(workgroup_id, new_bulk_workgroup_members_request_inner)
               print("The response of GovernanceGroupsApi->update_workgroup_members:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling GovernanceGroupsApi->update_workgroup_members: %s\n" % e)
 - path: /ai-access-request-recommendations/ignored-items
@@ -4872,7 +4917,8 @@
               # Below is a request that includes all optional parameters
               # results = IAIAccessRequestRecommendationsApi(api_client).add_access_request_recommendations_viewed_items(new_access_request_recommendation_action_item_dto)
               print("The response of IAIAccessRequestRecommendationsApi->add_access_request_recommendations_viewed_items:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling IAIAccessRequestRecommendationsApi->add_access_request_recommendations_viewed_items: %s\n" % e)
 - path: /ai-access-request-recommendations
@@ -4903,7 +4949,8 @@
               # Below is a request that includes all optional parameters
               # results = IAIAccessRequestRecommendationsApi(api_client).get_access_request_recommendations(identity_id, limit, offset, count, include_translation_messages, filters, sorters)
               print("The response of IAIAccessRequestRecommendationsApi->get_access_request_recommendations:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling IAIAccessRequestRecommendationsApi->get_access_request_recommendations: %s\n" % e)
 - path: /ai-access-request-recommendations/ignored-items
@@ -4932,7 +4979,8 @@
               # Below is a request that includes all optional parameters
               # results = IAIAccessRequestRecommendationsApi(api_client).get_access_request_recommendations_ignored_items(limit, offset, count, filters, sorters)
               print("The response of IAIAccessRequestRecommendationsApi->get_access_request_recommendations_ignored_items:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling IAIAccessRequestRecommendationsApi->get_access_request_recommendations_ignored_items: %s\n" % e)
 - path: /ai-access-request-recommendations/requested-items
@@ -4961,7 +5009,8 @@
               # Below is a request that includes all optional parameters
               # results = IAIAccessRequestRecommendationsApi(api_client).get_access_request_recommendations_requested_items(limit, offset, count, filters, sorters)
               print("The response of IAIAccessRequestRecommendationsApi->get_access_request_recommendations_requested_items:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling IAIAccessRequestRecommendationsApi->get_access_request_recommendations_requested_items: %s\n" % e)
 - path: /ai-access-request-recommendations/viewed-items
@@ -4990,7 +5039,8 @@
               # Below is a request that includes all optional parameters
               # results = IAIAccessRequestRecommendationsApi(api_client).get_access_request_recommendations_viewed_items(limit, offset, count, filters, sorters)
               print("The response of IAIAccessRequestRecommendationsApi->get_access_request_recommendations_viewed_items:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling IAIAccessRequestRecommendationsApi->get_access_request_recommendations_viewed_items: %s\n" % e)
 - path: /common-access
@@ -5055,7 +5105,8 @@
               # Below is a request that includes all optional parameters
               # results = IAICommonAccessApi(api_client).get_common_access(offset, limit, count, filters, sorters)
               print("The response of IAICommonAccessApi->get_common_access:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling IAICommonAccessApi->get_common_access: %s\n" % e)
 - path: /common-access/update-status
@@ -5105,7 +5156,8 @@
               # Below is a request that includes all optional parameters
               # results = IAIMessageCatalogsApi(api_client).get_message_catalogs(catalog_id)
               print("The response of IAIMessageCatalogsApi->get_message_catalogs:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling IAIMessageCatalogsApi->get_message_catalogs: %s\n" % e)
 - path: /outliers/export
@@ -5158,7 +5210,8 @@
               # Below is a request that includes all optional parameters
               # results = IAIOutliersApi(api_client).get_identity_outlier_snapshots(limit, offset, type, filters, sorters)
               print("The response of IAIOutliersApi->get_identity_outlier_snapshots:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling IAIOutliersApi->get_identity_outlier_snapshots: %s\n" % e)
 - path: /outliers
@@ -5188,7 +5241,8 @@
               # Below is a request that includes all optional parameters
               # results = IAIOutliersApi(api_client).get_identity_outliers(limit, offset, count, type, filters, sorters)
               print("The response of IAIOutliersApi->get_identity_outliers:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling IAIOutliersApi->get_identity_outliers: %s\n" % e)
 - path: /outlier-summaries/latest
@@ -5213,7 +5267,8 @@
               # Below is a request that includes all optional parameters
               # results = IAIOutliersApi(api_client).get_latest_identity_outlier_snapshots(type)
               print("The response of IAIOutliersApi->get_latest_identity_outlier_snapshots:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling IAIOutliersApi->get_latest_identity_outlier_snapshots: %s\n" % e)
 - path: /outlier-feature-summaries/{outlierFeatureId}
@@ -5268,7 +5323,8 @@
               # Below is a request that includes all optional parameters
               # results = IAIOutliersApi(api_client).get_peer_group_outliers_contributing_features(outlier_id, limit, offset, count, include_translation_messages, sorters)
               print("The response of IAIOutliersApi->get_peer_group_outliers_contributing_features:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling IAIOutliersApi->get_peer_group_outliers_contributing_features: %s\n" % e)
 - path: /outliers/ignore
@@ -5321,7 +5377,8 @@
               # Below is a request that includes all optional parameters
               # results = IAIOutliersApi(api_client).list_outliers_contributing_feature_access_items(outlier_id, contributing_feature_name, limit, offset, count, access_type, sorters)
               print("The response of IAIOutliersApi->list_outliers_contributing_feature_access_items:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling IAIOutliersApi->list_outliers_contributing_feature_access_items: %s\n" % e)
 - path: /outliers/unignore
@@ -5371,7 +5428,8 @@
               # Below is a request that includes all optional parameters
               # results = IAIPeerGroupStrategiesApi(api_client).get_peer_group_outliers(strategy, limit, offset, count)
               print("The response of IAIPeerGroupStrategiesApi->get_peer_group_outliers:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling IAIPeerGroupStrategiesApi->get_peer_group_outliers: %s\n" % e)
 - path: /recommendations/request
@@ -5700,7 +5758,8 @@
               # Below is a request that includes all optional parameters
               # results = IAIRoleMiningApi(api_client).get_all_potential_role_summaries(sorters, filters, offset, limit, count)
               print("The response of IAIRoleMiningApi->get_all_potential_role_summaries:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling IAIRoleMiningApi->get_all_potential_role_summaries: %s\n" % e)
 - path: /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/entitlement-popularity-distribution
@@ -5758,7 +5817,8 @@
               # Below is a request that includes all optional parameters
               # results = IAIRoleMiningApi(api_client).get_entitlements_potential_role(session_id, potential_role_id, include_common_access, sorters, filters, offset, limit, count)
               print("The response of IAIRoleMiningApi->get_entitlements_potential_role:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling IAIRoleMiningApi->get_entitlements_potential_role: %s\n" % e)
 - path: /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/excluded-entitlements
@@ -5789,7 +5849,8 @@
               # Below is a request that includes all optional parameters
               # results = IAIRoleMiningApi(api_client).get_excluded_entitlements_potential_role(session_id, potential_role_id, sorters, filters, offset, limit, count)
               print("The response of IAIRoleMiningApi->get_excluded_entitlements_potential_role:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling IAIRoleMiningApi->get_excluded_entitlements_potential_role: %s\n" % e)
 - path: /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/identities
@@ -5820,7 +5881,8 @@
               # Below is a request that includes all optional parameters
               # results = IAIRoleMiningApi(api_client).get_identities_potential_role(session_id, potential_role_id, sorters, filters, offset, limit, count)
               print("The response of IAIRoleMiningApi->get_identities_potential_role:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling IAIRoleMiningApi->get_identities_potential_role: %s\n" % e)
 - path: /role-mining-sessions/{sessionId}/potential-role-summaries/{potentialRoleId}
@@ -5876,7 +5938,8 @@
               # Below is a request that includes all optional parameters
               # results = IAIRoleMiningApi(api_client).get_potential_role_applications(session_id, potential_role_id, filters, offset, limit, count)
               print("The response of IAIRoleMiningApi->get_potential_role_applications:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling IAIRoleMiningApi->get_potential_role_applications: %s\n" % e)
 - path: /role-mining-sessions/{sessionId}/potential-role-summaries/{potentialRoleId}/entitlements
@@ -5906,7 +5969,8 @@
               # Below is a request that includes all optional parameters
               # results = IAIRoleMiningApi(api_client).get_potential_role_entitlements(session_id, potential_role_id, filters, offset, limit, count)
               print("The response of IAIRoleMiningApi->get_potential_role_entitlements:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling IAIRoleMiningApi->get_potential_role_entitlements: %s\n" % e)
 - path: /role-mining-potential-roles/{potentialRoleId}/sources/{sourceId}/identityUsage
@@ -5936,7 +6000,8 @@
               # Below is a request that includes all optional parameters
               # results = IAIRoleMiningApi(api_client).get_potential_role_source_identity_usage(potential_role_id, source_id, sorters, offset, limit, count)
               print("The response of IAIRoleMiningApi->get_potential_role_source_identity_usage:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling IAIRoleMiningApi->get_potential_role_source_identity_usage: %s\n" % e)
 - path: /role-mining-sessions/{sessionId}/potential-role-summaries
@@ -5966,7 +6031,8 @@
               # Below is a request that includes all optional parameters
               # results = IAIRoleMiningApi(api_client).get_potential_role_summaries(session_id, sorters, filters, offset, limit, count)
               print("The response of IAIRoleMiningApi->get_potential_role_summaries:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling IAIRoleMiningApi->get_potential_role_summaries: %s\n" % e)
 - path: /role-mining-potential-roles/{potentialRoleId}
@@ -6070,7 +6136,8 @@
               # Below is a request that includes all optional parameters
               # results = IAIRoleMiningApi(api_client).get_role_mining_sessions(filters, sorters, offset, limit, count)
               print("The response of IAIRoleMiningApi->get_role_mining_sessions:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling IAIRoleMiningApi->get_role_mining_sessions: %s\n" % e)
 - path: /role-mining-potential-roles/saved
@@ -6098,7 +6165,8 @@
               # Below is a request that includes all optional parameters
               # results = IAIRoleMiningApi(api_client).get_saved_potential_roles(sorters, offset, limit, count)
               print("The response of IAIRoleMiningApi->get_saved_potential_roles:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling IAIRoleMiningApi->get_saved_potential_roles: %s\n" % e)
 - path: /role-mining-sessions/{sessionId}/potential-role-summaries/{potentialRoleId}
@@ -6383,7 +6451,8 @@
               # Below is a request that includes all optional parameters
               # results = IdentitiesApi(api_client).get_role_assignments(identity_id, role_id, role_name)
               print("The response of IdentitiesApi->get_role_assignments:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling IdentitiesApi->get_role_assignments: %s\n" % e)
 - path: /identities
@@ -6413,7 +6482,8 @@
               # Below is a request that includes all optional parameters
               # results = IdentitiesApi(api_client).list_identities(filters, sorters, default_filter, count, limit, offset)
               print("The response of IdentitiesApi->list_identities:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling IdentitiesApi->list_identities: %s\n" % e)
 - path: /identities/{identityId}/reset
@@ -6690,7 +6760,8 @@
               # Below is a request that includes all optional parameters
               # results = IdentityAttributesApi(api_client).list_identity_attributes(include_system, include_silent, searchable_only, count)
               print("The response of IdentityAttributesApi->list_identity_attributes:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling IdentityAttributesApi->list_identity_attributes: %s\n" % e)
 - path: /identity-attributes/{name}
@@ -6768,7 +6839,8 @@
               # Below is a request that includes all optional parameters
               # results = IdentityHistoryApi(api_client).compare_identity_snapshots(id, snapshot1, snapshot2, access_item_types, limit, offset, count)
               print("The response of IdentityHistoryApi->compare_identity_snapshots:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling IdentityHistoryApi->compare_identity_snapshots: %s\n" % e)
 - path: /historical-identities/{id}/compare/{accessType}
@@ -6800,7 +6872,8 @@
               # Below is a request that includes all optional parameters
               # results = IdentityHistoryApi(api_client).compare_identity_snapshots_access_type(id, access_type, access_associated, snapshot1, snapshot2, limit, offset, count)
               print("The response of IdentityHistoryApi->compare_identity_snapshots_access_type:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling IdentityHistoryApi->compare_identity_snapshots_access_type: %s\n" % e)
 - path: /historical-identities/{id}
@@ -6856,7 +6929,8 @@
               # Below is a request that includes all optional parameters
               # results = IdentityHistoryApi(api_client).get_historical_identity_events(id, var_from, event_types, access_item_types, limit, offset, count)
               print("The response of IdentityHistoryApi->get_historical_identity_events:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling IdentityHistoryApi->get_historical_identity_events: %s\n" % e)
 - path: /historical-identities/{id}/snapshots/{date}
@@ -6913,7 +6987,8 @@
               # Below is a request that includes all optional parameters
               # results = IdentityHistoryApi(api_client).get_identity_snapshot_summary(id, before, interval, time_zone, limit, offset, count)
               print("The response of IdentityHistoryApi->get_identity_snapshot_summary:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling IdentityHistoryApi->get_identity_snapshot_summary: %s\n" % e)
 - path: /historical-identities/{id}/start-date
@@ -6966,7 +7041,8 @@
               # Below is a request that includes all optional parameters
               # results = IdentityHistoryApi(api_client).list_historical_identities(starts_with_query, is_deleted, is_active, limit, offset)
               print("The response of IdentityHistoryApi->list_historical_identities:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling IdentityHistoryApi->list_historical_identities: %s\n" % e)
 - path: /historical-identities/{id}/access-items
@@ -6998,7 +7074,8 @@
               # Below is a request that includes all optional parameters
               # results = IdentityHistoryApi(api_client).list_identity_access_items(id, type, filters, sorters, query, limit, count, offset)
               print("The response of IdentityHistoryApi->list_identity_access_items:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling IdentityHistoryApi->list_identity_access_items: %s\n" % e)
 - path: /historical-identities/{id}/snapshots/{date}/access-items
@@ -7025,7 +7102,8 @@
               # Below is a request that includes all optional parameters
               # results = IdentityHistoryApi(api_client).list_identity_snapshot_access_items(id, var_date, type)
               print("The response of IdentityHistoryApi->list_identity_snapshot_access_items:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling IdentityHistoryApi->list_identity_snapshot_access_items: %s\n" % e)
 - path: /historical-identities/{id}/snapshots
@@ -7055,7 +7133,8 @@
               # Below is a request that includes all optional parameters
               # results = IdentityHistoryApi(api_client).list_identity_snapshots(id, start, interval, limit, offset, count)
               print("The response of IdentityHistoryApi->list_identity_snapshots:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling IdentityHistoryApi->list_identity_snapshots: %s\n" % e)
 - path: /identity-profiles
@@ -7207,7 +7286,8 @@
               # Below is a request that includes all optional parameters
               # results = IdentityProfilesApi(api_client).export_identity_profiles(limit, offset, count, filters, sorters)
               print("The response of IdentityProfilesApi->export_identity_profiles:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling IdentityProfilesApi->export_identity_profiles: %s\n" % e)
 - path: /identity-profiles/{identity-profile-id}/default-identity-attribute-config
@@ -7312,7 +7392,8 @@
               # Below is a request that includes all optional parameters
               # results = IdentityProfilesApi(api_client).list_identity_profiles(limit, offset, count, filters, sorters)
               print("The response of IdentityProfilesApi->list_identity_profiles:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling IdentityProfilesApi->list_identity_profiles: %s\n" % e)
 - path: /identity-profiles/identity-preview
@@ -7715,7 +7796,8 @@
               # Below is a request that includes all optional parameters
               # results = MFAConfigurationApi(api_client).get_mfa_kba_config(all_languages)
               print("The response of MFAConfigurationApi->get_mfa_kba_config:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling MFAConfigurationApi->get_mfa_kba_config: %s\n" % e)
 - path: /mfa/okta-verify/config
@@ -7831,7 +7913,8 @@
               # Below is a request that includes all optional parameters
               # results = MFAConfigurationApi(api_client).set_mfakba_config(new_kba_answer_request_item)
               print("The response of MFAConfigurationApi->set_mfakba_config:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling MFAConfigurationApi->set_mfakba_config: %s\n" % e)
 - path: /mfa/{method}/test
@@ -8184,7 +8267,8 @@
               # Below is a request that includes all optional parameters
               # results = ManagedClustersApi(api_client).get_managed_clusters(offset, limit, count, filters)
               print("The response of ManagedClustersApi->get_managed_clusters:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling ManagedClustersApi->get_managed_clusters: %s\n" % e)
 - path: /managed-clusters/{id}/log-config
@@ -8418,7 +8502,8 @@
               # Below is a request that includes all optional parameters
               # results = MultiHostIntegrationApi(api_client).get_multi_host_integrations_list(offset, limit, sorters, filters, count, for_subadmin)
               print("The response of MultiHostIntegrationApi->get_multi_host_integrations_list:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling MultiHostIntegrationApi->get_multi_host_integrations_list: %s\n" % e)
 - path: /multihosts/{multiHostId}/sources/errors
@@ -8443,7 +8528,8 @@
               # Below is a request that includes all optional parameters
               # results = MultiHostIntegrationApi(api_client).get_multi_host_source_creation_errors(multi_host_id)
               print("The response of MultiHostIntegrationApi->get_multi_host_source_creation_errors:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling MultiHostIntegrationApi->get_multi_host_source_creation_errors: %s\n" % e)
 - path: /multihosts/types
@@ -8467,7 +8553,8 @@
               # Below is a request that includes all optional parameters
               # results = MultiHostIntegrationApi(api_client).get_multihost_integration_types()
               print("The response of MultiHostIntegrationApi->get_multihost_integration_types:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling MultiHostIntegrationApi->get_multihost_integration_types: %s\n" % e)
 - path: /multihosts/{multihostId}/sources
@@ -8497,7 +8584,8 @@
               # Below is a request that includes all optional parameters
               # results = MultiHostIntegrationApi(api_client).get_sources_within_multi_host(multihost_id, offset, limit, sorters, filters, count)
               print("The response of MultiHostIntegrationApi->get_sources_within_multi_host:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling MultiHostIntegrationApi->get_sources_within_multi_host: %s\n" % e)
 - path: /multihosts/{multihostId}/sources/testConnection
@@ -9166,7 +9254,8 @@
               # Below is a request that includes all optional parameters
               # results = NonEmployeeLifecycleManagementApi(api_client).get_non_employee_source_schema_attributes(source_id)
               print("The response of NonEmployeeLifecycleManagementApi->get_non_employee_source_schema_attributes:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling NonEmployeeLifecycleManagementApi->get_non_employee_source_schema_attributes: %s\n" % e)
 - path: /non-employee-sources/{id}/non-employee-bulk-upload
@@ -9222,7 +9311,8 @@
               # Below is a request that includes all optional parameters
               # results = NonEmployeeLifecycleManagementApi(api_client).list_non_employee_approval(requested_for, limit, offset, count, filters, sorters)
               print("The response of NonEmployeeLifecycleManagementApi->list_non_employee_approval:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling NonEmployeeLifecycleManagementApi->list_non_employee_approval: %s\n" % e)
 - path: /non-employee-records
@@ -9251,7 +9341,8 @@
               # Below is a request that includes all optional parameters
               # results = NonEmployeeLifecycleManagementApi(api_client).list_non_employee_records(limit, offset, count, sorters, filters)
               print("The response of NonEmployeeLifecycleManagementApi->list_non_employee_records:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling NonEmployeeLifecycleManagementApi->list_non_employee_records: %s\n" % e)
 - path: /non-employee-requests
@@ -9281,7 +9372,8 @@
               # Below is a request that includes all optional parameters
               # results = NonEmployeeLifecycleManagementApi(api_client).list_non_employee_requests(requested_for, limit, offset, count, sorters, filters)
               print("The response of NonEmployeeLifecycleManagementApi->list_non_employee_requests:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling NonEmployeeLifecycleManagementApi->list_non_employee_requests: %s\n" % e)
 - path: /non-employee-sources
@@ -9311,7 +9403,8 @@
               # Below is a request that includes all optional parameters
               # results = NonEmployeeLifecycleManagementApi(api_client).list_non_employee_sources(limit, offset, count, requested_for, non_employee_count, sorters)
               print("The response of NonEmployeeLifecycleManagementApi->list_non_employee_sources:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling NonEmployeeLifecycleManagementApi->list_non_employee_sources: %s\n" % e)
 - path: /non-employee-records/{id}
@@ -9631,7 +9724,8 @@
               # Below is a request that includes all optional parameters
               # results = NotificationsApi(api_client).get_dkim_attributes()
               print("The response of NotificationsApi->get_dkim_attributes:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling NotificationsApi->get_dkim_attributes: %s\n" % e)
 - path: /mail-from-attributes/{identityId}
@@ -9681,7 +9775,8 @@
               # Below is a request that includes all optional parameters
               # results = NotificationsApi(api_client).get_notification_template(id)
               print("The response of NotificationsApi->get_notification_template:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling NotificationsApi->get_notification_template: %s\n" % e)
 - path: /notification-template-context
@@ -9734,7 +9829,8 @@
               # Below is a request that includes all optional parameters
               # results = NotificationsApi(api_client).list_from_addresses(limit, offset, count, filters, sorters)
               print("The response of NotificationsApi->list_from_addresses:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling NotificationsApi->list_from_addresses: %s\n" % e)
 - path: /notification-preferences/{key}
@@ -9759,7 +9855,8 @@
               # Below is a request that includes all optional parameters
               # results = NotificationsApi(api_client).list_notification_preferences(key)
               print("The response of NotificationsApi->list_notification_preferences:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling NotificationsApi->list_notification_preferences: %s\n" % e)
 - path: /notification-template-defaults
@@ -9786,7 +9883,8 @@
               # Below is a request that includes all optional parameters
               # results = NotificationsApi(api_client).list_notification_template_defaults(limit, offset, filters)
               print("The response of NotificationsApi->list_notification_template_defaults:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling NotificationsApi->list_notification_template_defaults: %s\n" % e)
 - path: /notification-templates
@@ -9813,7 +9911,8 @@
               # Below is a request that includes all optional parameters
               # results = NotificationsApi(api_client).list_notification_templates(limit, offset, filters)
               print("The response of NotificationsApi->list_notification_templates:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling NotificationsApi->list_notification_templates: %s\n" % e)
 - path: /mail-from-attributes
@@ -9983,7 +10082,8 @@
               # Below is a request that includes all optional parameters
               # results = OAuthClientsApi(api_client).list_oauth_clients(filters)
               print("The response of OAuthClientsApi->list_oauth_clients:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling OAuthClientsApi->list_oauth_clients: %s\n" % e)
 - path: /oauth-clients/{id}
@@ -10057,7 +10157,8 @@
               # Below is a request that includes all optional parameters
               # results = OrgConfigApi(api_client).get_valid_time_zones()
               print("The response of OrgConfigApi->get_valid_time_zones:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling OrgConfigApi->get_valid_time_zones: %s\n" % e)
 - path: /org-config
@@ -10459,7 +10560,8 @@
               # Below is a request that includes all optional parameters
               # results = PasswordPoliciesApi(api_client).list_password_policies(limit, offset, count)
               print("The response of PasswordPoliciesApi->list_password_policies:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling PasswordPoliciesApi->list_password_policies: %s\n" % e)
 - path: /password-policies/{id}
@@ -10623,7 +10725,8 @@
               # Below is a request that includes all optional parameters
               # results = PasswordSyncGroupsApi(api_client).get_password_sync_groups(limit, offset, count)
               print("The response of PasswordSyncGroupsApi->get_password_sync_groups:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling PasswordSyncGroupsApi->get_password_sync_groups: %s\n" % e)
 - path: /password-sync-groups/{id}
@@ -10734,7 +10837,8 @@
               # Below is a request that includes all optional parameters
               # results = PersonalAccessTokensApi(api_client).list_personal_access_tokens(owner_id, filters)
               print("The response of PersonalAccessTokensApi->list_personal_access_tokens:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling PersonalAccessTokensApi->list_personal_access_tokens: %s\n" % e)
 - path: /personal-access-tokens/{id}
@@ -10859,7 +10963,8 @@
               # Below is a request that includes all optional parameters
               # results = RequestableObjectsApi(api_client).list_requestable_objects(identity_id, types, term, statuses, limit, offset, count, filters, sorters)
               print("The response of RequestableObjectsApi->list_requestable_objects:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling RequestableObjectsApi->list_requestable_objects: %s\n" % e)
 - path: /role-insights/requests
@@ -10941,7 +11046,8 @@
               # Below is a request that includes all optional parameters
               # results = RoleInsightsApi(api_client).get_entitlement_changes_identities(insight_id, entitlement_id, has_entitlement, offset, limit, count, sorters, filters)
               print("The response of RoleInsightsApi->get_entitlement_changes_identities:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling RoleInsightsApi->get_entitlement_changes_identities: %s\n" % e)
 - path: /role-insights/{insightId}
@@ -10995,7 +11101,8 @@
               # Below is a request that includes all optional parameters
               # results = RoleInsightsApi(api_client).get_role_insights(offset, limit, count, sorters, filters)
               print("The response of RoleInsightsApi->get_role_insights:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling RoleInsightsApi->get_role_insights: %s\n" % e)
 - path: /role-insights/{insightId}/current-entitlements
@@ -11021,7 +11128,8 @@
               # Below is a request that includes all optional parameters
               # results = RoleInsightsApi(api_client).get_role_insights_current_entitlements(insight_id, filters)
               print("The response of RoleInsightsApi->get_role_insights_current_entitlements:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling RoleInsightsApi->get_role_insights_current_entitlements: %s\n" % e)
 - path: /role-insights/{insightId}/entitlement-changes
@@ -11048,7 +11156,8 @@
               # Below is a request that includes all optional parameters
               # results = RoleInsightsApi(api_client).get_role_insights_entitlements_changes(insight_id, sorters, filters)
               print("The response of RoleInsightsApi->get_role_insights_entitlements_changes:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling RoleInsightsApi->get_role_insights_entitlements_changes: %s\n" % e)
 - path: /role-insights/requests/{id}
@@ -11384,7 +11493,8 @@
               # Below is a request that includes all optional parameters
               # results = RolesApi(api_client).get_role_assigned_identities(id, limit, offset, count, filters, sorters)
               print("The response of RolesApi->get_role_assigned_identities:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling RolesApi->get_role_assigned_identities: %s\n" % e)
 - path: /roles/{id}/entitlements
@@ -11414,7 +11524,8 @@
               # Below is a request that includes all optional parameters
               # results = RolesApi(api_client).get_role_entitlements(id, limit, offset, count, filters, sorters)
               print("The response of RolesApi->get_role_entitlements:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling RolesApi->get_role_entitlements: %s\n" % e)
 - path: /roles
@@ -11446,7 +11557,8 @@
               # Below is a request that includes all optional parameters
               # results = RolesApi(api_client).list_roles(for_subadmin, limit, offset, count, filters, sorters, for_segment_ids, include_unsegmented)
               print("The response of RolesApi->list_roles:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling RolesApi->list_roles: %s\n" % e)
 - path: /roles/{id}
@@ -12012,7 +12124,8 @@
               # Below is a request that includes all optional parameters
               # results = SODPoliciesApi(api_client).list_sod_policies(limit, offset, count, filters, sorters)
               print("The response of SODPoliciesApi->list_sod_policies:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling SODPoliciesApi->list_sod_policies: %s\n" % e)
 - path: /sod-policies/{id}
@@ -12500,7 +12613,8 @@
               # Below is a request that includes all optional parameters
               # results = SPConfigApi(api_client).list_sp_config_objects()
               print("The response of SPConfigApi->list_sp_config_objects:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling SPConfigApi->list_sp_config_objects: %s\n" % e)
 - path: /accounts/search-attribute-config
@@ -12580,7 +12694,8 @@
               # Below is a request that includes all optional parameters
               # results = SearchAttributeConfigurationApi(api_client).get_search_attribute_config(limit, offset)
               print("The response of SearchAttributeConfigurationApi->get_search_attribute_config:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling SearchAttributeConfigurationApi->get_search_attribute_config: %s\n" % e)
 - path: /accounts/search-attribute-config/{name}
@@ -12605,7 +12720,8 @@
               # Below is a request that includes all optional parameters
               # results = SearchAttributeConfigurationApi(api_client).get_single_search_attribute_config(name)
               print("The response of SearchAttributeConfigurationApi->get_single_search_attribute_config:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling SearchAttributeConfigurationApi->get_single_search_attribute_config: %s\n" % e)
 - path: /accounts/search-attribute-config/{name}
@@ -12754,7 +12870,8 @@
               # Below is a request that includes all optional parameters
               # results = SegmentsApi(api_client).list_segments(limit, offset, count)
               print("The response of SegmentsApi->list_segments:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling SegmentsApi->list_segments: %s\n" % e)
 - path: /segments/{id}
@@ -12911,7 +13028,8 @@
               # Below is a request that includes all optional parameters
               # results = ServiceDeskIntegrationApi(api_client).get_service_desk_integration_list(offset, limit, sorters, filters, count)
               print("The response of ServiceDeskIntegrationApi->get_service_desk_integration_list:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling ServiceDeskIntegrationApi->get_service_desk_integration_list: %s\n" % e)
 - path: /service-desk-integrations/templates/{scriptName}
@@ -12960,7 +13078,8 @@
               # Below is a request that includes all optional parameters
               # results = ServiceDeskIntegrationApi(api_client).get_service_desk_integration_types()
               print("The response of ServiceDeskIntegrationApi->get_service_desk_integration_types:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling ServiceDeskIntegrationApi->get_service_desk_integration_types: %s\n" % e)
 - path: /service-desk-integrations/status-check-configuration
@@ -13149,7 +13268,8 @@
               # Below is a request that includes all optional parameters
               # results = SourceUsagesApi(api_client).get_usages_by_source_id(source_id, limit, offset, count, sorters)
               print("The response of SourceUsagesApi->get_usages_by_source_id:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling SourceUsagesApi->get_usages_by_source_id: %s\n" % e)
 - path: /sources/{sourceId}/provisioning-policies
@@ -13743,7 +13863,8 @@
               # Below is a request that includes all optional parameters
               # results = SourcesApi(api_client).get_source_schemas(source_id, include_types, include_names)
               print("The response of SourcesApi->get_source_schemas:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling SourcesApi->get_source_schemas: %s\n" % e)
 - path: /sources/{sourceId}/load-accounts
@@ -13926,7 +14047,8 @@
               # Below is a request that includes all optional parameters
               # results = SourcesApi(api_client).list_provisioning_policies(source_id)
               print("The response of SourcesApi->list_provisioning_policies:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling SourcesApi->list_provisioning_policies: %s\n" % e)
 - path: /sources
@@ -13957,7 +14079,8 @@
               # Below is a request that includes all optional parameters
               # results = SourcesApi(api_client).list_sources(limit, offset, count, filters, sorters, for_subadmin, include_idn_source)
               print("The response of SourcesApi->list_sources:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling SourcesApi->list_sources: %s\n" % e)
 - path: /sources/{sourceId}/connector/peek-resource-objects
@@ -14437,7 +14560,8 @@
               # Below is a request that includes all optional parameters
               # results = SourcesApi(api_client).update_provisioning_policies_in_bulk(source_id, new_provisioning_policy_dto)
               print("The response of SourcesApi->update_provisioning_policies_in_bulk:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling SourcesApi->update_provisioning_policies_in_bulk: %s\n" % e)
 - path: /sources/{sourceId}/provisioning-policies/{usageType}
@@ -14639,7 +14763,8 @@
               # Below is a request that includes all optional parameters
               # results = SuggestedEntitlementDescriptionApi(api_client).list_seds(limit, filters, sorters, count, count_only, requested_by_anyone, show_pending_status_only)
               print("The response of SuggestedEntitlementDescriptionApi->list_seds:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling SuggestedEntitlementDescriptionApi->list_seds: %s\n" % e)
 - path: /suggested-entitlement-descriptions
@@ -14692,7 +14817,8 @@
               # Below is a request that includes all optional parameters
               # results = SuggestedEntitlementDescriptionApi(api_client).submit_sed_approval(new_sed_approval)
               print("The response of SuggestedEntitlementDescriptionApi->submit_sed_approval:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling SuggestedEntitlementDescriptionApi->submit_sed_approval: %s\n" % e)
 - path: /suggested-entitlement-description-assignments
@@ -14865,7 +14991,8 @@
               # Below is a request that includes all optional parameters
               # results = TaggedObjectsApi(api_client).list_tagged_objects(limit, offset, count, filters)
               print("The response of TaggedObjectsApi->list_tagged_objects:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling TaggedObjectsApi->list_tagged_objects: %s\n" % e)
 - path: /tagged-objects/{type}
@@ -14894,7 +15021,8 @@
               # Below is a request that includes all optional parameters
               # results = TaggedObjectsApi(api_client).list_tagged_objects_by_type(type, limit, offset, count, filters)
               print("The response of TaggedObjectsApi->list_tagged_objects_by_type:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling TaggedObjectsApi->list_tagged_objects_by_type: %s\n" % e)
 - path: /tagged-objects/{type}/{id}
@@ -15110,7 +15238,8 @@
               # Below is a request that includes all optional parameters
               # results = TagsApi(api_client).list_tags(limit, offset, count, filters, sorters)
               print("The response of TagsApi->list_tags:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling TagsApi->list_tags: %s\n" % e)
 - path: /task-status/pending-tasks
@@ -15161,7 +15290,8 @@
               # Below is a request that includes all optional parameters
               # results = TaskManagementApi(api_client).get_pending_tasks(offset, limit, count)
               print("The response of TaskManagementApi->get_pending_tasks:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling TaskManagementApi->get_pending_tasks: %s\n" % e)
 - path: /task-status/{id}
@@ -15215,7 +15345,8 @@
               # Below is a request that includes all optional parameters
               # results = TaskManagementApi(api_client).get_task_status_list(limit, offset, count, filters, sorters)
               print("The response of TaskManagementApi->get_task_status_list:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling TaskManagementApi->get_task_status_list: %s\n" % e)
 - path: /task-status/{id}
@@ -15372,7 +15503,8 @@
               # Below is a request that includes all optional parameters
               # results = TransformsApi(api_client).list_transforms(offset, limit, count, name, filters)
               print("The response of TransformsApi->list_transforms:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling TransformsApi->list_transforms: %s\n" % e)
 - path: /transforms/{id}
@@ -15534,7 +15666,8 @@
               # Below is a request that includes all optional parameters
               # results = TriggersApi(api_client).list_subscriptions(limit, offset, count, filters, sorters)
               print("The response of TriggersApi->list_subscriptions:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling TriggersApi->list_subscriptions: %s\n" % e)
 - path: /trigger-invocations/status
@@ -15563,7 +15696,8 @@
               # Below is a request that includes all optional parameters
               # results = TriggersApi(api_client).list_trigger_invocation_status(limit, offset, count, filters, sorters)
               print("The response of TriggersApi->list_trigger_invocation_status:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling TriggersApi->list_trigger_invocation_status: %s\n" % e)
 - path: /triggers
@@ -15592,7 +15726,8 @@
               # Below is a request that includes all optional parameters
               # results = TriggersApi(api_client).list_triggers(limit, offset, count, filters, sorters)
               print("The response of TriggersApi->list_triggers:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling TriggersApi->list_triggers: %s\n" % e)
 - path: /trigger-subscriptions/{id}
@@ -15654,7 +15789,8 @@
               # Below is a request that includes all optional parameters
               # results = TriggersApi(api_client).start_test_trigger_invocation(new_test_invocation)
               print("The response of TriggersApi->start_test_trigger_invocation:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling TriggersApi->start_test_trigger_invocation: %s\n" % e)
 - path: /trigger-subscriptions/validate-filter
@@ -15908,7 +16044,8 @@
               # Below is a request that includes all optional parameters
               # results = VendorConnectorMappingsApi(api_client).get_vendor_connector_mappings()
               print("The response of VendorConnectorMappingsApi->get_vendor_connector_mappings:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling VendorConnectorMappingsApi->get_vendor_connector_mappings: %s\n" % e)
 - path: /work-items/{id}/approve/{approvalItemId}
@@ -16041,7 +16178,8 @@
               # Below is a request that includes all optional parameters
               # results = WorkItemsApi(api_client).get_completed_work_items(owner_id, limit, offset, count)
               print("The response of WorkItemsApi->get_completed_work_items:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling WorkItemsApi->get_completed_work_items: %s\n" % e)
 - path: /work-items/completed/count
@@ -16066,7 +16204,8 @@
               # Below is a request that includes all optional parameters
               # results = WorkItemsApi(api_client).get_count_completed_work_items(owner_id)
               print("The response of WorkItemsApi->get_count_completed_work_items:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling WorkItemsApi->get_count_completed_work_items: %s\n" % e)
 - path: /work-items/count
@@ -16169,7 +16308,8 @@
               # Below is a request that includes all optional parameters
               # results = WorkItemsApi(api_client).list_work_items(limit, offset, count, owner_id)
               print("The response of WorkItemsApi->list_work_items:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling WorkItemsApi->list_work_items: %s\n" % e)
 - path: /work-items/{id}/reject/{approvalItemId}
@@ -16330,7 +16470,8 @@
               # Below is a request that includes all optional parameters
               # results = WorkReassignmentApi(api_client).get_evaluate_reassignment_configuration(identity_id, config_type, exclusion_filters)
               print("The response of WorkReassignmentApi->get_evaluate_reassignment_configuration:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling WorkReassignmentApi->get_evaluate_reassignment_configuration: %s\n" % e)
 - path: /reassignment-configurations/types
@@ -16354,7 +16495,8 @@
               # Below is a request that includes all optional parameters
               # results = WorkReassignmentApi(api_client).get_reassignment_config_types()
               print("The response of WorkReassignmentApi->get_reassignment_config_types:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling WorkReassignmentApi->get_reassignment_config_types: %s\n" % e)
 - path: /reassignment-configurations/{identityId}
@@ -16429,7 +16571,8 @@
               # Below is a request that includes all optional parameters
               # results = WorkReassignmentApi(api_client).list_reassignment_configurations(limit, offset)
               print("The response of WorkReassignmentApi->list_reassignment_configurations:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling WorkReassignmentApi->list_reassignment_configurations: %s\n" % e)
 - path: /reassignment-configurations/{identityId}
@@ -16636,7 +16779,8 @@
               # Below is a request that includes all optional parameters
               # results = WorkflowsApi(api_client).get_workflow_execution_history(id)
               print("The response of WorkflowsApi->get_workflow_execution_history:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling WorkflowsApi->get_workflow_execution_history: %s\n" % e)
 - path: /workflows/{id}/executions
@@ -16665,7 +16809,8 @@
               # Below is a request that includes all optional parameters
               # results = WorkflowsApi(api_client).get_workflow_executions(id, limit, offset, count, filters)
               print("The response of WorkflowsApi->get_workflow_executions:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling WorkflowsApi->get_workflow_executions: %s\n" % e)
 - path: /workflow-library
@@ -16691,7 +16836,8 @@
               # Below is a request that includes all optional parameters
               # results = WorkflowsApi(api_client).list_complete_workflow_library(limit, offset)
               print("The response of WorkflowsApi->list_complete_workflow_library:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling WorkflowsApi->list_complete_workflow_library: %s\n" % e)
 - path: /workflow-library/actions
@@ -16718,7 +16864,8 @@
               # Below is a request that includes all optional parameters
               # results = WorkflowsApi(api_client).list_workflow_library_actions(limit, offset, filters)
               print("The response of WorkflowsApi->list_workflow_library_actions:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling WorkflowsApi->list_workflow_library_actions: %s\n" % e)
 - path: /workflow-library/operators
@@ -16742,7 +16889,8 @@
               # Below is a request that includes all optional parameters
               # results = WorkflowsApi(api_client).list_workflow_library_operators()
               print("The response of WorkflowsApi->list_workflow_library_operators:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling WorkflowsApi->list_workflow_library_operators: %s\n" % e)
 - path: /workflow-library/triggers
@@ -16769,7 +16917,8 @@
               # Below is a request that includes all optional parameters
               # results = WorkflowsApi(api_client).list_workflow_library_triggers(limit, offset, filters)
               print("The response of WorkflowsApi->list_workflow_library_triggers:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling WorkflowsApi->list_workflow_library_triggers: %s\n" % e)
 - path: /workflows
@@ -16793,7 +16942,8 @@
               # Below is a request that includes all optional parameters
               # results = WorkflowsApi(api_client).list_workflows()
               print("The response of WorkflowsApi->list_workflows:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling WorkflowsApi->list_workflows: %s\n" % e)
 - path: /workflows/{id}

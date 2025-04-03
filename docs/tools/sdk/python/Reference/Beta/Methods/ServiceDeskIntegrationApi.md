@@ -313,7 +313,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = ServiceDeskIntegrationApi(api_client).get_service_desk_integration_list(offset, limit, sorters, filters, count)
         print("The response of ServiceDeskIntegrationApi->get_service_desk_integration_list:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling ServiceDeskIntegrationApi->get_service_desk_integration_list: %s\n" % e)
 ```
@@ -427,7 +428,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = ServiceDeskIntegrationApi(api_client).get_service_desk_integration_types()
         print("The response of ServiceDeskIntegrationApi->get_service_desk_integration_types:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling ServiceDeskIntegrationApi->get_service_desk_integration_types: %s\n" % e)
 ```

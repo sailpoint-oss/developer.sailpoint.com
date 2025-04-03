@@ -628,7 +628,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SearchApi(api_client).search_post(new_search, offset, limit, count)
         print("The response of SearchApi->search_post:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SearchApi->search_post: %s\n" % e)
 ```

@@ -83,7 +83,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = TenantContextApi(api_client).get_tenant_context(x_sail_point_experimental)
         print("The response of TenantContextApi->get_tenant_context:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling TenantContextApi->get_tenant_context: %s\n" % e)
 ```
